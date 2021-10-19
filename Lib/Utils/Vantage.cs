@@ -1,9 +1,9 @@
 ﻿using Microsoft.Win32.TaskScheduler;
 using System.ServiceProcess;
 
-namespace LenovoLegionToolkit.Lib
+namespace LenovoLegionToolkit.Lib.Utils
 {
-    public class VantageController
+    public static class Vantage
     {
         private static readonly string[] scheduledTasksPaths = new[]
         {
@@ -21,26 +21,26 @@ namespace LenovoLegionToolkit.Lib
             "LenovoVantageService",
         };
 
-        public void Enable()
+        public static void Enable()
         {
             SetScheduledTasksEnabled(true);
             SetServicesEnabled(true);
         }
 
-        public void Disable()
+        public static void Disable()
         {
             SetScheduledTasksEnabled(false);
             SetServicesEnabled(false);
         }
 
-        private void SetScheduledTasksEnabled(bool enabled)
+        private static void SetScheduledTasksEnabled(bool enabled)
         {
             var taskService = TaskService.Instance;
             foreach (var path in scheduledTasksPaths)
                 SetTasksInFolderEnabled(taskService, path, enabled);
         }
 
-        private void SetTasksInFolderEnabled(TaskService taskService, string path, bool enabled)
+        private static void SetTasksInFolderEnabled(TaskService taskService, string path, bool enabled)
         {
             var folder = taskService.GetFolder(path);
             if (folder is null)
@@ -53,13 +53,13 @@ namespace LenovoLegionToolkit.Lib
             }
         }
 
-        private void SetServicesEnabled(bool enabled)
+        private static void SetServicesEnabled(bool enabled)
         {
             foreach (var serviceName in serviceNames)
                 SetServiceEnabled(serviceName, enabled);
         }
 
-        private void SetServiceEnabled(string serviceName, bool enabled)
+        private static void SetServiceEnabled(string serviceName, bool enabled)
         {
             var service = new ServiceController(serviceName);
 

@@ -1,9 +1,10 @@
-﻿using System;
+﻿using LenovoLegionToolkit.Lib.Utils;
+using System;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.ServiceProcess;
 
-namespace LenovoLegionToolkit.Lib
+namespace System.ServiceProcess
 {
     public static class ServiceControllerExtension
     {
@@ -55,9 +56,9 @@ namespace LenovoLegionToolkit.Lib
             finally
             {
                 if (serviceHandle != IntPtr.Zero)
-                    Native.CloseServiceHandle(serviceHandle);
+                    _ = Native.CloseServiceHandle(serviceHandle);
                 if (scManagerHandle != IntPtr.Zero)
-                    Native.CloseServiceHandle(scManagerHandle);
+                    _ = Native.CloseServiceHandle(scManagerHandle);
             }
         }
     }

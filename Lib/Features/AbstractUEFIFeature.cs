@@ -1,13 +1,21 @@
-﻿using System;
+﻿using LenovoLegionToolkit.Lib.Utils;
+using System;
 using System.Runtime.InteropServices;
 
 namespace LenovoLegionToolkit.Lib.Features
 {
     public abstract class AbstractUEFIFeature<T> : IFeature<T>
     {
-        protected abstract string Guid { get; }
-        protected abstract string ScopeName { get; }
-        protected abstract int ScopeAttribute { get; }
+        private readonly string _guid;
+        private readonly string _scopeName;
+        private readonly int _scopeAttribute;
+
+        protected AbstractUEFIFeature(string guid, string scopeName, int scopeAttribute)
+        {
+            _guid = guid;
+            _scopeName = scopeName;
+            _scopeAttribute = scopeAttribute;
+        }
 
         public abstract T GetState();
         public abstract void SetState(T state);
@@ -15,29 +23,26 @@ namespace LenovoLegionToolkit.Lib.Features
         protected S ReadFromUefi<S>(S structure) where S : struct
         {
             if (!IsUefiMode())
-                return default;
+                throw new InvalidOperationException("UEFI mode is not enabled.");
 
-            var num2 = Marshal.AllocHGlobal(Marshal.SizeOf<S>());
+            var hGlobal = Marshal.AllocHGlobal(Marshal.SizeOf<S>());
 
             try
             {
                 if (!SetPrivilege(true))
-                    return default;
+                    throw new InvalidOperationException($"Cannot set privilages UEFI.");
 
-                S result;
-                var ptr = num2;
+                var ptr = hGlobal;
 
                 Marshal.StructureToPtr(structure, ptr, false);
-                if (Native.GetFirmwareEnvironmentVariableExW(ScopeName, Guid, num2, Marshal.SizeOf<S>(), IntPtr.Zero) != 0)
-                    result = ((S)Marshal.PtrToStructure(num2, typeof(S)));
+                if (Native.GetFirmwareEnvironmentVariableExW(_scopeName, _guid, hGlobal, Marshal.SizeOf<S>(), IntPtr.Zero) != 0)
+                    return (S)Marshal.PtrToStructure(hGlobal, typeof(S));
                 else
-                    result = default;
-
-                return result;
+                    throw new InvalidOperationException($"Cannot read variable {_scopeName} from UEFI.");
             }
             finally
             {
-                Marshal.FreeHGlobal(num2);
+                Marshal.FreeHGlobal(hGlobal);
                 SetPrivilege(false);
             }
         }
@@ -45,27 +50,28 @@ namespace LenovoLegionToolkit.Lib.Features
         protected void WriteToUefi<S>(S structure) where S : struct
         {
             if (!IsUefiMode())
-                return;
+                throw new InvalidOperationException("UEFI mode is not enabled.");
 
-            var num2 = Marshal.AllocHGlobal(Marshal.SizeOf<S>());
+            var hGlobal = Marshal.AllocHGlobal(Marshal.SizeOf<S>());
 
             try
             {
                 if (!SetPrivilege(true))
-                    return;
+                    throw new InvalidOperationException($"Cannot set privilages UEFI.");
 
-                IntPtr ptr = num2;
+                var ptr = hGlobal;
                 Marshal.StructureToPtr(structure, ptr, false);
-                Native.SetFirmwareEnvironmentVariableExW(ScopeName, Guid, num2, Marshal.SizeOf<S>(), ScopeAttribute);
+                if (Native.SetFirmwareEnvironmentVariableExW(_scopeName, _guid, hGlobal, Marshal.SizeOf<S>(), _scopeAttribute) != 1)
+                    throw new InvalidOperationException($"Cannot write variable {_scopeName} to UEFI.");
             }
             finally
             {
-                Marshal.FreeHGlobal(num2);
+                Marshal.FreeHGlobal(hGlobal);
                 SetPrivilege(false);
             }
         }
 
-        private bool IsUefiMode()
+        private static bool IsUefiMode()
         {
             var firmwareType = FirmwareType.FirmwareTypeUnknown;
             if (Native.GetFirmwareType(ref firmwareType))
@@ -74,7 +80,7 @@ namespace LenovoLegionToolkit.Lib.Features
             return false;
         }
 
-        private bool SetPrivilege(bool enable)
+        private static bool SetPrivilege(bool enable)
         {
             try
             {
@@ -88,7 +94,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 newState.Luid = 0L;
                 newState.Attr = enable ? 2 : 0;
                 if (!Native.LookupPrivilegeValue(null, "SeSystemEnvironmentPrivilege", ref newState.Luid))
-                    return false;
+                    return  false;
                 if (!Native.AdjustTokenPrivileges(zero, false, ref newState, 0, IntPtr.Zero, IntPtr.Zero))
                     return false;
                 return true;

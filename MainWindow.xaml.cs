@@ -1,9 +1,11 @@
-﻿using LenovoLegionToolkit.Lib;
-using LenovoLegionToolkit.Lib.Features;
+﻿using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.Utils;
 using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+
+#pragma warning disable IDE1006 // Naming Styles
 
 namespace LenovoLegionToolkit
 {
@@ -31,15 +33,14 @@ namespace LenovoLegionToolkit
             "Legion 5 Pro 16ACH6H",
         };
 
-        private readonly AlwaysOnUsbFeature _alwaysOnUsbFeature = new AlwaysOnUsbFeature();
-        private readonly BatteryFeature _batteryFeature = new BatteryFeature();
-        private readonly FlipToBootFeature _flipToBootFeature = new FlipToBootFeature();
-        private readonly FnLockFeature _fnLockFeature = new FnLockFeature();
-        private readonly HybridModeFeature _hybridModeFeature = new HybridModeFeature();
-        private readonly OverDriveFeature _overDriveFeature = new OverDriveFeature();
-        private readonly PowerModeFeature _powerModeFeature = new PowerModeFeature();
-        private readonly TouchpadLockFeature _touchpadLockFeature = new TouchpadLockFeature();
-        private readonly VantageController _vantageController = new VantageController();
+        private readonly AlwaysOnUsbFeature _alwaysOnUsbFeature = new();
+        private readonly BatteryFeature _batteryFeature = new();
+        private readonly FlipToBootFeature _flipToBootFeature = new();
+        private readonly FnLockFeature _fnLockFeature = new();
+        private readonly HybridModeFeature _hybridModeFeature = new();
+        private readonly OverDriveFeature _overDriveFeature = new();
+        private readonly PowerModeFeature _powerModeFeature = new();
+        private readonly TouchpadLockFeature _touchpadLockFeature = new();
 
         private readonly RadioButton[] _alwaysOnUsbButtons;
         private readonly RadioButton[] _batteryButtons;
@@ -60,9 +61,9 @@ namespace LenovoLegionToolkit
             Refresh();
         }
 
-        private void CheckCompatibility()
+        private static void CheckCompatibility()
         {
-            if (compatibleVersions.Contains(Utils.GetMachineVersion()))
+            if (compatibleVersions.Contains(Windows.GetMachineVersion()))
                 return;
 
             MessageBox.Show("This application is not compatible with your machine.");
@@ -114,7 +115,7 @@ namespace LenovoLegionToolkit
             }
         }
 
-        private void DisableControls(Control[] buttons)
+        private static void DisableControls(Control[] buttons)
         {
             foreach (var btn in buttons)
                 btn.IsEnabled = false;
@@ -123,18 +124,19 @@ namespace LenovoLegionToolkit
         private void radioPowerMode_Checked(object sender, RoutedEventArgs e)
         {
             var state = (PowerModeState)Array.IndexOf(_powerModeButtons, sender);
+            if (_powerModeFeature.GetState() == state)
+                return;
             _powerModeFeature.SetState(state);
 
-            Utils.SetPowerPlan(state.PowerPlanGuid());
+            Windows.SetPowerPlan(state.PowerPlanGuid());
         }
 
         private void hybridMode_Checked(object sender, RoutedEventArgs e)
         {
             var state = (HybridModeState)Array.IndexOf(_hybridModeButtons, sender);
-            _hybridModeFeature.SetState(state);
-
-            if (state == _hybridModeFeature.GetState())
+            if (_hybridModeFeature.GetState() == state)
                 return;
+            _hybridModeFeature.SetState(state);
 
             var result = MessageBox.Show("Changing Hybrid Mode requires restart. Do you want to restart now?", "Restart required", MessageBoxButton.YesNo);
             if (result != MessageBoxResult.Yes)
@@ -143,17 +145,23 @@ namespace LenovoLegionToolkit
                 return;
             }
 
-            Utils.RestartWindows();
+            Windows.Restart();
         }
 
         private void radioBattery_Checked(object sender, RoutedEventArgs e)
         {
-            _batteryFeature.SetState((BatteryState)Array.IndexOf(_batteryButtons, sender));
+            var state = (BatteryState)Array.IndexOf(_batteryButtons, sender);
+            if (_batteryFeature.GetState() == state)
+                return;
+            _batteryFeature.SetState(state);
         }
 
         private void radioAlwaysOnUsb_Checked(object sender, RoutedEventArgs e)
         {
-            _alwaysOnUsbFeature.SetState((AlwaysOnUsbState)Array.IndexOf(_alwaysOnUsbButtons, sender));
+            var state = (AlwaysOnUsbState)Array.IndexOf(_alwaysOnUsbButtons, sender);
+            if (_alwaysOnUsbFeature.GetState() == state)
+                return;
+            _alwaysOnUsbFeature.SetState(state);
         }
 
         private void chkFlipToBoot_Checked(object sender, RoutedEventArgs e)
@@ -161,6 +169,8 @@ namespace LenovoLegionToolkit
             var state = chkFlipToBoot.IsChecked.GetValueOrDefault(false)
                 ? FlipToBootState.On
                 : FlipToBootState.Off;
+            if (_flipToBootFeature.GetState() == state)
+                return;
             _flipToBootFeature.SetState(state);
         }
 
@@ -169,6 +179,8 @@ namespace LenovoLegionToolkit
             var state = chkOverDrive.IsChecked.GetValueOrDefault(false)
                 ? OverDriveState.On
                 : OverDriveState.Off;
+            if (_overDriveFeature.GetState() == state)
+                return;
             _overDriveFeature.SetState(state);
         }
 
@@ -177,6 +189,8 @@ namespace LenovoLegionToolkit
             var state = chkFnLock.IsChecked.GetValueOrDefault(false)
                 ? FnLockState.On
                 : FnLockState.Off;
+            if (_fnLockFeature.GetState() == state)
+                return;
             _fnLockFeature.SetState(state);
         }
 
@@ -185,29 +199,31 @@ namespace LenovoLegionToolkit
             var state = chkTouchpadLock.IsChecked.GetValueOrDefault(false)
                 ? TouchpadLockState.On
                 : TouchpadLockState.Off;
+            if (_touchpadLockFeature.GetState() == state)
+                return;
             _touchpadLockFeature.SetState(state);
         }
 
         private void EnableVantageMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            _vantageController.Enable();
+            Vantage.Enable();
 
             var result = MessageBox.Show("It is recommended to restart Windows after enabling Lenovo Vantage. Do you want to restart now?", "Restart recommended", MessageBoxButton.YesNo);
             if (result != MessageBoxResult.Yes)
                 return;
 
-            Utils.RestartWindows();
+            Windows.Restart();
         }
 
         private void DisableVantageMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            _vantageController.Disable();
+            Vantage.Disable();
 
             var result = MessageBox.Show("It is recommended to restart Windows after disabling Lenovo Vantage. Do you want to restart now?", "Restart recommended", MessageBoxButton.YesNo);
             if (result != MessageBoxResult.Yes)
                 return;
 
-            Utils.RestartWindows();
+            Windows.Restart();
         }
     }
 }

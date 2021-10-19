@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LenovoLegionToolkit.Lib.Utils;
+using System;
 
 namespace LenovoLegionToolkit.Lib.Features
 {
@@ -10,26 +11,18 @@ namespace LenovoLegionToolkit.Lib.Features
 
     public class FnLockFeature : AbstractDriverFeature<FnLockState>
     {
-        public FnLockFeature() : base(DriverProvider.EnergyDriver, 0x831020E8)
-        {
-        }
+        public FnLockFeature() : base(Drivers.Energy, 0x831020E8) { }
 
-        protected override byte GetInternalStatus()
-        {
-            return 0x2;
-        }
+        protected override byte GetInternalStatus() => 0x2;
 
         protected override byte[] ToInternal(FnLockState state)
         {
-            switch (state)
+            return state switch
             {
-                case FnLockState.Off:
-                    return new byte[] { 0xF };
-                case FnLockState.On:
-                    return new byte[] { 0xE };
-                default:
-                    throw new Exception("Invalid state");
-            }
+                FnLockState.Off => new byte[] { 0xF },
+                FnLockState.On => new byte[] { 0xE },
+                _ => throw new Exception("Invalid state"),
+            };
         }
 
         protected override FnLockState FromInternal(uint state)

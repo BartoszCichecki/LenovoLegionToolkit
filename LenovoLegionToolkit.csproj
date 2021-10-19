@@ -7,7 +7,7 @@
     <AssemblyName>Lenovo Legion Toolkit</AssemblyName>
 	  <Copyright>Copyright (c) 2021 Bartosz Cichecki</Copyright>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationVersion>0.0.1.%2a</ApplicationVersion>
     <Nullable>disable</Nullable>
     <UseWPF>true</UseWPF>
 	  <SelfContained>false</SelfContained>
