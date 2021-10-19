@@ -89,9 +89,9 @@
 
                 <GroupBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0" Header="Misc">
                     <StackPanel Margin="5,5,20,5" Orientation="Vertical">
-                        <CheckBox Margin="0,0,0,5" x:Name="chkFlipToBoot" Content="Flip to boot" HorizontalAlignment="Left"
-                              VerticalAlignment="Top" Checked="chkFlipToBoot_Checked"
-                              Unchecked="chkFlipToBoot_Checked" VerticalContentAlignment="Center" />
+                        <CheckBox Margin="0,0,0,5" x:Name="chkFlipToStart" Content="Flip to start" HorizontalAlignment="Left"
+                              VerticalAlignment="Top" Checked="chkFlipToStart_Checked"
+                              Unchecked="chkFlipToStart_Checked" VerticalContentAlignment="Center" />
                         <CheckBox Margin="0,0,0,5" x:Name="chkOverDrive" Content="Over Drive" HorizontalAlignment="Left"
                               VerticalAlignment="Top" Checked="chkOverDrive_Checked" Unchecked="chkOverDrive_Checked"
                               VerticalContentAlignment="Center" />

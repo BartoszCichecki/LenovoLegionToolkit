@@ -35,7 +35,7 @@ namespace LenovoLegionToolkit
 
         private readonly AlwaysOnUsbFeature _alwaysOnUsbFeature = new();
         private readonly BatteryFeature _batteryFeature = new();
-        private readonly FlipToBootFeature _flipToBootFeature = new();
+        private readonly FlipToStartFeature _flipToStartFeature = new();
         private readonly FnLockFeature _fnLockFeature = new();
         private readonly HybridModeFeature _hybridModeFeature = new();
         private readonly OverDriveFeature _overDriveFeature = new();
@@ -103,8 +103,8 @@ namespace LenovoLegionToolkit
                     () => DisableControls(_hybridModeButtons)
                ),
                 new FeatureCheck(
-                    () => chkFlipToBoot.IsChecked = _flipToBootFeature.GetState() == FlipToBootState.On,
-                    () => chkFlipToBoot.IsEnabled = false
+                    () => chkFlipToStart.IsChecked = _flipToStartFeature.GetState() == FlipToStartState.On,
+                    () => chkFlipToStart.IsEnabled = false
                 ),
             };
 
@@ -164,14 +164,14 @@ namespace LenovoLegionToolkit
             _alwaysOnUsbFeature.SetState(state);
         }
 
-        private void chkFlipToBoot_Checked(object sender, RoutedEventArgs e)
+        private void chkFlipToStart_Checked(object sender, RoutedEventArgs e)
         {
-            var state = chkFlipToBoot.IsChecked.GetValueOrDefault(false)
-                ? FlipToBootState.On
-                : FlipToBootState.Off;
-            if (_flipToBootFeature.GetState() == state)
+            var state = chkFlipToStart.IsChecked.GetValueOrDefault(false)
+                ? FlipToStartState.On
+                : FlipToStartState.Off;
+            if (_flipToStartFeature.GetState() == state)
                 return;
-            _flipToBootFeature.SetState(state);
+            _flipToStartFeature.SetState(state);
         }
 
         private void chkOverDrive_Checked(object sender, RoutedEventArgs e)
