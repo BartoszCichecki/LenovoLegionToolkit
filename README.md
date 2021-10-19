@@ -4,7 +4,7 @@ This is a small utility (less than 10MB) created for Lenovo Legion laptops, that
 
 It is a simple executable that needs no installation and runs no background services. It uses less memory and contains no telemetry.
 
-![screenshot](.\assets\screenshot.png)
+![screenshot](assets\screenshot.png)
 
 
 
