@@ -6,7 +6,9 @@ It is a simple executable that needs no installation and runs no background serv
 
 ![screenshot](assets/screenshot.png)
 
+## Disclaimer
 
+The tool comes with no warranty. Use at you own risk.
 
 ## Compatibility
 
