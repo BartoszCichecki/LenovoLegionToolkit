@@ -9,10 +9,10 @@ namespace LenovoLegionToolkit.Lib.Utils
 {
     public enum FirmwareType
     {
-        FirmwareTypeUnknown,
-        FirmwareTypeBios,
-        FirmwareTypeUefi,
-        FirmwareTypeMax,
+        Unknown,
+        Bios,
+        Uefi,
+        Max,
     }
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]

@@ -9,6 +9,7 @@ namespace LenovoLegionToolkit.Lib.Features
     {
         private readonly uint _controlCode;
         private readonly SafeFileHandle _driverHandle;
+
         protected T LastState;
 
         protected AbstractDriverFeature(SafeFileHandle driverHandleHandle, uint controlCode)

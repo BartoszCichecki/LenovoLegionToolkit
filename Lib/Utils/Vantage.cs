@@ -5,7 +5,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 {
     public static class Vantage
     {
-        private static readonly string[] scheduledTasksPaths = new[]
+        private static readonly string[] _scheduledTasksPaths = new[]
         {
             "Lenovo\\BatteryGauge",
             "Lenovo\\ImController",
@@ -15,7 +15,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             "Lenovo\\Vantage\\Schedule",
         };
 
-        private static readonly string[] serviceNames = new[]
+        private static readonly string[] _serviceNames = new[]
         {
             "ImControllerService",
             "LenovoVantageService",
@@ -36,7 +36,7 @@ namespace LenovoLegionToolkit.Lib.Utils
         private static void SetScheduledTasksEnabled(bool enabled)
         {
             var taskService = TaskService.Instance;
-            foreach (var path in scheduledTasksPaths)
+            foreach (var path in _scheduledTasksPaths)
                 SetTasksInFolderEnabled(taskService, path, enabled);
         }
 
@@ -55,7 +55,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         private static void SetServicesEnabled(bool enabled)
         {
-            foreach (var serviceName in serviceNames)
+            foreach (var serviceName in _serviceNames)
                 SetServiceEnabled(serviceName, enabled);
         }
 

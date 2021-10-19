@@ -17,7 +17,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             if (!machineInformation.Vendor.Equals(_allowedVendor, StringComparison.OrdinalIgnoreCase))
                 return false;
 
-            foreach (string allowedModel in _allowedModels)
+            foreach (var allowedModel in _allowedModels)
             {
                 if (!machineInformation.Model.Contains(allowedModel, StringComparison.OrdinalIgnoreCase))
                     continue;
