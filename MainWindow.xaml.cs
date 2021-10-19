@@ -46,24 +46,12 @@ namespace LenovoLegionToolkit
         {
             InitializeComponent();
 
-            CheckCompatibility();
-
             _alwaysOnUsbButtons = new[] { radioAlwaysOnUsbOff, radioAlwaysOnUsbOnWhenSleeping, radioAlwaysOnUsbOnAlways };
             _batteryButtons = new[] { radioConservation, radioNormalCharge, radioRapidCharge };
             _hybridModeButtons = new[] { radioHybridOn, radioHybridOff };
             _powerModeButtons = new[] { radioQuiet, radioBalance, radioPerformance };
 
             Refresh();
-        }
-
-        private void CheckCompatibility()
-        {
-            var mi = Windows.GetMachineInformation();
-            if (Compatibility.IsCompatible(mi))
-                return;
-
-            MessageBox.Show($"This application is not compatible with {mi.Vendor} {mi.Model}.", Title);
-            Environment.Exit(0);
         }
 
         private void Refresh()
@@ -124,7 +112,7 @@ namespace LenovoLegionToolkit
                 return;
             _powerModeFeature.SetState(state);
 
-            Windows.SetPowerPlan(state.GetPowerPlanGuid());
+            OS.SetPowerPlan(state.GetPowerPlanGuid());
         }
 
         private void hybridMode_Checked(object sender, RoutedEventArgs e)
@@ -134,14 +122,17 @@ namespace LenovoLegionToolkit
                 return;
             _hybridModeFeature.SetState(state);
 
-            var result = MessageBox.Show("Changing Hybrid Mode requires restart. Do you want to restart now?", "Restart required", MessageBoxButton.YesNo);
+            var result = MessageBox.Show("Changing Hybrid Mode requires restart. Do you want to restart now?",
+                "Restart required",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Exclamation);
             if (result != MessageBoxResult.Yes)
             {
                 Refresh();
                 return;
             }
 
-            Windows.Restart();
+            OS.Restart();
         }
 
         private void radioBattery_Checked(object sender, RoutedEventArgs e)
@@ -206,22 +197,28 @@ namespace LenovoLegionToolkit
         {
             Vantage.Enable();
 
-            var result = MessageBox.Show("It is recommended to restart Windows after enabling Lenovo Vantage. Do you want to restart now?", "Restart recommended", MessageBoxButton.YesNo);
+            var result = MessageBox.Show("It is recommended to restart Windows after enabling Lenovo Vantage.\n\nDo you want to restart now?",
+                "Restart recommended",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question);
             if (result != MessageBoxResult.Yes)
                 return;
 
-            Windows.Restart();
+            OS.Restart();
         }
 
         private void DisableVantageMenuItem_Click(object sender, RoutedEventArgs e)
         {
             Vantage.Disable();
 
-            var result = MessageBox.Show("It is recommended to restart Windows after disabling Lenovo Vantage. Do you want to restart now?", "Restart recommended", MessageBoxButton.YesNo);
+            var result = MessageBox.Show("It is recommended to restart Windows after disabling Lenovo Vantage.\n\nDo you want to restart now?",
+                "Restart recommended",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question);
             if (result != MessageBoxResult.Yes)
                 return;
 
-            Windows.Restart();
+            OS.Restart();
         }
     }
 }
