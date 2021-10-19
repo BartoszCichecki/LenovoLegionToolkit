@@ -3,13 +3,14 @@
     <TargetFramework>net5.0-windows</TargetFramework>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <OutputType>WinExe</OutputType>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
     <AssemblyName>Lenovo Legion Toolkit</AssemblyName>
-	<Copyright>Bartosz Cichecki 2021</Copyright>
+	  <Copyright>Bartosz Cichecki 2021</Copyright>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <Nullable>disable</Nullable>
     <UseWPF>true</UseWPF>
-	<SelfContained>false</SelfContained>
+	  <SelfContained>false</SelfContained>
     <PublishSingleFile>true</PublishSingleFile>
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
     <PublishUrl>publish\</PublishUrl>
