@@ -6,9 +6,13 @@ It is a simple executable that needs no installation and runs no background serv
 
 ![screenshot](assets/screenshot.png)
 
+
 ## Disclaimer
 
+This is a hobby project. I want to make it available on more devices, but it will take some time, so please be patient and read through this readme carefully.
+
 The tool comes with no warranty. Use at you own risk.
+
 
 ## Compatibility
 
@@ -16,7 +20,6 @@ The tool comes with no warranty. Use at you own risk.
 
 
 The application should work on most new Legion 2021 laptops, but since I have no way of testing if all features work correctly, it will not run on incompatible machines.
-
 
 
 ## Features
@@ -38,7 +41,6 @@ This app also allows you to disable Lenovo Vantage without uninstalling it. It i
 You can do it from the File menu on top. If you disable Vantage, it will stop and disable it's services, and disable all funky Lenovo Scheduled tasks. Once Vantage is disabled, it will no longer start any background processes on startup. If you want to open Lenovo Vantage, you need to re-enable it from the tool, otherwise it will prompt to reinstall itself.
 
 
-
 ## Requirements
 
 This tool is written with .NET 5 which means you need to have **.NET Desktop Runtime 5**. You can get it from here:
@@ -46,9 +48,23 @@ This tool is written with .NET 5 which means you need to have **.NET Desktop Run
 https://dotnet.microsoft.com/download/dotnet/5.0
 
 
-
 ## Credits
 
 Credits go to ViRb3, for creating Lenovo Controller, which was used as a base for this tool.
 
 Check out his repo: https://github.com/ViRb3/LenovoController
+
+
+## Contribution
+
+I would like if the tool could work on more models than just Legion 5 Pro.
+
+If you want to help and test this on your device you can try to download this version which does not check compatibility and test it out. https://1drv.ms/u/s!ApDfgN6g_FJ6hM9a09t0WMayeCHzqA?e=BcNzY4. I would really appreciate if you create an issue here on GitHub with the results of your testing.
+
+Make sure to include following information:
+1. Full model name (i.e. Legion 5 Pro 16ACH6H)
+2. List of features that are working as expected.
+3. List of features that seem to not work (they do nothing).
+4. List of features that crash the app.
+
+The more info you add, the better the app will get over time.
