@@ -31,11 +31,9 @@ The app allows to:
 
 * Flip to boot, Over Drive, Fn and Touchpad locks.
 
-  
+This app also allows you to disable Lenovo Vantage without uninstalling it. It it especially useful, you want to keep Vantage around i.e. for checking updates.
 
-This app also allows you to disable Lenovo Vantage without uninstalling it. You can do it from the File menu on top. If you disable Vantage, it will stop and disable it's services, and disable all funky Lenovo Scheduled tasks.
-
-Once Vantage is disabled, it will no longer start any background processes on startup. If you want to open Lenovo Vantage, you need to re-enable it from the tool, otherwise it will prompt to reinstall itself.
+You can do it from the File menu on top. If you disable Vantage, it will stop and disable it's services, and disable all funky Lenovo Scheduled tasks. Once Vantage is disabled, it will no longer start any background processes on startup. If you want to open Lenovo Vantage, you need to re-enable it from the tool, otherwise it will prompt to reinstall itself.
 
 
 
