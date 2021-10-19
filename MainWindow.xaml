@@ -60,7 +60,7 @@
                     <StackPanel Margin="5,5,20,5" Orientation="Vertical">
                         <RadioButton Margin="0,0,0,5" x:Name="radioConservation" Content="Conservation"
                                  HorizontalAlignment="Left" VerticalAlignment="Top" Checked="radioBattery_Checked"
-                                 VerticalContentAlignment="Center" ToolTip="Charge battery to 60% at a normal speed. Helps to maintain battery health  when used on power adapter. Battery level will be kept at 55-60%." />
+                                 VerticalContentAlignment="Center" ToolTip="Charge battery to 60% at a normal speed.&#x0a;Helps to maintain battery health  when used on power adapter.&#x0a;Battery level will be kept at 55-60%." />
                         <RadioButton Margin="0,0,0,5" x:Name="radioNormalCharge" Content="Normal"
                                  HorizontalAlignment="Left" VerticalAlignment="Top" Checked="radioBattery_Checked"
                                  VerticalContentAlignment="Center" ToolTip="Charge battery to 100% at a normal speed." />
