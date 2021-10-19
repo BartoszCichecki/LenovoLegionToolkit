@@ -34,17 +34,17 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <GroupBox Grid.Row="0" Grid.Column="0" Header="Power mode" Margin="0,0,5,0">
+                <GroupBox Grid.Row="0" Grid.Column="0" Header="Power Mode" Margin="0,0,5,0">
                     <StackPanel Margin="5,5,20,5" Orientation="Vertical">
                         <RadioButton Margin="0,0,0,5" x:Name="radioQuiet" Content="Quiet" HorizontalAlignment="Left"
                                  VerticalAlignment="Top" Checked="radioPowerMode_Checked"
-                                 VerticalContentAlignment="Center" />
+                                 VerticalContentAlignment="Center" ToolTip="Reduced performance and extended battery life." />
                         <RadioButton Margin="0,0,0,5" x:Name="radioBalance" Content="Balance" HorizontalAlignment="Left"
                                  VerticalAlignment="Top" Checked="radioPowerMode_Checked"
-                                 VerticalContentAlignment="Center" />
+                                 VerticalContentAlignment="Center" ToolTip="Automatically adjusts perfomance and fan speeds according to system requirements." />
                         <RadioButton Margin="0" x:Name="radioPerformance" Content="Performance" HorizontalAlignment="Left"
                                  VerticalAlignment="Top" Checked="radioPowerMode_Checked"
-                                 VerticalContentAlignment="Center" />
+                                 VerticalContentAlignment="Center" ToolTip="Maximum perfomance. Available only when AC adapter is connected." />
                     </StackPanel>
                 </GroupBox>
 
@@ -52,24 +52,24 @@
                     <StackPanel Margin="5,5,20,5" Orientation="Vertical">
                         <RadioButton Margin="0,0,0,5" x:Name="radioHybridOn" Content="On" HorizontalAlignment="Left"
                                  VerticalAlignment="Top" Checked="hybridMode_Checked"
-                                 VerticalContentAlignment="Center" />
+                                 VerticalContentAlignment="Center" ToolTip="Use both integrated and discrete GPU." />
                         <RadioButton Margin="0,0,0,5" x:Name="radioHybridOff" Content="Off" HorizontalAlignment="Left"
                                  VerticalAlignment="Top" Checked="hybridMode_Checked"
-                                 VerticalContentAlignment="Center" />
+                                 VerticalContentAlignment="Center" ToolTip="Use discrete GPU only." />
                     </StackPanel>
                 </GroupBox>
 
-                <GroupBox Grid.Row="1" Grid.Column="0" Header="Battery mode" Margin="0,0,5,0">
+                <GroupBox Grid.Row="1" Grid.Column="0" Header="Battery Mode" Margin="0,0,5,0">
                     <StackPanel Margin="5,5,20,5" Orientation="Vertical">
                         <RadioButton Margin="0,0,0,5" x:Name="radioConservation" Content="Conservation"
                                  HorizontalAlignment="Left" VerticalAlignment="Top" Checked="radioBattery_Checked"
-                                 VerticalContentAlignment="Center" />
+                                 VerticalContentAlignment="Center" ToolTip="Charge battery to 60% at a normal speed. Helps to maintain battery health  when used on power adapter. Battery level will be kept at 55-60%." />
                         <RadioButton Margin="0,0,0,5" x:Name="radioNormalCharge" Content="Normal"
                                  HorizontalAlignment="Left" VerticalAlignment="Top" Checked="radioBattery_Checked"
-                                 VerticalContentAlignment="Center" />
+                                 VerticalContentAlignment="Center" ToolTip="Charge battery to 100% at a normal speed." />
                         <RadioButton Margin="0" x:Name="radioRapidCharge" Content="Rapid Charge" HorizontalAlignment="Left"
                                  VerticalAlignment="Top" Checked="radioBattery_Checked"
-                                 VerticalContentAlignment="Center" />
+                                 VerticalContentAlignment="Center" ToolTip="Charge battery to 100% at a faster speed." />
                     </StackPanel>
                 </GroupBox>
 
@@ -77,13 +77,13 @@
                     <StackPanel Margin="5,5,20,5" Orientation="Vertical">
                         <RadioButton Margin="0,0,0,5" x:Name="radioAlwaysOnUsbOff" Content="Off" HorizontalAlignment="Left"
                                  VerticalAlignment="Top" Checked="radioAlwaysOnUsb_Checked"
-                                 Unchecked="radioAlwaysOnUsb_Checked" VerticalContentAlignment="Center" />
+                                 Unchecked="radioAlwaysOnUsb_Checked" VerticalContentAlignment="Center" ToolTip="Charging USB devices will be disabled in sleep mode and when computer is powered off." />
                         <RadioButton Margin="0,0,0,5" x:Name="radioAlwaysOnUsbOnWhenSleeping" Content="On when sleeping"
                                  HorizontalAlignment="Left" VerticalAlignment="Top" Checked="radioAlwaysOnUsb_Checked"
-                                 Unchecked="radioAlwaysOnUsb_Checked" VerticalContentAlignment="Center" />
+                                 Unchecked="radioAlwaysOnUsb_Checked" VerticalContentAlignment="Center" ToolTip="Charging USB devices will be enabled in sleep mode only." />
                         <RadioButton Margin="0" x:Name="radioAlwaysOnUsbOnAlways" Content="On always"
                                  HorizontalAlignment="Left" VerticalAlignment="Top" Checked="radioAlwaysOnUsb_Checked"
-                                 Unchecked="radioAlwaysOnUsb_Checked" VerticalContentAlignment="Center" />
+                                 Unchecked="radioAlwaysOnUsb_Checked" VerticalContentAlignment="Center" ToolTip="Charging USB devices will be enabled in sleep mode and when computer is powered off." />
                     </StackPanel>
                 </GroupBox>
 
@@ -91,16 +91,16 @@
                     <StackPanel Margin="5,5,20,5" Orientation="Vertical">
                         <CheckBox Margin="0,0,0,5" x:Name="chkFlipToStart" Content="Flip to start" HorizontalAlignment="Left"
                               VerticalAlignment="Top" Checked="chkFlipToStart_Checked"
-                              Unchecked="chkFlipToStart_Checked" VerticalContentAlignment="Center" />
+                              Unchecked="chkFlipToStart_Checked" VerticalContentAlignment="Center" ToolTip="Turns on computer when you open the lid without pressing the power button." />
                         <CheckBox Margin="0,0,0,5" x:Name="chkOverDrive" Content="Over Drive" HorizontalAlignment="Left"
                               VerticalAlignment="Top" Checked="chkOverDrive_Checked" Unchecked="chkOverDrive_Checked"
-                              VerticalContentAlignment="Center" />
+                              VerticalContentAlignment="Center" ToolTip="Makes built-in display's reponse faster." />
                         <CheckBox Margin="0,0,0,5" x:Name="chkFnLock" Content="Fn Lock" HorizontalAlignment="Left"
                               VerticalAlignment="Top" Checked="chkFnLock_Checked" Unchecked="chkFnLock_Checked"
-                              VerticalContentAlignment="Center" />
+                              VerticalContentAlignment="Center" ToolTip="Use secondary functions of F1-F12 keys." />
                         <CheckBox Margin="0,0,0,5" x:Name="chkTouchpadLock" Content="Touchpad Lock" HorizontalAlignment="Left"
                               VerticalAlignment="Top" Checked="chkTouchpadLock_Checked"
-                              Unchecked="chkTouchpadLock_Checked" VerticalContentAlignment="Center" />
+                              Unchecked="chkTouchpadLock_Checked" VerticalContentAlignment="Center" ToolTip="Disables touchpad." />
                     </StackPanel>
                 </GroupBox>
             </Grid>
