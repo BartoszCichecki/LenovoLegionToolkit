@@ -56,12 +56,13 @@ namespace LenovoLegionToolkit
             Refresh();
         }
 
-        private static void CheckCompatibility()
+        private void CheckCompatibility()
         {
-            if (Compatibility.IsCompatible(Windows.GetMachineInformation()))
+            var mi = Windows.GetMachineInformation();
+            if (Compatibility.IsCompatible(mi))
                 return;
 
-            MessageBox.Show("This application is not compatible with your machine.");
+            MessageBox.Show($"This application is not compatible with {mi.Vendor} {mi.Model}.", Title);
             Environment.Exit(0);
         }
 
