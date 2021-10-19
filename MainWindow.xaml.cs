@@ -75,24 +75,16 @@ namespace LenovoLegionToolkit
             var features = new[]
             {
                 new FeatureCheck(
-                    () => _powerModeButtons[(int) _powerModeFeature.GetState()].IsChecked = true,
-                    () => DisableControls(_powerModeButtons)
+                    () => _alwaysOnUsbButtons[(int) _alwaysOnUsbFeature.GetState()].IsChecked = true,
+                    () => DisableControls(_alwaysOnUsbButtons)
                 ),
                 new FeatureCheck(
                     () => _batteryButtons[(int) _batteryFeature.GetState()].IsChecked = true,
                     () => DisableControls(_batteryButtons)
                 ),
                 new FeatureCheck(
-                    () => _alwaysOnUsbButtons[(int) _alwaysOnUsbFeature.GetState()].IsChecked = true,
-                    () => DisableControls(_alwaysOnUsbButtons)
-                ),
-                new FeatureCheck(
-                    () => chkOverDrive.IsChecked = _overDriveFeature.GetState() == OverDriveState.On,
-                    () => chkOverDrive.IsEnabled = false
-                ),
-                new FeatureCheck(
-                    () => chkTouchpadLock.IsChecked = _touchpadLockFeature.GetState() == TouchpadLockState.On,
-                    () => chkTouchpadLock.IsEnabled = false
+                    () => chkFlipToStart.IsChecked = _flipToStartFeature.GetState() == FlipToStartState.On,
+                    () => chkFlipToStart.IsEnabled = false
                 ),
                 new FeatureCheck(
                     () => chkFnLock.IsChecked = _fnLockFeature.GetState() == FnLockState.On,
@@ -103,8 +95,16 @@ namespace LenovoLegionToolkit
                     () => DisableControls(_hybridModeButtons)
                ),
                 new FeatureCheck(
-                    () => chkFlipToStart.IsChecked = _flipToStartFeature.GetState() == FlipToStartState.On,
-                    () => chkFlipToStart.IsEnabled = false
+                    () => chkOverDrive.IsChecked = _overDriveFeature.GetState() == OverDriveState.On,
+                    () => chkOverDrive.IsEnabled = false
+                ),
+                new FeatureCheck(
+                    () => _powerModeButtons[(int) _powerModeFeature.GetState()].IsChecked = true,
+                    () => DisableControls(_powerModeButtons)
+                ),
+                new FeatureCheck(
+                    () => chkTouchpadLock.IsChecked = _touchpadLockFeature.GetState() == TouchpadLockState.On,
+                    () => chkTouchpadLock.IsEnabled = false
                 ),
             };
 
