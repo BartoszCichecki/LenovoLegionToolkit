@@ -23,9 +23,7 @@ namespace LenovoLegionToolkit.Lib.Features
             public byte Reserved3;
         }
 
-        protected override string Guid => "{D743491E-F484-4952-A87D-8D5DD189B70C}";
-        protected override string ScopeName => "FBSWIF";
-        protected override int ScopeAttribute => 7;
+        public FlipToBootFeature() : base("{D743491E-F484-4952-A87D-8D5DD189B70C}", "FBSWIF", 7) { }
 
         public override FlipToBootState GetState()
         {
