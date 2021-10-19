@@ -59,7 +59,7 @@ Check out his repo: https://github.com/ViRb3/LenovoController
 
 I would like if the tool could work on more models than just Legion 5 Pro.
 
-If you want to help and test this on your device you can try to download this version which does not check compatibility and test it out. https://1drv.ms/u/s!ApDfgN6g_FJ6hM9a09t0WMayeCHzqA?e=BcNzY4. I would really appreciate if you create an issue here on GitHub with the results of your testing.
+If you want to help and test this on your device you can try to download [this version](https://1drv.ms/u/s!ApDfgN6g_FJ6hM9a09t0WMayeCHzqA?e=BcNzY4), which does not check compatibility and test it out at your own risk. I would really appreciate if you create an issue here on GitHub with the results of your testing.
 
 Make sure to include following information:
 1. Full model name (i.e. Legion 5 Pro 16ACH6H)
