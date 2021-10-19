@@ -17,7 +17,7 @@
                     <MenuItem Header="Disable" Click="DisableVantageMenuItem_Click" />
                 </MenuItem>
                 <Separator/>
-                <MenuItem Header="Exit" />
+                <MenuItem Header="Exit"  Click="ExitMenuItem_Click" />
             </MenuItem>
         </Menu>
 
