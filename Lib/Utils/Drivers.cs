@@ -5,8 +5,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 {
     public static class Drivers
     {
-        private static SafeFileHandle _energy = null;
-
+        private static SafeFileHandle _energy;
         public static SafeFileHandle Energy
         {
             get

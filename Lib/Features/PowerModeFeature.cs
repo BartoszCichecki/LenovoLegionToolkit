@@ -11,7 +11,7 @@ namespace LenovoLegionToolkit.Lib.Features
 
     public static class PowerModeStateExtensions
     {
-        public static string PowerPlanGuid(this PowerModeState state)
+        public static string GetPowerPlanGuid(this PowerModeState state)
         {
             return state switch
             {

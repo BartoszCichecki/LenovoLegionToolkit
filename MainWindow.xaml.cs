@@ -123,7 +123,7 @@ namespace LenovoLegionToolkit
                 return;
             _powerModeFeature.SetState(state);
 
-            Windows.SetPowerPlan(state.PowerPlanGuid());
+            Windows.SetPowerPlan(state.GetPowerPlanGuid());
         }
 
         private void hybridMode_Checked(object sender, RoutedEventArgs e)

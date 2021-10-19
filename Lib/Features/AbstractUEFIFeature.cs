@@ -73,9 +73,9 @@ namespace LenovoLegionToolkit.Lib.Features
 
         private static bool IsUefiMode()
         {
-            var firmwareType = FirmwareType.FirmwareTypeUnknown;
+            var firmwareType = FirmwareType.Unknown;
             if (Native.GetFirmwareType(ref firmwareType))
-                return firmwareType == FirmwareType.FirmwareTypeUefi;
+                return firmwareType == FirmwareType.Uefi;
 
             return false;
         }
@@ -94,7 +94,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 newState.Luid = 0L;
                 newState.Attr = enable ? 2 : 0;
                 if (!Native.LookupPrivilegeValue(null, "SeSystemEnvironmentPrivilege", ref newState.Luid))
-                    return  false;
+                    return false;
                 if (!Native.AdjustTokenPrivileges(zero, false, ref newState, 0, IntPtr.Zero, IntPtr.Zero))
                     return false;
                 return true;
