@@ -14,7 +14,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         public static bool IsCompatible(MachineInformation machineInformation)
         {
-            if (machineInformation.Vendor.Equals(_allowedVendor, StringComparison.OrdinalIgnoreCase))
+            if (!machineInformation.Vendor.Equals(_allowedVendor, StringComparison.OrdinalIgnoreCase))
                 return false;
 
             foreach (string allowedModel in _allowedModels)
