@@ -97,7 +97,7 @@
                               VerticalContentAlignment="Center" ToolTip="Makes built-in display's reponse faster." />
                         <CheckBox Margin="0,0,0,5" x:Name="chkFnLock" Content="Fn Lock" HorizontalAlignment="Left"
                               VerticalAlignment="Top" Checked="chkFnLock_Checked" Unchecked="chkFnLock_Checked"
-                              VerticalContentAlignment="Center" ToolTip="Use secondary functions of F1-F12 keys." />
+                              VerticalContentAlignment="Center" ToolTip="Use secondary functions of F1-F12 keys without pressing Fn key." />
                         <CheckBox Margin="0,0,0,5" x:Name="chkTouchpadLock" Content="Touchpad Lock" HorizontalAlignment="Left"
                               VerticalAlignment="Top" Checked="chkTouchpadLock_Checked"
                               Unchecked="chkTouchpadLock_Checked" VerticalContentAlignment="Center" ToolTip="Disables touchpad." />
