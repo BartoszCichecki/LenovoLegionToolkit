@@ -5,9 +5,9 @@
     <OutputType>WinExe</OutputType>
     <ApplicationIcon>icon.ico</ApplicationIcon>
     <AssemblyName>Lenovo Legion Toolkit</AssemblyName>
-	  <Copyright>Copyright (c) 2021 Bartosz Cichecki</Copyright>
+	  <Copyright>© 2021 Bartosz Cichecki</Copyright>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>0.0.1.%2a</ApplicationVersion>
+    <ApplicationVersion>1.0.0</ApplicationVersion>
     <Nullable>disable</Nullable>
     <UseWPF>true</UseWPF>
 	  <SelfContained>false</SelfContained>
@@ -19,8 +19,14 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.2" />
     <PackageReference Include="TaskScheduler" Version="2.9.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon.ico" />
   </ItemGroup>
 </Project>

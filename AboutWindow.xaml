@@ -1,0 +1,23 @@
+﻿<Window x:Class="LenovoLegionToolkit.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="About" ResizeMode="NoResize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterOwner" ShowInTaskbar="False">
+    <StackPanel Margin="10,10,10,10">
+        <StackPanel Orientation="Horizontal">
+            <Image Source="/icon.ico" Width="48" Height="48" Margin="0,0,10,0"/>
+            <StackPanel VerticalAlignment="Center">
+                <Label Content="Lenovo Legion Toolkit" FontWeight="Bold" FontSize="16" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Padding="0,0,0,0"/>
+                <Label x:Name="versionLbl" Content="Version: " HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="14"  Padding="0,0,0,0"/>
+            </StackPanel>
+        </StackPanel>
+        <GroupBox Header="Project website" Margin="0,10,0,0">
+            <TextBlock Margin="5,5,5,5"><Hyperlink NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit" RequestNavigate="Hyperlink_RequestNavigate">GitHub</Hyperlink></TextBlock>
+        </GroupBox>
+        <GroupBox Header="Copyright">
+            <TextBlock Margin="5,5,5,5">© 2021 Bartosz Cichecki</TextBlock>
+        </GroupBox>
+    </StackPanel>
+</Window>

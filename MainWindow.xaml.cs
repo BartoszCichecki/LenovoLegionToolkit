@@ -199,6 +199,8 @@ namespace LenovoLegionToolkit
             _touchpadLockFeature.SetState(state);
         }
 
+        private void AboutMenuItem_Click(object sender, RoutedEventArgs e) => new AboutWindow { Owner = this }.ShowDialog();
+
         private void EnableVantageMenuItem_Click(object sender, RoutedEventArgs e)
         {
             Vantage.Enable();
@@ -220,7 +222,5 @@ namespace LenovoLegionToolkit
 
             Windows.Restart();
         }
-
-        private void ExitMenuItem_Click(object sender, RoutedEventArgs e) => Environment.Exit(0);
     }
 }

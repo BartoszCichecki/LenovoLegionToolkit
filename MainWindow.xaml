@@ -5,20 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Lenovo Legion Toolkit" SizeToContent="WidthAndHeight" ResizeMode="CanMinimize" x:Name="mainWindow"
-        FontSize="14" WindowStartupLocation="CenterScreen" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+        FontSize="14" WindowStartupLocation="CenterScreen" Background="#FFF0F0F0">
 
     <DockPanel>
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="File">
-                <MenuItem Header="About" />
-                <Separator/>
+        <Menu DockPanel.Dock="Top" Background="#FFF0F0F0">
+            <MenuItem Header="Tools">
                 <MenuItem Header="Lenovo Vantage">
                     <MenuItem Header="Enable" Click="EnableVantageMenuItem_Click" />
                     <MenuItem Header="Disable" Click="DisableVantageMenuItem_Click" />
                 </MenuItem>
-                <Separator/>
-                <MenuItem Header="Exit"  Click="ExitMenuItem_Click" />
             </MenuItem>
+            <MenuItem Header="About" Click="AboutMenuItem_Click" />
         </Menu>
 
         <StackPanel Margin="15">
