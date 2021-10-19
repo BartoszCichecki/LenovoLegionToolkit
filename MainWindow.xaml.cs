@@ -225,5 +225,7 @@ namespace LenovoLegionToolkit
 
             Windows.Restart();
         }
+
+        private void ExitMenuItem_Click(object sender, RoutedEventArgs e) => Environment.Exit(0);
     }
 }
