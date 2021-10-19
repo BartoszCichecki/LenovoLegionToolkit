@@ -1,7 +1,6 @@
 ﻿using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Utils;
 using System;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -19,19 +18,15 @@ namespace LenovoLegionToolkit
             private readonly Action _check;
             private readonly Action _disable;
 
-            internal FeatureCheck(Action check, Action disable)
+            public FeatureCheck(Action check, Action disable)
             {
                 _check = check;
                 _disable = disable;
             }
 
-            internal void Check() => _check();
-            internal void Disable() => _disable();
+            public void Check() => _check();
+            public void Disable() => _disable();
         }
-
-        private static readonly string[] compatibleVersions = new string[] {
-            "Legion 5 Pro 16ACH6H",
-        };
 
         private readonly AlwaysOnUsbFeature _alwaysOnUsbFeature = new();
         private readonly BatteryFeature _batteryFeature = new();
@@ -63,7 +58,7 @@ namespace LenovoLegionToolkit
 
         private static void CheckCompatibility()
         {
-            if (compatibleVersions.Contains(Windows.GetMachineVersion()))
+            if (Compatibility.IsCompatible(Windows.GetMachineInformation()))
                 return;
 
             MessageBox.Show("This application is not compatible with your machine.");
