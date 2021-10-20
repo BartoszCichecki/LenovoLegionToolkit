@@ -39,7 +39,7 @@ namespace LenovoLegionToolkit
 
         private static bool ShouldByPassCompatibilityCheck(string[] args)
         {
-            return args.Length > 0 && args[0] == "--skip-compat-check";
+            return args.Length > 0 && args[0] == "--no-compat-check";
         }
     }
 }

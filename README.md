@@ -1,8 +1,8 @@
 # Lenovo Legion Toolkit
 
-This is a small utility (less than 10MB) created for Lenovo Legion laptops, that allows to change a couple of features that are usually part of Lenovo Vantage.
+This is a small utility (less than 10MB) created for Lenovo Legion laptops, that allows to change a couple of features that are only available in Lenovo Vantage.
 
-It is a simple executable that needs no installation and runs no background services. It uses less memory and contains no telemetry.
+It is a single executable app that needs no installation and runs no background services. It uses less memory, virtually no CPU and contains no telemetry.
 
 ![screenshot](assets/screenshot.png)
 
@@ -16,10 +16,12 @@ The tool comes with no warranty. Use at you own risk.
 
 ## Compatibility
 
+* Lenovo Legion 7 16ACHg6
+* Lenovo Legion 7 16ITHg6
 * Lenovo Legion 5 Pro 16ACH6H
 
 
-The application should work on most new Legion 2021 laptops, but since I have no way of testing if all features work correctly, it will not run on incompatible machines.
+This app can probably work on a lot more 2021 Lenovo laptops. If you want to help expand the list check the *Contribution* section.
 
 
 ## Features
@@ -34,18 +36,20 @@ The app allows to:
 
 * Always on USB charge settings: on, off and on when sleeping,
 
-* Flip to boot, Over Drive, Fn and Touchpad locks.
+* Flip to start, Over Drive, Fn and Touchpad locks.
 
 This app also allows you to disable Lenovo Vantage without uninstalling it. It it especially useful, you want to keep Vantage around i.e. for checking updates.
 
-You can do it from the File menu on top. If you disable Vantage, it will stop and disable it's services, and disable all funky Lenovo Scheduled tasks. Once Vantage is disabled, it will no longer start any background processes on startup. If you want to open Lenovo Vantage, you need to re-enable it from the tool, otherwise it will prompt to reinstall itself.
+You can do it from the Tools menu on top. If you disable Vantage, it will stop and disable it's services, and disable all funky Lenovo Scheduled tasks. Once Vantage is disabled, it will no longer start any background processes on startup. If you want to open Lenovo Vantage, you need to re-enable it from the tool, otherwise it will prompt to reinstall itself.
 
 
 ## Requirements
 
 This tool is written with .NET 5 which means you need to have **.NET Desktop Runtime 5**. You can get it from here:
 
-https://dotnet.microsoft.com/download/dotnet/5.0
+https://dotnet.microsoft.com/download/dotnet/5.0/runtime
+
+You don't need to install it if you already have the .NET SDK 5 installed.
 
 
 ## Credits
@@ -57,14 +61,23 @@ Check out his repo: https://github.com/ViRb3/LenovoController
 
 ## Contribution
 
-I would like if the tool could work on more models than just Legion 5 Pro.
+I appreciate any feedback that you have, so please do not hesitate to report issues. PRs are also welcome!
 
-If you want to help and test this on your device you can try to download [this version](https://1drv.ms/u/s!ApDfgN6g_FJ6hM9a09t0WMayeCHzqA?e=BcNzY4), which does not check compatibility and test it out at your own risk. I would really appreciate if you create an issue here on GitHub with the results of your testing.
+It would be great to expand the list of compatible devices, but to do it your help is needed.
 
-Make sure to include following information:
+If you are willing to check if this app works correctly on your device that is currently unsupported, you can do it by starting the with ``--no-compat-check`` argument.
+
+Remember that some functions may not function properly, so keep this in mind.
+
+If you do it, I would really appreciate if you create an issue here on GitHub with the results of your testing.
+
+Make sure to include following information in your issue:
+
 1. Full model name (i.e. Legion 5 Pro 16ACH6H)
 2. List of features that are working as expected.
 3. List of features that seem to not work (they do nothing).
 4. List of features that crash the app.
 
 The more info you add, the better the app will get over time.
+
+Thanks in advance!
