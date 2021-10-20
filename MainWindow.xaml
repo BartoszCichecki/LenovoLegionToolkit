@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Lenovo Legion Toolkit" SizeToContent="WidthAndHeight" ResizeMode="NoResize" x:Name="mainWindow"
-        FontSize="14" WindowStartupLocation="CenterScreen" Background="#FFF0F0F0">
+        FontSize="14" WindowStartupLocation="CenterScreen" Background="#FFF">
 
     <DockPanel>
-        <Menu DockPanel.Dock="Top" Background="#FFF0F0F0">
+        <Menu DockPanel.Dock="Top" Background="#FFF" Margin="1">
             <MenuItem Header="Tools">
                 <MenuItem Header="Lenovo Vantage">
                     <MenuItem Header="Enable" Click="EnableVantageMenuItem_Click" />

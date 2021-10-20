@@ -14,7 +14,7 @@ namespace LenovoLegionToolkit
         {
             InitializeComponent();
 
-            versionLbl.Content += Assembly.GetEntryAssembly().GetName().Version.ToString(3);
+            versionLbl.Content += Assembly.GetEntryAssembly().GetName().Version.ToString(2);
         }
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
