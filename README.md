@@ -65,7 +65,7 @@ I appreciate any feedback that you have, so please do not hesitate to report iss
 
 It would be great to expand the list of compatible devices, but to do it your help is needed.
 
-If you are willing to check if this app works correctly on your device that is currently unsupported, you can do it by starting the with ``--no-compat-check`` argument.
+If you are willing to check if this app works correctly on your device that is currently unsupported, you can do it by starting the app with ``--no-compat-check`` argument.
 
 Remember that some functions may not function properly, so keep this in mind.
 
