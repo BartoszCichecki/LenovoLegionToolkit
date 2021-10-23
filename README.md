@@ -21,7 +21,7 @@ The tool comes with no warranty. Use at you own risk.
 * Lenovo Legion 5 Pro 16ACH6H
 
 
-This app can probably work on a lot more 2021 Lenovo laptops. If you want to help expand the list check the *Contribution* section.
+This app can probably work on a lot more 2020/2021 Lenovo laptops. If you want to help expand the list check the *Contribution* section.
 
 
 ## Features
@@ -65,7 +65,7 @@ I appreciate any feedback that you have, so please do not hesitate to report iss
 
 It would be great to expand the list of compatible devices, but to do it your help is needed.
 
-If you are willing to check if this app works correctly on your device that is currently unsupported, you can do it by starting the app with ``--no-compat-check`` argument.
+If you are willing to check if this app works correctly on your device that is currently unsupported, you can do it by starting the app with ``--skip-compat-check`` argument.
 
 Remember that some functions may not function properly, so keep this in mind.
 
