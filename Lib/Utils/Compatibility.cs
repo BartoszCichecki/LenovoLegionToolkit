@@ -10,6 +10,8 @@ namespace LenovoLegionToolkit.Lib.Utils
             "16ACHg6", //Legion 7 - AMD, nVidia
             "16ITHg6", //Lenovo 7 - Intel, nVidia
             "16ACH6H", //Legion 5 Pro - AMD, nVidia
+            "15ARH05", //Legion 5 - AMD, nVidia
+            "R7000P2021H", //Legion 5 - AMD, nVidia (CN)
         };
 
         public static bool IsCompatible(MachineInformation machineInformation)

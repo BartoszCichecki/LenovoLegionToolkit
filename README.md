@@ -19,7 +19,8 @@ The tool comes with no warranty. Use at you own risk.
 * Lenovo Legion 7 16ACHg6
 * Lenovo Legion 7 16ITHg6
 * Lenovo Legion 5 Pro 16ACH6H
-
+* Lenovo Legion 5 15ARH05
+* Lenovo Legion 5 R7000P2021H
 
 This app can probably work on a lot more 2020/2021 Lenovo laptops. If you want to help expand the list check the *Contribution* section.
 
