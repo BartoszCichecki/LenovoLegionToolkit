@@ -12,6 +12,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             "16ACH6H", //Legion 5 Pro - AMD, nVidia
             "15ARH05", //Legion 5 - AMD, nVidia
             "R7000P2021H", //Legion 5 - AMD, nVidia (CN)
+            "17IRHg", // Legion Y740 - Intel, nVidia
         };
 
         public static bool IsCompatible(MachineInformation machineInformation)
