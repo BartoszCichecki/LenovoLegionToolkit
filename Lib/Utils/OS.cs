@@ -8,6 +8,7 @@ namespace LenovoLegionToolkit.Lib.Utils
         public string Vendor;
         public string Model;
     }
+
     public static class OS
     {
         public static void Restart() => ExecuteProcess("shutdown", "-r -t 0");
