@@ -53,6 +53,19 @@ namespace LenovoLegionToolkit
 
             Refresh();
         }
+        public void BringToForeground()
+        {
+            if (WindowState == WindowState.Minimized || Visibility == Visibility.Hidden)
+            {
+                Show();
+                WindowState = WindowState.Normal;
+            }
+
+            Activate();
+            Topmost = true;
+            Topmost = false;
+            Focus();
+        }
 
         private void Refresh()
         {
