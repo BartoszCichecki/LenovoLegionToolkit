@@ -6,13 +6,13 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
     <AssemblyName>Lenovo Legion Toolkit</AssemblyName>
 	  <Copyright>© 2021 Bartosz Cichecki</Copyright>
-    <FileVersion>1.1</FileVersion>
-    <Version>1.1</Version>
+    <FileVersion>1.2</FileVersion>
+    <Version>1.2</Version>
     <Nullable>disable</Nullable>
     <UseWPF>true</UseWPF>
-	  <SelfContained>false</SelfContained>
+	<SelfContained>false</SelfContained>
     <PublishSingleFile>true</PublishSingleFile>
-    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+	<IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
     <PublishUrl>publish\</PublishUrl>
   </PropertyGroup>
   <PropertyGroup>
