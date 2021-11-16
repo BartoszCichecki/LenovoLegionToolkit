@@ -23,6 +23,8 @@ namespace LenovoLegionToolkit
 
             if (!ShouldByPassCompatibilityCheck(e.Args))
                 CheckCompatibility();
+
+            _ = UpdateChecker.CheckUpdates();
         }
 
         private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
