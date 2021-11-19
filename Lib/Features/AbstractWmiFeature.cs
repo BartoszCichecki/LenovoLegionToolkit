@@ -4,18 +4,28 @@ using System.Management;
 
 namespace LenovoLegionToolkit.Lib.Features
 {
-    public class AbstractWmiFeature<T> : IFeature<T> where T : struct, IComparable
+    public abstract class AbstractWmiFeature<T> : IFeature<T> where T : struct, IComparable
     {
         private readonly string _methodNameSuffix;
         private readonly int _offset;
+        private readonly string _supportMethodName;
+        private readonly int _supportOffset;
 
-        protected AbstractWmiFeature(string methodNameSuffix, int offset)
+        protected AbstractWmiFeature(string methodNameSuffix, int offset, string supportMethodName = null, int supportOffset = 0)
         {
             _methodNameSuffix = methodNameSuffix;
             _offset = offset;
+            _supportMethodName = supportMethodName;
+            _supportOffset = supportOffset;
         }
 
-        public T GetState() => FromInternal(ExecuteGamezone("Get" + _methodNameSuffix, "Data"));
+        public T GetState()
+        {
+            if (!IsSupported())
+                throw new NotSupportedException($"Feature {_methodNameSuffix} is not supported.");
+
+            return FromInternal(ExecuteGamezone("Get" + _methodNameSuffix, "Data"));
+        }
 
         public void SetState(T state)
         {
@@ -24,6 +34,15 @@ namespace LenovoLegionToolkit.Lib.Features
                 {
                     {"Data", ToInternal(state).ToString()}
                 });
+        }
+
+        private bool IsSupported()
+        {
+            if (_supportMethodName == null)
+                return true;
+
+            var value = ExecuteGamezone(_supportMethodName, "Data");
+            return value > _supportOffset;
         }
 
         private int ToInternal(T state) => (int)(object)state + _offset;
