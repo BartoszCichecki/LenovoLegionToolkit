@@ -1,16 +1,14 @@
 ﻿using Octokit;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
     public class UpdateChecker
     {
-        public static async Task CheckUpdates()
+        public async Task<bool> CheckUpdates()
         {
             try
             {
@@ -24,12 +22,11 @@ namespace LenovoLegionToolkit.Lib.Utils
 
                 var thisRelease = Assembly.GetEntryAssembly().GetName().Version;
 
-                if (thisRelease < newestRelease)
-                    Console.WriteLine("TADA!");
+                return thisRelease < newestRelease;
             }
-            catch (Exception ex)
+            catch
             {
-                Console.Write(ex.ToString());
+                return false;
             }
         }
     }
