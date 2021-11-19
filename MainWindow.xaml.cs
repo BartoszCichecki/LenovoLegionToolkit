@@ -1,8 +1,11 @@
 ﻿using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Utils;
 using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Navigation;
 
 #pragma warning disable IDE1006 // Naming Styles
 
@@ -42,9 +45,13 @@ namespace LenovoLegionToolkit
         private readonly RadioButton[] _hybridModeButtons;
         private readonly RadioButton[] _powerModeButtons;
 
+        private readonly UpdateChecker _updateChecker = new();
+
         public MainWindow()
         {
             InitializeComponent();
+
+            updateIndicator.Visibility = Visibility.Collapsed;
 
             _alwaysOnUsbButtons = new[] { radioAlwaysOnUsbOff, radioAlwaysOnUsbOnWhenSleeping, radioAlwaysOnUsbOnAlways };
             _batteryButtons = new[] { radioConservation, radioNormalCharge, radioRapidCharge };
@@ -52,6 +59,7 @@ namespace LenovoLegionToolkit
             _powerModeButtons = new[] { radioQuiet, radioBalance, radioPerformance };
 
             Refresh();
+            CheckUpdates();
         }
         public void BringToForeground()
         {
@@ -65,6 +73,15 @@ namespace LenovoLegionToolkit
             Topmost = true;
             Topmost = false;
             Focus();
+        }
+
+        private void CheckUpdates()
+        {
+            Task.Run(_updateChecker.CheckUpdates)
+                .ContinueWith(updatesAvailable =>
+            {
+                updateIndicator.Visibility = updatesAvailable.Result ? Visibility.Visible : Visibility.Collapsed;
+            }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         private void Refresh()
@@ -232,6 +249,11 @@ namespace LenovoLegionToolkit
                 return;
 
             OS.Restart();
+        }
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri) { UseShellExecute = true });
+            e.Handled = true;
         }
     }
 }
