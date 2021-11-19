@@ -17,8 +17,7 @@
             </MenuItem>
             <MenuItem Header="About" Click="AboutMenuItem_Click" />
         </Menu>
-
-        <StackPanel Margin="15">
+        <StackPanel Margin="15" Orientation="Vertical">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
@@ -60,7 +59,7 @@
                     <StackPanel Margin="5,5,20,5" Orientation="Vertical">
                         <RadioButton Margin="0,0,0,5" x:Name="radioConservation" Content="Conservation"
                                  HorizontalAlignment="Left" VerticalAlignment="Top" Checked="radioBattery_Checked"
-                                 VerticalContentAlignment="Center" ToolTip="Charge battery to 60% at a normal speed.&#x0a;Helps to maintain battery health  when used on power adapter.&#x0a;Battery level will be kept at 55-60%." />
+                                 VerticalContentAlignment="Center" ToolTip="Charge battery to 60% at a normal speed.&#xA;Helps to maintain battery health  when used on power adapter.&#xA;Battery level will be kept at 55-60%." />
                         <RadioButton Margin="0,0,0,5" x:Name="radioNormalCharge" Content="Normal"
                                  HorizontalAlignment="Left" VerticalAlignment="Top" Checked="radioBattery_Checked"
                                  VerticalContentAlignment="Center" ToolTip="Charge battery to 100% at a normal speed." />
@@ -101,6 +100,9 @@
                     </StackPanel>
                 </GroupBox>
             </Grid>
+            <Border x:Name="updateIndicator"  BorderThickness="1" CornerRadius="5,5,5,5" Visibility="Visible" Margin="0,5,0,0" Background="#FFAEE571">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Margin="3,3,3,3">An update is available. Check it out on <Hyperlink NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit/releases" RequestNavigate="Hyperlink_RequestNavigate">GitHub</Hyperlink>!</TextBlock>
+            </Border>
         </StackPanel>
     </DockPanel>
 </Window>
