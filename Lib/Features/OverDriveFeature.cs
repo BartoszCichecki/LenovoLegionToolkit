@@ -8,6 +8,6 @@
 
     public class OverDriveFeature : AbstractWmiFeature<OverDriveState>
     {
-        public OverDriveFeature() : base("ODStatus", 0) { }
+        public OverDriveFeature() : base("ODStatus", 0, "IsSupportOD") { }
     }
 }
