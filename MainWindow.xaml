@@ -21,10 +21,14 @@
         />
         <Menu DockPanel.Dock="Top" Background="#FFF" Margin="1">
             <MenuItem Header="Tools">
+                <MenuItem Name="autorunMenuItem" Header="Run on startup" Click="autorunMenuItem_Click" IsCheckable="true"/>
+                <Separator/>
                 <MenuItem Header="Lenovo Vantage">
                     <MenuItem Header="Enable" Click="enableVantageMenuItem_Click" />
                     <MenuItem Header="Disable" Click="disableVantageMenuItem_Click" />
                 </MenuItem>
+                <Separator/>
+                <MenuItem Header="Exit" Click="exitMenuItem_Click" />
             </MenuItem>
             <MenuItem Header="About" Click="aboutMenuItem_Click" />
         </Menu>
