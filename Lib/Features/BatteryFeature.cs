@@ -3,13 +3,6 @@ using System;
 
 namespace LenovoLegionToolkit.Lib.Features
 {
-    public enum BatteryState
-    {
-        Conservation,
-        Normal,
-        RapidCharge
-    }
-
     public class BatteryFeature : AbstractDriverFeature<BatteryState>
     {
         public BatteryFeature() : base(Drivers.Energy, 0x831020F8) { }

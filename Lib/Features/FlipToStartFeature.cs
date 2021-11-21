@@ -2,12 +2,6 @@
 
 namespace LenovoLegionToolkit.Lib.Features
 {
-    public enum FlipToStartState
-    {
-        Off,
-        On
-    }
-
     public class FlipToStartFeature : AbstractUEFIFeature<FlipToStartState>
     {
         [StructLayout(LayoutKind.Sequential, Pack = 1)]

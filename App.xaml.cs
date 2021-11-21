@@ -1,4 +1,6 @@
-﻿using LenovoLegionToolkit.Lib.Utils;
+﻿using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.Lib.Utils;
 using System;
 using System.Diagnostics;
 using System.Threading;
@@ -15,6 +17,8 @@ namespace LenovoLegionToolkit
         private const string MutexName = "LenovoLegionToolkit_Mutex_6efcc882-924c-4cbc-8fec-f45c25696f98";
         private const string EventName = "LenovoLegionToolkit_Event_6efcc882-924c-4cbc-8fec-f45c25696f98";
 
+        private readonly PowerModeListener _powerModeListener = new();
+
         private EventWaitHandle _eventWaitHandle;
 
         private void Application_Startup(object sender, StartupEventArgs e)
@@ -23,6 +27,9 @@ namespace LenovoLegionToolkit
 
             if (!ShouldByPassCompatibilityCheck(e.Args))
                 CheckCompatibility();
+
+            _powerModeListener.OnChanged += PowerModeListener_OnChanged; ;
+            _powerModeListener.Start();
         }
 
         private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
@@ -69,6 +76,11 @@ namespace LenovoLegionToolkit
         private static bool ShouldByPassCompatibilityCheck(string[] args)
         {
             return args.Length > 0 && args[0] == "--skip-compat-check";
+        }
+
+        private void PowerModeListener_OnChanged(object sender, PowerModeState e)
+        {
+            OS.SetPowerPlan(e.GetPowerPlanGuid());
         }
     }
 }

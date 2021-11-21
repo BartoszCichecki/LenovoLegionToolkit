@@ -3,12 +3,6 @@ using System;
 
 namespace LenovoLegionToolkit.Lib.Features
 {
-    public enum FnLockState
-    {
-        Off,
-        On
-    }
-
     public class FnLockFeature : AbstractDriverFeature<FnLockState>
     {
         public FnLockFeature() : base(Drivers.Energy, 0x831020E8) { }
