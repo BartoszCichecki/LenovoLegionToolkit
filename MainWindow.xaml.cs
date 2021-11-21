@@ -69,6 +69,8 @@ namespace LenovoLegionToolkit
 
         public void BringToForeground()
         {
+            ShowInTaskbar = true;
+
             if (WindowState == WindowState.Minimized || Visibility == Visibility.Hidden)
             {
                 Show();
@@ -79,6 +81,14 @@ namespace LenovoLegionToolkit
             Topmost = true;
             Topmost = false;
             Focus();
+
+            Refresh();
+        }
+
+        public void SendToTray()
+        {
+            Hide();
+            ShowInTaskbar = false;
         }
 
         private void CheckUpdates()
@@ -146,13 +156,10 @@ namespace LenovoLegionToolkit
             switch (WindowState)
             {
                 case WindowState.Minimized:
-                    ShowInTaskbar = false;
-                    notifyIcon.Visibility = Visibility.Visible;
+                    SendToTray();
                     break;
                 case WindowState.Normal:
-                    ShowInTaskbar = true;
-                    notifyIcon.Visibility = Visibility.Hidden;
-                    Refresh();
+                    BringToForeground();
                     break;
             }
         }
