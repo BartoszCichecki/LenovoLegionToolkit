@@ -35,13 +35,13 @@ namespace LenovoLegionToolkit.Lib.Listeners
             _watcher = null;
         }
 
+        protected abstract void OnChanged(T value);
+
         private void _watcher_EventArrived(object sender, EventArrivedEventArgs e)
         {
             var propertyValue = Convert.ToInt32(e.NewEvent.Properties[_property].Value);
             var value = (T)(object)(propertyValue - _offset);
             OnChanged(value);
         }
-
-        protected abstract void OnChanged(T value);
     }
 }
