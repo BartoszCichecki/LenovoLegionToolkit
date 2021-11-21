@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "LenovoLegionToolkit": {
+      "commandName": "Project",
+      "commandLineArgs": ""
+    },
+    "LenovoLegionToolkit (Minimized)": {
+      "commandName": "Project",
+      "commandLineArgs": "--minimized"
+    }
+  }
+}

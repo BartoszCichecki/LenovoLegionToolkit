@@ -14,9 +14,7 @@
         Background="#FFF">
 
     <DockPanel>
-        <tb:TaskbarIcon x:Name="notifyIcon"
-                        ToolTipText="Lenovo Legion Toolkit"
-                        Visibility="Hidden"
+        <tb:TaskbarIcon ToolTipText="Lenovo Legion Toolkit"
                         IconSource="icon.ico"
                         TrayLeftMouseUp="notifyIcon_TrayMouseUp"
                         TrayRightMouseUp="notifyIcon_TrayMouseUp"

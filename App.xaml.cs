@@ -2,6 +2,7 @@
 using LenovoLegionToolkit.Lib.Utils;
 using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
@@ -28,6 +29,12 @@ namespace LenovoLegionToolkit
                 CheckCompatibility();
 
             PowerModeListener.Start();
+
+            var mainWindow = new MainWindow();
+            if (ShouldStartMinimized(e.Args))
+                mainWindow.SendToTray();
+            else
+                mainWindow.Show();
         }
 
         private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
@@ -71,9 +78,13 @@ namespace LenovoLegionToolkit
             Environment.Exit(0);
         }
 
-        private static bool ShouldByPassCompatibilityCheck(string[] args)
-        {
-            return args.Length > 0 && args[0] == "--skip-compat-check";
-        }
+        #region Arguments
+
+        private static bool ShouldByPassCompatibilityCheck(string[] args) => args.Contains("--skip-compat-check");
+
+        private static bool ShouldStartMinimized(string[] args) => args.Contains("--minimized");
+
+        #endregion
+
     }
 }
