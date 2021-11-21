@@ -16,7 +16,7 @@ namespace LenovoLegionToolkit
         private const string MutexName = "LenovoLegionToolkit_Mutex_6efcc882-924c-4cbc-8fec-f45c25696f98";
         private const string EventName = "LenovoLegionToolkit_Event_6efcc882-924c-4cbc-8fec-f45c25696f98";
 
-        private readonly PowerModeListener _powerModeListener = new();
+        public readonly PowerModeListener PowerModeListener = new();
 
         private EventWaitHandle _eventWaitHandle;
 
@@ -27,7 +27,7 @@ namespace LenovoLegionToolkit
             if (!ShouldByPassCompatibilityCheck(e.Args))
                 CheckCompatibility();
 
-            _powerModeListener.Start();
+            PowerModeListener.Start();
         }
 
         private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)

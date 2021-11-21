@@ -11,6 +11,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         private ManagementEventWatcher _watcher;
 
+        public event EventHandler<T> Changed;
         public AbstractWMIListener(string eventName, string property, int offset)
         {
             _evenName = eventName;
@@ -42,6 +43,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
             var propertyValue = Convert.ToInt32(e.NewEvent.Properties[_property].Value);
             var value = (T)(object)(propertyValue - _offset);
             OnChanged(value);
+            Changed?.Invoke(this, value);
         }
     }
 }

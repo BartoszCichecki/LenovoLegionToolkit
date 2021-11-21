@@ -3,19 +3,32 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
-        Title="Lenovo Legion Toolkit" SizeToContent="WidthAndHeight" ResizeMode="NoResize" x:Name="mainWindow"
-        FontSize="14" WindowStartupLocation="CenterScreen" Background="#FFF">
+        x:Name="mainWindow"
+        Title="Lenovo Legion Toolkit"
+        WindowStartupLocation="CenterScreen"
+        SizeToContent="WidthAndHeight"
+        ResizeMode="CanMinimize"
+        FontSize="14"
+        Background="#FFF">
 
     <DockPanel>
+        <tb:TaskbarIcon x:Name="notifyIcon"
+                        ToolTipText="Lenovo Legion Toolkit"
+                        Visibility="Hidden"
+                        IconSource="icon.ico"
+                        TrayLeftMouseUp="notifyIcon_TrayMouseUp"
+                        TrayRightMouseUp="notifyIcon_TrayMouseUp"
+        />
         <Menu DockPanel.Dock="Top" Background="#FFF" Margin="1">
             <MenuItem Header="Tools">
                 <MenuItem Header="Lenovo Vantage">
-                    <MenuItem Header="Enable" Click="EnableVantageMenuItem_Click" />
-                    <MenuItem Header="Disable" Click="DisableVantageMenuItem_Click" />
+                    <MenuItem Header="Enable" Click="enableVantageMenuItem_Click" />
+                    <MenuItem Header="Disable" Click="disableVantageMenuItem_Click" />
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="About" Click="AboutMenuItem_Click" />
+            <MenuItem Header="About" Click="aboutMenuItem_Click" />
         </Menu>
         <StackPanel Margin="15" Orientation="Vertical">
             <Grid>
@@ -101,7 +114,7 @@
                 </GroupBox>
             </Grid>
             <Border x:Name="updateIndicator"  BorderThickness="1" CornerRadius="5,5,5,5" Visibility="Visible" Margin="0,5,0,0" Background="#FFAEE571">
-                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Margin="3,3,3,3">An update is available. Check it out on <Hyperlink NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit/releases" RequestNavigate="Hyperlink_RequestNavigate">GitHub</Hyperlink>!</TextBlock>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Margin="3,3,3,3">An update is available. Check it out on <Hyperlink NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit/releases" RequestNavigate="hyperlink_RequestNavigate">GitHub</Hyperlink>!</TextBlock>
             </Border>
         </StackPanel>
     </DockPanel>

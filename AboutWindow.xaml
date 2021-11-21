@@ -14,7 +14,7 @@
             </StackPanel>
         </StackPanel>
         <GroupBox Header="Project website" Margin="0,10,0,0">
-            <TextBlock Margin="5,5,5,5"><Hyperlink NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit" RequestNavigate="Hyperlink_RequestNavigate">GitHub</Hyperlink></TextBlock>
+            <TextBlock Margin="5,5,5,5"><Hyperlink NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit" RequestNavigate="hyperlink_RequestNavigate">GitHub</Hyperlink></TextBlock>
         </GroupBox>
         <GroupBox Header="Copyright">
             <TextBlock Margin="5,5,5,5">© 2021 Bartosz Cichecki</TextBlock>
