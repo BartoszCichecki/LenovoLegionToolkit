@@ -1,5 +1,4 @@
-﻿using LenovoLegionToolkit.Lib;
-using LenovoLegionToolkit.Lib.Listeners;
+﻿using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
 using System;
 using System.Diagnostics;
@@ -28,7 +27,6 @@ namespace LenovoLegionToolkit
             if (!ShouldByPassCompatibilityCheck(e.Args))
                 CheckCompatibility();
 
-            _powerModeListener.OnChanged += PowerModeListener_OnChanged; ;
             _powerModeListener.Start();
         }
 
@@ -76,11 +74,6 @@ namespace LenovoLegionToolkit
         private static bool ShouldByPassCompatibilityCheck(string[] args)
         {
             return args.Length > 0 && args[0] == "--skip-compat-check";
-        }
-
-        private void PowerModeListener_OnChanged(object sender, PowerModeState e)
-        {
-            OS.SetPowerPlan(e.GetPowerPlanGuid());
         }
     }
 }
