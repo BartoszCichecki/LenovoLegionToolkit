@@ -3,13 +3,6 @@ using System;
 
 namespace LenovoLegionToolkit.Lib.Features
 {
-    public enum AlwaysOnUsbState
-    {
-        Off,
-        OnWhenSleeping,
-        OnAlways
-    }
-
     public class AlwaysOnUsbFeature : AbstractDriverFeature<AlwaysOnUsbState>
     {
         public AlwaysOnUsbFeature() : base(Drivers.Energy, 0x831020E8) { }
