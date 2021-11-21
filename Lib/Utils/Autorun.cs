@@ -1,7 +1,5 @@
 ﻿using Microsoft.Win32.TaskScheduler;
 using System.Diagnostics;
-using System.Reflection;
-using System.Windows;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
@@ -19,7 +17,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             var td = ts.NewTask();
             td.Principal.RunLevel = TaskRunLevel.Highest;
             td.Triggers.Add(new LogonTrigger());
-            td.Actions.Add(Process.GetCurrentProcess().MainModule.FileName, "--minimized");
+            td.Actions.Add($"\"{Process.GetCurrentProcess().MainModule.FileName}\"", "--minimized");
             ts.RootFolder.RegisterTaskDefinition(TaskName, td);
         }
 
