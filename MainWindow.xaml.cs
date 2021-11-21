@@ -46,6 +46,7 @@ namespace LenovoLegionToolkit
         private readonly RadioButton[] _hybridModeButtons;
         private readonly RadioButton[] _powerModeButtons;
 
+        private readonly Autorun _autorun = new();
         private readonly UpdateChecker _updateChecker = new();
 
         public MainWindow()
@@ -55,6 +56,8 @@ namespace LenovoLegionToolkit
             StateChanged += mainWindow_StateChanged;
 
             ((App)Application.Current).PowerModeListener.Changed += powerModeListener_Changed;
+
+            autorunMenuItem.IsChecked = _autorun.IsEnabled;
 
             _alwaysOnUsbButtons = new[] { radioAlwaysOnUsbOff, radioAlwaysOnUsbOnWhenSleeping, radioAlwaysOnUsbOnAlways };
             _batteryButtons = new[] { radioConservation, radioNormalCharge, radioRapidCharge };
@@ -257,6 +260,25 @@ namespace LenovoLegionToolkit
 
         private void aboutMenuItem_Click(object sender, RoutedEventArgs e) => new AboutWindow { Owner = this }.ShowDialog();
 
+        private void autorunMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (_autorun.IsEnabled)
+                _autorun.Disable();
+            else
+            {
+                var result = MessageBox.Show("If you move Lenovo Legion Toolkit to a different location after enabling this option, please disable and enable this option to keep it starting automatically.",
+                    "Run on startup",
+                    MessageBoxButton.OKCancel,
+                    MessageBoxImage.Information);
+                if (result != MessageBoxResult.OK)
+                    return;
+
+                _autorun.Enable();
+            }
+
+            autorunMenuItem.IsChecked = _autorun.IsEnabled;
+        }
+
         private void enableVantageMenuItem_Click(object sender, RoutedEventArgs e)
         {
             Vantage.Enable();
@@ -284,6 +306,8 @@ namespace LenovoLegionToolkit
 
             OS.Restart();
         }
+
+        private void exitMenuItem_Click(object sender, RoutedEventArgs e) => Application.Current.Shutdown();
 
         private void hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {

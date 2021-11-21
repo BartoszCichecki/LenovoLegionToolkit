@@ -52,7 +52,7 @@ namespace LenovoLegionToolkit
                 return;
 
             MessageBox.Show($"This application is not compatible with:\n\n{mi.Vendor} {mi.Model}.", "Unsupported device", MessageBoxButton.OK, MessageBoxImage.Error);
-            Environment.Exit(0);
+            Shutdown(-1);
         }
 
         private void EnsureSingleInstance()
@@ -75,7 +75,7 @@ namespace LenovoLegionToolkit
             }
 
             _eventWaitHandle.Set();
-            Environment.Exit(0);
+            Shutdown();
         }
 
         #region Arguments
