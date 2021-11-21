@@ -1,6 +1,6 @@
 # Lenovo Legion Toolkit
 
-This is a small utility (less than 10MB) created for Lenovo Legion laptops, that allows to change a couple of features that are only available in Lenovo Vantage.
+This is a small utility created for Lenovo Legion laptops, that allows to change a couple of features that are only available in Lenovo Vantage.
 
 It is a single executable app that needs no installation and runs no background services. It uses less memory, virtually no CPU and contains no telemetry.
 
