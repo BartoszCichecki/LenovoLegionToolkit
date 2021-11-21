@@ -1,4 +1,5 @@
-﻿using LenovoLegionToolkit.Lib.Features;
+﻿using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Utils;
 using System;
 using System.Diagnostics;
