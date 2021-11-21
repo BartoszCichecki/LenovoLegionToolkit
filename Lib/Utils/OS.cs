@@ -31,13 +31,16 @@ namespace LenovoLegionToolkit.Lib.Utils
             return default;
         }
 
-        private static bool ExecuteProcess(string file, string arguments)
+        private static void ExecuteProcess(string file, string arguments)
         {
             var cmd = new Process();
+            cmd.StartInfo.UseShellExecute = true;
+            cmd.StartInfo.CreateNoWindow = true;
             cmd.StartInfo.FileName = file;
             cmd.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             cmd.StartInfo.Arguments = arguments;
-            return cmd.Start();
+            cmd.Start();
+            cmd.WaitForExit();
         }
     }
 }
