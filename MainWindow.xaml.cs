@@ -52,16 +52,21 @@ namespace LenovoLegionToolkit
         {
             InitializeComponent();
 
-            updateIndicator.Visibility = Visibility.Collapsed;
+            StateChanged += mainWindow_StateChanged;
+
+            ((App)Application.Current).PowerModeListener.Changed += powerModeListener_Changed;
 
             _alwaysOnUsbButtons = new[] { radioAlwaysOnUsbOff, radioAlwaysOnUsbOnWhenSleeping, radioAlwaysOnUsbOnAlways };
             _batteryButtons = new[] { radioConservation, radioNormalCharge, radioRapidCharge };
             _hybridModeButtons = new[] { radioHybridOn, radioHybridOff };
             _powerModeButtons = new[] { radioQuiet, radioBalance, radioPerformance };
 
+            updateIndicator.Visibility = Visibility.Collapsed;
+
             Refresh();
             CheckUpdates();
         }
+
         public void BringToForeground()
         {
             if (WindowState == WindowState.Minimized || Visibility == Visibility.Hidden)
@@ -134,6 +139,27 @@ namespace LenovoLegionToolkit
         {
             foreach (var btn in buttons)
                 btn.IsEnabled = false;
+        }
+
+        private void mainWindow_StateChanged(object sender, EventArgs e)
+        {
+            switch (WindowState)
+            {
+                case WindowState.Minimized:
+                    ShowInTaskbar = false;
+                    notifyIcon.Visibility = Visibility.Visible;
+                    break;
+                case WindowState.Normal:
+                    ShowInTaskbar = true;
+                    notifyIcon.Visibility = Visibility.Hidden;
+                    Refresh();
+                    break;
+            }
+        }
+
+        public void powerModeListener_Changed(object sender, PowerModeState state)
+        {
+            Dispatcher.Invoke(() => { _powerModeButtons[(int)state].IsChecked = true; });
         }
 
         private void radioPowerMode_Checked(object sender, RoutedEventArgs e)
@@ -220,9 +246,11 @@ namespace LenovoLegionToolkit
             _touchpadLockFeature.SetState(state);
         }
 
-        private void AboutMenuItem_Click(object sender, RoutedEventArgs e) => new AboutWindow { Owner = this }.ShowDialog();
+        private void notifyIcon_TrayMouseUp(object sender, RoutedEventArgs e) => BringToForeground();
 
-        private void EnableVantageMenuItem_Click(object sender, RoutedEventArgs e)
+        private void aboutMenuItem_Click(object sender, RoutedEventArgs e) => new AboutWindow { Owner = this }.ShowDialog();
+
+        private void enableVantageMenuItem_Click(object sender, RoutedEventArgs e)
         {
             Vantage.Enable();
 
@@ -236,7 +264,7 @@ namespace LenovoLegionToolkit
             OS.Restart();
         }
 
-        private void DisableVantageMenuItem_Click(object sender, RoutedEventArgs e)
+        private void disableVantageMenuItem_Click(object sender, RoutedEventArgs e)
         {
             Vantage.Disable();
 
@@ -249,7 +277,8 @@ namespace LenovoLegionToolkit
 
             OS.Restart();
         }
-        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+
+        private void hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri) { UseShellExecute = true });
             e.Handled = true;

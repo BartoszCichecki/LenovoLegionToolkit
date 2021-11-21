@@ -17,7 +17,7 @@ namespace LenovoLegionToolkit
             versionLbl.Content += Assembly.GetEntryAssembly().GetName().Version.ToString(2);
         }
 
-        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        private void hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri) { UseShellExecute = true });
             e.Handled = true;
