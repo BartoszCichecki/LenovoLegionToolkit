@@ -21,11 +21,8 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         public void Start()
         {
-            var scope = new ManagementScope("ROOT\\WMI");
-            scope.Connect();
-            var eventQuery = new EventQuery($"SELECT * FROM LENOVO_GAMEZONE_{_evenName}_EVENT");
-            _watcher = new ManagementEventWatcher(scope, eventQuery);
-            _watcher.EventArrived += _watcher_EventArrived;
+            _watcher = new ManagementEventWatcher("ROOT\\WMI", $"SELECT * FROM LENOVO_GAMEZONE_{_evenName}_EVENT");
+            _watcher.EventArrived += watcher_EventArrived;
             _watcher.Start();
         }
 
@@ -38,7 +35,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         protected abstract void OnChanged(T value);
 
-        private void _watcher_EventArrived(object sender, EventArrivedEventArgs e)
+        private void watcher_EventArrived(object sender, EventArrivedEventArgs e)
         {
             var propertyValue = Convert.ToInt32(e.NewEvent.Properties[_property].Value);
             var value = (T)(object)(propertyValue - _offset);
