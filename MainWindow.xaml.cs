@@ -48,13 +48,14 @@ namespace LenovoLegionToolkit
 
         private readonly Autorun _autorun = new();
         private readonly UpdateChecker _updateChecker = new();
+        private readonly NVidiaMonitor _nvidiaMonitor = new();
 
         public MainWindow()
         {
             InitializeComponent();
 
             StateChanged += mainWindow_StateChanged;
-
+            _nvidiaMonitor.Refreshed += nvidiaMonitor_Refreshed;
             ((App)Application.Current).PowerModeListener.Changed += powerModeListener_Changed;
 
             autorunMenuItem.IsChecked = _autorun.IsEnabled;
@@ -160,11 +161,31 @@ namespace LenovoLegionToolkit
             {
                 case WindowState.Minimized:
                     SendToTray();
+                    _nvidiaMonitor.Stop();
                     break;
                 case WindowState.Normal:
                     BringToForeground();
+                    _nvidiaMonitor.Start();
                     break;
             }
+        }
+
+        private void nvidiaMonitor_Refreshed(object sender, NVidiaMonitor.RefreshedEventArgs e)
+        {
+            Dispatcher.Invoke(() =>
+            {
+                lblDiscreteGPUStatusValue.Content = e.IsActive ? "Active" : "Inactive";
+                lblDiscreteGPUStatusValue.ToolTip = e.Status switch
+                {
+                    NVidiaMonitor.Status.SingleVideoCardMode => "There is only one video card.",
+                    NVidiaMonitor.Status.DiscreteGPUNotFound => "Discrete nVidia GPU not found.",
+                    NVidiaMonitor.Status.MonitorsConnected => "Monitor is connected to nVidia GPU.",
+                    _ => null,
+
+                };
+                lblDiscreteGPUProcessesValue.Content = e.ProcessCount < 0 ? "-" : e.ProcessCount.ToString();
+                btnDiscreteExternalGPU.IsEnabled = e.CanBeDisabled;
+            });
         }
 
         public void powerModeListener_Changed(object sender, PowerModeState state)

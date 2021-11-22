@@ -84,7 +84,22 @@
                     </StackPanel>
                 </GroupBox>
 
-                <GroupBox Grid.Row="1" Grid.Column="1" Header="Always on USB" Margin="0">
+
+                <GroupBox Grid.Row="1" Grid.Column="1" Header="Discrete GPU" Margin="0">
+                    <StackPanel Margin="5,5,5,5" Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Status: " Padding="0,0,0,0" />
+                            <Label x:Name="lblDiscreteGPUStatusValue" Content="-" Padding="0,0,0,0" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                            <Label Content="Processes: " Padding="0,0,0,0" />
+                            <Label x:Name="lblDiscreteGPUProcessesValue" Content="-" Padding="0,0,0,0" />
+                        </StackPanel>
+                        <Button x:Name="btnDiscreteExternalGPU" Content="Disable" Margin="10,10,10,0" IsEnabled="False" HorizontalContentAlignment="Center"  />
+                    </StackPanel>
+                </GroupBox>
+
+                <GroupBox Grid.Row="2" Grid.Column="0" Header="Always on USB" Margin="0,0,5,0">
                     <StackPanel Margin="5,5,20,5" Orientation="Vertical">
                         <RadioButton Margin="0,0,0,5" x:Name="radioAlwaysOnUsbOff" Content="Off" HorizontalAlignment="Left"
                                  VerticalAlignment="Top" Checked="radioAlwaysOnUsb_Checked"
@@ -98,7 +113,7 @@
                     </StackPanel>
                 </GroupBox>
 
-                <GroupBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0" Header="Misc">
+                <GroupBox Grid.Row="2" Grid.Column="1" Margin="0" Header="Misc">
                     <StackPanel Margin="5,5,20,5" Orientation="Vertical">
                         <CheckBox Margin="0,0,0,5" x:Name="chkFlipToStart" Content="Flip to start" HorizontalAlignment="Left"
                               VerticalAlignment="Top" Checked="chkFlipToStart_Checked"
