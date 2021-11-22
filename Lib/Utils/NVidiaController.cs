@@ -12,7 +12,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             Unknown,
             Inactive,
             UnnecessarilyActive,
-            SingleVideoCardMode,
+            SingleVideoCardFound,
             DiscreteGPUNotFound,
             MonitorsConnected,
         }
@@ -102,7 +102,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             var videoControllers = OS.GetVideoControllersInformation();
             if (videoControllers.Count() < 2)
             {
-                _status = Status.SingleVideoCardMode;
+                _status = Status.SingleVideoCardFound;
                 return;
             }
 

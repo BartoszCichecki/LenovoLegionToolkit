@@ -175,16 +175,15 @@ namespace LenovoLegionToolkit
             Dispatcher.Invoke(() =>
             {
                 lblDiscreteGPUStatusValue.Content = e.IsActive ? "Active" : "Inactive";
-                lblDiscreteGPUStatusValue.ToolTip = e.Status switch
-                {
-                    NVidiaMonitor.Status.SingleVideoCardMode => "There is only one video card.",
-                    NVidiaMonitor.Status.DiscreteGPUNotFound => "Discrete nVidia GPU not found.",
-                    NVidiaMonitor.Status.MonitorsConnected => "Monitor is connected to nVidia GPU.",
-                    _ => null,
-
-                };
                 lblDiscreteGPUProcessesValue.Content = e.ProcessCount < 0 ? "-" : e.ProcessCount.ToString();
                 btnDiscreteExternalGPU.IsEnabled = e.CanBeDisabled;
+                btnDiscreteExternalGPU.ToolTip = e.Status switch
+                {
+                    NVidiaMonitor.Status.DiscreteGPUNotFound => "Discrete nVidia GPU not found.",
+                    NVidiaMonitor.Status.SingleVideoCardFound => "There is only one GPU active.",
+                    NVidiaMonitor.Status.MonitorsConnected => "Monitor is connected to nVidia GPU.",
+                    _ => null,
+                };
             });
         }
 
