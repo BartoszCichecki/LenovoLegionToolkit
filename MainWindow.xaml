@@ -84,7 +84,19 @@
                     </StackPanel>
                 </GroupBox>
 
-                <GroupBox Grid.Row="1" Grid.Column="1" Header="Always on USB" Margin="0">
+
+                <GroupBox Grid.Row="1" Grid.Column="1" Header="Discrete GPU" Margin="0">
+                    <StackPanel Margin="5,5,5,5" Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Ellipse x:Name="elpsDiscreteGPUStatusActive" Width="10" Height="10" Fill="#FF8BC34A"/>
+                            <Ellipse x:Name="elpsDiscreteGPUStatusInactive" Width="10" Height="10" Fill="#BF360C"/>
+                            <Label x:Name="lblDiscreteGPUStatus" Content="-" Margin="2,0,0,0" />
+                        </StackPanel>
+                        <Button x:Name="btnDeactivateDiscreteGPU" Click="btnDeactivateDiscreteGPU_Click" Content="Deactivate" Margin="10,10,10,0" IsEnabled="False" ToolTipService.ShowOnDisabled="true"  />
+                    </StackPanel>
+                </GroupBox>
+
+                <GroupBox Grid.Row="2" Grid.Column="0" Header="Always on USB" Margin="0,0,5,0">
                     <StackPanel Margin="5,5,20,5" Orientation="Vertical">
                         <RadioButton Margin="0,0,0,5" x:Name="radioAlwaysOnUsbOff" Content="Off" HorizontalAlignment="Left"
                                  VerticalAlignment="Top" Checked="radioAlwaysOnUsb_Checked"
@@ -98,7 +110,7 @@
                     </StackPanel>
                 </GroupBox>
 
-                <GroupBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0" Header="Misc">
+                <GroupBox Grid.Row="2" Grid.Column="1" Margin="0" Header="Misc">
                     <StackPanel Margin="5,5,20,5" Orientation="Vertical">
                         <CheckBox Margin="0,0,0,5" x:Name="chkFlipToStart" Content="Flip to start" HorizontalAlignment="Left"
                               VerticalAlignment="Top" Checked="chkFlipToStart_Checked"

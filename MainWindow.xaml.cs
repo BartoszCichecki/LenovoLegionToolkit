@@ -1,14 +1,14 @@
 ﻿using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
 using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
-
-#pragma warning disable IDE1006 // Naming Styles
 
 namespace LenovoLegionToolkit
 {
@@ -19,18 +19,20 @@ namespace LenovoLegionToolkit
     {
         private class FeatureCheck
         {
-            private readonly Action _check;
-            private readonly Action _disable;
+            public Action Check { get; }
+            public Action Disable { get; }
 
             public FeatureCheck(Action check, Action disable)
             {
-                _check = check;
-                _disable = disable;
+                Check = check;
+                Disable = disable;
             }
-
-            public void Check() => _check();
-            public void Disable() => _disable();
         }
+
+        private readonly RadioButton[] _alwaysOnUsbButtons;
+        private readonly RadioButton[] _batteryButtons;
+        private readonly RadioButton[] _hybridModeButtons;
+        private readonly RadioButton[] _powerModeButtons;
 
         private readonly AlwaysOnUsbFeature _alwaysOnUsbFeature = new();
         private readonly BatteryFeature _batteryFeature = new();
@@ -41,21 +43,22 @@ namespace LenovoLegionToolkit
         private readonly PowerModeFeature _powerModeFeature = new();
         private readonly TouchpadLockFeature _touchpadLockFeature = new();
 
-        private readonly RadioButton[] _alwaysOnUsbButtons;
-        private readonly RadioButton[] _batteryButtons;
-        private readonly RadioButton[] _hybridModeButtons;
-        private readonly RadioButton[] _powerModeButtons;
-
         private readonly Autorun _autorun = new();
         private readonly UpdateChecker _updateChecker = new();
+
+        private readonly PowerModeListener _powerModeListener = new();
+        private readonly GPUController _gpuController = new();
 
         public MainWindow()
         {
             InitializeComponent();
 
             StateChanged += mainWindow_StateChanged;
+            IsVisibleChanged += mainWindow_IsVisibleChanged;
+            Closing += mainWindow_Closing;
 
-            ((App)Application.Current).PowerModeListener.Changed += powerModeListener_Changed;
+            _powerModeListener.Changed += powerModeListener_Changed;
+            _gpuController.Refreshed += gpuController_Refreshed;
 
             autorunMenuItem.IsChecked = _autorun.IsEnabled;
 
@@ -64,7 +67,12 @@ namespace LenovoLegionToolkit
             _hybridModeButtons = new[] { radioHybridOn, radioHybridOff };
             _powerModeButtons = new[] { radioQuiet, radioBalance, radioPerformance };
 
+
+            elpsDiscreteGPUStatusActive.Visibility = Visibility.Collapsed;
+            elpsDiscreteGPUStatusInactive.Visibility = Visibility.Collapsed;
             updateIndicator.Visibility = Visibility.Collapsed;
+
+            _powerModeListener.Start();
 
             Refresh();
             CheckUpdates();
@@ -167,6 +175,57 @@ namespace LenovoLegionToolkit
             }
         }
 
+        private void mainWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (IsVisible)
+                _gpuController.Start();
+            else
+                _gpuController.Stop();
+        }
+
+        private void mainWindow_Closing(object sender, CancelEventArgs e) => _powerModeListener.Stop();
+
+        private void gpuController_Refreshed(object sender, GPUController.RefreshedEventArgs e)
+        {
+            Dispatcher.Invoke(() =>
+            {
+                if (e.Status == GPUController.Status.Unknown || e.Status == GPUController.Status.DiscreteNVGPUNotFound || e.Status == GPUController.Status.SingleVideoCardFound)
+                {
+                    lblDiscreteGPUStatus.Content = "-";
+                    lblDiscreteGPUStatus.ToolTip = null;
+                    elpsDiscreteGPUStatusActive.Visibility = Visibility.Collapsed;
+                    elpsDiscreteGPUStatusInactive.Visibility = Visibility.Collapsed;
+                }
+                else if (e.IsActive)
+                {
+                    var status = "Active";
+                    if (e.ProcessCount > 0)
+                        status += $" ({e.ProcessCount} app{(e.ProcessCount > 1 ? "s" : "")})";
+                    lblDiscreteGPUStatus.Content = status;
+                    lblDiscreteGPUStatus.ToolTip = e.ProcessCount < 1 ? null : string.Join("\n", e.ProcessNames);
+                    elpsDiscreteGPUStatusActive.Visibility = Visibility.Visible;
+                    elpsDiscreteGPUStatusInactive.Visibility =Visibility.Collapsed;
+                }
+                else
+                {
+                    lblDiscreteGPUStatus.Content = "Inactive";
+                    lblDiscreteGPUStatus.ToolTip = null;
+                    elpsDiscreteGPUStatusActive.Visibility = Visibility.Collapsed;
+                    elpsDiscreteGPUStatusInactive.Visibility = Visibility.Visible;
+                }
+
+                btnDeactivateDiscreteGPU.IsEnabled = e.CanBeDisabled;
+                btnDeactivateDiscreteGPU.ToolTip = e.Status switch
+                {
+                    GPUController.Status.DiscreteNVGPUNotFound => "Discrete nVidia GPU not found. AMD GPUs are not supported.",
+                    GPUController.Status.SingleVideoCardFound => "There is only one GPU active.",
+                    GPUController.Status.MonitorsConnected => "Monitor is connected to discrete GPU.",
+                    GPUController.Status.DeactivatePossible => "Discrete GPU can be disabled. Remember, that some programs might crash if you do it.",
+                    _ => null,
+                };
+            });
+        }
+
         public void powerModeListener_Changed(object sender, PowerModeState state)
         {
             Dispatcher.Invoke(() => { _powerModeButtons[(int)state].IsChecked = true; });
@@ -255,6 +314,8 @@ namespace LenovoLegionToolkit
                 return;
             _touchpadLockFeature.SetState(state);
         }
+
+        private void btnDeactivateDiscreteGPU_Click(object sender, RoutedEventArgs e) => _gpuController.DeactivateGPU();
 
         private void notifyIcon_TrayMouseUp(object sender, RoutedEventArgs e) => BringToForeground();
 
