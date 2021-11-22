@@ -27,7 +27,7 @@ namespace LenovoLegionToolkit.Lib.Features
             return FromInternal(ExecuteGamezone("Get" + _methodNameSuffix, "Data"));
         }
 
-        public void SetState(T state)
+        public virtual void SetState(T state)
         {
             ExecuteGamezone("Set" + _methodNameSuffix, "Data",
                 new Dictionary<string, string>
