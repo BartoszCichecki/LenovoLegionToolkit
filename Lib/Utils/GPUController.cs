@@ -46,7 +46,7 @@ namespace LenovoLegionToolkit.Lib.Utils
         public IEnumerable<string> _processNames = null;
         private string _pnpDeviceId = null;
 
-        private bool IsActive => _status != Status.Unknown && _status != Status.Inactive;
+        private bool IsActive => _status == Status.SingleVideoCardFound || _status == Status.MonitorsConnected || _status == Status.DeactivatePossible;
         private bool CanBeDisabled => _status == Status.DeactivatePossible;
 
         public event EventHandler<RefreshedEventArgs> Refreshed;

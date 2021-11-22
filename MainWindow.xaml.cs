@@ -67,6 +67,9 @@ namespace LenovoLegionToolkit
             _hybridModeButtons = new[] { radioHybridOn, radioHybridOff };
             _powerModeButtons = new[] { radioQuiet, radioBalance, radioPerformance };
 
+
+            elpsDiscreteGPUStatusActive.Visibility = Visibility.Collapsed;
+            elpsDiscreteGPUStatusInactive.Visibility = Visibility.Collapsed;
             updateIndicator.Visibility = Visibility.Collapsed;
 
             _powerModeListener.Start();
@@ -186,15 +189,37 @@ namespace LenovoLegionToolkit
         {
             Dispatcher.Invoke(() =>
             {
-                lblDiscreteGPUStatusValue.Content = e.IsActive ? "Active" : "Inactive";
-                lblDiscreteGPUProcessesValue.Content = e.ProcessCount < 0 ? "-" : e.ProcessCount.ToString();
-                lblDiscreteGPUProcessesValue.ToolTip = e.ProcessCount < 1 ? null : string.Join("\n", e.ProcessNames);
+                if (e.Status == GPUController.Status.Unknown || e.Status == GPUController.Status.DiscreteNVGPUNotFound || e.Status == GPUController.Status.SingleVideoCardFound)
+                {
+                    lblDiscreteGPUStatus.Content = "-";
+                    lblDiscreteGPUStatus.ToolTip = null;
+                    elpsDiscreteGPUStatusActive.Visibility = Visibility.Collapsed;
+                    elpsDiscreteGPUStatusInactive.Visibility = Visibility.Collapsed;
+                }
+                else if (e.IsActive)
+                {
+                    var status = "Active";
+                    if (e.ProcessCount > 0)
+                        status += $" ({e.ProcessCount} app{(e.ProcessCount > 1 ? "s" : "")})";
+                    lblDiscreteGPUStatus.Content = status;
+                    lblDiscreteGPUStatus.ToolTip = e.ProcessCount < 1 ? null : string.Join("\n", e.ProcessNames);
+                    elpsDiscreteGPUStatusActive.Visibility = Visibility.Visible;
+                    elpsDiscreteGPUStatusInactive.Visibility =Visibility.Collapsed;
+                }
+                else
+                {
+                    lblDiscreteGPUStatus.Content = "Inactive";
+                    lblDiscreteGPUStatus.ToolTip = null;
+                    elpsDiscreteGPUStatusActive.Visibility = Visibility.Collapsed;
+                    elpsDiscreteGPUStatusInactive.Visibility = Visibility.Visible;
+                }
+
                 btnDeactivateDiscreteGPU.IsEnabled = e.CanBeDisabled;
                 btnDeactivateDiscreteGPU.ToolTip = e.Status switch
                 {
                     GPUController.Status.DiscreteNVGPUNotFound => "Discrete nVidia GPU not found.",
                     GPUController.Status.SingleVideoCardFound => "There is only one GPU active.",
-                    GPUController.Status.MonitorsConnected => "Monitor is connected to Discrete GPU.",
+                    GPUController.Status.MonitorsConnected => "Monitor is connected to discrete GPU.",
                     GPUController.Status.DeactivatePossible => "Discrete GPU can be disabled. Remember, that some programs might crash if you do it.",
                     _ => null,
                 };
