@@ -95,7 +95,7 @@
                             <Label Content="Processes: " Padding="0,0,0,0" />
                             <Label x:Name="lblDiscreteGPUProcessesValue" Content="-" Padding="0,0,0,0" />
                         </StackPanel>
-                        <Button x:Name="btnDiscreteExternalGPU" Content="Disable" Margin="10,10,10,0" IsEnabled="False" HorizontalContentAlignment="Center" ToolTipService.ShowOnDisabled="true"  />
+                        <Button x:Name="btnDisableDiscreteGPU" Click="btnDisableDiscreteGPU_Click" Content="Disable" Margin="10,10,10,0" IsEnabled="False" ToolTipService.ShowOnDisabled="true"  />
                     </StackPanel>
                 </GroupBox>
 

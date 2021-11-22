@@ -34,6 +34,8 @@ namespace LenovoLegionToolkit.Lib.Utils
     {
         public static void Restart() => ExecuteProcess("shutdown", "-r -t 0");
 
+        public static void RestartDevice(string _pnpDeviceId) => ExecuteProcess("pnputil", $"-restart-device \"{_pnpDeviceId}\"");
+
         public static void SetPowerPlan(string guid) => ExecuteProcess("powercfg", $"-setactive {guid}");
 
         public static NVidiaInformation GetNVidiaInformation()
