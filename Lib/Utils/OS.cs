@@ -45,7 +45,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 
             var xdoc = XDocument.Parse(output);
             var gpu = xdoc.Element("nvidia_smi_log").Element("gpu");
-            var displayActive = gpu.Element("display_active").Value == "Enabled" ? true : false;
+            var displayActive = gpu.Element("display_active").Value == "Enabled";
             var processInfo = gpu.Element("processes").Elements("process_info");
             var processesCount = processInfo.Count();
             var processNames = processInfo.Select(e => e.Element("process_name").Value).Select(Path.GetFileName);
