@@ -21,15 +21,15 @@ namespace LenovoLegionToolkit.Lib.Utils
         public class RefreshedEventArgs : EventArgs
         {
             public bool IsActive { get; }
-            public bool CanBeDisabled { get; }
+            public bool CanBeDeactivated { get; }
             public Status Status { get; }
             public int ProcessCount { get; }
             public IEnumerable<string> ProcessNames { get; }
 
-            public RefreshedEventArgs(bool isActive, bool canBeDisabled, Status status, int processCount, IEnumerable<string> processNames)
+            public RefreshedEventArgs(bool isActive, bool canBeDeactivated, Status status, int processCount, IEnumerable<string> processNames)
             {
                 IsActive = isActive;
-                CanBeDisabled = canBeDisabled;
+                CanBeDeactivated = canBeDeactivated;
                 Status = status;
                 ProcessCount = processCount;
                 ProcessNames = processNames;
@@ -47,7 +47,7 @@ namespace LenovoLegionToolkit.Lib.Utils
         private string _pnpDeviceId = null;
 
         private bool IsActive => _status == Status.SingleVideoCardFound || _status == Status.MonitorsConnected || _status == Status.DeactivatePossible;
-        private bool CanBeDisabled => _status == Status.DeactivatePossible;
+        private bool CanBeDeactivated => _status == Status.DeactivatePossible;
 
         public event EventHandler<RefreshedEventArgs> Refreshed;
 
@@ -67,7 +67,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                     lock (_lock)
                     {
                         Refresh();
-                        Refreshed?.Invoke(this, new RefreshedEventArgs(IsActive, CanBeDisabled, _status, _processCount, _processNames));
+                        Refreshed?.Invoke(this, new RefreshedEventArgs(IsActive, CanBeDeactivated, _status, _processCount, _processNames));
                     }
 
                     await Task.Delay(interval, token);
@@ -90,7 +90,7 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             lock (_lock)
             {
-                if (!IsActive || !CanBeDisabled)
+                if (!IsActive || !CanBeDeactivated)
                     return;
 
                 OS.RestartDevice(_pnpDeviceId);
