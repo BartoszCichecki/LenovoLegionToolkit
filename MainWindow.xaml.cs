@@ -217,7 +217,7 @@ namespace LenovoLegionToolkit
                 btnDeactivateDiscreteGPU.IsEnabled = e.CanBeDisabled;
                 btnDeactivateDiscreteGPU.ToolTip = e.Status switch
                 {
-                    GPUController.Status.DiscreteNVGPUNotFound => "Discrete nVidia GPU not found.",
+                    GPUController.Status.DiscreteNVGPUNotFound => "Discrete nVidia GPU not found. AMD GPUs are not supported.",
                     GPUController.Status.SingleVideoCardFound => "There is only one GPU active.",
                     GPUController.Status.MonitorsConnected => "Monitor is connected to discrete GPU.",
                     GPUController.Status.DeactivatePossible => "Discrete GPU can be disabled. Remember, that some programs might crash if you do it.",
