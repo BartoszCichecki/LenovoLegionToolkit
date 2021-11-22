@@ -3,6 +3,7 @@ using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
 using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
@@ -54,6 +55,7 @@ namespace LenovoLegionToolkit
 
             StateChanged += mainWindow_StateChanged;
             IsVisibleChanged += mainWindow_IsVisibleChanged;
+            Closing += mainWindow_Closing;
 
             _powerModeListener.Changed += powerModeListener_Changed;
             _gpuController.Refreshed += gpuController_Refreshed;
@@ -71,14 +73,6 @@ namespace LenovoLegionToolkit
 
             Refresh();
             CheckUpdates();
-        }
-
-        private void mainWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (IsVisible)
-                _gpuController.Start();
-            else
-                _gpuController.Stop();
         }
 
         public void BringToForeground()
@@ -177,6 +171,16 @@ namespace LenovoLegionToolkit
                     break;
             }
         }
+
+        private void mainWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (IsVisible)
+                _gpuController.Start();
+            else
+                _gpuController.Stop();
+        }
+
+        private void mainWindow_Closing(object sender, CancelEventArgs e) => _powerModeListener.Stop();
 
         private void gpuController_Refreshed(object sender, GPUController.RefreshedEventArgs e)
         {
