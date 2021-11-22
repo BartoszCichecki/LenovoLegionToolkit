@@ -1,5 +1,4 @@
-﻿using LenovoLegionToolkit.Lib.Listeners;
-using LenovoLegionToolkit.Lib.Utils;
+﻿using LenovoLegionToolkit.Lib.Utils;
 using System;
 using System.Diagnostics;
 using System.Linq;
@@ -17,8 +16,6 @@ namespace LenovoLegionToolkit
         private const string MutexName = "LenovoLegionToolkit_Mutex_6efcc882-924c-4cbc-8fec-f45c25696f98";
         private const string EventName = "LenovoLegionToolkit_Event_6efcc882-924c-4cbc-8fec-f45c25696f98";
 
-        public readonly PowerModeListener PowerModeListener = new();
-
         private EventWaitHandle _eventWaitHandle;
 
         private void Application_Startup(object sender, StartupEventArgs e)
@@ -27,8 +24,6 @@ namespace LenovoLegionToolkit
 
             if (!ShouldByPassCompatibilityCheck(e.Args))
                 CheckCompatibility();
-
-            PowerModeListener.Start();
 
             var mainWindow = new MainWindow();
             if (ShouldStartMinimized(e.Args))

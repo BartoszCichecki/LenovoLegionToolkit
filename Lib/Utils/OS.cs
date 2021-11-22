@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Management;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace LenovoLegionToolkit.Lib.Utils
@@ -23,6 +23,7 @@ namespace LenovoLegionToolkit.Lib.Utils
     {
         public bool DisplayActive;
         public int ProcessCount;
+        public IEnumerable<string> ProcessNames;
     }
 
     public static class VideoCardInformationExtensions
@@ -43,14 +44,17 @@ namespace LenovoLegionToolkit.Lib.Utils
             var output = ExecuteProcessForOutput("nvidia-smi", "-q -x");
 
             var xdoc = XDocument.Parse(output);
-            var gpu = xdoc.Elements("nvidia_smi_log").Elements("gpu").First();
-            var displayActive = gpu.Elements("display_active").First().Value == "Enabled" ? true : false;
-            var processesCount = gpu.Elements("processes").First().Elements("process_info").Count();
+            var gpu = xdoc.Element("nvidia_smi_log").Element("gpu");
+            var displayActive = gpu.Element("display_active").Value == "Enabled" ? true : false;
+            var processInfo = gpu.Element("processes").Elements("process_info");
+            var processesCount = processInfo.Count();
+            var processNames = processInfo.Select(e => e.Element("process_name").Value).Select(Path.GetFileName);
 
             return new NVidiaInformation
             {
                 DisplayActive = displayActive,
-                ProcessCount = processesCount
+                ProcessCount = processesCount,
+                ProcessNames = processNames,
             };
 
         }
