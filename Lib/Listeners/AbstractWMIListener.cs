@@ -21,10 +21,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         public void Start()
         {
-            var scope = new ManagementScope("ROOT\\WMI");
-            scope.Connect();
-            var eventQuery = new EventQuery($"SELECT * FROM LENOVO_GAMEZONE_{_evenName}_EVENT");
-            _watcher = new ManagementEventWatcher(scope, eventQuery);
+            _watcher = new ManagementEventWatcher("ROOT\\WMI", $"SELECT * FROM LENOVO_GAMEZONE_{_evenName}_EVENT");
             _watcher.EventArrived += _watcher_EventArrived;
             _watcher.Start();
         }
