@@ -87,13 +87,10 @@
 
                 <GroupBox Grid.Row="1" Grid.Column="1" Header="Discrete GPU" Margin="0">
                     <StackPanel Margin="5,5,5,5" Orientation="Vertical">
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="Status: " Padding="0,0,0,0" />
-                            <Label x:Name="lblDiscreteGPUStatusValue" Content="-" Padding="0,0,0,0" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0,5,0,0" VerticalAlignment="Stretch">
-                            <Label Content="Processes: " Padding="0,0,0,0" />
-                            <Label x:Name="lblDiscreteGPUProcessesValue" Content="-" Padding="0,0,0,0" />
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Ellipse x:Name="elpsDiscreteGPUStatusActive" Width="10" Height="10" Fill="#FF8BC34A"/>
+                            <Ellipse x:Name="elpsDiscreteGPUStatusInactive" Width="10" Height="10" Fill="#BF360C"/>
+                            <Label x:Name="lblDiscreteGPUStatus" Content="-" Margin="2,0,0,0" />
                         </StackPanel>
                         <Button x:Name="btnDeactivateDiscreteGPU" Click="btnDeactivateDiscreteGPU_Click" Content="Deactivate" Margin="10,10,10,0" IsEnabled="False" ToolTipService.ShowOnDisabled="true"  />
                     </StackPanel>
