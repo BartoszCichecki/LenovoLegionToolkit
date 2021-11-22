@@ -214,7 +214,7 @@ namespace LenovoLegionToolkit
                     elpsDiscreteGPUStatusInactive.Visibility = Visibility.Visible;
                 }
 
-                btnDeactivateDiscreteGPU.IsEnabled = e.CanBeDisabled;
+                btnDeactivateDiscreteGPU.IsEnabled = e.CanBeDeactivated;
                 btnDeactivateDiscreteGPU.ToolTip = e.Status switch
                 {
                     GPUController.Status.DiscreteNVGPUNotFound => "Discrete nVidia GPU not found. AMD GPUs are not supported.",
