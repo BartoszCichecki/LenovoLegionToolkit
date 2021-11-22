@@ -89,7 +89,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                 if (!IsActive || !CanBeDisabled)
                     return;
 
-
+                OS.RestartDevice(_pnpDeviceId);
             }
         }
 

@@ -176,8 +176,8 @@ namespace LenovoLegionToolkit
             {
                 lblDiscreteGPUStatusValue.Content = e.IsActive ? "Active" : "Inactive";
                 lblDiscreteGPUProcessesValue.Content = e.ProcessCount < 0 ? "-" : e.ProcessCount.ToString();
-                btnDiscreteExternalGPU.IsEnabled = e.CanBeDisabled;
-                btnDiscreteExternalGPU.ToolTip = e.Status switch
+                btnDisableDiscreteGPU.IsEnabled = e.CanBeDisabled;
+                btnDisableDiscreteGPU.ToolTip = e.Status switch
                 {
                     NVidiaMonitor.Status.DiscreteGPUNotFound => "Discrete nVidia GPU not found.",
                     NVidiaMonitor.Status.SingleVideoCardFound => "There is only one GPU active.",
@@ -275,6 +275,8 @@ namespace LenovoLegionToolkit
                 return;
             _touchpadLockFeature.SetState(state);
         }
+
+        private void btnDisableDiscreteGPU_Click(object sender, RoutedEventArgs e) =>_nvidiaMonitor.DisableGPU();
 
         private void notifyIcon_TrayMouseUp(object sender, RoutedEventArgs e) => BringToForeground();
 
