@@ -91,11 +91,11 @@
                             <Label Content="Status: " Padding="0,0,0,0" />
                             <Label x:Name="lblDiscreteGPUStatusValue" Content="-" Padding="0,0,0,0" />
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,0" VerticalAlignment="Stretch">
                             <Label Content="Processes: " Padding="0,0,0,0" />
                             <Label x:Name="lblDiscreteGPUProcessesValue" Content="-" Padding="0,0,0,0" />
                         </StackPanel>
-                        <Button x:Name="btnDisableDiscreteGPU" Click="btnDisableDiscreteGPU_Click" Content="Disable" Margin="10,10,10,0" IsEnabled="False" ToolTipService.ShowOnDisabled="true"  />
+                        <Button x:Name="btnDeactivateDiscreteGPU" Click="btnDeactivateDiscreteGPU_Click" Content="Deactivate" Margin="10,10,10,0" IsEnabled="False" ToolTipService.ShowOnDisabled="true"  />
                     </StackPanel>
                 </GroupBox>
 

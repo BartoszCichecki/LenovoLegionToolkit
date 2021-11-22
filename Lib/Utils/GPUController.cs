@@ -1,19 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
-    public class NVidiaMonitor
+    public class GPUController
     {
         public enum Status
         {
             Unknown,
             Inactive,
-            UnnecessarilyActive,
+            DeactivatePossible,
             SingleVideoCardFound,
-            DiscreteGPUNotFound,
+            DiscreteNVGPUNotFound,
             MonitorsConnected,
         }
 
@@ -23,13 +24,15 @@ namespace LenovoLegionToolkit.Lib.Utils
             public bool CanBeDisabled { get; }
             public Status Status { get; }
             public int ProcessCount { get; }
+            public IEnumerable<string> ProcessNames { get; }
 
-            public RefreshedEventArgs(bool isActive, bool canBeDisabled, Status status, int processCount)
+            public RefreshedEventArgs(bool isActive, bool canBeDisabled, Status status, int processCount, IEnumerable<string> processNames)
             {
                 IsActive = isActive;
                 CanBeDisabled = canBeDisabled;
                 Status = status;
                 ProcessCount = processCount;
+                ProcessNames = processNames;
             }
         }
 
@@ -40,10 +43,11 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         private Status _status = Status.Unknown;
         private int _processCount = -1;
+        public IEnumerable<string> _processNames = null;
         private string _pnpDeviceId = null;
 
         private bool IsActive => _status != Status.Unknown && _status != Status.Inactive;
-        private bool CanBeDisabled => _status == Status.UnnecessarilyActive;
+        private bool CanBeDisabled => _status == Status.DeactivatePossible;
 
         public event EventHandler<RefreshedEventArgs> Refreshed;
 
@@ -63,7 +67,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                     lock (_lock)
                     {
                         Refresh();
-                        Refreshed?.Invoke(this, new RefreshedEventArgs(IsActive, CanBeDisabled, _status, _processCount));
+                        Refreshed?.Invoke(this, new RefreshedEventArgs(IsActive, CanBeDisabled, _status, _processCount, _processNames));
                     }
 
                     await Task.Delay(interval, token);
@@ -82,7 +86,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             _refreshTask = null;
         }
 
-        public void DisableGPU()
+        public void DeactivateGPU()
         {
             lock (_lock)
             {
@@ -97,6 +101,7 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             _status = Status.Unknown;
             _processCount = -1;
+            _processNames = null;
             _pnpDeviceId = null;
 
             var videoControllers = OS.GetVideoControllersInformation();
@@ -112,7 +117,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                 .FirstOrDefault();
             if (nvidiaVideoController == null)
             {
-                _status = Status.DiscreteGPUNotFound;
+                _status = Status.DiscreteNVGPUNotFound;
                 return;
             }
 
@@ -121,6 +126,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             {
                 _status = Status.MonitorsConnected;
                 _processCount = nvidiaInformation.ProcessCount;
+                _processNames = nvidiaInformation.ProcessNames;
                 return;
             }
 
@@ -130,8 +136,9 @@ namespace LenovoLegionToolkit.Lib.Utils
                 return;
             }
 
-            _status = Status.UnnecessarilyActive;
+            _status = Status.DeactivatePossible;
             _processCount = nvidiaInformation.ProcessCount;
+            _processNames = nvidiaInformation.ProcessNames;
             _pnpDeviceId = nvidiaVideoController.Value.PnpDeviceId;
         }
     }

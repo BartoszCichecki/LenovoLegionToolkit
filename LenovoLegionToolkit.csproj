@@ -19,6 +19,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="assets\info.png" />
     <None Remove="icon.ico" />
   </ItemGroup>
   <ItemGroup>
