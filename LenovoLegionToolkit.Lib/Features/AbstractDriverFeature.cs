@@ -1,7 +1,7 @@
-﻿using LenovoLegionToolkit.Lib.Utils;
-using Microsoft.Win32.SafeHandles;
-using System;
+﻿using System;
 using System.Runtime.InteropServices;
+using LenovoLegionToolkit.Lib.Utils;
+using Microsoft.Win32.SafeHandles;
 
 namespace LenovoLegionToolkit.Lib.Features
 {

@@ -1,5 +1,5 @@
-﻿using Microsoft.Win32.SafeHandles;
-using System;
+﻿using System;
+using Microsoft.Win32.SafeHandles;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {

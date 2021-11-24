@@ -1,6 +1,6 @@
-﻿using LenovoLegionToolkit.Lib.Utils;
-using System;
+﻿using System;
 using System.Runtime.InteropServices;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features
 {

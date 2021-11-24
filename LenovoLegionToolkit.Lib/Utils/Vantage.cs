@@ -1,5 +1,5 @@
-﻿using Microsoft.Win32.TaskScheduler;
-using System.ServiceProcess;
+﻿using System.ServiceProcess;
+using Microsoft.Win32.TaskScheduler;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {

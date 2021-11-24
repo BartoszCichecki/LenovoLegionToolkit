@@ -1,5 +1,5 @@
-﻿using LenovoLegionToolkit.Lib.Utils;
-using System;
+﻿using System;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features
 {

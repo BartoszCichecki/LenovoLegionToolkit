@@ -1,14 +1,14 @@
-﻿using LenovoLegionToolkit.Lib;
-using LenovoLegionToolkit.Lib.Features;
-using LenovoLegionToolkit.Lib.Listeners;
-using LenovoLegionToolkit.Lib.Utils;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit
 {
@@ -17,18 +17,6 @@ namespace LenovoLegionToolkit
     /// </summary>
     public partial class MainWindow : Window
     {
-        private class FeatureCheck
-        {
-            public Action Check { get; }
-            public Action Disable { get; }
-
-            public FeatureCheck(Action check, Action disable)
-            {
-                Check = check;
-                Disable = disable;
-            }
-        }
-
         private readonly RadioButton[] _alwaysOnUsbButtons;
         private readonly RadioButton[] _batteryButtons;
         private readonly RadioButton[] _hybridModeButtons;
@@ -204,7 +192,7 @@ namespace LenovoLegionToolkit
                     lblDiscreteGPUStatus.Content = status;
                     lblDiscreteGPUStatus.ToolTip = e.ProcessCount < 1 ? null : string.Join("\n", e.ProcessNames);
                     elpsDiscreteGPUStatusActive.Visibility = Visibility.Visible;
-                    elpsDiscreteGPUStatusInactive.Visibility =Visibility.Collapsed;
+                    elpsDiscreteGPUStatusInactive.Visibility = Visibility.Collapsed;
                 }
                 else
                 {

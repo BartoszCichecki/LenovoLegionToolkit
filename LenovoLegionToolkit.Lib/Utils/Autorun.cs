@@ -1,9 +1,9 @@
-﻿using Microsoft.Win32.TaskScheduler;
-using System.Diagnostics;
+﻿using System.Diagnostics;
+using Microsoft.Win32.TaskScheduler;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
-    internal class Autorun
+    public class Autorun
     {
         private const string TaskName = "LenovoLegionToolkit_Autorun_6efcc882-924c-4cbc-8fec-f45c25696f98";
 
