@@ -25,8 +25,9 @@
     <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" />
-    <PackageReference Include="Octokit" Version="0.50.0" />
-    <PackageReference Include="TaskScheduler" Version="2.9.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LenovoLegionToolkit.Lib\LenovoLegionToolkit.Lib.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="icon.ico" />

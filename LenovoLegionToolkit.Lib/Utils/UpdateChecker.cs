@@ -1,8 +1,8 @@
-﻿using Octokit;
-using System;
+﻿using System;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using Octokit;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {

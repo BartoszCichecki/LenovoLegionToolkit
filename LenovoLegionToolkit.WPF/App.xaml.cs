@@ -1,10 +1,10 @@
-﻿using LenovoLegionToolkit.Lib.Utils;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit
 {

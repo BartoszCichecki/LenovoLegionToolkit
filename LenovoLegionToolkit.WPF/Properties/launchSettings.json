@@ -1,10 +1,10 @@
 {
   "profiles": {
-    "LenovoLegionToolkit": {
+    "LenovoLegionToolkit.WPF": {
       "commandName": "Project",
       "commandLineArgs": ""
     },
-    "LenovoLegionToolkit (Minimized)": {
+    "LenovoLegionToolkit.WPF (Minimized)": {
       "commandName": "Project",
       "commandLineArgs": "--minimized"
     }
