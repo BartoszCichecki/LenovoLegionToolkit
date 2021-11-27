@@ -26,18 +26,28 @@ If you are getting an incompatible message on startup, you can check *Contributi
 The app allows to:
 
 * Switching between Quiet, Balance and Performance modes, including changing Windows power plans,
-
 * Enabling and disabling Hybrid Mode,
-
 * Changing Battery charging options: conservation, rapid charging and normal charging,
-
 * Always on USB charge settings: on, off and on when sleeping,
+* Flip to start, Over Drive, Fn and Touchpad locks,
+* Disable/enable Lenovo Vantage without uninstalling it,
+* Deactivate discrete GPU.
 
-* Flip to start, Over Drive, Fn and Touchpad locks.
+#### Disable/enable Lenovo Vantage
 
-This app also allows you to disable Lenovo Vantage without uninstalling it. It it especially useful, you want to keep Vantage around i.e. for checking updates.
+This app allows you to disable Lenovo Vantage without uninstalling it. It it especially useful, you want to keep Vantage around i.e. for checking updates.
 
 You can do it from the Tools menu on top. If you disable Vantage, it will stop and disable it's services, and disable all funky Lenovo Scheduled tasks. Once Vantage is disabled, it will no longer start any background processes on startup. If you want to open Lenovo Vantage, you need to re-enable it from the tool, otherwise it will prompt to reinstall itself.
+
+#### Deactivate discrete GPU
+
+Sometimes discrete GPU stays active even when it should not. This can happen for example, if you work with external screen and you disconnect it - some processes will keep running on discrete GPU keeping it alive and shortening battery life.
+
+This app allows you to deactivate discrete GPU, forcing all processes to move to integrated GPU and allowing discrete GPU to turn off and extend battery life. Toolkit will show you if the dGPU is active and how many processes run on it. If you hover mouse over the GPU status it, tooltip will contain list of active processes.
+
+Deactive button will be enabled when dGPU is active, you have Hybrid mode enabled and there are no screens connected to dGPU.
+
+Keep in mind that some apps may not like this feature and crash, when you deactivate dGPU.
 
 
 ## Requirements
