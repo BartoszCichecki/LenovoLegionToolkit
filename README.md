@@ -16,20 +16,9 @@ The tool comes with no warranty. Use at you own risk.
 
 ## Compatibility
 
-* Lenovo Legion 7 16ACHg6
-* Lenovo Legion 7 16ITHg6
-* Lenovo Legion 7 15IMHg05
-* Lenovo Legion 5 Pro 16ACH6H
-* Lenovo Legion 5 15ACH6H
-* Lenovo Legion 5 15ARH05
-* Lenobo Legion 5 15IMH05H
-* Lenovo Legion 5 R7000P2021H
-* Lenobo Legion S7 15ACH6
-* Lenovo Legion Y740 17IRHg
-* Lenovo Legion Y540 15IRH
-* Lenovo Legion Y540 17IRH
+Toolkit is compatible with a lot of Legion laptops from 2020 and 2021. Full list of supported models can be found here: [Compatibility.cs](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/LenovoLegionToolkit.Lib/Utils/Compatibility.cs).
 
-This app can probably work on a lot more 2020/2021 Lenovo laptops. If you want to help expand the list check the *Contribution* section.
+If you are getting an incompatible message on startup, you can check *Contribution* section down at the bottom, to see how can you help.
 
 
 ## Features
