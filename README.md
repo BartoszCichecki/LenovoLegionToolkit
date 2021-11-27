@@ -31,7 +31,7 @@ The app allows to:
 * Always on USB charge settings: on, off and on when sleeping,
 * Flip to start, Over Drive, Fn and Touchpad locks,
 * Disable/enable Lenovo Vantage without uninstalling it,
-* Deactivate discrete GPU.
+* Deactivate discrete GPU (nVidia only).
 
 #### Disable/enable Lenovo Vantage
 
