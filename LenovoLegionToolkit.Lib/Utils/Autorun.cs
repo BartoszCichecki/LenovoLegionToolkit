@@ -4,13 +4,13 @@ using Microsoft.Win32.TaskScheduler;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
-    public class Autorun
+    public static class Autorun
     {
         private const string TaskName = "LenovoLegionToolkit_Autorun_6efcc882-924c-4cbc-8fec-f45c25696f98";
 
-        public bool IsEnabled => TaskService.Instance.GetTask(TaskName) != null;
+        public static bool IsEnabled => TaskService.Instance.GetTask(TaskName) != null;
 
-        public void Enable()
+        public static void Enable()
         {
             Disable();
 
@@ -27,6 +27,6 @@ namespace LenovoLegionToolkit.Lib.Utils
             ts.RootFolder.RegisterTaskDefinition(TaskName, td);
         }
 
-        public void Disable() => TaskService.Instance.RootFolder.DeleteTask(TaskName, false);
+        public static void Disable() => TaskService.Instance.RootFolder.DeleteTask(TaskName, false);
     }
 }

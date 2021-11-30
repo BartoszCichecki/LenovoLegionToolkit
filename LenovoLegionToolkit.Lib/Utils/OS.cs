@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Management;
@@ -7,43 +6,13 @@ using System.Xml.Linq;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
-    public struct MachineInformation
-    {
-        public string Vendor;
-        public string Model;
-    }
-
-    public struct NVidiaInformation
-    {
-        public int ProcessCount;
-        public IEnumerable<string> ProcessNames;
-    }
-
     public static class OS
     {
         public static void Restart() => ExecuteProcess("shutdown", "-r -t 0");
 
-        public static void RestartDevice(string _pnpDeviceId) => ExecuteProcess("pnputil", $"/restart-device /deviceid \"{_pnpDeviceId}\"");
+        internal static void RestartDevice(string _pnpDeviceId) => ExecuteProcess("pnputil", $"/restart-device /deviceid \"{_pnpDeviceId}\"");
 
-        public static void SetPowerPlan(string guid) => ExecuteProcess("powercfg", $"-setactive {guid}");
-
-        public static NVidiaInformation GetNVidiaInformation()
-        {
-            var output = ExecuteProcessForOutput("nvidia-smi", "-q -x");
-
-            var xdoc = XDocument.Parse(output);
-            var gpu = xdoc.Element("nvidia_smi_log").Element("gpu");
-            var processInfo = gpu.Element("processes").Elements("process_info");
-            var processesCount = processInfo.Count();
-            var processNames = processInfo.Select(e => e.Element("process_name").Value).Select(Path.GetFileName);
-
-            return new NVidiaInformation
-            {
-                ProcessCount = processesCount,
-                ProcessNames = processNames,
-            };
-
-        }
+        internal static void SetPowerPlan(string guid) => ExecuteProcess("powercfg", $"-setactive {guid}");
 
         public static MachineInformation GetMachineInformation()
         {
@@ -59,6 +28,24 @@ namespace LenovoLegionToolkit.Lib.Utils
                 };
             }
             return default;
+        }
+
+        internal static NVidiaInformation GetNVidiaInformation()
+        {
+            var output = ExecuteProcessForOutput("nvidia-smi", "-q -x");
+
+            var xdoc = XDocument.Parse(output);
+            var gpu = xdoc.Element("nvidia_smi_log").Element("gpu");
+            var processInfo = gpu.Element("processes").Elements("process_info");
+            var processesCount = processInfo.Count();
+            var processNames = processInfo.Select(e => e.Element("process_name").Value).Select(Path.GetFileName);
+
+            return new NVidiaInformation
+            {
+                ProcessCount = processesCount,
+                ProcessNames = processNames,
+            };
+
         }
 
         private static void ExecuteProcess(string file, string arguments)

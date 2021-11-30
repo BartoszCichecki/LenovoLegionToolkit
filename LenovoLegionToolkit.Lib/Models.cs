@@ -1,7 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace LenovoLegionToolkit.Lib
 {
+    public struct MachineInformation
+    {
+        public string Vendor;
+        public string Model;
+    }
+
+    internal struct NVidiaInformation
+    {
+        public int ProcessCount;
+        public IEnumerable<string> ProcessNames;
+    }
+
     public enum AlwaysOnUsbState
     {
         Off,

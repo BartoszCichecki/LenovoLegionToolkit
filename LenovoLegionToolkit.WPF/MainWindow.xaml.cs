@@ -32,9 +32,6 @@ namespace LenovoLegionToolkit
         private readonly PowerModeFeature _powerModeFeature = new();
         private readonly TouchpadLockFeature _touchpadLockFeature = new();
 
-        private readonly Autorun _autorun = new();
-        private readonly UpdateChecker _updateChecker = new();
-
         private readonly PowerModeListener _powerModeListener = new();
         private readonly GPUController _gpuController = new();
 
@@ -61,7 +58,7 @@ namespace LenovoLegionToolkit
                 vantageMenuItem.IsEnabled = false;
             }
 
-            autorunMenuItem.IsChecked = _autorun.IsEnabled;
+            autorunMenuItem.IsChecked = Autorun.IsEnabled;
 
             _alwaysOnUsbButtons = new[] { radioAlwaysOnUsbOff, radioAlwaysOnUsbOnWhenSleeping, radioAlwaysOnUsbOnAlways };
             _batteryButtons = new[] { radioConservation, radioNormalCharge, radioRapidCharge };
@@ -105,7 +102,7 @@ namespace LenovoLegionToolkit
 
         private void CheckUpdates()
         {
-            Task.Run(_updateChecker.CheckUpdates)
+            Task.Run(UpdateChecker.CheckUpdates)
                 .ContinueWith(updatesAvailable =>
             {
                 updateIndicator.Visibility = updatesAvailable.Result ? Visibility.Visible : Visibility.Collapsed;
@@ -331,8 +328,8 @@ namespace LenovoLegionToolkit
 
         private void autorunMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            if (_autorun.IsEnabled)
-                _autorun.Disable();
+            if (Autorun.IsEnabled)
+                Autorun.Disable();
             else
             {
                 var result = MessageBox.Show("If you move Lenovo Legion Toolkit to a different location after enabling this option, please disable and enable this option to keep it starting automatically.",
@@ -342,10 +339,10 @@ namespace LenovoLegionToolkit
                 if (result != MessageBoxResult.OK)
                     return;
 
-                _autorun.Enable();
+                Autorun.Enable();
             }
 
-            autorunMenuItem.IsChecked = _autorun.IsEnabled;
+            autorunMenuItem.IsChecked = Autorun.IsEnabled;
         }
 
         private void enableVantageMenuItem_Click(object sender, RoutedEventArgs e)
