@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -11,11 +10,10 @@ namespace LenovoLegionToolkit.Lib.Utils
         public enum Status
         {
             Unknown,
-            Inactive,
-            DeactivatePossible,
-            SingleVideoCardFound,
-            DiscreteNVGPUNotFound,
+            NVIDIAGPUNotFound,
             MonitorsConnected,
+            DeactivatePossible,
+            Inactive,
         }
 
         public class RefreshedEventArgs : EventArgs
@@ -46,12 +44,12 @@ namespace LenovoLegionToolkit.Lib.Utils
         private IEnumerable<string> _processNames = null;
         private string _pnpDeviceId = null;
 
-        private bool IsActive => _status == Status.SingleVideoCardFound || _status == Status.MonitorsConnected || _status == Status.DeactivatePossible;
+        private bool IsActive => _status == Status.MonitorsConnected || _status == Status.DeactivatePossible;
         private bool CanBeDeactivated => _status == Status.DeactivatePossible;
 
         public event EventHandler<RefreshedEventArgs> Refreshed;
 
-        public void Start(int interval = 2_000)
+        public void Start(int delay = 2_500, int interval = 5_000)
         {
             Stop(true);
 
@@ -60,6 +58,8 @@ namespace LenovoLegionToolkit.Lib.Utils
 
             _refreshTask = Task.Run(async () =>
             {
+                await Task.Delay(delay, token);
+
                 while (true)
                 {
                     token.ThrowIfCancellationRequested();
@@ -104,42 +104,31 @@ namespace LenovoLegionToolkit.Lib.Utils
             _processNames = null;
             _pnpDeviceId = null;
 
-            var videoControllers = OS.GetVideoControllersInformation();
-            if (videoControllers.Count() < 2)
+            if (!NVAPIWrapper.IsGPUPresent(out var gpu))
             {
-                _status = Status.SingleVideoCardFound;
+                _status = Status.NVIDIAGPUNotFound;
                 return;
             }
 
-            var nvidiaVideoController = videoControllers
-                .Where(vci => vci.IsNVidia())
-                .Cast<VideoCardInformation?>()
-                .FirstOrDefault();
-            if (nvidiaVideoController == null)
-            {
-                _status = Status.DiscreteNVGPUNotFound;
-                return;
-            }
-
-            var nvidiaInformation = OS.GetNVidiaInformation();
-            if (nvidiaInformation.DisplayActive)
-            {
-                _status = Status.MonitorsConnected;
-                _processCount = nvidiaInformation.ProcessCount;
-                _processNames = nvidiaInformation.ProcessNames;
-                return;
-            }
-
-            if (nvidiaInformation.ProcessCount < 1)
+            if (!NVAPIWrapper.IsGPUActive(gpu))
             {
                 _status = Status.Inactive;
                 return;
             }
 
-            _status = Status.DeactivatePossible;
+            var nvidiaInformation = OS.GetNVidiaInformation();
+
             _processCount = nvidiaInformation.ProcessCount;
             _processNames = nvidiaInformation.ProcessNames;
-            _pnpDeviceId = nvidiaVideoController.Value.PnpDeviceId;
+
+            if (NVAPIWrapper.IsDisplayConnected(gpu))
+            {
+                _status = Status.MonitorsConnected;
+                return;
+            }
+
+            _pnpDeviceId = NVAPIWrapper.GetGPUId(gpu);
+            _status = Status.DeactivatePossible;
         }
     }
 }

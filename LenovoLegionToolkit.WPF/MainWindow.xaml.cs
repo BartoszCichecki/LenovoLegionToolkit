@@ -177,7 +177,7 @@ namespace LenovoLegionToolkit
         {
             Dispatcher.Invoke(() =>
             {
-                if (e.Status == GPUController.Status.Unknown || e.Status == GPUController.Status.DiscreteNVGPUNotFound || e.Status == GPUController.Status.SingleVideoCardFound)
+                if (e.Status == GPUController.Status.Unknown || e.Status == GPUController.Status.NVIDIAGPUNotFound)
                 {
                     lblDiscreteGPUStatus.Content = "-";
                     lblDiscreteGPUStatus.ToolTip = null;
@@ -205,10 +205,9 @@ namespace LenovoLegionToolkit
                 btnDeactivateDiscreteGPU.IsEnabled = e.CanBeDeactivated;
                 btnDeactivateDiscreteGPU.ToolTip = e.Status switch
                 {
-                    GPUController.Status.DiscreteNVGPUNotFound => "Discrete nVidia GPU not found. AMD GPUs are not supported.",
-                    GPUController.Status.SingleVideoCardFound => "There is only one GPU active.",
-                    GPUController.Status.MonitorsConnected => "Monitor is connected to discrete GPU.",
-                    GPUController.Status.DeactivatePossible => "Discrete GPU can be disabled. Remember, that some programs might crash if you do it.",
+                    GPUController.Status.NVIDIAGPUNotFound => "Discrete nVidia GPU not found. AMD GPUs are not supported.",
+                    GPUController.Status.MonitorsConnected => "A monitor is connected to nVidia GPU.",
+                    GPUController.Status.DeactivatePossible => "nVidia GPU can be disabled.\n\nRemember, that some programs might crash if you do it.",
                     _ => null,
                 };
             });

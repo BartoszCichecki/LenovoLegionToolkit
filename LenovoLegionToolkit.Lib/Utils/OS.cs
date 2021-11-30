@@ -13,29 +13,17 @@ namespace LenovoLegionToolkit.Lib.Utils
         public string Model;
     }
 
-    public struct VideoCardInformation
-    {
-        public string Manufacturer;
-        public string PnpDeviceId;
-    }
-
     public struct NVidiaInformation
     {
-        public bool DisplayActive;
         public int ProcessCount;
         public IEnumerable<string> ProcessNames;
-    }
-
-    public static class VideoCardInformationExtensions
-    {
-        public static bool IsNVidia(this VideoCardInformation vci) => vci.Manufacturer.Contains("nvidia", System.StringComparison.OrdinalIgnoreCase);
     }
 
     public static class OS
     {
         public static void Restart() => ExecuteProcess("shutdown", "-r -t 0");
 
-        public static void RestartDevice(string _pnpDeviceId) => ExecuteProcess("pnputil", $"-restart-device \"{_pnpDeviceId}\"");
+        public static void RestartDevice(string _pnpDeviceId) => ExecuteProcess("pnputil", $"/restart-device /deviceid \"{_pnpDeviceId}\"");
 
         public static void SetPowerPlan(string guid) => ExecuteProcess("powercfg", $"-setactive {guid}");
 
@@ -45,14 +33,12 @@ namespace LenovoLegionToolkit.Lib.Utils
 
             var xdoc = XDocument.Parse(output);
             var gpu = xdoc.Element("nvidia_smi_log").Element("gpu");
-            var displayActive = gpu.Element("display_active").Value == "Enabled";
             var processInfo = gpu.Element("processes").Elements("process_info");
             var processesCount = processInfo.Count();
             var processNames = processInfo.Select(e => e.Element("process_name").Value).Select(Path.GetFileName);
 
             return new NVidiaInformation
             {
-                DisplayActive = displayActive,
                 ProcessCount = processesCount,
                 ProcessNames = processNames,
             };
@@ -73,20 +59,6 @@ namespace LenovoLegionToolkit.Lib.Utils
                 };
             }
             return default;
-        }
-        public static IEnumerable<VideoCardInformation> GetVideoControllersInformation()
-        {
-            var searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_VideoController");
-            foreach (var queryObj in searcher.Get())
-            {
-                var manufacturer = queryObj["AdapterCompatibility"].ToString();
-                var pnpDeviceId = queryObj["PNPDeviceID"].ToString();
-                yield return new VideoCardInformation
-                {
-                    Manufacturer = manufacturer,
-                    PnpDeviceId = pnpDeviceId,
-                };
-            }
         }
 
         private static void ExecuteProcess(string file, string arguments)
