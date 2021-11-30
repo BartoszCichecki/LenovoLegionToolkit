@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
@@ -46,11 +47,20 @@ namespace LenovoLegionToolkit
             Closing += mainWindow_Closing;
 
             _powerModeListener.Changed += powerModeListener_Changed;
+            _gpuController.WillRefresh += gpuController_WillRefresh;
             _gpuController.Refreshed += gpuController_Refreshed;
 
-            var vantageEnabled = Vantage.IsEnabled();
-            enableVantageMenuItem.IsChecked = vantageEnabled;
-            disableVantageMenuItem.IsChecked = !vantageEnabled;
+            try
+            {
+                var vantageEnabled = VantageController.IsEnabled();
+                enableVantageMenuItem.IsChecked = vantageEnabled;
+                disableVantageMenuItem.IsChecked = !vantageEnabled;
+            }
+            catch (VantageServiceNotFoundException)
+            {
+                vantageMenuItem.IsEnabled = false;
+            }
+
             autorunMenuItem.IsChecked = _autorun.IsEnabled;
 
             _alwaysOnUsbButtons = new[] { radioAlwaysOnUsbOff, radioAlwaysOnUsbOnWhenSleeping, radioAlwaysOnUsbOnAlways };
@@ -176,6 +186,14 @@ namespace LenovoLegionToolkit
 
         private void mainWindow_Closing(object sender, CancelEventArgs e) => _powerModeListener.Stop();
 
+        private void gpuController_WillRefresh(object sender, EventArgs e)
+        {
+            Dispatcher.Invoke(() =>
+            {
+                btnDeactivateDiscreteGPU.IsEnabled = false;
+            });
+        }
+
         private void gpuController_Refreshed(object sender, GPUController.RefreshedEventArgs e)
         {
             Dispatcher.Invoke(() =>
@@ -193,7 +211,7 @@ namespace LenovoLegionToolkit
                     if (e.ProcessCount > 0)
                         status += $" ({e.ProcessCount} app{(e.ProcessCount > 1 ? "s" : "")})";
                     lblDiscreteGPUStatus.Content = status;
-                    lblDiscreteGPUStatus.ToolTip = e.ProcessCount < 1 ? null : string.Join("\n", e.ProcessNames);
+                    lblDiscreteGPUStatus.ToolTip = e.ProcessCount < 1 ? null : ("Processes:\n" + string.Join("\n", e.ProcessNames));
                     elpsDiscreteGPUStatusActive.Visibility = Visibility.Visible;
                     elpsDiscreteGPUStatusInactive.Visibility = Visibility.Collapsed;
                 }
@@ -332,9 +350,9 @@ namespace LenovoLegionToolkit
 
         private void enableVantageMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            Vantage.Enable();
+            VantageController.Enable();
 
-            var vantageEnabled = Vantage.IsEnabled();
+            var vantageEnabled = VantageController.IsEnabled();
             enableVantageMenuItem.IsChecked = vantageEnabled;
             disableVantageMenuItem.IsChecked = !vantageEnabled;
 
@@ -350,9 +368,9 @@ namespace LenovoLegionToolkit
 
         private void disableVantageMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            Vantage.Disable();
+            VantageController.Disable();
 
-            var vantageEnabled = Vantage.IsEnabled();
+            var vantageEnabled = VantageController.IsEnabled();
             enableVantageMenuItem.IsChecked = vantageEnabled;
             disableVantageMenuItem.IsChecked = !vantageEnabled;
 
