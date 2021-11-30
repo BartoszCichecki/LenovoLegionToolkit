@@ -48,6 +48,9 @@ namespace LenovoLegionToolkit
             _powerModeListener.Changed += powerModeListener_Changed;
             _gpuController.Refreshed += gpuController_Refreshed;
 
+            var vantageEnabled = Vantage.IsEnabled();
+            enableVantageMenuItem.IsChecked = vantageEnabled;
+            disableVantageMenuItem.IsChecked = !vantageEnabled;
             autorunMenuItem.IsChecked = _autorun.IsEnabled;
 
             _alwaysOnUsbButtons = new[] { radioAlwaysOnUsbOff, radioAlwaysOnUsbOnWhenSleeping, radioAlwaysOnUsbOnAlways };
@@ -331,6 +334,10 @@ namespace LenovoLegionToolkit
         {
             Vantage.Enable();
 
+            var vantageEnabled = Vantage.IsEnabled();
+            enableVantageMenuItem.IsChecked = vantageEnabled;
+            disableVantageMenuItem.IsChecked = !vantageEnabled;
+
             var result = MessageBox.Show("It is recommended to restart Windows after enabling Lenovo Vantage.\n\nDo you want to restart now?",
                 "Restart recommended",
                 MessageBoxButton.YesNo,
@@ -344,6 +351,10 @@ namespace LenovoLegionToolkit
         private void disableVantageMenuItem_Click(object sender, RoutedEventArgs e)
         {
             Vantage.Disable();
+
+            var vantageEnabled = Vantage.IsEnabled();
+            enableVantageMenuItem.IsChecked = vantageEnabled;
+            disableVantageMenuItem.IsChecked = !vantageEnabled;
 
             var result = MessageBox.Show("It is recommended to restart Windows after disabling Lenovo Vantage.\n\nDo you want to restart now?",
                 "Restart recommended",

@@ -24,8 +24,8 @@
                 <MenuItem Name="autorunMenuItem" Header="Run on startup" Click="autorunMenuItem_Click" IsCheckable="true"/>
                 <Separator/>
                 <MenuItem Header="Lenovo Vantage">
-                    <MenuItem Header="Enable" Click="enableVantageMenuItem_Click" />
-                    <MenuItem Header="Disable" Click="disableVantageMenuItem_Click" />
+                    <MenuItem x:Name="enableVantageMenuItem" IsCheckable="true" Header="Enabled" Click="enableVantageMenuItem_Click" />
+                    <MenuItem x:Name="disableVantageMenuItem" IsCheckable="true" Header="Disabled" Click="disableVantageMenuItem_Click" />
                 </MenuItem>
                 <Separator/>
                 <MenuItem Header="Exit" Click="exitMenuItem_Click" />
