@@ -19,7 +19,7 @@ namespace LenovoLegionToolkit.Lib.Features
             _supportOffset = supportOffset;
         }
 
-        public T GetState()
+        public virtual T GetState()
         {
             if (!IsSupported())
                 throw new NotSupportedException($"Feature {_methodNameSuffix} is not supported.");
