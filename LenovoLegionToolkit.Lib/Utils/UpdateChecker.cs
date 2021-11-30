@@ -6,9 +6,9 @@ using Octokit;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
-    public class UpdateChecker
+    public static class UpdateChecker
     {
-        public async Task<bool> CheckUpdates()
+        public static async Task<bool> CheckUpdates()
         {
             try
             {

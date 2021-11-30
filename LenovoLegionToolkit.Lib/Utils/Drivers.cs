@@ -3,7 +3,7 @@ using Microsoft.Win32.SafeHandles;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
-    public static class Drivers
+    internal static class Drivers
     {
         private static SafeFileHandle _energy;
         public static SafeFileHandle Energy

@@ -4,7 +4,7 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace System.ServiceProcess
 {
-    public static class ServiceControllerExtension
+    internal static class ServiceControllerExtension
     {
         private const uint SERVICE_NO_CHANGE = 0xFFFFFFFF;
         private const uint SERVICE_QUERY_CONFIG = 0x00000001;
