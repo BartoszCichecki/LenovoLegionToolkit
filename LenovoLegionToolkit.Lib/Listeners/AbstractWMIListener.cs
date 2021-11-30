@@ -5,7 +5,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
 {
     public abstract class AbstractWMIListener<T> where T : struct, IComparable
     {
-        private readonly string _evenName;
+        private readonly string _eventName;
         private readonly string _property;
         private readonly int _offset;
 
@@ -14,14 +14,14 @@ namespace LenovoLegionToolkit.Lib.Listeners
         public event EventHandler<T> Changed;
         public AbstractWMIListener(string eventName, string property, int offset)
         {
-            _evenName = eventName;
+            _eventName = eventName;
             _property = property;
             _offset = offset;
         }
 
         public void Start()
         {
-            _watcher = new ManagementEventWatcher("ROOT\\WMI", $"SELECT * FROM LENOVO_GAMEZONE_{_evenName}_EVENT");
+            _watcher = new ManagementEventWatcher("ROOT\\WMI", $"SELECT * FROM LENOVO_GAMEZONE_{_eventName}_EVENT");
             _watcher.EventArrived += watcher_EventArrived;
             _watcher.Start();
         }
