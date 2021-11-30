@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit", "LenovoLegionToolkit.WPF\LenovoLegionToolkit.WPF.csproj", "{DC01FDB3-CDCF-4D08-B87E-CCCAE5A24FF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit.WPF", "LenovoLegionToolkit.WPF\LenovoLegionToolkit.WPF.csproj", "{DC01FDB3-CDCF-4D08-B87E-CCCAE5A24FF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LenovoLegionToolkit.Lib", "LenovoLegionToolkit.Lib\LenovoLegionToolkit.Lib.csproj", "{4B902DDC-0EBE-44B3-A53B-5EA176C7522B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit.Lib", "LenovoLegionToolkit.Lib\LenovoLegionToolkit.Lib.csproj", "{4B902DDC-0EBE-44B3-A53B-5EA176C7522B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
