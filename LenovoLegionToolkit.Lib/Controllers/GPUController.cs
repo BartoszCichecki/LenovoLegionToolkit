@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Utils;
 
-namespace LenovoLegionToolkit.Lib.Utils
+namespace LenovoLegionToolkit.Lib.Controllers
 {
     public class GPUController
     {
@@ -47,6 +48,7 @@ namespace LenovoLegionToolkit.Lib.Utils
         private bool IsActive => _status == Status.MonitorsConnected || _status == Status.DeactivatePossible;
         private bool CanBeDeactivated => _status == Status.DeactivatePossible;
 
+        public event EventHandler WillRefresh;
         public event EventHandler<RefreshedEventArgs> Refreshed;
 
         public void Start(int delay = 2_500, int interval = 5_000)
@@ -66,6 +68,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 
                     lock (_lock)
                     {
+                        WillRefresh?.Invoke(this, EventArgs.Empty);
                         Refresh();
                         Refreshed?.Invoke(this, new RefreshedEventArgs(IsActive, CanBeDeactivated, _status, _processCount, _processNames));
                     }

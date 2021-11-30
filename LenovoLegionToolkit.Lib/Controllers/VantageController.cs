@@ -1,9 +1,13 @@
-﻿using System.ServiceProcess;
+﻿using System;
+using System.ComponentModel;
+using System.ServiceProcess;
 using Microsoft.Win32.TaskScheduler;
 
-namespace LenovoLegionToolkit.Lib.Utils
+namespace LenovoLegionToolkit.Lib.Controllers
 {
-    public static class Vantage
+    public class VantageServiceNotFoundException : Exception { }
+
+    public static class VantageController
     {
         private static readonly string[] _scheduledTasksPaths = new[]
         {
@@ -17,7 +21,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         private static readonly string[] _serviceNames = new[]
         {
-            "ImControllerService",
+            "ImControllerServicae",
             "LenovoVantageService",
         };
 
@@ -65,8 +69,15 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         private static bool IsServiceEnabled(string serviceName)
         {
-            var service = new ServiceController(serviceName);
-            return service.Status != ServiceControllerStatus.Stopped || service.Status == ServiceControllerStatus.StopPending;
+            try
+            {
+                var service = new ServiceController(serviceName);
+                return service.Status != ServiceControllerStatus.Stopped || service.Status == ServiceControllerStatus.StopPending;
+            }
+            catch (InvalidOperationException ex) when ((ex.InnerException as Win32Exception)?.NativeErrorCode == 1060)
+            {
+                throw new VantageServiceNotFoundException();
+            }
         }
 
         private static void SetServicesEnabled(bool enabled)
@@ -77,27 +88,34 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         private static void SetServiceEnabled(string serviceName, bool enabled)
         {
-            var service = new ServiceController(serviceName);
-
             try
             {
-                var startMode = enabled ? ServiceStartMode.Automatic : ServiceStartMode.Disabled;
-                service.ChangeStartMode(startMode);
+                var service = new ServiceController(serviceName);
 
-                if (enabled)
+                try
                 {
-                    if (service.Status != ServiceControllerStatus.Running)
-                        service.Start();
+                    var startMode = enabled ? ServiceStartMode.Automatic : ServiceStartMode.Disabled;
+                    service.ChangeStartMode(startMode);
+
+                    if (enabled)
+                    {
+                        if (service.Status != ServiceControllerStatus.Running)
+                            service.Start();
+                    }
+                    else
+                    {
+                        if (service.CanStop)
+                            service.Stop();
+                    }
                 }
-                else
+                finally
                 {
-                    if (service.CanStop)
-                        service.Stop();
+                    service.Close();
                 }
             }
-            finally
+            catch (InvalidOperationException ex) when ((ex.InnerException as Win32Exception)?.NativeErrorCode == 1060)
             {
-                service.Close();
+                throw new VantageServiceNotFoundException();
             }
         }
     }
