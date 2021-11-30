@@ -326,6 +326,13 @@ namespace LenovoLegionToolkit
 
         private void aboutMenuItem_Click(object sender, RoutedEventArgs e) => new AboutWindow { Owner = this }.ShowDialog();
 
+        private void settingsMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new SettingsWindow { Owner = this };
+            window.Closed += (_, _) => Refresh();
+            window.Show();
+        }
+
         private void autorunMenuItem_Click(object sender, RoutedEventArgs e)
         {
             if (Autorun.IsEnabled)
