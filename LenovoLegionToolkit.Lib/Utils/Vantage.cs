@@ -21,6 +21,8 @@ namespace LenovoLegionToolkit.Lib.Utils
             "LenovoVantageService",
         };
 
+        public static bool IsEnabled() => IsServicesEnabled();
+
         public static void Enable()
         {
             SetScheduledTasksEnabled(true);
@@ -51,6 +53,20 @@ namespace LenovoLegionToolkit.Lib.Utils
                 task.Definition.Settings.Enabled = enabled;
                 task.RegisterChanges();
             }
+        }
+
+        private static bool IsServicesEnabled()
+        {
+            var result = true;
+            foreach (var serviceName in _serviceNames)
+                result &= IsServiceEnabled(serviceName);
+            return result;
+        }
+
+        private static bool IsServiceEnabled(string serviceName)
+        {
+            var service = new ServiceController(serviceName);
+            return service.Status != ServiceControllerStatus.Stopped || service.Status == ServiceControllerStatus.StopPending;
         }
 
         private static void SetServicesEnabled(bool enabled)
