@@ -21,7 +21,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         private static readonly string[] _serviceNames = new[]
         {
-            "ImControllerServicae",
+            "ImControllerService",
             "LenovoVantageService",
         };
 
