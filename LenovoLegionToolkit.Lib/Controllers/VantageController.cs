@@ -25,7 +25,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             "LenovoVantageService",
         };
 
-        public static bool IsEnabled() => IsServicesEnabled();
+        public static bool IsEnabled => IsServicesEnabled();
 
         public static void Enable()
         {

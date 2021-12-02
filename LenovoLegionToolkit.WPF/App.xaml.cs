@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
+using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit
@@ -42,8 +45,7 @@ namespace LenovoLegionToolkit
 
         private void CheckCompatibility()
         {
-            var mi = OS.GetMachineInformation();
-            if (Compatibility.IsCompatible(mi))
+            if (Compatibility.IsCompatible(out MachineInformation mi))
                 return;
 
             MessageBox.Show($"This application is not compatible with:\n\n{mi.Vendor} {mi.Model}.", "Unsupported device", MessageBoxButton.OK, MessageBoxImage.Error);
