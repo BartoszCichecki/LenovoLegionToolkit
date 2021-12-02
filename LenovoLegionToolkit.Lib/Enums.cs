@@ -1,4 +1,4 @@
-﻿namespace LenovoLegionToolkit.Lib.Features
+﻿namespace LenovoLegionToolkit.Lib
 {
     public enum AlwaysOnUsbState
     {

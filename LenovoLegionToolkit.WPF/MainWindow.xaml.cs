@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
@@ -341,10 +342,8 @@ namespace LenovoLegionToolkit
                     "Run on startup",
                     MessageBoxButton.OKCancel,
                     MessageBoxImage.Information);
-                if (result != MessageBoxResult.OK)
-                    return;
-
-                Autorun.Enable();
+                if (result == MessageBoxResult.OK)
+                    Autorun.Enable();
             }
 
             autorunMenuItem.IsChecked = Autorun.IsEnabled;

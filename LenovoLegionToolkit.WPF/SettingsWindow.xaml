@@ -10,31 +10,71 @@
         ResizeMode="NoResize"
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterOwner"
-        ShowInTaskbar="False">
+        ShowInTaskbar="False"
+        FontSize="14">
     <StackPanel Margin="15">
         <GroupBox Header="Power plans" Padding="0,5,0,5">
             <StackPanel Orientation="Vertical">
                 <Border BorderThickness="1" CornerRadius="5,5,5,5" Visibility="Visible" Background="#FFFBC02D" Margin="0,5,0,10">
-                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Margin="3,3,3,3">
-                        Custom power plans will not work when Vantage is enabled.
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Margin="3,3,3,3">
+                        Custom power plans will only work when Vantage is disabled.
                     </TextBlock>
                 </Border>
                 <StackPanel Orientation="Horizontal">
                     <Label  Width="150" Content="Quiet mode:"/>
-                    <ComboBox Width="200">
-                        <System:String>(Default)</System:String>
+                    <ComboBox x:Name="cbQuietMode" Width="250">
+                        <ComboBox.Resources>
+                            <CollectionViewSource x:Key="items" Source="{Binding QuietPowerPlans}"/>
+                        </ComboBox.Resources>
+                        <ComboBox.ItemsSource>
+                            <CompositeCollection>
+                                <ComboBoxItem>(Default)</ComboBoxItem>
+                                <CollectionContainer Collection="{Binding Source={StaticResource items}}" />
+                            </CompositeCollection>
+                        </ComboBox.ItemsSource>
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
                     </ComboBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                    <Label  Width="150" Content="Balanced mode:"/>
-                    <ComboBox Width="200">
-                        <System:String>(Default)</System:String>
+                    <Label  Width="150" Content="Balance mode:"/>
+                    <ComboBox x:Name="cbBalanceMode" Width="250">
+                        <ComboBox.Resources>
+                            <CollectionViewSource x:Key="items" Source="{Binding BalancePowerPlans}"/>
+                        </ComboBox.Resources>
+                        <ComboBox.ItemsSource>
+                            <CompositeCollection>
+                                <ComboBoxItem>(Default)</ComboBoxItem>
+                                <CollectionContainer Collection="{Binding Source={StaticResource items}}" />
+                            </CompositeCollection>
+                        </ComboBox.ItemsSource>
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
                     </ComboBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                     <Label  Width="150" Content="Performance mode:"/>
-                    <ComboBox Width="200">
-                        <System:String>(Default)</System:String>
+                    <ComboBox x:Name="cbPerformanceMode" Width="250">
+                        <ComboBox.Resources>
+                            <CollectionViewSource x:Key="items" Source="{Binding PerformancePowerPlans}"/>
+                        </ComboBox.Resources>
+                        <ComboBox.ItemsSource>
+                            <CompositeCollection>
+                                <ComboBoxItem>(Default)</ComboBoxItem>
+                                <CollectionContainer Collection="{Binding Source={StaticResource items}}" />
+                            </CompositeCollection>
+                        </ComboBox.ItemsSource>
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
                     </ComboBox>
                 </StackPanel>
             </StackPanel>
