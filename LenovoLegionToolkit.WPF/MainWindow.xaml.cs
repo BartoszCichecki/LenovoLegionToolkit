@@ -49,7 +49,7 @@ namespace LenovoLegionToolkit
 
             try
             {
-                var vantageEnabled = VantageController.IsEnabled();
+                var vantageEnabled = VantageController.IsEnabled;
                 enableVantageMenuItem.IsChecked = vantageEnabled;
                 disableVantageMenuItem.IsChecked = !vantageEnabled;
             }
@@ -356,7 +356,7 @@ namespace LenovoLegionToolkit
         {
             VantageController.Enable();
 
-            var vantageEnabled = VantageController.IsEnabled();
+            var vantageEnabled = VantageController.IsEnabled;
             enableVantageMenuItem.IsChecked = vantageEnabled;
             disableVantageMenuItem.IsChecked = !vantageEnabled;
 
@@ -374,7 +374,7 @@ namespace LenovoLegionToolkit
         {
             VantageController.Disable();
 
-            var vantageEnabled = VantageController.IsEnabled();
+            var vantageEnabled = VantageController.IsEnabled;
             enableVantageMenuItem.IsChecked = vantageEnabled;
             disableVantageMenuItem.IsChecked = !vantageEnabled;
 

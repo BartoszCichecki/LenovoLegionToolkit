@@ -1,18 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Management;
+using System.Xml.Linq;
+using System.Linq;
 
 namespace LenovoLegionToolkit.Lib
 {
-    public struct MachineInformation
-    {
-        public string Vendor;
-        public string Model;
-    }
 
-    internal struct NVidiaInformation
+    public struct NVidiaInformation
     {
-        public int ProcessCount;
-        public IEnumerable<string> ProcessNames;
+        public int ProcessCount { get; private set; }
+        public IEnumerable<string> ProcessNames { get; private set; }
+
+        public static NVidiaInformation Create(string xml)
+        {
+            var xdoc = XDocument.Parse(xml);
+            var gpu = xdoc.Element("nvidia_smi_log").Element("gpu");
+            var processInfo = gpu.Element("processes").Elements("process_info");
+            var processesCount = processInfo.Count();
+            var processNames = processInfo.Select(e => e.Element("process_name").Value).Select(Path.GetFileName);
+            return new NVidiaInformation
+            {
+                ProcessCount = processesCount,
+                ProcessNames = processNames,
+            };
+        }
     }
 
     public enum AlwaysOnUsbState
@@ -64,19 +76,5 @@ namespace LenovoLegionToolkit.Lib
     {
         Off,
         On
-    }
-
-    public static class PowerModeStateExtensions
-    {
-        public static string GetPowerPlanGuid(this PowerModeState state)
-        {
-            return state switch
-            {
-                PowerModeState.Quiet => "16edbccd-dee9-4ec4-ace5-2f0b5f2a8975",
-                PowerModeState.Balance => "85d583c5-cf2e-4197-80fd-3789a227a72c",
-                PowerModeState.Performance => "52521609-efc9-4268-b9ba-67dea73f18b2",
-                _ => throw new InvalidOperationException("Unknown state."),
-            };
-        }
     }
 }

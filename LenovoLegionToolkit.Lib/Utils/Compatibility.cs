@@ -1,7 +1,21 @@
 ﻿using System;
+using System.Linq;
+using System.Management;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
+    public class MachineInformation
+    {
+        public string Vendor { get; }
+        public string Model { get; }
+        
+        public MachineInformation(string vendor, string model)
+        {
+            Vendor = vendor;
+            Model = model;
+        }
+    }
+
     public static class Compatibility
     {
         private static readonly string _allowedVendor = "LENOVO";
@@ -23,20 +37,25 @@ namespace LenovoLegionToolkit.Lib.Utils
             "17IRH", // Legion Y540 - Intel, nVidia
         };
 
-        public static bool IsCompatible(MachineInformation machineInformation)
+        public static bool IsCompatible(out MachineInformation machineInformation)
         {
+            machineInformation = WMI.Read("root\\CIMV2", "SELECT * FROM Win32_ComputerSystemProduct", Create).First();
+
             if (!machineInformation.Vendor.Equals(_allowedVendor, StringComparison.OrdinalIgnoreCase))
                 return false;
 
             foreach (var allowedModel in _allowedModels)
-            {
-                if (!machineInformation.Model.Contains(allowedModel, StringComparison.OrdinalIgnoreCase))
-                    continue;
-
-                return true;
-            }
+                if (machineInformation.Model.Contains(allowedModel, StringComparison.OrdinalIgnoreCase))
+                    return true;
 
             return false;
+        }
+
+        private static MachineInformation Create(PropertyDataCollection properties)
+        {
+            var vendor = (string)properties["Vendor"].Value;
+            var model = (string)properties["Version"].Value;
+            return new(vendor, model);
         }
     }
 }

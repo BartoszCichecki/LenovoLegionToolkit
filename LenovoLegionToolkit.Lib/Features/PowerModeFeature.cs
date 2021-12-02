@@ -1,4 +1,5 @@
-﻿using LenovoLegionToolkit.Lib.Utils;
+﻿using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features
 {
@@ -9,14 +10,14 @@ namespace LenovoLegionToolkit.Lib.Features
         public override PowerModeState GetState()
         {
             var state = base.GetState();
-            OS.SetPowerPlan(state.GetPowerPlanGuid());
+            PowerPlanController.SetPowerPlan(state);
             return state;
         }
 
         public override void SetState(PowerModeState state)
         {
             base.SetState(state);
-            OS.SetPowerPlan(state.GetPowerPlanGuid());
+            PowerPlanController.SetPowerPlan(state);
         }
     }
 }
