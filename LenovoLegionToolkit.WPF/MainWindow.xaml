@@ -9,9 +9,11 @@
         Title="Lenovo Legion Toolkit"
         WindowStartupLocation="CenterScreen"
         SizeToContent="WidthAndHeight"
-        ResizeMode="CanMinimize"
+        ResizeMode="NoResize"
         FontSize="14"
-        Background="#FFF">
+        Background="#FFF"
+        MinWidth="352" MinHeight="418"
+        MaxWidth="352" MaxHeight="418">
 
     <DockPanel>
         <tb:TaskbarIcon ToolTipText="Lenovo Legion Toolkit"
