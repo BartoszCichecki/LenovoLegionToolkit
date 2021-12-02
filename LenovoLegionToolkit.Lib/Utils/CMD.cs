@@ -1,22 +1,10 @@
 ﻿using System.Diagnostics;
-using System.Linq;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
-    public static class OS
+    internal static class CMD
     {
-        public static void Restart() => ExecuteProcess("shutdown", "-r -t 0");
-
-        internal static void RestartDevice(string _pnpDeviceId) => ExecuteProcess("pnputil", $"/restart-device /deviceid \"{_pnpDeviceId}\"");
-
-        internal static NVidiaInformation GetNVidiaInformation()
-        {
-            var output = ExecuteProcessForOutput("nvidia-smi", "-q -x");
-            return NVidiaInformation.Create(output);
-
-        }
-
-        private static void ExecuteProcess(string file, string arguments)
+        public static void ExecuteProcess(string file, string arguments)
         {
             var cmd = new Process();
             cmd.StartInfo.UseShellExecute = true;
@@ -28,7 +16,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             cmd.WaitForExit();
         }
 
-        private static string ExecuteProcessForOutput(string file, string arguments)
+        public static string ExecuteProcessForOutput(string file, string arguments)
         {
             var cmd = new Process();
             cmd.StartInfo.UseShellExecute = false;

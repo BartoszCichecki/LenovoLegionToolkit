@@ -3,11 +3,11 @@ using System.ComponentModel;
 using System.ServiceProcess;
 using Microsoft.Win32.TaskScheduler;
 
-namespace LenovoLegionToolkit.Lib.Controllers
+namespace LenovoLegionToolkit.Lib.Utils
 {
     public class VantageServiceNotFoundException : Exception { }
 
-    public static class VantageController
+    public static class Vantage
     {
         private static readonly string[] _scheduledTasksPaths = new[]
         {

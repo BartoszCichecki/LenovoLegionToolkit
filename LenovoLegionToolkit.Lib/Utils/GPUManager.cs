@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.Utils;
+using System.Xml.Linq;
 
-namespace LenovoLegionToolkit.Lib.Controllers
+namespace LenovoLegionToolkit.Lib.Utils
 {
-    public class GPUController
+    public class GPUManager
     {
         public enum Status
         {
@@ -96,7 +98,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 if (!IsActive || !CanBeDeactivated)
                     return;
 
-                OS.RestartDevice(_pnpDeviceId);
+                CMD.ExecuteProcess("pnputil", $"/restart-device /deviceid \"{_pnpDeviceId}\"");
             }
         }
 
@@ -107,31 +109,50 @@ namespace LenovoLegionToolkit.Lib.Controllers
             _processNames = null;
             _pnpDeviceId = null;
 
-            if (!NVAPIWrapper.IsGPUPresent(out var gpu))
+            if (!NVAPI.IsGPUPresent(out var gpu))
             {
                 _status = Status.NVIDIAGPUNotFound;
                 return;
             }
 
-            if (!NVAPIWrapper.IsGPUActive(gpu))
+            if (!NVAPI.IsGPUActive(gpu))
             {
                 _status = Status.Inactive;
                 return;
             }
 
-            var nvidiaInformation = OS.GetNVidiaInformation();
+            var (processCount, processNames) = GetProcessInformation();
+            if (processCount == 0)
+            {
+                _status = Status.Inactive;
+                return;
+            }
 
-            _processCount = nvidiaInformation.ProcessCount;
-            _processNames = nvidiaInformation.ProcessNames;
+            _processCount = processCount;
+            _processNames = processNames;
 
-            if (NVAPIWrapper.IsDisplayConnected(gpu))
+            if (NVAPI.IsDisplayConnected(gpu))
             {
                 _status = Status.MonitorsConnected;
                 return;
             }
 
-            _pnpDeviceId = NVAPIWrapper.GetGPUId(gpu);
+            _pnpDeviceId = NVAPI.GetGPUId(gpu);
             _status = Status.DeactivatePossible;
+        }
+
+
+        private static (int, IEnumerable<string>) GetProcessInformation()
+        {
+            var output = CMD.ExecuteProcessForOutput("nvidia-smi", "-q -x");
+
+            var xdoc = XDocument.Parse(output);
+            var gpu = xdoc.Element("nvidia_smi_log").Element("gpu");
+            var processInfo = gpu.Element("processes").Elements("process_info");
+            var processesCount = processInfo.Count();
+            var processNames = processInfo.Select(e => e.Element("process_name").Value).Select(Path.GetFileName);
+
+            return (processesCount, processNames);
         }
     }
 }

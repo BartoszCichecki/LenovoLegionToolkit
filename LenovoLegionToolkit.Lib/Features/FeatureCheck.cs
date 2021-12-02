@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LenovoLegionToolkit.Lib
+namespace LenovoLegionToolkit.Lib.Features
 {
     public class FeatureCheck
     {

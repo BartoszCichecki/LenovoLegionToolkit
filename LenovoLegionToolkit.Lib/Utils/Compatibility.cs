@@ -8,7 +8,7 @@ namespace LenovoLegionToolkit.Lib.Utils
     {
         public string Vendor { get; }
         public string Model { get; }
-        
+
         public MachineInformation(string vendor, string model)
         {
             Vendor = vendor;

@@ -5,8 +5,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
-using LenovoLegionToolkit.Lib;
-using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
@@ -33,7 +31,7 @@ namespace LenovoLegionToolkit
         private readonly TouchpadLockFeature _touchpadLockFeature = new();
 
         private readonly PowerModeListener _powerModeListener = new();
-        private readonly GPUController _gpuController = new();
+        private readonly GPUManager _gpuManager = new();
 
         public MainWindow()
         {
@@ -44,12 +42,12 @@ namespace LenovoLegionToolkit
             Closing += mainWindow_Closing;
 
             _powerModeListener.Changed += powerModeListener_Changed;
-            _gpuController.WillRefresh += gpuController_WillRefresh;
-            _gpuController.Refreshed += gpuController_Refreshed;
+            _gpuManager.WillRefresh += gpuManager_WillRefresh;
+            _gpuManager.Refreshed += gpuManager_Refreshed;
 
             try
             {
-                var vantageEnabled = VantageController.IsEnabled;
+                var vantageEnabled = Vantage.IsEnabled;
                 enableVantageMenuItem.IsChecked = vantageEnabled;
                 disableVantageMenuItem.IsChecked = !vantageEnabled;
             }
@@ -102,7 +100,7 @@ namespace LenovoLegionToolkit
 
         private void CheckUpdates()
         {
-            Task.Run(UpdateChecker.CheckUpdates)
+            Task.Run(Updates.Check)
                 .ContinueWith(updatesAvailable =>
             {
                 updateIndicator.Visibility = updatesAvailable.Result ? Visibility.Visible : Visibility.Collapsed;
@@ -176,14 +174,14 @@ namespace LenovoLegionToolkit
         private void mainWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (IsVisible)
-                _gpuController.Start();
+                _gpuManager.Start();
             else
-                _gpuController.Stop();
+                _gpuManager.Stop();
         }
 
         private void mainWindow_Closing(object sender, CancelEventArgs e) => _powerModeListener.Stop();
 
-        private void gpuController_WillRefresh(object sender, EventArgs e)
+        private void gpuManager_WillRefresh(object sender, EventArgs e)
         {
             Dispatcher.Invoke(() =>
             {
@@ -191,11 +189,11 @@ namespace LenovoLegionToolkit
             });
         }
 
-        private void gpuController_Refreshed(object sender, GPUController.RefreshedEventArgs e)
+        private void gpuManager_Refreshed(object sender, GPUManager.RefreshedEventArgs e)
         {
             Dispatcher.Invoke(() =>
             {
-                if (e.Status == GPUController.Status.Unknown || e.Status == GPUController.Status.NVIDIAGPUNotFound)
+                if (e.Status == GPUManager.Status.Unknown || e.Status == GPUManager.Status.NVIDIAGPUNotFound)
                 {
                     lblDiscreteGPUStatus.Content = "-";
                     lblDiscreteGPUStatus.ToolTip = null;
@@ -223,9 +221,9 @@ namespace LenovoLegionToolkit
                 btnDeactivateDiscreteGPU.IsEnabled = e.CanBeDeactivated;
                 btnDeactivateDiscreteGPU.ToolTip = e.Status switch
                 {
-                    GPUController.Status.NVIDIAGPUNotFound => "Discrete nVidia GPU not found. AMD GPUs are not supported.",
-                    GPUController.Status.MonitorsConnected => "A monitor is connected to nVidia GPU.",
-                    GPUController.Status.DeactivatePossible => "nVidia GPU can be disabled.\n\nRemember, that some programs might crash if you do it.",
+                    GPUManager.Status.NVIDIAGPUNotFound => "Discrete nVidia GPU not found. AMD GPUs are not supported.",
+                    GPUManager.Status.MonitorsConnected => "A monitor is connected to nVidia GPU.",
+                    GPUManager.Status.DeactivatePossible => "nVidia GPU can be disabled.\n\nRemember, that some programs might crash if you do it.",
                     _ => null,
                 };
             });
@@ -261,7 +259,7 @@ namespace LenovoLegionToolkit
                 return;
             }
 
-            OS.Restart();
+            Power.Restart();
         }
 
         private void radioBattery_Checked(object sender, RoutedEventArgs e)
@@ -320,7 +318,7 @@ namespace LenovoLegionToolkit
             _touchpadLockFeature.SetState(state);
         }
 
-        private void btnDeactivateDiscreteGPU_Click(object sender, RoutedEventArgs e) => _gpuController.DeactivateGPU();
+        private void btnDeactivateDiscreteGPU_Click(object sender, RoutedEventArgs e) => _gpuManager.DeactivateGPU();
 
         private void notifyIcon_TrayMouseUp(object sender, RoutedEventArgs e) => BringToForeground();
 
@@ -354,9 +352,9 @@ namespace LenovoLegionToolkit
 
         private void enableVantageMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            VantageController.Enable();
+            Vantage.Enable();
 
-            var vantageEnabled = VantageController.IsEnabled;
+            var vantageEnabled = Vantage.IsEnabled;
             enableVantageMenuItem.IsChecked = vantageEnabled;
             disableVantageMenuItem.IsChecked = !vantageEnabled;
 
@@ -367,14 +365,14 @@ namespace LenovoLegionToolkit
             if (result != MessageBoxResult.Yes)
                 return;
 
-            OS.Restart();
+            Power.Restart();
         }
 
         private void disableVantageMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            VantageController.Disable();
+            Vantage.Disable();
 
-            var vantageEnabled = VantageController.IsEnabled;
+            var vantageEnabled = Vantage.IsEnabled;
             enableVantageMenuItem.IsChecked = vantageEnabled;
             disableVantageMenuItem.IsChecked = !vantageEnabled;
 
@@ -385,7 +383,7 @@ namespace LenovoLegionToolkit
             if (result != MessageBoxResult.Yes)
                 return;
 
-            OS.Restart();
+            Power.Restart();
         }
 
         private void exitMenuItem_Click(object sender, RoutedEventArgs e) => Application.Current.Shutdown();

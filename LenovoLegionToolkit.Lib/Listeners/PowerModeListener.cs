@@ -1,4 +1,5 @@
-﻿using LenovoLegionToolkit.Lib.Controllers;
+﻿using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners
 {
@@ -8,7 +9,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         protected override void OnChanged(PowerModeState value)
         {
-            PowerPlanController.SetPowerPlan(value);
+            Power.ActivatePowerPlan(value);
         }
     }
 }
