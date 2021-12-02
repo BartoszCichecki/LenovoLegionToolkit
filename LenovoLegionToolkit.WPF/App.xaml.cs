@@ -37,7 +37,7 @@ namespace LenovoLegionToolkit
             var errorText = e.Exception.ToString();
             Trace.TraceError(errorText);
             MessageBox.Show(errorText, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            Environment.Exit(-1);
+            Shutdown(-1);
         }
 
         private void CheckCompatibility()

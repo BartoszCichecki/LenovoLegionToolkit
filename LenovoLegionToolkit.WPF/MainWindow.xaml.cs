@@ -180,7 +180,15 @@ namespace LenovoLegionToolkit
                 _gpuManager.Stop();
         }
 
-        private void mainWindow_Closing(object sender, CancelEventArgs e) => _powerModeListener.Stop();
+        private void mainWindow_Closing(object sender, CancelEventArgs e)
+        {
+            if (Autorun.IsEnabled)
+            {
+                WindowState = WindowState.Minimized;
+                e.Cancel = true;
+                return;
+            }
+        }
 
         private void gpuManager_WillRefresh(object sender, EventArgs e)
         {
