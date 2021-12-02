@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Management;
-using LenovoLegionToolkit.Lib.Features;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
