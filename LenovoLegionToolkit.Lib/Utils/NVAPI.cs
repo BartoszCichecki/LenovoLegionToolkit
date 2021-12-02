@@ -9,7 +9,7 @@ using NvAPIWrapper.Native.GPU;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
-    internal static class NVAPIWrapper
+    internal static class NVAPI
     {
         private static bool _isInitialized = false;
 

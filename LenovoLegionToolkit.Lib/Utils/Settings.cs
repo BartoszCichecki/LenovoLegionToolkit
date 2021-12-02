@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using LenovoLegionToolkit.Lib.Features;
 
-namespace LenovoLegionToolkit.Lib.Settings
+namespace LenovoLegionToolkit.Lib
 {
-    public class SettingsManager
+    public class Settings
     {
         private class SettingsStore
         {
             public Dictionary<PowerModeState, string> PowerPlans { get; set; } = new();
         }
 
-        private static SettingsManager _instance;
-        public static SettingsManager Instance
+        private static Settings _instance;
+        public static Settings Instance
         {
             get
             {
@@ -27,12 +28,13 @@ namespace LenovoLegionToolkit.Lib.Settings
         private SettingsStore _settingsStore;
         private string _settingsStorePath;
 
-        public Dictionary<PowerModeState, string> PowerPlans { 
+        public Dictionary<PowerModeState, string> PowerPlans
+        {
             get => _settingsStore.PowerPlans;
             set => _settingsStore.PowerPlans = value;
         }
 
-        private SettingsManager()
+        private Settings()
         {
             var appData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             var folderPath = Path.Combine(appData, "LenovoLegionToolkit");

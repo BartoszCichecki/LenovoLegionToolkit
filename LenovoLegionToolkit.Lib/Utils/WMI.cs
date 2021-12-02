@@ -31,7 +31,8 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             var path = $"{scope}:{clazz}.{propertyName}=\"{propertyValue.Escaped()}\"";
 
-            // Invoke the async version. Synchronous seems to throw a NRE, for no reason.
+            // Invoke the async version.
+            // Synchronous seems to throw a NRE, for no reason.
             using var mre = new ManualResetEvent(false);
             var obs = new ManagementOperationObserver();
             obs.Completed += (s, e) => mre.Set();

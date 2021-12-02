@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Management;
-using LenovoLegionToolkit.Lib.Settings;
-using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.Lib.Features;
 
-namespace LenovoLegionToolkit.Lib.Controllers
+namespace LenovoLegionToolkit.Lib.Utils
 {
     public class PowerPlan
     {
@@ -20,19 +19,21 @@ namespace LenovoLegionToolkit.Lib.Controllers
         }
     }
 
-    public static class PowerPlanController
+    public static class Power
     {
-        public static PowerPlan[] GetAll() => WMI.Read("root\\CIMV2\\power", "SELECT * FROM Win32_PowerPlan", Create).ToArray();
+        public static void Restart() => CMD.ExecuteProcess("shutdown", "/r /t 0");
 
-        public static void SetPowerPlan(PowerModeState powerModeState)
+        public static PowerPlan[] GetPowerPlans() => WMI.Read("root\\CIMV2\\power", "SELECT * FROM Win32_PowerPlan", Create).ToArray();
+
+        public static void ActivatePowerPlan(PowerModeState powerModeState)
         {
-            if (VantageController.IsEnabled)
+            if (Vantage.IsEnabled)
                 return;
 
-            if (!SettingsManager.Instance.PowerPlans.TryGetValue(powerModeState, out string powerPlanId))
+            if (!Settings.Instance.PowerPlans.TryGetValue(powerModeState, out string powerPlanId))
                 powerPlanId = GetDefaultPowerPlanId(powerModeState);
 
-            var powerPlan = GetAll().FirstOrDefault(pp => pp.InstanceID.Contains(powerPlanId));
+            var powerPlan = GetPowerPlans().FirstOrDefault(pp => pp.InstanceID.Contains(powerPlanId));
             if (powerPlan == null || powerPlan.IsActive)
                 return;
 
