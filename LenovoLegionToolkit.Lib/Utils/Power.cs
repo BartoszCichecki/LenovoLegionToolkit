@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Management;
+using System.Collections.Generic;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
@@ -29,8 +30,8 @@ namespace LenovoLegionToolkit.Lib.Utils
             if (Vantage.IsEnabled)
                 return;
 
-            if (!Settings.Instance.PowerPlans.TryGetValue(powerModeState, out string powerPlanId))
-                powerPlanId = GetDefaultPowerPlanId(powerModeState);
+            var powerPlanId = Settings.Instance.PowerPlans.GetValueOrDefault(powerModeState);
+            powerPlanId ??= GetDefaultPowerPlanId(powerModeState);
 
             var powerPlan = GetPowerPlans().FirstOrDefault(pp => pp.InstanceID.Contains(powerPlanId));
             if (powerPlan == null || powerPlan.IsActive)

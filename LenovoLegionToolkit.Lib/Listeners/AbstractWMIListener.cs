@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Management;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners
 {
@@ -9,7 +10,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
         private readonly string _property;
         private readonly int _offset;
 
-        private ManagementEventWatcher _watcher;
+        private IDisposable _disposable;
 
         public event EventHandler<T> Changed;
         public AbstractWMIListener(string eventName, string property, int offset)
@@ -21,23 +22,20 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         public void Start()
         {
-            _watcher = new ManagementEventWatcher("ROOT\\WMI", $"SELECT * FROM LENOVO_GAMEZONE_{_eventName}_EVENT");
-            _watcher.EventArrived += watcher_EventArrived;
-            _watcher.Start();
+            _disposable = WMI.Listen("ROOT\\WMI", $"SELECT * FROM LENOVO_GAMEZONE_{_eventName}_EVENT", ListenAction);
         }
 
         public void Stop()
         {
-            _watcher.Stop();
-            _watcher.Dispose();
-            _watcher = null;
+            _disposable?.Dispose();
+            _disposable = null;
         }
 
         protected abstract void OnChanged(T value);
 
-        private void watcher_EventArrived(object sender, EventArrivedEventArgs e)
+        private void ListenAction(PropertyDataCollection properties)
         {
-            var propertyValue = Convert.ToInt32(e.NewEvent.Properties[_property].Value);
+            var propertyValue = Convert.ToInt32(properties[_property].Value);
             var value = (T)(object)(propertyValue - _offset);
             OnChanged(value);
             Changed?.Invoke(this, value);

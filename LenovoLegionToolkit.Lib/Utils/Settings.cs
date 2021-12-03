@@ -10,6 +10,7 @@ namespace LenovoLegionToolkit.Lib
         private class SettingsStore
         {
             public Dictionary<PowerModeState, string> PowerPlans { get; set; } = new();
+            public bool MinimizeOnClose { get; set; } = true;
         }
 
         private static Settings _instance;
@@ -31,6 +32,12 @@ namespace LenovoLegionToolkit.Lib
         {
             get => _settingsStore.PowerPlans;
             set => _settingsStore.PowerPlans = value;
+        }
+
+        public bool MinimizeOnClose
+        {
+            get => _settingsStore.MinimizeOnClose;
+            set => _settingsStore.MinimizeOnClose = value;
         }
 
         private Settings()

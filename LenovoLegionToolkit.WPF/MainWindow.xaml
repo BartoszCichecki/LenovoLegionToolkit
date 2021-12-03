@@ -24,7 +24,8 @@
         <Menu DockPanel.Dock="Top" Background="#FFF" Margin="1">
             <MenuItem Header="Tools">
                 <MenuItem Name="autorunMenuItem" Header="Run on startup" Click="autorunMenuItem_Click" IsCheckable="true"/>
-                <MenuItem Header="Settings" Click="settingsMenuItem_Click" />
+                <MenuItem Name="minimizeOnCloseMenuItem" Header="Minimize on close" Click="minimizeOnCloseMenuItem_Click" IsCheckable="true"/>
+                <MenuItem Header="More settings..." Click="settingsMenuItem_Click" />
                 <Separator/>
                 <MenuItem x:Name="vantageMenuItem" Header="Lenovo Vantage">
                     <MenuItem x:Name="enableVantageMenuItem" IsCheckable="true" Header="Enabled" Click="enableVantageMenuItem_Click" />

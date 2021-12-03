@@ -38,6 +38,8 @@ namespace LenovoLegionToolkit
         {
             InitializeComponent();
 
+            ResizeMode = Settings.Instance.MinimizeOnClose ? ResizeMode.NoResize : ResizeMode.CanMinimize;
+
             StateChanged += mainWindow_StateChanged;
             IsVisibleChanged += mainWindow_IsVisibleChanged;
             Closing += mainWindow_Closing;
@@ -58,6 +60,7 @@ namespace LenovoLegionToolkit
             }
 
             autorunMenuItem.IsChecked = Autorun.IsEnabled;
+            minimizeOnCloseMenuItem.IsChecked = Settings.Instance.MinimizeOnClose;
 
             _alwaysOnUsbButtons = new[] { radioAlwaysOnUsbOff, radioAlwaysOnUsbOnWhenSleeping, radioAlwaysOnUsbOnAlways };
             _batteryButtons = new[] { radioConservation, radioNormalCharge, radioRapidCharge };
@@ -182,12 +185,13 @@ namespace LenovoLegionToolkit
 
         private void mainWindow_Closing(object sender, CancelEventArgs e)
         {
-            if (Autorun.IsEnabled)
+            if (Settings.Instance.MinimizeOnClose)
             {
                 WindowState = WindowState.Minimized;
                 e.Cancel = true;
-                return;
             }
+            else
+                _powerModeListener.Stop();
         }
 
         private void gpuManager_WillRefresh(object sender, EventArgs e)
@@ -355,6 +359,18 @@ namespace LenovoLegionToolkit
             }
 
             autorunMenuItem.IsChecked = Autorun.IsEnabled;
+        }
+
+        private void minimizeOnCloseMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var settings = Settings.Instance;
+            var minimizeOnClose = !settings.MinimizeOnClose;
+            settings.MinimizeOnClose = minimizeOnClose;
+            settings.Synchronize();
+
+            minimizeOnCloseMenuItem.IsChecked = minimizeOnClose;
+
+            ResizeMode = minimizeOnClose ? ResizeMode.NoResize : ResizeMode.CanMinimize;
         }
 
         private void enableVantageMenuItem_Click(object sender, RoutedEventArgs e)
