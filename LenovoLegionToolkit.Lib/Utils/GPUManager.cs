@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
@@ -24,15 +20,14 @@ namespace LenovoLegionToolkit.Lib.Utils
             public bool IsActive { get; }
             public bool CanBeDeactivated { get; }
             public Status Status { get; }
-            public int ProcessCount { get; }
-            public IEnumerable<string> ProcessNames { get; }
+            public string[] ProcessNames { get; }
+            public int ProcessCount => ProcessNames.Length;
 
-            public RefreshedEventArgs(bool isActive, bool canBeDeactivated, Status status, int processCount, IEnumerable<string> processNames)
+            public RefreshedEventArgs(bool isActive, bool canBeDeactivated, Status status, string[] processNames)
             {
                 IsActive = isActive;
                 CanBeDeactivated = canBeDeactivated;
                 Status = status;
-                ProcessCount = processCount;
                 ProcessNames = processNames;
             }
         }
@@ -43,8 +38,7 @@ namespace LenovoLegionToolkit.Lib.Utils
         private CancellationTokenSource _refreshCancellationTokenSource = null;
 
         private Status _status = Status.Unknown;
-        private int _processCount = -1;
-        private IEnumerable<string> _processNames = null;
+        private string[] _processNames = null;
         private string _pnpDeviceId = null;
 
         private bool IsActive => _status == Status.MonitorsConnected || _status == Status.DeactivatePossible;
@@ -62,20 +56,29 @@ namespace LenovoLegionToolkit.Lib.Utils
 
             _refreshTask = Task.Run(async () =>
             {
-                await Task.Delay(delay, token);
-
-                while (true)
+                try
                 {
-                    token.ThrowIfCancellationRequested();
+                    NVAPI.Initialize();
 
-                    lock (_lock)
+                    await Task.Delay(delay, token);
+
+                    while (true)
                     {
-                        WillRefresh?.Invoke(this, EventArgs.Empty);
-                        Refresh();
-                        Refreshed?.Invoke(this, new RefreshedEventArgs(IsActive, CanBeDeactivated, _status, _processCount, _processNames));
-                    }
+                        token.ThrowIfCancellationRequested();
 
-                    await Task.Delay(interval, token);
+                        lock (_lock)
+                        {
+                            WillRefresh?.Invoke(this, EventArgs.Empty);
+                            Refresh();
+                            Refreshed?.Invoke(this, new RefreshedEventArgs(IsActive, CanBeDeactivated, _status, _processNames));
+                        }
+
+                        await Task.Delay(interval, token);
+                    }
+                }
+                finally
+                {
+                    NVAPI.Unload();
                 }
             }, token);
         }
@@ -95,8 +98,9 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             lock (_lock)
             {
-                if (!IsActive || !CanBeDeactivated)
+                if (!IsActive || !CanBeDeactivated || string.IsNullOrEmpty(_pnpDeviceId))
                     return;
+
 
                 CMD.ExecuteProcess("pnputil", $"/restart-device /deviceid \"{_pnpDeviceId}\"");
             }
@@ -105,8 +109,7 @@ namespace LenovoLegionToolkit.Lib.Utils
         private void Refresh()
         {
             _status = Status.Unknown;
-            _processCount = -1;
-            _processNames = null;
+            _processNames = Array.Empty<string>();
             _pnpDeviceId = null;
 
             if (!NVAPI.IsGPUPresent(out var gpu))
@@ -115,20 +118,13 @@ namespace LenovoLegionToolkit.Lib.Utils
                 return;
             }
 
-            if (!NVAPI.IsGPUActive(gpu))
+            var processNames = NVAPI.GetActiveApps(gpu);
+            if (processNames.Length < 1)
             {
                 _status = Status.Inactive;
                 return;
             }
 
-            var (processCount, processNames) = GetProcessInformation();
-            if (processCount == 0)
-            {
-                _status = Status.Inactive;
-                return;
-            }
-
-            _processCount = processCount;
             _processNames = processNames;
 
             if (NVAPI.IsDisplayConnected(gpu))
@@ -139,20 +135,6 @@ namespace LenovoLegionToolkit.Lib.Utils
 
             _pnpDeviceId = NVAPI.GetGPUId(gpu);
             _status = Status.DeactivatePossible;
-        }
-
-
-        private static (int, IEnumerable<string>) GetProcessInformation()
-        {
-            var output = CMD.ExecuteProcessForOutput("nvidia-smi", "-q -x");
-
-            var xdoc = XDocument.Parse(output);
-            var gpu = xdoc.Element("nvidia_smi_log").Element("gpu");
-            var processInfo = gpu.Element("processes").Elements("process_info");
-            var processesCount = processInfo.Count();
-            var processNames = processInfo.Select(e => e.Element("process_name").Value).Select(Path.GetFileName);
-
-            return (processesCount, processNames);
         }
     }
 }

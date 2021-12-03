@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using NvAPIWrapper;
@@ -11,20 +12,14 @@ namespace LenovoLegionToolkit.Lib.Utils
 {
     internal static class NVAPI
     {
-        private static bool _isInitialized = false;
+        public static void Initialize() => NVIDIA.Initialize();
 
-        private static void EnsureInitialized()
-        {
-            if (_isInitialized) return;
-            _isInitialized = true;
-            NVIDIA.Initialize();
-        }
+        public static void Unload() => NVIDIA.Unload();
 
         public static bool IsGPUPresent(out PhysicalGPU gpu)
         {
             try
             {
-                EnsureInitialized();
                 gpu = PhysicalGPU.GetPhysicalGPUs().FirstOrDefault(gpu => gpu.SystemType == SystemType.Laptop);
                 return gpu != null;
             }
@@ -39,7 +34,6 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             try
             {
-                EnsureInitialized();
                 if (gpu == null)
                     return false;
                 _ = gpu.PerformanceStatesInfo;
@@ -55,7 +49,6 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             try
             {
-                EnsureInitialized();
                 if (gpu == null)
                     return false;
 
@@ -71,7 +64,6 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             try
             {
-                EnsureInitialized();
                 if (gpu == null)
                     return null;
                 return gpu.BusInformation.PCIIdentifiers.ToString();
@@ -79,6 +71,21 @@ namespace LenovoLegionToolkit.Lib.Utils
             catch (NVIDIAApiException)
             {
                 return null;
+            }
+        }
+
+        public static string[] GetActiveApps(PhysicalGPU gpu)
+        {
+            try
+            {
+                if (gpu == null)
+                    return Array.Empty<string>();
+
+                return gpu.GetActiveApplications().Select(p => p.ProcessName).ToArray();
+            }
+            catch (NVIDIAApiException)
+            {
+                return Array.Empty<string>();
             }
         }
 
