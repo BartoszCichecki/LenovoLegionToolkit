@@ -45,7 +45,7 @@ namespace LenovoLegionToolkit
 
         private void CheckCompatibility()
         {
-            if (Compatibility.IsCompatible(out MachineInformation mi))
+            if (Compatibility.IsCompatible(out var mi))
                 return;
 
             MessageBox.Show($"This application is not compatible with:\n\n{mi.Vendor} {mi.Model}.", "Unsupported device", MessageBoxButton.OK, MessageBoxImage.Error);
