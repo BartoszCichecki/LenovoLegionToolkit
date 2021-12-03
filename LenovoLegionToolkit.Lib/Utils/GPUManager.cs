@@ -101,7 +101,6 @@ namespace LenovoLegionToolkit.Lib.Utils
                 if (!IsActive || !CanBeDeactivated || string.IsNullOrEmpty(_pnpDeviceId))
                     return;
 
-
                 CMD.ExecuteProcess("pnputil", $"/restart-device /deviceid \"{_pnpDeviceId}\"");
             }
         }
