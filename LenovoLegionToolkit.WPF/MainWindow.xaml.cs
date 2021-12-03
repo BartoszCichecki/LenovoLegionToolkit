@@ -333,7 +333,9 @@ namespace LenovoLegionToolkit
 
         private void btnDeactivateDiscreteGPU_Click(object sender, RoutedEventArgs e) => _gpuManager.DeactivateGPU();
 
-        private void notifyIcon_TrayMouseUp(object sender, RoutedEventArgs e) => BringToForeground();
+        private void notifyIcon_Open(object sender, RoutedEventArgs e) => BringToForeground();
+
+        private void notifyIcon_Exit(object sender, RoutedEventArgs e) => Application.Current.Shutdown();
 
         private void aboutMenuItem_Click(object sender, RoutedEventArgs e) => new AboutWindow { Owner = this }.ShowDialog();
 

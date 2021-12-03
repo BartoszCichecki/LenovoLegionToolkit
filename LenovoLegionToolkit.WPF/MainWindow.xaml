@@ -18,9 +18,14 @@
     <DockPanel>
         <tb:TaskbarIcon ToolTipText="Lenovo Legion Toolkit"
                         IconSource="icon.ico"
-                        TrayLeftMouseUp="notifyIcon_TrayMouseUp"
-                        TrayRightMouseUp="notifyIcon_TrayMouseUp"
-        />
+                        TrayLeftMouseUp="notifyIcon_Open">
+            <tb:TaskbarIcon.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Open" Click="notifyIcon_Open" />
+                    <MenuItem Header="Exit" Click="notifyIcon_Exit" />
+                </ContextMenu>
+            </tb:TaskbarIcon.ContextMenu>
+        </tb:TaskbarIcon>
         <Menu DockPanel.Dock="Top" Background="#FFF" Margin="1">
             <MenuItem Header="Tools">
                 <MenuItem Name="autorunMenuItem" Header="Run on startup" Click="autorunMenuItem_Click" IsCheckable="true"/>
