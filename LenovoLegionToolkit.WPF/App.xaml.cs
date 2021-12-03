@@ -16,7 +16,10 @@ namespace LenovoLegionToolkit
         private const string MutexName = "LenovoLegionToolkit_Mutex_6efcc882-924c-4cbc-8fec-f45c25696f98";
         private const string EventName = "LenovoLegionToolkit_Event_6efcc882-924c-4cbc-8fec-f45c25696f98";
 
+#pragma warning disable IDE0052 // Remove unread private members
+        private Mutex _mutex;
         private EventWaitHandle _eventWaitHandle;
+#pragma warning restore IDE0052 // Remove unread private members
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
@@ -51,7 +54,7 @@ namespace LenovoLegionToolkit
 
         private void EnsureSingleInstance()
         {
-            _ = new Mutex(true, MutexName, out bool isOwned);
+            _mutex = new Mutex(true, MutexName, out bool isOwned);
             _eventWaitHandle = new EventWaitHandle(false, EventResetMode.AutoReset, EventName);
 
 
