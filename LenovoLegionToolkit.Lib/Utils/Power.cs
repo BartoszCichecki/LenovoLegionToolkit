@@ -27,8 +27,12 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         public static void ActivatePowerPlan(PowerModeState powerModeState)
         {
-            if (Vantage.IsEnabled)
-                return;
+            try
+            {
+                if (Vantage.IsEnabled)
+                    return;
+            }
+            catch (VantageServiceNotFoundException) { } // It is ok to continue if Vantage is not found
 
             var powerPlanId = Settings.Instance.PowerPlans.GetValueOrDefault(powerModeState);
             powerPlanId ??= GetDefaultPowerPlanId(powerModeState);
