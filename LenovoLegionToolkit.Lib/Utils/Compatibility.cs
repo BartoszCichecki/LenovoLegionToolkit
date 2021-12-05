@@ -30,6 +30,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             "15ACH6", // Legion 5 - AMD, nVidia
             "15ARH05", // Legion 5 - AMD, nVidia
             "15IMH05", // Legion 5 - Intel, nVidia
+            "17IMH05H", // Legion 5 - Intel, nVidia
             "R7000P2021H", // Legion 5 - AMD, nVidia (CN)
             "15ACH6", // Legion S7 - AMD, nVidia
             "17IRHg", // Legion Y740 - Intel, nVidia
