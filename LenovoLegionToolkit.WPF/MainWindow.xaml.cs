@@ -9,6 +9,7 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
+using Microsoft.Win32;
 
 namespace LenovoLegionToolkit
 {
@@ -30,6 +31,7 @@ namespace LenovoLegionToolkit
         private readonly OverDriveFeature _overDriveFeature = new();
         private readonly PowerModeFeature _powerModeFeature = new();
         private readonly TouchpadLockFeature _touchpadLockFeature = new();
+        private readonly RefreshRateFeature _refreshRateFeature = new();
 
         private readonly PowerModeListener _powerModeListener = new();
         private readonly GPUManager _gpuManager = new();
@@ -40,13 +42,15 @@ namespace LenovoLegionToolkit
 
             ResizeMode = Settings.Instance.MinimizeOnClose ? ResizeMode.NoResize : ResizeMode.CanMinimize;
 
-            StateChanged += mainWindow_StateChanged;
-            IsVisibleChanged += mainWindow_IsVisibleChanged;
-            Closing += mainWindow_Closing;
+            SystemEvents.DisplaySettingsChanged += SystemEvents_DisplaySettingsChanged;
 
-            _powerModeListener.Changed += powerModeListener_Changed;
-            _gpuManager.WillRefresh += gpuManager_WillRefresh;
-            _gpuManager.Refreshed += gpuManager_Refreshed;
+            StateChanged += MainWindow_StateChanged;
+            IsVisibleChanged += MainWindow_IsVisibleChanged;
+            Closing += MainWindow_Closing;
+
+            _powerModeListener.Changed += PowerModeListener_Changed;
+            _gpuManager.WillRefresh += GpuManager_WillRefresh;
+            _gpuManager.Refreshed += GpuManager_Refreshed;
 
             try
             {
@@ -147,6 +151,20 @@ namespace LenovoLegionToolkit
                     () => chkTouchpadLock.IsChecked = _touchpadLockFeature.GetState() == TouchpadLockState.On,
                     () => chkTouchpadLock.IsEnabled = false
                 ),
+                new FeatureCheck(
+                    () =>
+                    {
+                        var allStates = _refreshRateFeature.GetAllStates();
+                        cbRefreshRate.ItemsSource = allStates;
+                        cbRefreshRate.SelectedValue = _refreshRateFeature.GetState();
+                        cbRefreshRate.IsEnabled = allStates.Length > 1;
+                    },
+                    () =>
+                    {
+                        cbRefreshRate.ItemsSource = null;
+                        cbRefreshRate.SelectedValue = null;
+                        cbRefreshRate.IsEnabled = false;
+                    }),
             };
 
             foreach (var feature in features)
@@ -161,8 +179,9 @@ namespace LenovoLegionToolkit
             foreach (var btn in buttons)
                 btn.IsEnabled = false;
         }
+        private void SystemEvents_DisplaySettingsChanged(object sender, EventArgs e) => Refresh();
 
-        private void mainWindow_StateChanged(object sender, EventArgs e)
+        private void MainWindow_StateChanged(object sender, EventArgs e)
         {
             switch (WindowState)
             {
@@ -175,7 +194,7 @@ namespace LenovoLegionToolkit
             }
         }
 
-        private void mainWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private void MainWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (IsVisible)
                 _gpuManager.Start();
@@ -183,7 +202,7 @@ namespace LenovoLegionToolkit
                 _gpuManager.Stop();
         }
 
-        private void mainWindow_Closing(object sender, CancelEventArgs e)
+        private void MainWindow_Closing(object sender, CancelEventArgs e)
         {
             if (Settings.Instance.MinimizeOnClose)
             {
@@ -194,7 +213,7 @@ namespace LenovoLegionToolkit
                 _powerModeListener.Stop();
         }
 
-        private void gpuManager_WillRefresh(object sender, EventArgs e)
+        private void GpuManager_WillRefresh(object sender, EventArgs e)
         {
             Dispatcher.Invoke(() =>
             {
@@ -202,7 +221,7 @@ namespace LenovoLegionToolkit
             });
         }
 
-        private void gpuManager_Refreshed(object sender, GPUManager.RefreshedEventArgs e)
+        private void GpuManager_Refreshed(object sender, GPUManager.RefreshedEventArgs e)
         {
             Dispatcher.Invoke(() =>
             {
@@ -242,7 +261,7 @@ namespace LenovoLegionToolkit
             });
         }
 
-        public void powerModeListener_Changed(object sender, PowerModeState state)
+        public void PowerModeListener_Changed(object sender, PowerModeState state)
         {
             Dispatcher.Invoke(() => { _powerModeButtons[(int)state].IsChecked = true; });
         }
@@ -273,6 +292,21 @@ namespace LenovoLegionToolkit
             }
 
             Power.Restart();
+        }
+
+        private void cbRefreshRate_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count != 1)
+                return;
+
+            var selectedItem = (RefreshRate)e.AddedItems[0];
+
+            if (_refreshRateFeature.GetState() == selectedItem)
+                return;
+
+            ((ComboBox)sender).IsEnabled = false;
+
+            _refreshRateFeature.SetState(selectedItem);
         }
 
         private void radioBattery_Checked(object sender, RoutedEventArgs e)

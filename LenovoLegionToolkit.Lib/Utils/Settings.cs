@@ -24,9 +24,10 @@ namespace LenovoLegionToolkit.Lib
             }
         }
 
-        private JsonSerializerOptions _jsonSerializerOptions;
         private SettingsStore _settingsStore;
-        private string _settingsStorePath;
+
+        private readonly JsonSerializerOptions _jsonSerializerOptions;
+        private readonly string _settingsStorePath;
 
         public Dictionary<PowerModeState, string> PowerPlans
         {

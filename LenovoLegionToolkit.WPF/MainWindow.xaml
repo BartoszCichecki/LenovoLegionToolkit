@@ -12,8 +12,7 @@
         ResizeMode="NoResize"
         FontSize="14"
         Background="#FFF"
-        MinWidth="352" MinHeight="418"
-        MaxWidth="352" MaxHeight="418">
+        Width="350">
 
     <DockPanel>
         <tb:TaskbarIcon ToolTipText="Lenovo Legion Toolkit"
@@ -44,6 +43,8 @@
         <StackPanel Margin="15" Orientation="Vertical">
             <Grid>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
@@ -93,19 +94,7 @@
                     </StackPanel>
                 </GroupBox>
 
-
-                <GroupBox Grid.Row="1" Grid.Column="1" Header="Discrete GPU" Margin="0">
-                    <StackPanel Margin="5,5,5,5" Orientation="Vertical">
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Ellipse x:Name="elpsDiscreteGPUStatusActive" Width="10" Height="10" Fill="#FF8BC34A"/>
-                            <Ellipse x:Name="elpsDiscreteGPUStatusInactive" Width="10" Height="10" Fill="#BF360C"/>
-                            <Label x:Name="lblDiscreteGPUStatus" Content="-" Margin="2,0,0,0" />
-                        </StackPanel>
-                        <Button x:Name="btnDeactivateDiscreteGPU" Click="btnDeactivateDiscreteGPU_Click" Content="Deactivate" Margin="10,10,10,0" IsEnabled="False" ToolTipService.ShowOnDisabled="true"  />
-                    </StackPanel>
-                </GroupBox>
-
-                <GroupBox Grid.Row="2" Grid.Column="0" Header="Always on USB" Margin="0,0,5,0">
+                <GroupBox Grid.Row="1" Grid.Column="2" Header="Always on USB" Margin="0">
                     <StackPanel Margin="5,5,20,5" Orientation="Vertical">
                         <RadioButton Margin="0,0,0,5" x:Name="radioAlwaysOnUsbOff" Content="Off" HorizontalAlignment="Left"
                                  VerticalAlignment="Top" Checked="radioAlwaysOnUsb_Checked"
@@ -119,7 +108,33 @@
                     </StackPanel>
                 </GroupBox>
 
-                <GroupBox Grid.Row="2" Grid.Column="1" Margin="0" Header="Misc">
+                <GroupBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0" Header="Refresh rate">
+                    <Grid Margin="5,5,5,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Content="Built-in display:" Margin="0,0,5,0" Padding="0,0,0,0" VerticalAlignment="Center" />
+                        <ComboBox Grid.Row="0" Grid.Column="1" x:Name="cbRefreshRate" SelectionChanged="cbRefreshRate_SelectionChanged" Height="29" VerticalContentAlignment="Center" />
+                    </Grid>
+                </GroupBox>
+
+                <GroupBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="0" Header="Discrete GPU">
+                    <Grid Margin="5,5,5,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                            <Ellipse x:Name="elpsDiscreteGPUStatusActive" Width="10" Height="10" Fill="#FF8BC34A"/>
+                            <Ellipse x:Name="elpsDiscreteGPUStatusInactive" Width="10" Height="10" Fill="#BF360C"/>
+                            <Label x:Name="lblDiscreteGPUStatus" Content="-" Margin="2,0,0,0" />
+                        </StackPanel>
+                        <Button Grid.Row="0" Grid.Column="1" x:Name="btnDeactivateDiscreteGPU" Click="btnDeactivateDiscreteGPU_Click" Content="Deactivate" IsEnabled="False" ToolTipService.ShowOnDisabled="true" Height="29" />
+                    </Grid>
+                </GroupBox>
+
+                <GroupBox Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="0" Header="Misc">
                     <StackPanel Margin="5,5,20,5" Orientation="Vertical">
                         <CheckBox Margin="0,0,0,5" x:Name="chkFlipToStart" Content="Flip to start" HorizontalAlignment="Left"
                               VerticalAlignment="Top" Checked="chkFlipToStart_Checked"
@@ -136,8 +151,10 @@
                     </StackPanel>
                 </GroupBox>
             </Grid>
-            <Border x:Name="updateIndicator"  BorderThickness="1" CornerRadius="5,5,5,5" Visibility="Visible" Margin="0,5,0,0" Background="#FFAEE571">
-                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Margin="3,3,3,3">An update is available. Check it out on <Hyperlink NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit/releases" RequestNavigate="hyperlink_RequestNavigate">GitHub</Hyperlink>!</TextBlock>
+            <Border x:Name="updateIndicator" BorderThickness="1" CornerRadius="5,5,5,5" Visibility="Visible" Margin="0,5,0,0" Background="#FFAEE571">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Margin="3,3,3,3">
+                    An update is available. Check it out on <Hyperlink NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit/releases" RequestNavigate="hyperlink_RequestNavigate">GitHub</Hyperlink>!
+                </TextBlock>
             </Border>
         </StackPanel>
     </DockPanel>

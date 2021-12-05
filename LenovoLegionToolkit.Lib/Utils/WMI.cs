@@ -41,6 +41,19 @@ namespace LenovoLegionToolkit.Lib.Utils
             mre.WaitOne();
         }
 
+        public static void InvokeForResult(string scope,
+            string clazz,
+            string propertyName,
+            string propertyValue,
+            string methodName,
+            object[] parameters = null)
+        {
+            var path = $"{scope}:{clazz}.{propertyName}=\"{propertyValue.Escaped()}\"";
+
+            using var managementObject = new ManagementObject(path);
+            managementObject.InvokeMethod(methodName, parameters);
+        }
+
         private static string Escaped(this string value) => value.Replace("\\", "\\\\");
     }
 }
