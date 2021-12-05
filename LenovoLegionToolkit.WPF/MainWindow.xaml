@@ -108,8 +108,18 @@
                     </StackPanel>
                 </GroupBox>
 
+                <GroupBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0" Header="Refresh rate">
+                    <Grid Margin="5,5,5,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Content="Built-in display:" Margin="0,0,5,0" Padding="0,0,0,0" VerticalAlignment="Center" />
+                        <ComboBox Grid.Row="0" Grid.Column="1" x:Name="cbRefreshRate" SelectionChanged="cbRefreshRate_SelectionChanged" Height="29" VerticalContentAlignment="Center" />
+                    </Grid>
+                </GroupBox>
 
-                <GroupBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0" Header="Discrete GPU">
+                <GroupBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="0" Header="Discrete GPU">
                     <Grid Margin="5,5,5,5">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
@@ -121,17 +131,6 @@
                             <Label x:Name="lblDiscreteGPUStatus" Content="-" Margin="2,0,0,0" />
                         </StackPanel>
                         <Button Grid.Row="0" Grid.Column="1" x:Name="btnDeactivateDiscreteGPU" Click="btnDeactivateDiscreteGPU_Click" Content="Deactivate" IsEnabled="False" ToolTipService.ShowOnDisabled="true" Height="29" />
-                    </Grid>
-                </GroupBox>
-
-                <GroupBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="0" Header="Refresh rate">
-                    <Grid Margin="5,5,5,5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition Width="100" />
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Row="0" Grid.Column="0" Content="Built-in display:" Margin="0,0,5,0" Padding="0,0,0,0" VerticalAlignment="Center" />
-                        <ComboBox Grid.Row="0" Grid.Column="1" x:Name="cbRefreshRate" SelectionChanged="cbRefreshRate_SelectionChanged" Height="29" VerticalContentAlignment="Center" />
                     </Grid>
                 </GroupBox>
 
