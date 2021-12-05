@@ -23,13 +23,6 @@ namespace LenovoLegionToolkit
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            var builtIn = Monitors.GetBuiltInDisplay();
-            var modes = Monitors.GetMainDisplayModes(builtIn);
-
-            var mode = modes.Possible.First(m => m.Frequency == 60);
-
-            //Monitors.Activate(builtIn, mode);
-
             EnsureSingleInstance();
 
             if (!ShouldByPassCompatibilityCheck(e.Args))
