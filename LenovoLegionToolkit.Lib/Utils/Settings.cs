@@ -48,8 +48,6 @@ namespace LenovoLegionToolkit.Lib
             var settingsStorePath = Path.Combine(folderPath, "settings.json");
             if (!Directory.Exists(folderPath))
                 Directory.CreateDirectory(folderPath);
-            if (!File.Exists(settingsStorePath))
-                File.Create(settingsStorePath);
 
             _jsonSerializerOptions = new() { WriteIndented = true };
             _settingsStorePath = settingsStorePath;
@@ -61,12 +59,12 @@ namespace LenovoLegionToolkit.Lib
 
         private void Deserialize()
         {
-            var settingsSerialized = File.ReadAllText(_settingsStorePath);
             try
             {
+                var settingsSerialized = File.ReadAllText(_settingsStorePath);
                 _settingsStore = JsonSerializer.Deserialize<SettingsStore>(settingsSerialized, _jsonSerializerOptions);
             }
-            catch (JsonException)
+            catch
             {
                 _settingsStore = new();
                 Serialize();
