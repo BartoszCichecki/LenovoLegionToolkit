@@ -6,8 +6,8 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
     <AssemblyName>Lenovo Legion Toolkit</AssemblyName>
 	  <Copyright>© 2021 Bartosz Cichecki</Copyright>
-    <FileVersion>1.4</FileVersion>
-    <Version>1.4</Version>
+    <FileVersion>1.5</FileVersion>
+    <Version>1.5</Version>
     <Nullable>disable</Nullable>
     <UseWPF>true</UseWPF>
 	<SelfContained>false</SelfContained>
