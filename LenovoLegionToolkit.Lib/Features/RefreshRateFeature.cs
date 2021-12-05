@@ -7,8 +7,6 @@ using WindowsDisplayAPI;
 
 namespace LenovoLegionToolkit.Lib.Features
 {
-    using RefreshRate = Int32;
-
     public class RefreshRateFeature : IDynamicFeature<RefreshRate>
     {
         private struct PNPEntity
@@ -32,7 +30,7 @@ namespace LenovoLegionToolkit.Lib.Features
             var currentSettings = display.CurrentSetting;
             return display.GetPossibleSettings()
                 .Where(dps => Match(dps, currentSettings))
-                .Select(dps => dps.Frequency)
+                .Select(dps => new RefreshRate(dps.Frequency))
                 .ToArray();
         }
 
@@ -42,7 +40,7 @@ namespace LenovoLegionToolkit.Lib.Features
             if (display == null)
                 throw new InvalidOperationException("Built in display not found.");
 
-            return display.CurrentSetting.Frequency;
+            return new RefreshRate(display.CurrentSetting.Frequency);
         }
 
         public void SetState(RefreshRate state)
@@ -53,13 +51,13 @@ namespace LenovoLegionToolkit.Lib.Features
 
             var currentSettings = display.CurrentSetting;
 
-            if (currentSettings.Frequency == state)
+            if (currentSettings.Frequency == state.Frequency)
                 return;
 
             var newSettings = display.GetPossibleSettings()
                 .Where(dps => Match(dps, currentSettings))
                 .Select(dps => new DisplaySetting(dps, currentSettings.Position))
-                .FirstOrDefault(dps => dps.Frequency == state);
+                .FirstOrDefault(dps => dps.Frequency == state.Frequency);
 
             if (newSettings != null)
                 display.SetSettings(newSettings, true);

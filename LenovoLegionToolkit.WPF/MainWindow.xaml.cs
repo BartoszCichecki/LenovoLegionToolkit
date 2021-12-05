@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Navigation;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
@@ -154,9 +155,10 @@ namespace LenovoLegionToolkit
                 new FeatureCheck(
                     () =>
                     {
-                        cbRefreshRate.ItemsSource = _refreshRateFeature.GetAllStates();
+                        var allStates = _refreshRateFeature.GetAllStates();
+                        cbRefreshRate.ItemsSource = allStates;
                         cbRefreshRate.SelectedValue = _refreshRateFeature.GetState();
-                        cbRefreshRate.IsEnabled = true;
+                        cbRefreshRate.IsEnabled = allStates.Length > 1;
                     },
                     () =>
                     {
@@ -298,7 +300,7 @@ namespace LenovoLegionToolkit
             if (e.AddedItems.Count != 1)
                 return;
 
-            var selectedItem = (int)e.AddedItems[0];
+            var selectedItem = (RefreshRate)e.AddedItems[0];
 
             if (_refreshRateFeature.GetState() == selectedItem)
                 return;
