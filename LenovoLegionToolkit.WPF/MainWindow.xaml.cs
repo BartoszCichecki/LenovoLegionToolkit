@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Navigation;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
