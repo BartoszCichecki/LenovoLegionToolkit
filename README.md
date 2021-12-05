@@ -32,6 +32,8 @@ The app allows to:
 * Flip to start, Over Drive, Fn and Touchpad locks,
 * Disable/enable Lenovo Vantage without uninstalling it,
 * Deactivate discrete GPU (nVidia only).
+* Change display refresh rate (buil in display only).
+* Set up custom power plans for specific Power Modes.
 
 #### Disable/enable Lenovo Vantage
 
@@ -61,9 +63,9 @@ You don't need to install it if you already have the .NET SDK 5 installed.
 
 ## Credits
 
-Credits go to ViRb3, for creating Lenovo Controller, which was used as a base for this tool.
+Credits go to (ViRb3)[github.com/ViRb3], for creating (Lenovo Controller)[github.com/ViRb3/LenovoController], which was used as a base for this tool. 
 
-Check out his repo: https://github.com/ViRb3/LenovoController
+Special thanks to (falahati)[github.com/falahati], for creating (NvAPIWrapper)[github.com/falahati/NvAPIWrapper] and (WindowsDisplayAPI)[github.com/falahati/WindowsDisplayAPI].
 
 
 ## Contribution
