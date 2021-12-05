@@ -66,11 +66,10 @@ namespace LenovoLegionToolkit
 
         private static void Save(ComboBox comboBox, PowerModeState powerModeState)
         {
-            var selectedItem = comboBox.SelectedItem as PowerPlan;
-            if (selectedItem == null)
-                Settings.Instance.PowerPlans.Remove(powerModeState);
-            else
+            if (comboBox.SelectedItem is PowerPlan selectedItem)
                 Settings.Instance.PowerPlans[powerModeState] = selectedItem.InstanceID;
+            else
+                Settings.Instance.PowerPlans.Remove(powerModeState);
         }
     }
 }
