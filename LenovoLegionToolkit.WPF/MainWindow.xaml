@@ -12,8 +12,8 @@
         ResizeMode="NoResize"
         FontSize="14"
         Background="#FFF"
-        MinWidth="352" MinHeight="418"
-        MaxWidth="352" MaxHeight="418">
+        MinWidth="350" MinHeight="520"
+        MaxWidth="350" MaxHeight="520">
 
     <DockPanel>
         <tb:TaskbarIcon ToolTipText="Lenovo Legion Toolkit"
@@ -44,6 +44,7 @@
         <StackPanel Margin="15" Orientation="Vertical">
             <Grid>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
@@ -105,6 +106,12 @@
                     </StackPanel>
                 </GroupBox>
 
+                <GroupBox Grid.Row="2" Grid.Column="1" Header="Refresh rate" Margin="0">
+                    <StackPanel Margin="5,5,5,5" Orientation="Vertical" VerticalAlignment="Center">
+                        <ComboBox x:Name="cbRefreshRate" SelectionChanged="cbRefreshRate_SelectionChanged" />
+                    </StackPanel>
+                </GroupBox>
+
                 <GroupBox Grid.Row="2" Grid.Column="0" Header="Always on USB" Margin="0,0,5,0">
                     <StackPanel Margin="5,5,20,5" Orientation="Vertical">
                         <RadioButton Margin="0,0,0,5" x:Name="radioAlwaysOnUsbOff" Content="Off" HorizontalAlignment="Left"
@@ -119,7 +126,7 @@
                     </StackPanel>
                 </GroupBox>
 
-                <GroupBox Grid.Row="2" Grid.Column="1" Margin="0" Header="Misc">
+                <GroupBox Grid.Row="3" Grid.Column="0" Margin="0,0,5,0" Header="Misc" Grid.ColumnSpan="2">
                     <StackPanel Margin="5,5,20,5" Orientation="Vertical">
                         <CheckBox Margin="0,0,0,5" x:Name="chkFlipToStart" Content="Flip to start" HorizontalAlignment="Left"
                               VerticalAlignment="Top" Checked="chkFlipToStart_Checked"
