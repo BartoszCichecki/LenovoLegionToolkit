@@ -63,9 +63,9 @@ You don't need to install it if you already have the .NET SDK 5 installed.
 
 ## Credits
 
-Credits go to (ViRb3)[github.com/ViRb3], for creating (Lenovo Controller)[github.com/ViRb3/LenovoController], which was used as a base for this tool. 
+Credits go to [ViRb3](https://github.com/ViRb3), for creating [Lenovo Controller](https://github.com/ViRb3/LenovoController), which was used as a base for this tool. 
 
-Special thanks to (falahati)[github.com/falahati], for creating (NvAPIWrapper)[github.com/falahati/NvAPIWrapper] and (WindowsDisplayAPI)[github.com/falahati/WindowsDisplayAPI].
+Special thanks to [falahati](https://github.com/falahati), for creating [NvAPIWrapper](https://github.com/falahati/NvAPIWrapper) and [WindowsDisplayAPI](https://github.com/falahati/WindowsDisplayAPI).
 
 
 ## Contribution
