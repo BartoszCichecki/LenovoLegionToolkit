@@ -36,7 +36,7 @@
                     <MenuItem x:Name="disableVantageMenuItem" IsCheckable="true" Header="Disabled" Click="DisableVantageMenuItem_Click" />
                 </MenuItem>
                 <Separator/>
-                <MenuItem Header="Exit" Click="exitMenuItem_Click" />
+                <MenuItem Header="Exit" Click="ExitMenuItem_Click" />
             </MenuItem>
             <MenuItem Header="About" Click="AboutMenuItem_Click" />
         </Menu>
