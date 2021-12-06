@@ -65,7 +65,6 @@ namespace LenovoLegionToolkit
             _hybridModeButtons = new[] { radioHybridOn, radioHybridOff };
             _powerModeButtons = new[] { radioQuiet, radioBalance, radioPerformance };
 
-
             elpsDiscreteGPUStatusActive.Visibility = Visibility.Collapsed;
             elpsDiscreteGPUStatusInactive.Visibility = Visibility.Collapsed;
             updateIndicator.Visibility = Visibility.Collapsed;

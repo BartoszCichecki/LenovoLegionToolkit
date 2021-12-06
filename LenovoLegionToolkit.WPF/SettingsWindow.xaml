@@ -16,7 +16,7 @@
             <StackPanel Orientation="Vertical">
                 <Border BorderThickness="1" CornerRadius="5,5,5,5" Visibility="Visible" Background="#FFFBC02D" Margin="0,5,0,10">
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3,3,3,3">
-                        Power plans switching works only when Vantage is not running.
+                        Custom power plans switching works only when Vantage is not running.
                     </TextBlock>
                 </Border>
                 <StackPanel Orientation="Horizontal">
