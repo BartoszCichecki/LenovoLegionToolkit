@@ -4,7 +4,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 {
     internal static class CMD
     {
-        public static string ExecuteProcess(string file, string arguments)
+        public static string Run(string file, string arguments)
         {
             var cmd = new Process();
             cmd.StartInfo.UseShellExecute = false;

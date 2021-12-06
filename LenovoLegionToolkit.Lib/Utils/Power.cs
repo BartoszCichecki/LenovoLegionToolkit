@@ -22,7 +22,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 
     public static class Power
     {
-        public static void Restart() => CMD.ExecuteProcess("shutdown", "/r /t 0");
+        public static void Restart() => CMD.Run("shutdown", "/r /t 0");
 
         public static PowerPlan[] GetPowerPlans() => WMI.Read("root\\CIMV2\\power", "SELECT * FROM Win32_PowerPlan", Create).ToArray();
 
@@ -44,7 +44,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             if (powerPlan == null || powerPlan.IsActive)
                 return;
 
-            CMD.ExecuteProcess("powercfg", $"/s {powerPlan.Guid}");
+            CMD.Run("powercfg", $"/s {powerPlan.Guid}");
         }
 
         private static bool ShouldActivate(bool alwaysActivateDefaults, bool isDefault)
