@@ -10,14 +10,13 @@
         ResizeMode="NoResize"
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterOwner"
-        ShowInTaskbar="False"
-        FontSize="14">
+        ShowInTaskbar="False">
     <StackPanel Margin="15">
         <GroupBox Header="Power plans" Padding="0,5,0,5">
             <StackPanel Orientation="Vertical">
                 <Border BorderThickness="1" CornerRadius="5,5,5,5" Visibility="Visible" Background="#FFFBC02D" Margin="0,5,0,10">
-                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Margin="3,3,3,3">
-                        Custom power plans will only work when Vantage is disabled.
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3,3,3,3">
+                        Power plans switching works only when Vantage is not running.
                     </TextBlock>
                 </Border>
                 <StackPanel Orientation="Horizontal">

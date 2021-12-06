@@ -16,7 +16,7 @@ namespace LenovoLegionToolkit.Lib.Features
         public override void SetState(PowerModeState state)
         {
             base.SetState(state);
-            Power.ActivatePowerPlan(state, true);
+            Power.ActivatePowerPlan(state);
         }
     }
 }

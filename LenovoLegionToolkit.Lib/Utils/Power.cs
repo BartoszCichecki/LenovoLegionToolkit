@@ -35,9 +35,9 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         public static PowerPlan[] GetPowerPlans() => WMI.Read("root\\CIMV2\\power", "SELECT * FROM Win32_PowerPlan", Create).ToArray();
 
-        public static void ActivatePowerPlan(PowerModeState powerModeState, bool force = true)
+        public static void ActivatePowerPlan(PowerModeState powerModeState)
         {
-            if (!force && Vantage.Status == VantageStatus.Enabled)
+            if (Vantage.Status == VantageStatus.Enabled)
                 return;
 
             var powerPlanId = Settings.Instance.PowerPlans.GetValueOrDefault(powerModeState);
