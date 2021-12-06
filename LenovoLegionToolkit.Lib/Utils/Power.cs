@@ -11,6 +11,16 @@ namespace LenovoLegionToolkit.Lib.Utils
         public string Name { get; }
         public bool IsActive { get; }
 
+        public string Guid
+        {
+            get
+            {
+                var guid = InstanceID.Split("\\").Last();
+                guid = guid.Replace("{", "").Replace("}", "");
+                return guid;
+            }
+        }
+
         public PowerPlan(string instanceID, string name, bool isActive)
         {
             InstanceID = instanceID;
@@ -41,11 +51,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             if (powerPlan == null || powerPlan.IsActive)
                 return;
 
-            WMI.Invoke("root\\CIMV2\\power",
-                "Win32_PowerPlan",
-                "InstanceID",
-                powerPlan.InstanceID,
-                "Activate");
+            CMD.ExecuteProcess("powercfg", $"/s {powerPlan.Guid}");
         }
 
         private static PowerPlan Create(PropertyDataCollection properties)
