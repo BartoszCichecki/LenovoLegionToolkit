@@ -23,6 +23,9 @@ namespace LenovoLegionToolkit
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
+            if (IsTraceEnabled(e.Args))
+                Log.Instance.IsTraceEnabled = true;
+
             EnsureSingleInstance();
 
             if (!ShouldByPassCompatibilityCheck(e.Args))
@@ -80,6 +83,8 @@ namespace LenovoLegionToolkit
         private static bool ShouldByPassCompatibilityCheck(string[] args) => args.Contains("--skip-compat-check");
 
         private static bool ShouldStartMinimized(string[] args) => args.Contains("--minimized");
+
+        private static bool IsTraceEnabled(string[] args) => args.Contains("--trace");
 
         #endregion
 
