@@ -442,7 +442,7 @@ namespace LenovoLegionToolkit
             Power.Restart();
         }
 
-        private void exitMenuItem_Click(object sender, RoutedEventArgs e) => Application.Current.Shutdown();
+        private void ExitMenuItem_Click(object sender, RoutedEventArgs e) => Application.Current.Shutdown();
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
