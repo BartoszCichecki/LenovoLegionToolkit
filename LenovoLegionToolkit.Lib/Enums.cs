@@ -50,4 +50,11 @@
         Off,
         On
     }
+
+    public enum VantageStatus
+    {
+        Enabled,
+        Disabled,
+        NotFound
+    }
 }

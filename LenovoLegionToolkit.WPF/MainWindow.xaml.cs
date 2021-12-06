@@ -52,16 +52,10 @@ namespace LenovoLegionToolkit
             _gpuManager.WillRefresh += GpuManager_WillRefresh;
             _gpuManager.Refreshed += GpuManager_Refreshed;
 
-            try
-            {
-                var vantageEnabled = Vantage.IsEnabled;
-                enableVantageMenuItem.IsChecked = vantageEnabled;
-                disableVantageMenuItem.IsChecked = !vantageEnabled;
-            }
-            catch (VantageServiceNotFoundException)
-            {
-                vantageMenuItem.IsEnabled = false;
-            }
+            var vantageStatus = Vantage.Status;
+            vantageMenuItem.IsEnabled = vantageStatus != VantageStatus.NotFound;
+            enableVantageMenuItem.IsChecked = vantageStatus == VantageStatus.Enabled;
+            disableVantageMenuItem.IsChecked = vantageStatus == VantageStatus.Disabled;
 
             autorunMenuItem.IsChecked = Autorun.IsEnabled;
             minimizeOnCloseMenuItem.IsChecked = Settings.Instance.MinimizeOnClose;
@@ -110,9 +104,9 @@ namespace LenovoLegionToolkit
         {
             Task.Run(Updates.Check)
                 .ContinueWith(updatesAvailable =>
-            {
-                updateIndicator.Visibility = updatesAvailable.Result ? Visibility.Visible : Visibility.Collapsed;
-            }, TaskScheduler.FromCurrentSynchronizationContext());
+                {
+                    updateIndicator.Visibility = updatesAvailable.Result ? Visibility.Visible : Visibility.Collapsed;
+                }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         private void Refresh()
@@ -413,9 +407,10 @@ namespace LenovoLegionToolkit
         {
             Vantage.Enable();
 
-            var vantageEnabled = Vantage.IsEnabled;
-            enableVantageMenuItem.IsChecked = vantageEnabled;
-            disableVantageMenuItem.IsChecked = !vantageEnabled;
+            var vantageStatus = Vantage.Status;
+            vantageMenuItem.IsEnabled = vantageStatus != VantageStatus.NotFound;
+            enableVantageMenuItem.IsChecked = vantageStatus == VantageStatus.Enabled;
+            disableVantageMenuItem.IsChecked = vantageStatus == VantageStatus.Disabled;
 
             var result = MessageBox.Show("It is recommended to restart Windows after enabling Lenovo Vantage.\n\nDo you want to restart now?",
                 "Restart recommended",
@@ -431,9 +426,10 @@ namespace LenovoLegionToolkit
         {
             Vantage.Disable();
 
-            var vantageEnabled = Vantage.IsEnabled;
-            enableVantageMenuItem.IsChecked = vantageEnabled;
-            disableVantageMenuItem.IsChecked = !vantageEnabled;
+            var vantageStatus = Vantage.Status;
+            vantageMenuItem.IsEnabled = vantageStatus != VantageStatus.NotFound;
+            enableVantageMenuItem.IsChecked = vantageStatus == VantageStatus.Enabled;
+            disableVantageMenuItem.IsChecked = vantageStatus == VantageStatus.Disabled;
 
             var result = MessageBox.Show("It is recommended to restart Windows after disabling Lenovo Vantage.\n\nDo you want to restart now?",
                 "Restart recommended",
