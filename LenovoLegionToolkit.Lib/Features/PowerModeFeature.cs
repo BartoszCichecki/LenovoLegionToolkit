@@ -6,17 +6,10 @@ namespace LenovoLegionToolkit.Lib.Features
     {
         public PowerModeFeature() : base("SmartFanMode", 1, "IsSupportSmartFan") { }
 
-        public override PowerModeState GetState()
-        {
-            var state = base.GetState();
-            Power.ActivatePowerPlan(state);
-            return state;
-        }
-
         public override void SetState(PowerModeState state)
         {
             base.SetState(state);
-            Power.ActivatePowerPlan(state);
+            Power.ActivatePowerPlan(state, true);
         }
     }
 }

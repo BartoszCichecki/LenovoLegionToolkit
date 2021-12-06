@@ -70,6 +70,7 @@ namespace LenovoLegionToolkit
             elpsDiscreteGPUStatusInactive.Visibility = Visibility.Collapsed;
             updateIndicator.Visibility = Visibility.Collapsed;
 
+            Power.ActivatePowerPlan(_powerModeFeature.GetState(), true);
             _powerModeListener.Start();
 
             Refresh();
