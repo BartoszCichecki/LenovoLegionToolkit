@@ -49,19 +49,11 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         private static bool ShouldActivate(bool alwaysActivateDefaults, bool isDefault)
         {
-            if (isDefault)
-            {
-                if (alwaysActivateDefaults)
-                    return true;
-                if (Vantage.Status == VantageStatus.NotFound || Vantage.Status == VantageStatus.Disabled)
-                    return true;
-            }
+            if (isDefault && alwaysActivateDefaults)
+                return true;
 
-            if (!isDefault)
-            {
-                if (Vantage.Status == VantageStatus.NotFound || Vantage.Status == VantageStatus.Disabled)
-                    return true;
-            }
+            if (Vantage.Status == VantageStatus.NotFound || Vantage.Status == VantageStatus.Disabled)
+                return true;
 
             return false;
         }
