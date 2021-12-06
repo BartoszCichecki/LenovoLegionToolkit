@@ -45,12 +45,10 @@ namespace LenovoLegionToolkit.Lib
         {
             var appData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             var folderPath = Path.Combine(appData, "LenovoLegionToolkit");
-            var settingsStorePath = Path.Combine(folderPath, "settings.json");
-            if (!Directory.Exists(folderPath))
-                Directory.CreateDirectory(folderPath);
+            Directory.CreateDirectory(folderPath);
 
             _jsonSerializerOptions = new() { WriteIndented = true };
-            _settingsStorePath = settingsStorePath;
+            _settingsStorePath = Path.Combine(folderPath, "settings.json");
 
             Deserialize();
         }
