@@ -5,7 +5,10 @@ using Microsoft.Win32.TaskScheduler;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
-    public class VantageServiceNotFoundException : Exception { }
+    public class VantageServiceNotFoundException : Exception
+    {
+        public VantageServiceNotFoundException(string message) : base(message) { }
+    }
 
     public static class Vantage
     {
@@ -25,7 +28,20 @@ namespace LenovoLegionToolkit.Lib.Utils
             "LenovoVantageService",
         };
 
-        public static bool IsEnabled => IsServicesEnabled();
+        public static VantageStatus Status
+        {
+            get
+            {
+                try
+                {
+                    return IsServicesEnabled() ? VantageStatus.Enabled : VantageStatus.Disabled;
+                }
+                catch (VantageServiceNotFoundException)
+                {
+                    return VantageStatus.NotFound;
+                }
+            }
+        }
 
         public static void Enable()
         {
@@ -76,7 +92,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             }
             catch (InvalidOperationException ex) when ((ex.InnerException as Win32Exception)?.NativeErrorCode == 1060)
             {
-                throw new VantageServiceNotFoundException();
+                throw new VantageServiceNotFoundException(serviceName);
             }
         }
 
@@ -115,7 +131,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             }
             catch (InvalidOperationException ex) when ((ex.InnerException as Win32Exception)?.NativeErrorCode == 1060)
             {
-                throw new VantageServiceNotFoundException();
+                throw new VantageServiceNotFoundException(serviceName);
             }
         }
     }
