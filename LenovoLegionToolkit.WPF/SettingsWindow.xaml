@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:LenovoLegionToolkit"
         xmlns:System="clr-namespace:System;assembly=System.Runtime" x:Class="LenovoLegionToolkit.SettingsWindow"
         mc:Ignorable="d"
+        SnapsToDevicePixels="true"
         Title="Settings"
         ResizeMode="NoResize"
         SizeToContent="WidthAndHeight"

@@ -6,6 +6,7 @@
         xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
         x:Name="mainWindow"
+        SnapsToDevicePixels="true"
         Title="Lenovo Legion Toolkit"
         WindowStartupLocation="CenterScreen"
         SizeToContent="WidthAndHeight"
