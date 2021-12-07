@@ -34,7 +34,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             _logPath = Path.Combine(folderPath, $"log_{DateTime.Now:yyyy_MM_dd_HH_mm_ss}.txt");
         }
 
-        public void Trace(string message = null, [CallerFilePath] string file = null, [CallerMemberName] string caller = null)
+        public void Trace(FormattableString message, [CallerFilePath] string file = null, [CallerMemberName] string caller = null)
         {
             if (!IsTraceEnabled)
                 return;
