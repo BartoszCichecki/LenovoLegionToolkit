@@ -10,16 +10,7 @@ namespace LenovoLegionToolkit.Lib.Utils
         public string InstanceID { get; }
         public string Name { get; }
         public bool IsActive { get; }
-
-        public string Guid
-        {
-            get
-            {
-                var guid = InstanceID.Split("\\").Last();
-                guid = guid.Replace("{", "").Replace("}", "");
-                return guid;
-            }
-        }
+        public string Guid => InstanceID.Split("\\").Last().Replace("{", "").Replace("}", "");
 
         public PowerPlan(string instanceID, string name, bool isActive)
         {
@@ -31,27 +22,40 @@ namespace LenovoLegionToolkit.Lib.Utils
 
     public static class Power
     {
-        public static void Restart() => CMD.ExecuteProcess("shutdown", "/r /t 0");
+        public static void Restart() => CMD.Run("shutdown", "/r /t 0");
 
         public static PowerPlan[] GetPowerPlans() => WMI.Read("root\\CIMV2\\power", "SELECT * FROM Win32_PowerPlan", Create).ToArray();
 
-        public static void ActivatePowerPlan(PowerModeState powerModeState)
+        public static void ActivatePowerPlan(PowerModeState powerModeState, bool alwaysActivateDefaults = false)
         {
-            try
-            {
-                if (Vantage.IsEnabled)
-                    return;
-            }
-            catch (VantageServiceNotFoundException) { } // It is ok to continue if Vantage is not found
-
             var powerPlanId = Settings.Instance.PowerPlans.GetValueOrDefault(powerModeState);
-            powerPlanId ??= GetDefaultPowerPlanId(powerModeState);
+            var isDefault = false;
+
+            if (powerPlanId == null)
+            {
+                powerPlanId = GetDefaultPowerPlanId(powerModeState);
+                isDefault = true;
+            }
+
+            if (!ShouldActivate(alwaysActivateDefaults, isDefault))
+                return;
 
             var powerPlan = GetPowerPlans().FirstOrDefault(pp => pp.InstanceID.Contains(powerPlanId));
             if (powerPlan == null || powerPlan.IsActive)
                 return;
 
-            CMD.ExecuteProcess("powercfg", $"/s {powerPlan.Guid}");
+            CMD.Run("powercfg", $"/s {powerPlan.Guid}");
+        }
+
+        private static bool ShouldActivate(bool alwaysActivateDefaults, bool isDefault)
+        {
+            if (isDefault && alwaysActivateDefaults)
+                return true;
+
+            if (Vantage.Status == VantageStatus.NotFound || Vantage.Status == VantageStatus.Disabled)
+                return true;
+
+            return false;
         }
 
         private static PowerPlan Create(PropertyDataCollection properties)
