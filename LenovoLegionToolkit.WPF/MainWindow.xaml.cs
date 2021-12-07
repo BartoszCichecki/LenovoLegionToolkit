@@ -69,6 +69,7 @@ namespace LenovoLegionToolkit
             elpsDiscreteGPUStatusInactive.Visibility = Visibility.Collapsed;
             updateIndicator.Visibility = Visibility.Collapsed;
 
+            _powerModeFeature.EnsureCorrectPowerPlanIsSet();
             _powerModeListener.Start();
 
             Refresh();
@@ -369,7 +370,12 @@ namespace LenovoLegionToolkit
         private void SettingsMenuItem_Click(object sender, RoutedEventArgs e)
         {
             var window = new SettingsWindow { Owner = this };
-            window.Closed += (_, _) => Refresh();
+            window.Closed += (_, _) =>
+            {
+                Refresh();
+
+                _powerModeFeature.EnsureCorrectPowerPlanIsSet();
+            };
             window.Show();
         }
 

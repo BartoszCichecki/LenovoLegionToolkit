@@ -15,11 +15,6 @@
     <StackPanel Margin="15">
         <GroupBox Header="Power plans" Padding="0,5,0,5">
             <StackPanel Orientation="Vertical">
-                <Border BorderThickness="1" CornerRadius="5,5,5,5" Visibility="Visible" Background="#FFFBC02D" Margin="0,5,0,10">
-                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3,3,3,3">
-                        Custom power plans switching works only when Vantage is not running.
-                    </TextBlock>
-                </Border>
                 <StackPanel Orientation="Horizontal">
                     <Label  Width="150" Content="Quiet mode:"/>
                     <ComboBox x:Name="cbQuietMode" Width="250">
@@ -78,6 +73,9 @@
                     </ComboBox>
                 </StackPanel>
             </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Advanced options" Padding="0,5,0,10">
+            <CheckBox x:Name="cbActivatePowerProfilesWithVantageEnabled" Click="ActivatePowerProfilesWithVantageEnabled_Click" Content="Activate power plans even when Vantage is enabled" Margin="0,5,0,0" />
         </GroupBox>
     </StackPanel>
 </Window>

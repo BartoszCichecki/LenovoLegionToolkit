@@ -37,6 +37,8 @@ namespace LenovoLegionToolkit
             Load(cbQuietMode, PowerModeState.Quiet, powerPlans);
             Load(cbBalanceMode, PowerModeState.Balance, powerPlans);
             Load(cbPerformanceMode, PowerModeState.Performance, powerPlans);
+
+            cbActivatePowerProfilesWithVantageEnabled.IsChecked = Settings.Instance.ActivatePowerProfilesWithVantageEnabled;
         }
 
         private void SettingsWindow_Closing(object sender, CancelEventArgs e)
@@ -46,6 +48,37 @@ namespace LenovoLegionToolkit
             Save(cbPerformanceMode, PowerModeState.Performance);
 
             Settings.Instance.Synchronize();
+        }
+
+        private void ActivatePowerProfilesWithVantageEnabled_Click(object sender, RoutedEventArgs e)
+        {
+            var settings = Settings.Instance;
+            if (settings.ActivatePowerProfilesWithVantageEnabled)
+            {
+                settings.ActivatePowerProfilesWithVantageEnabled = false;
+                settings.Synchronize();
+            }
+            else
+            {
+                var result = MessageBox.Show("After enabling this option Lenovo Legion Toolkit will always switch power plans." +
+                    " This option may conflict with some versions of Lenovo Vantage, leading to unexpected behavior." +
+                    "\n\nOnly enable this if your version of Lenovo Vantage does not switch power plans." +
+                    "\n\nAre you sure you want to enable this?",
+                    "Activate power plans even when Vantage is enabled",
+                    MessageBoxButton.OKCancel,
+                    MessageBoxImage.Information);
+                if (result == MessageBoxResult.OK)
+                {
+                    settings.ActivatePowerProfilesWithVantageEnabled = true;
+                    settings.Synchronize();
+                }
+                else
+                {
+                    cbActivatePowerProfilesWithVantageEnabled.IsChecked = false;
+                }
+            }
+
+            cbActivatePowerProfilesWithVantageEnabled.IsChecked = settings.ActivatePowerProfilesWithVantageEnabled;
         }
 
         private static void Load(ComboBox comboBox, PowerModeState powerModeState, List<PowerPlan> powerPlans)

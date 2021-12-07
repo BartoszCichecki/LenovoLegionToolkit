@@ -11,6 +11,7 @@ namespace LenovoLegionToolkit.Lib
         {
             public Dictionary<PowerModeState, string> PowerPlans { get; set; } = new();
             public bool MinimizeOnClose { get; set; } = true;
+            public bool ActivatePowerProfilesWithVantageEnabled { get; set;} = false;
         }
 
         private static Settings _instance;
@@ -39,6 +40,11 @@ namespace LenovoLegionToolkit.Lib
         {
             get => _settingsStore.MinimizeOnClose;
             set => _settingsStore.MinimizeOnClose = value;
+        }
+        public bool ActivatePowerProfilesWithVantageEnabled
+        {
+            get => _settingsStore.ActivatePowerProfilesWithVantageEnabled;
+            set => _settingsStore.ActivatePowerProfilesWithVantageEnabled = value;
         }
 
         private Settings()

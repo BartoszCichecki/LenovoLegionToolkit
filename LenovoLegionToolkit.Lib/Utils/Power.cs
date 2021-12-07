@@ -49,6 +49,9 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         private static bool ShouldActivate(bool alwaysActivateDefaults, bool isDefault)
         {
+            if (Settings.Instance.ActivatePowerProfilesWithVantageEnabled)
+                return true;
+
             if (isDefault && alwaysActivateDefaults)
                 return true;
 
