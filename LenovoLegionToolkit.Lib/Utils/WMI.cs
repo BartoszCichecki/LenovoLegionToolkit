@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Management;
-using System.Threading;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
@@ -22,26 +21,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                 yield return converter(queryObj.Properties);
         }
 
-        public static void Invoke(string scope,
-            string clazz,
-            string propertyName,
-            string propertyValue,
-            string methodName,
-            object[] parameters = null)
-        {
-            var path = $"{scope}:{clazz}.{propertyName}=\"{propertyValue.Escaped()}\"";
-
-            // Invoke the async version.
-            // Synchronous seems to throw a NRE, for no reason.
-            using var mre = new ManualResetEvent(false);
-            var obs = new ManagementOperationObserver();
-            obs.Completed += (s, e) => mre.Set();
-            using var managementObject = new ManagementObject(path);
-            managementObject.InvokeMethod(obs, methodName, parameters);
-            mre.WaitOne();
-        }
-
-        public static void InvokeForResult(string scope,
+        public static object Invoke(string scope,
             string clazz,
             string propertyName,
             string propertyValue,
@@ -51,7 +31,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             var path = $"{scope}:{clazz}.{propertyName}=\"{propertyValue.Escaped()}\"";
 
             using var managementObject = new ManagementObject(path);
-            managementObject.InvokeMethod(methodName, parameters);
+            return managementObject.InvokeMethod(methodName, parameters);
         }
 
         private static string Escaped(this string value) => value.Replace("\\", "\\\\");

@@ -9,7 +9,7 @@ namespace LenovoLegionToolkit.Lib.Features
 {
     public class RefreshRateFeature : IDynamicFeature<RefreshRate>
     {
-        private struct PNPEntity
+        private class PNPEntity
         {
             public string DeviceID { get; }
             public string Name { get; }
@@ -68,6 +68,9 @@ namespace LenovoLegionToolkit.Lib.Features
             var displays = Display.GetDisplays();
             var entity = GetBuiltInMonitorEntity();
 
+            if (displays == null || entity == null)
+                return null;
+
             return displays.FirstOrDefault(display => Match(display, entity));
         }
 
@@ -85,14 +88,17 @@ namespace LenovoLegionToolkit.Lib.Features
 
         private static bool EntityHasBIOSNameProperty(PNPEntity monitor)
         {
-            var parameters = new object[] { new string[] { "DEVPKEY_Device_BiosDeviceName" }, null };
-            WMI.InvokeForResult("root\\CIMV2", "Win32_PnpEntity", "DeviceID", monitor.DeviceID, "GetDeviceProperties", parameters);
+            var parameters = new object[] { new[] { "DEVPKEY_Device_BiosDeviceName" }, null };
+            WMI.Invoke("root\\CIMV2", "Win32_PnpEntity",
+                "DeviceID", monitor.DeviceID,
+                "GetDeviceProperties", parameters);
 
-            var results = parameters[1] as ManagementBaseObject[];
+            var results = (ManagementBaseObject[])parameters[1];
             foreach (var result in results)
             {
-                var value = result.Properties.OfType<PropertyData>().FirstOrDefault(pd => pd.Name == "Data")?.Value;
-                return value != null;
+                var value = result.Properties["Data"]?.Value;
+                if (value != null)
+                    return true;
             }
 
             return false;

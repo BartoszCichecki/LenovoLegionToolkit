@@ -4,19 +4,17 @@ namespace LenovoLegionToolkit.Lib.Features
 {
     public class PowerModeFeature : AbstractWmiFeature<PowerModeState>
     {
-        public PowerModeFeature() : base("SmartFanMode", 1, "IsSupportSmartFan") { }
-
-        public override PowerModeState GetState()
+        public PowerModeFeature()
+            : base("SmartFanMode", 1, "IsSupportSmartFan")
         {
-            var state = base.GetState();
-            Power.ActivatePowerPlan(state);
-            return state;
+            var state = GetState();
+            Power.ActivatePowerPlan(state, true);
         }
 
         public override void SetState(PowerModeState state)
         {
             base.SetState(state);
-            Power.ActivatePowerPlan(state);
+            Power.ActivatePowerPlan(state, true);
         }
     }
 }

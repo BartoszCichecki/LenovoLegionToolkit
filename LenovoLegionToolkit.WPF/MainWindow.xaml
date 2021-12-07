@@ -6,6 +6,7 @@
         xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
         x:Name="mainWindow"
+        SnapsToDevicePixels="true"
         Title="Lenovo Legion Toolkit"
         WindowStartupLocation="CenterScreen"
         SizeToContent="WidthAndHeight"
@@ -17,28 +18,28 @@
     <DockPanel>
         <tb:TaskbarIcon ToolTipText="Lenovo Legion Toolkit"
                         IconSource="icon.ico"
-                        TrayLeftMouseUp="notifyIcon_Open">
+                        TrayLeftMouseUp="NotifyIcon_Open">
             <tb:TaskbarIcon.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="Open" Click="notifyIcon_Open" />
-                    <MenuItem Header="Exit" Click="notifyIcon_Exit" />
+                    <MenuItem Header="Open" Click="NotifyIcon_Open" />
+                    <MenuItem Header="Exit" Click="NotifyIcon_Exit" />
                 </ContextMenu>
             </tb:TaskbarIcon.ContextMenu>
         </tb:TaskbarIcon>
         <Menu DockPanel.Dock="Top" Background="#FFF" Margin="1">
             <MenuItem Header="Tools">
-                <MenuItem Name="autorunMenuItem" Header="Run on startup" Click="autorunMenuItem_Click" IsCheckable="true"/>
-                <MenuItem Name="minimizeOnCloseMenuItem" Header="Minimize on close" Click="minimizeOnCloseMenuItem_Click" IsCheckable="true"/>
-                <MenuItem Header="More settings..." Click="settingsMenuItem_Click" />
+                <MenuItem Name="autorunMenuItem" Header="Run on startup" Click="AutorunMenuItem_Click" IsCheckable="true"/>
+                <MenuItem Name="minimizeOnCloseMenuItem" Header="Minimize on close" Click="MinimizeOnCloseMenuItem_Click" IsCheckable="true"/>
+                <MenuItem Header="More settings..." Click="SettingsMenuItem_Click" />
                 <Separator/>
                 <MenuItem x:Name="vantageMenuItem" Header="Lenovo Vantage">
-                    <MenuItem x:Name="enableVantageMenuItem" IsCheckable="true" Header="Enabled" Click="enableVantageMenuItem_Click" />
-                    <MenuItem x:Name="disableVantageMenuItem" IsCheckable="true" Header="Disabled" Click="disableVantageMenuItem_Click" />
+                    <MenuItem x:Name="enableVantageMenuItem" IsCheckable="true" Header="Enabled" Click="EnableVantageMenuItem_Click" />
+                    <MenuItem x:Name="disableVantageMenuItem" IsCheckable="true" Header="Disabled" Click="DisableVantageMenuItem_Click" />
                 </MenuItem>
                 <Separator/>
-                <MenuItem Header="Exit" Click="exitMenuItem_Click" />
+                <MenuItem Header="Exit" Click="ExitMenuItem_Click" />
             </MenuItem>
-            <MenuItem Header="About" Click="aboutMenuItem_Click" />
+            <MenuItem Header="About" Click="AboutMenuItem_Click" />
         </Menu>
         <StackPanel Margin="15" Orientation="Vertical">
             <Grid>
@@ -58,13 +59,13 @@
                 <GroupBox Grid.Row="0" Grid.Column="0" Header="Power Mode" Margin="0,0,5,0">
                     <StackPanel Margin="5,5,20,5" Orientation="Vertical">
                         <RadioButton Margin="0,0,0,5" x:Name="radioQuiet" Content="Quiet" HorizontalAlignment="Left"
-                                 VerticalAlignment="Top" Checked="radioPowerMode_Checked"
+                                 VerticalAlignment="Top" Checked="RadioPowerMode_Checked"
                                  VerticalContentAlignment="Center" ToolTip="Reduced performance and extended battery life." />
                         <RadioButton Margin="0,0,0,5" x:Name="radioBalance" Content="Balance" HorizontalAlignment="Left"
-                                 VerticalAlignment="Top" Checked="radioPowerMode_Checked"
+                                 VerticalAlignment="Top" Checked="RadioPowerMode_Checked"
                                  VerticalContentAlignment="Center" ToolTip="Automatically adjusts perfomance and fan speeds according to system requirements." />
                         <RadioButton Margin="0" x:Name="radioPerformance" Content="Performance" HorizontalAlignment="Left"
-                                 VerticalAlignment="Top" Checked="radioPowerMode_Checked"
+                                 VerticalAlignment="Top" Checked="RadioPowerMode_Checked"
                                  VerticalContentAlignment="Center" ToolTip="Maximum perfomance. Available only when AC adapter is connected." />
                     </StackPanel>
                 </GroupBox>
@@ -72,10 +73,10 @@
                 <GroupBox Grid.Row="0" Grid.Column="1" Margin="0" Header="Hybrid Mode">
                     <StackPanel Margin="5,5,20,5" Orientation="Vertical">
                         <RadioButton Margin="0,0,0,5" x:Name="radioHybridOn" Content="On" HorizontalAlignment="Left"
-                                 VerticalAlignment="Top" Checked="hybridMode_Checked"
+                                 VerticalAlignment="Top" Checked="HybridMode_Checked"
                                  VerticalContentAlignment="Center" ToolTip="Use both integrated and discrete GPU." />
                         <RadioButton Margin="0,0,0,5" x:Name="radioHybridOff" Content="Off" HorizontalAlignment="Left"
-                                 VerticalAlignment="Top" Checked="hybridMode_Checked"
+                                 VerticalAlignment="Top" Checked="HybridMode_Checked"
                                  VerticalContentAlignment="Center" ToolTip="Use discrete GPU only." />
                     </StackPanel>
                 </GroupBox>
@@ -83,13 +84,13 @@
                 <GroupBox Grid.Row="1" Grid.Column="0" Header="Battery Mode" Margin="0,0,5,0">
                     <StackPanel Margin="5,5,20,5" Orientation="Vertical">
                         <RadioButton Margin="0,0,0,5" x:Name="radioConservation" Content="Conservation"
-                                 HorizontalAlignment="Left" VerticalAlignment="Top" Checked="radioBattery_Checked"
+                                 HorizontalAlignment="Left" VerticalAlignment="Top" Checked="Battery_Checked"
                                  VerticalContentAlignment="Center" ToolTip="Charge battery to 60% at a normal speed.&#xA;Helps to maintain battery health  when used on power adapter.&#xA;Battery level will be kept at 55-60%." />
                         <RadioButton Margin="0,0,0,5" x:Name="radioNormalCharge" Content="Normal"
-                                 HorizontalAlignment="Left" VerticalAlignment="Top" Checked="radioBattery_Checked"
+                                 HorizontalAlignment="Left" VerticalAlignment="Top" Checked="Battery_Checked"
                                  VerticalContentAlignment="Center" ToolTip="Charge battery to 100% at a normal speed." />
                         <RadioButton Margin="0" x:Name="radioRapidCharge" Content="Rapid Charge" HorizontalAlignment="Left"
-                                 VerticalAlignment="Top" Checked="radioBattery_Checked"
+                                 VerticalAlignment="Top" Checked="Battery_Checked"
                                  VerticalContentAlignment="Center" ToolTip="Charge battery to 100% at a faster speed." />
                     </StackPanel>
                 </GroupBox>
@@ -97,14 +98,14 @@
                 <GroupBox Grid.Row="1" Grid.Column="2" Header="Always on USB" Margin="0">
                     <StackPanel Margin="5,5,20,5" Orientation="Vertical">
                         <RadioButton Margin="0,0,0,5" x:Name="radioAlwaysOnUsbOff" Content="Off" HorizontalAlignment="Left"
-                                 VerticalAlignment="Top" Checked="radioAlwaysOnUsb_Checked"
-                                 Unchecked="radioAlwaysOnUsb_Checked" VerticalContentAlignment="Center" ToolTip="Charging USB devices will be disabled in sleep mode and when computer is powered off." />
+                                 VerticalAlignment="Top" Checked="AlwaysOnUsb_Checked"
+                                 Unchecked="AlwaysOnUsb_Checked" VerticalContentAlignment="Center" ToolTip="Charging USB devices will be disabled in sleep mode and when computer is powered off." />
                         <RadioButton Margin="0,0,0,5" x:Name="radioAlwaysOnUsbOnWhenSleeping" Content="On when sleeping"
-                                 HorizontalAlignment="Left" VerticalAlignment="Top" Checked="radioAlwaysOnUsb_Checked"
-                                 Unchecked="radioAlwaysOnUsb_Checked" VerticalContentAlignment="Center" ToolTip="Charging USB devices will be enabled in sleep mode only." />
+                                 HorizontalAlignment="Left" VerticalAlignment="Top" Checked="AlwaysOnUsb_Checked"
+                                 Unchecked="AlwaysOnUsb_Checked" VerticalContentAlignment="Center" ToolTip="Charging USB devices will be enabled in sleep mode only." />
                         <RadioButton Margin="0" x:Name="radioAlwaysOnUsbOnAlways" Content="On always"
-                                 HorizontalAlignment="Left" VerticalAlignment="Top" Checked="radioAlwaysOnUsb_Checked"
-                                 Unchecked="radioAlwaysOnUsb_Checked" VerticalContentAlignment="Center" ToolTip="Charging USB devices will be enabled in sleep mode and when computer is powered off." />
+                                 HorizontalAlignment="Left" VerticalAlignment="Top" Checked="AlwaysOnUsb_Checked"
+                                 Unchecked="AlwaysOnUsb_Checked" VerticalContentAlignment="Center" ToolTip="Charging USB devices will be enabled in sleep mode and when computer is powered off." />
                     </StackPanel>
                 </GroupBox>
 
@@ -115,7 +116,7 @@
                             <ColumnDefinition Width="100" />
                         </Grid.ColumnDefinitions>
                         <Label Grid.Row="0" Grid.Column="0" Content="Built-in display:" Margin="0,0,5,0" Padding="0,0,0,0" VerticalAlignment="Center" />
-                        <ComboBox Grid.Row="0" Grid.Column="1" x:Name="cbRefreshRate" SelectionChanged="cbRefreshRate_SelectionChanged" Height="29" VerticalContentAlignment="Center" />
+                        <ComboBox Grid.Row="0" Grid.Column="1" x:Name="cbRefreshRate" SelectionChanged="RefreshRate_SelectionChanged" Height="29" VerticalContentAlignment="Center" />
                     </Grid>
                 </GroupBox>
 
@@ -130,30 +131,30 @@
                             <Ellipse x:Name="elpsDiscreteGPUStatusInactive" Width="10" Height="10" Fill="#BF360C"/>
                             <Label x:Name="lblDiscreteGPUStatus" Content="-" Margin="2,0,0,0" />
                         </StackPanel>
-                        <Button Grid.Row="0" Grid.Column="1" x:Name="btnDeactivateDiscreteGPU" Click="btnDeactivateDiscreteGPU_Click" Content="Deactivate" IsEnabled="False" ToolTipService.ShowOnDisabled="true" Height="29" />
+                        <Button Grid.Row="0" Grid.Column="1" x:Name="btnDeactivateDiscreteGPU" Click="DeactivateDiscreteGPU_Click" Content="Deactivate" IsEnabled="False" ToolTipService.ShowOnDisabled="true" Height="29" />
                     </Grid>
                 </GroupBox>
 
                 <GroupBox Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="0" Header="Misc">
                     <StackPanel Margin="5,5,20,5" Orientation="Vertical">
                         <CheckBox Margin="0,0,0,5" x:Name="chkFlipToStart" Content="Flip to start" HorizontalAlignment="Left"
-                              VerticalAlignment="Top" Checked="chkFlipToStart_Checked"
-                              Unchecked="chkFlipToStart_Checked" VerticalContentAlignment="Center" ToolTip="Turns on computer when you open the lid without pressing the power button." />
+                              VerticalAlignment="Top" Checked="FlipToStart_Checked"
+                              Unchecked="FlipToStart_Checked" VerticalContentAlignment="Center" ToolTip="Turns on computer when you open the lid without pressing the power button." />
                         <CheckBox Margin="0,0,0,5" x:Name="chkOverDrive" Content="Over Drive" HorizontalAlignment="Left"
-                              VerticalAlignment="Top" Checked="chkOverDrive_Checked" Unchecked="chkOverDrive_Checked"
+                              VerticalAlignment="Top" Checked="OverDrive_Checked" Unchecked="OverDrive_Checked"
                               VerticalContentAlignment="Center" ToolTip="Makes built-in display's reponse faster." />
                         <CheckBox Margin="0,0,0,5" x:Name="chkFnLock" Content="Fn Lock" HorizontalAlignment="Left"
-                              VerticalAlignment="Top" Checked="chkFnLock_Checked" Unchecked="chkFnLock_Checked"
+                              VerticalAlignment="Top" Checked="FnLock_Checked" Unchecked="FnLock_Checked"
                               VerticalContentAlignment="Center" ToolTip="Use secondary functions of F1-F12 keys without pressing Fn key." />
                         <CheckBox Margin="0,0,0,5" x:Name="chkTouchpadLock" Content="Touchpad Lock" HorizontalAlignment="Left"
-                              VerticalAlignment="Top" Checked="chkTouchpadLock_Checked"
-                              Unchecked="chkTouchpadLock_Checked" VerticalContentAlignment="Center" ToolTip="Disables touchpad." />
+                              VerticalAlignment="Top" Checked="TouchpadLock_Checked"
+                              Unchecked="TouchpadLock_Checked" VerticalContentAlignment="Center" ToolTip="Disables touchpad." />
                     </StackPanel>
                 </GroupBox>
             </Grid>
             <Border x:Name="updateIndicator" BorderThickness="1" CornerRadius="5,5,5,5" Visibility="Visible" Margin="0,5,0,0" Background="#FFAEE571">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Margin="3,3,3,3">
-                    An update is available. Check it out on <Hyperlink NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit/releases" RequestNavigate="hyperlink_RequestNavigate">GitHub</Hyperlink>!
+                    An update is available. Check it out on <Hyperlink NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit/releases" RequestNavigate="Hyperlink_RequestNavigate">GitHub</Hyperlink>!
                 </TextBlock>
             </Border>
         </StackPanel>

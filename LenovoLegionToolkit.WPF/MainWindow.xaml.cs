@@ -52,16 +52,10 @@ namespace LenovoLegionToolkit
             _gpuManager.WillRefresh += GpuManager_WillRefresh;
             _gpuManager.Refreshed += GpuManager_Refreshed;
 
-            try
-            {
-                var vantageEnabled = Vantage.IsEnabled;
-                enableVantageMenuItem.IsChecked = vantageEnabled;
-                disableVantageMenuItem.IsChecked = !vantageEnabled;
-            }
-            catch (VantageServiceNotFoundException)
-            {
-                vantageMenuItem.IsEnabled = false;
-            }
+            var vantageStatus = Vantage.Status;
+            vantageMenuItem.IsEnabled = vantageStatus != VantageStatus.NotFound;
+            enableVantageMenuItem.IsChecked = vantageStatus == VantageStatus.Enabled;
+            disableVantageMenuItem.IsChecked = vantageStatus == VantageStatus.Disabled;
 
             autorunMenuItem.IsChecked = Autorun.IsEnabled;
             minimizeOnCloseMenuItem.IsChecked = Settings.Instance.MinimizeOnClose;
@@ -70,7 +64,6 @@ namespace LenovoLegionToolkit
             _batteryButtons = new[] { radioConservation, radioNormalCharge, radioRapidCharge };
             _hybridModeButtons = new[] { radioHybridOn, radioHybridOff };
             _powerModeButtons = new[] { radioQuiet, radioBalance, radioPerformance };
-
 
             elpsDiscreteGPUStatusActive.Visibility = Visibility.Collapsed;
             elpsDiscreteGPUStatusInactive.Visibility = Visibility.Collapsed;
@@ -110,9 +103,9 @@ namespace LenovoLegionToolkit
         {
             Task.Run(Updates.Check)
                 .ContinueWith(updatesAvailable =>
-            {
-                updateIndicator.Visibility = updatesAvailable.Result ? Visibility.Visible : Visibility.Collapsed;
-            }, TaskScheduler.FromCurrentSynchronizationContext());
+                {
+                    updateIndicator.Visibility = updatesAvailable.Result ? Visibility.Visible : Visibility.Collapsed;
+                }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         private void Refresh()
@@ -266,7 +259,7 @@ namespace LenovoLegionToolkit
             Dispatcher.Invoke(() => { _powerModeButtons[(int)state].IsChecked = true; });
         }
 
-        private void radioPowerMode_Checked(object sender, RoutedEventArgs e)
+        private void RadioPowerMode_Checked(object sender, RoutedEventArgs e)
         {
             var state = (PowerModeState)Array.IndexOf(_powerModeButtons, sender);
             if (_powerModeFeature.GetState() == state)
@@ -274,7 +267,7 @@ namespace LenovoLegionToolkit
             _powerModeFeature.SetState(state);
         }
 
-        private void hybridMode_Checked(object sender, RoutedEventArgs e)
+        private void HybridMode_Checked(object sender, RoutedEventArgs e)
         {
             var state = (HybridModeState)Array.IndexOf(_hybridModeButtons, sender);
             if (_hybridModeFeature.GetState() == state)
@@ -294,7 +287,7 @@ namespace LenovoLegionToolkit
             Power.Restart();
         }
 
-        private void cbRefreshRate_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void RefreshRate_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (e.AddedItems.Count != 1)
                 return;
@@ -309,7 +302,7 @@ namespace LenovoLegionToolkit
             _refreshRateFeature.SetState(selectedItem);
         }
 
-        private void radioBattery_Checked(object sender, RoutedEventArgs e)
+        private void Battery_Checked(object sender, RoutedEventArgs e)
         {
             var state = (BatteryState)Array.IndexOf(_batteryButtons, sender);
             if (_batteryFeature.GetState() == state)
@@ -317,7 +310,7 @@ namespace LenovoLegionToolkit
             _batteryFeature.SetState(state);
         }
 
-        private void radioAlwaysOnUsb_Checked(object sender, RoutedEventArgs e)
+        private void AlwaysOnUsb_Checked(object sender, RoutedEventArgs e)
         {
             var state = (AlwaysOnUsbState)Array.IndexOf(_alwaysOnUsbButtons, sender);
             if (_alwaysOnUsbFeature.GetState() == state)
@@ -325,7 +318,7 @@ namespace LenovoLegionToolkit
             _alwaysOnUsbFeature.SetState(state);
         }
 
-        private void chkFlipToStart_Checked(object sender, RoutedEventArgs e)
+        private void FlipToStart_Checked(object sender, RoutedEventArgs e)
         {
             var state = chkFlipToStart.IsChecked.GetValueOrDefault(false)
                 ? FlipToStartState.On
@@ -335,7 +328,7 @@ namespace LenovoLegionToolkit
             _flipToStartFeature.SetState(state);
         }
 
-        private void chkOverDrive_Checked(object sender, RoutedEventArgs e)
+        private void OverDrive_Checked(object sender, RoutedEventArgs e)
         {
             var state = chkOverDrive.IsChecked.GetValueOrDefault(false)
                 ? OverDriveState.On
@@ -345,7 +338,7 @@ namespace LenovoLegionToolkit
             _overDriveFeature.SetState(state);
         }
 
-        private void chkFnLock_Checked(object sender, RoutedEventArgs e)
+        private void FnLock_Checked(object sender, RoutedEventArgs e)
         {
             var state = chkFnLock.IsChecked.GetValueOrDefault(false)
                 ? FnLockState.On
@@ -355,7 +348,7 @@ namespace LenovoLegionToolkit
             _fnLockFeature.SetState(state);
         }
 
-        private void chkTouchpadLock_Checked(object sender, RoutedEventArgs e)
+        private void TouchpadLock_Checked(object sender, RoutedEventArgs e)
         {
             var state = chkTouchpadLock.IsChecked.GetValueOrDefault(false)
                 ? TouchpadLockState.On
@@ -365,22 +358,22 @@ namespace LenovoLegionToolkit
             _touchpadLockFeature.SetState(state);
         }
 
-        private void btnDeactivateDiscreteGPU_Click(object sender, RoutedEventArgs e) => _gpuManager.DeactivateGPU();
+        private void DeactivateDiscreteGPU_Click(object sender, RoutedEventArgs e) => _gpuManager.DeactivateGPU();
 
-        private void notifyIcon_Open(object sender, RoutedEventArgs e) => BringToForeground();
+        private void NotifyIcon_Open(object sender, RoutedEventArgs e) => BringToForeground();
 
-        private void notifyIcon_Exit(object sender, RoutedEventArgs e) => Application.Current.Shutdown();
+        private void NotifyIcon_Exit(object sender, RoutedEventArgs e) => Application.Current.Shutdown();
 
-        private void aboutMenuItem_Click(object sender, RoutedEventArgs e) => new AboutWindow { Owner = this }.ShowDialog();
+        private void AboutMenuItem_Click(object sender, RoutedEventArgs e) => new AboutWindow { Owner = this }.ShowDialog();
 
-        private void settingsMenuItem_Click(object sender, RoutedEventArgs e)
+        private void SettingsMenuItem_Click(object sender, RoutedEventArgs e)
         {
             var window = new SettingsWindow { Owner = this };
             window.Closed += (_, _) => Refresh();
             window.Show();
         }
 
-        private void autorunMenuItem_Click(object sender, RoutedEventArgs e)
+        private void AutorunMenuItem_Click(object sender, RoutedEventArgs e)
         {
             if (Autorun.IsEnabled)
                 Autorun.Disable();
@@ -397,7 +390,7 @@ namespace LenovoLegionToolkit
             autorunMenuItem.IsChecked = Autorun.IsEnabled;
         }
 
-        private void minimizeOnCloseMenuItem_Click(object sender, RoutedEventArgs e)
+        private void MinimizeOnCloseMenuItem_Click(object sender, RoutedEventArgs e)
         {
             var settings = Settings.Instance;
             var minimizeOnClose = !settings.MinimizeOnClose;
@@ -409,13 +402,14 @@ namespace LenovoLegionToolkit
             ResizeMode = minimizeOnClose ? ResizeMode.NoResize : ResizeMode.CanMinimize;
         }
 
-        private void enableVantageMenuItem_Click(object sender, RoutedEventArgs e)
+        private void EnableVantageMenuItem_Click(object sender, RoutedEventArgs e)
         {
             Vantage.Enable();
 
-            var vantageEnabled = Vantage.IsEnabled;
-            enableVantageMenuItem.IsChecked = vantageEnabled;
-            disableVantageMenuItem.IsChecked = !vantageEnabled;
+            var vantageStatus = Vantage.Status;
+            vantageMenuItem.IsEnabled = vantageStatus != VantageStatus.NotFound;
+            enableVantageMenuItem.IsChecked = vantageStatus == VantageStatus.Enabled;
+            disableVantageMenuItem.IsChecked = vantageStatus == VantageStatus.Disabled;
 
             var result = MessageBox.Show("It is recommended to restart Windows after enabling Lenovo Vantage.\n\nDo you want to restart now?",
                 "Restart recommended",
@@ -427,13 +421,14 @@ namespace LenovoLegionToolkit
             Power.Restart();
         }
 
-        private void disableVantageMenuItem_Click(object sender, RoutedEventArgs e)
+        private void DisableVantageMenuItem_Click(object sender, RoutedEventArgs e)
         {
             Vantage.Disable();
 
-            var vantageEnabled = Vantage.IsEnabled;
-            enableVantageMenuItem.IsChecked = vantageEnabled;
-            disableVantageMenuItem.IsChecked = !vantageEnabled;
+            var vantageStatus = Vantage.Status;
+            vantageMenuItem.IsEnabled = vantageStatus != VantageStatus.NotFound;
+            enableVantageMenuItem.IsChecked = vantageStatus == VantageStatus.Enabled;
+            disableVantageMenuItem.IsChecked = vantageStatus == VantageStatus.Disabled;
 
             var result = MessageBox.Show("It is recommended to restart Windows after disabling Lenovo Vantage.\n\nDo you want to restart now?",
                 "Restart recommended",
@@ -445,9 +440,9 @@ namespace LenovoLegionToolkit
             Power.Restart();
         }
 
-        private void exitMenuItem_Click(object sender, RoutedEventArgs e) => Application.Current.Shutdown();
+        private void ExitMenuItem_Click(object sender, RoutedEventArgs e) => Application.Current.Shutdown();
 
-        private void hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri) { UseShellExecute = true });
             e.Handled = true;
