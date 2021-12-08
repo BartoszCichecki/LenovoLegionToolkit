@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -74,6 +75,8 @@ namespace LenovoLegionToolkit
 
             Refresh();
             CheckUpdates();
+
+            AddTraceMenuItemsIfNecessary();
         }
 
         public void BringToForeground()
@@ -452,6 +455,29 @@ namespace LenovoLegionToolkit
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri) { UseShellExecute = true });
             e.Handled = true;
+        }
+
+        private void AddTraceMenuItemsIfNecessary()
+        {
+            if (!Log.Instance.IsTraceEnabled)
+                return;
+
+            var position = toolsMenuItem.Items.Count - 2;
+
+            var openLogMenuItem = new MenuItem { Header = "Show Log" };
+            openLogMenuItem.Click += (s, e) => Process.Start("explorer", Log.Instance.LogPath);
+
+            var openDataFolderMenuItem = new MenuItem { Header = "Open Data folder" };
+            openDataFolderMenuItem.Click += (s, e) =>
+            {
+                var localAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                Process.Start("explorer", Path.Combine(localAppData, "LenovoLegionToolkit"));
+            };
+
+            var items = toolsMenuItem.Items;
+            items.Insert(position, openDataFolderMenuItem);
+            items.Insert(position, openLogMenuItem);
+            items.Insert(position, new Separator());
         }
     }
 }
