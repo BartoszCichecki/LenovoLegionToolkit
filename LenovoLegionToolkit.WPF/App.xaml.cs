@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
@@ -26,7 +27,7 @@ namespace LenovoLegionToolkit
             if (IsTraceEnabled(e.Args))
                 Log.Instance.IsTraceEnabled = true;
 
-            Log.Instance.Trace($"Starting...");
+            Log.Instance.Trace($"Starting... [version={Assembly.GetEntryAssembly().GetName().Version}]");
 
             EnsureSingleInstance();
 

@@ -25,8 +25,21 @@ namespace LenovoLegionToolkit.Lib.Utils
             td.Settings.DisallowStartIfOnBatteries = false;
             td.Settings.StopIfGoingOnBatteries = false;
             ts.RootFolder.RegisterTaskDefinition(TaskName, td);
+
+            Log.Instance.Trace($"Autorun enabled");
         }
 
-        public static void Disable() => TaskService.Instance.RootFolder.DeleteTask(TaskName, false);
+        public static void Disable()
+        {
+            try
+            {
+                TaskService.Instance.RootFolder.DeleteTask(TaskName);
+                Log.Instance.Trace($"Autorun disabled");
+            }
+            catch
+            {
+                Log.Instance.Trace($"Autorun was not enabled");
+            }
+        }
     }
 }

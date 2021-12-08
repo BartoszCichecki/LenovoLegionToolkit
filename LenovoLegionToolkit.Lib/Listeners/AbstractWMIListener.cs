@@ -22,21 +22,28 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         public void Start()
         {
-            _disposable = WMI.Listen("ROOT\\WMI", $"SELECT * FROM LENOVO_GAMEZONE_{_eventName}_EVENT", ListenAction);
+            Log.Instance.Trace($"Starting... [listener={GetType().Name}]");
+
+            _disposable = WMI.Listen("ROOT\\WMI", $"SELECT * FROM LENOVO_GAMEZONE_{_eventName}_EVENT", Handler);
         }
 
         public void Stop()
         {
             _disposable?.Dispose();
             _disposable = null;
+
+            Log.Instance.Trace($"Stopped [listener={GetType().Name}]");
         }
 
         protected abstract void OnChanged(T value);
 
-        private void ListenAction(PropertyDataCollection properties)
+        private void Handler(PropertyDataCollection properties)
         {
             var propertyValue = Convert.ToInt32(properties[_property].Value);
             var value = (T)(object)(propertyValue - _offset);
+
+            Log.Instance.Trace($"Value {value} [listener={GetType().Name}]");
+
             OnChanged(value);
             Changed?.Invoke(this, value);
         }

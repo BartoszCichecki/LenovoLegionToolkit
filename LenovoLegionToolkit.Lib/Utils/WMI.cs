@@ -8,17 +8,35 @@ namespace LenovoLegionToolkit.Lib.Utils
     {
         public static IDisposable Listen(string scope, FormattableString query, Action<PropertyDataCollection> handler)
         {
-            var watcher = new ManagementEventWatcher(scope, query.ToString(WMIPropertyValueFormatter.Instance));
-            watcher.EventArrived += (s, e) => handler(e.NewEvent.Properties);
+            var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
+
+            Log.Instance.Trace($"Starting listener... [scope={scope}, queryFormatted ={queryFormatted}]");
+
+            var watcher = new ManagementEventWatcher(scope, queryFormatted);
+            watcher.EventArrived += (s, e) =>
+            {
+                Log.Instance.Trace($"Event arrived [classPath={e.NewEvent.ClassPath}, scope={scope}, queryFormatted ={queryFormatted}]");
+
+                handler(e.NewEvent.Properties);
+            };
             watcher.Start();
+
+            Log.Instance.Trace($"Started listener [scope={scope}, queryFormatted ={queryFormatted}]");
+
             return watcher;
         }
 
         public static IEnumerable<T> Read<T>(string scope, FormattableString query, Func<PropertyDataCollection, T> converter)
         {
-            using var searcher = new ManagementObjectSearcher(scope, query.ToString(WMIPropertyValueFormatter.Instance));
+            var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
+
+            Log.Instance.Trace($"Reading... [scope={scope}, queryFormatted ={queryFormatted}]");
+
+            using var searcher = new ManagementObjectSearcher(scope, queryFormatted);
             foreach (var queryObj in searcher.Get())
                 yield return converter(queryObj.Properties);
+
+            Log.Instance.Trace($"Read [scope={scope}, queryFormatted={queryFormatted}]");
         }
 
         public static object Invoke(string scope,
@@ -30,8 +48,14 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             var path = $"{scope}:{clazz}.{propertyName}='{propertyValue.ToString(WMIPropertyValueFormatter.Instance)}'";
 
+            Log.Instance.Trace($"Invoking... [path={path}]");
+
             using var managementObject = new ManagementObject(path);
-            return managementObject.InvokeMethod(methodName, parameters);
+            var result = managementObject.InvokeMethod(methodName, parameters);
+
+            Log.Instance.Trace($"Invoked [path={path}, result={result}]");
+
+            return result;
         }
 
         private class WMIPropertyValueFormatter : IFormatProvider, ICustomFormatter
