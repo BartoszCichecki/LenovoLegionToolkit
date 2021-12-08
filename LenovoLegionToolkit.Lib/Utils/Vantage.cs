@@ -45,22 +45,26 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         public static void Enable()
         {
-            Log.Instance.Trace($"Enabling...");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Enabling...");
 
             SetScheduledTasksEnabled(true);
             SetServicesEnabled(true);
 
-            Log.Instance.Trace($"Enabled");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Enabled");
         }
 
         public static void Disable()
         {
-            Log.Instance.Trace($"Disabling...");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Disabling...");
 
             SetScheduledTasksEnabled(false);
             SetServicesEnabled(false);
 
-            Log.Instance.Trace($"Disabled");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Disabled");
         }
 
         private static void SetScheduledTasksEnabled(bool enabled)
@@ -72,12 +76,15 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         private static void SetTasksInFolderEnabled(TaskService taskService, string path, bool enabled)
         {
-            Log.Instance.Trace($"Setting tasks in folder {path} to {enabled}");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Setting tasks in folder {path} to {enabled}");
 
             var folder = taskService.GetFolder(path);
             if (folder is null)
             {
-                Log.Instance.Trace($"Folder not found [path={path}]");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Folder not found [path={path}]");
+                
                 return;
             }
 
@@ -119,7 +126,8 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             try
             {
-                Log.Instance.Trace($"Setting service {serviceName} to {enabled}");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Setting service {serviceName} to {enabled}");
 
                 var service = new ServiceController(serviceName);
 
@@ -127,7 +135,8 @@ namespace LenovoLegionToolkit.Lib.Utils
                 {
                     var startMode = enabled ? ServiceStartMode.Automatic : ServiceStartMode.Disabled;
 
-                    Log.Instance.Trace($"Changing service {serviceName} start mode to {startMode}");
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Changing service {serviceName} start mode to {startMode}");
 
                     service.ChangeStartMode(startMode);
 
@@ -135,24 +144,28 @@ namespace LenovoLegionToolkit.Lib.Utils
                     {
                         if (service.Status != ServiceControllerStatus.Running)
                         {
-                            Log.Instance.Trace($"Starting service {serviceName}...");
+                            if (Log.Instance.IsTraceEnabled)
+                                Log.Instance.Trace($"Starting service {serviceName}...");
                             service.Start();
                         }
                         else
                         {
-                            Log.Instance.Trace($"Will not start service {serviceName} [status={service.Status}]");
+                            if (Log.Instance.IsTraceEnabled)
+                                Log.Instance.Trace($"Will not start service {serviceName} [status={service.Status}]");
                         }
                     }
                     else
                     {
                         if (service.CanStop)
                         {
-                            Log.Instance.Trace($"Stopping service {serviceName}...");
+                            if (Log.Instance.IsTraceEnabled)
+                                Log.Instance.Trace($"Stopping service {serviceName}...");
                             service.Stop();
                         }
                         else
                         {
-                            Log.Instance.Trace($"Will not stop service {serviceName} [status={service.Status}, canStop={service.CanStop}]");
+                            if (Log.Instance.IsTraceEnabled)
+                                Log.Instance.Trace($"Will not stop service {serviceName} [status={service.Status}, canStop={service.CanStop}]");
                         }
                     }
                 }
@@ -163,7 +176,8 @@ namespace LenovoLegionToolkit.Lib.Utils
             }
             catch (InvalidOperationException ex) when ((ex.InnerException as Win32Exception)?.NativeErrorCode == 1060)
             {
-                Log.Instance.Trace($"Service {serviceName} could not be set to {enabled}");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Service {serviceName} could not be set to {enabled}");
 
                 throw new VantageServiceNotFoundException(serviceName);
             }

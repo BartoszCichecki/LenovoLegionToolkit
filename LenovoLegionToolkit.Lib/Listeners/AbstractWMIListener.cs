@@ -22,7 +22,8 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         public void Start()
         {
-            Log.Instance.Trace($"Starting... [listener={GetType().Name}]");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Starting... [listener={GetType().Name}]");
 
             _disposable = WMI.Listen("ROOT\\WMI", $"SELECT * FROM LENOVO_GAMEZONE_{_eventName}_EVENT", Handler);
         }
@@ -32,7 +33,8 @@ namespace LenovoLegionToolkit.Lib.Listeners
             _disposable?.Dispose();
             _disposable = null;
 
-            Log.Instance.Trace($"Stopped [listener={GetType().Name}]");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Stopped [listener={GetType().Name}]");
         }
 
         protected abstract void OnChanged(T value);
@@ -42,7 +44,8 @@ namespace LenovoLegionToolkit.Lib.Listeners
             var propertyValue = Convert.ToInt32(properties[_property].Value);
             var value = (T)(object)(propertyValue - _offset);
 
-            Log.Instance.Trace($"Value {value} [listener={GetType().Name}]");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Value {value} [listener={GetType().Name}]");
 
             OnChanged(value);
             Changed?.Invoke(this, value);

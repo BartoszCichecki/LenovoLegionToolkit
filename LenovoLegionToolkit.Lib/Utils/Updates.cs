@@ -12,7 +12,8 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             try
             {
-                Log.Instance.Trace($"Checking...");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Checking...");
 
                 var githubClient = new GitHubClient(new ProductHeaderValue("LenovoLegionToolkit-UpdateChecker"));
                 var releases = await githubClient.Repository.Release.GetAll("BartoszCichecki", "LenovoLegionToolkit");
@@ -24,13 +25,15 @@ namespace LenovoLegionToolkit.Lib.Utils
 
                 var thisRelease = Assembly.GetEntryAssembly().GetName().Version;
 
-                Log.Instance.Trace($"Checked [thisRelease={thisRelease}, newestRelease={newestRelease}]");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Checked [thisRelease={thisRelease}, newestRelease={newestRelease}]");
 
                 return thisRelease < newestRelease;
             }
             catch (Exception ex)
             {
-                Log.Instance.Trace($"Error: {ex}");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Error: {ex}");
                 return false;
             }
         }
