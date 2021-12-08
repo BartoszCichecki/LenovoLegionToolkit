@@ -84,7 +84,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Folder not found [path={path}]");
-                
+
                 return;
             }
 

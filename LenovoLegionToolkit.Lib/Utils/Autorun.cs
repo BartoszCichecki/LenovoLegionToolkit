@@ -35,7 +35,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             try
             {
                 TaskService.Instance.RootFolder.DeleteTask(TaskName);
-                
+
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Autorun disabled");
             }

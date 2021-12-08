@@ -31,7 +31,7 @@ namespace LenovoLegionToolkit.Lib.Features
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Built in display not found");
-                
+
                 throw new InvalidOperationException("Built in display not found");
             }
 

@@ -29,7 +29,7 @@ namespace LenovoLegionToolkit.Lib.Features
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"UEFI mode is not enabled. [feature={GetType().Name}]");
-                
+
                 throw new InvalidOperationException("UEFI mode is not enabled");
             }
 
@@ -41,7 +41,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Cannot set UEFI privilages [feature={GetType().Name}]");
-                    
+
                     throw new InvalidOperationException($"Cannot set privilages UEFI");
                 }
 
@@ -51,17 +51,17 @@ namespace LenovoLegionToolkit.Lib.Features
                 if (Native.GetFirmwareEnvironmentVariableExW(_scopeName, _guid, hGlobal, Marshal.SizeOf<S>(), IntPtr.Zero) != 0)
                 {
                     var result = (S)Marshal.PtrToStructure(hGlobal, typeof(S));
-                    
+
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Read from UEFI successful [feature={GetType().Name}]");
-                    
+
                     return result;
                 }
                 else
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Cannot read variable {_scopeName} from UEFI [feature={GetType().Name}]");
-                    
+
                     throw new InvalidOperationException($"Cannot read variable {_scopeName} from UEFI");
                 }
             }
@@ -78,7 +78,7 @@ namespace LenovoLegionToolkit.Lib.Features
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"UEFI mode is not enabled. [feature={GetType().Name}]");
-                
+
                 throw new InvalidOperationException("UEFI mode is not enabled.");
             }
 
@@ -90,7 +90,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Cannot set UEFI privilages [feature={GetType().Name}]");
-                    
+
                     throw new InvalidOperationException($"Cannot set privilages UEFI");
                 }
 
@@ -100,7 +100,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Cannot write variable {_scopeName} to UEFI [feature={GetType().Name}]");
-                    
+
                     throw new InvalidOperationException($"Cannot write variable {_scopeName} to UEFI");
                 }
                 else
@@ -122,16 +122,16 @@ namespace LenovoLegionToolkit.Lib.Features
             if (Native.GetFirmwareType(ref firmwareType))
             {
                 var result = firmwareType == FirmwareType.Uefi;
-                
+
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Firmware type is {firmwareType} [feature={GetType().Name}]");
-                
+
                 return result;
             }
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Could not get firmware type [feature={GetType().Name}]");
-            
+
             return false;
         }
 
@@ -144,7 +144,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Could not open process token [feature={GetType().Name}]");
-                    
+
                     return false;
                 }
 
@@ -156,7 +156,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Could not look up privilege value [feature={GetType().Name}]");
-                    
+
                     return false;
                 }
 
@@ -164,7 +164,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Could not adjust token privileges [feature={GetType().Name}]");
-                    
+
                     return false;
                 }
 
@@ -174,7 +174,7 @@ namespace LenovoLegionToolkit.Lib.Features
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Exception: {ex} [feature={GetType().Name}]");
-                
+
                 return false;
             }
         }

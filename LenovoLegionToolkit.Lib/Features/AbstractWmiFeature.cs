@@ -24,20 +24,20 @@ namespace LenovoLegionToolkit.Lib.Features
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting state... [feature={GetType().Name}]");
-            
+
             if (!IsSupported())
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Feature {_methodNameSuffix} is not supported [feature={GetType().Name}]");
-                
+
                 throw new NotSupportedException($"Feature {_methodNameSuffix} is not supported.");
             }
 
             var result = FromInternal(ExecuteGamezone("Get" + _methodNameSuffix, "Data"));
-            
+
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"State is {result} [feature={GetType().Name}]");
-            
+
             return result;
         }
 
@@ -45,13 +45,13 @@ namespace LenovoLegionToolkit.Lib.Features
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Setting state to {state}... [feature={GetType().Name}]");
-            
+
             ExecuteGamezone("Set" + _methodNameSuffix, "Data",
                 new Dictionary<string, string>
                 {
                     {"Data", ToInternal(state).ToString()}
                 });
-            
+
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Set state to {state} [feature={GetType().Name}]");
         }
@@ -87,7 +87,7 @@ namespace LenovoLegionToolkit.Lib.Features
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"No results in query [feature={GetType().Name}, queryString={queryString}, methodName={methodName}, resultPropertyName={resultPropertyName}, methodParams.Count={methodParams?.Count}]");
-                
+
                 throw new InvalidOperationException("No results in query");
             }
 

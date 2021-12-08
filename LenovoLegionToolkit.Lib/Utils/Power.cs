@@ -61,7 +61,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Power plan {powerPlanId} will not be activated [isDefault={isDefault}]");
-                
+
                 return;
             }
 
@@ -70,14 +70,14 @@ namespace LenovoLegionToolkit.Lib.Utils
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Power plan {powerPlanId} was not found");
-                
+
                 return;
             }
             if (powerPlan.IsActive)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Power plan {powerPlanId} is already active");
-                
+
                 return;
             }
 
@@ -94,7 +94,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Activate power profiles with Vantage is enabled");
-                
+
                 return true;
             }
 
@@ -102,7 +102,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Power plan is default and always active defaults is set");
-                
+
                 return true;
             }
 
@@ -111,7 +111,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Vantage is active [status={status}]");
-                
+
                 return true;
             }
 

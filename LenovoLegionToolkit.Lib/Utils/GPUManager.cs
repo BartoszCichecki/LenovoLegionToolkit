@@ -81,13 +81,13 @@ namespace LenovoLegionToolkit.Lib.Utils
 
                             if (Log.Instance.IsTraceEnabled)
                                 Log.Instance.Trace($"Will refresh...");
-                            
+
                             WillRefresh?.Invoke(this, EventArgs.Empty);
                             Refresh();
-                            
+
                             if (Log.Instance.IsTraceEnabled)
                                 Log.Instance.Trace($"Refreshed");
-                            
+
                             Refreshed?.Invoke(this, new RefreshedEventArgs(IsActive, CanBeDeactivated, _status, _processNames));
                         }
 
@@ -98,7 +98,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Exception: {ex}");
-                    
+
                     throw;
                 }
                 finally
@@ -171,7 +171,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"GPU present [status={_status}, processNames.Length={_processNames.Length}, gpuInstanceId={_gpuInstanceId}]");
-                
+
                 return;
             }
 
@@ -182,7 +182,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"GPU inactive [status={_status}, processNames.Length={_processNames.Length}, gpuInstanceId={_gpuInstanceId}]");
-                
+
                 return;
             }
 
@@ -194,7 +194,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Monitor connected [status={_status}, processNames.Length={_processNames.Length}, gpuInstanceId={_gpuInstanceId}]");
-                
+
                 return;
             }
 
