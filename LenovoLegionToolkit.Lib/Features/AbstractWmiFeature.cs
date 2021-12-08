@@ -22,27 +22,38 @@ namespace LenovoLegionToolkit.Lib.Features
 
         public virtual T GetState()
         {
-            Log.Instance.Trace($"Getting state... [feature={GetType().Name}]");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Getting state... [feature={GetType().Name}]");
+            
             if (!IsSupported())
             {
-                Log.Instance.Trace($"Feature {_methodNameSuffix} is not supported [feature={GetType().Name}]");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Feature {_methodNameSuffix} is not supported [feature={GetType().Name}]");
+                
                 throw new NotSupportedException($"Feature {_methodNameSuffix} is not supported.");
             }
 
             var result = FromInternal(ExecuteGamezone("Get" + _methodNameSuffix, "Data"));
-            Log.Instance.Trace($"State is {result} [feature={GetType().Name}]");
+            
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"State is {result} [feature={GetType().Name}]");
+            
             return result;
         }
 
         public virtual void SetState(T state)
         {
-            Log.Instance.Trace($"Setting state to {state}... [feature={GetType().Name}]");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Setting state to {state}... [feature={GetType().Name}]");
+            
             ExecuteGamezone("Set" + _methodNameSuffix, "Data",
                 new Dictionary<string, string>
                 {
                     {"Data", ToInternal(state).ToString()}
                 });
-            Log.Instance.Trace($"Set state to {state} [feature={GetType().Name}]");
+            
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Set state to {state} [feature={GetType().Name}]");
         }
 
         private bool IsSupported()
@@ -68,12 +79,15 @@ namespace LenovoLegionToolkit.Lib.Features
             string resultPropertyName,
             Dictionary<string, string> methodParams = null)
         {
-            Log.Instance.Trace($"Executing WMI query... [feature={GetType().Name}, queryString={queryString}, methodName={methodName}, resultPropertyName={resultPropertyName}, methodParams.Count={methodParams?.Count}]");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Executing WMI query... [feature={GetType().Name}, queryString={queryString}, methodName={methodName}, resultPropertyName={resultPropertyName}, methodParams.Count={methodParams?.Count}]");
 
             using var enumerator = new ManagementObjectSearcher("ROOT\\WMI", queryString).Get().GetEnumerator();
             if (!enumerator.MoveNext())
             {
-                Log.Instance.Trace($"No results in query [feature={GetType().Name}, queryString={queryString}, methodName={methodName}, resultPropertyName={resultPropertyName}, methodParams.Count={methodParams?.Count}]");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"No results in query [feature={GetType().Name}, queryString={queryString}, methodName={methodName}, resultPropertyName={resultPropertyName}, methodParams.Count={methodParams?.Count}]");
+                
                 throw new InvalidOperationException("No results in query");
             }
 
@@ -86,7 +100,8 @@ namespace LenovoLegionToolkit.Lib.Features
             var result = mo.InvokeMethod(methodName, methodParamsObject, null)?.Properties[resultPropertyName].Value;
             var intResult = Convert.ToInt32(result);
 
-            Log.Instance.Trace($"Executed WMI query with result {intResult} [feature={GetType().Name}, queryString={queryString}, methodName={methodName}, resultPropertyName={resultPropertyName}, methodParams.Count={methodParams?.Count}]");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Executed WMI query with result {intResult} [feature={GetType().Name}, queryString={queryString}, methodName={methodName}, resultPropertyName={resultPropertyName}, methodParams.Count={methodParams?.Count}]");
 
             return intResult;
         }

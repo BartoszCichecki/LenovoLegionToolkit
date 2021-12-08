@@ -27,7 +27,8 @@ namespace LenovoLegionToolkit
             if (IsTraceEnabled(e.Args))
                 Log.Instance.IsTraceEnabled = true;
 
-            Log.Instance.Trace($"Starting... [version={Assembly.GetEntryAssembly().GetName().Version}]");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Starting... [version={Assembly.GetEntryAssembly().GetName().Version}]");
 
             EnsureSingleInstance();
 
@@ -37,16 +38,19 @@ namespace LenovoLegionToolkit
             var mainWindow = new MainWindow();
             if (ShouldStartMinimized(e.Args))
             {
-                Log.Instance.Trace($"Sending MainWindow to tray...");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Sending MainWindow to tray...");
                 mainWindow.SendToTray();
             }
             else
             {
-                Log.Instance.Trace($"Showing MainWindow...");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Showing MainWindow...");
                 mainWindow.Show();
             }
 
-            Log.Instance.Trace($"Start up complete");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Start up complete");
         }
 
         private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
@@ -61,11 +65,13 @@ namespace LenovoLegionToolkit
         {
             if (Compatibility.IsCompatible(out var mi))
             {
-                Log.Instance.Trace($"Compatibility check passed");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Compatibility check passed");
                 return;
             }
 
-            Log.Instance.Trace($"Incompatible system detected, shutting down... [Vendor={mi.Vendor}, Model={mi.Model}]");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Incompatible system detected, shutting down... [Vendor={mi.Vendor}, Model={mi.Model}]");
 
             MessageBox.Show($"This application is not compatible with:\n\n{mi.Vendor} {mi.Model}.", "Unsupported device", MessageBoxButton.OK, MessageBoxImage.Error);
             Shutdown(-1);
@@ -100,7 +106,8 @@ namespace LenovoLegionToolkit
         {
             var result = args.Contains("--skip-compat-check");
             if (result)
-                Log.Instance.Trace($"Argument present");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Argument present");
             return result;
         }
 
@@ -108,7 +115,8 @@ namespace LenovoLegionToolkit
         {
             var result = args.Contains("--minimized");
             if (result)
-                Log.Instance.Trace($"Argument present");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Argument present");
             return result;
         }
 
@@ -116,7 +124,8 @@ namespace LenovoLegionToolkit
         {
             var result = args.Contains("--trace");
             if (result)
-                Log.Instance.Trace($"Argument present");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Argument present");
             return result;
         }
 

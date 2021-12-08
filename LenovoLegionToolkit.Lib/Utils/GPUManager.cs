@@ -52,7 +52,8 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             Stop(true);
 
-            Log.Instance.Trace($"Starting... [delay={delay}, interval={interval}]");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Starting... [delay={delay}, interval={interval}]");
 
             _refreshCancellationTokenSource = new CancellationTokenSource();
             var token = _refreshCancellationTokenSource.Token;
@@ -61,11 +62,13 @@ namespace LenovoLegionToolkit.Lib.Utils
             {
                 try
                 {
-                    Log.Instance.Trace($"Initializing NVAPI...");
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Initializing NVAPI...");
 
                     NVAPI.Initialize();
 
-                    Log.Instance.Trace($"Initialized NVAPI");
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Initialized NVAPI");
 
                     await Task.Delay(delay, token);
 
@@ -76,10 +79,15 @@ namespace LenovoLegionToolkit.Lib.Utils
                         lock (_lock)
                         {
 
-                            Log.Instance.Trace($"Will refresh...");
+                            if (Log.Instance.IsTraceEnabled)
+                                Log.Instance.Trace($"Will refresh...");
+                            
                             WillRefresh?.Invoke(this, EventArgs.Empty);
                             Refresh();
-                            Log.Instance.Trace($"Refreshed");
+                            
+                            if (Log.Instance.IsTraceEnabled)
+                                Log.Instance.Trace($"Refreshed");
+                            
                             Refreshed?.Invoke(this, new RefreshedEventArgs(IsActive, CanBeDeactivated, _status, _processNames));
                         }
 
@@ -88,59 +96,70 @@ namespace LenovoLegionToolkit.Lib.Utils
                 }
                 catch (Exception ex)
                 {
-                    Log.Instance.Trace($"Exception: {ex}");
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Exception: {ex}");
+                    
                     throw;
                 }
                 finally
                 {
-                    Log.Instance.Trace($"Unloading NVAPI...");
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Unloading NVAPI...");
 
                     NVAPI.Unload();
 
-                    Log.Instance.Trace($"Unloaded NVAPI");
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Unloaded NVAPI");
                 }
             }, token);
         }
 
         public void Stop(bool waitForFinish = false)
         {
-            Log.Instance.Trace($"Stopping... [refreshTask.isNull={_refreshTask == null}, _refreshCancellationTokenSource.IsCancellationRequested={_refreshCancellationTokenSource?.IsCancellationRequested}]");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Stopping... [refreshTask.isNull={_refreshTask == null}, _refreshCancellationTokenSource.IsCancellationRequested={_refreshCancellationTokenSource?.IsCancellationRequested}]");
 
             _refreshCancellationTokenSource?.Cancel();
 
             if (waitForFinish)
             {
-                Log.Instance.Trace($"Waiting to finish...");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Waiting to finish...");
 
                 _refreshTask?.Wait();
 
-                Log.Instance.Trace($"Finished");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Finished");
             }
 
             _refreshCancellationTokenSource = null;
             _refreshTask = null;
 
-            Log.Instance.Trace($"Stopped");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Stopped");
         }
 
         public void DeactivateGPU()
         {
             lock (_lock)
             {
-                Log.Instance.Trace($"Deactivating... [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Deactivating... [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
 
                 if (!IsActive || !CanBeDeactivated || string.IsNullOrEmpty(_gpuInstanceId))
                     return;
 
                 CMD.Run("pnputil", $"/restart-device \"{_gpuInstanceId}\"");
 
-                Log.Instance.Trace($"Deactivated [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Deactivated [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
             }
         }
 
         private void Refresh()
         {
-            Log.Instance.Trace($"Refresh in progress...");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Refresh in progress...");
 
             _status = Status.Unknown;
             _processNames = Array.Empty<string>();
@@ -150,7 +169,9 @@ namespace LenovoLegionToolkit.Lib.Utils
             {
                 _status = Status.NVIDIAGPUNotFound;
 
-                Log.Instance.Trace($"GPU present [status={_status}, processNames.Length={_processNames.Length}, gpuInstanceId={_gpuInstanceId}]");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"GPU present [status={_status}, processNames.Length={_processNames.Length}, gpuInstanceId={_gpuInstanceId}]");
+                
                 return;
             }
 
@@ -159,7 +180,9 @@ namespace LenovoLegionToolkit.Lib.Utils
             {
                 _status = Status.Inactive;
 
-                Log.Instance.Trace($"GPU inactive [status={_status}, processNames.Length={_processNames.Length}, gpuInstanceId={_gpuInstanceId}]");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"GPU inactive [status={_status}, processNames.Length={_processNames.Length}, gpuInstanceId={_gpuInstanceId}]");
+                
                 return;
             }
 
@@ -169,7 +192,9 @@ namespace LenovoLegionToolkit.Lib.Utils
             {
                 _status = Status.MonitorsConnected;
 
-                Log.Instance.Trace($"Monitor connected [status={_status}, processNames.Length={_processNames.Length}, gpuInstanceId={_gpuInstanceId}]");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Monitor connected [status={_status}, processNames.Length={_processNames.Length}, gpuInstanceId={_gpuInstanceId}]");
+                
                 return;
             }
 
@@ -179,7 +204,8 @@ namespace LenovoLegionToolkit.Lib.Utils
             _gpuInstanceId = gpuInstanceId;
             _status = Status.DeactivatePossible;
 
-            Log.Instance.Trace($"Deactivate possible [status={_status}, processNames.Length={_processNames.Length}, gpuInstanceId={_gpuInstanceId}, pnpDeviceId={pnpDeviceId}]");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Deactivate possible [status={_status}, processNames.Length={_processNames.Length}, gpuInstanceId={_gpuInstanceId}, pnpDeviceId={pnpDeviceId}]");
         }
 
         private static string GetDeviceInstanceID(string pnpDeviceId)

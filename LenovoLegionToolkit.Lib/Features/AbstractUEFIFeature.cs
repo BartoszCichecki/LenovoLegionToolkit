@@ -22,11 +22,14 @@ namespace LenovoLegionToolkit.Lib.Features
 
         protected S ReadFromUefi<S>(S structure) where S : struct
         {
-            Log.Instance.Trace($"Reading from UEFI... [feature={GetType().Name}]");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Reading from UEFI... [feature={GetType().Name}]");
 
             if (!IsUefiMode())
             {
-                Log.Instance.Trace($"UEFI mode is not enabled. [feature={GetType().Name}]");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"UEFI mode is not enabled. [feature={GetType().Name}]");
+                
                 throw new InvalidOperationException("UEFI mode is not enabled");
             }
 
@@ -36,7 +39,9 @@ namespace LenovoLegionToolkit.Lib.Features
             {
                 if (!SetPrivilege(true))
                 {
-                    Log.Instance.Trace($"Cannot set UEFI privilages [feature={GetType().Name}]");
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Cannot set UEFI privilages [feature={GetType().Name}]");
+                    
                     throw new InvalidOperationException($"Cannot set privilages UEFI");
                 }
 
@@ -46,12 +51,17 @@ namespace LenovoLegionToolkit.Lib.Features
                 if (Native.GetFirmwareEnvironmentVariableExW(_scopeName, _guid, hGlobal, Marshal.SizeOf<S>(), IntPtr.Zero) != 0)
                 {
                     var result = (S)Marshal.PtrToStructure(hGlobal, typeof(S));
-                    Log.Instance.Trace($"Read from UEFI successful [feature={GetType().Name}]");
+                    
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Read from UEFI successful [feature={GetType().Name}]");
+                    
                     return result;
                 }
                 else
                 {
-                    Log.Instance.Trace($"Cannot read variable {_scopeName} from UEFI [feature={GetType().Name}]");
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Cannot read variable {_scopeName} from UEFI [feature={GetType().Name}]");
+                    
                     throw new InvalidOperationException($"Cannot read variable {_scopeName} from UEFI");
                 }
             }
@@ -66,7 +76,9 @@ namespace LenovoLegionToolkit.Lib.Features
         {
             if (!IsUefiMode())
             {
-                Log.Instance.Trace($"UEFI mode is not enabled. [feature={GetType().Name}]");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"UEFI mode is not enabled. [feature={GetType().Name}]");
+                
                 throw new InvalidOperationException("UEFI mode is not enabled.");
             }
 
@@ -76,7 +88,9 @@ namespace LenovoLegionToolkit.Lib.Features
             {
                 if (!SetPrivilege(true))
                 {
-                    Log.Instance.Trace($"Cannot set UEFI privilages [feature={GetType().Name}]");
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Cannot set UEFI privilages [feature={GetType().Name}]");
+                    
                     throw new InvalidOperationException($"Cannot set privilages UEFI");
                 }
 
@@ -84,12 +98,15 @@ namespace LenovoLegionToolkit.Lib.Features
                 Marshal.StructureToPtr(structure, ptr, false);
                 if (Native.SetFirmwareEnvironmentVariableExW(_scopeName, _guid, hGlobal, Marshal.SizeOf<S>(), _scopeAttribute) != 1)
                 {
-                    Log.Instance.Trace($"Cannot write variable {_scopeName} to UEFI [feature={GetType().Name}]");
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Cannot write variable {_scopeName} to UEFI [feature={GetType().Name}]");
+                    
                     throw new InvalidOperationException($"Cannot write variable {_scopeName} to UEFI");
                 }
                 else
                 {
-                    Log.Instance.Trace($"Write to UEFI successful [feature={GetType().Name}]");
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Write to UEFI successful [feature={GetType().Name}]");
                 }
             }
             finally
@@ -105,11 +122,16 @@ namespace LenovoLegionToolkit.Lib.Features
             if (Native.GetFirmwareType(ref firmwareType))
             {
                 var result = firmwareType == FirmwareType.Uefi;
-                Log.Instance.Trace($"Firmware type is {firmwareType} [feature={GetType().Name}]");
+                
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Firmware type is {firmwareType} [feature={GetType().Name}]");
+                
                 return result;
             }
 
-            Log.Instance.Trace($"Could not get firmware type [feature={GetType().Name}]");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Could not get firmware type [feature={GetType().Name}]");
+            
             return false;
         }
 
@@ -120,7 +142,9 @@ namespace LenovoLegionToolkit.Lib.Features
                 var zero = IntPtr.Zero;
                 if (!Native.OpenProcessToken(Native.GetCurrentProcess(), 40U, ref zero))
                 {
-                    Log.Instance.Trace($"Could not open process token [feature={GetType().Name}]");
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Could not open process token [feature={GetType().Name}]");
+                    
                     return false;
                 }
 
@@ -130,13 +154,17 @@ namespace LenovoLegionToolkit.Lib.Features
                 newState.Attr = enable ? 2 : 0;
                 if (!Native.LookupPrivilegeValue(null, "SeSystemEnvironmentPrivilege", ref newState.Luid))
                 {
-                    Log.Instance.Trace($"Could not look up privilege value [feature={GetType().Name}]");
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Could not look up privilege value [feature={GetType().Name}]");
+                    
                     return false;
                 }
 
                 if (!Native.AdjustTokenPrivileges(zero, false, ref newState, 0, IntPtr.Zero, IntPtr.Zero))
                 {
-                    Log.Instance.Trace($"Could not adjust token privileges [feature={GetType().Name}]");
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Could not adjust token privileges [feature={GetType().Name}]");
+                    
                     return false;
                 }
 
@@ -144,7 +172,9 @@ namespace LenovoLegionToolkit.Lib.Features
             }
             catch (Exception ex)
             {
-                Log.Instance.Trace($"Exception: {ex} [feature={GetType().Name}]");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Exception: {ex} [feature={GetType().Name}]");
+                
                 return false;
             }
         }

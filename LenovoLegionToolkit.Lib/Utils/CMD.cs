@@ -6,7 +6,8 @@ namespace LenovoLegionToolkit.Lib.Utils
     {
         public static string Run(string file, string arguments)
         {
-            Log.Instance.Trace($"Running... [file={file}, argument={arguments}]");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Running... [file={file}, argument={arguments}]");
 
             var cmd = new Process();
             cmd.StartInfo.UseShellExecute = false;
@@ -19,7 +20,8 @@ namespace LenovoLegionToolkit.Lib.Utils
             var output = cmd.StandardOutput.ReadToEnd();
             cmd.WaitForExit();
 
-            Log.Instance.Trace($"Ran [file={file}, argument={arguments}, output={output}]");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Ran [file={file}, argument={arguments}, output={output}]");
 
             return output;
         }
