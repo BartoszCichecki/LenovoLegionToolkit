@@ -114,6 +114,9 @@ namespace LenovoLegionToolkit
 
         private void Refresh()
         {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Refreshing...");
+
             var features = new[]
             {
                 new FeatureCheck(
@@ -169,6 +172,9 @@ namespace LenovoLegionToolkit
                 try { feature.Check(); }
                 catch { feature.Disable(); }
             }
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Refreshed");
         }
 
         private static void DisableControls(Control[] buttons)
@@ -180,6 +186,9 @@ namespace LenovoLegionToolkit
 
         private void MainWindow_StateChanged(object sender, EventArgs e)
         {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Window state changed to {WindowState}");
+
             switch (WindowState)
             {
                 case WindowState.Minimized:
@@ -193,6 +202,9 @@ namespace LenovoLegionToolkit
 
         private void MainWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Window is visible changed to {IsVisible}");
+
             if (IsVisible)
                 _gpuManager.Start();
             else
@@ -203,11 +215,19 @@ namespace LenovoLegionToolkit
         {
             if (Settings.Instance.MinimizeOnClose)
             {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Minimizing...");
+
                 WindowState = WindowState.Minimized;
                 e.Cancel = true;
             }
             else
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Closing...");
+
                 _powerModeListener.Stop();
+            }
         }
 
         private void GpuManager_WillRefresh(object sender, EventArgs e)
