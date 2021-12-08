@@ -16,6 +16,8 @@ The tool comes with no warranty. Use at you own risk.
 
 ## Compatibility
 
+All testing done by me is done always on latest Windows 11 update and Legion 5 Pro 16ACH6H. I already know that there are some strange differences between Windows 10 and 11 that are not document very well, but I do my best to correct bugs like this as soon as possible.
+
 Toolkit is compatible with a lot of Legion laptops from 2020 and 2021. Full list of supported models can be found here: [Compatibility.cs](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/LenovoLegionToolkit.Lib/Utils/Compatibility.cs).
 
 If you are getting an incompatible message on startup, you can check *Contribution* section down at the bottom, to see how can you help.
