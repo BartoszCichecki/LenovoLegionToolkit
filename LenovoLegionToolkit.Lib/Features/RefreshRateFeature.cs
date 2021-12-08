@@ -23,44 +23,79 @@ namespace LenovoLegionToolkit.Lib.Features
 
         public RefreshRate[] GetAllStates()
         {
+            Log.Instance.Trace($"Getting all refresh rates...");
+
             var display = GetBuiltInDisplay();
             if (display == null)
-                throw new InvalidOperationException("Built in display not found.");
+            {
+                Log.Instance.Trace($"Built in display not found");
+                throw new InvalidOperationException("Built in display not found");
+            }
 
             var currentSettings = display.CurrentSetting;
-            return display.GetPossibleSettings()
+            var result = display.GetPossibleSettings()
                 .Where(dps => Match(dps, currentSettings))
                 .Select(dps => new RefreshRate(dps.Frequency))
                 .ToArray();
+
+            Log.Instance.Trace($"Possible refresh rates are {string.Join(", ", result)}");
+
+            return result;
         }
 
         public RefreshRate GetState()
         {
+            Log.Instance.Trace($"Getting current refresh rate...");
+
             var display = GetBuiltInDisplay();
             if (display == null)
-                throw new InvalidOperationException("Built in display not found.");
+            {
+                Log.Instance.Trace($"Built in display not found");
 
-            return new RefreshRate(display.CurrentSetting.Frequency);
+                throw new InvalidOperationException("Built in display not found");
+            }
+
+            var currentSettings = display.CurrentSetting;
+            var result = new RefreshRate(currentSettings.Frequency);
+
+            Log.Instance.Trace($"Current refresh rate is {result} [currentSettings={currentSettings}]");
+
+            return result;
         }
 
         public void SetState(RefreshRate state)
         {
             var display = GetBuiltInDisplay();
             if (display == null)
-                throw new InvalidOperationException("Built in display not found.");
+            {
+                Log.Instance.Trace($"Built in display not found");
+                throw new InvalidOperationException("Built in display not found");
+            }
 
             var currentSettings = display.CurrentSetting;
 
             if (currentSettings.Frequency == state.Frequency)
+            {
+                Log.Instance.Trace($"Frequency already set to {state.Frequency}");
                 return;
+            }
 
-            var newSettings = display.GetPossibleSettings()
+            var possibleSettings = display.GetPossibleSettings();
+            var newSettings = possibleSettings
                 .Where(dps => Match(dps, currentSettings))
                 .Select(dps => new DisplaySetting(dps, currentSettings.Position))
                 .FirstOrDefault(dps => dps.Frequency == state.Frequency);
 
             if (newSettings != null)
+            {
+                Log.Instance.Trace($"Settings display to {newSettings}");
+
                 display.SetSettings(newSettings, true);
+            }
+            else
+            {
+                Log.Instance.Trace($"Could not find matching settings for frequency {state}");
+            }
         }
 
         private static Display GetBuiltInDisplay()
@@ -69,7 +104,14 @@ namespace LenovoLegionToolkit.Lib.Features
             var entity = GetBuiltInMonitorEntity();
 
             if (displays == null || entity == null)
+            {
+                Log.Instance.Trace($"Can't retrieve displays [displays={displays != null}, entity={entity != null}]");
+                
                 return null;
+            }
+
+            Log.Instance.Trace($"Found displays: {string.Join(", ", displays)}");
+            Log.Instance.Trace($"Found entity: {entity.Name}, {entity.DeviceID}");
 
             return displays.FirstOrDefault(display => Match(display, entity));
         }
