@@ -27,7 +27,7 @@
             </tb:TaskbarIcon.ContextMenu>
         </tb:TaskbarIcon>
         <Menu DockPanel.Dock="Top" Background="#FFF" Margin="1">
-            <MenuItem Header="Tools">
+            <MenuItem x:Name="toolsMenuItem" Header="Tools">
                 <MenuItem Name="autorunMenuItem" Header="Run on startup" Click="AutorunMenuItem_Click" IsCheckable="true"/>
                 <MenuItem Name="minimizeOnCloseMenuItem" Header="Minimize on close" Click="MinimizeOnCloseMenuItem_Click" IsCheckable="true"/>
                 <MenuItem Header="More settings..." Click="SettingsMenuItem_Click" />
