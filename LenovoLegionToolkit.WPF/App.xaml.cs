@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
@@ -55,8 +54,13 @@ namespace LenovoLegionToolkit
 
         private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
+            Log.Instance.ErrorReport(e.Exception);
+
             var errorText = e.Exception.ToString();
-            Trace.TraceError(errorText);
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"***** *** Unhandled exception ***** ***\n{errorText}");
+
             MessageBox.Show(errorText, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             Shutdown(-1);
         }

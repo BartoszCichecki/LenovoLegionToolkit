@@ -18,6 +18,7 @@ namespace LenovoLegionToolkit.Lib.Utils
         }
 
         private readonly object _lock = new();
+        private readonly string _folderPath;
         private readonly string _logPath;
 
 #if DEBUG
@@ -31,9 +32,9 @@ namespace LenovoLegionToolkit.Lib.Utils
         public Log()
         {
             var appData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            var folderPath = Path.Combine(appData, "LenovoLegionToolkit", "log");
-            Directory.CreateDirectory(folderPath);
-            _logPath = Path.Combine(folderPath, $"log_{DateTime.Now:yyyy_MM_dd_HH_mm_ss}.txt");
+            _folderPath = Path.Combine(appData, "LenovoLegionToolkit", "log");
+            Directory.CreateDirectory(_folderPath);
+            _logPath = Path.Combine(_folderPath, $"log_{DateTime.Now:yyyy_MM_dd_HH_mm_ss}.txt");
         }
 
         public void Trace(FormattableString message,
@@ -51,6 +52,12 @@ namespace LenovoLegionToolkit.Lib.Utils
                 var line = $"[{date}] [{fileName}#{lineNumber}:{caller}] {message}";
                 File.AppendAllLines(_logPath, new[] { line });
             }
+        }
+
+        public void ErrorReport(Exception ex)
+        {
+            var errorReportPath = Path.Combine(_folderPath, $"error_{DateTime.Now:yyyy_MM_dd_HH_mm_ss}.txt");
+            File.AppendAllLines(errorReportPath, new[] { ex.ToString() });
         }
     }
 }
