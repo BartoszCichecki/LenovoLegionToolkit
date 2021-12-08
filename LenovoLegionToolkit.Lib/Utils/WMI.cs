@@ -10,18 +10,18 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
 
-            Log.Instance.Trace($"Starting listener... [scope={scope}, queryFormatted ={queryFormatted}]");
+            Log.Instance.Trace($"Starting listener... [scope={scope}, queryFormatted={queryFormatted}]");
 
             var watcher = new ManagementEventWatcher(scope, queryFormatted);
             watcher.EventArrived += (s, e) =>
             {
-                Log.Instance.Trace($"Event arrived [classPath={e.NewEvent.ClassPath}, scope={scope}, queryFormatted ={queryFormatted}]");
+                Log.Instance.Trace($"Event arrived [classPath={e.NewEvent.ClassPath}, scope={scope}, queryFormatted={queryFormatted}]");
 
                 handler(e.NewEvent.Properties);
             };
             watcher.Start();
 
-            Log.Instance.Trace($"Started listener [scope={scope}, queryFormatted ={queryFormatted}]");
+            Log.Instance.Trace($"Started listener [scope={scope}, queryFormatted={queryFormatted}]");
 
             return watcher;
         }
@@ -30,7 +30,7 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
 
-            Log.Instance.Trace($"Reading... [scope={scope}, queryFormatted ={queryFormatted}]");
+            Log.Instance.Trace($"Reading... [scope={scope}, queryFormatted={queryFormatted}]");
 
             using var searcher = new ManagementObjectSearcher(scope, queryFormatted);
             foreach (var queryObj in searcher.Get())
