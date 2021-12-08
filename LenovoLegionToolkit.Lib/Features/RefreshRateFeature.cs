@@ -83,14 +83,16 @@ namespace LenovoLegionToolkit.Lib.Features
 
         private static IEnumerable<PNPEntity> GetAllMonitorEntities()
         {
-            return WMI.Read("root\\CIMV2", "SELECT * FROM Win32_PnpEntity WHERE PNPClass=\"Monitor\"", Create);
+            return WMI.Read("root\\CIMV2",
+                $"SELECT * FROM Win32_PnpEntity WHERE PNPClass='Monitor'",
+                Create);
         }
 
         private static bool EntityHasBIOSNameProperty(PNPEntity monitor)
         {
             var parameters = new object[] { new[] { "DEVPKEY_Device_BiosDeviceName" }, null };
             WMI.Invoke("root\\CIMV2", "Win32_PnpEntity",
-                "DeviceID", monitor.DeviceID,
+                "DeviceID", $"{monitor.DeviceID}",
                 "GetDeviceProperties", parameters);
 
             var results = (ManagementBaseObject[])parameters[1];
@@ -112,8 +114,13 @@ namespace LenovoLegionToolkit.Lib.Features
         }
         private static bool Match(Display display, PNPEntity pnpEntity)
         {
-            var entityMarkers = pnpEntity.DeviceID.Split("\\").Skip(1).Select(s => s.ToUpperInvariant());
-            var displayMarkers = display.DevicePath.Split("#").Skip(1).Take(2).Select(s => s.ToUpperInvariant());
+            var entityMarkers = pnpEntity.DeviceID.Split("\\")
+                .Skip(1)
+                .Select(s => s.ToUpperInvariant());
+            var displayMarkers = display.DevicePath.Split("#")
+                .Skip(1)
+                .Take(2)
+                .Select(s => s.ToUpperInvariant());
             return entityMarkers.SequenceEqual(displayMarkers);
         }
 

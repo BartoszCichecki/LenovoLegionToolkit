@@ -40,7 +40,9 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         public static bool IsCompatible(out MachineInformation machineInformation)
         {
-            machineInformation = WMI.Read("root\\CIMV2", "SELECT * FROM Win32_ComputerSystemProduct", Create).First();
+            machineInformation = WMI.Read("root\\CIMV2",
+                $"SELECT * FROM Win32_ComputerSystemProduct",
+                Create).First();
 
             if (!machineInformation.Vendor.Equals(_allowedVendor, StringComparison.OrdinalIgnoreCase))
                 return false;

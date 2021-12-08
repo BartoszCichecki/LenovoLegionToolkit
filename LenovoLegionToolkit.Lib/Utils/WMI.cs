@@ -6,17 +6,17 @@ namespace LenovoLegionToolkit.Lib.Utils
 {
     internal static class WMI
     {
-        public static IDisposable Listen(string scope, string query, Action<PropertyDataCollection> handler)
+        public static IDisposable Listen(string scope, FormattableString query, Action<PropertyDataCollection> handler)
         {
-            var watcher = new ManagementEventWatcher(scope, query);
+            var watcher = new ManagementEventWatcher(scope, query.ToString(WMIPropertyValueFormatter.Instance));
             watcher.EventArrived += (s, e) => handler(e.NewEvent.Properties);
             watcher.Start();
             return watcher;
         }
 
-        public static IEnumerable<T> Read<T>(string scope, string query, Func<PropertyDataCollection, T> converter)
+        public static IEnumerable<T> Read<T>(string scope, FormattableString query, Func<PropertyDataCollection, T> converter)
         {
-            using var searcher = new ManagementObjectSearcher(scope, query);
+            using var searcher = new ManagementObjectSearcher(scope, query.ToString(WMIPropertyValueFormatter.Instance));
             foreach (var queryObj in searcher.Get())
                 yield return converter(queryObj.Properties);
         }
@@ -28,12 +28,31 @@ namespace LenovoLegionToolkit.Lib.Utils
             string methodName,
             object[] parameters = null)
         {
-            var path = $"{scope}:{clazz}.{propertyName}=\"{propertyValue.Escaped()}\"";
+            var path = $"{scope}:{clazz}.{propertyName}='{propertyValue.ToString(WMIPropertyValueFormatter.Instance)}'";
 
             using var managementObject = new ManagementObject(path);
             return managementObject.InvokeMethod(methodName, parameters);
         }
 
-        private static string Escaped(this string value) => value.Replace("\\", "\\\\");
+        private class WMIPropertyValueFormatter : IFormatProvider, ICustomFormatter
+        {
+            public static readonly WMIPropertyValueFormatter Instance = new();
+
+            private WMIPropertyValueFormatter() { }
+
+            public object GetFormat(Type formatType)
+            {
+                if (formatType == typeof(ICustomFormatter))
+                    return this;
+
+                return null;
+            }
+            public string Format(string format, object arg, IFormatProvider formatProvider)
+            {
+                var stringArg = arg.ToString();
+                stringArg = stringArg.Replace("\\", "\\\\");
+                return stringArg;
+            }
+        }
     }
 }

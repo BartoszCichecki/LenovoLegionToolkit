@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -39,7 +40,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         private Status _status = Status.Unknown;
         private string[] _processNames = null;
-        private string _pnpDeviceId = null;
+        private string _gpuInstanceId = null;
 
         private bool IsActive => _status == Status.MonitorsConnected || _status == Status.DeactivatePossible;
         private bool CanBeDeactivated => _status == Status.DeactivatePossible;
@@ -98,10 +99,10 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             lock (_lock)
             {
-                if (!IsActive || !CanBeDeactivated || string.IsNullOrEmpty(_pnpDeviceId))
+                if (!IsActive || !CanBeDeactivated || string.IsNullOrEmpty(_gpuInstanceId))
                     return;
 
-                CMD.Run("pnputil", $"/restart-device /deviceid \"{_pnpDeviceId}\"");
+                CMD.Run("pnputil", $"/restart-device \"{_gpuInstanceId}\"");
             }
         }
 
@@ -109,7 +110,7 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             _status = Status.Unknown;
             _processNames = Array.Empty<string>();
-            _pnpDeviceId = null;
+            _gpuInstanceId = null;
 
             if (!NVAPI.IsGPUPresent(out var gpu))
             {
@@ -132,8 +133,18 @@ namespace LenovoLegionToolkit.Lib.Utils
                 return;
             }
 
-            _pnpDeviceId = NVAPI.GetGPUId(gpu);
+            var pnpDeviceId = NVAPI.GetGPUId(gpu);
+            var gpuInstanceId = GetDeviceInstanceID(pnpDeviceId);
+
+            _gpuInstanceId = gpuInstanceId;
             _status = Status.DeactivatePossible;
+        }
+
+        private static string GetDeviceInstanceID(string pnpDeviceId)
+        {
+            return WMI.Read("root\\CIMV2",
+                $"SELECT * FROM Win32_PnpEntity WHERE DeviceID LIKE '{pnpDeviceId}%'",
+                pdc => (string)pdc["DeviceID"].Value).FirstOrDefault();
         }
     }
 }
