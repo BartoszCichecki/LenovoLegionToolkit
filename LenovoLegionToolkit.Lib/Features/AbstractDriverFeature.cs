@@ -22,14 +22,14 @@ namespace LenovoLegionToolkit.Lib.Features
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting state... [feature={GetType().Name}]");
-            
+
             SendCode(_driverHandle, _controlCode, GetInternalStatus(), out var result);
             var state = FromInternal(result);
             LastState = state;
-            
+
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"State is {state} [feature={GetType().Name}]");
-            
+
             return state;
         }
 
@@ -37,12 +37,12 @@ namespace LenovoLegionToolkit.Lib.Features
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Setting state to {state}... [feature={GetType().Name}]");
-            
+
             var codes = ToInternal(state);
             foreach (var code in codes)
                 SendCode(_driverHandle, _controlCode, code, out _);
             LastState = state;
-            
+
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"State set to {state} [feature={GetType().Name}]");
         }
@@ -56,10 +56,10 @@ namespace LenovoLegionToolkit.Lib.Features
             if (!Native.DeviceIoControl(handle, controlCode, ref inBuffer, sizeof(byte), out outBuffer, sizeof(uint), out var bytesReturned, IntPtr.Zero))
             {
                 var error = Marshal.GetLastWin32Error();
-                
+
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"DeviceIoControl returned 0, last error: {error} [feature={GetType().Name}]");
-                
+
                 throw new InvalidOperationException($"DeviceIoControl returned 0, last error: {error}");
             }
 
