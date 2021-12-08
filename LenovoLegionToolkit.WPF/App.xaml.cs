@@ -26,6 +26,8 @@ namespace LenovoLegionToolkit
             if (IsTraceEnabled(e.Args))
                 Log.Instance.IsTraceEnabled = true;
 
+            Log.Instance.Trace($"Starting...");
+
             EnsureSingleInstance();
 
             if (!ShouldByPassCompatibilityCheck(e.Args))
@@ -33,9 +35,17 @@ namespace LenovoLegionToolkit
 
             var mainWindow = new MainWindow();
             if (ShouldStartMinimized(e.Args))
+            {
+                Log.Instance.Trace($"Sending MainWindow to tray...");
                 mainWindow.SendToTray();
+            }
             else
+            {
+                Log.Instance.Trace($"Showing MainWindow...");
                 mainWindow.Show();
+            }
+
+            Log.Instance.Trace($"Start up complete");
         }
 
         private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
@@ -49,7 +59,12 @@ namespace LenovoLegionToolkit
         private void CheckCompatibility()
         {
             if (Compatibility.IsCompatible(out var mi))
+            {
+                Log.Instance.Trace($"Compatibility check passed");
                 return;
+            }
+
+            Log.Instance.Trace($"Incompatible system detected, shutting down... [Vendor={mi.Vendor}, Model={mi.Model}]");
 
             MessageBox.Show($"This application is not compatible with:\n\n{mi.Vendor} {mi.Model}.", "Unsupported device", MessageBoxButton.OK, MessageBoxImage.Error);
             Shutdown(-1);
@@ -80,11 +95,29 @@ namespace LenovoLegionToolkit
 
         #region Arguments
 
-        private static bool ShouldByPassCompatibilityCheck(string[] args) => args.Contains("--skip-compat-check");
+        private static bool ShouldByPassCompatibilityCheck(string[] args)
+        {
+            var result = args.Contains("--skip-compat-check");
+            if (result)
+                Log.Instance.Trace($"Argument present");
+            return result;
+        }
 
-        private static bool ShouldStartMinimized(string[] args) => args.Contains("--minimized");
+        private static bool ShouldStartMinimized(string[] args)
+        {
+            var result = args.Contains("--minimized");
+            if (result)
+                Log.Instance.Trace($"Argument present");
+            return result;
+        }
 
-        private static bool IsTraceEnabled(string[] args) => args.Contains("--trace");
+        private static bool IsTraceEnabled(string[] args)
+        {
+            var result = args.Contains("--trace");
+            if (result)
+                Log.Instance.Trace($"Argument present");
+            return result;
+        }
 
         #endregion
 
