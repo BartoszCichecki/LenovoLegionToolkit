@@ -20,28 +20,37 @@ namespace LenovoLegionToolkit.Lib.Features
 
         public T GetState()
         {
+            Log.Instance.Trace($"Getting state... [feature={GetType().Name}]");
             SendCode(_driverHandle, _controlCode, GetInternalStatus(), out var result);
             var state = FromInternal(result);
             LastState = state;
+            Log.Instance.Trace($"State is {state} [feature={GetType().Name}]");
             return state;
         }
 
         public void SetState(T state)
         {
+            Log.Instance.Trace($"Setting state to {state}... [feature={GetType().Name}]");
             var codes = ToInternal(state);
             foreach (var code in codes)
                 SendCode(_driverHandle, _controlCode, code, out _);
             LastState = state;
+            Log.Instance.Trace($"State set to {state} [feature={GetType().Name}]");
         }
 
         protected abstract T FromInternal(uint state);
         protected abstract byte GetInternalStatus();
         protected abstract byte[] ToInternal(T state);
 
-        private static int SendCode(SafeFileHandle handle, uint controlCode, byte inBuffer, out uint outBuffer)
+        private int SendCode(SafeFileHandle handle, uint controlCode, byte inBuffer, out uint outBuffer)
         {
             if (!Native.DeviceIoControl(handle, controlCode, ref inBuffer, sizeof(byte), out outBuffer, sizeof(uint), out var bytesReturned, IntPtr.Zero))
-                throw new InvalidOperationException("DeviceIoControl returned 0, last error: " + Marshal.GetLastWin32Error());
+            {
+                var error = Marshal.GetLastWin32Error();
+                Log.Instance.Trace($"DeviceIoControl returned 0, last error: {error} [feature={GetType().Name}]");
+                throw new InvalidOperationException($"DeviceIoControl returned 0, last error: {error}");
+            }
+
             return bytesReturned;
         }
 
