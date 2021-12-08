@@ -24,7 +24,12 @@ namespace LenovoLegionToolkit.Lib.Utils
     {
         public static void Restart() => CMD.Run("shutdown", "/r /t 0");
 
-        public static PowerPlan[] GetPowerPlans() => WMI.Read("root\\CIMV2\\power", "SELECT * FROM Win32_PowerPlan", Create).ToArray();
+        public static PowerPlan[] GetPowerPlans()
+        {
+            return WMI.Read("root\\CIMV2\\power",
+                $"SELECT * FROM Win32_PowerPlan",
+                Create).ToArray();
+        }
 
         public static void ActivatePowerPlan(PowerModeState powerModeState, bool alwaysActivateDefaults = false)
         {
