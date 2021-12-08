@@ -36,7 +36,10 @@ namespace LenovoLegionToolkit.Lib.Utils
             _logPath = Path.Combine(folderPath, $"log_{DateTime.Now:yyyy_MM_dd_HH_mm_ss}.txt");
         }
 
-        public void Trace(FormattableString message, [CallerFilePath] string file = null, [CallerMemberName] string caller = null)
+        public void Trace(FormattableString message,
+            [CallerFilePath] string file = null,
+            [CallerLineNumber] int lineNumber = -1,
+            [CallerMemberName] string caller = null)
         {
             if (!IsTraceEnabled)
                 return;
@@ -45,7 +48,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             {
                 var date = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                 var fileName = Path.GetFileName(file);
-                var line = $"[{date}] [{fileName}:{caller}] {message}";
+                var line = $"[{date}] [{fileName}#{lineNumber}:{caller}] {message}";
                 File.AppendAllLines(_logPath, new[] { line });
             }
         }

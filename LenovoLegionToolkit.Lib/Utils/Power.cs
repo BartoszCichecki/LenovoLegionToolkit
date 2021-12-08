@@ -22,7 +22,12 @@ namespace LenovoLegionToolkit.Lib.Utils
 
     public static class Power
     {
-        public static void Restart() => CMD.Run("shutdown", "/r /t 0");
+        public static void Restart()
+        {
+            Log.Instance.Trace($"Restarting...");
+
+            CMD.Run("shutdown", "/r /t 0");
+        }
 
         public static PowerPlan[] GetPowerPlans()
         {
@@ -33,35 +38,67 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         public static void ActivatePowerPlan(PowerModeState powerModeState, bool alwaysActivateDefaults = false)
         {
+            Log.Instance.Trace($"Activating... [powerModeState={powerModeState}, alwaysActivateDefaults={alwaysActivateDefaults}]");
+
             var powerPlanId = Settings.Instance.PowerPlans.GetValueOrDefault(powerModeState);
             var isDefault = false;
 
             if (powerPlanId == null)
             {
+                Log.Instance.Trace($"Power plan for power mode {powerModeState} was not found in settings");
+
                 powerPlanId = GetDefaultPowerPlanId(powerModeState);
                 isDefault = true;
             }
 
+            Log.Instance.Trace($"Power plan to be activated is {powerPlanId} [isDefault={isDefault}]");
+
             if (!ShouldActivate(alwaysActivateDefaults, isDefault))
+            {
+                Log.Instance.Trace($"Power plan {powerPlanId} will not be activated [isDefault={isDefault}]");
                 return;
+            }
 
             var powerPlan = GetPowerPlans().FirstOrDefault(pp => pp.InstanceID.Contains(powerPlanId));
-            if (powerPlan == null || powerPlan.IsActive)
+            if (powerPlan == null)
+            {
+                Log.Instance.Trace($"Power plan {powerPlanId} was not found");
                 return;
+            }
+            if (powerPlan.IsActive)
+            {
+                Log.Instance.Trace($"Power plan {powerPlanId} is already active");
+                return;
+            }
 
             CMD.Run("powercfg", $"/s {powerPlan.Guid}");
+
+            Log.Instance.Trace($"Power plan {powerPlan.Guid} activated");
         }
 
         private static bool ShouldActivate(bool alwaysActivateDefaults, bool isDefault)
         {
-            if (Settings.Instance.ActivatePowerProfilesWithVantageEnabled)
+            var overide = Settings.Instance.ActivatePowerProfilesWithVantageEnabled;
+            if (overide)
+            {
+                Log.Instance.Trace($"Activate power profiles with Vantage is enabled");
                 return true;
+            }
 
             if (isDefault && alwaysActivateDefaults)
+            {
+                Log.Instance.Trace($"Power plan is default and always active defaults is set");
                 return true;
+            }
 
-            if (Vantage.Status == VantageStatus.NotFound || Vantage.Status == VantageStatus.Disabled)
+            var status = Vantage.Status;
+            if (status == VantageStatus.NotFound || status == VantageStatus.Disabled)
+            {
+                Log.Instance.Trace($"Vantage is active [status={status}]");
                 return true;
+            }
+
+            Log.Instance.Trace($"Criteria for activation not met [overide={overide}, isDefault={isDefault}, alwaysActivateDefaults={alwaysActivateDefaults}, status={status}]");
 
             return false;
         }

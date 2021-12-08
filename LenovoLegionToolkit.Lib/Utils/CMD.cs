@@ -6,6 +6,8 @@ namespace LenovoLegionToolkit.Lib.Utils
     {
         public static string Run(string file, string arguments)
         {
+            Log.Instance.Trace($"Running... [file={file}, argument={arguments}]");
+
             var cmd = new Process();
             cmd.StartInfo.UseShellExecute = false;
             cmd.StartInfo.CreateNoWindow = true;
@@ -16,6 +18,9 @@ namespace LenovoLegionToolkit.Lib.Utils
             cmd.Start();
             var output = cmd.StandardOutput.ReadToEnd();
             cmd.WaitForExit();
+
+            Log.Instance.Trace($"Ran [file={file}, argument={arguments}, output={output}]");
+
             return output;
         }
     }
