@@ -46,12 +46,12 @@ namespace LenovoLegionToolkit.Lib.Features
                 if (Native.GetFirmwareEnvironmentVariableExW(_scopeName, _guid, hGlobal, Marshal.SizeOf<S>(), IntPtr.Zero) != 0)
                 {
                     var result = (S)Marshal.PtrToStructure(hGlobal, typeof(S));
-                    Log.Instance.Trace($"Read from UEFI [feature={GetType().Name}]");
+                    Log.Instance.Trace($"Read from UEFI successful [feature={GetType().Name}]");
                     return result;
                 }
                 else
                 {
-                    Log.Instance.Trace($"Cannot read vairable {_scopeName} from UEFI [feature={GetType().Name}]");
+                    Log.Instance.Trace($"Cannot read variable {_scopeName} from UEFI [feature={GetType().Name}]");
                     throw new InvalidOperationException($"Cannot read variable {_scopeName} from UEFI");
                 }
             }
@@ -84,8 +84,12 @@ namespace LenovoLegionToolkit.Lib.Features
                 Marshal.StructureToPtr(structure, ptr, false);
                 if (Native.SetFirmwareEnvironmentVariableExW(_scopeName, _guid, hGlobal, Marshal.SizeOf<S>(), _scopeAttribute) != 1)
                 {
-                    Log.Instance.Trace($"Cannot write vairable {_scopeName} to UEFI [feature={GetType().Name}]");
+                    Log.Instance.Trace($"Cannot write variable {_scopeName} to UEFI [feature={GetType().Name}]");
                     throw new InvalidOperationException($"Cannot write variable {_scopeName} to UEFI");
+                }
+                else
+                {
+                    Log.Instance.Trace($"Write to UEFI successful [feature={GetType().Name}]");
                 }
             }
             finally
@@ -101,7 +105,7 @@ namespace LenovoLegionToolkit.Lib.Features
             if (Native.GetFirmwareType(ref firmwareType))
             {
                 var result = firmwareType == FirmwareType.Uefi;
-                Log.Instance.Trace($"Firmware type is {result} [feature={GetType().Name}]");
+                Log.Instance.Trace($"Firmware type is {firmwareType} [feature={GetType().Name}]");
                 return result;
             }
 
