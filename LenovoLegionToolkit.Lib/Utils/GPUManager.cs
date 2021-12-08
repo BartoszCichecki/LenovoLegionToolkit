@@ -94,7 +94,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                         await Task.Delay(interval, token);
                     }
                 }
-                catch (Exception ex)
+                catch (Exception ex) when (ex is not TaskCanceledException)
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Exception: {ex}");
