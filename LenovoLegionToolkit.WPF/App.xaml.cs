@@ -34,6 +34,9 @@ namespace LenovoLegionToolkit
             if (!ShouldByPassCompatibilityCheck(e.Args))
                 CheckCompatibility();
 
+            new WPF.Windows.MainWindow().Show();
+            return;
+
             var mainWindow = new MainWindow();
             if (ShouldStartMinimized(e.Args))
             {

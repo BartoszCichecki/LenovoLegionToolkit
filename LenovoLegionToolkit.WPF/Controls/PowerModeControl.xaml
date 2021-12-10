@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="LenovoLegionToolkit.WPF.Controls.PowerModeControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <wpfui:CardControl
+        Margin="0,0,0,8"
+        Glyph="Power24"
+        Title="Power Mode"
+        Subtitle="Choose the mode you want to use. You can switch mode using shortcut Fn+Q.">
+        <ComboBox
+            Margin="0,0,0,8"
+            Width="150"
+            SelectedIndex="1">
+            <ComboBoxItem Content="Quiet" />
+            <ComboBoxItem Content="Balance" />
+            <ComboBoxItem Content="Performance" />
+        </ComboBox>
+    </wpfui:CardControl>
+</UserControl>
