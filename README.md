@@ -74,21 +74,27 @@ Special thanks to [falahati](https://github.com/falahati), for creating [NvAPIWr
 
 I appreciate any feedback that you have, so please do not hesitate to report issues. PRs are also welcome!
 
-It would be great to expand the list of compatible devices, but to do it your help is needed.
+#### Bugs
 
-If you are willing to check if this app works correctly on your device that is currently unsupported, you can do it by starting the app with ``--skip-compat-check`` argument.
+If you find any bugs in the app, please report them. It will be very helpful if you start the app with `--trace` parameter and reproduce the issue. You can find logs in `%LOCALAPPDATA%\LenovoLegionToolkit\log`. Of course attach the latest log to the issue here on GitHub.
 
-Remember that some functions may not function properly, so keep this in mind.
+Just, don't run with this parameter all the time, it creates a ***really large*** amount of logs.
 
-If you do it, I would really appreciate if you create an issue here on GitHub with the results of your testing.
+#### Compatibility
 
-Make sure to include following information in your issue:
+It would be great to expand the list of compatible devices, but to do it your help is needed!
+
+If you are willing to check if this app works correctly on your device that is currently unsupported, you can do it by starting the app with ``--skip-compat-check`` argument. Remember that some functions may not function properly, so keep this in mind.
+
+If you do it, I would really appreciate if you create an issue here on GitHub with the results of your testing. Make sure to include following information in your issue:
 
 1. Full model name (i.e. Legion 5 Pro 16ACH6H)
 2. List of features that are working as expected.
-3. List of features that seem to not work (they do nothing).
+3. List of features that seem to not work.
 4. List of features that crash the app.
 
 The more info you add, the better the app will get over time.
+
+
 
 Thanks in advance!
