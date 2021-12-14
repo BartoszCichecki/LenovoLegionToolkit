@@ -12,6 +12,8 @@
         Title="Over Drive"
         Subtitle="Decrease response time of the built-in display.">
         <ToggleButton
-            Margin="0,0,0,8" />
+            Margin="0,0,0,8"
+            x:Name="_toggleButton"
+            Click="ToggleButton_Click"/>
     </wpfui:CardControl>
 </UserControl>

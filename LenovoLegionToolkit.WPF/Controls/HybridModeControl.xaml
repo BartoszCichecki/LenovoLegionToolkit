@@ -12,6 +12,8 @@
         Title="Hybrid Mode"
         Subtitle="Turn on to allow switching between intergarted and discrete GPU. Requires restart.">
         <ToggleButton
-            Margin="0,0,0,8" />
+            Margin="0,0,0,8"
+            x:Name="_toggleButton"
+            Click="ToggleButton_Click"/>
     </wpfui:CardControl>            
 </UserControl>
