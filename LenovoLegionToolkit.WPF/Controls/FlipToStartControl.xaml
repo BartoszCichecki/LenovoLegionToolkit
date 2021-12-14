@@ -12,6 +12,8 @@
         Title="Flip To Start"
         Subtitle="Turn on the laptop when you open the lid.">
         <ToggleButton
-            Margin="0,0,0,8" />
+            Margin="0,0,0,8"
+            x:Name="_toggleButton"
+            Click="ToggleButton_Click"/>
     </wpfui:CardControl>
 </UserControl>

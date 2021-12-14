@@ -12,6 +12,8 @@
         Title="Fn Lock"
         Subtitle="Use secondary functions of F1-F12 keys without holding Fn key.">
         <ToggleButton
-            Margin="0,0,0,8" />
+            Margin="0,0,0,8"
+            x:Name="_toggleButton"
+            Click="ToggleButton_Click"/>
     </wpfui:CardControl>
 </UserControl>
