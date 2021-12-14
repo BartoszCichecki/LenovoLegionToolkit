@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace LenovoLegionToolkit.WPF.Controls
 {
     /// <summary>
-    /// Interaction logic for MiscControl.xaml
+    /// Interaction logic for TouchPadLock.xaml
     /// </summary>
-    public partial class MiscControl : UserControl
+    public partial class TouchpadLockControl : UserControl
     {
-        public MiscControl()
+        public TouchpadLockControl()
         {
             InitializeComponent();
         }

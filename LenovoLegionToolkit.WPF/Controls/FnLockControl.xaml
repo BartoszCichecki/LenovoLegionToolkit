@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="LenovoLegionToolkit.WPF.Controls.HybridModeControl"
+﻿<UserControl x:Class="LenovoLegionToolkit.WPF.Controls.FnLockControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,9 +9,9 @@
     <wpfui:CardControl
         Margin="0,0,0,8"
         Glyph="LeafOne24"
-        Title="Hybrid Mode"
-        Subtitle="Turn on to allow switching between intergarted and discrete GPU. Requires restart.">
+        Title="Fn Lock"
+        Subtitle="Use secondary functions of F1-F12 keys without holding Fn key.">
         <ToggleButton
             Margin="0,0,0,8" />
-    </wpfui:CardControl>            
+    </wpfui:CardControl>
 </UserControl>
