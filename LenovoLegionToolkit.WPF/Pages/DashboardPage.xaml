@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:uc="clr-namespace:LenovoLegionToolkit.WPF.Controls"
+      xmlns:c="clr-namespace:LenovoLegionToolkit.WPF.Controls"
       mc:Ignorable="d" 
       Style="{StaticResource UiPageScrollable}"
       d:DesignHeight="450" d:DesignWidth="800"
@@ -15,14 +15,30 @@
             Margin="0,16,0,24"
             FontSize="24"
             FontWeight="Medium"
-            Text="Dashboard" />
+            Text="Power" />
+        <c:PowerModeControl />
+        <c:BatteryModeControl />
+        <c:AlwaysOnUSBControl />
 
-        <uc:PowerModeControl />
-        <uc:BatteryModeControl />
-        <uc:AlwaysOnUSBControl />
-        <uc:HybridModeControl />
-        <uc:RefreshRateControl />
-        <uc:DiscreteGPUControl />
-        <uc:MiscControl />
+        <TextBlock
+            Grid.Row="0"
+            Margin="0,16,0,24"
+            FontSize="24"
+            FontWeight="Medium"
+            Text="Graphics" />
+        <c:HybridModeControl />
+        <c:RefreshRateControl />
+        <c:DiscreteGPUControl />
+
+        <TextBlock
+            Grid.Row="0"
+            Margin="0,16,0,24"
+            FontSize="24"
+            FontWeight="Medium"
+            Text="Other" />
+        <c:FlipToStartControl />
+        <c:OverDriveControl />
+        <c:FnLockControl />
+        <c:TouchpadLockControl />
     </StackPanel>
 </Page>

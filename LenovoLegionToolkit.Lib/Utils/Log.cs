@@ -20,6 +20,7 @@ namespace LenovoLegionToolkit.Lib.Utils
         private readonly object _lock = new();
         private readonly string _folderPath;
         private readonly string _logPath;
+
         public bool IsTraceEnabled { get; set; } = false;
 
         public string LogPath => _logPath;
