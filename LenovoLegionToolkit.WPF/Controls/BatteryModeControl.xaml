@@ -14,10 +14,7 @@
         <ComboBox
             Margin="0,0,0,8"
             Width="150"
-            SelectedIndex="1">
-            <ComboBoxItem Content="Conservation" />
-            <ComboBoxItem Content="Normal" />
-            <ComboBoxItem Content="Rapid Charge" />
-        </ComboBox>
+            x:Name="_comboBox"
+            SelectionChanged="ComboBox_SelectionChanged"/>
     </wpfui:CardControl>
 </UserControl>
