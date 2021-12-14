@@ -40,6 +40,9 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (_comboBox.SelectedItem == null)
+                return;
+
             var state = (PowerModeState)_comboBox.SelectedItem;
             if (state != _feature.GetState())
                 _feature.SetState(state);
@@ -47,6 +50,9 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         private void Refresh()
         {
+            _comboBox.Items.Clear();
+            _comboBox.SelectedItem = null;
+
             try
             {
                 foreach (var item in Enum.GetValues(typeof(PowerModeState)))
@@ -56,8 +62,6 @@ namespace LenovoLegionToolkit.WPF.Controls
             }
             catch
             {
-                _comboBox.Items.Clear();
-                _comboBox.SelectedItem = null;
                 Visibility = Visibility.Collapsed;
             }
         }

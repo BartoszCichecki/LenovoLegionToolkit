@@ -26,7 +26,7 @@
     <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" />
-    <PackageReference Include="WPF-UI" Version="1.1.1-prerelease59" />
+    <PackageReference Include="WPF-UI" Version="1.1.1-prerelease61" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LenovoLegionToolkit.Lib\LenovoLegionToolkit.Lib.csproj" />
