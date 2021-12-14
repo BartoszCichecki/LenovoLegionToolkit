@@ -1,19 +1,20 @@
-﻿<UserControl x:Class="LenovoLegionToolkit.WPF.Controls.HybridModeControl"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
-             mc:Ignorable="d" 
-             d:DesignWidth="800">
+﻿<UserControl
+    x:Class="LenovoLegionToolkit.WPF.Controls.HybridModeControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
     <wpfui:CardControl
+        Title="Hybrid Mode"
         Margin="0,0,0,8"
         Glyph="LeafOne24"
-        Title="Hybrid Mode"
         Subtitle="Turn on to allow switching between intergarted and discrete GPU. Requires restart.">
         <ToggleButton
-            Margin="0,0,0,8"
             x:Name="_toggleButton"
-            Click="ToggleButton_Click"/>
-    </wpfui:CardControl>            
+            Margin="0,0,0,8"
+            Click="ToggleButton_Click" />
+    </wpfui:CardControl>
 </UserControl>

@@ -1,24 +1,19 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
 
 namespace LenovoLegionToolkit.WPF.Controls
 {
-    /// <summary>
-    /// Interaction logic for HybridModeControl.xaml
-    /// </summary>
-    public partial class HybridModeControl : UserControl
+    public partial class HybridModeControl
     {
         private readonly HybridModeFeature _feature = Container.Resolve<HybridModeFeature>();
 
         public HybridModeControl()
         {
             InitializeComponent();
-            Refresh();
         }
 
-        public void Refresh()
+        private void Refresh()
         {
             try
             {
