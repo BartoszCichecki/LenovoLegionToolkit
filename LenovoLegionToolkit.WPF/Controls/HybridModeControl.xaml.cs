@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.WPF.Dialogs;
 
 namespace LenovoLegionToolkit.WPF.Controls
 {
@@ -21,11 +22,17 @@ namespace LenovoLegionToolkit.WPF.Controls
             Refresh();
         }
 
-        private void ToggleButton_Click(object sender, RoutedEventArgs e)
+        private async void ToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            var state = _toggleButton.IsChecked.Value ? HybridModeState.On : HybridModeState.Off;
-            if (state != _feature.GetState())
-                _feature.SetState(state);
+            if (await DialogService.ShowDialogAsync("Restart required",
+                "Changing Hybrid Mode requires restart. Do you want to restart now?"))
+            {
+                var state = _toggleButton.IsChecked.Value ? HybridModeState.On : HybridModeState.Off;
+                if (state != _feature.GetState())
+                    _feature.SetState(state);
+            }
+
+            Refresh();
         }
 
         private void Refresh()
