@@ -8,7 +8,7 @@
              d:DesignWidth="800">
     <wpfui:CardControl
         Margin="0,0,0,8"
-        Glyph="Power24"
+        Glyph="Gauge24"
         Title="Power Mode"
         Subtitle="Choose the mode you want to use. You can switch mode using shortcut Fn+Q.">
         <ComboBox
