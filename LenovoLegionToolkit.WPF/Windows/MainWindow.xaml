@@ -20,6 +20,10 @@
 
         <wpfui:TitleBar x:Name="TitleBar" Grid.Row="0" />
 
+        <Grid Grid.Row="0" Margin="12,16,12,16">
+            <TextBlock FontSize="12" Text="Lenovo Legion Toolkit" />
+        </Grid>
+
         <Grid Grid.Row="1" Margin="12,6,12,12">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
