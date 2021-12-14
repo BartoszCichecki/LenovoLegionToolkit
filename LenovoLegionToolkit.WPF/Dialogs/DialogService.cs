@@ -8,11 +8,13 @@ namespace LenovoLegionToolkit.WPF.Dialogs
 {
     internal class DialogService
     {
-        public static Task<bool> ShowDialogAsync(string title,
+        public static Task<bool> ShowDialogAsync(
+            string title,
             string message,
             string leftButton = "Yes",
             string rightButton = "No",
-            bool destructive = false)
+            bool destructive = false
+        )
         {
             var tcs = new TaskCompletionSource<bool>();
 
