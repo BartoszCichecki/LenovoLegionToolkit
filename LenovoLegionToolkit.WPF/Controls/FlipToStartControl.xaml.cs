@@ -1,24 +1,19 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
 
 namespace LenovoLegionToolkit.WPF.Controls
 {
-    /// <summary>
-    /// Interaction logic for FlipToStartControl.xaml
-    /// </summary>
-    public partial class FlipToStartControl : UserControl
+    public partial class FlipToStartControl
     {
         private readonly FlipToStartFeature _feature = Container.Resolve<FlipToStartFeature>();
 
         public FlipToStartControl()
         {
             InitializeComponent();
-            Refresh();
         }
 
-        public void Refresh()
+        private void Refresh()
         {
             try
             {

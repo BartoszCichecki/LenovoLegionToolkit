@@ -41,6 +41,14 @@ namespace LenovoLegionToolkit.Lib.Features
                 .Select(dps => new RefreshRate(dps.Frequency))
                 .ToArray();
 
+            if (result.Length == 1)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Single display mode found");
+
+                throw new InvalidOperationException("Single display mode found");
+            }
+
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Possible refresh rates are {string.Join(", ", result)}");
 

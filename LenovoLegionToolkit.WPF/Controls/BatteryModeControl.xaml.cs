@@ -6,20 +6,16 @@ using LenovoLegionToolkit.Lib.Features;
 
 namespace LenovoLegionToolkit.WPF.Controls
 {
-    /// <summary>
-    /// Interaction logic for BatteryModeControl.xaml
-    /// </summary>
-    public partial class BatteryModeControl : UserControl
+    public partial class BatteryModeControl
     {
         private readonly BatteryFeature _feature = Container.Resolve<BatteryFeature>();
 
         public BatteryModeControl()
         {
             InitializeComponent();
-            Refresh();
         }
 
-        public void Refresh()
+        private void Refresh()
         {
             try
             {

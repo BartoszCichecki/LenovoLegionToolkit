@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
+using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF;
 
@@ -36,6 +37,7 @@ namespace LenovoLegionToolkit
                 CheckCompatibility();
 
             Container.Initialize();
+            Container.Resolve<PowerModeListener>().Start();
 
             new WPF.Windows.MainWindow().Show();
             return;

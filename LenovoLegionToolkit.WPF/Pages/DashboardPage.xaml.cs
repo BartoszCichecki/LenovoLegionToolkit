@@ -1,11 +1,6 @@
-﻿using System.Windows.Controls;
-
-namespace LenovoLegionToolkit.WPF.Pages
+﻿namespace LenovoLegionToolkit.WPF.Pages
 {
-    /// <summary>
-    /// Interaction logic for HomePage.xaml
-    /// </summary>
-    public partial class Dashboard : Page
+    public partial class Dashboard
     {
         public Dashboard()
         {

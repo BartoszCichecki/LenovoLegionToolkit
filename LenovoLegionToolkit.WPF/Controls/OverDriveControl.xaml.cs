@@ -1,24 +1,19 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
 
 namespace LenovoLegionToolkit.WPF.Controls
 {
-    /// <summary>
-    /// Interaction logic for OverDriveControl.xaml
-    /// </summary>
-    public partial class OverDriveControl : UserControl
+    public partial class OverDriveControl
     {
         private readonly OverDriveFeature _feature = Container.Resolve<OverDriveFeature>();
 
         public OverDriveControl()
         {
             InitializeComponent();
-            Refresh();
         }
 
-        public void Refresh()
+        private void Refresh()
         {
             try
             {

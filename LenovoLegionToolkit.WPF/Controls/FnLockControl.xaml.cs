@@ -1,24 +1,19 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
 
 namespace LenovoLegionToolkit.WPF.Controls
 {
-    /// <summary>
-    /// Interaction logic for FnLockControl.xaml
-    /// </summary>
-    public partial class FnLockControl : UserControl
+    public partial class FnLockControl
     {
         private readonly FnLockFeature _feature = Container.Resolve<FnLockFeature>();
 
         public FnLockControl()
         {
             InitializeComponent();
-            Refresh();
         }
 
-        public void Refresh()
+        private void Refresh()
         {
             try
             {
