@@ -13,6 +13,21 @@ namespace LenovoLegionToolkit.WPF.Controls
             InitializeComponent();
         }
 
+        private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (!IsVisible)
+                return;
+
+            Refresh();
+        }
+
+        private void ToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            var state = _toggleButton.IsChecked.Value ? FlipToStartState.On : FlipToStartState.Off;
+            if (state != _feature.GetState())
+                _feature.SetState(state);
+        }
+
         private void Refresh()
         {
             try
@@ -25,13 +40,6 @@ namespace LenovoLegionToolkit.WPF.Controls
                 _toggleButton.IsChecked = false;
                 Visibility = Visibility.Collapsed;
             }
-        }
-
-        private void ToggleButton_Click(object sender, RoutedEventArgs e)
-        {
-            var state = _toggleButton.IsChecked.Value ? FlipToStartState.On : FlipToStartState.Off;
-            if (state != _feature.GetState())
-                _feature.SetState(state);
         }
     }
 }

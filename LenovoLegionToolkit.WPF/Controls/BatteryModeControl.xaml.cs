@@ -15,6 +15,21 @@ namespace LenovoLegionToolkit.WPF.Controls
             InitializeComponent();
         }
 
+        private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (!IsVisible)
+                return;
+
+            Refresh();
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var state = (BatteryState)_comboBox.SelectedItem;
+            if (state != _feature.GetState())
+                _feature.SetState(state);
+        }
+
         private void Refresh()
         {
             try
@@ -30,13 +45,6 @@ namespace LenovoLegionToolkit.WPF.Controls
                 _comboBox.SelectedItem = null;
                 Visibility = Visibility.Collapsed;
             }
-        }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var state = (BatteryState)_comboBox.SelectedItem;
-            if (state != _feature.GetState())
-                _feature.SetState(state);
         }
     }
 }

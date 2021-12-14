@@ -13,7 +13,31 @@ namespace LenovoLegionToolkit.WPF.Controls
         public RefreshRateControl()
         {
             InitializeComponent();
-            SystemEvents.DisplaySettingsChanged += (sender, e) => Refresh();
+
+            SystemEvents.DisplaySettingsChanged += SystemEvents_DisplaySettingsChanged;
+        }
+
+        private void SystemEvents_DisplaySettingsChanged(object sender, System.EventArgs e)
+        {
+            if (!IsVisible)
+                return;
+
+            Refresh();
+        }
+
+        private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (!IsVisible)
+                return;
+
+            Refresh();
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var state = (RefreshRate)_comboBox.SelectedItem;
+            if (state != _feature.GetState())
+                _feature.SetState(state);
         }
 
         private void Refresh()
@@ -32,13 +56,6 @@ namespace LenovoLegionToolkit.WPF.Controls
                 _comboBox.SelectedItem = null;
                 Visibility = Visibility.Collapsed;
             }
-        }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var state = (RefreshRate)_comboBox.SelectedItem;
-            if (state != _feature.GetState())
-                _feature.SetState(state);
         }
     }
 }
