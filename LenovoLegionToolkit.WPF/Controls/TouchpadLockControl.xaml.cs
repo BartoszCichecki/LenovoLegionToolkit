@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Features;
 
 namespace LenovoLegionToolkit.WPF.Controls
 {
@@ -20,9 +10,33 @@ namespace LenovoLegionToolkit.WPF.Controls
     /// </summary>
     public partial class TouchpadLockControl : UserControl
     {
+        private readonly TouchpadLockFeature _feature = Container.Resolve<TouchpadLockFeature>();
+
         public TouchpadLockControl()
         {
             InitializeComponent();
+            Refresh();
+        }
+
+        public void Refresh()
+        {
+            try
+            {
+                _toggleButton.IsChecked = _feature.GetState() == TouchpadLockState.On;
+                Visibility = Visibility.Visible;
+            }
+            catch
+            {
+                _toggleButton.IsChecked = false;
+                Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void ToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            var state = _toggleButton.IsChecked.Value ? TouchpadLockState.On : TouchpadLockState.Off;
+            if (state != _feature.GetState())
+                _feature.SetState(state);
         }
     }
 }

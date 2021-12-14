@@ -5,6 +5,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF;
 
 namespace LenovoLegionToolkit
 {
@@ -33,6 +34,8 @@ namespace LenovoLegionToolkit
 
             if (!ShouldByPassCompatibilityCheck(e.Args))
                 CheckCompatibility();
+
+            Container.Initialize();
 
             new WPF.Windows.MainWindow().Show();
             return;
