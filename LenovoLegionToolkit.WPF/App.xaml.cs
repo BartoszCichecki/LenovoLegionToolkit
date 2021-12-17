@@ -7,6 +7,7 @@ using System.Windows.Threading;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF;
+using LenovoLegionToolkit.WPF.Windows;
 
 namespace LenovoLegionToolkit
 {
@@ -38,9 +39,6 @@ namespace LenovoLegionToolkit
 
             Container.Initialize();
             Container.Resolve<PowerModeListener>().Start();
-
-            new WPF.Windows.MainWindow().Show();
-            return;
 
             var mainWindow = new MainWindow();
             if (ShouldStartMinimized(e.Args))
