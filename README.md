@@ -53,6 +53,11 @@ Deactive button will be enabled when dGPU is active, you have Hybrid mode enable
 
 Keep in mind that some apps may not like this feature and crash, when you deactivate dGPU.
 
+#### Windows Power Plans
+
+Toolkit will automatically switch Windows power plans when Power Mode changes _and_ when Lenovo Vantage is disabled.
+
+On some laptops though, Lenovo Vantage never switched power plans. If you have one of the laptops where Lenovo Vantage does not change Windows power plans automatically you can override this behavior in `Tools -> More settings -> Activate power plans even when Vantage is enabled`. This will allow Toolkit to always change Windows power plans, even if Lenovo Vantage is running in the background.
 
 ## Requirements
 

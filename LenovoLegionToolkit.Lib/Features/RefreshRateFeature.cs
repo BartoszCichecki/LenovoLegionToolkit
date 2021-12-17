@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Management;
 using LenovoLegionToolkit.Lib.Utils;
 using WindowsDisplayAPI;
 
@@ -9,18 +7,6 @@ namespace LenovoLegionToolkit.Lib.Features
 {
     public class RefreshRateFeature : IDynamicFeature<RefreshRate>
     {
-        private class PNPEntity
-        {
-            public string DeviceID { get; }
-            public string Name { get; }
-
-            public PNPEntity(string deviceID, string name)
-            {
-                DeviceID = deviceID;
-                Name = name;
-            }
-        }
-
         public RefreshRate[] GetAllStates()
         {
             if (Log.Instance.IsTraceEnabled)
@@ -119,74 +105,24 @@ namespace LenovoLegionToolkit.Lib.Features
 
         private static Display GetBuiltInDisplay()
         {
-            var displays = Display.GetDisplays();
-            var entity = GetBuiltInMonitorEntity();
-
-            if (displays == null || entity == null)
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Can't retrieve displays [displays={displays != null}, entity={entity != null}]");
-
-                return null;
-            }
-
-            if (Log.Instance.IsTraceEnabled)
-            {
-                Log.Instance.Trace($"Found displays: {string.Join(", ", displays)}");
-                Log.Instance.Trace($"Found entity: {entity.Name}, {entity.DeviceID}");
-            }
-
-            return displays.FirstOrDefault(display => Match(display, entity));
-        }
-
-        private static PNPEntity GetBuiltInMonitorEntity()
-        {
-            return GetAllMonitorEntities()
-                .Where(EntityHasBIOSNameProperty)
+            return Display.GetDisplays()
+                .Where(IsInternal)
                 .FirstOrDefault();
         }
 
-        private static IEnumerable<PNPEntity> GetAllMonitorEntities()
+        private static bool IsInternal(Display display)
         {
-            return WMI.Read("root\\CIMV2",
-                $"SELECT * FROM Win32_PnpEntity WHERE PNPClass='Monitor'",
-                Create);
-        }
-
-        private static bool EntityHasBIOSNameProperty(PNPEntity monitor)
-        {
-            var parameters = new object[] { new[] { "DEVPKEY_Device_BiosDeviceName" }, null };
-            WMI.Invoke("root\\CIMV2", "Win32_PnpEntity",
-                "DeviceID", $"{monitor.DeviceID}",
-                "GetDeviceProperties", parameters);
-
-            var results = (ManagementBaseObject[])parameters[1];
-            foreach (var result in results)
-            {
-                var value = result.Properties["Data"]?.Value;
-                if (value != null)
-                    return true;
-            }
-
-            return false;
-        }
-
-        private static PNPEntity Create(PropertyDataCollection properties)
-        {
-            var deviceID = (string)properties["DeviceID"].Value;
-            var name = (string)properties["Name"].Value;
-            return new(deviceID, name);
-        }
-        private static bool Match(Display display, PNPEntity pnpEntity)
-        {
-            var entityMarkers = pnpEntity.DeviceID.Split("\\")
-                .Skip(1)
-                .Select(s => s.ToUpperInvariant());
-            var displayMarkers = display.DevicePath.Split("#")
+            var instanceName = display.DevicePath
+                .Split("#")
                 .Skip(1)
                 .Take(2)
-                .Select(s => s.ToUpperInvariant());
-            return entityMarkers.SequenceEqual(displayMarkers);
+                .Aggregate((s1, s2) => s1 + "\\" + s2);
+
+            var outputTechnology = WMI.Read("root\\WMI",
+                $"SELECT * FROM WmiMonitorConnectionParams WHERE InstanceName LIKE '%{instanceName}%'",
+                pdc => (uint)pdc["VideoOutputTechnology"].Value).FirstOrDefault();
+
+            return outputTechnology == 0x80000000; // D3DKMDT_VOT_INTERNAL
         }
 
         private static bool Match(DisplayPossibleSetting dps, DisplaySetting ds)
