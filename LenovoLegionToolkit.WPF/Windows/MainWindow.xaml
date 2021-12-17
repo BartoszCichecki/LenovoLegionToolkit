@@ -4,12 +4,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tb="http://www.hardcodet.net/taskbar"
     xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
     Title="Lenovo Legion Toolkit"
     Width="900"
     Height="700"
     MinWidth="800"
     MinHeight="600"
+    Closing="MainWindow_Closing"
+    SnapsToDevicePixels="true"
+    StateChanged="MainWindow_StateChanged"
     Style="{StaticResource UiWindow}"
     mc:Ignorable="d">
     <Grid>
@@ -38,5 +42,16 @@
             <Frame x:Name="RootFrame" Grid.Column="1" />
         </Grid>
 
+        <tb:TaskbarIcon
+            IconSource="../icon.ico"
+            ToolTipText="Lenovo Legion Toolkit"
+            TrayLeftMouseUp="NotifyIcon_Open">
+            <tb:TaskbarIcon.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Click="NotifyIcon_Open" Header="Open" />
+                    <MenuItem Click="NotifyIcon_Exit" Header="Exit" />
+                </ContextMenu>
+            </tb:TaskbarIcon.ContextMenu>
+        </tb:TaskbarIcon>
     </Grid>
 </Window>

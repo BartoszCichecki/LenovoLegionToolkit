@@ -19,7 +19,17 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="AboutWindow.xaml.cs" />
+    <Compile Remove="MainWindow.xaml.cs" />
+    <Compile Remove="SettingsWindow.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <None Remove="icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Remove="AboutWindow.xaml" />
+    <Page Remove="MainWindow.xaml" />
+    <Page Remove="SettingsWindow.xaml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.3.0" />
