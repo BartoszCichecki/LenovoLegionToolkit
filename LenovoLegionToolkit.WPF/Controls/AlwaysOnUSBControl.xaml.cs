@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
@@ -34,8 +33,7 @@ namespace LenovoLegionToolkit.WPF.Controls
         {
             try
             {
-                foreach (var item in Enum.GetValues(typeof(AlwaysOnUsbState)))
-                    _comboBox.Items.Add(item);
+                _comboBox.Items.AddEnumValues<AlwaysOnUsbState>();
                 _comboBox.SelectedItem = _feature.GetState();
                 Visibility = Visibility.Visible;
             }
