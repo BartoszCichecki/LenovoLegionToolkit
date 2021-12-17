@@ -50,9 +50,7 @@ namespace LenovoLegionToolkit.WPF.Controls
 
             try
             {
-                var allStates = _feature.GetAllStates();
-                foreach (var item in allStates)
-                    _comboBox.Items.Add(item);
+                _comboBox.Items.AddRange(_feature.GetAllStates());
                 _comboBox.SelectedItem = _feature.GetState();
                 Visibility = Visibility.Visible;
             }

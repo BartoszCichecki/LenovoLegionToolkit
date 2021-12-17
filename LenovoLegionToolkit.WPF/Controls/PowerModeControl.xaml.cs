@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
@@ -55,8 +54,7 @@ namespace LenovoLegionToolkit.WPF.Controls
 
             try
             {
-                foreach (var item in Enum.GetValues(typeof(PowerModeState)))
-                    _comboBox.Items.Add(item);
+                _comboBox.Items.AddEnumValues<PowerModeState>();
                 _comboBox.SelectedItem = _feature.GetState();
                 Visibility = Visibility.Visible;
             }

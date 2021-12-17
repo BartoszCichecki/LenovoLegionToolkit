@@ -18,6 +18,8 @@ namespace LenovoLegionToolkit.Lib.Utils
             Name = name;
             IsActive = isActive;
         }
+
+        public override string ToString() => Name;
     }
 
     public static class Power
