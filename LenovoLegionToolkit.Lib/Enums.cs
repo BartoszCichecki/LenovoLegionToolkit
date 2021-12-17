@@ -57,4 +57,14 @@
         Disabled,
         NotFound
     }
+
+    public enum Key
+    {
+        Unknown = 0,
+        Fn_F9 = 1,
+        Fn_LockOn = 2,
+        Fn_LockOff = 3,
+        Fn_PrtSc = 4,
+        Fn_R = 16
+    }
 }
