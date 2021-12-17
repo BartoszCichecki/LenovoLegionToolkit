@@ -25,7 +25,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Starting... [listener={GetType().Name}]");
 
-            _disposable = WMI.Listen("ROOT\\WMI", $"SELECT * FROM LENOVO_GAMEZONE_{_eventName}_EVENT", Handler);
+            _disposable = WMI.Listen("ROOT\\WMI", $"SELECT * FROM {_eventName}", Handler);
         }
 
         public void Stop()
@@ -41,7 +41,8 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         private void Handler(PropertyDataCollection properties)
         {
-            var propertyValue = Convert.ToInt32(properties[_property].Value);
+            var property = properties[_property];
+            var propertyValue = Convert.ToInt32(property.Value);
             var value = (T)(object)(propertyValue - _offset);
 
             if (Log.Instance.IsTraceEnabled)
