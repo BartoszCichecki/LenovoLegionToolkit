@@ -9,15 +9,21 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     IsVisibleChanged="SettingsPage_IsVisibleChanged"
-    Style="{StaticResource UiPage}"
+    Style="{StaticResource UiPageScrollable}"
     mc:Ignorable="d">
 
     <StackPanel Margin="0,0,0,12">
 
+        <TextBlock
+            Grid.Row="0"
+            Margin="0,16,0,24"
+            FontSize="24"
+            FontWeight="Medium"
+            Text="General" />
+
         <wpfui:CardControl
             Title="Autorun"
             Margin="0,0,0,8"
-            Glyph="Keyboard24"
             Subtitle="Start minimized to tray when you log in to Windows.">
             <ToggleButton
                 x:Name="_autorunToggleButton"
@@ -29,12 +35,68 @@
             x:Name="_vantageCard"
             Title="Lenovo Vantage"
             Margin="0,0,0,8"
-            Glyph="Keyboard24"
-            Subtitle="Enable or disable Lenovo Vantage and it's service without uninstalling it.&#x0a;&#x0a;Restart is recommended after changing this option.">
+            Subtitle="Enable or disable Lenovo Vantage and it's service without uninstalling it.&#x0a;Restart is recommended after changing this option.">
             <ToggleButton
                 x:Name="_vantageToggleButton"
                 Margin="0,0,0,8"
                 Click="VantageToggleButton_Click" />
+        </wpfui:CardControl>
+
+        <TextBlock
+            Grid.Row="0"
+            Margin="0,16,0,0"
+            FontSize="24"
+            FontWeight="Medium"
+            Text="Power plans" />
+
+        <TextBlock
+            Grid.Row="0"
+            Margin="0,8,0,24"
+            FontSize="12"
+            Text="Windows power plans are not changed when Lenovo Vantage is running." />
+
+        <wpfui:CardControl
+            Title="Quiet mode"
+            Margin="0,0,0,8"
+            Subtitle="Windows power plan to be activated when you switch to Quiet power mode.">
+            <ComboBox Width="150" Margin="0,0,0,8" />
+        </wpfui:CardControl>
+
+        <wpfui:CardControl
+            Title="Balance mode"
+            Margin="0,0,0,8"
+            Subtitle="Windows power plan to be activated when you switch to Balance power mode.">
+            <ComboBox Width="150" Margin="0,0,0,8" />
+        </wpfui:CardControl>
+
+        <wpfui:CardControl
+            Title="Performance mode"
+            Margin="0,0,0,8"
+            Subtitle="Windows power plan to be activated when you switch to Performance power mode.">
+            <ComboBox Width="150" Margin="0,0,0,8" />
+        </wpfui:CardControl>
+
+        <TextBlock
+            Grid.Row="0"
+            Margin="0,16,0,0"
+            FontSize="24"
+            FontWeight="Medium"
+            Text="Advanced" />
+
+        <TextBlock
+            Grid.Row="0"
+            Margin="0,8,0,24"
+            FontSize="12"
+            Text="Do not change options below unless you really know what you are doing. They might cause unexpected behavior." />
+
+        <wpfui:CardControl
+            Title="Always activate Windows power plans"
+            Margin="0,0,0,8"
+            Subtitle="Activate power plans even when Vantage is enabled.">
+            <ToggleButton
+                x:Name="_activatePowerProfilesWithVantageEnabledToggleButton"
+                Margin="0,0,0,8"
+                Click="ActivatePowerProfilesWithVantageEnabled_Click" />
         </wpfui:CardControl>
 
     </StackPanel>
