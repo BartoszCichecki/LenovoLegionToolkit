@@ -39,6 +39,7 @@ namespace LenovoLegionToolkit
 
             Container.Initialize();
             Container.Resolve<PowerModeListener>().Start();
+            Container.Resolve<ThemeManager>().Apply();
 
             var mainWindow = new MainWindow();
             if (ShouldStartMinimized(e.Args))

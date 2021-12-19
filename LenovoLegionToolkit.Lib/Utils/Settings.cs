@@ -9,6 +9,7 @@ namespace LenovoLegionToolkit.Lib
     {
         private class SettingsStore
         {
+            public Theme Theme { get; set; } = Theme.System;
             public Dictionary<PowerModeState, string> PowerPlans { get; set; } = new();
             public bool MinimizeOnClose { get; set; } = true;
             public bool ActivatePowerProfilesWithVantageEnabled { get; set; } = false;
@@ -29,6 +30,12 @@ namespace LenovoLegionToolkit.Lib
 
         private readonly JsonSerializerOptions _jsonSerializerOptions;
         private readonly string _settingsStorePath;
+
+        public Theme Theme
+        {
+            get => _settingsStore.Theme;
+            set => _settingsStore.Theme = value;
+        }
 
         public Dictionary<PowerModeState, string> PowerPlans
         {

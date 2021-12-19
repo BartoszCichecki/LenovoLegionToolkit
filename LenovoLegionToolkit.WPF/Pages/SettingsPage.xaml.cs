@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Utils;
@@ -15,6 +16,10 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private void Refresh()
         {
+            _themeComboBox.Items.Clear();
+            _themeComboBox.Items.AddEnumValues<Theme>();
+            _themeComboBox.SelectedValue = Settings.Instance.Theme;
+
             _autorunToggleButton.IsChecked = Autorun.IsEnabled;
 
             var vantageStatus = Vantage.Status;
@@ -26,12 +31,27 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private void SettingsPage_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (Visibility == Visibility.Visible)
+            if (IsVisible)
                 Refresh();
+        }
+
+        private void ThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (_themeComboBox.SelectedValue == null)
+                return;
+
+            var value = (Theme)_themeComboBox.SelectedValue;
+            Settings.Instance.Theme = value;
+            Settings.Instance.Synchronize();
+
+            Container.Resolve<ThemeManager>().Apply();
         }
 
         private void AutorunToggleButton_Click(object sender, RoutedEventArgs e)
         {
+            if (_autorunToggleButton.IsChecked == null)
+                return;
+
             var state = _autorunToggleButton.IsChecked;
             if (state.Value)
                 Autorun.Enable();
@@ -41,6 +61,9 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private void VantageToggleButton_Click(object sender, RoutedEventArgs e)
         {
+            if (_vantageToggleButton.IsChecked == null)
+                return;
+
             var state = _vantageToggleButton.IsChecked;
             if (state.Value)
                 Vantage.Enable();
@@ -50,6 +73,9 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private async void ActivatePowerProfilesWithVantageEnabled_Click(object sender, RoutedEventArgs e)
         {
+            if (_activatePowerProfilesWithVantageEnabledToggleButton.IsChecked == null)
+                return;
+
             var state = _activatePowerProfilesWithVantageEnabledToggleButton.IsChecked;
 
             if (state.Value && !await DialogService.ShowDialogAsync(
