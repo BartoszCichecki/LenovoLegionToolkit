@@ -14,6 +14,7 @@ namespace LenovoLegionToolkit.WPF
 
             cb.RegisterType<ThemeManager>();
 
+            // Lib
             cb.RegisterType<AlwaysOnUsbFeature>();
             cb.RegisterType<BatteryFeature>();
             cb.RegisterType<FlipToStartFeature>();
@@ -24,7 +25,6 @@ namespace LenovoLegionToolkit.WPF
                 .OnActivated(e => e.Instance.EnsureCorrectPowerPlanIsSet());
             cb.RegisterType<RefreshRateFeature>();
             cb.RegisterType<TouchpadLockFeature>();
-
             cb.RegisterType<PowerModeListener>();
 
             _container = cb.Build();
