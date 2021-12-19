@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32.SafeHandles;
 
@@ -18,7 +19,7 @@ namespace LenovoLegionToolkit.Lib.Features
             _controlCode = controlCode;
         }
 
-        public T GetState()
+        public Task<T> GetStateAsync()
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting state... [feature={GetType().Name}]");
@@ -30,10 +31,10 @@ namespace LenovoLegionToolkit.Lib.Features
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"State is {state} [feature={GetType().Name}]");
 
-            return state;
+            return Task.FromResult(state);
         }
 
-        public void SetState(T state)
+        public Task SetStateAsync(T state)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Setting state to {state}... [feature={GetType().Name}]");
@@ -45,6 +46,8 @@ namespace LenovoLegionToolkit.Lib.Features
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"State set to {state} [feature={GetType().Name}]");
+
+            return Task.CompletedTask;
         }
 
         protected abstract T FromInternal(uint state);

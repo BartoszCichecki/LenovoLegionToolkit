@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
@@ -14,27 +15,27 @@ namespace LenovoLegionToolkit.WPF.Controls
             InitializeComponent();
         }
 
-        private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private async void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (!IsVisible)
                 return;
 
-            Refresh();
+            await RefreshAsync();
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var state = (AlwaysOnUsbState)_comboBox.SelectedItem;
-            if (state != _feature.GetState())
-                _feature.SetState(state);
+            if (state != await _feature.GetStateAsync())
+                await _feature.SetStateAsync(state);
         }
 
-        private void Refresh()
+        private async Task RefreshAsync()
         {
             try
             {
                 _comboBox.Items.AddEnumValues<AlwaysOnUsbState>();
-                _comboBox.SelectedItem = _feature.GetState();
+                _comboBox.SelectedItem = await _feature.GetStateAsync();
                 Visibility = Visibility.Visible;
             }
             catch

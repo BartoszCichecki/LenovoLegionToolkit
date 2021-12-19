@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Threading.Tasks;
+using System.Windows;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
 
@@ -13,26 +14,26 @@ namespace LenovoLegionToolkit.WPF.Controls
             InitializeComponent();
         }
 
-        private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private async void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (!IsVisible)
                 return;
 
-            Refresh();
+            await RefreshAsync();
         }
 
-        private void ToggleButton_Click(object sender, RoutedEventArgs e)
+        private async void ToggleButton_Click(object sender, RoutedEventArgs e)
         {
             var state = _toggleButton.IsChecked.Value ? FlipToStartState.On : FlipToStartState.Off;
-            if (state != _feature.GetState())
-                _feature.SetState(state);
+            if (state != await _feature.GetStateAsync())
+                await _feature.SetStateAsync(state);
         }
 
-        private void Refresh()
+        private async Task RefreshAsync()
         {
             try
             {
-                _toggleButton.IsChecked = _feature.GetState() == FlipToStartState.On;
+                _toggleButton.IsChecked = await _feature.GetStateAsync() == FlipToStartState.On;
                 Visibility = Visibility.Visible;
             }
             catch

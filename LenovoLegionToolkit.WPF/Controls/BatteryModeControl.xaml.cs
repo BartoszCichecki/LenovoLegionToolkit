@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
@@ -14,25 +15,25 @@ namespace LenovoLegionToolkit.WPF.Controls
             InitializeComponent();
         }
 
-        private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private async void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (!IsVisible)
                 return;
 
-            Refresh();
+            await RefreshAsync();
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (_comboBox.SelectedItem == null)
                 return;
 
             var state = (BatteryState)_comboBox.SelectedItem;
-            if (state != _feature.GetState())
-                _feature.SetState(state);
+            if (state != await _feature.GetStateAsync())
+                await _feature.SetStateAsync(state);
         }
 
-        private void Refresh()
+        private async Task RefreshAsync()
         {
             _comboBox.Items.Clear();
             _comboBox.SelectedItem = null;
@@ -40,7 +41,7 @@ namespace LenovoLegionToolkit.WPF.Controls
             try
             {
                 _comboBox.Items.AddEnumValues<BatteryState>();
-                _comboBox.SelectedItem = _feature.GetState();
+                _comboBox.SelectedItem = await _feature.GetStateAsync();
                 Visibility = Visibility.Visible;
             }
             catch
