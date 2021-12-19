@@ -19,54 +19,55 @@ namespace LenovoLegionToolkit.Lib.Features
             _controlCode = controlCode;
         }
 
-        public Task<T> GetStateAsync()
+        public async Task<T> GetStateAsync()
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting state... [feature={GetType().Name}]");
 
-            SendCode(_driverHandle, _controlCode, GetInternalStatus(), out var result);
-            var state = FromInternal(result);
+            var (_, outBuffer) = await SendCodeAsync(_driverHandle, _controlCode, GetInternalStatus());
+            var state = FromInternal(outBuffer);
             LastState = state;
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"State is {state} [feature={GetType().Name}]");
 
-            return Task.FromResult(state);
+            return state;
         }
 
-        public Task SetStateAsync(T state)
+        public async Task SetStateAsync(T state)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Setting state to {state}... [feature={GetType().Name}]");
 
             var codes = ToInternal(state);
             foreach (var code in codes)
-                SendCode(_driverHandle, _controlCode, code, out _);
+                await SendCodeAsync(_driverHandle, _controlCode, code);
             LastState = state;
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"State set to {state} [feature={GetType().Name}]");
-
-            return Task.CompletedTask;
         }
 
         protected abstract T FromInternal(uint state);
         protected abstract byte GetInternalStatus();
         protected abstract byte[] ToInternal(T state);
 
-        private int SendCode(SafeFileHandle handle, uint controlCode, byte inBuffer, out uint outBuffer)
+        private Task<(int bytesReturned, uint outBuffer)> SendCodeAsync(SafeFileHandle handle, uint controlCode, byte inBuffer)
         {
-            if (!Native.DeviceIoControl(handle, controlCode, ref inBuffer, sizeof(byte), out outBuffer, sizeof(uint), out var bytesReturned, IntPtr.Zero))
+            return Task.Run(() =>
             {
-                var error = Marshal.GetLastWin32Error();
+                if (!Native.DeviceIoControl(handle, controlCode, ref inBuffer, sizeof(byte), out uint outBuffer, sizeof(uint), out var bytesReturned, IntPtr.Zero))
+                {
+                    var error = Marshal.GetLastWin32Error();
 
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"DeviceIoControl returned 0, last error: {error} [feature={GetType().Name}]");
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"DeviceIoControl returned 0, last error: {error} [feature={GetType().Name}]");
 
-                throw new InvalidOperationException($"DeviceIoControl returned 0, last error: {error}");
-            }
+                    throw new InvalidOperationException($"DeviceIoControl returned 0, last error: {error}");
+                }
 
-            return bytesReturned;
+                return (bytesReturned, outBuffer);
+            });
         }
 
         protected static uint ReverseEndianness(uint state)
