@@ -12,6 +12,8 @@ namespace LenovoLegionToolkit.WPF
         {
             var cb = new ContainerBuilder();
 
+            cb.RegisterType<ThemeManager>();
+
             cb.RegisterType<AlwaysOnUsbFeature>();
             cb.RegisterType<BatteryFeature>();
             cb.RegisterType<FlipToStartFeature>();

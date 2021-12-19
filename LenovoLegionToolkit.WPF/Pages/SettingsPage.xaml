@@ -22,6 +22,17 @@
             Text="General" />
 
         <wpfui:CardControl
+            Title="Theme"
+            Margin="0,0,0,8"
+            Subtitle="Set light theme, dark theme or follow system settings.">
+            <ComboBox
+                x:Name="_themeComboBox"
+                Width="150"
+                Margin="0,0,0,8"
+                SelectionChanged="ThemeComboBox_SelectionChanged" />
+        </wpfui:CardControl>
+
+        <wpfui:CardControl
             Title="Autorun"
             Margin="0,0,0,8"
             Subtitle="Start minimized to tray when you log in to Windows.">

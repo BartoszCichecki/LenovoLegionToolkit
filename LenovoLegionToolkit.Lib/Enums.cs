@@ -1,5 +1,12 @@
 ﻿namespace LenovoLegionToolkit.Lib
 {
+    public enum Theme
+    {
+        System,
+        Light,
+        Dark
+    }
+
     public enum AlwaysOnUsbState
     {
         Off,
