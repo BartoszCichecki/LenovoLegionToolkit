@@ -1,10 +1,11 @@
 ﻿using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
     internal static class CMD
     {
-        public static string Run(string file, string arguments)
+        public static async Task<string> RunAsync(string file, string arguments)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Running... [file={file}, argument={arguments}]");
@@ -17,8 +18,8 @@ namespace LenovoLegionToolkit.Lib.Utils
             cmd.StartInfo.FileName = file;
             cmd.StartInfo.Arguments = arguments;
             cmd.Start();
-            var output = cmd.StandardOutput.ReadToEnd();
-            cmd.WaitForExit();
+            var output = await cmd.StandardOutput.ReadToEndAsync();
+            await cmd.WaitForExitAsync();
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Ran [file={file}, argument={arguments}, output={output}]");

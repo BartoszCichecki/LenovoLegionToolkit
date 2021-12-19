@@ -10,13 +10,13 @@ namespace LenovoLegionToolkit.Lib.Features
         public override async Task SetStateAsync(PowerModeState state)
         {
             await base.SetStateAsync(state);
-            Power.ActivatePowerPlan(state, true);
+            await Power.ActivatePowerPlanAsync(state, true);
         }
 
         public async Task EnsureCorrectPowerPlanIsSetAsync()
         {
             var state = await GetStateAsync();
-            Power.ActivatePowerPlan(state, true);
+            await Power.ActivatePowerPlanAsync(state, true);
         }
     }
 }
