@@ -12,6 +12,7 @@
     MinWidth="800"
     MinHeight="600"
     Closing="MainWindow_Closing"
+    IsVisibleChanged="MainWindow_IsVisibleChanged"
     SnapsToDevicePixels="true"
     StateChanged="MainWindow_StateChanged"
     Style="{StaticResource UiWindow}"
@@ -24,11 +25,40 @@
 
         <wpfui:TitleBar x:Name="TitleBar" Grid.Row="0" />
 
-        <Grid Grid.Row="0" Margin="12,16,128,16">
+        <Grid
+            Grid.Row="0"
+            Height="24"
+            Margin="12,12,160,6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
             <TextBlock
+                Grid.Column="0"
                 FontSize="12"
                 IsHitTestVisible="False"
                 Text="Lenovo Legion Toolkit" />
+
+            <Border
+                x:Name="_updateIndicator"
+                Grid.Column="1"
+                Background="#FFAEE571"
+                CornerRadius="5,5,5,5"
+                Visibility="Collapsed">
+                <TextBlock
+                    Padding="9,3,9,3"
+                    FontSize="12"
+                    FontWeight="Medium">
+                    <Hyperlink
+                        Foreground="#000000"
+                        NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit/releases"
+                        RequestNavigate="Hyperlink_RequestNavigate">
+                        Update available!
+                    </Hyperlink>
+                </TextBlock>
+            </Border>
+
         </Grid>
 
         <Grid Grid.Row="1" Margin="12,6,12,12">
