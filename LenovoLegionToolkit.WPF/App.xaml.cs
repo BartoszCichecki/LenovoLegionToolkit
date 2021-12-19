@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
+using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF;
@@ -24,7 +25,7 @@ namespace LenovoLegionToolkit
         private EventWaitHandle _eventWaitHandle;
 #pragma warning restore IDE0052 // Remove unread private members
 
-        private void Application_Startup(object sender, StartupEventArgs e)
+        private async void Application_Startup(object sender, StartupEventArgs e)
         {
             if (IsTraceEnabled(e.Args))
                 Log.Instance.IsTraceEnabled = true;
@@ -38,6 +39,7 @@ namespace LenovoLegionToolkit
                 CheckCompatibility();
 
             Container.Initialize();
+            await Container.Resolve<PowerModeFeature>().EnsureCorrectPowerPlanIsSetAsync();
             Container.Resolve<PowerModeListener>().Start();
             Container.Resolve<ThemeManager>().Apply();
 

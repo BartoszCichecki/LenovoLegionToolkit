@@ -9,9 +9,14 @@ namespace LenovoLegionToolkit.WPF.Controls
     {
         private readonly TouchpadLockFeature _feature = Container.Resolve<TouchpadLockFeature>();
 
+        public IAsyncCommand Command { get; }
+
         public TouchpadLockControl()
         {
             InitializeComponent();
+
+            DataContext = this;
+            Command = new AsyncCommand(ActionAsync);
         }
 
         private async void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -22,7 +27,7 @@ namespace LenovoLegionToolkit.WPF.Controls
             await RefreshAsync();
         }
 
-        private async void ToggleButton_Click(object sender, RoutedEventArgs e)
+        private async Task ActionAsync()
         {
             var state = _toggleButton.IsChecked.Value ? TouchpadLockState.On : TouchpadLockState.Off;
             if (state != await _feature.GetStateAsync())
@@ -33,8 +38,12 @@ namespace LenovoLegionToolkit.WPF.Controls
         {
             try
             {
+                Command.Enabled = false;
+
                 _toggleButton.IsChecked = await _feature.GetStateAsync() == TouchpadLockState.On;
                 Visibility = Visibility.Visible;
+
+                Command.Enabled = true;
             }
             catch
             {

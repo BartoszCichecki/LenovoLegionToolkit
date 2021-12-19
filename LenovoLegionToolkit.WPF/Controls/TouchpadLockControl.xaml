@@ -16,6 +16,6 @@
         <ToggleButton
             x:Name="_toggleButton"
             Margin="0,0,0,8"
-            Click="ToggleButton_Click" />
+            Command="{Binding Path=Command}" />
     </wpfui:CardControl>
 </UserControl>
