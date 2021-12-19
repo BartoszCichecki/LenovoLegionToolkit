@@ -1,7 +1,9 @@
-﻿namespace LenovoLegionToolkit.Lib.Features
+﻿using System.Threading.Tasks;
+
+namespace LenovoLegionToolkit.Lib.Features
 {
     public interface IDynamicFeature<T> : IFeature<T>
     {
-        public T[] GetAllStates();
+        public Task<T[]> GetAllStatesAsync();
     }
 }

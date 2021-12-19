@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features
@@ -17,8 +18,8 @@ namespace LenovoLegionToolkit.Lib.Features
             _scopeAttribute = scopeAttribute;
         }
 
-        public abstract T GetState();
-        public abstract void SetState(T state);
+        public abstract Task<T> GetStateAsync();
+        public abstract Task SetStateAsync(T state);
 
         protected S ReadFromUefi<S>(S structure) where S : struct
         {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Management;
+using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features
@@ -20,7 +21,7 @@ namespace LenovoLegionToolkit.Lib.Features
             _supportOffset = supportOffset;
         }
 
-        public virtual T GetState()
+        public virtual Task<T> GetStateAsync()
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting state... [feature={GetType().Name}]");
@@ -38,10 +39,10 @@ namespace LenovoLegionToolkit.Lib.Features
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"State is {result} [feature={GetType().Name}]");
 
-            return result;
+            return Task.FromResult(result);
         }
 
-        public virtual void SetState(T state)
+        public virtual Task SetStateAsync(T state)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Setting state to {state}... [feature={GetType().Name}]");
@@ -54,6 +55,8 @@ namespace LenovoLegionToolkit.Lib.Features
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Set state to {state} [feature={GetType().Name}]");
+
+            return Task.CompletedTask;
         }
 
         private bool IsSupported()

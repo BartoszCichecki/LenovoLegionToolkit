@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
@@ -48,7 +49,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             comboBox.SelectedValue = powerPlans.FirstOrDefault(pp => pp.InstanceID == Settings.Instance.PowerPlans.GetValueOrDefault(powerModeState)) ?? DEFAULT_VALUE;
         }
 
-        private void PowerPlanChanged(object value, PowerModeState powerModeState)
+        private async Task PowerPlanChangedAsync(object value, PowerModeState powerModeState)
         {
             if (value is PowerPlan powerPlan)
                 Settings.Instance.PowerPlans[powerModeState] = powerPlan.InstanceID;
@@ -56,7 +57,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 Settings.Instance.PowerPlans.Remove(powerModeState);
             Settings.Instance.Synchronize();
 
-            _powerModeFeature.EnsureCorrectPowerPlanIsSet();
+            await _powerModeFeature.EnsureCorrectPowerPlanIsSetAsync();
         }
 
         private void SettingsPage_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -101,31 +102,31 @@ namespace LenovoLegionToolkit.WPF.Pages
                 Vantage.Disable();
         }
 
-        private void QuietModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void QuietModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var state = _quietModeComboBox.SelectedValue;
             if (state == null)
                 return;
 
-            PowerPlanChanged(state, PowerModeState.Quiet);
+            await PowerPlanChangedAsync(state, PowerModeState.Quiet);
         }
 
-        private void BalanceModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void BalanceModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var state = _balanceModeComboBox.SelectedValue;
             if (state == null)
                 return;
 
-            PowerPlanChanged(state, PowerModeState.Balance);
+            await PowerPlanChangedAsync(state, PowerModeState.Balance);
         }
 
-        private void PerformanceModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void PerformanceModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var state = _performanceModeComboBox.SelectedValue;
             if (state == null)
                 return;
 
-            PowerPlanChanged(state, PowerModeState.Performance);
+            await PowerPlanChangedAsync(state, PowerModeState.Performance);
         }
 
         private async void ActivatePowerProfilesWithVantageEnabled_Click(object sender, RoutedEventArgs e)
@@ -147,7 +148,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             Settings.Instance.ActivatePowerProfilesWithVantageEnabled = state.Value;
             Settings.Instance.Synchronize();
 
-            Container.Resolve<PowerModeFeature>().EnsureCorrectPowerPlanIsSet();
+            await Container.Resolve<PowerModeFeature>().EnsureCorrectPowerPlanIsSetAsync();
         }
     }
 }

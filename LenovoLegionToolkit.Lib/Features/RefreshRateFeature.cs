@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Utils;
 using WindowsDisplayAPI;
 
@@ -7,7 +8,7 @@ namespace LenovoLegionToolkit.Lib.Features
 {
     public class RefreshRateFeature : IDynamicFeature<RefreshRate>
     {
-        public RefreshRate[] GetAllStates()
+        public Task<RefreshRate[]> GetAllStatesAsync()
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting all refresh rates...");
@@ -38,10 +39,10 @@ namespace LenovoLegionToolkit.Lib.Features
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Possible refresh rates are {string.Join(", ", result)}");
 
-            return result;
+            return Task.FromResult(result);
         }
 
-        public RefreshRate GetState()
+        public Task<RefreshRate> GetStateAsync()
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting current refresh rate...");
@@ -61,10 +62,10 @@ namespace LenovoLegionToolkit.Lib.Features
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Current refresh rate is {result} [currentSettings={currentSettings}]");
 
-            return result;
+            return Task.FromResult(result);
         }
 
-        public void SetState(RefreshRate state)
+        public Task SetStateAsync(RefreshRate state)
         {
             var display = GetBuiltInDisplay();
             if (display == null)
@@ -80,7 +81,7 @@ namespace LenovoLegionToolkit.Lib.Features
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Frequency already set to {state.Frequency}");
-                return;
+                return Task.CompletedTask;
             }
 
             var possibleSettings = display.GetPossibleSettings();
@@ -101,6 +102,8 @@ namespace LenovoLegionToolkit.Lib.Features
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Could not find matching settings for frequency {state}");
             }
+
+            return Task.CompletedTask;
         }
 
         private static Display GetBuiltInDisplay()

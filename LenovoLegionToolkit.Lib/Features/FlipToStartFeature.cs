@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 
 namespace LenovoLegionToolkit.Lib.Features
 {
@@ -19,7 +20,7 @@ namespace LenovoLegionToolkit.Lib.Features
 
         public FlipToStartFeature() : base("{D743491E-F484-4952-A87D-8D5DD189B70C}", "FBSWIF", 7) { }
 
-        public override FlipToStartState GetState()
+        public override Task<FlipToStartState> GetStateAsync()
         {
             var result = ReadFromUefi(new FlipToBootStruct
             {
@@ -29,10 +30,10 @@ namespace LenovoLegionToolkit.Lib.Features
                 Reserved3 = 0
             });
 
-            return result.FlipToBootEn == 0 ? FlipToStartState.Off : FlipToStartState.On;
+            return Task.FromResult(result.FlipToBootEn == 0 ? FlipToStartState.Off : FlipToStartState.On);
         }
 
-        public override void SetState(FlipToStartState state)
+        public override Task SetStateAsync(FlipToStartState state)
         {
             var structure = new FlipToBootStruct
             {
@@ -42,6 +43,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 Reserved3 = 0
             };
             WriteToUefi(structure);
+            return Task.CompletedTask;
         }
     }
 }
