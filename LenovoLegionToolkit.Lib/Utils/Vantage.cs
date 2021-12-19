@@ -1,7 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
 using System.ServiceProcess;
-using Microsoft.Win32.TaskScheduler;
+using System.Threading.Tasks;
+using TaskService = Microsoft.Win32.TaskScheduler.TaskService;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
@@ -28,9 +29,9 @@ namespace LenovoLegionToolkit.Lib.Utils
             "LenovoVantageService",
         };
 
-        public static VantageStatus Status
+        public static Task<VantageStatus> GetStatusAsync()
         {
-            get
+            return Task.Run(() =>
             {
                 try
                 {
@@ -40,31 +41,37 @@ namespace LenovoLegionToolkit.Lib.Utils
                 {
                     return VantageStatus.NotFound;
                 }
-            }
+            });
         }
 
-        public static void Enable()
+        public static Task EnableAsync()
         {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Enabling...");
+            return Task.Run(() =>
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Enabling...");
 
-            SetScheduledTasksEnabled(true);
-            SetServicesEnabled(true);
+                SetScheduledTasksEnabled(true);
+                SetServicesEnabled(true);
 
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Enabled");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Enabled");
+            });
         }
 
-        public static void Disable()
+        public static Task DisableAsync()
         {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Disabling...");
+            return Task.Run(() =>
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Disabling...");
 
-            SetScheduledTasksEnabled(false);
-            SetServicesEnabled(false);
+                SetScheduledTasksEnabled(false);
+                SetServicesEnabled(false);
 
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Disabled");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Disabled");
+            });
         }
 
         private static void SetScheduledTasksEnabled(bool enabled)

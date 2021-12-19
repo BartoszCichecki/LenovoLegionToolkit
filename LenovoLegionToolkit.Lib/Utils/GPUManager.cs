@@ -84,7 +84,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                                 Log.Instance.Trace($"Will refresh...");
 
                             WillRefresh?.Invoke(this, EventArgs.Empty);
-                            Refresh();
+                            await RefreshAsync();
 
                             if (Log.Instance.IsTraceEnabled)
                                 Log.Instance.Trace($"Refreshed");
@@ -157,7 +157,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                 Log.Instance.Trace($"Deactivated [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
         }
 
-        private void Refresh()
+        private async Task RefreshAsync()
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Refresh in progress...");
@@ -200,7 +200,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             }
 
             var pnpDeviceId = NVAPI.GetGPUId(gpu);
-            var gpuInstanceId = GetDeviceInstanceID(pnpDeviceId);
+            var gpuInstanceId = await GetDeviceInstanceIDAsync(pnpDeviceId);
 
             _gpuInstanceId = gpuInstanceId;
             _status = Status.DeactivatePossible;
@@ -209,11 +209,11 @@ namespace LenovoLegionToolkit.Lib.Utils
                 Log.Instance.Trace($"Deactivate possible [status={_status}, processNames.Length={_processNames.Length}, gpuInstanceId={_gpuInstanceId}, pnpDeviceId={pnpDeviceId}]");
         }
 
-        private static string GetDeviceInstanceID(string pnpDeviceId)
+        private static async Task<string> GetDeviceInstanceIDAsync(string pnpDeviceId)
         {
-            return WMI.Read("root\\CIMV2",
+            return (await WMI.ReadAsync("root\\CIMV2",
                 $"SELECT * FROM Win32_PnpEntity WHERE DeviceID LIKE '{pnpDeviceId}%'",
-                pdc => (string)pdc["DeviceID"].Value).FirstOrDefault();
+                pdc => (string)pdc["DeviceID"].Value)).FirstOrDefault();
         }
     }
 }

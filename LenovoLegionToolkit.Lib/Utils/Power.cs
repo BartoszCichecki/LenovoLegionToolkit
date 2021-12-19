@@ -33,11 +33,11 @@ namespace LenovoLegionToolkit.Lib.Utils
             await CMD.RunAsync("shutdown", "/r /t 0");
         }
 
-        public static PowerPlan[] GetPowerPlans()
+        public static async Task<PowerPlan[]> GetPowerPlansAsync()
         {
-            return WMI.Read("root\\CIMV2\\power",
+            return (await WMI.ReadAsync("root\\CIMV2\\power",
                 $"SELECT * FROM Win32_PowerPlan",
-                Create).ToArray();
+                Create)).ToArray();
         }
 
         public static async Task ActivatePowerPlanAsync(PowerModeState powerModeState, bool alwaysActivateDefaults = false)
@@ -60,7 +60,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Power plan to be activated is {powerPlanId} [isDefault={isDefault}]");
 
-            if (!ShouldActivate(alwaysActivateDefaults, isDefault))
+            if (!await ShouldActivateAsync(alwaysActivateDefaults, isDefault))
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Power plan {powerPlanId} will not be activated [isDefault={isDefault}]");
@@ -68,7 +68,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                 return;
             }
 
-            var powerPlan = GetPowerPlans().FirstOrDefault(pp => pp.InstanceID.Contains(powerPlanId));
+            var powerPlan = (await GetPowerPlansAsync()).FirstOrDefault(pp => pp.InstanceID.Contains(powerPlanId));
             if (powerPlan == null)
             {
                 if (Log.Instance.IsTraceEnabled)
@@ -90,7 +90,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                 Log.Instance.Trace($"Power plan {powerPlan.Guid} activated");
         }
 
-        private static bool ShouldActivate(bool alwaysActivateDefaults, bool isDefault)
+        private static async Task<bool> ShouldActivateAsync(bool alwaysActivateDefaults, bool isDefault)
         {
             var overide = Settings.Instance.ActivatePowerProfilesWithVantageEnabled;
             if (overide)
@@ -109,7 +109,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                 return true;
             }
 
-            var status = Vantage.Status;
+            var status = await Vantage.GetStatusAsync();
             if (status == VantageStatus.NotFound || status == VantageStatus.Disabled)
             {
                 if (Log.Instance.IsTraceEnabled)

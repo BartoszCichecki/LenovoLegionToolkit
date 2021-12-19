@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
 using LenovoLegionToolkit.Lib.Features;
@@ -36,7 +37,7 @@ namespace LenovoLegionToolkit
             EnsureSingleInstance();
 
             if (!ShouldByPassCompatibilityCheck(e.Args))
-                CheckCompatibility();
+                await CheckCompatibilityAsync();
 
             Container.Initialize();
             await Container.Resolve<PowerModeFeature>().EnsureCorrectPowerPlanIsSetAsync();
@@ -74,9 +75,10 @@ namespace LenovoLegionToolkit
             Shutdown(-1);
         }
 
-        private void CheckCompatibility()
+        private async Task CheckCompatibilityAsync()
         {
-            if (Compatibility.IsCompatible(out var mi))
+            var (isCompatible, mi) = await Compatibility.IsCompatibleAsync();
+            if (isCompatible)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Compatibility check passed");
