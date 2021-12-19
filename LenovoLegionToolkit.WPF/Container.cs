@@ -21,8 +21,7 @@ namespace LenovoLegionToolkit.WPF
             cb.RegisterType<FnLockFeature>();
             cb.RegisterType<HybridModeFeature>();
             cb.RegisterType<OverDriveFeature>();
-            cb.RegisterType<PowerModeFeature>()
-                .OnActivated(async e => await e.Instance.EnsureCorrectPowerPlanIsSetAsync());
+            cb.RegisterType<PowerModeFeature>();
             cb.RegisterType<RefreshRateFeature>();
             cb.RegisterType<TouchpadLockFeature>();
             cb.RegisterType<PowerModeListener>();
