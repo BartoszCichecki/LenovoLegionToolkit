@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
+using System.Threading.Tasks;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
@@ -24,12 +25,12 @@ namespace LenovoLegionToolkit.Lib.Utils
 
     public static class Power
     {
-        public static void Restart()
+        public static async Task RestartAsync()
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Restarting...");
 
-            CMD.Run("shutdown", "/r /t 0");
+            await CMD.RunAsync("shutdown", "/r /t 0");
         }
 
         public static PowerPlan[] GetPowerPlans()
@@ -39,7 +40,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                 Create).ToArray();
         }
 
-        public static void ActivatePowerPlan(PowerModeState powerModeState, bool alwaysActivateDefaults = false)
+        public static async Task ActivatePowerPlanAsync(PowerModeState powerModeState, bool alwaysActivateDefaults = false)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Activating... [powerModeState={powerModeState}, alwaysActivateDefaults={alwaysActivateDefaults}]");
@@ -83,7 +84,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                 return;
             }
 
-            CMD.Run("powercfg", $"/s {powerPlan.Guid}");
+            await CMD.RunAsync("powercfg", $"/s {powerPlan.Guid}");
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Power plan {powerPlan.Guid} activated");

@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using NeoSmart.AsyncLock;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
@@ -33,7 +34,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             }
         }
 
-        private readonly object _lock = new();
+        private readonly AsyncLock _lock = new();
 
         private Task _refreshTask = null;
         private CancellationTokenSource _refreshCancellationTokenSource = null;
@@ -48,9 +49,9 @@ namespace LenovoLegionToolkit.Lib.Utils
         public event EventHandler WillRefresh;
         public event EventHandler<RefreshedEventArgs> Refreshed;
 
-        public void Start(int delay = 2_500, int interval = 5_000)
+        public async Task StartAsync(int delay = 2_500, int interval = 5_000)
         {
-            Stop(true);
+            await StopAsync(true);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Starting... [delay={delay}, interval={interval}]");
@@ -76,7 +77,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                     {
                         token.ThrowIfCancellationRequested();
 
-                        lock (_lock)
+                        using (await _lock.LockAsync())
                         {
 
                             if (Log.Instance.IsTraceEnabled)
@@ -114,7 +115,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             }, token);
         }
 
-        public void Stop(bool waitForFinish = false)
+        public async Task StopAsync(bool waitForFinish = false)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Stopping... [refreshTask.isNull={_refreshTask == null}, _refreshCancellationTokenSource.IsCancellationRequested={_refreshCancellationTokenSource?.IsCancellationRequested}]");
@@ -126,7 +127,8 @@ namespace LenovoLegionToolkit.Lib.Utils
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Waiting to finish...");
 
-                _refreshTask?.Wait();
+                if (_refreshTask != null)
+                    await _refreshTask;
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Finished");
@@ -139,21 +141,20 @@ namespace LenovoLegionToolkit.Lib.Utils
                 Log.Instance.Trace($"Stopped");
         }
 
-        public void DeactivateGPU()
+        public async Task DeactivateGPUAsync()
         {
-            lock (_lock)
-            {
+            using (await _lock.LockAsync())
+
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Deactivating... [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
 
-                if (!IsActive || !CanBeDeactivated || string.IsNullOrEmpty(_gpuInstanceId))
-                    return;
+            if (!IsActive || !CanBeDeactivated || string.IsNullOrEmpty(_gpuInstanceId))
+                return;
 
-                CMD.Run("pnputil", $"/restart-device \"{_gpuInstanceId}\"");
+            await CMD.RunAsync("pnputil", $"/restart-device \"{_gpuInstanceId}\"");
 
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Deactivated [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
-            }
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Deactivated [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
         }
 
         private void Refresh()
