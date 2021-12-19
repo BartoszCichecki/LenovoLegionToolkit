@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Navigation;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Pages;
@@ -9,9 +12,6 @@ using WPFUI.Common;
 
 namespace LenovoLegionToolkit.WPF.Windows
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -69,9 +69,27 @@ namespace LenovoLegionToolkit.WPF.Windows
             }
         }
 
+        private void MainWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (!IsVisible)
+                return;
+
+            Task.Run(Updates.Check)
+                .ContinueWith(updatesAvailable =>
+                {
+                    _updateIndicator.Visibility = updatesAvailable.Result ? Visibility.Visible : Visibility.Collapsed;
+                }, TaskScheduler.FromCurrentSynchronizationContext());
+        }
+
         private void NotifyIcon_Open(object sender, RoutedEventArgs e) => BringToForeground();
 
         private void NotifyIcon_Exit(object sender, RoutedEventArgs e) => Application.Current.Shutdown();
+
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri) { UseShellExecute = true });
+            e.Handled = true;
+        }
 
         public void BringToForeground()
         {
