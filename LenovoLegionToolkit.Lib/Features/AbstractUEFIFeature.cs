@@ -21,100 +21,107 @@ namespace LenovoLegionToolkit.Lib.Features
         public abstract Task<T> GetStateAsync();
         public abstract Task SetStateAsync(T state);
 
-        protected S ReadFromUefi<S>(S structure) where S : struct
+        protected Task<S> ReadFromUefiAsync<S>(S structure) where S : struct
         {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Reading from UEFI... [feature={GetType().Name}]");
-
-            if (!IsUefiMode())
+            return Task.Run(() =>
             {
+
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"UEFI mode is not enabled. [feature={GetType().Name}]");
+                    Log.Instance.Trace($"Reading from UEFI... [feature={GetType().Name}]");
 
-                throw new InvalidOperationException("UEFI mode is not enabled");
-            }
-
-            var hGlobal = Marshal.AllocHGlobal(Marshal.SizeOf<S>());
-
-            try
-            {
-                if (!SetPrivilege(true))
+                if (!IsUefiMode())
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Cannot set UEFI privilages [feature={GetType().Name}]");
+                        Log.Instance.Trace($"UEFI mode is not enabled. [feature={GetType().Name}]");
 
-                    throw new InvalidOperationException($"Cannot set privilages UEFI");
+                    throw new InvalidOperationException("UEFI mode is not enabled");
                 }
 
-                var ptr = hGlobal;
+                var hGlobal = Marshal.AllocHGlobal(Marshal.SizeOf<S>());
 
-                Marshal.StructureToPtr(structure, ptr, false);
-                if (Native.GetFirmwareEnvironmentVariableExW(_scopeName, _guid, hGlobal, Marshal.SizeOf<S>(), IntPtr.Zero) != 0)
+                try
                 {
-                    var result = (S)Marshal.PtrToStructure(hGlobal, typeof(S));
+                    if (!SetPrivilege(true))
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Cannot set UEFI privilages [feature={GetType().Name}]");
 
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Read from UEFI successful [feature={GetType().Name}]");
+                        throw new InvalidOperationException($"Cannot set privilages UEFI");
+                    }
 
-                    return result;
+                    var ptr = hGlobal;
+
+                    Marshal.StructureToPtr(structure, ptr, false);
+                    if (Native.GetFirmwareEnvironmentVariableExW(_scopeName, _guid, hGlobal, Marshal.SizeOf<S>(), IntPtr.Zero) != 0)
+                    {
+                        var result = (S)Marshal.PtrToStructure(hGlobal, typeof(S));
+
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Read from UEFI successful [feature={GetType().Name}]");
+
+                        return result;
+                    }
+                    else
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Cannot read variable {_scopeName} from UEFI [feature={GetType().Name}]");
+
+                        throw new InvalidOperationException($"Cannot read variable {_scopeName} from UEFI");
+                    }
                 }
-                else
+                finally
                 {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Cannot read variable {_scopeName} from UEFI [feature={GetType().Name}]");
-
-                    throw new InvalidOperationException($"Cannot read variable {_scopeName} from UEFI");
+                    Marshal.FreeHGlobal(hGlobal);
+                    SetPrivilege(false);
                 }
-            }
-            finally
-            {
-                Marshal.FreeHGlobal(hGlobal);
-                SetPrivilege(false);
-            }
+            });
         }
 
-        protected void WriteToUefi<S>(S structure) where S : struct
+        protected Task WriteToUefiAsync<S>(S structure) where S : struct
         {
-            if (!IsUefiMode())
+            return Task.Run(() =>
             {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"UEFI mode is not enabled. [feature={GetType().Name}]");
-
-                throw new InvalidOperationException("UEFI mode is not enabled.");
-            }
-
-            var hGlobal = Marshal.AllocHGlobal(Marshal.SizeOf<S>());
-
-            try
-            {
-                if (!SetPrivilege(true))
+                if (!IsUefiMode())
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Cannot set UEFI privilages [feature={GetType().Name}]");
+                        Log.Instance.Trace($"UEFI mode is not enabled. [feature={GetType().Name}]");
 
-                    throw new InvalidOperationException($"Cannot set privilages UEFI");
+                    throw new InvalidOperationException("UEFI mode is not enabled.");
                 }
 
-                var ptr = hGlobal;
-                Marshal.StructureToPtr(structure, ptr, false);
-                if (Native.SetFirmwareEnvironmentVariableExW(_scopeName, _guid, hGlobal, Marshal.SizeOf<S>(), _scopeAttribute) != 1)
+                var hGlobal = Marshal.AllocHGlobal(Marshal.SizeOf<S>());
+
+                try
                 {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Cannot write variable {_scopeName} to UEFI [feature={GetType().Name}]");
+                    if (!SetPrivilege(true))
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Cannot set UEFI privilages [feature={GetType().Name}]");
 
-                    throw new InvalidOperationException($"Cannot write variable {_scopeName} to UEFI");
+                        throw new InvalidOperationException($"Cannot set privilages UEFI");
+                    }
+
+                    var ptr = hGlobal;
+                    Marshal.StructureToPtr(structure, ptr, false);
+                    if (Native.SetFirmwareEnvironmentVariableExW(_scopeName, _guid, hGlobal, Marshal.SizeOf<S>(), _scopeAttribute) != 1)
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Cannot write variable {_scopeName} to UEFI [feature={GetType().Name}]");
+
+                        throw new InvalidOperationException($"Cannot write variable {_scopeName} to UEFI");
+                    }
+                    else
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Write to UEFI successful [feature={GetType().Name}]");
+                    }
                 }
-                else
+                finally
                 {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Write to UEFI successful [feature={GetType().Name}]");
+                    Marshal.FreeHGlobal(hGlobal);
+                    SetPrivilege(false);
                 }
-            }
-            finally
-            {
-                Marshal.FreeHGlobal(hGlobal);
-                SetPrivilege(false);
-            }
+            });
         }
 
         private bool IsUefiMode()

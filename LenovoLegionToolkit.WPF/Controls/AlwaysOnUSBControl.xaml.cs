@@ -25,6 +25,9 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         private async void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (_comboBox.SelectedItem == null)
+                return;
+
             var state = (AlwaysOnUsbState)_comboBox.SelectedItem;
             if (state != await _feature.GetStateAsync())
                 await _feature.SetStateAsync(state);
@@ -34,6 +37,7 @@ namespace LenovoLegionToolkit.WPF.Controls
         {
             try
             {
+                _comboBox.Items.Clear();
                 _comboBox.Items.AddEnumValues<AlwaysOnUsbState>();
                 _comboBox.SelectedItem = await _feature.GetStateAsync();
                 Visibility = Visibility.Visible;

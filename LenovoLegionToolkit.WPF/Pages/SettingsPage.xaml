@@ -72,7 +72,7 @@
             Subtitle="Windows power plan to be activated when you switch to Quiet power mode.">
             <ComboBox
                 x:Name="_quietModeComboBox"
-                Width="150"
+                Width="200"
                 Margin="0,0,0,8"
                 SelectionChanged="QuietModeComboBox_SelectionChanged" />
         </wpfui:CardControl>
@@ -83,7 +83,7 @@
             Subtitle="Windows power plan to be activated when you switch to Balance power mode.">
             <ComboBox
                 x:Name="_balanceModeComboBox"
-                Width="150"
+                Width="200"
                 Margin="0,0,0,8"
                 SelectionChanged="BalanceModeComboBox_SelectionChanged" />
         </wpfui:CardControl>
@@ -94,7 +94,7 @@
             Subtitle="Windows power plan to be activated when you switch to Performance power mode.">
             <ComboBox
                 x:Name="_performanceModeComboBox"
-                Width="150"
+                Width="200"
                 Margin="0,0,0,8"
                 SelectionChanged="PerformanceModeComboBox_SelectionChanged" />
         </wpfui:CardControl>
