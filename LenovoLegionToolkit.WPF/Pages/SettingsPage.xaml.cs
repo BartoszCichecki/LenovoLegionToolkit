@@ -21,7 +21,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             InitializeComponent();
         }
 
-        private void Refresh()
+        private async Task RefreshAsync()
         {
             _themeComboBox.Items.Clear();
             _themeComboBox.Items.AddEnumValues<Theme>();
@@ -29,11 +29,11 @@ namespace LenovoLegionToolkit.WPF.Pages
 
             _autorunToggleButton.IsChecked = Autorun.IsEnabled;
 
-            var vantageStatus = Vantage.Status;
+            var vantageStatus = await Vantage.GetStatusAsync();
             _vantageCard.Visibility = vantageStatus != VantageStatus.NotFound ? Visibility.Visible : Visibility.Collapsed;
             _vantageToggleButton.IsChecked = vantageStatus == VantageStatus.Enabled;
 
-            var powerPlans = Power.GetPowerPlans().OrderBy(x => x.Name);
+            var powerPlans = (await Power.GetPowerPlansAsync()).OrderBy(x => x.Name);
             Refresh(_quietModeComboBox, powerPlans, PowerModeState.Quiet);
             Refresh(_balanceModeComboBox, powerPlans, PowerModeState.Balance);
             Refresh(_performanceModeComboBox, powerPlans, PowerModeState.Performance);
@@ -60,10 +60,10 @@ namespace LenovoLegionToolkit.WPF.Pages
             await _powerModeFeature.EnsureCorrectPowerPlanIsSetAsync();
         }
 
-        private void SettingsPage_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private async void SettingsPage_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (IsVisible)
-                Refresh();
+                await RefreshAsync();
         }
 
         private void ThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -90,16 +90,16 @@ namespace LenovoLegionToolkit.WPF.Pages
                 Autorun.Disable();
         }
 
-        private void VantageToggleButton_Click(object sender, RoutedEventArgs e)
+        private async void VantageToggleButton_Click(object sender, RoutedEventArgs e)
         {
             var state = _vantageToggleButton.IsChecked;
             if (state == null)
                 return;
 
             if (state.Value)
-                Vantage.Enable();
+                await Vantage.EnableAsync();
             else
-                Vantage.Disable();
+                await Vantage.DisableAsync();
         }
 
         private async void QuietModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

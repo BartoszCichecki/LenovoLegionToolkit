@@ -8,12 +8,12 @@ namespace LenovoLegionToolkit.Lib.Features
 {
     public class RefreshRateFeature : IDynamicFeature<RefreshRate>
     {
-        public Task<RefreshRate[]> GetAllStatesAsync()
+        public async Task<RefreshRate[]> GetAllStatesAsync()
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting all refresh rates...");
 
-            var display = GetBuiltInDisplay();
+            var display = await GetBuiltInDisplayAsync();
             if (display == null)
             {
                 if (Log.Instance.IsTraceEnabled)
@@ -39,15 +39,15 @@ namespace LenovoLegionToolkit.Lib.Features
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Possible refresh rates are {string.Join(", ", result)}");
 
-            return Task.FromResult(result);
+            return result;
         }
 
-        public Task<RefreshRate> GetStateAsync()
+        public async Task<RefreshRate> GetStateAsync()
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting current refresh rate...");
 
-            var display = GetBuiltInDisplay();
+            var display = await GetBuiltInDisplayAsync();
             if (display == null)
             {
                 if (Log.Instance.IsTraceEnabled)
@@ -62,12 +62,12 @@ namespace LenovoLegionToolkit.Lib.Features
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Current refresh rate is {result} [currentSettings={currentSettings}]");
 
-            return Task.FromResult(result);
+            return result;
         }
 
-        public Task SetStateAsync(RefreshRate state)
+        public async Task SetStateAsync(RefreshRate state)
         {
-            var display = GetBuiltInDisplay();
+            var display = await GetBuiltInDisplayAsync();
             if (display == null)
             {
                 if (Log.Instance.IsTraceEnabled)
@@ -81,7 +81,7 @@ namespace LenovoLegionToolkit.Lib.Features
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Frequency already set to {state.Frequency}");
-                return Task.CompletedTask;
+                return;
             }
 
             var possibleSettings = display.GetPossibleSettings();
@@ -102,18 +102,18 @@ namespace LenovoLegionToolkit.Lib.Features
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Could not find matching settings for frequency {state}");
             }
-
-            return Task.CompletedTask;
         }
 
-        private static Display GetBuiltInDisplay()
+        private static async Task<Display> GetBuiltInDisplayAsync()
         {
-            return Display.GetDisplays()
-                .Where(IsInternal)
-                .FirstOrDefault();
+            foreach (var display in Display.GetDisplays())
+                if (await IsInternalAsync(display))
+                    return display;
+
+            return null;
         }
 
-        private static bool IsInternal(Display display)
+        private static async Task<bool> IsInternalAsync(Display display)
         {
             var instanceName = display.DevicePath
                 .Split("#")
@@ -121,9 +121,9 @@ namespace LenovoLegionToolkit.Lib.Features
                 .Take(2)
                 .Aggregate((s1, s2) => s1 + "\\" + s2);
 
-            var outputTechnology = WMI.Read("root\\WMI",
+            var outputTechnology = (await WMI.ReadAsync("root\\WMI",
                 $"SELECT * FROM WmiMonitorConnectionParams WHERE InstanceName LIKE '%{instanceName}%'",
-                pdc => (uint)pdc["VideoOutputTechnology"].Value).FirstOrDefault();
+                pdc => (uint)pdc["VideoOutputTechnology"].Value)).FirstOrDefault();
 
             return outputTechnology == 0x80000000; // D3DKMDT_VOT_INTERNAL
         }
