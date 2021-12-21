@@ -121,11 +121,13 @@ namespace LenovoLegionToolkit.Lib.Features
                 .Take(2)
                 .Aggregate((s1, s2) => s1 + "\\" + s2);
 
-            var outputTechnology = (await WMI.ReadAsync("root\\WMI",
+            var vot = (await WMI.ReadAsync("root\\WMI",
                 $"SELECT * FROM WmiMonitorConnectionParams WHERE InstanceName LIKE '%{instanceName}%'",
                 pdc => (uint)pdc["VideoOutputTechnology"].Value)).FirstOrDefault();
 
-            return outputTechnology == 0x80000000; // D3DKMDT_VOT_INTERNAL
+            const uint votInternal = 0x80000000;
+            const uint votDisplayPortEmbedded = 11;
+            return vot == votInternal || vot == votDisplayPortEmbedded;
         }
 
         private static bool Match(DisplayPossibleSetting dps, DisplaySetting ds)
