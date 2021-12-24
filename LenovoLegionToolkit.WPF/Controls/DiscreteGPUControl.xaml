@@ -12,10 +12,31 @@
         Title="Discrete GPU"
         Margin="0,0,0,8"
         Icon="DeveloperBoard24"
-        Subtitle="Disable discrete GPU if it is active unnecessarily.">
-        <Button
-            Width="150"
-            Margin="0,0,0,8"
-            Content="Deactivate" />
+        Subtitle="Disable discrete GPU if it is active unnecessarily. GPU can only be deactivated under certain conditions.">
+        <StackPanel Orientation="Vertical">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Ellipse
+                    x:Name="_discreteGPUStatusActiveIndicator"
+                    Width="10"
+                    Height="10"
+                    Fill="#FF8BC34A"
+                    Visibility="Collapsed" />
+                <Ellipse
+                    x:Name="_discreteGPUStatusInactiveIndicator"
+                    Width="10"
+                    Height="10"
+                    Fill="#BF360C"
+                    Visibility="Collapsed" />
+                <TextBlock
+                    x:Name="_discreteGPUStatusDescription"
+                    Margin="4,0,0,0"
+                    FontWeight="Medium" />
+            </StackPanel>
+            <Button
+                Width="150"
+                Margin="0,8,0,0"
+                Content="Deactivate"
+                IsEnabled="False" />
+        </StackPanel>
     </wpfui:CardControl>
 </UserControl>
