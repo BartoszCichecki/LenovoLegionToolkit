@@ -1,8 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Windows;
 using LenovoLegionToolkit.Lib;
-using WPFUI.Theme;
-using Style = WPFUI.Theme.Style;
 
 namespace LenovoLegionToolkit.WPF.Utils
 {
@@ -18,15 +16,20 @@ namespace LenovoLegionToolkit.WPF.Utils
             switch (Settings.Instance.Theme)
             {
                 case Theme.Dark:
-                    Manager.Switch(Style.Dark);
+                    WPFUI.Theme.Manager.Switch(WPFUI.Theme.Style.Dark);
                     break;
                 case Theme.Light:
-                    Manager.Switch(Style.Light);
+                    WPFUI.Theme.Manager.Switch(WPFUI.Theme.Style.Light);
                     break;
                 case Theme.System:
-                    Manager.SetSystemTheme();
+                    WPFUI.Theme.Manager.SetSystemTheme();
                     break;
             }
+        }
+
+        public void ApplyBackgroundEffects(Window window)
+        {
+            WPFUI.Background.Manager.Apply(window, true);
         }
 
         private void SystemParameters_StaticPropertyChanged(object sender, PropertyChangedEventArgs e)
