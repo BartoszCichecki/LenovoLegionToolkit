@@ -3,7 +3,7 @@ using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
 
-namespace LenovoLegionToolkit.WPF
+namespace LenovoLegionToolkit.WPF.Utils
 {
     internal class Container
     {

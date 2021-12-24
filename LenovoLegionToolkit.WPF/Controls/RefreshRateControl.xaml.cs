@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.WPF.Utils;
 using Microsoft.Win32;
 
 namespace LenovoLegionToolkit.WPF.Controls

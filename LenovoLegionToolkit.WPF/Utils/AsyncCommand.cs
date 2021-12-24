@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace LenovoLegionToolkit.WPF
+namespace LenovoLegionToolkit.WPF.Utils
 {
     public interface IAsyncCommand : ICommand
     {

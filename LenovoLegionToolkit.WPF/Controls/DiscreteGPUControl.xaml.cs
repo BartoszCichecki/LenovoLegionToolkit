@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.WPF.Utils;
 
 namespace LenovoLegionToolkit.WPF.Controls
 {
