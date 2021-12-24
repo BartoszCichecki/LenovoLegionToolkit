@@ -32,15 +32,19 @@ namespace LenovoLegionToolkit.WPF.Windows
             RootNavigation.Frame = RootFrame;
             RootNavigation.Items = new ObservableCollection<NavigationItem>
             {
-                new() { Icon = WPFUI.Common.Icon.Home20, Content = "Dashboard", Tag = "dashboard", Type = typeof(Dashboard)},
+                //new() { Icon = WPFUI.Common.Icon.Home20, Content = "Dashboard", Tag = "dashboard", Type = typeof(DashboardPage)},
+                
+                new() { Icon = WPFUI.Common.Icon.Flash28, Content = "Power", Tag = "power", Type = typeof(PowerPage)},
+                new() { Icon = WPFUI.Common.Icon.Pulse28, Content = "Graphics", Tag = "graphics", Type = typeof(GraphicsPage)},
+                new() { Icon = WPFUI.Common.Icon.MoreHorizontal28, Content = "Other", Tag = "other", Type = typeof(OtherPage)},
             };
             RootNavigation.Footer = new ObservableCollection<NavigationItem>
             {
-                new() { Icon = WPFUI.Common.Icon.Settings20, Content = "Settings", Tag = "settings", Type = typeof(SettingsPage)},
-                new() { Icon = WPFUI.Common.Icon.Info20, Content = "About", Tag = "about", Type = typeof(AboutPage)},
+                new() { Icon = WPFUI.Common.Icon.Settings28, Content = "Settings", Tag = "settings", Type = typeof(SettingsPage)},
+                new() { Icon = WPFUI.Common.Icon.Info28, Content = "About", Tag = "about", Type = typeof(AboutPage)},
             };
 
-            RootNavigation.Navigate("dashboard");
+            RootNavigation.Navigate((string)RootNavigation.Items[0].Tag);
         }
 
         private void MainWindow_StateChanged(object sender, EventArgs e)

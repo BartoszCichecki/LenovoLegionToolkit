@@ -1,8 +1,8 @@
 ﻿namespace LenovoLegionToolkit.WPF.Pages
 {
-    public partial class DashboardPage
+    public partial class OtherPage
     {
-        public DashboardPage()
+        public OtherPage()
         {
             InitializeComponent();
         }
