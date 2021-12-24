@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,9 +24,7 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private async Task RefreshAsync()
         {
-            _themeComboBox.Items.Clear();
-            _themeComboBox.Items.AddEnumValues<Theme>();
-            _themeComboBox.SelectedValue = Settings.Instance.Theme;
+            _themeComboBox.SetItems(Enum.GetValues<Theme>(), Settings.Instance.Theme);
 
             _autorunToggleButton.IsChecked = Autorun.IsEnabled;
 
@@ -70,11 +69,10 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private void ThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var state = _themeComboBox.SelectedValue;
-            if (state == null)
+            if (!_themeComboBox.TryGetSelectedItem(out Theme state))
                 return;
 
-            Settings.Instance.Theme = (Theme)state;
+            Settings.Instance.Theme = state;
             Settings.Instance.Synchronize();
 
             Container.Resolve<ThemeManager>().Apply();

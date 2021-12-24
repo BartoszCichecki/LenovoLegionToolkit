@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
@@ -25,10 +26,9 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         private async void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (_comboBox.SelectedItem == null)
+            if (!_comboBox.TryGetSelectedItem(out AlwaysOnUsbState state))
                 return;
 
-            var state = (AlwaysOnUsbState)_comboBox.SelectedItem;
             if (state != await _feature.GetStateAsync())
                 await _feature.SetStateAsync(state);
         }
@@ -37,9 +37,9 @@ namespace LenovoLegionToolkit.WPF.Controls
         {
             try
             {
-                _comboBox.Items.Clear();
-                _comboBox.Items.AddEnumValues<AlwaysOnUsbState>();
-                _comboBox.SelectedItem = await _feature.GetStateAsync();
+                var items = Enum.GetValues<AlwaysOnUsbState>();
+                var selectedItem = await _feature.GetStateAsync();
+                _comboBox.SetItems(items, selectedItem, v => v.DisplayName());
                 Visibility = Visibility.Visible;
             }
             catch
