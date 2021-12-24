@@ -9,9 +9,9 @@ namespace LenovoLegionToolkit.Lib
     {
         private class SettingsStore
         {
-            public Theme Theme { get; set; } = Theme.System;
+            public Theme Theme { get; set; } = Theme.Dark;
             public Dictionary<PowerModeState, string> PowerPlans { get; set; } = new();
-            public bool MinimizeOnClose { get; set; } = true;
+            public bool MinimizeOnClose { get; set; } = false;
             public bool ActivatePowerProfilesWithVantageEnabled { get; set; } = false;
         }
 
