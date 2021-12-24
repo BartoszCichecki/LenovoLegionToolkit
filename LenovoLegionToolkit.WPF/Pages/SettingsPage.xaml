@@ -19,7 +19,7 @@
             Margin="0,16,0,24"
             FontSize="24"
             FontWeight="Medium"
-            Text="General" />
+            Text="Settings" />
 
         <wpfui:CardControl
             Title="Theme"
