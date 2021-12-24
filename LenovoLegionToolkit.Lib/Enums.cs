@@ -14,11 +14,31 @@
         OnAlways
     }
 
+    public static class AlwaysOnUsbStateExtension
+    {
+        public static string DisplayName(this AlwaysOnUsbState state) => state switch
+        {
+            AlwaysOnUsbState.OnWhenSleeping => "On, when sleeping",
+            AlwaysOnUsbState.OnAlways => "On, always",
+            _ => state.ToString(),
+        };
+    }
+
+
     public enum BatteryState
     {
         Conservation,
         Normal,
         RapidCharge
+    }
+
+    public static class BatteryStateExtension
+    {
+        public static string DisplayName(this BatteryState state) => state switch
+        {
+            BatteryState.RapidCharge => "Rapid Charge",
+            _ => state.ToString(),
+        };
     }
 
     public enum FlipToStartState
