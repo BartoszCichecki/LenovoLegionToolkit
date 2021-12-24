@@ -11,7 +11,7 @@
     <wpfui:CardControl
         Title="Flip To Start"
         Margin="0,0,0,8"
-        Glyph="Power24"
+        Icon="Power24"
         Subtitle="Turn on the laptop when you open the lid.">
         <ToggleButton
             x:Name="_toggleButton"

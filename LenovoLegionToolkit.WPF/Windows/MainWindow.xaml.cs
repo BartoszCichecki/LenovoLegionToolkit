@@ -8,7 +8,7 @@ using System.Windows.Navigation;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Pages;
-using WPFUI.Common;
+using WPFUI.Controls;
 
 namespace LenovoLegionToolkit.WPF.Windows
 {
@@ -23,11 +23,11 @@ namespace LenovoLegionToolkit.WPF.Windows
         private void InitializeNavigation()
         {
             RootNavigation.Frame = RootFrame;
-            RootNavigation.Items = new ObservableCollection<NavItem>
-{
+            RootNavigation.Items = new ObservableCollection<NavigationItem>
+            {
                 new() { Icon = WPFUI.Common.Icon.Home20, Name = "Dashboard", Tag = "dashboard", Type = typeof(Dashboard)},
             };
-            RootNavigation.Footer = new ObservableCollection<NavItem>
+            RootNavigation.Footer = new ObservableCollection<NavigationItem>
             {
                 new() { Icon = WPFUI.Common.Icon.Settings20, Name = "Settings", Tag = "settings", Type = typeof(SettingsPage)},
                 new() { Icon = WPFUI.Common.Icon.Info20, Name = "About", Tag = "about", Type = typeof(AboutPage)},

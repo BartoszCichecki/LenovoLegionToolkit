@@ -11,7 +11,7 @@
     <wpfui:CardControl
         Title="Refresh rate"
         Margin="0,0,0,8"
-        Glyph="Laptop24"
+        Icon="Laptop24"
         Subtitle="Change refresh rate of the built-in display.">
         <ComboBox
             x:Name="_comboBox"

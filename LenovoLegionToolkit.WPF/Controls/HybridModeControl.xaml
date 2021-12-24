@@ -11,7 +11,7 @@
     <wpfui:CardControl
         Title="Hybrid Mode"
         Margin="0,0,0,8"
-        Glyph="LeafOne24"
+        Icon="LeafOne24"
         Subtitle="Turn on to allow switching between intergarted and discrete GPU. Requires restart.">
         <ToggleButton
             x:Name="_toggleButton"

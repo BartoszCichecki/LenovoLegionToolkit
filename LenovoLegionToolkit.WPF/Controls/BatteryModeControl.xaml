@@ -11,7 +11,7 @@
     <wpfui:CardControl
         Title="Battery Mode"
         Margin="0,0,0,8"
-        Glyph="BatteryCharge24"
+        Icon="BatteryCharge24"
         Subtitle="Choose how the battery is charged.">
         <ComboBox
             x:Name="_comboBox"

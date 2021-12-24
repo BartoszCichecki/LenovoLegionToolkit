@@ -11,7 +11,7 @@
     <wpfui:CardControl
         Title="Discrete GPU"
         Margin="0,0,0,8"
-        Glyph="DeveloperBoard24"
+        Icon="DeveloperBoard24"
         Subtitle="Disable discrete GPU if it is active unnecessarily.">
         <Button
             Width="150"

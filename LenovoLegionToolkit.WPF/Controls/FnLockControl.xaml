@@ -11,7 +11,7 @@
     <wpfui:CardControl
         Title="Fn Lock"
         Margin="0,0,0,8"
-        Glyph="Keyboard24"
+        Icon="Keyboard24"
         Subtitle="Use secondary functions of F1-F12 keys without holding Fn key.">
         <ToggleButton
             x:Name="_toggleButton"
