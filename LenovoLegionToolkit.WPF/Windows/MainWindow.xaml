@@ -74,17 +74,5 @@
 
             <Frame x:Name="RootFrame" Grid.Column="1" />
         </Grid>
-
-        <tb:TaskbarIcon
-            IconSource="../icon.ico"
-            ToolTipText="Lenovo Legion Toolkit"
-            TrayLeftMouseUp="NotifyIcon_Open">
-            <tb:TaskbarIcon.ContextMenu>
-                <ContextMenu>
-                    <MenuItem Click="NotifyIcon_Open" Header="Open" />
-                    <MenuItem Click="NotifyIcon_Exit" Header="Exit" />
-                </ContextMenu>
-            </tb:TaskbarIcon.ContextMenu>
-        </tb:TaskbarIcon>
     </Grid>
 </Window>

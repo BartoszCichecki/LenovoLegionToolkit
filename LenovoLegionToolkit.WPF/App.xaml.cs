@@ -49,6 +49,8 @@ namespace LenovoLegionToolkit
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Sending MainWindow to tray...");
+                mainWindow.WindowState = WindowState.Minimized;
+                mainWindow.Show();
                 mainWindow.SendToTray();
             }
             else
