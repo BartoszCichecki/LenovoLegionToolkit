@@ -43,6 +43,16 @@
         </wpfui:CardControl>
 
         <wpfui:CardControl
+            Title="Minimize on close"
+            Margin="0,0,0,8"
+            Subtitle="Always minimize to tray. Close with right click on tray icon.">
+            <ToggleButton
+                x:Name="_minimizeOnCloseToggleButton"
+                Margin="0,0,0,8"
+                Click="MinimizeOnCloseToggleButton_Click" />
+        </wpfui:CardControl>
+
+        <wpfui:CardControl
             x:Name="_vantageCard"
             Title="Lenovo Vantage"
             Margin="0,0,0,8"

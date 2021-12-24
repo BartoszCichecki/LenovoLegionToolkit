@@ -29,6 +29,8 @@ namespace LenovoLegionToolkit.WPF.Pages
 
             _autorunToggleButton.IsChecked = Autorun.IsEnabled;
 
+            _minimizeOnCloseToggleButton.IsChecked = Settings.Instance.MinimizeOnClose;
+
             var vantageStatus = await Vantage.GetStatusAsync();
             _vantageCard.Visibility = vantageStatus != VantageStatus.NotFound ? Visibility.Visible : Visibility.Collapsed;
             _vantageToggleButton.IsChecked = vantageStatus == VantageStatus.Enabled;
@@ -88,6 +90,16 @@ namespace LenovoLegionToolkit.WPF.Pages
                 Autorun.Enable();
             else
                 Autorun.Disable();
+        }
+
+        private void MinimizeOnCloseToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            var state = _minimizeOnCloseToggleButton.IsChecked;
+            if (state == null)
+                return;
+
+            Settings.Instance.MinimizeOnClose = state.Value;
+            Settings.Instance.Synchronize();
         }
 
         private async void VantageToggleButton_Click(object sender, RoutedEventArgs e)
