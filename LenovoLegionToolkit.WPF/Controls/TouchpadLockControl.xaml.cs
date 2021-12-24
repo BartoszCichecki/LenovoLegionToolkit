@@ -3,6 +3,7 @@ using System.Windows;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
 
+using LenovoLegionToolkit.WPF.Utils;
 namespace LenovoLegionToolkit.WPF.Controls
 {
     public partial class TouchpadLockControl

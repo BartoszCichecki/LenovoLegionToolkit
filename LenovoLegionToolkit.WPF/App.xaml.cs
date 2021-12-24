@@ -8,7 +8,7 @@ using System.Windows.Threading;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
-using LenovoLegionToolkit.WPF;
+using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows;
 
 namespace LenovoLegionToolkit

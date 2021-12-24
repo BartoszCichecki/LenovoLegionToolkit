@@ -4,7 +4,7 @@ using LenovoLegionToolkit.Lib;
 using WPFUI.Theme;
 using Style = WPFUI.Theme.Style;
 
-namespace LenovoLegionToolkit.WPF
+namespace LenovoLegionToolkit.WPF.Utils
 {
     public class ThemeManager
     {
