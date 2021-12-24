@@ -11,7 +11,7 @@
     <wpfui:CardControl
         Title="Touchpad Lock"
         Margin="0,0,0,8"
-        Glyph="Tablet24"
+        Icon="Tablet24"
         Subtitle="Disable touchpad.">
         <ToggleButton
             x:Name="_toggleButton"

@@ -11,7 +11,7 @@
     <wpfui:CardControl
         Title="Always on USB"
         Margin="0,0,0,8"
-        Glyph="UsbStick24"
+        Icon="UsbStick24"
         Subtitle="Charge USB devices, when the computer is in sleep, hibernation, or off mode.">
         <ComboBox
             x:Name="_comboBox"
