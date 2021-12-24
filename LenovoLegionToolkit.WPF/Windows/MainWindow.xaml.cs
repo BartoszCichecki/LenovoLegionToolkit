@@ -4,20 +4,27 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Navigation;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Pages;
 using WPFUI.Controls;
+using WPFUI.Tray;
 
 namespace LenovoLegionToolkit.WPF.Windows
 {
     public partial class MainWindow : Window
     {
+        private readonly Lazy<NotifyIcon> _notifyIcon;
+
         public MainWindow()
         {
             InitializeComponent();
             InitializeNavigation();
+
+            _notifyIcon = new Lazy<NotifyIcon>(CreateNotifyIcon);
         }
 
         private void InitializeNavigation()
@@ -66,6 +73,8 @@ namespace LenovoLegionToolkit.WPF.Windows
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Closing...");
+
+                _notifyIcon.Value.Destroy();
             }
         }
 
@@ -81,14 +90,33 @@ namespace LenovoLegionToolkit.WPF.Windows
                 }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
-        private void NotifyIcon_Open(object sender, RoutedEventArgs e) => BringToForeground();
-
-        private void NotifyIcon_Exit(object sender, RoutedEventArgs e) => Application.Current.Shutdown();
-
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri) { UseShellExecute = true });
             e.Handled = true;
+        }
+
+        private NotifyIcon CreateNotifyIcon()
+        {
+            var openMenuItem = new MenuItem { Header = "Open" };
+            openMenuItem.Click += (s, e) => BringToForeground();
+
+            var closeMenuItem = new MenuItem { Header = "Close" };
+            closeMenuItem.Click += (s, e) => Application.Current.Shutdown();
+
+            var contextMenu = new ContextMenu();
+            contextMenu.Items.Add(openMenuItem);
+            contextMenu.Items.Add(closeMenuItem);
+
+            var notifyIcon = new NotifyIcon
+            {
+                Tooltip = "Lenovo Legion Toolkit",
+                Icon = ImageSourceExtensions.FromResource("icon.ico"),
+                Parent = this,
+                ContextMenu = contextMenu,
+                Click = _ => BringToForeground(),
+            };
+            return notifyIcon;
         }
 
         public void BringToForeground()
@@ -105,9 +133,14 @@ namespace LenovoLegionToolkit.WPF.Windows
             Topmost = true;
             Topmost = false;
             Focus();
+
+            _notifyIcon.Value.Destroy();
         }
+
         public void SendToTray()
         {
+            _notifyIcon.Value.Show();
+
             Hide();
             ShowInTaskbar = false;
         }
