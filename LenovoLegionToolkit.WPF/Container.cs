@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
 
@@ -25,6 +26,7 @@ namespace LenovoLegionToolkit.WPF
             cb.RegisterType<RefreshRateFeature>();
             cb.RegisterType<TouchpadLockFeature>();
             cb.RegisterType<PowerModeListener>();
+            cb.RegisterType<GPUController>();
 
             _container = cb.Build();
         }

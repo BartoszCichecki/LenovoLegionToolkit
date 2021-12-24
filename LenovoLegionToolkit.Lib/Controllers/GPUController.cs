@@ -2,11 +2,12 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Utils;
 using NeoSmart.AsyncLock;
 
-namespace LenovoLegionToolkit.Lib.Utils
+namespace LenovoLegionToolkit.Lib.Controllers
 {
-    public class GPUManager
+    public class GPUController
     {
         public enum Status
         {
@@ -49,7 +50,20 @@ namespace LenovoLegionToolkit.Lib.Utils
         public event EventHandler WillRefresh;
         public event EventHandler<RefreshedEventArgs> Refreshed;
 
-        public async Task StartAsync(int delay = 2_500, int interval = 5_000)
+        public bool IsSupported()
+        {
+            try
+            {
+                NVAPI.Initialize();
+                return NVAPI.IsGPUPresent(out _);
+            }
+            finally
+            {
+                NVAPI.Unload();
+            }
+        }
+
+        public async Task StartAsync(int delay = 1_000, int interval = 5_000)
         {
             await StopAsync(true);
 

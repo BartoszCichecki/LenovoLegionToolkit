@@ -14,7 +14,10 @@
         Icon="DeveloperBoard24"
         Subtitle="Disable discrete GPU if it is active unnecessarily. GPU can only be deactivated under certain conditions.">
         <StackPanel Orientation="Vertical">
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+            <StackPanel
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
                 <Ellipse
                     x:Name="_discreteGPUStatusActiveIndicator"
                     Width="10"
@@ -33,6 +36,7 @@
                     FontWeight="Medium" />
             </StackPanel>
             <Button
+                x:Name="_deactivateGPUButton"
                 Width="150"
                 Margin="0,8,0,0"
                 Content="Deactivate"
