@@ -42,9 +42,13 @@ namespace LenovoLegionToolkit
             Container.Initialize();
             await Container.Resolve<PowerModeFeature>().EnsureCorrectPowerPlanIsSetAsync();
             Container.Resolve<PowerModeListener>().Start();
-            Container.Resolve<ThemeManager>().Apply();
+
+            var themeManager = Container.Resolve<ThemeManager>();
+            themeManager.Apply();
 
             var mainWindow = new MainWindow();
+            themeManager.ApplyBackgroundEffects(mainWindow);
+
             if (ShouldStartMinimized(e.Args))
             {
                 if (Log.Instance.IsTraceEnabled)
