@@ -6,20 +6,11 @@ It is a single executable app that needs no installation and runs no background 
 
 ![screenshot](assets/screenshot.png)
 
-
 ## Disclaimer
 
 This is a hobby project. I want to make it available on more devices, but it will take some time, so please be patient and read through this readme carefully.
 
 The tool comes with no warranty. Use at you own risk.
-
-
-## Installation
-
-Lenovo Legion Toolkit is a single executable app, which means it does not need to be installed. It can be downloaded from [Releases](https://github.com/BartoszCichecki/LenovoLegionToolkit/releases) page (look to the right).
-
-Similarly when there is an update available, you just download the newer exe, and replace the one you have. Just make sure that you close Toolkit (and it's not running in tray).
-
 
 ## Compatibility
 
@@ -28,7 +19,6 @@ All testing done by me is done always on latest Windows 11 update and Legion 5 P
 Toolkit is compatible with a lot of Legion laptops from 2020 and 2021. Full list of supported models can be found here: [Compatibility.cs](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/LenovoLegionToolkit.Lib/Utils/Compatibility.cs).
 
 If you are getting an incompatible message on startup, you can check *Contribution* section down at the bottom, to see how can you help.
-
 
 ## Features
 
@@ -66,6 +56,12 @@ Toolkit will automatically switch Windows power plans when Power Mode changes _a
 
 On some laptops though, Lenovo Vantage never switched power plans. If you have one of the laptops where Lenovo Vantage does not change Windows power plans automatically you can override this behavior in `Tools -> More settings -> Activate power plans even when Vantage is enabled`. This will allow Toolkit to always change Windows power plans, even if Lenovo Vantage is running in the background.
 
+## Installation
+
+Lenovo Legion Toolkit is a single executable app, which means it does not need to be installed. It can be downloaded from [Releases](https://github.com/BartoszCichecki/LenovoLegionToolkit/releases) page (look to the right).
+
+Similarly when there is an update available, you just download the newer exe, and replace the one you have. Just make sure that you close Toolkit (and it's not running in tray).
+
 ## Requirements
 
 This tool is written with .NET 5 which means you need to have **.NET Desktop Runtime 5**. You can get it from here:
@@ -74,13 +70,11 @@ https://dotnet.microsoft.com/download/dotnet/5.0/runtime
 
 You don't need to install it if you already have the .NET SDK 5 installed.
 
-
 ## Credits
 
 Credits go to [ViRb3](https://github.com/ViRb3), for creating [Lenovo Controller](https://github.com/ViRb3/LenovoController), which was used as a base for this tool. 
 
 Special thanks to [falahati](https://github.com/falahati), for creating [NvAPIWrapper](https://github.com/falahati/NvAPIWrapper) and [WindowsDisplayAPI](https://github.com/falahati/WindowsDisplayAPI).
-
 
 ## Contribution
 
@@ -106,7 +100,5 @@ If you do it, I would really appreciate if you create an issue here on GitHub wi
 4. List of features that crash the app.
 
 The more info you add, the better the app will get over time.
-
-
 
 Thanks in advance!
