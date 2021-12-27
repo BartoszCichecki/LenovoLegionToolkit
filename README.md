@@ -14,6 +14,13 @@ This is a hobby project. I want to make it available on more devices, but it wil
 The tool comes with no warranty. Use at you own risk.
 
 
+## Installation
+
+Lenovo Legion Toolkit is a single executable app, which means it does not need to be installed. It can be downloaded from [Releases](https://github.com/BartoszCichecki/LenovoLegionToolkit/releases) page (look to the right).
+
+Similarly when there is an update available, you just download the newer exe, and replace the one you have. Just make sure that you close Toolkit (and it's not running in tray).
+
+
 ## Compatibility
 
 All testing done by me is done always on latest Windows 11 update and Legion 5 Pro 16ACH6H. I already know that there are some strange differences between Windows 10 and 11 that are not document very well, but I do my best to correct bugs like this as soon as possible.
