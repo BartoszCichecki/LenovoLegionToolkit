@@ -8,7 +8,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         protected override async void OnChanged(PowerModeState value)
         {
-            await Power.ActivatePowerPlanAsync(value);
+            await Power.ActivatePowerPlanAsync(value).ConfigureAwait(false);
         }
     }
 }

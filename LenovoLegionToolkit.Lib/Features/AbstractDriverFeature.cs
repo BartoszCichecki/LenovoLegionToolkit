@@ -24,7 +24,7 @@ namespace LenovoLegionToolkit.Lib.Features
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting state... [feature={GetType().Name}]");
 
-            var (_, outBuffer) = await SendCodeAsync(_driverHandle, _controlCode, GetInternalStatus());
+            var (_, outBuffer) = await SendCodeAsync(_driverHandle, _controlCode, GetInternalStatus()).ConfigureAwait(false);
             var state = FromInternal(outBuffer);
             LastState = state;
 
@@ -41,7 +41,7 @@ namespace LenovoLegionToolkit.Lib.Features
 
             var codes = ToInternal(state);
             foreach (var code in codes)
-                await SendCodeAsync(_driverHandle, _controlCode, code);
+                await SendCodeAsync(_driverHandle, _controlCode, code).ConfigureAwait(false);
             LastState = state;
 
             if (Log.Instance.IsTraceEnabled)

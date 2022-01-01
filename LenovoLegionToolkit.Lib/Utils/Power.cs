@@ -30,14 +30,15 @@ namespace LenovoLegionToolkit.Lib.Utils
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Restarting...");
 
-            await CMD.RunAsync("shutdown", "/r /t 0");
+            await CMD.RunAsync("shutdown", "/r /t 0").ConfigureAwait(false);
         }
 
         public static async Task<PowerPlan[]> GetPowerPlansAsync()
         {
-            return (await WMI.ReadAsync("root\\CIMV2\\power",
-                $"SELECT * FROM Win32_PowerPlan",
-                Create)).ToArray();
+            var result = await WMI.ReadAsync("root\\CIMV2\\power",
+                            $"SELECT * FROM Win32_PowerPlan",
+                            Create).ConfigureAwait(false);
+            return result.ToArray();
         }
 
         public static async Task ActivatePowerPlanAsync(PowerModeState powerModeState, bool alwaysActivateDefaults = false)
@@ -60,7 +61,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Power plan to be activated is {powerPlanId} [isDefault={isDefault}]");
 
-            if (!await ShouldActivateAsync(alwaysActivateDefaults, isDefault))
+            if (!await ShouldActivateAsync(alwaysActivateDefaults, isDefault).ConfigureAwait(false))
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Power plan {powerPlanId} will not be activated [isDefault={isDefault}]");
@@ -84,7 +85,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                 return;
             }
 
-            await CMD.RunAsync("powercfg", $"/s {powerPlan.Guid}");
+            await CMD.RunAsync("powercfg", $"/s {powerPlan.Guid}").ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Power plan {powerPlan.Guid} activated");
@@ -109,7 +110,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                 return true;
             }
 
-            var status = await Vantage.GetStatusAsync();
+            var status = await Vantage.GetStatusAsync().ConfigureAwait(false);
             if (status == VantageStatus.NotFound || status == VantageStatus.Disabled)
             {
                 if (Log.Instance.IsTraceEnabled)
