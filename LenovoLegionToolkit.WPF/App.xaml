@@ -7,10 +7,10 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <!-- <ResourceDictionary Source="pack://application:,,,/WPFUI;component/Styles/Theme/Light.xaml" /> -->
                 <ResourceDictionary Source="pack://application:,,,/WPFUI;component/Styles/Theme/Dark.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/WPFUI;component/Styles/WPFUI.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <FontFamily x:Key="SegoeFluentIcons">pack://application:,,,/;component/Fonts/#Segoe Fluent Icons</FontFamily>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
