@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Windows;
+using System.Windows.Media;
 using LenovoLegionToolkit.Lib;
 
 namespace LenovoLegionToolkit.WPF.Utils
@@ -25,6 +26,8 @@ namespace LenovoLegionToolkit.WPF.Utils
                     WPFUI.Theme.Manager.SetSystemTheme();
                     break;
             }
+
+            SetColor();
         }
 
         public void ApplyBackgroundEffects(Window window)
@@ -36,6 +39,15 @@ namespace LenovoLegionToolkit.WPF.Utils
         {
             if (e.PropertyName == "WindowGlassColor" && Settings.Instance.Theme == Theme.System)
                 Apply();
+        }
+
+        private static void SetColor()
+        {
+            var accentColor = (Color)ColorConverter.ConvertFromString("#f44336");
+
+            Application.Current.Resources["SystemAccentColor"] = accentColor;
+            Application.Current.Resources["SystemAccentColorLight2"] = accentColor;
+            Application.Current.Resources["SystemAccentColorLight3"] = accentColor;
         }
     }
 }
