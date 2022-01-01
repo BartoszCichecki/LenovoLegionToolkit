@@ -28,7 +28,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 Reserved1 = 0,
                 Reserved2 = 0,
                 Reserved3 = 0
-            });
+            }).ConfigureAwait(false);
 
             return result.FlipToBootEn == 0 ? FlipToStartState.Off : FlipToStartState.On;
         }
@@ -42,7 +42,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 Reserved2 = 0,
                 Reserved3 = 0
             };
-            await WriteToUefiAsync(structure);
+            await WriteToUefiAsync(structure).ConfigureAwait(false);
         }
     }
 }

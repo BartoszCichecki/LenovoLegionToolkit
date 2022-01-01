@@ -16,7 +16,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                     Log.Instance.Trace($"Checking...");
 
                 var githubClient = new GitHubClient(new ProductHeaderValue("LenovoLegionToolkit-UpdateChecker"));
-                var releases = await githubClient.Repository.Release.GetAll("BartoszCichecki", "LenovoLegionToolkit");
+                var releases = await githubClient.Repository.Release.GetAll("BartoszCichecki", "LenovoLegionToolkit").ConfigureAwait(false);
 
                 var newestRelease = releases
                     .Select(r => Version.Parse(r.TagName))

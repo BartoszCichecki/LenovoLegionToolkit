@@ -26,7 +26,7 @@ namespace LenovoLegionToolkit.Lib.Features
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting state... [feature={GetType().Name}]");
 
-            if (!await IsSupportedAsync())
+            if (!await IsSupportedAsync().ConfigureAwait(false))
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Feature {_methodNameSuffix} is not supported [feature={GetType().Name}]");
@@ -34,7 +34,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 throw new NotSupportedException($"Feature {_methodNameSuffix} is not supported.");
             }
 
-            var result = FromInternal(await ExecuteGamezoneAsync("Get" + _methodNameSuffix, "Data"));
+            var result = FromInternal(await ExecuteGamezoneAsync("Get" + _methodNameSuffix, "Data").ConfigureAwait(false));
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"State is {result} [feature={GetType().Name}]");
@@ -64,7 +64,7 @@ namespace LenovoLegionToolkit.Lib.Features
             if (_supportMethodName == null)
                 return true;
 
-            var value = await ExecuteGamezoneAsync(_supportMethodName, "Data");
+            var value = await ExecuteGamezoneAsync(_supportMethodName, "Data").ConfigureAwait(false);
             return value > _supportOffset;
         }
 

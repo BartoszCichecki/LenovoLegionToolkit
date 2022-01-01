@@ -18,8 +18,8 @@ namespace LenovoLegionToolkit.Lib.Utils
             cmd.StartInfo.FileName = file;
             cmd.StartInfo.Arguments = arguments;
             cmd.Start();
-            var output = await cmd.StandardOutput.ReadToEndAsync();
-            await cmd.WaitForExitAsync();
+            var output = await cmd.StandardOutput.ReadToEndAsync().ConfigureAwait(false);
+            await cmd.WaitForExitAsync().ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Ran [file={file}, argument={arguments}, output={output}]");

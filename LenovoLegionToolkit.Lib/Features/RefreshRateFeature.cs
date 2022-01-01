@@ -13,7 +13,7 @@ namespace LenovoLegionToolkit.Lib.Features
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting all refresh rates...");
 
-            var display = await GetBuiltInDisplayAsync();
+            var display = await GetBuiltInDisplayAsync().ConfigureAwait(false);
             if (display == null)
             {
                 if (Log.Instance.IsTraceEnabled)
@@ -47,7 +47,7 @@ namespace LenovoLegionToolkit.Lib.Features
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting current refresh rate...");
 
-            var display = await GetBuiltInDisplayAsync();
+            var display = await GetBuiltInDisplayAsync().ConfigureAwait(false);
             if (display == null)
             {
                 if (Log.Instance.IsTraceEnabled)
@@ -67,7 +67,7 @@ namespace LenovoLegionToolkit.Lib.Features
 
         public async Task SetStateAsync(RefreshRate state)
         {
-            var display = await GetBuiltInDisplayAsync();
+            var display = await GetBuiltInDisplayAsync().ConfigureAwait(false);
             if (display == null)
             {
                 if (Log.Instance.IsTraceEnabled)
@@ -121,9 +121,10 @@ namespace LenovoLegionToolkit.Lib.Features
                 .Take(2)
                 .Aggregate((s1, s2) => s1 + "\\" + s2);
 
-            var vot = (await WMI.ReadAsync("root\\WMI",
-                $"SELECT * FROM WmiMonitorConnectionParams WHERE InstanceName LIKE '%{instanceName}%'",
-                pdc => (uint)pdc["VideoOutputTechnology"].Value)).FirstOrDefault();
+            var result = await WMI.ReadAsync("root\\WMI",
+                             $"SELECT * FROM WmiMonitorConnectionParams WHERE InstanceName LIKE '%{instanceName}%'",
+                             pdc => (uint)pdc["VideoOutputTechnology"].Value).ConfigureAwait(false);
+            var vot = result.FirstOrDefault();
 
             const uint votInternal = 0x80000000;
             const uint votDisplayPortEmbedded = 11;

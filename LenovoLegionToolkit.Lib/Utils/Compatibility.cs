@@ -41,9 +41,10 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         public static async Task<(bool isCompatible, MachineInformation machineInformation)> IsCompatibleAsync()
         {
-            var machineInformation = (await WMI.ReadAsync("root\\CIMV2",
-                $"SELECT * FROM Win32_ComputerSystemProduct",
-                Create)).First();
+            var result = await WMI.ReadAsync("root\\CIMV2",
+                            $"SELECT * FROM Win32_ComputerSystemProduct",
+                            Create).ConfigureAwait(false);
+            var machineInformation = result.First();
 
             if (!machineInformation.Vendor.Equals(_allowedVendor, StringComparison.OrdinalIgnoreCase))
                 return (false, machineInformation);

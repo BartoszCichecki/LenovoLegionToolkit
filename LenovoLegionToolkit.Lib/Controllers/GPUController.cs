@@ -65,7 +65,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         public async Task StartAsync(int delay = 1_000, int interval = 5_000)
         {
-            await StopAsync(true);
+            await StopAsync(true).ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Starting... [delay={delay}, interval={interval}]");
@@ -85,20 +85,20 @@ namespace LenovoLegionToolkit.Lib.Controllers
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Initialized NVAPI");
 
-                    await Task.Delay(delay, token);
+                    await Task.Delay(delay, token).ConfigureAwait(false);
 
                     while (true)
                     {
                         token.ThrowIfCancellationRequested();
 
-                        using (await _lock.LockAsync())
+                        using (await _lock.LockAsync().ConfigureAwait(false))
                         {
 
                             if (Log.Instance.IsTraceEnabled)
                                 Log.Instance.Trace($"Will refresh...");
 
                             WillRefresh?.Invoke(this, EventArgs.Empty);
-                            await RefreshAsync();
+                            await RefreshAsync().ConfigureAwait(false);
 
                             if (Log.Instance.IsTraceEnabled)
                                 Log.Instance.Trace($"Refreshed");
@@ -106,7 +106,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                             Refreshed?.Invoke(this, new RefreshedEventArgs(IsActive, CanBeDeactivated, _status, _processNames));
                         }
 
-                        await Task.Delay(interval, token);
+                        await Task.Delay(interval, token).ConfigureAwait(false);
                     }
                 }
                 catch (Exception ex) when (ex is not TaskCanceledException)
@@ -142,7 +142,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                     Log.Instance.Trace($"Waiting to finish...");
 
                 if (_refreshTask != null)
-                    await _refreshTask;
+                    await _refreshTask.ConfigureAwait(false);
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Finished");
@@ -157,7 +157,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         public async Task DeactivateGPUAsync()
         {
-            using (await _lock.LockAsync())
+            using (await _lock.LockAsync().ConfigureAwait(false))
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Deactivating... [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
@@ -165,7 +165,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             if (!IsActive || !CanBeDeactivated || string.IsNullOrEmpty(_gpuInstanceId))
                 return;
 
-            await CMD.RunAsync("pnputil", $"/restart-device \"{_gpuInstanceId}\"");
+            await CMD.RunAsync("pnputil", $"/restart-device \"{_gpuInstanceId}\"").ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Deactivated [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
@@ -214,7 +214,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
 
             var pnpDeviceId = NVAPI.GetGPUId(gpu);
-            var gpuInstanceId = await GetDeviceInstanceIDAsync(pnpDeviceId);
+            var gpuInstanceId = await GetDeviceInstanceIDAsync(pnpDeviceId).ConfigureAwait(false);
 
             _gpuInstanceId = gpuInstanceId;
             _status = Status.DeactivatePossible;
@@ -225,9 +225,10 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         private static async Task<string> GetDeviceInstanceIDAsync(string pnpDeviceId)
         {
-            return (await WMI.ReadAsync("root\\CIMV2",
+            var results = await WMI.ReadAsync("root\\CIMV2",
                 $"SELECT * FROM Win32_PnpEntity WHERE DeviceID LIKE '{pnpDeviceId}%'",
-                pdc => (string)pdc["DeviceID"].Value)).FirstOrDefault();
+                pdc => (string)pdc["DeviceID"].Value).ConfigureAwait(false);
+            return results.FirstOrDefault();
         }
     }
 }
