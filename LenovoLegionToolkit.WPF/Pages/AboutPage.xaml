@@ -11,5 +11,29 @@
     Style="{StaticResource UiPage}"
     mc:Ignorable="d">
 
-    <Grid />
+    <StackPanel Margin="0,0,0,12">
+        <TextBlock
+            Margin="0,16,0,24"
+            FontSize="24"
+            FontWeight="Medium"
+            Text="About" />
+
+        <TextBlock
+            Padding="0,0,0,8"
+            FontSize="16"
+            FontWeight="Medium"
+            Text="Lenovo Legion Toolkit" />
+        <TextBlock
+            x:Name="_version"
+            Padding="0,0,0,16"
+            Text="Version: " />
+        <TextBlock Padding="0,0,0,32" Text="© 2022 Bartosz Cichecki" />
+
+        <TextBlock
+            Padding="0,0,0,8"
+            FontWeight="Medium"
+            Text="Links" />
+        <wpfui:Hyperlink Content="Project website on GitHub" NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit" />
+        <wpfui:Hyperlink Content="Latest release on GitHub" NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit/releases/latest" />
+    </StackPanel>
 </Page>
