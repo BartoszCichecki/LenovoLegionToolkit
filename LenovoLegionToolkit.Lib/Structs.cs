@@ -2,6 +2,18 @@
 
 namespace LenovoLegionToolkit.Lib
 {
+    public struct WindowSize
+    {
+        public double Width { get; set; }
+        public double Height { get; set; }
+
+        public WindowSize(double width, double height)
+        {
+            Width = width;
+            Height = height;
+        }
+    }
+
     public struct RefreshRate
     {
         public static bool operator ==(RefreshRate left, RefreshRate right) => left.Equals(right);

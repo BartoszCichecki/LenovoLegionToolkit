@@ -23,6 +23,7 @@ namespace LenovoLegionToolkit.WPF.Windows
         {
             InitializeComponent();
             InitializeNavigation();
+            RestoreWindowSize();
 
             _notifyIcon = new Lazy<NotifyIcon>(CreateNotifyIcon);
         }
@@ -65,6 +66,8 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private void MainWindow_Closing(object sender, CancelEventArgs e)
         {
+            SaveWindowSize();
+
             if (Settings.Instance.MinimizeOnClose)
             {
                 if (Log.Instance.IsTraceEnabled)
@@ -98,6 +101,22 @@ namespace LenovoLegionToolkit.WPF.Windows
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri) { UseShellExecute = true });
             e.Handled = true;
+        }
+
+        private void SaveWindowSize()
+        {
+            Settings.Instance.WindowSize = new(ActualWidth, ActualHeight);
+            Settings.Instance.Synchronize();
+        }
+
+        private void RestoreWindowSize()
+        {
+            var windowSize = Settings.Instance.WindowSize;
+            if (windowSize.Width >= MinWidth && windowSize.Height >= MinHeight)
+            {
+                Width = windowSize.Width;
+                Height = windowSize.Height;
+            }
         }
 
         private NotifyIcon CreateNotifyIcon()

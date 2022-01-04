@@ -10,17 +10,12 @@ namespace LenovoLegionToolkit.WPF.Pages
             InitializeComponent();
         }
 
-        private void Page_SizeChanged(object sender, SizeChangedEventArgs e)
+        private void DashboardPage_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             if (!e.WidthChanged)
                 return;
 
-            RefreshLayout();
-        }
-
-        private void RefreshLayout()
-        {
-            if (ActualWidth < 1100)
+            if (e.NewSize.Width < 1100)
             {
                 _column0.Width = new GridLength(1, GridUnitType.Star);
                 _column1.Width = new GridLength(0, GridUnitType.Pixel);
