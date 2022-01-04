@@ -31,7 +31,7 @@ namespace LenovoLegionToolkit.Lib
 
         private readonly JsonSerializerOptions _jsonSerializerOptions;
         private readonly string _settingsStorePath;
-        
+
         public WindowSize WindowSize
         {
             get => _settingsStore.WindowSize;
