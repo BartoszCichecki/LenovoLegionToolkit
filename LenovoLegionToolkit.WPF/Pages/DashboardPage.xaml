@@ -21,8 +21,8 @@
                 <ColumnDefinition x:Name="_column2" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition x:Name="_row0" />
-                <RowDefinition x:Name="_row2" />
+                <RowDefinition />
+                <RowDefinition />
             </Grid.RowDefinitions>
 
             <StackPanel x:Name="_stackPanelLeft" Grid.Column="0">
