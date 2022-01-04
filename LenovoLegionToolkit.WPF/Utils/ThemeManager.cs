@@ -17,13 +17,13 @@ namespace LenovoLegionToolkit.WPF.Utils
             switch (Settings.Instance.Theme)
             {
                 case Theme.Dark:
-                    WPFUI.Theme.Manager.Switch(WPFUI.Theme.Style.Dark);
+                    WPFUI.Theme.Manager.Switch(WPFUI.Theme.Style.Dark, true);
                     break;
                 case Theme.Light:
-                    WPFUI.Theme.Manager.Switch(WPFUI.Theme.Style.Light);
+                    WPFUI.Theme.Manager.Switch(WPFUI.Theme.Style.Light, true);
                     break;
                 case Theme.System:
-                    WPFUI.Theme.Manager.SetSystemTheme();
+                    WPFUI.Theme.Manager.SetSystemTheme(true);
                     break;
             }
 
