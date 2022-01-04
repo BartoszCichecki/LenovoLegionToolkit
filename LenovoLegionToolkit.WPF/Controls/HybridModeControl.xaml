@@ -12,7 +12,7 @@
         Title="Hybrid Mode"
         Margin="0,0,0,8"
         Icon="LeafOne24"
-        Subtitle="Turn on to allow switching between intergarted and discrete GPU. Requires restart.">
+        Subtitle="Allow switching between integrated and discrete GPU. &#x0a;Requires restart.">
         <ToggleButton
             x:Name="_toggleButton"
             Margin="0,0,0,8"
