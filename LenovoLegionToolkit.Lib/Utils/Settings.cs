@@ -9,6 +9,7 @@ namespace LenovoLegionToolkit.Lib
     {
         private class SettingsStore
         {
+            public WindowSize WindowSize { get; set; }
             public Theme Theme { get; set; } = Theme.Dark;
             public Dictionary<PowerModeState, string> PowerPlans { get; set; } = new();
             public bool MinimizeOnClose { get; set; } = false;
@@ -30,6 +31,12 @@ namespace LenovoLegionToolkit.Lib
 
         private readonly JsonSerializerOptions _jsonSerializerOptions;
         private readonly string _settingsStorePath;
+        
+        public WindowSize WindowSize
+        {
+            get => _settingsStore.WindowSize;
+            set => _settingsStore.WindowSize = value;
+        }
 
         public Theme Theme
         {
