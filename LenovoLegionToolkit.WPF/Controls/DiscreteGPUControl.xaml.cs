@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.WPF.Utils;
@@ -15,21 +16,20 @@ namespace LenovoLegionToolkit.WPF.Controls
 
             _gpuController.WillRefresh += GpuController_WillRefresh;
             _gpuController.Refreshed += GpuController_Refreshed;
+
+            IsVisibleChanged += DiscreteGPUControl_IsVisibleChanged;
         }
 
-        private async void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        protected override async Task OnRefreshAsync()
         {
-            if (IsVisible)
-            {
-                if (_gpuController.IsSupported())
-                {
-                    Visibility = Visibility.Visible;
-                    await _gpuController.StartAsync();
-                }
-                else
-                    Visibility = Visibility.Collapsed;
-            }
-            else
+            if (!_gpuController.IsSupported())
+                throw new InvalidOperationException("Unsupported operation");
+
+            await _gpuController.StartAsync();
+        }
+        private async void DiscreteGPUControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (!IsVisible)
                 await _gpuController.StopAsync();
         }
 

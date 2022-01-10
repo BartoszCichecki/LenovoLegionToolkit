@@ -1,12 +1,12 @@
-﻿<UserControl
+﻿<local:RefreshingControl
     x:Class="LenovoLegionToolkit.WPF.Controls.BatteryModeControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
     d:DesignWidth="800"
-    IsVisibleChanged="UserControl_IsVisibleChanged"
     mc:Ignorable="d">
     <wpfui:CardControl
         Title="Battery Mode"
@@ -19,4 +19,4 @@
             Margin="0,0,0,8"
             SelectionChanged="ComboBox_SelectionChanged" />
     </wpfui:CardControl>
-</UserControl>
+</local:RefreshingControl>

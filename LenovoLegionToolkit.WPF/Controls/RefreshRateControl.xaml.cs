@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
@@ -21,22 +20,15 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         private async void SystemEvents_DisplaySettingsChanged(object sender, System.EventArgs e)
         {
-            if (!IsVisible)
-                return;
-
-            await RefreshAsync();
-        }
-
-        private async void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (!IsVisible)
-                return;
-
-            await RefreshAsync();
+            if (IsLoaded && IsVisible)
+                await OnRefreshAsync();
         }
 
         private async void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (IsRefreshing)
+                return;
+
             if (!_comboBox.TryGetSelectedItem(out RefreshRate state))
                 return;
 
@@ -44,19 +36,11 @@ namespace LenovoLegionToolkit.WPF.Controls
                 await _feature.SetStateAsync(state);
         }
 
-        private async Task RefreshAsync()
+        protected override async Task OnRefreshAsync()
         {
-            try
-            {
-                var items = await _feature.GetAllStatesAsync();
-                var selectedItem = await _feature.GetStateAsync();
-                _comboBox.SetItems(items, selectedItem);
-                Visibility = Visibility.Visible;
-            }
-            catch
-            {
-                Visibility = Visibility.Collapsed;
-            }
+            var items = await _feature.GetAllStatesAsync();
+            var selectedItem = await _feature.GetStateAsync();
+            _comboBox.SetItems(items, selectedItem);
         }
     }
 }
