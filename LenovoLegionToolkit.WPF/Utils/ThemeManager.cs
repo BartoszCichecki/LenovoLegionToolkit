@@ -17,22 +17,17 @@ namespace LenovoLegionToolkit.WPF.Utils
             switch (Settings.Instance.Theme)
             {
                 case Theme.Dark:
-                    WPFUI.Theme.Manager.Switch(WPFUI.Theme.Style.Dark, true);
+                    WPFUI.Theme.Manager.Switch(WPFUI.Theme.Style.Dark);
                     break;
                 case Theme.Light:
-                    WPFUI.Theme.Manager.Switch(WPFUI.Theme.Style.Light, true);
+                    WPFUI.Theme.Manager.Switch(WPFUI.Theme.Style.Light);
                     break;
                 case Theme.System:
-                    WPFUI.Theme.Manager.SetSystemTheme(true);
+                    WPFUI.Theme.Manager.SetSystemTheme();
                     break;
             }
 
             SetColor();
-        }
-
-        public void ApplyBackgroundEffects(Window window)
-        {
-            WPFUI.Background.Manager.Apply(window, true);
         }
 
         private void SystemParameters_StaticPropertyChanged(object sender, PropertyChangedEventArgs e)
