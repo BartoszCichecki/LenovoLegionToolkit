@@ -12,54 +12,51 @@
     Style="{StaticResource UiPageScrollable}"
     mc:Ignorable="d">
 
-    <StackPanel Margin="0,0,0,12">
+    <Grid Margin="0,0,0,12">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="_column0" />
+            <ColumnDefinition x:Name="_column1" Width="16" />
+            <ColumnDefinition x:Name="_column2" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
 
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition x:Name="_column0" />
-                <ColumnDefinition x:Name="_column1" Width="16" />
-                <ColumnDefinition x:Name="_column2" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
+        <StackPanel x:Name="_stackPanelLeft" Grid.Column="0">
 
-            <StackPanel x:Name="_stackPanelLeft" Grid.Column="0">
+            <TextBlock
+                Margin="0,16,0,24"
+                FontSize="24"
+                FontWeight="Medium"
+                Text="Power" />
+            <c:PowerModeControl />
+            <c:BatteryModeControl />
+            <c:AlwaysOnUSBControl />
 
-                <TextBlock
-                    Margin="0,16,0,24"
-                    FontSize="24"
-                    FontWeight="Medium"
-                    Text="Power" />
-                <c:PowerModeControl />
-                <c:BatteryModeControl />
-                <c:AlwaysOnUSBControl />
+            <TextBlock
+                Margin="0,16,0,24"
+                FontSize="24"
+                FontWeight="Medium"
+                Text="Graphics" />
+            <c:HybridModeControl />
+            <c:RefreshRateControl />
+            <c:DiscreteGPUControl />
 
-                <TextBlock
-                    Margin="0,16,0,24"
-                    FontSize="24"
-                    FontWeight="Medium"
-                    Text="Graphics" />
-                <c:HybridModeControl />
-                <c:RefreshRateControl />
-                <c:DiscreteGPUControl />
+        </StackPanel>
 
-            </StackPanel>
+        <StackPanel x:Name="_stackPanelRight" Grid.Column="2">
 
-            <StackPanel x:Name="_stackPanelRight" Grid.Column="2">
+            <TextBlock
+                Margin="0,16,0,24"
+                FontSize="24"
+                FontWeight="Medium"
+                Text="Other" />
+            <c:FlipToStartControl />
+            <c:OverDriveControl />
+            <c:FnLockControl />
+            <c:TouchpadLockControl />
 
-                <TextBlock
-                    Margin="0,16,0,24"
-                    FontSize="24"
-                    FontWeight="Medium"
-                    Text="Other" />
-                <c:FlipToStartControl />
-                <c:OverDriveControl />
-                <c:FnLockControl />
-                <c:TouchpadLockControl />
-
-            </StackPanel>
-        </Grid>
-    </StackPanel>
+        </StackPanel>
+    </Grid>
 </Page>
