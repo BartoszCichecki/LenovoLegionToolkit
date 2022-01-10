@@ -26,7 +26,7 @@
     <PackageReference Include="Autofac" Version="6.3.0" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" />
-    <PackageReference Include="WPF-UI" Version="1.2.2-prerelease115" />
+    <PackageReference Include="WPF-UI" Version="1.2.2-prerelease116" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LenovoLegionToolkit.Lib\LenovoLegionToolkit.Lib.csproj" />
