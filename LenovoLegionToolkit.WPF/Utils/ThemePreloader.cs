@@ -2,30 +2,28 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using WPFUI.Controls;
 
 namespace LenovoLegionToolkit.WPF.Utils
 {
     public class ThemePreloader : Window, IDisposable
     {
-        private Type[] _types = {
+        private readonly Type[] _types = {
             // WPF
-            typeof(WPFUI.Controls.Button),
-            typeof(ComboBox),
-            typeof(Grid),
-            typeof(StackPanel),
-            typeof(TextBlock),
-            typeof(ToggleButton),
+            typeof(System.Windows.Controls.Button),
+            typeof(System.Windows.Controls.ComboBox),
+            typeof(System.Windows.Controls.Grid),
+            typeof(System.Windows.Controls.StackPanel),
+            typeof(System.Windows.Controls.TextBlock),
+            typeof(System.Windows.Controls.Primitives.ToggleButton),
 
             // WPFUI
-            typeof(CardAction),
-            typeof(CardControl),
+            typeof(WPFUI.Controls.Button),
+            typeof(WPFUI.Controls.CardAction),
+            typeof(WPFUI.Controls.CardControl),
             typeof(WPFUI.Controls.Hyperlink),
-            typeof(NavigationItem),
-            typeof(NavigationStore),
-            typeof(TitleBar),
+            typeof(WPFUI.Controls.NavigationItem),
+            typeof(WPFUI.Controls.NavigationStore),
+            typeof(WPFUI.Controls.TitleBar),
         };
 
         private TaskCompletionSource _taskCompletionSource = new();
@@ -47,7 +45,7 @@ namespace LenovoLegionToolkit.WPF.Utils
 
         private void InitializeTypes()
         {
-            var stackPanel = new StackPanel();
+            var stackPanel = new System.Windows.Controls.StackPanel();
 
             _types.Select(Activator.CreateInstance)
                 .OfType<UIElement>()
