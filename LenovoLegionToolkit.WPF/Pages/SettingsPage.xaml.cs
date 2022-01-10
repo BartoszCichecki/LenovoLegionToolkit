@@ -21,6 +21,17 @@ namespace LenovoLegionToolkit.WPF.Pages
         public SettingsPage()
         {
             InitializeComponent();
+
+            Loaded += SettingsPage_Loaded;
+            IsVisibleChanged += SettingsPage_IsVisibleChanged;
+        }
+
+        private async void SettingsPage_Loaded(object sender, RoutedEventArgs e) => await RefreshAsync();
+
+        private async void SettingsPage_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (IsLoaded && IsVisible)
+                await RefreshAsync();
         }
 
         private async Task RefreshAsync()
@@ -60,12 +71,6 @@ namespace LenovoLegionToolkit.WPF.Pages
             Settings.Instance.Synchronize();
 
             await _powerModeFeature.EnsureCorrectPowerPlanIsSetAsync();
-        }
-
-        private async void SettingsPage_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (IsVisible)
-                await RefreshAsync();
         }
 
         private void ThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

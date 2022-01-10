@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
@@ -23,22 +22,15 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         private void Listener_Changed(object sender, PowerModeState e) => Dispatcher.Invoke(async () =>
         {
-            if (!IsVisible)
-                return;
-
-            await RefreshAsync();
+            if (IsLoaded && IsVisible)
+                await RefreshAsync();
         });
-
-        private async void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (!IsVisible)
-                return;
-
-            await RefreshAsync();
-        }
 
         private async void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (IsRefreshing)
+                return;
+
             if (!_comboBox.TryGetSelectedItem(out PowerModeState state))
                 return;
 
@@ -46,19 +38,11 @@ namespace LenovoLegionToolkit.WPF.Controls
                 await _feature.SetStateAsync(state);
         }
 
-        private async Task RefreshAsync()
+        protected override async Task OnRefreshAsync()
         {
-            try
-            {
-                var items = Enum.GetValues<PowerModeState>();
-                var selectedItem = await _feature.GetStateAsync();
-                _comboBox.SetItems(items, selectedItem);
-                Visibility = Visibility.Visible;
-            }
-            catch
-            {
-                Visibility = Visibility.Collapsed;
-            }
+            var items = Enum.GetValues<PowerModeState>();
+            var selectedItem = await _feature.GetStateAsync();
+            _comboBox.SetItems(items, selectedItem);
         }
     }
 }
