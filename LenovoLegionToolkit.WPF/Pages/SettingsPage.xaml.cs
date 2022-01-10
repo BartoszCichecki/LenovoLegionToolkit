@@ -18,6 +18,8 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private readonly PowerModeFeature _powerModeFeature = Container.Resolve<PowerModeFeature>();
 
+        private bool _isRefreshing;
+
         public SettingsPage()
         {
             InitializeComponent();
@@ -36,6 +38,8 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private async Task RefreshAsync()
         {
+            _isRefreshing = true;
+
             _themeComboBox.SetItems(Enum.GetValues<Theme>(), Settings.Instance.Theme);
 
             _autorunToggleButton.IsChecked = Autorun.IsEnabled;
@@ -52,6 +56,8 @@ namespace LenovoLegionToolkit.WPF.Pages
             Refresh(_performanceModeComboBox, powerPlans, PowerModeState.Performance);
 
             _activatePowerProfilesWithVantageEnabledToggleButton.IsChecked = Settings.Instance.ActivatePowerProfilesWithVantageEnabled;
+
+            _isRefreshing = false;
         }
 
         private void Refresh(ComboBox comboBox, IEnumerable<PowerPlan> powerPlans, PowerModeState powerModeState)
@@ -75,6 +81,9 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private void ThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (_isRefreshing)
+                return;
+
             if (!_themeComboBox.TryGetSelectedItem(out Theme state))
                 return;
 
@@ -86,6 +95,9 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private void AutorunToggleButton_Click(object sender, RoutedEventArgs e)
         {
+            if (_isRefreshing)
+                return;
+
             var state = _autorunToggleButton.IsChecked;
             if (state == null)
                 return;
@@ -98,6 +110,9 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private void MinimizeOnCloseToggleButton_Click(object sender, RoutedEventArgs e)
         {
+            if (_isRefreshing)
+                return;
+
             var state = _minimizeOnCloseToggleButton.IsChecked;
             if (state == null)
                 return;
@@ -108,6 +123,9 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private async void VantageToggleButton_Click(object sender, RoutedEventArgs e)
         {
+            if (_isRefreshing)
+                return;
+
             var state = _vantageToggleButton.IsChecked;
             if (state == null)
                 return;
@@ -120,6 +138,9 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private async void QuietModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (_isRefreshing)
+                return;
+
             var state = _quietModeComboBox.SelectedValue;
             if (state == null)
                 return;
@@ -129,6 +150,9 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private async void BalanceModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (_isRefreshing)
+                return;
+
             var state = _balanceModeComboBox.SelectedValue;
             if (state == null)
                 return;
@@ -138,6 +162,9 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private async void PerformanceModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (_isRefreshing)
+                return;
+
             var state = _performanceModeComboBox.SelectedValue;
             if (state == null)
                 return;
@@ -147,6 +174,9 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private async void ActivatePowerProfilesWithVantageEnabled_Click(object sender, RoutedEventArgs e)
         {
+            if (_isRefreshing)
+                return;
+
             var state = _activatePowerProfilesWithVantageEnabledToggleButton.IsChecked;
             if (state == null)
                 return;
