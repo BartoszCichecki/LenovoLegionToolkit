@@ -30,7 +30,7 @@ namespace LenovoLegionToolkit.WPF.Controls
             }
             else
             {
-                _toggleButton.IsChecked =! _toggleButton.IsChecked;
+                _toggleButton.IsChecked = !_toggleButton.IsChecked;
             }
         }
 
