@@ -5,20 +5,26 @@ namespace LenovoLegionToolkit.Lib.Utils
 {
     internal static class Drivers
     {
+        private static readonly object _locker = new();
+
         private static SafeFileHandle _energy;
-        public static SafeFileHandle Energy
+
+        public static SafeFileHandle GetEnergy()
         {
-            get
+            if (_energy == null)
             {
-                if (_energy == null)
+                lock (_locker)
                 {
-                    var fileHandle = Native.CreateFileW("\\\\.\\EnergyDrv", 0xC0000000, 3u, IntPtr.Zero, 3u, 0x80, IntPtr.Zero);
-                    if (fileHandle == new IntPtr(-1))
-                        throw new InvalidOperationException("fileHandle is 0");
-                    _energy = new SafeFileHandle(fileHandle, true);
+                    if (_energy == null)
+                    {
+                        var fileHandle = Native.CreateFileW("\\\\.\\EnergyDrv", 0xC0000000, 3u, IntPtr.Zero, 3u, 0x80, IntPtr.Zero);
+                        if (fileHandle == new IntPtr(-1))
+                            throw new InvalidOperationException("fileHandle is 0");
+                        _energy = new SafeFileHandle(fileHandle, true);
+                    }
                 }
-                return _energy;
             }
+            return _energy;
         }
     }
 }

@@ -9,11 +9,11 @@ namespace LenovoLegionToolkit.Lib.Features
     public abstract class AbstractDriverFeature<T> : IFeature<T> where T : struct, IComparable
     {
         private readonly uint _controlCode;
-        private readonly SafeFileHandle _driverHandle;
+        private readonly Func<SafeFileHandle> _driverHandle;
 
         protected T LastState;
 
-        protected AbstractDriverFeature(SafeFileHandle driverHandleHandle, uint controlCode)
+        protected AbstractDriverFeature(Func<SafeFileHandle> driverHandleHandle, uint controlCode)
         {
             _driverHandle = driverHandleHandle;
             _controlCode = controlCode;
@@ -24,7 +24,7 @@ namespace LenovoLegionToolkit.Lib.Features
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting state... [feature={GetType().Name}]");
 
-            var (_, outBuffer) = await SendCodeAsync(_driverHandle, _controlCode, GetInternalStatus()).ConfigureAwait(false);
+            var (_, outBuffer) = await SendCodeAsync(_driverHandle(), _controlCode, GetInternalStatus()).ConfigureAwait(false);
             var state = FromInternal(outBuffer);
             LastState = state;
 
@@ -41,7 +41,7 @@ namespace LenovoLegionToolkit.Lib.Features
 
             var codes = ToInternal(state);
             foreach (var code in codes)
-                await SendCodeAsync(_driverHandle, _controlCode, code).ConfigureAwait(false);
+                await SendCodeAsync(_driverHandle(), _controlCode, code).ConfigureAwait(false);
             LastState = state;
 
             if (Log.Instance.IsTraceEnabled)
