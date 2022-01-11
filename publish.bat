@@ -1,1 +1,0 @@
-dotnet publish LenovoLegionToolkit.WPF -c release -o build -a x64 /p:DebugType=None /p:FileVersion=0.0.1 /p:Version=0.0.1
