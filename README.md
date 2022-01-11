@@ -1,5 +1,7 @@
 # Lenovo Legion Toolkit
 
+[![.NET](https://github.com/BartoszCichecki/LenovoLegionToolkit/actions/workflows/dotnet.yml/badge.svg?branch=master)](https://github.com/BartoszCichecki/LenovoLegionToolkit/actions/workflows/dotnet.yml)
+
 This is a small utility created for Lenovo Legion laptops, that allows to change a couple of features that are only available in Lenovo Vantage.
 
 It is a single executable app that needs no installation and runs no background services. It uses less memory, virtually no CPU and contains no telemetry.
