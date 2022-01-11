@@ -40,8 +40,32 @@ namespace LenovoLegionToolkit
                 await CheckCompatibilityAsync();
 
             Container.Initialize();
-            await Container.Resolve<PowerModeFeature>().EnsureCorrectPowerPlanIsSetAsync();
-            Container.Resolve<PowerModeListener>().Start();
+
+            try
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Ensuring correct power plan is set...");
+
+                await Container.Resolve<PowerModeFeature>().EnsureCorrectPowerPlanIsSetAsync();
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't ensure correct power plan. Exception: {ex}");
+            }
+
+            try
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Starting power mode listener...");
+
+                Container.Resolve<PowerModeListener>().Start();
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't start power model listener. Exception: {ex}");
+            }
 
             var themeManager = Container.Resolve<ThemeManager>();
             themeManager.Apply();

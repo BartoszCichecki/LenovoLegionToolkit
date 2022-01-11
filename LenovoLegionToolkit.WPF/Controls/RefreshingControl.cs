@@ -1,6 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.WPF.Controls
 {
@@ -31,6 +33,9 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         protected async Task RefreshAsync()
         {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Refreshing control... [feature={GetType().Name}]");
+
             var exceptions = false;
 
             try
@@ -41,9 +46,12 @@ namespace LenovoLegionToolkit.WPF.Controls
                     _refreshTask = OnRefreshAsync();
                 await _refreshTask;
             }
-            catch
+            catch (Exception ex)
             {
                 exceptions = true;
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Exception when refreshing control. [feature={GetType().Name}, ex={ex}]");
             }
             finally
             {
