@@ -22,8 +22,8 @@ namespace LenovoLegionToolkit
         private const string EventName = "LenovoLegionToolkit_Event_6efcc882-924c-4cbc-8fec-f45c25696f98";
 
 #pragma warning disable IDE0052 // Remove unread private members
-        private Mutex _mutex;
-        private EventWaitHandle _eventWaitHandle;
+        private Mutex? _mutex;
+        private EventWaitHandle? _eventWaitHandle;
 #pragma warning restore IDE0052 // Remove unread private members
 
         private async void Application_Startup(object sender, StartupEventArgs e)
@@ -32,7 +32,7 @@ namespace LenovoLegionToolkit
                 Log.Instance.IsTraceEnabled = true;
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Starting... [version={Assembly.GetEntryAssembly().GetName().Version}]");
+                Log.Instance.Trace($"Starting... [version={Assembly.GetEntryAssembly()?.GetName().Version}]");
 
             EnsureSingleInstance();
 

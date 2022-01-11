@@ -31,6 +31,6 @@ namespace LenovoLegionToolkit.Lib
 
         public override int GetHashCode() => HashCode.Combine(Frequency);
 
-        public override bool Equals(object obj) => obj is RefreshRate rate && Frequency == rate.Frequency;
+        public override bool Equals(object? obj) => obj is RefreshRate rate && Frequency == rate.Frequency;
     }
 }

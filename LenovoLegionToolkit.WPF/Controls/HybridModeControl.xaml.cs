@@ -18,7 +18,7 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         private async void ToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            if (IsRefreshing)
+            if (IsRefreshing || _toggleButton.IsChecked == null)
                 return;
 
             var result = await DialogService.ShowDialogAsync("Restart required", "Changing Hybrid Mode requires restart. Do you want to restart now?");

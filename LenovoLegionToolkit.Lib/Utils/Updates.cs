@@ -23,7 +23,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                     .OrderByDescending(r => r)
                     .FirstOrDefault();
 
-                var thisRelease = Assembly.GetEntryAssembly().GetName().Version;
+                var thisRelease = Assembly.GetEntryAssembly()?.GetName().Version;
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Checked [thisRelease={thisRelease}, newestRelease={newestRelease}]");

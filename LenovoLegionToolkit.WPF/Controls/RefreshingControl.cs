@@ -10,7 +10,7 @@ namespace LenovoLegionToolkit.WPF.Controls
     {
         protected bool IsRefreshing => _refreshTask != null;
 
-        private Task _refreshTask;
+        private Task? _refreshTask;
 
         public RefreshingControl()
         {

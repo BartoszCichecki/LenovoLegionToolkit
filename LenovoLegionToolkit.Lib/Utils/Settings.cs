@@ -16,7 +16,7 @@ namespace LenovoLegionToolkit.Lib
             public bool ActivatePowerProfilesWithVantageEnabled { get; set; } = false;
         }
 
-        private static Settings _instance;
+        private static Settings? _instance;
         public static Settings Instance
         {
             get
@@ -27,7 +27,7 @@ namespace LenovoLegionToolkit.Lib
             }
         }
 
-        private SettingsStore _settingsStore;
+        private readonly SettingsStore _settingsStore;
 
         private readonly JsonSerializerOptions _jsonSerializerOptions;
         private readonly string _settingsStorePath;
@@ -71,26 +71,19 @@ namespace LenovoLegionToolkit.Lib
             _jsonSerializerOptions = new() { WriteIndented = true };
             _settingsStorePath = Path.Combine(folderPath, "settings.json");
 
-            Deserialize();
-        }
-
-        public void Synchronize() => Serialize();
-
-        private void Deserialize()
-        {
             try
             {
                 var settingsSerialized = File.ReadAllText(_settingsStorePath);
-                _settingsStore = JsonSerializer.Deserialize<SettingsStore>(settingsSerialized, _jsonSerializerOptions);
+                _settingsStore = JsonSerializer.Deserialize<SettingsStore>(settingsSerialized, _jsonSerializerOptions) ?? new();
             }
             catch
             {
                 _settingsStore = new();
-                Serialize();
+                Synchronize();
             }
         }
 
-        private void Serialize()
+        public void Synchronize()
         {
             var settingsSerialized = JsonSerializer.Serialize(_settingsStore, _jsonSerializerOptions);
             File.WriteAllText(_settingsStorePath, settingsSerialized);

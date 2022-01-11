@@ -18,7 +18,7 @@ namespace LenovoLegionToolkit.WPF.Controls
             SystemEvents.DisplaySettingsChanged += SystemEvents_DisplaySettingsChanged;
         }
 
-        private async void SystemEvents_DisplaySettingsChanged(object sender, System.EventArgs e)
+        private async void SystemEvents_DisplaySettingsChanged(object? sender, System.EventArgs e)
         {
             if (IsLoaded && IsVisible)
                 await OnRefreshAsync();

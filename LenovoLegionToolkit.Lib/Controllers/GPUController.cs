@@ -37,25 +37,25 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         private readonly AsyncLock _lock = new();
 
-        private Task _refreshTask = null;
-        private CancellationTokenSource _refreshCancellationTokenSource = null;
+        private Task? _refreshTask = null;
+        private CancellationTokenSource? _refreshCancellationTokenSource = null;
 
         private Status _status = Status.Unknown;
         private string[] _processNames = Array.Empty<string>();
-        private string _gpuInstanceId = null;
+        private string? _gpuInstanceId = null;
 
         private bool IsActive => _status == Status.MonitorsConnected || _status == Status.DeactivatePossible;
         private bool CanBeDeactivated => _status == Status.DeactivatePossible;
 
-        public event EventHandler WillRefresh;
-        public event EventHandler<RefreshedEventArgs> Refreshed;
+        public event EventHandler? WillRefresh;
+        public event EventHandler<RefreshedEventArgs>? Refreshed;
 
         public bool IsSupported()
         {
             try
             {
                 NVAPI.Initialize();
-                return NVAPI.IsGPUPresent(out _);
+                return NVAPI.GetGPU() != null;
             }
             finally
             {
@@ -180,7 +180,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
             _processNames = Array.Empty<string>();
             _gpuInstanceId = null;
 
-            if (!NVAPI.IsGPUPresent(out var gpu))
+            var gpu = NVAPI.GetGPU();
+            if (gpu == null)
             {
                 _status = Status.NVIDIAGPUNotFound;
 
@@ -214,6 +215,10 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
 
             var pnpDeviceId = NVAPI.GetGPUId(gpu);
+
+            if (string.IsNullOrEmpty(pnpDeviceId))
+                throw new InvalidOperationException("pnpDeviceId is null or empty");
+
             var gpuInstanceId = await GetDeviceInstanceIDAsync(pnpDeviceId).ConfigureAwait(false);
 
             _gpuInstanceId = gpuInstanceId;
@@ -223,12 +228,12 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 Log.Instance.Trace($"Deactivate possible [status={_status}, processNames.Length={_processNames.Length}, gpuInstanceId={_gpuInstanceId}, pnpDeviceId={pnpDeviceId}]");
         }
 
-        private static async Task<string> GetDeviceInstanceIDAsync(string pnpDeviceId)
+        private static async Task<string?> GetDeviceInstanceIDAsync(string pnpDeviceId)
         {
             var results = await WMI.ReadAsync("root\\CIMV2",
                 $"SELECT * FROM Win32_PnpEntity WHERE DeviceID LIKE '{pnpDeviceId}%'",
                 pdc => (string)pdc["DeviceID"].Value).ConfigureAwait(false);
-            return results.FirstOrDefault();
+            return results?.FirstOrDefault();
         }
     }
 }

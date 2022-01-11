@@ -49,7 +49,7 @@ namespace LenovoLegionToolkit.Lib.Features
             if (GetNthBit(state, 29))
                 return BatteryState.Conservation;
 
-            throw new InvalidOperationException($"Unknown battery state: {state}.");
+            throw new InvalidOperationException($"Unknown battery state: {state}");
         }
     }
 }

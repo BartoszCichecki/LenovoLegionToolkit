@@ -1,4 +1,5 @@
-﻿using Autofac;
+﻿using System;
+using Autofac;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
@@ -7,7 +8,7 @@ namespace LenovoLegionToolkit.WPF.Utils
 {
     internal class Container
     {
-        private static IContainer _container;
+        private static IContainer? _container;
 
         public static void Initialize()
         {
@@ -31,6 +32,11 @@ namespace LenovoLegionToolkit.WPF.Utils
             _container = cb.Build();
         }
 
-        public static T Resolve<T>() => _container.Resolve<T>();
+        public static T Resolve<T>() where T : notnull
+        {
+            if (_container == null)
+                throw new InvalidOperationException("Container must be initialized first");
+            return _container.Resolve<T>();
+        }
     }
 }

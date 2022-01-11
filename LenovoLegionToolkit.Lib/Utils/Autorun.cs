@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Security.Principal;
 using Microsoft.Win32.TaskScheduler;
 
@@ -14,6 +15,11 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             Disable();
 
+            var filename = Process.GetCurrentProcess().MainModule?.FileName;
+
+            if (filename == null)
+                throw new InvalidOperationException("Current process file name cannot be null");
+
             var currentUser = WindowsIdentity.GetCurrent().Name;
 
             var ts = TaskService.Instance;
@@ -21,7 +27,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             td.Principal.UserId = currentUser;
             td.Principal.RunLevel = TaskRunLevel.Highest;
             td.Triggers.Add(new LogonTrigger { UserId = currentUser });
-            td.Actions.Add($"\"{Process.GetCurrentProcess().MainModule.FileName}\"", "--minimized");
+            td.Actions.Add($"\"{filename}\"", "--minimized");
             td.Settings.DisallowStartIfOnBatteries = false;
             td.Settings.StopIfGoingOnBatteries = false;
             ts.RootFolder.RegisterTaskDefinition(TaskName, td);

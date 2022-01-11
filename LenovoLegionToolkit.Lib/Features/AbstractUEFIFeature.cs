@@ -54,7 +54,7 @@ namespace LenovoLegionToolkit.Lib.Features
                     Marshal.StructureToPtr(structure, ptr, false);
                     if (Native.GetFirmwareEnvironmentVariableExW(_scopeName, _guid, hGlobal, Marshal.SizeOf<S>(), IntPtr.Zero) != 0)
                     {
-                        var result = (S)Marshal.PtrToStructure(hGlobal, typeof(S));
+                        var result = Marshal.PtrToStructure<S>(hGlobal);
 
                         if (Log.Instance.IsTraceEnabled)
                             Log.Instance.Trace($"Read from UEFI successful [feature={GetType().Name}]");
@@ -86,7 +86,7 @@ namespace LenovoLegionToolkit.Lib.Features
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"UEFI mode is not enabled. [feature={GetType().Name}]");
 
-                    throw new InvalidOperationException("UEFI mode is not enabled.");
+                    throw new InvalidOperationException("UEFI mode is not enabled");
                 }
 
                 var hGlobal = Marshal.AllocHGlobal(Marshal.SizeOf<S>());

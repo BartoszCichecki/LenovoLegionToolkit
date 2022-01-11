@@ -33,12 +33,12 @@ namespace LenovoLegionToolkit.WPF.Controls
                 await _gpuController.StopAsync();
         }
 
-        private void GpuController_WillRefresh(object sender, EventArgs e) => Dispatcher.Invoke(() =>
+        private void GpuController_WillRefresh(object? sender, EventArgs e) => Dispatcher.Invoke(() =>
         {
             _deactivateGPUButton.IsEnabled = false;
         });
 
-        private void GpuController_Refreshed(object sender, GPUController.RefreshedEventArgs e) => Dispatcher.Invoke(() =>
+        private void GpuController_Refreshed(object? sender, GPUController.RefreshedEventArgs e) => Dispatcher.Invoke(() =>
         {
             if (e.Status == GPUController.Status.Unknown || e.Status == GPUController.Status.NVIDIAGPUNotFound)
             {

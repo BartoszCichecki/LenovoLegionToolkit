@@ -17,7 +17,7 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         private async void ToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            if (IsRefreshing)
+            if (IsRefreshing || _toggleButton.IsChecked == null)
                 return;
 
             var state = _toggleButton.IsChecked.Value ? FlipToStartState.On : FlipToStartState.Off;
