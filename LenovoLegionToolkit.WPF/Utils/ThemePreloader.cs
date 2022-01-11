@@ -26,7 +26,7 @@ namespace LenovoLegionToolkit.WPF.Utils
             typeof(WPFUI.Controls.TitleBar),
         };
 
-        private TaskCompletionSource _taskCompletionSource = new();
+        private readonly TaskCompletionSource _taskCompletionSource = new();
 
         private ThemePreloader()
         {
@@ -34,7 +34,7 @@ namespace LenovoLegionToolkit.WPF.Utils
             LayoutUpdated += Preload_LayoutUpdated;
         }
 
-        private void Preload_LayoutUpdated(object sender, EventArgs e)
+        private void Preload_LayoutUpdated(object? sender, EventArgs e)
         {
             if (ActualHeight < 1 && ActualWidth < 1)
                 return;
@@ -69,6 +69,10 @@ namespace LenovoLegionToolkit.WPF.Utils
             return p;
         }
 
-        public void Dispose() => Close();
+        public void Dispose()
+        {
+            Close();
+            GC.SuppressFinalize(this);
+        }
     }
 }

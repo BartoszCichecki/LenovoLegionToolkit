@@ -7,7 +7,7 @@ namespace LenovoLegionToolkit.Lib.Utils
     {
         private static readonly object _locker = new();
 
-        private static SafeFileHandle _energy;
+        private static SafeFileHandle? _energy;
 
         public static SafeFileHandle GetEnergy()
         {

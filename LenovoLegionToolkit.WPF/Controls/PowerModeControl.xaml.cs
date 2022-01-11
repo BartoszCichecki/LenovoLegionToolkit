@@ -20,7 +20,7 @@ namespace LenovoLegionToolkit.WPF.Controls
             _listener.Changed += Listener_Changed;
         }
 
-        private void Listener_Changed(object sender, PowerModeState e) => Dispatcher.Invoke(async () =>
+        private void Listener_Changed(object? sender, PowerModeState e) => Dispatcher.Invoke(async () =>
         {
             if (IsLoaded && IsVisible)
                 await RefreshAsync();

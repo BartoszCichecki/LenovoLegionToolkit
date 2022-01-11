@@ -7,7 +7,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 {
     public class Log
     {
-        private static Log _instance;
+        private static Log? _instance;
         public static Log Instance
         {
             get
@@ -35,9 +35,9 @@ namespace LenovoLegionToolkit.Lib.Utils
         }
 
         public void Trace(FormattableString message,
-            [CallerFilePath] string file = null,
+            [CallerFilePath] string? file = null,
             [CallerLineNumber] int lineNumber = -1,
-            [CallerMemberName] string caller = null)
+            [CallerMemberName] string? caller = null)
         {
             if (!IsTraceEnabled)
                 return;

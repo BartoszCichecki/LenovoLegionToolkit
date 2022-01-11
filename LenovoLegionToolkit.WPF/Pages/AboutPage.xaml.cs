@@ -8,7 +8,7 @@ namespace LenovoLegionToolkit.WPF.Pages
         {
             InitializeComponent();
 
-            _version.Text += Assembly.GetEntryAssembly().GetName().Version.ToString(3);
+            _version.Text += Assembly.GetEntryAssembly()?.GetName()?.Version?.ToString(3);
         }
     }
 }

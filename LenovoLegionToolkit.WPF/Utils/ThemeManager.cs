@@ -30,7 +30,7 @@ namespace LenovoLegionToolkit.WPF.Utils
             SetColor();
         }
 
-        private void SystemParameters_StaticPropertyChanged(object sender, PropertyChangedEventArgs e)
+        private void SystemParameters_StaticPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == "WindowGlassColor" && Settings.Instance.Theme == Theme.System)
                 Apply();

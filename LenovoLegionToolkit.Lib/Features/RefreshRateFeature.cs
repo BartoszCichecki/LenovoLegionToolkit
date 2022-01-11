@@ -104,7 +104,7 @@ namespace LenovoLegionToolkit.Lib.Features
             }
         }
 
-        private static async Task<Display> GetBuiltInDisplayAsync()
+        private static async Task<Display?> GetBuiltInDisplayAsync()
         {
             foreach (var display in Display.GetDisplays())
                 if (await IsInternalAsync(display))

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using NvAPIWrapper;
 using NvAPIWrapper.Display;
@@ -16,17 +15,15 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         public static void Unload() => NVIDIA.Unload();
 
-        public static bool IsGPUPresent(out PhysicalGPU gpu)
+        public static PhysicalGPU? GetGPU()
         {
             try
             {
-                gpu = PhysicalGPU.GetPhysicalGPUs().FirstOrDefault(gpu => gpu.SystemType == SystemType.Laptop);
-                return gpu != null;
+                return PhysicalGPU.GetPhysicalGPUs().FirstOrDefault(gpu => gpu.SystemType == SystemType.Laptop);
             }
             catch (NVIDIAApiException)
             {
-                gpu = null;
-                return false;
+                return null;
             }
         }
 
@@ -34,8 +31,6 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             try
             {
-                if (gpu == null)
-                    return false;
                 _ = gpu.PerformanceStatesInfo;
                 return true;
             }
@@ -49,9 +44,6 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             try
             {
-                if (gpu == null)
-                    return false;
-
                 return Display.GetDisplays().Any(d => d.PhysicalGPUs.Contains(gpu, PhysicalGPUEqualityComparer.Instance));
             }
             catch (NVIDIAApiException)
@@ -60,12 +52,10 @@ namespace LenovoLegionToolkit.Lib.Utils
             }
         }
 
-        public static string GetGPUId(PhysicalGPU gpu)
+        public static string? GetGPUId(PhysicalGPU gpu)
         {
             try
             {
-                if (gpu == null)
-                    return null;
                 return gpu.BusInformation.PCIIdentifiers.ToString();
             }
             catch (NVIDIAApiException)
@@ -78,9 +68,6 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             try
             {
-                if (gpu == null)
-                    return Array.Empty<string>();
-
                 return gpu.GetActiveApplications().Select(p => p.ProcessName).ToArray();
             }
             catch (NVIDIAApiException)
@@ -95,9 +82,9 @@ namespace LenovoLegionToolkit.Lib.Utils
 
             private PhysicalGPUEqualityComparer() { }
 
-            public bool Equals(PhysicalGPU x, PhysicalGPU y) => x.GPUId == y.GPUId;
+            public bool Equals(PhysicalGPU? x, PhysicalGPU? y) => x?.GPUId == y?.GPUId;
 
-            public int GetHashCode([DisallowNull] PhysicalGPU obj) => obj.GPUId.GetHashCode();
+            public int GetHashCode(PhysicalGPU obj) => obj.GPUId.GetHashCode();
         }
     }
 }

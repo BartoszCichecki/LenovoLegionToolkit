@@ -10,10 +10,10 @@ namespace LenovoLegionToolkit.Lib.Features
     {
         private readonly string _methodNameSuffix;
         private readonly int _offset;
-        private readonly string _supportMethodName;
+        private readonly string? _supportMethodName;
         private readonly int _supportOffset;
 
-        protected AbstractWmiFeature(string methodNameSuffix, int offset, string supportMethodName = null, int supportOffset = 0)
+        protected AbstractWmiFeature(string methodNameSuffix, int offset, string? supportMethodName = null, int supportOffset = 0)
         {
             _methodNameSuffix = methodNameSuffix;
             _offset = offset;
@@ -72,7 +72,7 @@ namespace LenovoLegionToolkit.Lib.Features
 
         private T FromInternal(int state) => (T)(object)(state - _offset);
 
-        private Task<int> ExecuteGamezoneAsync(string methodName, string resultPropertyName, Dictionary<string, string> methodParams = null)
+        private Task<int> ExecuteGamezoneAsync(string methodName, string resultPropertyName, Dictionary<string, string>? methodParams = null)
         {
             return ExecuteAsync("SELECT * FROM LENOVO_GAMEZONE_DATA", methodName, resultPropertyName, methodParams);
         }
@@ -80,7 +80,7 @@ namespace LenovoLegionToolkit.Lib.Features
         private Task<int> ExecuteAsync(string queryString,
             string methodName,
             string resultPropertyName,
-            Dictionary<string, string> methodParams = null)
+            Dictionary<string, string>? methodParams = null)
         {
             return Task.Run(() =>
             {

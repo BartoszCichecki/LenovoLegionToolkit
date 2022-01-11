@@ -58,18 +58,19 @@ namespace LenovoLegionToolkit.Lib.Utils
 
             private WMIPropertyValueFormatter() { }
 
-            public object GetFormat(Type formatType)
+            public object GetFormat(Type? formatType)
             {
                 if (formatType == typeof(ICustomFormatter))
                     return this;
 
-                return null;
+                throw new InvalidOperationException("Invalid type of formatted");
             }
-            public string Format(string format, object arg, IFormatProvider formatProvider)
+
+            public string Format(string? format, object? arg, IFormatProvider? formatProvider)
             {
-                var stringArg = arg.ToString();
-                stringArg = stringArg.Replace("\\", "\\\\");
-                return stringArg;
+                var stringArg = arg?.ToString();
+                stringArg = stringArg?.Replace("\\", "\\\\");
+                return stringArg ?? string.Empty;
             }
         }
     }

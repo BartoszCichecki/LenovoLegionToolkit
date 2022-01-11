@@ -10,9 +10,10 @@ namespace LenovoLegionToolkit.Lib.Listeners
         private readonly string _property;
         private readonly int _offset;
 
-        private IDisposable _disposable;
+        private IDisposable? _disposable;
 
-        public event EventHandler<T> Changed;
+        public event EventHandler<T>? Changed;
+
         public AbstractWMIListener(string eventName, string property, int offset)
         {
             _eventName = eventName;
