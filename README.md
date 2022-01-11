@@ -1,6 +1,6 @@
 # Lenovo Legion Toolkit
 
-[![.NET](https://github.com/BartoszCichecki/LenovoLegionToolkit/actions/workflows/dotnet.yml/badge.svg?branch=master)](https://github.com/BartoszCichecki/LenovoLegionToolkit/actions/workflows/dotnet.yml)
+[![.NET](https://github.com/BartoszCichecki/LenovoLegionToolkit/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/BartoszCichecki/LenovoLegionToolkit/actions/workflows/build.yml)
 
 This is a small utility created for Lenovo Legion laptops, that allows to change a couple of features that are only available in Lenovo Vantage.
 
