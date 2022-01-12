@@ -19,7 +19,6 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="Fonts\Segoe Fluent Icons.ttf" />
     <None Remove="icon.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -32,7 +31,6 @@
     <ProjectReference Include="..\LenovoLegionToolkit.Lib\LenovoLegionToolkit.Lib.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Fonts\Segoe Fluent Icons.ttf" />
     <Resource Include="icon.ico" />
   </ItemGroup>
 </Project>
