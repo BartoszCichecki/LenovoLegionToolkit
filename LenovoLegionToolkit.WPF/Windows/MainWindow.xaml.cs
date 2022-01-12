@@ -26,6 +26,13 @@ namespace LenovoLegionToolkit.WPF.Windows
             RestoreWindowSize();
 
             _notifyIcon = new Lazy<NotifyIcon>(CreateNotifyIcon);
+
+#if DEBUG
+            _title.Text += " [DEBUG]";
+#endif
+
+            if (Log.Instance.IsTraceEnabled)
+                _title.Text += " [TRACE ENABLED]";
         }
 
         private void InitializeNavigation()
