@@ -22,7 +22,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <wpfui:TitleBar x:Name="TitleBar" Grid.Row="0" />
+        <wpfui:TitleBar Grid.Row="0" />
 
         <Grid
             Grid.Row="0"
@@ -34,6 +34,7 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock
+                x:Name="_title"
                 Grid.Column="0"
                 VerticalAlignment="Center"
                 FontSize="12"
