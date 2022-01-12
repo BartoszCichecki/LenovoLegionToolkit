@@ -27,13 +27,36 @@
             x:Name="_version"
             Padding="0,0,0,16"
             Text="Version: " />
-        <TextBlock Padding="0,0,0,32" Text="© 2022 Bartosz Cichecki" />
+        <TextBlock Text="© 2022 Bartosz Cichecki" />
 
         <TextBlock
-            Padding="0,0,0,8"
+            Padding="0,32,0,8"
             FontWeight="Medium"
             Text="Links" />
         <wpfui:Hyperlink Content="Project website on GitHub" NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit" />
         <wpfui:Hyperlink Content="Latest release on GitHub" NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit/releases/latest" />
+
+
+        <TextBlock
+            Padding="0,24,0,8"
+            FontWeight="Medium"
+            Text="3rd party libraries" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Margin="0,0,32,0">
+                <wpfui:Hyperlink Content="wpfui" NavigateUri="https://github.com/lepoco/wpfui" />
+                <wpfui:Hyperlink Content="Autofac" NavigateUri="https://github.com/autofac/Autofac" />
+                <wpfui:Hyperlink Content="AsyncLock" NavigateUri="https://github.com/neosmart/AsyncLock" />
+                <wpfui:Hyperlink Content="TaskScheduler" NavigateUri="https://github.com/dahall/TaskScheduler" />
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <wpfui:Hyperlink Content="octokit.net" NavigateUri="https://github.com/octokit/octokit.net" />
+                <wpfui:Hyperlink Content="NvAPIWrapper" NavigateUri="https://github.com/falahati/NvAPIWrapper" />
+                <wpfui:Hyperlink Content="WindowsDisplayAPI" NavigateUri="https://github.com/falahati/WindowsDisplayAPI" />
+            </StackPanel>
+        </Grid>
     </StackPanel>
 </Page>

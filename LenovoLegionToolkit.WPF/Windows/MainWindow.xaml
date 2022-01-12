@@ -27,7 +27,7 @@
         <Grid
             Grid.Row="0"
             Height="24"
-            Margin="12,12,160,6">
+            Margin="12,8,150,6">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
@@ -35,28 +35,16 @@
 
             <TextBlock
                 Grid.Column="0"
+                VerticalAlignment="Center"
                 FontSize="12"
                 IsHitTestVisible="False"
                 Text="Lenovo Legion Toolkit" />
 
-            <Border
+            <wpfui:Hyperlink
                 x:Name="_updateIndicator"
                 Grid.Column="1"
-                Background="#FFAEE571"
-                CornerRadius="5,5,5,5"
-                Visibility="Collapsed">
-                <TextBlock
-                    Padding="9,3,9,3"
-                    FontSize="12"
-                    FontWeight="Medium">
-                    <Hyperlink
-                        Foreground="#000000"
-                        NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit/releases"
-                        RequestNavigate="Hyperlink_RequestNavigate">
-                        Update available!
-                    </Hyperlink>
-                </TextBlock>
-            </Border>
+                Content="Update available!"
+                NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit/releases" />
 
         </Grid>
 
