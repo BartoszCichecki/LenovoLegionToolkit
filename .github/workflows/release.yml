@@ -19,7 +19,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Publish
-      run: dotnet publish LenovoLegionToolkit.WPF --no-restore -c release -a x64 -o build /p:DebugType=None /p:FileVersion=${{ github.ref_name }} /p:Version=${{ github.ref_name }}
+      run: dotnet publish LenovoLegionToolkit.WPF --no-restore -c release -o build /p:DebugType=None /p:FileVersion=${{ github.ref_name }} /p:Version=${{ github.ref_name }}
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
