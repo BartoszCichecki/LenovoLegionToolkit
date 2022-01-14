@@ -40,7 +40,8 @@
                 Width="150"
                 Margin="0,8,0,0"
                 Content="Deactivate"
-                IsEnabled="False" />
+                IsEnabled="False"
+                ToolTipService.ShowOnDisabled="True" />
         </StackPanel>
     </wpfui:CardControl>
 </local:RefreshingControl>
