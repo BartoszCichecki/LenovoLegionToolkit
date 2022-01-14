@@ -14,7 +14,6 @@ namespace LenovoLegionToolkit.WPF.Controls
         {
             InitializeComponent();
 
-            _gpuController.WillRefresh += GpuController_WillRefresh;
             _gpuController.Refreshed += GpuController_Refreshed;
 
             IsVisibleChanged += DiscreteGPUControl_IsVisibleChanged;
@@ -32,11 +31,6 @@ namespace LenovoLegionToolkit.WPF.Controls
             if (!IsVisible)
                 await _gpuController.StopAsync();
         }
-
-        private void GpuController_WillRefresh(object? sender, EventArgs e) => Dispatcher.Invoke(() =>
-        {
-            _deactivateGPUButton.IsEnabled = false;
-        });
 
         private void GpuController_Refreshed(object? sender, GPUController.RefreshedEventArgs e) => Dispatcher.Invoke(() =>
         {
