@@ -15,7 +15,7 @@ namespace LenovoLegionToolkit.WPF.Controls
             InitializeComponent();
         }
 
-        private async void UserControl_Click(object sender, RoutedEventArgs e)
+        private async void ToggleButton_Click(object sender, RoutedEventArgs e)
         {
             if (IsRefreshing || _toggleButton.IsChecked == null)
                 return;
