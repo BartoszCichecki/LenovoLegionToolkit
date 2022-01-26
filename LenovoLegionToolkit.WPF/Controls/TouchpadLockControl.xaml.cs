@@ -1,9 +1,10 @@
 ﻿using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls.Primitives;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
-
 using LenovoLegionToolkit.WPF.Utils;
+
 namespace LenovoLegionToolkit.WPF.Controls
 {
     public partial class TouchpadLockControl
@@ -13,6 +14,8 @@ namespace LenovoLegionToolkit.WPF.Controls
         public TouchpadLockControl()
         {
             InitializeComponent();
+
+            _toggle.OnOffContent();
         }
 
         private async void Toggle_Click(object sender, RoutedEventArgs e)
