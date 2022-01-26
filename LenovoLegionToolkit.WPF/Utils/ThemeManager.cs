@@ -42,7 +42,7 @@ namespace LenovoLegionToolkit.WPF.Utils
 
         private static void SetColor()
         {
-            var accentColor = (Color)ColorConverter.ConvertFromString("#F44336");
+            var accentColor = (Color)ColorConverter.ConvertFromString("#E74C3C");
 
             Application.Current.Resources["SystemAccentColor"] = accentColor;
             Application.Current.Resources["SystemAccentColorLight2"] = accentColor;
