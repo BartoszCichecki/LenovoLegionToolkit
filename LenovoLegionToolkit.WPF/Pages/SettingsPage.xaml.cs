@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Utils;
@@ -23,6 +24,11 @@ namespace LenovoLegionToolkit.WPF.Pages
         public SettingsPage()
         {
             InitializeComponent();
+
+            _autorunToggle.OnOffContent();
+            _minimizeOnCloseToggle.OnOffContent();
+            _vantageToggle.OnOffContent();
+            _activatePowerProfilesWithVantageEnabledToggle.OnOffContent();
 
             Loaded += SettingsPage_Loaded;
             IsVisibleChanged += SettingsPage_IsVisibleChanged;

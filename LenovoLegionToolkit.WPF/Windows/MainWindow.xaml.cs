@@ -11,6 +11,7 @@ using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Pages;
 using WPFUI.Controls;
+using WPFUI.Controls.Interfaces;
 using WPFUI.Tray;
 
 namespace LenovoLegionToolkit.WPF.Windows
@@ -38,14 +39,14 @@ namespace LenovoLegionToolkit.WPF.Windows
         private void InitializeNavigation()
         {
             RootNavigation.Frame = RootFrame;
-            RootNavigation.Items = new ObservableCollection<NavigationItem>
+            RootNavigation.Items = new ObservableCollection<INavigationItem>
             {
-                new() { Icon = WPFUI.Common.Icon.Home20, Content = "Dashboard", Tag = "dashboard", Type = typeof(DashboardPage)},
+                new NavigationItem() { Icon = WPFUI.Common.Icon.Home20, Content = "Dashboard", Tag = "dashboard", Type = typeof(DashboardPage)},
             };
-            RootNavigation.Footer = new ObservableCollection<NavigationItem>
+            RootNavigation.Footer = new ObservableCollection<INavigationItem>
             {
-                new() { Icon = WPFUI.Common.Icon.Settings28, Content = "Settings", Tag = "settings", Type = typeof(SettingsPage)},
-                new() { Icon = WPFUI.Common.Icon.Info28, Content = "About", Tag = "about", Type = typeof(AboutPage)},
+                new NavigationItem() { Icon = WPFUI.Common.Icon.Settings28, Content = "Settings", Tag = "settings", Type = typeof(SettingsPage)},
+                new NavigationItem() { Icon = WPFUI.Common.Icon.Info28, Content = "About", Tag = "about", Type = typeof(AboutPage)},
             };
 
             RootNavigation.Navigate((string)RootNavigation.Items[0].Tag);
