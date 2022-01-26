@@ -14,8 +14,8 @@
         Icon="Keyboard24"
         Subtitle="Use secondary functions of F1-F12 keys without holding Fn key.">
         <ToggleButton
-            x:Name="_toggleButton"
+            x:Name="_toggle"
             Margin="0,0,0,8"
-            Click="ToggleButton_Click" />
+            Click="Toggle_Click" />
     </wpfui:CardControl>
 </local:RefreshingControl>

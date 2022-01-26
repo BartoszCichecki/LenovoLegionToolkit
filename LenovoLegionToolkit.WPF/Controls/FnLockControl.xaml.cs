@@ -15,19 +15,19 @@ namespace LenovoLegionToolkit.WPF.Controls
             InitializeComponent();
         }
 
-        private async void ToggleButton_Click(object sender, RoutedEventArgs e)
+        private async void Toggle_Click(object sender, RoutedEventArgs e)
         {
-            if (IsRefreshing || _toggleButton.IsChecked == null)
+            if (IsRefreshing || _toggle.IsChecked == null)
                 return;
 
-            var state = _toggleButton.IsChecked.Value ? FnLockState.On : FnLockState.Off;
+            var state = _toggle.IsChecked.Value ? FnLockState.On : FnLockState.Off;
             if (state != await _feature.GetStateAsync())
                 await _feature.SetStateAsync(state);
         }
 
         protected override async Task OnRefreshAsync()
         {
-            _toggleButton.IsChecked = await _feature.GetStateAsync() == FnLockState.On;
+            _toggle.IsChecked = await _feature.GetStateAsync() == FnLockState.On;
         }
     }
 }

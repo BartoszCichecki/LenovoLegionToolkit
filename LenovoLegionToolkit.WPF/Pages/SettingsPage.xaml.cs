@@ -42,20 +42,20 @@ namespace LenovoLegionToolkit.WPF.Pages
 
             _themeComboBox.SetItems(Enum.GetValues<Theme>(), Settings.Instance.Theme);
 
-            _autorunToggleButton.IsChecked = Autorun.IsEnabled;
+            _autorunToggle.IsChecked = Autorun.IsEnabled;
 
-            _minimizeOnCloseToggleButton.IsChecked = Settings.Instance.MinimizeOnClose;
+            _minimizeOnCloseToggle.IsChecked = Settings.Instance.MinimizeOnClose;
 
             var vantageStatus = await Vantage.GetStatusAsync();
             _vantageCard.Visibility = vantageStatus != VantageStatus.NotFound ? Visibility.Visible : Visibility.Collapsed;
-            _vantageToggleButton.IsChecked = vantageStatus == VantageStatus.Enabled;
+            _vantageToggle.IsChecked = vantageStatus == VantageStatus.Enabled;
 
             var powerPlans = (await Power.GetPowerPlansAsync()).OrderBy(x => x.Name);
             Refresh(_quietModeComboBox, powerPlans, PowerModeState.Quiet);
             Refresh(_balanceModeComboBox, powerPlans, PowerModeState.Balance);
             Refresh(_performanceModeComboBox, powerPlans, PowerModeState.Performance);
 
-            _activatePowerProfilesWithVantageEnabledToggleButton.IsChecked = Settings.Instance.ActivatePowerProfilesWithVantageEnabled;
+            _activatePowerProfilesWithVantageEnabledToggle.IsChecked = Settings.Instance.ActivatePowerProfilesWithVantageEnabled;
 
             _isRefreshing = false;
         }
@@ -93,12 +93,12 @@ namespace LenovoLegionToolkit.WPF.Pages
             Container.Resolve<ThemeManager>().Apply();
         }
 
-        private void AutorunToggleButton_Click(object sender, RoutedEventArgs e)
+        private void AutorunToggle_Click(object sender, RoutedEventArgs e)
         {
             if (_isRefreshing)
                 return;
 
-            var state = _autorunToggleButton.IsChecked;
+            var state = _autorunToggle.IsChecked;
             if (state == null)
                 return;
 
@@ -108,12 +108,12 @@ namespace LenovoLegionToolkit.WPF.Pages
                 Autorun.Disable();
         }
 
-        private void MinimizeOnCloseToggleButton_Click(object sender, RoutedEventArgs e)
+        private void MinimizeOnCloseToggle_Click(object sender, RoutedEventArgs e)
         {
             if (_isRefreshing)
                 return;
 
-            var state = _minimizeOnCloseToggleButton.IsChecked;
+            var state = _minimizeOnCloseToggle.IsChecked;
             if (state == null)
                 return;
 
@@ -121,12 +121,12 @@ namespace LenovoLegionToolkit.WPF.Pages
             Settings.Instance.Synchronize();
         }
 
-        private async void VantageToggleButton_Click(object sender, RoutedEventArgs e)
+        private async void VantageToggle_Click(object sender, RoutedEventArgs e)
         {
             if (_isRefreshing)
                 return;
 
-            var state = _vantageToggleButton.IsChecked;
+            var state = _vantageToggle.IsChecked;
             if (state == null)
                 return;
 
@@ -177,7 +177,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             if (_isRefreshing)
                 return;
 
-            var state = _activatePowerProfilesWithVantageEnabledToggleButton.IsChecked;
+            var state = _activatePowerProfilesWithVantageEnabledToggle.IsChecked;
             if (state == null)
                 return;
 
@@ -187,7 +187,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 "Yes, enable",
                 "No, do not enable"))
             {
-                _activatePowerProfilesWithVantageEnabledToggleButton.IsChecked = false;
+                _activatePowerProfilesWithVantageEnabledToggle.IsChecked = false;
                 return;
             }
 
