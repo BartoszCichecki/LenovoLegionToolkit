@@ -16,27 +16,27 @@ namespace LenovoLegionToolkit.WPF.Controls
             InitializeComponent();
         }
 
-        private async void ToggleButton_Click(object sender, RoutedEventArgs e)
+        private async void Toggle_Click(object sender, RoutedEventArgs e)
         {
-            if (IsRefreshing || _toggleButton.IsChecked == null)
+            if (IsRefreshing || _toggle.IsChecked == null)
                 return;
 
             var result = await DialogService.ShowDialogAsync("Restart required", "Changing Hybrid Mode requires restart. Do you want to restart now?");
             if (result)
             {
-                var state = _toggleButton.IsChecked.Value ? HybridModeState.On : HybridModeState.Off;
+                var state = _toggle.IsChecked.Value ? HybridModeState.On : HybridModeState.Off;
                 if (state != await _feature.GetStateAsync())
                     await _feature.SetStateAsync(state);
             }
             else
             {
-                _toggleButton.IsChecked = !_toggleButton.IsChecked;
+                _toggle.IsChecked = !_toggle.IsChecked;
             }
         }
 
         protected override async Task OnRefreshAsync()
         {
-            _toggleButton.IsChecked = await _feature.GetStateAsync() == HybridModeState.On;
+            _toggle.IsChecked = await _feature.GetStateAsync() == HybridModeState.On;
         }
     }
 }

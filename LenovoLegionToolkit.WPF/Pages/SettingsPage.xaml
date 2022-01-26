@@ -36,9 +36,9 @@
             Margin="0,0,0,8"
             Subtitle="Start minimized to tray when you log in to Windows.">
             <ToggleButton
-                x:Name="_autorunToggleButton"
+                x:Name="_autorunToggle"
                 Margin="0,0,0,8"
-                Click="AutorunToggleButton_Click" />
+                Click="AutorunToggle_Click" />
         </wpfui:CardControl>
 
         <wpfui:CardControl
@@ -46,9 +46,9 @@
             Margin="0,0,0,8"
             Subtitle="Always minimize to tray. Close with right click on tray icon.">
             <ToggleButton
-                x:Name="_minimizeOnCloseToggleButton"
+                x:Name="_minimizeOnCloseToggle"
                 Margin="0,0,0,8"
-                Click="MinimizeOnCloseToggleButton_Click" />
+                Click="MinimizeOnCloseToggle_Click" />
         </wpfui:CardControl>
 
         <wpfui:CardControl
@@ -57,9 +57,9 @@
             Margin="0,0,0,8"
             Subtitle="Enable or disable Lenovo Vantage and it's service without uninstalling it.&#x0a;Restart is recommended after changing this option.">
             <ToggleButton
-                x:Name="_vantageToggleButton"
+                x:Name="_vantageToggle"
                 Margin="0,0,0,8"
-                Click="VantageToggleButton_Click" />
+                Click="VantageToggle_Click" />
         </wpfui:CardControl>
 
         <TextBlock
@@ -126,7 +126,7 @@
             Margin="0,0,0,8"
             Subtitle="Activate power plans even when Vantage is enabled.">
             <ToggleButton
-                x:Name="_activatePowerProfilesWithVantageEnabledToggleButton"
+                x:Name="_activatePowerProfilesWithVantageEnabledToggle"
                 Margin="0,0,0,8"
                 Click="ActivatePowerProfilesWithVantageEnabled_Click" />
         </wpfui:CardControl>
