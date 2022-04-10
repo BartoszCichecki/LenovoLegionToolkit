@@ -31,11 +31,11 @@ namespace LenovoLegionToolkit.WPF.Utils
 
             var currentTheme = (theme, registryValue) switch
             {
-                (Theme.Light, _) => WPFUI.Theme.Style.Light,
-                (Theme.System, 1) => WPFUI.Theme.Style.Light,
-                _ => WPFUI.Theme.Style.Dark,
+                (Theme.Light, _) => WPFUI.Appearance.ThemeType.Light,
+                (Theme.System, 1) => WPFUI.Appearance.ThemeType.Light,
+                _ => WPFUI.Appearance.ThemeType.Dark,
             };
-            WPFUI.Theme.Manager.Switch(currentTheme);
+            WPFUI.Appearance.Theme.Set(currentTheme, updateAccent: false);
 
             SetColor();
         }
