@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Security.Principal;
 using Microsoft.Win32.TaskScheduler;
 
@@ -20,7 +21,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             var td = ts.NewTask();
             td.Principal.UserId = currentUser;
             td.Principal.RunLevel = TaskRunLevel.Highest;
-            td.Triggers.Add(new LogonTrigger { UserId = currentUser });
+            td.Triggers.Add(new LogonTrigger { UserId = currentUser, Delay = new TimeSpan(0, 1, 0) });
             td.Actions.Add($"\"{Process.GetCurrentProcess().MainModule.FileName}\"", "--minimized");
             td.Settings.DisallowStartIfOnBatteries = false;
             td.Settings.StopIfGoingOnBatteries = false;
