@@ -48,12 +48,12 @@ namespace LenovoLegionToolkit.WPF.Dialogs
                 DialogHeight = 300,
                 Show = true,
             };
-            dialog.Click += (s, e) =>
+            dialog.ButtonLeftClick += (s, e) =>
             {
                 tcs.SetResult(true);
                 mainContent.Remove(dialog);
             };
-            dialog.ButtonRightClick = (s, e) =>
+            dialog.ButtonRightClick += (s, e) =>
             {
                 tcs.SetResult(false);
                 mainContent.Remove(dialog);
