@@ -24,7 +24,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             "16ACHg6", // Legion 7 - AMD, nVidia
             "16ITHg6", // Legion 7 - Intel, nVidia
             "15IMHg05", // Legion 7 - Intel, nVidia
-            "15ACH6" // Ideapad Gaming 3 - AMD, nVidia
+            "15ACH6", // Ideapad Gaming 3 - AMD, nVidia
             "16ACH6", // Legion 5 Pro - AMD, nVidia
             "R7000P2020H", // Legion 5 Pro - AMD, nVidia (CN)
             "16ITH6", // Legion 5 Pro - Intel, nVidia
