@@ -81,73 +81,6 @@ namespace LenovoLegionToolkit
             AddTraceMenuItemsIfNecessary();
         }
 
-        private void CpuBoostMenuItem_GotFocus(object sender, RoutedEventArgs e)
-        {
-            var menuItem = (MenuItem)sender;
-
-            if (menuItem.Items[0] != cpuBoostLoadingMenuItem)
-            {
-                e.Handled = true;
-                return;
-            }
-
-            menuItem.Items.Clear();
-
-            var settings = CPUBoost.GetSettings();
-            foreach (var setting in settings)
-            {
-                var powerPlanItem = new MenuItem();
-                powerPlanItem.Header = setting.PowerPlan.Name;
-
-                powerPlanItem.Items.Add(new MenuItem { Header = "On battery", IsEnabled = false });
-                foreach (var cpuBoostMode in setting.CPUBoostModes)
-                {
-                    var cpuBoostModeItem = new MenuItem
-                    {
-                        Header = cpuBoostMode.Name,
-                        IsCheckable = true,
-                        IsChecked = cpuBoostMode.Value == setting.DCSettingValue,
-                        Tag = (setting, cpuBoostMode, false),
-                    };
-                    cpuBoostModeItem.Click += CpuBoostModeItem_Click;
-                    powerPlanItem.Items.Add(cpuBoostModeItem);
-                }
-
-                powerPlanItem.Items.Add(new Separator());
-
-                powerPlanItem.Items.Add(new MenuItem { Header = "Plugged in", IsEnabled = false });
-                foreach (var cpuBoostMode in setting.CPUBoostModes)
-                {
-                    var cpuBoostModeItem = new MenuItem
-                    {
-                        Header = cpuBoostMode.Name,
-                        IsCheckable = true,
-                        IsChecked = cpuBoostMode.Value == setting.ACSettingValue,
-                        Tag = (setting, cpuBoostMode, true),
-                    };
-                    cpuBoostModeItem.Click += CpuBoostModeItem_Click;
-                    powerPlanItem.Items.Add(cpuBoostModeItem);
-                }
-
-                menuItem.Items.Add(powerPlanItem);
-            }
-
-            e.Handled = true;
-        }
-
-        private void CpuBoostModeItem_Click(object sender, RoutedEventArgs e)
-        {
-            var menuItem = (MenuItem)sender;
-            var (cpuBoostSettings, cpuBoostMode, isAC) = ((CPUBoostSettings, CPUBoostMode, bool))menuItem.Tag;
-
-            CPUBoost.SetSetting(cpuBoostSettings.PowerPlan, cpuBoostMode, isAC);
-
-            cpuBoostMenuItem.Items.Clear();
-            cpuBoostMenuItem.Items.Add(cpuBoostLoadingMenuItem);
-
-            e.Handled = true;
-        }
-
         public void BringToForeground()
         {
             ShowInTaskbar = true;
@@ -536,6 +469,73 @@ namespace LenovoLegionToolkit
                 return;
 
             Power.Restart();
+        }
+
+        private void CpuBoostMenuItem_GotFocus(object sender, RoutedEventArgs e)
+        {
+            var menuItem = (MenuItem)sender;
+
+            if (menuItem.Items[0] != cpuBoostLoadingMenuItem)
+                return;
+
+            Task.Run(CPUBoost.GetSettings).ContinueWith(t =>
+            {
+                if (t.IsFaulted) return;
+
+                var settings = t.Result;
+
+                menuItem.Items.Clear();
+
+                foreach (var setting in settings)
+                {
+                    var powerPlanItem = new MenuItem { Header = setting.PowerPlan.Name };
+
+                    powerPlanItem.Items.Add(new MenuItem { Header = "On battery", IsEnabled = false });
+                    foreach (var cpuBoostMode in setting.CPUBoostModes)
+                    {
+                        var cpuBoostModeItem = new MenuItem
+                        {
+                            Header = cpuBoostMode.Name,
+                            IsCheckable = true,
+                            IsChecked = cpuBoostMode.Value == setting.DCSettingValue,
+                            Tag = (setting, cpuBoostMode, false),
+                        };
+                        cpuBoostModeItem.Click += CpuBoostModeItem_Click;
+                        powerPlanItem.Items.Add(cpuBoostModeItem);
+                    }
+
+                    powerPlanItem.Items.Add(new Separator());
+
+                    powerPlanItem.Items.Add(new MenuItem { Header = "Plugged in", IsEnabled = false });
+                    foreach (var cpuBoostMode in setting.CPUBoostModes)
+                    {
+                        var cpuBoostModeItem = new MenuItem
+                        {
+                            Header = cpuBoostMode.Name,
+                            IsCheckable = true,
+                            IsChecked = cpuBoostMode.Value == setting.ACSettingValue,
+                            Tag = (setting, cpuBoostMode, true),
+                        };
+                        cpuBoostModeItem.Click += CpuBoostModeItem_Click;
+                        powerPlanItem.Items.Add(cpuBoostModeItem);
+                    }
+
+                    menuItem.Items.Add(powerPlanItem);
+                }
+
+            }, TaskScheduler.FromCurrentSynchronizationContext());
+
+        }
+
+        private void CpuBoostModeItem_Click(object sender, RoutedEventArgs e)
+        {
+            var menuItem = (MenuItem)sender;
+            var (cpuBoostSettings, cpuBoostMode, isAC) = ((CPUBoostSettings, CPUBoostMode, bool))menuItem.Tag;
+
+            CPUBoost.SetSetting(cpuBoostSettings.PowerPlan, cpuBoostMode, isAC);
+
+            cpuBoostMenuItem.Items.Clear();
+            cpuBoostMenuItem.Items.Add(cpuBoostLoadingMenuItem);
         }
 
         private void ExitMenuItem_Click(object sender, RoutedEventArgs e) => Application.Current.Shutdown();

@@ -2,6 +2,17 @@
 
 namespace LenovoLegionToolkit.Lib
 {
+    public struct CPUBoostMode
+    {
+        public int Value { get; }
+        public string Name { get; }
+
+        public CPUBoostMode(int value, string name)
+        {
+            Value = value;
+            Name = name;
+        }
+    }
     public struct RefreshRate
     {
         public static bool operator ==(RefreshRate left, RefreshRate right) => left.Equals(right);
