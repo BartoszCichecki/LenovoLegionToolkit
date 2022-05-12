@@ -480,11 +480,15 @@ namespace LenovoLegionToolkit
 
             Task.Run(CPUBoost.GetSettings).ContinueWith(t =>
             {
-                if (t.IsFaulted) return;
+                menuItem.Items.Clear();
+
+                if (t.IsFaulted)
+                {
+                    menuItem.Items.Add(new MenuItem { Header = "Couldn't load CPU Boost Modes", IsEnabled = false });
+                    return;
+                }
 
                 var settings = t.Result;
-
-                menuItem.Items.Clear();
 
                 foreach (var setting in settings)
                 {
