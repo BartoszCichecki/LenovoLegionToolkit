@@ -7,7 +7,6 @@
     xmlns:tb="http://www.hardcodet.net/taskbar"
     x:Name="mainWindow"
     Title="Lenovo Legion Toolkit"
-    Width="350"
     Background="#FFF"
     FontSize="14"
     ResizeMode="NoResize"
@@ -57,7 +56,7 @@
                         Header="Disabled"
                         IsCheckable="true" />
                 </MenuItem>
-                <MenuItem x:Name="cpuBoostMenuItem" Header="CPU Boost">
+                <MenuItem x:Name="cpuBoostMenuItem" Header="CPU Boost Mode">
                     <MenuItem
                         x:Name="cpuBoostLoadingMenuItem"
                         Header="Loading..."
@@ -68,7 +67,12 @@
             </MenuItem>
             <MenuItem Click="AboutMenuItem_Click" Header="About" />
         </Menu>
-        <StackPanel Margin="15" Orientation="Vertical">
+        <StackPanel
+            Width="350"
+            MinWidth="350"
+            MaxWidth="350"
+            Margin="15"
+            Orientation="Vertical">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />

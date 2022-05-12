@@ -7,18 +7,6 @@ using LenovoLegionToolkit.Lib.Extensions;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
-    public struct CPUBoostMode
-    {
-        public int Value { get; }
-        public string Name { get; }
-
-        public CPUBoostMode(int value, string name)
-        {
-            Value = value;
-            Name = name;
-        }
-    }
-
     public class CPUBoostSettings
     {
         public PowerPlan PowerPlan { get; }
@@ -46,22 +34,58 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         public static List<CPUBoostSettings> GetSettings()
         {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Getting perfboostmode settings...");
+
+            EnsureAttributeVisible();
+
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Getting power plans...");
+
             var powerPlans = GetPowerPlans();
 
             var result = new List<CPUBoostSettings>();
             foreach (var powerPlan in powerPlans)
             {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Getting perfboostmodes for power plan {powerPlan.Name}... [powerPlan.instanceID={powerPlan.InstanceID}]");
+
                 var settings = GetCPUBoostSettings(powerPlan);
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Perfboostmodes settings retrieved for power plan {settings.PowerPlan.Name} [powerPlan.instanceID={settings.PowerPlan.InstanceID}, {string.Join(",", settings.CPUBoostModes.Select(cbm => $"{{{cbm.Name}:{cbm.Value}}}"))}, acSettingsValue={settings.ACSettingValue}, dcSettingValue={settings.DCSettingValue}]");
+
                 result.Add(settings);
             }
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Perfboostmode settings retrieved");
 
             return result;
         }
 
         public static void SetSetting(PowerPlan powerPlan, CPUBoostMode cpuBoostMode, bool isAC)
         {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Setting perfboostmode to {cpuBoostMode.Name}... [powerPlan.name={powerPlan.Name}, powerPlan.instanceID={powerPlan.InstanceID}, cpuBoostMode.value={cpuBoostMode.Value}, isAC={isAC}]");
+
             var option = isAC ? "/SETACVALUEINDEX" : "/SETDCVALUEINDEX";
             CMD.Run("powercfg", $"{option} {powerPlan.InstanceID} {ProcessorPowerManagementSubgroupGUID} {PowerSettingGUID} {cpuBoostMode.Value}");
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Perfboostmode set to {cpuBoostMode.Name} [powerPlan.name={powerPlan.Name}, powerPlan.instanceID={powerPlan.InstanceID}, cpuBoostMode.value={cpuBoostMode.Value}, isAC={isAC}]");
+        }
+
+        private static void EnsureAttributeVisible()
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Ensuring perfboostmode is visible...");
+
+            CMD.Run("powercfg", "/ATTRIBUTES sub_processor perfboostmode -ATTRIB_HIDE");
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Perfboostmode is visible.");
         }
 
         private static List<PowerPlan> GetPowerPlans()
@@ -84,7 +108,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                 result.Add(new PowerPlan(guid, name, active));
             }
 
-            return result;
+            return result.OrderBy(pp => pp.Name).ToList();
         }
 
         private static CPUBoostSettings GetCPUBoostSettings(PowerPlan powerPlan)
