@@ -358,7 +358,7 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     FontSize="12">
-                    An update is available. Check it out on<Hyperlink NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit/releases" RequestNavigate="Hyperlink_RequestNavigate">GitHub</Hyperlink>
+                    An update is available. Check it out on&#x00A0;<Hyperlink NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit/releases" RequestNavigate="Hyperlink_RequestNavigate">GitHub</Hyperlink>
                     !</TextBlock>
             </Border>
         </StackPanel>
