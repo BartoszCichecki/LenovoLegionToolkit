@@ -2,6 +2,8 @@
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -36,6 +38,8 @@ namespace LenovoLegionToolkit
 
         private readonly PowerModeListener _powerModeListener = new();
         private readonly GPUManager _gpuManager = new();
+
+        private readonly SemaphoreSlim _cpuBoostMenuItemLoadSemaphore = new(1);
 
         public MainWindow()
         {
@@ -471,24 +475,26 @@ namespace LenovoLegionToolkit
             Power.Restart();
         }
 
-        private void CpuBoostMenuItem_GotFocus(object sender, RoutedEventArgs e)
+        private async void CpuBoostMenuItem_GotFocus(object sender, RoutedEventArgs e)
         {
             var menuItem = (MenuItem)sender;
 
-            if (menuItem.Items[0] != cpuBoostLoadingMenuItem)
-                return;
-
-            Task.Run(CPUBoost.GetSettings).ContinueWith(t =>
+            try
             {
+                await _cpuBoostMenuItemLoadSemaphore.WaitAsync();
+
+                if (menuItem.Items.Count < 1 || menuItem.Items[0] != cpuBoostLoadingMenuItem)
+                    return;
+
+                var settings = await Task.Run(CPUBoost.GetSettings);
+
                 menuItem.Items.Clear();
 
-                if (t.IsFaulted)
+                if (!settings.Any())
                 {
-                    menuItem.Items.Add(new MenuItem { Header = "Couldn't load CPU Boost Modes", IsEnabled = false });
+                    menuItem.Items.Add(new MenuItem { Header = "N/A", IsEnabled = false });
                     return;
                 }
-
-                var settings = t.Result;
 
                 foreach (var setting in settings)
                 {
@@ -525,10 +531,16 @@ namespace LenovoLegionToolkit
                     }
 
                     menuItem.Items.Add(powerPlanItem);
-                }
-
-            }, TaskScheduler.FromCurrentSynchronizationContext());
-
+                };
+            }
+            catch
+            {
+                menuItem.Items.Add(new MenuItem { Header = "Failed to load CPU Boost Modes", IsEnabled = false });
+            }
+            finally
+            {
+                _cpuBoostMenuItemLoadSemaphore.Release();
+            }
         }
 
         private void CpuBoostModeItem_Click(object sender, RoutedEventArgs e)
