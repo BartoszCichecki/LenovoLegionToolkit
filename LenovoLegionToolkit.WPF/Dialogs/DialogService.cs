@@ -46,7 +46,7 @@ namespace LenovoLegionToolkit.WPF.Dialogs
                 ButtonRightName = rightButton,
                 ButtonLeftAppearance = destructive ? Appearance.Danger : Appearance.Primary,
                 DialogHeight = 300,
-                Show = true,
+                IsShown = true,
             };
             dialog.ButtonLeftClick += (s, e) =>
             {

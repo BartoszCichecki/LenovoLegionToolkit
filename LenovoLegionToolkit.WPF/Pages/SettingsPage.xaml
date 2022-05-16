@@ -23,8 +23,7 @@
         <wpfui:CardControl
             Title="Theme"
             Margin="0,0,0,8"
-            Subtitle="Set light theme, dark theme or follow system settings."
-            Visibility="Collapsed">
+            Subtitle="Set light theme, dark theme or follow system settings.">
             <ComboBox
                 x:Name="_themeComboBox"
                 Width="150"
