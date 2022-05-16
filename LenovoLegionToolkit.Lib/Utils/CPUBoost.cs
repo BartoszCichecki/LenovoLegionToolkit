@@ -39,7 +39,6 @@ namespace LenovoLegionToolkit.Lib.Utils
 
             EnsureAttributeVisible();
 
-
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting power plans...");
 
