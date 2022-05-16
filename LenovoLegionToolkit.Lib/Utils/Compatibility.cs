@@ -28,16 +28,21 @@ namespace LenovoLegionToolkit.Lib.Utils
             "16ACH6", // Legion 5 Pro - AMD, nVidia
             "R7000P2020H", // Legion 5 Pro - AMD, nVidia (CN)
             "16ITH6", // Legion 5 Pro - Intel, nVidia
-            "16IAH7H", // Legion 5 Pro - Intel, nVidia
+            "16IAH7", // Legion 5 Pro - Intel, nVidia
             "17ACH6", // Legion 5 - AMD, nVidia
+            "17ITH6", // Legion 5 - Intel, nVidia
             "15ACH6", // Legion 5 - AMD, nVidia
             "15ARH05", // Legion 5 - AMD, nVidia
             "15IMH05", // Legion 5 - Intel, nVidia
-            "15ITH6H", // Legion 5 - Intel, nVidia
-            "17IMH05H", // Legion 5 - Intel, nVidia
+            "15ITH6", // Legion 5 - Intel, nVidia
+            "17IMH05", // Legion 5 - Intel, nVidia
             "R7000P2021H", // Legion 5 - AMD, nVidia (CN)
+            "R9000P2021H", // Legion 5 Pro - AMD, nVidia (CN)
             "15ACH6", // Legion S7 - AMD, nVidia
+
+            // Limited compatibility
             "17IRHg", // Legion Y740 - Intel, nVidia
+            "15IR", // Legion Y740 - Intel, nVidia
             "15IRH", // Legion Y540 - Intel, nVidia
             "17IRH", // Legion Y540 - Intel, nVidia
         };

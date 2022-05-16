@@ -22,10 +22,28 @@ namespace LenovoLegionToolkit.Lib.Features
                 throw new InvalidOperationException("Built in display not found");
             }
 
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Built in display found: {display}");
+
             var currentSettings = display.CurrentSetting;
-            var result = display.GetPossibleSettings()
-                .Where(dps => Match(dps, currentSettings))
-                .Select(dps => new RefreshRate(dps.Frequency))
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Current built in display settings: {currentSettings}");
+
+            var possibleSettings = display.GetPossibleSettings();
+
+            if (Log.Instance.IsTraceEnabled)
+            {
+                Log.Instance.Trace($"Found possible settings:");
+                foreach (var possibleSetting in possibleSettings)
+                    Log.Instance.Trace($" - {possibleSetting}");
+            }
+
+            var result = possibleSettings.Where(dps => Match(dps, currentSettings))
+                .Select(dps => dps.Frequency)
+                .Distinct()
+                .OrderBy(freq => freq)
+                .Select(freq => new RefreshRate(freq))
                 .ToArray();
 
             if (result.Length == 1)
@@ -106,10 +124,18 @@ namespace LenovoLegionToolkit.Lib.Features
 
         private static async Task<Display?> GetBuiltInDisplayAsync()
         {
+            var displays = Display.GetDisplays();
+
+            if (Log.Instance.IsTraceEnabled)
+            {
+                Log.Instance.Trace($"Found displays:");
+                foreach (var display in displays)
+                    Log.Instance.Trace($" - {display}");
+            }
+
             foreach (var display in Display.GetDisplays())
                 if (await IsInternalAsync(display))
                     return display;
-
             return null;
         }
 

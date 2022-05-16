@@ -2,6 +2,18 @@
 
 namespace LenovoLegionToolkit.Lib
 {
+    public struct CPUBoostMode
+    {
+        public int Value { get; }
+        public string Name { get; }
+
+        public CPUBoostMode(int value, string name)
+        {
+            Value = value;
+            Name = name;
+        }
+    }
+
     public struct WindowSize
     {
         public double Width { get; set; }
