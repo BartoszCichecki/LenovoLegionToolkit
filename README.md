@@ -10,17 +10,19 @@ It is a single executable app that needs no installation and runs no background 
 
 ## Disclaimer
 
-This is a hobby project. I want to make it available on more devices, but it will take some time, so please be patient and read through this readme carefully.
+**The tool comes with no warranty. Use at you own risk.**
 
-The tool comes with no warranty. Use at you own risk.
+This is a hobby project. I want to make it available on more devices, but it will take some time, so please be patient and read through this readme carefully.
 
 ## Compatibility
 
-All testing done by me is done always on latest Windows 11 update and Legion 5 Pro 16ACH6H. I already know that there are some strange differences between Windows 10 and 11 that are not document very well, but I do my best to correct bugs like this as soon as possible.
+Toolkit is compatible with a lot of Lenovo Legion laptops from 2020 and 2021 running Windows 10 and 11. All testing done by me is done always on latest Windows 11 update and Legion 5 Pro 16ACH6H.
 
-Toolkit is compatible with a lot of Legion laptops from 2020 and 2021. Full list of supported models can be found here: [Compatibility.cs](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/LenovoLegionToolkit.Lib/Utils/Compatibility.cs).
+If you are getting an incompatible message on startup, you can check *Contribution* section down at the bottom, to see how can you help. Keep in mind, that not always I am able to make all options compatible with all hardware, since I do not have access to it.
 
-If you are getting an incompatible message on startup, you can check *Contribution* section down at the bottom, to see how can you help.
+**Note:** Y-models (Y540, Y740 etc) have limited compatibility only, meaning not all options work.
+
+List of supported models can be found here: [Compatibility.cs](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/LenovoLegionToolkit.Lib/Utils/Compatibility.cs).
 
 ## Features
 
@@ -46,7 +48,7 @@ You can do it from the Tools menu on top. If you disable Vantage, it will stop a
 
 Sometimes discrete GPU stays active even when it should not. This can happen for example, if you work with external screen and you disconnect it - some processes will keep running on discrete GPU keeping it alive and shortening battery life.
 
-This app allows you to deactivate discrete GPU, forcing all processes to move to integrated GPU and allowing discrete GPU to turn off and extend battery life. Toolkit will show you if the dGPU is active and how many processes run on it. If you hover mouse over the GPU status it, tooltip will contain list of active processes.
+This app allows you to deactivate discrete GPU for a short amount of time, which will force all processes to move to the integrated GPU and allow discrete GPU to turn off and extend battery life. Toolkit will show you if the dGPU is active and how many processes run on it. If you hover mouse over the GPU status it, tooltip will contain list of active processes.
 
 Deactive button will be enabled when dGPU is active, you have Hybrid mode enabled and there are no screens connected to dGPU.
 
@@ -57,6 +59,12 @@ Keep in mind that some apps may not like this feature and crash, when you deacti
 Toolkit will automatically switch Windows power plans when Power Mode changes _and_ when Lenovo Vantage is disabled.
 
 On some laptops though, Lenovo Vantage never switched power plans. If you have one of the laptops where Lenovo Vantage does not change Windows power plans automatically you can override this behavior in `Tools -> More settings -> Activate power plans even when Vantage is enabled`. This will allow Toolkit to always change Windows power plans, even if Lenovo Vantage is running in the background.
+
+#### CPU Boost Modes
+
+This allows to modify hidden setting of Windows Power Plans called *Processor performance boost mode*. It is a little bit cryptic what these options do, but the best explanation is provided here:
+
+[Power and performance tuning @microsoft.com](https://docs.microsoft.com/en-us/windows-server/administration/performance-tuning/hardware/power/power-performance-tuning#processor-performance-boost-mode)
 
 ## Installation
 
