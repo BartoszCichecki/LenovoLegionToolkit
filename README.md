@@ -65,6 +65,7 @@ On some laptops though, Lenovo Vantage never switched power plans. If you have o
 This allows to modify hidden setting of Windows Power Plans called *Processor performance boost mode*. It is a little bit cryptic what these options do, but the best explanation is provided here:
 
 [Power and performance tuning @microsoft.com](https://docs.microsoft.com/en-us/windows-server/administration/performance-tuning/hardware/power/power-performance-tuning#processor-performance-boost-mode)
+
 [ProcessorPerformanceBoostMode @microsoft.com](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windows.eventtracing.power.processorperformanceboostmode?view=trace-processor-dotnet-1.0)
 
 ## Installation
@@ -79,7 +80,7 @@ This tool is written with .NET 5 which means you need to have **.NET Desktop Run
 
 https://dotnet.microsoft.com/download/dotnet/5.0/runtime
 
-You don't need to install it if you already have the .NET SDK 5 installed.
+This software heavily depends on components that Lenovo Vantage is installing. You will most likely not be able to use this if you don't have Vantage installed. I recommend that you install Lenovo Vantage, so that all components and dependencies are installed and later you use the _Disable Lenovo Vantage_ option in this tool, so that Vantage does not consume any unnecessary resources.
 
 ## Credits
 
