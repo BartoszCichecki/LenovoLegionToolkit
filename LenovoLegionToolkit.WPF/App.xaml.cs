@@ -28,8 +28,6 @@ namespace LenovoLegionToolkit
 
         private async void Application_Startup(object sender, StartupEventArgs e)
         {
-            _ = CPUBoost.GetSettings();
-
             if (IsTraceEnabled(e.Args))
                 Log.Instance.IsTraceEnabled = true;
 
