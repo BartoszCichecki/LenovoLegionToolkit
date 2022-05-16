@@ -41,6 +41,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 
             // Limited compatibility
             "17IRHg", // Legion Y740 - Intel, nVidia
+            "15IR", // Legion Y740 - Intel, nVidia
             "15IRH", // Legion Y540 - Intel, nVidia
             "17IRH", // Legion Y540 - Intel, nVidia
         };
