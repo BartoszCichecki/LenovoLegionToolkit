@@ -80,7 +80,7 @@ This tool is written with .NET 5 which means you need to have **.NET Desktop Run
 
 https://dotnet.microsoft.com/download/dotnet/5.0/runtime
 
-This software heavily depends on components that Lenovo Vantage is installing. You will most likely not be able to use this if you don't have Vantage installed. I recommend that you install Lenovo Vantage, so that all components and dependencies are installed and later you use the _Disable Lenovo Vantage_ option in this tool, so that Vantage does not consume any unnecessary resources.
+This software heavily depends on components that Lenovo Vantage installs. You will most likely not be able to use this if you don't have Vantage installed. I recommend that you install Lenovo Vantage, so that all components and dependencies are installed and later you use the _Disable Lenovo Vantage_ option in this tool, so that Vantage does not consume any unnecessary resources. This situation is unlikely to change, because I can't bundle Lenovo's libraries etc. as it is against their EULA.
 
 ## Credits
 
