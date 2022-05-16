@@ -22,7 +22,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <wpfui:TitleBar Grid.Row="0" />
+        <wpfui:TitleBar x:Name="titleBar" Grid.Row="0" />
 
         <Grid
             Grid.Row="0"

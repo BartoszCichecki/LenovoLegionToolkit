@@ -35,7 +35,7 @@ namespace LenovoLegionToolkit.WPF.Utils
                 (Theme.System, 1) => WPFUI.Appearance.ThemeType.Light,
                 _ => WPFUI.Appearance.ThemeType.Dark,
             };
-            WPFUI.Appearance.Theme.Set(currentTheme, updateAccent: false);
+            WPFUI.Appearance.Theme.Apply(currentTheme, updateAccent: false);
 
             SetColor();
         }
