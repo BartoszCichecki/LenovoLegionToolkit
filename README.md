@@ -65,6 +65,7 @@ On some laptops though, Lenovo Vantage never switched power plans. If you have o
 This allows to modify hidden setting of Windows Power Plans called *Processor performance boost mode*. It is a little bit cryptic what these options do, but the best explanation is provided here:
 
 [Power and performance tuning @microsoft.com](https://docs.microsoft.com/en-us/windows-server/administration/performance-tuning/hardware/power/power-performance-tuning#processor-performance-boost-mode)
+[ProcessorPerformanceBoostMode @microsoft.com](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windows.eventtracing.power.processorperformanceboostmode?view=trace-processor-dotnet-1.0)
 
 ## Installation
 
