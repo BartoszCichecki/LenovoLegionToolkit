@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -148,7 +149,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             }
         }
 
-        private void NotifyIcon_LeftClick([System.Diagnostics.CodeAnalysis.NotNull] INotifyIcon sender, RoutedEventArgs e) => BringToForeground();
+        private void NotifyIcon_LeftClick([NotNull] INotifyIcon sender, RoutedEventArgs e) => BringToForeground();
 
         public void BringToForeground()
         {

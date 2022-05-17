@@ -49,7 +49,7 @@
 
         </Grid>
 
-        <Grid Grid.Row="1" Margin="12,6,12,12">
+        <Grid Grid.Row="1" Margin="12,6,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
