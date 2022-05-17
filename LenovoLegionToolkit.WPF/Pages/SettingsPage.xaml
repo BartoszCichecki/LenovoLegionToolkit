@@ -35,7 +35,7 @@
             Title="Autorun"
             Margin="0,0,0,8"
             Subtitle="Start minimized to tray when you log in to Windows.">
-            <ToggleButton
+            <wpfui:ToggleSwitch
                 x:Name="_autorunToggle"
                 Margin="0,0,0,8"
                 Click="AutorunToggle_Click" />
@@ -45,7 +45,7 @@
             Title="Minimize on close"
             Margin="0,0,0,8"
             Subtitle="Always minimize to tray. Close with right click on tray icon.">
-            <ToggleButton
+            <wpfui:ToggleSwitch
                 x:Name="_minimizeOnCloseToggle"
                 Margin="0,0,0,8"
                 Click="MinimizeOnCloseToggle_Click" />
@@ -56,7 +56,7 @@
             Title="Lenovo Vantage"
             Margin="0,0,0,8"
             Subtitle="Enable or disable Lenovo Vantage and it's service without uninstalling it.&#x0a;Restart is recommended after changing this option.">
-            <ToggleButton
+            <wpfui:ToggleSwitch
                 x:Name="_vantageToggle"
                 Margin="0,0,0,8"
                 Click="VantageToggle_Click" />
@@ -125,7 +125,7 @@
             Title="Always activate Windows power plans"
             Margin="0,0,0,8"
             Subtitle="Activate power plans even when Vantage is enabled.">
-            <ToggleButton
+            <wpfui:ToggleSwitch
                 x:Name="_activatePowerProfilesWithVantageEnabledToggle"
                 Margin="0,0,0,8"
                 Click="ActivatePowerProfilesWithVantageEnabled_Click" />

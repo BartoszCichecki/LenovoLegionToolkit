@@ -13,7 +13,7 @@
         Margin="0,0,0,8"
         Icon="Power24"
         Subtitle="Turn on the laptop when you open the lid.">
-        <ToggleButton
+        <wpfui:ToggleSwitch
             x:Name="_toggle"
             Margin="0,0,0,8"
             Click="Toggle_Click" />

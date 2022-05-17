@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls.Primitives;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.WPF.Dialogs;
@@ -15,8 +14,6 @@ namespace LenovoLegionToolkit.WPF.Controls
         public HybridModeControl()
         {
             InitializeComponent();
-
-            _toggle.OnOffContent();
         }
 
         private async void Toggle_Click(object sender, RoutedEventArgs e)
