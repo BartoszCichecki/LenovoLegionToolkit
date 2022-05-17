@@ -13,7 +13,7 @@
         Margin="0,0,0,8"
         Icon="TopSpeed24"
         Subtitle="Decrease response time of the built-in display.">
-        <ToggleButton
+        <wpfui:ToggleSwitch
             x:Name="_toggle"
             Margin="0,0,0,8"
             Click="Toggle_Click" />
