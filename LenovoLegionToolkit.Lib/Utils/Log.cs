@@ -46,7 +46,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             {
                 var date = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                 var fileName = Path.GetFileName(file);
-                var line = $"[{date}] [{Thread.CurrentThread.ManagedThreadId}] [{fileName}#{lineNumber}:{caller}] {message}";
+                var line = $"[{date}] [{Environment.CurrentManagedThreadId}] [{fileName}#{lineNumber}:{caller}] {message}";
                 File.AppendAllLines(_logPath, new[] { line });
             }
         }
