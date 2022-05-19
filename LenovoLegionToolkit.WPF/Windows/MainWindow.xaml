@@ -26,8 +26,8 @@
 
         <Grid
             Grid.Row="0"
-            Height="24"
-            Margin="12,8,150,6">
+            Height="28"
+            Margin="12,6,150,4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
@@ -41,11 +41,13 @@
                 IsHitTestVisible="False"
                 Text="Lenovo Legion Toolkit" />
 
-            <wpfui:Button
+            <wpfui:Badge
                 x:Name="_updateIndicator"
                 Grid.Column="1"
-                Click="UpdateIndicator_Click"
                 Content="Update available!"
+                Cursor="Hand"
+                MouseLeftButtonDown="UpdateIndicator_Click"
+                MouseRightButtonDown="UpdateIndicator_Click"
                 Visibility="Collapsed" />
 
         </Grid>
