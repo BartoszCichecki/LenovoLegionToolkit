@@ -40,6 +40,11 @@ namespace LenovoLegionToolkit.WPF.Utils
             SetColor();
         }
 
+        public void ApplyBackground(Window window)
+        {
+            WPFUI.Appearance.Background.Apply(window, WPFUI.Appearance.BackgroundType.Mica);
+        }
+
         private static void SetColor()
         {
             var accentColor = (Color)ColorConverter.ConvertFromString("#E74C3C");

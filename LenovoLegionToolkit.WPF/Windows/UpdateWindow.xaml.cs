@@ -4,8 +4,9 @@ using System.Text;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Utils;
-using Markdig;
+using LenovoLegionToolkit.WPF.Utils;
 
 namespace LenovoLegionToolkit.WPF.Windows
 {
@@ -27,14 +28,16 @@ namespace LenovoLegionToolkit.WPF.Windows
             }
         }
 
-        private readonly UpdateChecker updateChecker;
+        private readonly UpdateChecker updateChecker = Container.Resolve<UpdateChecker>();
+        private readonly ThemeManager themeManager = Container.Resolve<ThemeManager>();
+
         private CancellationTokenSource? downloadCancellationTokenSource;
 
-        public UpdateWindow(UpdateChecker updateChecker)
+        public UpdateWindow()
         {
-            this.updateChecker = updateChecker;
-
             InitializeComponent();
+
+            themeManager.ApplyBackground(this);
 
             Loaded += UpdateWindow_Loaded;
             Closing += UpdateWindow_Closing;
