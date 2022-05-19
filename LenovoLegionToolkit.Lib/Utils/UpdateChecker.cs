@@ -99,6 +99,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             try
             {
                 await updateSemaphore.WaitAsync();
+
                 var tempPath = Path.Combine(Path.GetTempPath(), $"LenovoLegionToolkitSetup_{Guid.NewGuid()}.exe");
                 var latestUpdate = updates.FirstOrDefault();
 
@@ -106,7 +107,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                     throw new InvalidOperationException("No updates available");
 
                 if (latestUpdate.Url == null)
-                    throw new InvalidOperationException("Setup file could not be found");
+                    throw new InvalidOperationException("Setup file URL could not be found");
 
                 using var fileStream = File.OpenWrite(tempPath);
                 using var httpClient = new HttpClient();
