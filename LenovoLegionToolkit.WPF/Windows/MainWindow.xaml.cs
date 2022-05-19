@@ -11,15 +11,17 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Pages;
+using LenovoLegionToolkit.WPF.Utils;
 using WPFUI.Controls;
 using WPFUI.Controls.Interfaces;
+using Container = LenovoLegionToolkit.WPF.Utils.Container;
 
 namespace LenovoLegionToolkit.WPF.Windows
 {
     public partial class MainWindow : Window
     {
-
-        private readonly UpdateChecker updateChecker = new();
+        private readonly UpdateChecker updateChecker = Container.Resolve<UpdateChecker>();
+        private readonly ThemeManager themeManager = Container.Resolve<ThemeManager>();
 
         public MainWindow()
         {
@@ -28,6 +30,9 @@ namespace LenovoLegionToolkit.WPF.Windows
             InitializeTray();
             RestoreWindowSize();
 
+            ResizeMode = ResizeMode.CanMinimize;
+
+            _titleBar.UseSnapLayout = false;
             _titleBar.CanMaximize = false;
             _titleBar.ShowMaximize = false;
 
@@ -37,6 +42,8 @@ namespace LenovoLegionToolkit.WPF.Windows
 
             if (Log.Instance.IsTraceEnabled)
                 _title.Text += " [TRACE ENABLED]";
+
+            themeManager.ApplyBackground(this);
         }
 
         private void InitializeNavigation()
@@ -134,7 +141,7 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private void UpdateIndicator_Click(object sender, RoutedEventArgs e)
         {
-            var updateWindow = new UpdateWindow(updateChecker)
+            var updateWindow = new UpdateWindow
             {
                 Owner = this,
                 WindowStartupLocation = WindowStartupLocation.CenterOwner

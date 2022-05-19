@@ -3,6 +3,7 @@ using Autofac;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.WPF.Utils
 {
@@ -14,20 +15,21 @@ namespace LenovoLegionToolkit.WPF.Utils
         {
             var cb = new ContainerBuilder();
 
-            cb.RegisterType<ThemeManager>();
+            cb.RegisterType<ThemeManager>().SingleInstance();
 
             // Lib
-            cb.RegisterType<AlwaysOnUsbFeature>();
-            cb.RegisterType<BatteryFeature>();
-            cb.RegisterType<FlipToStartFeature>();
-            cb.RegisterType<FnLockFeature>();
-            cb.RegisterType<HybridModeFeature>();
-            cb.RegisterType<OverDriveFeature>();
-            cb.RegisterType<PowerModeFeature>();
-            cb.RegisterType<RefreshRateFeature>();
-            cb.RegisterType<TouchpadLockFeature>();
-            cb.RegisterType<PowerModeListener>();
-            cb.RegisterType<GPUController>();
+            cb.RegisterType<AlwaysOnUsbFeature>().SingleInstance();
+            cb.RegisterType<BatteryFeature>().SingleInstance();
+            cb.RegisterType<FlipToStartFeature>().SingleInstance();
+            cb.RegisterType<FnLockFeature>().SingleInstance();
+            cb.RegisterType<HybridModeFeature>().SingleInstance();
+            cb.RegisterType<OverDriveFeature>().SingleInstance();
+            cb.RegisterType<PowerModeFeature>().SingleInstance();
+            cb.RegisterType<RefreshRateFeature>().SingleInstance();
+            cb.RegisterType<TouchpadLockFeature>().SingleInstance();
+            cb.RegisterType<PowerModeListener>().SingleInstance();
+            cb.RegisterType<GPUController>().SingleInstance();
+            cb.RegisterType<UpdateChecker>().SingleInstance();
 
             _container = cb.Build();
         }

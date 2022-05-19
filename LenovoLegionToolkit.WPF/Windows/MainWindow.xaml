@@ -27,7 +27,7 @@
         <Grid
             Grid.Row="0"
             Height="28"
-            Margin="12,6,150,4">
+            Margin="12,6,100,4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
@@ -44,6 +44,7 @@
             <wpfui:Badge
                 x:Name="_updateIndicator"
                 Grid.Column="1"
+                Appearance="Success"
                 Content="Update available!"
                 Cursor="Hand"
                 MouseLeftButtonDown="UpdateIndicator_Click"
