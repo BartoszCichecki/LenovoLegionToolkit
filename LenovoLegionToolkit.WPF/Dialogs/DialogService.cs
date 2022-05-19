@@ -37,8 +37,6 @@ namespace LenovoLegionToolkit.WPF.Dialogs
             stackPanel.Children.Add(titleBlock);
             stackPanel.Children.Add(messageBlock);
 
-            var mainContent = ((Grid)Application.Current.MainWindow.Content).Children;
-
             var dialog = new Dialog
             {
                 Content = stackPanel,
@@ -46,16 +44,30 @@ namespace LenovoLegionToolkit.WPF.Dialogs
                 ButtonRightName = rightButton,
                 ButtonLeftAppearance = destructive ? Appearance.Danger : Appearance.Primary,
                 DialogHeight = 300,
-                IsShown = true,
             };
             dialog.ButtonLeftClick += (s, e) =>
             {
                 tcs.SetResult(true);
-                mainContent.Remove(dialog);
+                dialog.Hide();
             };
             dialog.ButtonRightClick += (s, e) =>
             {
                 tcs.SetResult(false);
+                dialog.Hide();
+            };
+
+            ShowDialog(dialog);
+
+            return tcs.Task;
+        }
+
+
+        private static void ShowDialog(Dialog dialog)
+        {
+            var mainContent = ((Grid)Application.Current.MainWindow.Content).Children;
+
+            dialog.Closed += (s, e) =>
+            {
                 mainContent.Remove(dialog);
             };
 
@@ -64,7 +76,7 @@ namespace LenovoLegionToolkit.WPF.Dialogs
 
             mainContent.Add(dialog);
 
-            return tcs.Task;
+            dialog.Show();
         }
     }
 }
