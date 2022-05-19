@@ -41,11 +41,12 @@
                 IsHitTestVisible="False"
                 Text="Lenovo Legion Toolkit" />
 
-            <wpfui:Hyperlink
+            <wpfui:Button
                 x:Name="_updateIndicator"
                 Grid.Column="1"
+                Click="UpdateIndicator_Click"
                 Content="Update available!"
-                NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit/releases" />
+                Visibility="Collapsed" />
 
         </Grid>
 

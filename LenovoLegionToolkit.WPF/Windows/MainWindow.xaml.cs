@@ -19,6 +19,8 @@ namespace LenovoLegionToolkit.WPF.Windows
     public partial class MainWindow : Window
     {
 
+        private readonly UpdateChecker updateChecker = new();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -120,12 +122,27 @@ namespace LenovoLegionToolkit.WPF.Windows
             if (!IsVisible)
                 return;
 
-            Task.Run(Updates.Check)
-                .ContinueWith(updatesAvailable =>
-                {
-                    _updateIndicator.Visibility = updatesAvailable.Result ? Visibility.Visible : Visibility.Collapsed;
-                }, TaskScheduler.FromCurrentSynchronizationContext());
+            Task.Run(async () =>
+            {
+                await Task.Delay(2000);
+                return await updateChecker.Check();
+            }).ContinueWith(updatesAvailable =>
+            {
+                _updateIndicator.Visibility = updatesAvailable.Result ? Visibility.Visible : Visibility.Collapsed;
+            }, TaskScheduler.FromCurrentSynchronizationContext());
         }
+
+        private void UpdateIndicator_Click(object sender, RoutedEventArgs e)
+        {
+            var updateWindow = new UpdateWindow(updateChecker)
+            {
+                Owner = this,
+                WindowStartupLocation = WindowStartupLocation.CenterOwner
+            };
+            updateWindow.ShowDialog();
+        }
+
+        private void NotifyIcon_LeftClick([NotNull] INotifyIcon sender, RoutedEventArgs e) => BringToForeground();
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
@@ -148,8 +165,6 @@ namespace LenovoLegionToolkit.WPF.Windows
                 Height = windowSize.Height;
             }
         }
-
-        private void NotifyIcon_LeftClick([NotNull] INotifyIcon sender, RoutedEventArgs e) => BringToForeground();
 
         public void BringToForeground()
         {

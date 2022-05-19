@@ -54,11 +54,11 @@ namespace LenovoLegionToolkit.Lib.Utils
                             Create).ConfigureAwait(false);
             var machineInformation = result.First();
 
-            if (!machineInformation.Vendor.Equals(_allowedVendor, StringComparison.OrdinalIgnoreCase))
+            if (!machineInformation.Vendor.Equals(_allowedVendor, StringComparison.InvariantCultureIgnoreCase))
                 return (false, machineInformation);
 
             foreach (var allowedModel in _allowedModels)
-                if (machineInformation.Model.Contains(allowedModel, StringComparison.OrdinalIgnoreCase))
+                if (machineInformation.Model.Contains(allowedModel, StringComparison.InvariantCultureIgnoreCase))
                     return (true, machineInformation);
 
             return (false, machineInformation);
