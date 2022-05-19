@@ -4,7 +4,6 @@ using System.Text;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Utils;
 
