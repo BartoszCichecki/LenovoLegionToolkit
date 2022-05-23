@@ -1,0 +1,44 @@
+﻿<UserControl
+    x:Class="LenovoLegionToolkit.WPF.Controls.CPUBoostModeControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <wpfui:CardExpander x:Name="_expander" Margin="0,8,0,0">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="250" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48" />
+                <RowDefinition Height="48" />
+            </Grid.RowDefinitions>
+
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                VerticalAlignment="Center"
+                Text="Plugged in" />
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                VerticalAlignment="Center"
+                Text="On battery" />
+            <ComboBox
+                x:Name="_comboBoxAC"
+                Grid.Row="0"
+                Grid.Column="1"
+                SelectionChanged="ComboBoxAC_SelectionChanged" />
+            <ComboBox
+                x:Name="_comboBoxDC"
+                Grid.Row="1"
+                Grid.Column="1"
+                SelectionChanged="ComboBoxDC_SelectionChanged" />
+        </Grid>
+    </wpfui:CardExpander>
+</UserControl>

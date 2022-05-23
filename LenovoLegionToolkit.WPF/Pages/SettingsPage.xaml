@@ -78,7 +78,7 @@
         <wpfui:CardControl
             Title="Quiet mode"
             Margin="0,0,0,8"
-            Subtitle="Windows power plan to be activated when you switch to Quiet power mode.">
+            Subtitle="Windows power plan to be activated when&#x0a;you switch to Quiet power mode.">
             <ComboBox
                 x:Name="_quietModeComboBox"
                 Width="200"
@@ -89,7 +89,7 @@
         <wpfui:CardControl
             Title="Balance mode"
             Margin="0,0,0,8"
-            Subtitle="Windows power plan to be activated when you switch to Balance power mode.">
+            Subtitle="Windows power plan to be activated when&#x0a;you switch to Balance power mode.">
             <ComboBox
                 x:Name="_balanceModeComboBox"
                 Width="200"
@@ -100,7 +100,7 @@
         <wpfui:CardControl
             Title="Performance mode"
             Margin="0,0,0,8"
-            Subtitle="Windows power plan to be activated when you switch to Performance power mode.">
+            Subtitle="Windows power plan to be activated when&#x0a;you switch to Performance power mode.">
             <ComboBox
                 x:Name="_performanceModeComboBox"
                 Width="200"
@@ -119,7 +119,7 @@
             Grid.Row="0"
             Margin="0,8,0,24"
             FontSize="12"
-            Text="Do not change options below unless you really know what you are doing. They might cause unexpected behavior." />
+            Text="Do not change options below unless you really know what you are doing." />
 
         <wpfui:CardControl
             Title="Always activate Windows power plans"
@@ -130,6 +130,11 @@
                 Margin="0,0,0,8"
                 Click="ActivatePowerProfilesWithVantageEnabled_Click" />
         </wpfui:CardControl>
+
+        <wpfui:CardAction
+            Margin="0,0,0,8"
+            Click="CPUBoostModes_Click"
+            Content="CPU Boost Modes" />
 
     </StackPanel>
 </Page>

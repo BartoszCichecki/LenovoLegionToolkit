@@ -144,7 +144,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             var updateWindow = new UpdateWindow
             {
                 Owner = this,
-                WindowStartupLocation = WindowStartupLocation.CenterOwner
+                WindowStartupLocation = WindowStartupLocation.CenterOwner,
             };
             updateWindow.ShowDialog();
         }

@@ -9,6 +9,7 @@ using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Dialogs;
 using LenovoLegionToolkit.WPF.Utils;
+using LenovoLegionToolkit.WPF.Windows;
 
 namespace LenovoLegionToolkit.WPF.Pages
 {
@@ -195,6 +196,16 @@ namespace LenovoLegionToolkit.WPF.Pages
             Settings.Instance.Synchronize();
 
             await Container.Resolve<PowerModeFeature>().EnsureCorrectPowerPlanIsSetAsync();
+        }
+
+        private void CPUBoostModes_Click(object sender, RoutedEventArgs e)
+        {
+            var cpuBoostModesWindow = new CPUBoostModesWindow
+            {
+                Owner = Window.GetWindow(this),
+                WindowStartupLocation = WindowStartupLocation.CenterOwner,
+            };
+            cpuBoostModesWindow.ShowDialog();
         }
     }
 }
