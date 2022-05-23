@@ -5,17 +5,18 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.Lib.Utils;
 
-namespace LenovoLegionToolkit.Lib.Utils
+namespace LenovoLegionToolkit.Lib.Controllers
 {
-    public class CPUBoostSettings
+    public class CPUBoostModeSettings
     {
         public PowerPlan PowerPlan { get; }
         public List<CPUBoostMode> CPUBoostModes { get; }
         public int ACSettingValue { get; }
         public int DCSettingValue { get; }
 
-        public CPUBoostSettings(PowerPlan powerPlan, List<CPUBoostMode> cpuBoostModes, int acSettingValue, int dcSettingValue)
+        public CPUBoostModeSettings(PowerPlan powerPlan, List<CPUBoostMode> cpuBoostModes, int acSettingValue, int dcSettingValue)
         {
             PowerPlan = powerPlan;
             CPUBoostModes = cpuBoostModes;
@@ -24,7 +25,7 @@ namespace LenovoLegionToolkit.Lib.Utils
         }
     }
 
-    public static class CPUBoost
+    public class CPUBoostModeController
     {
         private const string ProcessorPowerManagementSubgroupGUID = "54533251-82be-4824-96c1-47b60b740d00";
         private const string PowerSettingGUID = "be337238-0d82-4146-a960-4f3749d470c7";
@@ -33,7 +34,7 @@ namespace LenovoLegionToolkit.Lib.Utils
         private static readonly Regex nameRegex = new(@"(?im)\((.*)\)");
         private static readonly Regex activeRegex = new(@"(?im)\*$");
 
-        public static async Task<List<CPUBoostSettings>> GetSettingsAsync()
+        public async Task<List<CPUBoostModeSettings>> GetSettingsAsync()
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting perfboostmode settings...");
@@ -45,7 +46,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 
             var powerPlans = await GetPowerPlansAsync();
 
-            var result = new List<CPUBoostSettings>();
+            var result = new List<CPUBoostModeSettings>();
             foreach (var powerPlan in powerPlans)
             {
                 if (Log.Instance.IsTraceEnabled)
@@ -65,7 +66,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             return result;
         }
 
-        public static async Task SetSettingAsync(PowerPlan powerPlan, CPUBoostMode cpuBoostMode, bool isAC)
+        public async Task SetSettingAsync(PowerPlan powerPlan, CPUBoostMode cpuBoostMode, bool isAC)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Setting perfboostmode to {cpuBoostMode.Name}... [powerPlan.name={powerPlan.Name}, powerPlan.instanceID={powerPlan.InstanceID}, cpuBoostMode.value={cpuBoostMode.Value}, isAC={isAC}]");
@@ -77,7 +78,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                 Log.Instance.Trace($"Perfboostmode set to {cpuBoostMode.Name} [powerPlan.name={powerPlan.Name}, powerPlan.instanceID={powerPlan.InstanceID}, cpuBoostMode.value={cpuBoostMode.Value}, isAC={isAC}]");
         }
 
-        private static async Task EnsureAttributeVisibleAsync()
+        private async Task EnsureAttributeVisibleAsync()
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Ensuring perfboostmode is visible...");
@@ -88,7 +89,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                 Log.Instance.Trace($"Perfboostmode is visible.");
         }
 
-        private static async Task<List<PowerPlan>> GetPowerPlansAsync()
+        private async Task<List<PowerPlan>> GetPowerPlansAsync()
         {
             var output = await CMD.RunAsync("powercfg", "/LIST");
             var outputLines = output
@@ -111,7 +112,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             return result.OrderBy(pp => pp.Name).ToList();
         }
 
-        private static async Task<CPUBoostSettings> GetCPUBoostSettingsAsync(PowerPlan powerPlan)
+        private async Task<CPUBoostModeSettings> GetCPUBoostSettingsAsync(PowerPlan powerPlan)
         {
             var output = await CMD.RunAsync("powercfg", $"/QUERY {powerPlan.InstanceID} {ProcessorPowerManagementSubgroupGUID} {PowerSettingGUID}");
             var outputLines = output
@@ -137,7 +138,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             var acSettingValue = int.Parse(acSettingValueString, NumberStyles.HexNumber | NumberStyles.AllowHexSpecifier);
             var dcSettingValue = int.Parse(dcSettingValueString, NumberStyles.HexNumber | NumberStyles.AllowHexSpecifier);
 
-            return new CPUBoostSettings(powerPlan, cpuBoostModes, acSettingValue, dcSettingValue);
+            return new CPUBoostModeSettings(powerPlan, cpuBoostModes, acSettingValue, dcSettingValue);
         }
     }
 }

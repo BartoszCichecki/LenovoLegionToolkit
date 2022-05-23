@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using WPFUI.Common;
@@ -66,7 +67,7 @@ namespace LenovoLegionToolkit.WPF.Dialogs
         {
             var mainContent = ((Grid)Application.Current.MainWindow.Content).Children;
 
-            dialog.Closed += (s, e) =>
+            dialog.Closed += ([NotNull] s, e) =>
             {
                 mainContent.Remove(dialog);
             };

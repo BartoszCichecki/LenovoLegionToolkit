@@ -29,6 +29,7 @@ namespace LenovoLegionToolkit.WPF.Utils
             cb.RegisterType<TouchpadLockFeature>().SingleInstance();
             cb.RegisterType<PowerModeListener>().SingleInstance();
             cb.RegisterType<GPUController>().SingleInstance();
+            cb.RegisterType<CPUBoostModeController>().SingleInstance();
             cb.RegisterType<UpdateChecker>().SingleInstance();
 
             _container = cb.Build();
