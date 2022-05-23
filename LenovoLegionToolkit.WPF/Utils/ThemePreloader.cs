@@ -18,6 +18,7 @@ namespace LenovoLegionToolkit.WPF.Utils
 
             // WPFUI
             typeof(WPFUI.Controls.Button),
+            typeof(WPFUI.Controls.CardExpander),
             typeof(WPFUI.Controls.CardAction),
             typeof(WPFUI.Controls.CardControl),
             typeof(WPFUI.Controls.Hyperlink),

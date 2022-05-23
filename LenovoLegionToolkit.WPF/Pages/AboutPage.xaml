@@ -11,7 +11,7 @@
     Style="{StaticResource UiPage}"
     mc:Ignorable="d">
 
-    <StackPanel Margin="0,0,12,12">
+    <StackPanel Margin="0,0,16,12">
         <TextBlock
             Margin="0,16,0,24"
             FontSize="24"
