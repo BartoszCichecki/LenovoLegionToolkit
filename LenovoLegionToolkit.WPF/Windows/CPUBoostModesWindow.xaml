@@ -26,7 +26,7 @@
         <Grid
             Grid.Row="0"
             Height="24"
-            Margin="12,8,150,6">
+            Margin="12,8,12,8">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
@@ -42,7 +42,7 @@
 
         </Grid>
 
-        <ScrollViewer Grid.Row="1" Margin="12,12,12,12">
+        <ScrollViewer Grid.Row="1" Margin="12,12,0,12">
             <StackPanel x:Name="_stackPanel" />
         </ScrollViewer>
     </Grid>

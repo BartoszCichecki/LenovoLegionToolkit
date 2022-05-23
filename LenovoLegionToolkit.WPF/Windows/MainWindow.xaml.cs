@@ -11,7 +11,6 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Pages;
-using LenovoLegionToolkit.WPF.Utils;
 using WPFUI.Controls;
 using WPFUI.Controls.Interfaces;
 using Container = LenovoLegionToolkit.WPF.Utils.Container;
@@ -21,7 +20,6 @@ namespace LenovoLegionToolkit.WPF.Windows
     public partial class MainWindow : Window
     {
         private readonly UpdateChecker updateChecker = Container.Resolve<UpdateChecker>();
-        private readonly ThemeManager themeManager = Container.Resolve<ThemeManager>();
 
         public MainWindow()
         {
@@ -42,8 +40,6 @@ namespace LenovoLegionToolkit.WPF.Windows
 
             if (Log.Instance.IsTraceEnabled)
                 _title.Text += " [TRACE ENABLED]";
-
-            themeManager.ApplyBackground(this);
         }
 
         private void InitializeNavigation()
@@ -59,7 +55,7 @@ namespace LenovoLegionToolkit.WPF.Windows
                 new NavigationItem() { Icon = WPFUI.Common.SymbolRegular.Info28, Content = "About", PageTag = "about", Page = typeof(AboutPage)},
             };
 
-            RootNavigation.Navigate((string)RootNavigation.Items[0].PageTag);
+            RootNavigation.Navigate(RootNavigation.Items[0].PageTag);
         }
 
         private void InitializeTray()

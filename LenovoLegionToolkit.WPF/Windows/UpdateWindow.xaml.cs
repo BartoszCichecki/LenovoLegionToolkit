@@ -28,15 +28,12 @@ namespace LenovoLegionToolkit.WPF.Windows
         }
 
         private readonly UpdateChecker updateChecker = Container.Resolve<UpdateChecker>();
-        private readonly ThemeManager themeManager = Container.Resolve<ThemeManager>();
 
         private CancellationTokenSource? downloadCancellationTokenSource;
 
         public UpdateWindow()
         {
             InitializeComponent();
-
-            themeManager.ApplyBackground(this);
 
             Loaded += UpdateWindow_Loaded;
             Closing += UpdateWindow_Closing;
@@ -82,23 +79,12 @@ namespace LenovoLegionToolkit.WPF.Windows
             {
                 SetDownloading(false);
             }
-            catch (Exception ex)
+            catch
             {
                 SetDownloading(false);
 
-                var messageBox = new WPFUI.Controls.MessageBox
-                {
-                    ButtonLeftName = "Open on Github",
-                    ButtonRightName = "Close"
-                };
-                messageBox.ButtonLeftClick += (s, e) =>
-                {
-                    Process.Start(new ProcessStartInfo("https://github.com/BartoszCichecki/LenovoLegionToolkit/releases/latest") { UseShellExecute = true });
-                    messageBox.Close();
-                    Close();
-                };
-                messageBox.ButtonRightClick += (s, e) => messageBox.Close();
-                messageBox.Show("Update failed", ex.Message);
+                Process.Start(new ProcessStartInfo("https://github.com/BartoszCichecki/LenovoLegionToolkit/releases/latest") { UseShellExecute = true });
+                Close();
             }
         }
 
