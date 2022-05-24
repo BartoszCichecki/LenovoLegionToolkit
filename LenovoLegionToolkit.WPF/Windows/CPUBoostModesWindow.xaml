@@ -7,8 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
     Title="Update available"
-    Width="800"
+    Width="600"
     Height="500"
+    MinWidth="500"
+    MinHeight="400"
     Style="{StaticResource UiWindow}">
     <Grid>
         <Grid.RowDefinitions>
@@ -44,7 +46,7 @@
 
         </Grid>
 
-        <ScrollViewer Grid.Row="1" Margin="12,0,12,0">
+        <ScrollViewer Grid.Row="1" Margin="12,0,0,0">
             <StackPanel x:Name="_stackPanel" />
         </ScrollViewer>
 
