@@ -15,13 +15,13 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 5.0.x
+        dotnet-version: 6.0.x
     - name: Restore dependencies
       run: dotnet restore
-    - name: Publish
-      run: dotnet publish LenovoLegionToolkit.WPF --no-restore -c release -o build /p:DebugType=None /p:FileVersion=${{ github.ref_name }} /p:Version=${{ github.ref_name }}
+    - name: Build
+      run: make.bat ${{ github.ref_name }}
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
         draft: true
-        files: build\Lenovo Legion Toolkit.exe
+        files: build_installer\LenovoLegionToolkitSetup.exe
