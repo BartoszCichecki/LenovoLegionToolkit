@@ -23,8 +23,13 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         private async void RefreshingControl_Loaded(object sender, RoutedEventArgs e)
         {
+            var loadingTask = Task.Delay(250);
             await RefreshAsync();
+            await loadingTask;
+            FinishedLoading();
         }
+
+        protected abstract void FinishedLoading();
 
         private async void RefreshingControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {

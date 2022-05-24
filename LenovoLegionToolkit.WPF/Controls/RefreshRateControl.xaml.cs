@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
@@ -16,6 +17,11 @@ namespace LenovoLegionToolkit.WPF.Controls
             InitializeComponent();
 
             SystemEvents.DisplaySettingsChanged += SystemEvents_DisplaySettingsChanged;
+        }
+
+        protected override void FinishedLoading()
+        {
+            _comboBox.Visibility = Visibility.Visible;
         }
 
         private async void SystemEvents_DisplaySettingsChanged(object? sender, System.EventArgs e)

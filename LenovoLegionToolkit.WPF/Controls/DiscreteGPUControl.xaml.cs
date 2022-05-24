@@ -19,6 +19,8 @@ namespace LenovoLegionToolkit.WPF.Controls
             IsVisibleChanged += DiscreteGPUControl_IsVisibleChanged;
         }
 
+        protected override void FinishedLoading() { }
+
         protected override async Task OnRefreshAsync()
         {
             if (!_gpuController.IsSupported())
@@ -67,6 +69,8 @@ namespace LenovoLegionToolkit.WPF.Controls
                 GPUController.Status.Inactive => "nVidia GPU is not active.",
                 _ => null,
             };
+
+            _content.Visibility = Visibility.Visible;
         });
     }
 }

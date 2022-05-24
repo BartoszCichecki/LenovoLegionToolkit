@@ -28,7 +28,8 @@
                 x:Name="_themeComboBox"
                 Width="150"
                 Margin="0,0,0,8"
-                SelectionChanged="ThemeComboBox_SelectionChanged" />
+                SelectionChanged="ThemeComboBox_SelectionChanged"
+                Visibility="Hidden" />
         </wpfui:CardControl>
 
         <wpfui:CardControl
@@ -38,7 +39,8 @@
             <wpfui:ToggleSwitch
                 x:Name="_autorunToggle"
                 Margin="0,0,0,8"
-                Click="AutorunToggle_Click" />
+                Click="AutorunToggle_Click"
+                Visibility="Hidden" />
         </wpfui:CardControl>
 
         <wpfui:CardControl
@@ -48,7 +50,8 @@
             <wpfui:ToggleSwitch
                 x:Name="_minimizeOnCloseToggle"
                 Margin="0,0,0,8"
-                Click="MinimizeOnCloseToggle_Click" />
+                Click="MinimizeOnCloseToggle_Click"
+                Visibility="Hidden" />
         </wpfui:CardControl>
 
         <wpfui:CardControl
@@ -59,7 +62,8 @@
             <wpfui:ToggleSwitch
                 x:Name="_vantageToggle"
                 Margin="0,0,0,8"
-                Click="VantageToggle_Click" />
+                Click="VantageToggle_Click"
+                Visibility="Hidden" />
         </wpfui:CardControl>
 
         <TextBlock

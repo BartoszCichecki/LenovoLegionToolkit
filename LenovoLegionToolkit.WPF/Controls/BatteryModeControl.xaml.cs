@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
@@ -14,6 +15,11 @@ namespace LenovoLegionToolkit.WPF.Controls
         public BatteryModeControl()
         {
             InitializeComponent();
+        }
+
+        protected override void FinishedLoading()
+        {
+            _comboBox.Visibility = Visibility.Visible;
         }
 
         private async void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -17,6 +17,7 @@
             x:Name="_comboBox"
             Width="150"
             Margin="0,0,0,8"
-            SelectionChanged="ComboBox_SelectionChanged" />
+            SelectionChanged="ComboBox_SelectionChanged"
+            Visibility="Hidden" />
     </wpfui:CardControl>
 </local:RefreshingControl>

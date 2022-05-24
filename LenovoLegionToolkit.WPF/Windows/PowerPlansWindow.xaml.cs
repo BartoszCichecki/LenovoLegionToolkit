@@ -21,6 +21,11 @@ namespace LenovoLegionToolkit.WPF.Windows
         {
             InitializeComponent();
 
+            ResizeMode = ResizeMode.CanMinimize;
+
+            _titleBar.UseSnapLayout = false;
+            _titleBar.CanMaximize = false;
+
             Loaded += PowerPlansWindow_Loaded;
             IsVisibleChanged += PowerPlansWindow_IsVisibleChanged;
         }
