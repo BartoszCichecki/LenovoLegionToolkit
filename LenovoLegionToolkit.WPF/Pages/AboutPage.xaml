@@ -56,11 +56,12 @@
             <StackPanel Grid.Column="0" Margin="0,0,32,0">
                 <wpfui:Hyperlink Content="Autofac" NavigateUri="https://github.com/autofac/Autofac" />
                 <wpfui:Hyperlink Content="AsyncLock" NavigateUri="https://github.com/neosmart/AsyncLock" />
+                <wpfui:Hyperlink Content="Ben.Demystifier" NavigateUri="https://github.com/benaadams/Ben.Demystifier" />
                 <wpfui:Hyperlink Content="Markdig" NavigateUri="https://github.com/xoofx/markdig" />
                 <wpfui:Hyperlink Content="Markdig.Wpf" NavigateUri="https://github.com/Kryptos-FR/markdig.wpf" />
-                <wpfui:Hyperlink Content="NvAPIWrapper" NavigateUri="https://github.com/falahati/NvAPIWrapper" />
             </StackPanel>
             <StackPanel Grid.Column="1">
+                <wpfui:Hyperlink Content="NvAPIWrapper" NavigateUri="https://github.com/falahati/NvAPIWrapper" />
                 <wpfui:Hyperlink Content="octokit.net" NavigateUri="https://github.com/octokit/octokit.net" />
                 <wpfui:Hyperlink Content="TaskScheduler" NavigateUri="https://github.com/dahall/TaskScheduler" />
                 <wpfui:Hyperlink Content="WindowsDisplayAPI" NavigateUri="https://github.com/falahati/WindowsDisplayAPI" />
