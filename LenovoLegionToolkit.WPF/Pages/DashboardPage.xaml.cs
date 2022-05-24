@@ -15,7 +15,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             if (!e.WidthChanged)
                 return;
 
-            if (e.NewSize.Width < 1100)
+            if (e.NewSize.Width < 1000)
             {
                 _column0.Width = new GridLength(1, GridUnitType.Star);
                 _column1.Width = new GridLength(0, GridUnitType.Pixel);

@@ -67,52 +67,6 @@
             Margin="0,16,0,0"
             FontSize="24"
             FontWeight="Medium"
-            Text="Power plans" />
-
-        <TextBlock
-            Grid.Row="0"
-            Margin="0,8,0,24"
-            FontSize="12"
-            Text="Windows power plans are not changed when Lenovo Vantage is running." />
-
-        <wpfui:CardControl
-            Title="Quiet mode"
-            Margin="0,0,0,8"
-            Subtitle="Windows power plan to be activated when&#x0a;you switch to Quiet power mode.">
-            <ComboBox
-                x:Name="_quietModeComboBox"
-                Width="200"
-                Margin="0,0,0,8"
-                SelectionChanged="QuietModeComboBox_SelectionChanged" />
-        </wpfui:CardControl>
-
-        <wpfui:CardControl
-            Title="Balance mode"
-            Margin="0,0,0,8"
-            Subtitle="Windows power plan to be activated when&#x0a;you switch to Balance power mode.">
-            <ComboBox
-                x:Name="_balanceModeComboBox"
-                Width="200"
-                Margin="0,0,0,8"
-                SelectionChanged="BalanceModeComboBox_SelectionChanged" />
-        </wpfui:CardControl>
-
-        <wpfui:CardControl
-            Title="Performance mode"
-            Margin="0,0,0,8"
-            Subtitle="Windows power plan to be activated when&#x0a;you switch to Performance power mode.">
-            <ComboBox
-                x:Name="_performanceModeComboBox"
-                Width="200"
-                Margin="0,0,0,8"
-                SelectionChanged="PerformanceModeComboBox_SelectionChanged" />
-        </wpfui:CardControl>
-
-        <TextBlock
-            Grid.Row="0"
-            Margin="0,16,0,0"
-            FontSize="24"
-            FontWeight="Medium"
             Text="Advanced" />
 
         <TextBlock
@@ -121,15 +75,10 @@
             FontSize="12"
             Text="Do not change options below unless you really know what you are doing." />
 
-        <wpfui:CardControl
-            Title="Always activate Windows power plans"
+        <wpfui:CardAction
             Margin="0,0,0,8"
-            Subtitle="Activate power plans even when Vantage is enabled.">
-            <wpfui:ToggleSwitch
-                x:Name="_activatePowerProfilesWithVantageEnabledToggle"
-                Margin="0,0,0,8"
-                Click="ActivatePowerProfilesWithVantageEnabled_Click" />
-        </wpfui:CardControl>
+            Click="PowerPlans_Click"
+            Content="Windows Power Plans" />
 
         <wpfui:CardAction
             Margin="0,0,0,8"

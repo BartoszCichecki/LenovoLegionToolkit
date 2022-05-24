@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
     Title="Lenovo Legion Toolkit"
-    Width="1200"
+    Width="1100"
     Height="650"
     MinWidth="650"
     MinHeight="650"

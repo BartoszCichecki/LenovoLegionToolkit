@@ -2,7 +2,6 @@
 using System.Windows;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
-using LenovoLegionToolkit.WPF.Dialogs;
 using LenovoLegionToolkit.WPF.Utils;
 
 namespace LenovoLegionToolkit.WPF.Controls
@@ -21,7 +20,10 @@ namespace LenovoLegionToolkit.WPF.Controls
             if (IsRefreshing || _toggle.IsChecked == null)
                 return;
 
-            var result = await DialogService.ShowDialogAsync("Restart required", "Changing Hybrid Mode requires restart. Do you want to restart now?");
+            var result = await MessageBoxHelper.ShowAsync(
+                this,
+                "Restart required",
+                "Changing Hybrid Mode requires restart. Do you want to restart now?");
             if (result)
             {
                 var state = _toggle.IsChecked.Value ? HybridModeState.On : HybridModeState.Off;
