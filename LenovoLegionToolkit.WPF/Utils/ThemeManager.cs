@@ -16,6 +16,8 @@ namespace LenovoLegionToolkit.WPF.Utils
         private readonly IDisposable _themeListener;
 #pragma warning restore IDE0052 // Remove unread private members
 
+        public event EventHandler? ThemeApplied;
+
         public ThemeManager()
         {
             _themeListener = Registry.Listen(RegistryHive, RegistryPath, RegistryKey, () => Application.Current.Dispatcher.Invoke(() =>
@@ -35,18 +37,23 @@ namespace LenovoLegionToolkit.WPF.Utils
                 (Theme.System, 1) => WPFUI.Appearance.ThemeType.Light,
                 _ => WPFUI.Appearance.ThemeType.Dark,
             };
-            WPFUI.Appearance.Theme.Apply(currentTheme, WPFUI.Appearance.BackgroundType.Unknown, updateAccent: false);
+
+            WPFUI.Appearance.Theme.Apply(currentTheme,
+                backgroundEffect: WPFUI.Appearance.BackgroundType.Unknown,
+                updateAccent: false);
 
             SetColor();
+
+            ThemeApplied?.Invoke(this, EventArgs.Empty);
         }
 
         private static void SetColor()
         {
             var accentColor = (Color)ColorConverter.ConvertFromString("#E74C3C");
-
-            Application.Current.Resources["SystemAccentColor"] = accentColor;
-            Application.Current.Resources["SystemAccentColorLight2"] = accentColor;
-            Application.Current.Resources["SystemAccentColorLight3"] = accentColor;
+            WPFUI.Appearance.Accent.Apply(systemAccent: accentColor,
+                primaryAccent: accentColor,
+                secondaryAccent: accentColor,
+                tertiaryAccent: accentColor);
         }
     }
 }
