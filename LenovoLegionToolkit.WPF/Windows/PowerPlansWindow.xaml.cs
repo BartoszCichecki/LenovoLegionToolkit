@@ -17,8 +17,6 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private static readonly object DEFAULT_VALUE = new string("(Default)");
 
-        private bool _isRefreshing;
-
         public PowerPlansWindow()
         {
             InitializeComponent();
@@ -37,7 +35,7 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private async Task RefreshAsync()
         {
-            _isRefreshing = true;
+            var loadingTask = Task.Delay(500);
 
             var powerPlans = (await Power.GetPowerPlansAsync()).OrderBy(x => x.Name);
             Refresh(_quietModeComboBox, powerPlans, PowerModeState.Quiet);
@@ -46,7 +44,10 @@ namespace LenovoLegionToolkit.WPF.Windows
 
             _activatePowerProfilesWithVantageEnabledToggle.IsChecked = Settings.Instance.ActivatePowerProfilesWithVantageEnabled;
 
-            _isRefreshing = false;
+            await loadingTask;
+
+            _loader.Visibility = Visibility.Collapsed;
+            _content.Visibility = Visibility.Visible;
         }
 
         private void Refresh(ComboBox comboBox, IEnumerable<PowerPlan> powerPlans, PowerModeState powerModeState)
@@ -70,9 +71,6 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private async void QuietModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (_isRefreshing)
-                return;
-
             var state = _quietModeComboBox.SelectedValue;
             if (state == null)
                 return;
@@ -82,9 +80,6 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private async void BalanceModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (_isRefreshing)
-                return;
-
             var state = _balanceModeComboBox.SelectedValue;
             if (state == null)
                 return;
@@ -94,9 +89,6 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private async void PerformanceModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (_isRefreshing)
-                return;
-
             var state = _performanceModeComboBox.SelectedValue;
             if (state == null)
                 return;
@@ -106,9 +98,6 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private async void ActivatePowerProfilesWithVantageEnabled_Click(object sender, RoutedEventArgs e)
         {
-            if (_isRefreshing)
-                return;
-
             var state = _activatePowerProfilesWithVantageEnabledToggle.IsChecked;
             if (state == null)
                 return;

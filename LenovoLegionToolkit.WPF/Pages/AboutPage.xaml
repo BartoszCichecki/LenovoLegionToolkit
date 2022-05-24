@@ -27,7 +27,7 @@
             x:Name="_version"
             Padding="0,0,0,16"
             Text="Version: " />
-        <TextBlock Text="© 2022 Bartosz Cichecki" />
+        <TextBlock x:Name="_copyright" />
 
         <TextBlock
             Padding="0,32,0,8"
@@ -54,40 +54,17 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0" Margin="0,0,32,0">
-                <wpfui:Hyperlink
-                    Content="wpfui"
-                    Icon="Link24"
-                    NavigateUri="https://github.com/lepoco/wpfui" />
-                <wpfui:Hyperlink
-                    Content="Autofac"
-                    Icon="Link24"
-                    NavigateUri="https://github.com/autofac/Autofac" />
-                <wpfui:Hyperlink
-                    Content="AsyncLock"
-                    Icon="Link24"
-                    NavigateUri="https://github.com/neosmart/AsyncLock" />
-                <wpfui:Hyperlink
-                    Content="TaskScheduler"
-                    Icon="Link24"
-                    NavigateUri="https://github.com/dahall/TaskScheduler" />
+                <wpfui:Hyperlink Content="Autofac" NavigateUri="https://github.com/autofac/Autofac" />
+                <wpfui:Hyperlink Content="AsyncLock" NavigateUri="https://github.com/neosmart/AsyncLock" />
+                <wpfui:Hyperlink Content="Markdig" NavigateUri="https://github.com/xoofx/markdig" />
+                <wpfui:Hyperlink Content="Markdig.Wpf" NavigateUri="https://github.com/Kryptos-FR/markdig.wpf" />
+                <wpfui:Hyperlink Content="NvAPIWrapper" NavigateUri="https://github.com/falahati/NvAPIWrapper" />
             </StackPanel>
             <StackPanel Grid.Column="1">
-                <wpfui:Hyperlink
-                    Content="octokit.net"
-                    Icon="Link24"
-                    NavigateUri="https://github.com/octokit/octokit.net" />
-                <wpfui:Hyperlink
-                    Content="Markdig"
-                    Icon="Link24"
-                    NavigateUri="https://github.com/xoofx/markdig" />
-                <wpfui:Hyperlink
-                    Content="NvAPIWrapper"
-                    Icon="Link24"
-                    NavigateUri="https://github.com/falahati/NvAPIWrapper" />
-                <wpfui:Hyperlink
-                    Content="WindowsDisplayAPI"
-                    Icon="Link24"
-                    NavigateUri="https://github.com/falahati/WindowsDisplayAPI" />
+                <wpfui:Hyperlink Content="octokit.net" NavigateUri="https://github.com/octokit/octokit.net" />
+                <wpfui:Hyperlink Content="TaskScheduler" NavigateUri="https://github.com/dahall/TaskScheduler" />
+                <wpfui:Hyperlink Content="WindowsDisplayAPI" NavigateUri="https://github.com/falahati/WindowsDisplayAPI" />
+                <wpfui:Hyperlink Content="wpfui" NavigateUri="https://github.com/lepoco/wpfui" />
             </StackPanel>
 
         </Grid>

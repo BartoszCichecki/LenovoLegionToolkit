@@ -46,7 +46,16 @@
 
         </Grid>
 
-        <ScrollViewer Grid.Row="1" Margin="12,0,0,0">
+        <wpfui:ProgressRing
+            x:Name="_loader"
+            Grid.Row="1"
+            IsIndeterminate="True" />
+
+        <ScrollViewer
+            x:Name="_content"
+            Grid.Row="1"
+            Margin="12,0,0,0"
+            Visibility="Collapsed">
             <StackPanel x:Name="_stackPanel" />
         </ScrollViewer>
 
