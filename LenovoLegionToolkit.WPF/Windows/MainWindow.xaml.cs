@@ -28,12 +28,6 @@ namespace LenovoLegionToolkit.WPF.Windows
             InitializeTray();
             RestoreWindowSize();
 
-            ResizeMode = ResizeMode.CanMinimize;
-
-            _titleBar.UseSnapLayout = false;
-            _titleBar.CanMaximize = false;
-            _titleBar.ShowMaximize = false;
-
 #if DEBUG
             _title.Text += " [DEBUG]";
 #endif

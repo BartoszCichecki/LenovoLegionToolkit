@@ -5,6 +5,8 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Interop;
+using System.Windows.Media;
 using System.Windows.Threading;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
@@ -34,6 +36,8 @@ namespace LenovoLegionToolkit
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Starting... [version={Assembly.GetEntryAssembly()?.GetName().Version}]");
+
+            RenderOptions.ProcessRenderMode = RenderMode.SoftwareOnly;
 
             EnsureSingleInstance();
 
