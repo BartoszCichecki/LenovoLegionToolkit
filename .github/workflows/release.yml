@@ -19,7 +19,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: make.bat ${{ github.ref_name }}
+      run: .\make.bat ${{ github.ref_name }}
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
