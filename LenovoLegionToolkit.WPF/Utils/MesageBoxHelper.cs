@@ -5,7 +5,7 @@ using MessageBox = WPFUI.Controls.MessageBox;
 
 namespace LenovoLegionToolkit.WPF.Utils
 {
-    internal class MessageBoxHelper
+    public static class MessageBoxHelper
     {
         public static Task<bool> ShowAsync(
             DependencyObject dependencyObject,

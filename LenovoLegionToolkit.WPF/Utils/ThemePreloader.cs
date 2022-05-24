@@ -32,6 +32,7 @@ namespace LenovoLegionToolkit.WPF.Utils
         private ThemePreloader()
         {
             InitializeTypes();
+
             LayoutUpdated += Preload_LayoutUpdated;
         }
 

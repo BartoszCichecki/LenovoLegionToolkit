@@ -19,7 +19,7 @@ namespace LenovoLegionToolkit.WPF.Windows
 {
     public partial class MainWindow
     {
-        private readonly UpdateChecker updateChecker = Container.Resolve<UpdateChecker>();
+        private readonly UpdateChecker _updateChecker = Container.Resolve<UpdateChecker>();
 
         public MainWindow()
         {
@@ -120,7 +120,9 @@ namespace LenovoLegionToolkit.WPF.Windows
             }
         }
 
+#pragma warning disable IDE0051 // Remove unused private members
         private void MainWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+#pragma warning restore IDE0051 // Remove unused private members
         {
             if (!IsVisible)
                 return;
@@ -128,7 +130,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             Task.Run(async () =>
             {
                 await Task.Delay(2000);
-                return await updateChecker.Check();
+                return await _updateChecker.Check();
             }).ContinueWith(updatesAvailable =>
             {
                 _updateIndicator.Visibility = updatesAvailable.Result ? Visibility.Visible : Visibility.Collapsed;

@@ -34,9 +34,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             _isRefreshing = true;
 
             _themeComboBox.SetItems(Enum.GetValues<Theme>(), Settings.Instance.Theme);
-
             _autorunToggle.IsChecked = Autorun.IsEnabled;
-
             _minimizeOnCloseToggle.IsChecked = Settings.Instance.MinimizeOnClose;
 
             var vantageStatus = await Vantage.GetStatusAsync();

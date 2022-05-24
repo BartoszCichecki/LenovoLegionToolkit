@@ -13,23 +13,23 @@ namespace LenovoLegionToolkit.WPF.Windows
     {
         private class DownloadProgress : IProgress<float>
         {
-            private readonly ProgressBar progressBar;
+            private readonly ProgressBar _progressBar;
 
             public DownloadProgress(ProgressBar progressBar)
             {
-                this.progressBar = progressBar;
+                _progressBar = progressBar;
             }
 
             public void Report(float value)
             {
-                progressBar.IsIndeterminate = !(value > 0);
-                progressBar.Value = value;
+                _progressBar.IsIndeterminate = !(value > 0);
+                _progressBar.Value = value;
             }
         }
 
-        private readonly UpdateChecker updateChecker = Container.Resolve<UpdateChecker>();
+        private readonly UpdateChecker _updateChecker = Container.Resolve<UpdateChecker>();
 
-        private CancellationTokenSource? downloadCancellationTokenSource;
+        private CancellationTokenSource? _downloadCancellationTokenSource;
 
         public UpdateWindow()
         {
@@ -41,7 +41,7 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private async void UpdateWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            var updates = await updateChecker.GetUpdates();
+            var updates = await _updateChecker.GetUpdates();
 
             var stringBuilder = new StringBuilder();
             foreach (var update in updates)
@@ -57,20 +57,20 @@ namespace LenovoLegionToolkit.WPF.Windows
             _downloadButton.IsEnabled = true;
         }
 
-        private void UpdateWindow_Closing(object? sender, System.ComponentModel.CancelEventArgs e) => downloadCancellationTokenSource?.Cancel();
+        private void UpdateWindow_Closing(object? sender, System.ComponentModel.CancelEventArgs e) => _downloadCancellationTokenSource?.Cancel();
 
         private async void DownloadButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                downloadCancellationTokenSource?.Cancel();
-                downloadCancellationTokenSource = new CancellationTokenSource();
+                _downloadCancellationTokenSource?.Cancel();
+                _downloadCancellationTokenSource = new CancellationTokenSource();
 
                 SetDownloading(true);
 
-                var path = await updateChecker.DownloadLatestUpdate(new DownloadProgress(_downloadProgressBar), downloadCancellationTokenSource.Token);
+                var path = await _updateChecker.DownloadLatestUpdate(new DownloadProgress(_downloadProgressBar), _downloadCancellationTokenSource.Token);
 
-                downloadCancellationTokenSource = null;
+                _downloadCancellationTokenSource = null;
 
                 Process.Start(path);
                 Application.Current.Shutdown();
@@ -88,7 +88,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             }
         }
 
-        private void CancelDownloadButton_Click(object sender, RoutedEventArgs e) => downloadCancellationTokenSource?.Cancel();
+        private void CancelDownloadButton_Click(object sender, RoutedEventArgs e) => _downloadCancellationTokenSource?.Cancel();
 
         private void SetDownloading(bool isDownloading)
         {
