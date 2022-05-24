@@ -16,6 +16,7 @@
         <wpfui:ToggleSwitch
             x:Name="_toggle"
             Margin="0,0,0,8"
-            Click="Toggle_Click" />
+            Click="Toggle_Click"
+            Visibility="Hidden" />
     </wpfui:CardControl>
 </local:RefreshingControl>

@@ -143,6 +143,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             {
                 Owner = this,
                 WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                ShowInTaskbar = false,
             };
             updateWindow.ShowDialog();
         }

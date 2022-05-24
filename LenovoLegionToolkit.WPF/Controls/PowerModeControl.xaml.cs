@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
@@ -18,6 +19,11 @@ namespace LenovoLegionToolkit.WPF.Controls
             InitializeComponent();
 
             _listener.Changed += Listener_Changed;
+        }
+
+        protected override void FinishedLoading()
+        {
+            _comboBox.Visibility = Visibility.Visible;
         }
 
         private void Listener_Changed(object? sender, PowerModeState e) => Dispatcher.Invoke(async () =>

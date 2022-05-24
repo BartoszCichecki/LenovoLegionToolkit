@@ -33,6 +33,8 @@ namespace LenovoLegionToolkit.WPF.Pages
         {
             _isRefreshing = true;
 
+            var loadingTask = Task.Delay(250);
+
             _themeComboBox.SetItems(Enum.GetValues<Theme>(), Settings.Instance.Theme);
             _autorunToggle.IsChecked = Autorun.IsEnabled;
             _minimizeOnCloseToggle.IsChecked = Settings.Instance.MinimizeOnClose;
@@ -40,6 +42,13 @@ namespace LenovoLegionToolkit.WPF.Pages
             var vantageStatus = await Vantage.GetStatusAsync();
             _vantageCard.Visibility = vantageStatus != VantageStatus.NotFound ? Visibility.Visible : Visibility.Collapsed;
             _vantageToggle.IsChecked = vantageStatus == VantageStatus.Enabled;
+
+            await loadingTask;
+
+            _themeComboBox.Visibility = Visibility.Visible;
+            _autorunToggle.Visibility = Visibility.Visible;
+            _minimizeOnCloseToggle.Visibility = Visibility.Visible;
+            _vantageToggle.Visibility = Visibility.Visible;
 
             _isRefreshing = false;
         }

@@ -15,6 +15,11 @@ namespace LenovoLegionToolkit.WPF.Controls
             InitializeComponent();
         }
 
+        protected override void FinishedLoading()
+        {
+            _toggle.Visibility = Visibility.Visible;
+        }
+
         private async void Toggle_Click(object sender, RoutedEventArgs e)
         {
             if (IsRefreshing || _toggle.IsChecked == null)
