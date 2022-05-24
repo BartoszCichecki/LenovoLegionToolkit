@@ -25,3 +25,7 @@ jobs:
       with:
         draft: true
         files: build_installer\LenovoLegionToolkitSetup.exe
+    - uses: actions/upload-artifact@v3
+      with:
+        name: installer
+        path: build_installer\LenovoLegionToolkitSetup.exe
