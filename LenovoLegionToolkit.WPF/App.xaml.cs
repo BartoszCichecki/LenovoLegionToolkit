@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
@@ -51,7 +52,7 @@ namespace LenovoLegionToolkit
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't ensure correct power plan. Exception: {ex}");
+                    Log.Instance.Trace($"Couldn't ensure correct power plan. Exception: {ex.Demystify()}");
             }
 
             try
@@ -64,7 +65,7 @@ namespace LenovoLegionToolkit
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't start power model listener. Exception: {ex}");
+                    Log.Instance.Trace($"Couldn't start power model listener. Exception: {ex.Demystify()}");
             }
 
             Container.Resolve<ThemeManager>().Apply();
@@ -96,9 +97,9 @@ namespace LenovoLegionToolkit
 
         private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            Log.Instance.ErrorReport(e.Exception);
+            Log.Instance.ErrorReport(e.Exception.Demystify());
 
-            var errorText = e.Exception.ToString();
+            var errorText = e.Exception.Demystify().ToString();
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"***** *** Unhandled exception ***** ***\n{errorText}");

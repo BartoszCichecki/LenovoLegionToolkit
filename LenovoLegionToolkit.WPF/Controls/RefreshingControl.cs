@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -51,7 +52,7 @@ namespace LenovoLegionToolkit.WPF.Controls
                 exceptions = true;
 
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Exception when refreshing control. [feature={GetType().Name}, ex={ex}]");
+                    Log.Instance.Trace($"Exception when refreshing control. [feature={GetType().Name}, ex={ex.Demystify()}]");
             }
             finally
             {
