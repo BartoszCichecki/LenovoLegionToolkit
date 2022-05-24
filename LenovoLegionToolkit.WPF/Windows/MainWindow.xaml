@@ -63,7 +63,7 @@
             <wpfui:NavigationStore
                 x:Name="RootNavigation"
                 Grid.Column="0"
-                Margin="0,0,12,0" />
+                Margin="0,0,12,12" />
 
             <Frame x:Name="RootFrame" Grid.Column="1" />
         </Grid>

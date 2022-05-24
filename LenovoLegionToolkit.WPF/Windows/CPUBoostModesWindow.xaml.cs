@@ -28,11 +28,18 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private async Task RefreshAsync()
         {
+            var loadingTask = Task.Delay(500);
+
             var settings = await _cpuBoostController.GetSettingsAsync();
 
             _stackPanel.Children.Clear();
             foreach (var setting in settings)
                 _stackPanel.Children.Add(new CPUBoostModeControl(setting));
+
+            await loadingTask;
+
+            _loader.Visibility = Visibility.Collapsed;
+            _content.Visibility = Visibility.Visible;
         }
     }
 }

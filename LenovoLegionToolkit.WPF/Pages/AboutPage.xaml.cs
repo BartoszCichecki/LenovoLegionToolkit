@@ -1,14 +1,30 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics;
+using System.Reflection;
 
 namespace LenovoLegionToolkit.WPF.Pages
 {
     public partial class AboutPage
     {
+        private string VersionText => Assembly.GetEntryAssembly()?.GetName()?.Version?.ToString(3) ?? "";
+
+        private string CopyrightText
+        {
+            get
+            {
+                var location = Assembly.GetEntryAssembly()?.Location;
+                if (location == null)
+                    return "";
+                var versionInfo = FileVersionInfo.GetVersionInfo(location);
+                return versionInfo.LegalCopyright ?? "";
+            }
+        }
+
         public AboutPage()
         {
             InitializeComponent();
 
-            _version.Text += Assembly.GetEntryAssembly()?.GetName()?.Version?.ToString(3);
+            _version.Text += VersionText;
+            _copyright.Text = CopyrightText;
         }
     }
 }
