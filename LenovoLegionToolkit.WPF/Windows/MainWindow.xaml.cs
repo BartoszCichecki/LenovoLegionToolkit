@@ -17,7 +17,7 @@ using Container = LenovoLegionToolkit.WPF.Utils.Container;
 
 namespace LenovoLegionToolkit.WPF.Windows
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
         private readonly UpdateChecker updateChecker = Container.Resolve<UpdateChecker>();
 

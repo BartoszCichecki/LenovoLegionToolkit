@@ -67,8 +67,7 @@ namespace LenovoLegionToolkit
                     Log.Instance.Trace($"Couldn't start power model listener. Exception: {ex}");
             }
 
-            var themeManager = Container.Resolve<ThemeManager>();
-            themeManager.Apply();
+            Container.Resolve<ThemeManager>().Apply();
 
             using (await ThemePreloader.PreloadAsync())
             {

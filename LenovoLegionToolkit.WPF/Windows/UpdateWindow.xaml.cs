@@ -9,7 +9,7 @@ using LenovoLegionToolkit.WPF.Utils;
 
 namespace LenovoLegionToolkit.WPF.Windows
 {
-    public partial class UpdateWindow : Window
+    public partial class UpdateWindow
     {
         private class DownloadProgress : IProgress<float>
         {
