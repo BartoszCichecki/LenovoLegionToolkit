@@ -13,9 +13,9 @@ namespace LenovoLegionToolkit.WPF.Windows
 {
     public partial class PowerPlansWindow
     {
-        private readonly PowerModeFeature _powerModeFeature = Container.Resolve<PowerModeFeature>();
-
         private static readonly object DEFAULT_VALUE = new string("(Default)");
+
+        private readonly PowerModeFeature _powerModeFeature = Container.Resolve<PowerModeFeature>();
 
         public PowerPlansWindow()
         {

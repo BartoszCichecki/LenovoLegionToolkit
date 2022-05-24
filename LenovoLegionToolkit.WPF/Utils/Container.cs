@@ -7,7 +7,7 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.WPF.Utils
 {
-    internal class Container
+    public class Container
     {
         private static IContainer? _container;
 

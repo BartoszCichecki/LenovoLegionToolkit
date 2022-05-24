@@ -29,20 +29,20 @@ namespace LenovoLegionToolkit.Lib.Utils
 
     public class UpdateChecker
     {
-        private readonly AsyncLock updateSemaphore = new();
+        private readonly AsyncLock _updateSemaphore = new();
 
-        private Update[] updates = Array.Empty<Update>();
-        private bool updatesChecked = false;
+        private bool _updatesChecked = false;
+        private Update[] _updates = Array.Empty<Update>();
 
         public async Task<bool> Check(bool force = false)
         {
-            using (await updateSemaphore.LockAsync())
+            using (await _updateSemaphore.LockAsync())
             {
                 try
                 {
 
-                    if (!force && updatesChecked)
-                        return this.updates.Any();
+                    if (!force && _updatesChecked)
+                        return this._updates.Any();
 
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Checking...");
@@ -60,9 +60,9 @@ namespace LenovoLegionToolkit.Lib.Utils
                         .ToArray();
 
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Checked [updates.Length={updates.Length}]");
+                        Log.Instance.Trace($"Checked [_updates.Length={updates.Length}]");
 
-                    this.updates = updates;
+                    this._updates = updates;
 
                     return updates.Any();
                 }
@@ -74,26 +74,26 @@ namespace LenovoLegionToolkit.Lib.Utils
                 }
                 finally
                 {
-                    updatesChecked = true;
+                    _updatesChecked = true;
                 }
             }
         }
 
         public async Task<Update[]> GetUpdates()
         {
-            using (await updateSemaphore.LockAsync())
-                return updates;
+            using (await _updateSemaphore.LockAsync())
+                return _updates;
         }
 
         public async Task<string> DownloadLatestUpdate(IProgress<float>? progress = null, CancellationToken cancellationToken = default)
         {
-            using (await updateSemaphore.LockAsync(cancellationToken))
+            using (await _updateSemaphore.LockAsync(cancellationToken))
             {
                 var tempPath = Path.Combine(Path.GetTempPath(), $"LenovoLegionToolkitSetup_{Guid.NewGuid()}.exe");
-                var latestUpdate = updates.FirstOrDefault();
+                var latestUpdate = _updates.FirstOrDefault();
 
                 if (latestUpdate == null)
-                    throw new InvalidOperationException("No updates available");
+                    throw new InvalidOperationException("No _updates available");
 
                 if (latestUpdate.Url == null)
                     throw new InvalidOperationException("Setup file URL could not be found");
