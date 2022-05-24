@@ -46,7 +46,7 @@
                 x:Name="_updateIndicator"
                 Grid.Column="1"
                 Appearance="Success"
-                Content="Update available!"
+                Content="  Update available!  "
                 Cursor="Hand"
                 MouseLeftButtonDown="UpdateIndicator_Click"
                 MouseRightButtonDown="UpdateIndicator_Click"
