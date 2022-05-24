@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Windows;
-using WPFUI.Common;
+using System.Windows.Controls;
 using MessageBox = WPFUI.Controls.MessageBox;
 
 namespace LenovoLegionToolkit.WPF.Utils
@@ -12,20 +12,18 @@ namespace LenovoLegionToolkit.WPF.Utils
             string title,
             string message,
             string leftButton = "Yes",
-            string rightButton = "No",
-            bool destructive = false
+            string rightButton = "No"
         )
         {
-            return ShowAsync(Window.GetWindow(dependencyObject), title, message, leftButton, rightButton, destructive);
+            return ShowAsync(Window.GetWindow(dependencyObject), title, message, leftButton, rightButton);
         }
 
         public static Task<bool> ShowAsync(
             Window window,
             string title,
             string message,
-            string leftButton = "Yes",
-            string rightButton = "No",
-            bool destructive = false
+            string primaryButton = "Yes",
+            string secondaryButton = "No"
         )
         {
             var tcs = new TaskCompletionSource<bool>();
@@ -34,21 +32,30 @@ namespace LenovoLegionToolkit.WPF.Utils
             {
                 Owner = window,
                 Title = title,
-                Content = message,
-                ButtonLeftName = leftButton,
-                ButtonRightName = rightButton,
-                ButtonLeftAppearance = destructive ? Appearance.Danger : Appearance.Primary,
+                Content = new TextBlock
+                {
+                    Text = message,
+                    TextWrapping = TextWrapping.Wrap,
+                },
+                ButtonLeftName = primaryButton,
+                ButtonRightName = secondaryButton,
                 ShowInTaskbar = false,
+                Topmost = false,
+                ResizeMode = ResizeMode.NoResize,
             };
             messageBox.ButtonLeftClick += (s, e) =>
             {
-                messageBox.Close();
                 tcs.SetResult(true);
+                messageBox.Close();
             };
             messageBox.ButtonRightClick += (s, e) =>
             {
-                messageBox.Close();
                 tcs.SetResult(false);
+                messageBox.Close();
+            };
+            messageBox.Closing += (s, e) =>
+            {
+                tcs.TrySetResult(false);
             };
             messageBox.Show();
 
