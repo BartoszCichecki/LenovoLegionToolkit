@@ -28,7 +28,7 @@
         <Grid
             Grid.Row="0"
             Height="28"
-            Margin="12,6,100,4">
+            Margin="12,6,150,4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
