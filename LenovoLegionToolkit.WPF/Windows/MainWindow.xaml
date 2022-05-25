@@ -66,6 +66,17 @@
                 Margin="0,0,12,12" />
 
             <Frame x:Name="RootFrame" Grid.Column="1" />
+
+            <wpfui:Snackbar
+                x:Name="_snackBar"
+                Grid.Column="1"
+                MaxWidth="600"
+                Appearance="Secondary"
+                Icon="Info24"
+                IsShown="True"
+                ShowCloseButton="True"
+                Timeout="5000" />
+
         </Grid>
     </Grid>
 </local:BaseWindow>
