@@ -16,9 +16,6 @@ using LenovoLegionToolkit.WPF.Windows;
 
 namespace LenovoLegionToolkit
 {
-    /// <summary>
-    ///     Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
         private const string MutexName = "LenovoLegionToolkit_Mutex_6efcc882-924c-4cbc-8fec-f45c25696f98";
@@ -71,6 +68,8 @@ namespace LenovoLegionToolkit
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Couldn't start power model listener. Exception: {ex.Demystify()}");
             }
+
+            Autorun.Validate();
 
             Container.Resolve<ThemeManager>().Apply();
 

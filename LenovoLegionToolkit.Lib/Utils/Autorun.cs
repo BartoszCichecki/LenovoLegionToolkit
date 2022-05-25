@@ -11,19 +11,69 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         public static bool IsEnabled => TaskService.Instance.GetTask(TaskName) != null;
 
+        public static void Validate()
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Validating autorun...");
+
+            var currentTask = TaskService.Instance.GetTask(TaskName);
+            if (currentTask == null)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Autorun is not enabled.");
+                return;
+            }
+
+            var mainModule = Process.GetCurrentProcess().MainModule;
+            if (mainModule == null)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Main module is null.");
+                return;
+            }
+
+            var fileVersion = mainModule.FileVersionInfo.FileVersion;
+            if (fileVersion == null)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"File version is null.");
+                return;
+            }
+
+            if (currentTask.Definition.Data == fileVersion)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Autorun settings seems to be fine.");
+                return;
+            }
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Enabling autorun again...");
+
+            Enable();
+        }
+
         public static void Enable()
         {
             Disable();
 
-            var filename = Process.GetCurrentProcess().MainModule?.FileName;
+            var mainModule = Process.GetCurrentProcess().MainModule;
+            if (mainModule == null)
+                throw new InvalidOperationException("Main Module cannot be null");
 
+            var filename = mainModule.FileName;
             if (filename == null)
                 throw new InvalidOperationException("Current process file name cannot be null");
+
+            var fileVersion = mainModule.FileVersionInfo.FileVersion;
+            if (fileVersion == null)
+                throw new InvalidOperationException("Current process file version cannot be null");
 
             var currentUser = WindowsIdentity.GetCurrent().Name;
 
             var ts = TaskService.Instance;
             var td = ts.NewTask();
+            td.Data = fileVersion;
             td.Principal.UserId = currentUser;
             td.Principal.RunLevel = TaskRunLevel.Highest;
             td.Triggers.Add(new LogonTrigger { UserId = currentUser, Delay = new TimeSpan(0, 1, 0) });
