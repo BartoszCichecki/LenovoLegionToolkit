@@ -73,7 +73,7 @@
                 MaxWidth="600"
                 Appearance="Secondary"
                 Icon="Info24"
-                IsShown="True"
+                IsShown="False"
                 ShowCloseButton="True"
                 Timeout="5000" />
 
