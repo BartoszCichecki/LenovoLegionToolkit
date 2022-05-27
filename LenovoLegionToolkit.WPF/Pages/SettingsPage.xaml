@@ -15,7 +15,7 @@
 
         <TextBlock
             Grid.Row="0"
-            Margin="0,16,0,24"
+            Margin="0,0,0,24"
             FontSize="24"
             FontWeight="Medium"
             Text="Settings" />
