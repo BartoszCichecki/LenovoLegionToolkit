@@ -7,13 +7,13 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.WPF.Controls
 {
-    public abstract class RefreshingControl : UserControl
+    public abstract class AbstractRefreshingControl : UserControl
     {
         protected bool IsRefreshing => _refreshTask != null;
 
         private Task? _refreshTask;
 
-        public RefreshingControl()
+        public AbstractRefreshingControl()
         {
             IsEnabled = false;
 
@@ -26,10 +26,10 @@ namespace LenovoLegionToolkit.WPF.Controls
             var loadingTask = Task.Delay(250);
             await RefreshAsync();
             await loadingTask;
-            FinishedLoading();
+            OnFinishedLoading();
         }
 
-        protected abstract void FinishedLoading();
+        protected abstract void OnFinishedLoading();
 
         private async void RefreshingControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {

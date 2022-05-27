@@ -6,7 +6,7 @@ using WindowsDisplayAPI;
 
 namespace LenovoLegionToolkit.Lib.Features
 {
-    public class RefreshRateFeature : IDynamicFeature<RefreshRate>
+    public class RefreshRateFeature : IFeature<RefreshRate>
     {
         public async Task<RefreshRate[]> GetAllStatesAsync()
         {

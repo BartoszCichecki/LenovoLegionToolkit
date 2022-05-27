@@ -5,7 +5,7 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features
 {
-    public abstract class AbstractUEFIFeature<T> : IFeature<T>
+    public abstract class AbstractUEFIFeature<T> : IFeature<T> where T : struct, Enum, IComparable
     {
         private readonly string _guid;
         private readonly string _scopeName;
@@ -18,7 +18,10 @@ namespace LenovoLegionToolkit.Lib.Features
             _scopeAttribute = scopeAttribute;
         }
 
+        public Task<T[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<T>());
+
         public abstract Task<T> GetStateAsync();
+
         public abstract Task SetStateAsync(T state);
 
         protected Task<S> ReadFromUefiAsync<S>(S structure) where S : struct

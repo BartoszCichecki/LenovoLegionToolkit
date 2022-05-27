@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Windows;
 using LenovoLegionToolkit.Lib.Controllers;
-using LenovoLegionToolkit.WPF.Controls;
+using LenovoLegionToolkit.WPF.Controls.Settings;
 using LenovoLegionToolkit.WPF.Utils;
 
 namespace LenovoLegionToolkit.WPF.Windows

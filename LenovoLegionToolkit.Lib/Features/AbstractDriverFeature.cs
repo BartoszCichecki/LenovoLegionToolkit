@@ -6,7 +6,7 @@ using Microsoft.Win32.SafeHandles;
 
 namespace LenovoLegionToolkit.Lib.Features
 {
-    public abstract class AbstractDriverFeature<T> : IFeature<T> where T : struct, IComparable
+    public abstract class AbstractDriverFeature<T> : IFeature<T> where T : struct, Enum, IComparable
     {
         private readonly uint _controlCode;
         private readonly Func<SafeFileHandle> _driverHandle;
@@ -18,6 +18,7 @@ namespace LenovoLegionToolkit.Lib.Features
             _driverHandle = driverHandleHandle;
             _controlCode = controlCode;
         }
+        public Task<T[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<T>());
 
         public async Task<T> GetStateAsync()
         {

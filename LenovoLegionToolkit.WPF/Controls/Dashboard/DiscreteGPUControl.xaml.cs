@@ -4,7 +4,7 @@ using System.Windows;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.WPF.Utils;
 
-namespace LenovoLegionToolkit.WPF.Controls
+namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
     public partial class DiscreteGPUControl
     {
@@ -19,7 +19,7 @@ namespace LenovoLegionToolkit.WPF.Controls
             IsVisibleChanged += DiscreteGPUControl_IsVisibleChanged;
         }
 
-        protected override void FinishedLoading() { }
+        protected override void OnFinishedLoading() { }
 
         protected override async Task OnRefreshAsync()
         {

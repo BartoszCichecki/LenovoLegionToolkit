@@ -4,7 +4,7 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners
 {
-    public abstract class AbstractWMIListener<T> where T : struct, IComparable
+    public abstract class AbstractWMIListener<T> where T : struct, Enum, IComparable
     {
         private readonly string _eventName;
         private readonly string _property;
