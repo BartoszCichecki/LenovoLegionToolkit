@@ -19,14 +19,15 @@
             <ColumnDefinition x:Name="_column2" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition x:Name="_row0" />
+            <RowDefinition x:Name="_row1" />
+            <RowDefinition x:Name="_row2" />
         </Grid.RowDefinitions>
 
         <StackPanel x:Name="_stackPanelLeft" Grid.Column="0">
 
             <TextBlock
-                Margin="0,16,0,24"
+                Margin="0,0,0,24"
                 FontSize="24"
                 FontWeight="Medium"
                 Text="Power" />
@@ -48,7 +49,7 @@
         <StackPanel x:Name="_stackPanelRight" Grid.Column="2">
 
             <TextBlock
-                Margin="0,16,0,24"
+                Margin="0,0,0,24"
                 FontSize="24"
                 FontWeight="Medium"
                 Text="Other" />
