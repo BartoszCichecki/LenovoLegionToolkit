@@ -28,6 +28,14 @@ namespace LenovoLegionToolkit.WPF.Utils
 
         public void Apply()
         {
+            SetTheme();
+            SetColor();
+
+            ThemeApplied?.Invoke(this, EventArgs.Empty);
+        }
+
+        private static void SetTheme()
+        {
             var theme = Settings.Instance.Theme;
             var registryValue = Registry.Read(RegistryHive, RegistryPath, RegistryKey, 1);
 
@@ -41,10 +49,6 @@ namespace LenovoLegionToolkit.WPF.Utils
             WPFUI.Appearance.Theme.Apply(currentTheme,
                 backgroundEffect: WPFUI.Appearance.BackgroundType.Unknown,
                 updateAccent: false);
-
-            SetColor();
-
-            ThemeApplied?.Invoke(this, EventArgs.Empty);
         }
 
         private static void SetColor()
