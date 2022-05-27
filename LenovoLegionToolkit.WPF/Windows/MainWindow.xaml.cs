@@ -28,6 +28,10 @@ namespace LenovoLegionToolkit.WPF.Windows
             InitializeTray();
             RestoreWindowSize();
 
+            Closing += MainWindow_Closing;
+            IsVisibleChanged += MainWindow_IsVisibleChanged;
+            StateChanged += MainWindow_StateChanged;
+
 #if DEBUG
             _title.Text += " [DEBUG]";
 #endif
@@ -77,7 +81,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             _titleBar.Tray = notifyIcon;
         }
 
-        private void MainWindow_StateChanged(object sender, EventArgs e)
+        private void MainWindow_StateChanged(object? sender, EventArgs e)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Window state changed to {WindowState}");
@@ -93,7 +97,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             }
         }
 
-        private void MainWindow_Closing(object sender, CancelEventArgs e)
+        private void MainWindow_Closing(object? sender, CancelEventArgs e)
         {
             SaveWindowSize();
 
@@ -114,8 +118,6 @@ namespace LenovoLegionToolkit.WPF.Windows
             }
         }
 
-#pragma warning disable IDE0051 // Remove unused private members
-#pragma warning disable IDE0060 // Remove unused parameter
         private void MainWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (!IsVisible)
@@ -130,8 +132,6 @@ namespace LenovoLegionToolkit.WPF.Windows
                 _updateIndicator.Visibility = updatesAvailable.Result ? Visibility.Visible : Visibility.Collapsed;
             }, TaskScheduler.FromCurrentSynchronizationContext());
         }
-#pragma warning restore IDE0060 // Remove unused parameter
-#pragma warning restore IDE0051 // Remove unused private members
 
         private void UpdateIndicator_Click(object sender, RoutedEventArgs e)
         {
