@@ -8,6 +8,8 @@ namespace LenovoLegionToolkit.WPF.Pages
         public DashboardPage()
         {
             InitializeComponent();
+
+            SizeChanged += DashboardPage_SizeChanged;
         }
 
         private void DashboardPage_SizeChanged(object sender, SizeChangedEventArgs e)

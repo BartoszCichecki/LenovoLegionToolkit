@@ -11,10 +11,7 @@
     Height="650"
     MinWidth="650"
     MinHeight="650"
-    Closing="MainWindow_Closing"
-    IsVisibleChanged="MainWindow_IsVisibleChanged"
     SnapsToDevicePixels="true"
-    StateChanged="MainWindow_StateChanged"
     Style="{StaticResource UiWindow}"
     mc:Ignorable="d">
     <Grid>
