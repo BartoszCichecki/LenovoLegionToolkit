@@ -38,18 +38,18 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private void InitializeNavigation()
         {
-            RootNavigation.Frame = RootFrame;
-            RootNavigation.Items = new ObservableCollection<INavigationItem>
+            _rootNavigation.Frame = _rootFrame;
+            _rootNavigation.Items = new ObservableCollection<INavigationItem>
             {
                 new NavigationItem() { Icon = WPFUI.Common.SymbolRegular.Home20, Content = "Dashboard", PageTag = "dashboard", Page = typeof(DashboardPage)},
             };
-            RootNavigation.Footer = new ObservableCollection<INavigationItem>
+            _rootNavigation.Footer = new ObservableCollection<INavigationItem>
             {
                 new NavigationItem() { Icon = WPFUI.Common.SymbolRegular.Settings28, Content = "Settings", PageTag = "settings", Page = typeof(SettingsPage)},
                 new NavigationItem() { Icon = WPFUI.Common.SymbolRegular.Info28, Content = "About", PageTag = "about", Page = typeof(AboutPage)},
             };
 
-            RootNavigation.Navigate(RootNavigation.Items[0].PageTag);
+            _rootNavigation.Navigate(_rootNavigation.Items[0].PageTag);
         }
 
         private void InitializeTray()

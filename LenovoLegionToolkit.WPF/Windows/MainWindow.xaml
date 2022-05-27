@@ -61,14 +61,14 @@
             </Grid.ColumnDefinitions>
 
             <wpfui:NavigationStore
-                x:Name="RootNavigation"
+                x:Name="_rootNavigation"
                 Grid.Column="0"
                 Margin="0,0,12,12" />
             <Border
                 Grid.Column="1"
                 Background="{DynamicResource ControlFillColorDefaultBrush}"
                 CornerRadius="8,0,0,0">
-                <Frame x:Name="RootFrame" Margin="24,16,0,0" />
+                <Frame x:Name="_rootFrame" Margin="24,16,0,0" />
             </Border>
 
             <wpfui:Snackbar
