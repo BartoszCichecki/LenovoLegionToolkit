@@ -15,22 +15,22 @@ namespace LenovoLegionToolkit.WPF.Utils
         {
             var cb = new ContainerBuilder();
 
-            cb.RegisterType<ThemeManager>().SingleInstance();
+            cb.Register<ThemeManager>();
 
             // Lib
-            cb.RegisterType<AlwaysOnUsbFeature>().SingleInstance();
-            cb.RegisterType<BatteryFeature>().SingleInstance();
-            cb.RegisterType<FlipToStartFeature>().SingleInstance();
-            cb.RegisterType<FnLockFeature>().SingleInstance();
-            cb.RegisterType<HybridModeFeature>().SingleInstance();
-            cb.RegisterType<OverDriveFeature>().SingleInstance();
-            cb.RegisterType<PowerModeFeature>().SingleInstance();
-            cb.RegisterType<RefreshRateFeature>().SingleInstance();
-            cb.RegisterType<TouchpadLockFeature>().SingleInstance();
-            cb.RegisterType<PowerModeListener>().SingleInstance();
-            cb.RegisterType<GPUController>().SingleInstance();
-            cb.RegisterType<CPUBoostModeController>().SingleInstance();
-            cb.RegisterType<UpdateChecker>().SingleInstance();
+            cb.Register<AlwaysOnUSBFeature>();
+            cb.Register<BatteryFeature>();
+            cb.Register<FlipToStartFeature>();
+            cb.Register<FnLockFeature>();
+            cb.Register<HybridModeFeature>();
+            cb.Register<OverDriveFeature>();
+            cb.Register<PowerModeFeature>();
+            cb.Register<RefreshRateFeature>();
+            cb.Register<TouchpadLockFeature>();
+            cb.Register<PowerModeListener>();
+            cb.Register<GPUController>();
+            cb.Register<CPUBoostModeController>();
+            cb.Register<UpdateChecker>();
 
             _container = cb.Build();
         }
@@ -40,6 +40,14 @@ namespace LenovoLegionToolkit.WPF.Utils
             if (_container == null)
                 throw new InvalidOperationException("Container must be initialized first");
             return _container.Resolve<T>();
+        }
+    }
+
+    static class ContainerBuilderExtensions
+    {
+        public static void Register<T>(this ContainerBuilder cb) where T : notnull
+        {
+            cb.RegisterType<T>().AsSelf().AsImplementedInterfaces().SingleInstance();
         }
     }
 }

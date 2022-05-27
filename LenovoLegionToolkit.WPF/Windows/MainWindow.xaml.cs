@@ -115,8 +115,8 @@ namespace LenovoLegionToolkit.WPF.Windows
         }
 
 #pragma warning disable IDE0051 // Remove unused private members
+#pragma warning disable IDE0060 // Remove unused parameter
         private void MainWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-#pragma warning restore IDE0051 // Remove unused private members
         {
             if (!IsVisible)
                 return;
@@ -130,6 +130,8 @@ namespace LenovoLegionToolkit.WPF.Windows
                 _updateIndicator.Visibility = updatesAvailable.Result ? Visibility.Visible : Visibility.Collapsed;
             }, TaskScheduler.FromCurrentSynchronizationContext());
         }
+#pragma warning restore IDE0060 // Remove unused parameter
+#pragma warning restore IDE0051 // Remove unused private members
 
         private void UpdateIndicator_Click(object sender, RoutedEventArgs e)
         {

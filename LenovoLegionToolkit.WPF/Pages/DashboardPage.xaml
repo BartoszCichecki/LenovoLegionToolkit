@@ -2,7 +2,7 @@
     x:Class="LenovoLegionToolkit.WPF.Pages.DashboardPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:c="clr-namespace:LenovoLegionToolkit.WPF.Controls"
+    xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls.Dashboard"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Home"
@@ -30,18 +30,18 @@
                 FontSize="24"
                 FontWeight="Medium"
                 Text="Power" />
-            <c:PowerModeControl />
-            <c:BatteryModeControl />
-            <c:AlwaysOnUSBControl />
+            <controls:PowerModeControl />
+            <controls:BatteryModeControl />
+            <controls:AlwaysOnUSBControl />
 
             <TextBlock
                 Margin="0,16,0,24"
                 FontSize="24"
                 FontWeight="Medium"
                 Text="Graphics" />
-            <c:HybridModeControl />
-            <c:RefreshRateControl />
-            <c:DiscreteGPUControl />
+            <controls:HybridModeControl />
+            <controls:RefreshRateControl />
+            <controls:DiscreteGPUControl />
 
         </StackPanel>
 
@@ -52,10 +52,10 @@
                 FontSize="24"
                 FontWeight="Medium"
                 Text="Other" />
-            <c:FlipToStartControl />
-            <c:OverDriveControl />
-            <c:FnLockControl />
-            <c:TouchpadLockControl />
+            <controls:FlipToStartControl />
+            <controls:OverDriveControl />
+            <controls:FnLockControl />
+            <controls:TouchpadLockControl />
 
         </StackPanel>
     </Grid>

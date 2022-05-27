@@ -19,7 +19,7 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         public bool IsLoading
         {
-            get { return _isLoading; }
+            get => _isLoading;
             set
             {
                 _isLoading = value;
@@ -60,9 +60,10 @@ namespace LenovoLegionToolkit.WPF.Controls
             var grid = new Grid();
             grid.Children.Add(_contentPresenter);
             grid.Children.Add(_progressRing);
-            Content = grid;
 
             UpdateLoadingState();
+
+            Content = grid;
         }
 
         private void UpdateLoadingState()

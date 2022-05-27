@@ -1,4 +1,6 @@
-﻿namespace LenovoLegionToolkit.Lib
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace LenovoLegionToolkit.Lib
 {
     public enum Theme
     {
@@ -7,21 +9,13 @@
         Dark
     }
 
-    public enum AlwaysOnUsbState
+    public enum AlwaysOnUSBState
     {
         Off,
+        [Display(Name = "On, when sleeping")]
         OnWhenSleeping,
-        OnAlways
-    }
-
-    public static class AlwaysOnUsbStateExtension
-    {
-        public static string DisplayName(this AlwaysOnUsbState state) => state switch
-        {
-            AlwaysOnUsbState.OnWhenSleeping => "On, when sleeping",
-            AlwaysOnUsbState.OnAlways => "On, always",
-            _ => state.ToString(),
-        };
+        [Display(Name = "On, always")]
+        OnAlways,
     }
 
 
@@ -29,16 +23,8 @@
     {
         Conservation,
         Normal,
+        [Display(Name = "Rapid Charge")]
         RapidCharge
-    }
-
-    public static class BatteryStateExtension
-    {
-        public static string DisplayName(this BatteryState state) => state switch
-        {
-            BatteryState.RapidCharge => "Rapid Charge",
-            _ => state.ToString(),
-        };
     }
 
     public enum FlipToStartState

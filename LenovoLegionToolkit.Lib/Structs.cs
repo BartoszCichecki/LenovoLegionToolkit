@@ -26,13 +26,15 @@ namespace LenovoLegionToolkit.Lib
         }
     }
 
-    public struct RefreshRate
+    public struct RefreshRate : IDisplayName
     {
         public static bool operator ==(RefreshRate left, RefreshRate right) => left.Equals(right);
 
         public static bool operator !=(RefreshRate left, RefreshRate right) => !(left == right);
 
         public int Frequency { get; }
+
+        public string DisplayName => ToString();
 
         public RefreshRate(int frequency)
         {

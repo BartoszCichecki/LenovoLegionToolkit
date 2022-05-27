@@ -3,34 +3,34 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features
 {
-    public class AlwaysOnUsbFeature : AbstractDriverFeature<AlwaysOnUsbState>
+    public class AlwaysOnUSBFeature : AbstractDriverFeature<AlwaysOnUSBState>
     {
-        public AlwaysOnUsbFeature() : base(Drivers.GetEnergy, 0x831020E8) { }
+        public AlwaysOnUSBFeature() : base(Drivers.GetEnergy, 0x831020E8) { }
 
         protected override byte GetInternalStatus() => 0x2;
 
-        protected override byte[] ToInternal(AlwaysOnUsbState state)
+        protected override byte[] ToInternal(AlwaysOnUSBState state)
         {
             return state switch
             {
-                AlwaysOnUsbState.Off => new byte[] { 0xB, 0x12 },
-                AlwaysOnUsbState.OnWhenSleeping => new byte[] { 0xA, 0x12 },
-                AlwaysOnUsbState.OnAlways => new byte[] { 0xA, 0x13 },
+                AlwaysOnUSBState.Off => new byte[] { 0xB, 0x12 },
+                AlwaysOnUSBState.OnWhenSleeping => new byte[] { 0xA, 0x12 },
+                AlwaysOnUSBState.OnAlways => new byte[] { 0xA, 0x13 },
                 _ => throw new InvalidOperationException("Invalid state"),
             };
         }
 
-        protected override AlwaysOnUsbState FromInternal(uint state)
+        protected override AlwaysOnUSBState FromInternal(uint state)
         {
             state = ReverseEndianness(state);
             if (GetNthBit(state, 31)) // is on?
             {
                 if (GetNthBit(state, 23))
-                    return AlwaysOnUsbState.OnAlways;
-                return AlwaysOnUsbState.OnWhenSleeping;
+                    return AlwaysOnUSBState.OnAlways;
+                return AlwaysOnUSBState.OnWhenSleeping;
             }
 
-            return AlwaysOnUsbState.Off;
+            return AlwaysOnUSBState.Off;
         }
     }
 }

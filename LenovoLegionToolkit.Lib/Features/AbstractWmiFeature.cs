@@ -6,7 +6,7 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features
 {
-    public abstract class AbstractWmiFeature<T> : IFeature<T> where T : struct, IComparable
+    public abstract class AbstractWmiFeature<T> : IFeature<T> where T : struct, Enum, IComparable
     {
         private readonly string _methodNameSuffix;
         private readonly int _offset;
@@ -20,6 +20,8 @@ namespace LenovoLegionToolkit.Lib.Features
             _supportMethodName = supportMethodName;
             _supportOffset = supportOffset;
         }
+
+        public Task<T[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<T>());
 
         public virtual async Task<T> GetStateAsync()
         {
