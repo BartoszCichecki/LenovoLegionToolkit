@@ -12,22 +12,6 @@ using Octokit;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
-    public class Update
-    {
-        public Version Version { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string? Url { get; set; }
-
-        public Update(Release release)
-        {
-            Version = Version.Parse(release.TagName);
-            Title = release.Name;
-            Description = release.Body;
-            Url = release.Assets.Where(ra => ra.Name.EndsWith("setup.exe", StringComparison.InvariantCultureIgnoreCase)).Select(ra => ra.BrowserDownloadUrl).FirstOrDefault();
-        }
-    }
-
     public class UpdateChecker
     {
         private readonly TimeSpan _minimumTimeSpanForRefresh = new(hours: 3, minutes: 0, seconds: 0);
@@ -96,7 +80,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                 var tempPath = Path.Combine(Path.GetTempPath(), $"LenovoLegionToolkitSetup_{Guid.NewGuid()}.exe");
                 var latestUpdate = _updates.FirstOrDefault();
 
-                if (latestUpdate == null)
+                if (latestUpdate.Equals(default(Update)))
                     throw new InvalidOperationException("No _updates available");
 
                 if (latestUpdate.Url == null)

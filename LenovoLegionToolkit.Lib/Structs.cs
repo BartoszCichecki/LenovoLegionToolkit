@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
-using LenovoLegionToolkit.Lib.Utils;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Octokit;
 
 namespace LenovoLegionToolkit.Lib
 {
@@ -30,11 +32,37 @@ namespace LenovoLegionToolkit.Lib
             DCSettingValue = dcSettingValue;
         }
     }
+    public struct MachineInformation
+    {
+        public string Vendor { get; }
+        public string Model { get; }
+
+        public MachineInformation(string vendor, string model)
+        {
+            Vendor = vendor;
+            Model = model;
+        }
+    }
+
+    public struct PowerPlan
+    {
+        public string InstanceID { get; }
+        public string Name { get; }
+        public bool IsActive { get; }
+        public string Guid => InstanceID.Split("\\").Last().Replace("{", "").Replace("}", "");
+
+        public PowerPlan(string instanceID, string name, bool isActive)
+        {
+            InstanceID = instanceID;
+            Name = name;
+            IsActive = isActive;
+        }
+
+        public override string ToString() => Name;
+    }
 
     public struct RefreshRate : IDisplayName
     {
-        public static readonly RefreshRate None = new(-1);
-
         public int Frequency { get; }
 
         public string DisplayName => $"{Frequency} Hz";
@@ -42,6 +70,21 @@ namespace LenovoLegionToolkit.Lib
         public RefreshRate(int frequency)
         {
             Frequency = frequency;
+        }
+    }
+    public struct Update
+    {
+        public Version Version { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string? Url { get; set; }
+
+        public Update(Release release)
+        {
+            Version = Version.Parse(release.TagName);
+            Title = release.Name;
+            Description = release.Body;
+            Url = release.Assets.Where(ra => ra.Name.EndsWith("setup.exe", StringComparison.InvariantCultureIgnoreCase)).Select(ra => ra.BrowserDownloadUrl).FirstOrDefault();
         }
     }
 

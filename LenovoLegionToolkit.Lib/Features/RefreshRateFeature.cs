@@ -71,7 +71,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Built in display not found");
 
-                return RefreshRate.None;
+                return default;
             }
 
             var currentSettings = display.CurrentSetting;
