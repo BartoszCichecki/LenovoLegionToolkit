@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -112,7 +113,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 catch (Exception ex) when (ex is not TaskCanceledException)
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Exception: {ex}");
+                        Log.Instance.Trace($"Exception: {ex.Demystify()}");
 
                     throw;
                 }
