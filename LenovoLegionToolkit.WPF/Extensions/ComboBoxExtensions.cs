@@ -47,7 +47,7 @@ namespace System.Windows.Controls
 
             public override int GetHashCode() => HashCode.Combine(Value);
 
-            public override string ToString() => _displayString?.Invoke(Value) ?? Value?.ToString() ?? string.Empty;
+            public override string ToString() => _displayString?.Invoke(Value) ?? Value?.ToString() ?? "";
         }
     }
 }

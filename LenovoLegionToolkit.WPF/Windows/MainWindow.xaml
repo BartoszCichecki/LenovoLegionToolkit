@@ -8,9 +8,9 @@
     xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
     Title="Lenovo Legion Toolkit"
     Width="1100"
-    Height="650"
+    Height="700"
     MinWidth="650"
-    MinHeight="650"
+    MinHeight="600"
     SnapsToDevicePixels="true"
     Style="{StaticResource UiWindow}"
     mc:Ignorable="d">
