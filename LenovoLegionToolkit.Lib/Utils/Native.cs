@@ -22,8 +22,39 @@ namespace LenovoLegionToolkit.Lib.Utils
         public int Attr;
     }
 
+    internal enum ACLineStatus : byte
+    {
+        Offline = 0,
+        Online = 1,
+        Unknown = 255
+    }
+
+    internal enum BatteryFlag : byte
+    {
+        High = 1,
+        Low = 2,
+        Critical = 4,
+        Charging = 8,
+        NoSystemBattery = 128,
+        Unknown = 255
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    internal struct SystemPowerStatus
+    {
+        public ACLineStatus ACLineStatus;
+        public BatteryFlag BatteryFlag;
+        public byte BatteryLifePercent;
+        public byte Reserved1;
+        public int BatteryLifeTime;
+        public int BatteryFullLifeTime;
+    }
+
     internal static class Native
     {
+        [DllImport("Kernel32")]
+        public static extern bool GetSystemPowerStatus(out SystemPowerStatus sps);
+
         [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         public static extern IntPtr CreateFileW(
             [MarshalAs(UnmanagedType.LPWStr)] string filename,
