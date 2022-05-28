@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -29,20 +30,23 @@ namespace LenovoLegionToolkit.Lib.Utils
 
     public class UpdateChecker
     {
+        private readonly TimeSpan _minimumTimeSpanForRefresh = new(hours: 3, minutes: 0, seconds: 0);
         private readonly AsyncLock _updateSemaphore = new();
 
-        private bool _updatesChecked = false;
+        private DateTime _lastUpdate = DateTime.MinValue;
         private Update[] _updates = Array.Empty<Update>();
 
-        public async Task<bool> Check(bool force = false)
+        public async Task<bool> Check()
         {
             using (await _updateSemaphore.LockAsync())
             {
                 try
                 {
+                    var timeSpaneSinceLastUpdate = DateTime.Now - _lastUpdate;
+                    var shouldCheck = timeSpaneSinceLastUpdate > _minimumTimeSpanForRefresh;
 
-                    if (!force && _updatesChecked)
-                        return this._updates.Any();
+                    if (!shouldCheck)
+                        return _updates.Any();
 
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Checking...");
@@ -62,19 +66,19 @@ namespace LenovoLegionToolkit.Lib.Utils
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Checked [_updates.Length={updates.Length}]");
 
-                    this._updates = updates;
+                    _updates = updates;
 
                     return updates.Any();
                 }
                 catch (Exception ex)
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Error: {ex}");
+                        Log.Instance.Trace($"Error: {ex.Demystify()}");
                     return false;
                 }
                 finally
                 {
-                    _updatesChecked = true;
+                    _lastUpdate = DateTime.Now;
                 }
             }
         }

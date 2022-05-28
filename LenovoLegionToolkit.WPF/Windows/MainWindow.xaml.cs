@@ -32,6 +32,9 @@ namespace LenovoLegionToolkit.WPF.Windows
             IsVisibleChanged += MainWindow_IsVisibleChanged;
             StateChanged += MainWindow_StateChanged;
 
+            if (Configuration.IsBeta)
+                _title.Text += " [BETA]";
+
 #if DEBUG
             _title.Text += " [DEBUG]";
 #endif
@@ -121,6 +124,9 @@ namespace LenovoLegionToolkit.WPF.Windows
         private void MainWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (!IsVisible)
+                return;
+
+            if (Configuration.IsBeta)
                 return;
 
             Task.Run(async () =>
