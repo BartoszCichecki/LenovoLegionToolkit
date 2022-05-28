@@ -57,10 +57,13 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private void Refresh(ComboBox comboBox, IEnumerable<PowerPlan> powerPlans, PowerModeState powerModeState)
         {
+            var settingsPowerPlanInstanceID = Settings.Instance.PowerPlans.GetValueOrDefault(powerModeState);
+            var selectedValue = powerPlans.FirstOrDefault(pp => pp.InstanceID == settingsPowerPlanInstanceID);
+
             comboBox.Items.Clear();
             comboBox.Items.Add(DEFAULT_VALUE);
             comboBox.Items.AddRange(powerPlans);
-            comboBox.SelectedValue = powerPlans.FirstOrDefault(pp => pp.InstanceID == Settings.Instance.PowerPlans.GetValueOrDefault(powerModeState)) ?? DEFAULT_VALUE;
+            comboBox.SelectedValue = selectedValue.Equals(default(PowerPlan)) ? DEFAULT_VALUE : selectedValue;
         }
 
         private async Task PowerPlanChangedAsync(object value, PowerModeState powerModeState)

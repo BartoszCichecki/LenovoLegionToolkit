@@ -6,23 +6,6 @@ using System.Threading.Tasks;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
-    public class PowerPlan
-    {
-        public string InstanceID { get; }
-        public string Name { get; }
-        public bool IsActive { get; }
-        public string Guid => InstanceID.Split("\\").Last().Replace("{", "").Replace("}", "");
-
-        public PowerPlan(string instanceID, string name, bool isActive)
-        {
-            InstanceID = instanceID;
-            Name = name;
-            IsActive = isActive;
-        }
-
-        public override string ToString() => Name;
-    }
-
     public static class Power
     {
         public static async Task RestartAsync()
@@ -70,7 +53,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             }
 
             var powerPlan = (await GetPowerPlansAsync()).FirstOrDefault(pp => pp.InstanceID.Contains(powerPlanId));
-            if (powerPlan == null)
+            if (powerPlan.Equals(default(PowerPlan)))
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Power plan {powerPlanId} was not found");

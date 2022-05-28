@@ -5,18 +5,6 @@ using System.Threading.Tasks;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
-    public class MachineInformation
-    {
-        public string Vendor { get; }
-        public string Model { get; }
-
-        public MachineInformation(string vendor, string model)
-        {
-            Vendor = vendor;
-            Model = model;
-        }
-    }
-
     public static class Compatibility
     {
         private static readonly string _allowedVendor = "LENOVO";
