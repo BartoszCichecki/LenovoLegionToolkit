@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib
 {
@@ -14,6 +15,36 @@ namespace LenovoLegionToolkit.Lib
         }
     }
 
+    public struct CPUBoostModeSettings
+    {
+        public PowerPlan PowerPlan { get; }
+        public List<CPUBoostMode> CPUBoostModes { get; }
+        public int ACSettingValue { get; }
+        public int DCSettingValue { get; }
+
+        public CPUBoostModeSettings(PowerPlan powerPlan, List<CPUBoostMode> cpuBoostModes, int acSettingValue, int dcSettingValue)
+        {
+            PowerPlan = powerPlan;
+            CPUBoostModes = cpuBoostModes;
+            ACSettingValue = acSettingValue;
+            DCSettingValue = dcSettingValue;
+        }
+    }
+
+    public struct RefreshRate : IDisplayName
+    {
+        public static readonly RefreshRate None = new(-1);
+
+        public int Frequency { get; }
+
+        public string DisplayName => $"{Frequency} Hz";
+
+        public RefreshRate(int frequency)
+        {
+            Frequency = frequency;
+        }
+    }
+
     public struct WindowSize
     {
         public double Width { get; set; }
@@ -24,27 +55,5 @@ namespace LenovoLegionToolkit.Lib
             Width = width;
             Height = height;
         }
-    }
-
-    public struct RefreshRate : IDisplayName
-    {
-        public static bool operator ==(RefreshRate left, RefreshRate right) => left.Equals(right);
-
-        public static bool operator !=(RefreshRate left, RefreshRate right) => !(left == right);
-
-        public int Frequency { get; }
-
-        public string DisplayName => ToString();
-
-        public RefreshRate(int frequency)
-        {
-            Frequency = frequency;
-        }
-
-        public override string ToString() => $"{Frequency} Hz";
-
-        public override int GetHashCode() => HashCode.Combine(Frequency);
-
-        public override bool Equals(object? obj) => obj is RefreshRate rate && Frequency == rate.Frequency;
     }
 }

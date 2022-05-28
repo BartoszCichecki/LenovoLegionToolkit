@@ -2,13 +2,6 @@
 
 namespace LenovoLegionToolkit.Lib
 {
-    public enum Theme
-    {
-        System,
-        Light,
-        Dark
-    }
-
     public enum AlwaysOnUSBState
     {
         Off,
@@ -58,6 +51,23 @@ namespace LenovoLegionToolkit.Lib
         Performance
     }
 
+    public enum SpecialKey
+    {
+        Unknown = 0,
+        Fn_F9 = 1,
+        Fn_LockOn = 2,
+        Fn_LockOff = 3,
+        Fn_PrtSc = 4,
+        Fn_R = 16
+    }
+
+    public enum Theme
+    {
+        System,
+        Light,
+        Dark
+    }
+
     public enum TouchpadLockState
     {
         Off,
@@ -69,15 +79,5 @@ namespace LenovoLegionToolkit.Lib
         Enabled,
         Disabled,
         NotFound
-    }
-
-    public enum Key
-    {
-        Unknown = 0,
-        Fn_F9 = 1,
-        Fn_LockOn = 2,
-        Fn_LockOff = 3,
-        Fn_PrtSc = 4,
-        Fn_R = 16
     }
 }

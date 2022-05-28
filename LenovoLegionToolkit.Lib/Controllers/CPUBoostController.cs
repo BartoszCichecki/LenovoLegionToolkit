@@ -9,30 +9,14 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Controllers
 {
-    public class CPUBoostModeSettings
-    {
-        public PowerPlan PowerPlan { get; }
-        public List<CPUBoostMode> CPUBoostModes { get; }
-        public int ACSettingValue { get; }
-        public int DCSettingValue { get; }
-
-        public CPUBoostModeSettings(PowerPlan powerPlan, List<CPUBoostMode> cpuBoostModes, int acSettingValue, int dcSettingValue)
-        {
-            PowerPlan = powerPlan;
-            CPUBoostModes = cpuBoostModes;
-            ACSettingValue = acSettingValue;
-            DCSettingValue = dcSettingValue;
-        }
-    }
-
     public class CPUBoostModeController
     {
         private const string ProcessorPowerManagementSubgroupGUID = "54533251-82be-4824-96c1-47b60b740d00";
         private const string PowerSettingGUID = "be337238-0d82-4146-a960-4f3749d470c7";
 
-        private static readonly Regex guidRegex = new(@"(?im)[{(]?[0-9A-F]{8}[-]?(?:[0-9A-F]{4}[-]?){3}[0-9A-F]{12}[)}]?");
-        private static readonly Regex nameRegex = new(@"(?im)\((.*)\)");
-        private static readonly Regex activeRegex = new(@"(?im)\*$");
+        private static readonly Regex _guidRegex = new(@"(?im)[{(]?[0-9A-F]{8}[-]?(?:[0-9A-F]{4}[-]?){3}[0-9A-F]{12}[)}]?");
+        private static readonly Regex _nameRegex = new(@"(?im)\((.*)\)");
+        private static readonly Regex _activeRegex = new(@"(?im)\*$");
 
         public async Task<List<CPUBoostModeSettings>> GetSettingsAsync()
         {
@@ -100,9 +84,9 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
             foreach (var line in outputLines)
             {
-                var guid = guidRegex.Match(line).Groups[0].Value;
-                var name = nameRegex.Match(line).Groups[1].Value;
-                var active = activeRegex.Match(line).Success;
+                var guid = _guidRegex.Match(line).Groups[0].Value;
+                var name = _nameRegex.Match(line).Groups[1].Value;
+                var active = _activeRegex.Match(line).Success;
 
                 if (string.IsNullOrWhiteSpace(guid) || string.IsNullOrWhiteSpace(name)) { continue; }
 

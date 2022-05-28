@@ -70,7 +70,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             {
                 var stringArg = arg?.ToString();
                 stringArg = stringArg?.Replace("\\", "\\\\");
-                return stringArg ?? string.Empty;
+                return stringArg ?? "";
             }
         }
     }

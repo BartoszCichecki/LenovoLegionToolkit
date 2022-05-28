@@ -19,7 +19,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Built in display not found");
 
-                throw new InvalidOperationException("Built in display not found");
+                return Array.Empty<RefreshRate>();
             }
 
             if (Log.Instance.IsTraceEnabled)
@@ -51,7 +51,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Single display mode found");
 
-                throw new InvalidOperationException("Single display mode found");
+                return Array.Empty<RefreshRate>();
             }
 
             if (Log.Instance.IsTraceEnabled)
@@ -71,7 +71,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Built in display not found");
 
-                throw new InvalidOperationException("Built in display not found");
+                return RefreshRate.None;
             }
 
             var currentSettings = display.CurrentSetting;
