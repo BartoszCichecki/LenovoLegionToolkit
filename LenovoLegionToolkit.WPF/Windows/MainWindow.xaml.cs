@@ -41,6 +41,8 @@ namespace LenovoLegionToolkit.WPF.Windows
 
             if (Log.Instance.IsTraceEnabled)
                 _title.Text += " [TRACE ENABLED]";
+
+            CheckForUpdates();
         }
 
         private void InitializeNavigation()
@@ -126,17 +128,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             if (!IsVisible)
                 return;
 
-            if (Configuration.IsBeta)
-                return;
-
-            Task.Run(async () =>
-            {
-                await Task.Delay(2000);
-                return await _updateChecker.Check();
-            }).ContinueWith(updatesAvailable =>
-            {
-                _updateIndicator.Visibility = updatesAvailable.Result ? Visibility.Visible : Visibility.Collapsed;
-            }, TaskScheduler.FromCurrentSynchronizationContext());
+            CheckForUpdates();
         }
 
         private void UpdateIndicator_Click(object sender, RoutedEventArgs e)
@@ -172,6 +164,18 @@ namespace LenovoLegionToolkit.WPF.Windows
                 Width = windowSize.Width;
                 Height = windowSize.Height;
             }
+        }
+
+        private void CheckForUpdates()
+        {
+            if (Configuration.IsBeta)
+                return;
+
+            Task.Run(_updateChecker.Check)
+                .ContinueWith(updatesAvailable =>
+            {
+                _updateIndicator.Visibility = updatesAvailable.Result ? Visibility.Visible : Visibility.Collapsed;
+            }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         public void BringToForeground()
