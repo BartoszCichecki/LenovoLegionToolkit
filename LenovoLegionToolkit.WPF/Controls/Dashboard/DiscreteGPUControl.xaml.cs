@@ -72,5 +72,10 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
             _content.Visibility = Visibility.Visible;
         });
+
+        private async void DeactivateGPUButton_Click(object sender, RoutedEventArgs e)
+        {
+            await _gpuController.DeactivateGPUAsync();
+        }
     }
 }

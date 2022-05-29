@@ -42,6 +42,7 @@
                 x:Name="_deactivateGPUButton"
                 Width="150"
                 Margin="0,8,0,0"
+                Click="DeactivateGPUButton_Click"
                 Content="Deactivate"
                 IsEnabled="False"
                 ToolTipService.ShowOnDisabled="True" />
