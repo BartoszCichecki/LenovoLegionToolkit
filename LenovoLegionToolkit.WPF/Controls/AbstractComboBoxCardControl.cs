@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -67,6 +68,7 @@ namespace LenovoLegionToolkit.WPF.Controls
             }
 
             _comboBox.SetItems(items, selectedItem, displayName);
+            _comboBox.IsEnabled = items.Any();
         }
 
         protected override void OnFinishedLoading() => _comboBox.Visibility = Visibility.Visible;

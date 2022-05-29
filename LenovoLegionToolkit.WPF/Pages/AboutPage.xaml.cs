@@ -10,7 +10,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             get
             {
                 if (Configuration.IsBeta)
-                    return "BETA";
+                    return $"BETA {Configuration.BetaNumber}";
 
                 return Assembly.GetEntryAssembly()?.GetName()?.Version?.ToString(3) ?? "";
             }

@@ -33,7 +33,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             StateChanged += MainWindow_StateChanged;
 
             if (Configuration.IsBeta)
-                _title.Text += " [BETA]";
+                _title.Text += $" [BETA {Configuration.BetaNumber}]";
 
 #if DEBUG
             _title.Text += " [DEBUG]";
