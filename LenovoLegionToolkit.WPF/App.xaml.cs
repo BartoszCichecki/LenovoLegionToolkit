@@ -76,7 +76,10 @@ namespace LenovoLegionToolkit
 
             using (await ThemePreloader.PreloadAsync())
             {
-                var mainWindow = new MainWindow();
+                var mainWindow = new MainWindow
+                {
+                    WindowStartupLocation = WindowStartupLocation.CenterScreen
+                };
                 MainWindow = mainWindow;
 
                 if (ShouldStartMinimized(e.Args))
