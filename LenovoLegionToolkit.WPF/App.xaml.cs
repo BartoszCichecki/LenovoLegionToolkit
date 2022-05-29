@@ -70,6 +70,19 @@ namespace LenovoLegionToolkit
                     Log.Instance.Trace($"Couldn't start power model listener. Exception: {ex.Demystify()}");
             }
 
+            try
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Starting display configuration listener...");
+
+                Container.Resolve<DisplayConfigurationListener>().Start();
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't start display configuration listener. Exception: {ex.Demystify()}");
+            }
+
             Autorun.Validate();
 
             Container.Resolve<ThemeManager>().Apply();

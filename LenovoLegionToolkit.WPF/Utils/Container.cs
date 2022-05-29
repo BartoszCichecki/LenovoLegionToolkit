@@ -15,9 +15,7 @@ namespace LenovoLegionToolkit.WPF.Utils
         {
             var cb = new ContainerBuilder();
 
-            cb.Register<ThemeManager>();
-
-            // Lib
+            // Features
             cb.Register<AlwaysOnUSBFeature>();
             cb.Register<BatteryFeature>();
             cb.Register<FlipToStartFeature>();
@@ -27,10 +25,20 @@ namespace LenovoLegionToolkit.WPF.Utils
             cb.Register<PowerModeFeature>();
             cb.Register<RefreshRateFeature>();
             cb.Register<TouchpadLockFeature>();
+
+            // Listeners
             cb.Register<PowerModeListener>();
+            cb.Register<PowerAdapterListener>();
+            cb.Register<DisplayConfigurationListener>();
+            cb.Register<SpecialKeyListener>();
+
+            // Controllers
             cb.Register<GPUController>();
             cb.Register<CPUBoostModeController>();
+
+            // Utils
             cb.Register<UpdateChecker>();
+            cb.Register<ThemeManager>();
 
             _container = cb.Build();
         }
