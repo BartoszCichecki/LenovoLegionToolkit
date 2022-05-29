@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Threading;
+using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
@@ -26,6 +27,8 @@ namespace LenovoLegionToolkit
         private Mutex? _mutex;
         private EventWaitHandle? _eventWaitHandle;
 #pragma warning restore IDE0052 // Remove unread private members
+
+        private readonly AutomationProcessor _p = new();
 
         private async void Application_Startup(object sender, StartupEventArgs e)
         {
