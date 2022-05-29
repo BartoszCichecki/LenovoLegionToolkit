@@ -61,7 +61,7 @@ namespace LenovoLegionToolkit.Lib
         public override string ToString() => Name;
     }
 
-    public struct RefreshRate : IDisplayName
+    public struct RefreshRate : IDisplayName, IEquatable<RefreshRate>
     {
         public int Frequency { get; }
 
@@ -71,7 +71,22 @@ namespace LenovoLegionToolkit.Lib
         {
             Frequency = frequency;
         }
+
+        #region Equality
+
+        public override bool Equals(object? obj) => obj is RefreshRate rate && Equals(rate);
+
+        public bool Equals(RefreshRate other) => Frequency == other.Frequency;
+
+        public override int GetHashCode() => HashCode.Combine(Frequency);
+
+        public static bool operator ==(RefreshRate left, RefreshRate right) => left.Equals(right);
+
+        public static bool operator !=(RefreshRate left, RefreshRate right) => !(left == right);
+
+        #endregion
     }
+
     public struct Update
     {
         public Version Version { get; set; }
