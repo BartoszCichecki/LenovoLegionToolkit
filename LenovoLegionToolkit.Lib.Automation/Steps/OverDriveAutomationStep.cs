@@ -5,7 +5,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
 {
     public class OverDriveAutomationStep : IAutomationStep
     {
-        private readonly OverDriveFeature _feature = new();
+        private readonly OverDriveFeature _feature = DIContainer.Resolve<OverDriveFeature>();
         private readonly OverDriveState _state;
 
         public OverDriveAutomationStep(OverDriveState state)
@@ -20,5 +20,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
                 return;
             await _feature.SetStateAsync(_state).ConfigureAwait(false);
         }
+
+        public IAutomationStep DeepCopy() => new OverDriveAutomationStep(_state);
     }
 }

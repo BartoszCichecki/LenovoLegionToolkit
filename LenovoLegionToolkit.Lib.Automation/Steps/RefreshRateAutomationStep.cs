@@ -7,8 +7,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
 {
     public class RefreshRateAutomationStep : IAutomationStep
     {
-        private readonly RefreshRateFeature _feature = new();
-
+        private readonly RefreshRateFeature _feature = DIContainer.Resolve<RefreshRateFeature>();
         private readonly RefreshRate _state;
 
         public RefreshRateAutomationStep(RefreshRate state)
@@ -26,5 +25,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
 
             await _feature.SetStateAsync(_state).ConfigureAwait(false);
         }
+
+        public IAutomationStep DeepCopy() => new RefreshRateAutomationStep(_state);
     }
 }

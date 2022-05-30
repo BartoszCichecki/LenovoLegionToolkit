@@ -5,7 +5,7 @@ namespace LenovoLegionToolkit.Lib.Features
 {
     public class FnLockFeature : AbstractDriverFeature<FnLockState>
     {
-        public FnLockFeature() : base(Drivers.GetEnergy, 0x831020E8) { }
+        internal FnLockFeature() : base(Drivers.GetEnergy, 0x831020E8) { }
 
         protected override byte GetInternalStatus() => 0x2;
 

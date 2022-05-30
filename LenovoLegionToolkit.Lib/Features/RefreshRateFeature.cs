@@ -8,6 +8,8 @@ namespace LenovoLegionToolkit.Lib.Features
 {
     public class RefreshRateFeature : IFeature<RefreshRate>
     {
+        internal RefreshRateFeature() { }
+
         public async Task<RefreshRate[]> GetAllStatesAsync()
         {
             if (Log.Instance.IsTraceEnabled)

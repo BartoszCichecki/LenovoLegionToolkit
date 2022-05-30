@@ -7,7 +7,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
     {
         public event EventHandler<EventArgs>? Changed;
 
-        public PowerAdapterListener()
+        internal PowerAdapterListener()
         {
             SystemEvents.PowerModeChanged += SystemEvents_PowerModeChanged;
         }

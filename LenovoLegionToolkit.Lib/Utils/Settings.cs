@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib
 {
@@ -64,12 +64,8 @@ namespace LenovoLegionToolkit.Lib
 
         private Settings()
         {
-            var appData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            var folderPath = Path.Combine(appData, "LenovoLegionToolkit");
-            Directory.CreateDirectory(folderPath);
-
             _jsonSerializerOptions = new() { WriteIndented = true };
-            _settingsStorePath = Path.Combine(folderPath, "settings.json");
+            _settingsStorePath = Path.Combine(Folders.AppData, "settings.json");
 
             try
             {
