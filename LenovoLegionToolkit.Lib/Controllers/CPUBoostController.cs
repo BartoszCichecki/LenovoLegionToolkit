@@ -18,6 +18,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
         private static readonly Regex _nameRegex = new(@"(?im)\((.*)\)");
         private static readonly Regex _activeRegex = new(@"(?im)\*$");
 
+        internal CPUBoostModeController() { }
+
         public async Task<List<CPUBoostModeSettings>> GetSettingsAsync()
         {
             if (Log.Instance.IsTraceEnabled)

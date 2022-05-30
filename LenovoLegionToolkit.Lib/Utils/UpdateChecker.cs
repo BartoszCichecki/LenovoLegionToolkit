@@ -20,6 +20,8 @@ namespace LenovoLegionToolkit.Lib.Utils
         private DateTime _lastUpdate = DateTime.MinValue;
         private Update[] _updates = Array.Empty<Update>();
 
+        internal UpdateChecker() { }
+
         public async Task<bool> Check()
         {
             using (await _updateSemaphore.LockAsync())

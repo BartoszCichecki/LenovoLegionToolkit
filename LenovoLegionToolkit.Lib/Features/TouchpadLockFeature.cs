@@ -3,6 +3,6 @@
 
     public class TouchpadLockFeature : AbstractWmiFeature<TouchpadLockState>
     {
-        public TouchpadLockFeature() : base("TPStatus", 0, "IsSupportDisableTP") { }
+        internal TouchpadLockFeature() : base("TPStatus", 0, "IsSupportDisableTP") { }
     }
 }

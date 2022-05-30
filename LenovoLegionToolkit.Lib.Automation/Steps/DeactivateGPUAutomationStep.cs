@@ -5,12 +5,14 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
 {
     public class DeactivateGPUAutomationStep : IAutomationStep
     {
-        private readonly GPUController _controller = new();
+        private readonly GPUController _controller = DIContainer.Resolve<GPUController>();
 
         public async Task RunAsync()
         {
             await Task.Delay(5000).ConfigureAwait(false);
             await _controller.DeactivateGPUAsync().ConfigureAwait(false);
         }
+
+        public IAutomationStep DeepCopy() => new DeactivateGPUAutomationStep();
     }
 }

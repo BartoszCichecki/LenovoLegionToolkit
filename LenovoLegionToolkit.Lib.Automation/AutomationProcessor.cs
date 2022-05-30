@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.Automation.Steps;
+using LenovoLegionToolkit.Lib.Automation.Pipeline;
+using LenovoLegionToolkit.Lib.Automation.Utils;
 using LenovoLegionToolkit.Lib.Listeners;
 using NeoSmart.AsyncLock;
 
@@ -10,61 +12,71 @@ namespace LenovoLegionToolkit.Lib.Automation
 {
     public class AutomationProcessor
     {
-        private readonly PowerAdapterListener _powerAdapterListener = new();
-
-        private readonly List<AutomationPipeline> _pipelines = new();
-
+        private readonly PowerAdapterListener _powerAdapterListener = DIContainer.Resolve<PowerAdapterListener>();
         private readonly AsyncLock _lock = new();
 
+        private List<AutomationPipeline> _pipelines = new();
         private CancellationTokenSource? _cts;
 
-        public bool Enabled { get; set; } = true;
-
-        public AutomationProcessor()
+        public bool IsEnabled
         {
-            var criteria = new List<AutomationPipelineCriteria>
+            get => AutomationSettings.Instance.IsEnabled;
+            set
             {
-                AutomationPipelineCriteria.ACAdapterConnected,
-            };
-            var steps = new List<IAutomationStep>
-            {
-                new PowerModeAutomationStep(PowerModeState.Balance),
-                new RefreshRateAutomationStep(new(165)),
-            };
-            _pipelines.Add(new(criteria, steps));
-            var criteria2 = new List<AutomationPipelineCriteria>
-            {
-                AutomationPipelineCriteria.ACAdapterDisconnected,
-            };
-            var steps2 = new List<IAutomationStep>
-            {
-                new PowerModeAutomationStep(PowerModeState.Quiet),
-                new RefreshRateAutomationStep(new(60)),
-            };
-            _pipelines.Add(new(criteria2, steps2));
+                AutomationSettings.Instance.IsEnabled = value;
+                AutomationSettings.Instance.Synchronize();
+            }
+        }
 
+        internal AutomationProcessor()
+        {
             _powerAdapterListener.Changed += PowerAdapterListener_Changed;
         }
 
         private async void PowerAdapterListener_Changed(object? sender, EventArgs e) => await RunAsync();
 
-        private async Task RunAsync()
+        public async Task InitializeAsync()
         {
-            _cts?.Cancel();
+            using (await _lock.LockAsync().ConfigureAwait(false))
+                _pipelines = AutomationSettings.Instance.Pipeliness;
+        }
 
-            if (!Enabled)
-                return;
+        public async Task<List<AutomationPipeline>> GetPipelinesAsync()
+        {
+            using (await _lock.LockAsync().ConfigureAwait(false))
+                return _pipelines.Select(p => p.DeepCopy()).ToList();
+        }
 
-            _cts = new CancellationTokenSource();
-
-            var token = _cts.Token;
-
+        public async Task ReloadPipelinesAsync(bool isEnabled, List<AutomationPipeline> pipelines)
+        {
             using (await _lock.LockAsync().ConfigureAwait(false))
             {
+                _pipelines = pipelines.Select(p => p.DeepCopy()).ToList();
+
+                AutomationSettings.Instance.IsEnabled = isEnabled;
+                AutomationSettings.Instance.Pipeliness = pipelines;
+                AutomationSettings.Instance.Synchronize();
+            }
+        }
+
+        private async Task RunAsync()
+        {
+            using (await _lock.LockAsync().ConfigureAwait(false))
+            {
+                _cts?.Cancel();
+
+                if (!IsEnabled)
+                    return;
+
+                _cts = new CancellationTokenSource();
+
+                var token = _cts.Token;
+
                 foreach (var pipeline in _pipelines)
                 {
                     if (token.IsCancellationRequested)
                         break;
+
                     await pipeline.RunAsync().ConfigureAwait(false);
                 }
             }

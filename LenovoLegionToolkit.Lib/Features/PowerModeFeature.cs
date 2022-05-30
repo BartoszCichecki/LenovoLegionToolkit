@@ -5,7 +5,7 @@ namespace LenovoLegionToolkit.Lib.Features
 {
     public class PowerModeFeature : AbstractWmiFeature<PowerModeState>
     {
-        public PowerModeFeature() : base("SmartFanMode", 1, "IsSupportSmartFan") { }
+        internal PowerModeFeature() : base("SmartFanMode", 1, "IsSupportSmartFan") { }
 
         public override async Task SetStateAsync(PowerModeState state)
         {

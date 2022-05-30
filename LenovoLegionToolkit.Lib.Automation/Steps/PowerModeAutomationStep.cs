@@ -5,8 +5,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
 {
     public class PowerModeAutomationStep : IAutomationStep
     {
-        private readonly PowerModeFeature _feature = new();
-
+        private readonly PowerModeFeature _feature = DIContainer.Resolve<PowerModeFeature>();
         private readonly PowerModeState _state;
 
         public PowerModeAutomationStep(PowerModeState state)
@@ -21,5 +20,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
                 return;
             await _feature.SetStateAsync(_state).ConfigureAwait(false);
         }
+
+        public IAutomationStep DeepCopy() => new PowerModeAutomationStep(_state);
     }
 }

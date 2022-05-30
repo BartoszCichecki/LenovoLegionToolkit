@@ -18,5 +18,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
         {
             await CMD.RunAsync(_scriptPath, _scriptParameters).ConfigureAwait(false);
         }
+
+        public IAutomationStep DeepCopy() => new ScriptAutomationStep(_scriptPath, _scriptParameters);
     }
 }
