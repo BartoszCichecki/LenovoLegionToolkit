@@ -1,13 +1,12 @@
 ﻿using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Listeners;
-using LenovoLegionToolkit.WPF.Utils;
 using WPFUI.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
     public class RefreshRateControl : AbstractComboBoxCardControl<RefreshRate>
     {
-        private readonly DisplayConfigurationListener _listener = Container.Resolve<DisplayConfigurationListener>();
+        private readonly DisplayConfigurationListener _listener = DIContainer.Resolve<DisplayConfigurationListener>();
 
         public RefreshRateControl()
         {

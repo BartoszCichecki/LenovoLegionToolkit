@@ -6,7 +6,6 @@ namespace LenovoLegionToolkit.Lib.Automation
     {
         ACAdapterConnected,
         ACAdapterDisconnected,
-        DisplayConfigurationChanged,
     }
 
     internal static class AutomationPipelineCriteriaExtensions
@@ -17,7 +16,6 @@ namespace LenovoLegionToolkit.Lib.Automation
             {
                 AutomationPipelineCriteria.ACAdapterConnected => Power.IsPowerAdapterConnected(),
                 AutomationPipelineCriteria.ACAdapterDisconnected => !Power.IsPowerAdapterConnected(),
-                AutomationPipelineCriteria.DisplayConfigurationChanged => true,
                 _ => false,
             };
         }

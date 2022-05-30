@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Management;
 using LenovoLegionToolkit.Lib.Utils;
 
@@ -10,7 +11,9 @@ namespace LenovoLegionToolkit.Lib.Listeners
         private readonly string _property;
         private readonly int _offset;
 
+#pragma warning disable IDE0052 // Remove unread private members
         private IDisposable? _disposable;
+#pragma warning restore IDE0052 // Remove unread private members
 
         public event EventHandler<T>? Changed;
 
@@ -19,23 +22,24 @@ namespace LenovoLegionToolkit.Lib.Listeners
             _eventName = eventName;
             _property = property;
             _offset = offset;
+
+            Start();
         }
 
-        public void Start()
+        private void Start()
         {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Starting... [listener={GetType().Name}]");
+            try
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Starting... [listener={GetType().Name}]");
 
-            _disposable = WMI.Listen("ROOT\\WMI", $"SELECT * FROM {_eventName}", Handler);
-        }
-
-        public void Stop()
-        {
-            _disposable?.Dispose();
-            _disposable = null;
-
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Stopped [listener={GetType().Name}]");
+                _disposable = WMI.Listen("ROOT\\WMI", $"SELECT * FROM {_eventName}", Handler);
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't start listener: {ex.Demystify()} [listener={GetType().Name}]");
+            }
         }
 
         protected abstract void OnChanged(T value);

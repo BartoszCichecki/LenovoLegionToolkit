@@ -11,19 +11,20 @@ namespace LenovoLegionToolkit.Lib.Automation
     public class AutomationProcessor
     {
         private readonly PowerAdapterListener _powerAdapterListener = new();
-        private readonly DisplayConfigurationListener _displayConfigurationListener = new();
 
         private readonly List<AutomationPipeline> _pipelines = new();
 
         private readonly AsyncLock _lock = new();
+
         private CancellationTokenSource? _cts;
+
+        public bool Enabled { get; set; } = true;
 
         public AutomationProcessor()
         {
             var criteria = new List<AutomationPipelineCriteria>
             {
                 AutomationPipelineCriteria.ACAdapterConnected,
-                AutomationPipelineCriteria.DisplayConfigurationChanged,
             };
             var steps = new List<IAutomationStep>
             {
@@ -34,7 +35,6 @@ namespace LenovoLegionToolkit.Lib.Automation
             var criteria2 = new List<AutomationPipelineCriteria>
             {
                 AutomationPipelineCriteria.ACAdapterDisconnected,
-                AutomationPipelineCriteria.DisplayConfigurationChanged,
             };
             var steps2 = new List<IAutomationStep>
             {
@@ -44,19 +44,17 @@ namespace LenovoLegionToolkit.Lib.Automation
             _pipelines.Add(new(criteria2, steps2));
 
             _powerAdapterListener.Changed += PowerAdapterListener_Changed;
-            _displayConfigurationListener.Changed += DisplayConfigurationListener_Changed;
-
-            _powerAdapterListener.Start();
-            _displayConfigurationListener.Start();
         }
 
         private async void PowerAdapterListener_Changed(object? sender, EventArgs e) => await RunAsync();
 
-        private async void DisplayConfigurationListener_Changed(object? sender, EventArgs e) => await RunAsync();
-
         private async Task RunAsync()
         {
             _cts?.Cancel();
+
+            if (!Enabled)
+                return;
+
             _cts = new CancellationTokenSource();
 
             var token = _cts.Token;

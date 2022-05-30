@@ -8,9 +8,9 @@ using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Threading;
+using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Features;
-using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF;
 using LenovoLegionToolkit.WPF.Utils;
@@ -45,14 +45,18 @@ namespace LenovoLegionToolkit
             if (!ShouldByPassCompatibilityCheck(e.Args))
                 await CheckCompatibilityAsync();
 
-            Container.Initialize();
+            DIContainer.Initialize(
+                new Lib.DIContainerModule(),
+                new Lib.Automation.DIContainerModule(),
+                new WPF.DIContainerModule()
+            );
 
             try
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Ensuring correct power plan is set...");
 
-                await Container.Resolve<PowerModeFeature>().EnsureCorrectPowerPlanIsSetAsync();
+                await DIContainer.Resolve<PowerModeFeature>().EnsureCorrectPowerPlanIsSetAsync();
             }
             catch (Exception ex)
             {
@@ -60,35 +64,9 @@ namespace LenovoLegionToolkit
                     Log.Instance.Trace($"Couldn't ensure correct power plan. Exception: {ex.Demystify()}");
             }
 
-            try
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Starting power mode listener...");
-
-                Container.Resolve<PowerModeListener>().Start();
-            }
-            catch (Exception ex)
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't start power model listener. Exception: {ex.Demystify()}");
-            }
-
-            try
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Starting display configuration listener...");
-
-                Container.Resolve<DisplayConfigurationListener>().Start();
-            }
-            catch (Exception ex)
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't start display configuration listener. Exception: {ex.Demystify()}");
-            }
-
             Autorun.Validate();
 
-            Container.Resolve<ThemeManager>().Apply();
+            DIContainer.Resolve<ThemeManager>().Apply();
 
             using (await ThemePreloader.PreloadAsync())
             {

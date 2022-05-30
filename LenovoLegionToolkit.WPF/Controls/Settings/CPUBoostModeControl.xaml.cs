@@ -2,7 +2,6 @@
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
-using LenovoLegionToolkit.WPF.Utils;
 
 namespace LenovoLegionToolkit.WPF.Controls.Settings
 {
@@ -10,7 +9,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Settings
     {
         private readonly CPUBoostModeSettings setting;
 
-        private readonly CPUBoostModeController _cpuBoostController = Container.Resolve<CPUBoostModeController>();
+        private readonly CPUBoostModeController _cpuBoostController = DIContainer.Resolve<CPUBoostModeController>();
 
         public CPUBoostModeControl(CPUBoostModeSettings setting)
         {

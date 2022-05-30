@@ -1,13 +1,12 @@
 ﻿using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Listeners;
-using LenovoLegionToolkit.WPF.Utils;
 using WPFUI.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
     public class PowerModeControl : AbstractComboBoxCardControl<PowerModeState>
     {
-        private readonly PowerModeListener _listener = Container.Resolve<PowerModeListener>();
+        private readonly PowerModeListener _listener = DIContainer.Resolve<PowerModeListener>();
 
         public PowerModeControl()
         {

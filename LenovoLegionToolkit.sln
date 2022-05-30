@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit.WPF", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit.Lib", "LenovoLegionToolkit.Lib\LenovoLegionToolkit.Lib.csproj", "{4B902DDC-0EBE-44B3-A53B-5EA176C7522B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LenovoLegionToolkit.Lib.Automation", "LenovoLegionToolkit.Lib.Automation\LenovoLegionToolkit.Lib.Automation.csproj", "{CB52B339-4311-47C9-B9EB-23643F10BEC9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4B902DDC-0EBE-44B3-A53B-5EA176C7522B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B902DDC-0EBE-44B3-A53B-5EA176C7522B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B902DDC-0EBE-44B3-A53B-5EA176C7522B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB52B339-4311-47C9-B9EB-23643F10BEC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB52B339-4311-47C9-B9EB-23643F10BEC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB52B339-4311-47C9-B9EB-23643F10BEC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB52B339-4311-47C9-B9EB-23643F10BEC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,8 +4,8 @@ using System.Text;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Utils;
-using LenovoLegionToolkit.WPF.Utils;
 
 namespace LenovoLegionToolkit.WPF.Windows
 {
@@ -27,7 +27,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             }
         }
 
-        private readonly UpdateChecker _updateChecker = Container.Resolve<UpdateChecker>();
+        private readonly UpdateChecker _updateChecker = DIContainer.Resolve<UpdateChecker>();
 
         private CancellationTokenSource? _downloadCancellationTokenSource;
 

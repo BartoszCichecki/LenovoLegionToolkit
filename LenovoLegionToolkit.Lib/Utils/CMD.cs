@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
-    internal static class CMD
+    public static class CMD
     {
         public static async Task<string> RunAsync(string file, string arguments)
         {

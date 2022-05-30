@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
-    internal static class WMI
+    public static class WMI
     {
         public static IDisposable Listen(string scope, FormattableString query, Action<PropertyDataCollection> handler)
         {
