@@ -5,7 +5,7 @@ namespace LenovoLegionToolkit.Lib.Features
 {
     public class AlwaysOnUSBFeature : AbstractDriverFeature<AlwaysOnUSBState>
     {
-        internal AlwaysOnUSBFeature() : base(Drivers.GetEnergy, 0x831020E8) { }
+        public AlwaysOnUSBFeature() : base(Drivers.GetEnergy, 0x831020E8) { }
 
         protected override byte GetInternalStatus() => 0x2;
 

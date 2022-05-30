@@ -28,8 +28,6 @@ namespace LenovoLegionToolkit
         private EventWaitHandle? _eventWaitHandle;
 #pragma warning restore IDE0052 // Remove unread private members
 
-        private readonly AutomationProcessor _p = new();
-
         private async void Application_Startup(object sender, StartupEventArgs e)
         {
             if (IsTraceEnabled(e.Args))
@@ -50,6 +48,20 @@ namespace LenovoLegionToolkit
                 new Lib.Automation.DIContainerModule(),
                 new WPF.DIContainerModule()
             );
+
+            try
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Initializing automation processor...");
+
+                var automationProcessor = DIContainer.Resolve<AutomationProcessor>();
+                await automationProcessor.InitializeAsync();
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't initialize automation processor. Exception: {ex.Demystify()}");
+            }
 
             try
             {

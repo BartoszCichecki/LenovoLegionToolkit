@@ -12,25 +12,18 @@ namespace LenovoLegionToolkit.Lib.Automation
 {
     public class AutomationProcessor
     {
-        private readonly PowerAdapterListener _powerAdapterListener = DIContainer.Resolve<PowerAdapterListener>();
+        private readonly PowerStateListener _powerStateListener;
         private readonly AsyncLock _lock = new();
 
         private List<AutomationPipeline> _pipelines = new();
         private CancellationTokenSource? _cts;
 
-        public bool IsEnabled
-        {
-            get => AutomationSettings.Instance.IsEnabled;
-            set
-            {
-                AutomationSettings.Instance.IsEnabled = value;
-                AutomationSettings.Instance.Synchronize();
-            }
-        }
+        public static bool IsEnabled => AutomationSettings.Instance.IsEnabled;
 
-        internal AutomationProcessor()
+        public AutomationProcessor(PowerStateListener powerAdapterListener)
         {
-            _powerAdapterListener.Changed += PowerAdapterListener_Changed;
+            _powerStateListener = powerAdapterListener;
+            _powerStateListener.Changed += PowerAdapterListener_Changed;
         }
 
         private async void PowerAdapterListener_Changed(object? sender, EventArgs e) => await RunAsync();

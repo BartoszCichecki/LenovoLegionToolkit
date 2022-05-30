@@ -51,8 +51,6 @@ namespace LenovoLegionToolkit.Lib.Controllers
         public event EventHandler? WillRefresh;
         public event EventHandler<RefreshedEventArgs>? Refreshed;
 
-        internal GPUController() { }
-
         public bool IsSupported()
         {
             try

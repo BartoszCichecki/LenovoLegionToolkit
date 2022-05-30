@@ -7,7 +7,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
     {
         public event EventHandler<EventArgs>? Changed;
 
-        internal DisplayConfigurationListener()
+        public DisplayConfigurationListener()
         {
             SystemEvents.DisplaySettingsChanged += SystemEvents_DisplaySettingsChanged;
         }

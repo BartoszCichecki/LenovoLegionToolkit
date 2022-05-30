@@ -7,9 +7,7 @@ namespace LenovoLegionToolkit.Lib.Automation
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.Register<AutomationProcessor>()
-                .OnActivating(async ap => await ap.Instance.InitializeAsync().ConfigureAwait(false))
-                .AutoActivate();
+            builder.Register<AutomationProcessor>();
         }
     }
 }

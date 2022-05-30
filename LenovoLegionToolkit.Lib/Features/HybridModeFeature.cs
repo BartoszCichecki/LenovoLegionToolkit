@@ -2,6 +2,6 @@
 {
     public class HybridModeFeature : AbstractWmiFeature<HybridModeState>
     {
-        internal HybridModeFeature() : base("GSyncStatus", 0, "IsSupportGSync") { }
+        public HybridModeFeature() : base("GSyncStatus", 0, "IsSupportGSync") { }
     }
 }
