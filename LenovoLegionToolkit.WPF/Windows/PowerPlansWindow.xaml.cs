@@ -15,7 +15,7 @@ namespace LenovoLegionToolkit.WPF.Windows
     {
         private static readonly object DEFAULT_VALUE = new string("(Default)");
 
-        private readonly PowerModeFeature _powerModeFeature = Container.Resolve<PowerModeFeature>();
+        private readonly PowerModeFeature _powerModeFeature = DIContainer.Resolve<PowerModeFeature>();
 
         public PowerPlansWindow()
         {
@@ -124,7 +124,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             Settings.Instance.ActivatePowerProfilesWithVantageEnabled = state.Value;
             Settings.Instance.Synchronize();
 
-            await Container.Resolve<PowerModeFeature>().EnsureCorrectPowerPlanIsSetAsync();
+            await DIContainer.Resolve<PowerModeFeature>().EnsureCorrectPowerPlanIsSetAsync();
         }
     }
 }

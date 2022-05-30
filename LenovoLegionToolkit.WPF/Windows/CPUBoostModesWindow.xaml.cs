@@ -1,14 +1,14 @@
 ﻿using System.Threading.Tasks;
 using System.Windows;
+using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.WPF.Controls.Settings;
-using LenovoLegionToolkit.WPF.Utils;
 
 namespace LenovoLegionToolkit.WPF.Windows
 {
     public partial class CPUBoostModesWindow
     {
-        private readonly CPUBoostModeController _cpuBoostController = Container.Resolve<CPUBoostModeController>();
+        private readonly CPUBoostModeController _cpuBoostController = DIContainer.Resolve<CPUBoostModeController>();
 
         public CPUBoostModesWindow()
         {

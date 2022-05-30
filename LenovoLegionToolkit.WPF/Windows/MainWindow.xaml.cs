@@ -13,13 +13,12 @@ using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Pages;
 using WPFUI.Controls;
 using WPFUI.Controls.Interfaces;
-using Container = LenovoLegionToolkit.WPF.Utils.Container;
 
 namespace LenovoLegionToolkit.WPF.Windows
 {
     public partial class MainWindow
     {
-        private readonly UpdateChecker _updateChecker = Container.Resolve<UpdateChecker>();
+        private readonly UpdateChecker _updateChecker = Lib.DIContainer.Resolve<UpdateChecker>();
 
         public MainWindow()
         {

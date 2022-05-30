@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
+using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
-using LenovoLegionToolkit.WPF.Utils;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
     public partial class DiscreteGPUControl
     {
-        private readonly GPUController _gpuController = Container.Resolve<GPUController>();
+        private readonly GPUController _gpuController = DIContainer.Resolve<GPUController>();
 
         public DiscreteGPUControl()
         {

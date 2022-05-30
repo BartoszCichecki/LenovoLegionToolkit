@@ -2,13 +2,14 @@
 using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media;
+using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.WPF.Utils;
 
 namespace LenovoLegionToolkit.WPF.Windows
 {
     public class BaseWindow : Window
     {
-        private readonly ThemeManager _themeManager = Container.Resolve<ThemeManager>();
+        private readonly ThemeManager _themeManager = DIContainer.Resolve<ThemeManager>();
 
         public BaseWindow()
         {
