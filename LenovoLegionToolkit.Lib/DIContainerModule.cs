@@ -22,9 +22,9 @@ namespace LenovoLegionToolkit.Lib
             builder.Register<TouchpadLockFeature>();
 
             builder.Register<PowerModeListener>().AutoActivate();
-            builder.Register<PowerAdapterListener>().AutoActivate();
+            builder.Register<PowerStateListener>().AutoActivate();
             builder.Register<DisplayConfigurationListener>().AutoActivate();
-            builder.Register<SpecialKeyListener>().AutoActivate(); ;
+            builder.Register<SpecialKeyListener>().AutoActivate();
 
             builder.Register<GPUController>();
             builder.Register<CPUBoostModeController>();

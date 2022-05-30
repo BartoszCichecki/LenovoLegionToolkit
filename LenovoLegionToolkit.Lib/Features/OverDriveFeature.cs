@@ -2,6 +2,6 @@
 {
     public class OverDriveFeature : AbstractWmiFeature<OverDriveState>
     {
-        internal OverDriveFeature() : base("ODStatus", 0, "IsSupportOD") { }
+        public OverDriveFeature() : base("ODStatus", 0, "IsSupportOD") { }
     }
 }
