@@ -61,6 +61,7 @@
                 x:Name="_rootNavigation"
                 Grid.Column="0"
                 Margin="0,0,12,12" />
+
             <Border
                 Grid.Column="1"
                 Background="{DynamicResource ControlFillColorDefaultBrush}"

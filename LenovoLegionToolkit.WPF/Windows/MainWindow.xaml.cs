@@ -18,7 +18,7 @@ namespace LenovoLegionToolkit.WPF.Windows
 {
     public partial class MainWindow
     {
-        private readonly UpdateChecker _updateChecker = Lib.DIContainer.Resolve<UpdateChecker>();
+        private readonly UpdateChecker _updateChecker = DIContainer.Resolve<UpdateChecker>();
 
         public MainWindow()
         {
@@ -49,12 +49,13 @@ namespace LenovoLegionToolkit.WPF.Windows
             _rootNavigation.Frame = _rootFrame;
             _rootNavigation.Items = new ObservableCollection<INavigationItem>
             {
-                new NavigationItem() { Icon = WPFUI.Common.SymbolRegular.Home20, Content = "Dashboard", PageTag = "dashboard", Page = typeof(DashboardPage)},
+                new NavigationItem() { Icon = WPFUI.Common.SymbolRegular.Home24, Content = "Dashboard", PageTag = "dashboard", Page = typeof(DashboardPage) },
+                new NavigationItem() { Icon = WPFUI.Common.SymbolRegular.Rocket24, Content = "Actions", PageTag = "automation", Page = typeof(AutomationPage) }
             };
             _rootNavigation.Footer = new ObservableCollection<INavigationItem>
             {
-                new NavigationItem() { Icon = WPFUI.Common.SymbolRegular.Settings28, Content = "Settings", PageTag = "settings", Page = typeof(SettingsPage)},
-                new NavigationItem() { Icon = WPFUI.Common.SymbolRegular.Info28, Content = "About", PageTag = "about", Page = typeof(AboutPage)},
+                new NavigationItem() { Icon = WPFUI.Common.SymbolRegular.Settings24, Content = "Settings", PageTag = "settings", Page = typeof(SettingsPage) },
+                new NavigationItem() { Icon = WPFUI.Common.SymbolRegular.Info24, Content = "About", PageTag = "about", Page = typeof(AboutPage) },
             };
 
             _rootNavigation.Navigate(_rootNavigation.Items[0].PageTag);

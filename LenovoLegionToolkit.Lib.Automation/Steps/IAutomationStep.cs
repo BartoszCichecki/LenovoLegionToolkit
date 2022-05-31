@@ -8,4 +8,11 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
 
         IAutomationStep DeepCopy();
     }
+
+    public interface IAutomationStep<T> : IAutomationStep where T : struct
+    {
+        T State { get; }
+
+        Task<T[]> GetAllStatesAsync();
+    }
 }

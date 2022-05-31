@@ -3,24 +3,27 @@ using LenovoLegionToolkit.Lib.Features;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps
 {
-    public class OverDriveAutomationStep : IAutomationStep
+    public class OverDriveAutomationStep : IAutomationStep<OverDriveState>
     {
         private readonly OverDriveFeature _feature = DIContainer.Resolve<OverDriveFeature>();
-        private readonly OverDriveState _state;
+
+        public OverDriveState State { get; }
 
         public OverDriveAutomationStep(OverDriveState state)
         {
-            _state = state;
+            State = state;
         }
 
         public async Task RunAsync()
         {
             var currentState = await _feature.GetStateAsync().ConfigureAwait(false);
-            if (_state == currentState)
+            if (State == currentState)
                 return;
-            await _feature.SetStateAsync(_state).ConfigureAwait(false);
+            await _feature.SetStateAsync(State).ConfigureAwait(false);
         }
 
-        public IAutomationStep DeepCopy() => new OverDriveAutomationStep(_state);
+        public Task<OverDriveState[]> GetAllStatesAsync() => _feature.GetAllStatesAsync();
+
+        public IAutomationStep DeepCopy() => new OverDriveAutomationStep(State);
     }
 }

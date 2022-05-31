@@ -5,14 +5,15 @@ using LenovoLegionToolkit.Lib.Features;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps
 {
-    public class RefreshRateAutomationStep : IAutomationStep
+    public class RefreshRateAutomationStep : IAutomationStep<RefreshRate>
     {
         private readonly RefreshRateFeature _feature = DIContainer.Resolve<RefreshRateFeature>();
-        private readonly RefreshRate _state;
+
+        public RefreshRate State { get; }
 
         public RefreshRateAutomationStep(RefreshRate state)
         {
-            _state = state;
+            State = state;
         }
 
         public async Task RunAsync()
@@ -20,12 +21,14 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
             var currentState = await _feature.GetStateAsync().ConfigureAwait(false);
             var allStates = await _feature.GetAllStatesAsync().ConfigureAwait(false);
 
-            if (currentState == _state || !allStates.Contains(_state))
+            if (currentState == State || !allStates.Contains(State))
                 return;
 
-            await _feature.SetStateAsync(_state).ConfigureAwait(false);
+            await _feature.SetStateAsync(State).ConfigureAwait(false);
         }
 
-        public IAutomationStep DeepCopy() => new RefreshRateAutomationStep(_state);
+        public Task<RefreshRate[]> GetAllStatesAsync() => _feature.GetAllStatesAsync();
+
+        public IAutomationStep DeepCopy() => new RefreshRateAutomationStep(State);
     }
 }

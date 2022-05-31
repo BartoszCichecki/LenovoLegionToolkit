@@ -12,7 +12,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
         {
             Icon = SymbolRegular.Gauge24;
             Title = "Power Mode";
-            Subtitle = "Choose the mode you want to use.\nYou can switch mode using shortcut Fn+Q.";
+            Subtitle = "Select performance mode.\nYou can switch mode using shortcut Fn+Q.";
 
             _listener.Changed += Listener_Changed;
         }

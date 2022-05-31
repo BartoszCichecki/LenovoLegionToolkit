@@ -3,24 +3,27 @@ using LenovoLegionToolkit.Lib.Features;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps
 {
-    public class PowerModeAutomationStep : IAutomationStep
+    public class PowerModeAutomationStep : IAutomationStep<PowerModeState>
     {
         private readonly PowerModeFeature _feature = DIContainer.Resolve<PowerModeFeature>();
-        private readonly PowerModeState _state;
+
+        public PowerModeState State { get; }
 
         public PowerModeAutomationStep(PowerModeState state)
         {
-            _state = state;
+            State = state;
         }
 
         public async Task RunAsync()
         {
             var currentState = await _feature.GetStateAsync().ConfigureAwait(false);
-            if (_state == currentState)
+            if (State == currentState)
                 return;
-            await _feature.SetStateAsync(_state).ConfigureAwait(false);
+            await _feature.SetStateAsync(State).ConfigureAwait(false);
         }
 
-        public IAutomationStep DeepCopy() => new PowerModeAutomationStep(_state);
+        public Task<PowerModeState[]> GetAllStatesAsync() => _feature.GetAllStatesAsync();
+
+        public IAutomationStep DeepCopy() => new PowerModeAutomationStep(State);
     }
 }

@@ -18,7 +18,9 @@ namespace LenovoLegionToolkit.Lib.Automation
         private List<AutomationPipeline> _pipelines = new();
         private CancellationTokenSource? _cts;
 
-        public static bool IsEnabled => AutomationSettings.Instance.IsEnabled;
+#pragma warning disable CA1822 // Mark members as static
+        public bool IsEnabled => AutomationSettings.Instance.IsEnabled;
+#pragma warning restore CA1822 // Mark members as static
 
         public AutomationProcessor(PowerStateListener powerAdapterListener)
         {
