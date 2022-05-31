@@ -83,7 +83,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                 if (latestUpdate.Equals(default(Update)))
                     throw new InvalidOperationException("No _updates available");
 
-                if (latestUpdate.Url == null)
+                if (latestUpdate.Url is null)
                     throw new InvalidOperationException("Setup file URL could not be found");
 
                 using var fileStream = File.OpenWrite(tempPath);

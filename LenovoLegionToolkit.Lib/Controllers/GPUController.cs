@@ -56,7 +56,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             try
             {
                 NVAPI.Initialize();
-                return NVAPI.GetGPU() != null;
+                return NVAPI.GetGPU() is not null;
             }
             finally
             {
@@ -133,7 +133,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         public async Task StopAsync(bool waitForFinish = false)
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Stopping... [refreshTask.isNull={_refreshTask == null}, _refreshCancellationTokenSource.IsCancellationRequested={_refreshCancellationTokenSource?.IsCancellationRequested}]");
+                Log.Instance.Trace($"Stopping... [refreshTask.isNull={_refreshTask is null}, _refreshCancellationTokenSource.IsCancellationRequested={_refreshCancellationTokenSource?.IsCancellationRequested}]");
 
             _refreshCancellationTokenSource?.Cancel();
 
@@ -142,7 +142,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Waiting to finish...");
 
-                if (_refreshTask != null)
+                if (_refreshTask is not null)
                     await _refreshTask.ConfigureAwait(false);
 
                 if (Log.Instance.IsTraceEnabled)
@@ -182,7 +182,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             _gpuInstanceId = null;
 
             var gpu = NVAPI.GetGPU();
-            if (gpu == null)
+            if (gpu is null)
             {
                 _status = Status.NVIDIAGPUNotFound;
 

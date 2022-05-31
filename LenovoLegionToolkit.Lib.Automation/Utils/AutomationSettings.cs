@@ -33,7 +33,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Utils
         {
             get
             {
-                if (_instance == null)
+                if (_instance is null)
                     _instance = new();
                 return _instance;
             }

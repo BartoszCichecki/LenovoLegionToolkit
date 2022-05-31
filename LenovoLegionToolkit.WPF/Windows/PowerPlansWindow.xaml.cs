@@ -80,7 +80,7 @@ namespace LenovoLegionToolkit.WPF.Windows
         private async void QuietModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var state = _quietModeComboBox.SelectedValue;
-            if (state == null)
+            if (state is null)
                 return;
 
             await PowerPlanChangedAsync(state, PowerModeState.Quiet);
@@ -89,7 +89,7 @@ namespace LenovoLegionToolkit.WPF.Windows
         private async void BalanceModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var state = _balanceModeComboBox.SelectedValue;
-            if (state == null)
+            if (state is null)
                 return;
 
             await PowerPlanChangedAsync(state, PowerModeState.Balance);
@@ -98,7 +98,7 @@ namespace LenovoLegionToolkit.WPF.Windows
         private async void PerformanceModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var state = _performanceModeComboBox.SelectedValue;
-            if (state == null)
+            if (state is null)
                 return;
 
             await PowerPlanChangedAsync(state, PowerModeState.Performance);
@@ -107,7 +107,7 @@ namespace LenovoLegionToolkit.WPF.Windows
         private async void ActivatePowerProfilesWithVantageEnabled_Click(object sender, RoutedEventArgs e)
         {
             var state = _activatePowerProfilesWithVantageEnabledToggle.IsChecked;
-            if (state == null)
+            if (state is null)
                 return;
 
             if (state.Value && !await MessageBoxHelper.ShowAsync(

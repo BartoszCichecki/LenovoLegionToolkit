@@ -9,11 +9,11 @@ namespace LenovoLegionToolkit.Lib.Extensions
     {
         public static async Task CopyToAsync(this Stream source, Stream destination, int bufferSize, IProgress<long>? progress = null, CancellationToken cancellationToken = default)
         {
-            if (source == null)
+            if (source is null)
                 throw new ArgumentNullException(nameof(source));
             if (!source.CanRead)
                 throw new ArgumentException("Has to be readable", nameof(source));
-            if (destination == null)
+            if (destination is null)
                 throw new ArgumentNullException(nameof(destination));
             if (!destination.CanWrite)
                 throw new ArgumentException("Has to be writable", nameof(destination));

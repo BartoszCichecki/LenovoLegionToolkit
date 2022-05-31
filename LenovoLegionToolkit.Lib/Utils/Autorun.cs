@@ -9,7 +9,7 @@ namespace LenovoLegionToolkit.Lib.Utils
     {
         private const string TaskName = "LenovoLegionToolkit_Autorun_6efcc882-924c-4cbc-8fec-f45c25696f98";
 
-        public static bool IsEnabled => TaskService.Instance.GetTask(TaskName) != null;
+        public static bool IsEnabled => TaskService.Instance.GetTask(TaskName) is not null;
 
         public static void Validate()
         {
@@ -17,7 +17,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                 Log.Instance.Trace($"Validating autorun...");
 
             var currentTask = TaskService.Instance.GetTask(TaskName);
-            if (currentTask == null)
+            if (currentTask is null)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Autorun is not enabled.");
@@ -25,7 +25,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             }
 
             var mainModule = Process.GetCurrentProcess().MainModule;
-            if (mainModule == null)
+            if (mainModule is null)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Main module is null.");
@@ -33,7 +33,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             }
 
             var fileVersion = mainModule.FileVersionInfo.FileVersion;
-            if (fileVersion == null)
+            if (fileVersion is null)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"File version is null.");
@@ -58,15 +58,15 @@ namespace LenovoLegionToolkit.Lib.Utils
             Disable();
 
             var mainModule = Process.GetCurrentProcess().MainModule;
-            if (mainModule == null)
+            if (mainModule is null)
                 throw new InvalidOperationException("Main Module cannot be null");
 
             var filename = mainModule.FileName;
-            if (filename == null)
+            if (filename is null)
                 throw new InvalidOperationException("Current process file name cannot be null");
 
             var fileVersion = mainModule.FileVersionInfo.FileVersion;
-            if (fileVersion == null)
+            if (fileVersion is null)
                 throw new InvalidOperationException("Current process file version cannot be null");
 
             var currentUser = WindowsIdentity.GetCurrent().Name;

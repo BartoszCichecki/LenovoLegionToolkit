@@ -11,11 +11,11 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         public static SafeFileHandle GetEnergy()
         {
-            if (_energy == null)
+            if (_energy is null)
             {
                 lock (_locker)
                 {
-                    if (_energy == null)
+                    if (_energy is null)
                     {
                         var fileHandle = Native.CreateFileW("\\\\.\\EnergyDrv", 0xC0000000, 3u, IntPtr.Zero, 3u, 0x80, IntPtr.Zero);
                         if (fileHandle == new IntPtr(-1))

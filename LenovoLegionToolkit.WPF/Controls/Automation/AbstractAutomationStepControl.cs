@@ -66,7 +66,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation
         {
             _deleteButton.Click += (s, e) => OnDelete?.Invoke(this, EventArgs.Empty);
 
-            if (CustomControl != null)
+            if (CustomControl is not null)
                 _stackPanel.Children.Add(CustomControl);
             _stackPanel.Children.Add(_deleteButton);
 

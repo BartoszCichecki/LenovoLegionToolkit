@@ -19,7 +19,7 @@ namespace LenovoLegionToolkit.Lib
 
         public static T Resolve<T>() where T : notnull
         {
-            if (_container == null)
+            if (_container is null)
                 throw new InvalidOperationException("DIContainer must be initialized first");
             return _container.Resolve<T>();
         }

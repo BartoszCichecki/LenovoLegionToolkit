@@ -11,7 +11,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             if (hive == "HKEY_CURRENT_USER")
             {
                 var currentUserValue = WindowsIdentity.GetCurrent()?.User?.Value;
-                if (currentUserValue == null)
+                if (currentUserValue is null)
                     throw new InvalidOperationException("Current user value is null");
                 hive = currentUserValue;
             }
@@ -40,7 +40,7 @@ namespace LenovoLegionToolkit.Lib.Utils
         public static T Read<T>(string hive, string path, string key, T defaultValue)
         {
             var result = Microsoft.Win32.Registry.GetValue(@$"{hive}\{path}", key, defaultValue);
-            if (result == null)
+            if (result is null)
                 return defaultValue;
             return (T)result;
         }
