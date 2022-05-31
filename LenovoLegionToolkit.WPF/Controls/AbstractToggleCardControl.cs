@@ -57,7 +57,7 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         protected virtual async Task OnStateChange(ToggleSwitch toggle, IFeature<T> feature)
         {
-            if (IsRefreshing || toggle.IsChecked == null)
+            if (IsRefreshing || toggle.IsChecked is null)
                 return;
 
             var state = toggle.IsChecked.Value ? OnState : OffState;

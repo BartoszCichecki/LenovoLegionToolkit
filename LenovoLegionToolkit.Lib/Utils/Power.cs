@@ -38,7 +38,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             var powerPlanId = Settings.Instance.PowerPlans.GetValueOrDefault(powerModeState);
             var isDefault = false;
 
-            if (powerPlanId == null)
+            if (powerPlanId is null)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Power plan for power mode {powerModeState} was not found in settings");

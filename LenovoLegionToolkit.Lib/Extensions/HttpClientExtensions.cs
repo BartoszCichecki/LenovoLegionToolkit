@@ -15,7 +15,7 @@ namespace LenovoLegionToolkit.Lib.Extensions
 
             using var download = await response.Content.ReadAsStreamAsync(cancellationToken);
 
-            if (progress == null || !contentLength.HasValue)
+            if (progress is null || !contentLength.HasValue)
             {
                 await download.CopyToAsync(destination, cancellationToken);
                 return;

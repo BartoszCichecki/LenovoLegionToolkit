@@ -73,7 +73,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 return;
 
             var state = _autorunToggle.IsChecked;
-            if (state == null)
+            if (state is null)
                 return;
 
             if (state.Value)
@@ -88,7 +88,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 return;
 
             var state = _minimizeOnCloseToggle.IsChecked;
-            if (state == null)
+            if (state is null)
                 return;
 
             Settings.Instance.MinimizeOnClose = state.Value;
@@ -101,7 +101,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 return;
 
             var state = _vantageToggle.IsChecked;
-            if (state == null)
+            if (state is null)
                 return;
 
             if (state.Value)

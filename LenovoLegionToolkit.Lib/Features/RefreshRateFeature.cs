@@ -14,7 +14,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 Log.Instance.Trace($"Getting all refresh rates...");
 
             var display = await GetBuiltInDisplayAsync().ConfigureAwait(false);
-            if (display == null)
+            if (display is null)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Built in display not found");
@@ -66,7 +66,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 Log.Instance.Trace($"Getting current refresh rate...");
 
             var display = await GetBuiltInDisplayAsync().ConfigureAwait(false);
-            if (display == null)
+            if (display is null)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Built in display not found");
@@ -86,7 +86,7 @@ namespace LenovoLegionToolkit.Lib.Features
         public async Task SetStateAsync(RefreshRate state)
         {
             var display = await GetBuiltInDisplayAsync().ConfigureAwait(false);
-            if (display == null)
+            if (display is null)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Built in display not found");
@@ -108,7 +108,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 .Select(dps => new DisplaySetting(dps, currentSettings.Position))
                 .FirstOrDefault(dps => dps.Frequency == state.Frequency);
 
-            if (newSettings != null)
+            if (newSettings is not null)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Settings display to {newSettings}");
