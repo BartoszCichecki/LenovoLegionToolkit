@@ -11,6 +11,13 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
 
         public List<IAutomationStep> Steps { get; set; } = new();
 
+        public AutomationPipeline() { }
+
+        public AutomationPipeline(AutomationPipelineTrigger trigger)
+        {
+            Triggers.Add(trigger);
+        }
+
         public async Task RunAsync()
         {
             if (!Triggers.All(t => t.IsSatisfied()))

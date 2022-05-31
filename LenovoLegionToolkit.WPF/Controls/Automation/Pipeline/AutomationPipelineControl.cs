@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
 using LenovoLegionToolkit.Lib.Automation.Steps;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.WPF.Controls.Automation.Steps;
 using WPFUI.Common;
 using WPFUI.Controls;
@@ -58,6 +59,12 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
         private void InitializeComponent()
         {
+            foreach (var step in AutomationPipeline.Steps)
+            {
+                var control = GenerateControl(step);
+                _stepsStackPanel.Children.Add(control);
+            }
+
             _addStepButton.ContextMenu = GenerateAddStepContextMenu();
             _addStepButton.Click += (s, e) => _addStepButton.ContextMenu.IsOpen = true;
 
@@ -73,32 +80,30 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             _cardExpander.Subtitle = GenerateSubtitle();
             _cardExpander.Content = _stackPanel;
 
-            foreach (var step in AutomationPipeline.Steps)
-            {
-                var control = GenerateControl(step);
-                _stepsStackPanel.Children.Add(control);
-            }
-
             Content = _cardExpander;
         }
 
         private string GenerateHeader()
         {
-            var parts = AutomationPipeline.Triggers.Select(t => t switch
-            {
-                AutomationPipelineTrigger.ACAdapterConnected => "AC adapter is connected",
-                AutomationPipelineTrigger.ACAdapterDisconnected => "AC adapter is disconnected",
-                _ => null,
-            }).Where(s => !string.IsNullOrWhiteSpace(s));
-
+            var parts = AutomationPipeline.Triggers
+                .Select(t => t.GetDisplayName())
+                .Where(s => !string.IsNullOrWhiteSpace(s));
             return "When " + string.Join(", ", parts);
         }
 
         private string GenerateSubtitle()
         {
-            if (AutomationPipeline.Steps.Count == 1)
-                return "1 action";
-            return $"{AutomationPipeline.Steps.Count} actions";
+            var stepsCount = Lib.Extensions.ListExtensions.ToArray(_stepsStackPanel.Children
+)
+                .OfType<AbstractAutomationStepControl>()
+                .Count();
+
+            var text = $"{stepsCount} step";
+
+            if (stepsCount != 1)
+                text += "s";
+
+            return text;
         }
 
         private UIElement GenerateControl(IAutomationStep step)
@@ -150,17 +155,13 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
         private void AddStep(IAutomationStep step)
         {
             var control = GenerateControl(step);
-            AutomationPipeline.Steps.Add(step);
             _stepsStackPanel.Children.Add(control);
-
             _cardExpander.Subtitle = GenerateSubtitle();
         }
 
         private void DeleteStep(AbstractAutomationStepControl control)
         {
-            AutomationPipeline.Steps.Remove(control.AutomationStep);
             _stepsStackPanel.Children.Remove(control);
-
             _cardExpander.Subtitle = GenerateSubtitle();
         }
     }

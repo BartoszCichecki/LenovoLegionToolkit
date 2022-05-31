@@ -33,8 +33,14 @@
             <wpfui:Button
                 x:Name="_newPipelineButton"
                 Width="120"
-                Content="New flow"
-                IsEnabled="False" />
+                Click="NewPipelineButton_Click"
+                Content="Add new flow"
+                IsEnabled="False"
+                IsEnabledChanged="NewPipelineButton_IsEnabledChanged">
+                <wpfui:Button.ContextMenu>
+                    <ContextMenu />
+                </wpfui:Button.ContextMenu>
+            </wpfui:Button>
         </StackPanel>
 
         <StackPanel x:Name="_pipelinesStackPanel" />

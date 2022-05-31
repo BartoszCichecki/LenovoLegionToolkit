@@ -152,6 +152,9 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private void SaveWindowSize()
         {
+            if (WindowState == WindowState.Maximized)
+                return;
+
             Settings.Instance.WindowSize = new(ActualWidth, ActualHeight);
             Settings.Instance.Synchronize();
         }
