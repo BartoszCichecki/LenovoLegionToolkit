@@ -43,7 +43,7 @@ namespace LenovoLegionToolkit.WPF.Controls
             _toggle.Click += Toggle_Click;
             _toggle.Visibility = Visibility.Hidden;
 
-            _cardControl.Margin = new Thickness(0, 0, 0, 8);
+            _cardControl.Margin = new(0, 0, 0, 8);
             _cardControl.Content = _toggle;
 
             Content = _cardControl;

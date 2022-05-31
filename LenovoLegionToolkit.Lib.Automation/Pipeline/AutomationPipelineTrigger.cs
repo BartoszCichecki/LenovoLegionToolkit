@@ -1,10 +1,13 @@
-﻿using LenovoLegionToolkit.Lib.Utils;
+﻿using System.ComponentModel.DataAnnotations;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline
 {
     public enum AutomationPipelineTrigger
     {
+        [Display(Name = "AC adapter is connected")]
         ACAdapterConnected,
+        [Display(Name = "AC adapter is disconnected")]
         ACAdapterDisconnected,
     }
 

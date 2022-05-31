@@ -44,7 +44,7 @@ namespace LenovoLegionToolkit.WPF.Controls
             _comboBox.Width = 150;
             _comboBox.Visibility = Visibility.Hidden;
 
-            _cardControl.Margin = new Thickness(0, 0, 0, 8);
+            _cardControl.Margin = new(0, 0, 0, 8);
             _cardControl.Content = _comboBox;
 
             Content = _cardControl;
