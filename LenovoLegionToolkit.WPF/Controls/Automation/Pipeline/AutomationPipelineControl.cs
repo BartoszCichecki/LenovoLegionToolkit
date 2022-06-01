@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Input;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
 using LenovoLegionToolkit.Lib.Automation.Steps;
 using LenovoLegionToolkit.Lib.Extensions;
@@ -46,6 +48,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             Appearance = Appearance.Secondary,
             Width = 100,
         };
+
         public AutomationPipeline AutomationPipeline { get; }
 
         public event EventHandler? OnDelete;
@@ -93,8 +96,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
         private string GenerateSubtitle()
         {
-            var stepsCount = Lib.Extensions.ListExtensions.ToArray(_stepsStackPanel.Children
-)
+            var stepsCount = _stepsStackPanel.Children.ToArray()
                 .OfType<AbstractAutomationStepControl>()
                 .Count();
 
@@ -115,6 +117,11 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 PowerModeAutomationStep s => new PowerModeAutomationStepControl(s),
                 RefreshRateAutomationStep s => new RefreshRateAutomationStepControl(s),
                 _ => throw new InvalidOperationException("Unknown step type."),
+            };
+            control.MouseRightButtonUp += (s, e) =>
+            {
+                ShowContextMenu(control);
+                e.Handled = true;
             };
             control.OnDelete += (s, e) =>
             {
@@ -150,6 +157,41 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                     deactivateGPU,
                 },
             };
+        }
+
+        private void ShowContextMenu(AbstractAutomationStepControl control)
+        {
+            var menuItems = new List<MenuItem>();
+
+            var index = _stepsStackPanel.Children.IndexOf(control);
+            var maxIndex = _stepsStackPanel.Children.Count - 1;
+
+            if (index > 0)
+            {
+                var menuItem = new MenuItem { Icon = SymbolRegular.ArrowUp24, Header = "Move step up" };
+                menuItem.Click += (s, e) => MoveStep(control, index - 1);
+                menuItems.Add(menuItem);
+            }
+
+            if (index < maxIndex)
+            {
+                var menuItem = new MenuItem { Icon = SymbolRegular.ArrowDown24, Header = "Move step down" };
+                menuItem.Click += (s, e) => MoveStep(control, index + 1);
+                menuItems.Add(menuItem);
+            }
+
+            if (menuItems.Count < 1)
+                return;
+
+            control.ContextMenu = new();
+            control.ContextMenu.Items.AddRange(menuItems);
+            control.ContextMenu.IsOpen = true;
+        }
+
+        private void MoveStep(AbstractAutomationStepControl control, int index)
+        {
+            _stepsStackPanel.Children.Remove(control);
+            _stepsStackPanel.Children.Insert(index, control);
         }
 
         private void AddStep(IAutomationStep step)

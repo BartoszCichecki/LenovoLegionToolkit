@@ -66,12 +66,52 @@ namespace LenovoLegionToolkit.WPF.Pages
         private UIElement GenerateControl(AutomationPipeline pipeline)
         {
             var control = new AutomationPipelineControl(pipeline);
+            control.MouseRightButtonUp += (s, e) =>
+            {
+                ShowContextMenu(control);
+                e.Handled = true;
+            };
             control.OnDelete += (s, e) =>
             {
                 if (s is AutomationPipelineControl control)
                     DeletePipeline(control);
             };
             return control;
+        }
+
+        private void ShowContextMenu(AutomationPipelineControl control)
+        {
+            var menuItems = new List<MenuItem>();
+
+            var index = _pipelinesStackPanel.Children.IndexOf(control);
+            var maxIndex = _pipelinesStackPanel.Children.Count - 1;
+
+            if (index > 0)
+            {
+                var menuItem = new MenuItem { Icon = SymbolRegular.ArrowUp24, Header = "Move flow up" };
+                menuItem.Click += (s, e) => MovePipeline(control, index - 1);
+                menuItems.Add(menuItem);
+            }
+
+            if (index < maxIndex)
+            {
+                var menuItem = new MenuItem { Icon = SymbolRegular.ArrowDown24, Header = "Move flow down" };
+                menuItem.Click += (s, e) => MovePipeline(control, index + 1);
+                menuItems.Add(menuItem);
+            }
+
+            if (menuItems.Count < 1)
+                return;
+
+            control.ContextMenu = new();
+            control.ContextMenu.Items.AddRange(menuItems);
+            control.ContextMenu.IsOpen = true;
+        }
+
+        private void MovePipeline(AutomationPipelineControl control, int index)
+        {
+            _pipelinesStackPanel.Children.Remove(control);
+            _pipelinesStackPanel.Children.Insert(index, control);
         }
 
         private void AddPipeline(AutomationPipelineTrigger trigger)
@@ -92,10 +132,12 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private void RefreshNewPipelineButton()
         {
-            var allTriggers = new[] { AutomationPipelineTrigger.ACAdapterConnected, AutomationPipelineTrigger.ACAdapterDisconnected };
+            var allTriggers = new[] {
+                AutomationPipelineTrigger.ACAdapterConnected,
+                AutomationPipelineTrigger.ACAdapterDisconnected,
+            };
 
-            var triggers = Lib.Extensions.ListExtensions.ToArray(_pipelinesStackPanel.Children
-)
+            var triggers = _pipelinesStackPanel.Children.ToArray()
                 .OfType<AutomationPipelineControl>()
                 .Select(c => c.AutomationPipeline)
                 .SelectMany(p => p.Triggers);
