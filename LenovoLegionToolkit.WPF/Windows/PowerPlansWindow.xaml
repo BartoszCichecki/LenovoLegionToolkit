@@ -49,6 +49,8 @@
         <wpfui:ProgressRing
             x:Name="_loader"
             Grid.Row="1"
+            Width="64"
+            Height="64"
             IsIndeterminate="True" />
 
         <ScrollViewer

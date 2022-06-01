@@ -4,7 +4,6 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Input;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
 using LenovoLegionToolkit.Lib.Automation.Steps;
 using LenovoLegionToolkit.Lib.Extensions;
@@ -51,6 +50,9 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
         public AutomationPipeline AutomationPipeline { get; }
 
+        public UIElementCollection Children => _stepsStackPanel.Children;
+
+        public event EventHandler? OnChanged;
         public event EventHandler? OnDelete;
 
         public AutomationPipelineControl(AutomationPipeline automationPipeline)
@@ -192,6 +194,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
         {
             _stepsStackPanel.Children.Remove(control);
             _stepsStackPanel.Children.Insert(index, control);
+
+            OnChanged?.Invoke(this, EventArgs.Empty);
         }
 
         private void AddStep(IAutomationStep step)
@@ -199,12 +203,16 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             var control = GenerateControl(step);
             _stepsStackPanel.Children.Add(control);
             _cardExpander.Subtitle = GenerateSubtitle();
+
+            OnChanged?.Invoke(this, EventArgs.Empty);
         }
 
         private void DeleteStep(AbstractAutomationStepControl control)
         {
             _stepsStackPanel.Children.Remove(control);
             _cardExpander.Subtitle = GenerateSubtitle();
+
+            OnChanged?.Invoke(this, EventArgs.Empty);
         }
     }
 }
