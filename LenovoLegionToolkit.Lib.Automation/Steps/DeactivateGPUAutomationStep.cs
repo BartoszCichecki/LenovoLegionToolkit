@@ -13,6 +13,6 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
             await _controller.DeactivateGPUAsync().ConfigureAwait(false);
         }
 
-        public IAutomationStep DeepCopy() => new DeactivateGPUAutomationStep();
+        IAutomationStep IAutomationStep.DeepCopy() => new DeactivateGPUAutomationStep();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Features;
+using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps
 {
@@ -9,6 +10,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
 
         public PowerModeState State { get; }
 
+        [JsonConstructor]
         public PowerModeAutomationStep(PowerModeState state)
         {
             State = state;
@@ -24,6 +26,6 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
 
         public Task<PowerModeState[]> GetAllStatesAsync() => _feature.GetAllStatesAsync();
 
-        public IAutomationStep DeepCopy() => new PowerModeAutomationStep(State);
+        IAutomationStep IAutomationStep.DeepCopy() => new PowerModeAutomationStep(State);
     }
 }

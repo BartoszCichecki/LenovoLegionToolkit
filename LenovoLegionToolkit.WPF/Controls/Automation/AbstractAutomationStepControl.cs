@@ -9,8 +9,17 @@ using Button = WPFUI.Controls.Button;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation
 {
+    public abstract class AbstractAutomationStepControl<T> : AbstractAutomationStepControl where T : IAutomationStep
+    {
+        public new T AutomationStep => (T)base.AutomationStep;
+
+        protected AbstractAutomationStepControl(T automationStep) : base(automationStep) { }
+    }
+
     public abstract class AbstractAutomationStepControl : UserControl
     {
+        protected IAutomationStep AutomationStep { get; }
+
         private readonly CardControl _cardControl = new()
         {
             Margin = new(0, 0, 0, 8),
@@ -30,10 +39,6 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation
             Margin = new(8, 0, 0, 0),
         };
 
-        public abstract IAutomationStep AutomationStep { get; }
-
-        protected abstract UIElement? CustomControl { get; }
-
         public SymbolRegular Icon
         {
             get => _cardControl.Icon;
@@ -52,10 +57,13 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation
             set => _cardControl.Subtitle = value;
         }
 
+        public event EventHandler? OnChanged;
         public event EventHandler? OnDelete;
 
-        public AbstractAutomationStepControl()
+        protected AbstractAutomationStepControl(IAutomationStep automationStep)
         {
+            AutomationStep = automationStep;
+
             InitializeComponent();
 
             Loaded += RefreshingControl_Loaded;
@@ -66,8 +74,9 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation
         {
             _deleteButton.Click += (s, e) => OnDelete?.Invoke(this, EventArgs.Empty);
 
-            if (CustomControl is not null)
-                _stackPanel.Children.Add(CustomControl);
+            var control = GetCustomControl();
+            if (control is not null)
+                _stackPanel.Children.Add(control);
             _stackPanel.Children.Add(_deleteButton);
 
             _cardControl.Content = _stackPanel;
@@ -90,8 +99,14 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation
                 await RefreshAsync();
         }
 
+        public abstract IAutomationStep CreateAutomationStep();
+
+        protected abstract UIElement? GetCustomControl();
+
         protected abstract void OnFinishedLoading();
 
         protected abstract Task RefreshAsync();
+
+        protected void RaiseOnChanged() => OnChanged?.Invoke(this, EventArgs.Empty);
     }
 }

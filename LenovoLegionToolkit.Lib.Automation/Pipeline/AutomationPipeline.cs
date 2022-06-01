@@ -18,16 +18,16 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
             Triggers.Add(trigger);
         }
 
-        public async Task RunAsync()
+        internal async Task RunAsync(bool force = false)
         {
-            if (!Triggers.All(t => t.IsSatisfied()))
+            if (!force && !Triggers.All(t => t.IsSatisfied()))
                 return;
 
             foreach (var step in Steps)
                 await step.RunAsync().ConfigureAwait(false);
         }
 
-        public AutomationPipeline DeepCopy() => new()
+        internal AutomationPipeline DeepCopy() => new()
         {
             Triggers = Triggers.ToList(),
             Steps = Steps.Select(s => s.DeepCopy()).ToList(),

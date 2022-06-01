@@ -74,7 +74,7 @@
                 Grid.Column="1"
                 MinWidth="300"
                 MaxWidth="600"
-                HorizontalAlignment="Right"
+                HorizontalAlignment="Center"
                 Appearance="Secondary"
                 Icon="Checkmark24"
                 IsShown="False"
