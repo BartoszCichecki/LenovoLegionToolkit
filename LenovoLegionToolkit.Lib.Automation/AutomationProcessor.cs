@@ -19,7 +19,15 @@ namespace LenovoLegionToolkit.Lib.Automation
         private CancellationTokenSource? _cts;
 
 #pragma warning disable CA1822 // Mark members as static
-        public bool IsEnabled => AutomationSettings.Instance.IsEnabled;
+        public bool IsEnabled
+        {
+            get => AutomationSettings.Instance.IsEnabled;
+            set
+            {
+                AutomationSettings.Instance.IsEnabled = value;
+                AutomationSettings.Instance.Synchronize();
+            }
+        }
 #pragma warning restore CA1822 // Mark members as static
 
         public AutomationProcessor(PowerStateListener powerAdapterListener)
@@ -42,13 +50,12 @@ namespace LenovoLegionToolkit.Lib.Automation
                 return _pipelines.Select(p => p.DeepCopy()).ToList();
         }
 
-        public async Task ReloadPipelinesAsync(bool isEnabled, List<AutomationPipeline> pipelines)
+        public async Task ReloadPipelinesAsync(List<AutomationPipeline> pipelines)
         {
             using (await _lock.LockAsync().ConfigureAwait(false))
             {
                 _pipelines = pipelines.Select(p => p.DeepCopy()).ToList();
 
-                AutomationSettings.Instance.IsEnabled = isEnabled;
                 AutomationSettings.Instance.Pipeliness = pipelines;
                 AutomationSettings.Instance.Synchronize();
             }

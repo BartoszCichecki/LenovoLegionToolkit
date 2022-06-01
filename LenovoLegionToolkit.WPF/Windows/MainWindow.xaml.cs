@@ -20,6 +20,8 @@ namespace LenovoLegionToolkit.WPF.Windows
     {
         private readonly UpdateChecker _updateChecker = DIContainer.Resolve<UpdateChecker>();
 
+        public Snackbar Snackbar => _snackBar;
+
         public MainWindow()
         {
             InitializeComponent();

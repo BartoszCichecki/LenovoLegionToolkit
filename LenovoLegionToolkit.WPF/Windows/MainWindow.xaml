@@ -72,12 +72,14 @@
             <wpfui:Snackbar
                 x:Name="_snackBar"
                 Grid.Column="1"
+                MinWidth="300"
                 MaxWidth="600"
+                HorizontalAlignment="Right"
                 Appearance="Secondary"
-                Icon="Info24"
+                Icon="Checkmark24"
                 IsShown="False"
-                ShowCloseButton="True"
-                Timeout="5000" />
+                ShowCloseButton="False"
+                Timeout="2000" />
 
         </Grid>
     </Grid>

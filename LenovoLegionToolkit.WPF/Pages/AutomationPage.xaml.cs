@@ -9,7 +9,9 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.WPF.Controls.Automation;
 using LenovoLegionToolkit.WPF.Controls.Automation.Pipeline;
+using LenovoLegionToolkit.WPF.Utils;
 using WPFUI.Common;
 
 namespace LenovoLegionToolkit.WPF.Pages
@@ -31,7 +33,7 @@ namespace LenovoLegionToolkit.WPF.Pages
         {
             var isChecked = _enableAutomation.IsChecked;
             if (isChecked.HasValue)
-                _enableAutomation.IsEnabled = isChecked.Value;
+                _automationProcessor.IsEnabled = isChecked.Value;
         }
 
         private void NewPipelineButton_Click(object sender, RoutedEventArgs e)
@@ -48,9 +50,42 @@ namespace LenovoLegionToolkit.WPF.Pages
                 : Appearance.Transparent;
         }
 
+        private async void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            var pipelines = _pipelinesStackPanel.Children.ToArray()
+                .OfType<AutomationPipelineControl>()
+                .Select(c =>
+                {
+                    var pipeline = c.AutomationPipeline.DeepCopy();
+
+                    pipeline.Steps = c.Children.ToArray()
+                        .OfType<AbstractAutomationStepControl>()
+                        .Select(s => s.AutomationStep)
+                        .Select(s => s.DeepCopy())
+                        .ToList();
+
+                    return pipeline;
+                })
+                .ToList();
+
+            await _automationProcessor.ReloadPipelinesAsync(pipelines);
+            await RefreshAsync();
+
+            await SnackbarHelper.ShowAsync("Saved", "Changes were saved successfully!");
+        }
+
+        private async void RevertButton_Click(object sender, RoutedEventArgs e)
+        {
+            await RefreshAsync();
+
+            await SnackbarHelper.ShowAsync("Reverted", "All changes reverted!");
+        }
+
         private async Task RefreshAsync()
         {
             var pipelines = await _automationProcessor.GetPipelinesAsync();
+
+            _enableAutomation.IsChecked = _automationProcessor.IsEnabled;
 
             _pipelinesStackPanel.Children.Clear();
 
@@ -61,6 +96,8 @@ namespace LenovoLegionToolkit.WPF.Pages
             }
 
             RefreshNewPipelineButton();
+
+            _saveRevertStackPanel.Visibility = Visibility.Collapsed;
         }
 
         private UIElement GenerateControl(AutomationPipeline pipeline)
@@ -71,12 +108,18 @@ namespace LenovoLegionToolkit.WPF.Pages
                 ShowContextMenu(control);
                 e.Handled = true;
             };
+            control.OnChanged += (s, e) => PipelinesChanged();
             control.OnDelete += (s, e) =>
             {
                 if (s is AutomationPipelineControl control)
                     DeletePipeline(control);
             };
             return control;
+        }
+
+        private void PipelinesChanged()
+        {
+            _saveRevertStackPanel.Visibility = Visibility.Visible;
         }
 
         private void ShowContextMenu(AutomationPipelineControl control)
@@ -112,6 +155,8 @@ namespace LenovoLegionToolkit.WPF.Pages
         {
             _pipelinesStackPanel.Children.Remove(control);
             _pipelinesStackPanel.Children.Insert(index, control);
+
+            PipelinesChanged();
         }
 
         private void AddPipeline(AutomationPipelineTrigger trigger)
@@ -121,6 +166,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             _pipelinesStackPanel.Children.Add(control);
 
             RefreshNewPipelineButton();
+            PipelinesChanged();
         }
 
         private void DeletePipeline(AutomationPipelineControl control)
@@ -128,6 +174,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             _pipelinesStackPanel.Children.Remove(control);
 
             RefreshNewPipelineButton();
+            PipelinesChanged();
         }
 
         private void RefreshNewPipelineButton()
