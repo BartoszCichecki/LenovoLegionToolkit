@@ -65,10 +65,10 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private void InitializeTray()
         {
-            var openMenuItem = new MenuItem { Header = "Open" };
+            var openMenuItem = new MenuItem { Header = "Open", Tag = "static" };
             openMenuItem.Click += (s, e) => BringToForeground();
 
-            var closeMenuItem = new MenuItem { Header = "Close" };
+            var closeMenuItem = new MenuItem { Header = "Close", Tag = "static" };
             closeMenuItem.Click += (s, e) => Application.Current.Shutdown();
 
             var contextMenu = new ContextMenu();

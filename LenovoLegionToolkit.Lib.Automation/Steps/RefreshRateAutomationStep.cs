@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Features;
+using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps
 {
@@ -11,6 +12,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
 
         public RefreshRate State { get; }
 
+        [JsonConstructor]
         public RefreshRateAutomationStep(RefreshRate state)
         {
             State = state;
@@ -29,6 +31,6 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
 
         public Task<RefreshRate[]> GetAllStatesAsync() => _feature.GetAllStatesAsync();
 
-        public IAutomationStep DeepCopy() => new RefreshRateAutomationStep(State);
+        IAutomationStep IAutomationStep.DeepCopy() => new RefreshRateAutomationStep(State);
     }
 }

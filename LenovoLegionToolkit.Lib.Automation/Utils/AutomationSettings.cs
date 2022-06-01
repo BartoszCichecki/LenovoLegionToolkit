@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using System.Text.Json;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
-using LenovoLegionToolkit.Lib.Automation.Steps;
 using LenovoLegionToolkit.Lib.Utils;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace LenovoLegionToolkit.Lib.Automation.Utils
 {
@@ -13,19 +13,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Utils
         {
             public bool IsEnabled { get; set; } = false;
 
-            public List<AutomationPipeline> Pipelines { get; set; } = new()
-            {
-                new()
-                {
-                    Triggers = { AutomationPipelineTrigger.ACAdapterConnected },
-                    Steps = { new PowerModeAutomationStep(PowerModeState.Balance) },
-                },
-                new()
-                {
-                    Triggers = { AutomationPipelineTrigger.ACAdapterDisconnected },
-                    Steps = { new PowerModeAutomationStep(PowerModeState.Quiet) },
-                },
-            };
+            public List<AutomationPipeline> Pipelines { get; set; } = new();
         }
 
         private static AutomationSettings? _instance;
@@ -41,7 +29,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Utils
 
         private readonly AutomationSettingsStore _settingsStore;
 
-        private readonly JsonSerializerOptions _jsonSerializerOptions;
+        private readonly JsonSerializerSettings _jsonSerializerSettings;
         private readonly string _automationStorePath;
 
         public bool IsEnabled
@@ -58,13 +46,21 @@ namespace LenovoLegionToolkit.Lib.Automation.Utils
 
         private AutomationSettings()
         {
-            _jsonSerializerOptions = new() { WriteIndented = true };
+            _jsonSerializerSettings = new()
+            {
+                Formatting = Formatting.Indented,
+                TypeNameHandling = TypeNameHandling.Auto,
+                Converters =
+                {
+                    new StringEnumConverter(),
+                }
+            };
             _automationStorePath = Path.Combine(Folders.AppData, "automation.json");
 
             try
             {
                 var settingsSerialized = File.ReadAllText(_automationStorePath);
-                _settingsStore = JsonSerializer.Deserialize<AutomationSettingsStore>(settingsSerialized, _jsonSerializerOptions) ?? new();
+                _settingsStore = JsonConvert.DeserializeObject<AutomationSettingsStore>(settingsSerialized, _jsonSerializerSettings) ?? new();
             }
             catch
             {
@@ -75,7 +71,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Utils
 
         public void Synchronize()
         {
-            var settingsSerialized = JsonSerializer.Serialize(_settingsStore, _jsonSerializerOptions);
+            var settingsSerialized = JsonConvert.SerializeObject(_settingsStore, _jsonSerializerSettings);
             File.WriteAllText(_automationStorePath, settingsSerialized);
         }
     }

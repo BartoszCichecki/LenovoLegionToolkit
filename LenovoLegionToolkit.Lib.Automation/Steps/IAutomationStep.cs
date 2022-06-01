@@ -6,7 +6,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
     {
         Task RunAsync();
 
-        IAutomationStep DeepCopy();
+        internal IAutomationStep DeepCopy();
     }
 
     public interface IAutomationStep<T> : IAutomationStep where T : struct

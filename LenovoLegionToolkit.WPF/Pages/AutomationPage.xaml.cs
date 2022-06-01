@@ -9,7 +9,6 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
 using LenovoLegionToolkit.Lib.Extensions;
-using LenovoLegionToolkit.WPF.Controls.Automation;
 using LenovoLegionToolkit.WPF.Controls.Automation.Pipeline;
 using LenovoLegionToolkit.WPF.Utils;
 using WPFUI.Common;
@@ -54,18 +53,7 @@ namespace LenovoLegionToolkit.WPF.Pages
         {
             var pipelines = _pipelinesStackPanel.Children.ToArray()
                 .OfType<AutomationPipelineControl>()
-                .Select(c =>
-                {
-                    var pipeline = c.AutomationPipeline.DeepCopy();
-
-                    pipeline.Steps = c.Children.ToArray()
-                        .OfType<AbstractAutomationStepControl>()
-                        .Select(s => s.AutomationStep)
-                        .Select(s => s.DeepCopy())
-                        .ToList();
-
-                    return pipeline;
-                })
+                .Select(c => c.CreateAutomationPipeline())
                 .ToList();
 
             await _automationProcessor.ReloadPipelinesAsync(pipelines);

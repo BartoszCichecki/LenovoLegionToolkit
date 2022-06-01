@@ -1,24 +1,30 @@
 ﻿using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Utils;
+using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps
 {
     public class ScriptAutomationStep : IAutomationStep
     {
-        private readonly string _scriptPath;
-        private readonly string _scriptParameters;
+        public string? ScriptPath { get; }
 
-        public ScriptAutomationStep(string scriptPath, string scriptParameters)
+        public string? ScriptArguments { get; }
+
+        [JsonConstructor]
+        public ScriptAutomationStep(string? scriptPath, string? scriptArguments)
         {
-            _scriptPath = scriptPath;
-            _scriptParameters = scriptParameters;
+            ScriptPath = scriptPath;
+            ScriptArguments = scriptArguments;
         }
 
         public async Task RunAsync()
         {
-            await CMD.RunAsync(_scriptPath, _scriptParameters).ConfigureAwait(false);
+            if (string.IsNullOrWhiteSpace(ScriptPath))
+                return;
+
+            await CMD.RunAsync(ScriptPath, ScriptArguments ?? "").ConfigureAwait(false);
         }
 
-        public IAutomationStep DeepCopy() => new ScriptAutomationStep(_scriptPath, _scriptParameters);
+        IAutomationStep IAutomationStep.DeepCopy() => new ScriptAutomationStep(ScriptPath, ScriptArguments);
     }
 }

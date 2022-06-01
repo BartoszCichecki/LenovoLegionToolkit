@@ -83,5 +83,11 @@ namespace LenovoLegionToolkit.Lib.Automation
                 }
             }
         }
+
+        public async Task RunNowAsync(AutomationPipeline pipeline)
+        {
+            using (await _lock.LockAsync().ConfigureAwait(false))
+                await pipeline.DeepCopy().RunAsync(force: true).ConfigureAwait(false);
+        }
     }
 }

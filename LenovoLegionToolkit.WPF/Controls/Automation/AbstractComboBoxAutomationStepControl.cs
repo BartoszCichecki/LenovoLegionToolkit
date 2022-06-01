@@ -9,9 +9,8 @@ using LenovoLegionToolkit.Lib.Extensions;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation
 {
-    public class AbstractComboBoxAutomationStepCardControl<T> : AbstractAutomationStepControl where T : struct
+    public class AbstractComboBoxAutomationStepCardControl<T> : AbstractAutomationStepControl<IAutomationStep<T>> where T : struct
     {
-        private readonly IAutomationStep<T> _step;
 
         private readonly ComboBox _comboBox = new()
         {
@@ -19,18 +18,41 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation
             Visibility = Visibility.Hidden,
         };
 
-        public override IAutomationStep AutomationStep => _step;
+        private T _state;
 
-        protected override UIElement? CustomControl => _comboBox;
+        public AbstractComboBoxAutomationStepCardControl(IAutomationStep<T> step) : base(step) { }
 
-        public AbstractComboBoxAutomationStepCardControl(IAutomationStep<T> step) => _step = step;
+        protected override UIElement? GetCustomControl()
+        {
+            _comboBox.SelectionChanged += ComboBox_SelectionChanged;
+
+            return _comboBox;
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (!_comboBox.TryGetSelectedItem(out T selectedState) || _state.Equals(selectedState))
+                return;
+
+            _state = selectedState;
+
+            RaiseOnChanged();
+        }
+
+        public override IAutomationStep CreateAutomationStep()
+        {
+            var obj = Activator.CreateInstance(AutomationStep.GetType(), _state);
+            if (obj is not IAutomationStep<T> step)
+                throw new InvalidOperationException("Couldn't create automation step.");
+            return step;
+        }
 
         protected override void OnFinishedLoading() => _comboBox.Visibility = Visibility.Visible;
 
         protected override async Task RefreshAsync()
         {
-            var items = await _step.GetAllStatesAsync();
-            var selectedItem = _step.State;
+            var items = await AutomationStep.GetAllStatesAsync();
+            var selectedItem = AutomationStep.State;
 
             static string displayName(T value)
             {
@@ -41,6 +63,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation
                 return value.ToString() ?? throw new InvalidOperationException("Unsupported type");
             }
 
+            _state = selectedItem;
             _comboBox.SetItems(items, selectedItem, displayName);
             _comboBox.IsEnabled = items.Any();
         }
