@@ -7,7 +7,7 @@ using TextBox = WPFUI.Controls.TextBox;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
 {
-    public class ScriptAutomationStepControl : AbstractAutomationStepControl<ScriptAutomationStep>
+    public class RunAutomationStepControl : AbstractAutomationStepControl<RunAutomationStep>
     {
         private readonly TextBox _scriptPath = new()
         {
@@ -24,14 +24,14 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
 
         private readonly StackPanel _stackPanel = new();
 
-        public ScriptAutomationStepControl(ScriptAutomationStep step) : base(step)
+        public RunAutomationStepControl(RunAutomationStep step) : base(step)
         {
             Icon = SymbolRegular.WindowConsole20;
             Title = "Run";
-            Subtitle = "Run a script or program.\nMake sure that you script runs correctly first.";
+            Subtitle = "Run a script or a program.\nMake sure that you script runs correctly first.";
         }
 
-        public override IAutomationStep CreateAutomationStep() => new ScriptAutomationStep(_scriptPath.Text, _scriptArguments.Text);
+        public override IAutomationStep CreateAutomationStep() => new RunAutomationStep(_scriptPath.Text, _scriptArguments.Text);
 
         protected override UIElement? GetCustomControl()
         {

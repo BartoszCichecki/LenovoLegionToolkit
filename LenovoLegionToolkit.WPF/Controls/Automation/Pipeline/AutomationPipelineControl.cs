@@ -114,14 +114,24 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
         private async Task RunAsync()
         {
-            _runNowButton.IsEnabled = false;
-            _runNowButton.Content = "Running...";
-            var pipeline = CreateAutomationPipeline();
-            await _automationProcessor.RunNowAsync(pipeline);
-            _runNowButton.Content = "Run now";
-            _runNowButton.IsEnabled = true;
+            try
+            {
+                _runNowButton.IsEnabled = false;
+                _runNowButton.Content = "Running...";
+                var pipeline = CreateAutomationPipeline();
+                await _automationProcessor.RunNowAsync(pipeline);
 
-            await SnackbarHelper.ShowAsync("Success", "Flow ran successfully!");
+                await SnackbarHelper.ShowAsync("Success", "Flow ran successfully!");
+            }
+            catch (Exception ex)
+            {
+                await SnackbarHelper.ShowAsync("Run failed", ex.Message);
+            }
+            finally
+            {
+                _runNowButton.Content = "Run now";
+                _runNowButton.IsEnabled = true;
+            }
         }
 
         private string GenerateHeader()
@@ -154,7 +164,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 OverDriveAutomationStep s => new OverDriveAutomationStepControl(s),
                 PowerModeAutomationStep s => new PowerModeAutomationStepControl(s),
                 RefreshRateAutomationStep s => new RefreshRateAutomationStepControl(s),
-                ScriptAutomationStep s => new ScriptAutomationStepControl(s),
+                RunAutomationStep s => new RunAutomationStepControl(s),
                 _ => throw new InvalidOperationException("Unknown step type."),
             };
             control.MouseRightButtonUp += (s, e) =>
@@ -181,7 +191,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 new RefreshRateAutomationStep(default),
                 new OverDriveAutomationStep(default),
                 new DeactivateGPUAutomationStep(),
-                new ScriptAutomationStep(default, default),
+                new RunAutomationStep(default, default),
             });
 
             var contextMenu = new ContextMenu
