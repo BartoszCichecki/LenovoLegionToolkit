@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,7 +25,6 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
         private readonly CardExpander _cardExpander = new()
         {
-            Icon = SymbolRegular.Flow20,
             Margin = new(0, 0, 0, 8),
         };
 
@@ -105,6 +105,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             _stackPanel.Children.Add(_stepsStackPanel);
             _stackPanel.Children.Add(_buttonsStackPanel);
 
+            _cardExpander.Icon = GenerateIcon();
             _cardExpander.Header = GenerateHeader();
             _cardExpander.Subtitle = GenerateSubtitle();
             _cardExpander.Content = _stackPanel;
@@ -134,12 +135,21 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             }
         }
 
+        private SymbolRegular GenerateIcon()
+        {
+            return AutomationPipeline.Triggers.Any() ? SymbolRegular.Flow20 : SymbolRegular.DesktopFlow20;
+        }
+
         private string GenerateHeader()
         {
             var parts = AutomationPipeline.Triggers
                 .Select(t => t.GetDisplayName())
                 .Where(s => !string.IsNullOrWhiteSpace(s));
-            return "When " + string.Join(", ", parts);
+
+            if (parts.Any())
+                return "When " + string.Join(", ", parts);
+
+            return AutomationPipeline.Name ?? "Unnamed flow";
         }
 
         private string GenerateSubtitle()

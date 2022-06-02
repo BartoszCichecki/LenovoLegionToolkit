@@ -27,8 +27,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
         public RunAutomationStepControl(RunAutomationStep step) : base(step)
         {
             Icon = SymbolRegular.WindowConsole20;
-            Title = "RunOnStartup";
-            Subtitle = "RunOnStartup a script or a program.\nMake sure that you script runs correctly first.";
+            Title = "Run";
+            Subtitle = "Run a script or a program.\nMake sure that you script runs correctly first.";
         }
 
         public override IAutomationStep CreateAutomationStep() => new RunAutomationStep(_scriptPath.Text, _scriptArguments.Text);
