@@ -4,14 +4,14 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps
 {
-    public class ScriptAutomationStep : IAutomationStep
+    public class RunAutomationStep : IAutomationStep
     {
         public string? ScriptPath { get; }
 
         public string? ScriptArguments { get; }
 
         [JsonConstructor]
-        public ScriptAutomationStep(string? scriptPath, string? scriptArguments)
+        public RunAutomationStep(string? scriptPath, string? scriptArguments)
         {
             ScriptPath = scriptPath;
             ScriptArguments = scriptArguments;
@@ -25,6 +25,6 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
             await CMD.RunAsync(ScriptPath, ScriptArguments ?? "").ConfigureAwait(false);
         }
 
-        IAutomationStep IAutomationStep.DeepCopy() => new ScriptAutomationStep(ScriptPath, ScriptArguments);
+        IAutomationStep IAutomationStep.DeepCopy() => new RunAutomationStep(ScriptPath, ScriptArguments);
     }
 }
