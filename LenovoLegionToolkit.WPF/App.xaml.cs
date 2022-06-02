@@ -56,6 +56,7 @@ namespace LenovoLegionToolkit
 
                 var automationProcessor = DIContainer.Resolve<AutomationProcessor>();
                 await automationProcessor.InitializeAsync();
+                automationProcessor.RunOnStartup();
             }
             catch (Exception ex)
             {
