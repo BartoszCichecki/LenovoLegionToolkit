@@ -3,7 +3,7 @@
 		<TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
 		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
 		<OutputType>WinExe</OutputType>
-		<ApplicationIcon>icon.ico</ApplicationIcon>
+		<ApplicationIcon>Assets/icon.ico</ApplicationIcon>
 		<AssemblyName>Lenovo Legion Toolkit</AssemblyName>
 		<Copyright>© 2022 Bartosz Cichecki</Copyright>
 		<FileVersion>0.0.1</FileVersion>
@@ -20,9 +20,6 @@
 		<ApplicationManifest>app.manifest</ApplicationManifest>
 	</PropertyGroup>
 	<ItemGroup>
-		<None Remove="icon.ico" />
-	</ItemGroup>
-	<ItemGroup>
 		<PackageReference Include="Autofac" Version="6.4.0" />
 		<PackageReference Include="Ben.Demystifier" Version="0.4.1" />
 		<PackageReference Include="Markdig" Version="0.30.2" />
@@ -35,6 +32,6 @@
 		<ProjectReference Include="..\LenovoLegionToolkit.Lib.Automation\LenovoLegionToolkit.Lib.Automation.csproj" />
 	</ItemGroup>
 	<ItemGroup>
-		<Resource Include="icon.ico" />
+		<Resource Include="Assets\icon.ico" />
 	</ItemGroup>
 	</Project>

@@ -16,6 +16,7 @@ using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Pages;
+using LenovoLegionToolkit.WPF.Utils;
 using WPFUI.Controls;
 using WPFUI.Controls.Interfaces;
 
@@ -24,6 +25,8 @@ namespace LenovoLegionToolkit.WPF.Windows
     public partial class MainWindow
     {
         private readonly AutomationProcessor _automationProcessor = DIContainer.Resolve<AutomationProcessor>();
+
+        private readonly ThemeManager _themeManager = DIContainer.Resolve<ThemeManager>();
         private readonly UpdateChecker _updateChecker = DIContainer.Resolve<UpdateChecker>();
 
         public Snackbar Snackbar => _snackBar;
@@ -83,7 +86,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             var notifyIcon = new NotifyIcon
             {
                 TooltipText = "Lenovo Legion Toolkit",
-                Icon = ImageSourceExtensions.FromResource("icon.ico"),
+                Icon = ImageSourceExtensions.ApplicationIcon(),
                 FocusOnLeftClick = false,
                 MenuOnRightClick = true,
                 Menu = contextMenu,
@@ -107,11 +110,26 @@ namespace LenovoLegionToolkit.WPF.Windows
             foreach (var item in currentItems)
                 contextMenu.Items.Remove(item);
 
+            var suffix = ThemeManager.IsDarkMode ? "dm" : "lm";
+
             var items = new List<Control>();
+
+            var actionsItem = new MenuItem
+            {
+                Header = "Actions",
+                Tag = "dynamic",
+                IsEnabled = false,
+            };
+            items.Add(actionsItem);
+
             var menuPipelines = pipelines.Where(p => p.Triggers.Count < 1);
             foreach (var menuPipeline in menuPipelines)
             {
-                var item = new MenuItem { Header = menuPipeline.Name ?? "Unnamed flow", Tag = "dynamic" };
+                var item = new MenuItem
+                {
+                    Header = menuPipeline.Name ?? "Unnamed flow",
+                    Tag = "dynamic",
+                };
                 item.Click += async (s, e) => await _automationProcessor.RunNowAsync(menuPipeline);
                 items.Insert(0, item);
             }
@@ -143,7 +161,13 @@ namespace LenovoLegionToolkit.WPF.Windows
         {
             var pipelines = await _automationProcessor.GetPipelinesAsync();
             RefreshAutomationMenuItems(pipelines);
+
             _automationProcessor.PipelinesChanged += (s, e) => RefreshAutomationMenuItems(e.Pipelines);
+            _themeManager.ThemeApplied += async (s, e) =>
+            {
+                var pipelines = await _automationProcessor.GetPipelinesAsync();
+                RefreshAutomationMenuItems(pipelines);
+            };
 
             CheckForUpdates();
         }
