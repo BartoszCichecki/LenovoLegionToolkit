@@ -9,6 +9,8 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
 {
     public class AutomationPipeline
     {
+        public string? Name { get; set; }
+
         public List<AutomationPipelineTrigger> Triggers { get; set; } = new();
 
         public List<IAutomationStep> Steps { get; set; } = new();

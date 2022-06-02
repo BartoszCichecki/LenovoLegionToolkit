@@ -51,15 +51,26 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            var pipelines = _pipelinesStackPanel.Children.ToArray()
-                .OfType<AutomationPipelineControl>()
-                .Select(c => c.CreateAutomationPipeline())
-                .ToList();
+            try
+            {
+                _saveButton.IsEnabled = false;
+                _saveButton.Content = "Saving...";
 
-            await _automationProcessor.ReloadPipelinesAsync(pipelines);
-            await RefreshAsync();
+                var pipelines = _pipelinesStackPanel.Children.ToArray()
+                    .OfType<AutomationPipelineControl>()
+                    .Select(c => c.CreateAutomationPipeline())
+                    .ToList();
 
-            await SnackbarHelper.ShowAsync("Saved", "Changes were saved successfully!");
+                await _automationProcessor.ReloadPipelinesAsync(pipelines);
+                await RefreshAsync();
+
+                await SnackbarHelper.ShowAsync("Saved", "Changes were saved successfully!");
+            }
+            finally
+            {
+                _saveButton.Content = "Save";
+                _saveButton.IsEnabled = true;
+            }
         }
 
         private async void RevertButton_Click(object sender, RoutedEventArgs e)
@@ -147,9 +158,14 @@ namespace LenovoLegionToolkit.WPF.Pages
             PipelinesChanged();
         }
 
-        private void AddPipeline(AutomationPipelineTrigger trigger)
+        private void AddPipeline(AutomationPipelineTrigger? trigger)
         {
-            var pipeline = new AutomationPipeline(trigger);
+            AutomationPipeline pipeline;
+            if (trigger is null)
+                pipeline = new AutomationPipeline();
+            else
+                pipeline = new AutomationPipeline(trigger.Value);
+
             var control = GenerateControl(pipeline);
             _pipelinesStackPanel.Children.Add(control);
 
@@ -181,21 +197,27 @@ namespace LenovoLegionToolkit.WPF.Pages
 
             foreach (var trigger in allTriggers)
             {
-                if (triggers.Contains(trigger))
-                    continue;
-
                 var menuItem = new MenuItem
                 {
                     Icon = SymbolRegular.Flow20,
                     Header = trigger.GetDisplayName(),
+                    IsEnabled = !triggers.Contains(trigger),
                 };
                 menuItem.Click += (s, e) => AddPipeline(trigger);
                 menuItems.Add(menuItem);
             }
 
+            var customMenuItem = new MenuItem
+            {
+                Icon = SymbolRegular.DesktopFlow20,
+                Header = "Custom flow",
+            };
+            customMenuItem.Click += (s, e) => AddPipeline(null);
+            menuItems.Add(customMenuItem);
+
+
             _newPipelineButton.ContextMenu.Items.Clear();
             _newPipelineButton.ContextMenu.Items.AddRange(menuItems);
-            _newPipelineButton.IsEnabled = menuItems.Any();
         }
     }
 }

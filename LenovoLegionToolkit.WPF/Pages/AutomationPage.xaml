@@ -42,7 +42,6 @@
                         Width="120"
                         Click="NewPipelineButton_Click"
                         Content="Add new flow"
-                        IsEnabled="False"
                         IsEnabledChanged="NewPipelineButton_IsEnabledChanged">
                         <wpfui:Button.ContextMenu>
                             <ContextMenu />
@@ -64,6 +63,7 @@
             Visibility="Collapsed">
 
             <wpfui:Button
+                x:Name="_saveButton"
                 Width="120"
                 Click="SaveButton_Click"
                 Content="Save" />

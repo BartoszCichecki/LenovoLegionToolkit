@@ -14,6 +14,16 @@ namespace LenovoLegionToolkit.Lib.Automation
 {
     public class AutomationProcessor
     {
+        public class PipelinesChangedEventArgs : EventArgs
+        {
+            public List<AutomationPipeline> Pipelines { get; }
+
+            public PipelinesChangedEventArgs(List<AutomationPipeline> pipelines)
+            {
+                Pipelines = pipelines;
+            }
+        }
+
         private readonly PowerStateListener _powerStateListener;
         private readonly AsyncLock _lock = new();
 
@@ -32,6 +42,8 @@ namespace LenovoLegionToolkit.Lib.Automation
         }
 #pragma warning restore CA1822 // Mark members as static
 
+        public event EventHandler<PipelinesChangedEventArgs>? PipelinesChanged;
+
         public AutomationProcessor(PowerStateListener powerAdapterListener)
         {
             _powerStateListener = powerAdapterListener;
@@ -43,13 +55,11 @@ namespace LenovoLegionToolkit.Lib.Automation
         public async Task InitializeAsync()
         {
             using (await _lock.LockAsync().ConfigureAwait(false))
+            {
                 _pipelines = AutomationSettings.Instance.Pipeliness;
-        }
 
-        public async Task<List<AutomationPipeline>> GetPipelinesAsync()
-        {
-            using (await _lock.LockAsync().ConfigureAwait(false))
-                return _pipelines.Select(p => p.DeepCopy()).ToList();
+                PipelinesChanged?.Invoke(this, new(_pipelines.Select(p => p.DeepCopy()).ToList()));
+            }
         }
 
         public async Task ReloadPipelinesAsync(List<AutomationPipeline> pipelines)
@@ -67,9 +77,17 @@ namespace LenovoLegionToolkit.Lib.Automation
                 AutomationSettings.Instance.Pipeliness = pipelines;
                 AutomationSettings.Instance.Synchronize();
 
+                PipelinesChanged?.Invoke(this, new(_pipelines.Select(p => p.DeepCopy()).ToList()));
+
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Pipelines reloaded.");
             }
+        }
+
+        public async Task<List<AutomationPipeline>> GetPipelinesAsync()
+        {
+            using (await _lock.LockAsync().ConfigureAwait(false))
+                return _pipelines.Select(p => p.DeepCopy()).ToList();
         }
 
         public void RunOnStartup()
