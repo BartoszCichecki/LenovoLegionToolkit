@@ -1,7 +1,10 @@
 ﻿using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
+using WPFUI.Common;
 using MessageBox = WPFUI.Controls.MessageBox;
+using TextBox = WPFUI.Controls.TextBox;
 
 namespace LenovoLegionToolkit.WPF.Utils
 {
@@ -58,6 +61,79 @@ namespace LenovoLegionToolkit.WPF.Utils
                 tcs.TrySetResult(false);
             };
             messageBox.Show();
+
+            return tcs.Task;
+        }
+
+        public static Task<string> ShowInputAsync(
+            DependencyObject dependencyObject,
+            string title,
+            string? text = null,
+            string primaryButton = "OK",
+            string secondaryButton = "Cancel"
+        )
+        {
+            return ShowInputAsync(Window.GetWindow(dependencyObject), title, text, primaryButton, secondaryButton);
+        }
+
+        public static Task<string> ShowInputAsync(
+            Window window,
+            string title,
+            string? text = null,
+            string primaryButton = "OK",
+            string secondaryButton = "Cancel"
+        )
+        {
+            var tcs = new TaskCompletionSource<string>();
+
+            var textBox = new TextBox
+            {
+                MaxLines = 1,
+                MaxLength = 50,
+                Text = text,
+                TextWrapping = TextWrapping.Wrap,
+                SelectionStart = text?.Length ?? 0,
+                SelectionLength = 0
+            };
+            var messageBox = new MessageBox
+            {
+                Owner = window,
+                Title = title,
+                Content = textBox,
+                ButtonLeftAppearance = Appearance.Transparent,
+                ButtonLeftName = primaryButton,
+                ButtonRightName = secondaryButton,
+                ShowInTaskbar = false,
+                Topmost = false,
+                Height = 160,
+                ResizeMode = ResizeMode.NoResize,
+            };
+
+            textBox.TextChanged += (s, e) =>
+            {
+                var isEmpty = string.IsNullOrWhiteSpace(textBox.Text);
+                messageBox.ButtonLeftAppearance = isEmpty ? Appearance.Transparent : Appearance.Primary;
+            };
+            messageBox.ButtonLeftClick += (s, e) =>
+            {
+                var text = textBox.Text?.Trim() ?? "";
+                if (string.IsNullOrWhiteSpace(text))
+                    return;
+                tcs.SetResult(text);
+                messageBox.Close();
+            };
+            messageBox.ButtonRightClick += (s, e) =>
+            {
+                tcs.SetResult("");
+                messageBox.Close();
+            };
+            messageBox.Closing += (s, e) =>
+            {
+                tcs.TrySetResult("");
+            };
+            messageBox.Show();
+
+            FocusManager.SetFocusedElement(window, textBox);
 
             return tcs.Task;
         }
