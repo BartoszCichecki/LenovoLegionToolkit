@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using System.Text.Json;
 using LenovoLegionToolkit.Lib.Utils;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace LenovoLegionToolkit.Lib
 {
@@ -29,7 +30,7 @@ namespace LenovoLegionToolkit.Lib
 
         private readonly SettingsStore _settingsStore;
 
-        private readonly JsonSerializerOptions _jsonSerializerOptions;
+        private readonly JsonSerializerSettings _jsonSerializerSettings;
         private readonly string _settingsStorePath;
 
         public WindowSize WindowSize
@@ -64,13 +65,21 @@ namespace LenovoLegionToolkit.Lib
 
         private Settings()
         {
-            _jsonSerializerOptions = new() { WriteIndented = true };
+            _jsonSerializerSettings = new()
+            {
+                Formatting = Formatting.Indented,
+                TypeNameHandling = TypeNameHandling.Auto,
+                Converters =
+                {
+                    new StringEnumConverter(),
+                }
+            };
             _settingsStorePath = Path.Combine(Folders.AppData, "settings.json");
 
             try
             {
                 var settingsSerialized = File.ReadAllText(_settingsStorePath);
-                _settingsStore = JsonSerializer.Deserialize<SettingsStore>(settingsSerialized, _jsonSerializerOptions) ?? new();
+                _settingsStore = JsonConvert.DeserializeObject<SettingsStore>(settingsSerialized, _jsonSerializerSettings) ?? new();
             }
             catch
             {
@@ -81,7 +90,7 @@ namespace LenovoLegionToolkit.Lib
 
         public void Synchronize()
         {
-            var settingsSerialized = JsonSerializer.Serialize(_settingsStore, _jsonSerializerOptions);
+            var settingsSerialized = JsonConvert.SerializeObject(_settingsStore, _jsonSerializerSettings);
             File.WriteAllText(_settingsStorePath, settingsSerialized);
         }
     }
