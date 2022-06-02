@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Automation.Steps;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline
 {
@@ -18,13 +20,39 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
             Triggers.Add(trigger);
         }
 
-        internal async Task RunAsync(bool force = false)
+        internal async Task RunAsync(bool force = false, CancellationToken token = default)
         {
             if (!force && !Triggers.All(t => t.IsSatisfied()))
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Triggers not satisfied.");
                 return;
+            }
+
+            if (token.IsCancellationRequested)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Pipeline interrupted.");
+                return;
+            }
 
             foreach (var step in Steps)
+            {
+                if (token.IsCancellationRequested)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Pipeline interrupted.");
+                    break;
+                }
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Running step... [type={step.GetType().Name}]");
+
                 await step.RunAsync().ConfigureAwait(false);
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Step completed successfully. [type={step.GetType().Name}]");
+            }
         }
 
         internal AutomationPipeline DeepCopy() => new()

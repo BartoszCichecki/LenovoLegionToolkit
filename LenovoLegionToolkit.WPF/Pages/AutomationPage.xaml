@@ -29,7 +29,7 @@
                 <wpfui:CardControl
                     Title="Enable"
                     Margin="0,0,0,24"
-                    Subtitle="Lenovo Legion Toolkit must be running for actions to work.">
+                    Subtitle="Lenovo Legion Toolkit must be running for actions to work.&#x0a;If enabled, actions will run on startup and wake up, to&#x0a;handle changed while laptop is off or in sleep mode.">
                     <wpfui:ToggleSwitch
                         x:Name="_enableAutomation"
                         Margin="0,0,0,8"

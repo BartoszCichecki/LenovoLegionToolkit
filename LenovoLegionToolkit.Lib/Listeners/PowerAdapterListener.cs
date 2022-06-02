@@ -1,4 +1,5 @@
 ﻿using System;
+using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32;
 
 namespace LenovoLegionToolkit.Lib.Listeners
@@ -14,6 +15,9 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         private void SystemEvents_PowerModeChanged(object sender, PowerModeChangedEventArgs e)
         {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Event received. [mode={e.Mode}]");
+
             if (e.Mode == PowerModes.Suspend)
                 return;
 

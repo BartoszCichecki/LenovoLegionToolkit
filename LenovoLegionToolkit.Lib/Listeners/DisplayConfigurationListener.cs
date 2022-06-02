@@ -1,4 +1,5 @@
 ﻿using System;
+using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32;
 
 namespace LenovoLegionToolkit.Lib.Listeners
@@ -12,6 +13,12 @@ namespace LenovoLegionToolkit.Lib.Listeners
             SystemEvents.DisplaySettingsChanged += SystemEvents_DisplaySettingsChanged;
         }
 
-        private void SystemEvents_DisplaySettingsChanged(object? sender, EventArgs e) => Changed?.Invoke(this, EventArgs.Empty);
+        private void SystemEvents_DisplaySettingsChanged(object? sender, EventArgs e)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Event received.");
+
+            Changed?.Invoke(this, EventArgs.Empty);
+        }
     }
 }

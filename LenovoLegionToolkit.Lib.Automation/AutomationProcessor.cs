@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
 using LenovoLegionToolkit.Lib.Automation.Utils;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.Lib.Utils;
 using NeoSmart.AsyncLock;
 
 namespace LenovoLegionToolkit.Lib.Automation
@@ -52,42 +54,106 @@ namespace LenovoLegionToolkit.Lib.Automation
 
         public async Task ReloadPipelinesAsync(List<AutomationPipeline> pipelines)
         {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Pipelines reload pending...");
+
             using (await _lock.LockAsync().ConfigureAwait(false))
             {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Pipelines reloading...");
+
                 _pipelines = pipelines.Select(p => p.DeepCopy()).ToList();
 
                 AutomationSettings.Instance.Pipeliness = pipelines;
                 AutomationSettings.Instance.Synchronize();
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Pipelines reloaded.");
+            }
+        }
+
+        public void RunOnStartup()
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Pipeline run on startup pending...");
+
+            _ = Task.Run(RunAsync);
+        }
+
+        public async Task RunNowAsync(AutomationPipeline pipeline)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Pipeline run now pending...");
+
+            using (await _lock.LockAsync().ConfigureAwait(false))
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Pipeline run starting...");
+
+                try
+                {
+                    await pipeline.DeepCopy().RunAsync(force: true).ConfigureAwait(false);
+
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Pipeline run finished successfully.");
+                }
+                catch (Exception ex)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Pipeline run failed: {ex.Demystify()}");
+
+                    throw;
+                }
             }
         }
 
         private async Task RunAsync()
         {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Run pending...");
+
             using (await _lock.LockAsync().ConfigureAwait(false))
             {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Run starting...");
+
                 _cts?.Cancel();
 
                 if (!IsEnabled)
                     return;
 
                 _cts = new CancellationTokenSource();
-
-                var token = _cts.Token;
+                var ct = _cts.Token;
 
                 foreach (var pipeline in _pipelines)
                 {
-                    if (token.IsCancellationRequested)
+                    if (ct.IsCancellationRequested)
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Run interrupted.");
                         break;
+                    }
 
-                    await pipeline.RunAsync().ConfigureAwait(false);
+                    try
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Running pipeline... [triggers={string.Join(",", pipeline.Triggers)}, steps.Count={pipeline.Steps.Count}]");
+
+                        await pipeline.RunAsync(token: ct).ConfigureAwait(false);
+
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Pipeline completed successfully. [triggers={string.Join(",", pipeline.Triggers)}]");
+                    }
+                    catch (Exception ex)
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Pipeline run failed: {ex.Demystify()} [triggers={string.Join(",", pipeline.Triggers)}]");
+                    }
                 }
-            }
-        }
 
-        public async Task RunNowAsync(AutomationPipeline pipeline)
-        {
-            using (await _lock.LockAsync().ConfigureAwait(false))
-                await pipeline.DeepCopy().RunAsync(force: true).ConfigureAwait(false);
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Run finished successfully.");
+            }
         }
     }
 }

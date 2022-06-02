@@ -46,6 +46,9 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         private void Handler(PropertyDataCollection properties)
         {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Event received. [listener={GetType().Name}]");
+
             var property = properties[_property];
             var propertyValue = Convert.ToInt32(property.Value);
             var value = (T)(object)(propertyValue - _offset);
