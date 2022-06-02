@@ -128,22 +128,31 @@ namespace LenovoLegionToolkit.WPF.Pages
             var index = _pipelinesStackPanel.Children.IndexOf(control);
             var maxIndex = _pipelinesStackPanel.Children.Count - 1;
 
+            if (control.AutomationPipeline.Triggers.Count < 0)
+            {
+
+            }
+
+            var moveUpMenuItem = new MenuItem { Icon = SymbolRegular.ArrowUp24, Header = "Move flow up" };
             if (index > 0)
-            {
-                var menuItem = new MenuItem { Icon = SymbolRegular.ArrowUp24, Header = "Move flow up" };
-                menuItem.Click += (s, e) => MovePipeline(control, index - 1);
-                menuItems.Add(menuItem);
-            }
+                moveUpMenuItem.Click += (s, e) => MovePipeline(control, index - 1);
+            else
+                moveUpMenuItem.IsEnabled = false;
+            menuItems.Add(moveUpMenuItem);
 
+            var moveDownMenuItem = new MenuItem { Icon = SymbolRegular.ArrowDown24, Header = "Move flow down" };
             if (index < maxIndex)
-            {
-                var menuItem = new MenuItem { Icon = SymbolRegular.ArrowDown24, Header = "Move flow down" };
-                menuItem.Click += (s, e) => MovePipeline(control, index + 1);
-                menuItems.Add(menuItem);
-            }
+                moveDownMenuItem.Click += (s, e) => MovePipeline(control, index + 1);
+            else
+                moveDownMenuItem.IsEnabled = false;
+            menuItems.Add(moveDownMenuItem);
 
-            if (menuItems.Count < 1)
-                return;
+            if (control.AutomationPipeline.Triggers.Count < 1)
+            {
+                var renameMenuItem = new MenuItem { Icon = SymbolRegular.Edit24, Header = "Rename" };
+                renameMenuItem.Click += async (s, e) => await RenamePipelineAsync(control);
+                menuItems.Add(renameMenuItem);
+            }
 
             control.ContextMenu = new();
             control.ContextMenu.Items.AddRange(menuItems);
@@ -158,19 +167,37 @@ namespace LenovoLegionToolkit.WPF.Pages
             PipelinesChanged();
         }
 
-        private void AddPipeline(AutomationPipelineTrigger? trigger)
+        private void AddPipeline(AutomationPipelineTrigger trigger)
         {
-            AutomationPipeline pipeline;
-            if (trigger is null)
-                pipeline = new AutomationPipeline();
-            else
-                pipeline = new AutomationPipeline(trigger.Value);
-
+            var pipeline = new AutomationPipeline(trigger);
             var control = GenerateControl(pipeline);
             _pipelinesStackPanel.Children.Add(control);
 
             RefreshNewPipelineButton();
             PipelinesChanged();
+        }
+
+        private async Task AddPipelineAsync()
+        {
+            var newName = await MessageBoxHelper.ShowInputAsync(this, "Flow name");
+            if (string.IsNullOrWhiteSpace(newName))
+                return;
+
+            var pipeline = new AutomationPipeline(newName);
+            var control = GenerateControl(pipeline);
+            _pipelinesStackPanel.Children.Add(control);
+
+            RefreshNewPipelineButton();
+            PipelinesChanged();
+        }
+
+        private async Task RenamePipelineAsync(AutomationPipelineControl control)
+        {
+            var name = control.GetName();
+            var newName = await MessageBoxHelper.ShowInputAsync(this, "Flow name", name);
+            if (string.IsNullOrWhiteSpace(newName))
+                return;
+            control.SetName(newName);
         }
 
         private void DeletePipeline(AutomationPipelineControl control)
@@ -201,9 +228,11 @@ namespace LenovoLegionToolkit.WPF.Pages
                 {
                     Icon = SymbolRegular.Flow20,
                     Header = trigger.GetDisplayName(),
-                    IsEnabled = !triggers.Contains(trigger),
                 };
-                menuItem.Click += (s, e) => AddPipeline(trigger);
+                if (triggers.Contains(trigger))
+                    menuItem.IsEnabled = false;
+                else
+                    menuItem.Click += (s, e) => AddPipeline(trigger);
                 menuItems.Add(menuItem);
             }
 
@@ -212,7 +241,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 Icon = SymbolRegular.DesktopFlow20,
                 Header = "Custom flow",
             };
-            customMenuItem.Click += (s, e) => AddPipeline(null);
+            customMenuItem.Click += async (s, e) => await AddPipelineAsync();
             menuItems.Add(customMenuItem);
 
 

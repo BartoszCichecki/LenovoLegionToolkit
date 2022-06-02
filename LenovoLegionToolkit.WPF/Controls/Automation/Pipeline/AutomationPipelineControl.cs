@@ -73,13 +73,24 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             InitializeComponent();
         }
 
-        public AutomationPipeline CreateAutomationPipeline()
+        public AutomationPipeline CreateAutomationPipeline() => new()
         {
-            return new()
-            {
-                Triggers = AutomationPipeline.Triggers,
-                Steps = _stepsStackPanel.Children.ToArray().OfType<AbstractAutomationStepControl>().Select(s => s.CreateAutomationStep()).ToList(),
-            };
+            Name = AutomationPipeline.Name,
+            Triggers = AutomationPipeline.Triggers.ToList(),
+            Steps = _stepsStackPanel.Children.ToArray()
+                .OfType<AbstractAutomationStepControl>()
+                .Select(s => s.CreateAutomationStep())
+                .ToList(),
+        };
+
+        public string? GetName() => AutomationPipeline.Name;
+
+        public void SetName(string name)
+        {
+            AutomationPipeline.Name = name;
+            _cardExpander.Header = GenerateHeader();
+
+            OnChanged?.Invoke(this, EventArgs.Empty);
         }
 
         private void InitializeComponent()
@@ -230,22 +241,28 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             var index = _stepsStackPanel.Children.IndexOf(control);
             var maxIndex = _stepsStackPanel.Children.Count - 1;
 
+            var moveUpMenuItem = new MenuItem
+            {
+                Icon = SymbolRegular.ArrowUp24,
+                Header = "Move step up"
+            };
             if (index > 0)
-            {
-                var menuItem = new MenuItem { Icon = SymbolRegular.ArrowUp24, Header = "Move step up" };
-                menuItem.Click += (s, e) => MoveStep(control, index - 1);
-                menuItems.Add(menuItem);
-            }
+                moveUpMenuItem.Click += (s, e) => MoveStep(control, index - 1);
+            else
+                moveUpMenuItem.IsEnabled = false;
+            menuItems.Add(moveUpMenuItem);
 
+            var moveDownMenuItem = new MenuItem
+            {
+                Icon = SymbolRegular.ArrowDown24,
+                Header = "Move step down"
+            };
             if (index < maxIndex)
-            {
-                var menuItem = new MenuItem { Icon = SymbolRegular.ArrowDown24, Header = "Move step down" };
-                menuItem.Click += (s, e) => MoveStep(control, index + 1);
-                menuItems.Add(menuItem);
-            }
+                moveDownMenuItem.Click += (s, e) => MoveStep(control, index + 1);
+            else
+                moveDownMenuItem.IsEnabled = false;
 
-            if (menuItems.Count < 1)
-                return;
+            menuItems.Add(moveDownMenuItem);
 
             control.ContextMenu = new();
             control.ContextMenu.Items.AddRange(menuItems);

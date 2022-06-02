@@ -17,10 +17,9 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
 
         public AutomationPipeline() { }
 
-        public AutomationPipeline(AutomationPipelineTrigger trigger)
-        {
-            Triggers.Add(trigger);
-        }
+        public AutomationPipeline(string name) => Name = name;
+
+        public AutomationPipeline(AutomationPipelineTrigger trigger) => Triggers.Add(trigger);
 
         internal async Task RunAsync(bool force = false, CancellationToken token = default)
         {
@@ -59,6 +58,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
 
         internal AutomationPipeline DeepCopy() => new()
         {
+            Name = Name,
             Triggers = Triggers.ToList(),
             Steps = Steps.Select(s => s.DeepCopy()).ToList(),
         };
