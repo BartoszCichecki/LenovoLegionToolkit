@@ -16,6 +16,22 @@ namespace LenovoLegionToolkit.WPF.Utils
         private readonly IDisposable _themeListener;
 #pragma warning restore IDE0052 // Remove unread private members
 
+        public static bool IsDarkMode
+        {
+            get
+            {
+                var theme = Settings.Instance.Theme;
+                var registryValue = Registry.Read(RegistryHive, RegistryPath, RegistryKey, 1);
+
+                return (theme, registryValue) switch
+                {
+                    (Theme.Light, _) => false,
+                    (Theme.System, 1) => false,
+                    _ => true,
+                };
+            }
+        }
+
         public event EventHandler? ThemeApplied;
 
         public ThemeManager()
@@ -36,17 +52,8 @@ namespace LenovoLegionToolkit.WPF.Utils
 
         private static void SetTheme()
         {
-            var theme = Settings.Instance.Theme;
-            var registryValue = Registry.Read(RegistryHive, RegistryPath, RegistryKey, 1);
-
-            var currentTheme = (theme, registryValue) switch
-            {
-                (Theme.Light, _) => WPFUI.Appearance.ThemeType.Light,
-                (Theme.System, 1) => WPFUI.Appearance.ThemeType.Light,
-                _ => WPFUI.Appearance.ThemeType.Dark,
-            };
-
-            WPFUI.Appearance.Theme.Apply(currentTheme,
+            var theme = IsDarkMode ? WPFUI.Appearance.ThemeType.Dark : WPFUI.Appearance.ThemeType.Light;
+            WPFUI.Appearance.Theme.Apply(theme,
                 backgroundEffect: WPFUI.Appearance.BackgroundType.Unknown,
                 updateAccent: false);
         }
