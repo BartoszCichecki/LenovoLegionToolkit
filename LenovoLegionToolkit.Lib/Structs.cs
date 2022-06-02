@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 using Octokit;
 
 namespace LenovoLegionToolkit.Lib
@@ -65,6 +66,7 @@ namespace LenovoLegionToolkit.Lib
     {
         public int Frequency { get; }
 
+        [JsonIgnore]
         public string DisplayName => $"{Frequency} Hz";
 
         public RefreshRate(int frequency)
