@@ -69,6 +69,7 @@ namespace LenovoLegionToolkit.Lib
         [JsonIgnore]
         public string DisplayName => $"{Frequency} Hz";
 
+        [JsonConstructor]
         public RefreshRate(int frequency)
         {
             Frequency = frequency;
