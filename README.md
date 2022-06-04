@@ -4,7 +4,7 @@
 
 This is a small utility created for Lenovo Legion 5, 5 Pro, 7 etc. laptops, that allows to change a couple of features that are only available in Lenovo Vantage.
 
-It is a single executable app that needs no installation and runs no background services. It uses less memory, virtually no CPU and contains no telemetry.
+It runs no background services, uses less memory, virtually no CPU and contains no telemetry.
 
 ![screenshot](assets/screenshot.png)
 
@@ -68,7 +68,7 @@ Keep in mind that some apps may not like this feature and crash, when you deacti
 
 Toolkit will automatically switch Windows power plans when Power Mode changes _and_ when Lenovo Vantage is disabled.
 
-On some laptops though, Lenovo Vantage never switched power plans. If you have one of the laptops where Lenovo Vantage does not change Windows power plans automatically you can override this behavior in `Tools -> More settings -> Activate power plans even when Vantage is enabled`. This will allow Toolkit to always change Windows power plans, even if Lenovo Vantage is running in the background.
+On some laptops though, Lenovo Vantage never switched power plans. If you have one of the laptops where Lenovo Vantage does not change Windows power plans automatically you can override this behavior in Settings. This will allow Toolkit to always change Windows power plans, even if Lenovo Vantage is running in the background.
 
 #### CPU Boost Modes
 
@@ -77,20 +77,6 @@ This allows to modify hidden setting of Windows Power Plans called *Processor pe
 [Power and performance tuning @microsoft.com](https://docs.microsoft.com/en-us/windows-server/administration/performance-tuning/hardware/power/power-performance-tuning#processor-performance-boost-mode)
 
 [ProcessorPerformanceBoostMode @microsoft.com](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windows.eventtracing.power.processorperformanceboostmode?view=trace-processor-dotnet-1.0)
-
-## Installation
-
-Lenovo Legion Toolkit is a single executable app, which means it does not need to be installed. It can be downloaded from [Releases](https://github.com/BartoszCichecki/LenovoLegionToolkit/releases) page (look to the right).
-
-Similarly when there is an update available, you just download the newer exe, and replace the one you have. Just make sure that you close Toolkit (and it's not running in tray).
-
-## Requirements
-
-This tool is written with .NET 5 which means you need to have **.NET Desktop Runtime 5**. You can get it from here:
-
-https://dotnet.microsoft.com/download/dotnet/5.0/runtime
-
-This software heavily depends on components that Lenovo Vantage installs. You will most likely not be able to use this if you don't have Vantage installed. I recommend that you install Lenovo Vantage, so that all components and dependencies are installed and later you use the _Disable Lenovo Vantage_ option in this tool, so that Vantage does not consume any unnecessary resources. This situation is unlikely to change, because I can't bundle Lenovo's libraries etc. as it is against their EULA.
 
 ## Credits
 
