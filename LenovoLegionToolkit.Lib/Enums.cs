@@ -1,16 +1,22 @@
-﻿namespace LenovoLegionToolkit.Lib
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace LenovoLegionToolkit.Lib
 {
-    public enum AlwaysOnUsbState
+    public enum AlwaysOnUSBState
     {
         Off,
+        [Display(Name = "On, when sleeping")]
         OnWhenSleeping,
-        OnAlways
+        [Display(Name = "On, always")]
+        OnAlways,
     }
+
 
     public enum BatteryState
     {
         Conservation,
         Normal,
+        [Display(Name = "Rapid Charge")]
         RapidCharge
     }
 
@@ -45,6 +51,23 @@
         Performance
     }
 
+    public enum SpecialKey
+    {
+        Unknown = 0,
+        Fn_F9 = 1,
+        Fn_LockOn = 2,
+        Fn_LockOff = 3,
+        Fn_PrtSc = 4,
+        Fn_R = 16
+    }
+
+    public enum Theme
+    {
+        System,
+        Light,
+        Dark
+    }
+
     public enum TouchpadLockState
     {
         Off,
@@ -56,15 +79,5 @@
         Enabled,
         Disabled,
         NotFound
-    }
-
-    public enum Key
-    {
-        Unknown = 0,
-        Fn_F9 = 1,
-        Fn_LockOn = 2,
-        Fn_LockOff = 3,
-        Fn_PrtSc = 4,
-        Fn_R = 16
     }
 }

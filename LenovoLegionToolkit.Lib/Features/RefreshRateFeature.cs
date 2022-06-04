@@ -1,24 +1,25 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Utils;
 using WindowsDisplayAPI;
 
 namespace LenovoLegionToolkit.Lib.Features
 {
-    public class RefreshRateFeature : IDynamicFeature<RefreshRate>
+    public class RefreshRateFeature : IFeature<RefreshRate>
     {
-        public RefreshRate[] GetAllStates()
+        public async Task<RefreshRate[]> GetAllStatesAsync()
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting all refresh rates...");
 
-            var display = GetBuiltInDisplay();
+            var display = await GetBuiltInDisplayAsync().ConfigureAwait(false);
             if (display == null)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Built in display not found");
 
-                throw new InvalidOperationException("Built in display not found");
+                return Array.Empty<RefreshRate>();
             }
 
             if (Log.Instance.IsTraceEnabled)
@@ -45,24 +46,32 @@ namespace LenovoLegionToolkit.Lib.Features
                 .Select(freq => new RefreshRate(freq))
                 .ToArray();
 
+            if (result.Length == 1)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Single display mode found");
+
+                return Array.Empty<RefreshRate>();
+            }
+
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Possible refresh rates are {string.Join(", ", result)}");
 
             return result;
         }
 
-        public RefreshRate GetState()
+        public async Task<RefreshRate> GetStateAsync()
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting current refresh rate...");
 
-            var display = GetBuiltInDisplay();
+            var display = await GetBuiltInDisplayAsync().ConfigureAwait(false);
             if (display == null)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Built in display not found");
 
-                throw new InvalidOperationException("Built in display not found");
+                return default;
             }
 
             var currentSettings = display.CurrentSetting;
@@ -74,9 +83,9 @@ namespace LenovoLegionToolkit.Lib.Features
             return result;
         }
 
-        public void SetState(RefreshRate state)
+        public async Task SetStateAsync(RefreshRate state)
         {
-            var display = GetBuiltInDisplay();
+            var display = await GetBuiltInDisplayAsync().ConfigureAwait(false);
             if (display == null)
             {
                 if (Log.Instance.IsTraceEnabled)
@@ -113,7 +122,7 @@ namespace LenovoLegionToolkit.Lib.Features
             }
         }
 
-        private static Display GetBuiltInDisplay()
+        private static async Task<Display?> GetBuiltInDisplayAsync()
         {
             var displays = Display.GetDisplays();
 
@@ -124,10 +133,13 @@ namespace LenovoLegionToolkit.Lib.Features
                     Log.Instance.Trace($" - {display}");
             }
 
-            return displays.Where(IsInternal).FirstOrDefault();
+            foreach (var display in Display.GetDisplays())
+                if (await IsInternalAsync(display))
+                    return display;
+            return null;
         }
 
-        private static bool IsInternal(Display display)
+        private static async Task<bool> IsInternalAsync(Display display)
         {
             var instanceName = display.DevicePath
                 .Split("#")
@@ -135,9 +147,10 @@ namespace LenovoLegionToolkit.Lib.Features
                 .Take(2)
                 .Aggregate((s1, s2) => s1 + "\\" + s2);
 
-            var vot = WMI.Read("root\\WMI",
-                $"SELECT * FROM WmiMonitorConnectionParams WHERE InstanceName LIKE '%{instanceName}%'",
-                pdc => (uint)pdc["VideoOutputTechnology"].Value).FirstOrDefault();
+            var result = await WMI.ReadAsync("root\\WMI",
+                             $"SELECT * FROM WmiMonitorConnectionParams WHERE InstanceName LIKE '%{instanceName}%'",
+                             pdc => (uint)pdc["VideoOutputTechnology"].Value).ConfigureAwait(false);
+            var vot = result.FirstOrDefault();
 
             const uint votInternal = 0x80000000;
             const uint votDisplayPortEmbedded = 11;

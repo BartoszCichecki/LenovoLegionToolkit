@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Text.Json;
+using LenovoLegionToolkit.Lib.Utils;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace LenovoLegionToolkit.Lib
 {
@@ -9,12 +10,14 @@ namespace LenovoLegionToolkit.Lib
     {
         private class SettingsStore
         {
+            public WindowSize WindowSize { get; set; }
+            public Theme Theme { get; set; } = Theme.Dark;
             public Dictionary<PowerModeState, string> PowerPlans { get; set; } = new();
-            public bool MinimizeOnClose { get; set; } = true;
+            public bool MinimizeOnClose { get; set; } = false;
             public bool ActivatePowerProfilesWithVantageEnabled { get; set; } = false;
         }
 
-        private static Settings _instance;
+        private static Settings? _instance;
         public static Settings Instance
         {
             get
@@ -25,10 +28,22 @@ namespace LenovoLegionToolkit.Lib
             }
         }
 
-        private SettingsStore _settingsStore;
+        private readonly SettingsStore _settingsStore;
 
-        private readonly JsonSerializerOptions _jsonSerializerOptions;
+        private readonly JsonSerializerSettings _jsonSerializerSettings;
         private readonly string _settingsStorePath;
+
+        public WindowSize WindowSize
+        {
+            get => _settingsStore.WindowSize;
+            set => _settingsStore.WindowSize = value;
+        }
+
+        public Theme Theme
+        {
+            get => _settingsStore.Theme;
+            set => _settingsStore.Theme = value;
+        }
 
         public Dictionary<PowerModeState, string> PowerPlans
         {
@@ -50,35 +65,32 @@ namespace LenovoLegionToolkit.Lib
 
         private Settings()
         {
-            var appData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            var folderPath = Path.Combine(appData, "LenovoLegionToolkit");
-            Directory.CreateDirectory(folderPath);
+            _jsonSerializerSettings = new()
+            {
+                Formatting = Formatting.Indented,
+                TypeNameHandling = TypeNameHandling.Auto,
+                Converters =
+                {
+                    new StringEnumConverter(),
+                }
+            };
+            _settingsStorePath = Path.Combine(Folders.AppData, "settings.json");
 
-            _jsonSerializerOptions = new() { WriteIndented = true };
-            _settingsStorePath = Path.Combine(folderPath, "settings.json");
-
-            Deserialize();
-        }
-
-        public void Synchronize() => Serialize();
-
-        private void Deserialize()
-        {
             try
             {
                 var settingsSerialized = File.ReadAllText(_settingsStorePath);
-                _settingsStore = JsonSerializer.Deserialize<SettingsStore>(settingsSerialized, _jsonSerializerOptions);
+                _settingsStore = JsonConvert.DeserializeObject<SettingsStore>(settingsSerialized, _jsonSerializerSettings) ?? new();
             }
             catch
             {
                 _settingsStore = new();
-                Serialize();
+                Synchronize();
             }
         }
 
-        private void Serialize()
+        public void Synchronize()
         {
-            var settingsSerialized = JsonSerializer.Serialize(_settingsStore, _jsonSerializerOptions);
+            var settingsSerialized = JsonConvert.SerializeObject(_settingsStore, _jsonSerializerSettings);
             File.WriteAllText(_settingsStorePath, settingsSerialized);
         }
     }

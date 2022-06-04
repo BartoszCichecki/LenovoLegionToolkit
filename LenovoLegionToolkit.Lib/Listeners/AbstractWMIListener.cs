@@ -4,15 +4,16 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners
 {
-    public abstract class AbstractWMIListener<T> where T : struct, IComparable
+    public abstract class AbstractWMIListener<T> : IListener<T> where T : struct, Enum, IComparable
     {
         private readonly string _eventName;
         private readonly string _property;
         private readonly int _offset;
 
-        private IDisposable _disposable;
+        private IDisposable? _disposable;
 
-        public event EventHandler<T> Changed;
+        public event EventHandler<T>? Changed;
+
         public AbstractWMIListener(string eventName, string property, int offset)
         {
             _eventName = eventName;

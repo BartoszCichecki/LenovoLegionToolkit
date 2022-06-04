@@ -5,7 +5,7 @@ namespace LenovoLegionToolkit.Lib.Features
 {
     public class BatteryFeature : AbstractDriverFeature<BatteryState>
     {
-        public BatteryFeature() : base(Drivers.Energy, 0x831020F8) { }
+        public BatteryFeature() : base(Drivers.GetEnergy, 0x831020F8) { }
 
         protected override byte GetInternalStatus() => 0xFF;
 
@@ -49,7 +49,7 @@ namespace LenovoLegionToolkit.Lib.Features
             if (GetNthBit(state, 29))
                 return BatteryState.Conservation;
 
-            throw new InvalidOperationException($"Unknown battery state: {state}.");
+            throw new InvalidOperationException($"Unknown battery state: {state}");
         }
     }
 }

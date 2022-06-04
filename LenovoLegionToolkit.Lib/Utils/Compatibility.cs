@@ -1,21 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Management;
+using System.Threading.Tasks;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
-    public class MachineInformation
-    {
-        public string Vendor { get; }
-        public string Model { get; }
-
-        public MachineInformation(string vendor, string model)
-        {
-            Vendor = vendor;
-            Model = model;
-        }
-    }
-
     public static class Compatibility
     {
         private static readonly string _allowedVendor = "LENOVO";
@@ -46,20 +35,21 @@ namespace LenovoLegionToolkit.Lib.Utils
             "17IRH", // Legion Y540 - Intel, nVidia
         };
 
-        public static bool IsCompatible(out MachineInformation machineInformation)
+        public static async Task<(bool isCompatible, MachineInformation machineInformation)> IsCompatibleAsync()
         {
-            machineInformation = WMI.Read("root\\CIMV2",
-                $"SELECT * FROM Win32_ComputerSystemProduct",
-                Create).First();
+            var result = await WMI.ReadAsync("root\\CIMV2",
+                            $"SELECT * FROM Win32_ComputerSystemProduct",
+                            Create).ConfigureAwait(false);
+            var machineInformation = result.First();
 
-            if (!machineInformation.Vendor.Equals(_allowedVendor, StringComparison.OrdinalIgnoreCase))
-                return false;
+            if (!machineInformation.Vendor.Equals(_allowedVendor, StringComparison.InvariantCultureIgnoreCase))
+                return (false, machineInformation);
 
             foreach (var allowedModel in _allowedModels)
-                if (machineInformation.Model.Contains(allowedModel, StringComparison.OrdinalIgnoreCase))
-                    return true;
+                if (machineInformation.Model.Contains(allowedModel, StringComparison.InvariantCultureIgnoreCase))
+                    return (true, machineInformation);
 
-            return false;
+            return (false, machineInformation);
         }
 
         private static MachineInformation Create(PropertyDataCollection properties)

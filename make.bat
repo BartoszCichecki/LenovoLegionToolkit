@@ -1,1 +1,18 @@
-dotnet publish LenovoLegionToolkit.WPF -c release -o build /p:DebugType=None /p:FileVersion=0.0.1 /p:Version=0.0.1
+@echo off
+
+IF "%1"=="" (
+	SET VERSION=0.0.1
+) ELSE (
+	SET VERSION=%1
+)
+	
+
+SET PATH=%PATH%;"C:\Program Files (x86)\Inno Setup 6"
+
+rmdir /s /q build
+rmdir /s /q build_installer
+
+dotnet clean
+dotnet publish LenovoLegionToolkit.WPF -c release -o build /p:DebugType=None /p:FileVersion=%VERSION% /p:Version=%VERSION%
+
+iscc make_installer.iss /DMyAppVersion=%VERSION%

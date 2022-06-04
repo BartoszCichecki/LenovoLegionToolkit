@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Management;
+using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features
 {
-    public abstract class AbstractWmiFeature<T> : IFeature<T> where T : struct, IComparable
+    public abstract class AbstractWmiFeature<T> : IFeature<T> where T : struct, Enum, IComparable
     {
         private readonly string _methodNameSuffix;
         private readonly int _offset;
-        private readonly string _supportMethodName;
+        private readonly string? _supportMethodName;
         private readonly int _supportOffset;
 
-        protected AbstractWmiFeature(string methodNameSuffix, int offset, string supportMethodName = null, int supportOffset = 0)
+        protected AbstractWmiFeature(string methodNameSuffix, int offset, string? supportMethodName = null, int supportOffset = 0)
         {
             _methodNameSuffix = methodNameSuffix;
             _offset = offset;
@@ -20,12 +21,14 @@ namespace LenovoLegionToolkit.Lib.Features
             _supportOffset = supportOffset;
         }
 
-        public virtual T GetState()
+        public Task<T[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<T>());
+
+        public virtual async Task<T> GetStateAsync()
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting state... [feature={GetType().Name}]");
 
-            if (!IsSupported())
+            if (!await IsSupportedAsync().ConfigureAwait(false))
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Feature {_methodNameSuffix} is not supported [feature={GetType().Name}]");
@@ -33,7 +36,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 throw new NotSupportedException($"Feature {_methodNameSuffix} is not supported.");
             }
 
-            var result = FromInternal(ExecuteGamezone("Get" + _methodNameSuffix, "Data"));
+            var result = FromInternal(await ExecuteGamezoneAsync("Get" + _methodNameSuffix, "Data").ConfigureAwait(false));
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"State is {result} [feature={GetType().Name}]");
@@ -41,12 +44,12 @@ namespace LenovoLegionToolkit.Lib.Features
             return result;
         }
 
-        public virtual void SetState(T state)
+        public virtual Task SetStateAsync(T state)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Setting state to {state}... [feature={GetType().Name}]");
 
-            ExecuteGamezone("Set" + _methodNameSuffix, "Data",
+            ExecuteGamezoneAsync("Set" + _methodNameSuffix, "Data",
                 new Dictionary<string, string>
                 {
                     {"Data", ToInternal(state).ToString()}
@@ -54,14 +57,16 @@ namespace LenovoLegionToolkit.Lib.Features
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Set state to {state} [feature={GetType().Name}]");
+
+            return Task.CompletedTask;
         }
 
-        private bool IsSupported()
+        private async Task<bool> IsSupportedAsync()
         {
             if (_supportMethodName == null)
                 return true;
 
-            var value = ExecuteGamezone(_supportMethodName, "Data");
+            var value = await ExecuteGamezoneAsync(_supportMethodName, "Data").ConfigureAwait(false);
             return value > _supportOffset;
         }
 
@@ -69,41 +74,44 @@ namespace LenovoLegionToolkit.Lib.Features
 
         private T FromInternal(int state) => (T)(object)(state - _offset);
 
-        private int ExecuteGamezone(string methodName, string resultPropertyName, Dictionary<string, string> methodParams = null)
+        private Task<int> ExecuteGamezoneAsync(string methodName, string resultPropertyName, Dictionary<string, string>? methodParams = null)
         {
-            return Execute("SELECT * FROM LENOVO_GAMEZONE_DATA", methodName, resultPropertyName, methodParams);
+            return ExecuteAsync("SELECT * FROM LENOVO_GAMEZONE_DATA", methodName, resultPropertyName, methodParams);
         }
 
-        private int Execute(string queryString,
+        private Task<int> ExecuteAsync(string queryString,
             string methodName,
             string resultPropertyName,
-            Dictionary<string, string> methodParams = null)
+            Dictionary<string, string>? methodParams = null)
         {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Executing WMI query... [feature={GetType().Name}, queryString={queryString}, methodName={methodName}, resultPropertyName={resultPropertyName}, methodParams.Count={methodParams?.Count}]");
-
-            using var enumerator = new ManagementObjectSearcher("ROOT\\WMI", queryString).Get().GetEnumerator();
-            if (!enumerator.MoveNext())
+            return Task.Run(() =>
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"No results in query [feature={GetType().Name}, queryString={queryString}, methodName={methodName}, resultPropertyName={resultPropertyName}, methodParams.Count={methodParams?.Count}]");
+                    Log.Instance.Trace($"Executing WMI query... [feature={GetType().Name}, queryString={queryString}, methodName={methodName}, resultPropertyName={resultPropertyName}, methodParams.Count={methodParams?.Count}]");
 
-                throw new InvalidOperationException("No results in query");
-            }
+                using var enumerator = new ManagementObjectSearcher("ROOT\\WMI", queryString).Get().GetEnumerator();
+                if (!enumerator.MoveNext())
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"No results in query [feature={GetType().Name}, queryString={queryString}, methodName={methodName}, resultPropertyName={resultPropertyName}, methodParams.Count={methodParams?.Count}]");
 
-            var mo = (ManagementObject)enumerator.Current;
-            var methodParamsObject = mo.GetMethodParameters(methodName);
-            if (methodParams != null)
-                foreach (var pair in methodParams)
-                    methodParamsObject[pair.Key] = pair.Value;
+                    throw new InvalidOperationException("No results in query");
+                }
 
-            var result = mo.InvokeMethod(methodName, methodParamsObject, null)?.Properties[resultPropertyName].Value;
-            var intResult = Convert.ToInt32(result);
+                var mo = (ManagementObject)enumerator.Current;
+                var methodParamsObject = mo.GetMethodParameters(methodName);
+                if (methodParams != null)
+                    foreach (var pair in methodParams)
+                        methodParamsObject[pair.Key] = pair.Value;
 
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Executed WMI query with result {intResult} [feature={GetType().Name}, queryString={queryString}, methodName={methodName}, resultPropertyName={resultPropertyName}, methodParams.Count={methodParams?.Count}]");
+                var result = mo.InvokeMethod(methodName, methodParamsObject, null)?.Properties[resultPropertyName].Value;
+                var intResult = Convert.ToInt32(result);
 
-            return intResult;
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Executed WMI query with result {intResult} [feature={GetType().Name}, queryString={queryString}, methodName={methodName}, resultPropertyName={resultPropertyName}, methodParams.Count={methodParams?.Count}]");
+
+                return intResult;
+            });
         }
     }
 }
