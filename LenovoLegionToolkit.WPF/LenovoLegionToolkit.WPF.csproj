@@ -1,4 +1,4 @@
-﻿	<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
 		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
@@ -20,6 +20,11 @@
 		<ApplicationManifest>app.manifest</ApplicationManifest>
 	</PropertyGroup>
 	<ItemGroup>
+		<None Remove="Assets\paypal_button.png" />
+		<None Remove="Assets\paypal_qr.png" />
+		<None Remove="Assets\icon.ico" />
+	</ItemGroup>
+	<ItemGroup>
 		<PackageReference Include="Autofac" Version="6.4.0" />
 		<PackageReference Include="Ben.Demystifier" Version="0.4.1" />
 		<PackageReference Include="Markdig" Version="0.30.2" />
@@ -33,5 +38,7 @@
 	</ItemGroup>
 	<ItemGroup>
 		<Resource Include="Assets\icon.ico" />
+		<Resource Include="Assets\paypal_button.png" />
+		<Resource Include="Assets\paypal_qr.png" />
 	</ItemGroup>
-	</Project>
+</Project>
