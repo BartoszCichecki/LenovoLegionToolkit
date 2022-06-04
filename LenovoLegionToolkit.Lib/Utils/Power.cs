@@ -2,42 +2,35 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
+using System.Threading.Tasks;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
-    public class PowerPlan
-    {
-        public string InstanceID { get; }
-        public string Name { get; }
-        public bool IsActive { get; }
-        public string Guid => InstanceID.Split("\\").Last().Replace("{", "").Replace("}", "");
-
-        public PowerPlan(string instanceID, string name, bool isActive)
-        {
-            InstanceID = instanceID;
-            Name = name;
-            IsActive = isActive;
-        }
-    }
-
     public static class Power
     {
-        public static void Restart()
+        public static bool IsPowerAdapterConnected()
+        {
+            Native.GetSystemPowerStatus(out SystemPowerStatus sps);
+            return sps.ACLineStatus == ACLineStatus.Online;
+        }
+
+        public static async Task RestartAsync()
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Restarting...");
 
-            CMD.Run("shutdown", "/r /t 0");
+            await CMD.RunAsync("shutdown", "/r /t 0").ConfigureAwait(false);
         }
 
-        public static PowerPlan[] GetPowerPlans()
+        public static async Task<PowerPlan[]> GetPowerPlansAsync()
         {
-            return WMI.Read("root\\CIMV2\\power",
-                $"SELECT * FROM Win32_PowerPlan",
-                Create).ToArray();
+            var result = await WMI.ReadAsync("root\\CIMV2\\power",
+                            $"SELECT * FROM Win32_PowerPlan",
+                            Create).ConfigureAwait(false);
+            return result.ToArray();
         }
 
-        public static void ActivatePowerPlan(PowerModeState powerModeState, bool alwaysActivateDefaults = false)
+        public static async Task ActivatePowerPlanAsync(PowerModeState powerModeState, bool alwaysActivateDefaults = false)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Activating... [powerModeState={powerModeState}, alwaysActivateDefaults={alwaysActivateDefaults}]");
@@ -57,7 +50,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Power plan to be activated is {powerPlanId} [isDefault={isDefault}]");
 
-            if (!ShouldActivate(alwaysActivateDefaults, isDefault))
+            if (!await ShouldActivateAsync(alwaysActivateDefaults, isDefault).ConfigureAwait(false))
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Power plan {powerPlanId} will not be activated [isDefault={isDefault}]");
@@ -65,8 +58,8 @@ namespace LenovoLegionToolkit.Lib.Utils
                 return;
             }
 
-            var powerPlan = GetPowerPlans().FirstOrDefault(pp => pp.InstanceID.Contains(powerPlanId));
-            if (powerPlan == null)
+            var powerPlan = (await GetPowerPlansAsync()).FirstOrDefault(pp => pp.InstanceID.Contains(powerPlanId));
+            if (powerPlan.Equals(default(PowerPlan)))
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Power plan {powerPlanId} was not found");
@@ -81,13 +74,13 @@ namespace LenovoLegionToolkit.Lib.Utils
                 return;
             }
 
-            CMD.Run("powercfg", $"/s {powerPlan.Guid}");
+            await CMD.RunAsync("powercfg", $"/s {powerPlan.Guid}").ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Power plan {powerPlan.Guid} activated");
         }
 
-        private static bool ShouldActivate(bool alwaysActivateDefaults, bool isDefault)
+        private static async Task<bool> ShouldActivateAsync(bool alwaysActivateDefaults, bool isDefault)
         {
             var overide = Settings.Instance.ActivatePowerProfilesWithVantageEnabled;
             if (overide)
@@ -106,7 +99,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                 return true;
             }
 
-            var status = Vantage.Status;
+            var status = await Vantage.GetStatusAsync().ConfigureAwait(false);
             if (status == VantageStatus.NotFound || status == VantageStatus.Disabled)
             {
                 if (Log.Instance.IsTraceEnabled)
@@ -134,7 +127,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             PowerModeState.Quiet => "16edbccd-dee9-4ec4-ace5-2f0b5f2a8975",
             PowerModeState.Balance => "85d583c5-cf2e-4197-80fd-3789a227a72c",
             PowerModeState.Performance => "52521609-efc9-4268-b9ba-67dea73f18b2",
-            _ => throw new InvalidOperationException("Unknown state."),
+            _ => throw new InvalidOperationException("Unknown state"),
         };
     }
 }

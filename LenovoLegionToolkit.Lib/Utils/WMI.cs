@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Management;
+using System.Threading.Tasks;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
@@ -29,40 +30,26 @@ namespace LenovoLegionToolkit.Lib.Utils
             return watcher;
         }
 
-        public static IEnumerable<T> Read<T>(string scope, FormattableString query, Func<PropertyDataCollection, T> converter)
+        public static Task<IEnumerable<T>> ReadAsync<T>(string scope, FormattableString query, Func<PropertyDataCollection, T> converter)
         {
-            var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
+            return Task.Run<IEnumerable<T>>(() =>
+            {
+                var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
 
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Reading... [scope={scope}, queryFormatted={queryFormatted}]");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Reading... [scope={scope}, queryFormatted={queryFormatted}]");
 
-            using var searcher = new ManagementObjectSearcher(scope, queryFormatted);
-            foreach (var queryObj in searcher.Get())
-                yield return converter(queryObj.Properties);
+                var result = new List<T>();
 
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Read [scope={scope}, queryFormatted={queryFormatted}]");
-        }
+                using var searcher = new ManagementObjectSearcher(scope, queryFormatted);
+                foreach (var queryObj in searcher.Get())
+                    result.Add(converter(queryObj.Properties));
 
-        public static object Invoke(string scope,
-            string clazz,
-            string propertyName,
-            string propertyValue,
-            string methodName,
-            object[] parameters = null)
-        {
-            var path = $"{scope}:{clazz}.{propertyName}='{propertyValue.ToString(WMIPropertyValueFormatter.Instance)}'";
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Read [scope={scope}, queryFormatted={queryFormatted}]");
 
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Invoking... [path={path}]");
-
-            using var managementObject = new ManagementObject(path);
-            var result = managementObject.InvokeMethod(methodName, parameters);
-
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Invoked [path={path}, result={result}]");
-
-            return result;
+                return result;
+            });
         }
 
         private class WMIPropertyValueFormatter : IFormatProvider, ICustomFormatter
@@ -71,18 +58,19 @@ namespace LenovoLegionToolkit.Lib.Utils
 
             private WMIPropertyValueFormatter() { }
 
-            public object GetFormat(Type formatType)
+            public object GetFormat(Type? formatType)
             {
                 if (formatType == typeof(ICustomFormatter))
                     return this;
 
-                return null;
+                throw new InvalidOperationException("Invalid type of formatted");
             }
-            public string Format(string format, object arg, IFormatProvider formatProvider)
+
+            public string Format(string? format, object? arg, IFormatProvider? formatProvider)
             {
-                var stringArg = arg.ToString();
-                stringArg = stringArg.Replace("\\", "\\\\");
-                return stringArg;
+                var stringArg = arg?.ToString();
+                stringArg = stringArg?.Replace("\\", "\\\\");
+                return stringArg ?? "";
             }
         }
     }

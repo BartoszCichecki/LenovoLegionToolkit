@@ -1,62 +1,124 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Interop;
+using System.Windows.Media;
 using System.Windows.Threading;
+using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Utils;
+using LenovoLegionToolkit.WPF.Windows;
 
 namespace LenovoLegionToolkit
 {
-    /// <summary>
-    ///     Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
         private const string MutexName = "LenovoLegionToolkit_Mutex_6efcc882-924c-4cbc-8fec-f45c25696f98";
         private const string EventName = "LenovoLegionToolkit_Event_6efcc882-924c-4cbc-8fec-f45c25696f98";
 
 #pragma warning disable IDE0052 // Remove unread private members
-        private Mutex _mutex;
-        private EventWaitHandle _eventWaitHandle;
+        private Mutex? _mutex;
+        private EventWaitHandle? _eventWaitHandle;
 #pragma warning restore IDE0052 // Remove unread private members
 
-        private void Application_Startup(object sender, StartupEventArgs e)
+        private async void Application_Startup(object sender, StartupEventArgs e)
         {
             if (IsTraceEnabled(e.Args))
                 Log.Instance.IsTraceEnabled = true;
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Starting... [version={Assembly.GetEntryAssembly().GetName().Version}]");
+                Log.Instance.Trace($"Starting... [version={Assembly.GetEntryAssembly()?.GetName().Version}]");
+
+            RenderOptions.ProcessRenderMode = RenderMode.SoftwareOnly;
 
             EnsureSingleInstance();
 
             if (!ShouldByPassCompatibilityCheck(e.Args))
-                CheckCompatibility();
+                await CheckCompatibilityAsync();
 
-            var mainWindow = new MainWindow();
-            if (ShouldStartMinimized(e.Args))
+            Container.Initialize();
+
+            try
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Sending MainWindow to tray...");
-                mainWindow.SendToTray();
+                    Log.Instance.Trace($"Ensuring correct power plan is set...");
+
+                await Container.Resolve<PowerModeFeature>().EnsureCorrectPowerPlanIsSetAsync();
             }
-            else
+            catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Showing MainWindow...");
-                mainWindow.Show();
+                    Log.Instance.Trace($"Couldn't ensure correct power plan. Exception: {ex.Demystify()}");
             }
 
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Start up complete");
+            try
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Starting power mode listener...");
+
+                Container.Resolve<PowerModeListener>().Start();
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't start power model listener. Exception: {ex.Demystify()}");
+            }
+
+            try
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Starting display configuration listener...");
+
+                Container.Resolve<DisplayConfigurationListener>().Start();
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't start display configuration listener. Exception: {ex.Demystify()}");
+            }
+
+            Autorun.Validate();
+
+            Container.Resolve<ThemeManager>().Apply();
+
+            using (await ThemePreloader.PreloadAsync())
+            {
+                var mainWindow = new MainWindow
+                {
+                    WindowStartupLocation = WindowStartupLocation.CenterScreen
+                };
+                MainWindow = mainWindow;
+
+                if (ShouldStartMinimized(e.Args))
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Sending MainWindow to tray...");
+                    mainWindow.WindowState = WindowState.Minimized;
+                    mainWindow.Show();
+                    mainWindow.SendToTray();
+                }
+                else
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Showing MainWindow...");
+                    mainWindow.Show();
+                }
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Start up complete");
+            }
         }
 
         private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            Log.Instance.ErrorReport(e.Exception);
+            Log.Instance.ErrorReport(e.Exception.Demystify());
 
-            var errorText = e.Exception.ToString();
+            var errorText = e.Exception.Demystify().ToString();
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"***** *** Unhandled exception ***** ***\n{errorText}");
@@ -65,9 +127,10 @@ namespace LenovoLegionToolkit
             Shutdown(-1);
         }
 
-        private void CheckCompatibility()
+        private async Task CheckCompatibilityAsync()
         {
-            if (Compatibility.IsCompatible(out var mi))
+            var (isCompatible, mi) = await Compatibility.IsCompatibleAsync();
+            if (isCompatible)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Compatibility check passed");

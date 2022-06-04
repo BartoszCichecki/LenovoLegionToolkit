@@ -1,4 +1,5 @@
-﻿using LenovoLegionToolkit.Lib.Utils;
+﻿using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features
 {
@@ -6,16 +7,16 @@ namespace LenovoLegionToolkit.Lib.Features
     {
         public PowerModeFeature() : base("SmartFanMode", 1, "IsSupportSmartFan") { }
 
-        public override void SetState(PowerModeState state)
+        public override async Task SetStateAsync(PowerModeState state)
         {
-            base.SetState(state);
-            Power.ActivatePowerPlan(state, true);
+            await base.SetStateAsync(state).ConfigureAwait(false);
+            await Power.ActivatePowerPlanAsync(state, true).ConfigureAwait(false);
         }
 
-        public void EnsureCorrectPowerPlanIsSet()
+        public async Task EnsureCorrectPowerPlanIsSetAsync()
         {
-            var state = GetState();
-            Power.ActivatePowerPlan(state, true);
+            var state = await GetStateAsync().ConfigureAwait(false);
+            await Power.ActivatePowerPlanAsync(state, true).ConfigureAwait(false);
         }
     }
 }

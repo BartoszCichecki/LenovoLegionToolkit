@@ -1,0 +1,51 @@
+﻿<controls:AbstractRefreshingControl
+    x:Class="LenovoLegionToolkit.WPF.Controls.Dashboard.DiscreteGPUControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <wpfui:CardControl
+        Title="Discrete GPU"
+        Margin="0,0,0,8"
+        Icon="DeveloperBoard24"
+        Subtitle="Disable discrete GPU if it is active unnecessarily.">
+        <StackPanel
+            x:Name="_content"
+            Orientation="Vertical"
+            Visibility="Hidden">
+            <StackPanel
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <Ellipse
+                    x:Name="_discreteGPUStatusActiveIndicator"
+                    Width="10"
+                    Height="10"
+                    Fill="#FF8BC34A"
+                    Visibility="Collapsed" />
+                <Ellipse
+                    x:Name="_discreteGPUStatusInactiveIndicator"
+                    Width="10"
+                    Height="10"
+                    Fill="#BF360C"
+                    Visibility="Collapsed" />
+                <TextBlock
+                    x:Name="_discreteGPUStatusDescription"
+                    Margin="4,0,0,0"
+                    FontWeight="Medium" />
+            </StackPanel>
+            <Button
+                x:Name="_deactivateGPUButton"
+                Width="150"
+                Margin="0,8,0,0"
+                Click="DeactivateGPUButton_Click"
+                Content="Deactivate"
+                IsEnabled="False"
+                ToolTipService.ShowOnDisabled="True" />
+        </StackPanel>
+    </wpfui:CardControl>
+</controls:AbstractRefreshingControl>

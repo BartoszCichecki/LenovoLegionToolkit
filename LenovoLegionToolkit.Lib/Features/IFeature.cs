@@ -1,8 +1,11 @@
-﻿namespace LenovoLegionToolkit.Lib.Features
+﻿using System.Threading.Tasks;
+
+namespace LenovoLegionToolkit.Lib.Features
 {
-    public interface IFeature<T>
+    public interface IFeature<T> where T : struct
     {
-        T GetState();
-        void SetState(T state);
+        public Task<T[]> GetAllStatesAsync();
+        Task<T> GetStateAsync();
+        Task SetStateAsync(T state);
     }
 }

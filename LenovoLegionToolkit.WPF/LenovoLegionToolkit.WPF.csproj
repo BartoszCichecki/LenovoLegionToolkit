@@ -1,35 +1,43 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <OutputType>WinExe</OutputType>
     <ApplicationIcon>icon.ico</ApplicationIcon>
     <AssemblyName>Lenovo Legion Toolkit</AssemblyName>
-    <Copyright>© 2021 Bartosz Cichecki</Copyright>
+    <Copyright>© 2022 Bartosz Cichecki</Copyright>
     <FileVersion>0.0.1</FileVersion>
     <Version>0.0.1</Version>
-    <Nullable>disable</Nullable>
+    <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <SelfContained>false</SelfContained>
-    <PublishSingleFile>true</PublishSingleFile>
+    <PublishSingleFile>false</PublishSingleFile>
     <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
     <PublishUrl>publish\</PublishUrl>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Assets\paypal_button.png" />
+    <None Remove="Assets\paypal_qr.png" />
     <None Remove="icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
+    <PackageReference Include="Autofac" Version="6.4.0" />
+    <PackageReference Include="Ben.Demystifier" Version="0.4.1" />
+    <PackageReference Include="Markdig" Version="0.30.2" />
+    <PackageReference Include="Markdig.Wpf" Version="0.5.0.1" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" />
+    <PackageReference Include="WPF-UI" Version="1.2.7" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LenovoLegionToolkit.Lib\LenovoLegionToolkit.Lib.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\paypal_button.png" />
+    <Resource Include="Assets\paypal_qr.png" />
     <Resource Include="icon.ico" />
   </ItemGroup>
 </Project>

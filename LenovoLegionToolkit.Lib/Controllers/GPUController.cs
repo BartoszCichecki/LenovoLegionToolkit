@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Utils;
+using NeoSmart.AsyncLock;
 
-namespace LenovoLegionToolkit.Lib.Utils
+namespace LenovoLegionToolkit.Lib.Controllers
 {
-    public class GPUManager
+    public class GPUController
     {
         public enum Status
         {
@@ -33,24 +36,37 @@ namespace LenovoLegionToolkit.Lib.Utils
             }
         }
 
-        private readonly object _lock = new();
+        private readonly AsyncLock _lock = new();
 
-        private Task _refreshTask = null;
-        private CancellationTokenSource _refreshCancellationTokenSource = null;
+        private Task? _refreshTask = null;
+        private CancellationTokenSource? _refreshCancellationTokenSource = null;
 
         private Status _status = Status.Unknown;
         private string[] _processNames = Array.Empty<string>();
-        private string _gpuInstanceId = null;
+        private string? _gpuInstanceId = null;
 
         private bool IsActive => _status == Status.MonitorsConnected || _status == Status.DeactivatePossible;
         private bool CanBeDeactivated => _status == Status.DeactivatePossible;
 
-        public event EventHandler WillRefresh;
-        public event EventHandler<RefreshedEventArgs> Refreshed;
+        public event EventHandler? WillRefresh;
+        public event EventHandler<RefreshedEventArgs>? Refreshed;
 
-        public void Start(int delay = 2_500, int interval = 5_000)
+        public bool IsSupported()
         {
-            Stop(true);
+            try
+            {
+                NVAPI.Initialize();
+                return NVAPI.GetGPU() != null;
+            }
+            finally
+            {
+                NVAPI.Unload();
+            }
+        }
+
+        public async Task StartAsync(int delay = 1_000, int interval = 5_000)
+        {
+            await StopAsync(true).ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Starting... [delay={delay}, interval={interval}]");
@@ -70,20 +86,20 @@ namespace LenovoLegionToolkit.Lib.Utils
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Initialized NVAPI");
 
-                    await Task.Delay(delay, token);
+                    await Task.Delay(delay, token).ConfigureAwait(false);
 
                     while (true)
                     {
                         token.ThrowIfCancellationRequested();
 
-                        lock (_lock)
+                        using (await _lock.LockAsync().ConfigureAwait(false))
                         {
 
                             if (Log.Instance.IsTraceEnabled)
                                 Log.Instance.Trace($"Will refresh...");
 
                             WillRefresh?.Invoke(this, EventArgs.Empty);
-                            Refresh();
+                            await RefreshAsync().ConfigureAwait(false);
 
                             if (Log.Instance.IsTraceEnabled)
                                 Log.Instance.Trace($"Refreshed");
@@ -91,13 +107,13 @@ namespace LenovoLegionToolkit.Lib.Utils
                             Refreshed?.Invoke(this, new RefreshedEventArgs(IsActive, CanBeDeactivated, _status, _processNames));
                         }
 
-                        await Task.Delay(interval, token);
+                        await Task.Delay(interval, token).ConfigureAwait(false);
                     }
                 }
                 catch (Exception ex) when (ex is not TaskCanceledException)
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Exception: {ex}");
+                        Log.Instance.Trace($"Exception: {ex.Demystify()}");
 
                     throw;
                 }
@@ -114,7 +130,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             }, token);
         }
 
-        public void Stop(bool waitForFinish = false)
+        public async Task StopAsync(bool waitForFinish = false)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Stopping... [refreshTask.isNull={_refreshTask == null}, _refreshCancellationTokenSource.IsCancellationRequested={_refreshCancellationTokenSource?.IsCancellationRequested}]");
@@ -126,7 +142,8 @@ namespace LenovoLegionToolkit.Lib.Utils
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Waiting to finish...");
 
-                _refreshTask?.Wait();
+                if (_refreshTask != null)
+                    await _refreshTask.ConfigureAwait(false);
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Finished");
@@ -139,24 +156,23 @@ namespace LenovoLegionToolkit.Lib.Utils
                 Log.Instance.Trace($"Stopped");
         }
 
-        public void DeactivateGPU()
+        public async Task DeactivateGPUAsync()
         {
-            lock (_lock)
-            {
+            using (await _lock.LockAsync().ConfigureAwait(false))
+
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Deactivating... [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
 
-                if (!IsActive || !CanBeDeactivated || string.IsNullOrEmpty(_gpuInstanceId))
-                    return;
+            if (!IsActive || !CanBeDeactivated || string.IsNullOrEmpty(_gpuInstanceId))
+                return;
 
-                CMD.Run("pnputil", $"/restart-device \"{_gpuInstanceId}\"");
+            await CMD.RunAsync("pnputil", $"/restart-device \"{_gpuInstanceId}\"").ConfigureAwait(false);
 
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Deactivated [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
-            }
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Deactivated [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
         }
 
-        private void Refresh()
+        private async Task RefreshAsync()
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Refresh in progress...");
@@ -165,7 +181,8 @@ namespace LenovoLegionToolkit.Lib.Utils
             _processNames = Array.Empty<string>();
             _gpuInstanceId = null;
 
-            if (!NVAPI.IsGPUPresent(out var gpu))
+            var gpu = NVAPI.GetGPU();
+            if (gpu == null)
             {
                 _status = Status.NVIDIAGPUNotFound;
 
@@ -199,7 +216,11 @@ namespace LenovoLegionToolkit.Lib.Utils
             }
 
             var pnpDeviceId = NVAPI.GetGPUId(gpu);
-            var gpuInstanceId = GetDeviceInstanceID(pnpDeviceId);
+
+            if (string.IsNullOrEmpty(pnpDeviceId))
+                throw new InvalidOperationException("pnpDeviceId is null or empty");
+
+            var gpuInstanceId = await GetDeviceInstanceIDAsync(pnpDeviceId).ConfigureAwait(false);
 
             _gpuInstanceId = gpuInstanceId;
             _status = Status.DeactivatePossible;
@@ -208,11 +229,12 @@ namespace LenovoLegionToolkit.Lib.Utils
                 Log.Instance.Trace($"Deactivate possible [status={_status}, processNames.Length={_processNames.Length}, gpuInstanceId={_gpuInstanceId}, pnpDeviceId={pnpDeviceId}]");
         }
 
-        private static string GetDeviceInstanceID(string pnpDeviceId)
+        private static async Task<string?> GetDeviceInstanceIDAsync(string pnpDeviceId)
         {
-            return WMI.Read("root\\CIMV2",
+            var results = await WMI.ReadAsync("root\\CIMV2",
                 $"SELECT * FROM Win32_PnpEntity WHERE DeviceID LIKE '{pnpDeviceId}%'",
-                pdc => (string)pdc["DeviceID"].Value).FirstOrDefault();
+                pdc => (string)pdc["DeviceID"].Value).ConfigureAwait(false);
+            return results?.FirstOrDefault();
         }
     }
 }

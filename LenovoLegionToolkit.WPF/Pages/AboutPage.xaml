@@ -1,0 +1,96 @@
+﻿<Page
+    x:Class="LenovoLegionToolkit.WPF.Pages.AboutPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
+    Title="About"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    Style="{StaticResource UiPageScrollable}"
+    mc:Ignorable="d">
+
+    <StackPanel Margin="0,0,16,12">
+        <TextBlock
+            Margin="0,16,0,24"
+            FontSize="24"
+            FontWeight="Medium"
+            Text="About" />
+
+        <TextBlock
+            Padding="0,0,0,8"
+            FontSize="16"
+            FontWeight="Medium"
+            Text="Lenovo Legion Toolkit" />
+        <TextBlock
+            x:Name="_version"
+            Padding="0,0,0,16"
+            Text="Version: " />
+        <TextBlock x:Name="_copyright" />
+
+        <TextBlock
+            Padding="0,32,0,8"
+            FontWeight="Medium"
+            Text="Links" />
+        <wpfui:Hyperlink
+            Content="Project website on GitHub"
+            Icon="Link24"
+            NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit" />
+        <wpfui:Hyperlink
+            Content="Latest release on GitHub"
+            Icon="Link24"
+            NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit/releases/latest" />
+
+        <TextBlock
+            Padding="0,32,0,8"
+            FontWeight="Medium"
+            Text="Donate" />
+        <Image
+            Width="250"
+            Margin="0,8,0,0"
+            HorizontalAlignment="Left"
+            Cursor="Hand"
+            MouseLeftButtonDown="DonateButton_Click"
+            MouseRightButtonDown="DonateButton_Click"
+            Source="../Assets/paypal_button.png" />
+        <Border
+            Width="250"
+            Height="250"
+            Margin="0,16,0,0"
+            HorizontalAlignment="Left"
+            Background="White"
+            CornerRadius="8">
+            <Image Margin="8" Source="../Assets/paypal_qr.png" />
+        </Border>
+
+        <TextBlock
+            Padding="0,24,0,8"
+            FontWeight="Medium"
+            Text="3rd party libraries" />
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Margin="0,0,32,0">
+                <wpfui:Hyperlink Content="Autofac" NavigateUri="https://github.com/autofac/Autofac" />
+                <wpfui:Hyperlink Content="AsyncLock" NavigateUri="https://github.com/neosmart/AsyncLock" />
+                <wpfui:Hyperlink Content="Demystifier" NavigateUri="https://github.com/benaadams/Ben.Demystifier" />
+                <wpfui:Hyperlink Content="Markdig" NavigateUri="https://github.com/xoofx/markdig" />
+                <wpfui:Hyperlink Content="Markdig.Wpf" NavigateUri="https://github.com/Kryptos-FR/markdig.wpf" />
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <wpfui:Hyperlink Content="NvAPIWrapper" NavigateUri="https://github.com/falahati/NvAPIWrapper" />
+                <wpfui:Hyperlink Content="octokit" NavigateUri="https://github.com/octokit/octokit.net" />
+                <wpfui:Hyperlink Content="TaskScheduler" NavigateUri="https://github.com/dahall/TaskScheduler" />
+                <wpfui:Hyperlink Content="WindowsDisplayAPI" NavigateUri="https://github.com/falahati/WindowsDisplayAPI" />
+                <wpfui:Hyperlink Content="wpfui" NavigateUri="https://github.com/lepoco/wpfui" />
+            </StackPanel>
+
+        </Grid>
+
+    </StackPanel>
+</Page>
