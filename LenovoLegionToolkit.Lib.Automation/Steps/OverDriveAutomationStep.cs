@@ -6,7 +6,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
 {
     public class OverDriveAutomationStep : IAutomationStep<OverDriveState>
     {
-        private readonly OverDriveFeature _feature = DIContainer.Resolve<OverDriveFeature>();
+        private readonly OverDriveFeature _feature = IoCContainer.Resolve<OverDriveFeature>();
 
         public OverDriveState State { get; }
 

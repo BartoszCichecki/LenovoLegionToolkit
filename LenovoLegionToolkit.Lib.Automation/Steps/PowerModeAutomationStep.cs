@@ -6,7 +6,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
 {
     public class PowerModeAutomationStep : IAutomationStep<PowerModeState>
     {
-        private readonly PowerModeFeature _feature = DIContainer.Resolve<PowerModeFeature>();
+        private readonly PowerModeFeature _feature = IoCContainer.Resolve<PowerModeFeature>();
 
         public PowerModeState State { get; }
 

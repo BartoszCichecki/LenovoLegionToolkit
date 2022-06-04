@@ -42,10 +42,10 @@ namespace LenovoLegionToolkit
             if (!ShouldByPassCompatibilityCheck(e.Args))
                 await CheckCompatibilityAsync();
 
-            DIContainer.Initialize(
-                new Lib.DIContainerModule(),
-                new Lib.Automation.DIContainerModule(),
-                new WPF.DIContainerModule()
+            IoCContainer.Initialize(
+                new Lib.IoCModule(),
+                new Lib.Automation.IoCModule(),
+                new WPF.IoCModule()
             );
 
             try
@@ -53,7 +53,7 @@ namespace LenovoLegionToolkit
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Initializing automation processor...");
 
-                var automationProcessor = DIContainer.Resolve<AutomationProcessor>();
+                var automationProcessor = IoCContainer.Resolve<AutomationProcessor>();
                 await automationProcessor.InitializeAsync();
                 automationProcessor.RunOnStartup();
             }
@@ -68,7 +68,7 @@ namespace LenovoLegionToolkit
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Ensuring correct power plan is set...");
 
-                await DIContainer.Resolve<PowerModeFeature>().EnsureCorrectPowerPlanIsSetAsync();
+                await IoCContainer.Resolve<PowerModeFeature>().EnsureCorrectPowerPlanIsSetAsync();
             }
             catch (Exception ex)
             {
@@ -78,7 +78,7 @@ namespace LenovoLegionToolkit
 
             Autorun.Validate();
 
-            DIContainer.Resolve<ThemeManager>().Apply();
+            IoCContainer.Resolve<ThemeManager>().Apply();
 
             using (await ThemePreloader.PreloadAsync())
             {

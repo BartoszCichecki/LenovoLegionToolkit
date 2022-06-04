@@ -20,7 +20,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 {
     public class AutomationPipelineControl : UserControl
     {
-        private readonly AutomationProcessor _automationProcessor = DIContainer.Resolve<AutomationProcessor>();
+        private readonly AutomationProcessor _automationProcessor = IoCContainer.Resolve<AutomationProcessor>();
 
         private readonly CardExpander _cardExpander = new()
         {

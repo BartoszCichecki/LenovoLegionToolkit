@@ -7,7 +7,7 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib
 {
-    public class DIContainerModule : Module
+    public class IoCModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {
