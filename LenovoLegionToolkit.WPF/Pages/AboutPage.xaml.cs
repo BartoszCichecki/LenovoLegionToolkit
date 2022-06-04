@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Reflection;
+using System.Windows;
 
 namespace LenovoLegionToolkit.WPF.Pages
 {
@@ -34,6 +35,12 @@ namespace LenovoLegionToolkit.WPF.Pages
 
             _version.Text += VersionText;
             _copyright.Text = CopyrightText;
+        }
+
+        private void DonateButton_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo("https://www.paypal.com/donate/?hosted_button_id=22AZE2NBP3HTL") { UseShellExecute = true });
+            e.Handled = true;
         }
     }
 }
