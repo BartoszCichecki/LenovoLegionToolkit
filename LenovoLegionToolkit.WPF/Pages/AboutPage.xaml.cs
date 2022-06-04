@@ -6,16 +6,7 @@ namespace LenovoLegionToolkit.WPF.Pages
 {
     public partial class AboutPage
     {
-        private string VersionText
-        {
-            get
-            {
-                if (Configuration.IsBeta)
-                    return $"BETA {Configuration.BetaNumber}";
-
-                return Assembly.GetEntryAssembly()?.GetName()?.Version?.ToString(3) ?? "";
-            }
-        }
+        private string VersionText => Assembly.GetEntryAssembly()?.GetName()?.Version?.ToString(3) ?? "";
 
         private string CopyrightText
         {

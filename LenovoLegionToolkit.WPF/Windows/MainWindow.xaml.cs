@@ -32,9 +32,6 @@ namespace LenovoLegionToolkit.WPF.Windows
             IsVisibleChanged += MainWindow_IsVisibleChanged;
             StateChanged += MainWindow_StateChanged;
 
-            if (Configuration.IsBeta)
-                _title.Text += $" [BETA {Configuration.BetaNumber}]";
-
 #if DEBUG
             _title.Text += " [DEBUG]";
 #endif
@@ -84,6 +81,8 @@ namespace LenovoLegionToolkit.WPF.Windows
             notifyIcon.LeftClick += NotifyIcon_LeftClick;
 
             _titleBar.Tray = notifyIcon;
+
+            _titleBar.Tray.Unregister();
         }
 
         private void MainWindow_StateChanged(object? sender, EventArgs e)
@@ -168,9 +167,6 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private void CheckForUpdates()
         {
-            if (Configuration.IsBeta)
-                return;
-
             Task.Run(_updateChecker.Check)
                 .ContinueWith(updatesAvailable =>
             {
