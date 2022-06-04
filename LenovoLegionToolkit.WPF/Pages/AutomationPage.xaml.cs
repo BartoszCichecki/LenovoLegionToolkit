@@ -17,7 +17,7 @@ namespace LenovoLegionToolkit.WPF.Pages
 {
     public partial class AutomationPage : Page
     {
-        private readonly AutomationProcessor _automationProcessor = DIContainer.Resolve<AutomationProcessor>();
+        private readonly AutomationProcessor _automationProcessor = IoCContainer.Resolve<AutomationProcessor>();
 
         public AutomationPage()
         {

@@ -1,13 +1,14 @@
 ﻿using Autofac;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.WPF.Utils;
 
-namespace LenovoLegionToolkit.Lib.Automation
+namespace LenovoLegionToolkit.WPF
 {
-    public class DIContainerModule : Module
+    public class IoCModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.Register<AutomationProcessor>();
+            builder.Register<ThemeManager>();
         }
     }
 }

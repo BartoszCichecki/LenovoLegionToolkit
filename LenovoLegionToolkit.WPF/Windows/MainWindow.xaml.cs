@@ -24,10 +24,10 @@ namespace LenovoLegionToolkit.WPF.Windows
 {
     public partial class MainWindow
     {
-        private readonly AutomationProcessor _automationProcessor = DIContainer.Resolve<AutomationProcessor>();
+        private readonly AutomationProcessor _automationProcessor = IoCContainer.Resolve<AutomationProcessor>();
 
-        private readonly ThemeManager _themeManager = DIContainer.Resolve<ThemeManager>();
-        private readonly UpdateChecker _updateChecker = DIContainer.Resolve<UpdateChecker>();
+        private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
+        private readonly UpdateChecker _updateChecker = IoCContainer.Resolve<UpdateChecker>();
 
         public Snackbar Snackbar => _snackBar;
 

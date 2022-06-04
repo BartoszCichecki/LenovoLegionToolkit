@@ -64,7 +64,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             Settings.Instance.Theme = state;
             Settings.Instance.Synchronize();
 
-            DIContainer.Resolve<ThemeManager>().Apply();
+            IoCContainer.Resolve<ThemeManager>().Apply();
         }
 
         private void AutorunToggle_Click(object sender, RoutedEventArgs e)

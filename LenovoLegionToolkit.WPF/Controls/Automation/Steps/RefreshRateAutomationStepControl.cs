@@ -7,7 +7,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
 {
     public class RefreshRateAutomationStepControl : AbstractComboBoxAutomationStepCardControl<RefreshRate>
     {
-        private readonly DisplayConfigurationListener _listener = DIContainer.Resolve<DisplayConfigurationListener>();
+        private readonly DisplayConfigurationListener _listener = IoCContainer.Resolve<DisplayConfigurationListener>();
 
         public RefreshRateAutomationStepControl(IAutomationStep<RefreshRate> step) : base(step)
         {

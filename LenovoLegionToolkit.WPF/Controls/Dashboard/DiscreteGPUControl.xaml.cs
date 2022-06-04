@@ -8,7 +8,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
     public partial class DiscreteGPUControl
     {
-        private readonly GPUController _gpuController = DIContainer.Resolve<GPUController>();
+        private readonly GPUController _gpuController = IoCContainer.Resolve<GPUController>();
 
         public DiscreteGPUControl()
         {

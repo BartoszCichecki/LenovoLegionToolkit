@@ -8,7 +8,7 @@ namespace LenovoLegionToolkit.WPF.Windows
 {
     public partial class CPUBoostModesWindow
     {
-        private readonly CPUBoostModeController _cpuBoostController = DIContainer.Resolve<CPUBoostModeController>();
+        private readonly CPUBoostModeController _cpuBoostController = IoCContainer.Resolve<CPUBoostModeController>();
 
         public CPUBoostModesWindow()
         {

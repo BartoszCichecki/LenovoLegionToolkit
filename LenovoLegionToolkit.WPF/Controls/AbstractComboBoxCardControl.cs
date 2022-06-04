@@ -13,7 +13,7 @@ namespace LenovoLegionToolkit.WPF.Controls
 {
     public abstract class AbstractComboBoxCardControl<T> : AbstractRefreshingControl where T : struct
     {
-        private readonly IFeature<T> _feature = DIContainer.Resolve<IFeature<T>>();
+        private readonly IFeature<T> _feature = IoCContainer.Resolve<IFeature<T>>();
 
         private readonly CardControl _cardControl = new();
         private readonly ComboBox _comboBox = new();

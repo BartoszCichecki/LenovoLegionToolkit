@@ -9,7 +9,7 @@ namespace LenovoLegionToolkit.WPF.Controls
 {
     public abstract class AbstractToggleCardControl<T> : AbstractRefreshingControl where T : struct
     {
-        private readonly IFeature<T> _feature = DIContainer.Resolve<IFeature<T>>();
+        private readonly IFeature<T> _feature = IoCContainer.Resolve<IFeature<T>>();
 
         private readonly CardControl _cardControl = new();
         private readonly ToggleSwitch _toggle = new();

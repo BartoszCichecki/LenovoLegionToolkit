@@ -3,7 +3,7 @@ using Autofac;
 
 namespace LenovoLegionToolkit.Lib
 {
-    public class DIContainer
+    public class IoCContainer
     {
         private static IContainer? _container;
 
@@ -20,7 +20,7 @@ namespace LenovoLegionToolkit.Lib
         public static T Resolve<T>() where T : notnull
         {
             if (_container is null)
-                throw new InvalidOperationException("DIContainer must be initialized first");
+                throw new InvalidOperationException("IoCContainer must be initialized first");
             return _container.Resolve<T>();
         }
     }

@@ -9,7 +9,7 @@ namespace LenovoLegionToolkit.WPF.Windows
 {
     public class BaseWindow : Window
     {
-        private readonly ThemeManager _themeManager = DIContainer.Resolve<ThemeManager>();
+        private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
 
         public BaseWindow()
         {

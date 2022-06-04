@@ -5,7 +5,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
 {
     public class DeactivateGPUAutomationStep : IAutomationStep
     {
-        private readonly GPUController _controller = DIContainer.Resolve<GPUController>();
+        private readonly GPUController _controller = IoCContainer.Resolve<GPUController>();
 
         public async Task RunAsync()
         {

@@ -27,7 +27,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             }
         }
 
-        private readonly UpdateChecker _updateChecker = DIContainer.Resolve<UpdateChecker>();
+        private readonly UpdateChecker _updateChecker = IoCContainer.Resolve<UpdateChecker>();
 
         private CancellationTokenSource? _downloadCancellationTokenSource;
 

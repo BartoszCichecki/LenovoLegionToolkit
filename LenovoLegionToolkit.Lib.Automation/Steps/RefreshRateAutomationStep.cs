@@ -8,7 +8,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
 {
     public class RefreshRateAutomationStep : IAutomationStep<RefreshRate>
     {
-        private readonly RefreshRateFeature _feature = DIContainer.Resolve<RefreshRateFeature>();
+        private readonly RefreshRateFeature _feature = IoCContainer.Resolve<RefreshRateFeature>();
 
         public RefreshRate State { get; }
 

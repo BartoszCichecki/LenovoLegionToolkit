@@ -9,7 +9,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Settings
     {
         private readonly CPUBoostModeSettings setting;
 
-        private readonly CPUBoostModeController _cpuBoostController = DIContainer.Resolve<CPUBoostModeController>();
+        private readonly CPUBoostModeController _cpuBoostController = IoCContainer.Resolve<CPUBoostModeController>();
 
         public CPUBoostModeControl(CPUBoostModeSettings setting)
         {
