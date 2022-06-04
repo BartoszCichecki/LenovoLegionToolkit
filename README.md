@@ -14,6 +14,16 @@ It is a single executable app that needs no installation and runs no background 
 
 This is a hobby project. I want to make it available on more devices, but it will take some time, so please be patient and read through this readme carefully.
 
+## Donate
+
+If you enjoy using the Lenovo Legion Toolkit, consider donating.
+
+<a href="https://www.paypal.com/donate/?hosted_button_id=22AZE2NBP3HTL"><img src="LenovoLegionToolkit.WPF/Assets/paypal_button.png" width="200" alt="PayPal Donate" /></a>
+
+<img src="LenovoLegionToolkit.WPF/Assets/paypal_qr.png" width="200" alt="PayPal QR code" />
+
+
+
 ## Compatibility
 
 Toolkit is compatible with a lot of Lenovo Legion laptops from 2020 and 2021 running Windows 10 and 11. All testing done by me is done always on latest Windows 11 update and Legion 5 Pro 16ACH6H.
