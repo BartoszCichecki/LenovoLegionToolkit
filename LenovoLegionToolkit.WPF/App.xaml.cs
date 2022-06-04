@@ -12,7 +12,6 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Utils;
-using LenovoLegionToolkit.WPF;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows;
 
@@ -34,7 +33,7 @@ namespace LenovoLegionToolkit
                 Log.Instance.IsTraceEnabled = true;
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Starting... [version={Assembly.GetEntryAssembly()?.GetName().Version}, isBeta={Configuration.IsBeta}]");
+                Log.Instance.Trace($"Starting... [version={Assembly.GetEntryAssembly()?.GetName().Version}]");
 
             RenderOptions.ProcessRenderMode = RenderMode.SoftwareOnly;
 
