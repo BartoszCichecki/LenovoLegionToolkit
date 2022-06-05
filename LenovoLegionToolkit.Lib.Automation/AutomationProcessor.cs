@@ -44,9 +44,9 @@ namespace LenovoLegionToolkit.Lib.Automation
 
         public event EventHandler<PipelinesChangedEventArgs>? PipelinesChanged;
 
-        public AutomationProcessor(PowerStateListener powerAdapterListener)
+        public AutomationProcessor(PowerStateListener powerStateListener)
         {
-            _powerStateListener = powerAdapterListener;
+            _powerStateListener = powerStateListener;
             _powerStateListener.Changed += PowerAdapterListener_Changed;
         }
 
