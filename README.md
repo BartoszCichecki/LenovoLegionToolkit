@@ -22,7 +22,9 @@ If you enjoy using the Lenovo Legion Toolkit, consider donating.
 
 <img src="LenovoLegionToolkit.WPF/Assets/paypal_qr.png" width="200" alt="PayPal QR code" />
 
+## Download
 
+You can download the installer from Releases page here: [Latest release](https://github.com/BartoszCichecki/LenovoLegionToolkit/releases/latest).
 
 ## Compatibility
 
