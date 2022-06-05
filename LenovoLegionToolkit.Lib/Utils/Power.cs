@@ -129,5 +129,13 @@ namespace LenovoLegionToolkit.Lib.Utils
             PowerModeState.Performance => "52521609-efc9-4268-b9ba-67dea73f18b2",
             _ => throw new InvalidOperationException("Unknown state"),
         };
+
+        private static PowerModeState GetDefaultPowerMode(string powerPlanId) => powerPlanId switch
+        {
+            "16edbccd-dee9-4ec4-ace5-2f0b5f2a8975" => PowerModeState.Quiet,
+            "85d583c5-cf2e-4197-80fd-3789a227a72c" => PowerModeState.Balance,
+            "52521609-efc9-4268-b9ba-67dea73f18b2" => PowerModeState.Performance,
+            _ => throw new InvalidOperationException("Unknown state"),
+        };
     }
 }
