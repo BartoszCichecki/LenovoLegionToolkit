@@ -92,16 +92,18 @@ namespace LenovoLegionToolkit.Lib
 
     public struct Update
     {
-        public Version Version { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string? Url { get; set; }
+        public Version Version { get; }
+        public string Title { get; }
+        public string Description { get; }
+        public DateTimeOffset Date { get; }
+        public string? Url { get; }
 
         public Update(Release release)
         {
             Version = Version.Parse(release.TagName);
             Title = release.Name;
             Description = release.Body;
+            Date = release.PublishedAt ?? release.CreatedAt;
             Url = release.Assets.Where(ra => ra.Name.EndsWith("setup.exe", StringComparison.InvariantCultureIgnoreCase)).Select(ra => ra.BrowserDownloadUrl).FirstOrDefault();
         }
     }
