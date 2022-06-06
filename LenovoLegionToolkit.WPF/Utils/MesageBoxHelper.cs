@@ -105,7 +105,8 @@ namespace LenovoLegionToolkit.WPF.Utils
                 ButtonRightName = secondaryButton,
                 ShowInTaskbar = false,
                 Topmost = false,
-                Height = 160,
+                MinHeight = 160,
+                MaxHeight = 160,
                 ResizeMode = ResizeMode.NoResize,
             };
 
