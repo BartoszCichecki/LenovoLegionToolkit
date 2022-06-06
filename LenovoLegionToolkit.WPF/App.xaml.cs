@@ -72,6 +72,19 @@ namespace LenovoLegionToolkit
             try
             {
                 if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Starting power plan listener...");
+
+                Container.Resolve<PowerPlanListener>().Start();
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't start power plan listener. Exception: {ex.Demystify()}");
+            }
+
+            try
+            {
+                if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Starting display configuration listener...");
 
                 Container.Resolve<DisplayConfigurationListener>().Start();
