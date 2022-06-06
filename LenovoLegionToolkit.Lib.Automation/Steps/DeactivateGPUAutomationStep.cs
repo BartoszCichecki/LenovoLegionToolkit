@@ -9,7 +9,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
 
         public async Task RunAsync()
         {
-            await Task.Delay(5000).ConfigureAwait(false);
+            await Task.Delay(2000).ConfigureAwait(false);
             await _controller.DeactivateGPUAsync().ConfigureAwait(false);
         }
 

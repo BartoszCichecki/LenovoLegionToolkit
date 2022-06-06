@@ -21,16 +21,19 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         public AutomationPage()
         {
-            InitializeComponent();
+            Initialized += AutomationPage_Initialized;
 
-            Loaded += AutomationPage_Loaded;
+            InitializeComponent();
         }
 
-        private async void AutomationPage_Loaded(object sender, RoutedEventArgs e) => await RefreshAsync();
-
-        private void EnableAutomation_Click(object sender, RoutedEventArgs e)
+        private async void AutomationPage_Initialized(object? sender, EventArgs e)
         {
-            var isChecked = _enableAutomation.IsChecked;
+            await RefreshAsync();
+        }
+
+        private void EnableAutomationToggle_Click(object sender, RoutedEventArgs e)
+        {
+            var isChecked = _enableAutomationToggle.IsChecked;
             if (isChecked.HasValue)
                 _automationProcessor.IsEnabled = isChecked.Value;
         }
@@ -82,9 +85,16 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private async Task RefreshAsync()
         {
+            _scrollViewer.ScrollToTop();
+            _newPipelineButton.IsEnabled = false;
+            _enableAutomationToggle.Visibility = Visibility.Hidden;
+            _loader.IsLoading = true;
+
+            var loadingTask = Task.Delay(500);
+
             var pipelines = await _automationProcessor.GetPipelinesAsync();
 
-            _enableAutomation.IsChecked = _automationProcessor.IsEnabled;
+            _enableAutomationToggle.IsChecked = _automationProcessor.IsEnabled;
 
             _pipelinesStackPanel.Children.Clear();
 
@@ -96,7 +106,13 @@ namespace LenovoLegionToolkit.WPF.Pages
 
             RefreshNewPipelineButton();
 
+            await loadingTask;
+
             _saveRevertStackPanel.Visibility = Visibility.Collapsed;
+
+            _newPipelineButton.IsEnabled = true;
+            _enableAutomationToggle.Visibility = Visibility.Visible;
+            _loader.IsLoading = false;
         }
 
         private UIElement GenerateControl(AutomationPipeline pipeline)
@@ -127,11 +143,6 @@ namespace LenovoLegionToolkit.WPF.Pages
 
             var index = _pipelinesStackPanel.Children.IndexOf(control);
             var maxIndex = _pipelinesStackPanel.Children.Count - 1;
-
-            if (control.AutomationPipeline.Triggers.Count < 0)
-            {
-
-            }
 
             var moveUpMenuItem = new MenuItem { Icon = SymbolRegular.ArrowUp24, Header = "Move flow up" };
             if (index > 0)

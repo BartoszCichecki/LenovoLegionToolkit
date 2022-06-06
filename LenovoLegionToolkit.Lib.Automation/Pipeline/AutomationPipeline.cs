@@ -24,7 +24,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
 
         internal async Task RunAsync(bool force = false, CancellationToken token = default)
         {
-            if (!force && Triggers.IsEmpty() && !Triggers.All(t => t.IsSatisfied()))
+            if (!force && !AreTriggersSatisfied())
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Triggers not satisfied.");
@@ -55,6 +55,13 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Step completed successfully. [type={step.GetType().Name}]");
             }
+        }
+
+        private bool AreTriggersSatisfied()
+        {
+            if (Triggers.IsEmpty())
+                return false;
+            return Triggers.All(t => t.IsSatisfied());
         }
 
         internal AutomationPipeline DeepCopy() => new()

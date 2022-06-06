@@ -11,8 +11,10 @@ namespace LenovoLegionToolkit.WPF.Controls
         private readonly ProgressRing _progressRing = new()
         {
             IsIndeterminate = true,
-            Width = 24,
-            Height = 24,
+            VerticalContentAlignment = VerticalAlignment.Top,
+            HorizontalAlignment = HorizontalAlignment.Center,
+            Width = 32,
+            Height = 32,
         };
 
         private bool _isLoading = true;
