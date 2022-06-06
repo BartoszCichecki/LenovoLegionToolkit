@@ -33,6 +33,8 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private async Task RefreshAsync()
         {
+            _loader.IsLoading = true;
+
             var loadingTask = Task.Delay(500);
 
             var settings = await _cpuBoostController.GetSettingsAsync();
@@ -43,8 +45,7 @@ namespace LenovoLegionToolkit.WPF.Windows
 
             await loadingTask;
 
-            _loader.Visibility = Visibility.Collapsed;
-            _content.Visibility = Visibility.Visible;
+            _loader.IsLoading = false;
         }
     }
 }

@@ -40,6 +40,8 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private async Task RefreshAsync()
         {
+            _loader.IsLoading = true;
+
             var loadingTask = Task.Delay(500);
 
             var powerPlans = (await Power.GetPowerPlansAsync()).OrderBy(x => x.Name);
@@ -51,8 +53,7 @@ namespace LenovoLegionToolkit.WPF.Windows
 
             await loadingTask;
 
-            _loader.Visibility = Visibility.Collapsed;
-            _content.Visibility = Visibility.Visible;
+            _loader.IsLoading = false;
         }
 
         private void Refresh(ComboBox comboBox, IEnumerable<PowerPlan> powerPlans, PowerModeState powerModeState)

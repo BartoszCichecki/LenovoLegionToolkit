@@ -2,6 +2,7 @@
     x:Class="LenovoLegionToolkit.WPF.Windows.CPUBoostModesWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -46,20 +47,14 @@
 
         </Grid>
 
-        <wpfui:ProgressRing
+        <controls:LoadableControl
             x:Name="_loader"
             Grid.Row="1"
-            Width="64"
-            Height="64"
-            IsIndeterminate="True" />
-
-        <ScrollViewer
-            x:Name="_content"
-            Grid.Row="1"
-            Margin="12,0,0,0"
-            Visibility="Collapsed">
-            <StackPanel x:Name="_stackPanel" />
-        </ScrollViewer>
+            Margin="12,0,0,0">
+            <ScrollViewer>
+                <StackPanel x:Name="_stackPanel" />
+            </ScrollViewer>
+        </controls:LoadableControl>
 
         <wpfui:Hyperlink
             Grid.Row="2"

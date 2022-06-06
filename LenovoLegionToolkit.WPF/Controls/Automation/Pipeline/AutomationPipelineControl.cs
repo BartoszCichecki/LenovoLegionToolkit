@@ -229,7 +229,11 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             {
                 var control = GenerateControl(step);
                 var menuItem = new MenuItem { Icon = control.Icon, Header = control.Title };
-                menuItem.Click += (s, e) => AddStep(control);
+                menuItem.Click += (s, e) =>
+                {
+                    var control = GenerateControl(step);
+                    AddStep(control);
+                };
                 yield return menuItem;
             }
         }
