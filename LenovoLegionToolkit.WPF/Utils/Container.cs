@@ -31,6 +31,7 @@ namespace LenovoLegionToolkit.WPF.Utils
             cb.Register<PowerAdapterListener>();
             cb.Register<DisplayConfigurationListener>();
             cb.Register<SpecialKeyListener>();
+            cb.Register<PowerPlanListener>();
 
             // Controllers
             cb.Register<GPUController>();
