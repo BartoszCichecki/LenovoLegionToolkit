@@ -8,6 +8,13 @@ namespace LenovoLegionToolkit.Lib.Utils
 {
     public static class Power
     {
+        private static readonly Dictionary<PowerModeState, string> defaultPowerModes = new()
+        {
+            { PowerModeState.Quiet , "16edbccd-dee9-4ec4-ace5-2f0b5f2a8975"},
+            { PowerModeState.Balance , "85d583c5-cf2e-4197-80fd-3789a227a72c"},
+            { PowerModeState.Performance , "52521609-efc9-4268-b9ba-67dea73f18b2"},
+        };
+
         public static bool IsPowerAdapterConnected()
         {
             Native.GetSystemPowerStatus(out SystemPowerStatus sps);
@@ -80,10 +87,32 @@ namespace LenovoLegionToolkit.Lib.Utils
                 Log.Instance.Trace($"Power plan {powerPlan.Guid} activated");
         }
 
+        public static PowerModeState[] GetMatchingPowerModes(string powerPlanId)
+        {
+            var powerModes = new Dictionary<PowerModeState, string>(defaultPowerModes);
+
+            foreach (var kv in Settings.Instance.PowerPlans)
+            {
+                if (string.IsNullOrWhiteSpace(kv.Value))
+                    continue;
+
+                var value = kv.Value;
+                value = value[(value.IndexOf('{') + 1)..];
+                value = value[..value.IndexOf('}')];
+
+
+                powerModes[kv.Key] = value;
+            }
+
+            return powerModes.Where(kv => kv.Value == powerPlanId)
+                .Select(kv => kv.Key)
+                .ToArray();
+        }
+
         private static async Task<bool> ShouldActivateAsync(bool alwaysActivateDefaults, bool isDefault)
         {
-            var overide = Settings.Instance.ActivatePowerProfilesWithVantageEnabled;
-            if (overide)
+            var activateWhenVantageEnabled = Settings.Instance.ActivatePowerProfilesWithVantageEnabled;
+            if (activateWhenVantageEnabled)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Activate power profiles with Vantage is enabled");
@@ -109,7 +138,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             }
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Criteria for activation not met [overide={overide}, isDefault={isDefault}, alwaysActivateDefaults={alwaysActivateDefaults}, status={status}]");
+                Log.Instance.Trace($"Criteria for activation not met [activateWhenVantageEnabled={activateWhenVantageEnabled}, isDefault={isDefault}, alwaysActivateDefaults={alwaysActivateDefaults}, status={status}]");
 
             return false;
         }
@@ -122,20 +151,12 @@ namespace LenovoLegionToolkit.Lib.Utils
             return new(instanceId, name, isActive);
         }
 
-        private static string GetDefaultPowerPlanId(PowerModeState state) => state switch
+        private static string GetDefaultPowerPlanId(PowerModeState state)
         {
-            PowerModeState.Quiet => "16edbccd-dee9-4ec4-ace5-2f0b5f2a8975",
-            PowerModeState.Balance => "85d583c5-cf2e-4197-80fd-3789a227a72c",
-            PowerModeState.Performance => "52521609-efc9-4268-b9ba-67dea73f18b2",
-            _ => throw new InvalidOperationException("Unknown state"),
-        };
+            if (defaultPowerModes.TryGetValue(state, out var powerPlanId))
+                return powerPlanId;
 
-        private static PowerModeState GetDefaultPowerMode(string powerPlanId) => powerPlanId switch
-        {
-            "16edbccd-dee9-4ec4-ace5-2f0b5f2a8975" => PowerModeState.Quiet,
-            "85d583c5-cf2e-4197-80fd-3789a227a72c" => PowerModeState.Balance,
-            "52521609-efc9-4268-b9ba-67dea73f18b2" => PowerModeState.Performance,
-            _ => throw new InvalidOperationException("Unknown state"),
-        };
+            throw new InvalidOperationException("Unknown state");
+        }
     }
 }
