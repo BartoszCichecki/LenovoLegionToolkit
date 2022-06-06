@@ -1,5 +1,7 @@
 @echo off
 
+rmdir /s /q .vs
+
 rmdir /s /q build
 rmdir /s /q build_installer
 
