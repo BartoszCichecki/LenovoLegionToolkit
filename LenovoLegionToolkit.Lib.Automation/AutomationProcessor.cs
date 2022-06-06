@@ -10,6 +10,8 @@ using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
 using NeoSmart.AsyncLock;
 
+#pragma warning disable CA1822 // Mark members as static
+
 namespace LenovoLegionToolkit.Lib.Automation
 {
     public class AutomationProcessor
@@ -30,7 +32,6 @@ namespace LenovoLegionToolkit.Lib.Automation
         private List<AutomationPipeline> _pipelines = new();
         private CancellationTokenSource? _cts;
 
-#pragma warning disable CA1822 // Mark members as static
         public bool IsEnabled
         {
             get => AutomationSettings.Instance.IsEnabled;
@@ -40,17 +41,19 @@ namespace LenovoLegionToolkit.Lib.Automation
                 AutomationSettings.Instance.Synchronize();
             }
         }
-#pragma warning restore CA1822 // Mark members as static
 
         public event EventHandler<PipelinesChangedEventArgs>? PipelinesChanged;
 
         public AutomationProcessor(PowerStateListener powerStateListener)
         {
             _powerStateListener = powerStateListener;
-            _powerStateListener.Changed += PowerAdapterListener_Changed;
+            _powerStateListener.Changed += PowerStateListener_Changed;
         }
 
-        private async void PowerAdapterListener_Changed(object? sender, EventArgs e) => await RunAsync();
+        private async void PowerStateListener_Changed(object? sender, EventArgs e)
+        {
+            await RunAsync();
+        }
 
         public async Task InitializeAsync()
         {
@@ -155,17 +158,17 @@ namespace LenovoLegionToolkit.Lib.Automation
                     try
                     {
                         if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Running pipeline... [triggers={string.Join(",", pipeline.Triggers)}, steps.Count={pipeline.Steps.Count}]");
+                            Log.Instance.Trace($"Running pipeline... [name={pipeline.Name}, triggers={string.Join(",", pipeline.Triggers)}, steps.Count={pipeline.Steps.Count}]");
 
                         await pipeline.RunAsync(token: ct).ConfigureAwait(false);
 
                         if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Pipeline completed successfully. [triggers={string.Join(",", pipeline.Triggers)}]");
+                            Log.Instance.Trace($"Pipeline completed successfully. [name={pipeline.Name}, triggers={string.Join(",", pipeline.Triggers)}]");
                     }
                     catch (Exception ex)
                     {
                         if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Pipeline run failed: {ex.Demystify()} [triggers={string.Join(",", pipeline.Triggers)}]");
+                            Log.Instance.Trace($"Pipeline run failed: {ex.Demystify()} [name={pipeline.Name}, triggers={string.Join(",", pipeline.Triggers)}]");
                     }
                 }
 

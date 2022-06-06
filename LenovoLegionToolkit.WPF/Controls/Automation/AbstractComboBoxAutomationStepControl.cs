@@ -36,7 +36,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation
 
             _state = selectedState;
 
-            RaiseOnChanged();
+            RaiseChanged();
         }
 
         public override IAutomationStep CreateAutomationStep()

@@ -4,6 +4,8 @@ using System.Windows.Media;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Utils;
 
+#pragma warning disable IDE0052 // Remove unread private members
+
 namespace LenovoLegionToolkit.WPF.Utils
 {
     public class ThemeManager
@@ -12,9 +14,7 @@ namespace LenovoLegionToolkit.WPF.Utils
         private const string RegistryPath = @"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize";
         private const string RegistryKey = "AppsUseLightTheme";
 
-#pragma warning disable IDE0052 // Remove unread private members
         private readonly IDisposable _themeListener;
-#pragma warning restore IDE0052 // Remove unread private members
 
         public static bool IsDarkMode
         {
