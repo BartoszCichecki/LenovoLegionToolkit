@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.Eventing.Reader;
+using System.Threading.Tasks;
 
 namespace LenovoLegionToolkit.Lib.Listeners
 {
@@ -18,11 +19,11 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         public event EventHandler<EventArgs>? Changed;
 
-        protected abstract void OnChanged();
+        protected abstract Task OnChangedAsync();
 
-        private void Watcher_EventRecordWritten(object? sender, EventRecordWrittenEventArgs e)
+        private async void Watcher_EventRecordWritten(object? sender, EventRecordWrittenEventArgs e)
         {
-            OnChanged();
+            await OnChangedAsync().ConfigureAwait(false);
             Changed?.Invoke(this, EventArgs.Empty);
         }
     }

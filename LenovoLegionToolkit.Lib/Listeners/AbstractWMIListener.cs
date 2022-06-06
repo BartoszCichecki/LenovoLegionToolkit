@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Management;
+using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners
@@ -42,9 +43,9 @@ namespace LenovoLegionToolkit.Lib.Listeners
             }
         }
 
-        protected abstract void OnChanged(T value);
+        protected abstract Task OnChangedAsync(T value);
 
-        private void Handler(PropertyDataCollection properties)
+        private async void Handler(PropertyDataCollection properties)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Event received. [listener={GetType().Name}]");
@@ -56,7 +57,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Value {value} [listener={GetType().Name}]");
 
-            OnChanged(value);
+            await OnChangedAsync(value).ConfigureAwait(false);
             Changed?.Invoke(this, value);
         }
     }
