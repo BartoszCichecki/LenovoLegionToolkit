@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Diagnostics.Eventing.Reader;
+using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners
 {
@@ -13,16 +15,31 @@ namespace LenovoLegionToolkit.Lib.Listeners
             var eventLogQuery = new EventLogQuery(path, PathType.LogName, query);
             _watcher = new EventLogWatcher(eventLogQuery);
             _watcher.EventRecordWritten += Watcher_EventRecordWritten;
-            _watcher.Enabled = true;
         }
 
         public event EventHandler<EventArgs>? Changed;
 
-        protected abstract void OnChanged();
-
-        private void Watcher_EventRecordWritten(object? sender, EventRecordWrittenEventArgs e)
+        public void Start()
         {
-            OnChanged();
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Starting... [listener={GetType().Name}]");
+
+            _watcher.Enabled = true;
+        }
+
+        public void Stop()
+        {
+            _watcher.Enabled = false;
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Stopped [listener={GetType().Name}]");
+        }
+
+        protected abstract Task OnChangedAsync();
+
+        private async void Watcher_EventRecordWritten(object? sender, EventRecordWrittenEventArgs e)
+        {
+            await OnChangedAsync().ConfigureAwait(false);
             Changed?.Invoke(this, EventArgs.Empty);
         }
     }
