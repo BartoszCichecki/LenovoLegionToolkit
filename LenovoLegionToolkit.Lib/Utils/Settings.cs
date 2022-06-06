@@ -61,6 +61,7 @@ namespace LenovoLegionToolkit.Lib
             {
                 Formatting = Formatting.Indented,
                 TypeNameHandling = TypeNameHandling.Auto,
+                ObjectCreationHandling = ObjectCreationHandling.Replace,
                 Converters =
                 {
                     new StringEnumConverter(),

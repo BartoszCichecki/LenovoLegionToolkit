@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
+using LenovoLegionToolkit.Lib.Automation.Steps;
 using LenovoLegionToolkit.Lib.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -13,19 +14,28 @@ namespace LenovoLegionToolkit.Lib.Automation.Utils
         {
             public bool IsEnabled { get; set; } = false;
 
-            public List<AutomationPipeline> Pipelines { get; set; } = new();
+            public List<AutomationPipeline> Pipelines { get; set; } = new()
+            {
+                new AutomationPipeline
+                {
+                    Triggers = { AutomationPipelineTrigger.ACAdapterConnected },
+                    Steps = { new PowerModeAutomationStep(PowerModeState.Balance) },
+                },
+                new AutomationPipeline
+                {
+                    Triggers = { AutomationPipelineTrigger.ACAdapterDisconnected },
+                    Steps = { new PowerModeAutomationStep(PowerModeState.Quiet) },
+                },
+                new AutomationPipeline
+                {
+                    Name = "Deactivate GPU",
+                    Steps = { new DeactivateGPUAutomationStep() },
+                },
+            };
         }
 
         private static AutomationSettings? _instance;
-        public static AutomationSettings Instance
-        {
-            get
-            {
-                if (_instance is null)
-                    _instance = new();
-                return _instance;
-            }
-        }
+        public static AutomationSettings Instance => _instance ??= new();
 
         private readonly AutomationSettingsStore _settingsStore;
 
@@ -50,6 +60,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Utils
             {
                 Formatting = Formatting.Indented,
                 TypeNameHandling = TypeNameHandling.Auto,
+                ObjectCreationHandling = ObjectCreationHandling.Replace,
                 Converters =
                 {
                     new StringEnumConverter(),
