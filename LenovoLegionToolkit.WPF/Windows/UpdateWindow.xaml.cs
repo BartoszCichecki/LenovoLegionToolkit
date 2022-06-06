@@ -5,6 +5,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Utils;
 
 namespace LenovoLegionToolkit.WPF.Windows
@@ -51,7 +52,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             var stringBuilder = new StringBuilder();
             foreach (var update in updates)
             {
-                stringBuilder.AppendLine("**" + update.Title + "**")
+                stringBuilder.AppendLine("**" + update.Title + "**   _(" + update.Date.ToString("D") + ")_")
                     .AppendLine()
                     .AppendLine(update.Description)
                     .AppendLine();
@@ -63,6 +64,12 @@ namespace LenovoLegionToolkit.WPF.Windows
         }
 
         private void UpdateWindow_Closing(object? sender, System.ComponentModel.CancelEventArgs e) => _downloadCancellationTokenSource?.Cancel();
+
+        private void DonateCardAction_Click(object sender, RoutedEventArgs e)
+        {
+            Constants.PayPalUri.Open();
+            e.Handled = true;
+        }
 
         private async void DownloadButton_Click(object sender, RoutedEventArgs e)
         {
@@ -88,7 +95,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             {
                 SetDownloading(false);
 
-                Process.Start(new ProcessStartInfo("https://github.com/BartoszCichecki/LenovoLegionToolkit/releases/latest") { UseShellExecute = true });
+                Constants.LatestReleaseUri.Open();
                 Close();
             }
         }
