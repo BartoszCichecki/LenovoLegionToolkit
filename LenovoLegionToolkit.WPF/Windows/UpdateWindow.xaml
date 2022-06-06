@@ -9,7 +9,7 @@
     xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
     Title="Update available"
     Width="800"
-    Height="400"
+    Height="500"
     Style="{StaticResource UiWindow}">
     <Grid>
         <Grid.RowDefinitions>
@@ -44,9 +44,10 @@
 
         </Grid>
 
-        <Grid Grid.Row="1" Margin="12,12,0,12">
+        <Grid Grid.Row="1" Margin="16,12,16,12">
             <Grid>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
@@ -56,16 +57,33 @@
 
                 <TextBlock
                     Grid.Row="0"
-                    Margin="0,16,0,24"
+                    Margin="0,0,0,24"
                     FontSize="24"
                     FontWeight="Medium"
                     Text="What's new?" />
 
-                <markdig:MarkdownViewer x:Name="_markdownViewer" Grid.Row="1" />
+                <wpfui:CardAction
+                    Grid.Row="1"
+                    Margin="0,0,0,16"
+                    Click="DonateCardAction_Click"
+                    Icon="Info24">
+                    <StackPanel>
+                        <TextBlock
+                            Margin="0,0,0,4"
+                            FontWeight="Medium"
+                            Text="If you enjoy using the Lenovo Legion Toolkit, please consider donating" />
+                        <TextBlock
+                            FontSize="11"
+                            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                            Text="You can find the donate option also on the About page." />
+                    </StackPanel>
+                </wpfui:CardAction>
+
+                <markdig:MarkdownViewer x:Name="_markdownViewer" Grid.Row="2" />
 
                 <ProgressBar
                     x:Name="_downloadProgressBar"
-                    Grid.Row="2"
+                    Grid.Row="3"
                     Margin="0,16,0,16"
                     IsIndeterminate="True"
                     Maximum="1"
@@ -74,7 +92,7 @@
 
                 <Button
                     x:Name="_downloadButton"
-                    Grid.Row="3"
+                    Grid.Row="4"
                     Width="150"
                     Height="32"
                     Margin="0,0,0,16"
@@ -84,7 +102,7 @@
 
                 <Button
                     x:Name="_cancelDownloadButton"
-                    Grid.Row="4"
+                    Grid.Row="5"
                     Width="150"
                     Height="32"
                     Margin="0,0,0,16"
@@ -93,9 +111,6 @@
                     IsEnabled="False"
                     Visibility="Collapsed" />
             </Grid>
-
-
-            <StackPanel Orientation="Vertical" />
         </Grid>
     </Grid>
 </local:BaseWindow>
