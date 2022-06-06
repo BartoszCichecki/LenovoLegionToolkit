@@ -38,12 +38,12 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
             _scriptPath.TextChanged += (s, e) =>
             {
                 if (_scriptPath.Text != AutomationStep.ScriptPath)
-                    RaiseOnChanged();
+                    RaiseChanged();
             };
             _scriptArguments.TextChanged += (s, e) =>
             {
                 if (_scriptArguments.Text != AutomationStep.ScriptPath)
-                    RaiseOnChanged();
+                    RaiseChanged();
             };
 
             _stackPanel.Children.Add(_scriptPath);

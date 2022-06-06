@@ -192,11 +192,11 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 ShowContextMenu(control);
                 e.Handled = true;
             };
-            control.OnChanged += (s, e) =>
+            control.Changed += (s, e) =>
             {
                 OnChanged?.Invoke(this, EventArgs.Empty);
             };
-            control.OnDelete += (s, e) =>
+            control.Delete += (s, e) =>
             {
                 if (s is AbstractAutomationStepControl step)
                     DeleteStep(step);

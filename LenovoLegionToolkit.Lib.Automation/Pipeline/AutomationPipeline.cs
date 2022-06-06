@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Automation.Steps;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline
@@ -23,7 +24,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
 
         internal async Task RunAsync(bool force = false, CancellationToken token = default)
         {
-            if (!force && !Triggers.All(t => t.IsSatisfied()))
+            if (!force && Triggers.IsEmpty() && !Triggers.All(t => t.IsSatisfied()))
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Triggers not satisfied.");

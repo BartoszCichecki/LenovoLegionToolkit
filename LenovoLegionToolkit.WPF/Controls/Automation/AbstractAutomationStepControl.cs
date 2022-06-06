@@ -57,8 +57,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation
             set => _cardControl.Subtitle = value;
         }
 
-        public event EventHandler? OnChanged;
-        public event EventHandler? OnDelete;
+        public event EventHandler? Changed;
+        public event EventHandler? Delete;
 
         protected AbstractAutomationStepControl(IAutomationStep automationStep)
         {
@@ -72,7 +72,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation
 
         private void InitializeComponent()
         {
-            _deleteButton.Click += (s, e) => OnDelete?.Invoke(this, EventArgs.Empty);
+            _deleteButton.Click += (s, e) => Delete?.Invoke(this, EventArgs.Empty);
 
             var control = GetCustomControl();
             if (control is not null)
@@ -107,6 +107,6 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation
 
         protected abstract Task RefreshAsync();
 
-        protected void RaiseOnChanged() => OnChanged?.Invoke(this, EventArgs.Empty);
+        protected void RaiseChanged() => Changed?.Invoke(this, EventArgs.Empty);
     }
 }

@@ -4,6 +4,8 @@ using System.Management;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Utils;
 
+#pragma warning disable IDE0052 // Remove unread private members
+
 namespace LenovoLegionToolkit.Lib.Listeners
 {
     public abstract class AbstractWMIListener<T> : IListener<T> where T : struct, Enum, IComparable
@@ -12,9 +14,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
         private readonly string _property;
         private readonly int _offset;
 
-#pragma warning disable IDE0052 // Remove unread private members
         private IDisposable? _disposable;
-#pragma warning restore IDE0052 // Remove unread private members
 
         public event EventHandler<T>? Changed;
 

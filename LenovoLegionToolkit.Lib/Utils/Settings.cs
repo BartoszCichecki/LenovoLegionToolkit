@@ -18,15 +18,7 @@ namespace LenovoLegionToolkit.Lib
         }
 
         private static Settings? _instance;
-        public static Settings Instance
-        {
-            get
-            {
-                if (_instance is null)
-                    _instance = new();
-                return _instance;
-            }
-        }
+        public static Settings Instance => _instance ??= new();
 
         private readonly SettingsStore _settingsStore;
 
