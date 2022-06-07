@@ -68,17 +68,19 @@ namespace LenovoLegionToolkit.WPF.Utils
         public static Task<string> ShowInputAsync(
             DependencyObject dependencyObject,
             string title,
+            string? placeholder = null,
             string? text = null,
             string primaryButton = "OK",
             string secondaryButton = "Cancel"
         )
         {
-            return ShowInputAsync(Window.GetWindow(dependencyObject), title, text, primaryButton, secondaryButton);
+            return ShowInputAsync(Window.GetWindow(dependencyObject), title, placeholder, text, primaryButton, secondaryButton);
         }
 
         public static Task<string> ShowInputAsync(
             Window window,
             string title,
+            string? placeholder = null,
             string? text = null,
             string primaryButton = "OK",
             string secondaryButton = "Cancel"
@@ -90,6 +92,7 @@ namespace LenovoLegionToolkit.WPF.Utils
             {
                 MaxLines = 1,
                 MaxLength = 50,
+                Placeholder = placeholder,
                 Text = text,
                 TextWrapping = TextWrapping.Wrap,
                 SelectionStart = text?.Length ?? 0,

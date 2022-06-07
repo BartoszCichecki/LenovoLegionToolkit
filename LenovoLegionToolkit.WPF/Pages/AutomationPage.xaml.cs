@@ -144,14 +144,14 @@ namespace LenovoLegionToolkit.WPF.Pages
             var index = _pipelinesStackPanel.Children.IndexOf(control);
             var maxIndex = _pipelinesStackPanel.Children.Count - 1;
 
-            var moveUpMenuItem = new MenuItem { Icon = SymbolRegular.ArrowUp24, Header = "Move flow up" };
+            var moveUpMenuItem = new MenuItem { Icon = SymbolRegular.ArrowUp24, Header = "Move up" };
             if (index > 0)
                 moveUpMenuItem.Click += (s, e) => MovePipeline(control, index - 1);
             else
                 moveUpMenuItem.IsEnabled = false;
             menuItems.Add(moveUpMenuItem);
 
-            var moveDownMenuItem = new MenuItem { Icon = SymbolRegular.ArrowDown24, Header = "Move flow down" };
+            var moveDownMenuItem = new MenuItem { Icon = SymbolRegular.ArrowDown24, Header = "Move down" };
             if (index < maxIndex)
                 moveDownMenuItem.Click += (s, e) => MovePipeline(control, index + 1);
             else
@@ -190,7 +190,7 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private async Task AddPipelineAsync()
         {
-            var newName = await MessageBoxHelper.ShowInputAsync(this, "Flow name");
+            var newName = await MessageBoxHelper.ShowInputAsync(this, "Add new", "Name...");
             if (string.IsNullOrWhiteSpace(newName))
                 return;
 
@@ -205,7 +205,7 @@ namespace LenovoLegionToolkit.WPF.Pages
         private async Task RenamePipelineAsync(AutomationPipelineControl control)
         {
             var name = control.GetName();
-            var newName = await MessageBoxHelper.ShowInputAsync(this, "Flow name", name);
+            var newName = await MessageBoxHelper.ShowInputAsync(this, "Rename", "Name...", name);
             if (string.IsNullOrWhiteSpace(newName))
                 return;
             control.SetName(newName);
@@ -247,13 +247,14 @@ namespace LenovoLegionToolkit.WPF.Pages
                 menuItems.Add(menuItem);
             }
 
-            var customMenuItem = new MenuItem
+            var quickActionMenuItem = new MenuItem
             {
-                Icon = SymbolRegular.DesktopFlow20,
-                Header = "Custom flow",
+                Icon = SymbolRegular.Play24,
+                Header = "Quick action",
             };
-            customMenuItem.Click += async (s, e) => await AddPipelineAsync();
-            menuItems.Add(customMenuItem);
+            ToolTipService.SetToolTip(quickActionMenuItem, "Quick actions appear in right click menu of the tray icon.");
+            quickActionMenuItem.Click += async (s, e) => await AddPipelineAsync();
+            menuItems.Add(quickActionMenuItem);
 
 
             _newPipelineButton.ContextMenu.Items.Clear();
