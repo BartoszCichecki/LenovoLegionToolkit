@@ -4,7 +4,7 @@ using WPFUI.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
 {
-    internal class PowerModeAutomationStepControl : AbstractComboBoxAutomationStepCardControl<PowerModeState>
+    public class PowerModeAutomationStepControl : AbstractComboBoxAutomationStepCardControl<PowerModeState>
     {
         public PowerModeAutomationStepControl(IAutomationStep<PowerModeState> step) : base(step)
         {
