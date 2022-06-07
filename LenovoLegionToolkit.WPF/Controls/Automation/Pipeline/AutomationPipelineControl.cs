@@ -164,16 +164,13 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
         private string GenerateSubtitle()
         {
+            var pipelineType = AutomationPipeline.Triggers.Any() ? "Automatic" : "Quick action";
             var stepsCount = _stepsStackPanel.Children.ToArray()
                 .OfType<AbstractAutomationStepControl>()
                 .Count();
+            var stepsCountModifier = stepsCount != 0 ? "s" : "";
 
-            var text = $"{stepsCount} step";
-
-            if (stepsCount != 1)
-                text += "s";
-
-            return text;
+            return $"{pipelineType} | {stepsCount} step{stepsCountModifier}";
         }
 
         private AbstractAutomationStepControl GenerateControl(IAutomationStep step)
