@@ -12,7 +12,7 @@
     Style="{StaticResource UiPage}"
     mc:Ignorable="d">
 
-    <Grid Margin="0,0,16,0">
+    <Grid Margin="0,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
@@ -35,10 +35,10 @@
                     Text="Actions" />
 
                 <wpfui:CardControl
-                    Title="Enable"
+                    Title="Enable automatic actions"
                     Grid.Row="1"
                     Margin="0,0,0,24"
-                    Subtitle="Lenovo Legion Toolkit must be running for actions to work.&#x0a;If enabled, actions will run on startup and wake up, to&#x0a;handle changed while laptop is off or in sleep mode.">
+                    Subtitle="Lenovo Legion Toolkit must be running for automatic actions to work.&#x0a;If enabled, actions will run on startup and wake up, to handle changes&#x0a; made while laptop was off or in sleep mode.">
                     <wpfui:ToggleSwitch
                         x:Name="_enableAutomationToggle"
                         Margin="0,0,0,8"
@@ -53,7 +53,7 @@
                         x:Name="_newPipelineButton"
                         Width="120"
                         Click="NewPipelineButton_Click"
-                        Content="Add new flow"
+                        Content="Add new"
                         IsEnabledChanged="NewPipelineButton_IsEnabledChanged">
                         <wpfui:Button.ContextMenu>
                             <ContextMenu />

@@ -29,6 +29,18 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
             Icon = SymbolRegular.WindowConsole20;
             Title = "Run";
             Subtitle = "Run a script or a program.\nMake sure that you script runs correctly first.";
+
+            SizeChanged += RunAutomationStepControl_SizeChanged;
+        }
+
+        private void RunAutomationStepControl_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (!e.WidthChanged)
+                return;
+
+            var newWidth = e.NewSize.Width / 3;
+            _scriptPath.Width = newWidth;
+            _scriptArguments.Width = newWidth;
         }
 
         public override IAutomationStep CreateAutomationStep() => new RunAutomationStep(_scriptPath.Text, _scriptArguments.Text);

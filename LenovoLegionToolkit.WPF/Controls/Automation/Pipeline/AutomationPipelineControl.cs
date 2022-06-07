@@ -56,7 +56,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
         private readonly Button _deletePipelineButton = new()
         {
-            Content = "Delete flow",
+            Content = "Delete",
             Appearance = Appearance.Secondary,
             Width = 100,
         };
@@ -132,7 +132,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 var pipeline = CreateAutomationPipeline();
                 await _automationProcessor.RunNowAsync(pipeline);
 
-                await SnackbarHelper.ShowAsync("Success", "Flow ran successfully!");
+                await SnackbarHelper.ShowAsync("Success", "Action ran successfully!");
             }
             catch (Exception ex)
             {
@@ -147,7 +147,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
         private SymbolRegular GenerateIcon()
         {
-            return AutomationPipeline.Triggers.Any() ? SymbolRegular.Flow20 : SymbolRegular.DesktopFlow20;
+            return AutomationPipeline.Triggers.Any() ? SymbolRegular.Flow20 : SymbolRegular.Play24;
         }
 
         private string GenerateHeader()
@@ -159,7 +159,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             if (parts.Any())
                 return "When " + string.Join(", ", parts);
 
-            return AutomationPipeline.Name ?? "Unnamed flow";
+            return AutomationPipeline.Name ?? "Unnamed";
         }
 
         private string GenerateSubtitle()
@@ -248,7 +248,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             var moveUpMenuItem = new MenuItem
             {
                 Icon = SymbolRegular.ArrowUp24,
-                Header = "Move step up"
+                Header = "Move up"
             };
             if (index > 0)
                 moveUpMenuItem.Click += (s, e) => MoveStep(control, index - 1);
@@ -259,7 +259,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             var moveDownMenuItem = new MenuItem
             {
                 Icon = SymbolRegular.ArrowDown24,
-                Header = "Move step down"
+                Header = "Move down"
             };
             if (index < maxIndex)
                 moveDownMenuItem.Click += (s, e) => MoveStep(control, index + 1);
