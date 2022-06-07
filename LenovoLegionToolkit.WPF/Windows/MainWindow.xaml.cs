@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
-using LenovoLegionToolkit.Lib.Automation;
-using LenovoLegionToolkit.Lib.Automation.Pipeline;
-using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Pages;
@@ -22,9 +16,6 @@ namespace LenovoLegionToolkit.WPF.Windows
 {
     public partial class MainWindow
     {
-        private readonly AutomationProcessor _automationProcessor = IoCContainer.Resolve<AutomationProcessor>();
-
-        private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
         private readonly UpdateChecker _updateChecker = IoCContainer.Resolve<UpdateChecker>();
 
         public Snackbar Snackbar => _snackBar;
@@ -68,15 +59,7 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private void InitializeTray()
         {
-            var openMenuItem = new MenuItem { Header = "Open" };
-            openMenuItem.Click += (s, e) => BringToForeground();
-
-            var closeMenuItem = new MenuItem { Header = "Close" };
-            closeMenuItem.Click += (s, e) => Application.Current.Shutdown();
-
-            var contextMenu = new ContextMenu();
-            contextMenu.Items.Add(openMenuItem);
-            contextMenu.Items.Add(closeMenuItem);
+            ContextMenuHelper.Instance.BringToForegroundAction = BringToForeground;
 
             var notifyIcon = new NotifyIcon
             {
@@ -84,56 +67,13 @@ namespace LenovoLegionToolkit.WPF.Windows
                 Icon = ImageSourceExtensions.ApplicationIcon(),
                 FocusOnLeftClick = false,
                 MenuOnRightClick = true,
-                Menu = contextMenu,
+                Menu = ContextMenuHelper.Instance.ContextMenu,
             };
             notifyIcon.LeftClick += NotifyIcon_LeftClick;
 
             _titleBar.Tray = notifyIcon;
 
             _titleBar.Tray.Unregister();
-        }
-
-        private void RefreshAutomationMenuItems(List<AutomationPipeline> pipelines)
-        {
-            var contextMenu = _titleBar.Tray.Menu;
-            if (contextMenu is null)
-                return;
-
-            var currentItems = contextMenu.Items.ToArray()
-                .OfType<Control>()
-                .Where(mi => "dynamic".Equals(mi.Tag));
-            foreach (var item in currentItems)
-                contextMenu.Items.Remove(item);
-
-            var suffix = ThemeManager.IsDarkMode ? "dm" : "lm";
-
-            var items = new List<Control>();
-
-            var actionsItem = new MenuItem
-            {
-                Header = "Actions",
-                Tag = "dynamic",
-                IsEnabled = false,
-            };
-            items.Add(actionsItem);
-
-            var menuPipelines = pipelines.Where(p => p.Triggers.Count < 1);
-            foreach (var menuPipeline in menuPipelines)
-            {
-                var item = new MenuItem
-                {
-                    Header = menuPipeline.Name ?? "Unnamed flow",
-                    Tag = "dynamic",
-                };
-                item.Click += async (s, e) => await _automationProcessor.RunNowAsync(menuPipeline);
-                items.Insert(0, item);
-            }
-
-            if (items.Any())
-                items.Insert(0, new Separator { Tag = "dynamic" });
-
-            foreach (var item in items)
-                contextMenu.Items.Insert(0, item);
         }
 
         private void MainWindow_StateChanged(object? sender, EventArgs e)
@@ -152,18 +92,8 @@ namespace LenovoLegionToolkit.WPF.Windows
             }
         }
 
-        private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            var pipelines = await _automationProcessor.GetPipelinesAsync();
-            RefreshAutomationMenuItems(pipelines);
-
-            _automationProcessor.PipelinesChanged += (s, e) => RefreshAutomationMenuItems(e.Pipelines);
-            _themeManager.ThemeApplied += async (s, e) =>
-            {
-                var pipelines = await _automationProcessor.GetPipelinesAsync();
-                RefreshAutomationMenuItems(pipelines);
-            };
-
             CheckForUpdates();
         }
 
