@@ -11,7 +11,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
         {
             Icon = SymbolRegular.DeveloperBoard24;
             Title = "Deactivate GPU";
-            Subtitle = "Automatically deactivate GPU.\n\nWARNING: This action will not run correctly,\nif internal display is off or Hyrid mode is not active.";
+            Subtitle = "Disable discrete GPU if it is active unnecessarily.\n\nWARNING: This action will not run correctly,\nif internal display is off or Hyrid mode is not active.";
         }
 
         public override IAutomationStep CreateAutomationStep() => new DeactivateGPUAutomationStep();

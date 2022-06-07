@@ -180,11 +180,16 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
         {
             AbstractAutomationStepControl control = step switch
             {
+                AlwaysOnUsbAutomationStep s => new AlwaysOnUsbAutomationStepControl(s),
+                BatteryAutomationStep s => new BatteryAutomationStepControl(s),
                 DeactivateGPUAutomationStep s => new DeactivateGPUAutomationStepControl(s),
+                FlipToStartAutomationStep s => new FlipToStartAutomationStepControl(s),
+                FnLockAutomationStep s => new FnLockAutomationStepControl(s),
                 OverDriveAutomationStep s => new OverDriveAutomationStepControl(s),
                 PowerModeAutomationStep s => new PowerModeAutomationStepControl(s),
                 RefreshRateAutomationStep s => new RefreshRateAutomationStepControl(s),
                 RunAutomationStep s => new RunAutomationStepControl(s),
+                TouchpadLockAutomationStep s => new TouchpadLockAutomationStepControl(s),
                 _ => throw new InvalidOperationException("Unknown step type."),
             };
             control.MouseRightButtonUp += (s, e) =>
@@ -207,11 +212,16 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
         private ContextMenu GenerateAddStepContextMenu()
         {
             var menuItems = GenerateMenuItems(new IAutomationStep[] {
+                new AlwaysOnUsbAutomationStep(default),
+                new BatteryAutomationStep(default),
+                new DeactivateGPUAutomationStep(),
+                new FlipToStartAutomationStep(default),
+                new FnLockAutomationStep(default),
+                new OverDriveAutomationStep(default),
                 new PowerModeAutomationStep(default),
                 new RefreshRateAutomationStep(default),
-                new OverDriveAutomationStep(default),
-                new DeactivateGPUAutomationStep(),
                 new RunAutomationStep(default, default),
+                new TouchpadLockAutomationStep(default),
             });
 
             var contextMenu = new ContextMenu
