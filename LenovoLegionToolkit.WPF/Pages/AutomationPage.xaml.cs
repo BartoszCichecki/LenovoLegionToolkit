@@ -158,7 +158,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 moveDownMenuItem.IsEnabled = false;
             menuItems.Add(moveDownMenuItem);
 
-            if (control.AutomationPipeline.Triggers.Count < 1)
+            if (control.AutomationPipeline.Trigger is null)
             {
                 var renameMenuItem = new MenuItem { Icon = SymbolRegular.Edit24, Header = "Rename" };
                 renameMenuItem.Click += async (s, e) => await RenamePipelineAsync(control);
@@ -229,7 +229,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             var triggers = _pipelinesStackPanel.Children.ToArray()
                 .OfType<AutomationPipelineControl>()
                 .Select(c => c.AutomationPipeline)
-                .SelectMany(p => p.Triggers);
+                .Select(p => p.Trigger);
 
             var menuItems = new List<MenuItem>();
 
