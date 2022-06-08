@@ -18,23 +18,51 @@ namespace LenovoLegionToolkit.WPF.Pages
                 return;
 
             if (e.NewSize.Width < 950)
-            {
-                _column0.Width = new GridLength(1, GridUnitType.Star);
-                _column1.Width = new GridLength(0, GridUnitType.Pixel);
-                _column2.Width = new GridLength(0, GridUnitType.Pixel);
-
-                Grid.SetColumn(_stackPanelRight, 0);
-                Grid.SetRow(_stackPanelRight, 1);
-            }
+                Collapse();
             else
-            {
-                _column0.Width = new GridLength(1, GridUnitType.Star);
-                _column1.Width = new GridLength(16, GridUnitType.Pixel);
-                _column2.Width = new GridLength(1, GridUnitType.Star);
+                Expand();
+        }
 
-                Grid.SetColumn(_stackPanelRight, 2);
-                Grid.SetRow(_stackPanelRight, 0);
-            }
+        private void Expand()
+        {
+            _column1.Width = new(1, GridUnitType.Star);
+            _otherInnerColumn1.Width = new(1, GridUnitType.Star);
+
+            Grid.SetRow(_powerStackPanel, 0);
+            Grid.SetColumn(_powerStackPanel, 0);
+
+            Grid.SetRow(_graphicsStackPanel, 0);
+            Grid.SetColumn(_graphicsStackPanel, 1);
+
+            Grid.SetRow(_otherStackPanel, 1);
+            Grid.SetColumn(_otherStackPanel, 0);
+
+            Grid.SetRow(_otherInnerLeftStackPanel, 0);
+            Grid.SetColumn(_otherInnerLeftStackPanel, 0);
+
+            Grid.SetRow(_otherInnerRightStackPanel, 0);
+            Grid.SetColumn(_otherInnerRightStackPanel, 1);
+        }
+
+        private void Collapse()
+        {
+            _column1.Width = new(0, GridUnitType.Pixel);
+            _otherInnerColumn1.Width = new(0, GridUnitType.Pixel);
+
+            Grid.SetRow(_powerStackPanel, 0);
+            Grid.SetColumn(_powerStackPanel, 0);
+
+            Grid.SetRow(_graphicsStackPanel, 1);
+            Grid.SetColumn(_graphicsStackPanel, 0);
+
+            Grid.SetRow(_otherStackPanel, 2);
+            Grid.SetColumn(_otherStackPanel, 0);
+
+            Grid.SetRow(_otherInnerLeftStackPanel, 0);
+            Grid.SetColumn(_otherInnerLeftStackPanel, 0);
+
+            Grid.SetRow(_otherInnerRightStackPanel, 1);
+            Grid.SetColumn(_otherInnerRightStackPanel, 0);
         }
     }
 }
