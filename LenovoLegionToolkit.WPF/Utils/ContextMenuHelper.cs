@@ -68,7 +68,7 @@ namespace LenovoLegionToolkit.WPF.Utils
 
                 var items = new List<Control>
                 {
-                    new MenuItem { Header = "Actions", Tag = ActionsTag, IsEnabled = false }
+                    new MenuItem { Header = "Quick Actions", Tag = ActionsTag, IsEnabled = false }
                 };
 
                 foreach (var menuPipeline in pipelines.Where(p => p.Triggers.IsEmpty()))

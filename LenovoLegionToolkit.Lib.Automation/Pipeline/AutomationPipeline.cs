@@ -16,21 +16,23 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
 
         public List<IAutomationStep> Steps { get; set; } = new();
 
+        public bool IsExclusive { get; set; }
+
         public AutomationPipeline() { }
 
         public AutomationPipeline(string name) => Name = name;
 
         public AutomationPipeline(AutomationPipelineTrigger trigger) => Triggers.Add(trigger);
 
-        internal async Task RunAsync(bool force = false, CancellationToken token = default)
+        public bool AreTriggersSatisfied()
         {
-            if (!force && !AreTriggersSatisfied())
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Triggers not satisfied.");
-                return;
-            }
+            if (Triggers.IsEmpty())
+                return false;
+            return Triggers.All(t => t.IsSatisfied());
+        }
 
+        internal async Task RunAsync(CancellationToken token = default)
+        {
             if (token.IsCancellationRequested)
             {
                 if (Log.Instance.IsTraceEnabled)
@@ -57,18 +59,12 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
             }
         }
 
-        private bool AreTriggersSatisfied()
-        {
-            if (Triggers.IsEmpty())
-                return false;
-            return Triggers.All(t => t.IsSatisfied());
-        }
-
         internal AutomationPipeline DeepCopy() => new()
         {
             Name = Name,
             Triggers = Triggers.ToList(),
             Steps = Steps.Select(s => s.DeepCopy()).ToList(),
+            IsExclusive = IsExclusive,
         };
     }
 }

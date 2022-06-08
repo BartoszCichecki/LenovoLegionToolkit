@@ -113,7 +113,7 @@ namespace LenovoLegionToolkit.Lib.Automation
 
                 try
                 {
-                    await pipeline.DeepCopy().RunAsync(force: true).ConfigureAwait(false);
+                    await pipeline.DeepCopy().RunAsync().ConfigureAwait(false);
 
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Pipeline run finished successfully.");
@@ -157,6 +157,13 @@ namespace LenovoLegionToolkit.Lib.Automation
 
                     try
                     {
+                        if (!pipeline.AreTriggersSatisfied())
+                        {
+                            if (Log.Instance.IsTraceEnabled)
+                                Log.Instance.Trace($"Pipeline triggers not satisfied. [name={pipeline.Name}, triggers={string.Join(",", pipeline.Triggers)}, steps.Count={pipeline.Steps.Count}]");
+                            continue;
+                        }
+
                         if (Log.Instance.IsTraceEnabled)
                             Log.Instance.Trace($"Running pipeline... [name={pipeline.Name}, triggers={string.Join(",", pipeline.Triggers)}, steps.Count={pipeline.Steps.Count}]");
 
@@ -169,6 +176,13 @@ namespace LenovoLegionToolkit.Lib.Automation
                     {
                         if (Log.Instance.IsTraceEnabled)
                             Log.Instance.Trace($"Pipeline run failed: {ex.Demystify()} [name={pipeline.Name}, triggers={string.Join(",", pipeline.Triggers)}]");
+                    }
+
+                    if (pipeline.IsExclusive)
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Pipeline is exclusive. Breaking. [name={pipeline.Name}, triggers={string.Join(",", pipeline.Triggers)}, steps.Count={pipeline.Steps.Count}]");
+                        break;
                     }
                 }
 
