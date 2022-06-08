@@ -14,7 +14,7 @@
 		<PublishSingleFile>false</PublishSingleFile>
 		<PublishReadyToRun>false</PublishReadyToRun>
 		<PublishUrl>publish\</PublishUrl>
-		<IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+		<IncludeAllContentForSelfExtract>false</IncludeAllContentForSelfExtract>
 		<SatelliteResourceLanguages>en</SatelliteResourceLanguages>
 	</PropertyGroup>
 	<PropertyGroup>
