@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Automation.Steps;
-using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline
@@ -57,7 +56,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
         internal AutomationPipeline DeepCopy() => new()
         {
             Name = Name,
-            Triggers = Triggers.ToList(),
+            Trigger = Trigger,
             Steps = Steps.Select(s => s.DeepCopy()).ToList(),
             IsExclusive = IsExclusive,
         };
