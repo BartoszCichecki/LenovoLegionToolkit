@@ -157,31 +157,31 @@ namespace LenovoLegionToolkit.Lib.Automation
 
                     try
                     {
-                        if (!pipeline.AreTriggersSatisfied())
+                        if (!pipeline.IsTriggerSatisfied())
                         {
                             if (Log.Instance.IsTraceEnabled)
-                                Log.Instance.Trace($"Pipeline triggers not satisfied. [name={pipeline.Name}, triggers={string.Join(",", pipeline.Triggers)}, steps.Count={pipeline.Steps.Count}]");
+                                Log.Instance.Trace($"Pipeline triggers not satisfied. [name={pipeline.Name}, trigger={pipeline.Trigger}, steps.Count={pipeline.Steps.Count}]");
                             continue;
                         }
 
                         if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Running pipeline... [name={pipeline.Name}, triggers={string.Join(",", pipeline.Triggers)}, steps.Count={pipeline.Steps.Count}]");
+                            Log.Instance.Trace($"Running pipeline... [name={pipeline.Name}, trigger={pipeline.Trigger}, steps.Count={pipeline.Steps.Count}]");
 
                         await pipeline.RunAsync(token: ct).ConfigureAwait(false);
 
                         if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Pipeline completed successfully. [name={pipeline.Name}, triggers={string.Join(",", pipeline.Triggers)}]");
+                            Log.Instance.Trace($"Pipeline completed successfully. [name={pipeline.Name}, trigger={pipeline.Trigger}]");
                     }
                     catch (Exception ex)
                     {
                         if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Pipeline run failed: {ex.Demystify()} [name={pipeline.Name}, triggers={string.Join(",", pipeline.Triggers)}]");
+                            Log.Instance.Trace($"Pipeline run failed: {ex.Demystify()} [name={pipeline.Name}, trigger={pipeline.Trigger}]");
                     }
 
                     if (pipeline.IsExclusive)
                     {
                         if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Pipeline is exclusive. Breaking. [name={pipeline.Name}, triggers={string.Join(",", pipeline.Triggers)}, steps.Count={pipeline.Steps.Count}]");
+                            Log.Instance.Trace($"Pipeline is exclusive. Breaking. [name={pipeline.Name}, trigger={pipeline.Trigger}, steps.Count={pipeline.Steps.Count}]");
                         break;
                     }
                 }

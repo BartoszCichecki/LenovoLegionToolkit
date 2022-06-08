@@ -90,7 +90,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
         public AutomationPipeline CreateAutomationPipeline() => new()
         {
             Name = AutomationPipeline.Name,
-            Triggers = AutomationPipeline.Triggers.ToList(),
+            Trigger = AutomationPipeline.Trigger,
             Steps = _stepsStackPanel.Children.ToArray()
                 .OfType<AbstractAutomationStepControl>()
                 .Select(s => s.CreateAutomationStep())
@@ -116,7 +116,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 _stepsStackPanel.Children.Add(control);
             }
 
-            if (AutomationPipeline.Triggers.Any())
+            if (AutomationPipeline.Trigger is not null)
             {
                 _isExclusiveCheckBox.IsChecked = AutomationPipeline.IsExclusive;
                 _isExclusiveCheckBox.Checked += (s, e) => OnChanged?.Invoke(this, EventArgs.Empty);
@@ -178,24 +178,20 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
         private SymbolRegular GenerateIcon()
         {
-            return AutomationPipeline.Triggers.Any() ? SymbolRegular.Flow20 : SymbolRegular.Play24;
+            return AutomationPipeline.Trigger is not null ? SymbolRegular.Flow20 : SymbolRegular.Play24;
         }
 
         private string GenerateHeader()
         {
-            var parts = AutomationPipeline.Triggers
-                .Select(t => t.GetDisplayName())
-                .Where(s => !string.IsNullOrWhiteSpace(s));
-
-            if (parts.Any())
-                return "When " + string.Join(", ", parts);
+            if (AutomationPipeline.Trigger is not null)
+                return $"When {AutomationPipeline.Trigger.GetDisplayName()}";
 
             return AutomationPipeline.Name ?? "Unnamed";
         }
 
         private string GenerateSubtitle()
         {
-            var pipelineType = AutomationPipeline.Triggers.Any() ? "Automatic" : "Quick action";
+            var pipelineType = AutomationPipeline.Trigger is not null ? "Automatic" : "Quick action";
             var stepsCount = _stepsStackPanel.Children.ToArray()
                 .OfType<AbstractAutomationStepControl>()
                 .Count();

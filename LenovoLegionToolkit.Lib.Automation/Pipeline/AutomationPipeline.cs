@@ -12,7 +12,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
     {
         public string? Name { get; set; }
 
-        public List<AutomationPipelineTrigger> Triggers { get; set; } = new();
+        public AutomationPipelineTrigger? Trigger { get; set; }
 
         public List<IAutomationStep> Steps { get; set; } = new();
 
@@ -22,14 +22,9 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
 
         public AutomationPipeline(string name) => Name = name;
 
-        public AutomationPipeline(AutomationPipelineTrigger trigger) => Triggers.Add(trigger);
+        public AutomationPipeline(AutomationPipelineTrigger trigger) => Trigger = trigger;
 
-        public bool AreTriggersSatisfied()
-        {
-            if (Triggers.IsEmpty())
-                return false;
-            return Triggers.All(t => t.IsSatisfied());
-        }
+        public bool IsTriggerSatisfied() => Trigger?.IsSatisfied() ?? false;
 
         internal async Task RunAsync(CancellationToken token = default)
         {
