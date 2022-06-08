@@ -11,7 +11,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
     {
         public string? Name { get; set; }
 
-        public AutomationPipelineTrigger? Trigger { get; set; }
+        public IAutomationPipelineTrigger? Trigger { get; set; }
 
         public List<IAutomationStep> Steps { get; set; } = new();
 
@@ -21,9 +21,9 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
 
         public AutomationPipeline(string name) => Name = name;
 
-        public AutomationPipeline(AutomationPipelineTrigger trigger) => Trigger = trigger;
+        public AutomationPipeline(IAutomationPipelineTrigger trigger) => Trigger = trigger;
 
-        public bool IsTriggerSatisfied() => Trigger?.IsSatisfied() ?? false;
+        public Task<bool> IsTriggerSatisfiedAsync() => Trigger?.IsSatisfiedAsync() ?? Task.FromResult(false);
 
         internal async Task RunAsync(CancellationToken token = default)
         {

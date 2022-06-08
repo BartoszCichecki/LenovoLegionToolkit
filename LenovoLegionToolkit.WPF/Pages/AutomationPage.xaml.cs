@@ -178,7 +178,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             PipelinesChanged();
         }
 
-        private void AddPipeline(AutomationPipelineTrigger trigger)
+        private void AddPipeline(IAutomationPipelineTrigger trigger)
         {
             var pipeline = new AutomationPipeline(trigger);
             var control = GenerateControl(pipeline);
@@ -221,9 +221,9 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private void RefreshNewPipelineButton()
         {
-            var allTriggers = new[] {
-                AutomationPipelineTrigger.ACAdapterConnected,
-                AutomationPipelineTrigger.ACAdapterDisconnected,
+            var allTriggers = new IAutomationPipelineTrigger[] {
+                new ACAdapterConnectedAutomationPipelineTrigger(),
+                new ACAdapterDisconnectedAutomationPipelineTrigger(),
             };
 
             var triggers = _pipelinesStackPanel.Children.ToArray()
@@ -238,7 +238,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 var menuItem = new MenuItem
                 {
                     Icon = SymbolRegular.Flow20,
-                    Header = trigger.GetDisplayName(),
+                    Header = trigger.DisplayName,
                 };
                 if (triggers.Contains(trigger))
                     menuItem.IsEnabled = false;
