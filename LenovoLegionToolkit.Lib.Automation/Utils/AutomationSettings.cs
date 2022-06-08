@@ -18,12 +18,12 @@ namespace LenovoLegionToolkit.Lib.Automation.Utils
             {
                 new AutomationPipeline
                 {
-                    Trigger = AutomationPipelineTrigger.ACAdapterConnected,
+                    Trigger = new ACAdapterConnectedAutomationPipelineTrigger(),
                     Steps = { new PowerModeAutomationStep(PowerModeState.Balance) },
                 },
                 new AutomationPipeline
                 {
-                    Trigger = AutomationPipelineTrigger.ACAdapterDisconnected,
+                    Trigger = new ACAdapterDisconnectedAutomationPipelineTrigger(),
                     Steps = { new PowerModeAutomationStep(PowerModeState.Quiet) },
                 },
                 new AutomationPipeline

@@ -157,7 +157,7 @@ namespace LenovoLegionToolkit.Lib.Automation
 
                     try
                     {
-                        if (!pipeline.IsTriggerSatisfied())
+                        if (!await pipeline.IsTriggerSatisfiedAsync())
                         {
                             if (Log.Instance.IsTraceEnabled)
                                 Log.Instance.Trace($"Pipeline triggers not satisfied. [name={pipeline.Name}, trigger={pipeline.Trigger}, steps.Count={pipeline.Steps.Count}]");

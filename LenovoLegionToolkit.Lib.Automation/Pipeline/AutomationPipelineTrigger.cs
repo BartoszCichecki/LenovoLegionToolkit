@@ -1,26 +1,39 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Utils;
+using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline
 {
-    public enum AutomationPipelineTrigger
+    public interface IAutomationPipelineTrigger
     {
-        [Display(Name = "AC adapter is connected")]
-        ACAdapterConnected,
-        [Display(Name = "AC adapter is disconnected")]
-        ACAdapterDisconnected,
+        [JsonIgnore]
+        string DisplayName { get; }
+
+        Task<bool> IsSatisfiedAsync();
     }
 
-    internal static class AutomationPipelineTriggerExtensions
+    public class ACAdapterConnectedAutomationPipelineTrigger : IAutomationPipelineTrigger
     {
-        public static bool IsSatisfied(this AutomationPipelineTrigger trigger)
-        {
-            return trigger switch
-            {
-                AutomationPipelineTrigger.ACAdapterConnected => Power.IsPowerAdapterConnected(),
-                AutomationPipelineTrigger.ACAdapterDisconnected => !Power.IsPowerAdapterConnected(),
-                _ => false,
-            };
-        }
+        [JsonIgnore]
+        public string DisplayName => "AC adapter is connected";
+
+        public Task<bool> IsSatisfiedAsync() => Task.FromResult(Power.IsPowerAdapterConnected());
+
+        public override bool Equals(object? obj) => obj is ACAdapterConnectedAutomationPipelineTrigger;
+
+        public override int GetHashCode() => HashCode.Combine(DisplayName);
+    }
+
+    public class ACAdapterDisconnectedAutomationPipelineTrigger : IAutomationPipelineTrigger
+    {
+        [JsonIgnore]
+        public string DisplayName => "AC adapter is disconnected";
+
+        public Task<bool> IsSatisfiedAsync() => Task.FromResult(!Power.IsPowerAdapterConnected());
+
+        public override bool Equals(object? obj) => obj is ACAdapterDisconnectedAutomationPipelineTrigger;
+
+        public override int GetHashCode() => HashCode.Combine(DisplayName);
     }
 }
