@@ -17,10 +17,10 @@ namespace LenovoLegionToolkit.WPF.Pages
             if (!e.WidthChanged)
                 return;
 
-            if (e.NewSize.Width < 950)
-                Collapse();
-            else
+            if (e.NewSize.Width > 950)
                 Expand();
+            else
+                Collapse();
         }
 
         private void Expand()
