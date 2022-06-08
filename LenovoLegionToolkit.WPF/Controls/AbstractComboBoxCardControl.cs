@@ -16,7 +16,7 @@ namespace LenovoLegionToolkit.WPF.Controls
         private readonly IFeature<T> _feature = IoCContainer.Resolve<IFeature<T>>();
 
         private readonly CardControl _cardControl = new();
-        private readonly ComboBox _comboBox = new();
+        protected readonly ComboBox _comboBox = new();
 
         public SymbolRegular Icon
         {
