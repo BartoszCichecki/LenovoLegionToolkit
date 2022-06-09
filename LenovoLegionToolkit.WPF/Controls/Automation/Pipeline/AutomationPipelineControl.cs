@@ -104,6 +104,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
         {
             AutomationPipeline.Name = name;
             _cardExpander.Header = GenerateHeader();
+            _cardExpander.Subtitle = GenerateSubtitle();
 
             OnChanged?.Invoke(this, EventArgs.Empty);
         }
@@ -198,9 +199,14 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             var stepsCount = _stepsStackPanel.Children.ToArray()
                 .OfType<AbstractAutomationStepControl>()
                 .Count();
-            var stepsCountModifier = stepsCount != 0 ? "s" : "";
+            var stepsCountModifier = stepsCount != 1 ? "s" : "";
 
-            return $"{pipelineType} | {stepsCount} step{stepsCountModifier}";
+            var result = $"{pipelineType} | {stepsCount} step{stepsCountModifier}";
+
+            if (!string.IsNullOrWhiteSpace(AutomationPipeline.Name) && AutomationPipeline.Trigger is not null)
+                result += $" | When {AutomationPipeline.Trigger.DisplayName}";
+
+            return result;
         }
 
         private AbstractAutomationStepControl GenerateControl(IAutomationStep step)
