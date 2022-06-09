@@ -100,7 +100,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
         public string? GetName() => AutomationPipeline.Name;
 
-        public void SetName(string name)
+        public void SetName(string? name)
         {
             AutomationPipeline.Name = name;
             _cardExpander.Header = GenerateHeader();
@@ -183,10 +183,13 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
         private string GenerateHeader()
         {
+            if (!string.IsNullOrWhiteSpace(AutomationPipeline.Name))
+                return AutomationPipeline.Name;
+
             if (AutomationPipeline.Trigger is not null)
                 return $"When {AutomationPipeline.Trigger.DisplayName}";
 
-            return AutomationPipeline.Name ?? "Unnamed";
+            return "Unnamed";
         }
 
         private string GenerateSubtitle()

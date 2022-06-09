@@ -65,28 +65,30 @@ namespace LenovoLegionToolkit.WPF.Utils
             return tcs.Task;
         }
 
-        public static Task<string> ShowInputAsync(
+        public static Task<string?> ShowInputAsync(
             DependencyObject dependencyObject,
             string title,
             string? placeholder = null,
             string? text = null,
             string primaryButton = "OK",
-            string secondaryButton = "Cancel"
+            string secondaryButton = "Cancel",
+            bool allowEmpty = false
         )
         {
-            return ShowInputAsync(Window.GetWindow(dependencyObject), title, placeholder, text, primaryButton, secondaryButton);
+            return ShowInputAsync(Window.GetWindow(dependencyObject), title, placeholder, text, primaryButton, secondaryButton, allowEmpty);
         }
 
-        public static Task<string> ShowInputAsync(
+        public static Task<string?> ShowInputAsync(
             Window window,
             string title,
             string? placeholder = null,
             string? text = null,
             string primaryButton = "OK",
-            string secondaryButton = "Cancel"
+            string secondaryButton = "Cancel",
+            bool allowEmpty = false
         )
         {
-            var tcs = new TaskCompletionSource<string>();
+            var tcs = new TaskCompletionSource<string?>();
 
             var textBox = new TextBox
             {
@@ -115,13 +117,14 @@ namespace LenovoLegionToolkit.WPF.Utils
 
             textBox.TextChanged += (s, e) =>
             {
-                var isEmpty = string.IsNullOrWhiteSpace(textBox.Text);
+                var isEmpty = !allowEmpty && string.IsNullOrWhiteSpace(textBox.Text);
                 messageBox.ButtonLeftAppearance = isEmpty ? Appearance.Transparent : Appearance.Primary;
             };
             messageBox.ButtonLeftClick += (s, e) =>
             {
-                var text = textBox.Text?.Trim() ?? "";
-                if (string.IsNullOrWhiteSpace(text))
+                var content = textBox.Text?.Trim();
+                var text = string.IsNullOrWhiteSpace(content) ? null : content;
+                if (!allowEmpty && text is null)
                     return;
                 tcs.SetResult(text);
                 messageBox.Close();

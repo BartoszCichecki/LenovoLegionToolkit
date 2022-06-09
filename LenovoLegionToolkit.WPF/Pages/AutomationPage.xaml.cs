@@ -158,12 +158,9 @@ namespace LenovoLegionToolkit.WPF.Pages
                 moveDownMenuItem.IsEnabled = false;
             menuItems.Add(moveDownMenuItem);
 
-            if (control.AutomationPipeline.Trigger is null)
-            {
-                var renameMenuItem = new MenuItem { Icon = SymbolRegular.Edit24, Header = "Rename" };
-                renameMenuItem.Click += async (s, e) => await RenamePipelineAsync(control);
-                menuItems.Add(renameMenuItem);
-            }
+            var renameMenuItem = new MenuItem { Icon = SymbolRegular.Edit24, Header = "Rename" };
+            renameMenuItem.Click += async (s, e) => await RenamePipelineAsync(control);
+            menuItems.Add(renameMenuItem);
 
             control.ContextMenu = new();
             control.ContextMenu.Items.AddRange(menuItems);
@@ -205,9 +202,7 @@ namespace LenovoLegionToolkit.WPF.Pages
         private async Task RenamePipelineAsync(AutomationPipelineControl control)
         {
             var name = control.GetName();
-            var newName = await MessageBoxHelper.ShowInputAsync(this, "Rename", "Name...", name);
-            if (string.IsNullOrWhiteSpace(newName))
-                return;
+            var newName = await MessageBoxHelper.ShowInputAsync(this, "Rename", "Name...", name, allowEmpty: true);
             control.SetName(newName);
         }
 
