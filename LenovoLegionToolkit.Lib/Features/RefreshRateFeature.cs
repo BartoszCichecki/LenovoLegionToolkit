@@ -51,7 +51,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Single display mode found");
 
-                return Array.Empty<RefreshRate>();
+                throw new InvalidOperationException("Single display mode found");
             }
 
             if (Log.Instance.IsTraceEnabled)
