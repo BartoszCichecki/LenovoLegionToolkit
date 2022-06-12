@@ -10,19 +10,25 @@ namespace LenovoLegionToolkit.Lib.Listeners
 {
     public abstract class AbstractWMIListener<T> : IListener<T> where T : struct, Enum, IComparable
     {
-        private readonly string _eventName;
-        private readonly string _property;
-        private readonly int _offset;
+        private readonly string _scope;
+        private readonly FormattableString _query;
 
         private IDisposable? _disposable;
 
         public event EventHandler<T>? Changed;
 
-        public AbstractWMIListener(string eventName, string property, int offset)
+        public AbstractWMIListener(string scope, FormattableString query)
         {
-            _eventName = eventName;
-            _property = property;
-            _offset = offset;
+            _scope = scope;
+            _query = query;
+
+            Start();
+        }
+
+        public AbstractWMIListener(string scope, string eventName)
+        {
+            _scope = scope;
+            _query = $"SELECT * FROM {eventName}";
 
             Start();
         }
@@ -34,7 +40,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Starting... [listener={GetType().Name}]");
 
-                _disposable = WMI.Listen("ROOT\\WMI", $"SELECT * FROM {_eventName}", Handler);
+                _disposable = WMI.Listen(_scope, _query, Handler);
             }
             catch (Exception ex)
             {
@@ -43,6 +49,8 @@ namespace LenovoLegionToolkit.Lib.Listeners
             }
         }
 
+        protected abstract T GetValue(PropertyDataCollection properties);
+
         protected abstract Task OnChangedAsync(T value);
 
         private async void Handler(PropertyDataCollection properties)
@@ -50,9 +58,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Event received. [listener={GetType().Name}]");
 
-            var property = properties[_property];
-            var propertyValue = Convert.ToInt32(property.Value);
-            var value = (T)(object)(propertyValue - _offset);
+            var value = GetValue(properties);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Value {value} [listener={GetType().Name}]");
