@@ -178,12 +178,7 @@ namespace LenovoLegionToolkit.Lib.Automation
                             Log.Instance.Trace($"Pipeline run failed: {ex.Demystify()} [name={pipeline.Name}, trigger={pipeline.Trigger}]");
                     }
 
-                    if (pipeline.IsExclusive)
-                    {
-                        if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Pipeline is exclusive. Breaking. [name={pipeline.Name}, trigger={pipeline.Trigger}, steps.Count={pipeline.Steps.Count}]");
-                        break;
-                    }
+                    break;
                 }
 
                 if (Log.Instance.IsTraceEnabled)
