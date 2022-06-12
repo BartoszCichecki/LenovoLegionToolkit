@@ -11,7 +11,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
         string DisplayName { get; }
 
         Task<bool> IsSatisfiedAsync();
-        
+
         IAutomationPipelineTrigger DeepCopy();
     }
 
