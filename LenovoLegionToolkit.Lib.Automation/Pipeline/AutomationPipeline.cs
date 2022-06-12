@@ -53,10 +53,10 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
             }
         }
 
-        internal AutomationPipeline DeepCopy() => new()
+        public AutomationPipeline DeepCopy() => new()
         {
             Name = Name,
-            Trigger = Trigger,
+            Trigger = Trigger?.DeepCopy(),
             Steps = Steps.Select(s => s.DeepCopy()).ToList(),
             IsExclusive = IsExclusive,
         };

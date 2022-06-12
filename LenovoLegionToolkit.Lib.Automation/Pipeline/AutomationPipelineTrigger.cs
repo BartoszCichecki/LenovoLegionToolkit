@@ -11,6 +11,8 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
         string DisplayName { get; }
 
         Task<bool> IsSatisfiedAsync();
+        
+        IAutomationPipelineTrigger DeepCopy();
     }
 
     public class ACAdapterConnectedAutomationPipelineTrigger : IAutomationPipelineTrigger
@@ -19,6 +21,8 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
         public string DisplayName => "AC adapter is connected";
 
         public Task<bool> IsSatisfiedAsync() => Task.FromResult(Power.IsPowerAdapterConnected());
+
+        public IAutomationPipelineTrigger DeepCopy() => new ACAdapterConnectedAutomationPipelineTrigger();
 
         public override bool Equals(object? obj) => obj is ACAdapterConnectedAutomationPipelineTrigger;
 
@@ -31,6 +35,8 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
         public string DisplayName => "AC adapter is disconnected";
 
         public Task<bool> IsSatisfiedAsync() => Task.FromResult(!Power.IsPowerAdapterConnected());
+
+        public IAutomationPipelineTrigger DeepCopy() => new ACAdapterDisconnectedAutomationPipelineTrigger();
 
         public override bool Equals(object? obj) => obj is ACAdapterDisconnectedAutomationPipelineTrigger;
 
