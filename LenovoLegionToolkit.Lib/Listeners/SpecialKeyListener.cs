@@ -15,9 +15,6 @@ namespace LenovoLegionToolkit.Lib.Listeners
             return value;
         }
 
-        protected override Task OnChangedAsync(SpecialKey value)
-        {
-            return Task.CompletedTask;
-        }
+        protected override Task OnChangedAsync(SpecialKey value) => Task.CompletedTask;
     }
 }

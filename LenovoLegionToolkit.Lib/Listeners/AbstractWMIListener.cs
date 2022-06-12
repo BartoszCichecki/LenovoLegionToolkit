@@ -8,7 +8,7 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners
 {
-    public abstract class AbstractWMIListener<T> : IListener<T> where T : struct, Enum, IComparable
+    public abstract class AbstractWMIListener<T> : IListener<T> where T : struct
     {
         private readonly string _scope;
         private readonly FormattableString _query;
