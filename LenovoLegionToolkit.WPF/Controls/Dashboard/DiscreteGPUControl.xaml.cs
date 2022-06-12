@@ -26,12 +26,19 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             if (!_gpuController.IsSupported())
                 throw new InvalidOperationException("Unsupported operation");
 
+            if (!IsVisible)
+                return;
+
             await _gpuController.StartAsync();
         }
         private async void DiscreteGPUControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (!IsVisible)
-                await _gpuController.StopAsync();
+            if (IsVisible)
+                return;
+
+            _content.Visibility = Visibility.Hidden;
+
+            await _gpuController.StopAsync();
         }
 
         private void GpuController_Refreshed(object? sender, GPUController.RefreshedEventArgs e) => Dispatcher.Invoke(() =>
