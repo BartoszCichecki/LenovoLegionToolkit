@@ -17,9 +17,6 @@ namespace LenovoLegionToolkit.Lib.Listeners
             return value;
         }
 
-        protected override async Task OnChangedAsync(PowerModeState value)
-        {
-            await Power.ActivatePowerPlanAsync(value).ConfigureAwait(false);
-        }
+        protected override Task OnChangedAsync(PowerModeState value) => Power.ActivatePowerPlanAsync(value);
     }
 }

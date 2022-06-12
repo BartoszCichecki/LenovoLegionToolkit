@@ -51,6 +51,12 @@ namespace LenovoLegionToolkit.Lib
         Performance
     }
 
+    public enum ProcessEventInfoType
+    {
+        Started,
+        Stopped,
+    }
+
     public enum SpecialKey
     {
         Unknown = 0,

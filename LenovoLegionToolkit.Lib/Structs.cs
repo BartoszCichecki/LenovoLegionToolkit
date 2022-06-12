@@ -62,6 +62,15 @@ namespace LenovoLegionToolkit.Lib
         public override string ToString() => Name;
     }
 
+    public struct ProcessEventInfo
+    {
+        public ProcessEventInfoType Type { get; init; }
+
+        public string Name { get; init; }
+
+        public string Path { get; init; }
+    }
+
     public struct RefreshRate : IDisplayName, IEquatable<RefreshRate>
     {
         public int Frequency { get; }
