@@ -143,7 +143,13 @@ namespace LenovoLegionToolkit.Lib.Controllers
                     Log.Instance.Trace($"Waiting to finish...");
 
                 if (_refreshTask != null)
-                    await _refreshTask.ConfigureAwait(false);
+                {
+                    try
+                    {
+                        await _refreshTask.ConfigureAwait(false);
+                    }
+                    catch (TaskCanceledException) { }
+                }
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Finished");
