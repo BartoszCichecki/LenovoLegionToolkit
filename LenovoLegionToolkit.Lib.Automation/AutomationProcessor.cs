@@ -57,7 +57,7 @@ namespace LenovoLegionToolkit.Lib.Automation
 
         private async void ProcessListener_Changed(object? sender, ProcessEventInfo e)
         {
-            await RunAsync();
+            await RunAsync(e);
         }
 
         private async void PowerStateListener_Changed(object? sender, EventArgs e)
@@ -138,7 +138,9 @@ namespace LenovoLegionToolkit.Lib.Automation
             }
         }
 
-        private async Task RunAsync()
+        private Task RunAsync() => RunAsync(null);
+
+        private async Task RunAsync(object? context)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Run pending...");
@@ -167,7 +169,7 @@ namespace LenovoLegionToolkit.Lib.Automation
 
                     try
                     {
-                        if (!await pipeline.IsTriggerSatisfiedAsync())
+                        if (pipeline.Trigger is null || !await pipeline.Trigger.IsSatisfiedAsync(context))
                         {
                             if (Log.Instance.IsTraceEnabled)
                                 Log.Instance.Trace($"Pipeline triggers not satisfied. [name={pipeline.Name}, trigger={pipeline.Trigger}, steps.Count={pipeline.Steps.Count}]");

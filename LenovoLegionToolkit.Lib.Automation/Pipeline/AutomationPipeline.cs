@@ -23,8 +23,6 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
 
         public AutomationPipeline(IAutomationPipelineTrigger trigger) => Trigger = trigger;
 
-        public Task<bool> IsTriggerSatisfiedAsync() => Trigger?.IsSatisfiedAsync() ?? Task.FromResult(false);
-
         internal async Task RunAsync(CancellationToken token = default)
         {
             if (token.IsCancellationRequested)
