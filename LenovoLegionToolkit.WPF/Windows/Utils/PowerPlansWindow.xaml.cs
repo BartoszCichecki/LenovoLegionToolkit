@@ -8,7 +8,7 @@ using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Utils;
 
-namespace LenovoLegionToolkit.WPF.Windows
+namespace LenovoLegionToolkit.WPF.Windows.Utils
 {
     public partial class PowerPlansWindow
     {

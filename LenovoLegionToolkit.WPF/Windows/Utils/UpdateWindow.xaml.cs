@@ -8,7 +8,7 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 
-namespace LenovoLegionToolkit.WPF.Windows
+namespace LenovoLegionToolkit.WPF.Windows.Utils
 {
     public partial class UpdateWindow
     {
