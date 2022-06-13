@@ -80,32 +80,29 @@ namespace LenovoLegionToolkit
 
             IoCContainer.Resolve<ThemeManager>().Apply();
 
-            using (await ThemePreloader.PreloadAsync())
+            var mainWindow = new MainWindow
             {
-                var mainWindow = new MainWindow
-                {
-                    WindowStartupLocation = WindowStartupLocation.CenterScreen
-                };
-                MainWindow = mainWindow;
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+            MainWindow = mainWindow;
 
-                if (ShouldStartMinimized(e.Args))
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Sending MainWindow to tray...");
-                    mainWindow.WindowState = WindowState.Minimized;
-                    mainWindow.Show();
-                    mainWindow.SendToTray();
-                }
-                else
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Showing MainWindow...");
-                    mainWindow.Show();
-                }
-
+            if (ShouldStartMinimized(e.Args))
+            {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Start up complete");
+                    Log.Instance.Trace($"Sending MainWindow to tray...");
+                mainWindow.WindowState = WindowState.Minimized;
+                mainWindow.Show();
+                mainWindow.SendToTray();
             }
+            else
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Showing MainWindow...");
+                mainWindow.Show();
+            }
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Start up complete");
         }
 
         private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
