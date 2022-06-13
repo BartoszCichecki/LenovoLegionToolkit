@@ -72,8 +72,6 @@ namespace LenovoLegionToolkit.WPF.Windows
             notifyIcon.LeftClick += NotifyIcon_LeftClick;
 
             _titleBar.Tray = notifyIcon;
-
-            _titleBar.Tray.Unregister();
         }
 
         private void MainWindow_StateChanged(object? sender, EventArgs e)
@@ -181,14 +179,10 @@ namespace LenovoLegionToolkit.WPF.Windows
             Topmost = true;
             Topmost = false;
             Focus();
-
-            _titleBar.Tray.Unregister();
         }
 
         public void SendToTray()
         {
-            _titleBar.Tray.Register();
-
             Hide();
             ShowInTaskbar = false;
         }

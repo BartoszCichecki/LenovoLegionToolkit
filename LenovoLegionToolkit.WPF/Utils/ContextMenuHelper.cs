@@ -82,8 +82,10 @@ namespace LenovoLegionToolkit.WPF.Utils
                     items.Insert(0, item);
                 }
 
-                if (items.Any())
-                    items.Insert(0, new Separator { Tag = ActionsTag });
+                items.Insert(0, new Separator { Tag = ActionsTag });
+
+                if (items.Count < 3)
+                    return;
 
                 foreach (var item in items)
                     ContextMenu.Items.Insert(0, item);

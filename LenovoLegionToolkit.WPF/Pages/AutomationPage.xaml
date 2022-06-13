@@ -24,48 +24,99 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock
-                    Grid.Row="0"
-                    Margin="0,16,0,24"
-                    FontSize="24"
-                    FontWeight="Medium"
-                    Text="Actions" />
+                <StackPanel Grid.Row="0" Margin="0,24,0,24">
 
-                <wpfui:CardControl
-                    Title="Enable automatic actions"
-                    Grid.Row="1"
-                    Margin="0,0,0,24"
-                    Subtitle="Lenovo Legion Toolkit must be running for automatic actions to work.&#x0a;If enabled, actions will run on startup and wake up, to handle changes&#x0a; made while laptop was off or in sleep mode.">
-                    <wpfui:ToggleSwitch
-                        x:Name="_enableAutomationToggle"
-                        Margin="0,0,0,8"
-                        Click="EnableAutomationToggle_Click" />
-                </wpfui:CardControl>
+                    <TextBlock
+                        FontSize="24"
+                        FontWeight="Medium"
+                        Text="Actions" />
 
-                <StackPanel
-                    Grid.Row="2"
-                    Margin="0,8,0,16"
-                    HorizontalAlignment="Right">
-                    <wpfui:Button
-                        x:Name="_newPipelineButton"
-                        Width="120"
-                        Click="NewPipelineButton_Click"
-                        Content="Add new"
-                        IsEnabledChanged="NewPipelineButton_IsEnabledChanged">
-                        <wpfui:Button.ContextMenu>
-                            <ContextMenu />
-                        </wpfui:Button.ContextMenu>
-                    </wpfui:Button>
+                    <TextBlock Margin="0,8,0,0">
+                        You can define actions that will run automatically. Whenever state changes, all actions<LineBreak />
+                        will run from top to bottom. Only actions that match current state will run.</TextBlock>
+
                 </StackPanel>
 
                 <controls:LoadableControl
-                    x:Name="_loader"
+                    x:Name="_loaderAutomatic"
+                    Grid.Row="1"
+                    ContentVisibilityWhileLoading="Collapsed">
+                    <StackPanel>
+
+                        <wpfui:CardControl
+                            Title="Enable"
+                            Margin="0,0,0,24"
+                            Subtitle="Lenovo Legion Toolkit must be running for automatic actions to work">
+                            <wpfui:ToggleSwitch
+                                x:Name="_enableAutomaticPipelinesToggle"
+                                Margin="0,0,0,8"
+                                Click="EnableAutomaticPipelinesToggle_Click" />
+                        </wpfui:CardControl>
+
+                        <TextBlock
+                            x:Name="_noAutomaticActionsText"
+                            Margin="0,16,0,16"
+                            HorizontalAlignment="Center"
+                            FontWeight="Medium"
+                            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                            Text="No Actions defined. Click &quot;Add new&quot; to create new Action." />
+
+                        <StackPanel x:Name="_automaticPipelinesStackPanel" />
+
+                        <StackPanel Margin="0,8,0,0" HorizontalAlignment="Right">
+                            <wpfui:Button
+                                x:Name="_newAutomaticPipelineButton"
+                                Width="120"
+                                Click="NewAutomaticPipelineButton_Click"
+                                Content="Add new">
+                                <wpfui:Button.ContextMenu>
+                                    <ContextMenu />
+                                </wpfui:Button.ContextMenu>
+                            </wpfui:Button>
+                        </StackPanel>
+
+                    </StackPanel>
+                </controls:LoadableControl>
+
+                <StackPanel Grid.Row="2" Margin="0,24,0,24">
+
+                    <TextBlock
+                        FontSize="24"
+                        FontWeight="Medium"
+                        Text="Quick Actions" />
+
+                    <TextBlock Margin="0,8,0,0" Text="You can define actions that will be available in the right click menu of the tray icon." />
+
+                </StackPanel>
+
+                <controls:LoadableControl
+                    x:Name="_loaderManual"
                     Grid.Row="3"
-                    IndicatorVerticalAlignment="Top">
-                    <StackPanel x:Name="_pipelinesStackPanel" />
+                    ContentVisibilityWhileLoading="Collapsed">
+                    <StackPanel>
+
+                        <TextBlock
+                            x:Name="_noManualActionsText"
+                            Margin="0,16,0,16"
+                            HorizontalAlignment="Center"
+                            FontWeight="Medium"
+                            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                            Text="No Quick Actions defined. Click &quot;Add new&quot; to create new Quick Action." />
+
+                        <StackPanel x:Name="_manualPipelinesStackPanel" />
+
+                        <StackPanel Margin="0,8,0,0" HorizontalAlignment="Right">
+                            <wpfui:Button
+                                x:Name="_newManualPipelineButton"
+                                Width="120"
+                                Click="NewManualPipelineButton_Click"
+                                Content="Add new" />
+                        </StackPanel>
+
+                    </StackPanel>
                 </controls:LoadableControl>
 
             </Grid>
