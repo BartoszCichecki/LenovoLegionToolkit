@@ -36,7 +36,7 @@
 
                     <TextBlock Margin="0,8,0,0">
                         You can define actions that will run automatically. Whenever state changes, all actions<LineBreak />
-                        will run from top to bottom. Only actions that match current state will run.</TextBlock>
+                        will be evaluated from top to bottom. Only actions that match current state will run.</TextBlock>
 
                 </StackPanel>
 

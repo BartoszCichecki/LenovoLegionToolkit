@@ -122,8 +122,12 @@ namespace LenovoLegionToolkit.WPF.Pages
 
             _saveRevertStackPanel.Visibility = Visibility.Collapsed;
 
-            _noAutomaticActionsText.Visibility = _automaticPipelinesStackPanel.Children.Count < 1 ? Visibility.Visible : Visibility.Collapsed;
-            _noManualActionsText.Visibility = _manualPipelinesStackPanel.Children.Count < 1 ? Visibility.Visible : Visibility.Collapsed;
+            _noAutomaticActionsText.Visibility = _automaticPipelinesStackPanel.Children.Count < 1
+                ? Visibility.Visible
+                : Visibility.Collapsed;
+            _noManualActionsText.Visibility = _manualPipelinesStackPanel.Children.Count < 1
+                ? Visibility.Visible
+                : Visibility.Collapsed;
 
             await loadingTask;
 
@@ -235,12 +239,9 @@ namespace LenovoLegionToolkit.WPF.Pages
             var allTriggers = new IAutomationPipelineTrigger[] {
                 new ACAdapterConnectedAutomationPipelineTrigger(),
                 new ACAdapterDisconnectedAutomationPipelineTrigger(),
+                //new ProcessesAreRunning(Array.Empty<string>()),
+                //new ProcessesAreNotRunning(Array.Empty<string>()),
             };
-
-            var triggers = _automaticPipelinesStackPanel.Children.ToArray()
-                .OfType<AutomationPipelineControl>()
-                .Select(c => c.AutomationPipeline)
-                .Select(p => p.Trigger);
 
             var menuItems = new List<MenuItem>();
 
@@ -248,13 +249,9 @@ namespace LenovoLegionToolkit.WPF.Pages
             {
                 var menuItem = new MenuItem
                 {
-                    Icon = SymbolRegular.Flow20,
                     Header = trigger.DisplayName,
                 };
-                if (triggers.Contains(trigger))
-                    menuItem.IsEnabled = false;
-                else
-                    menuItem.Click += (s, e) => AddAutomaticPipeline(trigger);
+                menuItem.Click += (s, e) => AddAutomaticPipeline(trigger);
                 menuItems.Add(menuItem);
             }
 

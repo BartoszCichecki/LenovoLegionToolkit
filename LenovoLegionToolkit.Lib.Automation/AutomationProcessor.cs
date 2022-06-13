@@ -27,6 +27,8 @@ namespace LenovoLegionToolkit.Lib.Automation
         }
 
         private readonly PowerStateListener _powerStateListener;
+        private readonly ProcessListener _processListener;
+
         private readonly AsyncLock _lock = new();
 
         private List<AutomationPipeline> _pipelines = new();
@@ -44,10 +46,18 @@ namespace LenovoLegionToolkit.Lib.Automation
 
         public event EventHandler<PipelinesChangedEventArgs>? PipelinesChanged;
 
-        public AutomationProcessor(PowerStateListener powerStateListener)
+        public AutomationProcessor(PowerStateListener powerStateListener, ProcessListener processListener)
         {
             _powerStateListener = powerStateListener;
+            _processListener = processListener;
+
             _powerStateListener.Changed += PowerStateListener_Changed;
+            _processListener.Changed += ProcessListener_Changed;
+        }
+
+        private async void ProcessListener_Changed(object? sender, ProcessEventInfo e)
+        {
+            await RunAsync();
         }
 
         private async void PowerStateListener_Changed(object? sender, EventArgs e)

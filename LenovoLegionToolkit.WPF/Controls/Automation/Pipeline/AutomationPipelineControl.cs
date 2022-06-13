@@ -188,7 +188,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 return AutomationPipeline.Name;
 
             if (AutomationPipeline.Trigger is not null)
-                return $"When {AutomationPipeline.Trigger.DisplayName}";
+                return AutomationPipeline.Trigger.DisplayName;
 
             return "Unnamed";
         }

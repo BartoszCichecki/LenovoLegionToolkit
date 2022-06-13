@@ -7,12 +7,14 @@ namespace LenovoLegionToolkit.Lib.Listeners
 {
     public class ProcessListener : IListener<ProcessEventInfo>
     {
-        private readonly string[] _ignoredNames =
+        private static readonly int _pollRate = 2;
+
+        private static readonly string[] _ignoredNames =
         {
             "msedgewebview2.exe",
         };
 
-        private readonly string[] _ignoredPaths =
+        private static readonly string[] _ignoredPaths =
         {
             Environment.GetFolderPath(Environment.SpecialFolder.Windows),
         };
@@ -46,7 +48,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
             private readonly ProcessEventInfoType _type;
 
             public InstanceEventListener(ProcessEventInfoType type, string eventName)
-                : base("ROOT\\CIMV2", query: $"SELECT * FROM {eventName} WITHIN 1 WHERE TargetInstance ISA 'Win32_Process'")
+                : base("ROOT\\CIMV2", query: $"SELECT * FROM {eventName} WITHIN {_pollRate} WHERE TargetInstance ISA 'Win32_Process'")
             {
                 _type = type;
             }
