@@ -31,25 +31,23 @@ namespace LenovoLegionToolkit.WPF.Pages
             await RefreshAsync();
         }
 
-        private void EnableAutomationToggle_Click(object sender, RoutedEventArgs e)
+        private void EnableAutomaticPipelinesToggle_Click(object sender, RoutedEventArgs e)
         {
-            var isChecked = _enableAutomationToggle.IsChecked;
+            var isChecked = _enableAutomaticPipelinesToggle.IsChecked;
             if (isChecked.HasValue)
                 _automationProcessor.IsEnabled = isChecked.Value;
         }
 
-        private void NewPipelineButton_Click(object sender, RoutedEventArgs e)
+        private void NewAutomaticPipelineButton_Click(object sender, RoutedEventArgs e)
         {
-            _newPipelineButton.ContextMenu.PlacementTarget = _newPipelineButton;
-            _newPipelineButton.ContextMenu.Placement = PlacementMode.Bottom;
-            _newPipelineButton.ContextMenu.IsOpen = true;
+            _newAutomaticPipelineButton.ContextMenu.PlacementTarget = _newAutomaticPipelineButton;
+            _newAutomaticPipelineButton.ContextMenu.Placement = PlacementMode.Bottom;
+            _newAutomaticPipelineButton.ContextMenu.IsOpen = true;
         }
 
-        private void NewPipelineButton_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private async void NewManualPipelineButton_Click(object sender, RoutedEventArgs e)
         {
-            _newPipelineButton.Appearance = _newPipelineButton.IsEnabled
-                ? Appearance.Primary
-                : Appearance.Transparent;
+            await AddManualPipelineAsync();
         }
 
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -59,10 +57,19 @@ namespace LenovoLegionToolkit.WPF.Pages
                 _saveButton.IsEnabled = false;
                 _saveButton.Content = "Saving...";
 
-                var pipelines = _pipelinesStackPanel.Children.ToArray()
+                var automaticPipelines = _automaticPipelinesStackPanel.Children.ToArray()
                     .OfType<AutomationPipelineControl>()
                     .Select(c => c.CreateAutomationPipeline())
                     .ToList();
+
+                var manualPipelines = _manualPipelinesStackPanel.Children.ToArray()
+                    .OfType<AutomationPipelineControl>()
+                    .Select(c => c.CreateAutomationPipeline())
+                    .ToList();
+
+                var pipelines = new List<AutomationPipeline>();
+                pipelines.AddRange(automaticPipelines);
+                pipelines.AddRange(manualPipelines);
 
                 await _automationProcessor.ReloadPipelinesAsync(pipelines);
                 await RefreshAsync();
@@ -86,48 +93,57 @@ namespace LenovoLegionToolkit.WPF.Pages
         private async Task RefreshAsync()
         {
             _scrollViewer.ScrollToTop();
-            _newPipelineButton.IsEnabled = false;
-            _enableAutomationToggle.Visibility = Visibility.Hidden;
-            _loader.IsLoading = true;
+
+            _loaderAutomatic.IsLoading = true;
+            _loaderManual.IsLoading = true;
 
             var loadingTask = Task.Delay(500);
 
             var pipelines = await _automationProcessor.GetPipelinesAsync();
 
-            _enableAutomationToggle.IsChecked = _automationProcessor.IsEnabled;
+            _enableAutomaticPipelinesToggle.IsChecked = _automationProcessor.IsEnabled;
 
-            _pipelinesStackPanel.Children.Clear();
+            _automaticPipelinesStackPanel.Children.Clear();
+            _manualPipelinesStackPanel.Children.Clear();
 
-            foreach (var pipeline in pipelines)
+            foreach (var pipeline in pipelines.Where(p => p.Trigger is not null))
             {
-                var control = GenerateControl(pipeline);
-                _pipelinesStackPanel.Children.Add(control);
+                var control = GenerateControl(pipeline, _automaticPipelinesStackPanel);
+                _automaticPipelinesStackPanel.Children.Add(control);
             }
 
-            RefreshNewPipelineButton();
+            foreach (var pipeline in pipelines.Where(p => p.Trigger is null))
+            {
+                var control = GenerateControl(pipeline, _manualPipelinesStackPanel);
+                _manualPipelinesStackPanel.Children.Add(control);
+            }
 
-            await loadingTask;
+            RefreshNewAutomaticPipelineButton();
 
             _saveRevertStackPanel.Visibility = Visibility.Collapsed;
 
-            _newPipelineButton.IsEnabled = true;
-            _enableAutomationToggle.Visibility = Visibility.Visible;
-            _loader.IsLoading = false;
+            _noAutomaticActionsText.Visibility = _automaticPipelinesStackPanel.Children.Count < 1 ? Visibility.Visible : Visibility.Collapsed;
+            _noManualActionsText.Visibility = _manualPipelinesStackPanel.Children.Count < 1 ? Visibility.Visible : Visibility.Collapsed;
+
+            await loadingTask;
+
+            _loaderAutomatic.IsLoading = false;
+            _loaderManual.IsLoading = false;
         }
 
-        private UIElement GenerateControl(AutomationPipeline pipeline)
+        private UIElement GenerateControl(AutomationPipeline pipeline, StackPanel stackPanel)
         {
             var control = new AutomationPipelineControl(pipeline);
             control.MouseRightButtonUp += (s, e) =>
             {
-                ShowContextMenu(control);
+                ShowContextMenu(control, stackPanel);
                 e.Handled = true;
             };
             control.OnChanged += (s, e) => PipelinesChanged();
             control.OnDelete += (s, e) =>
             {
                 if (s is AutomationPipelineControl control)
-                    DeletePipeline(control);
+                    DeletePipeline(control, stackPanel);
             };
             return control;
         }
@@ -137,23 +153,23 @@ namespace LenovoLegionToolkit.WPF.Pages
             _saveRevertStackPanel.Visibility = Visibility.Visible;
         }
 
-        private void ShowContextMenu(AutomationPipelineControl control)
+        private void ShowContextMenu(AutomationPipelineControl control, StackPanel stackPanel)
         {
             var menuItems = new List<MenuItem>();
 
-            var index = _pipelinesStackPanel.Children.IndexOf(control);
-            var maxIndex = _pipelinesStackPanel.Children.Count - 1;
+            var index = stackPanel.Children.IndexOf(control);
+            var maxIndex = stackPanel.Children.Count - 1;
 
             var moveUpMenuItem = new MenuItem { Icon = SymbolRegular.ArrowUp24, Header = "Move up" };
             if (index > 0)
-                moveUpMenuItem.Click += (s, e) => MovePipeline(control, index - 1);
+                moveUpMenuItem.Click += (s, e) => MovePipeline(control, stackPanel, index - 1);
             else
                 moveUpMenuItem.IsEnabled = false;
             menuItems.Add(moveUpMenuItem);
 
             var moveDownMenuItem = new MenuItem { Icon = SymbolRegular.ArrowDown24, Header = "Move down" };
             if (index < maxIndex)
-                moveDownMenuItem.Click += (s, e) => MovePipeline(control, index + 1);
+                moveDownMenuItem.Click += (s, e) => MovePipeline(control, stackPanel, index + 1);
             else
                 moveDownMenuItem.IsEnabled = false;
             menuItems.Add(moveDownMenuItem);
@@ -167,35 +183,35 @@ namespace LenovoLegionToolkit.WPF.Pages
             control.ContextMenu.IsOpen = true;
         }
 
-        private void MovePipeline(AutomationPipelineControl control, int index)
+        private void MovePipeline(AutomationPipelineControl control, StackPanel stackPanel, int index)
         {
-            _pipelinesStackPanel.Children.Remove(control);
-            _pipelinesStackPanel.Children.Insert(index, control);
+            stackPanel.Children.Remove(control);
+            stackPanel.Children.Insert(index, control);
 
             PipelinesChanged();
         }
 
-        private void AddPipeline(IAutomationPipelineTrigger trigger)
+        private void AddAutomaticPipeline(IAutomationPipelineTrigger trigger)
         {
             var pipeline = new AutomationPipeline(trigger);
-            var control = GenerateControl(pipeline);
-            _pipelinesStackPanel.Children.Insert(0, control);
+            var control = GenerateControl(pipeline, _automaticPipelinesStackPanel);
+            _automaticPipelinesStackPanel.Children.Add(control);
 
-            RefreshNewPipelineButton();
+            RefreshNewAutomaticPipelineButton();
             PipelinesChanged();
         }
 
-        private async Task AddPipelineAsync()
+        private async Task AddManualPipelineAsync()
         {
             var newName = await MessageBoxHelper.ShowInputAsync(this, "Add new", "Name...");
             if (string.IsNullOrWhiteSpace(newName))
                 return;
 
             var pipeline = new AutomationPipeline(newName);
-            var control = GenerateControl(pipeline);
-            _pipelinesStackPanel.Children.Insert(0, control);
+            var control = GenerateControl(pipeline, _manualPipelinesStackPanel);
+            _manualPipelinesStackPanel.Children.Add(control);
 
-            RefreshNewPipelineButton();
+            RefreshNewAutomaticPipelineButton();
             PipelinesChanged();
         }
 
@@ -206,22 +222,22 @@ namespace LenovoLegionToolkit.WPF.Pages
             control.SetName(newName);
         }
 
-        private void DeletePipeline(AutomationPipelineControl control)
+        private void DeletePipeline(AutomationPipelineControl control, StackPanel stackPanel)
         {
-            _pipelinesStackPanel.Children.Remove(control);
+            stackPanel.Children.Remove(control);
 
-            RefreshNewPipelineButton();
+            RefreshNewAutomaticPipelineButton();
             PipelinesChanged();
         }
 
-        private void RefreshNewPipelineButton()
+        private void RefreshNewAutomaticPipelineButton()
         {
             var allTriggers = new IAutomationPipelineTrigger[] {
                 new ACAdapterConnectedAutomationPipelineTrigger(),
                 new ACAdapterDisconnectedAutomationPipelineTrigger(),
             };
 
-            var triggers = _pipelinesStackPanel.Children.ToArray()
+            var triggers = _automaticPipelinesStackPanel.Children.ToArray()
                 .OfType<AutomationPipelineControl>()
                 .Select(c => c.AutomationPipeline)
                 .Select(p => p.Trigger);
@@ -238,22 +254,13 @@ namespace LenovoLegionToolkit.WPF.Pages
                 if (triggers.Contains(trigger))
                     menuItem.IsEnabled = false;
                 else
-                    menuItem.Click += (s, e) => AddPipeline(trigger);
+                    menuItem.Click += (s, e) => AddAutomaticPipeline(trigger);
                 menuItems.Add(menuItem);
             }
 
-            var quickActionMenuItem = new MenuItem
-            {
-                Icon = SymbolRegular.Play24,
-                Header = "Quick action",
-            };
-            ToolTipService.SetToolTip(quickActionMenuItem, "Quick actions appear in right click menu of the tray icon.");
-            quickActionMenuItem.Click += async (s, e) => await AddPipelineAsync();
-            menuItems.Add(quickActionMenuItem);
 
-
-            _newPipelineButton.ContextMenu.Items.Clear();
-            _newPipelineButton.ContextMenu.Items.AddRange(menuItems);
+            _newAutomaticPipelineButton.ContextMenu.Items.Clear();
+            _newAutomaticPipelineButton.ContextMenu.Items.AddRange(menuItems);
         }
     }
 }

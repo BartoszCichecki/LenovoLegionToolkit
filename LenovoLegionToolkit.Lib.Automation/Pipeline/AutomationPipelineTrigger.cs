@@ -18,7 +18,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
     public class ACAdapterConnectedAutomationPipelineTrigger : IAutomationPipelineTrigger
     {
         [JsonIgnore]
-        public string DisplayName => "AC adapter is connected";
+        public string DisplayName => "When AC adapter is connected";
 
         public Task<bool> IsSatisfiedAsync() => Task.FromResult(Power.IsPowerAdapterConnected());
 
@@ -32,7 +32,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
     public class ACAdapterDisconnectedAutomationPipelineTrigger : IAutomationPipelineTrigger
     {
         [JsonIgnore]
-        public string DisplayName => "AC adapter is disconnected";
+        public string DisplayName => "When AC adapter is disconnected";
 
         public Task<bool> IsSatisfiedAsync() => Task.FromResult(!Power.IsPowerAdapterConnected());
 
