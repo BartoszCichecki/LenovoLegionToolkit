@@ -150,6 +150,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             _cardExpander.Icon = GenerateIcon();
             _cardExpander.Header = GenerateHeader();
             _cardExpander.Subtitle = GenerateSubtitle();
+            _cardExpander.HeaderContent = GenerateAccessory();
             _cardExpander.Content = _stackPanel;
 
             Content = _cardExpander;
@@ -206,6 +207,35 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 result += $" | {AutomationPipeline.Trigger.DisplayName}";
 
             return result;
+        }
+
+        private object? GenerateAccessory()
+        {
+            if (AutomationPipeline.Trigger is ProcessesAreRunningAutomationPipelineTrigger)
+            {
+                var button = new Button
+                {
+                    Appearance = Appearance.Secondary,
+                    Content = "Configure",
+                    Margin = new(0, 0, 16, 0),
+                    Width = 120,
+                };
+                return button;
+            }
+
+            if (AutomationPipeline.Trigger is ProcessesStopRunningAutomationPipelineTrigger)
+            {
+                var button = new Button
+                {
+                    Appearance = Appearance.Secondary,
+                    Content = "Configure",
+                    Margin = new(0, 0, 16, 0),
+                    Width = 120,
+                };
+                return button;
+            }
+
+            return null;
         }
 
         private AbstractAutomationStepControl GenerateControl(IAutomationStep step)
