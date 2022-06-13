@@ -15,6 +15,8 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
 
         public List<IAutomationStep> Steps { get; set; } = new();
 
+        public bool IsExclusive { get; set; } = true;
+
         public AutomationPipeline() { }
 
         public AutomationPipeline(string name) => Name = name;
@@ -56,6 +58,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
             Name = Name,
             Trigger = Trigger?.DeepCopy(),
             Steps = Steps.Select(s => s.DeepCopy()).ToList(),
+            IsExclusive = IsExclusive,
         };
     }
 }
