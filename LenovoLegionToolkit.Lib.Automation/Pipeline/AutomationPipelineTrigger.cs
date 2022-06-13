@@ -13,7 +13,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
         [JsonIgnore]
         string DisplayName { get; }
 
-        Task<bool> IsSatisfiedAsync();
+        Task<bool> IsSatisfiedAsync(object? context);
 
         IAutomationPipelineTrigger DeepCopy();
     }
@@ -23,7 +23,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
         [JsonIgnore]
         public string DisplayName => "When AC adapter is connected";
 
-        public Task<bool> IsSatisfiedAsync() => Task.FromResult(Power.IsPowerAdapterConnected());
+        public Task<bool> IsSatisfiedAsync(object? context) => Task.FromResult(Power.IsPowerAdapterConnected());
 
         public IAutomationPipelineTrigger DeepCopy() => new ACAdapterConnectedAutomationPipelineTrigger();
 
@@ -37,7 +37,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
         [JsonIgnore]
         public string DisplayName => "When AC adapter is disconnected";
 
-        public Task<bool> IsSatisfiedAsync() => Task.FromResult(!Power.IsPowerAdapterConnected());
+        public Task<bool> IsSatisfiedAsync(object? context) => Task.FromResult(!Power.IsPowerAdapterConnected());
 
         public IAutomationPipelineTrigger DeepCopy() => new ACAdapterDisconnectedAutomationPipelineTrigger();
 
@@ -46,48 +46,53 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
         public override int GetHashCode() => HashCode.Combine(DisplayName);
     }
 
-    public class ProcessesAreRunning : IAutomationPipelineTrigger
+    public class ProcessesAreRunningAutomationPipelineTrigger : IAutomationPipelineTrigger
     {
         public string DisplayName => "When app is running";
 
         public string[] ProcessNames { get; }
 
-        public ProcessesAreRunning(string[] processNames) => ProcessNames = processNames;
+        public ProcessesAreRunningAutomationPipelineTrigger(string[] processNames) => ProcessNames = processNames;
 
-        public Task<bool> IsSatisfiedAsync() => Task.Run(() =>
-        {
-            return ProcessNames.SelectMany(pn => Process.GetProcessesByName(pn)).Any();
-        });
+        public Task<bool> IsSatisfiedAsync(object? context) => Task.Run(() => ProcessNames.SelectMany(Process.GetProcessesByName).Any());
 
-        public IAutomationPipelineTrigger DeepCopy() => new ProcessesAreRunning(ProcessNames);
+        public IAutomationPipelineTrigger DeepCopy() => new ProcessesAreRunningAutomationPipelineTrigger(ProcessNames);
 
         public override bool Equals(object? obj)
         {
-            return obj is ProcessesAreRunning running &&
+            return obj is ProcessesAreRunningAutomationPipelineTrigger running &&
                    Enumerable.SequenceEqual(ProcessNames, running.ProcessNames);
         }
 
         public override int GetHashCode() => HashCode.Combine(ProcessNames);
     }
 
-    public class ProcessesAreNotRunning : IAutomationPipelineTrigger
+    public class ProcessesStopRunningAutomationPipelineTrigger : IAutomationPipelineTrigger
     {
-        public string DisplayName => "When app is not running";
+        public string DisplayName => "When app closes";
 
         public string[] ProcessNames { get; }
 
-        public ProcessesAreNotRunning(string[] processNames) => ProcessNames = processNames;
+        public ProcessesStopRunningAutomationPipelineTrigger(string[] processNames) => ProcessNames = processNames;
 
-        public Task<bool> IsSatisfiedAsync() => Task.Run(() =>
+        public async Task<bool> IsSatisfiedAsync(object? context)
         {
-            return ProcessNames.SelectMany(pn => Process.GetProcessesByName(pn)).IsEmpty();
-        });
+            if (context is not ProcessEventInfo pei || pei.Type != ProcessEventInfoType.Stopped)
+                return false;
 
-        public IAutomationPipelineTrigger DeepCopy() => new ProcessesAreNotRunning(ProcessNames);
+            var matches = ProcessNames.Contains(pei.Name, StringComparer.InvariantCultureIgnoreCase);
+            if (!matches)
+                return false;
+
+            var result = await Task.Run(() => ProcessNames.SelectMany(pn => Process.GetProcessesByName(pn)).IsEmpty()).ConfigureAwait(false);
+            return result;
+        }
+
+        public IAutomationPipelineTrigger DeepCopy() => new ProcessesStopRunningAutomationPipelineTrigger(ProcessNames);
 
         public override bool Equals(object? obj)
         {
-            return obj is ProcessesAreNotRunning running &&
+            return obj is ProcessesStopRunningAutomationPipelineTrigger running &&
                    Enumerable.SequenceEqual(ProcessNames, running.ProcessNames);
         }
 

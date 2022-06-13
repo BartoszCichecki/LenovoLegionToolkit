@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Management;
 using System.Threading.Tasks;
@@ -60,6 +61,8 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
                 var processName = mbo.Properties["Name"].Value?.ToString() ?? string.Empty;
                 var executablePath = mbo.Properties["ExecutablePath"].Value?.ToString() ?? string.Empty;
+
+                processName = Path.ChangeExtension(processName, null).ToLowerInvariant();
 
                 return new() { Type = _type, Name = processName, Path = executablePath };
             }
