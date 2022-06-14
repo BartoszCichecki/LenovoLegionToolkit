@@ -8,10 +8,12 @@ using System.Windows.Controls.Primitives;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
+using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 using LenovoLegionToolkit.Lib.Automation.Steps;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.WPF.Controls.Automation.Steps;
 using LenovoLegionToolkit.WPF.Utils;
+using LenovoLegionToolkit.WPF.Windows.Utils;
 using WPFUI.Common;
 using WPFUI.Controls;
 using Button = WPFUI.Controls.Button;
@@ -211,7 +213,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
         private object? GenerateAccessory()
         {
-            if (AutomationPipeline.Trigger is ProcessesAreRunningAutomationPipelineTrigger)
+            if (AutomationPipeline.Trigger is ProcessesAreRunningAutomationPipelineTrigger t1)
             {
                 var button = new Button
                 {
@@ -220,10 +222,26 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                     Margin = new(0, 0, 16, 0),
                     Width = 120,
                 };
+                button.Click += (s, e) =>
+                {
+                    var window = new PickProcessesWindow(t1.Processes)
+                    {
+                        Owner = Window.GetWindow(this),
+                        WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                        ShowInTaskbar = false,
+                    };
+                    window.OnSave += (s, e) =>
+                    {
+                        AutomationPipeline.Trigger = new ProcessesAreRunningAutomationPipelineTrigger(e);
+                        _cardExpander.HeaderContent = GenerateAccessory();
+                        OnChanged?.Invoke(this, EventArgs.Empty);
+                    };
+                    window.ShowDialog();
+                };
                 return button;
             }
 
-            if (AutomationPipeline.Trigger is ProcessesStopRunningAutomationPipelineTrigger)
+            if (AutomationPipeline.Trigger is ProcessesStopRunningAutomationPipelineTrigger t2)
             {
                 var button = new Button
                 {
@@ -231,6 +249,22 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                     Content = "Configure",
                     Margin = new(0, 0, 16, 0),
                     Width = 120,
+                };
+                button.Click += (s, e) =>
+                {
+                    var window = new PickProcessesWindow(t2.Processes)
+                    {
+                        Owner = Window.GetWindow(this),
+                        WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                        ShowInTaskbar = false,
+                    };
+                    window.OnSave += (s, e) =>
+                    {
+                        AutomationPipeline.Trigger = new ProcessesStopRunningAutomationPipelineTrigger(e);
+                        _cardExpander.HeaderContent = GenerateAccessory();
+                        OnChanged?.Invoke(this, EventArgs.Empty);
+                    };
+                    window.ShowDialog();
                 };
                 return button;
             }

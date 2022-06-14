@@ -51,7 +51,7 @@ namespace LenovoLegionToolkit.WPF.Utils
             var pipelines = await _automationProcessor.GetPipelinesAsync();
             await RefreshAutomationMenuItemsAsync(pipelines);
 
-            _automationProcessor.PipelinesChanged += async (s, e) => await RefreshAutomationMenuItemsAsync(e.Pipelines);
+            _automationProcessor.PipelinesChanged += async (s, e) => await RefreshAutomationMenuItemsAsync(e);
             _themeManager.ThemeApplied += async (s, e) =>
             {
                 var pipelines = await _automationProcessor.GetPipelinesAsync();

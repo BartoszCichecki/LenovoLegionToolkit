@@ -8,6 +8,7 @@ using System.Windows.Controls.Primitives;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
+using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.WPF.Controls.Automation.Pipeline;
 using LenovoLegionToolkit.WPF.Utils;
@@ -239,8 +240,8 @@ namespace LenovoLegionToolkit.WPF.Pages
             var allTriggers = new IAutomationPipelineTrigger[] {
                 new ACAdapterConnectedAutomationPipelineTrigger(),
                 new ACAdapterDisconnectedAutomationPipelineTrigger(),
-                //new ProcessesAreRunningAutomationPipelineTrigger(Array.Empty<string>()),
-                //new ProcessesStopRunningAutomationPipelineTrigger(Array.Empty<string>()),
+                new ProcessesAreRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()),
+                new ProcessesStopRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()),
             };
 
             var menuItems = new List<MenuItem>();
