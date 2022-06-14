@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
 using Octokit;
@@ -64,11 +65,62 @@ namespace LenovoLegionToolkit.Lib
 
     public struct ProcessEventInfo
     {
-        public ProcessEventInfoType Type { get; init; }
+        public ProcessEventInfoType Type { get; }
 
-        public string Name { get; init; }
+        public ProcessInfo Process { get; }
 
-        public string Path { get; init; }
+        public ProcessEventInfo(ProcessEventInfoType type, ProcessInfo process)
+        {
+            Type = type;
+            Process = process;
+        }
+    }
+
+    public struct ProcessInfo : IComparable
+    {
+        public static ProcessInfo FromPath(string path) => new(Path.GetFileNameWithoutExtension(path), path);
+
+        public string Name { get; }
+
+        public string ExecutablePath { get; }
+
+        [JsonConstructor]
+        public ProcessInfo(string name, string executablePath)
+        {
+            Name = name;
+            ExecutablePath = executablePath;
+        }
+
+        #region Equality
+
+        public int CompareTo(object? obj)
+        {
+            var other = obj is null ? default : (ProcessInfo)obj;
+
+            var result = Name.CompareTo(other.Name);
+            if (result != 0)
+                return result;
+
+            return ExecutablePath.CompareTo(other.ExecutablePath);
+        }
+
+        public override bool Equals(object? obj) => obj is ProcessInfo info && Name == info.Name && ExecutablePath == info.ExecutablePath;
+
+        public override int GetHashCode() => HashCode.Combine(Name, ExecutablePath);
+
+        public static bool operator ==(ProcessInfo left, ProcessInfo right) => left.Equals(right);
+
+        public static bool operator !=(ProcessInfo left, ProcessInfo right) => !(left == right);
+
+        public static bool operator <(ProcessInfo left, ProcessInfo right) => left.CompareTo(right) < 0;
+
+        public static bool operator <=(ProcessInfo left, ProcessInfo right) => left.CompareTo(right) <= 0;
+
+        public static bool operator >(ProcessInfo left, ProcessInfo right) => left.CompareTo(right) > 0;
+
+        public static bool operator >=(ProcessInfo left, ProcessInfo right) => left.CompareTo(right) >= 0;
+
+        #endregion
     }
 
     public struct RefreshRate : IDisplayName, IEquatable<RefreshRate>

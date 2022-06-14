@@ -11,7 +11,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
     {
         private readonly TextBox _scriptPath = new()
         {
-            Placeholder = "Path",
+            Placeholder = "ExecutablePath",
             Width = 300,
             Margin = new(0, 0, 0, 8),
         };

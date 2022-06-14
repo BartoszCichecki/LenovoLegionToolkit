@@ -36,9 +36,9 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         private void InstanceListener_Changed(object? sender, ProcessEventInfo e)
         {
-            if (string.IsNullOrWhiteSpace(e.Name) || _ignoredNames.Contains(e.Name, StringComparer.InvariantCultureIgnoreCase))
+            if (string.IsNullOrWhiteSpace(e.Process.Name) || _ignoredNames.Contains(e.Process.Name, StringComparer.InvariantCultureIgnoreCase))
                 return;
-            if (string.IsNullOrWhiteSpace(e.Path) || _ignoredPaths.Any(p => e.Path.StartsWith(p, StringComparison.InvariantCultureIgnoreCase)))
+            if (string.IsNullOrWhiteSpace(e.Process.ExecutablePath) || _ignoredPaths.Any(p => e.Process.ExecutablePath.StartsWith(p, StringComparison.InvariantCultureIgnoreCase)))
                 return;
 
             Changed?.Invoke(this, e);
@@ -57,14 +57,14 @@ namespace LenovoLegionToolkit.Lib.Listeners
             protected override ProcessEventInfo GetValue(PropertyDataCollection properties)
             {
                 if (properties["TargetInstance"].Value is not ManagementBaseObject mbo)
-                    return new();
+                    return default;
 
                 var processName = mbo.Properties["Name"].Value?.ToString() ?? string.Empty;
                 var executablePath = mbo.Properties["ExecutablePath"].Value?.ToString() ?? string.Empty;
 
-                processName = Path.ChangeExtension(processName, null).ToLowerInvariant();
+                processName = Path.GetFileNameWithoutExtension(processName);
 
-                return new() { Type = _type, Name = processName, Path = executablePath };
+                return new(_type, new(processName, executablePath));
             }
 
             protected override Task OnChangedAsync(ProcessEventInfo value) => Task.CompletedTask;

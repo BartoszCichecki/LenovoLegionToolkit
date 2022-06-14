@@ -16,16 +16,6 @@ namespace LenovoLegionToolkit.Lib.Automation
 {
     public class AutomationProcessor
     {
-        public class PipelinesChangedEventArgs : EventArgs
-        {
-            public List<AutomationPipeline> Pipelines { get; }
-
-            public PipelinesChangedEventArgs(List<AutomationPipeline> pipelines)
-            {
-                Pipelines = pipelines;
-            }
-        }
-
         private readonly PowerStateListener _powerStateListener;
         private readonly ProcessListener _processListener;
 
@@ -44,7 +34,7 @@ namespace LenovoLegionToolkit.Lib.Automation
             }
         }
 
-        public event EventHandler<PipelinesChangedEventArgs>? PipelinesChanged;
+        public event EventHandler<List<AutomationPipeline>>? PipelinesChanged;
 
         public AutomationProcessor(PowerStateListener powerStateListener, ProcessListener processListener)
         {
@@ -71,7 +61,7 @@ namespace LenovoLegionToolkit.Lib.Automation
             {
                 _pipelines = AutomationSettings.Instance.Pipeliness;
 
-                PipelinesChanged?.Invoke(this, new(_pipelines.Select(p => p.DeepCopy()).ToList()));
+                PipelinesChanged?.Invoke(this, _pipelines.Select(p => p.DeepCopy()).ToList());
             }
         }
 
@@ -90,7 +80,7 @@ namespace LenovoLegionToolkit.Lib.Automation
                 AutomationSettings.Instance.Pipeliness = pipelines;
                 AutomationSettings.Instance.Synchronize();
 
-                PipelinesChanged?.Invoke(this, new(_pipelines.Select(p => p.DeepCopy()).ToList()));
+                PipelinesChanged?.Invoke(this, _pipelines.Select(p => p.DeepCopy()).ToList());
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Pipelines reloaded.");

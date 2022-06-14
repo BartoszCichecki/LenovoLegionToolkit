@@ -35,7 +35,7 @@
                         Text="Actions" />
 
                     <TextBlock Margin="0,8,0,0">
-                        You can define actions that will run automatically. Whenever state changes, all actions<LineBreak />
+                        If enabled these action will run automatically. Whenever state changes, all actions<LineBreak />
                         will be evaluated from top to bottom. Only actions that match current state will run.</TextBlock>
 
                 </StackPanel>
@@ -88,7 +88,9 @@
                         FontWeight="Medium"
                         Text="Quick Actions" />
 
-                    <TextBlock Margin="0,8,0,0" Text="You can define actions that will be available in the right click menu of the tray icon." />
+                    <TextBlock Margin="0,8,0,0">
+                        Quick actions are available in the right click menu of the tray icon.
+                    </TextBlock>
 
                 </StackPanel>
 
