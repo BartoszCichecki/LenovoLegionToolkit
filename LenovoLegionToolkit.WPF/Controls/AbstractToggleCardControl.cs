@@ -2,6 +2,7 @@
 using System.Windows;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
+using PubSub;
 using WPFUI.Common;
 using WPFUI.Controls;
 
@@ -36,7 +37,10 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         protected abstract T OffState { get; }
 
-        public AbstractToggleCardControl() => InitializeComponent();
+        public AbstractToggleCardControl()
+        {
+            InitializeComponent();
+        }
 
         private void InitializeComponent()
         {
@@ -53,7 +57,15 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         protected override async Task OnRefreshAsync() => _toggle.IsChecked = OnState.Equals(await _feature.GetStateAsync());
 
-        protected override void OnFinishedLoading() => _toggle.Visibility = Visibility.Visible;
+        protected override void OnFinishedLoading()
+        {
+            _toggle.Visibility = Visibility.Visible;
+
+            Hub.Default.Subscribe<T>(this, _ =>
+            {
+                Dispatcher.Invoke(async () => await RefreshAsync());
+            });
+        }
 
         protected virtual async Task OnStateChange(ToggleSwitch toggle, IFeature<T> feature)
         {
