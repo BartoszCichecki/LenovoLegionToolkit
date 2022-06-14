@@ -14,7 +14,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
         public ProcessInfo[] Processes { get; }
 
         [JsonConstructor]
-        public ProcessesStopRunningAutomationPipelineTrigger(ProcessInfo[] processNames) => Processes = processNames;
+        public ProcessesStopRunningAutomationPipelineTrigger(ProcessInfo[] processes) => Processes = processes;
 
         public async Task<bool> IsSatisfiedAsync(object? context)
         {
