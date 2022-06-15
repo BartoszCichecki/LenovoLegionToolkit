@@ -14,8 +14,6 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
             new(1),
             new(2),
             new(3),
-            new(4),
-            new(5),
         });
 
         public IAutomationStep DeepCopy() => new DelayAutomationStep(State);

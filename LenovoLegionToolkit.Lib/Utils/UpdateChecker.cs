@@ -43,6 +43,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                     var updates = releases
                         .Where(r => !r.Draft)
                         .Select(r => new Update(r))
+                        .Where(r => r.Version > new Version(2, 0, 0))
                         .Where(r => r.Version > thisReleaseVersion)
                         .OrderByDescending(r => r.Version)
                         .ToArray();
