@@ -69,9 +69,9 @@ namespace LenovoLegionToolkit.Lib.System
         public static extern bool DeviceIoControl(
             SafeFileHandle hDevice,
             uint dwIoControlCode,
-            ref byte InBuffer,
+            ref uint inBuffer,
             int nInBufferSize,
-            out uint OutBuffer,
+            out uint outBuffer,
             int nOutBufferSize,
             out int pBytesReturned,
             IntPtr lpOverlapped);

@@ -7,27 +7,27 @@ namespace LenovoLegionToolkit.Lib.Features
     {
         public BatteryFeature() : base(Drivers.GetEnergy, 0x831020F8) { }
 
-        protected override byte GetInternalStatus() => 0xFF;
+        protected override uint GetInternalStatus() => 0xFF;
 
-        protected override byte[] ToInternal(BatteryState state)
+        protected override uint[] ToInternal(BatteryState state)
         {
             switch (state)
             {
                 case BatteryState.Conservation:
                     if (LastState == BatteryState.RapidCharge)
-                        return new byte[] { 0x8, 0x3 };
+                        return new uint[] { 0x8, 0x3 };
                     else
-                        return new byte[] { 0x3 };
+                        return new uint[] { 0x3 };
                 case BatteryState.Normal:
                     if (LastState == BatteryState.Conservation)
-                        return new byte[] { 0x5 };
+                        return new uint[] { 0x5 };
                     else
-                        return new byte[] { 0x8 };
+                        return new uint[] { 0x8 };
                 case BatteryState.RapidCharge:
                     if (LastState == BatteryState.Conservation)
-                        return new byte[] { 0x5, 0x7 };
+                        return new uint[] { 0x5, 0x7 };
                     else
-                        return new byte[] { 0x7 };
+                        return new uint[] { 0x7 };
                 default:
                     throw new InvalidOperationException("Invalid state.");
             }

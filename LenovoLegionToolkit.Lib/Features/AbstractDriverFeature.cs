@@ -51,14 +51,14 @@ namespace LenovoLegionToolkit.Lib.Features
         }
 
         protected abstract T FromInternal(uint state);
-        protected abstract byte GetInternalStatus();
-        protected abstract byte[] ToInternal(T state);
+        protected abstract uint GetInternalStatus();
+        protected abstract uint[] ToInternal(T state);
 
-        private Task<(int bytesReturned, uint outBuffer)> SendCodeAsync(SafeFileHandle handle, uint controlCode, byte inBuffer)
+        private Task<(int bytesReturned, uint outBuffer)> SendCodeAsync(SafeFileHandle handle, uint controlCode, uint inBuffer)
         {
             return Task.Run(() =>
             {
-                if (!Native.DeviceIoControl(handle, controlCode, ref inBuffer, sizeof(byte), out uint outBuffer, sizeof(uint), out var bytesReturned, IntPtr.Zero))
+                if (!Native.DeviceIoControl(handle, controlCode, ref inBuffer, sizeof(uint), out uint outBuffer, sizeof(uint), out var bytesReturned, IntPtr.Zero))
                 {
                     var error = Marshal.GetLastWin32Error();
 
