@@ -10,12 +10,11 @@ using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
 using NeoSmart.AsyncLock;
 
-#pragma warning disable CA1822 // Mark members as static
-
 namespace LenovoLegionToolkit.Lib.Automation
 {
     public class AutomationProcessor
     {
+        private readonly AutomationSettings _settings;
         private readonly PowerStateListener _powerStateListener;
         private readonly ProcessListener _processListener;
 
@@ -26,18 +25,19 @@ namespace LenovoLegionToolkit.Lib.Automation
 
         public bool IsEnabled
         {
-            get => AutomationSettings.Instance.IsEnabled;
+            get => _settings.IsEnabled;
             set
             {
-                AutomationSettings.Instance.IsEnabled = value;
-                AutomationSettings.Instance.Synchronize();
+                _settings.IsEnabled = value;
+                _settings.Synchronize();
             }
         }
 
         public event EventHandler<List<AutomationPipeline>>? PipelinesChanged;
 
-        public AutomationProcessor(PowerStateListener powerStateListener, ProcessListener processListener)
+        public AutomationProcessor(AutomationSettings settings, PowerStateListener powerStateListener, ProcessListener processListener)
         {
+            _settings = settings;
             _powerStateListener = powerStateListener;
             _processListener = processListener;
 
@@ -59,7 +59,7 @@ namespace LenovoLegionToolkit.Lib.Automation
         {
             using (await _lock.LockAsync().ConfigureAwait(false))
             {
-                _pipelines = AutomationSettings.Instance.Pipeliness;
+                _pipelines = _settings.Pipeliness;
 
                 PipelinesChanged?.Invoke(this, _pipelines.Select(p => p.DeepCopy()).ToList());
             }
@@ -77,8 +77,8 @@ namespace LenovoLegionToolkit.Lib.Automation
 
                 _pipelines = pipelines.Select(p => p.DeepCopy()).ToList();
 
-                AutomationSettings.Instance.Pipeliness = pipelines;
-                AutomationSettings.Instance.Synchronize();
+                _settings.Pipeliness = pipelines;
+                _settings.Synchronize();
 
                 PipelinesChanged?.Invoke(this, _pipelines.Select(p => p.DeepCopy()).ToList());
 

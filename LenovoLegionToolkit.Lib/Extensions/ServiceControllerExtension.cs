@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.InteropServices;
-using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.Lib.System;
 
 namespace System.ServiceProcess
 {

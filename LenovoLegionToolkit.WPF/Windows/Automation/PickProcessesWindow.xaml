@@ -1,5 +1,5 @@
 ﻿<local:BaseWindow
-    x:Class="LenovoLegionToolkit.WPF.Windows.Utils.PickProcessesWindow"
+    x:Class="LenovoLegionToolkit.WPF.Windows.Automation.PickProcessesWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"

@@ -2,9 +2,10 @@
 using System.ComponentModel;
 using System.ServiceProcess;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Utils;
 using TaskService = Microsoft.Win32.TaskScheduler.TaskService;
 
-namespace LenovoLegionToolkit.Lib.Utils
+namespace LenovoLegionToolkit.Lib.System
 {
     public class VantageServiceNotFoundException : Exception
     {

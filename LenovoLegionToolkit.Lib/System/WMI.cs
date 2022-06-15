@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Management;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Utils;
 
-namespace LenovoLegionToolkit.Lib.Utils
+namespace LenovoLegionToolkit.Lib.System
 {
     public static class WMI
     {

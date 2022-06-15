@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using LenovoLegionToolkit.Lib.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace LenovoLegionToolkit.Lib
+namespace LenovoLegionToolkit.Lib.Utils
 {
-    public class Settings
+    public class ApplicationSettings
     {
-        private class SettingsStore
+        private class ApplicationSettingsStore
         {
             public WindowSize WindowSize { get; set; }
             public Theme Theme { get; set; } = Theme.Dark;
@@ -17,10 +16,7 @@ namespace LenovoLegionToolkit.Lib
             public bool ActivatePowerProfilesWithVantageEnabled { get; set; } = false;
         }
 
-        private static Settings? _instance;
-        public static Settings Instance => _instance ??= new();
-
-        private readonly SettingsStore _settingsStore;
+        private readonly ApplicationSettingsStore _settingsStore;
 
         private readonly JsonSerializerSettings _jsonSerializerSettings;
         private readonly string _settingsStorePath;
@@ -55,7 +51,7 @@ namespace LenovoLegionToolkit.Lib
             set => _settingsStore.ActivatePowerProfilesWithVantageEnabled = value;
         }
 
-        private Settings()
+        public ApplicationSettings()
         {
             _jsonSerializerSettings = new()
             {
@@ -72,7 +68,7 @@ namespace LenovoLegionToolkit.Lib
             try
             {
                 var settingsSerialized = File.ReadAllText(_settingsStorePath);
-                _settingsStore = JsonConvert.DeserializeObject<SettingsStore>(settingsSerialized, _jsonSerializerSettings) ?? new();
+                _settingsStore = JsonConvert.DeserializeObject<ApplicationSettingsStore>(settingsSerialized, _jsonSerializerSettings) ?? new();
             }
             catch
             {

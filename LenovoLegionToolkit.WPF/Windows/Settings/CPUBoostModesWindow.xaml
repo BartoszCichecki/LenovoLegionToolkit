@@ -1,5 +1,5 @@
 ﻿<local:BaseWindow
-    x:Class="LenovoLegionToolkit.WPF.Windows.Utils.CPUBoostModesWindow"
+    x:Class="LenovoLegionToolkit.WPF.Windows.Settings.CPUBoostModesWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"

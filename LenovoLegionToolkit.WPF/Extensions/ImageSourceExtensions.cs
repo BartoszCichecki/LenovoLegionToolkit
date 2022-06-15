@@ -39,7 +39,7 @@ namespace LenovoLegionToolkit.WPF.Extensions
                 return null;
             }
         }
-        
+
         public static ImageSource FromResource(string name)
         {
             var assemblyName = Assembly.GetExecutingAssembly().GetName().Name;

@@ -4,7 +4,7 @@ using Microsoft.Win32.SafeHandles;
 
 #pragma warning disable CA2101 // Specify marshaling for P/Invoke string arguments
 
-namespace LenovoLegionToolkit.Lib.Utils
+namespace LenovoLegionToolkit.Lib.System
 {
     internal enum FirmwareType
     {

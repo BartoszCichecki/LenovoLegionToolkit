@@ -4,7 +4,7 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.WPF.Controls.Settings;
 
-namespace LenovoLegionToolkit.WPF.Windows.Utils
+namespace LenovoLegionToolkit.WPF.Windows.Settings
 {
     public partial class CPUBoostModesWindow
     {

@@ -1,7 +1,8 @@
 ﻿using System.Diagnostics;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Utils;
 
-namespace LenovoLegionToolkit.Lib.Utils
+namespace LenovoLegionToolkit.Lib.System
 {
     public static class CMD
     {

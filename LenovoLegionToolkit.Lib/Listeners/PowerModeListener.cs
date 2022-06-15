@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Management;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.Lib.System;
 
 namespace LenovoLegionToolkit.Lib.Listeners
 {
