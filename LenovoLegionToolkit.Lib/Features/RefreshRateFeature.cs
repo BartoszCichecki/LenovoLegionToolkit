@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using WindowsDisplayAPI;
 
@@ -111,7 +112,7 @@ namespace LenovoLegionToolkit.Lib.Features
             if (newSettings is not null)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Settings display to {newSettings}");
+                    Log.Instance.Trace($"Setting display to {newSettings}");
 
                 display.SetSettings(newSettings, true);
             }

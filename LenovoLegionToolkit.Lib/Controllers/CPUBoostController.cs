@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Controllers

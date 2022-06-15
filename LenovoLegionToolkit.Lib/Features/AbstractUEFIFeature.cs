@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features

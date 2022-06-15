@@ -7,7 +7,7 @@ using NvAPIWrapper.GPU;
 using NvAPIWrapper.Native.Exceptions;
 using NvAPIWrapper.Native.GPU;
 
-namespace LenovoLegionToolkit.Lib.Utils
+namespace LenovoLegionToolkit.Lib.System
 {
     internal static class NVAPI
     {

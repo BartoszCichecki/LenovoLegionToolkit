@@ -14,13 +14,14 @@ namespace LenovoLegionToolkit.WPF.Utils
         private const string RegistryPath = @"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize";
         private const string RegistryKey = "AppsUseLightTheme";
 
+        private readonly ApplicationSettings _settings;
         private readonly IDisposable _themeListener;
 
-        public static bool IsDarkMode
+        public bool IsDarkMode
         {
             get
             {
-                var theme = Settings.Instance.Theme;
+                var theme = _settings.Theme;
                 var registryValue = Registry.Read(RegistryHive, RegistryPath, RegistryKey, 1);
 
                 return (theme, registryValue) switch
@@ -34,12 +35,10 @@ namespace LenovoLegionToolkit.WPF.Utils
 
         public event EventHandler? ThemeApplied;
 
-        public ThemeManager()
+        public ThemeManager(ApplicationSettings settings)
         {
-            _themeListener = Registry.Listen(RegistryHive, RegistryPath, RegistryKey, () => Application.Current.Dispatcher.Invoke(() =>
-            {
-                Apply();
-            }));
+            _settings = settings;
+            _themeListener = Registry.Listen(RegistryHive, RegistryPath, RegistryKey, () => Application.Current.Dispatcher.Invoke(Apply));
         }
 
         public void Apply()
@@ -50,7 +49,7 @@ namespace LenovoLegionToolkit.WPF.Utils
             ThemeApplied?.Invoke(this, EventArgs.Empty);
         }
 
-        private static void SetTheme()
+        private void SetTheme()
         {
             var theme = IsDarkMode ? WPFUI.Appearance.ThemeType.Dark : WPFUI.Appearance.ThemeType.Light;
             WPFUI.Appearance.Theme.Apply(theme,

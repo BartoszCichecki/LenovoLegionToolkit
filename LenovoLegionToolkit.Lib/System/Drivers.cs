@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Win32.SafeHandles;
 
-namespace LenovoLegionToolkit.Lib.Utils
+namespace LenovoLegionToolkit.Lib.System
 {
     internal static class Drivers
     {

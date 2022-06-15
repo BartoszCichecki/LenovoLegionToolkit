@@ -9,7 +9,7 @@ using Newtonsoft.Json.Converters;
 
 namespace LenovoLegionToolkit.Lib.Automation.Utils
 {
-    internal class AutomationSettings
+    public class AutomationSettings
     {
         public class AutomationSettingsStore
         {
@@ -35,9 +35,6 @@ namespace LenovoLegionToolkit.Lib.Automation.Utils
             };
         }
 
-        private static AutomationSettings? _instance;
-        public static AutomationSettings Instance => _instance ??= new();
-
         private readonly AutomationSettingsStore _settingsStore;
 
         private readonly JsonSerializerSettings _jsonSerializerSettings;
@@ -55,7 +52,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Utils
             set => _settingsStore.Pipelines = value;
         }
 
-        private AutomationSettings()
+        public AutomationSettings()
         {
             _jsonSerializerSettings = new()
             {

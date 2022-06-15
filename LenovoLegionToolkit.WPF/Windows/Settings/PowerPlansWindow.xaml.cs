@@ -5,16 +5,17 @@ using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
-using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.WPF.Utils;
 
-namespace LenovoLegionToolkit.WPF.Windows.Utils
+namespace LenovoLegionToolkit.WPF.Windows.Settings
 {
     public partial class PowerPlansWindow
     {
         private static readonly object DEFAULT_VALUE = new string("(Default)");
 
         private readonly PowerModeFeature _powerModeFeature = IoCContainer.Resolve<PowerModeFeature>();
+        private readonly Lib.Utils.ApplicationSettings _settings = IoCContainer.Resolve<Lib.Utils.ApplicationSettings>();
 
         public PowerPlansWindow()
         {
@@ -48,7 +49,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
             Refresh(_balanceModeComboBox, powerPlans, PowerModeState.Balance);
             Refresh(_performanceModeComboBox, powerPlans, PowerModeState.Performance);
 
-            _activatePowerProfilesWithVantageEnabledToggle.IsChecked = Settings.Instance.ActivatePowerProfilesWithVantageEnabled;
+            _activatePowerProfilesWithVantageEnabledToggle.IsChecked = _settings.ActivatePowerProfilesWithVantageEnabled;
 
             await loadingTask;
 
@@ -57,7 +58,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
 
         private void Refresh(ComboBox comboBox, IEnumerable<PowerPlan> powerPlans, PowerModeState powerModeState)
         {
-            var settingsPowerPlanInstanceID = Settings.Instance.PowerPlans.GetValueOrDefault(powerModeState);
+            var settingsPowerPlanInstanceID = _settings.PowerPlans.GetValueOrDefault(powerModeState);
             var selectedValue = powerPlans.FirstOrDefault(pp => pp.InstanceID == settingsPowerPlanInstanceID);
 
             comboBox.Items.Clear();
@@ -69,10 +70,10 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
         private async Task PowerPlanChangedAsync(object value, PowerModeState powerModeState)
         {
             if (value is PowerPlan powerPlan)
-                Settings.Instance.PowerPlans[powerModeState] = powerPlan.InstanceID;
+                _settings.PowerPlans[powerModeState] = powerPlan.InstanceID;
             if (value is string)
-                Settings.Instance.PowerPlans.Remove(powerModeState);
-            Settings.Instance.Synchronize();
+                _settings.PowerPlans.Remove(powerModeState);
+            _settings.Synchronize();
 
             await _powerModeFeature.EnsureCorrectPowerPlanIsSetAsync();
         }
@@ -121,10 +122,10 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
                 return;
             }
 
-            Settings.Instance.ActivatePowerProfilesWithVantageEnabled = state.Value;
-            Settings.Instance.Synchronize();
+            _settings.ActivatePowerProfilesWithVantageEnabled = state.Value;
+            _settings.Synchronize();
 
-            await IoCContainer.Resolve<PowerModeFeature>().EnsureCorrectPowerPlanIsSetAsync();
+            await _powerModeFeature.EnsureCorrectPowerPlanIsSetAsync();
         }
     }
 }

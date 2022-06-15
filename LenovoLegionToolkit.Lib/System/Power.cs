@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Management;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Utils;
 
-namespace LenovoLegionToolkit.Lib.Utils
+namespace LenovoLegionToolkit.Lib.System
 {
     public static class Power
     {
@@ -14,6 +15,8 @@ namespace LenovoLegionToolkit.Lib.Utils
             { PowerModeState.Balance , "85d583c5-cf2e-4197-80fd-3789a227a72c"},
             { PowerModeState.Performance , "52521609-efc9-4268-b9ba-67dea73f18b2"},
         };
+
+        private static ApplicationSettings Settings => IoCContainer.Resolve<ApplicationSettings>();
 
         public static bool IsPowerAdapterConnected()
         {
@@ -42,7 +45,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Activating... [powerModeState={powerModeState}, alwaysActivateDefaults={alwaysActivateDefaults}]");
 
-            var powerPlanId = Settings.Instance.PowerPlans.GetValueOrDefault(powerModeState);
+            var powerPlanId = Settings.PowerPlans.GetValueOrDefault(powerModeState);
             var isDefault = false;
 
             if (powerPlanId is null)
@@ -91,7 +94,7 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             var powerModes = new Dictionary<PowerModeState, string>(defaultPowerModes);
 
-            foreach (var kv in Settings.Instance.PowerPlans)
+            foreach (var kv in Settings.PowerPlans)
             {
                 if (string.IsNullOrWhiteSpace(kv.Value))
                     continue;
@@ -111,7 +114,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         private static async Task<bool> ShouldActivateAsync(bool alwaysActivateDefaults, bool isDefault)
         {
-            var activateWhenVantageEnabled = Settings.Instance.ActivatePowerProfilesWithVantageEnabled;
+            var activateWhenVantageEnabled = Settings.ActivatePowerProfilesWithVantageEnabled;
             if (activateWhenVantageEnabled)
             {
                 if (Log.Instance.IsTraceEnabled)

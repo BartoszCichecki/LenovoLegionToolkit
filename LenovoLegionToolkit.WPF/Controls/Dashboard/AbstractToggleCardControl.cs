@@ -6,7 +6,7 @@ using PubSub;
 using WPFUI.Common;
 using WPFUI.Controls;
 
-namespace LenovoLegionToolkit.WPF.Controls
+namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
     public abstract class AbstractToggleCardControl<T> : AbstractRefreshingControl where T : struct
     {

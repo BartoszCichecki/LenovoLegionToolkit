@@ -10,7 +10,7 @@ using WPFUI.Common;
 using Button = WPFUI.Controls.Button;
 using Image = System.Windows.Controls.Image;
 
-namespace LenovoLegionToolkit.WPF.Windows.Utils
+namespace LenovoLegionToolkit.WPF.Windows.Automation
 {
     public partial class PickProcessesWindow
     {

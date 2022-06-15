@@ -13,7 +13,7 @@ using LenovoLegionToolkit.Lib.Automation.Steps;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.WPF.Controls.Automation.Steps;
 using LenovoLegionToolkit.WPF.Utils;
-using LenovoLegionToolkit.WPF.Windows.Utils;
+using LenovoLegionToolkit.WPF.Windows.Automation;
 using WPFUI.Common;
 using WPFUI.Controls;
 using Button = WPFUI.Controls.Button;

@@ -11,6 +11,8 @@ namespace LenovoLegionToolkit.Lib
     {
         protected override void Load(ContainerBuilder builder)
         {
+            builder.Register<ApplicationSettings>();
+
             builder.Register<AlwaysOnUSBFeature>();
             builder.Register<BatteryFeature>();
             builder.Register<FlipToStartFeature>();

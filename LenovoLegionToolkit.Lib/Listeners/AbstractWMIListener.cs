@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Management;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
 #pragma warning disable IDE0052 // Remove unread private members

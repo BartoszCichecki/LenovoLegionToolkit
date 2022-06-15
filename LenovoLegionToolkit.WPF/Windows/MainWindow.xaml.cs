@@ -17,6 +17,7 @@ namespace LenovoLegionToolkit.WPF.Windows
 {
     public partial class MainWindow
     {
+        private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
         private readonly UpdateChecker _updateChecker = IoCContainer.Resolve<UpdateChecker>();
 
         public Snackbar Snackbar => _snackBar;
@@ -51,7 +52,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             };
             _rootNavigation.Footer = new ObservableCollection<INavigationItem>
             {
-                new NavigationItem() { Icon = WPFUI.Common.SymbolRegular.Settings24, Content = "Settings", PageTag = "settings", Page = typeof(SettingsPage) },
+                new NavigationItem() { Icon = WPFUI.Common.SymbolRegular.Settings24, Content = "ApplicationSettings", PageTag = "settings", Page = typeof(SettingsPage) },
                 new NavigationItem() { Icon = WPFUI.Common.SymbolRegular.Info24, Content = "About", PageTag = "about", Page = typeof(AboutPage) },
             };
 
@@ -100,7 +101,7 @@ namespace LenovoLegionToolkit.WPF.Windows
         {
             SaveWindowSize();
 
-            if (Settings.Instance.MinimizeOnClose)
+            if (_settings.MinimizeOnClose)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Minimizing...");
@@ -143,13 +144,13 @@ namespace LenovoLegionToolkit.WPF.Windows
             if (WindowState == WindowState.Maximized)
                 return;
 
-            Settings.Instance.WindowSize = new(ActualWidth, ActualHeight);
-            Settings.Instance.Synchronize();
+            _settings.WindowSize = new(ActualWidth, ActualHeight);
+            _settings.Synchronize();
         }
 
         private void RestoreWindowSize()
         {
-            var windowSize = Settings.Instance.WindowSize;
+            var windowSize = _settings.WindowSize;
             if (windowSize.Width >= MinWidth && windowSize.Height >= MinHeight)
             {
                 Width = windowSize.Width;

@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Management;
 using System.Security.Principal;
+using LenovoLegionToolkit.Lib.Utils;
 
-namespace LenovoLegionToolkit.Lib.Utils
+namespace LenovoLegionToolkit.Lib.System
 {
     public static class Registry
     {
