@@ -86,4 +86,11 @@ namespace LenovoLegionToolkit.Lib
         Disabled,
         NotFound
     }
+
+    public enum WhiteKeyboardBacklightStatus
+    {
+        Off,
+        Low,
+        High,
+    }
 }
