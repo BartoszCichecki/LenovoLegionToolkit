@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Management;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.System;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {

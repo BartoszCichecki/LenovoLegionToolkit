@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Media;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
 #pragma warning disable IDE0052 // Remove unread private members
