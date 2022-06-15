@@ -46,6 +46,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             _rootNavigation.Items = new ObservableCollection<INavigationItem>
             {
                 new NavigationItem() { Icon = WPFUI.Common.SymbolRegular.Home20, Content = "Dashboard", PageTag = "dashboard", Page = typeof(DashboardPage)},
+                new NavigationItem() { Icon = WPFUI.Common.SymbolRegular.Keyboard20, Content = "Keyboard", PageTag = "Keyboard", Page = typeof(KeyboardPage)},
             };
             _rootNavigation.Footer = new ObservableCollection<INavigationItem>
             {
