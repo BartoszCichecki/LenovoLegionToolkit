@@ -52,7 +52,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             };
             _rootNavigation.Footer = new ObservableCollection<INavigationItem>
             {
-                new NavigationItem() { Icon = WPFUI.Common.SymbolRegular.Settings24, Content = "ApplicationSettings", PageTag = "settings", Page = typeof(SettingsPage) },
+                new NavigationItem() { Icon = WPFUI.Common.SymbolRegular.Settings24, Content = "Settings", PageTag = "settings", Page = typeof(SettingsPage) },
                 new NavigationItem() { Icon = WPFUI.Common.SymbolRegular.Info24, Content = "About", PageTag = "about", Page = typeof(AboutPage) },
             };
 
