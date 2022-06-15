@@ -11,7 +11,6 @@ namespace LenovoLegionToolkit.Lib
         OnAlways,
     }
 
-
     public enum BatteryState
     {
         Conservation,
@@ -80,4 +79,30 @@ namespace LenovoLegionToolkit.Lib
         Disabled,
         NotFound
     }
+
+
+    public enum KeyboardEffectState
+    {
+        Static,
+        Breath,
+        [Display(Name = "Wave Right")]
+        WaveRTL,
+        [Display(Name = "Wave Left")]
+        WaveLTR,
+        Smooth
+    }
+
+    public enum KeyboardSpeedState
+    {
+        Slower,
+        Slow,
+        Fast,
+        Faster
+    }
+    public enum KeyboardBrightnessState
+    {
+        Low,
+        High
+    }
+
 }
