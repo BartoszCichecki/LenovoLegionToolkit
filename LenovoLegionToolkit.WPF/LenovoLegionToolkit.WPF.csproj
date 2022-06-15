@@ -32,7 +32,6 @@
 		<PackageReference Include="Markdig" Version="0.30.2" />
 		<PackageReference Include="Markdig.Wpf" Version="0.5.0.1" />
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-		<PackageReference Include="PubSub" Version="4.0.2" />
 		<PackageReference Include="WPF-UI" Version="1.2.7" />
 	</ItemGroup>
 	<ItemGroup>

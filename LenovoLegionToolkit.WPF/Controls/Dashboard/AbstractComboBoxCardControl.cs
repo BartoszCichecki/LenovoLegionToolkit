@@ -6,7 +6,7 @@ using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
-using PubSub;
+using LenovoLegionToolkit.WPF.Extensions;
 using WPFUI.Common;
 using WPFUI.Controls;
 
@@ -75,10 +75,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
         {
             _comboBox.Visibility = Visibility.Visible;
 
-            Hub.Default.Subscribe<T>(this, _ =>
-            {
-                Dispatcher.Invoke(async () => await RefreshAsync());
-            });
+            MessagingCenter.Subscribe<T>(this, () => Dispatcher.InvokeTask(RefreshAsync));
         }
 
         protected virtual async Task OnStateChange(ComboBox comboBox, IFeature<T> feature)
