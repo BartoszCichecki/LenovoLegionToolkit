@@ -18,7 +18,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation
 
     public abstract class AbstractAutomationStepControl : UserControl
     {
-        protected IAutomationStep AutomationStep { get; }
+        public IAutomationStep AutomationStep { get; }
 
         private readonly CardControl _cardControl = new()
         {
