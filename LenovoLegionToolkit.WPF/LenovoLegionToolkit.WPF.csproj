@@ -21,6 +21,7 @@
 		<ApplicationManifest>app.manifest</ApplicationManifest>
 	</PropertyGroup>
 	<ItemGroup>
+		<None Remove="Assets\default_exe.png" />
 		<None Remove="Assets\paypal_button.png" />
 		<None Remove="Assets\paypal_qr.png" />
 		<None Remove="Assets\icon.ico" />
@@ -39,6 +40,7 @@
 		<ProjectReference Include="..\LenovoLegionToolkit.Lib.Automation\LenovoLegionToolkit.Lib.Automation.csproj" />
 	</ItemGroup>
 	<ItemGroup>
+		<Resource Include="Assets\default_exe.png" />
 		<Resource Include="Assets\icon.ico" />
 		<Resource Include="Assets\paypal_button.png" />
 		<Resource Include="Assets\paypal_qr.png" />

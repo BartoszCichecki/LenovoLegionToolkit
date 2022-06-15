@@ -18,11 +18,11 @@ namespace LenovoLegionToolkit.WPF.Extensions
             return BitmapFrame.Create(uri);
         }
 
-        public static ImageSource? ApplicationIcon(string path)
+        public static ImageSource? ApplicationIcon(string exePath)
         {
             try
             {
-                var icon = Icon.ExtractAssociatedIcon(path);
+                var icon = Icon.ExtractAssociatedIcon(exePath);
                 if (icon is null)
                     return null;
 
@@ -38,6 +38,14 @@ namespace LenovoLegionToolkit.WPF.Extensions
             {
                 return null;
             }
+        }
+        
+        public static ImageSource FromResource(string name)
+        {
+            var assemblyName = Assembly.GetExecutingAssembly().GetName().Name;
+            var path = "pack://application:,,,/" + assemblyName + ";component/" + name;
+            var uri = new Uri(path, UriKind.RelativeOrAbsolute);
+            return BitmapFrame.Create(uri);
         }
     }
 }
