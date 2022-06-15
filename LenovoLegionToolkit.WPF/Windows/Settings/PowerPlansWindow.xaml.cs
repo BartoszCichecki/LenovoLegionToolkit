@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Utils;
 
 namespace LenovoLegionToolkit.WPF.Windows.Settings
@@ -15,7 +16,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
         private static readonly object DEFAULT_VALUE = new string("(Default)");
 
         private readonly PowerModeFeature _powerModeFeature = IoCContainer.Resolve<PowerModeFeature>();
-        private readonly Lib.Utils.ApplicationSettings _settings = IoCContainer.Resolve<Lib.Utils.ApplicationSettings>();
+        private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
 
         public PowerPlansWindow()
         {
