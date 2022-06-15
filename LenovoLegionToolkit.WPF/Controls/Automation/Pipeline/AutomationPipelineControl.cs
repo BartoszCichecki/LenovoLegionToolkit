@@ -115,7 +115,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
         {
             foreach (var step in AutomationPipeline.Steps)
             {
-                var control = GenerateControl(step);
+                var control = GenerateStepControl(step);
                 _stepsStackPanel.Children.Add(control);
             }
 
@@ -131,8 +131,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
             _runNowButton.Click += async (s, e) => await RunAsync();
 
-            _addStepButton.ContextMenu = GenerateAddStepContextMenu();
-            _addStepButton.Click += (s, e) => _addStepButton.ContextMenu.IsOpen = true;
+            _addStepButton.Click += (s, e) => ShowAddStepContextMenu();
 
             _deletePipelineButton.Click += (s, e) => OnDelete?.Invoke(this, EventArgs.Empty);
 
@@ -213,7 +212,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
         private object? GenerateAccessory()
         {
-            if (AutomationPipeline.Trigger is ProcessesAreRunningAutomationPipelineTrigger t1)
+            if (AutomationPipeline.Trigger is IProcessesAutomationPipelineTrigger t)
             {
                 var button = new Button
                 {
@@ -224,7 +223,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 };
                 button.Click += (s, e) =>
                 {
-                    var window = new PickProcessesWindow(t1.Processes)
+                    var window = new PickProcessesWindow(t.Processes)
                     {
                         Owner = Window.GetWindow(this),
                         WindowStartupLocation = WindowStartupLocation.CenterOwner,
@@ -232,35 +231,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                     };
                     window.OnSave += (s, e) =>
                     {
-                        AutomationPipeline.Trigger = new ProcessesAreRunningAutomationPipelineTrigger(e);
-                        _cardExpander.HeaderContent = GenerateAccessory();
-                        OnChanged?.Invoke(this, EventArgs.Empty);
-                    };
-                    window.ShowDialog();
-                };
-                return button;
-            }
-
-            if (AutomationPipeline.Trigger is ProcessesStopRunningAutomationPipelineTrigger t2)
-            {
-                var button = new Button
-                {
-                    Appearance = Appearance.Secondary,
-                    Content = "Configure",
-                    Margin = new(0, 0, 16, 0),
-                    Width = 120,
-                };
-                button.Click += (s, e) =>
-                {
-                    var window = new PickProcessesWindow(t2.Processes)
-                    {
-                        Owner = Window.GetWindow(this),
-                        WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                        ShowInTaskbar = false,
-                    };
-                    window.OnSave += (s, e) =>
-                    {
-                        AutomationPipeline.Trigger = new ProcessesStopRunningAutomationPipelineTrigger(e);
+                        AutomationPipeline.Trigger = t.DeepCopy(e);
                         _cardExpander.HeaderContent = GenerateAccessory();
                         OnChanged?.Invoke(this, EventArgs.Empty);
                     };
@@ -272,13 +243,48 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             return null;
         }
 
-        private AbstractAutomationStepControl GenerateControl(IAutomationStep step)
+        private void ShowAddStepContextMenu()
+        {
+            var steps = new IAutomationStep[] {
+                new AlwaysOnUsbAutomationStep(default),
+                new BatteryAutomationStep(default),
+                new DeactivateGPUAutomationStep(),
+                new DelayAutomationStep(default),
+                new FlipToStartAutomationStep(default),
+                new FnLockAutomationStep(default),
+                new OverDriveAutomationStep(default),
+                new PowerModeAutomationStep(default),
+                new RefreshRateAutomationStep(default),
+                new RunAutomationStep(default, default),
+                new TouchpadLockAutomationStep(default),
+            };
+
+            var contextMenu = new ContextMenu
+            {
+                PlacementTarget = _addStepButton,
+                Placement = PlacementMode.Bottom,
+            };
+
+            foreach (var step in steps)
+            {
+                var control = GenerateStepControl(step);
+                var menuItem = new MenuItem { Icon = control.Icon, Header = control.Title };
+                menuItem.Click += (s, e) => AddStep(control);
+                contextMenu.Items.Add(menuItem);
+            }
+
+            _addStepButton.ContextMenu = contextMenu;
+            _addStepButton.ContextMenu.IsOpen = true;
+        }
+
+        private AbstractAutomationStepControl GenerateStepControl(IAutomationStep step)
         {
             AbstractAutomationStepControl control = step switch
             {
                 AlwaysOnUsbAutomationStep s => new AlwaysOnUsbAutomationStepControl(s),
                 BatteryAutomationStep s => new BatteryAutomationStepControl(s),
                 DeactivateGPUAutomationStep s => new DeactivateGPUAutomationStepControl(s),
+                DelayAutomationStep s => new DelayAutomationStepControl(s),
                 FlipToStartAutomationStep s => new FlipToStartAutomationStepControl(s),
                 FnLockAutomationStep s => new FnLockAutomationStepControl(s),
                 OverDriveAutomationStep s => new OverDriveAutomationStepControl(s),
@@ -303,45 +309,6 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                     DeleteStep(step);
             };
             return control;
-        }
-
-        private ContextMenu GenerateAddStepContextMenu()
-        {
-            var menuItems = GenerateMenuItems(new IAutomationStep[] {
-                new AlwaysOnUsbAutomationStep(default),
-                new BatteryAutomationStep(default),
-                new DeactivateGPUAutomationStep(),
-                new FlipToStartAutomationStep(default),
-                new FnLockAutomationStep(default),
-                new OverDriveAutomationStep(default),
-                new PowerModeAutomationStep(default),
-                new RefreshRateAutomationStep(default),
-                new RunAutomationStep(default, default),
-                new TouchpadLockAutomationStep(default),
-            });
-
-            var contextMenu = new ContextMenu
-            {
-                PlacementTarget = _addStepButton,
-                Placement = PlacementMode.Bottom,
-            };
-            contextMenu.Items.AddRange(menuItems);
-            return contextMenu;
-        }
-
-        private IEnumerable<MenuItem> GenerateMenuItems(params IAutomationStep[] steps)
-        {
-            foreach (var step in steps)
-            {
-                var control = GenerateControl(step);
-                var menuItem = new MenuItem { Icon = control.Icon, Header = control.Title };
-                menuItem.Click += (s, e) =>
-                {
-                    var control = GenerateControl(step);
-                    AddStep(control);
-                };
-                yield return menuItem;
-            }
         }
 
         private void ShowContextMenu(Control control)

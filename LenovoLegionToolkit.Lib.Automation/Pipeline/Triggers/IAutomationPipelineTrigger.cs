@@ -12,4 +12,13 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
 
         IAutomationPipelineTrigger DeepCopy();
     }
+
+    public interface IDisallowDuplicatesAutomationPipelineTrigger { }
+
+    public interface IProcessesAutomationPipelineTrigger
+    {
+        ProcessInfo[] Processes { get; }
+
+        IAutomationPipelineTrigger DeepCopy(ProcessInfo[] processes);
+    }
 }

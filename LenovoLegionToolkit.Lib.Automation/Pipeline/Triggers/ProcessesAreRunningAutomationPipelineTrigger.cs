@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
 {
-    public class ProcessesAreRunningAutomationPipelineTrigger : IAutomationPipelineTrigger
+    public class ProcessesAreRunningAutomationPipelineTrigger : IAutomationPipelineTrigger, IProcessesAutomationPipelineTrigger
     {
         public string DisplayName => "When app is running";
 
@@ -18,6 +18,8 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
         public Task<bool> IsSatisfiedAsync(object? context) => Task.Run(() => Processes.SelectMany(p => Process.GetProcessesByName(p.Name)).Any());
 
         public IAutomationPipelineTrigger DeepCopy() => new ProcessesAreRunningAutomationPipelineTrigger(Processes);
+
+        public IAutomationPipelineTrigger DeepCopy(ProcessInfo[] processes) => new ProcessesAreRunningAutomationPipelineTrigger(processes);
 
         public override bool Equals(object? obj)
         {

@@ -37,7 +37,6 @@
                     <TextBlock Margin="0,8,0,0">
                         If enabled these action will run automatically. Whenever state changes, all actions<LineBreak />
                         will be evaluated from top to bottom. Only actions that match current state will run.</TextBlock>
-
                 </StackPanel>
 
                 <controls:LoadableControl

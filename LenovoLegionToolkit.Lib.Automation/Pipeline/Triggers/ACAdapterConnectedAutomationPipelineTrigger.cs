@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
 {
-    public class ACAdapterConnectedAutomationPipelineTrigger : IAutomationPipelineTrigger
+    public class ACAdapterConnectedAutomationPipelineTrigger : IAutomationPipelineTrigger, IDisallowDuplicatesAutomationPipelineTrigger
     {
         [JsonIgnore]
         public string DisplayName => "When AC adapter is connected";

@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
 {
-    public class ProcessesStopRunningAutomationPipelineTrigger : IAutomationPipelineTrigger
+    public class ProcessesStopRunningAutomationPipelineTrigger : IAutomationPipelineTrigger, IProcessesAutomationPipelineTrigger
     {
         public string DisplayName => "When app closes";
 
@@ -30,6 +30,8 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
         }
 
         public IAutomationPipelineTrigger DeepCopy() => new ProcessesStopRunningAutomationPipelineTrigger(Processes);
+
+        public IAutomationPipelineTrigger DeepCopy(ProcessInfo[] processes) => new ProcessesStopRunningAutomationPipelineTrigger(processes);
 
         public override bool Equals(object? obj)
         {
