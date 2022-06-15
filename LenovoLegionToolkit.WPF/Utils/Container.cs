@@ -25,6 +25,9 @@ namespace LenovoLegionToolkit.WPF.Utils
             cb.Register<PowerModeFeature>();
             cb.Register<RefreshRateFeature>();
             cb.Register<TouchpadLockFeature>();
+            cb.Register<KeyboardEffectFeature>();
+            cb.Register<KeyboardBrightnessFeature>();
+            cb.Register<KeyboardSpeedFeature>();
 
             // Listeners
             cb.Register<PowerModeListener>();
