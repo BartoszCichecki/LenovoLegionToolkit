@@ -269,7 +269,10 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             {
                 var control = GenerateStepControl(step);
                 var menuItem = new MenuItem { Icon = control.Icon, Header = control.Title };
-                menuItem.Click += (s, e) => AddStep(control);
+                if (AllowDuplicates(step))
+                    menuItem.Click += (s, e) => AddStep(control);
+                else
+                    menuItem.IsEnabled = false;
                 contextMenu.Items.Add(menuItem);
             }
 
@@ -368,6 +371,21 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             _cardExpander.Subtitle = GenerateSubtitle();
 
             OnChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        private bool AllowDuplicates(IAutomationStep step)
+        {
+            if (step is IDisallowDuplicatesAutomationStep)
+            {
+                var alreadyContains = _stepsStackPanel.Children.ToArray()
+                    .OfType<AbstractAutomationStepControl>()
+                    .Select(c => c.AutomationStep)
+                    .Any(s => s.GetType() == step.GetType());
+
+                return !alreadyContains;
+            }
+
+            return true;
         }
     }
 }

@@ -3,7 +3,7 @@ using LenovoLegionToolkit.Lib.Controllers;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps
 {
-    public class DeactivateGPUAutomationStep : IAutomationStep
+    public class DeactivateGPUAutomationStep : IAutomationStep, IDisallowDuplicatesAutomationStep
     {
         private readonly GPUController _controller = IoCContainer.Resolve<GPUController>();
 

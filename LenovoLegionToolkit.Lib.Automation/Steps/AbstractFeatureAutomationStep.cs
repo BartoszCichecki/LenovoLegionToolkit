@@ -3,7 +3,7 @@ using LenovoLegionToolkit.Lib.Features;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps
 {
-    public abstract class AbstractFeatureAutomationStep<T> : IAutomationStep<T> where T : struct
+    public abstract class AbstractFeatureAutomationStep<T> : IAutomationStep<T>, IDisallowDuplicatesAutomationStep where T : struct
     {
         private readonly IFeature<T> _feature = IoCContainer.Resolve<IFeature<T>>();
 
