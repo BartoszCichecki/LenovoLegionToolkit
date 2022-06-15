@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Features;
-using PubSub;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps
 {
@@ -19,7 +18,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
                 return;
             await _feature.SetStateAsync(State).ConfigureAwait(false);
 
-            Hub.Default.Publish(State);
+            MessagingCenter.Publish(State);
         }
 
         public Task<T[]> GetAllStatesAsync() => _feature.GetAllStatesAsync();
