@@ -152,7 +152,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
 
             private void InitializeComponent()
             {
-                _icon.Source = ImageSourceExtensions.ApplicationIcon(Process.ExecutablePath);
+                _icon.Source = ImageSourceExtensions.ApplicationIcon(Process.ExecutablePath) ?? ImageSourceExtensions.FromResource("Assets/default_exe.png");
                 _nameTextBox.Text = Process.Name;
                 _pathTextBox.Text = Process.ExecutablePath;
 
