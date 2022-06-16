@@ -17,6 +17,8 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
             ScriptArguments = scriptArguments;
         }
 
+        public Task<bool> IsSupportedAsync() => Task.FromResult(true);
+
         public async Task RunAsync()
         {
             if (string.IsNullOrWhiteSpace(ScriptPath))

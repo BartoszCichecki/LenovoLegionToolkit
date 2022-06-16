@@ -11,6 +11,19 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
 
         public AbstractFeatureAutomationStep(T state) => State = state;
 
+        public async Task<bool> IsSupportedAsync()
+        {
+            try
+            {
+                _ = await _feature.GetStateAsync().ConfigureAwait(false);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public async Task RunAsync()
         {
             var currentState = await _feature.GetStateAsync().ConfigureAwait(false);
