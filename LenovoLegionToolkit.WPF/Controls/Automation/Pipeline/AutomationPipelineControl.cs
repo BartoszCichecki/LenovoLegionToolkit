@@ -86,7 +86,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
         {
             AutomationPipeline = automationPipeline;
 
-            InitializeComponent();
+            Initialized += AutomationPipelineControl_Initialized;
         }
 
         public AutomationPipeline CreateAutomationPipeline() => new()
@@ -111,8 +111,13 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             OnChanged?.Invoke(this, EventArgs.Empty);
         }
 
-        private void InitializeComponent()
+        private async void AutomationPipelineControl_Initialized(object? sender, EventArgs e)
         {
+            _cardExpander.Icon = GenerateIcon();
+            _cardExpander.Header = GenerateHeader();
+            _cardExpander.Subtitle = GenerateSubtitle();
+            _cardExpander.HeaderContent = GenerateAccessory();
+
             foreach (var step in AutomationPipeline.Steps)
             {
                 var control = GenerateStepControl(step);
@@ -131,7 +136,12 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
             _runNowButton.Click += async (s, e) => await RunAsync();
 
-            _addStepButton.Click += async (s, e) => await ShowAddStepContextMenuAsync();
+            _addStepButton.ContextMenu = await CreateAddStepContextMenuAsync();
+            _addStepButton.Click += (s, e) =>
+            {
+                if (_addStepButton.ContextMenu is not null)
+                    _addStepButton.ContextMenu.IsOpen = true;
+            };
 
             _deletePipelineButton.Click += (s, e) => OnDelete?.Invoke(this, EventArgs.Empty);
 
@@ -147,11 +157,6 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
             _stackPanel.Children.Add(_stepsStackPanel);
             _stackPanel.Children.Add(_buttonsStackPanel);
-
-            _cardExpander.Icon = GenerateIcon();
-            _cardExpander.Header = GenerateHeader();
-            _cardExpander.Subtitle = GenerateSubtitle();
-            _cardExpander.HeaderContent = GenerateAccessory();
             _cardExpander.Content = _stackPanel;
 
             Content = _cardExpander;
@@ -243,7 +248,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             return null;
         }
 
-        private async Task ShowAddStepContextMenuAsync()
+        private async Task<ContextMenu> CreateAddStepContextMenuAsync()
         {
             var steps = new IAutomationStep[] {
                 new AlwaysOnUsbAutomationStep(default),
@@ -259,11 +264,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 new TouchpadLockAutomationStep(default),
             };
 
-            var contextMenu = new ContextMenu
-            {
-                PlacementTarget = _addStepButton,
-                Placement = PlacementMode.Bottom,
-            };
+            var menuItems = new List<MenuItem>();
 
             foreach (var step in steps)
             {
@@ -273,14 +274,22 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 var control = GenerateStepControl(step);
                 var menuItem = new MenuItem { Icon = control.Icon, Header = control.Title };
                 if (AllowDuplicates(step))
-                    menuItem.Click += (s, e) => AddStep(control);
+                    menuItem.Click += async (s, e) => await AddStepAsync(control);
                 else
                     menuItem.IsEnabled = false;
-                contextMenu.Items.Add(menuItem);
+                menuItems.Add(menuItem);
             }
 
-            _addStepButton.ContextMenu = contextMenu;
-            _addStepButton.ContextMenu.IsOpen = true;
+            var contextMenu = new ContextMenu
+            {
+                PlacementTarget = _addStepButton,
+                Placement = PlacementMode.Bottom,
+            };
+
+            foreach (var menuItem in menuItems.OrderBy(mi => mi.Header))
+                contextMenu.Items.Add(menuItem);
+
+            return contextMenu;
         }
 
         private AbstractAutomationStepControl GenerateStepControl(IAutomationStep step)
@@ -309,10 +318,10 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             {
                 OnChanged?.Invoke(this, EventArgs.Empty);
             };
-            control.Delete += (s, e) =>
+            control.Delete += async (s, e) =>
             {
                 if (s is AbstractAutomationStepControl step)
-                    DeleteStep(step);
+                    await DeleteStepAsync(step);
             };
             return control;
         }
@@ -360,18 +369,23 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             OnChanged?.Invoke(this, EventArgs.Empty);
         }
 
-        private void AddStep(AbstractAutomationStepControl control)
+        private async Task AddStepAsync(AbstractAutomationStepControl control)
         {
+            if (!AllowDuplicates(control.AutomationStep))
+                return;
+
             _stepsStackPanel.Children.Add(control);
             _cardExpander.Subtitle = GenerateSubtitle();
+            _addStepButton.ContextMenu = await CreateAddStepContextMenuAsync();
 
             OnChanged?.Invoke(this, EventArgs.Empty);
         }
 
-        private void DeleteStep(Control control)
+        private async Task DeleteStepAsync(Control control)
         {
             _stepsStackPanel.Children.Remove(control);
             _cardExpander.Subtitle = GenerateSubtitle();
+            _addStepButton.ContextMenu = await CreateAddStepContextMenuAsync();
 
             OnChanged?.Invoke(this, EventArgs.Empty);
         }
