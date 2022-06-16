@@ -26,7 +26,7 @@
             x:Name="_powerStackPanel"
             Grid.Row="0"
             Grid.Column="0"
-            Margin="0,0,12,0">
+            Margin="0,0,16,0">
 
             <TextBlock
                 Margin="0,16,0,24"
@@ -42,7 +42,7 @@
             x:Name="_graphicsStackPanel"
             Grid.Row="0"
             Grid.Column="1"
-            Margin="0,0,12,0">
+            Margin="0,0,16,0">
             <TextBlock
                 Margin="0,16,0,24"
                 FontSize="24"
@@ -80,7 +80,7 @@
                     x:Name="_otherInnerLeftStackPanel"
                     Grid.Row="0"
                     Grid.Column="0"
-                    Margin="0,0,12,0">
+                    Margin="0,0,16,0">
                     <controls:FlipToStartControl />
                     <controls:OverDriveControl />
                 </StackPanel>
@@ -89,7 +89,7 @@
                     x:Name="_otherInnerRightStackPanel"
                     Grid.Row="0"
                     Grid.Column="0"
-                    Margin="0,0,12,0">
+                    Margin="0,0,16,0">
                     <controls:FnLockControl />
                     <controls:TouchpadLockControl />
                 </StackPanel>

@@ -145,7 +145,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 {
                     token.ThrowIfCancellationRequested();
 
-                    using (await _lock.LockAsync().ConfigureAwait(false))
+                    using (await _lock.LockAsync(token).ConfigureAwait(false))
                     {
 
                         if (Log.Instance.IsTraceEnabled)

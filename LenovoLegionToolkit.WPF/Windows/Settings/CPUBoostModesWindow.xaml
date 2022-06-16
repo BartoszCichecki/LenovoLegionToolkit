@@ -51,9 +51,9 @@
             x:Name="_loader"
             Grid.Row="1"
             Margin="12,0,0,0">
-            <ScrollViewer>
-                <StackPanel x:Name="_stackPanel" />
-            </ScrollViewer>
+            <wpfui:DynamicScrollViewer>
+                <StackPanel x:Name="_stackPanel" Margin="0,0,16,0" />
+            </wpfui:DynamicScrollViewer>
         </controls:LoadableControl>
 
         <wpfui:Hyperlink
