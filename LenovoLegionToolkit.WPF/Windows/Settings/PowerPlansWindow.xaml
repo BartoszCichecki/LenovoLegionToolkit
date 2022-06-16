@@ -9,9 +9,9 @@
     xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
     Title="Update available"
     Width="600"
-    Height="380"
+    Height="400"
     MinWidth="500"
-    MinHeight="380"
+    MinHeight="400"
     Style="{StaticResource UiWindow}">
 
     <Grid>
@@ -52,8 +52,8 @@
             Grid.Row="1"
             Margin="12,0,0,0">
 
-            <ScrollViewer>
-                <StackPanel>
+            <wpfui:DynamicScrollViewer>
+                <StackPanel Margin="0,0,16,0">
 
                     <wpfui:CardControl
                         Title="Quiet mode"
@@ -99,7 +99,7 @@
                     </wpfui:CardControl>
 
                 </StackPanel>
-            </ScrollViewer>
+            </wpfui:DynamicScrollViewer>
 
         </controls:LoadableControl>
 
