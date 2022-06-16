@@ -105,4 +105,8 @@ namespace LenovoLegionToolkit.Lib
         High
     }
 
+    public enum KeyboardColorState
+    {
+        None
+    }
 }

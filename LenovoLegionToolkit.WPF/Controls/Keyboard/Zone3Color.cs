@@ -8,7 +8,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Keyboard
         public Zone3Color()
         {
             Icon = SymbolRegular.Color24;
-            Title = "Zone3 Color";
+            Title = "Zone3";
             Subtitle = "Choose the Color of Zone 3";
         }
     }

@@ -28,7 +28,7 @@ namespace LenovoLegionToolkit.WPF.Utils
             cb.Register<KeyboardEffectFeature>();
             cb.Register<KeyboardBrightnessFeature>();
             cb.Register<KeyboardSpeedFeature>();
-
+            cb.Register<KeyboardColorZone>();
             // Listeners
             cb.Register<PowerModeListener>();
             cb.Register<PowerAdapterListener>();

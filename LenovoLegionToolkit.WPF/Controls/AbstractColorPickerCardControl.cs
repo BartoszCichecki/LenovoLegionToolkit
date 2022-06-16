@@ -1,6 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
+using System.Windows.Media;
 using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Utils;
 using WPFUI.Common;
 using WPFUI.Controls;
@@ -13,8 +17,8 @@ namespace LenovoLegionToolkit.WPF.Controls
 
 
         private readonly CardControl _cardControl = new();
-        private readonly Button _pick = new();
-
+        private readonly ColorPicker _colorPicker = new ColorPicker();
+        private readonly Button      _color = new Button();
         public SymbolRegular Icon
         {
             get => _cardControl.Icon;
@@ -39,24 +43,97 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         private void InitializeComponent()
         {
-            _pick.Click += Pick_Click;
-            _pick.Visibility = Visibility.Hidden;
-            _pick.Width=64;
+            _color.Width = 200;
+            _color.IsEnabled = false;
+            _cardControl.Click += Card_click;
             _cardControl.Margin = new Thickness(0, 0, 0, 8);
-            _cardControl.Content = _pick;
-
+            _cardControl.Content = _color;
+            _colorPicker.MouseDoubleClick += MouseDoubleClick;
+            _colorPicker.OnColorChange += OnColorChange;
+            _colorPicker.Margin = new Thickness(0, 0, 0, 8);
+            _colorPicker.HorizontalAlignment = HorizontalAlignment.Center;
             Content = _cardControl;
+
+
         }
 
-        private async void Pick_Click(object sender, RoutedEventArgs e) => await OnStateChange(_pick, _feature);
+        private void OnColorChange(object? sender, EventArgs e)
+        {
+            if (_cardControl.Title == "Zone1")
+            {
+                KeyboardData.LegionRGBKey.ZONE1_RGB[0] = _colorPicker.color.R;
+                KeyboardData.LegionRGBKey.ZONE1_RGB[1] = _colorPicker.color.G;
+                KeyboardData.LegionRGBKey.ZONE1_RGB[2] = _colorPicker.color.B;
+            }
+            if (_cardControl.Title == "Zone2")
+            {
+                KeyboardData.LegionRGBKey.ZONE2_RGB[0] = _colorPicker.color.R;
+                KeyboardData.LegionRGBKey.ZONE2_RGB[1] = _colorPicker.color.G;
+                KeyboardData.LegionRGBKey.ZONE2_RGB[2] = _colorPicker.color.B;
+            }
+            if (_cardControl.Title == "Zone3")
+            {
+                KeyboardData.LegionRGBKey.ZONE3_RGB[0] = _colorPicker.color.R;
+                KeyboardData.LegionRGBKey.ZONE3_RGB[1] = _colorPicker.color.G;
+                KeyboardData.LegionRGBKey.ZONE3_RGB[2] = _colorPicker.color.B;
+            }
+            if (_cardControl.Title == "Zone4")
+            {
+                KeyboardData.LegionRGBKey.ZONE4_RGB[0] = _colorPicker.color.R;
+                KeyboardData.LegionRGBKey.ZONE4_RGB[1] = _colorPicker.color.G;
+                KeyboardData.LegionRGBKey.ZONE4_RGB[2] = _colorPicker.color.B;
+            }
+            OnStateChange(_feature);
+        }
+
+        private void MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Content = _cardControl;
+            SolidColorBrush currentColorBrush = new SolidColorBrush();
+            currentColorBrush.Color = _colorPicker.color;
+            _color.Background = currentColorBrush;
+
+        }
+
+        private void Card_click(object sender, RoutedEventArgs e)
+        {
+            Content = _colorPicker;
+        }
+
 
         //protected override async Task OnRefreshAsync() => _pick.Background = OnState.Equals(await _feature.GetStateAsync());
-        protected override async Task OnRefreshAsync() => _pick.Visibility= Visibility.Visible;
-        protected override void OnFinishedLoading() => _pick.Visibility = Visibility.Visible;
-
-        protected virtual async Task OnStateChange(Button toggle, IFeature<T> feature)
+        protected override async Task OnRefreshAsync() => _cardControl.Visibility= Visibility.Visible;
+        protected override void OnFinishedLoading()
         {
-            //await feature.SetStateAsync();
+            Color color;
+            if (_cardControl.Title == "Zone1")
+            {
+                color = Color.FromRgb(KeyboardData.LegionRGBKey.ZONE1_RGB[0], KeyboardData.LegionRGBKey.ZONE1_RGB[1], KeyboardData.LegionRGBKey.ZONE1_RGB[2]);
+
+            }
+            if (_cardControl.Title == "Zone2")
+            {
+                color = Color.FromRgb(KeyboardData.LegionRGBKey.ZONE2_RGB[0], KeyboardData.LegionRGBKey.ZONE2_RGB[1], KeyboardData.LegionRGBKey.ZONE2_RGB[2]);
+            }
+            if (_cardControl.Title == "Zone3")
+            {
+                color = Color.FromRgb(KeyboardData.LegionRGBKey.ZONE3_RGB[0], KeyboardData.LegionRGBKey.ZONE3_RGB[1], KeyboardData.LegionRGBKey.ZONE3_RGB[2]);
+            }
+            if (_cardControl.Title == "Zone4")
+            {
+                color = Color.FromRgb(KeyboardData.LegionRGBKey.ZONE4_RGB[0], KeyboardData.LegionRGBKey.ZONE4_RGB[1], KeyboardData.LegionRGBKey.ZONE4_RGB[2]);
+            }
+            _colorPicker.color = color;
+            SolidColorBrush currentColorBrush = new SolidColorBrush();
+            currentColorBrush.Color = _colorPicker.color;
+            _color.Background = currentColorBrush;
+            OnStateChange(_feature);
+        }
+
+        protected virtual async Task OnStateChange( IFeature<T> feature)
+        {
+            T currentState = await feature.GetStateAsync();
+            await feature.SetStateAsync(currentState);
         }
     }
 }
