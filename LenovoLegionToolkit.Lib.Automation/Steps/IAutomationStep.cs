@@ -4,6 +4,8 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
 {
     public interface IAutomationStep
     {
+        Task<bool> IsSupportedAsync();
+
         Task RunAsync();
 
         IAutomationStep DeepCopy();

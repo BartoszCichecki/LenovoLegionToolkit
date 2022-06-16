@@ -131,7 +131,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
             _runNowButton.Click += async (s, e) => await RunAsync();
 
-            _addStepButton.Click += (s, e) => ShowAddStepContextMenu();
+            _addStepButton.Click += async (s, e) => await ShowAddStepContextMenuAsync();
 
             _deletePipelineButton.Click += (s, e) => OnDelete?.Invoke(this, EventArgs.Empty);
 
@@ -243,7 +243,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             return null;
         }
 
-        private void ShowAddStepContextMenu()
+        private async Task ShowAddStepContextMenuAsync()
         {
             var steps = new IAutomationStep[] {
                 new AlwaysOnUsbAutomationStep(default),
@@ -267,6 +267,9 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
             foreach (var step in steps)
             {
+                if (!await step.IsSupportedAsync())
+                    continue;
+
                 var control = GenerateStepControl(step);
                 var menuItem = new MenuItem { Icon = control.Icon, Header = control.Title };
                 if (AllowDuplicates(step))
