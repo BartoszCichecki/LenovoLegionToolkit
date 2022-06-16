@@ -3,14 +3,18 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Utils;
-using LenovoLegionToolkit.WPF.Windows;
+using LenovoLegionToolkit.WPF.Windows.Settings;
 
 namespace LenovoLegionToolkit.WPF.Pages
 {
     public partial class SettingsPage
     {
+        private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
+        private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
+
         private bool _isRefreshing;
 
         public SettingsPage()
@@ -35,9 +39,9 @@ namespace LenovoLegionToolkit.WPF.Pages
 
             var loadingTask = Task.Delay(250);
 
-            _themeComboBox.SetItems(Enum.GetValues<Theme>(), Settings.Instance.Theme);
+            _themeComboBox.SetItems(Enum.GetValues<Theme>(), _settings.Theme);
             _autorunToggle.IsChecked = Autorun.IsEnabled;
-            _minimizeOnCloseToggle.IsChecked = Settings.Instance.MinimizeOnClose;
+            _minimizeOnCloseToggle.IsChecked = _settings.MinimizeOnClose;
 
             var vantageStatus = await Vantage.GetStatusAsync();
             _vantageCard.Visibility = vantageStatus != VantageStatus.NotFound ? Visibility.Visible : Visibility.Collapsed;
@@ -61,10 +65,10 @@ namespace LenovoLegionToolkit.WPF.Pages
             if (!_themeComboBox.TryGetSelectedItem(out Theme state))
                 return;
 
-            Settings.Instance.Theme = state;
-            Settings.Instance.Synchronize();
+            _settings.Theme = state;
+            _settings.Synchronize();
 
-            Container.Resolve<ThemeManager>().Apply();
+            _themeManager.Apply();
         }
 
         private void AutorunToggle_Click(object sender, RoutedEventArgs e)
@@ -73,7 +77,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 return;
 
             var state = _autorunToggle.IsChecked;
-            if (state == null)
+            if (state is null)
                 return;
 
             if (state.Value)
@@ -88,11 +92,11 @@ namespace LenovoLegionToolkit.WPF.Pages
                 return;
 
             var state = _minimizeOnCloseToggle.IsChecked;
-            if (state == null)
+            if (state is null)
                 return;
 
-            Settings.Instance.MinimizeOnClose = state.Value;
-            Settings.Instance.Synchronize();
+            _settings.MinimizeOnClose = state.Value;
+            _settings.Synchronize();
         }
 
         private async void VantageToggle_Click(object sender, RoutedEventArgs e)
@@ -101,7 +105,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 return;
 
             var state = _vantageToggle.IsChecked;
-            if (state == null)
+            if (state is null)
                 return;
 
             if (state.Value)

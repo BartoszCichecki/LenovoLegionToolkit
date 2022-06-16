@@ -9,10 +9,6 @@ IF "%1"=="" (
 
 SET PATH=%PATH%;"C:\Program Files (x86)\Inno Setup 6"
 
-rmdir /s /q build
-rmdir /s /q build_installer
-
-dotnet clean
 dotnet publish LenovoLegionToolkit.WPF -c release -o build /p:DebugType=None /p:FileVersion=%VERSION% /p:Version=%VERSION%
 
 iscc make_installer.iss /DMyAppVersion=%VERSION%

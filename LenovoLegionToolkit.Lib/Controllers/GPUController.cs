@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using NeoSmart.AsyncLock;
 
@@ -56,13 +57,15 @@ namespace LenovoLegionToolkit.Lib.Controllers
             try
             {
                 NVAPI.Initialize();
-                return NVAPI.GetGPU() != null;
+                return NVAPI.GetGPU() is not null;
             }
             finally
             {
                 NVAPI.Unload();
             }
         }
+
+        public Task RefreshAsync() => RefreshLoopAsync(0, 0, CancellationToken.None);
 
         public async Task StartAsync(int delay = 1_000, int interval = 5_000)
         {
@@ -73,67 +76,13 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
             _refreshCancellationTokenSource = new CancellationTokenSource();
             var token = _refreshCancellationTokenSource.Token;
-
-            _refreshTask = Task.Run(async () =>
-            {
-                try
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Initializing NVAPI...");
-
-                    NVAPI.Initialize();
-
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Initialized NVAPI");
-
-                    await Task.Delay(delay, token).ConfigureAwait(false);
-
-                    while (true)
-                    {
-                        token.ThrowIfCancellationRequested();
-
-                        using (await _lock.LockAsync().ConfigureAwait(false))
-                        {
-
-                            if (Log.Instance.IsTraceEnabled)
-                                Log.Instance.Trace($"Will refresh...");
-
-                            WillRefresh?.Invoke(this, EventArgs.Empty);
-                            await RefreshAsync().ConfigureAwait(false);
-
-                            if (Log.Instance.IsTraceEnabled)
-                                Log.Instance.Trace($"Refreshed");
-
-                            Refreshed?.Invoke(this, new RefreshedEventArgs(IsActive, CanBeDeactivated, _status, _processNames));
-                        }
-
-                        await Task.Delay(interval, token).ConfigureAwait(false);
-                    }
-                }
-                catch (Exception ex) when (ex is not TaskCanceledException)
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Exception: {ex.Demystify()}");
-
-                    throw;
-                }
-                finally
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Unloading NVAPI...");
-
-                    NVAPI.Unload();
-
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Unloaded NVAPI");
-                }
-            }, token);
+            _refreshTask = Task.Run(() => RefreshLoopAsync(delay, interval, token), token);
         }
 
         public async Task StopAsync(bool waitForFinish = false)
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Stopping... [refreshTask.isNull={_refreshTask == null}, _refreshCancellationTokenSource.IsCancellationRequested={_refreshCancellationTokenSource?.IsCancellationRequested}]");
+                Log.Instance.Trace($"Stopping... [refreshTask.isNull={_refreshTask is null}, _refreshCancellationTokenSource.IsCancellationRequested={_refreshCancellationTokenSource?.IsCancellationRequested}]");
 
             _refreshCancellationTokenSource?.Cancel();
 
@@ -142,7 +91,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Waiting to finish...");
 
-                if (_refreshTask != null)
+                if (_refreshTask is not null)
                 {
                     try
                     {
@@ -178,7 +127,62 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 Log.Instance.Trace($"Deactivated [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
         }
 
-        private async Task RefreshAsync()
+        private async Task RefreshLoopAsync(int delay, int interval, CancellationToken token)
+        {
+            try
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Initializing NVAPI...");
+
+                NVAPI.Initialize();
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Initialized NVAPI");
+
+                await Task.Delay(delay, token).ConfigureAwait(false);
+
+                while (interval > 0)
+                {
+                    token.ThrowIfCancellationRequested();
+
+                    using (await _lock.LockAsync(token).ConfigureAwait(false))
+                    {
+
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Will refresh...");
+
+                        WillRefresh?.Invoke(this, EventArgs.Empty);
+                        await RefreshStateAsync().ConfigureAwait(false);
+
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Refreshed");
+
+                        Refreshed?.Invoke(this, new RefreshedEventArgs(IsActive, CanBeDeactivated, _status, _processNames));
+                    }
+
+                    await Task.Delay(interval, token).ConfigureAwait(false);
+                }
+            }
+            catch (Exception ex) when (ex is not TaskCanceledException)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Exception: {ex.Demystify()}");
+
+                throw;
+            }
+            finally
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Unloading NVAPI...");
+
+                NVAPI.Unload();
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Unloaded NVAPI");
+            }
+        }
+
+        private async Task RefreshStateAsync()
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Refresh in progress...");
@@ -188,7 +192,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             _gpuInstanceId = null;
 
             var gpu = NVAPI.GetGPU();
-            if (gpu == null)
+            if (gpu is null)
             {
                 _status = Status.NVIDIAGPUNotFound;
 

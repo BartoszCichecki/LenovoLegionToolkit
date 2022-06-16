@@ -11,7 +11,7 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             get
             {
-                if (_instance == null)
+                if (_instance is null)
                     _instance = new Log();
                 return _instance;
             }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using Newtonsoft.Json;
 using Octokit;
 
 namespace LenovoLegionToolkit.Lib
@@ -61,17 +63,94 @@ namespace LenovoLegionToolkit.Lib
         public override string ToString() => Name;
     }
 
-    public struct RefreshRate : IDisplayName
+    public struct ProcessEventInfo
+    {
+        public ProcessEventInfoType Type { get; }
+
+        public ProcessInfo Process { get; }
+
+        public ProcessEventInfo(ProcessEventInfoType type, ProcessInfo process)
+        {
+            Type = type;
+            Process = process;
+        }
+    }
+
+    public struct ProcessInfo : IComparable
+    {
+        public static ProcessInfo FromPath(string path) => new(Path.GetFileNameWithoutExtension(path), path);
+
+        public string Name { get; }
+
+        public string ExecutablePath { get; }
+
+        [JsonConstructor]
+        public ProcessInfo(string name, string executablePath)
+        {
+            Name = name;
+            ExecutablePath = executablePath;
+        }
+
+        #region Equality
+
+        public int CompareTo(object? obj)
+        {
+            var other = obj is null ? default : (ProcessInfo)obj;
+
+            var result = Name.CompareTo(other.Name);
+            if (result != 0)
+                return result;
+
+            return ExecutablePath.CompareTo(other.ExecutablePath);
+        }
+
+        public override bool Equals(object? obj) => obj is ProcessInfo info && Name == info.Name && ExecutablePath == info.ExecutablePath;
+
+        public override int GetHashCode() => HashCode.Combine(Name, ExecutablePath);
+
+        public static bool operator ==(ProcessInfo left, ProcessInfo right) => left.Equals(right);
+
+        public static bool operator !=(ProcessInfo left, ProcessInfo right) => !(left == right);
+
+        public static bool operator <(ProcessInfo left, ProcessInfo right) => left.CompareTo(right) < 0;
+
+        public static bool operator <=(ProcessInfo left, ProcessInfo right) => left.CompareTo(right) <= 0;
+
+        public static bool operator >(ProcessInfo left, ProcessInfo right) => left.CompareTo(right) > 0;
+
+        public static bool operator >=(ProcessInfo left, ProcessInfo right) => left.CompareTo(right) >= 0;
+
+        #endregion
+    }
+
+    public struct RefreshRate : IDisplayName, IEquatable<RefreshRate>
     {
         public int Frequency { get; }
 
+        [JsonIgnore]
         public string DisplayName => $"{Frequency} Hz";
 
+        [JsonConstructor]
         public RefreshRate(int frequency)
         {
             Frequency = frequency;
         }
+
+        #region Equality
+
+        public override bool Equals(object? obj) => obj is RefreshRate rate && Equals(rate);
+
+        public bool Equals(RefreshRate other) => Frequency == other.Frequency;
+
+        public override int GetHashCode() => HashCode.Combine(Frequency);
+
+        public static bool operator ==(RefreshRate left, RefreshRate right) => left.Equals(right);
+
+        public static bool operator !=(RefreshRate left, RefreshRate right) => !(left == right);
+
+        #endregion
     }
+
     public struct Update
     {
         public Version Version { get; }

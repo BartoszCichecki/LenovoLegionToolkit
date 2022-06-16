@@ -9,7 +9,7 @@ namespace LenovoLegionToolkit.WPF.Controls
 {
     public abstract class AbstractRefreshingControl : UserControl
     {
-        protected bool IsRefreshing => _refreshTask != null;
+        protected bool IsRefreshing => _refreshTask is not null;
 
         private Task? _refreshTask;
 
@@ -48,7 +48,7 @@ namespace LenovoLegionToolkit.WPF.Controls
             {
                 IsEnabled = false;
 
-                if (_refreshTask == null)
+                if (_refreshTask is null)
                     _refreshTask = OnRefreshAsync();
                 await _refreshTask;
             }

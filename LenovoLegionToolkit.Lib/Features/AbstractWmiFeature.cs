@@ -63,7 +63,7 @@ namespace LenovoLegionToolkit.Lib.Features
 
         private async Task<bool> IsSupportedAsync()
         {
-            if (_supportMethodName == null)
+            if (_supportMethodName is null)
                 return true;
 
             var value = await ExecuteGamezoneAsync(_supportMethodName, "Data").ConfigureAwait(false);
@@ -100,7 +100,7 @@ namespace LenovoLegionToolkit.Lib.Features
 
                 var mo = (ManagementObject)enumerator.Current;
                 var methodParamsObject = mo.GetMethodParameters(methodName);
-                if (methodParams != null)
+                if (methodParams is not null)
                     foreach (var pair in methodParams)
                         methodParamsObject[pair.Key] = pair.Value;
 

@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
+using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
-using LenovoLegionToolkit.WPF.Utils;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
     public partial class DiscreteGPUControl
     {
-        private readonly GPUController _gpuController = Container.Resolve<GPUController>();
+        private readonly GPUController _gpuController = IoCContainer.Resolve<GPUController>();
 
         public DiscreteGPUControl()
         {
@@ -56,7 +56,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
                 if (e.ProcessCount > 0)
                     status += $" ({e.ProcessCount} app{(e.ProcessCount > 1 ? "s" : "")})";
                 _discreteGPUStatusDescription.Text = status;
-                _discreteGPUStatusDescription.ToolTip = e.ProcessCount < 1 ? null : ("Processes:\n" + string.Join("\n", e.ProcessNames));
+                _discreteGPUStatusDescription.ToolTip = e.ProcessCount < 1 ? null : ("InitialProcesses:\n" + string.Join("\n", e.ProcessNames));
                 _discreteGPUStatusActiveIndicator.Visibility = Visibility.Visible;
                 _discreteGPUStatusInactiveIndicator.Visibility = Visibility.Collapsed;
             }

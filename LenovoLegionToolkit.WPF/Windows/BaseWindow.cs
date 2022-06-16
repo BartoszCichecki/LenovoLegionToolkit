@@ -2,20 +2,24 @@
 using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media;
+using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.WPF.Utils;
 
 namespace LenovoLegionToolkit.WPF.Windows
 {
     public class BaseWindow : Window
     {
-        private readonly ThemeManager _themeManager = Container.Resolve<ThemeManager>();
+        private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
 
         public BaseWindow()
         {
-            IsVisibleChanged += MicaWindow_IsVisibleChanged;
+            IsVisibleChanged += BaseWindow_IsVisibleChanged;
+            DpiChanged += BaseWindow_DpiChanged;
         }
 
-        private void MicaWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private void BaseWindow_DpiChanged(object sender, DpiChangedEventArgs e) => VisualTreeHelper.SetRootDpi(this, e.NewDpi);
+
+        private void BaseWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (!IsVisible)
                 return;
@@ -27,7 +31,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             _themeManager.ThemeApplied += ThemeManager_ThemeApplied;
 
             Closed += BaseWindow_Closed;
-            IsVisibleChanged -= MicaWindow_IsVisibleChanged;
+            IsVisibleChanged -= BaseWindow_IsVisibleChanged;
         }
 
         private void BaseWindow_Closed(object? sender, EventArgs e) => _themeManager.ThemeApplied -= ThemeManager_ThemeApplied;
