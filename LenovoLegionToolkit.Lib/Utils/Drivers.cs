@@ -14,7 +14,6 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             if (_energy == null)
             {
-                LocateHid(0x048D, 0xC955, 0xFF0F, 33);
                 lock (_locker)
                 {
                     if (_energy == null)
@@ -99,7 +98,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 
                                      Native.HidP_GetCaps(PreparsedData, out Caps);
                                      Native.HidD_FreePreparsedData(PreparsedData);
-                                     if (Caps.FeatureReportByteLength == 33)
+                                     if (Caps.FeatureReportByteLength == DescriptorLenght)
                                      {
                                          Found = true;
                                          break;
