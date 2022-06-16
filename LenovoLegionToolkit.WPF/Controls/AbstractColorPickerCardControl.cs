@@ -48,7 +48,6 @@ namespace LenovoLegionToolkit.WPF.Controls
             _cardControl.Click += Card_click;
             _cardControl.Margin = new Thickness(0, 0, 0, 8);
             _cardControl.Content = _color;
-            _colorPicker.MouseDoubleClick += MouseDoubleClick;
             _colorPicker.OnColorChange += OnColorChange;
             _colorPicker.Margin = new Thickness(0, 0, 0, 8);
             _colorPicker.HorizontalAlignment = HorizontalAlignment.Center;
@@ -56,6 +55,7 @@ namespace LenovoLegionToolkit.WPF.Controls
 
 
         }
+
 
         private void OnColorChange(object? sender, EventArgs e)
         {
@@ -86,19 +86,18 @@ namespace LenovoLegionToolkit.WPF.Controls
             OnStateChange(_feature);
         }
 
-        private void MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            Content = _cardControl;
-            SolidColorBrush currentColorBrush = new SolidColorBrush();
-            currentColorBrush.Color = _colorPicker.color;
-            _color.Background = currentColorBrush;
-
-        }
-
         private void Card_click(object sender, RoutedEventArgs e)
         {
-            Content = _colorPicker;
+            if (_cardControl.Content == _color)
+            {
+                _cardControl.Content = _colorPicker;
+            }
+            else
+            {
+                _cardControl.Content = _color;
+            }
         }
+
 
 
         //protected override async Task OnRefreshAsync() => _pick.Background = OnState.Equals(await _feature.GetStateAsync());

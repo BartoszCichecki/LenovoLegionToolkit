@@ -54,10 +54,10 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         protected override void OnMouseMove(MouseEventArgs e)
         {
-          //  
-          if (e.LeftButton==MouseButtonState.Pressed)
+            
+          if (e.RightButton == MouseButtonState.Pressed)
             {
-                //base.OnMouseMove(e);
+                base.OnMouseMove(e);
                 Point point_abs = e.GetPosition(this);
                 Point point_rel = e.GetPosition(this);
                 point_rel.X = point_abs.X - 128;
@@ -74,6 +74,7 @@ namespace LenovoLegionToolkit.WPF.Controls
                 InvalidateVisual();
             }
         }
+
 
         protected override void OnRender(System.Windows.Media.DrawingContext dc)
         {
