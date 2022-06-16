@@ -10,6 +10,8 @@ namespace LenovoLegionToolkit.WPF.Controls
 {
     public class ColorPicker : UserControl
     {
+
+        public event EventHandler OnColorChange;
         ColorTable colorTable = new ColorTable();
         Grid grid = new Grid();
         Slider slider = new Slider();
@@ -19,15 +21,15 @@ namespace LenovoLegionToolkit.WPF.Controls
             get {
                 return colorTable.color; 
             }
-           /* set {
-                _value = value;
-            } */
+            set {
+                colorTable.color = value;
+            } 
         }
 
         protected override void OnInitialized(EventArgs e)
         {
             base.OnInitialized(e);
-
+            colorTable.OnColorChange += ColorChangedEvent;
             Grid grid = new Grid();
             slider.TickFrequency = 0.05;
             slider.Maximum = 1;
@@ -63,6 +65,12 @@ namespace LenovoLegionToolkit.WPF.Controls
             Content = grid;
 
 
+        }
+
+        private void ColorChangedEvent(object? sender, EventArgs e)
+        {
+            EventHandler handler = OnColorChange;
+            handler?.Invoke(this, e);
         }
 
         private void onSaturationChange(object sender, RoutedPropertyChangedEventArgs<double> e)

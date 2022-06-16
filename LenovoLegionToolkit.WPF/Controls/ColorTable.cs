@@ -9,10 +9,20 @@ using System.Windows.Input;
 using Point = System.Windows.Point;
 using SolidColorBrush = System.Windows.Media.SolidColorBrush;
 
+
+
 namespace LenovoLegionToolkit.WPF.Controls
 {
     public class ColorTable : Panel
     {
+
+        public event EventHandler OnColorChange;
+
+        protected virtual void ColorChangedEvent(EventArgs e)
+        {
+            EventHandler handler = OnColorChange;
+            handler?.Invoke(this, e);
+        }
 
         private double _value = 1;
         private Point current_color_point = new Point(128, 128);
@@ -28,9 +38,10 @@ namespace LenovoLegionToolkit.WPF.Controls
             {
                 return ColorFromXY(current_color_point);
             }
-            /* set {
-                 _value = value;
-             } */
+             set {
+                current_color_point = ColorToXY(value);
+                InvalidateVisual();
+             } 
         }
 
         public double Value   // property
@@ -59,6 +70,7 @@ namespace LenovoLegionToolkit.WPF.Controls
                 }
 
                 current_color_point = point_abs;
+                ColorChangedEvent(e);
                 InvalidateVisual();
             }
         }
@@ -105,6 +117,16 @@ namespace LenovoLegionToolkit.WPF.Controls
 
             return System.Windows.Media.Color.FromRgb(color.R, color.G, color.B);
         }
+
+        private Point ColorToXY(System.Windows.Media.Color color)
+        {
+            double h, s, v;
+            ColorToHSV(System.Drawing.Color.FromArgb(color.R, color.G, color.B),out h,out s,out v);
+            _value = v;
+            Point point = new Point(128-s * 128 * Math.Cos(h * Math.PI / 180), 128-s * 128 * Math.Sin(h * Math.PI / 180));
+            return point;
+        }
+
 
         public static void ColorToHSV(Color color, out double hue, out double saturation, out double value)
         {
