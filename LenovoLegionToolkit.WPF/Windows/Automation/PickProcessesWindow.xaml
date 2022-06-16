@@ -61,13 +61,13 @@
                     <Border.Background>
                         <SolidColorBrush Color="{DynamicResource ControlFillColorDefault}" />
                     </Border.Background>
-                    <ScrollViewer>
+                    <wpfui:DynamicScrollViewer>
                         <ItemsControl
                             x:Name="_list"
-                            Margin="8"
+                            Margin="8,8,16,0"
                             HorizontalContentAlignment="Stretch"
                             ScrollViewer.HorizontalScrollBarVisibility="Disabled" />
-                    </ScrollViewer>
+                    </wpfui:DynamicScrollViewer>
                 </Border>
 
                 <Grid Grid.Row="1" Margin="0,8,0,0">

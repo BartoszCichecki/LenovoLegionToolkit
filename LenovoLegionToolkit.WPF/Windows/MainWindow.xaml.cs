@@ -10,6 +10,7 @@ using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Pages;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Utils;
+using WPFUI.Common;
 using WPFUI.Controls;
 using WPFUI.Controls.Interfaces;
 
@@ -47,13 +48,13 @@ namespace LenovoLegionToolkit.WPF.Windows
             _rootNavigation.Frame = _rootFrame;
             _rootNavigation.Items = new ObservableCollection<INavigationItem>
             {
-                new NavigationItem() { Icon = WPFUI.Common.SymbolRegular.Home24, Content = "Dashboard", PageTag = "dashboard", Page = typeof(DashboardPage) },
-                new NavigationItem() { Icon = WPFUI.Common.SymbolRegular.Rocket24, Content = "Actions", PageTag = "automation", Page = typeof(AutomationPage) }
+                new NavigationItem() { Icon = SymbolRegular.Home24, Content = "Dashboard", PageTag = "dashboard", Page = typeof(DashboardPage) },
+                new NavigationItem() { Icon = SymbolRegular.Rocket24, Content = "Actions", PageTag = "automation", Page = typeof(AutomationPage) }
             };
             _rootNavigation.Footer = new ObservableCollection<INavigationItem>
             {
-                new NavigationItem() { Icon = WPFUI.Common.SymbolRegular.Settings24, Content = "Settings", PageTag = "settings", Page = typeof(SettingsPage) },
-                new NavigationItem() { Icon = WPFUI.Common.SymbolRegular.Info24, Content = "About", PageTag = "about", Page = typeof(AboutPage) },
+                new NavigationItem() { Icon = SymbolRegular.Settings24, Content = "Settings", PageTag = "settings", Page = typeof(SettingsPage) },
+                new NavigationItem() { Icon = SymbolRegular.Info24, Content = "About", PageTag = "about", Page = typeof(AboutPage) },
             };
 
             _rootNavigation.Navigate(_rootNavigation.Items[0].PageTag);
