@@ -15,6 +15,7 @@ namespace LenovoLegionToolkit.Lib
             public Dictionary<PowerModeState, string> PowerPlans { get; set; } = new();
             public bool MinimizeOnClose { get; set; } = false;
             public bool ActivatePowerProfilesWithVantageEnabled { get; set; } = false;
+            public LegionRGBKey RgbProfile { get; set; } = KeyboardData.BlankLegionRGBKey;
         }
 
         private static Settings? _instance;
@@ -32,6 +33,8 @@ namespace LenovoLegionToolkit.Lib
 
         private readonly JsonSerializerSettings _jsonSerializerSettings;
         private readonly string _settingsStorePath;
+
+
 
         public WindowSize WindowSize
         {
@@ -61,6 +64,12 @@ namespace LenovoLegionToolkit.Lib
         {
             get => _settingsStore.ActivatePowerProfilesWithVantageEnabled;
             set => _settingsStore.ActivatePowerProfilesWithVantageEnabled = value;
+        }
+
+        public LegionRGBKey RgbProfile
+        {
+            get => _settingsStore.RgbProfile;
+            set => _settingsStore.RgbProfile = value;
         }
 
         private Settings()
