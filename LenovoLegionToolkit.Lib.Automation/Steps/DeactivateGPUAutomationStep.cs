@@ -7,7 +7,14 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
     {
         private readonly GPUController _controller = IoCContainer.Resolve<GPUController>();
 
-        public Task RunAsync() => _controller.DeactivateGPUAsync();
+        public async Task RunAsync()
+        {
+            if (!_controller.IsSupported())
+                return;
+
+            await _controller.RefreshAsync().ConfigureAwait(false);
+            await _controller.DeactivateGPUAsync().ConfigureAwait(false);
+        }
 
         IAutomationStep IAutomationStep.DeepCopy() => new DeactivateGPUAutomationStep();
     }
