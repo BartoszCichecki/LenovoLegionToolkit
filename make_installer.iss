@@ -23,7 +23,7 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={userpf}\{#MyAppNameCompact}
 DisableProgramGroupPage=yes
-LicenseFile=LICENSE.md
+LicenseFile=LICENSE
 PrivilegesRequired=admin
 OutputBaseFilename=LenovoLegionToolkitSetup
 Compression=lzma2  
@@ -48,7 +48,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 Source: "build\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "LICENSE.md"; DestDir: "{app}"; Flags: ignoreversion
+Source: "LICENSE"; DestDir: "{app}"; Flags: ignoreversion
 Source: "CodeDependencies\netcorecheck_x64.exe";  DestDir: "{app}"; Flags: ignoreversion deleteafterinstall
 
 [Icons]
