@@ -16,7 +16,7 @@ namespace LenovoLegionToolkit.Lib.Features
         {
             _driverHandle = driverHandleHandle;
         }
-        public Task<T[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<T>());
+       public Task<T[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<T>());
 
         public async Task<T> GetStateAsync()
         {
@@ -29,6 +29,8 @@ namespace LenovoLegionToolkit.Lib.Features
         {
             //Todo
             KeyboardData.LegionRGBKey = ToInternal(state, KeyboardData.LegionRGBKey);
+            Settings.Instance.RgbProfile = KeyboardData.LegionRGBKey;
+            Settings.Instance.Synchronize();
             await SendHidReport(_driverHandle(), KeyboardData.LegionRGBKey);
         }
 
@@ -36,7 +38,6 @@ namespace LenovoLegionToolkit.Lib.Features
          {
              return Task.Run(() =>
              {
-                     
                  if (!Native.HidD_SetFeature(handle,ref LegionRGB, 33))
                  {
                      var error = Marshal.GetLastWin32Error();
