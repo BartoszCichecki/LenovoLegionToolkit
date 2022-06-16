@@ -10,6 +10,8 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
         [JsonConstructor]
         public DelayAutomationStep(Delay state) => State = state;
 
+        public Task<bool> IsSupportedAsync() => Task.FromResult(true);
+
         public Task<Delay[]> GetAllStatesAsync() => Task.FromResult(new Delay[] {
             new(1),
             new(2),
