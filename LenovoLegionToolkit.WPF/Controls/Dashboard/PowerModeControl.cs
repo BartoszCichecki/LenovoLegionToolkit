@@ -14,7 +14,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
         {
             Icon = SymbolRegular.Gauge24;
             Title = "Power Mode";
-            Subtitle = "Select performance mode.\nYou can switch mode using shortcut Fn+Q.";
+            Subtitle = "Select performance mode.\nYou can switch mode with Fn+Q.";
 
             _powerModeListener.Changed += PowerModeListener_Changed;
             _powerPlanListener.Changed += PowerPlanListener_Changed;
