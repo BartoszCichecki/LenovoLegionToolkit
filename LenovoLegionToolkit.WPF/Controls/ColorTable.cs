@@ -47,7 +47,11 @@ namespace LenovoLegionToolkit.WPF.Controls
         public double Value   // property
         {
             get { return _value; }   // get method
-            set { _value = value; InvalidateVisual(); }  // set method
+            set {
+                _value = value;
+                ColorChangedEvent(EventArgs.Empty);
+                InvalidateVisual();
+            }  // set method
         }
 
 
@@ -55,7 +59,7 @@ namespace LenovoLegionToolkit.WPF.Controls
         protected override void OnMouseMove(MouseEventArgs e)
         {
             
-          if (e.RightButton == MouseButtonState.Pressed)
+          if (e.LeftButton == MouseButtonState.Pressed)
             {
                 base.OnMouseMove(e);
                 Point point_abs = e.GetPosition(this);

@@ -15,8 +15,7 @@ namespace LenovoLegionToolkit.WPF.Controls
     {
         private readonly IFeature<T> _feature = Container.Resolve<IFeature<T>>();
 
-
-        private readonly CardControl _cardControl = new();
+        private readonly CardExpander _cardControl = new();
         private readonly ColorPicker _colorPicker = new ColorPicker();
         private readonly Button      _color = new Button();
         public SymbolRegular Icon
@@ -27,8 +26,8 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         public string Title
         {
-            get => _cardControl.Title;
-            set => _cardControl.Title = value;
+            get => _cardControl.Header.ToString();
+            set => _cardControl.Header = value;
         }
 
         public string Subtitle
@@ -45,12 +44,12 @@ namespace LenovoLegionToolkit.WPF.Controls
         {
             _color.Width = 200;
             _color.IsEnabled = false;
-            _cardControl.Click += Card_click;
             _cardControl.Margin = new Thickness(0, 0, 0, 8);
-            _cardControl.Content = _color;
             _colorPicker.OnColorChange += OnColorChange;
             _colorPicker.Margin = new Thickness(0, 0, 0, 8);
             _colorPicker.HorizontalAlignment = HorizontalAlignment.Center;
+            _cardControl.HeaderContent = _color;
+            _cardControl.Content = _colorPicker;
             Content = _cardControl;
 
 
@@ -59,31 +58,37 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         private void OnColorChange(object? sender, EventArgs e)
         {
-            if (_cardControl.Title == "Zone1")
+            if (_cardControl.Header != null)
             {
-                KeyboardData.LegionRGBKey.ZONE1_RGB[0] = _colorPicker.color.R;
-                KeyboardData.LegionRGBKey.ZONE1_RGB[1] = _colorPicker.color.G;
-                KeyboardData.LegionRGBKey.ZONE1_RGB[2] = _colorPicker.color.B;
+                if (_cardControl.Header.ToString() == "Zone1")
+                {
+                    KeyboardData.LegionRGBKey.ZONE1_RGB[0] = _colorPicker.color.R;
+                    KeyboardData.LegionRGBKey.ZONE1_RGB[1] = _colorPicker.color.G;
+                    KeyboardData.LegionRGBKey.ZONE1_RGB[2] = _colorPicker.color.B;
+                }
+                if (_cardControl.Header.ToString() == "Zone2")
+                {
+                    KeyboardData.LegionRGBKey.ZONE2_RGB[0] = _colorPicker.color.R;
+                    KeyboardData.LegionRGBKey.ZONE2_RGB[1] = _colorPicker.color.G;
+                    KeyboardData.LegionRGBKey.ZONE2_RGB[2] = _colorPicker.color.B;
+                }
+                if (_cardControl.Header.ToString() == "Zone3")
+                {
+                    KeyboardData.LegionRGBKey.ZONE3_RGB[0] = _colorPicker.color.R;
+                    KeyboardData.LegionRGBKey.ZONE3_RGB[1] = _colorPicker.color.G;
+                    KeyboardData.LegionRGBKey.ZONE3_RGB[2] = _colorPicker.color.B;
+                }
+                if (_cardControl.Header.ToString() == "Zone4")
+                {
+                    KeyboardData.LegionRGBKey.ZONE4_RGB[0] = _colorPicker.color.R;
+                    KeyboardData.LegionRGBKey.ZONE4_RGB[1] = _colorPicker.color.G;
+                    KeyboardData.LegionRGBKey.ZONE4_RGB[2] = _colorPicker.color.B;
+                }
+                SolidColorBrush currentColorBrush = new SolidColorBrush();
+                currentColorBrush.Color = _colorPicker.color;
+                _color.Background = currentColorBrush;
+                OnStateChange(_feature);
             }
-            if (_cardControl.Title == "Zone2")
-            {
-                KeyboardData.LegionRGBKey.ZONE2_RGB[0] = _colorPicker.color.R;
-                KeyboardData.LegionRGBKey.ZONE2_RGB[1] = _colorPicker.color.G;
-                KeyboardData.LegionRGBKey.ZONE2_RGB[2] = _colorPicker.color.B;
-            }
-            if (_cardControl.Title == "Zone3")
-            {
-                KeyboardData.LegionRGBKey.ZONE3_RGB[0] = _colorPicker.color.R;
-                KeyboardData.LegionRGBKey.ZONE3_RGB[1] = _colorPicker.color.G;
-                KeyboardData.LegionRGBKey.ZONE3_RGB[2] = _colorPicker.color.B;
-            }
-            if (_cardControl.Title == "Zone4")
-            {
-                KeyboardData.LegionRGBKey.ZONE4_RGB[0] = _colorPicker.color.R;
-                KeyboardData.LegionRGBKey.ZONE4_RGB[1] = _colorPicker.color.G;
-                KeyboardData.LegionRGBKey.ZONE4_RGB[2] = _colorPicker.color.B;
-            }
-            OnStateChange(_feature);
         }
 
         private void Card_click(object sender, RoutedEventArgs e)
@@ -105,28 +110,31 @@ namespace LenovoLegionToolkit.WPF.Controls
         protected override void OnFinishedLoading()
         {
             Color color;
-            if (_cardControl.Title == "Zone1")
+            if (_cardControl.Header != null)
             {
-                color = Color.FromRgb(KeyboardData.LegionRGBKey.ZONE1_RGB[0], KeyboardData.LegionRGBKey.ZONE1_RGB[1], KeyboardData.LegionRGBKey.ZONE1_RGB[2]);
+                if (_cardControl.Header.ToString() == "Zone1")
+                {
+                    color = Color.FromRgb(KeyboardData.LegionRGBKey.ZONE1_RGB[0], KeyboardData.LegionRGBKey.ZONE1_RGB[1], KeyboardData.LegionRGBKey.ZONE1_RGB[2]);
 
+                }
+                if (_cardControl.Header.ToString() == "Zone2")
+                {
+                    color = Color.FromRgb(KeyboardData.LegionRGBKey.ZONE2_RGB[0], KeyboardData.LegionRGBKey.ZONE2_RGB[1], KeyboardData.LegionRGBKey.ZONE2_RGB[2]);
+                }
+                if (_cardControl.Header.ToString() == "Zone3")
+                {
+                    color = Color.FromRgb(KeyboardData.LegionRGBKey.ZONE3_RGB[0], KeyboardData.LegionRGBKey.ZONE3_RGB[1], KeyboardData.LegionRGBKey.ZONE3_RGB[2]);
+                }
+                if (_cardControl.Header.ToString() == "Zone4")
+                {
+                    color = Color.FromRgb(KeyboardData.LegionRGBKey.ZONE4_RGB[0], KeyboardData.LegionRGBKey.ZONE4_RGB[1], KeyboardData.LegionRGBKey.ZONE4_RGB[2]);
+                }
+                _colorPicker.color = color;
+                SolidColorBrush currentColorBrush = new SolidColorBrush();
+                currentColorBrush.Color = _colorPicker.color;
+                _color.Background = currentColorBrush;
+                OnStateChange(_feature);
             }
-            if (_cardControl.Title == "Zone2")
-            {
-                color = Color.FromRgb(KeyboardData.LegionRGBKey.ZONE2_RGB[0], KeyboardData.LegionRGBKey.ZONE2_RGB[1], KeyboardData.LegionRGBKey.ZONE2_RGB[2]);
-            }
-            if (_cardControl.Title == "Zone3")
-            {
-                color = Color.FromRgb(KeyboardData.LegionRGBKey.ZONE3_RGB[0], KeyboardData.LegionRGBKey.ZONE3_RGB[1], KeyboardData.LegionRGBKey.ZONE3_RGB[2]);
-            }
-            if (_cardControl.Title == "Zone4")
-            {
-                color = Color.FromRgb(KeyboardData.LegionRGBKey.ZONE4_RGB[0], KeyboardData.LegionRGBKey.ZONE4_RGB[1], KeyboardData.LegionRGBKey.ZONE4_RGB[2]);
-            }
-            _colorPicker.color = color;
-            SolidColorBrush currentColorBrush = new SolidColorBrush();
-            currentColorBrush.Color = _colorPicker.color;
-            _color.Background = currentColorBrush;
-            OnStateChange(_feature);
         }
 
         protected virtual async Task OnStateChange( IFeature<T> feature)
