@@ -7,6 +7,8 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
     {
         private readonly GPUController _controller = IoCContainer.Resolve<GPUController>();
 
+        public Task<bool> IsSupportedAsync() => Task.FromResult(_controller.IsSupported());
+
         public async Task RunAsync()
         {
             if (!_controller.IsSupported())
