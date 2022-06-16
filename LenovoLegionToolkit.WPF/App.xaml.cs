@@ -8,11 +8,15 @@ using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Threading;
+using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Features;
-using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows;
+
+#pragma warning disable IDE0052 // Remove unread private members
 
 namespace LenovoLegionToolkit
 {
@@ -21,10 +25,8 @@ namespace LenovoLegionToolkit
         private const string MutexName = "LenovoLegionToolkit_Mutex_6efcc882-924c-4cbc-8fec-f45c25696f98";
         private const string EventName = "LenovoLegionToolkit_Event_6efcc882-924c-4cbc-8fec-f45c25696f98";
 
-#pragma warning disable IDE0052 // Remove unread private members
         private Mutex? _mutex;
         private EventWaitHandle? _eventWaitHandle;
-#pragma warning restore IDE0052 // Remove unread private members
 
         private async void Application_Startup(object sender, StartupEventArgs e)
         {
@@ -41,14 +43,33 @@ namespace LenovoLegionToolkit
             if (!ShouldByPassCompatibilityCheck(e.Args))
                 await CheckCompatibilityAsync();
 
-            Container.Initialize();
+            IoCContainer.Initialize(
+                new Lib.IoCModule(),
+                new Lib.Automation.IoCModule(),
+                new WPF.IoCModule()
+            );
+
+            try
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Initializing automation processor...");
+
+                var automationProcessor = IoCContainer.Resolve<AutomationProcessor>();
+                await automationProcessor.InitializeAsync();
+                automationProcessor.RunOnStartup();
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't initialize automation processor. Exception: {ex.Demystify()}");
+            }
 
             try
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Ensuring correct power plan is set...");
 
-                await Container.Resolve<PowerModeFeature>().EnsureCorrectPowerPlanIsSetAsync();
+                await IoCContainer.Resolve<PowerModeFeature>().EnsureCorrectPowerPlanIsSetAsync();
             }
             catch (Exception ex)
             {
@@ -56,75 +77,33 @@ namespace LenovoLegionToolkit
                     Log.Instance.Trace($"Couldn't ensure correct power plan. Exception: {ex.Demystify()}");
             }
 
-            try
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Starting power mode listener...");
-
-                Container.Resolve<PowerModeListener>().Start();
-            }
-            catch (Exception ex)
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't start power model listener. Exception: {ex.Demystify()}");
-            }
-
-            try
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Starting power plan listener...");
-
-                Container.Resolve<PowerPlanListener>().Start();
-            }
-            catch (Exception ex)
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't start power plan listener. Exception: {ex.Demystify()}");
-            }
-
-            try
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Starting display configuration listener...");
-
-                Container.Resolve<DisplayConfigurationListener>().Start();
-            }
-            catch (Exception ex)
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't start display configuration listener. Exception: {ex.Demystify()}");
-            }
-
             Autorun.Validate();
 
-            Container.Resolve<ThemeManager>().Apply();
+            IoCContainer.Resolve<ThemeManager>().Apply();
 
-            using (await ThemePreloader.PreloadAsync())
+            var mainWindow = new MainWindow
             {
-                var mainWindow = new MainWindow
-                {
-                    WindowStartupLocation = WindowStartupLocation.CenterScreen
-                };
-                MainWindow = mainWindow;
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+            MainWindow = mainWindow;
 
-                if (ShouldStartMinimized(e.Args))
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Sending MainWindow to tray...");
-                    mainWindow.WindowState = WindowState.Minimized;
-                    mainWindow.Show();
-                    mainWindow.SendToTray();
-                }
-                else
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Showing MainWindow...");
-                    mainWindow.Show();
-                }
-
+            if (ShouldStartMinimized(e.Args))
+            {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Start up complete");
+                    Log.Instance.Trace($"Sending MainWindow to tray...");
+                mainWindow.WindowState = WindowState.Minimized;
+                mainWindow.Show();
+                mainWindow.SendToTray();
             }
+            else
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Showing MainWindow...");
+                mainWindow.Show();
+            }
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Start up complete");
         }
 
         private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)

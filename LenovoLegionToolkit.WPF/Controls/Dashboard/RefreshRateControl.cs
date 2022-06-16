@@ -1,13 +1,14 @@
-﻿using LenovoLegionToolkit.Lib;
+﻿using System.Threading.Tasks;
+using System.Windows;
+using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Listeners;
-using LenovoLegionToolkit.WPF.Utils;
 using WPFUI.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
     public class RefreshRateControl : AbstractComboBoxCardControl<RefreshRate>
     {
-        private readonly DisplayConfigurationListener _listener = Container.Resolve<DisplayConfigurationListener>();
+        private readonly DisplayConfigurationListener _listener = IoCContainer.Resolve<DisplayConfigurationListener>();
 
         public RefreshRateControl()
         {
@@ -18,9 +19,19 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             _listener.Changed += Listener_Changed;
         }
 
+        protected override async Task OnRefreshAsync()
+        {
+            await base.OnRefreshAsync();
+
+            if (_comboBox.Items.Count < 1)
+                Visibility = Visibility.Collapsed;
+            else
+                Visibility = Visibility.Visible;
+        }
+
         private void Listener_Changed(object? sender, System.EventArgs e) => Dispatcher.Invoke(async () =>
         {
-            if (IsLoaded && IsVisible)
+            if (IsLoaded)
                 await RefreshAsync();
         });
     }

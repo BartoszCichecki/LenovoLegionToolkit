@@ -1,15 +1,22 @@
-﻿using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.Utils;
+﻿using System;
+using System.Management;
+using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.System;
 
 namespace LenovoLegionToolkit.Lib.Listeners
 {
     public class PowerModeListener : AbstractWMIListener<PowerModeState>
     {
-        public PowerModeListener() : base("LENOVO_GAMEZONE_SMART_FAN_MODE_EVENT", "mode", 1) { }
+        public PowerModeListener() : base("ROOT\\WMI", "LENOVO_GAMEZONE_SMART_FAN_MODE_EVENT") { }
 
-        protected override async Task OnChangedAsync(PowerModeState value)
+        protected override PowerModeState GetValue(PropertyDataCollection properties)
         {
-            await Power.ActivatePowerPlanAsync(value).ConfigureAwait(false);
+            var property = properties["mode"];
+            var propertyValue = Convert.ToInt32(property.Value);
+            var value = (PowerModeState)(object)(propertyValue - 1);
+            return value;
         }
+
+        protected override Task OnChangedAsync(PowerModeState value) => Power.ActivatePowerPlanAsync(value);
     }
 }

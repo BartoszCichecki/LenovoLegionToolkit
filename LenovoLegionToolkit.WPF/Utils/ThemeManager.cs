@@ -2,7 +2,10 @@
 using System.Windows;
 using System.Windows.Media;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
+
+#pragma warning disable IDE0052 // Remove unread private members
 
 namespace LenovoLegionToolkit.WPF.Utils
 {
@@ -12,18 +15,31 @@ namespace LenovoLegionToolkit.WPF.Utils
         private const string RegistryPath = @"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize";
         private const string RegistryKey = "AppsUseLightTheme";
 
-#pragma warning disable IDE0052 // Remove unread private members
+        private readonly ApplicationSettings _settings;
         private readonly IDisposable _themeListener;
-#pragma warning restore IDE0052 // Remove unread private members
+
+        public bool IsDarkMode
+        {
+            get
+            {
+                var theme = _settings.Theme;
+                var registryValue = Registry.Read(RegistryHive, RegistryPath, RegistryKey, 1);
+
+                return (theme, registryValue) switch
+                {
+                    (Theme.Light, _) => false,
+                    (Theme.System, 1) => false,
+                    _ => true,
+                };
+            }
+        }
 
         public event EventHandler? ThemeApplied;
 
-        public ThemeManager()
+        public ThemeManager(ApplicationSettings settings)
         {
-            _themeListener = Registry.Listen(RegistryHive, RegistryPath, RegistryKey, () => Application.Current.Dispatcher.Invoke(() =>
-            {
-                Apply();
-            }));
+            _settings = settings;
+            _themeListener = Registry.Listen(RegistryHive, RegistryPath, RegistryKey, () => Application.Current.Dispatcher.Invoke(Apply));
         }
 
         public void Apply()
@@ -34,19 +50,10 @@ namespace LenovoLegionToolkit.WPF.Utils
             ThemeApplied?.Invoke(this, EventArgs.Empty);
         }
 
-        private static void SetTheme()
+        private void SetTheme()
         {
-            var theme = Settings.Instance.Theme;
-            var registryValue = Registry.Read(RegistryHive, RegistryPath, RegistryKey, 1);
-
-            var currentTheme = (theme, registryValue) switch
-            {
-                (Theme.Light, _) => WPFUI.Appearance.ThemeType.Light,
-                (Theme.System, 1) => WPFUI.Appearance.ThemeType.Light,
-                _ => WPFUI.Appearance.ThemeType.Dark,
-            };
-
-            WPFUI.Appearance.Theme.Apply(currentTheme,
+            var theme = IsDarkMode ? WPFUI.Appearance.ThemeType.Dark : WPFUI.Appearance.ThemeType.Light;
+            WPFUI.Appearance.Theme.Apply(theme,
                 backgroundEffect: WPFUI.Appearance.BackgroundType.Unknown,
                 updateAccent: false);
         }

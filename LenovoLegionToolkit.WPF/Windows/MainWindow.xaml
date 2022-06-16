@@ -8,9 +8,9 @@
     xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
     Title="Lenovo Legion Toolkit"
     Width="1100"
-    Height="700"
+    Height="610"
     MinWidth="650"
-    MinHeight="600"
+    MinHeight="610"
     SnapsToDevicePixels="true"
     Style="{StaticResource UiWindow}"
     mc:Ignorable="d">
@@ -61,6 +61,7 @@
                 x:Name="_rootNavigation"
                 Grid.Column="0"
                 Margin="0,0,12,12" />
+
             <Border
                 Grid.Column="1"
                 Background="{DynamicResource ControlFillColorDefaultBrush}"
@@ -71,12 +72,14 @@
             <wpfui:Snackbar
                 x:Name="_snackBar"
                 Grid.Column="1"
+                MinWidth="300"
                 MaxWidth="600"
+                HorizontalAlignment="Center"
                 Appearance="Secondary"
-                Icon="Info24"
+                Icon="Checkmark24"
                 IsShown="False"
-                ShowCloseButton="True"
-                Timeout="5000" />
+                ShowCloseButton="False"
+                Timeout="2000" />
 
         </Grid>
     </Grid>

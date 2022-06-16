@@ -14,7 +14,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             get
             {
                 var location = Assembly.GetEntryAssembly()?.Location;
-                if (location == null)
+                if (location is null)
                     return "";
                 var versionInfo = FileVersionInfo.GetVersionInfo(location);
                 return versionInfo.LegalCopyright ?? "";

@@ -43,6 +43,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                     var updates = releases
                         .Where(r => !r.Draft)
                         .Select(r => new Update(r))
+                        .Where(r => r.Version > new Version(2, 0, 0))
                         .Where(r => r.Version > thisReleaseVersion)
                         .OrderByDescending(r => r.Version)
                         .ToArray();
@@ -83,7 +84,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                 if (latestUpdate.Equals(default(Update)))
                     throw new InvalidOperationException("No _updates available");
 
-                if (latestUpdate.Url == null)
+                if (latestUpdate.Url is null)
                     throw new InvalidOperationException("Setup file URL could not be found");
 
                 using var fileStream = File.OpenWrite(tempPath);

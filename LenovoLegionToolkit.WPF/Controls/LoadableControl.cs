@@ -11,8 +11,10 @@ namespace LenovoLegionToolkit.WPF.Controls
         private readonly ProgressRing _progressRing = new()
         {
             IsIndeterminate = true,
-            Width = 24,
-            Height = 24,
+            VerticalContentAlignment = VerticalAlignment.Top,
+            HorizontalAlignment = HorizontalAlignment.Center,
+            Width = 32,
+            Height = 32,
         };
 
         private bool _isLoading = true;
@@ -51,6 +53,8 @@ namespace LenovoLegionToolkit.WPF.Controls
             set => _progressRing.VerticalAlignment = value;
         }
 
+        public Visibility ContentVisibilityWhileLoading { get; set; } = Visibility.Hidden;
+
         protected override void OnInitialized(EventArgs e)
         {
             base.OnInitialized(e);
@@ -68,7 +72,7 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         private void UpdateLoadingState()
         {
-            _contentPresenter.Visibility = IsLoading ? Visibility.Hidden : Visibility.Visible;
+            _contentPresenter.Visibility = IsLoading ? ContentVisibilityWhileLoading : Visibility.Visible;
             _progressRing.Visibility = IsLoading ? Visibility.Visible : Visibility.Hidden;
         }
     }

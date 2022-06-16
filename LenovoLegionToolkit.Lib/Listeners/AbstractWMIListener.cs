@@ -1,51 +1,65 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Management;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
+
+#pragma warning disable IDE0052 // Remove unread private members
 
 namespace LenovoLegionToolkit.Lib.Listeners
 {
-    public abstract class AbstractWMIListener<T> : IListener<T> where T : struct, Enum, IComparable
+    public abstract class AbstractWMIListener<T> : IListener<T> where T : struct
     {
-        private readonly string _eventName;
-        private readonly string _property;
-        private readonly int _offset;
+        private readonly string _scope;
+        private readonly FormattableString _query;
 
         private IDisposable? _disposable;
 
         public event EventHandler<T>? Changed;
 
-        public AbstractWMIListener(string eventName, string property, int offset)
+        public AbstractWMIListener(string scope, FormattableString query)
         {
-            _eventName = eventName;
-            _property = property;
-            _offset = offset;
+            _scope = scope;
+            _query = query;
+
+            Start();
         }
 
-        public void Start()
+        public AbstractWMIListener(string scope, string eventName)
         {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Starting... [listener={GetType().Name}]");
+            _scope = scope;
+            _query = $"SELECT * FROM {eventName}";
 
-            _disposable = WMI.Listen("ROOT\\WMI", $"SELECT * FROM {_eventName}", Handler);
+            Start();
         }
 
-        public void Stop()
+        private void Start()
         {
-            _disposable?.Dispose();
-            _disposable = null;
+            try
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Starting... [listener={GetType().Name}]");
 
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Stopped [listener={GetType().Name}]");
+                _disposable = WMI.Listen(_scope, _query, Handler);
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't start listener: {ex.Demystify()} [listener={GetType().Name}]");
+            }
         }
+
+        protected abstract T GetValue(PropertyDataCollection properties);
 
         protected abstract Task OnChangedAsync(T value);
 
         private async void Handler(PropertyDataCollection properties)
         {
-            var property = properties[_property];
-            var propertyValue = Convert.ToInt32(property.Value);
-            var value = (T)(object)(propertyValue - _offset);
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Event received. [listener={GetType().Name}]");
+
+            var value = GetValue(properties);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Value {value} [listener={GetType().Name}]");

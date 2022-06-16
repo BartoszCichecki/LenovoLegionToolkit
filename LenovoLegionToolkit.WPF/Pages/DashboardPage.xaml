@@ -11,18 +11,22 @@
     Style="{StaticResource UiPageScrollable}"
     mc:Ignorable="d">
 
-    <Grid Margin="0,0,16,12">
+    <Grid Margin="0,0,0,12">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition x:Name="_column0" />
-            <ColumnDefinition x:Name="_column1" Width="16" />
-            <ColumnDefinition x:Name="_column2" />
+            <ColumnDefinition />
+            <ColumnDefinition x:Name="_column1" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
 
-        <StackPanel x:Name="_stackPanelLeft" Grid.Column="0">
+        <StackPanel
+            x:Name="_powerStackPanel"
+            Grid.Row="0"
+            Grid.Column="0"
+            Margin="0,0,16,0">
 
             <TextBlock
                 Margin="0,16,0,24"
@@ -32,7 +36,13 @@
             <controls:PowerModeControl />
             <controls:BatteryModeControl />
             <controls:AlwaysOnUSBControl />
+        </StackPanel>
 
+        <StackPanel
+            x:Name="_graphicsStackPanel"
+            Grid.Row="0"
+            Grid.Column="1"
+            Margin="0,0,16,0">
             <TextBlock
                 Margin="0,16,0,24"
                 FontSize="24"
@@ -44,18 +54,49 @@
 
         </StackPanel>
 
-        <StackPanel x:Name="_stackPanelRight" Grid.Column="2">
+        <StackPanel
+            x:Name="_otherStackPanel"
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="2">
 
             <TextBlock
                 Margin="0,16,0,24"
                 FontSize="24"
                 FontWeight="Medium"
                 Text="Other" />
-            <controls:FlipToStartControl />
-            <controls:OverDriveControl />
-            <controls:FnLockControl />
-            <controls:TouchpadLockControl />
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition x:Name="_otherInnerColumn1" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <StackPanel
+                    x:Name="_otherInnerLeftStackPanel"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Margin="0,0,16,0">
+                    <controls:FlipToStartControl />
+                    <controls:OverDriveControl />
+                </StackPanel>
+
+                <StackPanel
+                    x:Name="_otherInnerRightStackPanel"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Margin="0,0,16,0">
+                    <controls:FnLockControl />
+                    <controls:TouchpadLockControl />
+                </StackPanel>
+
+            </Grid>
 
         </StackPanel>
+
     </Grid>
 </Page>

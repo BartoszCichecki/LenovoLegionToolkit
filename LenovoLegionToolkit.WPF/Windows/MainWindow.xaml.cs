@@ -4,20 +4,24 @@ using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Pages;
+using LenovoLegionToolkit.WPF.Utils;
+using LenovoLegionToolkit.WPF.Windows.Utils;
+using WPFUI.Common;
 using WPFUI.Controls;
 using WPFUI.Controls.Interfaces;
-using Container = LenovoLegionToolkit.WPF.Utils.Container;
 
 namespace LenovoLegionToolkit.WPF.Windows
 {
     public partial class MainWindow
     {
-        private readonly UpdateChecker _updateChecker = Container.Resolve<UpdateChecker>();
+        private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
+        private readonly UpdateChecker _updateChecker = IoCContainer.Resolve<UpdateChecker>();
+
+        public Snackbar Snackbar => _snackBar;
 
         public MainWindow()
         {
@@ -26,6 +30,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             InitializeTray();
             RestoreWindowSize();
 
+            Loaded += MainWindow_Loaded;
             Closing += MainWindow_Closing;
             IsVisibleChanged += MainWindow_IsVisibleChanged;
             StateChanged += MainWindow_StateChanged;
@@ -36,8 +41,6 @@ namespace LenovoLegionToolkit.WPF.Windows
 
             if (Log.Instance.IsTraceEnabled)
                 _title.Text += " [TRACE ENABLED]";
-
-            CheckForUpdates();
         }
 
         private void InitializeNavigation()
@@ -45,12 +48,13 @@ namespace LenovoLegionToolkit.WPF.Windows
             _rootNavigation.Frame = _rootFrame;
             _rootNavigation.Items = new ObservableCollection<INavigationItem>
             {
-                new NavigationItem() { Icon = WPFUI.Common.SymbolRegular.Home20, Content = "Dashboard", PageTag = "dashboard", Page = typeof(DashboardPage)},
+                new NavigationItem() { Icon = SymbolRegular.Home24, Content = "Dashboard", PageTag = "dashboard", Page = typeof(DashboardPage) },
+                new NavigationItem() { Icon = SymbolRegular.Rocket24, Content = "Actions", PageTag = "automation", Page = typeof(AutomationPage) }
             };
             _rootNavigation.Footer = new ObservableCollection<INavigationItem>
             {
-                new NavigationItem() { Icon = WPFUI.Common.SymbolRegular.Settings28, Content = "Settings", PageTag = "settings", Page = typeof(SettingsPage)},
-                new NavigationItem() { Icon = WPFUI.Common.SymbolRegular.Info28, Content = "About", PageTag = "about", Page = typeof(AboutPage)},
+                new NavigationItem() { Icon = SymbolRegular.Settings24, Content = "Settings", PageTag = "settings", Page = typeof(SettingsPage) },
+                new NavigationItem() { Icon = SymbolRegular.Info24, Content = "About", PageTag = "about", Page = typeof(AboutPage) },
             };
 
             _rootNavigation.Navigate(_rootNavigation.Items[0].PageTag);
@@ -58,29 +62,19 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private void InitializeTray()
         {
-            var openMenuItem = new MenuItem { Header = "Open" };
-            openMenuItem.Click += (s, e) => BringToForeground();
-
-            var closeMenuItem = new MenuItem { Header = "Close" };
-            closeMenuItem.Click += (s, e) => Application.Current.Shutdown();
-
-            var contextMenu = new ContextMenu();
-            contextMenu.Items.Add(openMenuItem);
-            contextMenu.Items.Add(closeMenuItem);
+            ContextMenuHelper.Instance.BringToForegroundAction = BringToForeground;
 
             var notifyIcon = new NotifyIcon
             {
                 TooltipText = "Lenovo Legion Toolkit",
-                Icon = ImageSourceExtensions.FromResource("icon.ico"),
+                Icon = ImageSourceExtensions.ApplicationIcon(),
                 FocusOnLeftClick = false,
                 MenuOnRightClick = true,
-                Menu = contextMenu,
+                Menu = ContextMenuHelper.Instance.ContextMenu,
             };
             notifyIcon.LeftClick += NotifyIcon_LeftClick;
 
             _titleBar.Tray = notifyIcon;
-
-            _titleBar.Tray.Unregister();
         }
 
         private void MainWindow_StateChanged(object? sender, EventArgs e)
@@ -99,11 +93,16 @@ namespace LenovoLegionToolkit.WPF.Windows
             }
         }
 
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            CheckForUpdates();
+        }
+
         private void MainWindow_Closing(object? sender, CancelEventArgs e)
         {
             SaveWindowSize();
 
-            if (Settings.Instance.MinimizeOnClose)
+            if (_settings.MinimizeOnClose)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Minimizing...");
@@ -143,13 +142,16 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private void SaveWindowSize()
         {
-            Settings.Instance.WindowSize = new(ActualWidth, ActualHeight);
-            Settings.Instance.Synchronize();
+            if (WindowState == WindowState.Maximized)
+                return;
+
+            _settings.WindowSize = new(ActualWidth, ActualHeight);
+            _settings.Synchronize();
         }
 
         private void RestoreWindowSize()
         {
-            var windowSize = Settings.Instance.WindowSize;
+            var windowSize = _settings.WindowSize;
             if (windowSize.Width >= MinWidth && windowSize.Height >= MinHeight)
             {
                 Width = windowSize.Width;
@@ -180,14 +182,10 @@ namespace LenovoLegionToolkit.WPF.Windows
             Topmost = true;
             Topmost = false;
             Focus();
-
-            _titleBar.Tray.Unregister();
         }
 
         public void SendToTray()
         {
-            _titleBar.Tray.Register();
-
             Hide();
             ShowInTaskbar = false;
         }
