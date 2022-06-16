@@ -59,9 +59,10 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             get
             {
+               
                 if (_LegionRGBKey == null)
                 {
-                    _LegionRGBKey = new LegionRGBKey();
+                        _LegionRGBKey = Settings.Instance.RgbProfile;
                 }
                 return (LegionRGBKey)_LegionRGBKey;
             }
@@ -71,6 +72,12 @@ namespace LenovoLegionToolkit.Lib.Utils
                 _LegionRGBKey = value;
             }
         }
-
+        public static LegionRGBKey BlankLegionRGBKey
+        {
+            get
+            {
+                return new LegionRGBKey();
+            }
+        }
     }
 }
