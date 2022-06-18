@@ -53,8 +53,11 @@ namespace LenovoLegionToolkit.Lib.System
     [StructLayout(LayoutKind.Sequential)]
     public struct BatteryInformation
     {
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 0x53)]
-        public byte[] bytes;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 0x0D)]
+        private byte[] bytes1;
+        public ushort Temperature;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 0x49)]
+        private byte[] bytes2;
     }
 
     internal static class Native
