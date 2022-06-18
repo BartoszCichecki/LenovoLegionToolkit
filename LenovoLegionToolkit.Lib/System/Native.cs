@@ -50,6 +50,13 @@ namespace LenovoLegionToolkit.Lib.System
         public int BatteryFullLifeTime;
     }
 
+    [StructLayout(LayoutKind.Sequential)]
+    public struct BatteryInformation
+    {
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 0x53)]
+        public byte[] bytes;
+    }
+
     internal static class Native
     {
         [DllImport("Kernel32")]
@@ -72,6 +79,17 @@ namespace LenovoLegionToolkit.Lib.System
             ref byte InBuffer,
             int nInBufferSize,
             out uint OutBuffer,
+            int nOutBufferSize,
+            out int pBytesReturned,
+            IntPtr lpOverlapped);
+
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        public static extern bool DeviceIoControl(
+            SafeFileHandle hDevice,
+            uint dwIoControlCode,
+            ref uint inBuffer,
+            int nInBufferSize,
+            out BatteryInformation outBuffer,
             int nOutBufferSize,
             out int pBytesReturned,
             IntPtr lpOverlapped);
