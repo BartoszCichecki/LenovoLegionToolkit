@@ -9,6 +9,7 @@ namespace LenovoLegionToolkit.Lib
 {
     public struct BatteryInformation
     {
+        public bool IsCharging { get; }
         public int BatteryPercentage { get; }
         public int BatteryLifeRemaining { get; }
         public int FullBatteryLifeRemaining { get; }
@@ -16,9 +17,11 @@ namespace LenovoLegionToolkit.Lib
         public int EstimateChargeRemaining { get; }
         public int DesignCapacity { get; }
         public int FullChargeCapactiy { get; }
+        public int CycleCount { get; }
         public double? BatteryTemperatureC { get; }
 
         public BatteryInformation(
+            bool isCharging,
             int batteryPercentage,
             int batteryLifeRemaining,
             int fullBatteryLifeRemaining,
@@ -26,8 +29,10 @@ namespace LenovoLegionToolkit.Lib
             int estimateChargeRemaining,
             int designCapacity,
             int fullChargeCapactiy,
+            int cycleCount,
             double? batteryTemperatureC)
         {
+            IsCharging = isCharging;
             BatteryPercentage = batteryPercentage;
             BatteryLifeRemaining = batteryLifeRemaining;
             FullBatteryLifeRemaining = fullBatteryLifeRemaining;
@@ -35,6 +40,7 @@ namespace LenovoLegionToolkit.Lib
             EstimateChargeRemaining = estimateChargeRemaining;
             DesignCapacity = designCapacity;
             FullChargeCapactiy = fullChargeCapactiy;
+            CycleCount = cycleCount;
             BatteryTemperatureC = batteryTemperatureC;
         }
     }

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.System
 {
@@ -7,20 +9,34 @@ namespace LenovoLegionToolkit.Lib.System
     {
         public static BatteryInformation GetBatteryInformation()
         {
-            var batteryTag = GetBatteryTag();
             var powerStatus = GetSystemPowerStatus();
+
+            var batteryTag = GetBatteryTag();
             var information = GetBatteryInformationEx(batteryTag);
             var status = GetBatteryStatusEx(batteryTag);
-            var lenovoInformation = GetLenovoBatteryInformation();
 
-            return new(powerStatus.BatteryLifePercent,
+            double? temperatureC = null;
+            try
+            {
+                var lenovoInformation = GetLenovoBatteryInformation();
+                temperatureC = (lenovoInformation.Temperature - 2731.6) / 10.0;
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Failed to get temperature of battery: {ex.Demystify()}");
+            }
+
+            return new(powerStatus.ACLineStatus == ACLineStatusEx.Online,
+                       powerStatus.BatteryLifePercent,
                        powerStatus.BatteryLifeTime,
                        powerStatus.BatteryFullLifeTime,
                        status.Rate,
                        (int)status.Capacity,
                        information.DesignedCapacity,
                        information.FullChargedCapacity,
-                       (lenovoInformation.Temperature - 2731.6) / 10);
+                       information.CycleCount,
+                       temperatureC);
         }
 
         private static SystemPowerStatusEx GetSystemPowerStatus()

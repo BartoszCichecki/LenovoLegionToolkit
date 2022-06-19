@@ -30,6 +30,8 @@ namespace LenovoLegionToolkit
 
         private async void Application_Startup(object sender, StartupEventArgs e)
         {
+            var t = Battery.GetBatteryInformation();
+
             if (IsTraceEnabled(e.Args))
                 Log.Instance.IsTraceEnabled = true;
 
