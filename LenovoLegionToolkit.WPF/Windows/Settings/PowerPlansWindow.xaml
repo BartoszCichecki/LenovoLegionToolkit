@@ -11,8 +11,7 @@
     Width="600"
     Height="400"
     MinWidth="500"
-    MinHeight="400"
-    Style="{StaticResource UiWindow}">
+    MinHeight="400">
 
     <Grid>
         <Grid.RowDefinitions>

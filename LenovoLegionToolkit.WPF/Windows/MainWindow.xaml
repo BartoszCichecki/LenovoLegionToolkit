@@ -8,12 +8,10 @@
     xmlns:pages="clr-namespace:LenovoLegionToolkit.WPF.Pages"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="Lenovo Legion Toolkit"
-    Width="1150"
+    Width="1100"
     Height="650"
     MinWidth="650"
     MinHeight="600"
-    SnapsToDevicePixels="true"
-    Style="{StaticResource UiWindow}"
     mc:Ignorable="d">
     <Grid>
         <Grid.RowDefinitions>

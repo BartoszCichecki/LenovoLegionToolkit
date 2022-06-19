@@ -52,7 +52,6 @@ namespace LenovoLegionToolkit.WPF.Windows
                 Menu = ContextMenuHelper.Instance.ContextMenu,
             };
             notifyIcon.LeftClick += NotifyIcon_LeftClick;
-
             _titleBar.Tray = notifyIcon;
         }
 
