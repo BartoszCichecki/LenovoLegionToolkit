@@ -9,8 +9,7 @@
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="Update available"
     Width="800"
-    Height="500"
-    Style="{StaticResource UiWindow}">
+    Height="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
