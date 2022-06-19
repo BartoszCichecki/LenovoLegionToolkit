@@ -52,7 +52,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Single display mode found");
 
-                throw new InvalidOperationException("Single display mode found");
+                return result;
             }
 
             if (Log.Instance.IsTraceEnabled)

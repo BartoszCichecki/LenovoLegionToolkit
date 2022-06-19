@@ -6,8 +6,8 @@ using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.WPF.Extensions;
 using Microsoft.Win32;
-using WPFUI.Common;
-using Button = WPFUI.Controls.Button;
+using Wpf.Ui.Common;
+using Button = Wpf.Ui.Controls.Button;
 using Image = System.Windows.Controls.Image;
 
 namespace LenovoLegionToolkit.WPF.Windows.Automation
@@ -135,7 +135,6 @@ namespace LenovoLegionToolkit.WPF.Windows.Automation
             private readonly Button _deleteButton = new()
             {
                 Icon = SymbolRegular.Delete24,
-                Appearance = Appearance.Secondary,
                 Margin = new(8, 0, 0, 0),
             };
 

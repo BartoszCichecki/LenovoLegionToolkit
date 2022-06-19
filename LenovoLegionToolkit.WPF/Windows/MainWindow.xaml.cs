@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
@@ -7,12 +6,10 @@ using System.Windows;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
-using LenovoLegionToolkit.WPF.Pages;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Utils;
-using WPFUI.Common;
-using WPFUI.Controls;
-using WPFUI.Controls.Interfaces;
+using Wpf.Ui.Controls;
+using Wpf.Ui.Tray;
 
 namespace LenovoLegionToolkit.WPF.Windows
 {
@@ -26,7 +23,6 @@ namespace LenovoLegionToolkit.WPF.Windows
         public MainWindow()
         {
             InitializeComponent();
-            InitializeNavigation();
             InitializeTray();
             RestoreWindowSize();
 
@@ -43,23 +39,6 @@ namespace LenovoLegionToolkit.WPF.Windows
                 _title.Text += " [TRACE ENABLED]";
         }
 
-        private void InitializeNavigation()
-        {
-            _rootNavigation.Frame = _rootFrame;
-            _rootNavigation.Items = new ObservableCollection<INavigationItem>
-            {
-                new NavigationItem() { Icon = SymbolRegular.Home24, Content = "Dashboard", PageTag = "dashboard", Page = typeof(DashboardPage) },
-                new NavigationItem() { Icon = SymbolRegular.Rocket24, Content = "Actions", PageTag = "automation", Page = typeof(AutomationPage) }
-            };
-            _rootNavigation.Footer = new ObservableCollection<INavigationItem>
-            {
-                new NavigationItem() { Icon = SymbolRegular.Settings24, Content = "Settings", PageTag = "settings", Page = typeof(SettingsPage) },
-                new NavigationItem() { Icon = SymbolRegular.Info24, Content = "About", PageTag = "about", Page = typeof(AboutPage) },
-            };
-
-            _rootNavigation.Navigate(_rootNavigation.Items[0].PageTag);
-        }
-
         private void InitializeTray()
         {
             ContextMenuHelper.Instance.BringToForegroundAction = BringToForeground;
@@ -73,7 +52,6 @@ namespace LenovoLegionToolkit.WPF.Windows
                 Menu = ContextMenuHelper.Instance.ContextMenu,
             };
             notifyIcon.LeftClick += NotifyIcon_LeftClick;
-
             _titleBar.Tray = notifyIcon;
         }
 

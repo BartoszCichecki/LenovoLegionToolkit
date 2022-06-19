@@ -1,5 +1,5 @@
 ﻿using LenovoLegionToolkit.Lib;
-using WPFUI.Common;
+using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
