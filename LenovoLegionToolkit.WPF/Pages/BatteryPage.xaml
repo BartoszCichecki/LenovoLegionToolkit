@@ -40,7 +40,10 @@
             </StackPanel>
         </StackPanel>
 
-        <wpfui:CardControl Margin="0,0,0,24">
+        <wpfui:CardControl
+            x:Name="_batteryTemperatureCardControl"
+            Margin="0,0,0,24"
+            Click="BatteryTemperatureCardControl_Click">
             <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="Battery temperature" Subtitle="Current temperature of the battery." />
             </wpfui:CardControl.Header>
