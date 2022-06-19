@@ -9,8 +9,6 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <wpfui:Resources Theme="Dark" />
-                <ResourceDictionary Source="Styles/CardControl.xaml" />
-                <ResourceDictionary Source="Styles/RadioButton.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

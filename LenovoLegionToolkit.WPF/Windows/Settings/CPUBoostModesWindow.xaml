@@ -6,13 +6,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
+    xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="Update available"
     Width="600"
     Height="500"
     MinWidth="500"
-    MinHeight="400"
-    Style="{StaticResource UiWindow}">
+    MinHeight="400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

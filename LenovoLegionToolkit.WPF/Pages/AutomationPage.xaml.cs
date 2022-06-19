@@ -12,7 +12,8 @@ using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.WPF.Controls.Automation.Pipeline;
 using LenovoLegionToolkit.WPF.Utils;
-using WPFUI.Common;
+using Wpf.Ui.Common;
+using MenuItem = Wpf.Ui.Controls.MenuItem;
 
 namespace LenovoLegionToolkit.WPF.Pages
 {
@@ -165,21 +166,21 @@ namespace LenovoLegionToolkit.WPF.Pages
             var index = stackPanel.Children.IndexOf(control);
             var maxIndex = stackPanel.Children.Count - 1;
 
-            var moveUpMenuItem = new MenuItem { Icon = SymbolRegular.ArrowUp24, Header = "Move up" };
+            var moveUpMenuItem = new MenuItem { SymbolIcon = SymbolRegular.ArrowUp24, Header = "Move up" };
             if (index > 0)
                 moveUpMenuItem.Click += (s, e) => MovePipeline(control, stackPanel, index - 1);
             else
                 moveUpMenuItem.IsEnabled = false;
             menuItems.Add(moveUpMenuItem);
 
-            var moveDownMenuItem = new MenuItem { Icon = SymbolRegular.ArrowDown24, Header = "Move down" };
+            var moveDownMenuItem = new MenuItem { SymbolIcon = SymbolRegular.ArrowDown24, Header = "Move down" };
             if (index < maxIndex)
                 moveDownMenuItem.Click += (s, e) => MovePipeline(control, stackPanel, index + 1);
             else
                 moveDownMenuItem.IsEnabled = false;
             menuItems.Add(moveDownMenuItem);
 
-            var renameMenuItem = new MenuItem { Icon = SymbolRegular.Edit24, Header = "Rename" };
+            var renameMenuItem = new MenuItem { SymbolIcon = SymbolRegular.Edit24, Header = "Rename" };
             renameMenuItem.Click += async (s, e) => await RenamePipelineAsync(control);
             menuItems.Add(renameMenuItem);
 

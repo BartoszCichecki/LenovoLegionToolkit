@@ -14,9 +14,10 @@ using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.WPF.Controls.Automation.Steps;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Automation;
-using WPFUI.Common;
-using WPFUI.Controls;
-using Button = WPFUI.Controls.Button;
+using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
+using Button = Wpf.Ui.Controls.Button;
+using MenuItem = Wpf.Ui.Controls.MenuItem;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 {
@@ -28,6 +29,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
         {
             Margin = new(0, 0, 0, 8),
         };
+
+        private readonly CardHeaderControl _cardHeaderControl = new();
 
         private readonly StackPanel _stackPanel = new();
 
@@ -57,7 +60,6 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
         private readonly Button _runNowButton = new()
         {
             Content = "Run now",
-            Appearance = Appearance.Secondary,
             Width = 100,
             Margin = new(0, 0, 8, 0),
         };
@@ -65,7 +67,6 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
         private readonly Button _addStepButton = new()
         {
             Content = "Add step",
-            Appearance = Appearance.Secondary,
             Width = 100,
             Margin = new(0, 0, 8, 0),
         };
@@ -73,7 +74,6 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
         private readonly Button _deletePipelineButton = new()
         {
             Content = "Delete",
-            Appearance = Appearance.Secondary,
             Width = 100,
         };
 
@@ -105,17 +105,15 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
         public void SetName(string? name)
         {
             AutomationPipeline.Name = name;
-            _cardExpander.Header = GenerateHeader();
-            _cardExpander.Subtitle = GenerateSubtitle();
+            _cardHeaderControl.Title = GenerateHeader();
+            _cardHeaderControl.Subtitle = GenerateSubtitle();
 
             OnChanged?.Invoke(this, EventArgs.Empty);
         }
 
         private async void AutomationPipelineControl_Initialized(object? sender, EventArgs e)
         {
-            _cardExpander.Icon = GenerateIcon();
-            _cardExpander.Header = GenerateHeader();
-            _cardExpander.HeaderContent = GenerateAccessory();
+            _cardExpander.Header = _cardHeaderControl;
 
             foreach (var step in AutomationPipeline.Steps)
             {
@@ -157,7 +155,11 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             _stackPanel.Children.Add(_stepsStackPanel);
             _stackPanel.Children.Add(_buttonsStackPanel);
 
-            _cardExpander.Subtitle = GenerateSubtitle();
+
+            _cardExpander.Icon = GenerateIcon();
+            _cardHeaderControl.Title = GenerateHeader();
+            _cardHeaderControl.Subtitle = GenerateSubtitle();
+            _cardHeaderControl.Accessory = GenerateAccessory();
             _cardExpander.Content = _stackPanel;
 
             Content = _cardExpander;
@@ -216,13 +218,12 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             return result;
         }
 
-        private object? GenerateAccessory()
+        private UIElement? GenerateAccessory()
         {
             if (AutomationPipeline.Trigger is IProcessesAutomationPipelineTrigger t)
             {
                 var button = new Button
                 {
-                    Appearance = Appearance.Secondary,
                     Content = "Configure",
                     Margin = new(0, 0, 16, 0),
                     Width = 120,
@@ -238,7 +239,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                     window.OnSave += (s, e) =>
                     {
                         AutomationPipeline.Trigger = t.DeepCopy(e);
-                        _cardExpander.HeaderContent = GenerateAccessory();
+                        _cardHeaderControl.Accessory = GenerateAccessory();
                         OnChanged?.Invoke(this, EventArgs.Empty);
                     };
                     window.ShowDialog();
@@ -273,7 +274,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                     continue;
 
                 var control = GenerateStepControl(step);
-                var menuItem = new MenuItem { Icon = control.Icon, Header = control.Title };
+                var menuItem = new MenuItem { SymbolIcon = control.Icon, Header = control.Title };
                 if (AllowDuplicates(step))
                     menuItem.Click += async (s, e) => await AddStepAsync(control);
                 else
@@ -336,7 +337,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
             var moveUpMenuItem = new MenuItem
             {
-                Icon = SymbolRegular.ArrowUp24,
+                SymbolIcon = SymbolRegular.ArrowUp24,
                 Header = "Move up"
             };
             if (index > 0)
@@ -347,7 +348,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
             var moveDownMenuItem = new MenuItem
             {
-                Icon = SymbolRegular.ArrowDown24,
+                SymbolIcon = SymbolRegular.ArrowDown24,
                 Header = "Move down"
             };
             if (index < maxIndex)
@@ -376,7 +377,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 return;
 
             _stepsStackPanel.Children.Add(control);
-            _cardExpander.Subtitle = GenerateSubtitle();
+            _cardHeaderControl.Subtitle = GenerateSubtitle();
             _addStepButton.ContextMenu = await CreateAddStepContextMenuAsync();
 
             OnChanged?.Invoke(this, EventArgs.Empty);
@@ -385,7 +386,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
         private async Task DeleteStepAsync(Control control)
         {
             _stepsStackPanel.Children.Remove(control);
-            _cardExpander.Subtitle = GenerateSubtitle();
+            _cardHeaderControl.Subtitle = GenerateSubtitle();
             _addStepButton.ContextMenu = await CreateAddStepContextMenuAsync();
 
             OnChanged?.Invoke(this, EventArgs.Empty);

@@ -3,8 +3,8 @@ using System.Windows;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.WPF.Extensions;
-using WPFUI.Common;
-using WPFUI.Controls;
+using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
@@ -13,6 +13,9 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
         private readonly IFeature<T> _feature = IoCContainer.Resolve<IFeature<T>>();
 
         private readonly CardControl _cardControl = new();
+
+        private readonly CardHeaderControl _cardHeaderControl = new();
+
         private readonly ToggleSwitch _toggle = new();
 
         public SymbolRegular Icon
@@ -23,14 +26,14 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
         public string Title
         {
-            get => _cardControl.Title;
-            set => _cardControl.Title = value;
+            get => _cardHeaderControl.Title;
+            set => _cardHeaderControl.Title = value;
         }
 
         public string Subtitle
         {
-            get => _cardControl.Subtitle;
-            set => _cardControl.Subtitle = value;
+            get => _cardHeaderControl.Subtitle;
+            set => _cardHeaderControl.Subtitle = value;
         }
 
         protected abstract T OnState { get; }
@@ -48,6 +51,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             _toggle.Visibility = Visibility.Hidden;
 
             _cardControl.Margin = new(0, 0, 0, 8);
+
+            _cardControl.Header = _cardHeaderControl;
             _cardControl.Content = _toggle;
 
             Content = _cardControl;

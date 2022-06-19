@@ -2,9 +2,10 @@
     x:Class="LenovoLegionToolkit.WPF.Pages.BatteryPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
+    xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="Battery"
     d:DesignHeight="450"
     d:DesignWidth="800"
@@ -19,7 +20,10 @@
             Text="Battery" />
 
         <StackPanel Margin="0,0,0,24" Orientation="Horizontal">
-            <wpfui:SymbolIcon x:Name="_batteryIcon" FontSize="96" />
+            <wpfui:SymbolIcon
+                x:Name="_batteryIcon"
+                FontSize="96"
+                Symbol="Battery024" />
             <StackPanel
                 Margin="16,0,0,0"
                 VerticalAlignment="Center"
@@ -36,45 +40,45 @@
             </StackPanel>
         </StackPanel>
 
-        <wpfui:CardControl
-            Title="Battery temperature"
-            Margin="0,0,0,24"
-            Subtitle="Current temperature of the battery.">
+        <wpfui:CardControl Margin="0,0,0,24">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="Battery temperature" Subtitle="Current temperature of the battery." />
+            </wpfui:CardControl.Header>
             <TextBlock x:Name="_batteryTemperatureText" FontSize="14" />
         </wpfui:CardControl>
 
-        <wpfui:CardControl
-            Title="Discharge rate"
-            Margin="0,0,0,8"
-            Subtitle="Rate at which battery is charged (+), or discharged (-).">
+        <wpfui:CardControl Margin="0,0,0,8">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="Discharge rate" Subtitle="Rate at which battery is charged (+), or discharged (-)." />
+            </wpfui:CardControl.Header>
             <TextBlock x:Name="_batteryDischargeRateText" FontSize="14" />
         </wpfui:CardControl>
 
-        <wpfui:CardControl
-            Title="Current capacity"
-            Margin="0,0,0,8"
-            Subtitle="Current battery capacity.">
+        <wpfui:CardControl Margin="0,0,0,8">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="Current capacity" Subtitle="Current battery capacity." />
+            </wpfui:CardControl.Header>
             <TextBlock x:Name="_batteryCapacityText" FontSize="14" />
         </wpfui:CardControl>
 
-        <wpfui:CardControl
-            Title="Full charge capacity"
-            Margin="0,0,0,8"
-            Subtitle="Battery capacity when fully charged.">
+        <wpfui:CardControl Margin="0,0,0,8">
             <TextBlock x:Name="_batteryFullChargeCapacityText" FontSize="14" />
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="Full charge capacity" Subtitle="Battery capacity when fully charged." />
+            </wpfui:CardControl.Header>
         </wpfui:CardControl>
 
-        <wpfui:CardControl
-            Title="Design capacity"
-            Margin="0,0,0,24"
-            Subtitle="Battery capacity as designed.">
+        <wpfui:CardControl Margin="0,0,0,24">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="Design capacity" Subtitle="Battery capacity as designed." />
+            </wpfui:CardControl.Header>
             <TextBlock x:Name="_batteryDesignCapacityText" FontSize="14" />
         </wpfui:CardControl>
 
-        <wpfui:CardControl
-            Title="Cycle count"
-            Margin="0,0,0,8"
-            Subtitle="Number of charge/discharge cycles.">
+        <wpfui:CardControl Margin="0,0,0,8">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="Cycle count" Subtitle="Number of charge/discharge cycles." />
+            </wpfui:CardControl.Header>
             <TextBlock x:Name="_batteryCycleCountText" FontSize="14" />
         </wpfui:CardControl>
 
