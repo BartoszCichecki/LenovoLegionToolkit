@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
+    xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="Update available"
     Width="600"
     Height="400"
@@ -55,10 +55,10 @@
             <wpfui:DynamicScrollViewer>
                 <StackPanel Margin="0,0,16,0">
 
-                    <wpfui:CardControl
-                        Title="Quiet mode"
-                        Margin="0,0,0,8"
-                        Subtitle="Windows Power Plan to be activated when&#x0a;you switch to Quiet power mode.">
+                    <wpfui:CardControl Margin="0,0,0,8">
+                        <wpfui:CardControl.Header>
+                            <controls:CardHeaderControl Title="Quiet mode" Subtitle="Windows Power Plan to be activated when&#x0a;you switch to Quiet power mode." />
+                        </wpfui:CardControl.Header>
                         <ComboBox
                             x:Name="_quietModeComboBox"
                             Width="200"
@@ -66,10 +66,10 @@
                             SelectionChanged="QuietModeComboBox_SelectionChanged" />
                     </wpfui:CardControl>
 
-                    <wpfui:CardControl
-                        Title="Balance mode"
-                        Margin="0,0,0,8"
-                        Subtitle="Windows Power Plan to be activated when&#x0a;you switch to Balance power mode.">
+                    <wpfui:CardControl Margin="0,0,0,8">
+                        <wpfui:CardControl.Header>
+                            <controls:CardHeaderControl Title="Balance mode" Subtitle="Windows Power Plan to be activated when&#x0a;you switch to Balance power mode." />
+                        </wpfui:CardControl.Header>
                         <ComboBox
                             x:Name="_balanceModeComboBox"
                             Width="200"
@@ -77,10 +77,10 @@
                             SelectionChanged="BalanceModeComboBox_SelectionChanged" />
                     </wpfui:CardControl>
 
-                    <wpfui:CardControl
-                        Title="Performance mode"
-                        Margin="0,0,0,8"
-                        Subtitle="Windows Power Plan to be activated when&#x0a;you switch to Performance power mode.">
+                    <wpfui:CardControl Margin="0,0,0,8">
+                        <wpfui:CardControl.Header>
+                            <controls:CardHeaderControl Title="Performance mode" Subtitle="Windows Power Plan to be activated when&#x0a;you switch to Performance power mode." />
+                        </wpfui:CardControl.Header>
                         <ComboBox
                             x:Name="_performanceModeComboBox"
                             Width="200"
@@ -88,10 +88,10 @@
                             SelectionChanged="PerformanceModeComboBox_SelectionChanged" />
                     </wpfui:CardControl>
 
-                    <wpfui:CardControl
-                        Title="Always activate Windows Power Plan"
-                        Margin="0,0,0,8"
-                        Subtitle="Activate Power Plan even when Vantage is enabled.">
+                    <wpfui:CardControl Margin="0,0,0,8">
+                        <wpfui:CardControl.Header>
+                            <controls:CardHeaderControl Title="Always activate Windows Power Plan" Subtitle="Activate Power Plan even when Vantage is enabled." />
+                        </wpfui:CardControl.Header>
                         <wpfui:ToggleSwitch
                             x:Name="_activatePowerProfilesWithVantageEnabledToggle"
                             Margin="0,0,0,8"

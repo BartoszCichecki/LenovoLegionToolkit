@@ -2,9 +2,10 @@
     x:Class="LenovoLegionToolkit.WPF.Pages.SettingsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
+    xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="Settings"
     d:DesignHeight="450"
     d:DesignWidth="800"
@@ -20,10 +21,10 @@
             FontWeight="Medium"
             Text="Settings" />
 
-        <wpfui:CardControl
-            Title="Theme"
-            Margin="0,0,0,8"
-            Subtitle="Set light theme, dark theme or follow system settings.">
+        <wpfui:CardControl Margin="0,0,0,8">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="Theme" Subtitle="Set light theme, dark theme or follow system settings." />
+            </wpfui:CardControl.Header>
             <ComboBox
                 x:Name="_themeComboBox"
                 Width="150"
@@ -32,10 +33,10 @@
                 Visibility="Hidden" />
         </wpfui:CardControl>
 
-        <wpfui:CardControl
-            Title="Autorun"
-            Margin="0,0,0,8"
-            Subtitle="Start minimized to tray when you log in to Windows.">
+        <wpfui:CardControl Margin="0,0,0,8">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="Autorun" Subtitle="Start minimized to tray when you log in to Windows." />
+            </wpfui:CardControl.Header>
             <wpfui:ToggleSwitch
                 x:Name="_autorunToggle"
                 Margin="0,0,0,8"
@@ -43,10 +44,10 @@
                 Visibility="Hidden" />
         </wpfui:CardControl>
 
-        <wpfui:CardControl
-            Title="Minimize on close"
-            Margin="0,0,0,8"
-            Subtitle="Always minimize to tray. Close with right click on tray icon.">
+        <wpfui:CardControl Margin="0,0,0,8">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="Minimize on close" Subtitle="Always minimize to tray. Close with right click on tray icon." />
+            </wpfui:CardControl.Header>
             <wpfui:ToggleSwitch
                 x:Name="_minimizeOnCloseToggle"
                 Margin="0,0,0,8"
@@ -54,11 +55,10 @@
                 Visibility="Hidden" />
         </wpfui:CardControl>
 
-        <wpfui:CardControl
-            x:Name="_vantageCard"
-            Title="Lenovo Vantage"
-            Margin="0,0,0,8"
-            Subtitle="Enable or disable Lenovo Vantage and it's service without uninstalling it.&#x0a;Restart is recommended after changing this option.">
+        <wpfui:CardControl x:Name="_vantageCard" Margin="0,0,0,8">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="Lenovo Vantage" Subtitle="Enable or disable Lenovo Vantage and it's service without uninstalling it.&#x0a;Restart is recommended after changing this option." />
+            </wpfui:CardControl.Header>
             <wpfui:ToggleSwitch
                 x:Name="_vantageToggle"
                 Margin="0,0,0,8"

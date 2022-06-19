@@ -44,10 +44,10 @@ namespace LenovoLegionToolkit.WPF.Windows
             if (ptr == IntPtr.Zero)
                 return false;
 
-            if (!WPFUI.Appearance.Background.IsSupported(WPFUI.Appearance.BackgroundType.Mica))
+            if (!Wpf.Ui.Appearance.Background.IsSupported(Wpf.Ui.Appearance.BackgroundType.Mica))
                 return false;
 
-            var result = WPFUI.Appearance.Background.Apply(ptr, WPFUI.Appearance.BackgroundType.Mica);
+            var result = Wpf.Ui.Appearance.Background.Apply(ptr, Wpf.Ui.Appearance.BackgroundType.Mica);
             if (!result)
                 return false;
 

@@ -5,12 +5,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
+    xmlns:pages="clr-namespace:LenovoLegionToolkit.WPF.Pages"
+    xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="Lenovo Legion Toolkit"
     Width="1100"
-    Height="610"
+    Height="650"
     MinWidth="650"
-    MinHeight="610"
+    MinHeight="600"
     SnapsToDevicePixels="true"
     Style="{StaticResource UiWindow}"
     mc:Ignorable="d">
@@ -58,15 +59,49 @@
             </Grid.ColumnDefinitions>
 
             <wpfui:NavigationStore
-                x:Name="_rootNavigation"
                 Grid.Column="0"
-                Margin="0,0,12,12" />
+                Margin="0,0,12,12"
+                Frame="{Binding ElementName=_rootFrame}"
+                SelectedPageIndex="0">
+
+                <wpfui:NavigationStore.Items>
+                    <wpfui:NavigationItem
+                        Content="Dashboard"
+                        Icon="Home24"
+                        PageTag="dashboard"
+                        PageType="{x:Type pages:DashboardPage}" />
+                    <wpfui:NavigationItem
+                        Content="Battery"
+                        Icon="BatteryCheckmark24"
+                        PageTag="battery"
+                        PageType="{x:Type pages:BatteryPage}" />
+                    <wpfui:NavigationItem
+                        Content="Actions"
+                        Icon="Rocket24"
+                        PageTag="automation"
+                        PageType="{x:Type pages:AutomationPage}" />
+                </wpfui:NavigationStore.Items>
+
+                <wpfui:NavigationStore.Footer>
+                    <wpfui:NavigationItem
+                        Content="Settings"
+                        Icon="Settings24"
+                        PageTag="settings"
+                        PageType="{x:Type pages:SettingsPage}" />
+                    <wpfui:NavigationItem
+                        Content="About"
+                        Icon="Info24"
+                        PageTag="about"
+                        PageType="{x:Type pages:AboutPage}" />
+                </wpfui:NavigationStore.Footer>
+
+            </wpfui:NavigationStore>
 
             <Border
                 Grid.Column="1"
                 Background="{DynamicResource ControlFillColorDefaultBrush}"
                 CornerRadius="8,0,0,0">
-                <Frame x:Name="_rootFrame" Margin="24,0,0,0" />
+                <Frame Name="_rootFrame" Margin="24,0,0,0" />
             </Border>
 
             <wpfui:Snackbar
@@ -75,7 +110,6 @@
                 MinWidth="300"
                 MaxWidth="600"
                 HorizontalAlignment="Center"
-                Appearance="Secondary"
                 Icon="Checkmark24"
                 IsShown="False"
                 ShowCloseButton="False"
