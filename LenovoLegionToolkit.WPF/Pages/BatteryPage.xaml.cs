@@ -14,6 +14,8 @@ namespace LenovoLegionToolkit.WPF.Pages
 {
     public partial class BatteryPage
     {
+        private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
+
         private CancellationTokenSource? _cts;
         private Task? _refreshTask;
 
@@ -91,33 +93,35 @@ namespace LenovoLegionToolkit.WPF.Pages
             };
 
             _precentRemaining.Text = $"{batteryInfo.BatteryPercentage}%";
-
-            if (batteryInfo.IsCharging)
-            {
-                if (batteryInfo.DischargeRate > 0)
-                    _status.Text = "Connected, charging...";
-                else
-                    _status.Text = $"Connected, not charging";
-            }
-            else
-            {
-                if (batteryInfo.BatteryLifeRemaining < 0)
-                    _status.Text = "Estimating time...";
-                else
-                {
-                    var timeSpan = TimeSpan.FromSeconds(batteryInfo.BatteryLifeRemaining);
-                    _status.Text = $"Estimated time remaining: {GetTimeString(timeSpan)}";
-                }
-            }
-
-            _batteryTemperatureText.Text = batteryInfo.BatteryTemperatureC is null ? "—" : $"{batteryInfo.BatteryTemperatureC:0.0} °C";
-
+            _status.Text = GetStatusText(batteryInfo);
+            _batteryTemperatureText.Text = GetTemperatureText(batteryInfo.BatteryTemperatureC);
             _batteryDischargeRateText.Text = $"{batteryInfo.DischargeRate / 1000.0:0.00} Wh";
             _batteryCapacityText.Text = $"{batteryInfo.EstimateChargeRemaining / 1000.0:0.00} Wh";
             _batteryFullChargeCapacityText.Text = $"{batteryInfo.FullChargeCapactiy / 1000.0:0.00} Wh";
             _batteryDesignCapacityText.Text = $"{batteryInfo.DesignCapacity / 1000.0:0.00} Wh";
 
             _batteryCycleCountText.Text = $"{batteryInfo.CycleCount}";
+        }
+
+        private string GetStatusText(BatteryInformation batteryInfo)
+        {
+            if (batteryInfo.IsCharging)
+            {
+                if (batteryInfo.DischargeRate > 0)
+                    return "Connected, charging...";
+                else
+                    return $"Connected, not charging";
+            }
+            else
+            {
+                if (batteryInfo.BatteryLifeRemaining < 0)
+                    return "Estimating time...";
+                else
+                {
+                    var timeSpan = TimeSpan.FromSeconds(batteryInfo.BatteryLifeRemaining);
+                    return $"Estimated time remaining: {GetTimeString(timeSpan)}";
+                }
+            }
         }
 
         private static string GetTimeString(TimeSpan timeSpan)
@@ -132,6 +136,33 @@ namespace LenovoLegionToolkit.WPF.Pages
             result += $"{minutes} minute{(minutes == 1 ? "" : "s")}";
 
             return result;
+        }
+
+        private string GetTemperatureText(double? temperature)
+        {
+            _batteryTemperatureCardControl.Tag = temperature;
+
+            if (temperature is null)
+                return "—";
+
+            if (_settings.TemperatureUnit == TemperatureUnit.F)
+            {
+                temperature *= 9.0 / 5.0;
+                temperature += 32;
+                return $"{temperature:0.0} °F";
+            }
+
+
+            return $"{temperature:0.0} °C";
+        }
+
+        private void BatteryTemperatureCardControl_Click(object sender, RoutedEventArgs e)
+        {
+            _settings.TemperatureUnit = _settings.TemperatureUnit == TemperatureUnit.C ? TemperatureUnit.F : TemperatureUnit.C;
+            _settings.Synchronize();
+
+            var temperature = (sender as FrameworkElement)?.Tag as double?;
+            _batteryTemperatureText.Text = GetTemperatureText(temperature);
         }
     }
 }
