@@ -131,10 +131,10 @@ namespace LenovoLegionToolkit.Lib.Features
 
         private bool IsUefiMode()
         {
-            var firmwareType = FirmwareType.Unknown;
+            var firmwareType = FirmwareTypeEx.Unknown;
             if (Native.GetFirmwareType(ref firmwareType))
             {
-                var result = firmwareType == FirmwareType.Uefi;
+                var result = firmwareType == FirmwareTypeEx.Uefi;
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Firmware type is {firmwareType} [feature={GetType().Name}]");
@@ -161,7 +161,7 @@ namespace LenovoLegionToolkit.Lib.Features
                     return false;
                 }
 
-                TokenPrivelege newState;
+                TokenPrivelegeEx newState;
                 newState.Count = 1;
                 newState.Luid = 0L;
                 newState.Attr = enable ? 2 : 0;
