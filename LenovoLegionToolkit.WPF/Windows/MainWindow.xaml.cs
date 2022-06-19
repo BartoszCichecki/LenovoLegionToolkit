@@ -24,7 +24,7 @@ namespace LenovoLegionToolkit.WPF.Windows
         {
             InitializeComponent();
             InitializeTray();
-            //RestoreWindowSize();
+            RestoreWindowSize();
 
             Loaded += MainWindow_Loaded;
             Closing += MainWindow_Closing;

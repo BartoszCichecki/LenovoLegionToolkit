@@ -18,10 +18,21 @@ namespace LenovoLegionToolkit.WPF.Controls
             Margin = new(0, 4, 0, 0),
         };
 
-        private readonly StackPanel _stackPanel = new()
+        private readonly Grid _grid = new()
         {
-            VerticalAlignment = VerticalAlignment.Center,
+            ColumnDefinitions =
+            {
+                new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+                new ColumnDefinition { Width = GridLength.Auto },
+            },
+            RowDefinitions =
+            {
+                new RowDefinition { Height = GridLength.Auto },
+                new RowDefinition { Height = GridLength.Auto },
+            },
         };
+
+        private UIElement? _accessory;
 
         public string Title
         {
@@ -35,16 +46,43 @@ namespace LenovoLegionToolkit.WPF.Controls
             set => _subtitleTextBlock.Text = value;
         }
 
+        public UIElement? Accessory
+        {
+            get => _accessory;
+            set
+            {
+                if (_accessory is not null)
+                    _grid.Children.Remove(_accessory);
+
+                _accessory = value;
+
+                if (_accessory is null)
+                    return;
+
+                Grid.SetColumn(_accessory, 1);
+                Grid.SetRow(_accessory, 0);
+                Grid.SetRowSpan(_accessory, 2);
+
+                _grid.Children.Add(_accessory);
+            }
+        }
+
         protected override void OnInitialized(EventArgs e)
         {
             base.OnInitialized(e);
 
             _subtitleTextBlock.SetResourceReference(ForegroundProperty, "TextFillColorTertiaryBrush");
 
-            _stackPanel.Children.Add(_titleTextBlock);
-            _stackPanel.Children.Add(_subtitleTextBlock);
+            Grid.SetColumn(_titleTextBlock, 0);
+            Grid.SetColumn(_subtitleTextBlock, 0);
 
-            Content = _stackPanel;
+            Grid.SetRow(_titleTextBlock, 0);
+            Grid.SetRow(_subtitleTextBlock, 1);
+
+            _grid.Children.Add(_titleTextBlock);
+            _grid.Children.Add(_subtitleTextBlock);
+
+            Content = _grid;
         }
     }
 }

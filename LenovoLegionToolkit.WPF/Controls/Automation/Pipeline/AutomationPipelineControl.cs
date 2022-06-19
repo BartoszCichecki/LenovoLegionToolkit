@@ -159,7 +159,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             _cardExpander.Icon = GenerateIcon();
             _cardHeaderControl.Title = GenerateHeader();
             _cardHeaderControl.Subtitle = GenerateSubtitle();
-            //_cardExpander.HeaderContent = GenerateAccessory();
+            _cardHeaderControl.Accessory = GenerateAccessory();
             _cardExpander.Content = _stackPanel;
 
             Content = _cardExpander;
@@ -218,7 +218,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             return result;
         }
 
-        private object? GenerateAccessory()
+        private UIElement? GenerateAccessory()
         {
             if (AutomationPipeline.Trigger is IProcessesAutomationPipelineTrigger t)
             {
@@ -239,7 +239,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                     window.OnSave += (s, e) =>
                     {
                         AutomationPipeline.Trigger = t.DeepCopy(e);
-                        //_cardExpander.HeaderContent = GenerateAccessory();
+                        _cardHeaderControl.Accessory = GenerateAccessory();
                         OnChanged?.Invoke(this, EventArgs.Empty);
                     };
                     window.ShowDialog();
