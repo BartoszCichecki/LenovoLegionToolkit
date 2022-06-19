@@ -79,13 +79,13 @@ namespace LenovoLegionToolkit
 
             Autorun.Validate();
 
-            IoCContainer.Resolve<ThemeManager>().Apply();
-
             var mainWindow = new MainWindow
             {
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             MainWindow = mainWindow;
+
+            IoCContainer.Resolve<ThemeManager>().Apply();
 
             if (ShouldStartMinimized(e.Args))
             {

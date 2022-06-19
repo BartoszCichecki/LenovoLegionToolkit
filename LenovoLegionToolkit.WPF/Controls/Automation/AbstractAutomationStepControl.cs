@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib.Automation.Steps;
-using WPFUI.Common;
-using WPFUI.Controls;
-using Button = WPFUI.Controls.Button;
+using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
+using Button = Wpf.Ui.Controls.Button;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation
 {
@@ -25,6 +25,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation
             Margin = new(0, 0, 0, 8),
         };
 
+        private readonly CardHeaderControl _cardHeaderControl = new();
+
         private readonly StackPanel _stackPanel = new()
         {
             Orientation = Orientation.Horizontal,
@@ -33,7 +35,6 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation
         private readonly Button _deleteButton = new()
         {
             Icon = SymbolRegular.Dismiss24,
-            Appearance = Appearance.Secondary,
             Width = 34,
             Height = 34,
             Margin = new(8, 0, 0, 0),
@@ -47,14 +48,14 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation
 
         public string Title
         {
-            get => _cardControl.Title;
-            set => _cardControl.Title = value;
+            get => _cardHeaderControl.Title;
+            set => _cardHeaderControl.Title = value;
         }
 
         public string Subtitle
         {
-            get => _cardControl.Subtitle;
-            set => _cardControl.Subtitle = value;
+            get => _cardHeaderControl.Subtitle;
+            set => _cardHeaderControl.Subtitle = value;
         }
 
         public event EventHandler? Changed;
@@ -79,6 +80,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation
                 _stackPanel.Children.Add(control);
             _stackPanel.Children.Add(_deleteButton);
 
+            _cardControl.Header = _cardHeaderControl;
             _cardControl.Content = _stackPanel;
 
             Content = _cardControl;

@@ -2,8 +2,8 @@
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.WPF.Utils;
-using WPFUI.Common;
-using WPFUI.Controls;
+using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {

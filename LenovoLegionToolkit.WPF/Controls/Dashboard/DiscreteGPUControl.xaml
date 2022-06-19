@@ -5,14 +5,13 @@
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
+    xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <wpfui:CardControl
-        Title="Discrete GPU"
-        Margin="0,0,0,8"
-        Icon="DeveloperBoard24"
-        Subtitle="Disable discrete GPU if it is active unnecessarily.">
+    <wpfui:CardControl Margin="0,0,0,8" Icon="DeveloperBoard24">
+        <wpfui:CardControl.Header>
+            <controls:CardHeaderControl Title="Discrete GPU" Subtitle="Disable discrete GPU if it is active unnecessarily." />
+        </wpfui:CardControl.Header>
         <StackPanel
             x:Name="_content"
             Orientation="Vertical"

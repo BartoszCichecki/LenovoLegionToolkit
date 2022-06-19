@@ -13,13 +13,13 @@
 
     <Grid Margin="0,0,0,12">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition x:Name="_column1" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition x:Name="_column1" Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <StackPanel
@@ -68,12 +68,12 @@
 
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition x:Name="_otherInnerColumn1" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition x:Name="_otherInnerColumn1" Width="*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
                 <StackPanel
