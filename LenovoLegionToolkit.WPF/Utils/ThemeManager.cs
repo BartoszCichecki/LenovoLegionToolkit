@@ -52,16 +52,16 @@ namespace LenovoLegionToolkit.WPF.Utils
 
         private void SetTheme()
         {
-            var theme = IsDarkMode ? WPFUI.Appearance.ThemeType.Dark : WPFUI.Appearance.ThemeType.Light;
-            WPFUI.Appearance.Theme.Apply(theme,
-                backgroundEffect: WPFUI.Appearance.BackgroundType.Unknown,
+            var theme = IsDarkMode ? Wpf.Ui.Appearance.ThemeType.Dark : Wpf.Ui.Appearance.ThemeType.Light;
+            Wpf.Ui.Appearance.Theme.Apply(theme,
+                backgroundEffect: Wpf.Ui.Appearance.BackgroundType.Unknown,
                 updateAccent: false);
         }
 
         private static void SetColor()
         {
             var accentColor = (Color)ColorConverter.ConvertFromString("#E74C3C");
-            WPFUI.Appearance.Accent.Apply(systemAccent: accentColor,
+            Wpf.Ui.Appearance.Accent.Apply(systemAccent: accentColor,
                 primaryAccent: accentColor,
                 secondaryAccent: accentColor,
                 tertiaryAccent: accentColor);

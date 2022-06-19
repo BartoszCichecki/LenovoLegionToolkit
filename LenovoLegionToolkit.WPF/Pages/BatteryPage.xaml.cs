@@ -6,7 +6,7 @@ using System.Windows;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
-using WPFUI.Common;
+using Wpf.Ui.Common;
 
 #pragma warning disable IDE0052 // Remove unread private members
 

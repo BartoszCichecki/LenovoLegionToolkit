@@ -1,4 +1,4 @@
-﻿using WPFUI.Controls;
+﻿using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Utils
 {

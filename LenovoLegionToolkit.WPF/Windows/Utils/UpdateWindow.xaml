@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:markdig="clr-namespace:Markdig.Wpf;assembly=Markdig.Wpf"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
+    xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="Update available"
     Width="800"
     Height="500"

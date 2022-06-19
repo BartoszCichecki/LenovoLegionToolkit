@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Windows;
 using LenovoLegionToolkit.Lib.Automation.Steps;
-using WPFUI.Common;
+using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
 {

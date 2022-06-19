@@ -2,8 +2,8 @@
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib.Automation.Steps;
-using WPFUI.Common;
-using TextBox = WPFUI.Controls.TextBox;
+using Wpf.Ui.Common;
+using TextBox = Wpf.Ui.Controls.TextBox;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
 {
@@ -11,14 +11,14 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
     {
         private readonly TextBox _scriptPath = new()
         {
-            Placeholder = "ExecutablePath",
+            PlaceholderText = "ExecutablePath",
             Width = 300,
             Margin = new(0, 0, 0, 8),
         };
 
         private readonly TextBox _scriptArguments = new()
         {
-            Placeholder = "Arguments",
+            PlaceholderText = "Arguments",
             Width = 300,
         };
 
