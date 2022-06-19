@@ -5,7 +5,7 @@
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
+    xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="Automation"
     d:DesignHeight="450"
     d:DesignWidth="800"
@@ -45,10 +45,10 @@
                     ContentVisibilityWhileLoading="Collapsed">
                     <StackPanel>
 
-                        <wpfui:CardControl
-                            Title="Enable"
-                            Margin="0,0,0,24"
-                            Subtitle="Lenovo Legion Toolkit must be running for automatic actions to work">
+                        <wpfui:CardControl Margin="0,0,0,24">
+                            <wpfui:CardControl.Header>
+                                <controls:CardHeaderControl Title="Enable" Subtitle="Lenovo Legion Toolkit must be running for automatic actions to work." />
+                            </wpfui:CardControl.Header>
                             <wpfui:ToggleSwitch
                                 x:Name="_enableAutomaticPipelinesToggle"
                                 Margin="0,0,0,8"
@@ -69,6 +69,7 @@
                             <wpfui:Button
                                 x:Name="_newAutomaticPipelineButton"
                                 Width="120"
+                                Appearance="Primary"
                                 Click="NewAutomaticPipelineButton_Click"
                                 Content="Add new">
                                 <wpfui:Button.ContextMenu>
@@ -113,6 +114,7 @@
                             <wpfui:Button
                                 x:Name="_newManualPipelineButton"
                                 Width="120"
+                                Appearance="Primary"
                                 Click="NewManualPipelineButton_Click"
                                 Content="Add new" />
                         </StackPanel>
@@ -134,12 +136,12 @@
             <wpfui:Button
                 x:Name="_saveButton"
                 Width="120"
+                Appearance="Primary"
                 Click="SaveButton_Click"
                 Content="Save" />
             <wpfui:Button
                 Width="120"
                 Margin="12,0,0,0"
-                Appearance="Secondary"
                 Click="RevertButton_Click"
                 Content="Revert" />
 

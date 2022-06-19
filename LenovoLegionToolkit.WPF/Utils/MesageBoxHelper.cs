@@ -2,9 +2,9 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using WPFUI.Common;
-using MessageBox = WPFUI.Controls.MessageBox;
-using TextBox = WPFUI.Controls.TextBox;
+using Wpf.Ui.Common;
+using MessageBox = Wpf.Ui.Controls.MessageBox;
+using TextBox = Wpf.Ui.Controls.TextBox;
 
 namespace LenovoLegionToolkit.WPF.Utils
 {
@@ -94,7 +94,7 @@ namespace LenovoLegionToolkit.WPF.Utils
             {
                 MaxLines = 1,
                 MaxLength = 50,
-                Placeholder = placeholder,
+                PlaceholderText = placeholder,
                 Text = text,
                 TextWrapping = TextWrapping.Wrap,
                 SelectionStart = text?.Length ?? 0,
@@ -105,7 +105,7 @@ namespace LenovoLegionToolkit.WPF.Utils
                 Owner = window,
                 Title = title,
                 Content = textBox,
-                ButtonLeftAppearance = Appearance.Transparent,
+                ButtonLeftAppearance = ControlAppearance.Transparent,
                 ButtonLeftName = primaryButton,
                 ButtonRightName = secondaryButton,
                 ShowInTaskbar = false,
@@ -118,7 +118,7 @@ namespace LenovoLegionToolkit.WPF.Utils
             textBox.TextChanged += (s, e) =>
             {
                 var isEmpty = !allowEmpty && string.IsNullOrWhiteSpace(textBox.Text);
-                messageBox.ButtonLeftAppearance = isEmpty ? Appearance.Transparent : Appearance.Primary;
+                messageBox.ButtonLeftAppearance = isEmpty ? ControlAppearance.Transparent : ControlAppearance.Primary;
             };
             messageBox.ButtonLeftClick += (s, e) =>
             {
