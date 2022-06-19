@@ -20,8 +20,9 @@ namespace LenovoLegionToolkit.Lib.System
 
         public static bool IsPowerAdapterConnected()
         {
-            Native.GetSystemPowerStatus(out SystemPowerStatus sps);
-            return sps.ACLineStatus == ACLineStatus.Online;
+            if (!Native.GetSystemPowerStatus(out SystemPowerStatusEx sps))
+                return true;
+            return sps.ACLineStatus == ACLineStatusEx.Online;
         }
 
         public static async Task RestartAsync()
