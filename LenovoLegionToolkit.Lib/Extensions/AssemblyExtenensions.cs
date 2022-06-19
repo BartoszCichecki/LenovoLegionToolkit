@@ -17,7 +17,7 @@ namespace LenovoLegionToolkit.Lib.Extensions
                 var index = value.IndexOf(BuildVersionMetadataPrefix);
                 if (index > 0)
                 {
-                    value = value.Substring(index + BuildVersionMetadataPrefix.Length);
+                    value = value[(index + BuildVersionMetadataPrefix.Length)..];
                     if (DateTime.TryParseExact(value, "yyyyMMddHHmmss", CultureInfo.InvariantCulture, DateTimeStyles.None, out var result))
                         return result;
                 }
