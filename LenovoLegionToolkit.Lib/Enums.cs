@@ -74,6 +74,12 @@ namespace LenovoLegionToolkit.Lib
         Dark
     }
 
+    public enum TemperatureUnit
+    {
+        C,
+        F,
+    }
+
     public enum TouchpadLockState
     {
         Off,

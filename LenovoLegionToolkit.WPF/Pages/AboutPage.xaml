@@ -25,8 +25,12 @@
             Text="Lenovo Legion Toolkit" />
         <TextBlock
             x:Name="_version"
-            Padding="0,0,0,16"
+            Padding="0,0,0,8"
             Text="Version: " />
+        <TextBlock
+            x:Name="_build"
+            Padding="0,0,0,16"
+            Text="Build: " />
         <TextBlock x:Name="_copyright" />
 
         <TextBlock
