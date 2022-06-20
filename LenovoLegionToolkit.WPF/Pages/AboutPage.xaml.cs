@@ -1,13 +1,24 @@
 ﻿using System.Diagnostics;
 using System.Reflection;
 using System.Windows;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.WPF.Extensions;
 
 namespace LenovoLegionToolkit.WPF.Pages
 {
     public partial class AboutPage
     {
-        private string VersionText => Assembly.GetEntryAssembly()?.GetName()?.Version?.ToString(3) ?? "";
+        private string VersionText
+        {
+            get
+            {
+                var version = Assembly.GetEntryAssembly()?.GetName()?.Version;
+                if (version == new System.Version(0, 0, 1, 0))
+                    return "BETA";
+                return version?.ToString(3) ?? "";
+            }
+        }
+        private string BuildText => Assembly.GetEntryAssembly()?.GetBuildDateTime()?.ToString("yyyyMMddHHmmss") ?? "";
 
         private string CopyrightText
         {
@@ -26,6 +37,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             InitializeComponent();
 
             _version.Text += VersionText;
+            _build.Text += BuildText;
             _copyright.Text = CopyrightText;
         }
 

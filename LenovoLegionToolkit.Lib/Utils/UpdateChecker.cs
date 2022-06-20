@@ -43,7 +43,8 @@ namespace LenovoLegionToolkit.Lib.Utils
 
                     var updates = releases
                         .Where(r => !r.Draft)
-                        .Where(r => (r.PublishedAt ?? r.CreatedAt) > thisBuildDate)
+                        .Where(r => !r.Prerelease)
+                        .Where(r => (r.PublishedAt ?? r.CreatedAt) >= thisBuildDate)
                         .Select(r => new Update(r))
                         .Where(r => r.Version > thisReleaseVersion)
                         .OrderByDescending(r => r.Version)

@@ -155,7 +155,6 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             _stackPanel.Children.Add(_stepsStackPanel);
             _stackPanel.Children.Add(_buttonsStackPanel);
 
-
             _cardExpander.Icon = GenerateIcon();
             _cardHeaderControl.Title = GenerateHeader();
             _cardHeaderControl.Subtitle = GenerateSubtitle();
