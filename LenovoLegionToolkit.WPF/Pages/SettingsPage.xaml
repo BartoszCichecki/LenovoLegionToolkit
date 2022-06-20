@@ -57,7 +57,7 @@
 
         <wpfui:CardControl x:Name="_vantageCard" Margin="0,0,0,8">
             <wpfui:CardControl.Header>
-                <controls:CardHeaderControl Title="Lenovo Vantage" Subtitle="Enable or disable Lenovo Vantage and it's service without uninstalling it.&#x0a;Restart is recommended after changing this option." />
+                <controls:CardHeaderControl Title="Disable Lenovo Vantage" Subtitle="Disable Lenovo Vantage and it's service without uninstalling it.&#x0a;Restart is recommended after changing this option." />
             </wpfui:CardControl.Header>
             <wpfui:ToggleSwitch
                 x:Name="_vantageToggle"
