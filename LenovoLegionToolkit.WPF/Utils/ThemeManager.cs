@@ -2,8 +2,8 @@
 using System.Windows;
 using System.Windows.Media;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
-using LenovoLegionToolkit.Lib.Utils;
 
 #pragma warning disable IDE0052 // Remove unread private members
 
@@ -22,7 +22,7 @@ namespace LenovoLegionToolkit.WPF.Utils
         {
             get
             {
-                var theme = _settings.Theme;
+                var theme = _settings.Store.Theme;
                 var registryValue = Registry.Read(RegistryHive, RegistryPath, RegistryKey, 1);
 
                 return (theme, registryValue) switch

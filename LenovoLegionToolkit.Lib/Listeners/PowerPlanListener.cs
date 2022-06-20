@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
@@ -23,7 +24,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
                 Log.Instance.Trace($"Power plan changed...");
 
             var vantageStatus = await Vantage.GetStatusAsync().ConfigureAwait(false);
-            var activateWhenVantageEnabled = _settings.ActivatePowerProfilesWithVantageEnabled;
+            var activateWhenVantageEnabled = _settings.Store.ActivatePowerProfilesWithVantageEnabled;
             if (vantageStatus == VantageStatus.Enabled && !activateWhenVantageEnabled)
             {
                 if (Log.Instance.IsTraceEnabled)

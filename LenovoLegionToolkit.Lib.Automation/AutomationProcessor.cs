@@ -26,13 +26,13 @@ namespace LenovoLegionToolkit.Lib.Automation
 
         public bool IsEnabled
         {
-            get => _settings.IsEnabled;
+            get => _settings.Store.IsEnabled;
             set
             {
                 using (_ioLock.Lock())
                 {
-                    _settings.IsEnabled = value;
-                    _settings.Synchronize();
+                    _settings.Store.IsEnabled = value;
+                    _settings.SynchronizeStore();
                 }
             }
         }
@@ -57,7 +57,7 @@ namespace LenovoLegionToolkit.Lib.Automation
         {
             using (await _ioLock.LockAsync().ConfigureAwait(false))
             {
-                _pipelines = _settings.Pipeliness;
+                _pipelines = _settings.Store.Pipeliness;
                 RaisePipelinesChanged();
             }
         }
@@ -74,8 +74,8 @@ namespace LenovoLegionToolkit.Lib.Automation
 
                 _pipelines = pipelines.Select(p => p.DeepCopy()).ToList();
 
-                _settings.Pipeliness = pipelines;
-                _settings.Synchronize();
+                _settings.Store.Pipeliness = pipelines;
+                _settings.SynchronizeStore();
 
                 RaisePipelinesChanged();
 
