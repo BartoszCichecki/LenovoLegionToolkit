@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Utils;
@@ -85,7 +86,7 @@ namespace LenovoLegionToolkit.WPF.Windows
         {
             SaveWindowSize();
 
-            if (_settings.MinimizeOnClose)
+            if (_settings.Store.MinimizeOnClose)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Minimizing...");
@@ -128,13 +129,13 @@ namespace LenovoLegionToolkit.WPF.Windows
             if (WindowState == WindowState.Maximized)
                 return;
 
-            _settings.WindowSize = new(ActualWidth, ActualHeight);
-            _settings.Synchronize();
+            _settings.Store.WindowSize = new(ActualWidth, ActualHeight);
+            _settings.SynchronizeStore();
         }
 
         private void RestoreWindowSize()
         {
-            var windowSize = _settings.WindowSize;
+            var windowSize = _settings.Store.WindowSize;
             if (windowSize.Width >= MinWidth && windowSize.Height >= MinHeight)
             {
                 Width = windowSize.Width;
