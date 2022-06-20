@@ -201,7 +201,7 @@ namespace LenovoLegionToolkit.WPF.Pages
         {
             var pipeline = new AutomationPipeline(trigger);
             var control = GenerateControl(pipeline, _automaticPipelinesStackPanel);
-            _automaticPipelinesStackPanel.Children.Add(control);
+            _automaticPipelinesStackPanel.Children.Insert(0, control);
 
             RefreshNewAutomaticPipelineButton();
             PipelinesChanged();
@@ -215,7 +215,7 @@ namespace LenovoLegionToolkit.WPF.Pages
 
             var pipeline = new AutomationPipeline(newName);
             var control = GenerateControl(pipeline, _manualPipelinesStackPanel);
-            _manualPipelinesStackPanel.Children.Add(control);
+            _manualPipelinesStackPanel.Children.Insert(0, control);
 
             RefreshNewAutomaticPipelineButton();
             PipelinesChanged();

@@ -14,6 +14,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             public Dictionary<PowerModeState, string> PowerPlans { get; set; } = new();
             public bool MinimizeOnClose { get; set; } = false;
             public bool ActivatePowerProfilesWithVantageEnabled { get; set; } = false;
+            public TemperatureUnit TemperatureUnit { get; set; } = TemperatureUnit.C;
         }
 
         private readonly ApplicationSettingsStore _settingsStore;
@@ -49,6 +50,12 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             get => _settingsStore.ActivatePowerProfilesWithVantageEnabled;
             set => _settingsStore.ActivatePowerProfilesWithVantageEnabled = value;
+        }
+
+        public TemperatureUnit TemperatureUnit
+        {
+            get => _settingsStore.TemperatureUnit;
+            set => _settingsStore.TemperatureUnit = value;
         }
 
         public ApplicationSettings()

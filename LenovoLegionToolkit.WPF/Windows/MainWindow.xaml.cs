@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using LenovoLegionToolkit.Lib;
@@ -31,6 +32,9 @@ namespace LenovoLegionToolkit.WPF.Windows
             IsVisibleChanged += MainWindow_IsVisibleChanged;
             StateChanged += MainWindow_StateChanged;
 
+            if (Assembly.GetEntryAssembly()?.GetName()?.Version == new Version(0, 0, 1, 0))
+                _title.Text += " [BETA]";
+
 #if DEBUG
             _title.Text += " [DEBUG]";
 #endif
@@ -42,6 +46,7 @@ namespace LenovoLegionToolkit.WPF.Windows
         private void InitializeTray()
         {
             ContextMenuHelper.Instance.BringToForegroundAction = BringToForeground;
+            ContextMenuHelper.Instance.SetNavigationItems(_navigationStore);
 
             var notifyIcon = new NotifyIcon
             {
@@ -141,9 +146,9 @@ namespace LenovoLegionToolkit.WPF.Windows
         {
             Task.Run(_updateChecker.Check)
                 .ContinueWith(updatesAvailable =>
-            {
-                _updateIndicator.Visibility = updatesAvailable.Result ? Visibility.Visible : Visibility.Collapsed;
-            }, TaskScheduler.FromCurrentSynchronizationContext());
+                {
+                    _updateIndicator.Visibility = updatesAvailable.Result ? Visibility.Visible : Visibility.Collapsed;
+                }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         public void BringToForeground()

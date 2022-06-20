@@ -18,7 +18,8 @@ namespace LenovoLegionToolkit.Lib.Automation
         private readonly PowerStateListener _powerStateListener;
         private readonly ProcessListener _processListener;
 
-        private readonly AsyncLock _lock = new();
+        private readonly AsyncLock _ioLock = new();
+        private readonly AsyncLock _runLock = new();
 
         private List<AutomationPipeline> _pipelines = new();
         private CancellationTokenSource? _cts;
@@ -28,8 +29,11 @@ namespace LenovoLegionToolkit.Lib.Automation
             get => _settings.IsEnabled;
             set
             {
-                _settings.IsEnabled = value;
-                _settings.Synchronize();
+                using (_ioLock.Lock())
+                {
+                    _settings.IsEnabled = value;
+                    _settings.Synchronize();
+                }
             }
         }
 
@@ -45,23 +49,16 @@ namespace LenovoLegionToolkit.Lib.Automation
             _processListener.Changed += ProcessListener_Changed;
         }
 
-        private async void ProcessListener_Changed(object? sender, ProcessEventInfo e)
-        {
-            await RunAsync(e);
-        }
+        private async void ProcessListener_Changed(object? sender, ProcessEventInfo e) => await RunAsync(e);
 
-        private async void PowerStateListener_Changed(object? sender, EventArgs e)
-        {
-            await RunAsync();
-        }
+        private async void PowerStateListener_Changed(object? sender, EventArgs e) => await RunAsync();
 
         public async Task InitializeAsync()
         {
-            using (await _lock.LockAsync().ConfigureAwait(false))
+            using (await _ioLock.LockAsync().ConfigureAwait(false))
             {
                 _pipelines = _settings.Pipeliness;
-
-                PipelinesChanged?.Invoke(this, _pipelines.Select(p => p.DeepCopy()).ToList());
+                RaisePipelinesChanged();
             }
         }
 
@@ -70,7 +67,7 @@ namespace LenovoLegionToolkit.Lib.Automation
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Pipelines reload pending...");
 
-            using (await _lock.LockAsync().ConfigureAwait(false))
+            using (await _ioLock.LockAsync().ConfigureAwait(false))
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Pipelines reloading...");
@@ -80,7 +77,7 @@ namespace LenovoLegionToolkit.Lib.Automation
                 _settings.Pipeliness = pipelines;
                 _settings.Synchronize();
 
-                PipelinesChanged?.Invoke(this, _pipelines.Select(p => p.DeepCopy()).ToList());
+                RaisePipelinesChanged();
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Pipelines reloaded.");
@@ -89,7 +86,7 @@ namespace LenovoLegionToolkit.Lib.Automation
 
         public async Task<List<AutomationPipeline>> GetPipelinesAsync()
         {
-            using (await _lock.LockAsync().ConfigureAwait(false))
+            using (await _ioLock.LockAsync().ConfigureAwait(false))
                 return _pipelines.Select(p => p.DeepCopy()).ToList();
         }
 
@@ -106,7 +103,7 @@ namespace LenovoLegionToolkit.Lib.Automation
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Pipeline run now pending...");
 
-            using (await _lock.LockAsync().ConfigureAwait(false))
+            using (await _runLock.LockAsync().ConfigureAwait(false))
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Pipeline run starting...");
@@ -135,7 +132,7 @@ namespace LenovoLegionToolkit.Lib.Automation
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Run pending...");
 
-            using (await _lock.LockAsync().ConfigureAwait(false))
+            using (await _runLock.LockAsync().ConfigureAwait(false))
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Run starting...");
@@ -145,10 +142,14 @@ namespace LenovoLegionToolkit.Lib.Automation
                 if (!IsEnabled)
                     return;
 
+                List<AutomationPipeline> pipelines;
+                using (await _ioLock.LockAsync().ConfigureAwait(false))
+                    pipelines = _pipelines;
+
                 _cts = new CancellationTokenSource();
                 var ct = _cts.Token;
 
-                foreach (var pipeline in _pipelines)
+                foreach (var pipeline in pipelines)
                 {
                     if (ct.IsCancellationRequested)
                     {
@@ -191,6 +192,11 @@ namespace LenovoLegionToolkit.Lib.Automation
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Run finished successfully.");
             }
+        }
+
+        private void RaisePipelinesChanged()
+        {
+            PipelinesChanged?.Invoke(this, _pipelines.Select(p => p.DeepCopy()).ToList());
         }
     }
 }
