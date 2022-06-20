@@ -57,6 +57,7 @@
             </Grid.ColumnDefinitions>
 
             <wpfui:NavigationStore
+                x:Name="_navigationStore"
                 Grid.Column="0"
                 Margin="0,0,12,12"
                 Frame="{Binding ElementName=_rootFrame}"
