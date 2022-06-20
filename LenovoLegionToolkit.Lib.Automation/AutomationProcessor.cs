@@ -57,7 +57,7 @@ namespace LenovoLegionToolkit.Lib.Automation
         {
             using (await _ioLock.LockAsync().ConfigureAwait(false))
             {
-                _pipelines = _settings.Store.Pipeliness;
+                _pipelines = _settings.Store.Pipelines;
                 RaisePipelinesChanged();
             }
         }
@@ -74,7 +74,7 @@ namespace LenovoLegionToolkit.Lib.Automation
 
                 _pipelines = pipelines.Select(p => p.DeepCopy()).ToList();
 
-                _settings.Store.Pipeliness = pipelines;
+                _settings.Store.Pipelines = pipelines;
                 _settings.SynchronizeStore();
 
                 RaisePipelinesChanged();
