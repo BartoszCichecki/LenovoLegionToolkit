@@ -38,6 +38,8 @@ namespace LenovoLegionToolkit.Lib
         Off,
     }
 
+    public enum KeyboardBacklight { }
+
     public enum OverDriveState
     {
         Off,
