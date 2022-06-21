@@ -1,0 +1,165 @@
+﻿<UserControl
+    x:Class="LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.RGBKeyboardBacklightControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls.KeyboardBacklight"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <Grid Margin="0,0,8,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" SharedSizeGroup="A" />
+            <ColumnDefinition Width="*" SharedSizeGroup="A" />
+            <ColumnDefinition Width="*" SharedSizeGroup="A" />
+            <ColumnDefinition Width="*" SharedSizeGroup="A" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <wpfui:Button
+            x:Name="_offPresetButton"
+            Grid.Row="0"
+            Grid.Column="0"
+            Margin="0,0,8,24"
+            HorizontalAlignment="Stretch"
+            Click="PresetButton_Click"
+            Content="Off"
+            Tag="-1" />
+        <wpfui:Button
+            x:Name="_preset1Button"
+            Grid.Row="0"
+            Grid.Column="1"
+            Margin="0,0,8,24"
+            HorizontalAlignment="Stretch"
+            Click="PresetButton_Click"
+            Content="Preset 1"
+            Tag="0" />
+        <wpfui:Button
+            x:Name="_preset2Button"
+            Grid.Row="0"
+            Grid.Column="2"
+            Margin="0,0,8,24"
+            HorizontalAlignment="Stretch"
+            Click="PresetButton_Click"
+            Content="Preset 2"
+            Tag="1" />
+        <wpfui:Button
+            x:Name="_preset3Button"
+            Grid.Row="0"
+            Grid.Column="3"
+            Margin="0,0,8,24"
+            HorizontalAlignment="Stretch"
+            Click="PresetButton_Click"
+            Content="Preset 3"
+            Tag="2" />
+
+        <controls:RGBKeyboardBrightnessCardControl
+            x:Name="_brightnessControl"
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="4"
+            Margin="0,0,8,0"
+            OnChanged="CardControl_OnChanged" />
+        <controls:RGBKeyboardEffectCardControl
+            x:Name="_effectControl"
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="4"
+            Margin="0,0,8,0"
+            OnChanged="CardControl_OnChanged" />
+        <controls:RGBKeyboardSpeedCardControl
+            x:Name="_speedControl"
+            Grid.Row="3"
+            Grid.Column="0"
+            Grid.ColumnSpan="4"
+            Margin="0,0,8,0"
+            OnChanged="CardControl_OnChanged" />
+
+        <controls:ColorKeyboardBacklightCardControl
+            x:Name="_zone1Control"
+            Title="Zone 1"
+            Grid.Row="4"
+            Grid.Column="0"
+            Margin="0,0,8,0"
+            VerticalAlignment="Top"
+            OnChanged="CardControl_OnChanged">
+            <controls:ColorKeyboardBacklightCardControl.ContextMenu>
+                <ContextMenu>
+                    <wpfui:MenuItem
+                        Click="SynchroniseZonesMenuItem_Click"
+                        Header="Synchronise zones"
+                        SymbolIcon="ArrowsBidirectional24" />
+                </ContextMenu>
+            </controls:ColorKeyboardBacklightCardControl.ContextMenu>
+        </controls:ColorKeyboardBacklightCardControl>
+
+        <controls:ColorKeyboardBacklightCardControl
+            x:Name="_zone2Control"
+            Title="Zone 2"
+            Grid.Row="4"
+            Grid.Column="1"
+            Margin="0,0,8,0"
+            VerticalAlignment="Top"
+            OnChanged="CardControl_OnChanged">
+            <controls:ColorKeyboardBacklightCardControl.ContextMenu>
+                <ContextMenu>
+                    <wpfui:MenuItem
+                        Click="SynchroniseZonesMenuItem_Click"
+                        Header="Synchronise zones"
+                        SymbolIcon="ArrowsBidirectional24" />
+                </ContextMenu>
+            </controls:ColorKeyboardBacklightCardControl.ContextMenu>
+        </controls:ColorKeyboardBacklightCardControl>
+
+        <controls:ColorKeyboardBacklightCardControl
+            x:Name="_zone3Control"
+            Title="Zone 3"
+            Grid.Row="4"
+            Grid.Column="2"
+            Margin="0,0,8,0"
+            VerticalAlignment="Top"
+            OnChanged="CardControl_OnChanged">
+            <controls:ColorKeyboardBacklightCardControl.ContextMenu>
+                <ContextMenu>
+                    <wpfui:MenuItem
+                        Click="SynchroniseZonesMenuItem_Click"
+                        Header="Synchronise zones"
+                        SymbolIcon="ArrowsBidirectional24" />
+                </ContextMenu>
+            </controls:ColorKeyboardBacklightCardControl.ContextMenu>
+        </controls:ColorKeyboardBacklightCardControl>
+
+        <controls:ColorKeyboardBacklightCardControl
+            x:Name="_zone4Control"
+            Title="Zone 4"
+            Grid.Row="4"
+            Grid.Column="3"
+            Margin="0,0,8,0"
+            VerticalAlignment="Top"
+            OnChanged="CardControl_OnChanged">
+            <controls:ColorKeyboardBacklightCardControl.ContextMenu>
+                <ContextMenu>
+                    <wpfui:MenuItem
+                        Click="SynchroniseZonesMenuItem_Click"
+                        Header="Synchronise zones"
+                        SymbolIcon="ArrowsBidirectional24" />
+                </ContextMenu>
+            </controls:ColorKeyboardBacklightCardControl.ContextMenu>
+        </controls:ColorKeyboardBacklightCardControl>
+
+    </Grid>
+
+</UserControl>

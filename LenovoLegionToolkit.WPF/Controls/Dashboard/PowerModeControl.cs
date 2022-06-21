@@ -5,7 +5,7 @@ using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
-    public class PowerModeControl : AbstractComboBoxCardControl<PowerModeState>
+    public class PowerModeControl : AbstractComboBoxDashboardCardControl<PowerModeState>
     {
         private readonly PowerModeListener _powerModeListener = IoCContainer.Resolve<PowerModeListener>();
         private readonly PowerPlanListener _powerPlanListener = IoCContainer.Resolve<PowerPlanListener>();

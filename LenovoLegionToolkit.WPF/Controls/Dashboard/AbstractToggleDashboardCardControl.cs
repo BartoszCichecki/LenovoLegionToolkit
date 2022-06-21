@@ -8,7 +8,7 @@ using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
-    public abstract class AbstractToggleCardControl<T> : AbstractRefreshingControl where T : struct
+    public abstract class AbstractToggleDashboardCardControl<T> : AbstractRefreshingDashboardControl where T : struct
     {
         private readonly IFeature<T> _feature = IoCContainer.Resolve<IFeature<T>>();
 
@@ -40,7 +40,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
         protected abstract T OffState { get; }
 
-        public AbstractToggleCardControl()
+        public AbstractToggleDashboardCardControl()
         {
             InitializeComponent();
         }

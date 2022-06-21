@@ -16,6 +16,7 @@ namespace LenovoLegionToolkit.WPF.Controls
         {
             FontSize = 12,
             Margin = new(0, 4, 0, 0),
+            Visibility = Visibility.Collapsed,
         };
 
         private readonly Grid _grid = new()
@@ -43,7 +44,11 @@ namespace LenovoLegionToolkit.WPF.Controls
         public string Subtitle
         {
             get => _subtitleTextBlock.Text;
-            set => _subtitleTextBlock.Text = value;
+            set
+            {
+                _subtitleTextBlock.Visibility = string.IsNullOrEmpty(value) ? Visibility.Collapsed : Visibility.Visible;
+                _subtitleTextBlock.Text = value;
+            }
         }
 
         public UIElement? Accessory

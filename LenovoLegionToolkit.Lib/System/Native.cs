@@ -184,6 +184,51 @@ namespace LenovoLegionToolkit.Lib.System
         public int BatteryFullLifeTime;
     }
 
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public struct RGBKeyboardStateEx
+    {
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
+        public byte[] Header = { 0xCC, 0x16 };
+        public byte Effect;
+        public byte Speed;
+        public byte Brightness;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
+        public byte[] Zone1Rgb;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
+        public byte[] Zone2Rgb;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
+        public byte[] Zone3Rgb;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
+        public byte[] Zone4Rgb;
+        public byte Padding = 0x0;
+        public byte WaveLTR;
+        public byte WaveRTL;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 13)]
+        public byte[] Unused = new byte[13];
+
+        public RGBKeyboardStateEx(
+            byte effect,
+            byte speed,
+            byte brightness,
+            byte[] zone1Rgb,
+            byte[] zone2Rgb,
+            byte[] zone3Rgb,
+            byte[] zone4Rgb,
+            byte waveLTR,
+            byte waveRTL)
+        {
+            Effect = effect;
+            Speed = speed;
+            Brightness = brightness;
+            Zone1Rgb = zone1Rgb;
+            Zone2Rgb = zone2Rgb;
+            Zone3Rgb = zone3Rgb;
+            Zone4Rgb = zone4Rgb;
+            WaveLTR = waveLTR;
+            WaveRTL = waveRTL;
+        }
+    }
+
     internal static class Native
     {
         public static readonly Guid GUID_DEVCLASS_BATTERY = new(0x72631E54, 0x78A4, 0x11D0, 0xBC, 0xF7, 0x00, 0xAA, 0x00, 0xB7, 0xB3, 0x2A);

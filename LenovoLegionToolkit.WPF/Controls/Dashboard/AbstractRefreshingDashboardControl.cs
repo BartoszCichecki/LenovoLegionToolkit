@@ -5,15 +5,15 @@ using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib.Utils;
 
-namespace LenovoLegionToolkit.WPF.Controls
+namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
-    public abstract class AbstractRefreshingControl : UserControl
+    public abstract class AbstractRefreshingDashboardControl : UserControl
     {
         protected bool IsRefreshing => _refreshTask is not null;
 
         private Task? _refreshTask;
 
-        public AbstractRefreshingControl()
+        public AbstractRefreshingDashboardControl()
         {
             IsEnabled = false;
 

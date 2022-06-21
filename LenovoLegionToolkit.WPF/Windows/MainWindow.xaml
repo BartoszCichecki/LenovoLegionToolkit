@@ -70,6 +70,11 @@
                         PageTag="dashboard"
                         PageType="{x:Type pages:DashboardPage}" />
                     <wpfui:NavigationItem
+                        Content="Keyboard"
+                        Icon="Keyboard24"
+                        PageTag="keyboardBacklight"
+                        PageType="{x:Type pages:KeyboardBacklightPage}" />
+                    <wpfui:NavigationItem
                         Content="Battery"
                         Icon="BatteryCheckmark24"
                         PageTag="battery"

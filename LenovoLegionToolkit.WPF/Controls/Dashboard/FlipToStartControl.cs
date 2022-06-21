@@ -3,7 +3,7 @@ using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
-    public class FlipToStartControl : AbstractToggleCardControl<FlipToStartState>
+    public class FlipToStartControl : AbstractToggleDashboardCardControl<FlipToStartState>
     {
         protected override FlipToStartState OnState => FlipToStartState.On;
 
