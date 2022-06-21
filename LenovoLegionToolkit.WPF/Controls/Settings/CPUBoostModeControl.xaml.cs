@@ -17,7 +17,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Settings
 
             InitializeComponent();
 
-            _expander.Header = setting.PowerPlan.Name;
+            _headerControl.Title = setting.PowerPlan.Name;
 
             var selectedItem = setting.CPUBoostModes.First(cbm => cbm.Value == setting.ACSettingValue);
             _comboBoxAC.SetItems(setting.CPUBoostModes, selectedItem, s => s.Name);

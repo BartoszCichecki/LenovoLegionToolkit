@@ -14,7 +14,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
 {
     public class RGBColorKeyboardBacklightCardControl : UserControl
     {
-        private readonly CardExpander _cardControl = new();
+        private readonly CardExpander _cardExpander = new();
 
         private readonly CardHeaderControl _cardHeaderControl = new();
 
@@ -33,8 +33,8 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
 
         public SymbolRegular Icon
         {
-            get => _cardControl.Icon;
-            set => _cardControl.Icon = value;
+            get => _cardExpander.Icon;
+            set => _cardExpander.Icon = value;
         }
 
         public string Title
@@ -69,14 +69,14 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
             _colorPicker.ColorChanged += ColorPicker_ColorChanged;
             _colorPicker.MouseUp += ColorPicker_MouseUp;
 
-            _colorButton.Click += (s, e) => RaiseEvent(e);
+            _colorButton.Click += (s, e) => _cardExpander.IsExpanded = !_cardExpander.IsExpanded;
             _cardHeaderControl.Accessory = _colorButton;
 
-            _cardControl.Header = _cardHeaderControl;
-            _cardControl.Content = _colorPicker;
-            _cardControl.Margin = new(0, 0, 0, 8);
+            _cardExpander.Header = _cardHeaderControl;
+            _cardExpander.Content = _colorPicker;
+            _cardExpander.Margin = new(0, 0, 0, 8);
 
-            Content = _cardControl;
+            Content = _cardExpander;
         }
 
         private void CardControl_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -84,7 +84,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
             if (IsEnabled)
                 return;
 
-            _cardControl.IsExpanded = false;
+            _cardExpander.IsExpanded = false;
 
             var c = Color.FromRgb(0, 0, 0);
             _colorButton.Visibility = Visibility.Hidden;

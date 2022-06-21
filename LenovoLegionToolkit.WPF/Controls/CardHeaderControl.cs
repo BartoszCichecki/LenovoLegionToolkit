@@ -10,6 +10,7 @@ namespace LenovoLegionToolkit.WPF.Controls
         {
             FontSize = 14,
             FontWeight = FontWeight.FromOpenTypeWeight(500), // Medium
+            VerticalAlignment = VerticalAlignment.Center,
         };
 
         private readonly TextBlock _subtitleTextBlock = new()
@@ -23,7 +24,7 @@ namespace LenovoLegionToolkit.WPF.Controls
         {
             ColumnDefinitions =
             {
-                new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+                new ColumnDefinition { Width = new(1, GridUnitType.Star) },
                 new ColumnDefinition { Width = GridLength.Auto },
             },
             RowDefinitions =
@@ -38,7 +39,11 @@ namespace LenovoLegionToolkit.WPF.Controls
         public string Title
         {
             get => _titleTextBlock.Text;
-            set => _titleTextBlock.Text = value;
+            set
+            {
+                _titleTextBlock.Text = value;
+                RefreshLayout();
+            }
         }
 
         public string Subtitle
@@ -46,8 +51,8 @@ namespace LenovoLegionToolkit.WPF.Controls
             get => _subtitleTextBlock.Text;
             set
             {
-                _subtitleTextBlock.Visibility = string.IsNullOrEmpty(value) ? Visibility.Collapsed : Visibility.Visible;
                 _subtitleTextBlock.Text = value;
+                RefreshLayout();
             }
         }
 
@@ -76,8 +81,6 @@ namespace LenovoLegionToolkit.WPF.Controls
         {
             base.OnInitialized(e);
 
-            _subtitleTextBlock.SetResourceReference(ForegroundProperty, "TextFillColorTertiaryBrush");
-
             Grid.SetColumn(_titleTextBlock, 0);
             Grid.SetColumn(_subtitleTextBlock, 0);
 
@@ -88,6 +91,37 @@ namespace LenovoLegionToolkit.WPF.Controls
             _grid.Children.Add(_subtitleTextBlock);
 
             Content = _grid;
+
+            UpdateTextStyle();
+            IsEnabledChanged += (s, e) => UpdateTextStyle();
+        }
+
+        private void RefreshLayout()
+        {
+            if (string.IsNullOrEmpty(Subtitle))
+            {
+                Grid.SetRowSpan(_titleTextBlock, 2);
+                _subtitleTextBlock.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                Grid.SetRowSpan(_titleTextBlock, 1);
+                _subtitleTextBlock.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void UpdateTextStyle()
+        {
+            if (IsEnabled)
+            {
+                _titleTextBlock.SetResourceReference(ForegroundProperty, "TextFillColorPrimaryBrush");
+                _subtitleTextBlock.SetResourceReference(ForegroundProperty, "TextFillColorTertiaryBrush");
+            }
+            else
+            {
+                _titleTextBlock.SetResourceReference(ForegroundProperty, "TextFillColorDisabledBrush");
+                _subtitleTextBlock.SetResourceReference(ForegroundProperty, "TextFillColorDisabledBrush");
+            }
         }
     }
 }

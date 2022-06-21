@@ -49,10 +49,9 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             _radioContainer.HorizontalAlignment = HorizontalAlignment.Left;
             _radioContainer.Visibility = Visibility.Hidden;
 
-            _cardControl.Margin = new(0, 0, 0, 8);
-
+            _cardHeaderControl.Accessory = _radioContainer;
             _cardControl.Header = _cardHeaderControl;
-            _cardControl.Content = _radioContainer;
+            _cardControl.Margin = new(0, 0, 0, 8);
 
             Content = _cardControl;
         }

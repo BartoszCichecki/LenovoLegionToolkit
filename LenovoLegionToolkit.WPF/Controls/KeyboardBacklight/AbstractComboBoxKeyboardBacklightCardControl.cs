@@ -54,10 +54,9 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
             _comboBox.SelectionChanged += ComboBox_SelectionChanged;
             _comboBox.Width = 150;
 
-            _cardControl.Margin = new(0, 0, 0, 8);
-
+            _cardHeaderControl.Accessory = _comboBox;
             _cardControl.Header = _cardHeaderControl;
-            _cardControl.Content = _comboBox;
+            _cardControl.Margin = new(0, 0, 0, 8);
 
             Content = _cardControl;
         }

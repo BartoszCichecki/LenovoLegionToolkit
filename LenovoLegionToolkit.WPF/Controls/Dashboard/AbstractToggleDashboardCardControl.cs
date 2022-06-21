@@ -50,10 +50,9 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             _toggle.Click += Toggle_Click;
             _toggle.Visibility = Visibility.Hidden;
 
-            _cardControl.Margin = new(0, 0, 0, 8);
-
+            _cardHeaderControl.Accessory = _toggle;
             _cardControl.Header = _cardHeaderControl;
-            _cardControl.Content = _toggle;
+            _cardControl.Margin = new(0, 0, 0, 8);
 
             Content = _cardControl;
         }
