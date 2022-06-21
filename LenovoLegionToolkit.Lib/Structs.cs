@@ -167,8 +167,7 @@ namespace LenovoLegionToolkit.Lib
         public byte G { get; } = 255;
         public byte B { get; } = 255;
 
-        public RGBColor() { }
-
+        [JsonConstructor]
         public RGBColor(byte r, byte g, byte b)
         {
             R = r;
@@ -187,8 +186,7 @@ namespace LenovoLegionToolkit.Lib
         public RGBColor Zone3 { get; } = new();
         public RGBColor Zone4 { get; } = new();
 
-        public RGBKeyboardBacklightPreset() { }
-
+        [JsonConstructor]
         public RGBKeyboardBacklightPreset(
             RGBKeyboardEffect effect,
             RBGKeyboardSpeed speed,
@@ -242,8 +240,7 @@ namespace LenovoLegionToolkit.Lib
         public int ActivePresetIndex { get; } = -1;
         public RGBKeyboardBacklightPreset[] Presets { get; } = { new(), new(), new() };
 
-        public RGBKeyboardBacklightState() { }
-
+        [JsonConstructor]
         public RGBKeyboardBacklightState(int activePresetIndex, RGBKeyboardBacklightPreset[] presets)
         {
             ActivePresetIndex = activePresetIndex;

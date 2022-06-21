@@ -24,7 +24,6 @@ namespace LenovoLegionToolkit.Lib
             builder.Register<PowerModeFeature>();
             builder.Register<RefreshRateFeature>();
             builder.Register<TouchpadLockFeature>();
-            builder.Register<RGBKeyboardBacklightFeature>();
             builder.Register<WhiteKeyboardBacklightFeature>();
 
             builder.Register<PowerModeListener>().AutoActivate();
@@ -36,6 +35,7 @@ namespace LenovoLegionToolkit.Lib
 
             builder.Register<GPUController>();
             builder.Register<CPUBoostModeController>();
+            builder.Register<RGBKeyboardBacklightController>();
 
             builder.Register<UpdateChecker>();
         }
