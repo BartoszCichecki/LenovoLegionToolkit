@@ -3,7 +3,7 @@ using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
-    public class FnLockControl : AbstractToggleCardControl<FnLockState>
+    public class FnLockControl : AbstractToggleDashboardCardControl<FnLockState>
     {
         protected override FnLockState OnState => FnLockState.On;
 

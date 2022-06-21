@@ -3,7 +3,7 @@ using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
-    internal class WhiteKeyboardBacklightControl : AbstractComboBoxCardControl<WhiteKeyboardBacklightState>
+    internal class WhiteKeyboardBacklightControl : AbstractComboBoxDashboardCardControl<WhiteKeyboardBacklightState>
     {
         public WhiteKeyboardBacklightControl()
         {

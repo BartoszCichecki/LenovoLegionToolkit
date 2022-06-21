@@ -13,6 +13,7 @@ namespace LenovoLegionToolkit.Lib
         protected override void Load(ContainerBuilder builder)
         {
             builder.Register<ApplicationSettings>();
+            builder.Register<RGBKeyboardSettings>();
 
             builder.Register<AlwaysOnUSBFeature>();
             builder.Register<BatteryFeature>();
@@ -23,6 +24,7 @@ namespace LenovoLegionToolkit.Lib
             builder.Register<PowerModeFeature>();
             builder.Register<RefreshRateFeature>();
             builder.Register<TouchpadLockFeature>();
+            builder.Register<RGBKeyboardBacklightFeature>();
             builder.Register<WhiteKeyboardBacklightFeature>();
 
             builder.Register<PowerModeListener>().AutoActivate();
