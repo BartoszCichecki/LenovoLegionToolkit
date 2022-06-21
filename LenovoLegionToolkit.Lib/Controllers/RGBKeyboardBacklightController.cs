@@ -2,24 +2,15 @@
 using LenovoLegionToolkit.Lib.Settings;
 using NeoSmart.AsyncLock;
 
-namespace LenovoLegionToolkit.Lib.Features
+namespace LenovoLegionToolkit.Lib.Controllers
 {
-    public class RGBKeyboardBacklightFeature : IFeature<RGBKeyboardBacklightState>
+    public class RGBKeyboardBacklightController
     {
         private readonly AsyncLock _ioLock = new();
 
         private readonly RGBKeyboardSettings _settings;
 
-        public RGBKeyboardBacklightFeature(RGBKeyboardSettings settings)
-        {
-            _settings = settings;
-        }
-
-        public async Task<RGBKeyboardBacklightState[]> GetAllStatesAsync()
-        {
-            using (await _ioLock.LockAsync().ConfigureAwait(false))
-                return new[] { _settings.Store.State };
-        }
+        public RGBKeyboardBacklightController(RGBKeyboardSettings settings) => _settings = settings;
 
         public async Task<RGBKeyboardBacklightState> GetStateAsync()
         {

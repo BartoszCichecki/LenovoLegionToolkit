@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
-using LenovoLegionToolkit.Lib.Features;
 using Wpf.Ui.Common;
 using Button = Wpf.Ui.Controls.Button;
 
@@ -16,7 +16,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
 
         private RGBColorKeyboardBacklightCardControl[] Zones => new[] { _zone1Control, _zone2Control, _zone3Control, _zone4Control };
 
-        private readonly RGBKeyboardBacklightFeature _feature = IoCContainer.Resolve<RGBKeyboardBacklightFeature>();
+        private readonly RGBKeyboardBacklightController _controller = IoCContainer.Resolve<RGBKeyboardBacklightController>();
 
         public RGBKeyboardBacklightControl()
         {
@@ -56,9 +56,9 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
             if (sender is not Button presetButton || presetButton.Appearance == ControlAppearance.Primary)
                 return;
 
-            var state = await _feature.GetStateAsync();
+            var state = await _controller.GetStateAsync();
             var index = int.Parse((string)presetButton.Tag);
-            await _feature.SetStateAsync(new(index, state.Presets));
+            await _controller.SetStateAsync(new(index, state.Presets));
 
             await RefreshAsync();
         }
@@ -82,7 +82,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
 
         private async Task RefreshAsync()
         {
-            var state = await _feature.GetStateAsync();
+            var state = await _controller.GetStateAsync();
 
             foreach (var presetButton in PresetButtons)
             {
@@ -135,7 +135,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
 
         private async Task SaveState()
         {
-            var state = await _feature.GetStateAsync();
+            var state = await _controller.GetStateAsync();
 
             var index = state.ActivePresetIndex;
             var presets = state.Presets;
@@ -151,7 +151,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
                                  _zone3Control.SelectedColor,
                                  _zone4Control.SelectedColor);
 
-            await _feature.SetStateAsync(new(index, presets));
+            await _controller.SetStateAsync(new(index, presets));
         }
 
         private void Expand()
