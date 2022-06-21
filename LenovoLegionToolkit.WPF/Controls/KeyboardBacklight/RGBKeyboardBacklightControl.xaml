@@ -88,7 +88,7 @@
             Margin="0,0,8,0"
             OnChanged="CardControl_OnChanged" />
 
-        <controls:ColorKeyboardBacklightCardControl
+        <controls:RGBColorKeyboardBacklightCardControl
             x:Name="_zone1Control"
             Title="Zone 1"
             Grid.Row="4"
@@ -96,17 +96,17 @@
             Margin="0,0,8,0"
             VerticalAlignment="Top"
             OnChanged="CardControl_OnChanged">
-            <controls:ColorKeyboardBacklightCardControl.ContextMenu>
+            <controls:RGBColorKeyboardBacklightCardControl.ContextMenu>
                 <ContextMenu>
                     <wpfui:MenuItem
                         Click="SynchroniseZonesMenuItem_Click"
                         Header="Synchronise zones"
                         SymbolIcon="ArrowsBidirectional24" />
                 </ContextMenu>
-            </controls:ColorKeyboardBacklightCardControl.ContextMenu>
-        </controls:ColorKeyboardBacklightCardControl>
+            </controls:RGBColorKeyboardBacklightCardControl.ContextMenu>
+        </controls:RGBColorKeyboardBacklightCardControl>
 
-        <controls:ColorKeyboardBacklightCardControl
+        <controls:RGBColorKeyboardBacklightCardControl
             x:Name="_zone2Control"
             Title="Zone 2"
             Grid.Row="4"
@@ -114,17 +114,17 @@
             Margin="0,0,8,0"
             VerticalAlignment="Top"
             OnChanged="CardControl_OnChanged">
-            <controls:ColorKeyboardBacklightCardControl.ContextMenu>
+            <controls:RGBColorKeyboardBacklightCardControl.ContextMenu>
                 <ContextMenu>
                     <wpfui:MenuItem
                         Click="SynchroniseZonesMenuItem_Click"
                         Header="Synchronise zones"
                         SymbolIcon="ArrowsBidirectional24" />
                 </ContextMenu>
-            </controls:ColorKeyboardBacklightCardControl.ContextMenu>
-        </controls:ColorKeyboardBacklightCardControl>
+            </controls:RGBColorKeyboardBacklightCardControl.ContextMenu>
+        </controls:RGBColorKeyboardBacklightCardControl>
 
-        <controls:ColorKeyboardBacklightCardControl
+        <controls:RGBColorKeyboardBacklightCardControl
             x:Name="_zone3Control"
             Title="Zone 3"
             Grid.Row="4"
@@ -132,17 +132,17 @@
             Margin="0,0,8,0"
             VerticalAlignment="Top"
             OnChanged="CardControl_OnChanged">
-            <controls:ColorKeyboardBacklightCardControl.ContextMenu>
+            <controls:RGBColorKeyboardBacklightCardControl.ContextMenu>
                 <ContextMenu>
                     <wpfui:MenuItem
                         Click="SynchroniseZonesMenuItem_Click"
                         Header="Synchronise zones"
                         SymbolIcon="ArrowsBidirectional24" />
                 </ContextMenu>
-            </controls:ColorKeyboardBacklightCardControl.ContextMenu>
-        </controls:ColorKeyboardBacklightCardControl>
+            </controls:RGBColorKeyboardBacklightCardControl.ContextMenu>
+        </controls:RGBColorKeyboardBacklightCardControl>
 
-        <controls:ColorKeyboardBacklightCardControl
+        <controls:RGBColorKeyboardBacklightCardControl
             x:Name="_zone4Control"
             Title="Zone 4"
             Grid.Row="4"
@@ -150,15 +150,15 @@
             Margin="0,0,8,0"
             VerticalAlignment="Top"
             OnChanged="CardControl_OnChanged">
-            <controls:ColorKeyboardBacklightCardControl.ContextMenu>
+            <controls:RGBColorKeyboardBacklightCardControl.ContextMenu>
                 <ContextMenu>
                     <wpfui:MenuItem
                         Click="SynchroniseZonesMenuItem_Click"
                         Header="Synchronise zones"
                         SymbolIcon="ArrowsBidirectional24" />
                 </ContextMenu>
-            </controls:ColorKeyboardBacklightCardControl.ContextMenu>
-        </controls:ColorKeyboardBacklightCardControl>
+            </controls:RGBColorKeyboardBacklightCardControl.ContextMenu>
+        </controls:RGBColorKeyboardBacklightCardControl>
 
     </Grid>
 

@@ -14,7 +14,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
     {
         private Button[] PresetButtons => new[] { _offPresetButton, _preset1Button, _preset2Button, _preset3Button };
 
-        private ColorKeyboardBacklightCardControl[] Zones => new[] { _zone1Control, _zone2Control, _zone3Control, _zone4Control };
+        private RGBColorKeyboardBacklightCardControl[] Zones => new[] { _zone1Control, _zone2Control, _zone3Control, _zone4Control };
 
         private readonly RGBKeyboardBacklightFeature _feature = IoCContainer.Resolve<RGBKeyboardBacklightFeature>();
 
@@ -64,7 +64,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
         }
         private async void SynchroniseZonesMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is not MenuItem menuItem || menuItem.Parent is not ContextMenu menu || menu.PlacementTarget is not ColorKeyboardBacklightCardControl control)
+            if (sender is not MenuItem menuItem || menuItem.Parent is not ContextMenu menu || menu.PlacementTarget is not RGBColorKeyboardBacklightCardControl control)
                 return;
 
             foreach (var zone in Zones)
