@@ -45,7 +45,7 @@ namespace LenovoLegionToolkit.WPF.Pages
 
             var vantageStatus = await Vantage.GetStatusAsync();
             _vantageCard.Visibility = vantageStatus != VantageStatus.NotFound ? Visibility.Visible : Visibility.Collapsed;
-            _vantageToggle.IsChecked = vantageStatus == VantageStatus.Enabled;
+            _vantageToggle.IsChecked = vantageStatus == VantageStatus.Disabled;
 
             await loadingTask;
 
@@ -109,9 +109,9 @@ namespace LenovoLegionToolkit.WPF.Pages
                 return;
 
             if (state.Value)
-                await Vantage.EnableAsync();
-            else
                 await Vantage.DisableAsync();
+            else
+                await Vantage.EnableAsync();
         }
 
         private void PowerPlans_Click(object sender, RoutedEventArgs e)
