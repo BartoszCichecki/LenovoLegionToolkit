@@ -8,13 +8,19 @@ namespace LenovoLegionToolkit.Lib.Settings
         public class ApplicationSettingsStore
         {
             public WindowSize WindowSize { get; set; }
-            public Theme Theme { get; set; } = Theme.Dark;
+            public Theme Theme { get; set; }
             public Dictionary<PowerModeState, string> PowerPlans { get; set; } = new();
-            public bool MinimizeOnClose { get; set; } = false;
-            public bool ActivatePowerProfilesWithVantageEnabled { get; set; } = false;
-            public TemperatureUnit TemperatureUnit { get; set; } = TemperatureUnit.C;
+            public bool MinimizeOnClose { get; set; }
+            public bool ActivatePowerProfilesWithVantageEnabled { get; set; }
+            public TemperatureUnit TemperatureUnit { get; set; }
         }
 
         protected override string FileName => "settings.json";
+
+        public override ApplicationSettingsStore Default => new()
+        {
+            Theme = Theme.Dark,
+            TemperatureUnit = TemperatureUnit.C,
+        };
     }
 }
