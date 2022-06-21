@@ -12,7 +12,7 @@ using Color = System.Windows.Media.Color;
 
 namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
 {
-    public class ColorKeyboardBacklightCardControl : UserControl
+    public class RGBColorKeyboardBacklightCardControl : UserControl
     {
         private readonly CardExpander _cardControl = new();
 
@@ -60,7 +60,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
 
         public event EventHandler? OnChanged;
 
-        public ColorKeyboardBacklightCardControl() => InitializeComponent();
+        public RGBColorKeyboardBacklightCardControl() => InitializeComponent();
 
         private void InitializeComponent()
         {
