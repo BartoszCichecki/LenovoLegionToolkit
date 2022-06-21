@@ -67,11 +67,11 @@ namespace LenovoLegionToolkit.Lib
     {
         Static,
         Breath,
+        Smooth,
         [Display(Name = "Wave Right")]
         WaveRTL,
         [Display(Name = "Wave Left")]
         WaveLTR,
-        Smooth,
     }
 
     public enum RBGKeyboardSpeed
