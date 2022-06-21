@@ -82,54 +82,61 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
 
         private async Task RefreshAsync()
         {
-            var state = await _controller.GetStateAsync();
-
-            foreach (var presetButton in PresetButtons)
+            try
             {
-                var index = int.Parse((string)presetButton.Tag);
-                var selected = state.ActivePresetIndex == index;
-                presetButton.Appearance = selected ? ControlAppearance.Primary : ControlAppearance.Secondary;
+                var state = await _controller.GetStateAsync();
+
+                foreach (var presetButton in PresetButtons)
+                {
+                    var index = int.Parse((string)presetButton.Tag);
+                    var selected = state.ActivePresetIndex == index;
+                    presetButton.Appearance = selected ? ControlAppearance.Primary : ControlAppearance.Secondary;
+                }
+
+                if (state.ActivePresetIndex < 0)
+                {
+                    _effectControl.IsEnabled = false;
+                    _speedControl.IsEnabled = false;
+                    _brightnessControl.IsEnabled = false;
+
+                    _zone1Control.IsEnabled = false;
+                    _zone2Control.IsEnabled = false;
+                    _zone3Control.IsEnabled = false;
+                    _zone4Control.IsEnabled = false;
+
+                    return;
+                }
+
+                var preset = state.Presets[state.ActivePresetIndex];
+
+                var speedEnabled = preset.Effect != RGBKeyboardEffect.Static;
+                var zonesEnabled = preset.Effect == RGBKeyboardEffect.Static || preset.Effect == RGBKeyboardEffect.Breath;
+
+                _brightnessControl.IsEnabled = true;
+                _effectControl.IsEnabled = true;
+                _speedControl.IsEnabled = speedEnabled;
+
+                _zone1Control.IsEnabled = zonesEnabled;
+                _zone2Control.IsEnabled = zonesEnabled;
+                _zone3Control.IsEnabled = zonesEnabled;
+                _zone4Control.IsEnabled = zonesEnabled;
+
+                _brightnessControl.SetItems(Enum.GetValues<RGBKeyboardBrightness>(), preset.Brightness, v => v.GetDisplayName());
+                _effectControl.SetItems(Enum.GetValues<RGBKeyboardEffect>(), preset.Effect, v => v.GetDisplayName());
+                if (speedEnabled)
+                    _speedControl.SetItems(Enum.GetValues<RBGKeyboardSpeed>(), preset.Speed, v => v.GetDisplayName());
+
+                if (zonesEnabled)
+                {
+                    _zone1Control.Set(preset.Zone1);
+                    _zone2Control.Set(preset.Zone2);
+                    _zone3Control.Set(preset.Zone3);
+                    _zone4Control.Set(preset.Zone4);
+                }
             }
-
-            if (state.ActivePresetIndex < 0)
+            catch
             {
-                _effectControl.IsEnabled = false;
-                _speedControl.IsEnabled = false;
-                _brightnessControl.IsEnabled = false;
-
-                _zone1Control.IsEnabled = false;
-                _zone2Control.IsEnabled = false;
-                _zone3Control.IsEnabled = false;
-                _zone4Control.IsEnabled = false;
-
-                return;
-            }
-
-            var preset = state.Presets[state.ActivePresetIndex];
-
-            var speedEnabled = preset.Effect != RGBKeyboardEffect.Static;
-            var zonesEnabled = preset.Effect == RGBKeyboardEffect.Static || preset.Effect == RGBKeyboardEffect.Breath;
-
-            _brightnessControl.IsEnabled = true;
-            _effectControl.IsEnabled = true;
-            _speedControl.IsEnabled = speedEnabled;
-
-            _zone1Control.IsEnabled = zonesEnabled;
-            _zone2Control.IsEnabled = zonesEnabled;
-            _zone3Control.IsEnabled = zonesEnabled;
-            _zone4Control.IsEnabled = zonesEnabled;
-
-            _brightnessControl.SetItems(Enum.GetValues<RGBKeyboardBrightness>(), preset.Brightness, v => v.GetDisplayName());
-            _effectControl.SetItems(Enum.GetValues<RGBKeyboardEffect>(), preset.Effect, v => v.GetDisplayName());
-            if (speedEnabled)
-                _speedControl.SetItems(Enum.GetValues<RBGKeyboardSpeed>(), preset.Speed, v => v.GetDisplayName());
-
-            if (zonesEnabled)
-            {
-                _zone1Control.Set(preset.Zone1);
-                _zone2Control.Set(preset.Zone2);
-                _zone3Control.Set(preset.Zone3);
-                _zone4Control.Set(preset.Zone4);
+                Visibility = Visibility.Collapsed;
             }
         }
 
