@@ -10,9 +10,16 @@ namespace LenovoLegionToolkit.Lib.Automation.Utils
     {
         public class AutomationSettingsStore
         {
-            public bool IsEnabled { get; set; } = false;
+            public bool IsEnabled { get; set; }
 
-            public List<AutomationPipeline> Pipelines { get; set; } = new()
+            public List<AutomationPipeline> Pipelines { get; set; } = new();
+        }
+
+        protected override string FileName => "automation.json";
+
+        public override AutomationSettingsStore Default => new()
+        {
+            Pipelines =
             {
                 new AutomationPipeline
                 {
@@ -29,9 +36,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Utils
                     Name = "Deactivate GPU",
                     Steps = { new DeactivateGPUAutomationStep() },
                 },
-            };
-        }
-
-        protected override string FileName => "automation.json";
+            },
+        };
     }
 }

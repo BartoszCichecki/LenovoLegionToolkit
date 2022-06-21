@@ -14,6 +14,8 @@ namespace LenovoLegionToolkit.Lib.Settings
 
         public T Store { get; }
 
+        public abstract T Default { get; }
+
         public AbstractSettings()
         {
             _jsonSerializerSettings = new()
@@ -31,11 +33,11 @@ namespace LenovoLegionToolkit.Lib.Settings
             try
             {
                 var settingsSerialized = File.ReadAllText(_settingsStorePath);
-                Store = JsonConvert.DeserializeObject<T>(settingsSerialized, _jsonSerializerSettings) ?? new();
+                Store = JsonConvert.DeserializeObject<T>(settingsSerialized, _jsonSerializerSettings) ?? Default;
             }
             catch
             {
-                Store = new();
+                Store = Default;
                 SynchronizeStore();
             }
         }
