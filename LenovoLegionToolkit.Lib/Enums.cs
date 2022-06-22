@@ -38,8 +38,6 @@ namespace LenovoLegionToolkit.Lib
         Off,
     }
 
-    public enum KeyboardBacklight { }
-
     public enum OverDriveState
     {
         Off,
@@ -58,6 +56,8 @@ namespace LenovoLegionToolkit.Lib
         Started,
         Stopped,
     }
+
+    public enum RGBKeyboardBacklight { }
 
     public enum RGBKeyboardBrightness
     {

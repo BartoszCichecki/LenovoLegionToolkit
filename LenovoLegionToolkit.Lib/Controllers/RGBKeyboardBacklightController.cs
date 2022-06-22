@@ -18,7 +18,11 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         public async Task<RGBKeyboardBacklightState> GetStateAsync()
         {
-            await CheckVantageStatus().ConfigureAwait(false);
+            await ThrowIfVantageEnabled().ConfigureAwait(false);
+
+            var handle = Devices.GetRGBKeyboard();
+            if (handle is null)
+                throw new InvalidOperationException("RGB Keyboard unsupported.");
 
             using (await _ioLock.LockAsync().ConfigureAwait(false))
                 return _settings.Store.State;
@@ -26,7 +30,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         public async Task SetStateAsync(RGBKeyboardBacklightState state)
         {
-            await CheckVantageStatus().ConfigureAwait(false);
+            await ThrowIfVantageEnabled().ConfigureAwait(false);
 
             using (await _ioLock.LockAsync().ConfigureAwait(false))
             {
@@ -41,40 +45,65 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 var preset = state.Presets[index];
                 var str = Convert(preset);
 
-                await SendHidReport(handle, str).ConfigureAwait(false);
+                await SendHidReport(handle!, str).ConfigureAwait(false);
             }
         }
 
-        private static async Task CheckVantageStatus()
+        public async Task SetNextPresetAsync()
+        {
+            await ThrowIfVantageEnabled().ConfigureAwait(false);
+
+            var handle = Devices.GetRGBKeyboard();
+            if (handle is null)
+                throw new InvalidOperationException("RGB Keyboard unsupported.");
+
+            using (await _ioLock.LockAsync().ConfigureAwait(false))
+            {
+                var state = _settings.Store.State;
+
+                var index = state.ActivePresetIndex;
+                var presets = state.Presets;
+
+                var newIndex = (index + 1) % 3;
+
+                _settings.Store.State = new(newIndex, presets);
+                _settings.SynchronizeStore();
+
+                var preset = state.Presets[newIndex];
+                var str = Convert(preset);
+
+                await SendHidReport(handle!, str).ConfigureAwait(false);
+            }
+        }
+
+
+        private static async Task ThrowIfVantageEnabled()
         {
             var vantageStatus = await Vantage.GetStatusAsync().ConfigureAwait(false);
             if (vantageStatus == VantageStatus.Enabled)
                 throw new InvalidOperationException("Can't manage RGB keyboard with Vantage enabled.");
         }
 
-        private Task SendHidReport(SafeFileHandle handle, RGBKeyboardStateEx str)
+        private Task SendHidReport(SafeFileHandle handle, RGBKeyboardStateEx str) => Task.Run(() =>
         {
-            return Task.Run(() =>
+            var size = Marshal.SizeOf<RGBKeyboardStateEx>();
+            var bytes = new byte[size];
+
+            var ptr = IntPtr.Zero;
+            try
             {
-                var size = Marshal.SizeOf<RGBKeyboardStateEx>();
-                var bytes = new byte[size];
+                ptr = Marshal.AllocHGlobal(size);
+                Marshal.StructureToPtr(str, ptr, true);
+                Marshal.Copy(ptr, bytes, 0, size);
+            }
+            finally
+            {
+                Marshal.FreeHGlobal(ptr);
+            }
 
-                var ptr = IntPtr.Zero;
-                try
-                {
-                    ptr = Marshal.AllocHGlobal(size);
-                    Marshal.StructureToPtr(str, ptr, true);
-                    Marshal.Copy(ptr, bytes, 0, size);
-                }
-                finally
-                {
-                    Marshal.FreeHGlobal(ptr);
-                }
-
-                if (!Native.HidD_SetFeature(handle, ref bytes, (uint)bytes.Length))
-                    NativeUtils.ThrowIfWin32Error("HidD_SetFeature");
-            });
-        }
+            if (!Native.HidD_SetFeature(handle, ref bytes, (uint)bytes.Length))
+                NativeUtils.ThrowIfWin32Error("HidD_SetFeature");
+        });
 
         public RGBKeyboardStateEx Convert(RGBKeyboardBacklightPreset preset)
         {
