@@ -147,7 +147,7 @@ namespace LenovoLegionToolkit
                 new Thread(() =>
                 {
                     while (_eventWaitHandle.WaitOne())
-                        Current.Dispatcher.BeginInvoke((Action)(() => ((MainWindow)Current.MainWindow).BringToForeground()));
+                        Current.Dispatcher.BeginInvoke((() => ((MainWindow)Current.MainWindow).BringToForeground()));
                 })
                 {
                     IsBackground = true

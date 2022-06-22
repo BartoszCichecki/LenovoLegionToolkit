@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Threading;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Controllers;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
@@ -56,7 +59,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
                 if (e.ProcessCount > 0)
                     status += $" ({e.ProcessCount} app{(e.ProcessCount > 1 ? "s" : "")})";
                 _discreteGPUStatusDescription.Text = status;
-                _discreteGPUStatusDescription.ToolTip = e.ProcessCount < 1 ? null : ("InitialProcesses:\n" + string.Join("\n", e.ProcessNames));
+                _discreteGPUStatusDescription.ToolTip = e.ProcessCount < 1 ? null : ("Processes:\n" + string.Join("\n", e.Processes.Select(p => p.ProcessName)));
                 _discreteGPUStatusActiveIndicator.Visibility = Visibility.Visible;
                 _discreteGPUStatusInactiveIndicator.Visibility = Visibility.Collapsed;
             }
@@ -69,6 +72,18 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             }
 
             _deactivateGPUButton.IsEnabled = e.CanBeDeactivated;
+
+            if (e.CanBeDeactivated)
+            {
+                _deactivateGPUButtonText.SetResourceReference(ForegroundProperty, "TextOnAccentFillColorPrimaryBrush");
+                _deactivateGPUButtonIcon.SetResourceReference(ForegroundProperty, "TextOnAccentFillColorPrimaryBrush");
+            }
+            else
+            {
+                _deactivateGPUButtonText.SetResourceReference(ForegroundProperty, "TextFillColorDisabledBrush");
+                _deactivateGPUButtonIcon.SetResourceReference(ForegroundProperty, "TextFillColorDisabledBrush");
+            }
+
             _deactivateGPUButton.ToolTip = e.Status switch
             {
                 GPUController.Status.MonitorsConnected => "A monitor is connected to nVidia GPU.",
@@ -80,7 +95,19 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             _content.Visibility = Visibility.Visible;
         });
 
-        private async void DeactivateGPUButton_Click(object sender, RoutedEventArgs e)
+        private void DeactivateGPUButton_Click(object sender, RoutedEventArgs e)
+        {
+            _deactivateGPUButton.ContextMenu.PlacementTarget = _deactivateGPUButton;
+            _deactivateGPUButton.ContextMenu.Placement = System.Windows.Controls.Primitives.PlacementMode.Bottom;
+            _deactivateGPUButton.ContextMenu.IsOpen = true;
+        }
+
+        private async void KillAppsMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            await _gpuController.KillGPUProcessesAsync();
+        }
+
+        private async void RestartGPUMenuItem_Click(object sender, RoutedEventArgs e)
         {
             await _gpuController.DeactivateGPUAsync();
         }
