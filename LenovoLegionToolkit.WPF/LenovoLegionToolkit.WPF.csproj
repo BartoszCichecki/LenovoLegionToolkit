@@ -48,7 +48,4 @@
 		<Resource Include="Assets\paypal_button.png" />
 		<Resource Include="Assets\paypal_qr.png" />
 	</ItemGroup>
-	<ItemGroup>
-	  <Folder Include="Windows\KeyboardBacklight\" />
-	</ItemGroup>
 </Project>
