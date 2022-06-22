@@ -430,13 +430,16 @@ namespace LenovoLegionToolkit.Lib.System
         public static extern bool HidD_GetAttributes(SafeFileHandle handle, ref HIDDAttributesEx attributes);
 
         [DllImport("hid.dll", SetLastError = true)]
-        public static extern bool HidD_GetPreparsedData(SafeFileHandle HidDeviceObject, ref IntPtr PreparsedData);
+        public static extern bool HidD_GetPreparsedData(SafeFileHandle handle, ref IntPtr preparsedData);
 
         [DllImport("hid.dll", SetLastError = true)]
         public static extern bool HidD_FreePreparsedData(IntPtr preparsedData);
 
         [DllImport("hid.dll", SetLastError = true)]
         public static extern uint HidP_GetCaps(IntPtr preparsedData, out HIDPCapsEx capabilities);
+        
+        [DllImport("hid.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        public static extern bool HidD_SetFeature(SafeFileHandle handle, ref byte[] buffer, uint bufferLength);
     }
 
     internal static class NativeUtils

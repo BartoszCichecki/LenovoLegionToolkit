@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.Utils;
+using Microsoft.Win32.SafeHandles;
 using NeoSmart.AsyncLock;
 
 namespace LenovoLegionToolkit.Lib.Controllers
@@ -30,6 +33,16 @@ namespace LenovoLegionToolkit.Lib.Controllers
             {
                 _settings.Store.State = state;
                 _settings.SynchronizeStore();
+
+                var handle = Devices.GetRGBKeyboard();
+                if (handle is null)
+                    throw new InvalidOperationException("RGB Keyboard unsupported.");
+
+                var index = state.ActivePresetIndex;
+                var preset = state.Presets[index];
+                var str = Convert(preset);
+
+                await SendHidReport(handle, str).ConfigureAwait(false);
             }
         }
 
@@ -40,7 +53,31 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 throw new InvalidOperationException("Can't manage RGB keyboard with Vantage enabled.");
         }
 
-        public RGBKeyboardStateEx Convert(RGBKeyboardBacklightPreset state)
+        private Task SendHidReport(SafeFileHandle handle, RGBKeyboardStateEx str)
+        {
+            return Task.Run(() =>
+            {
+                var size = Marshal.SizeOf<RGBKeyboardStateEx>();
+                var bytes = new byte[size];
+
+                var ptr = IntPtr.Zero;
+                try
+                {
+                    ptr = Marshal.AllocHGlobal(size);
+                    Marshal.StructureToPtr(str, ptr, true);
+                    Marshal.Copy(ptr, bytes, 0, size);
+                }
+                finally
+                {
+                    Marshal.FreeHGlobal(ptr);
+                }
+
+                if (!Native.HidD_SetFeature(handle, ref bytes, (uint)bytes.Length))
+                    NativeUtils.ThrowIfWin32Error("HidD_SetFeature");
+            });
+        }
+
+        public RGBKeyboardStateEx Convert(RGBKeyboardBacklightPreset preset)
         {
             var result = new RGBKeyboardStateEx
             {
@@ -49,7 +86,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 Padding = 0x0
             };
 
-            switch (state.Effect)
+            switch (preset.Effect)
             {
                 case RGBKeyboardEffect.Static:
                     result.Effect = 1;
@@ -70,9 +107,9 @@ namespace LenovoLegionToolkit.Lib.Controllers
                     break;
             }
 
-            if (state.Effect != RGBKeyboardEffect.Static)
+            if (preset.Effect != RGBKeyboardEffect.Static)
             {
-                switch (state.Speed)
+                switch (preset.Speed)
                 {
                     case RBGKeyboardSpeed.Slowest:
                         result.Speed = 1;
@@ -89,12 +126,12 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 }
             }
 
-            if (state.Effect == RGBKeyboardEffect.Static || state.Effect == RGBKeyboardEffect.Breath)
+            if (preset.Effect == RGBKeyboardEffect.Static || preset.Effect == RGBKeyboardEffect.Breath)
             {
-                result.Zone1Rgb = new[] { state.Zone1.R, state.Zone1.G, state.Zone1.B };
-                result.Zone2Rgb = new[] { state.Zone2.R, state.Zone2.G, state.Zone2.B };
-                result.Zone3Rgb = new[] { state.Zone3.R, state.Zone3.G, state.Zone3.B };
-                result.Zone4Rgb = new[] { state.Zone4.R, state.Zone4.G, state.Zone4.B };
+                result.Zone1Rgb = new[] { preset.Zone1.R, preset.Zone1.G, preset.Zone1.B };
+                result.Zone2Rgb = new[] { preset.Zone2.R, preset.Zone2.G, preset.Zone2.B };
+                result.Zone3Rgb = new[] { preset.Zone3.R, preset.Zone3.G, preset.Zone3.B };
+                result.Zone4Rgb = new[] { preset.Zone4.R, preset.Zone4.G, preset.Zone4.B };
             }
 
             return result;
