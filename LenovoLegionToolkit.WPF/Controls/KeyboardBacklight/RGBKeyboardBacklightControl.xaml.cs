@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.Lib.Listeners;
 using Wpf.Ui.Common;
 using Button = Wpf.Ui.Controls.Button;
 
@@ -17,14 +18,25 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
         private RGBColorKeyboardBacklightCardControl[] Zones => new[] { _zone1Control, _zone2Control, _zone3Control, _zone4Control };
 
         private readonly RGBKeyboardBacklightController _controller = IoCContainer.Resolve<RGBKeyboardBacklightController>();
+        private readonly RGBKeyboardBacklightListener _listener = IoCContainer.Resolve<RGBKeyboardBacklightListener>();
 
         public RGBKeyboardBacklightControl()
         {
             InitializeComponent();
 
+            _listener.Changed += Listener_Changed;
+
             Loaded += RGBKeyboardBacklightControl_Loaded;
             IsVisibleChanged += RGBKeyboardBacklightControl_IsVisibleChanged;
             SizeChanged += RGBKeyboardBacklightControl_SizeChanged;
+        }
+
+        private async void Listener_Changed(object? sender, RGBKeyboardBacklight e)
+        {
+            if (!IsLoaded || !IsVisible)
+                return;
+
+            await RefreshAsync();
         }
 
         private async void RGBKeyboardBacklightControl_Loaded(object sender, RoutedEventArgs e)
