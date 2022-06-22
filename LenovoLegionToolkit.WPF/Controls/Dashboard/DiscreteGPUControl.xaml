@@ -37,14 +37,43 @@
                     Margin="4,0,0,0"
                     FontWeight="Medium" />
             </StackPanel>
-            <Button
+            <wpfui:Button
                 x:Name="_deactivateGPUButton"
                 Width="150"
                 Margin="0,8,0,0"
+                Appearance="Primary"
                 Click="DeactivateGPUButton_Click"
-                Content="Deactivate"
                 IsEnabled="False"
-                ToolTipService.ShowOnDisabled="True" />
+                ToolTipService.ShowOnDisabled="True">
+                <wpfui:Button.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            x:Name="_deactivateGPUButtonText"
+                            Grid.Column="1"
+                            Margin="8,0,8,2"
+                            FontWeight="Medium">
+                            Deactivate
+                        </TextBlock>
+                        <wpfui:SymbolIcon
+                            x:Name="_deactivateGPUButtonIcon"
+                            Grid.Column="0"
+                            FontWeight="Bold"
+                            Symbol="ChevronDown24" />
+                    </Grid>
+                </wpfui:Button.Content>
+                <wpfui:Button.ContextMenu>
+                    <ContextMenu Width="150">
+                        <ContextMenu.Items>
+                            <wpfui:MenuItem Click="KillAppsMenuItem_Click" Header="Kill apps" />
+                            <wpfui:MenuItem Click="RestartGPUMenuItem_Click" Header="Restart GPU" />
+                        </ContextMenu.Items>
+                    </ContextMenu>
+                </wpfui:Button.ContextMenu>
+            </wpfui:Button>
         </StackPanel>
     </wpfui:CardControl>
 </controls:AbstractRefreshingControl>

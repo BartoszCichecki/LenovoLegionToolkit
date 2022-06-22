@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using NeoSmart.AsyncLock;
@@ -127,6 +128,29 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 Log.Instance.Trace($"Deactivated [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
         }
 
+        public async Task KillGPUProcessesAsync()
+        {
+            using (await _lock.LockAsync().ConfigureAwait(false))
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Killing GPU processes... [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
+
+            if (!IsActive || !CanBeDeactivated || string.IsNullOrEmpty(_gpuInstanceId))
+                return;
+
+            var processIds = _processNames.Select(p => $"/im \"{p}\"");
+            await CMD.RunAsync("taskkill", $"/f {string.Join(" ", processIds)}").ConfigureAwait(false);
+
+            if (Process.GetProcessesByName("explorer").IsEmpty())
+            {
+                Log.Instance.Trace($"Restarting explorer.exe... [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
+                await CMD.RunAsync("explorer", string.Empty);
+            }
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Killed GPU processes. [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
+        }
+
         private async Task RefreshLoopAsync(int delay, int interval, CancellationToken token)
         {
             try
@@ -202,7 +226,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 return;
             }
 
-            var processNames = NVAPI.GetActiveApps(gpu);
+            var processNames = NVAPIExtensions.GetActiveProcessNames(gpu);
             if (processNames.Length < 1)
             {
                 _status = Status.Inactive;
