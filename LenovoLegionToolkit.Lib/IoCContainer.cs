@@ -9,6 +9,9 @@ namespace LenovoLegionToolkit.Lib
 
         public static void Initialize(params Module[] modules)
         {
+            if (_container is not null)
+                throw new InvalidOperationException("IoCContainer already initialized");
+
             var cb = new ContainerBuilder();
 
             foreach (var module in modules)
