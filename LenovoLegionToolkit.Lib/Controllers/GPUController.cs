@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using NeoSmart.AsyncLock;
@@ -25,15 +27,15 @@ namespace LenovoLegionToolkit.Lib.Controllers
             public bool IsActive { get; }
             public bool CanBeDeactivated { get; }
             public Status Status { get; }
-            public string[] ProcessNames { get; }
-            public int ProcessCount => ProcessNames.Length;
+            public List<Process> Processes { get; }
+            public int ProcessCount => Processes.Count;
 
-            public RefreshedEventArgs(bool isActive, bool canBeDeactivated, Status status, string[] processNames)
+            public RefreshedEventArgs(bool isActive, bool canBeDeactivated, Status status, List<Process> processes)
             {
                 IsActive = isActive;
                 CanBeDeactivated = canBeDeactivated;
                 Status = status;
-                ProcessNames = processNames;
+                Processes = processes;
             }
         }
 
@@ -43,11 +45,11 @@ namespace LenovoLegionToolkit.Lib.Controllers
         private CancellationTokenSource? _refreshCancellationTokenSource = null;
 
         private Status _status = Status.Unknown;
-        private string[] _processNames = Array.Empty<string>();
+        private List<Process> _processes = new();
         private string? _gpuInstanceId = null;
 
-        private bool IsActive => _status == Status.MonitorsConnected || _status == Status.DeactivatePossible;
-        private bool CanBeDeactivated => _status == Status.DeactivatePossible;
+        public bool IsActive => _status == Status.MonitorsConnected || _status == Status.DeactivatePossible;
+        public bool CanBeDeactivated => _status == Status.DeactivatePossible;
 
         public event EventHandler? WillRefresh;
         public event EventHandler<RefreshedEventArgs>? Refreshed;
@@ -127,6 +129,34 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 Log.Instance.Trace($"Deactivated [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
         }
 
+        public async Task KillGPUProcessesAsync()
+        {
+            using (await _lock.LockAsync().ConfigureAwait(false))
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Killing GPU processes... [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
+
+            if (!IsActive || !CanBeDeactivated || string.IsNullOrEmpty(_gpuInstanceId))
+                return;
+
+            foreach (var process in _processes)
+            {
+                try
+                {
+                    process.Kill(true);
+                    await process.WaitForExitAsync().ConfigureAwait(false);
+                }
+                catch (Exception ex)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Couldnt kill process: {ex.Demystify()} [pid={process.Id}, name={process.ProcessName}]");
+                }
+            }
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Killed GPU processes. [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
+        }
+
         private async Task RefreshLoopAsync(int delay, int interval, CancellationToken token)
         {
             try
@@ -157,7 +187,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                         if (Log.Instance.IsTraceEnabled)
                             Log.Instance.Trace($"Refreshed");
 
-                        Refreshed?.Invoke(this, new RefreshedEventArgs(IsActive, CanBeDeactivated, _status, _processNames));
+                        Refreshed?.Invoke(this, new RefreshedEventArgs(IsActive, CanBeDeactivated, _status, _processes));
                     }
 
                     await Task.Delay(interval, token).ConfigureAwait(false);
@@ -188,7 +218,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 Log.Instance.Trace($"Refresh in progress...");
 
             _status = Status.Unknown;
-            _processNames = Array.Empty<string>();
+            _processes = new();
             _gpuInstanceId = null;
 
             var gpu = NVAPI.GetGPU();
@@ -197,30 +227,30 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 _status = Status.NVIDIAGPUNotFound;
 
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"GPU present [status={_status}, processNames.Length={_processNames.Length}, gpuInstanceId={_gpuInstanceId}]");
+                    Log.Instance.Trace($"GPU present [status={_status}, processes.Count={_processes.Count}, gpuInstanceId={_gpuInstanceId}]");
 
                 return;
             }
 
-            var processNames = NVAPI.GetActiveApps(gpu);
-            if (processNames.Length < 1)
+            var processNames = NVAPIExtensions.GetActiveProcesses(gpu);
+            if (processNames.Count < 1)
             {
                 _status = Status.Inactive;
 
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"GPU inactive [status={_status}, processNames.Length={_processNames.Length}, gpuInstanceId={_gpuInstanceId}]");
+                    Log.Instance.Trace($"GPU inactive [status={_status}, processes.Count={_processes.Count}, gpuInstanceId={_gpuInstanceId}]");
 
                 return;
             }
 
-            _processNames = processNames;
+            _processes = processNames;
 
             if (NVAPI.IsDisplayConnected(gpu))
             {
                 _status = Status.MonitorsConnected;
 
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Monitor connected [status={_status}, processNames.Length={_processNames.Length}, gpuInstanceId={_gpuInstanceId}]");
+                    Log.Instance.Trace($"Monitor connected [status={_status}, processes.Count={_processes.Count}, gpuInstanceId={_gpuInstanceId}]");
 
                 return;
             }
@@ -236,7 +266,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             _status = Status.DeactivatePossible;
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Deactivate possible [status={_status}, processNames.Length={_processNames.Length}, gpuInstanceId={_gpuInstanceId}, pnpDeviceId={pnpDeviceId}]");
+                Log.Instance.Trace($"Deactivate possible [status={_status}, processes.Count={_processes.Count}, gpuInstanceId={_gpuInstanceId}, pnpDeviceId={pnpDeviceId}]");
         }
 
         private static async Task<string?> GetDeviceInstanceIDAsync(string pnpDeviceId)
