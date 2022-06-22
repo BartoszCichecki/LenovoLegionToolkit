@@ -170,7 +170,7 @@ namespace LenovoLegionToolkit.Lib.Automation
                         if (Log.Instance.IsTraceEnabled)
                             Log.Instance.Trace($"Running pipeline... [name={pipeline.Name}, trigger={pipeline.Trigger}, steps.Count={pipeline.Steps.Count}]");
 
-                        await pipeline.RunAsync(token: ct).ConfigureAwait(false);
+                        await pipeline.RunAsync(ct).ConfigureAwait(false);
 
                         if (Log.Instance.IsTraceEnabled)
                             Log.Instance.Trace($"Pipeline completed successfully. [name={pipeline.Name}, trigger={pipeline.Trigger}]");

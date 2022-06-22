@@ -254,7 +254,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             var steps = new IAutomationStep[] {
                 new AlwaysOnUsbAutomationStep(default),
                 new BatteryAutomationStep(default),
-                new DeactivateGPUAutomationStep(),
+                new DeactivateGPUAutomationStep(default),
                 new DelayAutomationStep(default),
                 new FlipToStartAutomationStep(default),
                 new FnLockAutomationStep(default),
