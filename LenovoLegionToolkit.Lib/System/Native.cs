@@ -228,7 +228,7 @@ namespace LenovoLegionToolkit.Lib.System
     public struct RGBKeyboardStateEx
     {
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
-        public byte[] Header = { 0xCC, 0x16 };
+        public byte[] Header;
         public byte Effect;
         public byte Speed;
         public byte Brightness;
@@ -240,33 +240,11 @@ namespace LenovoLegionToolkit.Lib.System
         public byte[] Zone3Rgb;
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
         public byte[] Zone4Rgb;
-        public byte Padding = 0x0;
+        public byte Padding;
         public byte WaveLTR;
         public byte WaveRTL;
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 13)]
-        public byte[] Unused = new byte[13];
-
-        public RGBKeyboardStateEx(
-            byte effect,
-            byte speed,
-            byte brightness,
-            byte[] zone1Rgb,
-            byte[] zone2Rgb,
-            byte[] zone3Rgb,
-            byte[] zone4Rgb,
-            byte waveLTR,
-            byte waveRTL)
-        {
-            Effect = effect;
-            Speed = speed;
-            Brightness = brightness;
-            Zone1Rgb = zone1Rgb;
-            Zone2Rgb = zone2Rgb;
-            Zone3Rgb = zone3Rgb;
-            Zone4Rgb = zone4Rgb;
-            WaveLTR = waveLTR;
-            WaveRTL = waveRTL;
-        }
+        public byte[] Unused;
     }
 
     internal static class Native
