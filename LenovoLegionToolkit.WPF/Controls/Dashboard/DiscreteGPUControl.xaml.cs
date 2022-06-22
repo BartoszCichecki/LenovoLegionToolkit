@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Controllers;
-using LenovoLegionToolkit.WPF.Extensions;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
@@ -58,7 +59,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
                 if (e.ProcessCount > 0)
                     status += $" ({e.ProcessCount} app{(e.ProcessCount > 1 ? "s" : "")})";
                 _discreteGPUStatusDescription.Text = status;
-                _discreteGPUStatusDescription.ToolTip = e.ProcessCount < 1 ? null : ("Processes:\n" + string.Join("\n", e.ProcessNames));
+                _discreteGPUStatusDescription.ToolTip = e.ProcessCount < 1 ? null : ("Processes:\n" + string.Join("\n", e.Processes.Select(p => p.ProcessName)));
                 _discreteGPUStatusActiveIndicator.Visibility = Visibility.Visible;
                 _discreteGPUStatusInactiveIndicator.Visibility = Visibility.Collapsed;
             }
@@ -103,11 +104,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
         private async void KillAppsMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            var continuable = Application.Current.FreezeAndRestart();
-
             await _gpuController.KillGPUProcessesAsync();
-
-            await continuable.ContinueAsync();
         }
 
         private async void RestartGPUMenuItem_Click(object sender, RoutedEventArgs e)
