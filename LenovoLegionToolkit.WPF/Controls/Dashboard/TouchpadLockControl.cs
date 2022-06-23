@@ -3,7 +3,7 @@ using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
-    public class TouchpadLockControl : AbstractToggleDashboardCardControl<TouchpadLockState>
+    public class TouchpadLockControl : AbstractToggleFeatureCardControl<TouchpadLockState>
     {
         protected override TouchpadLockState OnState => TouchpadLockState.On;
 

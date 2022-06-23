@@ -3,7 +3,7 @@ using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
-    public class OverDriveControl : AbstractToggleDashboardCardControl<OverDriveState>
+    public class OverDriveControl : AbstractToggleFeatureCardControl<OverDriveState>
     {
         protected override OverDriveState OnState => OverDriveState.On;
 

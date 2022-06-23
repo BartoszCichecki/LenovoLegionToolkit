@@ -1,9 +1,9 @@
 ﻿using LenovoLegionToolkit.Lib;
 using Wpf.Ui.Common;
 
-namespace LenovoLegionToolkit.WPF.Controls.Dashboard
+namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
 {
-    internal class WhiteKeyboardBacklightControl : AbstractComboBoxDashboardCardControl<WhiteKeyboardBacklightState>
+    public class WhiteKeyboardBacklightControl : AbstractComboBoxFeatureCardControl<WhiteKeyboardBacklightState>
     {
         public WhiteKeyboardBacklightControl()
         {
