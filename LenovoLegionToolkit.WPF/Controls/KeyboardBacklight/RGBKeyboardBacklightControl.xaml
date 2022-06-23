@@ -5,6 +5,7 @@
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:kb="clr-namespace:LenovoLegionToolkit.WPF.Controls.KeyboardBacklight"
+    xmlns:lib="clr-namespace:LenovoLegionToolkit.Lib;assembly=LenovoLegionToolkit.Lib"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     d:DesignWidth="800"
@@ -51,7 +52,7 @@
             HorizontalAlignment="Stretch"
             Click="PresetButton_Click"
             Content="Off"
-            Tag="-1" />
+            Tag="{x:Static lib:RGBKeyboardBacklightPreset.Off}" />
         <wpfui:Button
             x:Name="_preset1Button"
             Grid.Row="1"
@@ -60,7 +61,7 @@
             HorizontalAlignment="Stretch"
             Click="PresetButton_Click"
             Content="Preset 1"
-            Tag="One" />
+            Tag="{x:Static lib:RGBKeyboardBacklightPreset.One}" />
         <wpfui:Button
             x:Name="_preset2Button"
             Grid.Row="1"
@@ -69,7 +70,7 @@
             HorizontalAlignment="Stretch"
             Click="PresetButton_Click"
             Content="Preset 2"
-            Tag="Two" />
+            Tag="{x:Static lib:RGBKeyboardBacklightPreset.Two}" />
         <wpfui:Button
             x:Name="_preset3Button"
             Grid.Row="1"
@@ -78,7 +79,7 @@
             HorizontalAlignment="Stretch"
             Click="PresetButton_Click"
             Content="Preset 3"
-            Tag="Three" />
+            Tag="{x:Static lib:RGBKeyboardBacklightPreset.Three}" />
 
         <kb:RGBKeyboardBrightnessCardControl
             x:Name="_brightnessControl"

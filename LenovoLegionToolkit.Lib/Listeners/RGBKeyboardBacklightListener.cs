@@ -7,7 +7,7 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners
 {
-    public class RGBKeyboardBacklightListener : AbstractWMIListener<RGBKeyboardBacklight>
+    public class RGBKeyboardBacklightListener : AbstractWMIListener<RGBKeyboardBacklightChanged>
     {
         private readonly RGBKeyboardBacklightController _controller;
 
@@ -16,9 +16,9 @@ namespace LenovoLegionToolkit.Lib.Listeners
             _controller = controller;
         }
 
-        protected override RGBKeyboardBacklight GetValue(PropertyDataCollection properties) => default;
+        protected override RGBKeyboardBacklightChanged GetValue(PropertyDataCollection properties) => default;
 
-        protected async override Task OnChangedAsync(RGBKeyboardBacklight value)
+        protected async override Task OnChangedAsync(RGBKeyboardBacklightChanged value)
         {
             try
             {

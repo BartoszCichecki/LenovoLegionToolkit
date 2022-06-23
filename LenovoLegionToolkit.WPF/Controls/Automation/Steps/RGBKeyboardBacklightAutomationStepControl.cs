@@ -4,13 +4,13 @@ using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
 {
-    public class RGBKeyboardBacklightAutomationStepControl : AbstractComboBoxAutomationStepCardControl<RGBKeyboardBacklightSelectedPreset>
+    public class RGBKeyboardBacklightAutomationStepControl : AbstractComboBoxAutomationStepCardControl<RGBKeyboardBacklightPreset>
     {
-        public RGBKeyboardBacklightAutomationStepControl(IAutomationStep<RGBKeyboardBacklightSelectedPreset> step) : base(step)
+        public RGBKeyboardBacklightAutomationStepControl(IAutomationStep<RGBKeyboardBacklightPreset> step) : base(step)
         {
             Icon = SymbolRegular.Keyboard24;
             Title = "Keyboard backlight";
-            Subtitle = "Adjust keyboard backlight.";
+            Subtitle = "Adjust keyboard backlight preset.";
         }
     }
 }

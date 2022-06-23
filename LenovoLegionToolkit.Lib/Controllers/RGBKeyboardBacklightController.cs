@@ -1,7 +1,8 @@
-﻿#define MOCK_RGB
+﻿//#define MOCK_RGB
 
 using System;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using NeoSmart.AsyncLock;
@@ -55,16 +56,16 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 var selectedPreset = state.SelectedPreset;
 
                 RGBKeyboardStateEx str;
-                if (selectedPreset < 0)
+                if (selectedPreset == RGBKeyboardBacklightPreset.Off)
                     str = CreateOffState();
                 else
-                    str = Convert(state.Presets[(int)selectedPreset]);
+                    str = Convert(state.Presets[selectedPreset]);
 
                 await SendToDevice(str).ConfigureAwait(false);
             }
         }
 
-        public async Task SetPresetAsync(RGBKeyboardBacklightSelectedPreset preset)
+        public async Task SetPresetAsync(RGBKeyboardBacklightPreset preset)
         {
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
@@ -77,10 +78,10 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 _settings.SynchronizeStore();
 
                 RGBKeyboardStateEx str;
-                if ((int)preset < 0)
+                if (preset == RGBKeyboardBacklightPreset.Off)
                     str = CreateOffState();
                 else
-                    str = Convert(state.Presets[(int)preset]);
+                    str = Convert(state.Presets[preset]);
 
                 await SendToDevice(str).ConfigureAwait(false);
             }
@@ -94,21 +95,17 @@ namespace LenovoLegionToolkit.Lib.Controllers
             {
                 var state = _settings.Store.State;
 
-                var selectedPreset = state.SelectedPreset;
+                var newPreset = state.SelectedPreset.Next();
                 var presets = state.Presets;
-
-                var newPreset = selectedPreset + 1;
-                if ((int)newPreset > 3)
-                    newPreset = RGBKeyboardBacklightSelectedPreset.Off;
 
                 _settings.Store.State = new(newPreset, presets);
                 _settings.SynchronizeStore();
 
                 RGBKeyboardStateEx str;
-                if (selectedPreset < 0)
+                if (newPreset == RGBKeyboardBacklightPreset.Off)
                     str = CreateOffState();
                 else
-                    str = Convert(state.Presets[(int)newPreset]);
+                    str = Convert(state.Presets[newPreset]);
 
                 await SendToDevice(str).ConfigureAwait(false);
             }
@@ -162,7 +159,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             };
         }
 
-        public RGBKeyboardStateEx Convert(RGBKeyboardBacklightPreset preset)
+        public RGBKeyboardStateEx Convert(RGBKeyboardBacklightSettings preset)
         {
             var result = new RGBKeyboardStateEx
             {

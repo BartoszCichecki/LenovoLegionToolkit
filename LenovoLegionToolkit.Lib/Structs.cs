@@ -176,7 +176,7 @@ namespace LenovoLegionToolkit.Lib
         }
     }
 
-    public struct RGBKeyboardBacklightPreset
+    public struct RGBKeyboardBacklightSettings
     {
         public RGBKeyboardEffect Effect { get; } = RGBKeyboardEffect.Static;
         public RBGKeyboardSpeed Speed { get; } = RBGKeyboardSpeed.Slowest;
@@ -187,7 +187,7 @@ namespace LenovoLegionToolkit.Lib
         public RGBColor Zone4 { get; } = new();
 
         [JsonConstructor]
-        public RGBKeyboardBacklightPreset(
+        public RGBKeyboardBacklightSettings(
             RGBKeyboardEffect effect,
             RBGKeyboardSpeed speed,
             RGBKeyboardBrightness brightness,
@@ -209,24 +209,24 @@ namespace LenovoLegionToolkit.Lib
 
         public override bool Equals(object? obj)
         {
-            return obj is RGBKeyboardBacklightPreset preset &&
-                   Effect == preset.Effect &&
-                   Speed == preset.Speed &&
-                   Brightness == preset.Brightness &&
-                   Zone1.Equals(preset.Zone1) &&
-                   Zone2.Equals(preset.Zone2) &&
-                   Zone3.Equals(preset.Zone3) &&
-                   Zone4.Equals(preset.Zone4);
+            return obj is RGBKeyboardBacklightSettings settings &&
+                   Effect == settings.Effect &&
+                   Speed == settings.Speed &&
+                   Brightness == settings.Brightness &&
+                   Zone1.Equals(settings.Zone1) &&
+                   Zone2.Equals(settings.Zone2) &&
+                   Zone3.Equals(settings.Zone3) &&
+                   Zone4.Equals(settings.Zone4);
         }
 
         public override int GetHashCode() => HashCode.Combine(Effect, Speed, Brightness, Zone1, Zone2, Zone3, Zone4);
 
-        public static bool operator ==(RGBKeyboardBacklightPreset left, RGBKeyboardBacklightPreset right)
+        public static bool operator ==(RGBKeyboardBacklightSettings left, RGBKeyboardBacklightSettings right)
         {
             return left.Equals(right);
         }
 
-        public static bool operator !=(RGBKeyboardBacklightPreset left, RGBKeyboardBacklightPreset right)
+        public static bool operator !=(RGBKeyboardBacklightSettings left, RGBKeyboardBacklightSettings right)
         {
             return !(left == right);
         }
@@ -237,11 +237,11 @@ namespace LenovoLegionToolkit.Lib
 
     public struct RGBKeyboardBacklightState
     {
-        public RGBKeyboardBacklightSelectedPreset SelectedPreset { get; }
-        public RGBKeyboardBacklightPreset[] Presets { get; }
+        public RGBKeyboardBacklightPreset SelectedPreset { get; }
+        public Dictionary<RGBKeyboardBacklightPreset, RGBKeyboardBacklightSettings> Presets { get; }
 
         [JsonConstructor]
-        public RGBKeyboardBacklightState(RGBKeyboardBacklightSelectedPreset selectedPreset, RGBKeyboardBacklightPreset[] presets)
+        public RGBKeyboardBacklightState(RGBKeyboardBacklightPreset selectedPreset, Dictionary<RGBKeyboardBacklightPreset, RGBKeyboardBacklightSettings> presets)
         {
             SelectedPreset = selectedPreset;
             Presets = presets;
