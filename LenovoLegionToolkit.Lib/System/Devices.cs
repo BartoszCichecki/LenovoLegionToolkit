@@ -125,7 +125,6 @@ namespace LenovoLegionToolkit.Lib.System
 
                             }
                         }
-
                     }
                 }
             }
