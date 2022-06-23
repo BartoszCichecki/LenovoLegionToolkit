@@ -55,6 +55,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Automation
         {
             var ofd = new OpenFileDialog
             {
+                InitialDirectory = "::{20D04FE0-3AEA-1069-A2D8-08002B30309D}",
                 Filter = "Exe Files (.exe)|*.exe",
                 CheckFileExists = true,
             };
