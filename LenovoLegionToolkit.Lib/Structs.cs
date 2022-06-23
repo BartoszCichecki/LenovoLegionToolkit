@@ -237,13 +237,13 @@ namespace LenovoLegionToolkit.Lib
 
     public struct RGBKeyboardBacklightState
     {
-        public int ActivePresetIndex { get; } = -1;
-        public RGBKeyboardBacklightPreset[] Presets { get; } = { new(), new(), new() };
+        public RGBKeyboardBacklightSelectedPreset SelectedPreset { get; }
+        public RGBKeyboardBacklightPreset[] Presets { get; }
 
         [JsonConstructor]
-        public RGBKeyboardBacklightState(int activePresetIndex, RGBKeyboardBacklightPreset[] presets)
+        public RGBKeyboardBacklightState(RGBKeyboardBacklightSelectedPreset selectedPreset, RGBKeyboardBacklightPreset[] presets)
         {
-            ActivePresetIndex = activePresetIndex;
+            SelectedPreset = selectedPreset;
             Presets = presets;
         }
     }
