@@ -81,11 +81,10 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
 
         private void CardControl_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (IsEnabled)
-                return;
+            if (!IsEnabled)
+                _cardExpander.IsExpanded = false;
 
-            _cardExpander.IsExpanded = false;
-            _colorButton.Visibility = Visibility.Hidden;
+            _colorButton.Visibility = IsEnabled ? Visibility.Visible : Visibility.Hidden;
         }
 
         private void ColorPicker_ColorChanged(object sender, RoutedEventArgs e)
@@ -105,7 +104,6 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
             var c = Color.FromRgb(color.R, color.G, color.B);
             _colorPicker.SelectedColor = c;
             _colorButton.Background = new SolidColorBrush(c);
-            _colorButton.Visibility = Visibility.Visible;
         }
     }
 }
