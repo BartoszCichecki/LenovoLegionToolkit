@@ -27,14 +27,16 @@ namespace LenovoLegionToolkit.Lib.Controllers
             public bool IsActive { get; }
             public bool CanBeDeactivated { get; }
             public Status Status { get; }
+            public string? PerformanceState { get; }
             public List<Process> Processes { get; }
             public int ProcessCount => Processes.Count;
 
-            public RefreshedEventArgs(bool isActive, bool canBeDeactivated, Status status, List<Process> processes)
+            public RefreshedEventArgs(bool isActive, bool canBeDeactivated, Status status, string? performanceState, List<Process> processes)
             {
                 IsActive = isActive;
                 CanBeDeactivated = canBeDeactivated;
                 Status = status;
+                PerformanceState = performanceState;
                 Processes = processes;
             }
         }
@@ -47,6 +49,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         private Status _status = Status.Unknown;
         private List<Process> _processes = new();
         private string? _gpuInstanceId = null;
+        private string? _performanceState = null;
 
         public bool IsActive => _status == Status.MonitorsConnected || _status == Status.DeactivatePossible;
         public bool CanBeDeactivated => _status == Status.DeactivatePossible;
@@ -187,7 +190,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                         if (Log.Instance.IsTraceEnabled)
                             Log.Instance.Trace($"Refreshed");
 
-                        Refreshed?.Invoke(this, new RefreshedEventArgs(IsActive, CanBeDeactivated, _status, _processes));
+                        Refreshed?.Invoke(this, new RefreshedEventArgs(IsActive, CanBeDeactivated, _status, _performanceState, _processes));
                     }
 
                     await Task.Delay(interval, token).ConfigureAwait(false);
@@ -220,6 +223,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             _status = Status.Unknown;
             _processes = new();
             _gpuInstanceId = null;
+            _performanceState = null;
 
             var gpu = NVAPI.GetGPU();
             if (gpu is null)
@@ -231,6 +235,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
                 return;
             }
+
+            _performanceState = gpu.PerformanceStatesInfo.CurrentPerformanceState.StateId.ToString().GetUntilOrEmpty("_");
 
             var processNames = NVAPIExtensions.GetActiveProcesses(gpu);
             if (processNames.Count < 1)

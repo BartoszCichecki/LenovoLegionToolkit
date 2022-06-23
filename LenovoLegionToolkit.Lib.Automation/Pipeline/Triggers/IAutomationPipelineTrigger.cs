@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
 {
@@ -8,12 +7,14 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
         [JsonIgnore]
         string DisplayName { get; }
 
-        Task<bool> IsSatisfiedAsync(object? context);
+        bool IsSatisfied(object? context);
 
         IAutomationPipelineTrigger DeepCopy();
     }
 
     public interface IDisallowDuplicatesAutomationPipelineTrigger { }
+
+    public interface IPowerAutomationPipelineTrigger { }
 
     public interface IProcessesAutomationPipelineTrigger
     {

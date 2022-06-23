@@ -45,6 +45,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
         private void GpuController_Refreshed(object? sender, GPUController.RefreshedEventArgs e) => Dispatcher.Invoke(() =>
         {
+            var performanceStateText = $"Performance state: {e.PerformanceState ?? "Unknown"}";
+
             if (e.Status == GPUController.Status.Unknown || e.Status == GPUController.Status.NVIDIAGPUNotFound)
             {
                 _discreteGPUStatusDescription.Text = "-";
@@ -57,15 +59,17 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
                 var status = "Active";
                 if (e.ProcessCount > 0)
                     status += $" ({e.ProcessCount} app{(e.ProcessCount > 1 ? "s" : "")})";
+                var processes = e.ProcessCount < 1 ? "No processes" : ("Processes:\n" + string.Join("\n", e.Processes.Select(p => p.ProcessName)));
+
                 _discreteGPUStatusDescription.Text = status;
-                _discreteGPUStatusDescription.ToolTip = e.ProcessCount < 1 ? null : ("Processes:\n" + string.Join("\n", e.Processes.Select(p => p.ProcessName)));
+                _discreteGPUStatusDescription.ToolTip = $"{performanceStateText}\n\n{processes}";
                 _discreteGPUStatusActiveIndicator.Visibility = Visibility.Visible;
                 _discreteGPUStatusInactiveIndicator.Visibility = Visibility.Collapsed;
             }
             else
             {
                 _discreteGPUStatusDescription.Text = "Inactive";
-                _discreteGPUStatusDescription.ToolTip = "nVidia GPU is not active.";
+                _discreteGPUStatusDescription.ToolTip = $"nVidia GPU is not active.\n\n{performanceStateText}";
                 _discreteGPUStatusActiveIndicator.Visibility = Visibility.Collapsed;
                 _discreteGPUStatusInactiveIndicator.Visibility = Visibility.Visible;
             }
@@ -103,11 +107,13 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
         private async void KillAppsMenuItem_Click(object sender, RoutedEventArgs e)
         {
+            _deactivateGPUButton.IsEnabled = false;
             await _gpuController.KillGPUProcessesAsync();
         }
 
         private async void RestartGPUMenuItem_Click(object sender, RoutedEventArgs e)
         {
+            _deactivateGPUButton.IsEnabled = false;
             await _gpuController.DeactivateGPUAsync();
         }
     }
