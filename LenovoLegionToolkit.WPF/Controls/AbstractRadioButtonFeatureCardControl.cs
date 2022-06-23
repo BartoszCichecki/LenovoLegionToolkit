@@ -56,6 +56,8 @@ namespace LenovoLegionToolkit.WPF.Controls
             Content = _cardControl;
         }
 
+        private async void RadioButton_Checked(object sender, RoutedEventArgs e) => await OnStateChange((RadioButton)sender, _feature);
+
         protected override async Task OnRefreshAsync()
         {
             var items = await _feature.GetAllStatesAsync();
@@ -83,11 +85,6 @@ namespace LenovoLegionToolkit.WPF.Controls
                 radioButton.Checked += RadioButton_Checked;
                 _radioContainer.Children.Add(radioButton);
             }
-        }
-
-        private async void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-            await OnStateChange((RadioButton)sender, _feature);
         }
 
         protected override void OnFinishedLoading()

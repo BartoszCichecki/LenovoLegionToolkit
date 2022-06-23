@@ -27,8 +27,6 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
 
             _listener.Changed += Listener_Changed;
 
-            Loaded += RGBKeyboardBacklightControl_Loaded;
-            IsVisibleChanged += RGBKeyboardBacklightControl_IsVisibleChanged;
             SizeChanged += RGBKeyboardBacklightControl_SizeChanged;
         }
 
@@ -38,19 +36,6 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
                 return;
 
             await RefreshAsync();
-        }
-
-        private async void RGBKeyboardBacklightControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            var loadingTask = Task.Delay(250);
-            await RefreshAsync();
-            await loadingTask;
-        }
-
-        private async void RGBKeyboardBacklightControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (IsLoaded && IsVisible)
-                await RefreshAsync();
         }
 
         private void RGBKeyboardBacklightControl_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -93,95 +78,88 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
             await RefreshAsync();
         }
 
-        private async Task RefreshAsync()
+        protected override async Task OnRefreshAsync()
         {
-            try
+            var vantageStatus = await Vantage.GetStatusAsync();
+            if (vantageStatus == VantageStatus.Enabled)
             {
-                var vantageStatus = await Vantage.GetStatusAsync();
-                if (vantageStatus == VantageStatus.Enabled)
-                {
-                    _vantageWarningCard.Visibility = Visibility.Visible;
+                _vantageWarningCard.Visibility = Visibility.Visible;
 
-                    _offPresetButton.IsEnabled = false;
-                    _preset1Button.IsEnabled = false;
-                    _preset2Button.IsEnabled = false;
-                    _preset3Button.IsEnabled = false;
+                _offPresetButton.IsEnabled = false;
+                _preset1Button.IsEnabled = false;
+                _preset2Button.IsEnabled = false;
+                _preset3Button.IsEnabled = false;
 
-                    _brightnessControl.IsEnabled = false;
-                    _effectControl.IsEnabled = false;
+                _brightnessControl.IsEnabled = false;
+                _effectControl.IsEnabled = false;
 
-                    _speedControl.IsEnabled = false;
-                    _zone1Control.IsEnabled = false;
-                    _zone2Control.IsEnabled = false;
-                    _zone3Control.IsEnabled = false;
-                    _zone4Control.IsEnabled = false;
-
-                    Visibility = Visibility.Visible;
-
-                    return;
-                }
-
-                var state = await _controller.GetStateAsync();
-
-                foreach (var presetButton in PresetButtons)
-                {
-                    var buttonPreset = (RGBKeyboardBacklightPreset)presetButton.Tag;
-                    var selected = state.SelectedPreset == buttonPreset;
-                    presetButton.Appearance = selected ? ControlAppearance.Primary : ControlAppearance.Secondary;
-                }
-
-                _vantageWarningCard.Visibility = Visibility.Collapsed;
-
-                _offPresetButton.IsEnabled = true;
-                _preset1Button.IsEnabled = true;
-                _preset2Button.IsEnabled = true;
-                _preset3Button.IsEnabled = true;
-
-                if (state.SelectedPreset == RGBKeyboardBacklightPreset.Off)
-                {
-                    _effectControl.IsEnabled = false;
-                    _speedControl.IsEnabled = false;
-                    _brightnessControl.IsEnabled = false;
-
-                    _zone1Control.IsEnabled = false;
-                    _zone2Control.IsEnabled = false;
-                    _zone3Control.IsEnabled = false;
-                    _zone4Control.IsEnabled = false;
-
-                    return;
-                }
-
-                var preset = state.Presets[state.SelectedPreset];
-
-                var speedEnabled = preset.Effect != RGBKeyboardEffect.Static;
-                var zonesEnabled = preset.Effect == RGBKeyboardEffect.Static || preset.Effect == RGBKeyboardEffect.Breath;
-
-                _brightnessControl.SetItems(Enum.GetValues<RGBKeyboardBrightness>(), preset.Brightness, v => v.GetDisplayName());
-                _effectControl.SetItems(Enum.GetValues<RGBKeyboardEffect>(), preset.Effect, v => v.GetDisplayName());
-                if (speedEnabled)
-                    _speedControl.SetItems(Enum.GetValues<RBGKeyboardSpeed>(), preset.Speed, v => v.GetDisplayName());
-
-                _zone1Control.Set(preset.Zone1);
-                _zone2Control.Set(preset.Zone2);
-                _zone3Control.Set(preset.Zone3);
-                _zone4Control.Set(preset.Zone4);
-
-                _brightnessControl.IsEnabled = true;
-                _effectControl.IsEnabled = true;
-                _speedControl.IsEnabled = speedEnabled;
-
-                _zone1Control.IsEnabled = zonesEnabled;
-                _zone2Control.IsEnabled = zonesEnabled;
-                _zone3Control.IsEnabled = zonesEnabled;
-                _zone4Control.IsEnabled = zonesEnabled;
+                _speedControl.IsEnabled = false;
+                _zone1Control.IsEnabled = false;
+                _zone2Control.IsEnabled = false;
+                _zone3Control.IsEnabled = false;
+                _zone4Control.IsEnabled = false;
 
                 Visibility = Visibility.Visible;
+
+                return;
             }
-            catch
+
+            var state = await _controller.GetStateAsync();
+
+            foreach (var presetButton in PresetButtons)
             {
-                Visibility = Visibility.Collapsed;
+                var buttonPreset = (RGBKeyboardBacklightPreset)presetButton.Tag;
+                var selected = state.SelectedPreset == buttonPreset;
+                presetButton.Appearance = selected ? ControlAppearance.Primary : ControlAppearance.Secondary;
             }
+
+            _vantageWarningCard.Visibility = Visibility.Collapsed;
+
+            _offPresetButton.IsEnabled = true;
+            _preset1Button.IsEnabled = true;
+            _preset2Button.IsEnabled = true;
+            _preset3Button.IsEnabled = true;
+
+            if (state.SelectedPreset == RGBKeyboardBacklightPreset.Off)
+            {
+                _effectControl.IsEnabled = false;
+                _speedControl.IsEnabled = false;
+                _brightnessControl.IsEnabled = false;
+
+                _zone1Control.IsEnabled = false;
+                _zone2Control.IsEnabled = false;
+                _zone3Control.IsEnabled = false;
+                _zone4Control.IsEnabled = false;
+
+                return;
+            }
+
+            var preset = state.Presets[state.SelectedPreset];
+
+            var speedEnabled = preset.Effect != RGBKeyboardEffect.Static;
+            var zonesEnabled = preset.Effect == RGBKeyboardEffect.Static || preset.Effect == RGBKeyboardEffect.Breath;
+
+            _brightnessControl.SetItems(Enum.GetValues<RGBKeyboardBrightness>(), preset.Brightness, v => v.GetDisplayName());
+            _effectControl.SetItems(Enum.GetValues<RGBKeyboardEffect>(), preset.Effect, v => v.GetDisplayName());
+            if (speedEnabled)
+                _speedControl.SetItems(Enum.GetValues<RBGKeyboardSpeed>(), preset.Speed, v => v.GetDisplayName());
+
+            _zone1Control.Set(preset.Zone1);
+            _zone2Control.Set(preset.Zone2);
+            _zone3Control.Set(preset.Zone3);
+            _zone4Control.Set(preset.Zone4);
+
+            _brightnessControl.IsEnabled = true;
+            _effectControl.IsEnabled = true;
+            _speedControl.IsEnabled = speedEnabled;
+
+            _zone1Control.IsEnabled = zonesEnabled;
+            _zone2Control.IsEnabled = zonesEnabled;
+            _zone3Control.IsEnabled = zonesEnabled;
+            _zone4Control.IsEnabled = zonesEnabled;
         }
+
+        protected override void OnFinishedLoading() { }
 
         private async Task SaveState()
         {
