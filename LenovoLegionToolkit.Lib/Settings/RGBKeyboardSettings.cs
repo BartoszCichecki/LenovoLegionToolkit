@@ -11,7 +11,7 @@
 
         public override RGBKeyboardSettingsStore Default => new()
         {
-            State = new(-1, new RGBKeyboardBacklightPreset[] {
+            State = new(RGBKeyboardBacklightSelectedPreset.Off, new RGBKeyboardBacklightPreset[] {
                 new(RGBKeyboardEffect.Static,
                     RBGKeyboardSpeed.Slowest,
                     RGBKeyboardBrightness.Low,

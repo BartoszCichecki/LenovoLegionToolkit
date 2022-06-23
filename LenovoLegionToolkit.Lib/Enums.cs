@@ -76,6 +76,17 @@ namespace LenovoLegionToolkit.Lib
         WaveLTR,
     }
 
+    public enum RGBKeyboardBacklightSelectedPreset
+    {
+        Off = -1,
+        [Display(Name = "Preset 1")]
+        One = 0,
+        [Display(Name = "Preset 2")]
+        Two = 1,
+        [Display(Name = "Preset 3")]
+        Three = 2,
+    }
+
     public enum RBGKeyboardSpeed
     {
         Slowest,

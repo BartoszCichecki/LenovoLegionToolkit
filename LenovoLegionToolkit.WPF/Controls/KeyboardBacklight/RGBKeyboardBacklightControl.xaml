@@ -60,7 +60,7 @@
             HorizontalAlignment="Stretch"
             Click="PresetButton_Click"
             Content="Preset 1"
-            Tag="0" />
+            Tag="One" />
         <wpfui:Button
             x:Name="_preset2Button"
             Grid.Row="1"
@@ -69,7 +69,7 @@
             HorizontalAlignment="Stretch"
             Click="PresetButton_Click"
             Content="Preset 2"
-            Tag="1" />
+            Tag="Two" />
         <wpfui:Button
             x:Name="_preset3Button"
             Grid.Row="1"
@@ -78,7 +78,7 @@
             HorizontalAlignment="Stretch"
             Click="PresetButton_Click"
             Content="Preset 3"
-            Tag="2" />
+            Tag="Three" />
 
         <kb:RGBKeyboardBrightnessCardControl
             x:Name="_brightnessControl"
