@@ -83,7 +83,6 @@
                     Margin="0,0,16,0">
                     <controls:FlipToStartControl />
                     <controls:OverDriveControl />
-                    <controls:WhiteKeyboardBacklightControl />
                 </StackPanel>
 
                 <StackPanel
