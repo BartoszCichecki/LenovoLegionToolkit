@@ -6,6 +6,7 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.Lib.System;
 using Wpf.Ui.Common;
 using Button = Wpf.Ui.Controls.Button;
 
@@ -96,6 +97,30 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
         {
             try
             {
+                var vantageStatus = await Vantage.GetStatusAsync();
+                if (vantageStatus == VantageStatus.Enabled)
+                {
+                    _vantageWarningCard.Visibility = Visibility.Visible;
+
+                    _offPresetButton.IsEnabled = false;
+                    _preset1Button.IsEnabled = false;
+                    _preset2Button.IsEnabled = false;
+                    _preset3Button.IsEnabled = false;
+
+                    _brightnessControl.IsEnabled = false;
+                    _effectControl.IsEnabled = false;
+
+                    _speedControl.IsEnabled = false;
+                    _zone1Control.IsEnabled = false;
+                    _zone2Control.IsEnabled = false;
+                    _zone3Control.IsEnabled = false;
+                    _zone4Control.IsEnabled = false;
+
+                    Visibility = Visibility.Visible;
+
+                    return;
+                }
+
                 var state = await _controller.GetStateAsync();
 
                 foreach (var presetButton in PresetButtons)
@@ -104,6 +129,13 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
                     var selected = state.ActivePresetIndex == index;
                     presetButton.Appearance = selected ? ControlAppearance.Primary : ControlAppearance.Secondary;
                 }
+
+                _vantageWarningCard.Visibility = Visibility.Collapsed;
+
+                _offPresetButton.IsEnabled = true;
+                _preset1Button.IsEnabled = true;
+                _preset2Button.IsEnabled = true;
+                _preset3Button.IsEnabled = true;
 
                 if (state.ActivePresetIndex < 0)
                 {
@@ -145,6 +177,8 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
                     _zone3Control.Set(preset.Zone3);
                     _zone4Control.Set(preset.Zone4);
                 }
+
+                Visibility = Visibility.Visible;
             }
             catch
             {
@@ -180,10 +214,10 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
             Grid.SetColumn(_zone3Control, 2);
             Grid.SetColumn(_zone4Control, 3);
 
-            Grid.SetRow(_zone1Control, 4);
-            Grid.SetRow(_zone2Control, 4);
-            Grid.SetRow(_zone3Control, 4);
-            Grid.SetRow(_zone4Control, 4);
+            Grid.SetRow(_zone1Control, 5);
+            Grid.SetRow(_zone2Control, 5);
+            Grid.SetRow(_zone3Control, 5);
+            Grid.SetRow(_zone4Control, 5);
 
             Grid.SetColumnSpan(_zone1Control, 1);
             Grid.SetColumnSpan(_zone2Control, 1);
@@ -198,10 +232,10 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
             Grid.SetColumn(_zone3Control, 0);
             Grid.SetColumn(_zone4Control, 0);
 
-            Grid.SetRow(_zone1Control, 4);
             Grid.SetRow(_zone2Control, 5);
             Grid.SetRow(_zone3Control, 6);
             Grid.SetRow(_zone4Control, 7);
+            Grid.SetRow(_zone4Control, 8);
 
             Grid.SetColumnSpan(_zone1Control, 4);
             Grid.SetColumnSpan(_zone2Control, 4);

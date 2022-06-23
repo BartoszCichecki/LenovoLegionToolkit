@@ -8,8 +8,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
         public WhiteKeyboardBacklightControl()
         {
             Icon = SymbolRegular.Keyboard24;
-            Title = "Keyboard backlight";
-            Subtitle = "Adjust keyboard backlight brightness.\nYou can change brightness with Fn+Space";
+            Title = "Brightness";
+            Subtitle = "You can change brightness with Fn+Space";
         }
     }
 }
