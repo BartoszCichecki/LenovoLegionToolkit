@@ -131,6 +131,8 @@ namespace LenovoLegionToolkit.Lib
         NotFound,
     }
 
+    public enum WhiteKeyboardBacklightChanged { }
+
     public enum WhiteKeyboardBacklightState
     {
         Off,
