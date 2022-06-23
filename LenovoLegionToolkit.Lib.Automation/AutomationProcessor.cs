@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
+using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 using LenovoLegionToolkit.Lib.Automation.Utils;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
@@ -49,9 +50,31 @@ namespace LenovoLegionToolkit.Lib.Automation
             _processListener.Changed += ProcessListener_Changed;
         }
 
-        private async void ProcessListener_Changed(object? sender, ProcessEventInfo e) => await RunAsync(e);
+        private async void ProcessListener_Changed(object? sender, ProcessEventInfo e)
+        {
+            var potentialMatch = _pipelines.Select(p => p.Trigger)
+                .Where(t => t is IProcessesAutomationPipelineTrigger)
+                .Where(t => t?.IsSatisfied(e) ?? false)
+                .Any();
 
-        private async void PowerStateListener_Changed(object? sender, EventArgs e) => await RunAsync();
+            if (!potentialMatch)
+                return;
+
+            await RunAsync(e);
+        }
+
+        private async void PowerStateListener_Changed(object? sender, EventArgs e)
+        {
+            var potentialMatch = _pipelines.Select(p => p.Trigger)
+                .Where(t => t is IPowerAutomationPipelineTrigger)
+                .Where(t => t?.IsSatisfied(e) ?? false)
+                .Any();
+
+            if (!potentialMatch)
+                return;
+
+            await RunAsync(e);
+        }
 
         public async Task InitializeAsync()
         {
@@ -160,7 +183,7 @@ namespace LenovoLegionToolkit.Lib.Automation
 
                     try
                     {
-                        if (pipeline.Trigger is null || !await pipeline.Trigger.IsSatisfiedAsync(context))
+                        if (pipeline.Trigger is null || !pipeline.Trigger.IsSatisfied(context))
                         {
                             if (Log.Instance.IsTraceEnabled)
                                 Log.Instance.Trace($"Pipeline triggers not satisfied. [name={pipeline.Name}, trigger={pipeline.Trigger}, steps.Count={pipeline.Steps.Count}]");

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
@@ -15,7 +14,10 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
         [JsonConstructor]
         public ProcessesAreRunningAutomationPipelineTrigger(ProcessInfo[] processes) => Processes = processes;
 
-        public Task<bool> IsSatisfiedAsync(object? context) => Task.Run(() => Processes.SelectMany(p => Process.GetProcessesByName(p.Name)).Any());
+        public bool IsSatisfied(object? context)
+        {
+            return Processes.SelectMany(p => Process.GetProcessesByName(p.Name)).Any();
+        }
 
         public IAutomationPipelineTrigger DeepCopy() => new ProcessesAreRunningAutomationPipelineTrigger(Processes);
 
