@@ -57,7 +57,7 @@ namespace LenovoLegionToolkit.Lib
         Stopped,
     }
 
-    public enum RGBKeyboardBacklight { }
+    public enum RGBKeyboardBacklightChanged { }
 
     public enum RGBKeyboardBrightness
     {
@@ -76,7 +76,7 @@ namespace LenovoLegionToolkit.Lib
         WaveLTR,
     }
 
-    public enum RGBKeyboardBacklightSelectedPreset
+    public enum RGBKeyboardBacklightPreset
     {
         Off = -1,
         [Display(Name = "Preset 1")]

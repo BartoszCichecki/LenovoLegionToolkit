@@ -32,7 +32,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
             SizeChanged += RGBKeyboardBacklightControl_SizeChanged;
         }
 
-        private async void Listener_Changed(object? sender, RGBKeyboardBacklight e)
+        private async void Listener_Changed(object? sender, RGBKeyboardBacklightChanged e)
         {
             if (!IsLoaded || !IsVisible)
                 return;
@@ -58,7 +58,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
             if (!e.WidthChanged)
                 return;
 
-            if (e.NewSize.Width > 1000)
+            if (e.NewSize.Width > 950)
                 Expand();
             else
                 Collapse();
@@ -69,8 +69,8 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
             if (sender is not Button presetButton || presetButton.Appearance == ControlAppearance.Primary)
                 return;
 
+            var selectedPreset = (RGBKeyboardBacklightPreset)presetButton.Tag;
             var state = await _controller.GetStateAsync();
-            var selectedPreset = Enum.Parse<RGBKeyboardBacklightSelectedPreset>((string)presetButton.Tag);
             await _controller.SetStateAsync(new(selectedPreset, state.Presets));
 
             await RefreshAsync();
@@ -125,7 +125,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
 
                 foreach (var presetButton in PresetButtons)
                 {
-                    var buttonPreset = Enum.Parse<RGBKeyboardBacklightSelectedPreset>((string)presetButton.Tag);
+                    var buttonPreset = (RGBKeyboardBacklightPreset)presetButton.Tag;
                     var selected = state.SelectedPreset == buttonPreset;
                     presetButton.Appearance = selected ? ControlAppearance.Primary : ControlAppearance.Secondary;
                 }
@@ -137,7 +137,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
                 _preset2Button.IsEnabled = true;
                 _preset3Button.IsEnabled = true;
 
-                if (state.SelectedPreset < 0)
+                if (state.SelectedPreset == RGBKeyboardBacklightPreset.Off)
                 {
                     _effectControl.IsEnabled = false;
                     _speedControl.IsEnabled = false;
@@ -151,10 +151,20 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
                     return;
                 }
 
-                var preset = state.Presets[(int)state.SelectedPreset];
+                var preset = state.Presets[state.SelectedPreset];
 
                 var speedEnabled = preset.Effect != RGBKeyboardEffect.Static;
                 var zonesEnabled = preset.Effect == RGBKeyboardEffect.Static || preset.Effect == RGBKeyboardEffect.Breath;
+
+                _brightnessControl.SetItems(Enum.GetValues<RGBKeyboardBrightness>(), preset.Brightness, v => v.GetDisplayName());
+                _effectControl.SetItems(Enum.GetValues<RGBKeyboardEffect>(), preset.Effect, v => v.GetDisplayName());
+                if (speedEnabled)
+                    _speedControl.SetItems(Enum.GetValues<RBGKeyboardSpeed>(), preset.Speed, v => v.GetDisplayName());
+
+                _zone1Control.Set(preset.Zone1);
+                _zone2Control.Set(preset.Zone2);
+                _zone3Control.Set(preset.Zone3);
+                _zone4Control.Set(preset.Zone4);
 
                 _brightnessControl.IsEnabled = true;
                 _effectControl.IsEnabled = true;
@@ -164,19 +174,6 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
                 _zone2Control.IsEnabled = zonesEnabled;
                 _zone3Control.IsEnabled = zonesEnabled;
                 _zone4Control.IsEnabled = zonesEnabled;
-
-                _brightnessControl.SetItems(Enum.GetValues<RGBKeyboardBrightness>(), preset.Brightness, v => v.GetDisplayName());
-                _effectControl.SetItems(Enum.GetValues<RGBKeyboardEffect>(), preset.Effect, v => v.GetDisplayName());
-                if (speedEnabled)
-                    _speedControl.SetItems(Enum.GetValues<RBGKeyboardSpeed>(), preset.Speed, v => v.GetDisplayName());
-
-                if (zonesEnabled)
-                {
-                    _zone1Control.Set(preset.Zone1);
-                    _zone2Control.Set(preset.Zone2);
-                    _zone3Control.Set(preset.Zone3);
-                    _zone4Control.Set(preset.Zone4);
-                }
 
                 Visibility = Visibility.Visible;
             }
@@ -193,16 +190,16 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
             var selectedPreset = state.SelectedPreset;
             var presets = state.Presets;
 
-            if (selectedPreset < 0)
+            if (selectedPreset == RGBKeyboardBacklightPreset.Off)
                 return;
 
-            presets[(int)selectedPreset] = new(_effectControl.SelectedItem,
-                                 _speedControl.SelectedItem,
-                                 _brightnessControl.SelectedItem,
-                                 _zone1Control.SelectedColor,
-                                 _zone2Control.SelectedColor,
-                                 _zone3Control.SelectedColor,
-                                 _zone4Control.SelectedColor);
+            presets[selectedPreset] = new(_effectControl.SelectedItem,
+                                          _speedControl.SelectedItem,
+                                          _brightnessControl.SelectedItem,
+                                          _zone1Control.SelectedColor,
+                                          _zone2Control.SelectedColor,
+                                          _zone3Control.SelectedColor,
+                                          _zone4Control.SelectedColor);
 
             await _controller.SetStateAsync(new(selectedPreset, presets));
         }
@@ -232,9 +229,9 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
             Grid.SetColumn(_zone3Control, 0);
             Grid.SetColumn(_zone4Control, 0);
 
-            Grid.SetRow(_zone2Control, 5);
-            Grid.SetRow(_zone3Control, 6);
-            Grid.SetRow(_zone4Control, 7);
+            Grid.SetRow(_zone1Control, 5);
+            Grid.SetRow(_zone2Control, 6);
+            Grid.SetRow(_zone3Control, 7);
             Grid.SetRow(_zone4Control, 8);
 
             Grid.SetColumnSpan(_zone1Control, 4);
