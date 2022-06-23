@@ -10,9 +10,9 @@ using LenovoLegionToolkit.WPF.Extensions;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 
-namespace LenovoLegionToolkit.WPF.Controls.Dashboard
+namespace LenovoLegionToolkit.WPF.Controls
 {
-    public abstract class AbstractComboBoxDashboardCardControl<T> : AbstractRefreshingDashboardControl where T : struct
+    public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshingControl where T : struct
     {
         private readonly IFeature<T> _feature = IoCContainer.Resolve<IFeature<T>>();
 
@@ -40,7 +40,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             set => _cardHeaderControl.Subtitle = value;
         }
 
-        public AbstractComboBoxDashboardCardControl() => InitializeComponent();
+        public AbstractComboBoxFeatureCardControl() => InitializeComponent();
 
         private void InitializeComponent()
         {

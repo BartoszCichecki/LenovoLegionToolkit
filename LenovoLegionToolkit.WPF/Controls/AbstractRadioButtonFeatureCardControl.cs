@@ -9,9 +9,9 @@ using LenovoLegionToolkit.WPF.Extensions;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 
-namespace LenovoLegionToolkit.WPF.Controls.Dashboard
+namespace LenovoLegionToolkit.WPF.Controls
 {
-    public abstract class AbstractRadioButtonDashboardCardControl<T> : AbstractRefreshingDashboardControl where T : struct
+    public abstract class AbstractRadioButtonFeatureCardControl<T> : AbstractRefreshingControl where T : struct
     {
         private readonly string _radioGroupName = Guid.NewGuid().ToString();
 
@@ -41,7 +41,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             set => _cardHeaderControl.Subtitle = value;
         }
 
-        public AbstractRadioButtonDashboardCardControl() => InitializeComponent();
+        public AbstractRadioButtonFeatureCardControl() => InitializeComponent();
 
         private void InitializeComponent()
         {

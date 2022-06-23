@@ -6,7 +6,7 @@ using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
-    public class RefreshRateControl : AbstractComboBoxDashboardCardControl<RefreshRate>
+    public class RefreshRateControl : AbstractComboBoxFeatureCardControl<RefreshRate>
     {
         private readonly DisplayConfigurationListener _listener = IoCContainer.Resolve<DisplayConfigurationListener>();
 

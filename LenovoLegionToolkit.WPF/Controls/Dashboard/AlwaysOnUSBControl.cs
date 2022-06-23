@@ -3,7 +3,7 @@ using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
-    public class AlwaysOnUSBControl : AbstractComboBoxDashboardCardControl<AlwaysOnUSBState>
+    public class AlwaysOnUSBControl : AbstractComboBoxFeatureCardControl<AlwaysOnUSBState>
     {
         public AlwaysOnUSBControl()
         {
