@@ -8,7 +8,7 @@
     xmlns:pages="clr-namespace:LenovoLegionToolkit.WPF.Pages"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="Lenovo Legion Toolkit"
-    Width="1100"
+    Width="1150"
     Height="650"
     MinWidth="650"
     MinHeight="600"
