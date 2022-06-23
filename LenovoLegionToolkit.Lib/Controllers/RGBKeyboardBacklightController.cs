@@ -1,4 +1,4 @@
-﻿#define MOCK_RGB
+﻿//#define MOCK_RGB
 
 using System;
 using System.Threading.Tasks;
