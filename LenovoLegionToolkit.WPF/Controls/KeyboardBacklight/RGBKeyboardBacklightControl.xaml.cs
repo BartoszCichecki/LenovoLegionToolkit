@@ -144,10 +144,20 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
             if (speedEnabled)
                 _speedControl.SetItems(Enum.GetValues<RBGKeyboardSpeed>(), preset.Speed, v => v.GetDisplayName());
 
-            _zone1Control.Set(preset.Zone1);
-            _zone2Control.Set(preset.Zone2);
-            _zone3Control.Set(preset.Zone3);
-            _zone4Control.Set(preset.Zone4);
+            if (zonesEnabled)
+            {
+                _zone1Control.Set(preset.Zone1);
+                _zone2Control.Set(preset.Zone2);
+                _zone3Control.Set(preset.Zone3);
+                _zone4Control.Set(preset.Zone4);
+            }
+            else
+            {
+                _zone1Control.Clear();
+                _zone2Control.Clear();
+                _zone3Control.Clear();
+                _zone4Control.Clear();
+            }
 
             _brightnessControl.IsEnabled = true;
             _effectControl.IsEnabled = true;
