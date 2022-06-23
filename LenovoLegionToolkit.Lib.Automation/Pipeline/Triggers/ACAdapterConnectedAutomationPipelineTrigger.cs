@@ -1,16 +1,15 @@
 ﻿using System;
-using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.System;
 using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
 {
-    public class ACAdapterConnectedAutomationPipelineTrigger : IAutomationPipelineTrigger, IDisallowDuplicatesAutomationPipelineTrigger
+    public class ACAdapterConnectedAutomationPipelineTrigger : IAutomationPipelineTrigger, IPowerAutomationPipelineTrigger, IDisallowDuplicatesAutomationPipelineTrigger
     {
         [JsonIgnore]
         public string DisplayName => "When AC adapter is connected";
 
-        public Task<bool> IsSatisfiedAsync(object? context) => Task.FromResult(Power.IsPowerAdapterConnected());
+        public bool IsSatisfied(object? context) => Power.IsPowerAdapterConnected();
 
         public IAutomationPipelineTrigger DeepCopy() => new ACAdapterConnectedAutomationPipelineTrigger();
 
