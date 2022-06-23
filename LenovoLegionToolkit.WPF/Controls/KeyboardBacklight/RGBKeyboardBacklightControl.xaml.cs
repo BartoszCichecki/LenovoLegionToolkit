@@ -30,13 +30,13 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
             SizeChanged += RGBKeyboardBacklightControl_SizeChanged;
         }
 
-        private async void Listener_Changed(object? sender, RGBKeyboardBacklightChanged e)
+        private void Listener_Changed(object? sender, RGBKeyboardBacklightChanged e) => Dispatcher.Invoke(async () =>
         {
             if (!IsLoaded || !IsVisible)
                 return;
 
             await RefreshAsync();
-        }
+        });
 
         private void RGBKeyboardBacklightControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
