@@ -1,5 +1,8 @@
 ﻿using System.Threading.Tasks;
 using System.Windows;
+using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.Lib.Features;
 
 namespace LenovoLegionToolkit.WPF.Pages
 {
@@ -10,6 +13,23 @@ namespace LenovoLegionToolkit.WPF.Pages
             InitializeComponent();
 
             Loaded += KeyboardBacklightPage_Loaded;
+        }
+
+        public static async Task<bool> IsSupportedAsync()
+        {
+            var rgbController = IoCContainer.Resolve<RGBKeyboardBacklightController>();
+            if (rgbController.IsSupported())
+                return true;
+
+            var whiteBacklightFeature = IoCContainer.Resolve<WhiteKeyboardBacklightFeature>();
+            try
+            {
+                _ = await whiteBacklightFeature.GetStateAsync();
+                return true;
+            }
+            catch { }
+
+            return false;
         }
 
         private async void KeyboardBacklightPage_Loaded(object sender, RoutedEventArgs e)
