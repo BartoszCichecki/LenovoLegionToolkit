@@ -16,6 +16,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             "15IMHg05", // Legion 7 - Intel, nVidia
             "16ACH6", // Legion 5 Pro - AMD, nVidia
             "R7000P2020H", // Legion 5 Pro - AMD, nVidia (CN)
+            "Y9000K2020H", // Legioin 7i - Intel, nVidia (CN)
             "16ITH6", // Legion 5 Pro - Intel, nVidia
             "16IAH7", // Legion 5 Pro - Intel, nVidia
             "17ACH6", // Legion 5 - AMD, nVidia
