@@ -1,4 +1,4 @@
-﻿<UserControl
+﻿<controls:AbstractRefreshingControl
     x:Class="LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.RGBKeyboardBacklightControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -177,4 +177,4 @@
 
     </Grid>
 
-</UserControl>
+</controls:AbstractRefreshingControl>

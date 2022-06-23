@@ -49,7 +49,8 @@
         <controls:LoadableControl
             x:Name="_loader"
             Grid.Row="1"
-            Margin="12,0,0,0">
+            Margin="12,0,0,0"
+            IndicatorVerticalAlignment="Center">
 
             <wpfui:DynamicScrollViewer>
                 <StackPanel Margin="0,0,16,0">
