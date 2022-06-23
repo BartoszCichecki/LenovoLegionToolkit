@@ -22,7 +22,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
         {
             try
             {
-                await Task.Delay(250); // Delay needed, otherwise HW override the effect
+                await Task.Delay(500); // Delay needed, otherwise HW override the effect
                 await _controller.SetNextPresetAsync().ConfigureAwait(false);
             }
             catch (Exception ex)
