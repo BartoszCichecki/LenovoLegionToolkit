@@ -439,7 +439,7 @@ namespace LenovoLegionToolkit.Lib.System
         public static extern uint HidP_GetCaps(IntPtr preparsedData, out HIDPCapsEx capabilities);
 
         [DllImport("hid.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        public static extern bool HidD_SetFeature(SafeFileHandle handle, ref byte[] buffer, uint bufferLength);
+        public static extern bool HidD_SetFeature(SafeFileHandle handle, IntPtr ptr, uint bufferLength);
     }
 
     internal static class NativeUtils

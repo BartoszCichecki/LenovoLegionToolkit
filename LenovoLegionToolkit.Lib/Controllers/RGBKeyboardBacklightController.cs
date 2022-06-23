@@ -1,10 +1,14 @@
-﻿using System;
-using System.Runtime.InteropServices;
+﻿//#define MOCK_RGB
+
+using System;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
-using Microsoft.Win32.SafeHandles;
 using NeoSmart.AsyncLock;
+
+#if !MOCK_RGB
+using System.Runtime.InteropServices;
+#endif
 
 namespace LenovoLegionToolkit.Lib.Controllers
 {
@@ -18,11 +22,13 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         public async Task<RGBKeyboardBacklightState> GetStateAsync()
         {
-            await ThrowIfVantageEnabled().ConfigureAwait(false);
-
+#if !MOCK_RGB
             var handle = Devices.GetRGBKeyboard();
             if (handle is null)
                 throw new InvalidOperationException("RGB Keyboard unsupported.");
+#endif
+
+            await ThrowIfVantageEnabled().ConfigureAwait(false);
 
             using (await _ioLock.LockAsync().ConfigureAwait(false))
                 return _settings.Store.State;
@@ -37,25 +43,21 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 _settings.Store.State = state;
                 _settings.SynchronizeStore();
 
-                var handle = Devices.GetRGBKeyboard();
-                if (handle is null)
-                    throw new InvalidOperationException("RGB Keyboard unsupported.");
-
                 var index = state.ActivePresetIndex;
-                var preset = state.Presets[index];
-                var str = Convert(preset);
 
-                await SendHidReport(handle!, str).ConfigureAwait(false);
+                RGBKeyboardStateEx str;
+                if (index < 0)
+                    str = CreateOffState();
+                else
+                    str = Convert(state.Presets[index]);
+
+                await SendToDevice(str).ConfigureAwait(false);
             }
         }
 
         public async Task SetNextPresetAsync()
         {
             await ThrowIfVantageEnabled().ConfigureAwait(false);
-
-            var handle = Devices.GetRGBKeyboard();
-            if (handle is null)
-                throw new InvalidOperationException("RGB Keyboard unsupported.");
 
             using (await _ioLock.LockAsync().ConfigureAwait(false))
             {
@@ -64,18 +66,22 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 var index = state.ActivePresetIndex;
                 var presets = state.Presets;
 
-                var newIndex = (index + 1) % 3;
+                var newIndex = index + 1;
+                if (newIndex > 3)
+                    newIndex = -1;
 
                 _settings.Store.State = new(newIndex, presets);
                 _settings.SynchronizeStore();
 
-                var preset = state.Presets[newIndex];
-                var str = Convert(preset);
+                RGBKeyboardStateEx str;
+                if (index < 0)
+                    str = CreateOffState();
+                else
+                    str = Convert(state.Presets[index]);
 
-                await SendHidReport(handle!, str).ConfigureAwait(false);
+                await SendToDevice(str).ConfigureAwait(false);
             }
         }
-
 
         private static async Task ThrowIfVantageEnabled()
         {
@@ -84,26 +90,46 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 throw new InvalidOperationException("Can't manage RGB keyboard with Vantage enabled.");
         }
 
-        private Task SendHidReport(SafeFileHandle handle, RGBKeyboardStateEx str) => Task.Run(() =>
+        private Task SendToDevice(RGBKeyboardStateEx str) => Task.Run(() =>
         {
-            var size = Marshal.SizeOf<RGBKeyboardStateEx>();
-            var bytes = new byte[size];
+#if !MOCK_RGB
+            var handle = Devices.GetRGBKeyboard();
+            if (handle is null)
+                throw new InvalidOperationException("RGB Keyboard unsupported.");
+
 
             var ptr = IntPtr.Zero;
             try
             {
+                var size = Marshal.SizeOf<RGBKeyboardStateEx>();
                 ptr = Marshal.AllocHGlobal(size);
                 Marshal.StructureToPtr(str, ptr, true);
-                Marshal.Copy(ptr, bytes, 0, size);
+
+                if (!Native.HidD_SetFeature(handle, ptr, (uint)size))
+                    NativeUtils.ThrowIfWin32Error("HidD_SetFeature");
             }
             finally
             {
                 Marshal.FreeHGlobal(ptr);
             }
-
-            if (!Native.HidD_SetFeature(handle, ref bytes, (uint)bytes.Length))
-                NativeUtils.ThrowIfWin32Error("HidD_SetFeature");
+#endif
         });
+
+        public RGBKeyboardStateEx CreateOffState()
+        {
+            return new()
+            {
+                Header = new byte[] { 0xCC, 0x16 },
+                Unused = new byte[13],
+                Padding = 0x0,
+                Effect = 0x1,
+                Brightness = 0x1,
+                Zone1Rgb = new byte[3],
+                Zone2Rgb = new byte[3],
+                Zone3Rgb = new byte[3],
+                Zone4Rgb = new byte[3],
+            };
+        }
 
         public RGBKeyboardStateEx Convert(RGBKeyboardBacklightPreset preset)
         {
@@ -111,7 +137,11 @@ namespace LenovoLegionToolkit.Lib.Controllers
             {
                 Header = new byte[] { 0xCC, 0x16 },
                 Unused = new byte[13],
-                Padding = 0x0
+                Padding = 0x0,
+                Zone1Rgb = new byte[] { 0xFF, 0xFF, 0xFF },
+                Zone2Rgb = new byte[] { 0xFF, 0xFF, 0xFF },
+                Zone3Rgb = new byte[] { 0xFF, 0xFF, 0xFF },
+                Zone4Rgb = new byte[] { 0xFF, 0xFF, 0xFF },
             };
 
             switch (preset.Effect)
@@ -132,6 +162,16 @@ namespace LenovoLegionToolkit.Lib.Controllers
                     break;
                 case RGBKeyboardEffect.Smooth:
                     result.Effect = 6;
+                    break;
+            }
+
+            switch (preset.Brightness)
+            {
+                case RGBKeyboardBrightness.Low:
+                    result.Brightness = 1;
+                    break;
+                case RGBKeyboardBrightness.High:
+                    result.Brightness = 2;
                     break;
             }
 
