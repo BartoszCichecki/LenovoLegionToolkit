@@ -8,6 +8,7 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
+using LenovoLegionToolkit.WPF.Pages;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Utils;
 using Wpf.Ui.Controls;
@@ -47,7 +48,6 @@ namespace LenovoLegionToolkit.WPF.Windows
         private void InitializeTray()
         {
             ContextMenuHelper.Instance.BringToForegroundAction = BringToForeground;
-            ContextMenuHelper.Instance.SetNavigationItems(_navigationStore);
 
             var notifyIcon = new NotifyIcon
             {
@@ -77,8 +77,19 @@ namespace LenovoLegionToolkit.WPF.Windows
             }
         }
 
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            var loadingTask = Task.Delay(500);
+
+            if (!await KeyboardBacklightPage.IsSupportedAsync())
+                _navigationStore.Items.Remove(_keyboardItem);
+
+            ContextMenuHelper.Instance.SetNavigationItems(_navigationStore);
+
+            await loadingTask;
+
+            _loader.IsLoading = false;
+
             CheckForUpdates();
         }
 
