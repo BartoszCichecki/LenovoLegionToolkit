@@ -22,7 +22,8 @@ namespace LenovoLegionToolkit.Lib.Listeners
         {
             try
             {
-                await Task.Delay(500); // Delay needed, otherwise HW override the effect
+                // TODO: Find a way to disable Fn+Space on hardware level and get rid of this delay to reduce flickering
+                await Task.Delay(500);
                 await _controller.SetNextPresetAsync().ConfigureAwait(false);
             }
             catch (Exception ex)
