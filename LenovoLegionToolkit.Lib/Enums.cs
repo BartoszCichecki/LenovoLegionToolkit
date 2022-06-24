@@ -131,6 +131,13 @@ namespace LenovoLegionToolkit.Lib
         NotFound,
     }
 
+    public enum FnKeysStatus
+    {
+        Enabled,
+        Disabled,
+        NotFound,
+    }
+
     public enum WhiteKeyboardBacklightChanged { }
 
     public enum WhiteKeyboardBacklightState
