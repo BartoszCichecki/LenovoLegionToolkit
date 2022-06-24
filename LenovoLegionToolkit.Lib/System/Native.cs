@@ -268,7 +268,7 @@ namespace LenovoLegionToolkit.Lib.System
             DeviceGetClassFlagsEx flags);
 
         [DllImport("setupapi.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        internal static extern bool SetupDiEnumDeviceInterfaces(
+        public static extern bool SetupDiEnumDeviceInterfaces(
             IntPtr hdevInfo,
             IntPtr devInfo,
             ref Guid guid,
@@ -282,7 +282,7 @@ namespace LenovoLegionToolkit.Lib.System
             ref SpDeviceInfoDataEx deviceInfoData);
 
         [DllImport("setupapi.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        internal static extern bool SetupDiGetDeviceInterfaceDetail(
+        public static extern bool SetupDiGetDeviceInterfaceDetail(
             IntPtr hdevInfo,
             ref SpDeviceInterfaceDataEx deviceInterfaceData,
             ref SpDeviceInterfaceDetailDataEx deviceInterfaceDetailData,

@@ -23,6 +23,7 @@ namespace LenovoLegionToolkit.WPF.Windows
         private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
         private readonly UpdateChecker _updateChecker = IoCContainer.Resolve<UpdateChecker>();
         private readonly SpecialKeyListener _specialKeyListener = IoCContainer.Resolve<SpecialKeyListener>();
+        private readonly FnKeys _fnKeys = IoCContainer.Resolve<FnKeys>();
 
         public Snackbar Snackbar => _snackBar;
 
@@ -50,17 +51,6 @@ namespace LenovoLegionToolkit.WPF.Windows
             _specialKeyListener.Changed += SpecialKeyListener_Changed;
         }
 
-        private void SpecialKeyListener_Changed(object? sender, SpecialKey e) => Dispatcher.Invoke(async () =>
-        {
-            if (e != SpecialKey.Fn_F9)
-                return;
-
-            if (await FnKeys.GetStatusAsync() == FnKeysStatus.Enabled)
-                return;
-
-            BringToForeground();
-        });
-
         private void InitializeTray()
         {
             ContextMenuHelper.Instance.BringToForegroundAction = BringToForeground;
@@ -76,6 +66,25 @@ namespace LenovoLegionToolkit.WPF.Windows
             notifyIcon.LeftClick += NotifyIcon_LeftClick;
             _titleBar.Tray = notifyIcon;
         }
+
+        private void SpecialKeyListener_Changed(object? sender, SpecialKey e) => Dispatcher.Invoke(async () =>
+        {
+            if (e != SpecialKey.Fn_F9)
+                return;
+
+            if (await _fnKeys.GetStatusAsync() == SoftwareStatus.Enabled)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Ignoring Fn+F9 FnKeys are enabled.");
+
+                return;
+            }
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Bringing to foreground after Fn+F9.");
+
+            BringToForeground();
+        });
 
         private void MainWindow_StateChanged(object? sender, EventArgs e)
         {

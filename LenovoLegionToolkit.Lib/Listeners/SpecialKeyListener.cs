@@ -3,15 +3,19 @@ using System.Management;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners
 {
     public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
     {
+        private readonly FnKeys _fnKeys;
+
         private readonly RefreshRateFeature _feature;
 
-        public SpecialKeyListener(RefreshRateFeature feature) : base("ROOT\\WMI", "LENOVO_UTILITY_EVENT")
+        public SpecialKeyListener(FnKeys fnKeys, RefreshRateFeature feature) : base("ROOT\\WMI", "LENOVO_UTILITY_EVENT")
         {
+            _fnKeys = fnKeys;
             _feature = feature;
         }
 
@@ -35,24 +39,39 @@ namespace LenovoLegionToolkit.Lib.Listeners
         {
             try
             {
-                if (await FnKeys.GetStatusAsync() == FnKeysStatus.Enabled)
+                if (await _fnKeys.GetStatusAsync() == SoftwareStatus.Enabled)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Ignoring Fn+R FnKeys are enabled.");
+
                     return;
+                }
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Switch refresh rate after Fn+R...");
 
                 var all = await _feature.GetAllStatesAsync().ConfigureAwait(false);
                 var current = await _feature.GetStateAsync().ConfigureAwait(false);
 
                 if (all is null || all.Length < 2)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Can't switch refresh rate after Fn+R. [all={all?.Length}]");
+
                     return;
+                }
 
                 var currentIndex = Array.IndexOf(all, current);
                 var newIndex = currentIndex + 1;
-
                 if (newIndex >= all.Length)
                     newIndex = 0;
 
-                current = all[newIndex];
+                var next = all[newIndex];
 
-                await _feature.SetStateAsync(current).ConfigureAwait(false);
+                await _feature.SetStateAsync(next).ConfigureAwait(false);
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Switched refresh rate after Fn+R to {next}.");
             }
             catch { }
         }

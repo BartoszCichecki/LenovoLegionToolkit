@@ -20,6 +20,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
 
         private readonly RGBKeyboardBacklightController _controller = IoCContainer.Resolve<RGBKeyboardBacklightController>();
         private readonly RGBKeyboardBacklightListener _listener = IoCContainer.Resolve<RGBKeyboardBacklightListener>();
+        private readonly Vantage _vantage = IoCContainer.Resolve<Vantage>();
 
         public RGBKeyboardBacklightControl()
         {
@@ -80,8 +81,8 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
 
         protected override async Task OnRefreshAsync()
         {
-            var vantageStatus = await Vantage.GetStatusAsync();
-            if (vantageStatus == VantageStatus.Enabled)
+            var vantageStatus = await _vantage.GetStatusAsync();
+            if (vantageStatus == SoftwareStatus.Enabled)
             {
                 _vantageWarningCard.Visibility = Visibility.Visible;
 

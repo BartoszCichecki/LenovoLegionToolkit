@@ -95,6 +95,13 @@ namespace LenovoLegionToolkit.Lib
         Fastest,
     }
 
+    public enum SoftwareStatus
+    {
+        Enabled,
+        Disabled,
+        NotFound,
+    }
+
     public enum SpecialKey
     {
         Unknown = 0,
@@ -122,20 +129,6 @@ namespace LenovoLegionToolkit.Lib
     {
         Off,
         On,
-    }
-
-    public enum VantageStatus
-    {
-        Enabled,
-        Disabled,
-        NotFound,
-    }
-
-    public enum FnKeysStatus
-    {
-        Enabled,
-        Disabled,
-        NotFound,
     }
 
     public enum WhiteKeyboardBacklightChanged { }

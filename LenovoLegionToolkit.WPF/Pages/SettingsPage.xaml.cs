@@ -13,6 +13,8 @@ namespace LenovoLegionToolkit.WPF.Pages
     public partial class SettingsPage
     {
         private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
+        private readonly Vantage _vantage = IoCContainer.Resolve<Vantage>();
+        private readonly FnKeys _fnKeys = IoCContainer.Resolve<FnKeys>();
         private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
 
         private bool _isRefreshing;
@@ -43,13 +45,13 @@ namespace LenovoLegionToolkit.WPF.Pages
             _autorunToggle.IsChecked = Autorun.IsEnabled;
             _minimizeOnCloseToggle.IsChecked = _settings.Store.MinimizeOnClose;
 
-            var vantageStatus = await Vantage.GetStatusAsync();
-            _vantageCard.Visibility = vantageStatus != VantageStatus.NotFound ? Visibility.Visible : Visibility.Collapsed;
-            _vantageToggle.IsChecked = vantageStatus == VantageStatus.Disabled;
+            var vantageStatus = await _vantage.GetStatusAsync();
+            _vantageCard.Visibility = vantageStatus != SoftwareStatus.NotFound ? Visibility.Visible : Visibility.Collapsed;
+            _vantageToggle.IsChecked = vantageStatus == SoftwareStatus.Disabled;
 
-            var fnKeysStatus = await FnKeys.GetStatusAsync();
-            _fnKeysCard.Visibility = fnKeysStatus != FnKeysStatus.NotFound ? Visibility.Visible : Visibility.Collapsed;
-            _fnKeysToggle.IsChecked = fnKeysStatus == FnKeysStatus.Disabled;
+            var fnKeysStatus = await _fnKeys.GetStatusAsync();
+            _fnKeysCard.Visibility = fnKeysStatus != SoftwareStatus.NotFound ? Visibility.Visible : Visibility.Collapsed;
+            _fnKeysToggle.IsChecked = fnKeysStatus == SoftwareStatus.Disabled;
 
             await loadingTask;
 
@@ -114,9 +116,9 @@ namespace LenovoLegionToolkit.WPF.Pages
                 return;
 
             if (state.Value)
-                await Vantage.DisableAsync();
+                await _vantage.DisableAsync();
             else
-                await Vantage.EnableAsync();
+                await _vantage.EnableAsync();
         }
 
         private async void FnKeysToggle_Click(object sender, RoutedEventArgs e)
@@ -129,9 +131,9 @@ namespace LenovoLegionToolkit.WPF.Pages
                 return;
 
             if (state.Value)
-                await FnKeys.DisableAsync();
+                await _fnKeys.DisableAsync();
             else
-                await FnKeys.EnableAsync();
+                await _fnKeys.EnableAsync();
         }
 
         private void PowerPlans_Click(object sender, RoutedEventArgs e)
