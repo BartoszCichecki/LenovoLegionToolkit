@@ -56,7 +56,11 @@ namespace LenovoLegionToolkit.Lib.System
                     if (_rgbKeyboard is null)
                     {
                         var vendorId = 0x048D;
-                        var productId = 0xC955;
+                        var productIds = new int[]
+                        {
+                            0xC955, // MY 2020
+                            0xC965, // MY 2021
+                        };
                         var productIdMask = 0xFF0F;
                         var descriptorLength = 0x21;
 
@@ -104,7 +108,7 @@ namespace LenovoLegionToolkit.Lib.System
                             if (!result4)
                                 continue;
 
-                            if (hiddAttributes.VendorID == vendorId && (hiddAttributes.ProductID & productIdMask) == (productId & productIdMask))
+                            if (IsHIDDeviceMatch(hiddAttributes, vendorId, productIds, productIdMask))
                             {
                                 var preparsedData = IntPtr.Zero;
                                 try
@@ -129,6 +133,18 @@ namespace LenovoLegionToolkit.Lib.System
                 }
             }
             return _rgbKeyboard;
+        }
+
+        private static bool IsHIDDeviceMatch(HIDDAttributesEx hiddAttributes, int vendorId, int[] productIds, int productIdMask)
+        {
+            foreach (var productId in productIds)
+            {
+                var result = hiddAttributes.VendorID == vendorId && (hiddAttributes.ProductID & productIdMask) == (productId & productIdMask);
+                if (result)
+                    return true;
+            }
+
+            return false;
         }
     }
 }
