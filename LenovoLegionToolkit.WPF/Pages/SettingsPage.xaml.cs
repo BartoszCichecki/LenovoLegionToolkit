@@ -47,12 +47,17 @@ namespace LenovoLegionToolkit.WPF.Pages
             _vantageCard.Visibility = vantageStatus != VantageStatus.NotFound ? Visibility.Visible : Visibility.Collapsed;
             _vantageToggle.IsChecked = vantageStatus == VantageStatus.Disabled;
 
+            var fnKeysStatus = await FnKeys.GetStatusAsync();
+            _fnKeysCard.Visibility = fnKeysStatus != FnKeysStatus.NotFound ? Visibility.Visible : Visibility.Collapsed;
+            _fnKeysToggle.IsChecked = fnKeysStatus == FnKeysStatus.Disabled;
+
             await loadingTask;
 
             _themeComboBox.Visibility = Visibility.Visible;
             _autorunToggle.Visibility = Visibility.Visible;
             _minimizeOnCloseToggle.Visibility = Visibility.Visible;
             _vantageToggle.Visibility = Visibility.Visible;
+            _fnKeysToggle.Visibility = Visibility.Visible;
 
             _isRefreshing = false;
         }
@@ -112,6 +117,21 @@ namespace LenovoLegionToolkit.WPF.Pages
                 await Vantage.DisableAsync();
             else
                 await Vantage.EnableAsync();
+        }
+
+        private async void FnKeysToggle_Click(object sender, RoutedEventArgs e)
+        {
+            if (_isRefreshing)
+                return;
+
+            var state = _fnKeysToggle.IsChecked;
+            if (state is null)
+                return;
+
+            if (state.Value)
+                await FnKeys.DisableAsync();
+            else
+                await FnKeys.EnableAsync();
         }
 
         private void PowerPlans_Click(object sender, RoutedEventArgs e)
