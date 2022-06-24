@@ -19,7 +19,13 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         private readonly RGBKeyboardSettings _settings;
 
-        public RGBKeyboardBacklightController(RGBKeyboardSettings settings) => _settings = settings;
+        private readonly Vantage _vantage;
+
+        public RGBKeyboardBacklightController(RGBKeyboardSettings settings, Vantage vantage)
+        {
+            _settings = settings;
+            _vantage = vantage;
+        }
 
         public bool IsSupported()
         {
@@ -111,10 +117,10 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
         }
 
-        private static async Task ThrowIfVantageEnabled()
+        private async Task ThrowIfVantageEnabled()
         {
-            var vantageStatus = await Vantage.GetStatusAsync().ConfigureAwait(false);
-            if (vantageStatus == VantageStatus.Enabled)
+            var vantageStatus = await _vantage.GetStatusAsync().ConfigureAwait(false);
+            if (vantageStatus == SoftwareStatus.Enabled)
                 throw new InvalidOperationException("Can't manage RGB keyboard with Vantage enabled.");
         }
 
