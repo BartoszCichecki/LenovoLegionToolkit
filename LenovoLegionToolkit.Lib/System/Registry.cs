@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Management;
 using System.Security.Principal;
 using LenovoLegionToolkit.Lib.Utils;
+using Microsoft.Win32;
 
 namespace LenovoLegionToolkit.Lib.System
 {
@@ -44,6 +46,25 @@ namespace LenovoLegionToolkit.Lib.System
             if (result is null)
                 return defaultValue;
             return (T)result;
+        }
+
+        public static void SetUWPStartup(string appPattern, string subKeyName, bool enabled)
+        {
+            var currentUserHive = Microsoft.Win32.Registry.CurrentUser;
+
+            using var startupKey = currentUserHive.OpenSubKey(@"Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\SystemAppData");
+            if (startupKey is null)
+                return;
+
+            var appKeyName = startupKey.GetSubKeyNames().FirstOrDefault(n => n.Contains(appPattern));
+            if (appKeyName is null)
+                return;
+
+            using var appSubKey = startupKey.OpenSubKey($"{appKeyName}\\{subKeyName}", true);
+            if (appSubKey is null)
+                return;
+
+            appSubKey.SetValue("State", enabled ? 0x2 : 0x1, RegistryValueKind.DWord);
         }
     }
 }
