@@ -17,7 +17,7 @@ namespace LenovoLegionToolkit.Lib.System
         protected abstract string[] ScheduledTasksPaths { get; }
         protected abstract string[] ServiceNames { get; }
 
-        public Task<SoftwareStatus> GetStatusAsync()
+        public virtual Task<SoftwareStatus> GetStatusAsync()
         {
             return Task.Run(() =>
             {
@@ -32,7 +32,7 @@ namespace LenovoLegionToolkit.Lib.System
             });
         }
 
-        public Task EnableAsync()
+        public virtual Task EnableAsync()
         {
             return Task.Run(() =>
             {
@@ -47,7 +47,7 @@ namespace LenovoLegionToolkit.Lib.System
             });
         }
 
-        public Task DisableAsync()
+        public virtual Task DisableAsync()
         {
             return Task.Run(() =>
             {
