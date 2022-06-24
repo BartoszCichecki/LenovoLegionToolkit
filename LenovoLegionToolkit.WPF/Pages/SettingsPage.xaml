@@ -44,7 +44,7 @@
                 Visibility="Hidden" />
         </wpfui:CardControl>
 
-        <wpfui:CardControl Margin="0,0,0,8">
+        <wpfui:CardControl Margin="0,0,0,16">
             <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="Minimize on close" Subtitle="Always minimize to tray. Close with right click on tray icon." />
             </wpfui:CardControl.Header>
@@ -63,6 +63,17 @@
                 x:Name="_vantageToggle"
                 Margin="0,0,0,8"
                 Click="VantageToggle_Click"
+                Visibility="Hidden" />
+        </wpfui:CardControl>
+
+        <wpfui:CardControl x:Name="_fnKeysCard" Margin="0,0,0,8">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="Disable Lenovo Fn Keys" Subtitle="Disable Lenovo Fn Keys and it's service without uninstalling it.&#x0a;If disabled, this app will handle Fn shortcuts.&#x0a;Restart is recommended after changing this option." />
+            </wpfui:CardControl.Header>
+            <wpfui:ToggleSwitch
+                x:Name="_fnKeysToggle"
+                Margin="0,0,0,8"
+                Click="FnKeysToggle_Click"
                 Visibility="Hidden" />
         </wpfui:CardControl>
 
