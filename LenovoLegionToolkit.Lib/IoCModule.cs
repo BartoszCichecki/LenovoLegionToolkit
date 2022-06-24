@@ -3,6 +3,7 @@ using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib
@@ -32,6 +33,9 @@ namespace LenovoLegionToolkit.Lib
 
             builder.Register<GPUController>();
             builder.Register<CPUBoostModeController>();
+
+            builder.Register<Vantage>();
+            builder.Register<FnKeys>();
 
             builder.Register<UpdateChecker>();
         }
