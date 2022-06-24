@@ -291,7 +291,7 @@ namespace LenovoLegionToolkit.Lib.System
             IntPtr deviceInfoData);
 
         [DllImport("setupapi.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        internal static extern bool SetupDiGetDeviceInterfaceDetail(
+        public static extern bool SetupDiGetDeviceInterfaceDetail(
             IntPtr hdevInfo,
             ref SpDeviceInterfaceDataEx deviceInterfaceData,
             IntPtr deviceInterfaceDetailData,
