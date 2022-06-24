@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Management;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Features;
@@ -32,6 +33,9 @@ namespace LenovoLegionToolkit.Lib.Listeners
             if (value == SpecialKey.Fn_R)
                 return ToggleRefreshRateAsync();
 
+            if (value == SpecialKey.Fn_PrtSc)
+                return OpenSnippingTool();
+
             return Task.CompletedTask;
         }
 
@@ -42,7 +46,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
                 if (await _fnKeys.GetStatusAsync() == SoftwareStatus.Enabled)
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Ignoring Fn+R FnKeys are enabled.");
+                        Log.Instance.Trace($"Ignoring Fn+R, FnKeys are enabled.");
 
                     return;
                 }
@@ -74,6 +78,30 @@ namespace LenovoLegionToolkit.Lib.Listeners
                     Log.Instance.Trace($"Switched refresh rate after Fn+R to {next}.");
             }
             catch { }
+        }
+
+        private async Task OpenSnippingTool()
+        {
+            if (await _fnKeys.GetStatusAsync() == SoftwareStatus.Enabled)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Ignoring Fn+PrtSc, FnKeys are enabled.");
+
+                return;
+            }
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Starting snipping tool..");
+
+            try
+            {
+                Process.Start("snippingtool");
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Failed to start snipping tool: {ex.Demystify()}");
+            }
         }
     }
 }
