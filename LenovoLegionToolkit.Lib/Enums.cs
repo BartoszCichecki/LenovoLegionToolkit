@@ -57,6 +57,13 @@ namespace LenovoLegionToolkit.Lib
         Stopped,
     }
 
+    public enum SoftwareStatus
+    {
+        Enabled,
+        Disabled,
+        NotFound,
+    }
+
     public enum SpecialKey
     {
         Unknown = 0,
@@ -64,7 +71,7 @@ namespace LenovoLegionToolkit.Lib
         Fn_LockOn = 2,
         Fn_LockOff = 3,
         Fn_PrtSc = 4,
-        Fn_R = 16
+        Fn_R = 16,
     }
 
     public enum Theme
@@ -84,19 +91,5 @@ namespace LenovoLegionToolkit.Lib
     {
         Off,
         On,
-    }
-
-    public enum VantageStatus
-    {
-        Enabled,
-        Disabled,
-        NotFound,
-    }
-
-    public enum FnKeysStatus
-    {
-        Enabled,
-        Disabled,
-        NotFound,
     }
 }

@@ -9,11 +9,14 @@ namespace LenovoLegionToolkit.Lib.Listeners
     public class PowerPlanListener : AbstractEventLogListener
     {
         private readonly ApplicationSettings _settings;
+        private readonly Vantage _vantage;
         private readonly PowerModeFeature _feature;
 
-        public PowerPlanListener(ApplicationSettings settings, PowerModeFeature feature) : base("System", "*[System[Provider[@Name='Microsoft-Windows-UserModePowerService'] and EventID=12]]")
+        public PowerPlanListener(ApplicationSettings settings, Vantage vantage, PowerModeFeature feature)
+            : base("System", "*[System[Provider[@Name='Microsoft-Windows-UserModePowerService'] and EventID=12]]")
         {
             _settings = settings;
+            _vantage = vantage;
             _feature = feature;
         }
 
@@ -22,9 +25,9 @@ namespace LenovoLegionToolkit.Lib.Listeners
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Power plan changed...");
 
-            var vantageStatus = await Vantage.GetStatusAsync().ConfigureAwait(false);
+            var vantageStatus = await _vantage.GetStatusAsync().ConfigureAwait(false);
             var activateWhenVantageEnabled = _settings.ActivatePowerProfilesWithVantageEnabled;
-            if (vantageStatus == VantageStatus.Enabled && !activateWhenVantageEnabled)
+            if (vantageStatus == SoftwareStatus.Enabled && !activateWhenVantageEnabled)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Ignoring. [vantage.status={vantageStatus}, activateWhenVantageEnabled={activateWhenVantageEnabled}]");

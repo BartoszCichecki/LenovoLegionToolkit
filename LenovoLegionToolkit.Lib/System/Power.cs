@@ -18,6 +18,8 @@ namespace LenovoLegionToolkit.Lib.System
 
         private static ApplicationSettings Settings => IoCContainer.Resolve<ApplicationSettings>();
 
+        private static Vantage Vantage => IoCContainer.Resolve<Vantage>();
+
         public static bool IsPowerAdapterConnected()
         {
             if (!Native.GetSystemPowerStatus(out SystemPowerStatusEx sps))
@@ -133,7 +135,7 @@ namespace LenovoLegionToolkit.Lib.System
             }
 
             var status = await Vantage.GetStatusAsync().ConfigureAwait(false);
-            if (status == VantageStatus.NotFound || status == VantageStatus.Disabled)
+            if (status == SoftwareStatus.NotFound || status == SoftwareStatus.Disabled)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Vantage is active [status={status}]");
