@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Management;
-using System.Reflection;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.System;
