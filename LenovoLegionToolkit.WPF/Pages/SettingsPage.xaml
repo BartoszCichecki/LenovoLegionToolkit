@@ -44,7 +44,7 @@
                 Visibility="Hidden" />
         </wpfui:CardControl>
 
-        <wpfui:CardControl Margin="0,0,0,8">
+        <wpfui:CardControl Margin="0,0,0,16">
             <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="Minimize on close" Subtitle="Always minimize to tray. Close with right click on tray icon." />
             </wpfui:CardControl.Header>
