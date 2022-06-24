@@ -5,6 +5,8 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Utils;
@@ -18,6 +20,7 @@ namespace LenovoLegionToolkit.WPF.Windows
     {
         private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
         private readonly UpdateChecker _updateChecker = IoCContainer.Resolve<UpdateChecker>();
+        private readonly SpecialKeyListener _specialKeyListener = IoCContainer.Resolve<SpecialKeyListener>();
 
         public Snackbar Snackbar => _snackBar;
 
@@ -41,7 +44,20 @@ namespace LenovoLegionToolkit.WPF.Windows
 
             if (Log.Instance.IsTraceEnabled)
                 _title.Text += " [TRACE ENABLED]";
+
+            _specialKeyListener.Changed += SpecialKeyListener_Changed;
         }
+
+        private void SpecialKeyListener_Changed(object? sender, SpecialKey e) => Dispatcher.Invoke(async () =>
+        {
+            if (e != SpecialKey.Fn_F9)
+                return;
+
+            if (await FnKeys.GetStatusAsync() == FnKeysStatus.Enabled)
+                return;
+
+            BringToForeground();
+        });
 
         private void InitializeTray()
         {

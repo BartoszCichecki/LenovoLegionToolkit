@@ -17,38 +17,38 @@ namespace LenovoLegionToolkit.Lib
         Conservation,
         Normal,
         [Display(Name = "Rapid Charge")]
-        RapidCharge
+        RapidCharge,
     }
 
     public enum FlipToStartState
     {
         Off,
-        On
+        On,
     }
 
     public enum FnLockState
     {
         Off,
-        On
+        On,
     }
 
     public enum HybridModeState
     {
         On,
-        Off
+        Off,
     }
 
     public enum OverDriveState
     {
         Off,
-        On
+        On,
     }
 
     public enum PowerModeState
     {
         Quiet,
         Balance,
-        Performance
+        Performance,
     }
 
     public enum ProcessEventInfoType
@@ -71,7 +71,7 @@ namespace LenovoLegionToolkit.Lib
     {
         System,
         Light,
-        Dark
+        Dark,
     }
 
     public enum TemperatureUnit
@@ -83,13 +83,20 @@ namespace LenovoLegionToolkit.Lib
     public enum TouchpadLockState
     {
         Off,
-        On
+        On,
     }
 
     public enum VantageStatus
     {
         Enabled,
         Disabled,
-        NotFound
+        NotFound,
+    }
+
+    public enum FnKeysStatus
+    {
+        Enabled,
+        Disabled,
+        NotFound,
     }
 }

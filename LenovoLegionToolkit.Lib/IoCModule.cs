@@ -28,7 +28,7 @@ namespace LenovoLegionToolkit.Lib
             builder.Register<DisplayConfigurationListener>().AutoActivate();
             builder.Register<PowerPlanListener>().AutoActivate();
             builder.Register<ProcessListener>().AutoActivate();
-            //builder.Register<SpecialKeyListener>().AutoActivate();
+            builder.Register<SpecialKeyListener>().AutoActivate();
 
             builder.Register<GPUController>();
             builder.Register<CPUBoostModeController>();
