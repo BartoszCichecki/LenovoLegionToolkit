@@ -3,7 +3,7 @@ using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
-    public class BatteryModeControl : AbstractComboBoxCardControl<BatteryState>
+    public class BatteryModeControl : AbstractComboBoxFeatureCardControl<BatteryState>
     {
         public BatteryModeControl()
         {

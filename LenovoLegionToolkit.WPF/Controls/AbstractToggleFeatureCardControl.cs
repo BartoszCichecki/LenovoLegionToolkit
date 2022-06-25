@@ -6,9 +6,9 @@ using LenovoLegionToolkit.WPF.Extensions;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 
-namespace LenovoLegionToolkit.WPF.Controls.Dashboard
+namespace LenovoLegionToolkit.WPF.Controls
 {
-    public abstract class AbstractToggleCardControl<T> : AbstractRefreshingControl where T : struct
+    public abstract class AbstractToggleFeatureCardControl<T> : AbstractRefreshingControl where T : struct
     {
         private readonly IFeature<T> _feature = IoCContainer.Resolve<IFeature<T>>();
 
@@ -40,7 +40,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
         protected abstract T OffState { get; }
 
-        public AbstractToggleCardControl()
+        public AbstractToggleFeatureCardControl()
         {
             InitializeComponent();
         }
@@ -50,10 +50,9 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             _toggle.Click += Toggle_Click;
             _toggle.Visibility = Visibility.Hidden;
 
-            _cardControl.Margin = new(0, 0, 0, 8);
-
+            _cardHeaderControl.Accessory = _toggle;
             _cardControl.Header = _cardHeaderControl;
-            _cardControl.Content = _toggle;
+            _cardControl.Margin = new(0, 0, 0, 8);
 
             Content = _cardControl;
         }

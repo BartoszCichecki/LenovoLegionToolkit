@@ -9,24 +9,24 @@ namespace LenovoLegionToolkit.Lib.Features
 {
     public abstract class AbstractDriverFeature<T> : IFeature<T> where T : struct, Enum, IComparable
     {
-        private readonly uint _controlCode;
-        private readonly Func<SafeFileHandle> _driverHandle;
+        protected readonly uint ControlCode;
+        protected readonly Func<SafeFileHandle> DriverHandle;
 
         protected T LastState;
 
         protected AbstractDriverFeature(Func<SafeFileHandle> driverHandleHandle, uint controlCode)
         {
-            _driverHandle = driverHandleHandle;
-            _controlCode = controlCode;
+            DriverHandle = driverHandleHandle;
+            ControlCode = controlCode;
         }
         public Task<T[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<T>());
 
-        public async Task<T> GetStateAsync()
+        public virtual async Task<T> GetStateAsync()
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting state... [feature={GetType().Name}]");
 
-            var (_, outBuffer) = await SendCodeAsync(_driverHandle(), _controlCode, GetInternalStatus()).ConfigureAwait(false);
+            var (_, outBuffer) = await SendCodeAsync(DriverHandle(), ControlCode, GetInternalStatus()).ConfigureAwait(false);
             var state = FromInternal(outBuffer);
             LastState = state;
 
@@ -36,14 +36,14 @@ namespace LenovoLegionToolkit.Lib.Features
             return state;
         }
 
-        public async Task SetStateAsync(T state)
+        public virtual async Task SetStateAsync(T state)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Setting state to {state}... [feature={GetType().Name}]");
 
             var codes = ToInternal(state);
             foreach (var code in codes)
-                await SendCodeAsync(_driverHandle(), _controlCode, code).ConfigureAwait(false);
+                await SendCodeAsync(DriverHandle(), ControlCode, code).ConfigureAwait(false);
             LastState = state;
 
             if (Log.Instance.IsTraceEnabled)
@@ -51,14 +51,16 @@ namespace LenovoLegionToolkit.Lib.Features
         }
 
         protected abstract T FromInternal(uint state);
-        protected abstract byte GetInternalStatus();
-        protected abstract byte[] ToInternal(T state);
 
-        private Task<(int bytesReturned, uint outBuffer)> SendCodeAsync(SafeFileHandle handle, uint controlCode, byte inBuffer)
+        protected abstract uint GetInternalStatus();
+
+        protected abstract uint[] ToInternal(T state);
+
+        protected Task<(int bytesReturned, uint outBuffer)> SendCodeAsync(SafeFileHandle handle, uint controlCode, uint inBuffer)
         {
             return Task.Run(() =>
             {
-                if (!Native.DeviceIoControl(handle, controlCode, ref inBuffer, sizeof(byte), out uint outBuffer, sizeof(uint), out var bytesReturned, IntPtr.Zero))
+                if (!Native.DeviceIoControl(handle, controlCode, ref inBuffer, sizeof(uint), out uint outBuffer, sizeof(uint), out var bytesReturned, IntPtr.Zero))
                 {
                     var error = Marshal.GetLastWin32Error();
 

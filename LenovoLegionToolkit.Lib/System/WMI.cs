@@ -31,27 +31,51 @@ namespace LenovoLegionToolkit.Lib.System
             return watcher;
         }
 
-        public static Task<IEnumerable<T>> ReadAsync<T>(string scope, FormattableString query, Func<PropertyDataCollection, T> converter)
+        public static Task<IEnumerable<T>> ReadAsync<T>(string scope, FormattableString query, Func<PropertyDataCollection, T> converter) => Task.Run<IEnumerable<T>>(() =>
         {
-            return Task.Run<IEnumerable<T>>(() =>
+            var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Reading... [scope={scope}, queryFormatted={queryFormatted}]");
+
+            var result = new List<T>();
+
+            using var searcher = new ManagementObjectSearcher(scope, queryFormatted);
+            foreach (var queryObj in searcher.Get())
+                result.Add(converter(queryObj.Properties));
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Read [scope={scope}, queryFormatted={queryFormatted}]");
+
+            return result;
+        });
+
+        public static Task WriteAsync(string scope, FormattableString query, string methodName, Dictionary<string, object> methodParams) => Task.Run(() =>
+        {
+            var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Writing... [scope={scope}, queryFormatted={queryFormatted}, methodName={methodName}]");
+
+            using var enumerator = new ManagementObjectSearcher(scope, queryFormatted).Get().GetEnumerator();
+            if (!enumerator.MoveNext())
             {
-                var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
-
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Reading... [scope={scope}, queryFormatted={queryFormatted}]");
+                    Log.Instance.Trace($"No results in query [queryFormatted={queryFormatted}, methodName={methodName}]");
 
-                var result = new List<T>();
+                throw new InvalidOperationException("No results in query");
+            }
 
-                using var searcher = new ManagementObjectSearcher(scope, queryFormatted);
-                foreach (var queryObj in searcher.Get())
-                    result.Add(converter(queryObj.Properties));
+            var mo = (ManagementObject)enumerator.Current;
+            var methodParamsObject = mo.GetMethodParameters(methodName);
+            foreach (var pair in methodParams)
+                methodParamsObject[pair.Key] = pair.Value;
 
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Read [scope={scope}, queryFormatted={queryFormatted}]");
+            mo.InvokeMethod(methodName, methodParamsObject, null);
 
-                return result;
-            });
-        }
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Write successful. [queryFormatted={queryFormatted}, methodName={methodName}, methodParams.Count={methodParams?.Count}]");
+        });
 
         private class WMIPropertyValueFormatter : IFormatProvider, ICustomFormatter
         {

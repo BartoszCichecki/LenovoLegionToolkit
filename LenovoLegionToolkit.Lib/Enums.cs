@@ -57,6 +57,44 @@ namespace LenovoLegionToolkit.Lib
         Stopped,
     }
 
+    public enum RGBKeyboardBacklightChanged { }
+
+    public enum RGBKeyboardBrightness
+    {
+        Low,
+        High,
+    }
+
+    public enum RGBKeyboardEffect
+    {
+        Static,
+        Breath,
+        Smooth,
+        [Display(Name = "Wave Right")]
+        WaveRTL,
+        [Display(Name = "Wave Left")]
+        WaveLTR,
+    }
+
+    public enum RGBKeyboardBacklightPreset
+    {
+        Off = -1,
+        [Display(Name = "Preset 1")]
+        One = 0,
+        [Display(Name = "Preset 2")]
+        Two = 1,
+        [Display(Name = "Preset 3")]
+        Three = 2,
+    }
+
+    public enum RBGKeyboardSpeed
+    {
+        Slowest,
+        Slow,
+        Fast,
+        Fastest,
+    }
+
     public enum SoftwareStatus
     {
         Enabled,
@@ -71,7 +109,7 @@ namespace LenovoLegionToolkit.Lib
         Fn_LockOn = 2,
         Fn_LockOff = 3,
         Fn_PrtSc = 4,
-        Fn_R = 16,
+        Fn_R = 16
     }
 
     public enum Theme
@@ -91,5 +129,14 @@ namespace LenovoLegionToolkit.Lib
     {
         Off,
         On,
+    }
+
+    public enum WhiteKeyboardBacklightChanged { }
+
+    public enum WhiteKeyboardBacklightState
+    {
+        Off,
+        Low,
+        High,
     }
 }

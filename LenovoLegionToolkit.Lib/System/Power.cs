@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Management;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.System
@@ -48,7 +49,7 @@ namespace LenovoLegionToolkit.Lib.System
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Activating... [powerModeState={powerModeState}, alwaysActivateDefaults={alwaysActivateDefaults}]");
 
-            var powerPlanId = Settings.PowerPlans.GetValueOrDefault(powerModeState);
+            var powerPlanId = Settings.Store.PowerPlans.GetValueOrDefault(powerModeState);
             var isDefault = false;
 
             if (powerPlanId is null)
@@ -97,7 +98,7 @@ namespace LenovoLegionToolkit.Lib.System
         {
             var powerModes = new Dictionary<PowerModeState, string>(defaultPowerModes);
 
-            foreach (var kv in Settings.PowerPlans)
+            foreach (var kv in Settings.Store.PowerPlans)
             {
                 if (string.IsNullOrWhiteSpace(kv.Value))
                     continue;
@@ -117,7 +118,7 @@ namespace LenovoLegionToolkit.Lib.System
 
         private static async Task<bool> ShouldActivateAsync(bool alwaysActivateDefaults, bool isDefault)
         {
-            var activateWhenVantageEnabled = Settings.ActivatePowerProfilesWithVantageEnabled;
+            var activateWhenVantageEnabled = Settings.Store.ActivatePowerProfilesWithVantageEnabled;
             if (activateWhenVantageEnabled)
             {
                 if (Log.Instance.IsTraceEnabled)
