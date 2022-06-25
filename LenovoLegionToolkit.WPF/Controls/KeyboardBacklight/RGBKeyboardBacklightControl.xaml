@@ -40,7 +40,7 @@
             Margin="0,0,8,24"
             Icon="Warning24">
             <wpfui:CardControl.Header>
-                <controls:CardHeaderControl Title="Settings unavailable" Subtitle="Keyboard backlight cannot be adjusted, when Vantage and/or it's services are running." />
+                <controls:CardHeaderControl Title="Unavailable" Subtitle="Keyboard backlight cannot be adjusted, when Vantage and/or it's services are running." />
             </wpfui:CardControl.Header>
         </wpfui:CardControl>
 
