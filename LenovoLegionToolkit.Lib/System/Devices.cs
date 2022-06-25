@@ -60,6 +60,7 @@ namespace LenovoLegionToolkit.Lib.System
                         {
                             0xC955, // MY 2020
                             0xC965, // MY 2021
+                            0xc963, // MY 2021, Ideapad
                         };
                         var productIdMask = 0xFF0F;
                         var descriptorLength = 0x21;
