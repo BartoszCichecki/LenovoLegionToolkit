@@ -10,9 +10,9 @@ using Wpf.Ui.Controls;
 using Button = System.Windows.Controls.Button;
 using Color = System.Windows.Media.Color;
 
-namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
+namespace LenovoLegionToolkit.WPF.Controls
 {
-    public class RGBColorKeyboardBacklightCardControl : UserControl
+    public class ColorCardControl : UserControl
     {
         private readonly CardExpander _cardExpander = new();
 
@@ -49,18 +49,9 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
             set => _cardHeaderControl.Subtitle = value;
         }
 
-        public RGBColor SelectedColor
-        {
-            get
-            {
-                var selectedColor = _colorPicker.SelectedColor;
-                return new(selectedColor.R, selectedColor.G, selectedColor.B);
-            }
-        }
-
         public event EventHandler? OnChanged;
 
-        public RGBColorKeyboardBacklightCardControl() => InitializeComponent();
+        public ColorCardControl() => InitializeComponent();
 
         private void InitializeComponent()
         {
@@ -72,7 +63,6 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
 
             _cardExpander.Header = _cardHeaderControl;
             _cardExpander.Content = _colorPicker;
-            _cardExpander.Margin = new(0, 0, 0, 8);
 
             Content = _cardExpander;
         }
@@ -89,12 +79,18 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) => OnChanged?.Invoke(this, EventArgs.Empty);
 
-        public void Set(RGBColor color)
+        public void SetColor(RGBColor color)
         {
             var c = Color.FromRgb(color.R, color.G, color.B);
             _colorPicker.SelectedColor = c;
             _colorButton.Background = new SolidColorBrush(c);
             _colorButton.Visibility = Visibility.Visible;
+        }
+
+        public RGBColor GetColor()
+        {
+            var selectedColor = _colorPicker.SelectedColor;
+            return new(selectedColor.R, selectedColor.G, selectedColor.B);
         }
 
         public void Clear()

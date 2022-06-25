@@ -16,7 +16,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
     {
         private Button[] PresetButtons => new[] { _offPresetButton, _preset1Button, _preset2Button, _preset3Button };
 
-        private RGBColorKeyboardBacklightCardControl[] Zones => new[] { _zone1Control, _zone2Control, _zone3Control, _zone4Control };
+        private ColorCardControl[] Zones => new[] { _zone1Control, _zone2Control, _zone3Control, _zone4Control };
 
         private readonly RGBKeyboardBacklightController _controller = IoCContainer.Resolve<RGBKeyboardBacklightController>();
         private readonly RGBKeyboardBacklightListener _listener = IoCContainer.Resolve<RGBKeyboardBacklightListener>();
@@ -65,11 +65,11 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
         }
         private async void SynchroniseZonesMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is not MenuItem menuItem || menuItem.Parent is not ContextMenu menu || menu.PlacementTarget is not RGBColorKeyboardBacklightCardControl control)
+            if (sender is not MenuItem menuItem || menuItem.Parent is not ContextMenu menu || menu.PlacementTarget is not ColorCardControl control)
                 return;
 
             foreach (var zone in Zones)
-                zone.Set(control.SelectedColor);
+                zone.SetColor(control.GetColor());
 
             await SaveState();
             await RefreshAsync();
@@ -159,10 +159,10 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
 
             if (zonesEnabled)
             {
-                _zone1Control.Set(preset.Zone1);
-                _zone2Control.Set(preset.Zone2);
-                _zone3Control.Set(preset.Zone3);
-                _zone4Control.Set(preset.Zone4);
+                _zone1Control.SetColor(preset.Zone1);
+                _zone2Control.SetColor(preset.Zone2);
+                _zone3Control.SetColor(preset.Zone3);
+                _zone4Control.SetColor(preset.Zone4);
             }
             else
             {
@@ -197,10 +197,10 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
             presets[selectedPreset] = new(_effectControl.SelectedItem,
                                           _speedControl.SelectedItem,
                                           _brightnessControl.SelectedItem,
-                                          _zone1Control.SelectedColor,
-                                          _zone2Control.SelectedColor,
-                                          _zone3Control.SelectedColor,
-                                          _zone4Control.SelectedColor);
+                                          _zone1Control.GetColor(),
+                                          _zone2Control.GetColor(),
+                                          _zone3Control.GetColor(),
+                                          _zone4Control.GetColor());
 
             await _controller.SetStateAsync(new(selectedPreset, presets));
         }
