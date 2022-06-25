@@ -2,7 +2,7 @@
 
 [![Build](https://github.com/BartoszCichecki/LenovoLegionToolkit/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/BartoszCichecki/LenovoLegionToolkit/actions/workflows/build.yml)
 
-This is a small utility created for Lenovo Legion 5, 5 Pro, 7 etc. laptops, that allows to change a couple of features that are only available in Lenovo Vantage.
+This is a utility created for Lenovo Legion 5, 5 Pro, 7 etc. laptops, that allows to change a couple of features that are only available in Lenovo Vantage.
 
 It runs no background services, uses less memory, virtually no CPU and contains no telemetry.
 
@@ -40,39 +40,47 @@ List of supported models can be found here: [Compatibility.cs](https://github.co
 
 The app allows to:
 
-* Switching between Quiet, Balance and Performance modes, including changing Windows power plans,
-* Enabling and disabling Hybrid Mode,
-* Changing Battery charging options: conservation, rapid charging and normal charging,
-* Always on USB charge settings: on, off and on when sleeping,
-* Flip to start, Over Drive, Fn and Touchpad locks,
-* Disable/enable Lenovo Vantage without uninstalling it,
+* Change settings like power mode, battery charging mode etc. That are available only through Vantage.
+* Change display refresh rate (built-in display only).
 * Deactivate discrete GPU (nVidia only).
-* Change display refresh rate (buil in display only).
-* Set up custom power plans for specific Power Modes.
+* View battery statistics.
+* Define Actions that will run when laptop is i.e. connected to AC power.
+* Disable/enable Lenovo Vantage and Fn Keys service without uninstalling it.
 
-#### Disable/enable Lenovo Vantage
+##### Disable/enable Lenovo Vantage
+
+You can disable Lenovo Vantage without uninstalling it. It it especially useful, you want to keep Vantage around i.e. for checking updates.
+
+You can do it from the Settings page. If you disable Vantage, it will stop and disable it's services, and disable all funky Lenovo Scheduled tasks. Once Vantage is disabled, it will no longer start any background processes on startup.
+
+If you want to open Lenovo Vantage, you need to re-enable it from the tool, otherwise it will prompt to reinstall itself.
+
+##### Disable/enable Fn Keys service
 
 This app allows you to disable Lenovo Vantage without uninstalling it. It it especially useful, you want to keep Vantage around i.e. for checking updates.
 
 You can do it from the Tools menu on top. If you disable Vantage, it will stop and disable it's services, and disable all funky Lenovo Scheduled tasks. Once Vantage is disabled, it will no longer start any background processes on startup. If you want to open Lenovo Vantage, you need to re-enable it from the tool, otherwise it will prompt to reinstall itself.
 
-#### Deactivate discrete GPU
+##### Deactivate discrete GPU
 
 Sometimes discrete GPU stays active even when it should not. This can happen for example, if you work with external screen and you disconnect it - some processes will keep running on discrete GPU keeping it alive and shortening battery life.
 
-This app allows you to deactivate discrete GPU for a short amount of time, which will force all processes to move to the integrated GPU and allow discrete GPU to turn off and extend battery life. Toolkit will show you if the dGPU is active and how many processes run on it. If you hover mouse over the GPU status it, tooltip will contain list of active processes.
+There are two ways to help the GPU deactivate:
 
-Deactive button will be enabled when dGPU is active, you have Hybrid mode enabled and there are no screens connected to dGPU.
+1. killing all processes running on dGPU,
+2. disabling dGPU for a short amount of time, which will force all processes to move to the integrated GPU.
+
+Deactivate button will be enabled when dGPU is active, you have Hybrid mode enabled and there are no screens connected to dGPU. If you hover over the button, you will see the current P state of dGPU and list of processes running on it.
 
 Keep in mind that some apps may not like this feature and crash, when you deactivate dGPU.
 
-#### Windows Power Plans
+##### Windows Power Plans
 
 Toolkit will automatically switch Windows power plans when Power Mode changes _and_ when Lenovo Vantage is disabled.
 
 On some laptops though, Lenovo Vantage never switched power plans. If you have one of the laptops where Lenovo Vantage does not change Windows power plans automatically you can override this behavior in Settings. This will allow Toolkit to always change Windows power plans, even if Lenovo Vantage is running in the background.
 
-#### CPU Boost Modes
+##### CPU Boost Modes
 
 This allows to modify hidden setting of Windows Power Plans called *Processor performance boost mode*. It is a little bit cryptic what these options do, but the best explanation is provided here:
 
