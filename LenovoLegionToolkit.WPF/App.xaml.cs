@@ -80,15 +80,22 @@ namespace LenovoLegionToolkit
 
             try
             {
+                var controller = IoCContainer.Resolve<RGBKeyboardBacklightController>();
+
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Setting light controll owner...");
 
-                await IoCContainer.Resolve<RGBKeyboardBacklightController>().SetLightControlOwnerAsync(true);
+                await controller.SetLightControlOwnerAsync(true);
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Setting current preset...");
+
+                await controller.SetCurrentPresetAsync();
             }
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't set light controll owner. Exception: {ex.Demystify()}");
+                    Log.Instance.Trace($"Couldn't set light controll or current preset owner. Exception: {ex.Demystify()}");
             }
 
             Autorun.Validate();
