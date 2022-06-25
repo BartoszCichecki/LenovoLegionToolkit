@@ -15,6 +15,8 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         protected bool IsRefreshing => _refreshTask is not null;
 
+        protected virtual bool DisablesWhileRefreshing => true;
+
         public Task FinishedLoadingTask => _finishedLoadingTaskCompletionSource.Task;
 
         public AbstractRefreshingControl()
@@ -51,7 +53,8 @@ namespace LenovoLegionToolkit.WPF.Controls
 
             try
             {
-                IsEnabled = false;
+                if (DisablesWhileRefreshing)
+                    IsEnabled = false;
 
                 if (_refreshTask is null)
                     _refreshTask = OnRefreshAsync();
