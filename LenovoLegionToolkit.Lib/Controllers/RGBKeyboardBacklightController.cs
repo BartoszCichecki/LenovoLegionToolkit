@@ -58,7 +58,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
                     await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-                    await WMI.WriteAsync("ROOT\\WMI", $"SELECT * FROM LENOVO_GAMEZONE_DATA", "SetLightControlOwner", new() { { "Data", enable ? "1" : "0" } }).ConfigureAwait(false);
+                    await WMI.WriteAsync("ROOT\\WMI", $"SELECT * FROM LENOVO_GAMEZONE_DATA", "SetLightControlOwner", new() { { "Data", enable ? 1 : 0 } }).ConfigureAwait(false);
                     _isLightControlOwner = enable;
                 }
                 catch

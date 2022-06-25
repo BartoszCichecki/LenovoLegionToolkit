@@ -22,6 +22,8 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
         private readonly RGBKeyboardBacklightListener _listener = IoCContainer.Resolve<RGBKeyboardBacklightListener>();
         private readonly Vantage _vantage = IoCContainer.Resolve<Vantage>();
 
+        protected override bool DisablesWhileRefreshing => false;
+
         public RGBKeyboardBacklightControl()
         {
             InitializeComponent();
@@ -94,6 +96,11 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
                 _brightnessControl.IsEnabled = false;
                 _effectControl.IsEnabled = false;
 
+                _zone1Control.Clear();
+                _zone2Control.Clear();
+                _zone3Control.Clear();
+                _zone4Control.Clear();
+
                 _speedControl.IsEnabled = false;
                 _zone1Control.IsEnabled = false;
                 _zone2Control.IsEnabled = false;
@@ -126,6 +133,11 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
                 _effectControl.IsEnabled = false;
                 _speedControl.IsEnabled = false;
                 _brightnessControl.IsEnabled = false;
+
+                _zone1Control.Clear();
+                _zone2Control.Clear();
+                _zone3Control.Clear();
+                _zone4Control.Clear();
 
                 _zone1Control.IsEnabled = false;
                 _zone2Control.IsEnabled = false;

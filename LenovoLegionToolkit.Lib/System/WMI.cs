@@ -50,7 +50,7 @@ namespace LenovoLegionToolkit.Lib.System
             return result;
         });
 
-        public static Task WriteAsync(string scope, FormattableString query, string methodName, Dictionary<string, string> methodParams) => Task.Run(() =>
+        public static Task WriteAsync(string scope, FormattableString query, string methodName, Dictionary<string, object> methodParams) => Task.Run(() =>
         {
             var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
 
@@ -71,8 +71,10 @@ namespace LenovoLegionToolkit.Lib.System
             foreach (var pair in methodParams)
                 methodParamsObject[pair.Key] = pair.Value;
 
+            mo.InvokeMethod(methodName, methodParamsObject, null);
+
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Wrote [scope={scope}, queryFormatted={queryFormatted}, methodName={methodName}]");
+                Log.Instance.Trace($"Write successful. [queryFormatted={queryFormatted}, methodName={methodName}, methodParams.Count={methodParams?.Count}]");
         });
 
         private class WMIPropertyValueFormatter : IFormatProvider, ICustomFormatter
