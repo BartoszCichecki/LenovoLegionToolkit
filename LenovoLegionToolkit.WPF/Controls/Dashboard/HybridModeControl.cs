@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.WPF.Utils;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
@@ -28,7 +29,10 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
                 "Changing Hybrid Mode requires restart. Do you want to restart now?");
 
             if (result)
+            {
                 await base.OnStateChange(toggle, feature);
+                await Power.RestartAsync();
+            }
             else
                 toggle.IsChecked = !toggle.IsChecked;
         }
