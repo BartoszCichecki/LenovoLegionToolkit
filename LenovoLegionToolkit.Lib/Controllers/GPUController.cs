@@ -64,9 +64,17 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 NVAPI.Initialize();
                 return NVAPI.GetGPU() is not null;
             }
+            catch
+            {
+                return false;
+            }
             finally
             {
-                NVAPI.Unload();
+                try
+                {
+                    NVAPI.Unload();
+                }
+                catch { }
             }
         }
 
