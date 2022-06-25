@@ -126,6 +126,26 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
         }
 
+        public async Task SetCurrentPresetAsync()
+        {
+            await ThrowIfVantageEnabled().ConfigureAwait(false);
+
+            using (await _ioLock.LockAsync().ConfigureAwait(false))
+            {
+                var state = _settings.Store.State;
+
+                var preset = state.SelectedPreset;
+
+                RGBKeyboardStateEx str;
+                if (preset == RGBKeyboardBacklightPreset.Off)
+                    str = CreateOffState();
+                else
+                    str = Convert(state.Presets[preset]);
+
+                await SendToDevice(str).ConfigureAwait(false);
+            }
+        }
+
         public async Task SetNextPresetAsync()
         {
             await ThrowIfVantageEnabled().ConfigureAwait(false);
