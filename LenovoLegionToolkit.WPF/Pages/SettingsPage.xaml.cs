@@ -131,11 +131,16 @@ namespace LenovoLegionToolkit.WPF.Pages
                         Log.Instance.Trace($"Setting light controll owner...");
 
                     await _rgbKeyboardBacklightController.SetLightControlOwnerAsync(true);
+
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Setting current preset...");
+
+                    await _rgbKeyboardBacklightController.SetCurrentPresetAsync();
                 }
                 catch (Exception ex)
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Couldn't set light controll owner. Exception: {ex.Demystify()}");
+                        Log.Instance.Trace($"Couldn't set light controll or current preset owner. Exception: {ex.Demystify()}");
                 }
             }
             else
