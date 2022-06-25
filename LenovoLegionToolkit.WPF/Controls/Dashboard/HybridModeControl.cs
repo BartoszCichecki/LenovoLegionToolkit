@@ -7,7 +7,7 @@ using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
-    public class HybridModeControl : AbstractToggleCardControl<HybridModeState>
+    public class HybridModeControl : AbstractToggleFeatureCardControl<HybridModeState>
     {
         protected override HybridModeState OnState => HybridModeState.On;
 

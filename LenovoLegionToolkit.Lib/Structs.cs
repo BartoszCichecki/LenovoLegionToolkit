@@ -161,6 +161,93 @@ namespace LenovoLegionToolkit.Lib
         #endregion
     }
 
+    public struct RGBColor
+    {
+        public byte R { get; } = 255;
+        public byte G { get; } = 255;
+        public byte B { get; } = 255;
+
+        [JsonConstructor]
+        public RGBColor(byte r, byte g, byte b)
+        {
+            R = r;
+            G = g;
+            B = b;
+        }
+    }
+
+    public struct RGBKeyboardBacklightSettings
+    {
+        public RGBKeyboardEffect Effect { get; } = RGBKeyboardEffect.Static;
+        public RBGKeyboardSpeed Speed { get; } = RBGKeyboardSpeed.Slowest;
+        public RGBKeyboardBrightness Brightness { get; } = RGBKeyboardBrightness.Low;
+        public RGBColor Zone1 { get; } = new();
+        public RGBColor Zone2 { get; } = new();
+        public RGBColor Zone3 { get; } = new();
+        public RGBColor Zone4 { get; } = new();
+
+        [JsonConstructor]
+        public RGBKeyboardBacklightSettings(
+            RGBKeyboardEffect effect,
+            RBGKeyboardSpeed speed,
+            RGBKeyboardBrightness brightness,
+            RGBColor zone1,
+            RGBColor zone2,
+            RGBColor zone3,
+            RGBColor zone4)
+        {
+            Effect = effect;
+            Speed = speed;
+            Brightness = brightness;
+            Zone1 = zone1;
+            Zone2 = zone2;
+            Zone3 = zone3;
+            Zone4 = zone4;
+        }
+
+        #region Equality
+
+        public override bool Equals(object? obj)
+        {
+            return obj is RGBKeyboardBacklightSettings settings &&
+                   Effect == settings.Effect &&
+                   Speed == settings.Speed &&
+                   Brightness == settings.Brightness &&
+                   Zone1.Equals(settings.Zone1) &&
+                   Zone2.Equals(settings.Zone2) &&
+                   Zone3.Equals(settings.Zone3) &&
+                   Zone4.Equals(settings.Zone4);
+        }
+
+        public override int GetHashCode() => HashCode.Combine(Effect, Speed, Brightness, Zone1, Zone2, Zone3, Zone4);
+
+        public static bool operator ==(RGBKeyboardBacklightSettings left, RGBKeyboardBacklightSettings right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(RGBKeyboardBacklightSettings left, RGBKeyboardBacklightSettings right)
+        {
+            return !(left == right);
+        }
+
+        #endregion
+
+    }
+
+    public struct RGBKeyboardBacklightState
+    {
+        public RGBKeyboardBacklightPreset SelectedPreset { get; }
+        public Dictionary<RGBKeyboardBacklightPreset, RGBKeyboardBacklightSettings> Presets { get; }
+
+        [JsonConstructor]
+        public RGBKeyboardBacklightState(RGBKeyboardBacklightPreset selectedPreset, Dictionary<RGBKeyboardBacklightPreset, RGBKeyboardBacklightSettings> presets)
+        {
+            SelectedPreset = selectedPreset;
+            Presets = presets;
+        }
+    }
+
     public struct RefreshRate : IDisplayName, IEquatable<RefreshRate>
     {
         public int Frequency { get; }

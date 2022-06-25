@@ -9,9 +9,15 @@ namespace LenovoLegionToolkit.WPF.Controls
 {
     public abstract class AbstractRefreshingControl : UserControl
     {
-        protected bool IsRefreshing => _refreshTask is not null;
+        private readonly TaskCompletionSource _finishedLoadingTaskCompletionSource = new();
 
         private Task? _refreshTask;
+
+        protected bool IsRefreshing => _refreshTask is not null;
+
+        protected virtual bool DisablesWhileRefreshing => true;
+
+        public Task FinishedLoadingTask => _finishedLoadingTaskCompletionSource.Task;
 
         public AbstractRefreshingControl()
         {
@@ -23,9 +29,10 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         private async void RefreshingControl_Loaded(object sender, RoutedEventArgs e)
         {
-            var loadingTask = Task.Delay(250);
+            var loadingTask = Task.Delay(500);
             await RefreshAsync();
             await loadingTask;
+            _ = _finishedLoadingTaskCompletionSource.TrySetResult();
             OnFinishedLoading();
         }
 
@@ -46,7 +53,8 @@ namespace LenovoLegionToolkit.WPF.Controls
 
             try
             {
-                IsEnabled = false;
+                if (DisablesWhileRefreshing)
+                    IsEnabled = false;
 
                 if (_refreshTask is null)
                     _refreshTask = OnRefreshAsync();

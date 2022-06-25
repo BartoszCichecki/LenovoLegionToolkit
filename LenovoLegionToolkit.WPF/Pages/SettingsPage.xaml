@@ -90,15 +90,17 @@
             FontSize="12"
             Text="Do not change options below unless you really know what you are doing." />
 
-        <wpfui:CardAction
-            Margin="0,0,0,8"
-            Click="PowerPlans_Click"
-            Content="Windows Power Plans" />
+        <wpfui:CardAction Margin="0,0,0,8" Click="PowerPlans_Click">
+            <wpfui:CardAction.Content>
+                <controls:CardHeaderControl Title="Power plans" />
+            </wpfui:CardAction.Content>
+        </wpfui:CardAction>
 
-        <wpfui:CardAction
-            Margin="0,0,0,8"
-            Click="CPUBoostModes_Click"
-            Content="CPU Boost Modes" />
+        <wpfui:CardAction Margin="0,0,0,8" Click="CPUBoostModes_Click">
+            <wpfui:CardAction.Content>
+                <controls:CardHeaderControl Title="CPU Boost Modes" />
+            </wpfui:CardAction.Content>
+        </wpfui:CardAction>
 
     </StackPanel>
 </Page>

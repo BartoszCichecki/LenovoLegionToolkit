@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="LenovoLegionToolkit.WPF.Pages.KeyboardBacklightPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:kb="clr-namespace:LenovoLegionToolkit.WPF.Controls.KeyboardBacklight"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Title="Keyboard Backlight"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    Style="{StaticResource UiPageScrollable}"
+    mc:Ignorable="d">
+
+
+    <StackPanel Margin="0,0,0,0">
+
+        <TextBlock
+            Margin="0,16,0,24"
+            FontSize="24"
+            FontWeight="Medium"
+            Text="Keyboard Backlight" />
+
+        <controls:LoadableControl x:Name="_loader">
+            <StackPanel>
+                <TextBlock
+                    x:Name="_noKeyboardsText"
+                    FontSize="14"
+                    Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                    Text="No compatible keyboards found" />
+
+                <kb:RGBKeyboardBacklightControl x:Name="_rgbKeyboardBacklightControl" Margin="0,0,8,0" />
+                <kb:WhiteKeyboardBacklightControl x:Name="_whiteKeyboardBacklightControl" Margin="0,0,16,0" />
+            </StackPanel>
+        </controls:LoadableControl>
+
+    </StackPanel>
+
+</Page>

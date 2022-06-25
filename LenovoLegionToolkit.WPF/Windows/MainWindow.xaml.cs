@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 using System.Windows;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
+using LenovoLegionToolkit.WPF.Pages;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Utils;
 using Wpf.Ui.Controls;
@@ -52,7 +54,6 @@ namespace LenovoLegionToolkit.WPF.Windows
         private void InitializeTray()
         {
             ContextMenuHelper.Instance.BringToForegroundAction = BringToForeground;
-            ContextMenuHelper.Instance.SetNavigationItems(_navigationStore);
 
             var notifyIcon = new NotifyIcon
             {
@@ -101,8 +102,19 @@ namespace LenovoLegionToolkit.WPF.Windows
             }
         }
 
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            var loadingTask = Task.Delay(500);
+
+            if (!await KeyboardBacklightPage.IsSupportedAsync())
+                _navigationStore.Items.Remove(_keyboardItem);
+
+            ContextMenuHelper.Instance.SetNavigationItems(_navigationStore);
+
+            await loadingTask;
+
+            _loader.IsLoading = false;
+
             CheckForUpdates();
         }
 
@@ -110,7 +122,7 @@ namespace LenovoLegionToolkit.WPF.Windows
         {
             SaveWindowSize();
 
-            if (_settings.MinimizeOnClose)
+            if (_settings.Store.MinimizeOnClose)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Minimizing...");
@@ -153,13 +165,13 @@ namespace LenovoLegionToolkit.WPF.Windows
             if (WindowState == WindowState.Maximized)
                 return;
 
-            _settings.WindowSize = new(ActualWidth, ActualHeight);
-            _settings.Synchronize();
+            _settings.Store.WindowSize = new(ActualWidth, ActualHeight);
+            _settings.SynchronizeStore();
         }
 
         private void RestoreWindowSize()
         {
-            var windowSize = _settings.WindowSize;
+            var windowSize = _settings.Store.WindowSize;
             if (windowSize.Width >= MinWidth && windowSize.Height >= MinHeight)
             {
                 Width = windowSize.Width;

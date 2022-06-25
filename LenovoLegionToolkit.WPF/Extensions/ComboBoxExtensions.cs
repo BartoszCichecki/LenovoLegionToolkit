@@ -16,6 +16,12 @@ namespace System.Windows.Controls
             comboBox.SelectedValue = selectedBoxedItem;
         }
 
+        public static void ClearItems(this ComboBox comboBox)
+        {
+            comboBox.Items.Clear();
+            comboBox.SelectedValue = null;
+        }
+
         public static bool TryGetSelectedItem<T>(this ComboBox comboBox, out T? value)
         {
             if (comboBox.SelectedItem is ComboBoxItem<T> selectedBoxedItem)
