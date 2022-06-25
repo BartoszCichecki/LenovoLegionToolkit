@@ -21,6 +21,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         private readonly Vantage _vantage;
 
+        private bool _isLightControlOwner = false;
+
         public RGBKeyboardBacklightController(RGBKeyboardSettings settings, Vantage vantage)
         {
             _settings = settings;
@@ -34,6 +36,37 @@ namespace LenovoLegionToolkit.Lib.Controllers
 #else
             return Devices.GetRGBKeyboard() is not null;
 #endif
+        }
+
+        public async Task<bool> IsLightControlOwnerAsync()
+        {
+            using (await _ioLock.LockAsync().ConfigureAwait(false))
+                return _isLightControlOwner;
+        }
+
+        public async Task SetLightControlOwnerAsync(bool enable)
+        {
+            using (await _ioLock.LockAsync().ConfigureAwait(false))
+            {
+                try
+                {
+#if !MOCK_RGB
+                    var handle = Devices.GetRGBKeyboard();
+                    if (handle is null)
+                        throw new InvalidOperationException("RGB Keyboard unsupported.");
+#endif
+
+                    await ThrowIfVantageEnabled().ConfigureAwait(false);
+
+                    await WMI.WriteAsync("ROOT\\WMI", $"SELECT * FROM LENOVO_GAMEZONE_DATA", "SetLightControlOwner", new() { { "Data", enable ? "1" : "0" } }).ConfigureAwait(false);
+                    _isLightControlOwner = enable;
+                }
+                catch
+                {
+                    _isLightControlOwner = false;
+                    throw;
+                }
+            }
         }
 
         public async Task<RGBKeyboardBacklightState> GetStateAsync()
@@ -149,7 +182,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 #endif
         });
 
-        public RGBKeyboardStateEx CreateOffState()
+        private RGBKeyboardStateEx CreateOffState()
         {
             return new()
             {
@@ -165,7 +198,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             };
         }
 
-        public RGBKeyboardStateEx Convert(RGBKeyboardBacklightSettings preset)
+        private RGBKeyboardStateEx Convert(RGBKeyboardBacklightSettings preset)
         {
             var result = new RGBKeyboardStateEx
             {

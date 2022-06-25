@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Settings;
 
@@ -15,6 +18,7 @@ namespace LenovoLegionToolkit.WPF.Pages
         private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
         private readonly Vantage _vantage = IoCContainer.Resolve<Vantage>();
         private readonly FnKeys _fnKeys = IoCContainer.Resolve<FnKeys>();
+        private readonly RGBKeyboardBacklightController _rgbKeyboardBacklightController = IoCContainer.Resolve<RGBKeyboardBacklightController>();
         private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
 
         private bool _isRefreshing;
@@ -118,9 +122,39 @@ namespace LenovoLegionToolkit.WPF.Pages
                 return;
 
             if (state.Value)
+            {
                 await _vantage.DisableAsync();
+
+                try
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Setting light controll owner...");
+
+                    await _rgbKeyboardBacklightController.SetLightControlOwnerAsync(true);
+                }
+                catch (Exception ex)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Couldn't set light controll owner. Exception: {ex.Demystify()}");
+                }
+            }
             else
+            {
+                try
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Setting light controll owner...");
+
+                    await _rgbKeyboardBacklightController.SetLightControlOwnerAsync(false);
+                }
+                catch (Exception ex)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Couldn't set light controll owner. Exception: {ex.Demystify()}");
+                }
+
                 await _vantage.EnableAsync();
+            }
 
             _vantageToggle.IsEnabled = true;
         }
