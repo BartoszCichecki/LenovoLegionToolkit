@@ -1,12 +1,12 @@
 # Lenovo Legion Toolkit
 
-[![Build](https://github.com/BartoszCichecki/LenovoLegionToolkit/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/BartoszCichecki/LenovoLegionToolkit/actions/workflows/build.yml) <img src="https://img.shields.io/discord/761178912230473768?label=Discord" alt="Join Discord" />
+[![Build](https://github.com/BartoszCichecki/LenovoLegionToolkit/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/BartoszCichecki/LenovoLegionToolkit/actions/workflows/build.yml) [![Join Discord](https://img.shields.io/discord/761178912230473768?label=Legion%20Series%20Discord)](https://discord.com/invite/legionseries)
 
 This is a utility created for Lenovo Legion 5, 5 Pro, 7 etc. laptops, that allows to change a couple of features that are only available in Lenovo Vantage.
 
 It runs no background services, uses less memory, virtually no CPU and contains no telemetry.
 
-Join the Legion Series Discord: https://discord.com/invite/legionseries
+Join the Legion Series Discord: https://discord.com/invite/legionseries!
 
 ![screenshot](assets/screenshot.png)
 
