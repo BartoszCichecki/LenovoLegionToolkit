@@ -69,7 +69,7 @@ Sometimes discrete GPU stays active even when it should not. This can happen for
 
 There are two ways to help the GPU deactivate:
 
-1. killing all processes running on dGPU,
+1. killing all processes running on dGPU (this one seems to work better),
 2. disabling dGPU for a short amount of time, which will force all processes to move to the integrated GPU.
 
 Deactivate button will be enabled when dGPU is active, you have Hybrid mode enabled and there are no screens connected to dGPU. If you hover over the button, you will see the current P state of dGPU and list of processes running on it.
