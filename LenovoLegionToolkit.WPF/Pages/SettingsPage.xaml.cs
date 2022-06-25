@@ -111,6 +111,8 @@ namespace LenovoLegionToolkit.WPF.Pages
             if (_isRefreshing)
                 return;
 
+            _vantageToggle.IsEnabled = false;
+
             var state = _vantageToggle.IsChecked;
             if (state is null)
                 return;
@@ -119,12 +121,16 @@ namespace LenovoLegionToolkit.WPF.Pages
                 await _vantage.DisableAsync();
             else
                 await _vantage.EnableAsync();
+
+            _vantageToggle.IsEnabled = true;
         }
 
         private async void FnKeysToggle_Click(object sender, RoutedEventArgs e)
         {
             if (_isRefreshing)
                 return;
+
+            _fnKeysToggle.IsEnabled = false;
 
             var state = _fnKeysToggle.IsChecked;
             if (state is null)
@@ -134,6 +140,8 @@ namespace LenovoLegionToolkit.WPF.Pages
                 await _fnKeys.DisableAsync();
             else
                 await _fnKeys.EnableAsync();
+
+            _fnKeysToggle.IsEnabled = true;
         }
 
         private void PowerPlans_Click(object sender, RoutedEventArgs e)
