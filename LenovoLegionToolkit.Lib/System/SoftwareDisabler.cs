@@ -142,6 +142,7 @@ namespace LenovoLegionToolkit.Lib.System
                             if (Log.Instance.IsTraceEnabled)
                                 Log.Instance.Trace($"Starting service {serviceName}...");
                             service.Start();
+                            service.WaitForStatus(ServiceControllerStatus.Running);
                         }
                         else
                         {
@@ -156,6 +157,7 @@ namespace LenovoLegionToolkit.Lib.System
                             if (Log.Instance.IsTraceEnabled)
                                 Log.Instance.Trace($"Stopping service {serviceName}...");
                             service.Stop();
+                            service.WaitForStatus(ServiceControllerStatus.Stopped);
                         }
                         else
                         {
