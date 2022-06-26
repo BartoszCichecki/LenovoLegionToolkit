@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Threading;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
+using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
@@ -77,6 +78,26 @@ namespace LenovoLegionToolkit
                     Log.Instance.Trace($"Couldn't ensure correct power plan. Exception: {ex.Demystify()}");
             }
 
+            try
+            {
+                var rgbKeyboardBacklightController = IoCContainer.Resolve<RGBKeyboardBacklightController>();
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Setting light controll owner...");
+
+                await rgbKeyboardBacklightController.SetLightControlOwnerAsync(true);
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Setting current preset...");
+
+                await rgbKeyboardBacklightController.SetCurrentPresetAsync();
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't set light controll or current preset owner. Exception: {ex.Demystify()}");
+            }
+
             Autorun.Validate();
 
             var mainWindow = new MainWindow
@@ -104,6 +125,22 @@ namespace LenovoLegionToolkit
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Start up complete");
+        }
+
+        private async void Application_Exit(object sender, ExitEventArgs e)
+        {
+            try
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Resigning light controll owner...");
+
+                await IoCContainer.Resolve<RGBKeyboardBacklightController>().SetLightControlOwnerAsync(false);
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't set light controll owner. Exception: {ex.Demystify()}");
+            }
         }
 
         private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)

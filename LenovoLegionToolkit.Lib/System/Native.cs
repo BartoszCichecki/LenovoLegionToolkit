@@ -157,6 +157,15 @@ namespace LenovoLegionToolkit.Lib.System
     }
 
     [StructLayout(LayoutKind.Sequential)]
+    internal struct SpDeviceInfoDataEx
+    {
+        public int CbSize;
+        public Guid InterfaceClassGuid;
+        public int Flags;
+        public UIntPtr Reserved;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
     internal struct SpDeviceInterfaceDataEx
     {
         public int CbSize;
@@ -184,14 +193,72 @@ namespace LenovoLegionToolkit.Lib.System
         public int BatteryFullLifeTime;
     }
 
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public struct HIDDAttributesEx
+    {
+        public int CbSize;
+        public ushort VendorID;
+        public ushort ProductID;
+        public ushort VersionNumber;
+    }
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public struct HIDPCapsEx
+    {
+        public ushort Usage;
+        public ushort UsagePage;
+        public ushort InputReportByteLength;
+        public ushort OutputReportByteLength;
+        public ushort FeatureReportByteLength;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 17)]
+        public ushort[] Reserved;
+        public ushort NumberLinkCollectionNodes;
+        public ushort NumberInputButtonCaps;
+        public ushort NumberInputValueCaps;
+        public ushort NumberInputDataIndices;
+        public ushort NumberOutputButtonCaps;
+        public ushort NumberOutputValueCaps;
+        public ushort NumberOutputDataIndices;
+        public ushort NumberFeatureButtonCaps;
+        public ushort NumberFeatureValueCaps;
+        public ushort NumberFeatureDataIndices;
+    };
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public struct RGBKeyboardStateEx
+    {
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
+        public byte[] Header;
+        public byte Effect;
+        public byte Speed;
+        public byte Brightness;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
+        public byte[] Zone1Rgb;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
+        public byte[] Zone2Rgb;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
+        public byte[] Zone3Rgb;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
+        public byte[] Zone4Rgb;
+        public byte Padding;
+        public byte WaveLTR;
+        public byte WaveRTL;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 13)]
+        public byte[] Unused;
+    }
+
     internal static class Native
     {
         public static readonly Guid GUID_DEVCLASS_BATTERY = new(0x72631E54, 0x78A4, 0x11D0, 0xBC, 0xF7, 0x00, 0xAA, 0x00, 0xB7, 0xB3, 0x2A);
+
         public const uint IOCTL_BATTERY_QUERY_TAG = (0x00000029 << 16) | ((int)FileAccess.Read << 14) | (0x10 << 2) | (0);
         public const uint IOCTL_BATTERY_QUERY_INFORMATION = (0x00000029 << 16) | ((int)FileAccess.Read << 14) | (0x11 << 2) | (0);
         public const uint IOCTL_BATTERY_QUERY_STATUS = (0x00000029 << 16) | ((int)FileAccess.Read << 14) | (0x13 << 2) | (0);
 
-        public const int DEVICE_INTERFACE_BUFFER_SIZE = 120;
+        public const uint DIGCF_PRESENT = 0x2;
+        public const uint DIGCF_DEVICEINTERFACE = 0x10;
+
+        public const int ERROR_NO_MORE_ITEMS = 259;
 
         [DllImport("setupapi.dll", CharSet = CharSet.Auto, SetLastError = true)]
         public static extern IntPtr SetupDiGetClassDevs(
@@ -208,11 +275,26 @@ namespace LenovoLegionToolkit.Lib.System
             uint memberIndex,
             ref SpDeviceInterfaceDataEx devInterfaceData);
 
+        [DllImport("setupapi.dll", SetLastError = true)]
+        public static extern bool SetupDiEnumDeviceInfo(
+            IntPtr hdevInfo,
+            uint index,
+            ref SpDeviceInfoDataEx deviceInfoData);
+
         [DllImport("setupapi.dll", CharSet = CharSet.Auto, SetLastError = true)]
         public static extern bool SetupDiGetDeviceInterfaceDetail(
             IntPtr hdevInfo,
             ref SpDeviceInterfaceDataEx deviceInterfaceData,
             ref SpDeviceInterfaceDetailDataEx deviceInterfaceDetailData,
+            uint deviceInterfaceDetailDataSize,
+            out uint requiredSize,
+            IntPtr deviceInfoData);
+
+        [DllImport("setupapi.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        public static extern bool SetupDiGetDeviceInterfaceDetail(
+            IntPtr hdevInfo,
+            ref SpDeviceInterfaceDataEx deviceInterfaceData,
+            IntPtr deviceInterfaceDetailData,
             uint deviceInterfaceDetailDataSize,
             out uint requiredSize,
             IntPtr deviceInfoData);
@@ -244,7 +326,7 @@ namespace LenovoLegionToolkit.Lib.System
         public static extern bool DeviceIoControl(
             SafeFileHandle hDevice,
             uint dwIoControlCode,
-            ref byte inBuffer,
+            ref uint inBuffer,
             int nInBufferSize,
             out uint outBuffer,
             int nOutBufferSize,
@@ -340,6 +422,24 @@ namespace LenovoLegionToolkit.Lib.System
 
         [DllImport("advapi32.dll", EntryPoint = "CloseServiceHandle")]
         public static extern int CloseServiceHandle(IntPtr hSCObject);
+
+        [DllImport("hid.dll", EntryPoint = "HidD_GetHidGuid", SetLastError = true, CharSet = CharSet.Auto)]
+        public static extern void HidD_GetHidGuid(out Guid guid);
+
+        [DllImport("hid.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        public static extern bool HidD_GetAttributes(SafeFileHandle handle, ref HIDDAttributesEx attributes);
+
+        [DllImport("hid.dll", SetLastError = true)]
+        public static extern bool HidD_GetPreparsedData(SafeFileHandle handle, ref IntPtr preparsedData);
+
+        [DllImport("hid.dll", SetLastError = true)]
+        public static extern bool HidD_FreePreparsedData(IntPtr preparsedData);
+
+        [DllImport("hid.dll", SetLastError = true)]
+        public static extern uint HidP_GetCaps(IntPtr preparsedData, out HIDPCapsEx capabilities);
+
+        [DllImport("hid.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        public static extern bool HidD_SetFeature(SafeFileHandle handle, IntPtr ptr, uint bufferLength);
     }
 
     internal static class NativeUtils

@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using Wpf.Ui.Common;
@@ -145,7 +146,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             if (temperature is null)
                 return "—";
 
-            if (_settings.TemperatureUnit == TemperatureUnit.F)
+            if (_settings.Store.TemperatureUnit == TemperatureUnit.F)
             {
                 temperature *= 9.0 / 5.0;
                 temperature += 32;
@@ -158,8 +159,8 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private void BatteryTemperatureCardControl_Click(object sender, RoutedEventArgs e)
         {
-            _settings.TemperatureUnit = _settings.TemperatureUnit == TemperatureUnit.C ? TemperatureUnit.F : TemperatureUnit.C;
-            _settings.Synchronize();
+            _settings.Store.TemperatureUnit = _settings.Store.TemperatureUnit == TemperatureUnit.C ? TemperatureUnit.F : TemperatureUnit.C;
+            _settings.SynchronizeStore();
 
             var temperature = (sender as FrameworkElement)?.Tag as double?;
             _batteryTemperatureText.Text = GetTemperatureText(temperature);

@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Utils;
@@ -15,6 +18,7 @@ namespace LenovoLegionToolkit.WPF.Pages
         private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
         private readonly Vantage _vantage = IoCContainer.Resolve<Vantage>();
         private readonly FnKeys _fnKeys = IoCContainer.Resolve<FnKeys>();
+        private readonly RGBKeyboardBacklightController _rgbKeyboardBacklightController = IoCContainer.Resolve<RGBKeyboardBacklightController>();
         private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
 
         private bool _isRefreshing;
@@ -41,9 +45,10 @@ namespace LenovoLegionToolkit.WPF.Pages
 
             var loadingTask = Task.Delay(250);
 
-            _themeComboBox.SetItems(Enum.GetValues<Theme>(), _settings.Theme);
+            _themeComboBox.SetItems(Enum.GetValues<Theme>(), _settings.Store.Theme);
+            _accentColor.SetColor(_settings.Store.AccentColor ?? _themeManager.DefaultAccentColor);
             _autorunToggle.IsChecked = Autorun.IsEnabled;
-            _minimizeOnCloseToggle.IsChecked = _settings.MinimizeOnClose;
+            _minimizeOnCloseToggle.IsChecked = _settings.Store.MinimizeOnClose;
 
             var vantageStatus = await _vantage.GetStatusAsync();
             _vantageCard.Visibility = vantageStatus != SoftwareStatus.NotFound ? Visibility.Visible : Visibility.Collapsed;
@@ -72,8 +77,19 @@ namespace LenovoLegionToolkit.WPF.Pages
             if (!_themeComboBox.TryGetSelectedItem(out Theme state))
                 return;
 
-            _settings.Theme = state;
-            _settings.Synchronize();
+            _settings.Store.Theme = state;
+            _settings.SynchronizeStore();
+
+            _themeManager.Apply();
+        }
+
+        private void AccentColorControl_OnChanged(object sender, EventArgs e)
+        {
+            if (_isRefreshing)
+                return;
+
+            _settings.Store.AccentColor = _accentColor.GetColor();
+            _settings.SynchronizeStore();
 
             _themeManager.Apply();
         }
@@ -102,8 +118,8 @@ namespace LenovoLegionToolkit.WPF.Pages
             if (state is null)
                 return;
 
-            _settings.MinimizeOnClose = state.Value;
-            _settings.Synchronize();
+            _settings.Store.MinimizeOnClose = state.Value;
+            _settings.SynchronizeStore();
         }
 
         private async void VantageToggle_Click(object sender, RoutedEventArgs e)
@@ -118,9 +134,44 @@ namespace LenovoLegionToolkit.WPF.Pages
                 return;
 
             if (state.Value)
+            {
                 await _vantage.DisableAsync();
+
+                try
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Setting light controll owner...");
+
+                    await _rgbKeyboardBacklightController.SetLightControlOwnerAsync(true);
+
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Setting current preset...");
+
+                    await _rgbKeyboardBacklightController.SetCurrentPresetAsync();
+                }
+                catch (Exception ex)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Couldn't set light controll or current preset owner. Exception: {ex.Demystify()}");
+                }
+            }
             else
+            {
+                try
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Setting light controll owner...");
+
+                    await _rgbKeyboardBacklightController.SetLightControlOwnerAsync(false);
+                }
+                catch (Exception ex)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Couldn't set light controll owner. Exception: {ex.Demystify()}");
+                }
+
                 await _vantage.EnableAsync();
+            }
 
             _vantageToggle.IsEnabled = true;
         }

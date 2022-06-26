@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,19 +10,17 @@ using LenovoLegionToolkit.WPF.Extensions;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 
-namespace LenovoLegionToolkit.WPF.Controls.Dashboard
+namespace LenovoLegionToolkit.WPF.Controls
 {
-    public abstract class AbstractRadioButtonCardControl<T> : AbstractRefreshingControl where T : struct
+    public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshingControl where T : struct
     {
-        private readonly string _radioGroupName = Guid.NewGuid().ToString();
-
         private readonly IFeature<T> _feature = IoCContainer.Resolve<IFeature<T>>();
 
         private readonly CardControl _cardControl = new();
 
         private readonly CardHeaderControl _cardHeaderControl = new();
 
-        private readonly StackPanel _radioContainer = new();
+        protected readonly ComboBox _comboBox = new();
 
         public SymbolRegular Icon
         {
@@ -41,21 +40,22 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             set => _cardHeaderControl.Subtitle = value;
         }
 
-        public AbstractRadioButtonCardControl() => InitializeComponent();
+        public AbstractComboBoxFeatureCardControl() => InitializeComponent();
 
         private void InitializeComponent()
         {
-            _radioContainer.Width = 150;
-            _radioContainer.HorizontalAlignment = HorizontalAlignment.Left;
-            _radioContainer.Visibility = Visibility.Hidden;
+            _comboBox.SelectionChanged += ComboBox_SelectionChanged;
+            _comboBox.Width = 150;
+            _comboBox.Visibility = Visibility.Hidden;
 
-            _cardControl.Margin = new(0, 0, 0, 8);
-
+            _cardHeaderControl.Accessory = _comboBox;
             _cardControl.Header = _cardHeaderControl;
-            _cardControl.Content = _radioContainer;
+            _cardControl.Margin = new(0, 0, 0, 8);
 
             Content = _cardControl;
         }
+
+        private async void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) => await OnStateChange(_comboBox, _feature);
 
         protected override async Task OnRefreshAsync()
         {
@@ -71,39 +71,24 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
                 return value.ToString() ?? throw new InvalidOperationException("Unsupported type");
             }
 
-            _radioContainer.Children.Clear();
-            foreach (var item in items)
-            {
-                var radioButton = new RadioButton()
-                {
-                    GroupName = _radioGroupName,
-                    Content = displayName(item),
-                    Tag = item,
-                    IsChecked = item.Equals(selectedItem),
-                };
-                radioButton.Checked += RadioButton_Checked;
-                _radioContainer.Children.Add(radioButton);
-            }
-        }
-
-        private async void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-            await OnStateChange((RadioButton)sender, _feature);
+            _comboBox.SetItems(items, selectedItem, displayName);
+            _comboBox.IsEnabled = items.Any();
         }
 
         protected override void OnFinishedLoading()
         {
-            _radioContainer.Visibility = Visibility.Visible;
+            _comboBox.Visibility = Visibility.Visible;
 
             MessagingCenter.Subscribe<T>(this, () => Dispatcher.InvokeTask(RefreshAsync));
         }
 
-        protected virtual async Task OnStateChange(RadioButton radioButton, IFeature<T> feature)
+        protected virtual async Task OnStateChange(ComboBox comboBox, IFeature<T> feature)
         {
             if (IsRefreshing)
                 return;
 
-            var selectedState = (T)radioButton.Tag;
+            if (!comboBox.TryGetSelectedItem(out T selectedState))
+                return;
 
             T currentState = await feature.GetStateAsync();
 

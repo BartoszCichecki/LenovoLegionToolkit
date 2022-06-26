@@ -80,8 +80,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation
                 _stackPanel.Children.Add(control);
             _stackPanel.Children.Add(_deleteButton);
 
+            _cardHeaderControl.Accessory = _stackPanel;
             _cardControl.Header = _cardHeaderControl;
-            _cardControl.Content = _stackPanel;
 
             Content = _cardControl;
         }

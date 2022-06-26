@@ -7,15 +7,15 @@ namespace LenovoLegionToolkit.Lib.Features
     {
         public AlwaysOnUSBFeature() : base(Drivers.GetEnergy, 0x831020E8) { }
 
-        protected override byte GetInternalStatus() => 0x2;
+        protected override uint GetInternalStatus() => 0x2;
 
-        protected override byte[] ToInternal(AlwaysOnUSBState state)
+        protected override uint[] ToInternal(AlwaysOnUSBState state)
         {
             return state switch
             {
-                AlwaysOnUSBState.Off => new byte[] { 0xB, 0x12 },
-                AlwaysOnUSBState.OnWhenSleeping => new byte[] { 0xA, 0x12 },
-                AlwaysOnUSBState.OnAlways => new byte[] { 0xA, 0x13 },
+                AlwaysOnUSBState.Off => new uint[] { 0xB, 0x12 },
+                AlwaysOnUSBState.OnWhenSleeping => new uint[] { 0xA, 0x12 },
+                AlwaysOnUSBState.OnAlways => new uint[] { 0xA, 0x13 },
                 _ => throw new InvalidOperationException("Invalid state"),
             };
         }
