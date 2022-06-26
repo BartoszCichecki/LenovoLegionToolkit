@@ -2,6 +2,7 @@
     x:Class="LenovoLegionToolkit.WPF.Windows.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -50,70 +51,84 @@
 
         </Grid>
 
-        <Grid Grid.Row="1" Margin="12,6,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+        <controls:LoadableControl
+            x:Name="_loader"
+            Grid.Row="1"
+            IndicatorVerticalAlignment="Center">
 
-            <wpfui:NavigationStore
-                x:Name="_navigationStore"
-                Grid.Column="0"
-                Margin="0,0,12,12"
-                Frame="{Binding ElementName=_rootFrame}"
-                SelectedPageIndex="0">
+            <Grid Margin="12,6,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-                <wpfui:NavigationStore.Items>
-                    <wpfui:NavigationItem
-                        Content="Dashboard"
-                        Icon="Home24"
-                        PageTag="dashboard"
-                        PageType="{x:Type pages:DashboardPage}" />
-                    <wpfui:NavigationItem
-                        Content="Battery"
-                        Icon="BatteryCheckmark24"
-                        PageTag="battery"
-                        PageType="{x:Type pages:BatteryPage}" />
-                    <wpfui:NavigationItem
-                        Content="Actions"
-                        Icon="Rocket24"
-                        PageTag="automation"
-                        PageType="{x:Type pages:AutomationPage}" />
-                </wpfui:NavigationStore.Items>
+                <wpfui:NavigationStore
+                    x:Name="_navigationStore"
+                    Grid.Column="0"
+                    Margin="0,0,12,12"
+                    Frame="{Binding ElementName=_rootFrame}"
+                    SelectedPageIndex="0">
 
-                <wpfui:NavigationStore.Footer>
-                    <wpfui:NavigationItem
-                        Content="Settings"
-                        Icon="Settings24"
-                        PageTag="settings"
-                        PageType="{x:Type pages:SettingsPage}" />
-                    <wpfui:NavigationItem
-                        Content="About"
-                        Icon="Info24"
-                        PageTag="about"
-                        PageType="{x:Type pages:AboutPage}" />
-                </wpfui:NavigationStore.Footer>
+                    <wpfui:NavigationStore.Items>
+                        <wpfui:NavigationItem
+                            Content="Dashboard"
+                            Icon="Home24"
+                            PageTag="dashboard"
+                            PageType="{x:Type pages:DashboardPage}" />
+                        <wpfui:NavigationItem
+                            x:Name="_keyboardItem"
+                            Content="Keyboard"
+                            Icon="Keyboard24"
+                            PageTag="keyboardBacklight"
+                            PageType="{x:Type pages:KeyboardBacklightPage}" />
+                        <wpfui:NavigationItem
+                            Content="Battery"
+                            Icon="BatteryCheckmark24"
+                            PageTag="battery"
+                            PageType="{x:Type pages:BatteryPage}" />
+                        <wpfui:NavigationItem
+                            Content="Actions"
+                            Icon="Rocket24"
+                            PageTag="automation"
+                            PageType="{x:Type pages:AutomationPage}" />
+                    </wpfui:NavigationStore.Items>
 
-            </wpfui:NavigationStore>
+                    <wpfui:NavigationStore.Footer>
+                        <wpfui:NavigationItem
+                            Content="Settings"
+                            Icon="Settings24"
+                            PageTag="settings"
+                            PageType="{x:Type pages:SettingsPage}" />
+                        <wpfui:NavigationItem
+                            Content="About"
+                            Icon="Info24"
+                            PageTag="about"
+                            PageType="{x:Type pages:AboutPage}" />
+                    </wpfui:NavigationStore.Footer>
 
-            <Border
-                Grid.Column="1"
-                Background="{DynamicResource ControlFillColorDefaultBrush}"
-                CornerRadius="8,0,0,0">
-                <Frame Name="_rootFrame" Margin="24,0,0,0" />
-            </Border>
+                </wpfui:NavigationStore>
 
-            <wpfui:Snackbar
-                x:Name="_snackBar"
-                Grid.Column="1"
-                MinWidth="300"
-                MaxWidth="600"
-                HorizontalAlignment="Center"
-                Icon="Checkmark24"
-                IsShown="False"
-                ShowCloseButton="False"
-                Timeout="2000" />
+                <Border
+                    Grid.Column="1"
+                    Background="{DynamicResource ControlFillColorDefaultBrush}"
+                    CornerRadius="8,0,0,0">
+                    <Frame Name="_rootFrame" Margin="24,0,0,0" />
+                </Border>
 
-        </Grid>
+                <wpfui:Snackbar
+                    x:Name="_snackBar"
+                    Grid.Column="1"
+                    MinWidth="300"
+                    MaxWidth="600"
+                    HorizontalAlignment="Center"
+                    Icon="Checkmark24"
+                    IsShown="False"
+                    ShowCloseButton="False"
+                    Timeout="2000" />
+
+            </Grid>
+
+        </controls:LoadableControl>
+
     </Grid>
 </local:BaseWindow>

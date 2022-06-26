@@ -5,7 +5,7 @@ using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
-    public class PowerModeControl : AbstractComboBoxCardControl<PowerModeState>
+    public class PowerModeControl : AbstractComboBoxFeatureCardControl<PowerModeState>
     {
         private readonly PowerModeListener _powerModeListener = IoCContainer.Resolve<PowerModeListener>();
         private readonly PowerPlanListener _powerPlanListener = IoCContainer.Resolve<PowerPlanListener>();
@@ -14,7 +14,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
         {
             Icon = SymbolRegular.Gauge24;
             Title = "Power Mode";
-            Subtitle = "Select performance mode.\nYou can switch mode using shortcut Fn+Q.";
+            Subtitle = "Select performance mode.\nYou can switch mode with Fn+Q.";
 
             _powerModeListener.Changed += PowerModeListener_Changed;
             _powerPlanListener.Changed += PowerPlanListener_Changed;

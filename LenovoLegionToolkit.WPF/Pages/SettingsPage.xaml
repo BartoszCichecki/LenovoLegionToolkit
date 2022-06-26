@@ -21,7 +21,7 @@
             FontWeight="Medium"
             Text="Settings" />
 
-        <wpfui:CardControl Margin="0,0,0,8">
+        <wpfui:CardControl Margin="0,0,0,8" Icon="DarkTheme24">
             <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="Theme" Subtitle="Set light theme, dark theme or follow system settings." />
             </wpfui:CardControl.Header>
@@ -32,6 +32,14 @@
                 SelectionChanged="ThemeComboBox_SelectionChanged"
                 Visibility="Hidden" />
         </wpfui:CardControl>
+
+        <controls:ColorCardControl
+            x:Name="_accentColor"
+            Title="Accent color"
+            Margin="0,0,0,24"
+            Icon="Color24"
+            OnChanged="AccentColorControl_OnChanged"
+            Subtitle="Change the accent color of the app." />
 
         <wpfui:CardControl Margin="0,0,0,8">
             <wpfui:CardControl.Header>
@@ -44,7 +52,7 @@
                 Visibility="Hidden" />
         </wpfui:CardControl>
 
-        <wpfui:CardControl Margin="0,0,0,16">
+        <wpfui:CardControl Margin="0,0,0,24">
             <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="Minimize on close" Subtitle="Always minimize to tray. Close with right click on tray icon." />
             </wpfui:CardControl.Header>
@@ -90,15 +98,17 @@
             FontSize="12"
             Text="Do not change options below unless you really know what you are doing." />
 
-        <wpfui:CardAction
-            Margin="0,0,0,8"
-            Click="PowerPlans_Click"
-            Content="Windows Power Plans" />
+        <wpfui:CardAction Margin="0,0,0,8" Click="PowerPlans_Click">
+            <wpfui:CardAction.Content>
+                <controls:CardHeaderControl Title="Power plans" />
+            </wpfui:CardAction.Content>
+        </wpfui:CardAction>
 
-        <wpfui:CardAction
-            Margin="0,0,0,8"
-            Click="CPUBoostModes_Click"
-            Content="CPU Boost Modes" />
+        <wpfui:CardAction Margin="0,0,0,8" Click="CPUBoostModes_Click">
+            <wpfui:CardAction.Content>
+                <controls:CardHeaderControl Title="CPU Boost Modes" />
+            </wpfui:CardAction.Content>
+        </wpfui:CardAction>
 
     </StackPanel>
 </Page>

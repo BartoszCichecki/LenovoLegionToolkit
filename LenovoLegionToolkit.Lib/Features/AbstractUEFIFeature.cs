@@ -118,7 +118,7 @@ namespace LenovoLegionToolkit.Lib.Features
                     else
                     {
                         if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Write to UEFI successful [feature={GetType().Name}]");
+                            Log.Instance.Trace($"WriteAsync to UEFI successful [feature={GetType().Name}]");
                     }
                 }
                 finally

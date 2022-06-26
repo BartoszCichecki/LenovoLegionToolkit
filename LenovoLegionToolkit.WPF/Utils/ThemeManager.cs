@@ -2,8 +2,8 @@
 using System.Windows;
 using System.Windows.Media;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
-using LenovoLegionToolkit.Lib.Utils;
 
 #pragma warning disable IDE0052 // Remove unread private members
 
@@ -18,11 +18,13 @@ namespace LenovoLegionToolkit.WPF.Utils
         private readonly ApplicationSettings _settings;
         private readonly IDisposable _themeListener;
 
+        public RGBColor DefaultAccentColor => new(231, 76, 60);
+
         public bool IsDarkMode
         {
             get
             {
-                var theme = _settings.Theme;
+                var theme = _settings.Store.Theme;
                 var registryValue = Registry.Read(RegistryHive, RegistryPath, RegistryKey, 1);
 
                 return (theme, registryValue) switch
@@ -56,9 +58,10 @@ namespace LenovoLegionToolkit.WPF.Utils
             Wpf.Ui.Appearance.Theme.Apply(theme, Wpf.Ui.Appearance.BackgroundType.Mica, false);
         }
 
-        private static void SetColor()
+        private void SetColor()
         {
-            var accentColor = (Color)ColorConverter.ConvertFromString("#E74C3C");
+            var accentColorRgb = _settings.Store.AccentColor ?? DefaultAccentColor;
+            var accentColor = Color.FromRgb(accentColorRgb.R, accentColorRgb.G, accentColorRgb.B);
             Wpf.Ui.Appearance.Accent.Apply(systemAccent: accentColor,
                 primaryAccent: accentColor,
                 secondaryAccent: accentColor,

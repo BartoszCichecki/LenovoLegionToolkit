@@ -24,7 +24,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
         {
             var property = properties["PressTypeDataVal"];
             var propertyValue = Convert.ToInt32(property.Value);
-            var value = (SpecialKey)(object)(propertyValue);
+            var value = (SpecialKey)(object)propertyValue;
             return value;
         }
 

@@ -51,7 +51,7 @@ namespace LenovoLegionToolkit.Lib.System
 
         private static uint GetBatteryTag()
         {
-            byte emptyInput = 0;
+            uint emptyInput = 0;
             var result = Native.DeviceIoControl(Devices.GetBattery(),
                 Native.IOCTL_BATTERY_QUERY_TAG,
                 ref emptyInput,

@@ -95,6 +95,7 @@
                     Width="150"
                     Height="32"
                     Margin="0,0,0,16"
+                    HorizontalAlignment="Center"
                     Click="DownloadButton_Click"
                     Content="Update"
                     IsEnabled="False" />
@@ -105,6 +106,7 @@
                     Width="150"
                     Height="32"
                     Margin="0,0,0,16"
+                    HorizontalAlignment="Center"
                     Click="CancelDownloadButton_Click"
                     Content="Cancel"
                     IsEnabled="False"
