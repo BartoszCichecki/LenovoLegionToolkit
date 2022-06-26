@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.System
 {
     public static class Battery
     {
-        public static BatteryInformation GetBatteryInformation()
+        public static async Task<BatteryInformation> GetBatteryInformationAsync()
         {
             var powerStatus = GetSystemPowerStatus();
 
@@ -27,6 +30,17 @@ namespace LenovoLegionToolkit.Lib.System
                     Log.Instance.Trace($"Failed to get temperature of battery: {ex.Demystify()}");
             }
 
+            DateTime? manufactureDate = null;
+            try
+            {
+                manufactureDate = await GetBatteryManufactureDateAsync();
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Failed to get manufacture date of battery: {ex.Demystify()}");
+            }
+
             return new(powerStatus.ACLineStatus == ACLineStatusEx.Online,
                        powerStatus.BatteryLifePercent,
                        powerStatus.BatteryLifeTime,
@@ -36,7 +50,8 @@ namespace LenovoLegionToolkit.Lib.System
                        information.DesignedCapacity,
                        information.FullChargedCapacity,
                        information.CycleCount,
-                       temperatureC);
+                       temperatureC,
+                       manufactureDate);
         }
 
         private static SystemPowerStatusEx GetSystemPowerStatus()
@@ -174,6 +189,28 @@ namespace LenovoLegionToolkit.Lib.System
             {
                 Marshal.FreeHGlobal(batteryInformationPointer);
             }
+        }
+
+        private static async Task<DateTime?> GetBatteryManufactureDateAsync()
+        {
+            var result = await WMI.ReadAsync("ROOT\\WMI", $"SELECT * FROM Lenovo_BatteryInformation", pdc =>
+            {
+                return pdc["CurrentSetting"].Value.ToString();
+            });
+
+            var enumerator = result.GetEnumerator();
+            while (enumerator.MoveNext())
+            {
+                var current = enumerator.Current;
+                if (current is not null && current.StartsWith("BAT0 MfgDate ,"))
+                {
+                    var dateString = current.GetAfterOrEmpty(",");
+                    if (DateTime.TryParseExact(dateString, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out var dateTime))
+                        return dateTime;
+                }
+            }
+
+            return null;
         }
     }
 }
