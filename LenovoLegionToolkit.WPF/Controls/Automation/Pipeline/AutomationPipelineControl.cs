@@ -265,6 +265,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 new RunAutomationStep(default, default),
                 new TouchpadLockAutomationStep(default),
                 new WhiteKeyboardBacklightAutomationStep(default),
+                new WinKeyAutomationStep(default),
             };
 
             var menuItems = new List<MenuItem>();
@@ -312,6 +313,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 RunAutomationStep s => new RunAutomationStepControl(s),
                 TouchpadLockAutomationStep s => new TouchpadLockAutomationStepControl(s),
                 WhiteKeyboardBacklightAutomationStep s => new WhiteKeyboardBacklightAutomationStepControl(s),
+                WinKeyAutomationStep s => new WinKeyAutomationStepControl(s),
                 _ => throw new InvalidOperationException("Unknown step type."),
             };
             control.MouseRightButtonUp += (s, e) =>

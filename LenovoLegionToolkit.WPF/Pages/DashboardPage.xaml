@@ -81,8 +81,9 @@
                     Grid.Row="0"
                     Grid.Column="0"
                     Margin="0,0,16,0">
-                    <controls:FlipToStartControl />
-                    <controls:OverDriveControl />
+                    <controls:TouchpadLockControl />
+                    <controls:FnLockControl />
+                    <controls:WinKeyControl />
                 </StackPanel>
 
                 <StackPanel
@@ -90,8 +91,8 @@
                     Grid.Row="0"
                     Grid.Column="0"
                     Margin="0,0,16,0">
-                    <controls:FnLockControl />
-                    <controls:TouchpadLockControl />
+                    <controls:FlipToStartControl />
+                    <controls:OverDriveControl />
                 </StackPanel>
 
             </Grid>

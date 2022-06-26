@@ -26,6 +26,7 @@ namespace LenovoLegionToolkit.Lib
             builder.Register<RefreshRateFeature>();
             builder.Register<TouchpadLockFeature>();
             builder.Register<WhiteKeyboardBacklightFeature>();
+            builder.Register<WinKeyFeature>();
 
             builder.Register<PowerModeListener>().AutoActivate();
             builder.Register<PowerStateListener>().AutoActivate();

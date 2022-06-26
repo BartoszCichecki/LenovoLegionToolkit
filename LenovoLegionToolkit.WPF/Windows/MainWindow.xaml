@@ -10,7 +10,7 @@
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="Lenovo Legion Toolkit"
     Width="1150"
-    Height="650"
+    Height="720"
     MinWidth="650"
     MinHeight="600"
     mc:Ignorable="d">
