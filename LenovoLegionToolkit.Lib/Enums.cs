@@ -139,4 +139,10 @@ namespace LenovoLegionToolkit.Lib
         Low,
         High,
     }
+
+    public enum WinKeyState
+    {
+        On,
+        Off,
+    }
 }
