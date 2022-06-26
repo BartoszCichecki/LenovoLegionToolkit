@@ -19,6 +19,7 @@ namespace LenovoLegionToolkit.Lib
         public int FullChargeCapactiy { get; }
         public int CycleCount { get; }
         public double? BatteryTemperatureC { get; }
+        public DateTime? ManufactureDate { get; }
 
         public BatteryInformation(
             bool isCharging,
@@ -30,7 +31,8 @@ namespace LenovoLegionToolkit.Lib
             int designCapacity,
             int fullChargeCapactiy,
             int cycleCount,
-            double? batteryTemperatureC)
+            double? batteryTemperatureC,
+            DateTime? manufactureDate)
         {
             IsCharging = isCharging;
             BatteryPercentage = batteryPercentage;
@@ -42,6 +44,7 @@ namespace LenovoLegionToolkit.Lib
             FullChargeCapactiy = fullChargeCapactiy;
             CycleCount = cycleCount;
             BatteryTemperatureC = batteryTemperatureC;
+            ManufactureDate = manufactureDate;
         }
     }
 

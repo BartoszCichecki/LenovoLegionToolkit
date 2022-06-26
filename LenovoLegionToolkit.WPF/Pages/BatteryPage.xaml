@@ -85,5 +85,12 @@
             <TextBlock x:Name="_batteryCycleCountText" FontSize="14" />
         </wpfui:CardControl>
 
+        <wpfui:CardControl Margin="0,0,0,8">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="Manufacture date" Subtitle="When was the battery manufactured." />
+            </wpfui:CardControl.Header>
+            <TextBlock x:Name="_batteryManufactureDateText" FontSize="14" />
+        </wpfui:CardControl>
+
     </StackPanel>
 </Page>

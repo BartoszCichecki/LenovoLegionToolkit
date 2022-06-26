@@ -57,7 +57,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 {
                     try
                     {
-                        var batteryInfo = Battery.GetBatteryInformation();
+                        var batteryInfo = await Battery.GetBatteryInformationAsync();
                         Dispatcher.Invoke(() => Set(batteryInfo));
 
                         await Task.Delay(1000, token);
@@ -100,6 +100,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             _batteryCapacityText.Text = $"{batteryInfo.EstimateChargeRemaining / 1000.0:0.00} Wh";
             _batteryFullChargeCapacityText.Text = $"{batteryInfo.FullChargeCapactiy / 1000.0:0.00} Wh";
             _batteryDesignCapacityText.Text = $"{batteryInfo.DesignCapacity / 1000.0:0.00} Wh";
+            _batteryManufactureDateText.Text = batteryInfo.ManufactureDate?.ToString("d") ?? "-";
 
             _batteryCycleCountText.Text = $"{batteryInfo.CycleCount}";
         }
