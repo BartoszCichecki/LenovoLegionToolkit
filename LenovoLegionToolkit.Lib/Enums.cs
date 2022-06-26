@@ -145,4 +145,6 @@ namespace LenovoLegionToolkit.Lib
         On,
         Off,
     }
+
+    public enum WinKeyChanged { }
 }
