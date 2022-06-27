@@ -244,7 +244,21 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 return;
             }
 
-            _performanceState = gpu.PerformanceStatesInfo.CurrentPerformanceState.StateId.ToString().GetUntilOrEmpty("_");
+            try
+            {
+                _performanceState = "On, " + gpu.PerformanceStatesInfo.CurrentPerformanceState.StateId.ToString().GetUntilOrEmpty("_");
+            }
+            catch (Exception ex) when (ex.Message == "NVAPI_GPU_NOT_POWERED")
+            {
+                _performanceState = "Off";
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"GPU status error: {ex.Demystify()}");
+
+                _performanceState = "Unknown";
+            }
 
             var processNames = NVAPIExtensions.GetActiveProcesses(gpu);
             if (processNames.Count < 1)
