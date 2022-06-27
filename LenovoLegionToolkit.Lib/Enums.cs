@@ -20,6 +20,12 @@ namespace LenovoLegionToolkit.Lib
         RapidCharge,
     }
 
+    public enum DriverKey
+    {
+        Fn_F4 = 256,
+        Fn_F8 = 8192,
+    }
+
     public enum FlipToStartState
     {
         Off,
