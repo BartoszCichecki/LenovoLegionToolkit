@@ -12,6 +12,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
         protected override WinKeyState OffState => WinKeyState.Off;
 
+        protected override bool DisablesWhileRefreshing => false;
+
         public WinKeyControl()
         {
             Icon = SymbolRegular.Keyboard24;
