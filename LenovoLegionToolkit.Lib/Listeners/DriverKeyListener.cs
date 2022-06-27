@@ -81,8 +81,8 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         protected Task OnChangedAsync(DriverKey value)
         {
-            if (value == DriverKey.Fn_F8)
-                Process.Start("ms-settings:network-airplanemode");
+            //if (value == DriverKey.Fn_F4)
+            //if (value == DriverKey.Fn_F8)
 
             return Task.CompletedTask;
         }
