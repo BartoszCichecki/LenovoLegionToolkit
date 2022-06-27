@@ -81,8 +81,26 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         protected Task OnChangedAsync(DriverKey value)
         {
-            //if (value == DriverKey.Fn_F4)
-            //if (value == DriverKey.Fn_F8)
+            try
+            {
+                //if (value == DriverKey.Fn_F4)
+                if (value == DriverKey.Fn_F8)
+                {
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = "cmd",
+                        Arguments = "/c \"start ms-settings:network-airplanemode\"",
+                        UseShellExecute = true,
+                        CreateNoWindow = true,
+                        WindowStyle = ProcessWindowStyle.Hidden,
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Could not run action:{ex.Demystify()} [value={value}]");
+            }
 
             return Task.CompletedTask;
         }
