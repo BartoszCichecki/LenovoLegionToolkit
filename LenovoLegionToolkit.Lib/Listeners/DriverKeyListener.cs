@@ -14,9 +14,12 @@ namespace LenovoLegionToolkit.Lib.Listeners
         public event EventHandler<DriverKey>? Changed;
 
         private readonly Task _listenTask;
+        private readonly FnKeys _fnKeys;
 
-        public DriverKeyListener()
+        public DriverKeyListener(FnKeys fnKeys)
         {
+            _fnKeys = fnKeys;
+
             _listenTask = Task.Run(HandlerAsync);
         }
 
@@ -40,6 +43,15 @@ namespace LenovoLegionToolkit.Lib.Listeners
                 while (true)
                 {
                     resetEvent.WaitOne();
+
+                    if (await _fnKeys.GetStatusAsync() == SoftwareStatus.Enabled)
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Ignoring, FnKeys are enabled.");
+
+                        resetEvent.Reset();
+                        continue;
+                    }
 
                     uint inBuff = 0;
                     var getValueResult = Native.DeviceIoControl(Drivers.GetEnergy(),
