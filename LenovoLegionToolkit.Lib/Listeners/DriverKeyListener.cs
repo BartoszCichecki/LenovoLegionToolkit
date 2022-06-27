@@ -44,7 +44,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
                 {
                     resetEvent.WaitOne();
 
-                    if (await _fnKeys.GetStatusAsync() == SoftwareStatus.Enabled)
+                    if (await _fnKeys.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
                     {
                         if (Log.Instance.IsTraceEnabled)
                             Log.Instance.Trace($"Ignoring, FnKeys are enabled.");
@@ -71,7 +71,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
                         if (Log.Instance.IsTraceEnabled)
                             Log.Instance.Trace($"Event received. [key={key}]");
 
-                        await OnChangedAsync(key);
+                        await OnChangedAsync(key).ConfigureAwait(false);
                         Changed?.Invoke(this, key);
                     }
                     else
