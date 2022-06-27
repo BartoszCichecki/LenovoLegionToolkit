@@ -246,7 +246,12 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
             try
             {
-                _performanceState = "On, " + gpu.PerformanceStatesInfo.CurrentPerformanceState.StateId.ToString().GetUntilOrEmpty("_");
+                var stateId = gpu.PerformanceStatesInfo.CurrentPerformanceState.StateId.ToString().GetUntilOrEmpty("_");
+                if (string.IsNullOrEmpty(stateId))
+                    _performanceState = "On";
+                else
+                    _performanceState = $"On, {stateId}";
+
             }
             catch (Exception ex) when (ex.Message == "NVAPI_GPU_NOT_POWERED")
             {
