@@ -45,7 +45,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
         private void GpuController_Refreshed(object? sender, GPUController.RefreshedEventArgs e) => Dispatcher.Invoke(() =>
         {
-            var performanceStateText = $"Performance state: {e.PerformanceState ?? "Unknown"}";
+            var performanceStateText = $"Performance state:\n{e.PerformanceState ?? "Unknown"}";
 
             if (e.Status == GPUController.Status.Unknown || e.Status == GPUController.Status.NVIDIAGPUNotFound)
             {
@@ -57,9 +57,27 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             else if (e.IsActive)
             {
                 var status = "Active";
+                var processes = string.Empty;
+
                 if (e.ProcessCount > 0)
+                {
                     status += $" ({e.ProcessCount} app{(e.ProcessCount > 1 ? "s" : "")})";
-                var processes = e.ProcessCount < 1 ? "No processes" : ("Processes:\n" + string.Join("\n", e.Processes.Select(p => p.ProcessName)));
+                    processes += "Processes:";
+
+                    foreach (var p in e.Processes)
+                    {
+                        try
+                        {
+                            processes += $"\n · {p.ProcessName}";
+                        }
+                        catch { }
+                    }
+                }
+                else
+                {
+                    processes += "No processes";
+
+                }
 
                 _discreteGPUStatusDescription.Text = status;
                 _discreteGPUStatusDescription.ToolTip = $"{performanceStateText}\n\n{processes}";

@@ -98,7 +98,7 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         private void RefreshLayout()
         {
-            if (string.IsNullOrEmpty(Subtitle))
+            if (string.IsNullOrWhiteSpace(Subtitle))
             {
                 Grid.SetRowSpan(_titleTextBlock, 2);
                 _subtitleTextBlock.Visibility = Visibility.Collapsed;

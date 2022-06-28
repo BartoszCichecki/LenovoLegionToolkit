@@ -80,18 +80,24 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0" Margin="0,0,32,0">
                 <wpfui:Hyperlink Content="Autofac" NavigateUri="https://github.com/autofac/Autofac" />
                 <wpfui:Hyperlink Content="AsyncLock" NavigateUri="https://github.com/neosmart/AsyncLock" />
+                <wpfui:Hyperlink Content="ColorPicker" NavigateUri="https://github.com/PixiEditor/ColorPicker" />
                 <wpfui:Hyperlink Content="Demystifier" NavigateUri="https://github.com/benaadams/Ben.Demystifier" />
                 <wpfui:Hyperlink Content="Markdig" NavigateUri="https://github.com/xoofx/markdig" />
-                <wpfui:Hyperlink Content="Markdig.Wpf" NavigateUri="https://github.com/Kryptos-FR/markdig.wpf" />
             </StackPanel>
-            <StackPanel Grid.Column="1">
+            <StackPanel Grid.Column="1" Margin="0,0,32,0">
+                <wpfui:Hyperlink Content="Markdig.Wpf" NavigateUri="https://github.com/Kryptos-FR/markdig.wpf" />
+                <wpfui:Hyperlink Content="Newtonsoft.Json" NavigateUri="https://github.com/JamesNK/Newtonsoft.Json" />
                 <wpfui:Hyperlink Content="NvAPIWrapper" NavigateUri="https://github.com/falahati/NvAPIWrapper" />
                 <wpfui:Hyperlink Content="octokit" NavigateUri="https://github.com/octokit/octokit.net" />
+                <wpfui:Hyperlink Content="pubsub" NavigateUri="https://github.com/upta/pubsub" />
+            </StackPanel>
+            <StackPanel Grid.Column="2">
                 <wpfui:Hyperlink Content="TaskScheduler" NavigateUri="https://github.com/dahall/TaskScheduler" />
                 <wpfui:Hyperlink Content="WindowsDisplayAPI" NavigateUri="https://github.com/falahati/WindowsDisplayAPI" />
                 <wpfui:Hyperlink Content="wpfui" NavigateUri="https://github.com/lepoco/wpfui" />
