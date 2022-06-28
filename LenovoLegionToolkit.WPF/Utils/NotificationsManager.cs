@@ -22,10 +22,9 @@ namespace LenovoLegionToolkit.WPF.Utils
 
         private NotificationWindow? _window;
 
-        public NotificationsManager(
-            SpecialKeyListener specialKeyListener,
-            DriverKeyListener driverKeyListener,
-            RefreshRateFeature refreshRateFeature)
+        public NotificationsManager(SpecialKeyListener specialKeyListener,
+                                    DriverKeyListener driverKeyListener,
+                                    RefreshRateFeature refreshRateFeature)
         {
             _specialKeyListener = specialKeyListener;
             _driverKeyListener = driverKeyListener;
