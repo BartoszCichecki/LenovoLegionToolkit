@@ -68,7 +68,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
                     {
                         try
                         {
-                            processes += $"\n{p.ProcessName}";
+                            processes += $"\n · {p.ProcessName}";
                         }
                         catch { }
                     }
