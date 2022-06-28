@@ -61,7 +61,7 @@ namespace LenovoLegionToolkit.WPF.Utils
                 {
                     var allStates = await _refreshRateFeature.GetAllStatesAsync();
                     var state = await _refreshRateFeature.GetStateAsync();
-                    if (allStates.Length > 0 && state != default)
+                    if (allStates.Length > 1 && state != default)
                         ShowNotification(SymbolRegular.Desktop24, state.DisplayName, 5000);
                 }
             }
