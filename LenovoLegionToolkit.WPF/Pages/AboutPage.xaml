@@ -100,6 +100,7 @@
             <StackPanel Grid.Column="2">
                 <wpfui:Hyperlink Content="TaskScheduler" NavigateUri="https://github.com/dahall/TaskScheduler" />
                 <wpfui:Hyperlink Content="WindowsDisplayAPI" NavigateUri="https://github.com/falahati/WindowsDisplayAPI" />
+                <wpfui:Hyperlink Content="NAudio.Wasapi" NavigateUri="https://github.com/naudio/NAudio" />
                 <wpfui:Hyperlink Content="wpfui" NavigateUri="https://github.com/lepoco/wpfui" />
             </StackPanel>
 

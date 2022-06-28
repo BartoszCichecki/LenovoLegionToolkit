@@ -95,17 +95,21 @@ namespace LenovoLegionToolkit.Lib.Listeners
         {
             try
             {
-                //if (value == DriverKey.Fn_F4)
-                if (value == DriverKey.Fn_F8)
+                switch (value)
                 {
-                    Process.Start(new ProcessStartInfo
-                    {
-                        FileName = "cmd",
-                        Arguments = "/c \"start ms-settings:network-airplanemode\"",
-                        UseShellExecute = true,
-                        CreateNoWindow = true,
-                        WindowStyle = ProcessWindowStyle.Hidden,
-                    });
+                    case DriverKey.Fn_F4:
+                        Microphone.Toggle();
+                        break;
+                    case DriverKey.Fn_F8:
+                        Process.Start(new ProcessStartInfo
+                        {
+                            FileName = "cmd",
+                            Arguments = "/c \"start ms-settings:network-airplanemode\"",
+                            UseShellExecute = true,
+                            CreateNoWindow = true,
+                            WindowStyle = ProcessWindowStyle.Hidden,
+                        });
+                        break;
                 }
             }
             catch (Exception ex)
