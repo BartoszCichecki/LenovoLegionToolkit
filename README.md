@@ -92,9 +92,11 @@ This allows to modify hidden setting of Windows Power Plans called *Processor pe
 
 ## Credits
 
-Credits go to [ViRb3](https://github.com/ViRb3), for creating [Lenovo Controller](https://github.com/ViRb3/LenovoController), which was used as a base for this tool. 
+Special thanks to:
 
-Special thanks to [falahati](https://github.com/falahati), for creating [NvAPIWrapper](https://github.com/falahati/NvAPIWrapper) and [WindowsDisplayAPI](https://github.com/falahati/WindowsDisplayAPI).
+* [ViRb3](https://github.com/ViRb3), for creating [Lenovo Controller](https://github.com/ViRb3/LenovoController), which was used as a base for this tool
+* [falahati](https://github.com/falahati), for creating [NvAPIWrapper](https://github.com/falahati/NvAPIWrapper) and [WindowsDisplayAPI](https://github.com/falahati/WindowsDisplayAPI)
+* [SmokelessCPU](https://github.com/SmokelessCPU) for help with 4-zone RGB keyboard support
 
 ## Contribution
 
