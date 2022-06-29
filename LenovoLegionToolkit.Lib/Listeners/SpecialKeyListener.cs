@@ -74,6 +74,8 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
                 await _feature.SetStateAsync(next).ConfigureAwait(false);
 
+                MessagingCenter.Publish(new Notification(NotificationIcon.RefreshRate, next.DisplayName, NotificationDuration.Long));
+
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Switched refresh rate after Fn+R to {next}.");
             }

@@ -44,6 +44,19 @@ namespace LenovoLegionToolkit.Lib
         Off,
     }
 
+    public enum NotificationDuration
+    {
+        Short,
+        Long,
+    }
+
+    public enum NotificationIcon
+    {
+        MicrophoneOff,
+        MicrophoneOn,
+        RefreshRate,
+    }
+
     public enum OverDriveState
     {
         Off,

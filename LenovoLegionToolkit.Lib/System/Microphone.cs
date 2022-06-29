@@ -19,12 +19,18 @@ namespace LenovoLegionToolkit.Lib.System
             }
         }
 
-        public static void Toggle()
+        public static bool Toggle()
         {
             if (IsEnabled)
+            {
                 Disable();
+                return false;
+            }
             else
+            {
                 Enable();
+                return true;
+            }
         }
 
         public static void Enable()
