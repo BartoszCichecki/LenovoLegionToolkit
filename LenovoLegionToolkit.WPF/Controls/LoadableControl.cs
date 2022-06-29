@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Controls
@@ -13,8 +14,8 @@ namespace LenovoLegionToolkit.WPF.Controls
             IsIndeterminate = true,
             VerticalAlignment = VerticalAlignment.Top,
             HorizontalAlignment = HorizontalAlignment.Center,
-            Width = 32,
-            Height = 32,
+            Width = 48,
+            Height = 48,
         };
 
         private bool _isLoading = true;
@@ -27,6 +28,18 @@ namespace LenovoLegionToolkit.WPF.Controls
                 _isLoading = value;
                 UpdateLoadingState();
             }
+        }
+
+        public bool IsIndeterminate
+        {
+            get => _progressRing.IsIndeterminate;
+            set => _progressRing.IsIndeterminate = value;
+        }
+
+        public double Progress
+        {
+            get => _progressRing.Progress;
+            set => _progressRing.Progress = value;
         }
 
         public double IndicatorWidth
@@ -60,6 +73,16 @@ namespace LenovoLegionToolkit.WPF.Controls
             base.OnInitialized(e);
 
             _contentPresenter.Content = Content;
+
+            _progressRing.RenderTransformOrigin = new(0.5, 0.5);
+            _progressRing.RenderTransform = new TransformGroup
+            {
+                Children =
+                {
+                    new RotateTransform(-90),
+                    new ScaleTransform(-1, 1),
+                }
+            };
 
             var grid = new Grid();
             grid.Children.Add(_contentPresenter);

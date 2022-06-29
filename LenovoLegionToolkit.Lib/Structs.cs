@@ -87,6 +87,32 @@ namespace LenovoLegionToolkit.Lib
         }
     }
 
+    public struct Package
+    {
+        public string Description { get; }
+        public string Version { get; }
+        public string Category { get; }
+        public string FileName { get; }
+        public int FileSize { get; }
+        public string CRC { get; }
+        public DateTime ReleaseDate { get; }
+        public string? ReadMe { get; }
+        public string FileLocation { get; }
+
+        public Package(string description, string version, string category, string fileName, int fileSize, string crc, DateTime releaseDate, string? readMe, string fileLocation)
+        {
+            Description = description;
+            Version = version;
+            Category = category;
+            FileName = fileName;
+            FileSize = fileSize;
+            CRC = crc;
+            ReleaseDate = releaseDate;
+            ReadMe = readMe;
+            FileLocation = fileLocation;
+        }
+    }
+
     public struct PowerPlan
     {
         public string InstanceID { get; }

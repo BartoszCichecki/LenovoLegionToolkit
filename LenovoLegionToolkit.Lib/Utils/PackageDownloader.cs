@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Security.Cryptography;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
@@ -12,28 +11,6 @@ using LenovoLegionToolkit.Lib.Extensions;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
-    public struct Package
-    {
-        public string Description { get; }
-        public string Category { get; }
-        public string FileName { get; }
-        public int FileSize { get; }
-        public string CRC { get; }
-        public DateTime ReleaseDate { get; }
-        public string? ReadMe { get; }
-
-        public Package(string description, string category, string fileName, int fileSize, string crc, DateTime releaseDate, string? readMe)
-        {
-            Description = description;
-            Category = category;
-            FileName = fileName;
-            FileSize = fileSize;
-            CRC = crc;
-            ReleaseDate = releaseDate;
-            ReadMe = readMe;
-        }
-    }
-
     public class PackageDownloader
     {
         private struct PackageDefinition
@@ -49,19 +26,26 @@ namespace LenovoLegionToolkit.Lib.Utils
         }
 
         private readonly string _catalogBaseUrl = "https://download.lenovo.com/catalog/";
-        private readonly string _packagesBaseUrl = "https://download.lenovo.com/pccbbs/mobiles";
 
-        public async Task<List<Package>> GetPackagesAsync(string machineType, string os, CancellationToken token)
+        public async Task<List<Package>> GetPackagesAsync(string machineType, string os, IProgress<float>? progress = null, CancellationToken token = default)
         {
             using var httpClient = new HttpClient();
 
+            progress?.Report(0);
+
             var packageDefinitions = await GetPackageDefinitionsAsync(httpClient, $"{_catalogBaseUrl}/{machineType}_{os}.xml", token).ConfigureAwait(false);
+
+            var count = 0;
+            var totalCount = packageDefinitions.Count;
 
             var packages = new List<Package>();
             foreach (var packageDefinition in packageDefinitions)
             {
                 var package = await GetPackage(httpClient, packageDefinition, token).ConfigureAwait(false);
                 packages.Add(package);
+
+                count++;
+                progress?.Report((count * 100) / totalCount);
             }
 
             return packages;
@@ -74,13 +58,13 @@ namespace LenovoLegionToolkit.Lib.Utils
             var tempPath = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
 
             using (var fileStream = File.OpenWrite(tempPath))
-                await httpClient.DownloadAsync($"{_packagesBaseUrl}/{package.FileName}", fileStream, progress, token).ConfigureAwait(false);
+                await httpClient.DownloadAsync(package.FileLocation, fileStream, progress, token).ConfigureAwait(false);
 
             var fileInfo = new FileInfo(tempPath);
             if (fileInfo.Length != package.FileSize)
                 throw new InvalidDataException("File size mismatch.");
 
-            var sha256 = await httpClient.GetStringAsync($"{_packagesBaseUrl}/{package.FileName}.sha256", token).ConfigureAwait(false);
+            var sha256 = await httpClient.GetStringAsync($"{package.FileLocation}.sha256", token).ConfigureAwait(false);
 
             using (var fileStream = File.OpenRead(tempPath))
             {
@@ -132,21 +116,26 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         private async Task<Package> GetPackage(HttpClient httpClient, PackageDefinition packageDefinition, CancellationToken token)
         {
-            var packageString = await httpClient.GetStringAsync(packageDefinition.Location, token).ConfigureAwait(false);
+            var location = packageDefinition.Location;
+            var baseLocation = location.Remove(location.LastIndexOf("/"));
+
+            var packageString = await httpClient.GetStringAsync(location, token).ConfigureAwait(false);
 
             var document = new XmlDocument();
             document.LoadXml(packageString);
 
             var description = document.SelectSingleNode("/Package/Title/Desc")!.InnerText;
+            var version = document.SelectSingleNode("/Package/@version")!.InnerText;
             var fileName = document.SelectSingleNode("/Package/Files/Installer/File/Name")!.InnerText;
             var fileSize = int.Parse(document.SelectSingleNode("/Package/Files/Installer/File/Size")!.InnerText);
             var crc = document.SelectSingleNode("/Package/Files/Installer/File/CRC")!.InnerText;
             var releaseDateString = document.SelectSingleNode("/Package/ReleaseDate")!.InnerText;
             var releaseDate = DateTime.Parse(releaseDateString);
             var readMeName = document.SelectSingleNode("/Package/Files/Readme/File/Name")?.InnerText;
-            var readMe = await GetReadmeAsync(httpClient, $"{_packagesBaseUrl}/{readMeName}", token).ConfigureAwait(false);
+            var readMe = await GetReadmeAsync(httpClient, $"{baseLocation}/{readMeName}", token).ConfigureAwait(false);
+            var fileLocation = $"{baseLocation}/{fileName}";
 
-            return new(description, packageDefinition.Category, fileName, fileSize, crc, releaseDate, readMe);
+            return new(description, version, packageDefinition.Category, fileName, fileSize, crc, releaseDate, readMe, fileLocation);
         }
 
         private async Task<string?> GetReadmeAsync(HttpClient httpClient, string location, CancellationToken token)

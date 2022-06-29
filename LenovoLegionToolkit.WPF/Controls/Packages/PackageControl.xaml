@@ -1,0 +1,129 @@
+﻿<UserControl
+    x:Class="LenovoLegionToolkit.WPF.Controls.Packages.PackageControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <wpfui:CardControl Margin="0,0,0,8">
+        <wpfui:CardControl.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    x:Name="_dateTextBlock"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    FontSize="12"
+                    TextTrimming="CharacterEllipsis">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{DynamicResource TextFillColorTertiary}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+
+                <TextBlock
+                    x:Name="_descriptionTextBlock"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Margin="0,8,0,4"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    TextTrimming="CharacterEllipsis" />
+
+                <TextBlock
+                    x:Name="_categoryTextBlock"
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Margin="0,0,0,4"
+                    FontWeight="Medium">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{DynamicResource TextFillColorTertiary}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+
+                <TextBlock
+                    x:Name="_detailTextBlock"
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    TextTrimming="CharacterEllipsis">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{DynamicResource TextFillColorTertiary}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+
+                <StackPanel
+                    x:Name="_idleStackPanel"
+                    Grid.Row="0"
+                    Grid.RowSpan="4"
+                    Grid.Column="1"
+                    Orientation="Horizontal">
+
+                    <wpfui:Button
+                        x:Name="_readmeButton"
+                        Margin="8,0,0,0"
+                        Click="ReadmeButton_Click"
+                        FontSize="18"
+                        Icon="DocumentBulletList24" />
+
+                    <wpfui:Button
+                        Margin="8,0,8,0"
+                        Click="DownloadButton_Click"
+                        FontSize="18"
+                        Icon="ArrowDownload24" />
+
+                </StackPanel>
+
+                <StackPanel
+                    x:Name="_downloadingStackPanel"
+                    Grid.Row="0"
+                    Grid.RowSpan="4"
+                    Grid.Column="1"
+                    Orientation="Horizontal"
+                    Visibility="Collapsed">
+
+                    <Label
+                        x:Name="_downloadProgressLabel"
+                        Margin="8,0,0,0"
+                        VerticalContentAlignment="Center" />
+
+                    <wpfui:ProgressRing
+                        x:Name="_downloadProgressRing"
+                        Width="24"
+                        Height="24"
+                        Margin="8,0,0,0"
+                        IsIndeterminate="true"
+                        RenderTransformOrigin="0.5,0.5">
+                        <wpfui:ProgressRing.RenderTransform>
+                            <TransformGroup>
+                                <RotateTransform Angle="-90" />
+                                <ScaleTransform ScaleX="-1" />
+                            </TransformGroup>
+                        </wpfui:ProgressRing.RenderTransform>
+                    </wpfui:ProgressRing>
+
+                    <wpfui:Button
+                        Margin="16,0,8,0"
+                        Click="CancelDownloadButton_Click"
+                        FontSize="18"
+                        Icon="Dismiss24" />
+
+                </StackPanel>
+
+            </Grid>
+        </wpfui:CardControl.Header>
+    </wpfui:CardControl>
+
+</UserControl>

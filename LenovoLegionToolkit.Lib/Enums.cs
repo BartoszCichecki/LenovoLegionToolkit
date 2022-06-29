@@ -38,6 +38,16 @@ namespace LenovoLegionToolkit.Lib
         Off,
     }
 
+    public enum KnownFolder
+    {
+        Contacts,
+        Downloads,
+        Favorites,
+        Links,
+        SavedGames,
+        SavedSearches
+    }
+
     public enum OverDriveState
     {
         Off,
