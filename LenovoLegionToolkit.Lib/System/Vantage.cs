@@ -43,32 +43,24 @@ namespace LenovoLegionToolkit.Lib.System
 
             foreach (var process in Process.GetProcesses())
             {
-                if (process.ProcessName.StartsWith("Lenovo.Modern.ImController", StringComparison.InvariantCultureIgnoreCase))
+                try
                 {
-                    try
+                    if (process.ProcessName.StartsWith("Lenovo.Modern.ImController", StringComparison.InvariantCultureIgnoreCase))
                     {
                         process.Kill();
                         await process.WaitForExitAsync().ConfigureAwait(false);
                     }
-                    catch (Exception ex)
+
+                    if (process.ProcessName.StartsWith("LenovoVantage", StringComparison.InvariantCultureIgnoreCase))
                     {
-                        if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Couldn't kill process: {ex.Demystify()}");
+                        process.Kill();
+                        await process.WaitForExitAsync().ConfigureAwait(false);
                     }
                 }
-
-                if (process.ProcessName.StartsWith("LenovoVantage", StringComparison.InvariantCultureIgnoreCase))
+                catch (Exception ex)
                 {
-                    try
-                    {
-                        process.Kill();
-                        await process.WaitForExitAsync().ConfigureAwait(false);
-                    }
-                    catch (Exception ex)
-                    {
-                        if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Couldn't kill process: {ex.Demystify()}");
-                    }
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Couldn't kill process: {ex.Demystify()}");
                 }
             }
 
