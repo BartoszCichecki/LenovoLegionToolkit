@@ -31,6 +31,12 @@ namespace LenovoLegionToolkit
 
         private async void Application_Startup(object sender, StartupEventArgs e)
         {
+            var result = await new PackageDownloader().GetPackagesAsync("82JQ", "win11", default);
+
+            var result2 = await new PackageDownloader().DownloadPackageFileAsync(result.First(), "C:\\");
+
+            Debugger.Break();
+
             if (IsTraceEnabled(e.Args))
                 Log.Instance.IsTraceEnabled = true;
 
