@@ -30,6 +30,9 @@ namespace LenovoLegionToolkit.WPF.Controls.Packages
             _detailTextBlock.Text = $"Version {package.Version}  |  {package.FileSize / 1024.0 / 1024.0:0.00} MB  |  {package.FileName}";
 
             _readmeButton.Visibility = string.IsNullOrWhiteSpace(package.ReadMe) ? Visibility.Collapsed : Visibility.Visible;
+
+            var showWarning = package.ReleaseDate < DateTime.Now.AddYears(-1);
+            _warningTextBlock.Visibility = showWarning ? Visibility.Visible : Visibility.Collapsed;
         }
 
         public void CancelDownloads() => _downloadPackageTokenSource?.Cancel();
