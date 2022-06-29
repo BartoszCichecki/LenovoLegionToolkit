@@ -71,6 +71,8 @@ namespace LenovoLegionToolkit.Lib.System
                     }
                 }
             }
+
+            await Task.Delay(1000).ConfigureAwait(false);
         }
     }
 }
