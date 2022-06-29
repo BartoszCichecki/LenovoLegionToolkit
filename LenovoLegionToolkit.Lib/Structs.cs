@@ -98,19 +98,17 @@ namespace LenovoLegionToolkit.Lib
         public string Category { get; }
         public string FileName { get; }
         public int FileSize { get; }
-        public string CRC { get; }
         public DateTime ReleaseDate { get; }
         public string? Readme { get; }
         public string FileLocation { get; }
 
-        public Package(string description, string version, string category, string fileName, int fileSize, string crc, DateTime releaseDate, string? readme, string fileLocation)
+        public Package(string description, string version, string category, string fileName, int fileSize, DateTime releaseDate, string? readme, string fileLocation)
         {
             Description = description;
             Version = version;
             Category = category;
             FileName = fileName;
             FileSize = fileSize;
-            CRC = crc;
             ReleaseDate = releaseDate;
             Readme = readme;
             FileLocation = fileLocation;
