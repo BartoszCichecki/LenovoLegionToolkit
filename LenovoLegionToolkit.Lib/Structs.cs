@@ -100,10 +100,10 @@ namespace LenovoLegionToolkit.Lib
         public int FileSize { get; }
         public string CRC { get; }
         public DateTime ReleaseDate { get; }
-        public string? ReadMe { get; }
+        public string? Readme { get; }
         public string FileLocation { get; }
 
-        public Package(string description, string version, string category, string fileName, int fileSize, string crc, DateTime releaseDate, string? readMe, string fileLocation)
+        public Package(string description, string version, string category, string fileName, int fileSize, string crc, DateTime releaseDate, string? readme, string fileLocation)
         {
             Description = description;
             Version = version;
@@ -112,7 +112,7 @@ namespace LenovoLegionToolkit.Lib
             FileSize = fileSize;
             CRC = crc;
             ReleaseDate = releaseDate;
-            ReadMe = readMe;
+            Readme = readme;
             FileLocation = fileLocation;
         }
     }
