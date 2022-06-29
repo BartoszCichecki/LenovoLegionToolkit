@@ -68,6 +68,8 @@ namespace LenovoLegionToolkit.Lib.System
                         Log.Instance.Trace($"Couldn't kill process: {ex.Demystify()}");
                 }
             }
+
+            await Task.Delay(1000).ConfigureAwait(false);
         }
     }
 }
