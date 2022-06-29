@@ -98,7 +98,13 @@ namespace LenovoLegionToolkit.Lib.Listeners
                 switch (value)
                 {
                     case DriverKey.Fn_F4:
-                        Microphone.Toggle();
+                        var enabled = Microphone.Toggle();
+
+                        if (enabled)
+                            MessagingCenter.Publish(new Notification(NotificationIcon.MicrophoneOn, "Microphone on", NotificationDuration.Short));
+                        else
+                            MessagingCenter.Publish(new Notification(NotificationIcon.MicrophoneOff, "Microphone off", NotificationDuration.Short));
+
                         break;
                     case DriverKey.Fn_F8:
                         Process.Start(new ProcessStartInfo
