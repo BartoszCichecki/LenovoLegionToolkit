@@ -91,9 +91,10 @@
                             Grid.RowSpan="2"
                             Grid.Column="3"
                             Width="150"
+                            VerticalAlignment="Bottom"
                             Appearance="Primary"
                             Click="DownloadPackagesButton_Click"
-                            Content="List downloads"
+                            Content="Fetch downloads"
                             IsEnabled="false" />
 
                         <wpfui:Button
@@ -102,6 +103,7 @@
                             Grid.RowSpan="2"
                             Grid.Column="3"
                             Width="150"
+                            VerticalAlignment="Bottom"
                             Appearance="Secondary"
                             Click="CancelDownloadPackagesButton_Click"
                             Content="Cancel"
@@ -116,9 +118,24 @@
                 Grid.Row="2"
                 IndicatorVerticalAlignment="Center"
                 Visibility="Hidden">
-                <wpfui:DynamicScrollViewer>
+                <wpfui:DynamicScrollViewer x:Name="_scrollViewer">
 
                     <StackPanel>
+
+                        <wpfui:CardControl Margin="0,0,16,16" Icon="Info24">
+                            <wpfui:CardControl.Header>
+                                <StackPanel>
+                                    <TextBlock
+                                        Margin="0,0,0,4"
+                                        FontWeight="Medium"
+                                        Text="Important" />
+                                    <TextBlock
+                                        FontSize="11"
+                                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                        Text="Below is a list of software packages that are marked as compatible with your laptop.&#x0a;Always make sure that you are installing correct packages.&#x0a;&#x0a;Packages are downloaded to your Downloads folder." />
+                                </StackPanel>
+                            </wpfui:CardControl.Header>
+                        </wpfui:CardControl>
 
                         <ComboBox
                             x:Name="_sortingComboBox"

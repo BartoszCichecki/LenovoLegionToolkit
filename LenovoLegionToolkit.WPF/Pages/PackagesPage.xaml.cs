@@ -59,6 +59,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                     control.CancelDownloads();
 
                 _packagesStackPanel.Children.Clear();
+                _scrollViewer.ScrollToHome();
 
                 var machineType = _machineTypeTextBox.Text;
                 var os = _osComboBox.SelectedIndex switch
@@ -110,6 +111,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 control.CancelDownloads();
 
             _packagesStackPanel.Children.Clear();
+            _scrollViewer.ScrollToHome();
 
             var packages = Sort(_packages);
 
