@@ -128,14 +128,13 @@ namespace LenovoLegionToolkit.Lib.Utils
             var version = document.SelectSingleNode("/Package/@version")!.InnerText;
             var fileName = document.SelectSingleNode("/Package/Files/Installer/File/Name")!.InnerText;
             var fileSize = int.Parse(document.SelectSingleNode("/Package/Files/Installer/File/Size")!.InnerText);
-            var crc = document.SelectSingleNode("/Package/Files/Installer/File/CRC")!.InnerText;
             var releaseDateString = document.SelectSingleNode("/Package/ReleaseDate")!.InnerText;
             var releaseDate = DateTime.Parse(releaseDateString);
-            var readMeName = document.SelectSingleNode("/Package/Files/Readme/File/Name")?.InnerText;
-            var readMe = await GetReadmeAsync(httpClient, $"{baseLocation}/{readMeName}", token).ConfigureAwait(false);
+            var readmeName = document.SelectSingleNode("/Package/Files/Readme/File/Name")?.InnerText;
+            var readme = await GetReadmeAsync(httpClient, $"{baseLocation}/{readmeName}", token).ConfigureAwait(false);
             var fileLocation = $"{baseLocation}/{fileName}";
 
-            return new(description, version, packageDefinition.Category, fileName, fileSize, crc, releaseDate, readMe, fileLocation);
+            return new(description, version, packageDefinition.Category, fileName, fileSize, releaseDate, readme, fileLocation);
         }
 
         private async Task<string?> GetReadmeAsync(HttpClient httpClient, string location, CancellationToken token)
