@@ -23,8 +23,22 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         public PackagesPage()
         {
+            Initialized += PackagesPage_Initialized;
             InitializeComponent();
         }
+
+        private async void PackagesPage_Initialized(object? sender, EventArgs e)
+        {
+            var mi = await Compatibility.GetMachineInformation();
+            var os = Environment.OSVersion;
+
+            _machineTypeTextBox.Text = mi.MachineType;
+            _osComboBox.SelectedIndex = os.Version >= new Version(10, 0, 22000, 0) ? 0 : 1;
+
+            _downloadPackagesButton.IsEnabled = true;
+            _cancelDownloadPackagesButton.IsEnabled = true;
+        }
+
         public void Report(float value) => Dispatcher.Invoke(() =>
         {
             _loader.IsIndeterminate = !(value > 0);
@@ -49,8 +63,8 @@ namespace LenovoLegionToolkit.WPF.Pages
                 var machineType = _machineTypeTextBox.Text;
                 var os = _osComboBox.SelectedIndex switch
                 {
-                    1 => "win10",
                     0 => "win11",
+                    1 => "win10",
                     _ => null,
                 };
 
