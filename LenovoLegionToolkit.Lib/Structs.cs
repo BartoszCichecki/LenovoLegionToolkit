@@ -78,12 +78,16 @@ namespace LenovoLegionToolkit.Lib
     public struct MachineInformation
     {
         public string Vendor { get; }
+        public string MachineType { get; }
         public string Model { get; }
+        public string SerialNumber { get; }
 
-        public MachineInformation(string vendor, string model)
+        public MachineInformation(string vendor, string machineType, string model, string serialNumber)
         {
             Vendor = vendor;
+            MachineType = machineType;
             Model = model;
+            SerialNumber = serialNumber;
         }
     }
 

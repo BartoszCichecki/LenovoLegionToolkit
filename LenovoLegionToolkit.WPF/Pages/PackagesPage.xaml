@@ -75,16 +75,14 @@
                             Grid.Row="0"
                             Grid.Column="1"
                             Margin="8,0,0,0"
-                            PlaceholderText="(eg. 82JQ)"
-                            Text="82JQ" />
+                            PlaceholderText="(eg. 82JQ)" />
                         <ComboBox
                             x:Name="_osComboBox"
                             Grid.Row="1"
                             Grid.Column="1"
-                            Margin="8,8,0,0"
-                            SelectedIndex="0">
-                            <ComboBoxItem Content="Windows 11" Tag="win11" />
-                            <ComboBoxItem Content="Windows 10" Tag="win10" />
+                            Margin="8,8,0,0">
+                            <ComboBoxItem Content="Windows 11" />
+                            <ComboBoxItem Content="Windows 10" />
                         </ComboBox>
 
                         <wpfui:Button
@@ -95,7 +93,8 @@
                             Width="150"
                             Appearance="Primary"
                             Click="DownloadPackagesButton_Click"
-                            Content="List downloads" />
+                            Content="List downloads"
+                            IsEnabled="false" />
 
                         <wpfui:Button
                             x:Name="_cancelDownloadPackagesButton"
@@ -106,6 +105,7 @@
                             Appearance="Secondary"
                             Click="CancelDownloadPackagesButton_Click"
                             Content="Cancel"
+                            IsEnabled="false"
                             Visibility="Collapsed" />
                     </Grid>
                 </wpfui:CardControl.Header>
