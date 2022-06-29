@@ -147,7 +147,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 catch (Exception ex)
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Couldn't set light controll or current preset owner. Exception: {ex.Demystify()}");
+                        Log.Instance.Trace($"Couldn't set light controll owner or current preset. Exception: {ex.Demystify()}");
                 }
             }
             else

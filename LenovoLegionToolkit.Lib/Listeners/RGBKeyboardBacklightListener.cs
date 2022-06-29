@@ -28,7 +28,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
                 await _controller.SetLightControlOwnerAsync(true).ConfigureAwait(false);
 
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Ownership set, waiting 0.5s...");
+                    Log.Instance.Trace($"Ownership set, waiting 500ms...");
 
                 await Task.Delay(500).ConfigureAwait(false);
 

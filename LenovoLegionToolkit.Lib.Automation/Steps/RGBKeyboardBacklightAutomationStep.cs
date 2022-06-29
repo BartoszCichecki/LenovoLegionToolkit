@@ -21,6 +21,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
             if (!_controller.IsSupported())
                 return;
 
+            await _controller.SetLightControlOwnerAsync(true).ConfigureAwait(false);
             await _controller.SetPresetAsync(State).ConfigureAwait(false);
         }
 
