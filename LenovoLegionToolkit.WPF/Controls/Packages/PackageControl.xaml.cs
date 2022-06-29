@@ -27,7 +27,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Packages
             _dateTextBlock.Text = package.ReleaseDate.ToString("d");
             _descriptionTextBlock.Text = package.Description;
             _categoryTextBlock.Text = package.Category;
-            _detailTextBlock.Text = $"Version {package.Version}  |  {package.FileSize / 1024.0 / 1024.0:0.00} MB";
+            _detailTextBlock.Text = $"Version {package.Version}  |  {package.FileSize / 1024.0 / 1024.0:0.00} MB  |  {package.FileName}";
 
             _readmeButton.Visibility = string.IsNullOrWhiteSpace(package.ReadMe) ? Visibility.Collapsed : Visibility.Visible;
         }

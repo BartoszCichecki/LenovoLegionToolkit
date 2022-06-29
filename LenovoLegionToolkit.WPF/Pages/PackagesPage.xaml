@@ -116,11 +116,26 @@
                 Grid.Row="2"
                 IndicatorVerticalAlignment="Center"
                 Visibility="Hidden">
-
                 <wpfui:DynamicScrollViewer>
-                    <StackPanel x:Name="_packagesStackPanel" Margin="0,0,16,12" />
-                </wpfui:DynamicScrollViewer>
 
+                    <StackPanel>
+
+                        <ComboBox
+                            x:Name="_sortingComboBox"
+                            Margin="0,0,16,8"
+                            HorizontalAlignment="Right"
+                            SelectedIndex="2"
+                            SelectionChanged="SortingComboBox_SelectionChanged">
+                            <ComboBoxItem Content="Name" />
+                            <ComboBoxItem Content="Category" />
+                            <ComboBoxItem Content="Date" />
+                        </ComboBox>
+
+                        <StackPanel x:Name="_packagesStackPanel" Margin="0,0,16,12" />
+
+                    </StackPanel>
+
+                </wpfui:DynamicScrollViewer>
             </controls:LoadableControl>
 
         </Grid>
