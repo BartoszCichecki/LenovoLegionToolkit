@@ -84,7 +84,17 @@ namespace LenovoLegionToolkit.Lib.Controllers
         public async Task<RGBKeyboardBacklightState> GetStateAsync()
         {
             using (await _ioLock.LockAsync().ConfigureAwait(false))
+            {
+#if !MOCK_RGB
+                var handle = Devices.GetRGBKeyboard();
+                if (handle is null)
+                    throw new InvalidOperationException("RGB Keyboard unsupported.");
+#endif
+
+                await ThrowIfVantageEnabled().ConfigureAwait(false);
+
                 return _settings.Store.State;
+            }
         }
 
         public async Task SetStateAsync(RGBKeyboardBacklightState state)
