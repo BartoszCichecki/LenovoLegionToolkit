@@ -7,6 +7,7 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Utils;
+using LenovoLegionToolkit.WPF.Windows.Packages;
 
 namespace LenovoLegionToolkit.WPF.Controls.Packages
 {
@@ -29,7 +30,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Packages
             _categoryTextBlock.Text = package.Category;
             _detailTextBlock.Text = $"Version {package.Version}  |  {package.FileSize / 1024.0 / 1024.0:0.00} MB  |  {package.FileName}";
 
-            _readmeButton.Visibility = string.IsNullOrWhiteSpace(package.ReadMe) ? Visibility.Collapsed : Visibility.Visible;
+            _readmeButton.Visibility = string.IsNullOrWhiteSpace(package.Readme) ? Visibility.Collapsed : Visibility.Visible;
 
             var showWarning = package.ReleaseDate < DateTime.Now.AddYears(-1);
             _warningTextBlock.Visibility = showWarning ? Visibility.Visible : Visibility.Collapsed;
@@ -46,7 +47,13 @@ namespace LenovoLegionToolkit.WPF.Controls.Packages
 
         private void ReadmeButton_Click(object sender, RoutedEventArgs e)
         {
-
+            var updateWindow = new ReadmeWindow(_package.Readme)
+            {
+                Owner = Window.GetWindow(this),
+                WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                ShowInTaskbar = false,
+            };
+            updateWindow.ShowDialog();
         }
 
         private async void DownloadButton_Click(object sender, RoutedEventArgs e)
