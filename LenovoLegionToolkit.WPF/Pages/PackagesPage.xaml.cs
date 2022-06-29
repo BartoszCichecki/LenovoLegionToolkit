@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,6 +19,8 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private CancellationTokenSource? _getPackagesTokenSource;
 
+        private List<Package>? _packages;
+
         public PackagesPage()
         {
             InitializeComponent();
@@ -36,6 +39,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 _cancelDownloadPackagesButton.Visibility = Visibility.Visible;
                 _loader.Visibility = Visibility.Visible;
                 _loader.IsLoading = true;
+                _packages = null;
 
                 foreach (var control in _packagesStackPanel.Children.ToArray().OfType<PackageControl>())
                     control.CancelDownloads();
@@ -60,7 +64,11 @@ namespace LenovoLegionToolkit.WPF.Pages
 
                 var packages = await _packageDownloader.GetPackagesAsync(machineType, os, this, token);
 
-                foreach (var package in packages.OrderByDescending(p => p.ReleaseDate))
+                _packages = packages;
+
+                packages = Sort(packages);
+
+                foreach (var package in packages)
                 {
                     var control = new PackageControl(_packageDownloader, package);
                     _packagesStackPanel.Children.Add(control);
@@ -78,5 +86,39 @@ namespace LenovoLegionToolkit.WPF.Pages
         }
 
         private void CancelDownloadPackagesButton_Click(object sender, RoutedEventArgs e) => _getPackagesTokenSource?.Cancel();
+
+        private void SortingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (_packages is null)
+                return;
+
+            foreach (var control in _packagesStackPanel.Children.ToArray().OfType<PackageControl>())
+                control.CancelDownloads();
+
+            _packagesStackPanel.Children.Clear();
+
+            var packages = Sort(_packages);
+
+            foreach (var package in packages)
+            {
+                var control = new PackageControl(_packageDownloader, package);
+                _packagesStackPanel.Children.Add(control);
+            }
+        }
+
+        private List<Package> Sort(List<Package> packages)
+        {
+            switch (_sortingComboBox.SelectedIndex)
+            {
+                case 0:
+                    return packages.OrderBy(p => p.Description).ToList();
+                case 1:
+                    return packages.OrderBy(p => p.Category).ToList();
+                case 2:
+                    return packages.OrderByDescending(p => p.ReleaseDate).ToList();
+                default:
+                    return packages;
+            }
+        }
     }
 }
