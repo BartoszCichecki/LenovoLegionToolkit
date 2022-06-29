@@ -17,7 +17,7 @@ namespace LenovoLegionToolkit.WPF.Utils
             MessagingCenter.Subscribe<Notification>(this, OnNotificationReceived);
         }
 
-        public void OnNotificationReceived(Notification notification) => Dispatcher.Invoke(() =>
+        private void OnNotificationReceived(Notification notification) => Dispatcher.Invoke(() =>
         {
             var symbol = notification.Icon switch
             {
