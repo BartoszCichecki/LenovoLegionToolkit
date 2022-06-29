@@ -40,8 +40,6 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         public async Task SetLightControlOwnerAsync(bool enable, bool restorePreset = false)
         {
-            await ThrowIfVantageEnabled().ConfigureAwait(false);
-
             using (await _ioLock.LockAsync().ConfigureAwait(false))
             {
                 try
@@ -51,6 +49,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
                     if (handle is null)
                         throw new InvalidOperationException("RGB Keyboard unsupported.");
 #endif
+
+                    await ThrowIfVantageEnabled().ConfigureAwait(false);
 
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Taking ownership...");
@@ -83,24 +83,22 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         public async Task<RGBKeyboardBacklightState> GetStateAsync()
         {
-            await ThrowIfVantageEnabled().ConfigureAwait(false);
-
-#if !MOCK_RGB
-            var handle = Devices.GetRGBKeyboard();
-            if (handle is null)
-                throw new InvalidOperationException("RGB Keyboard unsupported.");
-#endif
-
             using (await _ioLock.LockAsync().ConfigureAwait(false))
                 return _settings.Store.State;
         }
 
         public async Task SetStateAsync(RGBKeyboardBacklightState state)
         {
-            await ThrowIfVantageEnabled().ConfigureAwait(false);
-
             using (await _ioLock.LockAsync().ConfigureAwait(false))
             {
+#if !MOCK_RGB
+                var handle = Devices.GetRGBKeyboard();
+                if (handle is null)
+                    throw new InvalidOperationException("RGB Keyboard unsupported.");
+#endif
+
+                await ThrowIfVantageEnabled().ConfigureAwait(false);
+
                 _settings.Store.State = state;
                 _settings.SynchronizeStore();
 
