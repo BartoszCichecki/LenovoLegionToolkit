@@ -17,6 +17,7 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -64,10 +65,21 @@
                     </TextBlock.Foreground>
                 </TextBlock>
 
+                <TextBlock
+                    x:Name="_warningTextBlock"
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Margin="0,4,0,0"
+                    Foreground="{DynamicResource SystemFillColorCautionBrush}"
+                    TextTrimming="CharacterEllipsis"
+                    Visibility="Collapsed">
+                    This package is more than a year old.
+                </TextBlock>
+
                 <StackPanel
                     x:Name="_idleStackPanel"
                     Grid.Row="0"
-                    Grid.RowSpan="4"
+                    Grid.RowSpan="5"
                     Grid.Column="1"
                     Orientation="Horizontal">
 
@@ -89,7 +101,7 @@
                 <StackPanel
                     x:Name="_downloadingStackPanel"
                     Grid.Row="0"
-                    Grid.RowSpan="4"
+                    Grid.RowSpan="5"
                     Grid.Column="1"
                     Orientation="Horizontal"
                     Visibility="Collapsed">
