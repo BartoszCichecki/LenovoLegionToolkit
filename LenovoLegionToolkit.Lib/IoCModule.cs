@@ -46,6 +46,7 @@ namespace LenovoLegionToolkit.Lib
             builder.Register<FnKeys>();
 
             builder.Register<UpdateChecker>();
+            builder.Register<PackageDownloader>();
         }
     }
 }
