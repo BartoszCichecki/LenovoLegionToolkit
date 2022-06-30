@@ -42,19 +42,19 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition MaxWidth="350" />
                             <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
                         <Label
                             Grid.Row="0"
                             Grid.Column="0"
                             VerticalContentAlignment="Center"
-                            Content="Machine type:">
+                            Content="Machine Type:">
                             <Label.Foreground>
                                 <SolidColorBrush Color="{DynamicResource TextFillColorPrimary}" />
                             </Label.Foreground>
@@ -64,7 +64,17 @@
                             Grid.Column="0"
                             Margin="0,8,0,0"
                             VerticalContentAlignment="Center"
-                            Content="Operating system:">
+                            Content="Operating System:">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource TextFillColorPrimary}" />
+                            </Label.Foreground>
+                        </Label>
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Margin="0,8,0,0"
+                            VerticalContentAlignment="Center"
+                            Content="Download to:">
                             <Label.Foreground>
                                 <SolidColorBrush Color="{DynamicResource TextFillColorPrimary}" />
                             </Label.Foreground>
@@ -84,25 +94,47 @@
                             <ComboBoxItem Content="Windows 11" />
                             <ComboBoxItem Content="Windows 10" />
                         </ComboBox>
+                        <Grid
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Margin="8,8,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <wpfui:TextBox x:Name="_downloadToText" Grid.Column="0" />
+
+                            <wpfui:Button
+                                Grid.Column="1"
+                                Margin="4,0,0,-1"
+                                VerticalAlignment="Stretch"
+                                Click="DownloadToButton_Click"
+                                Icon="MoreHorizontal24" />
+
+                        </Grid>
 
                         <wpfui:Button
                             x:Name="_downloadPackagesButton"
                             Grid.Row="0"
-                            Grid.RowSpan="2"
+                            Grid.RowSpan="3"
                             Grid.Column="3"
                             Width="150"
+                            HorizontalAlignment="Right"
                             VerticalAlignment="Bottom"
                             Appearance="Primary"
                             Click="DownloadPackagesButton_Click"
-                            Content="Fetch downloads"
+                            Content="Refresh"
+                            Icon="ArrowSync24"
                             IsEnabled="false" />
 
                         <wpfui:Button
                             x:Name="_cancelDownloadPackagesButton"
                             Grid.Row="0"
-                            Grid.RowSpan="2"
+                            Grid.RowSpan="3"
                             Grid.Column="3"
                             Width="150"
+                            HorizontalAlignment="Right"
                             VerticalAlignment="Bottom"
                             Appearance="Secondary"
                             Click="CancelDownloadPackagesButton_Click"
