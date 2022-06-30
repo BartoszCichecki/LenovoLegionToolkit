@@ -15,7 +15,7 @@ namespace LenovoLegionToolkit.WPF.Pages
 {
     public partial class PackagesPage : Page, IProgress<float>
     {
-        private PackageDownloader _packageDownloader = IoCContainer.Resolve<PackageDownloader>();
+        private readonly PackageDownloader _packageDownloader = IoCContainer.Resolve<PackageDownloader>();
 
         private CancellationTokenSource? _getPackagesTokenSource;
 
@@ -124,17 +124,13 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private List<Package> Sort(List<Package> packages)
         {
-            switch (_sortingComboBox.SelectedIndex)
+            return _sortingComboBox.SelectedIndex switch
             {
-                case 0:
-                    return packages.OrderBy(p => p.Description).ToList();
-                case 1:
-                    return packages.OrderBy(p => p.Category).ToList();
-                case 2:
-                    return packages.OrderByDescending(p => p.ReleaseDate).ToList();
-                default:
-                    return packages;
-            }
+                0 => packages.OrderBy(p => p.Description).ToList(),
+                1 => packages.OrderBy(p => p.Category).ToList(),
+                2 => packages.OrderByDescending(p => p.ReleaseDate).ToList(),
+                _ => packages,
+            };
         }
     }
 }
