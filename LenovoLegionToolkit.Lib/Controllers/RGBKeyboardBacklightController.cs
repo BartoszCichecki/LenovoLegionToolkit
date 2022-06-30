@@ -55,7 +55,9 @@ namespace LenovoLegionToolkit.Lib.Controllers
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Taking ownership...");
 
+#if !MOCK_RGB
                     await WMI.WriteAsync("ROOT\\WMI", $"SELECT * FROM LENOVO_GAMEZONE_DATA", "SetLightControlOwner", new() { { "Data", enable ? 1 : 0 } }).ConfigureAwait(false);
+#endif
 
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Ownership set to {enable}, restoring profile...");
@@ -126,10 +128,16 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         public async Task SetPresetAsync(RGBKeyboardBacklightPreset preset)
         {
-            await ThrowIfVantageEnabled().ConfigureAwait(false);
-
             using (await _ioLock.LockAsync().ConfigureAwait(false))
             {
+#if !MOCK_RGB
+                var handle = Devices.GetRGBKeyboard();
+                if (handle is null)
+                    throw new InvalidOperationException("RGB Keyboard unsupported.");
+#endif
+
+                await ThrowIfVantageEnabled().ConfigureAwait(false);
+
                 var state = _settings.Store.State;
                 var presets = state.Presets;
 
@@ -148,10 +156,16 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         public async Task SetNextPresetAsync()
         {
-            await ThrowIfVantageEnabled().ConfigureAwait(false);
-
             using (await _ioLock.LockAsync().ConfigureAwait(false))
             {
+#if !MOCK_RGB
+                var handle = Devices.GetRGBKeyboard();
+                if (handle is null)
+                    throw new InvalidOperationException("RGB Keyboard unsupported.");
+#endif
+
+                await ThrowIfVantageEnabled().ConfigureAwait(false);
+
                 var state = _settings.Store.State;
 
                 var newPreset = state.SelectedPreset.Next();
@@ -172,10 +186,16 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         private async Task SetCurrentPresetAsync()
         {
-            await ThrowIfVantageEnabled().ConfigureAwait(false);
-
             using (await _ioLock.LockAsync().ConfigureAwait(false))
             {
+#if !MOCK_RGB
+                var handle = Devices.GetRGBKeyboard();
+                if (handle is null)
+                    throw new InvalidOperationException("RGB Keyboard unsupported.");
+#endif
+
+                await ThrowIfVantageEnabled().ConfigureAwait(false);
+
                 var state = _settings.Store.State;
 
                 var preset = state.SelectedPreset;
