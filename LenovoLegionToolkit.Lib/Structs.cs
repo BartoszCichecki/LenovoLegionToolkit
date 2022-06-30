@@ -78,12 +78,40 @@ namespace LenovoLegionToolkit.Lib
     public struct MachineInformation
     {
         public string Vendor { get; }
+        public string MachineType { get; }
         public string Model { get; }
+        public string SerialNumber { get; }
 
-        public MachineInformation(string vendor, string model)
+        public MachineInformation(string vendor, string machineType, string model, string serialNumber)
         {
             Vendor = vendor;
+            MachineType = machineType;
             Model = model;
+            SerialNumber = serialNumber;
+        }
+    }
+
+    public struct Package
+    {
+        public string Description { get; }
+        public string Version { get; }
+        public string Category { get; }
+        public string FileName { get; }
+        public int FileSize { get; }
+        public DateTime ReleaseDate { get; }
+        public string? Readme { get; }
+        public string FileLocation { get; }
+
+        public Package(string description, string version, string category, string fileName, int fileSize, DateTime releaseDate, string? readme, string fileLocation)
+        {
+            Description = description;
+            Version = version;
+            Category = category;
+            FileName = fileName;
+            FileSize = fileSize;
+            ReleaseDate = releaseDate;
+            Readme = readme;
+            FileLocation = fileLocation;
         }
     }
 

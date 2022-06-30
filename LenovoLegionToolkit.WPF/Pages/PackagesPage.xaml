@@ -1,0 +1,162 @@
+﻿<Page
+    x:Class="LenovoLegionToolkit.WPF.Pages.PackagesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Title="Downloads"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    Style="{StaticResource UiPage}"
+    mc:Ignorable="d">
+
+    <Grid Margin="0,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock
+                Grid.Row="0"
+                Margin="0,24,0,24"
+                FontSize="24"
+                FontWeight="Medium"
+                Text="Downloads" />
+
+            <wpfui:CardControl
+                Grid.Row="1"
+                Margin="0,0,16,24"
+                FocusVisualStyle="{DynamicResource DefaultControlFocusVisualStyle}">
+                <wpfui:CardControl.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            VerticalContentAlignment="Center"
+                            Content="Machine type:">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource TextFillColorPrimary}" />
+                            </Label.Foreground>
+                        </Label>
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Margin="0,8,0,0"
+                            VerticalContentAlignment="Center"
+                            Content="Operating system:">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource TextFillColorPrimary}" />
+                            </Label.Foreground>
+                        </Label>
+
+                        <wpfui:TextBox
+                            x:Name="_machineTypeTextBox"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Margin="8,0,0,0"
+                            PlaceholderText="(eg. 82JQ)" />
+                        <ComboBox
+                            x:Name="_osComboBox"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="8,8,0,0">
+                            <ComboBoxItem Content="Windows 11" />
+                            <ComboBoxItem Content="Windows 10" />
+                        </ComboBox>
+
+                        <wpfui:Button
+                            x:Name="_downloadPackagesButton"
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            Grid.Column="3"
+                            Width="150"
+                            VerticalAlignment="Bottom"
+                            Appearance="Primary"
+                            Click="DownloadPackagesButton_Click"
+                            Content="Fetch downloads"
+                            IsEnabled="false" />
+
+                        <wpfui:Button
+                            x:Name="_cancelDownloadPackagesButton"
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            Grid.Column="3"
+                            Width="150"
+                            VerticalAlignment="Bottom"
+                            Appearance="Secondary"
+                            Click="CancelDownloadPackagesButton_Click"
+                            Content="Cancel"
+                            IsEnabled="false"
+                            Visibility="Collapsed" />
+                    </Grid>
+                </wpfui:CardControl.Header>
+            </wpfui:CardControl>
+
+            <controls:LoadableControl
+                x:Name="_loader"
+                Grid.Row="2"
+                IndicatorVerticalAlignment="Center"
+                Visibility="Hidden">
+                <wpfui:DynamicScrollViewer x:Name="_scrollViewer">
+
+                    <StackPanel>
+
+                        <wpfui:CardControl Margin="0,0,16,16" Icon="Info24">
+                            <wpfui:CardControl.Header>
+                                <StackPanel>
+                                    <TextBlock
+                                        Margin="0,0,0,4"
+                                        FontWeight="Medium"
+                                        Text="Important" />
+                                    <TextBlock
+                                        FontSize="12"
+                                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                        Text="Below is a list of software packages that are marked as compatible with your laptop.&#x0a;Always make sure that you are installing correct packages.&#x0a;&#x0a;Packages are downloaded to your Downloads folder." />
+                                </StackPanel>
+                            </wpfui:CardControl.Header>
+                        </wpfui:CardControl>
+
+                        <ComboBox
+                            x:Name="_sortingComboBox"
+                            Margin="0,0,16,8"
+                            HorizontalAlignment="Right"
+                            SelectedIndex="2"
+                            SelectionChanged="SortingComboBox_SelectionChanged">
+                            <ComboBoxItem Content="Name" />
+                            <ComboBoxItem Content="Category" />
+                            <ComboBoxItem Content="Date" />
+                        </ComboBox>
+
+                        <StackPanel x:Name="_packagesStackPanel" Margin="0,0,16,12" />
+
+                    </StackPanel>
+
+                </wpfui:DynamicScrollViewer>
+            </controls:LoadableControl>
+
+        </Grid>
+
+    </Grid>
+
+</Page>
