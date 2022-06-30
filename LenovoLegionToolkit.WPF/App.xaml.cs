@@ -82,10 +82,18 @@ namespace LenovoLegionToolkit
             {
                 var rgbKeyboardBacklightController = IoCContainer.Resolve<RGBKeyboardBacklightController>();
 
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Setting light controll owner and restoring preset...");
+                if (rgbKeyboardBacklightController.IsSupported())
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Setting light controll owner and restoring preset...");
 
-                await rgbKeyboardBacklightController.SetLightControlOwnerAsync(true, true);
+                    await rgbKeyboardBacklightController.SetLightControlOwnerAsync(true, true);
+                }
+                else
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"RGB keyboard is not supported.");
+                }
             }
             catch (Exception ex)
             {
