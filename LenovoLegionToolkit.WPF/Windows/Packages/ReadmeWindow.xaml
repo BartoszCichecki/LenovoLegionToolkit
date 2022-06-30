@@ -51,7 +51,7 @@
                 </Grid.RowDefinitions>
 
                 <ScrollViewer Grid.Row="0">
-                    <TextBlock x:Name="_content" />
+                    <TextBlock x:Name="_content" TextWrapping="Wrap" />
                 </ScrollViewer>
 
                 <wpfui:Button
