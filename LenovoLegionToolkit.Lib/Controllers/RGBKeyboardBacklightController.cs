@@ -6,6 +6,8 @@ using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using NeoSmart.AsyncLock;
+using LenovoLegionToolkit.Lib.Utils;
+using System.Diagnostics;
 
 #if !MOCK_RGB
 using System.Runtime.InteropServices;
@@ -20,8 +22,6 @@ namespace LenovoLegionToolkit.Lib.Controllers
         private readonly RGBKeyboardSettings _settings;
 
         private readonly Vantage _vantage;
-
-        private bool _isLightControlOwner = false;
 
         public RGBKeyboardBacklightController(RGBKeyboardSettings settings, Vantage vantage)
         {
@@ -38,13 +38,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 #endif
         }
 
-        public async Task<bool> IsLightControlOwnerAsync()
-        {
-            using (await _ioLock.LockAsync().ConfigureAwait(false))
-                return _isLightControlOwner;
-        }
-
-        public async Task SetLightControlOwnerAsync(bool enable)
+        public async Task SetLightControlOwnerAsync(bool enable, bool restorePreset = false)
         {
             using (await _ioLock.LockAsync().ConfigureAwait(false))
             {
@@ -58,12 +52,30 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
                     await ThrowIfVantageEnabled().ConfigureAwait(false);
 
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Taking ownership...");
+
                     await WMI.WriteAsync("ROOT\\WMI", $"SELECT * FROM LENOVO_GAMEZONE_DATA", "SetLightControlOwner", new() { { "Data", enable ? 1 : 0 } }).ConfigureAwait(false);
-                    _isLightControlOwner = enable;
+
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Ownership set to {enable}, restoring profile...");
+
+                    if (restorePreset)
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Restoring preset...");
+
+                        await SetCurrentPresetAsync().ConfigureAwait(false);
+
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Restored preset");
+                    }
                 }
-                catch
+                catch (Exception ex)
                 {
-                    _isLightControlOwner = false;
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Can't take ownership: {ex.Demystify()}");
+
                     throw;
                 }
             }
@@ -71,24 +83,32 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         public async Task<RGBKeyboardBacklightState> GetStateAsync()
         {
+            using (await _ioLock.LockAsync().ConfigureAwait(false))
+            {
 #if !MOCK_RGB
-            var handle = Devices.GetRGBKeyboard();
-            if (handle is null)
-                throw new InvalidOperationException("RGB Keyboard unsupported.");
+                var handle = Devices.GetRGBKeyboard();
+                if (handle is null)
+                    throw new InvalidOperationException("RGB Keyboard unsupported.");
 #endif
 
-            await ThrowIfVantageEnabled().ConfigureAwait(false);
+                await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            using (await _ioLock.LockAsync().ConfigureAwait(false))
                 return _settings.Store.State;
+            }
         }
 
         public async Task SetStateAsync(RGBKeyboardBacklightState state)
         {
-            await ThrowIfVantageEnabled().ConfigureAwait(false);
-
             using (await _ioLock.LockAsync().ConfigureAwait(false))
             {
+#if !MOCK_RGB
+                var handle = Devices.GetRGBKeyboard();
+                if (handle is null)
+                    throw new InvalidOperationException("RGB Keyboard unsupported.");
+#endif
+
+                await ThrowIfVantageEnabled().ConfigureAwait(false);
+
                 _settings.Store.State = state;
                 _settings.SynchronizeStore();
 
@@ -126,26 +146,6 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
         }
 
-        public async Task SetCurrentPresetAsync()
-        {
-            await ThrowIfVantageEnabled().ConfigureAwait(false);
-
-            using (await _ioLock.LockAsync().ConfigureAwait(false))
-            {
-                var state = _settings.Store.State;
-
-                var preset = state.SelectedPreset;
-
-                RGBKeyboardStateEx str;
-                if (preset == RGBKeyboardBacklightPreset.Off)
-                    str = CreateOffState();
-                else
-                    str = Convert(state.Presets[preset]);
-
-                await SendToDevice(str).ConfigureAwait(false);
-            }
-        }
-
         public async Task SetNextPresetAsync()
         {
             await ThrowIfVantageEnabled().ConfigureAwait(false);
@@ -165,6 +165,26 @@ namespace LenovoLegionToolkit.Lib.Controllers
                     str = CreateOffState();
                 else
                     str = Convert(state.Presets[newPreset]);
+
+                await SendToDevice(str).ConfigureAwait(false);
+            }
+        }
+
+        private async Task SetCurrentPresetAsync()
+        {
+            await ThrowIfVantageEnabled().ConfigureAwait(false);
+
+            using (await _ioLock.LockAsync().ConfigureAwait(false))
+            {
+                var state = _settings.Store.State;
+
+                var preset = state.SelectedPreset;
+
+                RGBKeyboardStateEx str;
+                if (preset == RGBKeyboardBacklightPreset.Off)
+                    str = CreateOffState();
+                else
+                    str = Convert(state.Presets[preset]);
 
                 await SendToDevice(str).ConfigureAwait(false);
             }

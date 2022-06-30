@@ -22,15 +22,23 @@ namespace LenovoLegionToolkit.Lib.Listeners
         {
             try
             {
-                if (!await _controller.IsLightControlOwnerAsync().ConfigureAwait(false))
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Not an light control owner, ignoring...");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Taking ownership...");
 
-                    return;
-                }
+                await _controller.SetLightControlOwnerAsync(true).ConfigureAwait(false);
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Ownership set, waiting 500ms...");
+
+                await Task.Delay(500).ConfigureAwait(false);
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Setting next preset set...");
 
                 await _controller.SetNextPresetAsync().ConfigureAwait(false);
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Next preset set");
             }
             catch (Exception ex)
             {

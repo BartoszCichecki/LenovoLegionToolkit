@@ -2,10 +2,10 @@
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.System
 {
-
     public class FnKeys : SoftwareDisabler
     {
         protected override string[] ScheduledTasksPaths => Array.Empty<string>();
@@ -40,17 +40,35 @@ namespace LenovoLegionToolkit.Lib.System
             await base.DisableAsync().ConfigureAwait(false);
             Registry.SetUWPStartup("LenovoUtility", "LenovoUtilityID", false);
 
-            foreach (var process in Process.GetProcessesByName("LenovoSmartKey"))
+            try
             {
-                process.Kill();
-                await process.WaitForExitAsync().ConfigureAwait(false);
+                foreach (var process in Process.GetProcessesByName("LenovoSmartKey"))
+                {
+                    process.Kill();
+                    await process.WaitForExitAsync().ConfigureAwait(false);
+                }
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't kill process: {ex.Demystify()}");
             }
 
-            foreach (var process in Process.GetProcessesByName("utility").Where(p => p.MainModule.FileName.Contains("LenovoUtility")))
+            try
             {
-                process.Kill();
-                await process.WaitForExitAsync().ConfigureAwait(false);
+                foreach (var process in Process.GetProcessesByName("utility").Where(p => p.MainModule.FileName.Contains("LenovoUtility")))
+                {
+                    process.Kill();
+                    await process.WaitForExitAsync().ConfigureAwait(false);
+                }
             }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't kill process: {ex.Demystify()}");
+            }
+
+            await Task.Delay(1000).ConfigureAwait(false);
         }
     }
 }
