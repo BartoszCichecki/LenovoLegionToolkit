@@ -87,6 +87,22 @@ namespace LenovoLegionToolkit.Lib
         }
     }
 
+    public struct Notification
+    {
+        public NotificationIcon Icon { get; }
+
+        public string Text { get; }
+
+        public NotificationDuration Duration { get; }
+
+        public Notification(NotificationIcon icon, string text, NotificationDuration duration)
+        {
+            Icon = icon;
+            Text = text;
+            Duration = duration;
+        }
+    }
+
     public struct PowerPlan
     {
         public string InstanceID { get; }
