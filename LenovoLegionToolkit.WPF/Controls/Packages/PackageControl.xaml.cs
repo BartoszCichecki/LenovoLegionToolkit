@@ -47,6 +47,9 @@ namespace LenovoLegionToolkit.WPF.Controls.Packages
 
         private void ReadmeButton_Click(object sender, RoutedEventArgs e)
         {
+            if (_package.Readme is null)
+                return;
+
             var updateWindow = new ReadmeWindow(_package.Readme)
             {
                 Owner = Window.GetWindow(this),
