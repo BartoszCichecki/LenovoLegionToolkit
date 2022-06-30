@@ -16,6 +16,8 @@ using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows;
+using WinFormsApp = System.Windows.Forms.Application;
+using WinFormsHighDpiMode = System.Windows.Forms.HighDpiMode;
 
 #pragma warning disable IDE0052 // Remove unread private members
 
@@ -37,6 +39,7 @@ namespace LenovoLegionToolkit
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Starting... [version={Assembly.GetEntryAssembly()?.GetName().Version}]");
 
+            WinFormsApp.SetHighDpiMode(WinFormsHighDpiMode.PerMonitorV2);
             RenderOptions.ProcessRenderMode = RenderMode.SoftwareOnly;
 
             EnsureSingleInstance();

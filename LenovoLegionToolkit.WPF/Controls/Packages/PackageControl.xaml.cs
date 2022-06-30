@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
-using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Packages;
@@ -18,12 +19,17 @@ namespace LenovoLegionToolkit.WPF.Controls.Packages
 
         private CancellationTokenSource? _downloadPackageTokenSource;
 
-        public PackageControl(PackageDownloader packageDownloader, Package package)
+        public Func<string> _getDownloadPath;
+
+        public PackageControl(PackageDownloader packageDownloader, Package package, Func<string> getDownloadPath)
         {
             _packageDownloader = packageDownloader;
             _package = package;
+            _getDownloadPath = getDownloadPath;
 
             InitializeComponent();
+
+            Unloaded += PackageControl_Unloaded;
 
             _dateTextBlock.Text = package.ReleaseDate.ToString("d");
             _descriptionTextBlock.Text = package.Description;
@@ -36,7 +42,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Packages
             _warningTextBlock.Visibility = showWarning ? Visibility.Visible : Visibility.Collapsed;
         }
 
-        public void CancelDownloads() => _downloadPackageTokenSource?.Cancel();
+        private void PackageControl_Unloaded(object sender, RoutedEventArgs e) => _downloadPackageTokenSource?.Cancel();
 
         public void Report(float value) => Dispatcher.Invoke(() =>
         {
@@ -71,14 +77,27 @@ namespace LenovoLegionToolkit.WPF.Controls.Packages
                 _downloadPackageTokenSource?.Cancel();
                 _downloadPackageTokenSource = new CancellationTokenSource();
 
-                var downloadsFolder = KnownFolders.GetPath(KnownFolder.Downloads);
                 var token = _downloadPackageTokenSource.Token;
 
-                await _packageDownloader.DownloadPackageFileAsync(_package, downloadsFolder, this, token);
+                await _packageDownloader.DownloadPackageFileAsync(_package, _getDownloadPath(), this, token);
 
                 result = true;
             }
             catch (TaskCanceledException) { }
+            catch (HttpRequestException ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Error occured when downloading package file: {ex.Demystify()}");
+
+                SnackbarHelper.Show("Something went wrong", "Check if your internet connection is up and running.", true);
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Error occured when downloading package file: {ex.Demystify()}");
+
+                SnackbarHelper.Show("Something went wrong", ex.Message, true);
+            }
             finally
             {
                 _idleStackPanel.Visibility = Visibility.Visible;

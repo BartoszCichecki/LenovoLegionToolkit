@@ -10,6 +10,7 @@
 		<Version>0.0.1</Version>
 		<Nullable>enable</Nullable>
 		<UseWPF>true</UseWPF>
+		<UseWindowsForms>true</UseWindowsForms>
 		<SelfContained>false</SelfContained>
 		<PublishSingleFile>false</PublishSingleFile>
 		<PublishReadyToRun>false</PublishReadyToRun>
