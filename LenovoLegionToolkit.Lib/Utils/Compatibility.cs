@@ -37,12 +37,17 @@ namespace LenovoLegionToolkit.Lib.Utils
             "17IRH", // Legion Y540 - Intel, nVidia
         };
 
-        public static async Task<(bool isCompatible, MachineInformation machineInformation)> IsCompatibleAsync()
+        public static async Task<MachineInformation> GetMachineInformation()
         {
             var result = await WMI.ReadAsync("root\\CIMV2",
                             $"SELECT * FROM Win32_ComputerSystemProduct",
                             Create).ConfigureAwait(false);
-            var machineInformation = result.First();
+            return result.First();
+        }
+
+        public static async Task<(bool isCompatible, MachineInformation machineInformation)> IsCompatibleAsync()
+        {
+            var machineInformation = await GetMachineInformation().ConfigureAwait(false);
 
             if (!machineInformation.Vendor.Equals(_allowedVendor, StringComparison.InvariantCultureIgnoreCase))
                 return (false, machineInformation);
@@ -56,9 +61,11 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         private static MachineInformation Create(PropertyDataCollection properties)
         {
+            var machineType = (string)properties["Name"].Value;
             var vendor = (string)properties["Vendor"].Value;
             var model = (string)properties["Version"].Value;
-            return new(vendor, model);
+            var serialNumber = (string)properties["IdentifyingNumber"].Value;
+            return new(vendor, machineType, model, serialNumber);
         }
     }
 }
