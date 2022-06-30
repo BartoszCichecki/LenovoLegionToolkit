@@ -125,7 +125,6 @@
                             Appearance="Primary"
                             Click="DownloadPackagesButton_Click"
                             Content="Refresh"
-                            Icon="ArrowSync24"
                             IsEnabled="false" />
 
                         <wpfui:Button
