@@ -78,7 +78,14 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
         }
 
-        public Task RefreshAsync() => RefreshLoopAsync(0, 0, CancellationToken.None);
+        public async Task<bool> CanBeDeactivatedAsync()
+        {
+            using (await _lock.LockAsync().ConfigureAwait(false))
+            {
+                await RefreshLoopAsync(0, 0, CancellationToken.None);
+                return CanBeDeactivated;
+            }
+        }
 
         public async Task StartAsync(int delay = 1_000, int interval = 5_000)
         {
@@ -127,45 +134,47 @@ namespace LenovoLegionToolkit.Lib.Controllers
         public async Task DeactivateGPUAsync()
         {
             using (await _lock.LockAsync().ConfigureAwait(false))
-
+            {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Deactivating... [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
 
-            if (!IsActive || !CanBeDeactivated || string.IsNullOrEmpty(_gpuInstanceId))
-                return;
+                if (!IsActive || !CanBeDeactivated || string.IsNullOrEmpty(_gpuInstanceId))
+                    return;
 
-            await CMD.RunAsync("pnputil", $"/restart-device \"{_gpuInstanceId}\"").ConfigureAwait(false);
+                await CMD.RunAsync("pnputil", $"/restart-device \"{_gpuInstanceId}\"").ConfigureAwait(false);
 
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Deactivated [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Deactivated [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
+            }
         }
 
         public async Task KillGPUProcessesAsync()
         {
             using (await _lock.LockAsync().ConfigureAwait(false))
-
+            {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Killing GPU processes... [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
 
-            if (!IsActive || !CanBeDeactivated || string.IsNullOrEmpty(_gpuInstanceId))
-                return;
+                if (!IsActive || !CanBeDeactivated || string.IsNullOrEmpty(_gpuInstanceId))
+                    return;
 
-            foreach (var process in _processes)
-            {
-                try
+                foreach (var process in _processes)
                 {
-                    process.Kill(true);
-                    await process.WaitForExitAsync().ConfigureAwait(false);
+                    try
+                    {
+                        process.Kill(true);
+                        await process.WaitForExitAsync().ConfigureAwait(false);
+                    }
+                    catch (Exception ex)
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Couldnt kill process: {ex.Demystify()} [pid={process.Id}, name={process.ProcessName}]");
+                    }
                 }
-                catch (Exception ex)
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Couldnt kill process: {ex.Demystify()} [pid={process.Id}, name={process.ProcessName}]");
-                }
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Killed GPU processes. [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
             }
-
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Killed GPU processes. [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
         }
 
         private async Task RefreshLoopAsync(int delay, int interval, CancellationToken token)
@@ -182,7 +191,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
                 await Task.Delay(delay, token).ConfigureAwait(false);
 
-                while (interval > 0)
+                while (true)
                 {
                     token.ThrowIfCancellationRequested();
 
@@ -201,7 +210,10 @@ namespace LenovoLegionToolkit.Lib.Controllers
                         Refreshed?.Invoke(this, new RefreshedEventArgs(IsActive, CanBeDeactivated, _status, _performanceState, _processes));
                     }
 
-                    await Task.Delay(interval, token).ConfigureAwait(false);
+                    if (interval > 0)
+                        await Task.Delay(interval, token).ConfigureAwait(false);
+                    else
+                        break;
                 }
             }
             catch (Exception ex) when (ex is not TaskCanceledException)
