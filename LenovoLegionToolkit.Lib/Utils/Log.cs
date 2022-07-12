@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Runtime.CompilerServices;
+using System.Text;
 
 namespace LenovoLegionToolkit.Lib.Utils
 {
@@ -52,8 +54,21 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         public void ErrorReport(Exception ex)
         {
+            var sb = new StringBuilder();
+
+            sb.AppendLine("Exception demystified:");
+            sb.AppendLine(ex.ToStringDemystified());
+
+            sb.AppendLine();
+            sb.AppendLine();
+
+            sb.AppendLine("Exception:");
+            sb.AppendLine(ex.ToString());
+
+            Trace($"{sb}");
+
             var errorReportPath = Path.Combine(_folderPath, $"error_{DateTime.Now:yyyy_MM_dd_HH_mm_ss}.txt");
-            File.AppendAllLines(errorReportPath, new[] { ex.ToString() });
+            File.AppendAllLines(errorReportPath, new[] { sb.ToString() });
         }
     }
 }
