@@ -163,7 +163,7 @@
                                     <TextBlock
                                         FontSize="12"
                                         Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                        Text="Below is a list of software packages that are marked as compatible with your laptop.&#x0a;Always make sure that you are installing correct packages.&#x0a;&#x0a;Packages are downloaded to your Downloads folder." />
+                                        Text="Below is a list of software packages that are marked as compatible with your laptop.&#x0a;Always make sure that you are installing correct packages." />
                                 </StackPanel>
                             </wpfui:CardControl.Header>
                         </wpfui:CardControl>

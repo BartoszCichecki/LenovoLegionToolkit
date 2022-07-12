@@ -43,7 +43,7 @@
 
         <wpfui:CardControl Margin="0,0,0,8">
             <wpfui:CardControl.Header>
-                <controls:CardHeaderControl Title="Autorun" Subtitle="Start minimized to tray when you log in to Windows." />
+                <controls:CardHeaderControl Title="Autorun" Subtitle="Start minimized to tray when you log in to Windows.&#x0a;Startup is delayed by one minute for compatibility reasons." />
             </wpfui:CardControl.Header>
             <wpfui:ToggleSwitch
                 x:Name="_autorunToggle"
