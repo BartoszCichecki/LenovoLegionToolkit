@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -10,7 +9,6 @@ using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 using Button = System.Windows.Controls.Button;
 using Color = System.Windows.Media.Color;
-using TextBox = Wpf.Ui.Controls.TextBox;
 
 namespace LenovoLegionToolkit.WPF.Controls
 {
