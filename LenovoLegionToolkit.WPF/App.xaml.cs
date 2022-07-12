@@ -151,14 +151,12 @@ namespace LenovoLegionToolkit
 
         private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            Log.Instance.ErrorReport(e.Exception.Demystify());
+            Log.Instance.ErrorReport(e.Exception);
 
-            var errorText = e.Exception.Demystify().ToString();
-
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"***** *** Unhandled exception ***** ***\n{errorText}");
-
-            MessageBox.Show(errorText, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(e.Exception.ToStringDemystified(),
+                            "Error",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Error);
             Shutdown(-1);
         }
 
