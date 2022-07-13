@@ -53,6 +53,9 @@ namespace LenovoLegionToolkit
                 new WPF.IoCModule()
             );
 
+            if (ShouldForceDisableRGBKeyboardSupport(e.Args))
+                IoCContainer.Resolve<RGBKeyboardBacklightController>().ForceDisable = true;
+
             try
             {
                 if (Log.Instance.IsTraceEnabled)
@@ -201,6 +204,15 @@ namespace LenovoLegionToolkit
         }
 
         #region Arguments
+
+        private static bool ShouldForceDisableRGBKeyboardSupport(string[] args)
+        {
+            var result = args.Contains("--force-disable-rgbkb");
+            if (result)
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Argument present");
+            return result;
+        }
 
         private static bool ShouldByPassCompatibilityCheck(string[] args)
         {
