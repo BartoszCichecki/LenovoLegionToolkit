@@ -53,7 +53,11 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private void OpenDownloadToButton_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("explorer.exe", GetDownloadLocation());
+            try
+            {
+                Process.Start("explorer.exe", GetDownloadLocation());
+            }
+            catch { }
         }
 
         private void DownloadToButton_Click(object sender, RoutedEventArgs e)
