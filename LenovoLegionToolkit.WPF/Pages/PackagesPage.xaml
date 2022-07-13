@@ -101,16 +101,24 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
 
                             <wpfui:TextBox x:Name="_downloadToText" Grid.Column="0" />
 
                             <wpfui:Button
                                 Grid.Column="1"
-                                Margin="4,0,0,-1"
+                                Margin="4,0,0,0"
                                 VerticalAlignment="Stretch"
                                 Click="DownloadToButton_Click"
                                 Icon="MoreHorizontal24" />
+
+                            <wpfui:Button
+                                Grid.Column="2"
+                                Margin="4,0,0,-1"
+                                VerticalAlignment="Stretch"
+                                Click="OpenDownloadToButton_Click"
+                                Icon="Open24" />
 
                         </Grid>
 
