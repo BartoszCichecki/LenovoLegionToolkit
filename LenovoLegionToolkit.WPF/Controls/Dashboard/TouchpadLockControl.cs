@@ -26,7 +26,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             if (!IsLoaded || !IsVisible)
                 return;
 
-            if (e == DriverKey.Fn_F7)
+            if (e == DriverKey.Fn_F10)
                 await RefreshAsync();
         });
     }
