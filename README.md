@@ -43,6 +43,7 @@ List of supported models can be found here: [Compatibility.cs](https://github.co
 The app allows to:
 
 * Change settings like power mode, battery charging mode etc. That are available only through Vantage.
+* 4-zone RGB and White backlight keyboards support.
 * Change display refresh rate (built-in display only).
 * Deactivate discrete GPU (nVidia only).
 * View battery statistics.
