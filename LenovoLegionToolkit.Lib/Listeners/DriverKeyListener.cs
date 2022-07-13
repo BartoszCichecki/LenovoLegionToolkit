@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
@@ -15,10 +16,12 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         private readonly Task _listenTask;
         private readonly FnKeys _fnKeys;
+        private readonly TouchpadLockFeature _touchpadLockFeature;
 
-        public DriverKeyListener(FnKeys fnKeys)
+        public DriverKeyListener(FnKeys fnKeys, TouchpadLockFeature touchpadLockFeature)
         {
             _fnKeys = fnKeys;
+            _touchpadLockFeature = touchpadLockFeature;
 
             _listenTask = Task.Run(HandlerAsync);
         }
@@ -91,7 +94,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
             }
         }
 
-        protected Task OnChangedAsync(DriverKey value)
+        protected async Task OnChangedAsync(DriverKey value)
         {
             try
             {
@@ -104,6 +107,15 @@ namespace LenovoLegionToolkit.Lib.Listeners
                             MessagingCenter.Publish(new Notification(NotificationIcon.MicrophoneOn, "Microphone on", NotificationDuration.Short));
                         else
                             MessagingCenter.Publish(new Notification(NotificationIcon.MicrophoneOff, "Microphone off", NotificationDuration.Short));
+
+                        break;
+                    case DriverKey.Fn_F7:
+                        var status = await _touchpadLockFeature.GetStateAsync().ConfigureAwait(false);
+
+                        if (status == TouchpadLockState.On)
+                            MessagingCenter.Publish(new Notification(NotificationIcon.TouchpadOn, "Touchpad on", NotificationDuration.Short));
+                        else
+                            MessagingCenter.Publish(new Notification(NotificationIcon.TouchpadOff, "Touchpad off", NotificationDuration.Short));
 
                         break;
                     case DriverKey.Fn_F8:
@@ -123,8 +135,6 @@ namespace LenovoLegionToolkit.Lib.Listeners
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Could not run action:{ex.Demystify()} [value={value}]");
             }
-
-            return Task.CompletedTask;
         }
     }
 }

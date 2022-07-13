@@ -23,6 +23,7 @@ namespace LenovoLegionToolkit.Lib
     public enum DriverKey
     {
         Fn_F4 = 256,
+        Fn_F7 = 32,
         Fn_F8 = 8192,
     }
 
@@ -65,6 +66,8 @@ namespace LenovoLegionToolkit.Lib
         MicrophoneOff,
         MicrophoneOn,
         RefreshRate,
+        TouchpadOn,
+        TouchpadOff,
     }
 
     public enum OverDriveState

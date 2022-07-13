@@ -24,6 +24,8 @@ namespace LenovoLegionToolkit.WPF.Utils
                 NotificationIcon.MicrophoneOn => SymbolRegular.Mic24,
                 NotificationIcon.MicrophoneOff => SymbolRegular.MicOff24,
                 NotificationIcon.RefreshRate => SymbolRegular.Desktop24,
+                NotificationIcon.TouchpadOn => SymbolRegular.Tablet24,
+                NotificationIcon.TouchpadOff => SymbolRegular.Tablet24,
                 _ => SymbolRegular.Info24,
             };
 
