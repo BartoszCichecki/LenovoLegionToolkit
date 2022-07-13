@@ -109,7 +109,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
                             MessagingCenter.Publish(new Notification(NotificationIcon.MicrophoneOff, "Microphone off", NotificationDuration.Short));
 
                         break;
-                    case DriverKey.Fn_F7:
+                    case DriverKey.Fn_F10:
                         var status = await _touchpadLockFeature.GetStateAsync().ConfigureAwait(false);
 
                         if (status == TouchpadLockState.On)
