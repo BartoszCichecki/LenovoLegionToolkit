@@ -51,6 +51,11 @@ namespace LenovoLegionToolkit.WPF.Pages
             _loader.Progress = value;
         });
 
+        private void OpenDownloadToButton_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("explorer.exe", GetDownloadLocation());
+        }
+
         private void DownloadToButton_Click(object sender, RoutedEventArgs e)
         {
             using var ofd = new FolderBrowserDialog
