@@ -94,6 +94,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             switch (WindowState)
             {
                 case WindowState.Minimized:
+                    SaveWindowSize();
                     SendToTray();
                     break;
                 case WindowState.Normal:
