@@ -8,6 +8,7 @@ using LenovoLegionToolkit.Lib.System;
 using NeoSmart.AsyncLock;
 using LenovoLegionToolkit.Lib.Utils;
 using System.Diagnostics;
+using Microsoft.Win32.SafeHandles;
 
 #if !MOCK_RGB
 using System.Runtime.InteropServices;
@@ -17,11 +18,24 @@ namespace LenovoLegionToolkit.Lib.Controllers
 {
     public class RGBKeyboardBacklightController
     {
+        public bool ForceDisable { get; set; } = false;
+
         private readonly AsyncLock _ioLock = new();
 
         private readonly RGBKeyboardSettings _settings;
 
         private readonly Vantage _vantage;
+
+        private SafeFileHandle? DriverHandle
+        {
+            get
+            {
+                if (ForceDisable)
+                    return null;
+
+                return Devices.GetRGBKeyboard();
+            }
+        }
 
         public RGBKeyboardBacklightController(RGBKeyboardSettings settings, Vantage vantage)
         {
@@ -34,7 +48,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 #if MOCK_RGB
             return true;
 #else
-            return Devices.GetRGBKeyboard() is not null;
+            return DriverHandle is not null;
 #endif
         }
 
@@ -45,7 +59,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 try
                 {
 #if !MOCK_RGB
-                    var handle = Devices.GetRGBKeyboard();
+                    var handle = DriverHandle;
                     if (handle is null)
                         throw new InvalidOperationException("RGB Keyboard unsupported.");
 #endif
@@ -88,7 +102,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             using (await _ioLock.LockAsync().ConfigureAwait(false))
             {
 #if !MOCK_RGB
-                var handle = Devices.GetRGBKeyboard();
+                var handle = DriverHandle;
                 if (handle is null)
                     throw new InvalidOperationException("RGB Keyboard unsupported.");
 #endif
@@ -104,7 +118,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             using (await _ioLock.LockAsync().ConfigureAwait(false))
             {
 #if !MOCK_RGB
-                var handle = Devices.GetRGBKeyboard();
+                var handle = DriverHandle;
                 if (handle is null)
                     throw new InvalidOperationException("RGB Keyboard unsupported.");
 #endif
@@ -131,7 +145,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             using (await _ioLock.LockAsync().ConfigureAwait(false))
             {
 #if !MOCK_RGB
-                var handle = Devices.GetRGBKeyboard();
+                var handle = DriverHandle;
                 if (handle is null)
                     throw new InvalidOperationException("RGB Keyboard unsupported.");
 #endif
@@ -159,7 +173,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             using (await _ioLock.LockAsync().ConfigureAwait(false))
             {
 #if !MOCK_RGB
-                var handle = Devices.GetRGBKeyboard();
+                var handle = DriverHandle;
                 if (handle is null)
                     throw new InvalidOperationException("RGB Keyboard unsupported.");
 #endif
@@ -189,7 +203,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             using (await _ioLock.LockAsync().ConfigureAwait(false))
             {
 #if !MOCK_RGB
-                var handle = Devices.GetRGBKeyboard();
+                var handle = DriverHandle;
                 if (handle is null)
                     throw new InvalidOperationException("RGB Keyboard unsupported.");
 #endif
@@ -220,7 +234,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         private Task SendToDevice(RGBKeyboardStateEx str) => Task.Run(() =>
         {
 #if !MOCK_RGB
-            var handle = Devices.GetRGBKeyboard();
+            var handle = DriverHandle;
             if (handle is null)
                 throw new InvalidOperationException("RGB Keyboard unsupported.");
 
