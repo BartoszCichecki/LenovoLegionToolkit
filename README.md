@@ -47,6 +47,7 @@ The app allows to:
 - Change display refresh rate (built-in display only).
 - Deactivate discrete GPU (nVidia only).
 - View battery statistics.
+- Download download software updates.
 - Define Actions that will run when the laptop is i.e. connected to AC power.
 - Disable/enable Lenovo Vantage and Fn Keys service without uninstalling it.
 
