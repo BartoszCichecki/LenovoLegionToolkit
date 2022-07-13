@@ -26,8 +26,10 @@ If applicable, add screenshots to help explain your problem.
 **Environment (please complete the following information):**
  - OS: [e.g. Windows 11 21H2 build 22000]
  - Laptop model: [e.g. Legion 5 Pro 16ACH6]
- - .NET version: [e.g. 5.0.408]
  - Do you have Vantage installed? [Yes/No]
+ - Do you have Vantage disabled with LLT? [Yes/No]
+ - Do you have FN Keys service installed? [Yes/No]
+ - Do you have FN Keys service disabled with LLT? [Yes/No]
 
 **Logs**
 You might consider running with `--trace` parameter and attaching the log files. See README for details.
