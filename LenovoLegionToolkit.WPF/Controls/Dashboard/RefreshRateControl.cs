@@ -23,7 +23,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
         {
             await base.OnRefreshAsync();
 
-            if (_comboBox.Items.Count < 1)
+            if (_comboBox.Items.Count < 2)
                 Visibility = Visibility.Collapsed;
             else
                 Visibility = Visibility.Visible;
