@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
@@ -25,6 +26,12 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
             Margin = new(0, 0, 16, 0),
         };
 
+        public readonly SymbolIcon _overlaySymbolIcon = new()
+        {
+            FontSize = 32,
+            Margin = new(0, 0, 16, 0),
+        };
+
         public readonly Label _textBlock = new()
         {
             FontSize = 16,
@@ -32,11 +39,11 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
             VerticalContentAlignment = VerticalAlignment.Center,
         };
 
-        public NotificationWindow(SymbolRegular symbol, string text)
+        public NotificationWindow(SymbolRegular symbol, SymbolRegular? overlaySymbol, string text)
         {
             InitializeStyle();
             InitializePosition();
-            InitializeContent(symbol, text);
+            InitializeContent(symbol, overlaySymbol, text);
 
             MouseDown += (s, e) => Close();
         }
@@ -60,6 +67,8 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
             ShowInTaskbar = false;
 
             WindowBackdropType = BackgroundType.Mica;
+
+            _textBlock.Foreground = (SolidColorBrush)FindResource("TextFillColorPrimaryBrush");
         }
 
         private void InitializePosition()
@@ -72,7 +81,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
             Top = desktopWorkingArea.Bottom - Height - 16;
         }
 
-        private void InitializeContent(SymbolRegular symbol, string text)
+        private void InitializeContent(SymbolRegular symbol, SymbolRegular? overlaySymbol, string text)
         {
             _symbolIcon.Symbol = symbol;
             _textBlock.Content = text;
@@ -82,6 +91,13 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
 
             _mainGrid.Children.Add(_symbolIcon);
             _mainGrid.Children.Add(_textBlock);
+
+            if (overlaySymbol.HasValue)
+            {
+                _overlaySymbolIcon.Symbol = overlaySymbol.Value;
+                Grid.SetColumn(_overlaySymbolIcon, 0);
+                _mainGrid.Children.Add(_overlaySymbolIcon);
+            }
 
             Content = _mainGrid;
         }
