@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
@@ -79,7 +80,8 @@ namespace LenovoLegionToolkit.Lib.Utils
                     throw new InvalidDataException("File checksum mismatch.");
             }
 
-            var finalPath = Path.Combine(location, package.FileName);
+            var filename = SanitizeFileName(package.Description) + " - " + package.FileName;
+            var finalPath = Path.Combine(location, filename);
 
             File.Move(tempPath, finalPath, true);
 
@@ -147,6 +149,13 @@ namespace LenovoLegionToolkit.Lib.Utils
             {
                 return null;
             }
+        }
+
+        private static string SanitizeFileName(string name)
+        {
+            var invalidChars = Regex.Escape(new string(Path.GetInvalidFileNameChars()));
+            var invalidRegStr = string.Format(@"([{0}]*\.+$)|([{0}]+)", invalidChars);
+            return Regex.Replace(name, invalidRegStr, "_");
         }
     }
 }
