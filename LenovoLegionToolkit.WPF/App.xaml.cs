@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
@@ -33,7 +35,9 @@ namespace LenovoLegionToolkit
 
         private async void Application_Startup(object sender, StartupEventArgs e)
         {
-            if (IsTraceEnabled(e.Args))
+            var args = e.Args.Concat(LoadExternalArgs());
+
+            if (IsTraceEnabled(args))
                 Log.Instance.IsTraceEnabled = true;
 
             if (Log.Instance.IsTraceEnabled)
@@ -44,7 +48,7 @@ namespace LenovoLegionToolkit
 
             EnsureSingleInstance();
 
-            if (!ShouldByPassCompatibilityCheck(e.Args))
+            if (!ShouldByPassCompatibilityCheck(args))
                 await CheckCompatibilityAsync();
 
             IoCContainer.Initialize(
@@ -53,7 +57,7 @@ namespace LenovoLegionToolkit
                 new WPF.IoCModule()
             );
 
-            if (ShouldForceDisableRGBKeyboardSupport(e.Args))
+            if (ShouldForceDisableRGBKeyboardSupport(args))
                 IoCContainer.Resolve<RGBKeyboardBacklightController>().ForceDisable = true;
 
             try
@@ -117,7 +121,7 @@ namespace LenovoLegionToolkit
 
             IoCContainer.Resolve<ThemeManager>().Apply();
 
-            if (ShouldStartMinimized(e.Args))
+            if (ShouldStartMinimized(args))
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Sending MainWindow to tray...");
@@ -205,7 +209,22 @@ namespace LenovoLegionToolkit
 
         #region Arguments
 
-        private static bool ShouldForceDisableRGBKeyboardSupport(string[] args)
+        private static string[] LoadExternalArgs()
+        {
+            try
+            {
+                var argsFile = Path.Combine(Folders.AppData, "args.txt");
+                if (!File.Exists(argsFile))
+                    return Array.Empty<string>();
+                return File.ReadAllLines(argsFile);
+            }
+            catch
+            {
+                return Array.Empty<string>();
+            }
+        }
+
+        private static bool ShouldForceDisableRGBKeyboardSupport(IEnumerable<string> args)
         {
             var result = args.Contains("--force-disable-rgbkb");
             if (result)
@@ -214,7 +233,7 @@ namespace LenovoLegionToolkit
             return result;
         }
 
-        private static bool ShouldByPassCompatibilityCheck(string[] args)
+        private static bool ShouldByPassCompatibilityCheck(IEnumerable<string> args)
         {
             var result = args.Contains("--skip-compat-check");
             if (result)
@@ -223,7 +242,7 @@ namespace LenovoLegionToolkit
             return result;
         }
 
-        private static bool ShouldStartMinimized(string[] args)
+        private static bool ShouldStartMinimized(IEnumerable<string> args)
         {
             var result = args.Contains("--minimized");
             if (result)
@@ -232,7 +251,7 @@ namespace LenovoLegionToolkit
             return result;
         }
 
-        private static bool IsTraceEnabled(string[] args)
+        private static bool IsTraceEnabled(IEnumerable<string> args)
         {
             var result = args.Contains("--trace");
             if (result)
