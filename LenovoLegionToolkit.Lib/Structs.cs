@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using Newtonsoft.Json;
 using Octokit;
 
@@ -101,6 +102,25 @@ namespace LenovoLegionToolkit.Lib
         public DateTime ReleaseDate { get; }
         public string? Readme { get; }
         public string FileLocation { get; }
+
+        private string? _index = null;
+
+        public string Index
+        {
+            get
+            {
+                if (_index is null)
+                {
+                    _index = new StringBuilder()
+                        .Append(Description)
+                        .Append(Version)
+                        .Append(Category)
+                        .Append(FileName)
+                        .ToString();
+                }
+                return _index;
+            }
+        }
 
         public Package(string description, string version, string category, string fileName, int fileSize, DateTime releaseDate, string? readme, string fileLocation)
         {

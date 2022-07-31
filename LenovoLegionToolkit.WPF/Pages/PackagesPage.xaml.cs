@@ -26,6 +26,8 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private List<Package>? _packages;
 
+        private CancellationTokenSource? _filterDebounceCancellationTokenSource;
+
         public PackagesPage()
         {
             Initialized += PackagesPage_Initialized;
@@ -37,8 +39,18 @@ namespace LenovoLegionToolkit.WPF.Pages
             var mi = await Compatibility.GetMachineInformation();
             var os = Environment.OSVersion;
 
+            if (os.Version >= new Version(10, 0, 22000, 0)) // Windows 11
+                _osComboBox.SelectedIndex = 0;
+            else if (os.Version >= new Version(10, 0, 0, 0)) // Windows 10
+                _osComboBox.SelectedIndex = 1;
+            else if (os.Version >= new Version(6, 2, 0, 0)) // Windows 8
+                _osComboBox.SelectedIndex = 2;
+            else if (os.Version >= new Version(6, 1, 0, 0)) // Windows 7
+                _osComboBox.SelectedIndex = 3;
+            else
+                _osComboBox.SelectedIndex = 0;
+
             _machineTypeTextBox.Text = mi.MachineType;
-            _osComboBox.SelectedIndex = os.Version >= new Version(10, 0, 22000, 0) ? 0 : 1;
             _downloadToText.PlaceholderText = _downloadToText.Text = KnownFolders.GetPath(KnownFolder.Downloads);
 
             _downloadPackagesButton.IsEnabled = true;
@@ -86,11 +98,16 @@ namespace LenovoLegionToolkit.WPF.Pages
                 _packagesStackPanel.Children.Clear();
                 _scrollViewer.ScrollToHome();
 
+                _filterTextBox.Text = string.Empty;
+                _sortingComboBox.SelectedIndex = 2;
+
                 var machineType = _machineTypeTextBox.Text.Trim();
                 var os = _osComboBox.SelectedIndex switch
                 {
                     0 => "win11",
                     1 => "win10",
+                    2 => "win8",
+                    3 => "win7",
                     _ => null,
                 };
 
@@ -109,7 +126,7 @@ namespace LenovoLegionToolkit.WPF.Pages
 
                 _packages = packages;
 
-                packages = Sort(packages);
+                packages = SortAndFilter(packages);
 
                 foreach (var package in packages)
                 {
@@ -158,6 +175,32 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private void CancelDownloadPackagesButton_Click(object sender, RoutedEventArgs e) => _getPackagesTokenSource?.Cancel();
 
+        private async void FilterTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                if (_packages is null)
+                    return;
+
+                _filterDebounceCancellationTokenSource?.Cancel();
+                _filterDebounceCancellationTokenSource = new();
+
+                await Task.Delay(500, _filterDebounceCancellationTokenSource.Token);
+
+                _packagesStackPanel.Children.Clear();
+                _scrollViewer.ScrollToHome();
+
+                var packages = SortAndFilter(_packages);
+
+                foreach (var package in packages)
+                {
+                    var control = new PackageControl(_packageDownloader, package, GetDownloadLocation);
+                    _packagesStackPanel.Children.Add(control);
+                }
+            }
+            catch (TaskCanceledException) { }
+        }
+
         private void SortingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (_packages is null)
@@ -166,7 +209,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             _packagesStackPanel.Children.Clear();
             _scrollViewer.ScrollToHome();
 
-            var packages = Sort(_packages);
+            var packages = SortAndFilter(_packages);
 
             foreach (var package in packages)
             {
@@ -183,15 +226,20 @@ namespace LenovoLegionToolkit.WPF.Pages
             return location;
         }
 
-        private List<Package> Sort(List<Package> packages)
+        private List<Package> SortAndFilter(List<Package> packages)
         {
-            return _sortingComboBox.SelectedIndex switch
+            var result = _sortingComboBox.SelectedIndex switch
             {
-                0 => packages.OrderBy(p => p.Description).ToList(),
-                1 => packages.OrderBy(p => p.Category).ToList(),
-                2 => packages.OrderByDescending(p => p.ReleaseDate).ToList(),
-                _ => packages,
+                0 => packages.OrderBy(p => p.Description),
+                1 => packages.OrderBy(p => p.Category),
+                2 => packages.OrderByDescending(p => p.ReleaseDate),
+                _ => packages.AsEnumerable(),
             };
+
+            if (!string.IsNullOrWhiteSpace(_filterTextBox.Text))
+                result = result.Where(p => p.Index.Contains(_filterTextBox.Text, StringComparison.InvariantCultureIgnoreCase));
+
+            return result.ToList();
         }
     }
 }

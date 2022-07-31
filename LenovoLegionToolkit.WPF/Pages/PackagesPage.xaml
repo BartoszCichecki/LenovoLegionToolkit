@@ -93,6 +93,8 @@
                             Margin="8,8,0,0">
                             <ComboBoxItem Content="Windows 11" />
                             <ComboBoxItem Content="Windows 10" />
+                            <ComboBoxItem Content="Windows 8" />
+                            <ComboBoxItem Content="Windows 7" />
                         </ComboBox>
                         <Grid
                             Grid.Row="2"
@@ -176,16 +178,32 @@
                             </wpfui:CardControl.Header>
                         </wpfui:CardControl>
 
-                        <ComboBox
-                            x:Name="_sortingComboBox"
-                            Margin="0,0,16,8"
-                            HorizontalAlignment="Right"
-                            SelectedIndex="2"
-                            SelectionChanged="SortingComboBox_SelectionChanged">
-                            <ComboBoxItem Content="Name" />
-                            <ComboBoxItem Content="Category" />
-                            <ComboBoxItem Content="Date" />
-                        </ComboBox>
+                        <Grid Margin="0,0,16,8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="300" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <wpfui:TextBox
+                                x:Name="_filterTextBox"
+                                Grid.Column="0"
+                                Icon="Search24"
+                                PlaceholderEnabled="True"
+                                PlaceholderText="Filter..."
+                                TextChanged="FilterTextBox_TextChanged" />
+
+                            <ComboBox
+                                x:Name="_sortingComboBox"
+                                Grid.Column="2"
+                                SelectedIndex="2"
+                                SelectionChanged="SortingComboBox_SelectionChanged">
+                                <ComboBoxItem Content="Name" />
+                                <ComboBoxItem Content="Category" />
+                                <ComboBoxItem Content="Date" />
+                            </ComboBox>
+
+                        </Grid>
 
                         <StackPanel x:Name="_packagesStackPanel" Margin="0,0,16,12" />
 
