@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
@@ -14,10 +12,6 @@ namespace LenovoLegionToolkit.Lib.Controllers
     {
         private const string ProcessorPowerManagementSubgroupGUID = "54533251-82be-4824-96c1-47b60b740d00";
         private const string PowerSettingGUID = "be337238-0d82-4146-a960-4f3749d470c7";
-
-        private static readonly Regex _guidRegex = new(@"(?im)[{(]?[0-9A-F]{8}[-]?(?:[0-9A-F]{4}[-]?){3}[0-9A-F]{12}[)}]?");
-        private static readonly Regex _nameRegex = new(@"(?im)\((.*)\)");
-        private static readonly Regex _activeRegex = new(@"(?im)\*$");
 
         public async Task<List<CPUBoostModeSettings>> GetSettingsAsync()
         {
@@ -29,7 +23,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting power plans...");
 
-            var powerPlans = await GetPowerPlansAsync();
+            var powerPlans = await Power.GetPowerPlansAsync().ConfigureAwait(false);
+            var cpuBoostModes = await GetCPUBoostModesAsync().ConfigureAwait(false);
 
             var result = new List<CPUBoostModeSettings>();
             foreach (var powerPlan in powerPlans)
@@ -37,7 +32,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Getting perfboostmodes for power plan {powerPlan.Name}... [powerPlan.instanceID={powerPlan.InstanceID}]");
 
-                var settings = await GetCPUBoostSettingsAsync(powerPlan);
+                var settings = await GetCPUBoostSettingsAsync(powerPlan, cpuBoostModes);
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Perfboostmodes settings retrieved for power plan {settings.PowerPlan.Name} [powerPlan.instanceID={settings.PowerPlan.InstanceID}, {string.Join(",", settings.CPUBoostModes.Select(cbm => $"{{{cbm.Name}:{cbm.Value}}}"))}, acSettingsValue={settings.ACSettingValue}, dcSettingValue={settings.DCSettingValue}]");
@@ -74,48 +69,25 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 Log.Instance.Trace($"Perfboostmode is visible.");
         }
 
-        private async Task<List<PowerPlan>> GetPowerPlansAsync()
+        private async Task<List<CPUBoostMode>> GetCPUBoostModesAsync()
         {
-            var output = await CMD.RunAsync("powercfg", "/LIST");
-            var outputLines = output
-                .Split(Environment.NewLine)
-                .Where(s => s.StartsWith("Power Scheme GUID", StringComparison.InvariantCultureIgnoreCase));
-
-            var result = new List<PowerPlan>();
-
-            foreach (var line in outputLines)
-            {
-                var guid = _guidRegex.Match(line).Groups[0].Value;
-                var name = _nameRegex.Match(line).Groups[1].Value;
-                var active = _activeRegex.Match(line).Success;
-
-                if (string.IsNullOrWhiteSpace(guid) || string.IsNullOrWhiteSpace(name)) { continue; }
-
-                result.Add(new PowerPlan(guid, name, active));
-            }
-
-            return result.OrderBy(pp => pp.Name).ToList();
+            var result = await WMI.ReadAsync("root\\CIMV2\\power",
+                $"SELECT * FROM Win32_PowerSettingDefinitionPossibleValue WHERE InstanceID LIKE '%{PowerSettingGUID}%'",
+                pdc =>
+                {
+                    var name = (string)pdc["ElementName"].Value;
+                    var value = Convert.ToInt32(pdc["UInt32Value"].Value);
+                    return new CPUBoostMode(value, name);
+                }).ConfigureAwait(false);
+            return result.ToList();
         }
 
-        private async Task<CPUBoostModeSettings> GetCPUBoostSettingsAsync(PowerPlan powerPlan)
+        private async Task<CPUBoostModeSettings> GetCPUBoostSettingsAsync(PowerPlan powerPlan, List<CPUBoostMode> cpuBoostModes)
         {
-            var output = await CMD.RunAsync("powercfg", $"/QUERY {powerPlan.InstanceID} {ProcessorPowerManagementSubgroupGUID} {PowerSettingGUID}");
+            var output = await CMD.RunAsync("powercfg", $"/QUERY {powerPlan.Guid} {ProcessorPowerManagementSubgroupGUID} {PowerSettingGUID}");
             var outputLines = output
                 .Split(Environment.NewLine)
                 .Select(s => s.Trim());
-
-            var possibleSettingLinesGroupped = outputLines
-                .Where(s => s.StartsWith("Possible Setting", StringComparison.InvariantCultureIgnoreCase))
-                .Split(2);
-
-            var cpuBoostModes = new List<CPUBoostMode>();
-            foreach (var possibleSettingLinesGroup in possibleSettingLinesGroupped)
-            {
-                var indexString = possibleSettingLinesGroup.ElementAt(0).Split(":").Last().Trim();
-                var index = int.Parse(indexString);
-                var name = possibleSettingLinesGroup.ElementAt(1).Split(":").Last().Trim();
-                cpuBoostModes.Add(new CPUBoostMode(index, name));
-            }
 
             var acSettingValueString = outputLines.First(s => s.StartsWith("Current AC Power Setting Index")).Split(":").Last().Replace("0x", "").Trim();
             var dcSettingValueString = outputLines.First(s => s.StartsWith("Current DC Power Setting Index")).Split(":").Last().Replace("0x", "").Trim();
