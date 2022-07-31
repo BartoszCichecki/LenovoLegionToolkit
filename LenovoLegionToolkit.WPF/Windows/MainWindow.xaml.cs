@@ -14,7 +14,6 @@ using LenovoLegionToolkit.WPF.Pages;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Utils;
 using Wpf.Ui.Controls;
-using Wpf.Ui.Tray;
 
 namespace LenovoLegionToolkit.WPF.Windows
 {
