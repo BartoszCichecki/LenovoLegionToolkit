@@ -112,7 +112,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
                     case DriverKey.Fn_F10:
                         var status = await _touchpadLockFeature.GetStateAsync().ConfigureAwait(false);
 
-                        if (status == TouchpadLockState.On)
+                        if (status == TouchpadLockState.Off)
                             MessagingCenter.Publish(new Notification(NotificationIcon.TouchpadOn, "Touchpad on", NotificationDuration.Short));
                         else
                             MessagingCenter.Publish(new Notification(NotificationIcon.TouchpadOff, "Touchpad off", NotificationDuration.Short));
