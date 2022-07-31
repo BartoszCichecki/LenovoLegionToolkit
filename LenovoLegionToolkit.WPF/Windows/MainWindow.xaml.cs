@@ -159,7 +159,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             updateWindow.ShowDialog();
         }
 
-        private void NotifyIcon_LeftClick([NotNull] INotifyIcon sender, RoutedEventArgs e) => BringToForeground();
+        private void NotifyIcon_LeftClick([NotNull] NotifyIcon sender, RoutedEventArgs e) => BringToForeground();
 
         private void SaveWindowSize()
         {

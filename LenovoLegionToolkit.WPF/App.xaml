@@ -9,7 +9,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <wpfui:Resources Theme="Dark" />
+                <wpfui:ControlsDictionary />
+                <wpfui:ThemesDictionary Theme="Dark" />
                 <ResourceDictionary Source="pack://application:,,,/ColorPicker;component/Styles/DefaultColorPickerStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
