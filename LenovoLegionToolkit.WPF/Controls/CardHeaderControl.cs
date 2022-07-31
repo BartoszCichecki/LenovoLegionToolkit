@@ -11,6 +11,7 @@ namespace LenovoLegionToolkit.WPF.Controls
             FontSize = 14,
             FontWeight = FontWeight.FromOpenTypeWeight(500), // Medium
             VerticalAlignment = VerticalAlignment.Center,
+            TextTrimming = TextTrimming.CharacterEllipsis,
         };
 
         private readonly TextBlock _subtitleTextBlock = new()
@@ -18,6 +19,7 @@ namespace LenovoLegionToolkit.WPF.Controls
             FontSize = 12,
             Margin = new(0, 4, 0, 0),
             Visibility = Visibility.Collapsed,
+            TextTrimming = TextTrimming.CharacterEllipsis,
         };
 
         private readonly Grid _grid = new()
@@ -52,6 +54,17 @@ namespace LenovoLegionToolkit.WPF.Controls
             set
             {
                 _subtitleTextBlock.Text = value;
+                RefreshLayout();
+            }
+        }
+
+        public string? SubtitleToolTip
+        {
+            get => _subtitleTextBlock.ToolTip as string;
+            set
+            {
+                _subtitleTextBlock.ToolTip = value;
+                ToolTipService.SetIsEnabled(_subtitleTextBlock, value != null);
                 RefreshLayout();
             }
         }

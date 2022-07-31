@@ -107,6 +107,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             AutomationPipeline.Name = name;
             _cardHeaderControl.Title = GenerateHeader();
             _cardHeaderControl.Subtitle = GenerateSubtitle();
+            _cardHeaderControl.SubtitleToolTip = _cardHeaderControl.Subtitle;
 
             OnChanged?.Invoke(this, EventArgs.Empty);
         }
@@ -159,6 +160,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             _cardHeaderControl.Title = GenerateHeader();
             _cardHeaderControl.Subtitle = GenerateSubtitle();
             _cardHeaderControl.Accessory = GenerateAccessory();
+            _cardHeaderControl.SubtitleToolTip = _cardHeaderControl.Subtitle;
             _cardExpander.Content = _stackPanel;
 
             Content = _cardExpander;
@@ -214,6 +216,9 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             if (!string.IsNullOrWhiteSpace(AutomationPipeline.Name) && AutomationPipeline.Trigger is not null)
                 result += $" | {AutomationPipeline.Trigger.DisplayName}";
 
+            if (AutomationPipeline.Trigger is IProcessesAutomationPipelineTrigger trigger && trigger.Processes.Any())
+                result += $" | Apps: {string.Join(", ", trigger.Processes.Select(p => p.Name))}";
+
             return result;
         }
 
@@ -224,7 +229,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 var button = new Button
                 {
                     Content = "Configure",
-                    Margin = new(0, 0, 16, 0),
+                    Margin = new(16, 0, 16, 0),
                     Width = 120,
                 };
                 button.Click += (s, e) =>
@@ -238,7 +243,9 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                     window.OnSave += (s, e) =>
                     {
                         AutomationPipeline.Trigger = t.DeepCopy(e);
+                        _cardHeaderControl.Subtitle = GenerateSubtitle();
                         _cardHeaderControl.Accessory = GenerateAccessory();
+                        _cardHeaderControl.SubtitleToolTip = _cardHeaderControl.Subtitle;
                         OnChanged?.Invoke(this, EventArgs.Empty);
                     };
                     window.ShowDialog();
@@ -383,6 +390,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
             _stepsStackPanel.Children.Add(control);
             _cardHeaderControl.Subtitle = GenerateSubtitle();
+            _cardHeaderControl.SubtitleToolTip = _cardHeaderControl.Subtitle;
             _addStepButton.ContextMenu = await CreateAddStepContextMenuAsync();
 
             OnChanged?.Invoke(this, EventArgs.Empty);
@@ -392,6 +400,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
         {
             _stepsStackPanel.Children.Remove(control);
             _cardHeaderControl.Subtitle = GenerateSubtitle();
+            _cardHeaderControl.SubtitleToolTip = _cardHeaderControl.Subtitle;
             _addStepButton.ContextMenu = await CreateAddStepContextMenuAsync();
 
             OnChanged?.Invoke(this, EventArgs.Empty);
