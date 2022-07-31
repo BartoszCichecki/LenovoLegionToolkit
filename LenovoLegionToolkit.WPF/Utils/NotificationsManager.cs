@@ -22,11 +22,18 @@ namespace LenovoLegionToolkit.WPF.Utils
             var symbol = notification.Icon switch
             {
                 NotificationIcon.MicrophoneOn => SymbolRegular.Mic24,
-                NotificationIcon.MicrophoneOff => SymbolRegular.MicOff24,
+                NotificationIcon.MicrophoneOff => SymbolRegular.Mic24,
                 NotificationIcon.RefreshRate => SymbolRegular.Desktop24,
                 NotificationIcon.TouchpadOn => SymbolRegular.Tablet24,
                 NotificationIcon.TouchpadOff => SymbolRegular.Tablet24,
                 _ => SymbolRegular.Info24,
+            };
+
+            SymbolRegular? overlaySymbol = notification.Icon switch
+            {
+                NotificationIcon.MicrophoneOff => SymbolRegular.Line24,
+                NotificationIcon.TouchpadOff => SymbolRegular.Line24,
+                _ => null,
             };
 
             var closeAfter = notification.Duration switch
@@ -35,14 +42,14 @@ namespace LenovoLegionToolkit.WPF.Utils
                 _ => 1000,
             };
 
-            ShowNotification(symbol, notification.Text, closeAfter);
+            ShowNotification(symbol, overlaySymbol, notification.Text, closeAfter);
         });
 
-        private void ShowNotification(SymbolRegular symbol, string text, int closeAfter)
+        private void ShowNotification(SymbolRegular symbol, SymbolRegular? overlaySymbol, string text, int closeAfter)
         {
             _window?.Close();
 
-            var nw = new NotificationWindow(symbol, text) { Owner = Application.Current.MainWindow };
+            var nw = new NotificationWindow(symbol, overlaySymbol, text) { Owner = Application.Current.MainWindow };
             nw.Show(closeAfter);
             _window = nw;
         }
