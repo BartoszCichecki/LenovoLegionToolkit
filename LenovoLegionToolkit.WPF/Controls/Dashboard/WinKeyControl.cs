@@ -17,8 +17,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
         public WinKeyControl()
         {
             Icon = SymbolRegular.Keyboard24;
-            Title = "Windows Key";
-            Subtitle = "Enabled or disable Windows key.";
+            Title = "Windows Key Lock";
+            Subtitle = "Only works on built-in keyboard.";
 
             _listener.Changed += Listener_Changed;
         }
