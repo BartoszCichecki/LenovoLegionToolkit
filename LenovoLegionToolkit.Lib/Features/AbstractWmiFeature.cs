@@ -21,7 +21,7 @@ namespace LenovoLegionToolkit.Lib.Features
             _supportOffset = supportOffset;
         }
 
-        public Task<T[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<T>());
+        public virtual Task<T[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<T>());
 
         public virtual async Task<T> GetStateAsync()
         {

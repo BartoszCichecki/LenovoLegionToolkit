@@ -40,12 +40,19 @@ namespace LenovoLegionToolkit.Lib.Utils
             "17IRH", // Legion Y540 - Intel, nVidia
         };
 
+        private static MachineInformation? _machineInformation;
+
         public static async Task<MachineInformation> GetMachineInformation()
         {
-            var result = await WMI.ReadAsync("root\\CIMV2",
-                            $"SELECT * FROM Win32_ComputerSystemProduct",
-                            Create).ConfigureAwait(false);
-            return result.First();
+            if (!_machineInformation.HasValue)
+            {
+                var result = await WMI.ReadAsync("root\\CIMV2",
+                                $"SELECT * FROM Win32_ComputerSystemProduct",
+                                Create).ConfigureAwait(false);
+                _machineInformation = result.First();
+            }
+
+            return _machineInformation.Value;
         }
 
         public static async Task<(bool isCompatible, MachineInformation machineInformation)> IsCompatibleAsync()
