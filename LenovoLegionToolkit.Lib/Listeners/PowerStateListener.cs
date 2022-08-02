@@ -15,7 +15,10 @@ namespace LenovoLegionToolkit.Lib.Listeners
         public PowerStateListener(RGBKeyboardBacklightController rgbController)
         {
             _rgbController = rgbController ?? throw new ArgumentNullException(nameof(rgbController));
+        }
 
+        public void Start()
+        {
             SystemEvents.PowerModeChanged += SystemEvents_PowerModeChanged;
         }
 

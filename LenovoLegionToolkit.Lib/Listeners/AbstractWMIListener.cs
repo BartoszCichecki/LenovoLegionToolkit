@@ -21,19 +21,15 @@ namespace LenovoLegionToolkit.Lib.Listeners
         {
             _scope = scope;
             _query = query;
-
-            Start();
         }
 
         public AbstractWMIListener(string scope, string eventName)
         {
             _scope = scope;
             _query = $"SELECT * FROM {eventName}";
-
-            Start();
         }
 
-        private void Start()
+        public void Start()
         {
             try
             {
