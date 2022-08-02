@@ -46,6 +46,12 @@ namespace LenovoLegionToolkit.Lib.Listeners
             _instanceDeletionListener.Changed += InstanceDeletionListener_Changed;
         }
 
+        public void Start()
+        {
+            _instanceCreationListener.Start();
+            _instanceDeletionListener.Start();
+        }
+
         private void InstanceCreationListener_Changed(object? sender, (ProcessEventInfoType type, int processID, string processName) e)
         {
             lock (_lock)

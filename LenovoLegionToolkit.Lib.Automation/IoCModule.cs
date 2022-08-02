@@ -9,7 +9,6 @@ namespace LenovoLegionToolkit.Lib.Automation
         protected override void Load(ContainerBuilder builder)
         {
             builder.Register<AutomationSettings>();
-
             builder.Register<AutomationProcessor>();
         }
     }

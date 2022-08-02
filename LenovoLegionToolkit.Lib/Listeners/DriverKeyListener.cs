@@ -14,15 +14,19 @@ namespace LenovoLegionToolkit.Lib.Listeners
     {
         public event EventHandler<DriverKey>? Changed;
 
-        private readonly Task _listenTask;
         private readonly FnKeys _fnKeys;
         private readonly TouchpadLockFeature _touchpadLockFeature;
+
+        private Task? _listenTask;
 
         public DriverKeyListener(FnKeys fnKeys, TouchpadLockFeature touchpadLockFeature)
         {
             _fnKeys = fnKeys ?? throw new ArgumentNullException(nameof(fnKeys));
             _touchpadLockFeature = touchpadLockFeature ?? throw new ArgumentNullException(nameof(touchpadLockFeature));
+        }
 
+        public void Start()
+        {
             _listenTask = Task.Run(HandlerAsync);
         }
 
