@@ -44,9 +44,6 @@ namespace LenovoLegionToolkit.Lib.Automation
             _settings = settings ?? throw new ArgumentNullException(nameof(settings));
             _powerStateListener = powerStateListener ?? throw new ArgumentNullException(nameof(powerStateListener));
             _processListener = processListener ?? throw new ArgumentNullException(nameof(processListener));
-
-            _powerStateListener.Changed += PowerStateListener_Changed;
-            _processListener.Changed += ProcessListener_Changed;
         }
 
         private async void ProcessListener_Changed(object? sender, ProcessEventInfo e)
@@ -81,6 +78,9 @@ namespace LenovoLegionToolkit.Lib.Automation
             {
                 _pipelines = _settings.Store.Pipelines;
                 RaisePipelinesChanged();
+
+                _powerStateListener.Changed += PowerStateListener_Changed;
+                _processListener.Changed += ProcessListener_Changed;
             }
         }
 
