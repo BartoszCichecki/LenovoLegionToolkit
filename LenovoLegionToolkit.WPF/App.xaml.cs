@@ -175,7 +175,7 @@ namespace LenovoLegionToolkit
             if (isCompatible)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Compatibility check passed");
+                    Log.Instance.Trace($"Compatibility check passed. [Vendor={mi.Vendor}, Model={mi.Model}]");
                 return;
             }
 
