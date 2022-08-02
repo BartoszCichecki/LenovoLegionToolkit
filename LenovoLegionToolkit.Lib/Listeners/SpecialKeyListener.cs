@@ -16,8 +16,8 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         public SpecialKeyListener(FnKeys fnKeys, RefreshRateFeature feature) : base("ROOT\\WMI", "LENOVO_UTILITY_EVENT")
         {
-            _fnKeys = fnKeys;
-            _feature = feature;
+            _fnKeys = fnKeys ?? throw new ArgumentNullException(nameof(fnKeys));
+            _feature = feature ?? throw new ArgumentNullException(nameof(feature));
         }
 
         protected override SpecialKey GetValue(PropertyDataCollection properties)

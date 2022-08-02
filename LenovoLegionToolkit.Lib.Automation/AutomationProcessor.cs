@@ -41,9 +41,9 @@ namespace LenovoLegionToolkit.Lib.Automation
 
         public AutomationProcessor(AutomationSettings settings, PowerStateListener powerStateListener, ProcessListener processListener)
         {
-            _settings = settings;
-            _powerStateListener = powerStateListener;
-            _processListener = processListener;
+            _settings = settings ?? throw new ArgumentNullException(nameof(settings));
+            _powerStateListener = powerStateListener ?? throw new ArgumentNullException(nameof(powerStateListener));
+            _processListener = processListener ?? throw new ArgumentNullException(nameof(processListener));
 
             _powerStateListener.Changed += PowerStateListener_Changed;
             _processListener.Changed += ProcessListener_Changed;

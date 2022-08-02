@@ -20,8 +20,8 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         public DriverKeyListener(FnKeys fnKeys, TouchpadLockFeature touchpadLockFeature)
         {
-            _fnKeys = fnKeys;
-            _touchpadLockFeature = touchpadLockFeature;
+            _fnKeys = fnKeys ?? throw new ArgumentNullException(nameof(fnKeys));
+            _touchpadLockFeature = touchpadLockFeature ?? throw new ArgumentNullException(nameof(touchpadLockFeature));
 
             _listenTask = Task.Run(HandlerAsync);
         }
@@ -133,7 +133,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Could not run action, [value={value}]", ex);
+                    Log.Instance.Trace($"Unknown exception. [value={value}]", ex);
             }
         }
     }

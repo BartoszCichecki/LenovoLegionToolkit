@@ -13,6 +13,9 @@ namespace LenovoLegionToolkit.Lib
     {
         protected override void Load(ContainerBuilder builder)
         {
+            builder.Register<Vantage>();
+            builder.Register<FnKeys>();
+
             builder.Register<ApplicationSettings>();
             builder.Register<RGBKeyboardSettings>();
 
@@ -42,9 +45,6 @@ namespace LenovoLegionToolkit.Lib
             builder.Register<GPUController>();
             builder.Register<CPUBoostModeController>();
             builder.Register<RGBKeyboardBacklightController>();
-
-            builder.Register<Vantage>();
-            builder.Register<FnKeys>();
 
             builder.Register<UpdateChecker>();
             builder.Register<PackageDownloader>();

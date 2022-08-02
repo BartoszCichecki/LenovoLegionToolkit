@@ -29,13 +29,6 @@ namespace LenovoLegionToolkit.Lib.System
                 {
                     return SoftwareStatus.NotFound;
                 }
-                catch (Exception ex)
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Error checking for software status. [type={GetType().Name}]", ex);
-
-                    return SoftwareStatus.NotFound;
-                }
             });
         }
 
