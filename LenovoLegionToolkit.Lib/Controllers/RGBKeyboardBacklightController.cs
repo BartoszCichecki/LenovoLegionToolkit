@@ -38,8 +38,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         public RGBKeyboardBacklightController(RGBKeyboardSettings settings, Vantage vantage)
         {
-            _settings = settings;
-            _vantage = vantage;
+            _settings = settings ?? throw new ArgumentNullException(nameof(settings));
+            _vantage = vantage ?? throw new ArgumentNullException(nameof(vantage));
         }
 
         public bool IsSupported()

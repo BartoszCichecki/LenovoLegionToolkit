@@ -12,6 +12,7 @@ using System.Windows.Threading;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
@@ -41,7 +42,7 @@ namespace LenovoLegionToolkit
                 Log.Instance.IsTraceEnabled = true;
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Starting... [version={Assembly.GetEntryAssembly()?.GetName().Version}]");
+                Log.Instance.Trace($"Starting... [version={Assembly.GetEntryAssembly()?.GetName().Version}, build={Assembly.GetEntryAssembly()?.GetBuildDateTime()?.ToString("yyyyMMddHHmmss") ?? ""}]");
 
             WinFormsApp.SetHighDpiMode(WinFormsHighDpiMode.PerMonitorV2);
             RenderOptions.ProcessRenderMode = RenderMode.SoftwareOnly;

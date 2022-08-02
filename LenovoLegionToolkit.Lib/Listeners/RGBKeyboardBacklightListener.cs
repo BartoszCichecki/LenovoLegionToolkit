@@ -12,7 +12,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         public RGBKeyboardBacklightListener(RGBKeyboardBacklightController controller) : base("ROOT\\WMI", "LENOVO_GAMEZONE_LIGHT_PROFILE_CHANGE_EVENT")
         {
-            _controller = controller;
+            _controller = controller ?? throw new ArgumentNullException(nameof(controller));
         }
 
         protected override RGBKeyboardBacklightChanged GetValue(PropertyDataCollection properties) => default;
