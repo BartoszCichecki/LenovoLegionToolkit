@@ -182,7 +182,7 @@ namespace LenovoLegionToolkit
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Incompatible system detected, shutting down... [Vendor={mi.Vendor}, Model={mi.Model}]");
 
-            MessageBox.Show($"This application is not compatible with:\n\n{mi.Vendor} {mi.Model}.", "Unsupported device", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show($"This application is not compatible with:\n\n{mi.Vendor} {mi.Model}.\n\nCheck: {Constants.CompatibilityUri} for more information.", "Unsupported device", MessageBoxButton.OK, MessageBoxImage.Error);
             Shutdown(-1);
         }
 
