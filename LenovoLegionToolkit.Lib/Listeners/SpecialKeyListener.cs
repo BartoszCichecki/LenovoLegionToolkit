@@ -102,7 +102,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Failed to start snipping tool: {ex.Demystify()}");
+                    Log.Instance.Trace($"Failed to start snipping tool.", ex);
             }
         }
     }

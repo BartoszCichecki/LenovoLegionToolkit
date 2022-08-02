@@ -32,7 +32,6 @@
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Autofac" Version="6.4.0" />
-		<PackageReference Include="Ben.Demystifier" Version="0.4.1" />
 		<PackageReference Include="Markdig" Version="0.30.2" />
 		<PackageReference Include="Markdig.Wpf" Version="0.5.0.1" />
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Utils;
@@ -47,7 +46,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't set light controll owner or current preset. Exception: {ex.Demystify()}");
+                    Log.Instance.Trace($"Couldn't set light controll owner or current preset.", ex);
             }
         }
     }

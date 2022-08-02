@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.CompilerServices;
@@ -36,6 +37,7 @@ namespace LenovoLegionToolkit.Lib.Utils
         }
 
         public void Trace(FormattableString message,
+            Exception? ex = null,
             [CallerFilePath] string? file = null,
             [CallerLineNumber] int lineNumber = -1,
             [CallerMemberName] string? caller = null)
@@ -45,30 +47,28 @@ namespace LenovoLegionToolkit.Lib.Utils
 
             lock (_lock)
             {
-                var date = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-                var fileName = Path.GetFileName(file);
-                var line = $"[{date}] [{Environment.CurrentManagedThreadId}] [{fileName}#{lineNumber}:{caller}] {message}";
-                File.AppendAllLines(_logPath, new[] { line });
+                var lines = new List<string>
+                {
+                    $"[{DateTime.Now:dd/MM/yyyy HH:mm:ss}] [{Environment.CurrentManagedThreadId}] [{Path.GetFileName(file)}#{lineNumber}:{caller}] {message}"
+                };
+                if (ex is not null)
+                    lines.Add(Serialize(ex));
+                File.AppendAllLines(_logPath, lines);
             }
         }
 
         public void ErrorReport(Exception ex)
         {
-            var sb = new StringBuilder();
-
-            sb.AppendLine("Exception demystified:");
-            sb.AppendLine(ex.ToStringDemystified());
-
-            sb.AppendLine();
-            sb.AppendLine();
-
-            sb.AppendLine("Exception:");
-            sb.AppendLine(ex.ToString());
-
-            Trace($"{sb}");
-
             var errorReportPath = Path.Combine(_folderPath, $"error_{DateTime.Now:yyyy_MM_dd_HH_mm_ss}.txt");
-            File.AppendAllLines(errorReportPath, new[] { sb.ToString() });
+            File.AppendAllLines(errorReportPath, new[] { Serialize(ex) });
         }
+
+        private string Serialize(Exception ex) => new StringBuilder()
+            .AppendLine("=== Exception ===")
+            .AppendLine(ex.ToString())
+            .AppendLine()
+            .AppendLine("=== Exception demystified ===")
+            .AppendLine(ex.ToStringDemystified())
+            .ToString();
     }
 }

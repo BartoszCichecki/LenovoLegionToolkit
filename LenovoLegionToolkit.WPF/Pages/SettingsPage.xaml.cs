@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -147,7 +146,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 catch (Exception ex)
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Couldn't set light controll owner or current preset. Exception: {ex.Demystify()}");
+                        Log.Instance.Trace($"Couldn't set light controll owner or current preset.", ex);
                 }
             }
             else
@@ -162,7 +161,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 catch (Exception ex)
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Couldn't set light controll owner. Exception: {ex.Demystify()}");
+                        Log.Instance.Trace($"Couldn't set light controll owner.", ex);
                 }
 
                 await _vantage.EnableAsync();

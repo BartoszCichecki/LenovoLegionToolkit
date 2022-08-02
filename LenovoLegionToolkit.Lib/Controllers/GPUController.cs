@@ -168,7 +168,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                     catch (Exception ex)
                     {
                         if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Couldnt kill process: {ex.Demystify()} [pid={process.Id}, name={process.ProcessName}]");
+                            Log.Instance.Trace($"Couldnt kill process. [pid={process.Id}, name={process.ProcessName}]", ex);
                     }
                 }
 
@@ -219,7 +219,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             catch (Exception ex) when (ex is not TaskCanceledException)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Exception: {ex.Demystify()}");
+                    Log.Instance.Trace($"Exception occured", ex);
 
                 throw;
             }
@@ -271,7 +271,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"GPU status error: {ex.Demystify()}");
+                    Log.Instance.Trace($"GPU status exception.", ex);
 
                 _performanceState = "Unknown";
             }

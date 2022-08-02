@@ -37,7 +37,7 @@ namespace LenovoLegionToolkit.Lib.System
                 catch (Exception ex)
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Couldn't kill process: {ex.Demystify()}");
+                        Log.Instance.Trace($"Couldn't kill process.", ex);
                 }
             }
 
@@ -60,7 +60,7 @@ namespace LenovoLegionToolkit.Lib.System
                 catch (Exception ex)
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Couldn't kill process: {ex.Demystify()}");
+                        Log.Instance.Trace($"Couldn't kill process.", ex);
                 }
             }
 
