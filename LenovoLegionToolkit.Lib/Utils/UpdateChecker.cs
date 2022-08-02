@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -60,7 +59,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                 catch (Exception ex)
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Error: {ex.Demystify()}");
+                        Log.Instance.Trace($"Error checking for updates.", ex);
                     return false;
                 }
                 finally

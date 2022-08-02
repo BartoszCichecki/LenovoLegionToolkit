@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -16,6 +15,7 @@ using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows;
 using WinFormsApp = System.Windows.Forms.Application;
@@ -72,7 +72,7 @@ namespace LenovoLegionToolkit
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't initialize automation processor. Exception: {ex.Demystify()}");
+                    Log.Instance.Trace($"Couldn't initialize automation processor.", ex);
             }
 
             try
@@ -85,7 +85,7 @@ namespace LenovoLegionToolkit
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't ensure correct power plan. Exception: {ex.Demystify()}");
+                    Log.Instance.Trace($"Couldn't ensure correct power plan.", ex);
             }
 
             try
@@ -108,7 +108,7 @@ namespace LenovoLegionToolkit
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't set light controll owner or current preset. Exception: {ex.Demystify()}");
+                    Log.Instance.Trace($"Couldn't set light controll owner or current preset.", ex);
             }
 
             Autorun.Validate();
@@ -152,15 +152,16 @@ namespace LenovoLegionToolkit
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't set light controll owner. Exception: {ex.Demystify()}");
+                    Log.Instance.Trace($"Couldn't set light controll owner.", ex);
             }
         }
 
         private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
+            Log.Instance.Trace($"Unhandled exception occured.", e.Exception);
             Log.Instance.ErrorReport(e.Exception);
 
-            MessageBox.Show(e.Exception.ToStringDemystified(),
+            MessageBox.Show($"Unexpected exception occured:\n{e.Exception.Message}\n\nPlease report the issue on {Constants.BugReportUri}.",
                             "Error",
                             MessageBoxButton.OK,
                             MessageBoxImage.Error);

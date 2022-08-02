@@ -141,7 +141,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             catch (HttpRequestException ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Error occured when downloading packages: {ex.Demystify()}");
+                    Log.Instance.Trace($"Error occured when downloading packages.", ex);
 
                 SnackbarHelper.Show("Something went wrong", "Check if your internet connection is up and running.", true);
 
@@ -150,7 +150,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Error occured when downloading packages: {ex.Demystify()}");
+                    Log.Instance.Trace($"Error occured when downloading packages.", ex);
 
                 SnackbarHelper.Show("Something went wrong", ex.Message, true);
 

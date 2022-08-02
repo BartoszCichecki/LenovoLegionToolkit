@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.ServiceProcess;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Utils;
@@ -33,7 +32,7 @@ namespace LenovoLegionToolkit.Lib.System
                 catch (Exception ex)
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Error checking for software status: {ex.Demystify()}. [type={GetType().Name}]");
+                        Log.Instance.Trace($"Error checking for software status. [type={GetType().Name}]", ex);
 
                     return SoftwareStatus.NotFound;
                 }

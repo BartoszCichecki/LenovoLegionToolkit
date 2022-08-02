@@ -90,7 +90,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Unknown error: {ex.Demystify()}");
+                    Log.Instance.Trace($"Unknown error.", ex);
             }
         }
 
@@ -133,7 +133,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Could not run action:{ex.Demystify()} [value={value}]");
+                    Log.Instance.Trace($"Could not run action, [value={value}]", ex);
             }
         }
     }

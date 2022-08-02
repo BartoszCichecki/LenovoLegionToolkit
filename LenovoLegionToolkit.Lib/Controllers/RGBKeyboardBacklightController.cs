@@ -7,7 +7,6 @@ using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using NeoSmart.AsyncLock;
 using LenovoLegionToolkit.Lib.Utils;
-using System.Diagnostics;
 using Microsoft.Win32.SafeHandles;
 
 #if !MOCK_RGB
@@ -90,7 +89,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 catch (Exception ex)
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Can't take ownership: {ex.Demystify()}");
+                        Log.Instance.Trace($"Can't take ownership.", ex);
 
                     throw;
                 }

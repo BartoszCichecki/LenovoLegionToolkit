@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -87,14 +86,14 @@ namespace LenovoLegionToolkit.WPF.Controls.Packages
             catch (HttpRequestException ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Error occured when downloading package file: {ex.Demystify()}");
+                    Log.Instance.Trace($"Error occured when downloading package file.", ex);
 
                 SnackbarHelper.Show("Something went wrong", "Check if your internet connection is up and running.", true);
             }
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Error occured when downloading package file: {ex.Demystify()}");
+                    Log.Instance.Trace($"Error occured when downloading package file.", ex);
 
                 SnackbarHelper.Show("Something went wrong", ex.Message, true);
             }

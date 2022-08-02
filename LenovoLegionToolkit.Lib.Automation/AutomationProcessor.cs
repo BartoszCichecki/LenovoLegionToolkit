@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -141,7 +140,7 @@ namespace LenovoLegionToolkit.Lib.Automation
                 catch (Exception ex)
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Pipeline run failed: {ex.Demystify()}");
+                        Log.Instance.Trace($"Pipeline run failed.", ex);
 
                     throw;
                 }
@@ -201,7 +200,7 @@ namespace LenovoLegionToolkit.Lib.Automation
                     catch (Exception ex)
                     {
                         if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Pipeline run failed: {ex.Demystify()} [name={pipeline.Name}, trigger={pipeline.Trigger}]");
+                            Log.Instance.Trace($"Pipeline run failed. [name={pipeline.Name}, trigger={pipeline.Trigger}]", ex);
                     }
 
                     if (pipeline.IsExclusive)
