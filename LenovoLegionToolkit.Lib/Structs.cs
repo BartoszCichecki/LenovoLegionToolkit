@@ -76,12 +76,14 @@ namespace LenovoLegionToolkit.Lib
             DCSettingValue = dcSettingValue;
         }
     }
+
     public struct MachineInformation
     {
         public string Vendor { get; }
         public string MachineType { get; }
         public string Model { get; }
         public string SerialNumber { get; }
+        public ModelYear ModelYear { get; }
 
         public MachineInformation(string vendor, string machineType, string model, string serialNumber)
         {
@@ -89,6 +91,7 @@ namespace LenovoLegionToolkit.Lib
             MachineType = machineType;
             Model = model;
             SerialNumber = serialNumber;
+            ModelYear = ModelYear.MY2021;
         }
     }
 

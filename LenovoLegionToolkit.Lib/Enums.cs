@@ -55,6 +55,13 @@ namespace LenovoLegionToolkit.Lib
         SavedSearches
     }
 
+    public enum ModelYear
+    {
+        MY2020OrEarlier,
+        MY2021,
+        MY2022,
+    }
+
     public enum NotificationDuration
     {
         Short,
@@ -81,6 +88,8 @@ namespace LenovoLegionToolkit.Lib
         Quiet,
         Balance,
         Performance,
+        [Display(Name = "God Mode")]
+        GodMode = 254,
     }
 
     public enum ProcessEventInfoType
