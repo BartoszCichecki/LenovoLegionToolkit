@@ -6,7 +6,7 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features
 {
-    public abstract class AbstractWmiFeature<T> : IFeature<T> where T : struct, Enum, IComparable
+    public abstract class AbstractLenovoGamezoneWmiFeature<T> : IFeature<T> where T : struct, Enum, IComparable
     {
         private readonly string _methodNameSuffix;
         private readonly int _offset;
@@ -14,7 +14,7 @@ namespace LenovoLegionToolkit.Lib.Features
         private readonly int _supportOffset;
         private readonly string? _getMethodNameSuffix;
 
-        protected AbstractWmiFeature(string methodNameSuffix, int offset, string? supportMethodName = null, int supportOffset = 0, string? getMethodNameSuffix = null)
+        protected AbstractLenovoGamezoneWmiFeature(string methodNameSuffix, int offset, string? supportMethodName = null, int supportOffset = 0, string? getMethodNameSuffix = null)
         {
             _methodNameSuffix = methodNameSuffix;
             _offset = offset;

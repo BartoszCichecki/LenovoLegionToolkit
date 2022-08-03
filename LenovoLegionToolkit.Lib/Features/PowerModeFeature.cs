@@ -1,19 +1,17 @@
 ﻿using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.Settings;
+using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features
 {
-    public class PowerModeFeature : AbstractWmiFeature<PowerModeState>
+    public class PowerModeFeature : AbstractLenovoGamezoneWmiFeature<PowerModeState>
     {
-        private readonly FanCoolingFeature _fanCoolingFeature;
-        private readonly GodModeSettings _godModeSettings;
+        private readonly GodModeController _controller;
 
-        public PowerModeFeature(FanCoolingFeature fanCoolingFeature, GodModeSettings godModeSettings) : base("SmartFanMode", 1, "IsSupportSmartFan")
+        public PowerModeFeature(GodModeController controller) : base("SmartFanMode", 1, "IsSupportSmartFan")
         {
-            _fanCoolingFeature = fanCoolingFeature;
-            _godModeSettings = godModeSettings;
+            _controller = controller;
         }
 
         public override async Task<PowerModeState[]> GetAllStatesAsync()
@@ -31,19 +29,13 @@ namespace LenovoLegionToolkit.Lib.Features
             await Power.ActivatePowerPlanAsync(state, true).ConfigureAwait(false);
 
             if (state == PowerModeState.GodMode)
-                await ApplyGodModeSettingsAsync().ConfigureAwait(false);
+                await _controller.ApplyStateAsync().ConfigureAwait(false);
         }
 
         public async Task EnsureCorrectPowerPlanIsSetAsync()
         {
             var state = await GetStateAsync().ConfigureAwait(false);
             await Power.ActivatePowerPlanAsync(state, true).ConfigureAwait(false);
-        }
-
-        private async Task ApplyGodModeSettingsAsync()
-        {
-            var fanCooling = _godModeSettings.Store.FanCooling ?? false;
-            await _fanCoolingFeature.SetStateAsync(fanCooling ? FanCoolingState.On : FanCoolingState.Off).ConfigureAwait(false);
         }
     }
 }

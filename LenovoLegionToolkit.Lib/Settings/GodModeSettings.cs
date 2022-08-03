@@ -4,6 +4,7 @@
     {
         public class GodModeSettingsStore
         {
+            public StepperValue? GPUPowerBoost { get; set; }
             public bool? FanCooling { get; set; }
         }
 
