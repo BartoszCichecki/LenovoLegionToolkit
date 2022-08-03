@@ -12,13 +12,15 @@ namespace LenovoLegionToolkit.Lib.Features
         private readonly int _offset;
         private readonly string? _supportMethodName;
         private readonly int _supportOffset;
+        private readonly string? _getMethodNameSuffix;
 
-        protected AbstractWmiFeature(string methodNameSuffix, int offset, string? supportMethodName = null, int supportOffset = 0)
+        protected AbstractWmiFeature(string methodNameSuffix, int offset, string? supportMethodName = null, int supportOffset = 0, string? getMethodNameSuffix = null)
         {
             _methodNameSuffix = methodNameSuffix;
             _offset = offset;
             _supportMethodName = supportMethodName;
             _supportOffset = supportOffset;
+            _getMethodNameSuffix = getMethodNameSuffix;
         }
 
         public virtual Task<T[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<T>());
@@ -36,7 +38,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 throw new NotSupportedException($"Feature {_methodNameSuffix} is not supported.");
             }
 
-            var result = FromInternal(await ExecuteGamezoneAsync("Get" + _methodNameSuffix, "Data").ConfigureAwait(false));
+            var result = FromInternal(await ExecuteGamezoneAsync("Get" + (_getMethodNameSuffix ?? _methodNameSuffix), "Data").ConfigureAwait(false));
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"State is {result} [feature={GetType().Name}]");

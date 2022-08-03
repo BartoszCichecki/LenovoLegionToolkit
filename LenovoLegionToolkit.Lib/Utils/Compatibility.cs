@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Management;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System;
 
 namespace LenovoLegionToolkit.Lib.Utils
@@ -49,7 +51,9 @@ namespace LenovoLegionToolkit.Lib.Utils
                 var result = await WMI.ReadAsync("root\\CIMV2",
                                 $"SELECT * FROM Win32_ComputerSystemProduct",
                                 Create).ConfigureAwait(false);
-                _machineInformation = result.First();
+                var (vendor, machineType, model, serialNumber) = result.First();
+                var modelYear = GetModelYear();
+                _machineInformation = new(vendor, machineType, model, serialNumber, modelYear);
             }
 
             return _machineInformation.Value;
@@ -69,13 +73,38 @@ namespace LenovoLegionToolkit.Lib.Utils
             return (false, machineInformation);
         }
 
-        private static MachineInformation Create(PropertyDataCollection properties)
+        private static (string, string, string, string) Create(PropertyDataCollection properties)
         {
             var machineType = (string)properties["Name"].Value;
             var vendor = (string)properties["Vendor"].Value;
             var model = (string)properties["Version"].Value;
             var serialNumber = (string)properties["IdentifyingNumber"].Value;
-            return new(vendor, machineType, model, serialNumber);
+            return (vendor, machineType, model, serialNumber);
+        }
+
+        private static ModelYear GetModelYear()
+        {
+            if (CheckIf2020OrEarlier())
+                return ModelYear.MY2020OrEarlier;
+
+            return ModelYear.MY2021OrLater;
+        }
+
+        private static bool CheckIf2020OrEarlier()
+        {
+            uint inBuffer = 0x2;
+            if (!Native.DeviceIoControl(Devices.GetBattery(), 0x831020E8, ref inBuffer, sizeof(uint), out uint outBuffer, sizeof(uint), out _, IntPtr.Zero))
+            {
+                var error = Marshal.GetLastWin32Error();
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"DeviceIoControl returned 0, last error: {error}");
+
+                throw new InvalidOperationException($"DeviceIoControl returned 0, last error: {error}");
+            }
+
+            outBuffer = outBuffer.ReverseEndianness();
+            return outBuffer.GetNthBit(19);
         }
     }
 }

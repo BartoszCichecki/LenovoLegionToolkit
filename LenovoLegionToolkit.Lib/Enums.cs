@@ -27,6 +27,12 @@ namespace LenovoLegionToolkit.Lib
         Fn_F10 = 32,
     }
 
+    public enum FanCoolingState
+    {
+        Off,
+        On,
+    }
+
     public enum FlipToStartState
     {
         Off,
@@ -58,8 +64,7 @@ namespace LenovoLegionToolkit.Lib
     public enum ModelYear
     {
         MY2020OrEarlier,
-        MY2021,
-        MY2022,
+        MY2021OrLater,
     }
 
     public enum NotificationDuration
@@ -88,7 +93,7 @@ namespace LenovoLegionToolkit.Lib
         Quiet,
         Balance,
         Performance,
-        [Display(Name = "God Mode")]
+        [Display(Name = "Custom")]
         GodMode = 254,
     }
 
@@ -183,8 +188,8 @@ namespace LenovoLegionToolkit.Lib
 
     public enum WinKeyState
     {
-        On,
         Off,
+        On,
     }
 
     public enum WinKeyChanged { }

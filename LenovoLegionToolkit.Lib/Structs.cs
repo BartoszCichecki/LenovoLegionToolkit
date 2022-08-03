@@ -85,13 +85,13 @@ namespace LenovoLegionToolkit.Lib
         public string SerialNumber { get; }
         public ModelYear ModelYear { get; }
 
-        public MachineInformation(string vendor, string machineType, string model, string serialNumber)
+        public MachineInformation(string vendor, string machineType, string model, string serialNumber, ModelYear modelYear)
         {
             Vendor = vendor;
             MachineType = machineType;
             Model = model;
             SerialNumber = serialNumber;
-            ModelYear = ModelYear.MY2021;
+            ModelYear = modelYear;
         }
     }
 
