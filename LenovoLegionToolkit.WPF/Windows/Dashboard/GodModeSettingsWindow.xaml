@@ -61,11 +61,83 @@
                         FontWeight="Medium"
                         Text="CPU" />
 
+                    <wpfui:CardControl Margin="0,0,0,8">
+                        <wpfui:CardControl.Header>
+                            <controls:CardHeaderControl Title="Long Term Power Limit" />
+                        </wpfui:CardControl.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Slider
+                                IsSnapToTickEnabled="True"
+                                Maximum="15"
+                                Minimum="0"
+                                TickFrequency="5" />
+                            <Label
+                                Width="50"
+                                Margin="8,0,0,0"
+                                HorizontalContentAlignment="Right"
+                                Content="15W" />
+                        </StackPanel>
+                    </wpfui:CardControl>
+
+                    <wpfui:CardControl Margin="0,0,0,8">
+                        <wpfui:CardControl.Header>
+                            <controls:CardHeaderControl Title="Short Term Power Limit" />
+                        </wpfui:CardControl.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Slider
+                                IsSnapToTickEnabled="True"
+                                Maximum="15"
+                                Minimum="0"
+                                TickFrequency="5" />
+                            <Label
+                                Width="50"
+                                Margin="8,0,0,0"
+                                HorizontalContentAlignment="Right"
+                                Content="15W" />
+                        </StackPanel>
+                    </wpfui:CardControl>
+
                     <TextBlock
                         Margin="0,16,0,24"
                         FontSize="24"
                         FontWeight="Medium"
                         Text="GPU" />
+
+                    <wpfui:CardControl Margin="0,0,0,8">
+                        <wpfui:CardControl.Header>
+                            <controls:CardHeaderControl Title="Dynamic Boost" />
+                        </wpfui:CardControl.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Slider
+                                IsSnapToTickEnabled="True"
+                                Maximum="15"
+                                Minimum="0"
+                                TickFrequency="5" />
+                            <Label
+                                Width="50"
+                                Margin="8,0,0,0"
+                                HorizontalContentAlignment="Right"
+                                Content="15W" />
+                        </StackPanel>
+                    </wpfui:CardControl>
+
+                    <wpfui:CardControl Margin="0,0,0,8">
+                        <wpfui:CardControl.Header>
+                            <controls:CardHeaderControl Title="Configurable TDP" />
+                        </wpfui:CardControl.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Slider
+                                IsSnapToTickEnabled="True"
+                                Maximum="15"
+                                Minimum="0"
+                                TickFrequency="5" />
+                            <Label
+                                Width="50"
+                                Margin="8,0,0,0"
+                                HorizontalContentAlignment="Right"
+                                Content="15W" />
+                        </StackPanel>
+                    </wpfui:CardControl>
 
                     <TextBlock
                         Margin="0,16,0,24"
