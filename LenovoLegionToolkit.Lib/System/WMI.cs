@@ -50,7 +50,7 @@ namespace LenovoLegionToolkit.Lib.System
             return result;
         });
 
-        public static Task WriteAsync(string scope, FormattableString query, string methodName, Dictionary<string, object> methodParams) => Task.Run(() =>
+        public static Task CallAsync(string scope, FormattableString query, string methodName, Dictionary<string, object> methodParams) => Task.Run(() =>
         {
             var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
 
@@ -76,6 +76,43 @@ namespace LenovoLegionToolkit.Lib.System
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Write successful. [queryFormatted={queryFormatted}, methodName={methodName}, methodParams.Count={methodParams?.Count}]");
         });
+
+        public static Task<T> CallAsync<T>(string scope, FormattableString query, string methodName, Dictionary<string, object> methodParams, Func<PropertyDataCollection, T> converter) where T : struct
+        {
+            return Task.Run(() =>
+            {
+                var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Writing... [scope={scope}, queryFormatted={queryFormatted}, methodName={methodName}]");
+
+                using var enumerator = new ManagementObjectSearcher(scope, queryFormatted).Get().GetEnumerator();
+                if (!enumerator.MoveNext())
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"No results in query [queryFormatted={queryFormatted}, methodName={methodName}]");
+
+                    throw new InvalidOperationException("No results in query");
+                }
+
+                var mo = (ManagementObject)enumerator.Current;
+                var methodParamsObject = mo.GetMethodParameters(methodName);
+                foreach (var pair in methodParams)
+                    methodParamsObject[pair.Key] = pair.Value;
+
+                var resultProperties = mo.InvokeMethod(methodName, methodParamsObject, null);
+
+                if (resultProperties is null)
+                    return default;
+
+                var result = converter(resultProperties.Properties);
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Write successful. [queryFormatted={queryFormatted}, methodName={methodName}, methodParams.Count={methodParams?.Count}]");
+
+                return result;
+            });
+        }
 
         private class WMIPropertyValueFormatter : IFormatProvider, ICustomFormatter
         {

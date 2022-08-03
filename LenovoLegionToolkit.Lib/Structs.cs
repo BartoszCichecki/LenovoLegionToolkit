@@ -346,6 +346,30 @@ namespace LenovoLegionToolkit.Lib
         #endregion
     }
 
+    public struct StepperValue
+    {
+        public int Value { get; }
+        public int Min { get; }
+        public int Max { get; }
+        public int Step { get; }
+
+        public StepperValue(int value, int min, int max, int step)
+        {
+            Value = value;
+            Min = min;
+            Max = max;
+            Step = step;
+        }
+
+        public StepperValue WithValue(int value)
+        {
+            if (Min > value || Max < value || value % Step != 0)
+                throw new ArgumentOutOfRangeException(nameof(value));
+
+            return new(value, Min, Max, Step);
+        }
+    }
+
     public struct Update
     {
         public Version Version { get; }

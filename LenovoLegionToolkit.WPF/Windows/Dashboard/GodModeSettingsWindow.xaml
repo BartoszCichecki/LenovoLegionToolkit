@@ -10,7 +10,7 @@
     Title="Custom Mode Settings"
     Width="600"
     Height="500"
-    MinWidth="500"
+    MinWidth="600"
     MinHeight="400">
     <Grid>
         <Grid.RowDefinitions>
@@ -67,6 +67,7 @@
                         </wpfui:CardControl.Header>
                         <StackPanel Orientation="Horizontal">
                             <Slider
+                                Width="200"
                                 IsSnapToTickEnabled="True"
                                 Maximum="15"
                                 Minimum="0"
@@ -85,6 +86,7 @@
                         </wpfui:CardControl.Header>
                         <StackPanel Orientation="Horizontal">
                             <Slider
+                                Width="200"
                                 IsSnapToTickEnabled="True"
                                 Maximum="15"
                                 Minimum="0"
@@ -109,24 +111,25 @@
                         </wpfui:CardControl.Header>
                         <StackPanel Orientation="Horizontal">
                             <Slider
+                                x:Name="_gpuPowerBoostSlider"
+                                Width="200"
                                 IsSnapToTickEnabled="True"
-                                Maximum="15"
-                                Minimum="0"
-                                TickFrequency="5" />
+                                ValueChanged="GpuPowerBoostSlider_ValueChanged" />
                             <Label
+                                x:Name="_gpuPowerBoostValueLabel"
                                 Width="50"
                                 Margin="8,0,0,0"
-                                HorizontalContentAlignment="Right"
-                                Content="15W" />
+                                HorizontalContentAlignment="Right" />
                         </StackPanel>
                     </wpfui:CardControl>
 
                     <wpfui:CardControl Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
-                            <controls:CardHeaderControl Title="Configurable TDP" />
+                            <controls:CardHeaderControl Title="Configurable TGP" />
                         </wpfui:CardControl.Header>
                         <StackPanel Orientation="Horizontal">
                             <Slider
+                                Width="200"
                                 IsSnapToTickEnabled="True"
                                 Maximum="15"
                                 Minimum="0"
@@ -147,7 +150,7 @@
 
                     <wpfui:CardControl Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
-                            <controls:CardHeaderControl Title="Maximum fan speed" Subtitle="WARNING: Prolonged usage of this option will degrade fans." />
+                            <controls:CardHeaderControl Title="Maximum fan speed" Subtitle="WARNING: Prolonged usage of this option will degrade fans decreasing their longevity." />
                         </wpfui:CardControl.Header>
                         <wpfui:ToggleSwitch x:Name="_fanCoolingToggle" Margin="0,0,0,8" />
                     </wpfui:CardControl>

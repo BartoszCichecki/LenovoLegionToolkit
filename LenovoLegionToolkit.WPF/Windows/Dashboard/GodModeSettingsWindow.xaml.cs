@@ -1,15 +1,13 @@
 ﻿using System.Threading.Tasks;
 using System.Windows;
 using LenovoLegionToolkit.Lib;
-using LenovoLegionToolkit.Lib.Features;
-using LenovoLegionToolkit.Lib.Settings;
+using LenovoLegionToolkit.Lib.Controllers;
 
 namespace LenovoLegionToolkit.WPF.Windows.Dashboard
 {
     public partial class GodModeSettingsWindow
     {
-        private readonly PowerModeFeature _powerModeFeature = IoCContainer.Resolve<PowerModeFeature>();
-        private readonly GodModeSettings _settings = IoCContainer.Resolve<GodModeSettings>();
+        private readonly GodModeController _controller = IoCContainer.Resolve<GodModeController>();
 
         public GodModeSettingsWindow()
         {
@@ -39,7 +37,14 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
 
             var loadingTask = Task.Delay(500);
 
-            _fanCoolingToggle.IsChecked = _settings.Store.FanCooling ?? false;
+            var state = await _controller.GetStateAsync();
+
+            _gpuPowerBoostSlider.Minimum = state.GPUPowerBoost.Min;
+            _gpuPowerBoostSlider.Maximum = state.GPUPowerBoost.Max;
+            _gpuPowerBoostSlider.TickFrequency = state.GPUPowerBoost.Step;
+            _gpuPowerBoostSlider.Value = state.GPUPowerBoost.Value;
+
+            _fanCoolingToggle.IsChecked = state.FanCooling;
 
             await loadingTask;
 
@@ -47,31 +52,33 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
             _loader.IsLoading = false;
         }
 
-        private void Save()
+        private async Task ApplyAsync()
         {
-            _settings.Store.FanCooling = _fanCoolingToggle.IsChecked;
-            _settings.SynchronizeStore();
+            var state = await _controller.GetStateAsync();
+
+            var gpuPowerBoost = state.GPUPowerBoost.WithValue((int)_gpuPowerBoostSlider.Value);
+
+            var fanCooling = _fanCoolingToggle.IsChecked ?? false;
+
+            await _controller.SetStateAsync(new(gpuPowerBoost, fanCooling)).ConfigureAwait(false);
+            await _controller.ApplyStateAsync().ConfigureAwait(false);
         }
 
         private async void ApplyAndCloseButton_Click(object sender, RoutedEventArgs e)
         {
-            Save();
-
-            await _powerModeFeature.SetStateAsync(PowerModeState.GodMode);
+            await ApplyAsync();
 
             Close();
         }
 
         private async void ApplyButton_Click(object sender, RoutedEventArgs e)
         {
-            Save();
-
-            await _powerModeFeature.SetStateAsync(PowerModeState.GodMode);
-        }
-
-        private async void RevertButton_Click(object sender, RoutedEventArgs e)
-        {
+            await ApplyAsync();
             await RefreshAsync();
         }
+
+        private async void RevertButton_Click(object sender, RoutedEventArgs e) => await RefreshAsync();
+
+        private void GpuPowerBoostSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) => _gpuPowerBoostValueLabel.Content = $"{e.NewValue}W";
     }
 }
