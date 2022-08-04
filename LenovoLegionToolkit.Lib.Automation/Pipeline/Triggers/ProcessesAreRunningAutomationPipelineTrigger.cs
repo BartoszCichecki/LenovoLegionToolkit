@@ -16,7 +16,11 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
 
         public bool IsSatisfied(object? context)
         {
-            return Processes.SelectMany(p => Process.GetProcessesByName(p.Name)).Any();
+            if (context is not ProcessEventInfo pei || pei.Type != ProcessEventInfoType.Started)
+                return false;
+
+            var result = Processes.SelectMany(p => Process.GetProcessesByName(p.Name)).Any();
+            return result;
         }
 
         public IAutomationPipelineTrigger DeepCopy() => new ProcessesAreRunningAutomationPipelineTrigger(Processes);

@@ -20,6 +20,13 @@ namespace LenovoLegionToolkit.Lib
         RapidCharge,
     }
 
+    public enum DriverKey
+    {
+        Fn_F4 = 256,
+        Fn_F8 = 8192,
+        Fn_F10 = 32,
+    }
+
     public enum FlipToStartState
     {
         Off,
@@ -36,6 +43,31 @@ namespace LenovoLegionToolkit.Lib
     {
         On,
         Off,
+    }
+
+    public enum KnownFolder
+    {
+        Contacts,
+        Downloads,
+        Favorites,
+        Links,
+        SavedGames,
+        SavedSearches
+    }
+
+    public enum NotificationDuration
+    {
+        Short,
+        Long,
+    }
+
+    public enum NotificationIcon
+    {
+        MicrophoneOff,
+        MicrophoneOn,
+        RefreshRate,
+        TouchpadOn,
+        TouchpadOff,
     }
 
     public enum OverDriveState
@@ -142,8 +174,8 @@ namespace LenovoLegionToolkit.Lib
 
     public enum WinKeyState
     {
-        On,
         Off,
+        On,
     }
 
     public enum WinKeyChanged { }

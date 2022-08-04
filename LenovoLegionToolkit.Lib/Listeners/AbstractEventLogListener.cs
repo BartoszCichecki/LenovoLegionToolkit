@@ -14,10 +14,14 @@ namespace LenovoLegionToolkit.Lib.Listeners
             var eventLogQuery = new EventLogQuery(path, PathType.LogName, query);
             _watcher = new EventLogWatcher(eventLogQuery);
             _watcher.EventRecordWritten += Watcher_EventRecordWritten;
-            _watcher.Enabled = true;
         }
 
         public event EventHandler<EventArgs>? Changed;
+
+        public void Start()
+        {
+            _watcher.Enabled = true;
+        }
 
         protected abstract Task OnChangedAsync();
 

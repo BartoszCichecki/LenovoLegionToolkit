@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Management;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.System;
@@ -22,19 +21,15 @@ namespace LenovoLegionToolkit.Lib.Listeners
         {
             _scope = scope;
             _query = query;
-
-            Start();
         }
 
         public AbstractWMIListener(string scope, string eventName)
         {
             _scope = scope;
             _query = $"SELECT * FROM {eventName}";
-
-            Start();
         }
 
-        private void Start()
+        public void Start()
         {
             try
             {
@@ -46,7 +41,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't start listener: {ex.Demystify()} [listener={GetType().Name}]");
+                    Log.Instance.Trace($"Couldn't start listener. [listener={GetType().Name}]", ex);
             }
         }
 

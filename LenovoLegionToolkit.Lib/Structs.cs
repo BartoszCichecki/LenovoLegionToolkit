@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using Newtonsoft.Json;
 using Octokit;
 
@@ -78,12 +79,75 @@ namespace LenovoLegionToolkit.Lib
     public struct MachineInformation
     {
         public string Vendor { get; }
+        public string MachineType { get; }
         public string Model { get; }
+        public string SerialNumber { get; }
 
-        public MachineInformation(string vendor, string model)
+        public MachineInformation(string vendor, string machineType, string model, string serialNumber)
         {
             Vendor = vendor;
+            MachineType = machineType;
             Model = model;
+            SerialNumber = serialNumber;
+        }
+    }
+
+    public struct Package
+    {
+        public string Description { get; }
+        public string Version { get; }
+        public string Category { get; }
+        public string FileName { get; }
+        public int FileSize { get; }
+        public DateTime ReleaseDate { get; }
+        public string? Readme { get; }
+        public string FileLocation { get; }
+
+        private string? _index = null;
+
+        public string Index
+        {
+            get
+            {
+                if (_index is null)
+                {
+                    _index = new StringBuilder()
+                        .Append(Description)
+                        .Append(Version)
+                        .Append(Category)
+                        .Append(FileName)
+                        .ToString();
+                }
+                return _index;
+            }
+        }
+
+        public Package(string description, string version, string category, string fileName, int fileSize, DateTime releaseDate, string? readme, string fileLocation)
+        {
+            Description = description;
+            Version = version;
+            Category = category;
+            FileName = fileName;
+            FileSize = fileSize;
+            ReleaseDate = releaseDate;
+            Readme = readme;
+            FileLocation = fileLocation;
+        }
+    }
+
+    public struct Notification
+    {
+        public NotificationIcon Icon { get; }
+
+        public string Text { get; }
+
+        public NotificationDuration Duration { get; }
+
+        public Notification(NotificationIcon icon, string text, NotificationDuration duration)
+        {
+            Icon = icon;
+            Text = text;
+            Duration = duration;
         }
     }
 

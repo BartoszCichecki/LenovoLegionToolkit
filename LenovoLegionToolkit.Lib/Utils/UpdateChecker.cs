@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -51,7 +50,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                         .ToArray();
 
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Checked [_updates.Length={updates.Length}]");
+                        Log.Instance.Trace($"Checked [updates.Length={updates.Length}]");
 
                     _updates = updates;
 
@@ -60,7 +59,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                 catch (Exception ex)
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Error: {ex.Demystify()}");
+                        Log.Instance.Trace($"Error checking for updates.", ex);
                     return false;
                 }
                 finally
@@ -84,7 +83,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                 var latestUpdate = _updates.FirstOrDefault();
 
                 if (latestUpdate.Equals(default(Update)))
-                    throw new InvalidOperationException("No _updates available");
+                    throw new InvalidOperationException("No updates available");
 
                 if (latestUpdate.Url is null)
                     throw new InvalidOperationException("Setup file URL could not be found");

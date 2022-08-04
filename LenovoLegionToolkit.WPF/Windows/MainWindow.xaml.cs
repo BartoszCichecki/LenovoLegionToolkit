@@ -14,7 +14,6 @@ using LenovoLegionToolkit.WPF.Pages;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Utils;
 using Wpf.Ui.Controls;
-using Wpf.Ui.Tray;
 
 namespace LenovoLegionToolkit.WPF.Windows
 {
@@ -94,6 +93,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             switch (WindowState)
             {
                 case WindowState.Minimized:
+                    SaveWindowSize();
                     SendToTray();
                     break;
                 case WindowState.Normal:
@@ -158,7 +158,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             updateWindow.ShowDialog();
         }
 
-        private void NotifyIcon_LeftClick([NotNull] INotifyIcon sender, RoutedEventArgs e) => BringToForeground();
+        private void NotifyIcon_LeftClick([NotNull] NotifyIcon sender, RoutedEventArgs e) => BringToForeground();
 
         private void SaveWindowSize()
         {

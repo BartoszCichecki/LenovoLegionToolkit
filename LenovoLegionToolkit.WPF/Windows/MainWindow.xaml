@@ -91,6 +91,11 @@
                             Icon="Rocket24"
                             PageTag="automation"
                             PageType="{x:Type pages:AutomationPage}" />
+                        <wpfui:NavigationItem
+                            Content="Downloads"
+                            Icon="Box24"
+                            PageTag="packages"
+                            PageType="{x:Type pages:PackagesPage}" />
                     </wpfui:NavigationStore.Items>
 
                     <wpfui:NavigationStore.Footer>
@@ -122,8 +127,6 @@
                     MaxWidth="600"
                     HorizontalAlignment="Center"
                     Icon="Checkmark24"
-                    IsShown="False"
-                    ShowCloseButton="False"
                     Timeout="2000" />
 
             </Grid>
