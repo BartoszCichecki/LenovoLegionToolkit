@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
@@ -29,15 +30,23 @@ namespace LenovoLegionToolkit.Lib.Controllers
             var result = new List<CPUBoostModeSettings>();
             foreach (var powerPlan in powerPlans)
             {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Getting perfboostmodes for power plan {powerPlan.Name}... [powerPlan.instanceID={powerPlan.InstanceID}]");
+                try
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Getting perfboostmodes for power plan {powerPlan.Name}... [powerPlan.instanceID={powerPlan.InstanceID}]");
 
-                var settings = await GetCPUBoostSettingsAsync(powerPlan, cpuBoostModes);
+                    var settings = await GetCPUBoostSettingsAsync(powerPlan, cpuBoostModes);
 
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Perfboostmodes settings retrieved for power plan {settings.PowerPlan.Name} [powerPlan.instanceID={settings.PowerPlan.InstanceID}, {string.Join(",", settings.CPUBoostModes.Select(cbm => $"{{{cbm.Name}:{cbm.Value}}}"))}, acSettingsValue={settings.ACSettingValue}, dcSettingValue={settings.DCSettingValue}]");
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Perfboostmodes settings retrieved for power plan {settings.PowerPlan.Name} [powerPlan.instanceID={settings.PowerPlan.InstanceID}, {string.Join(",", settings.CPUBoostModes.Select(cbm => $"{{{cbm.Name}:{cbm.Value}}}"))}, acSettingsValue={settings.ACSettingValue}, dcSettingValue={settings.DCSettingValue}]");
 
-                result.Add(settings);
+                    result.Add(settings);
+                }
+                catch (Exception ex)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Failed to load settings for {powerPlan.Name}.", ex);
+                }
             }
 
             if (Log.Instance.IsTraceEnabled)
@@ -52,7 +61,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 Log.Instance.Trace($"Setting perfboostmode to {cpuBoostMode.Name}... [powerPlan.name={powerPlan.Name}, powerPlan.instanceID={powerPlan.InstanceID}, cpuBoostMode.value={cpuBoostMode.Value}, isAC={isAC}]");
 
             var option = isAC ? "/SETACVALUEINDEX" : "/SETDCVALUEINDEX";
-            await CMD.RunAsync("powercfg", $"{option} {powerPlan.InstanceID} {ProcessorPowerManagementSubgroupGUID} {PowerSettingGUID} {cpuBoostMode.Value}");
+            await CMD.RunAsync("powercfg", $"{option} {powerPlan.Guid} {ProcessorPowerManagementSubgroupGUID} {PowerSettingGUID} {cpuBoostMode.Value}");
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Perfboostmode set to {cpuBoostMode.Name} [powerPlan.name={powerPlan.Name}, powerPlan.instanceID={powerPlan.InstanceID}, cpuBoostMode.value={cpuBoostMode.Value}, isAC={isAC}]");
@@ -89,8 +98,10 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 .Split(Environment.NewLine)
                 .Select(s => s.Trim());
 
-            var acSettingValueString = outputLines.First(s => s.StartsWith("Current AC Power Setting Index")).Split(":").Last().Replace("0x", "").Trim();
-            var dcSettingValueString = outputLines.First(s => s.StartsWith("Current DC Power Setting Index")).Split(":").Last().Replace("0x", "").Trim();
+            var matches = Regex.Matches(output, "0[xX][0-9a-fA-F]+");
+
+            var acSettingValueString = matches[0].Value.Replace("0x", "").Trim();
+            var dcSettingValueString = matches[1].Value.Replace("0x", "").Trim();
 
             var acSettingValue = int.Parse(acSettingValueString, NumberStyles.HexNumber | NumberStyles.AllowHexSpecifier);
             var dcSettingValue = int.Parse(dcSettingValueString, NumberStyles.HexNumber | NumberStyles.AllowHexSpecifier);
