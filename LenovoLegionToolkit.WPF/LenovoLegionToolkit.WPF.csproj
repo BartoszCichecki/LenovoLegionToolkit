@@ -10,6 +10,7 @@
 		<Version>0.0.1</Version>
 		<Nullable>enable</Nullable>
 		<UseWPF>true</UseWPF>
+		<UseWindowsForms>true</UseWindowsForms>
 		<SelfContained>false</SelfContained>
 		<PublishSingleFile>false</PublishSingleFile>
 		<PublishReadyToRun>false</PublishReadyToRun>
@@ -23,6 +24,12 @@
 	<PropertyGroup>
 		<ApplicationManifest>app.manifest</ApplicationManifest>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <DebugType>portable</DebugType>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <DebugType>embedded</DebugType>
+	</PropertyGroup>
 	<ItemGroup>
 		<None Remove="Assets\default_exe.png" />
 		<None Remove="Assets\paypal_button.png" />
@@ -31,12 +38,11 @@
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Autofac" Version="6.4.0" />
-		<PackageReference Include="Ben.Demystifier" Version="0.4.1" />
 		<PackageReference Include="Markdig" Version="0.30.2" />
 		<PackageReference Include="Markdig.Wpf" Version="0.5.0.1" />
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
 		<PackageReference Include="PixiEditor.ColorPicker" Version="3.3.1" />
-		<PackageReference Include="WPF-UI" Version="2.0.1" />
+		<PackageReference Include="WPF-UI" Version="2.0.2" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\LenovoLegionToolkit.Lib\LenovoLegionToolkit.Lib.csproj" />

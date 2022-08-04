@@ -19,6 +19,7 @@ namespace LenovoLegionToolkit.Lib.Features
             DriverHandle = driverHandleHandle;
             ControlCode = controlCode;
         }
+
         public Task<T[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<T>());
 
         public virtual async Task<T> GetStateAsync()
@@ -26,8 +27,8 @@ namespace LenovoLegionToolkit.Lib.Features
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting state... [feature={GetType().Name}]");
 
-            var (_, outBuffer) = await SendCodeAsync(DriverHandle(), ControlCode, GetInternalStatus()).ConfigureAwait(false);
-            var state = FromInternal(outBuffer);
+            var (_, outBuffer) = await SendCodeAsync(DriverHandle(), ControlCode, GetInBufferValue()).ConfigureAwait(false);
+            var state = await FromInternalAsync(outBuffer).ConfigureAwait(false);
             LastState = state;
 
             if (Log.Instance.IsTraceEnabled)
@@ -41,7 +42,7 @@ namespace LenovoLegionToolkit.Lib.Features
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Setting state to {state}... [feature={GetType().Name}]");
 
-            var codes = ToInternal(state);
+            var codes = await ToInternalAsync(state).ConfigureAwait(false);
             foreach (var code in codes)
                 await SendCodeAsync(DriverHandle(), ControlCode, code).ConfigureAwait(false);
             LastState = state;
@@ -50,11 +51,11 @@ namespace LenovoLegionToolkit.Lib.Features
                 Log.Instance.Trace($"State set to {state} [feature={GetType().Name}]");
         }
 
-        protected abstract T FromInternal(uint state);
+        protected abstract Task<T> FromInternalAsync(uint state);
 
-        protected abstract uint GetInternalStatus();
+        protected abstract uint GetInBufferValue();
 
-        protected abstract uint[] ToInternal(T state);
+        protected abstract Task<uint[]> ToInternalAsync(T state);
 
         protected Task<(int bytesReturned, uint outBuffer)> SendCodeAsync(SafeFileHandle handle, uint controlCode, uint inBuffer)
         {

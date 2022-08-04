@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -66,7 +65,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                     catch (Exception ex)
                     {
                         if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Battery information refresh failed: {ex.Demystify()}");
+                            Log.Instance.Trace($"Battery information refresh failed.", ex);
                     }
                 }
 

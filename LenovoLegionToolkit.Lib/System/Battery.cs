@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
@@ -27,7 +26,7 @@ namespace LenovoLegionToolkit.Lib.System
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Failed to get temperature of battery: {ex.Demystify()}");
+                    Log.Instance.Trace($"Failed to get temperature of battery.", ex);
             }
 
             DateTime? manufactureDate = null;
@@ -38,7 +37,7 @@ namespace LenovoLegionToolkit.Lib.System
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Failed to get manufacture date of battery: {ex.Demystify()}");
+                    Log.Instance.Trace($"Failed to get manufacture date of battery.", ex);
             }
 
             return new(powerStatus.ACLineStatus == ACLineStatusEx.Online,

@@ -51,7 +51,7 @@ namespace LenovoLegionToolkit.Lib.System
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't kill process: {ex.Demystify()}");
+                    Log.Instance.Trace($"Couldn't kill process.", ex);
             }
 
             try
@@ -65,7 +65,7 @@ namespace LenovoLegionToolkit.Lib.System
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't kill process: {ex.Demystify()}");
+                    Log.Instance.Trace($"Couldn't kill process.", ex);
             }
 
             await Task.Delay(1000).ConfigureAwait(false);

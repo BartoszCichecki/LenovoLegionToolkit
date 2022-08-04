@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.System;
@@ -186,7 +185,7 @@ namespace LenovoLegionToolkit.Lib.Features
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Exception: {ex.Demystify()} [feature={GetType().Name}]");
+                    Log.Instance.Trace($"Exception while setting privilege. [feature={GetType().Name}]", ex);
 
                 return false;
             }

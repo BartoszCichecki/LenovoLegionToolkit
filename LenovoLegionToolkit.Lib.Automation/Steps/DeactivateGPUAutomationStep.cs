@@ -21,9 +21,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
             if (!_controller.IsSupported())
                 return;
 
-            await _controller.RefreshAsync().ConfigureAwait(false);
-
-            if (!_controller.CanBeDeactivated)
+            if (!await _controller.CanBeDeactivatedAsync().ConfigureAwait(false))
                 return;
 
             switch (State)

@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Diagnostics;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
@@ -11,11 +12,15 @@ using System.Windows.Threading;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows;
+using WinFormsApp = System.Windows.Forms.Application;
+using WinFormsHighDpiMode = System.Windows.Forms.HighDpiMode;
 
 #pragma warning disable IDE0052 // Remove unread private members
 
@@ -31,17 +36,20 @@ namespace LenovoLegionToolkit
 
         private async void Application_Startup(object sender, StartupEventArgs e)
         {
-            if (IsTraceEnabled(e.Args))
+            var args = e.Args.Concat(LoadExternalArgs());
+
+            if (IsTraceEnabled(args))
                 Log.Instance.IsTraceEnabled = true;
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Starting... [version={Assembly.GetEntryAssembly()?.GetName().Version}]");
+                Log.Instance.Trace($"Starting... [version={Assembly.GetEntryAssembly()?.GetName().Version}, build={Assembly.GetEntryAssembly()?.GetBuildDateTime()?.ToString("yyyyMMddHHmmss") ?? ""}]");
 
+            WinFormsApp.SetHighDpiMode(WinFormsHighDpiMode.PerMonitorV2);
             RenderOptions.ProcessRenderMode = RenderMode.SoftwareOnly;
 
             EnsureSingleInstance();
 
-            if (!ShouldByPassCompatibilityCheck(e.Args))
+            if (!ShouldByPassCompatibilityCheck(args))
                 await CheckCompatibilityAsync();
 
             IoCContainer.Initialize(
@@ -49,6 +57,9 @@ namespace LenovoLegionToolkit
                 new Lib.Automation.IoCModule(),
                 new WPF.IoCModule()
             );
+
+            if (ShouldForceDisableRGBKeyboardSupport(args))
+                IoCContainer.Resolve<RGBKeyboardBacklightController>().ForceDisable = true;
 
             try
             {
@@ -62,7 +73,7 @@ namespace LenovoLegionToolkit
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't initialize automation processor. Exception: {ex.Demystify()}");
+                    Log.Instance.Trace($"Couldn't initialize automation processor.", ex);
             }
 
             try
@@ -75,22 +86,30 @@ namespace LenovoLegionToolkit
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't ensure correct power plan. Exception: {ex.Demystify()}");
+                    Log.Instance.Trace($"Couldn't ensure correct power plan.", ex);
             }
 
             try
             {
                 var rgbKeyboardBacklightController = IoCContainer.Resolve<RGBKeyboardBacklightController>();
 
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Setting light controll owner and restoring preset...");
+                if (rgbKeyboardBacklightController.IsSupported())
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Setting light controll owner and restoring preset...");
 
-                await rgbKeyboardBacklightController.SetLightControlOwnerAsync(true, true);
+                    await rgbKeyboardBacklightController.SetLightControlOwnerAsync(true, true);
+                }
+                else
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"RGB keyboard is not supported.");
+                }
             }
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't set light controll owner or current preset. Exception: {ex.Demystify()}");
+                    Log.Instance.Trace($"Couldn't set light controll owner or current preset.", ex);
             }
 
             Autorun.Validate();
@@ -103,7 +122,7 @@ namespace LenovoLegionToolkit
 
             IoCContainer.Resolve<ThemeManager>().Apply();
 
-            if (ShouldStartMinimized(e.Args))
+            if (ShouldStartMinimized(args))
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Sending MainWindow to tray...");
@@ -134,20 +153,19 @@ namespace LenovoLegionToolkit
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't set light controll owner. Exception: {ex.Demystify()}");
+                    Log.Instance.Trace($"Couldn't set light controll owner.", ex);
             }
         }
 
         private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            Log.Instance.ErrorReport(e.Exception.Demystify());
+            Log.Instance.Trace($"Unhandled exception occured.", e.Exception);
+            Log.Instance.ErrorReport(e.Exception);
 
-            var errorText = e.Exception.Demystify().ToString();
-
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"***** *** Unhandled exception ***** ***\n{errorText}");
-
-            MessageBox.Show(errorText, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show($"Unexpected exception occured:\n{e.Exception.Message}\n\nPlease report the issue on {Constants.BugReportUri}.",
+                            "Error",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Error);
             Shutdown(-1);
         }
 
@@ -157,14 +175,14 @@ namespace LenovoLegionToolkit
             if (isCompatible)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Compatibility check passed");
+                    Log.Instance.Trace($"Compatibility check passed. [Vendor={mi.Vendor}, Model={mi.Model}]");
                 return;
             }
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Incompatible system detected, shutting down... [Vendor={mi.Vendor}, Model={mi.Model}]");
 
-            MessageBox.Show($"This application is not compatible with:\n\n{mi.Vendor} {mi.Model}.", "Unsupported device", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show($"This application is not compatible with:\n\n{mi.Vendor} {mi.Model}.\n\nCheck: {Constants.CompatibilityUri} for more information.", "Unsupported device", MessageBoxButton.OK, MessageBoxImage.Error);
             Shutdown(-1);
         }
 
@@ -193,7 +211,31 @@ namespace LenovoLegionToolkit
 
         #region Arguments
 
-        private static bool ShouldByPassCompatibilityCheck(string[] args)
+        private static string[] LoadExternalArgs()
+        {
+            try
+            {
+                var argsFile = Path.Combine(Folders.AppData, "args.txt");
+                if (!File.Exists(argsFile))
+                    return Array.Empty<string>();
+                return File.ReadAllLines(argsFile);
+            }
+            catch
+            {
+                return Array.Empty<string>();
+            }
+        }
+
+        private static bool ShouldForceDisableRGBKeyboardSupport(IEnumerable<string> args)
+        {
+            var result = args.Contains("--force-disable-rgbkb");
+            if (result)
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Argument present");
+            return result;
+        }
+
+        private static bool ShouldByPassCompatibilityCheck(IEnumerable<string> args)
         {
             var result = args.Contains("--skip-compat-check");
             if (result)
@@ -202,7 +244,7 @@ namespace LenovoLegionToolkit
             return result;
         }
 
-        private static bool ShouldStartMinimized(string[] args)
+        private static bool ShouldStartMinimized(IEnumerable<string> args)
         {
             var result = args.Contains("--minimized");
             if (result)
@@ -211,7 +253,7 @@ namespace LenovoLegionToolkit
             return result;
         }
 
-        private static bool IsTraceEnabled(string[] args)
+        private static bool IsTraceEnabled(IEnumerable<string> args)
         {
             var result = args.Contains("--trace");
             if (result)

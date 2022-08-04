@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -42,12 +41,9 @@ namespace LenovoLegionToolkit.Lib.Automation
 
         public AutomationProcessor(AutomationSettings settings, PowerStateListener powerStateListener, ProcessListener processListener)
         {
-            _settings = settings;
-            _powerStateListener = powerStateListener;
-            _processListener = processListener;
-
-            _powerStateListener.Changed += PowerStateListener_Changed;
-            _processListener.Changed += ProcessListener_Changed;
+            _settings = settings ?? throw new ArgumentNullException(nameof(settings));
+            _powerStateListener = powerStateListener ?? throw new ArgumentNullException(nameof(powerStateListener));
+            _processListener = processListener ?? throw new ArgumentNullException(nameof(processListener));
         }
 
         private async void ProcessListener_Changed(object? sender, ProcessEventInfo e)
@@ -82,6 +78,9 @@ namespace LenovoLegionToolkit.Lib.Automation
             {
                 _pipelines = _settings.Store.Pipelines;
                 RaisePipelinesChanged();
+
+                _powerStateListener.Changed += PowerStateListener_Changed;
+                _processListener.Changed += ProcessListener_Changed;
             }
         }
 
@@ -141,7 +140,7 @@ namespace LenovoLegionToolkit.Lib.Automation
                 catch (Exception ex)
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Pipeline run failed: {ex.Demystify()}");
+                        Log.Instance.Trace($"Pipeline run failed.", ex);
 
                     throw;
                 }
@@ -201,7 +200,7 @@ namespace LenovoLegionToolkit.Lib.Automation
                     catch (Exception ex)
                     {
                         if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Pipeline run failed: {ex.Demystify()} [name={pipeline.Name}, trigger={pipeline.Trigger}]");
+                            Log.Instance.Trace($"Pipeline run failed. [name={pipeline.Name}, trigger={pipeline.Trigger}]", ex);
                     }
 
                     if (pipeline.IsExclusive)

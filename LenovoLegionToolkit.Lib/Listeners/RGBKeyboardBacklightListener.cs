@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Management;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
@@ -13,7 +12,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         public RGBKeyboardBacklightListener(RGBKeyboardBacklightController controller) : base("ROOT\\WMI", "LENOVO_GAMEZONE_LIGHT_PROFILE_CHANGE_EVENT")
         {
-            _controller = controller;
+            _controller = controller ?? throw new ArgumentNullException(nameof(controller));
         }
 
         protected override RGBKeyboardBacklightChanged GetValue(PropertyDataCollection properties) => default;
@@ -43,7 +42,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Failed to set next keyboard backlight preset: {ex.Demystify()}");
+                    Log.Instance.Trace($"Failed to set next keyboard backlight preset.", ex);
             }
         }
     }

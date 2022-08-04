@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Settings;
@@ -16,9 +17,9 @@ namespace LenovoLegionToolkit.Lib.Listeners
         public PowerPlanListener(ApplicationSettings settings, Vantage vantage, PowerModeFeature feature)
             : base("System", "*[System[Provider[@Name='Microsoft-Windows-UserModePowerService'] and EventID=12]]")
         {
-            _settings = settings;
-            _vantage = vantage;
-            _feature = feature;
+            _settings = settings ?? throw new ArgumentNullException(nameof(settings));
+            _vantage = vantage ?? throw new ArgumentNullException(nameof(vantage));
+            _feature = feature ?? throw new ArgumentNullException(nameof(feature));
         }
 
         protected override async Task OnChangedAsync()
