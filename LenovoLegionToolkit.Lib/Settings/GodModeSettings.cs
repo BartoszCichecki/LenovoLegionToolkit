@@ -4,7 +4,10 @@
     {
         public class GodModeSettingsStore
         {
+            public StepperValue? CPULongTermPowerLimit { get; set; }
+            public StepperValue? CPUShortTermPowerLimit { get; set; }
             public StepperValue? GPUPowerBoost { get; set; }
+            public StepperValue? GPUConfigurableTGP { get; set; }
             public bool? FanCooling { get; set; }
         }
 

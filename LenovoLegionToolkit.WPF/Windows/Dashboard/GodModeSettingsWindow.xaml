@@ -67,16 +67,15 @@
                         </wpfui:CardControl.Header>
                         <StackPanel Orientation="Horizontal">
                             <Slider
+                                x:Name="_cpuLongTermPowerLimitSlider"
                                 Width="200"
                                 IsSnapToTickEnabled="True"
-                                Maximum="15"
-                                Minimum="0"
-                                TickFrequency="5" />
+                                ValueChanged="CpuLongTermPowerLimitSlider_ValueChanged" />
                             <Label
+                                x:Name="_cpuLongTermPowerLimitValueLabel"
                                 Width="50"
                                 Margin="8,0,0,0"
-                                HorizontalContentAlignment="Right"
-                                Content="15W" />
+                                HorizontalContentAlignment="Right" />
                         </StackPanel>
                     </wpfui:CardControl>
 
@@ -86,16 +85,15 @@
                         </wpfui:CardControl.Header>
                         <StackPanel Orientation="Horizontal">
                             <Slider
+                                x:Name="_cpuShortTermPowerLimitSlider"
                                 Width="200"
                                 IsSnapToTickEnabled="True"
-                                Maximum="15"
-                                Minimum="0"
-                                TickFrequency="5" />
+                                ValueChanged="CpuShortTermPowerLimitSlider_ValueChanged" />
                             <Label
+                                x:Name="_cpuShortTermPowerLimitValueLabel"
                                 Width="50"
                                 Margin="8,0,0,0"
-                                HorizontalContentAlignment="Right"
-                                Content="15W" />
+                                HorizontalContentAlignment="Right" />
                         </StackPanel>
                     </wpfui:CardControl>
 
@@ -129,16 +127,15 @@
                         </wpfui:CardControl.Header>
                         <StackPanel Orientation="Horizontal">
                             <Slider
+                                x:Name="_gpuConfigurableTGPSlider"
                                 Width="200"
                                 IsSnapToTickEnabled="True"
-                                Maximum="15"
-                                Minimum="0"
-                                TickFrequency="5" />
+                                ValueChanged="GpuConfigurableTGPSlider_ValueChanged" />
                             <Label
+                                x:Name="_gpuConfigurableTGPValueLabel"
                                 Width="50"
                                 Margin="8,0,0,0"
-                                HorizontalContentAlignment="Right"
-                                Content="15W" />
+                                HorizontalContentAlignment="Right" />
                         </StackPanel>
                     </wpfui:CardControl>
 
@@ -150,7 +147,7 @@
 
                     <wpfui:CardControl Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
-                            <controls:CardHeaderControl Title="Maximum fan speed" Subtitle="WARNING: Prolonged usage of this option will degrade fans decreasing their longevity." />
+                            <controls:CardHeaderControl Title="Maximum fan speed" Subtitle="WARNING:&#x0a;Prolonged usage of this option will degrade fans decreasing their longevity.&#x0a;Seriously, be careful with this option!" />
                         </wpfui:CardControl.Header>
                         <wpfui:ToggleSwitch x:Name="_fanCoolingToggle" Margin="0,0,0,8" />
                     </wpfui:CardControl>
