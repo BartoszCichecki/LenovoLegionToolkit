@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Management;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
@@ -48,12 +47,24 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             if (!_machineInformation.HasValue)
             {
-                var result = await WMI.ReadAsync("root\\CIMV2",
-                                $"SELECT * FROM Win32_ComputerSystemProduct",
-                                Create).ConfigureAwait(false);
-                var (vendor, machineType, model, serialNumber) = result.First();
+                var (vendor, machineType, model, serialNumber) = await GetModelDataAsync().ConfigureAwait(false);
+                var biosVersion = await GetBIOSVersionAsync().ConfigureAwait(false);
                 var modelYear = GetModelYear();
-                _machineInformation = new(vendor, machineType, model, serialNumber, modelYear);
+
+                _machineInformation = new()
+                {
+                    Vendor = vendor,
+                    MachineType = machineType,
+                    Model = model,
+                    SerialNumber = serialNumber,
+                    BIOSVersion = biosVersion,
+                    ModelYear = modelYear,
+                    Properties = new()
+                    {
+                        ShouldFlipFnLock = GetShouldFlipFnLock(modelYear),
+                        SupportsGodMode = GetSupportsGodMode(biosVersion),
+                    }
+                };
             }
 
             return _machineInformation.Value;
@@ -73,13 +84,40 @@ namespace LenovoLegionToolkit.Lib.Utils
             return (false, machineInformation);
         }
 
-        private static (string, string, string, string) Create(PropertyDataCollection properties)
+        private static bool GetShouldFlipFnLock(ModelYear modelYear)
         {
-            var machineType = (string)properties["Name"].Value;
-            var vendor = (string)properties["Vendor"].Value;
-            var model = (string)properties["Version"].Value;
-            var serialNumber = (string)properties["IdentifyingNumber"].Value;
-            return (vendor, machineType, model, serialNumber);
+            return modelYear == ModelYear.MY2020OrEarlier;
+        }
+
+        private static bool GetSupportsGodMode(string biosVersion)
+        {
+            if (biosVersion.StartsWith("GKCN") && int.TryParse(biosVersion.Replace("GKCN", null).Replace("WW", null), out int revision) && revision >= 49)
+                return true;
+
+            return false;
+        }
+
+        private static async Task<(string, string, string, string)> GetModelDataAsync()
+        {
+            var result = await WMI.ReadAsync("root\\CIMV2",
+                                $"SELECT * FROM Win32_ComputerSystemProduct",
+                                pdc =>
+                                {
+                                    var machineType = (string)pdc["Name"].Value;
+                                    var vendor = (string)pdc["Vendor"].Value;
+                                    var model = (string)pdc["Version"].Value;
+                                    var serialNumber = (string)pdc["IdentifyingNumber"].Value;
+                                    return (vendor, machineType, model, serialNumber);
+                                }).ConfigureAwait(false);
+            return result.First();
+        }
+
+        private static async Task<string> GetBIOSVersionAsync()
+        {
+            var result = await WMI.ReadAsync("root\\CIMV2",
+                                $"SELECT * FROM Win32_BIOS",
+                                pdc => (string)pdc["Name"].Value).ConfigureAwait(false);
+            return result.First();
         }
 
         private static ModelYear GetModelYear()

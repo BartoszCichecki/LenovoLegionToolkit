@@ -17,7 +17,7 @@ namespace LenovoLegionToolkit.Lib.Features
         public override async Task<PowerModeState[]> GetAllStatesAsync()
         {
             var mi = await Compatibility.GetMachineInformation().ConfigureAwait(false);
-            if (mi.ModelYear == ModelYear.MY2021OrLater)
+            if (mi.Properties.SupportsGodMode)
                 return new[] { PowerModeState.Quiet, PowerModeState.Balance, PowerModeState.Performance, PowerModeState.GodMode };
             else
                 return new[] { PowerModeState.Quiet, PowerModeState.Balance, PowerModeState.Performance };

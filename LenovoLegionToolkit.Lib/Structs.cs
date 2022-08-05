@@ -79,20 +79,19 @@ namespace LenovoLegionToolkit.Lib
 
     public struct MachineInformation
     {
-        public string Vendor { get; }
-        public string MachineType { get; }
-        public string Model { get; }
-        public string SerialNumber { get; }
-        public ModelYear ModelYear { get; }
-
-        public MachineInformation(string vendor, string machineType, string model, string serialNumber, ModelYear modelYear)
+        public struct CompatibiltyProperties
         {
-            Vendor = vendor;
-            MachineType = machineType;
-            Model = model;
-            SerialNumber = serialNumber;
-            ModelYear = modelYear;
+            public bool ShouldFlipFnLock { get; init; }
+            public bool SupportsGodMode { get; init; }
         }
+
+        public string Vendor { get; init; }
+        public string MachineType { get; init; }
+        public string Model { get; init; }
+        public string SerialNumber { get; init; }
+        public string BIOSVersion { get; init; }
+        public ModelYear ModelYear { get; init; }
+        public CompatibiltyProperties Properties { get; init; }
     }
 
     public struct Package
