@@ -30,8 +30,8 @@ namespace LenovoLegionToolkit.Lib.System
 
             return (adapterConnected, isACFitForOC) switch
             {
-                (true, true) => PowerAdapterStatus.Connected,
                 (true, false) => PowerAdapterStatus.ConnectedLowWattage,
+                (true, _) => PowerAdapterStatus.Connected,
                 (false, _) => PowerAdapterStatus.Disconnected,
             };
         }
@@ -172,11 +172,11 @@ namespace LenovoLegionToolkit.Lib.System
             throw new InvalidOperationException("Unknown state");
         }
 
-        private static Task<bool> IsACFitForOC()
+        private static async Task<bool?> IsACFitForOC()
         {
             try
             {
-                return WMI.CallAsync("root\\WMI",
+                return await WMI.CallAsync("root\\WMI",
                     $"SELECT * FROM LENOVO_GAMEZONE_DATA",
                     "IsACFitForOC",
                     new Dictionary<string, object>(),
@@ -184,11 +184,11 @@ namespace LenovoLegionToolkit.Lib.System
                     {
                         var value = (uint)pdc["Data"].Value;
                         return value == 1;
-                    });
+                    }).ConfigureAwait(false);
             }
             catch
             {
-                return Task.FromResult(true);
+                return null;
             }
         }
     }
