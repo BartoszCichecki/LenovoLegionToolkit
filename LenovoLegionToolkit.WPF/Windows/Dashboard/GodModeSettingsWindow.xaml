@@ -164,13 +164,8 @@
             Orientation="Horizontal"
             Visibility="Collapsed">
             <wpfui:Button
-                Width="120"
-                Click="RevertButton_Click"
-                Content="Revert" />
-            <wpfui:Button
                 x:Name="_applyButton"
                 Width="120"
-                Margin="12,0,0,0"
                 Click="ApplyButton_Click"
                 Content="Apply" />
             <wpfui:Button

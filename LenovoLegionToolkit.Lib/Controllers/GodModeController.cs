@@ -65,6 +65,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         public Task SetStateAsync(GodModeState state)
         {
             _settings.Store.CPULongTermPowerLimit = state.CPULongTermPowerLimit;
+            _settings.Store.CPUShortTermPowerLimit = state.CPUShortTermPowerLimit;
             _settings.Store.GPUPowerBoost = state.GPUPowerBoost;
             _settings.Store.GPUConfigurableTGP = state.GPUConfigurableTGP;
             _settings.Store.FanCooling = state.FanCooling;
@@ -111,7 +112,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             });
 
         private Task SetCPULongTermPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_GPU_METHOD",
+            $"SELECT * FROM LENOVO_CPU_METHOD",
             "CPU_Set_LongTerm_PowerLimit",
             new Dictionary<string, object>() { { "value", $"{value.Value}" } });
 
@@ -134,7 +135,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             });
 
         private Task SetCPUShortTermPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_GPU_METHOD",
+            $"SELECT * FROM LENOVO_CPU_METHOD",
             "CPU_Set_ShortTerm_PowerLimit",
             new Dictionary<string, object>() { { "value", $"{value.Value}" } });
 

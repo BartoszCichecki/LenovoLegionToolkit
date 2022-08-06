@@ -94,7 +94,6 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
         private async void ApplyAndCloseButton_Click(object sender, RoutedEventArgs e)
         {
             await ApplyAsync();
-
             Close();
         }
 
@@ -104,11 +103,21 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
             await RefreshAsync();
         }
 
-        private async void RevertButton_Click(object sender, RoutedEventArgs e) => await RefreshAsync();
+        private void CpuLongTermPowerLimitSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            _cpuLongTermPowerLimitValueLabel.Content = $"{e.NewValue}W";
 
-        private void CpuLongTermPowerLimitSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) => _cpuLongTermPowerLimitValueLabel.Content = $"{e.NewValue}W";
+            if (_cpuLongTermPowerLimitSlider.Value > _cpuShortTermPowerLimitSlider.Value)
+                _cpuShortTermPowerLimitSlider.Value = _cpuLongTermPowerLimitSlider.Value;
+        }
 
-        private void CpuShortTermPowerLimitSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) => _cpuShortTermPowerLimitValueLabel.Content = $"{e.NewValue}W";
+        private void CpuShortTermPowerLimitSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            _cpuShortTermPowerLimitValueLabel.Content = $"{e.NewValue}W";
+
+            if (_cpuLongTermPowerLimitSlider.Value > _cpuShortTermPowerLimitSlider.Value)
+                _cpuLongTermPowerLimitSlider.Value = _cpuShortTermPowerLimitSlider.Value;
+        }
 
         private void GpuPowerBoostSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) => _gpuPowerBoostValueLabel.Content = $"{e.NewValue}W";
 
