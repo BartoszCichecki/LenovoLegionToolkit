@@ -50,7 +50,13 @@ namespace LenovoLegionToolkit.Lib.Automation
         {
             var potentialMatch = _pipelines.Select(p => p.Trigger)
                 .Where(t => t is IProcessesAutomationPipelineTrigger)
-                .Where(t => t?.IsSatisfied(e) ?? false)
+                .Select(async t =>
+                {
+                    if (t is null) return false;
+                    return await t.IsSatisfiedAsync(e).ConfigureAwait(false);
+                })
+                .Select(t => t.Result)
+                .Where(t => t)
                 .Any();
 
             if (!potentialMatch)
@@ -62,8 +68,14 @@ namespace LenovoLegionToolkit.Lib.Automation
         private async void PowerStateListener_Changed(object? sender, EventArgs e)
         {
             var potentialMatch = _pipelines.Select(p => p.Trigger)
-                .Where(t => t is IPowerAutomationPipelineTrigger)
-                .Where(t => t?.IsSatisfied(e) ?? false)
+                .Where(t => t is IProcessesAutomationPipelineTrigger)
+                .Select(async t =>
+                {
+                    if (t is null) return false;
+                    return await t.IsSatisfiedAsync(e).ConfigureAwait(false);
+                })
+                .Select(t => t.Result)
+                .Where(t => t)
                 .Any();
 
             if (!potentialMatch)
@@ -182,7 +194,7 @@ namespace LenovoLegionToolkit.Lib.Automation
 
                     try
                     {
-                        if (pipeline.Trigger is null || !pipeline.Trigger.IsSatisfied(context))
+                        if (pipeline.Trigger is null || !await pipeline.Trigger.IsSatisfiedAsync(context).ConfigureAwait(false))
                         {
                             if (Log.Instance.IsTraceEnabled)
                                 Log.Instance.Trace($"Pipeline triggers not satisfied. [name={pipeline.Name}, trigger={pipeline.Trigger}, steps.Count={pipeline.Steps.Count}]");

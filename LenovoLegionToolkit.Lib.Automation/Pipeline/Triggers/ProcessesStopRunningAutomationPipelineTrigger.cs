@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using Newtonsoft.Json;
 
@@ -15,13 +16,13 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
         [JsonConstructor]
         public ProcessesStopRunningAutomationPipelineTrigger(ProcessInfo[] processes) => Processes = processes;
 
-        public bool IsSatisfied(object? context)
+        public Task<bool> IsSatisfiedAsync(object? context)
         {
             if (context is not ProcessEventInfo pei || pei.Type != ProcessEventInfoType.Stopped)
-                return false;
+                return Task.FromResult(false);
 
             var result = Processes.SelectMany(p => Process.GetProcessesByName(p.Name)).IsEmpty();
-            return result;
+            return Task.FromResult(result);
         }
 
         public IAutomationPipelineTrigger DeepCopy() => new ProcessesStopRunningAutomationPipelineTrigger(Processes);

@@ -56,8 +56,9 @@ namespace LenovoLegionToolkit.WPF.Pages
                 {
                     try
                     {
-                        var batteryInfo = await Battery.GetBatteryInformationAsync();
-                        Dispatcher.Invoke(() => Set(batteryInfo));
+                        var batteryInfo = await Battery.GetBatteryInformationAsync().ConfigureAwait(false); ;
+                        var powerAdapterStatus = await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false);
+                        Dispatcher.Invoke(() => Set(batteryInfo, powerAdapterStatus));
 
                         await Task.Delay(1000, token);
                     }
@@ -74,7 +75,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             }, token);
         }
 
-        private void Set(BatteryInformation batteryInfo)
+        private void Set(BatteryInformation batteryInfo, PowerAdapterStatus powerAdapterStatus)
         {
             var number = (int)Math.Round(batteryInfo.BatteryPercentage / 10.0);
             _batteryIcon.Symbol = number switch
@@ -93,7 +94,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             };
 
             _precentRemaining.Text = $"{batteryInfo.BatteryPercentage}%";
-            _status.Text = GetStatusText(batteryInfo);
+            _status.Text = GetStatusText(batteryInfo, powerAdapterStatus);
             _batteryTemperatureText.Text = GetTemperatureText(batteryInfo.BatteryTemperatureC);
             _batteryDischargeRateText.Text = $"{batteryInfo.DischargeRate / 1000.0:0.00} W";
             _batteryCapacityText.Text = $"{batteryInfo.EstimateChargeRemaining / 1000.0:0.00} Wh";
@@ -104,11 +105,13 @@ namespace LenovoLegionToolkit.WPF.Pages
             _batteryCycleCountText.Text = $"{batteryInfo.CycleCount}";
         }
 
-        private string GetStatusText(BatteryInformation batteryInfo)
+        private string GetStatusText(BatteryInformation batteryInfo, PowerAdapterStatus powerAdapterStatus)
         {
             if (batteryInfo.IsCharging)
             {
-                if (batteryInfo.DischargeRate > 0)
+                if (batteryInfo.DischargeRate > 0 && powerAdapterStatus == PowerAdapterStatus.ConnectedLowWattage)
+                    return "Connected, slow charging...";
+                else if (batteryInfo.DischargeRate > 0)
                     return "Connected, charging...";
                 else
                     return $"Connected, not charging";
@@ -118,15 +121,13 @@ namespace LenovoLegionToolkit.WPF.Pages
                 if (batteryInfo.BatteryLifeRemaining < 0)
                     return "Estimating time...";
                 else
-                {
-                    var timeSpan = TimeSpan.FromSeconds(batteryInfo.BatteryLifeRemaining);
-                    return $"Estimated time remaining: {GetTimeString(timeSpan)}";
-                }
+                    return $"Estimated time remaining: {GetTimeString(batteryInfo.BatteryLifeRemaining)}";
             }
         }
 
-        private static string GetTimeString(TimeSpan timeSpan)
+        private static string GetTimeString(int seconds)
         {
+            var timeSpan = TimeSpan.FromSeconds(seconds);
             var result = string.Empty;
 
             var hours = timeSpan.Hours;
