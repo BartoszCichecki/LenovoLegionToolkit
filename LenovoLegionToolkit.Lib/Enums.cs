@@ -88,6 +88,13 @@ namespace LenovoLegionToolkit.Lib
         On,
     }
 
+    public enum PowerAdapterStatus
+    {
+        Connected,
+        ConnectedLowWattage,
+        Disconnected,
+    }
+
     public enum PowerModeState
     {
         Quiet,
