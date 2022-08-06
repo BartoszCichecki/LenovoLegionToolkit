@@ -131,6 +131,26 @@ namespace LenovoLegionToolkit.Lib.System
                 .ToArray();
         }
 
+        public static async Task<bool?> IsACFitForOC()
+        {
+            try
+            {
+                return await WMI.CallAsync("root\\WMI",
+                    $"SELECT * FROM LENOVO_GAMEZONE_DATA",
+                    "IsACFitForOC",
+                    new Dictionary<string, object>(),
+                    pdc =>
+                    {
+                        var value = (uint)pdc["Data"].Value;
+                        return value == 1;
+                    }).ConfigureAwait(false);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         private static async Task<bool> ShouldActivateAsync(bool alwaysActivateDefaults, bool isDefault)
         {
             var activateWhenVantageEnabled = Settings.Store.ActivatePowerProfilesWithVantageEnabled;
@@ -171,26 +191,6 @@ namespace LenovoLegionToolkit.Lib.System
                 return powerPlanId;
 
             throw new InvalidOperationException("Unknown state");
-        }
-
-        private static async Task<bool?> IsACFitForOC()
-        {
-            try
-            {
-                return await WMI.CallAsync("root\\WMI",
-                    $"SELECT * FROM LENOVO_GAMEZONE_DATA",
-                    "IsACFitForOC",
-                    new Dictionary<string, object>(),
-                    pdc =>
-                    {
-                        var value = (uint)pdc["Data"].Value;
-                        return value == 1;
-                    }).ConfigureAwait(false);
-            }
-            catch
-            {
-                return null;
-            }
         }
     }
 }
