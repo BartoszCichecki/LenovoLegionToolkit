@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Management;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
@@ -21,11 +20,20 @@ namespace LenovoLegionToolkit.Lib.System
 
         private static Vantage Vantage => IoCContainer.Resolve<Vantage>();
 
-        public static bool IsPowerAdapterConnected()
+        public static async Task<PowerAdapterStatus> IsPowerAdapterConnectedAsync()
         {
             if (!Native.GetSystemPowerStatus(out SystemPowerStatusEx sps))
-                return true;
-            return sps.ACLineStatus == ACLineStatusEx.Online;
+                return PowerAdapterStatus.Connected;
+
+            var adapterConnected = sps.ACLineStatus == ACLineStatusEx.Online;
+            var isACFitForOC = await IsACFitForOC().ConfigureAwait(false);
+
+            return (adapterConnected, isACFitForOC) switch
+            {
+                (true, true) => PowerAdapterStatus.Connected,
+                (true, false) => PowerAdapterStatus.ConnectedLowWattage,
+                (false, _) => PowerAdapterStatus.Disconnected,
+            };
         }
 
         public static async Task RestartAsync()
@@ -40,7 +48,13 @@ namespace LenovoLegionToolkit.Lib.System
         {
             var result = await WMI.ReadAsync("root\\CIMV2\\power",
                             $"SELECT * FROM Win32_PowerPlan",
-                            Create).ConfigureAwait(false);
+                            pdc =>
+                            {
+                                var instanceId = (string)pdc["InstanceID"].Value;
+                                var name = (string)pdc["ElementName"].Value;
+                                var isActive = (bool)pdc["IsActive"].Value;
+                                return new PowerPlan(instanceId, name, isActive);
+                            }).ConfigureAwait(false);
             return result.ToArray();
         }
 
@@ -150,20 +164,32 @@ namespace LenovoLegionToolkit.Lib.System
             return false;
         }
 
-        private static PowerPlan Create(PropertyDataCollection properties)
-        {
-            var instanceId = (string)properties["InstanceID"].Value;
-            var name = (string)properties["ElementName"].Value;
-            var isActive = (bool)properties["IsActive"].Value;
-            return new(instanceId, name, isActive);
-        }
-
         private static string GetDefaultPowerPlanId(PowerModeState state)
         {
             if (defaultPowerModes.TryGetValue(state, out var powerPlanId))
                 return powerPlanId;
 
             throw new InvalidOperationException("Unknown state");
+        }
+
+        private static Task<bool> IsACFitForOC()
+        {
+            try
+            {
+                return WMI.CallAsync("root\\WMI",
+                    $"SELECT * FROM LENOVO_GAMEZONE_DATA",
+                    "IsACFitForOC",
+                    new Dictionary<string, object>(),
+                    pdc =>
+                    {
+                        var value = (uint)pdc["Data"].Value;
+                        return value == 1;
+                    });
+            }
+            catch
+            {
+                return Task.FromResult(true);
+            }
         }
     }
 }
