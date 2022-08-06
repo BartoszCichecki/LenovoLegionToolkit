@@ -114,7 +114,7 @@ Just, don't run with this parameter all the time, it creates a **really large** 
 
 It would be great to expand the list of compatible devices, but to do it your help is needed!
 
-If you are willing to check if this app works correctly on your device that is currently unsupported, you can do it by starting the app with `--skip-compat-check argument`. Remember that some functions may not function properly, so keep this in mind.
+If you are willing to check if this app works correctly on your device that is currently unsupported, you can do it by starting the app with `--skip-compat-check` argument. Remember that some functions may not function properly, so keep this in mind.
 
 If you do it, I would appreciate it if you create an issue here on GitHub with the results of your testing. Make sure to include the following information in your issue:
 
