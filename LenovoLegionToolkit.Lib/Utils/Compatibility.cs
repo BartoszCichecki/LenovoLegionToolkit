@@ -63,6 +63,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                     {
                         ShouldFlipFnLock = GetShouldFlipFnLock(modelYear),
                         SupportsGodMode = GetSupportsGodMode(biosVersion),
+                        SupportsACDetection = await GetSupportsACDetection(),
                     }
                 };
             }
@@ -95,6 +96,11 @@ namespace LenovoLegionToolkit.Lib.Utils
                 return true;
 
             return false;
+        }
+
+        private static async Task<bool> GetSupportsACDetection()
+        {
+            return await Power.IsACFitForOC().ConfigureAwait(false) != null;
         }
 
         private static async Task<(string, string, string, string)> GetModelDataAsync()
