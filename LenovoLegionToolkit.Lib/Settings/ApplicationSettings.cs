@@ -13,6 +13,7 @@ namespace LenovoLegionToolkit.Lib.Settings
             public Dictionary<PowerModeState, string> PowerPlans { get; set; } = new();
             public bool MinimizeOnClose { get; set; }
             public bool ActivatePowerProfilesWithVantageEnabled { get; set; }
+            public bool DontShowNotifications { get; set; }
             public TemperatureUnit TemperatureUnit { get; set; }
         }
 
