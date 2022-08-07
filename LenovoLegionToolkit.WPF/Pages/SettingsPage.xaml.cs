@@ -57,6 +57,9 @@ namespace LenovoLegionToolkit.WPF.Pages
             _fnKeysCard.Visibility = fnKeysStatus != SoftwareStatus.NotFound ? Visibility.Visible : Visibility.Collapsed;
             _fnKeysToggle.IsChecked = fnKeysStatus == SoftwareStatus.Disabled;
 
+            _dontShowNotificationsToggle.IsChecked = _settings.Store.DontShowNotifications;
+            _dontShowNotificationsCard.Visibility = fnKeysStatus == SoftwareStatus.Disabled ? Visibility.Visible : Visibility.Collapsed;
+
             await loadingTask;
 
             _themeComboBox.Visibility = Visibility.Visible;
@@ -64,6 +67,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             _minimizeOnCloseToggle.Visibility = Visibility.Visible;
             _vantageToggle.Visibility = Visibility.Visible;
             _fnKeysToggle.Visibility = Visibility.Visible;
+            _dontShowNotificationsToggle.Visibility = Visibility.Visible;
 
             _isRefreshing = false;
         }
@@ -187,6 +191,25 @@ namespace LenovoLegionToolkit.WPF.Pages
                 await _fnKeys.EnableAsync();
 
             _fnKeysToggle.IsEnabled = true;
+
+            _dontShowNotificationsCard.Visibility = state.Value ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        private void DontShowNotificationsToggle_Click(object sender, RoutedEventArgs e)
+        {
+            if (_isRefreshing)
+                return;
+
+            _dontShowNotificationsToggle.IsEnabled = false;
+
+            var state = _dontShowNotificationsToggle.IsChecked;
+            if (state is null)
+                return;
+
+            _settings.Store.DontShowNotifications = state.Value;
+            _settings.SynchronizeStore();
+
+            _dontShowNotificationsToggle.IsEnabled = true;
         }
 
         private void PowerPlans_Click(object sender, RoutedEventArgs e)

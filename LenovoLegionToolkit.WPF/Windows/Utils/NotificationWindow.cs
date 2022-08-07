@@ -2,7 +2,6 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using Wpf.Ui.Appearance;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 
@@ -47,14 +46,14 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
 
             MouseDown += (s, e) => Close();
         }
-        public NotificationWindow Show(int closeAfter)
+
+        public void Show(int closeAfter)
         {
             Show();
             Task.Delay(closeAfter).ContinueWith(_ =>
             {
                 Close();
             }, TaskScheduler.FromCurrentSynchronizationContext());
-            return this;
         }
 
         private void InitializeStyle()
@@ -65,8 +64,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
             Topmost = true;
             ExtendsContentIntoTitleBar = true;
             ShowInTaskbar = false;
-
-            WindowBackdropType = BackgroundType.Mica;
+            ShowActivated = false;
 
             _textBlock.Foreground = (SolidColorBrush)FindResource("TextFillColorPrimaryBrush");
         }
