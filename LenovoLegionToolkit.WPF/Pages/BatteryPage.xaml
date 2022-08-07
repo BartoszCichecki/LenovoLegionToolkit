@@ -35,8 +35,15 @@
                     FontWeight="Medium" />
                 <TextBlock
                     x:Name="_status"
+                    Margin="0,0,0,2"
                     FontSize="16"
                     Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                <TextBlock
+                    x:Name="_lowWattageCharger"
+                    FontSize="14"
+                    Foreground="{DynamicResource SystemFillColorCautionBrush}"
+                    Text="Low wattage charger connected"
+                    Visibility="Hidden" />
             </StackPanel>
         </StackPanel>
 

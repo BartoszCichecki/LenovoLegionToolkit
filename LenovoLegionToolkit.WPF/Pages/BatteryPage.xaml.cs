@@ -95,6 +95,7 @@ namespace LenovoLegionToolkit.WPF.Pages
 
             _precentRemaining.Text = $"{batteryInfo.BatteryPercentage}%";
             _status.Text = GetStatusText(batteryInfo, powerAdapterStatus);
+            _lowWattageCharger.Visibility = powerAdapterStatus == PowerAdapterStatus.ConnectedLowWattage ? Visibility.Visible : Visibility.Hidden;
             _batteryTemperatureText.Text = GetTemperatureText(batteryInfo.BatteryTemperatureC);
             _batteryDischargeRateText.Text = $"{batteryInfo.DischargeRate / 1000.0:0.00} W";
             _batteryCapacityText.Text = $"{batteryInfo.EstimateChargeRemaining / 1000.0:0.00} Wh";
@@ -109,9 +110,7 @@ namespace LenovoLegionToolkit.WPF.Pages
         {
             if (batteryInfo.IsCharging)
             {
-                if (batteryInfo.DischargeRate > 0 && powerAdapterStatus == PowerAdapterStatus.ConnectedLowWattage)
-                    return "Connected, slow charging...";
-                else if (batteryInfo.DischargeRate > 0)
+                if (batteryInfo.DischargeRate > 0)
                     return "Connected, charging...";
                 else
                     return $"Connected, not charging";
