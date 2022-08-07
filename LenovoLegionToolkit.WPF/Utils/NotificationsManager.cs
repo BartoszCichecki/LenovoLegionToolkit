@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Threading;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.WPF.Windows.Utils;
 using Wpf.Ui.Common;
 
@@ -10,15 +11,25 @@ namespace LenovoLegionToolkit.WPF.Utils
     {
         private Dispatcher Dispatcher => Application.Current.Dispatcher;
 
+        private readonly ApplicationSettings _settings;
+
         private NotificationWindow? _window;
 
-        public NotificationsManager()
+        public NotificationsManager(ApplicationSettings settings)
         {
+            _settings = settings;
+
             MessagingCenter.Subscribe<Notification>(this, OnNotificationReceived);
         }
 
         private void OnNotificationReceived(Notification notification) => Dispatcher.Invoke(() =>
         {
+            if (_settings.Store.DontShowNotifications)
+                return;
+
+            if (FullscreenHelper.IsAnyApplicationFullscreen())
+                return;
+
             var symbol = notification.Icon switch
             {
                 NotificationIcon.MicrophoneOn => SymbolRegular.Mic24,

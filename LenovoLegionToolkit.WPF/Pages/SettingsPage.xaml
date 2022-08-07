@@ -74,7 +74,7 @@
                 Visibility="Hidden" />
         </wpfui:CardControl>
 
-        <wpfui:CardControl x:Name="_fnKeysCard" Margin="0,0,0,8">
+        <wpfui:CardControl x:Name="_fnKeysCard" Margin="0,0,0,24">
             <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="Disable Lenovo Fn Keys" Subtitle="Disable Lenovo Fn Keys and it's service without uninstalling it.&#x0a;If disabled, this app will handle Fn shortcuts.&#x0a;Restart is recommended after changing this option." />
             </wpfui:CardControl.Header>
@@ -82,6 +82,17 @@
                 x:Name="_fnKeysToggle"
                 Margin="0,0,0,8"
                 Click="FnKeysToggle_Click"
+                Visibility="Hidden" />
+        </wpfui:CardControl>
+
+        <wpfui:CardControl x:Name="_dontShowNotificationsCard" Margin="0,0,0,8">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="Don't show notifications" Subtitle="Disables notification for Fn keys actions like microphone mute.&#x0a;Enable this option if you have conflicts with full screen applications." />
+            </wpfui:CardControl.Header>
+            <wpfui:ToggleSwitch
+                x:Name="_dontShowNotificationsToggle"
+                Margin="0,0,0,8"
+                Click="DontShowNotificationsToggle_Click"
                 Visibility="Hidden" />
         </wpfui:CardControl>
 
