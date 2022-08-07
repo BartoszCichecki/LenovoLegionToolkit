@@ -115,6 +115,7 @@ namespace LenovoLegionToolkit.WPF.Windows
 
             _loader.IsLoading = false;
 
+            LoadDeviceInfo();
             CheckForUpdates();
         }
 
@@ -147,6 +148,17 @@ namespace LenovoLegionToolkit.WPF.Windows
             CheckForUpdates();
         }
 
+        private void DeviceInfoIndicator_Click(object sender, RoutedEventArgs e)
+        {
+            var deviceInformationWindow = new DeviceInformationWindow
+            {
+                Owner = this,
+                WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                ShowInTaskbar = false,
+            };
+            deviceInformationWindow.ShowDialog();
+        }
+
         private void UpdateIndicator_Click(object sender, RoutedEventArgs e)
         {
             var updateWindow = new UpdateWindow
@@ -177,6 +189,16 @@ namespace LenovoLegionToolkit.WPF.Windows
                 Width = windowSize.Width;
                 Height = windowSize.Height;
             }
+        }
+
+        private void LoadDeviceInfo()
+        {
+            Task.Run(Compatibility.GetMachineInformation)
+                .ContinueWith(mi =>
+                {
+                    _deviceInfoIndicator.Content = mi.Result.Model;
+                    _deviceInfoIndicator.Visibility = Visibility.Visible;
+                }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         private void CheckForUpdates()

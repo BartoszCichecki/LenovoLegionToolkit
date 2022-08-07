@@ -69,6 +69,7 @@ namespace LenovoLegionToolkit.Lib
             builder.Register<GodModeController>();
 
             builder.Register<UpdateChecker>();
+            builder.Register<WarrantyChecker>();
             builder.Register<PackageDownloader>();
         }
     }
