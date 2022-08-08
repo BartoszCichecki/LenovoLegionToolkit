@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
@@ -25,6 +27,10 @@ namespace LenovoLegionToolkit.Lib.Features
 
         public override async Task SetStateAsync(PowerModeState state)
         {
+            var allStates = await GetAllStatesAsync().ConfigureAwait(false);
+            if (!allStates.Contains(state))
+                throw new InvalidOperationException($"Unsupported power mode {state}.");
+
             await base.SetStateAsync(state).ConfigureAwait(false);
             await Power.ActivatePowerPlanAsync(state, true).ConfigureAwait(false);
 

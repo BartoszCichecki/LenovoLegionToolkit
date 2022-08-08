@@ -94,7 +94,7 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             if (biosVersion.StartsWith("GKCN") && int.TryParse(biosVersion.Replace("GKCN", null).Replace("WW", null), out int rev1) && rev1 >= 49)
                 return true;
-            
+
             if (biosVersion.StartsWith("HHCN") && int.TryParse(biosVersion.Replace("HHCN", null).Replace("WW", null), out int rev2) && rev2 >= 23)
                 return true;
 

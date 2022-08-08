@@ -57,9 +57,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
 
         private async void DeviceCardControl_Click(object sender, RoutedEventArgs e)
         {
-            var str = ((sender as CardControl)?.Content as Label)?.Content as string;
-
-            if (str is null)
+            if (((sender as CardControl)?.Content as Label)?.Content is not string str)
                 return;
 
             Clipboard.SetText(str);
