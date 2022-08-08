@@ -70,12 +70,15 @@
                                 x:Name="_cpuLongTermPowerLimitSlider"
                                 Width="200"
                                 IsSnapToTickEnabled="True"
-                                ValueChanged="CpuLongTermPowerLimitSlider_ValueChanged" />
+                                ValueChanged="CpuLongTermPowerLimitSlider_ValueChanged"
+                                Value="-1" />
                             <Label
                                 x:Name="_cpuLongTermPowerLimitValueLabel"
                                 Width="50"
                                 Margin="8,0,0,0"
-                                HorizontalContentAlignment="Right" />
+                                HorizontalContentAlignment="Right"
+                                Content="{Binding ElementName=_cpuLongTermPowerLimitSlider, Path=Value}"
+                                ContentStringFormat="{}{0}W" />
                         </StackPanel>
                     </wpfui:CardControl>
 
@@ -88,12 +91,15 @@
                                 x:Name="_cpuShortTermPowerLimitSlider"
                                 Width="200"
                                 IsSnapToTickEnabled="True"
-                                ValueChanged="CpuShortTermPowerLimitSlider_ValueChanged" />
+                                ValueChanged="CpuShortTermPowerLimitSlider_ValueChanged"
+                                Value="-1" />
                             <Label
                                 x:Name="_cpuShortTermPowerLimitValueLabel"
                                 Width="50"
                                 Margin="8,0,0,0"
-                                HorizontalContentAlignment="Right" />
+                                HorizontalContentAlignment="Right"
+                                Content="{Binding ElementName=_cpuShortTermPowerLimitSlider, Path=Value}"
+                                ContentStringFormat="{}{0}W" />
                         </StackPanel>
                     </wpfui:CardControl>
 
@@ -112,12 +118,14 @@
                                 x:Name="_gpuPowerBoostSlider"
                                 Width="200"
                                 IsSnapToTickEnabled="True"
-                                ValueChanged="GpuPowerBoostSlider_ValueChanged" />
+                                Value="-1" />
                             <Label
                                 x:Name="_gpuPowerBoostValueLabel"
                                 Width="50"
                                 Margin="8,0,0,0"
-                                HorizontalContentAlignment="Right" />
+                                HorizontalContentAlignment="Right"
+                                Content="{Binding ElementName=_gpuPowerBoostSlider, Path=Value}"
+                                ContentStringFormat="{}{0}W" />
                         </StackPanel>
                     </wpfui:CardControl>
 
@@ -129,13 +137,14 @@
                             <Slider
                                 x:Name="_gpuConfigurableTGPSlider"
                                 Width="200"
-                                IsSnapToTickEnabled="True"
-                                ValueChanged="GpuConfigurableTGPSlider_ValueChanged" />
+                                IsSnapToTickEnabled="True" />
                             <Label
                                 x:Name="_gpuConfigurableTGPValueLabel"
                                 Width="50"
                                 Margin="8,0,0,0"
-                                HorizontalContentAlignment="Right" />
+                                HorizontalContentAlignment="Right"
+                                Content="{Binding ElementName=_gpuConfigurableTGPSlider, Path=Value}"
+                                ContentStringFormat="{}{0}W" />
                         </StackPanel>
                     </wpfui:CardControl>
 
