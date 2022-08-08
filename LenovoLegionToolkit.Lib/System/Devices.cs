@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Runtime.InteropServices;
+using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32.SafeHandles;
 
 namespace LenovoLegionToolkit.Lib.System
@@ -104,25 +105,24 @@ namespace LenovoLegionToolkit.Lib.System
                             if (!result4)
                                 continue;
 
-                            if (hiddAttributes.VendorID == vendorId && (hiddAttributes.ProductID & productIdMask) == productIdMasked)
+                            var preparsedData = IntPtr.Zero;
+                            try
                             {
-                                var preparsedData = IntPtr.Zero;
-                                try
-                                {
-                                    _ = Native.HidD_GetPreparsedData(hid, ref preparsedData);
-                                    _ = Native.HidP_GetCaps(preparsedData, out HIDPCapsEx caps);
+                                _ = Native.HidD_GetPreparsedData(hid, ref preparsedData);
+                                _ = Native.HidP_GetCaps(preparsedData, out HIDPCapsEx caps);
 
-                                    if (caps.FeatureReportByteLength == descriptorLength)
-                                    {
-                                        _rgbKeyboard = hid;
-                                        break;
-                                    }
-                                }
-                                finally
-                                {
-                                    _ = Native.HidD_FreePreparsedData(preparsedData);
-                                }
+                                if (Log.Instance.IsTraceEnabled)
+                                    Log.Instance.Trace($"Checking device... [vendorId={hiddAttributes.VendorID:X2}, productId={hiddAttributes.ProductID:X2}, descriptorLength={caps.FeatureReportByteLength}]");
 
+                                if (hiddAttributes.VendorID == vendorId && (hiddAttributes.ProductID & productIdMask) == productIdMasked && caps.FeatureReportByteLength == descriptorLength)
+                                {
+                                    _rgbKeyboard = hid;
+                                    break;
+                                }
+                            }
+                            finally
+                            {
+                                _ = Native.HidD_FreePreparsedData(preparsedData);
                             }
                         }
                     }
