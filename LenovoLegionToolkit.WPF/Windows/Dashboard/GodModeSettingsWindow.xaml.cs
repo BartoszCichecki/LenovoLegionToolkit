@@ -1,7 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.WPF.Windows.Dashboard
 {
@@ -32,63 +34,83 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
 
         private async Task RefreshAsync()
         {
-            _loader.IsLoading = true;
-            _applyRevertStackPanel.Visibility = Visibility.Hidden;
+            try
+            {
+                _loader.IsLoading = true;
+                _applyRevertStackPanel.Visibility = Visibility.Hidden;
 
-            var loadingTask = Task.Delay(500);
+                var loadingTask = Task.Delay(500);
 
-            var state = await _controller.GetStateAsync();
+                var state = await _controller.GetStateAsync();
 
-            _cpuLongTermPowerLimitSlider.Minimum = state.CPULongTermPowerLimit.Min;
-            _cpuLongTermPowerLimitSlider.Maximum = state.CPULongTermPowerLimit.Max;
-            _cpuLongTermPowerLimitSlider.TickFrequency = state.CPULongTermPowerLimit.Step;
-            _cpuLongTermPowerLimitSlider.Value = state.CPULongTermPowerLimit.Value;
+                _cpuLongTermPowerLimitSlider.Minimum = state.CPULongTermPowerLimit.Min;
+                _cpuLongTermPowerLimitSlider.Maximum = state.CPULongTermPowerLimit.Max;
+                _cpuLongTermPowerLimitSlider.TickFrequency = state.CPULongTermPowerLimit.Step;
+                _cpuLongTermPowerLimitSlider.Value = state.CPULongTermPowerLimit.Value;
 
-            _cpuShortTermPowerLimitSlider.Minimum = state.CPUShortTermPowerLimit.Min;
-            _cpuShortTermPowerLimitSlider.Maximum = state.CPUShortTermPowerLimit.Max;
-            _cpuShortTermPowerLimitSlider.TickFrequency = state.CPUShortTermPowerLimit.Step;
-            _cpuShortTermPowerLimitSlider.Value = state.CPUShortTermPowerLimit.Value;
+                _cpuShortTermPowerLimitSlider.Minimum = state.CPUShortTermPowerLimit.Min;
+                _cpuShortTermPowerLimitSlider.Maximum = state.CPUShortTermPowerLimit.Max;
+                _cpuShortTermPowerLimitSlider.TickFrequency = state.CPUShortTermPowerLimit.Step;
+                _cpuShortTermPowerLimitSlider.Value = state.CPUShortTermPowerLimit.Value;
 
-            _gpuPowerBoostSlider.Minimum = state.GPUPowerBoost.Min;
-            _gpuPowerBoostSlider.Maximum = state.GPUPowerBoost.Max;
-            _gpuPowerBoostSlider.TickFrequency = state.GPUPowerBoost.Step;
-            _gpuPowerBoostSlider.Value = state.GPUPowerBoost.Value;
+                _gpuPowerBoostSlider.Minimum = state.GPUPowerBoost.Min;
+                _gpuPowerBoostSlider.Maximum = state.GPUPowerBoost.Max;
+                _gpuPowerBoostSlider.TickFrequency = state.GPUPowerBoost.Step;
+                _gpuPowerBoostSlider.Value = state.GPUPowerBoost.Value;
 
-            _gpuConfigurableTGPSlider.Minimum = state.GPUConfigurableTGP.Min;
-            _gpuConfigurableTGPSlider.Maximum = state.GPUConfigurableTGP.Max;
-            _gpuConfigurableTGPSlider.TickFrequency = state.GPUConfigurableTGP.Step;
-            _gpuConfigurableTGPSlider.Value = state.GPUConfigurableTGP.Value;
+                _gpuConfigurableTGPSlider.Minimum = state.GPUConfigurableTGP.Min;
+                _gpuConfigurableTGPSlider.Maximum = state.GPUConfigurableTGP.Max;
+                _gpuConfigurableTGPSlider.TickFrequency = state.GPUConfigurableTGP.Step;
+                _gpuConfigurableTGPSlider.Value = state.GPUConfigurableTGP.Value;
 
-            _fanCoolingToggle.IsChecked = state.FanCooling;
+                _fanCoolingToggle.IsChecked = state.FanCooling;
 
-            await loadingTask;
+                await loadingTask;
 
-            _applyRevertStackPanel.Visibility = Visibility.Visible;
-            _loader.IsLoading = false;
+                _applyRevertStackPanel.Visibility = Visibility.Visible;
+                _loader.IsLoading = false;
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't load settings.", ex);
+
+                await _snackBar.ShowAsync("Couldn't load setting.", ex.Message);
+            }
         }
 
         private async Task ApplyAsync()
         {
-            var state = await _controller.GetStateAsync();
-
-            var cpuLongTermPowerLimit = state.CPULongTermPowerLimit.WithValue((int)_cpuLongTermPowerLimitSlider.Value);
-            var cpuShortTermPowerLimit = state.CPUShortTermPowerLimit.WithValue((int)_cpuShortTermPowerLimitSlider.Value);
-            var gpuPowerBoost = state.GPUPowerBoost.WithValue((int)_gpuPowerBoostSlider.Value);
-            var gpuConfigurableTGP = state.GPUConfigurableTGP.WithValue((int)_gpuConfigurableTGPSlider.Value);
-
-            var fanCooling = _fanCoolingToggle.IsChecked ?? false;
-
-            var newState = new GodModeState
+            try
             {
-                CPULongTermPowerLimit = cpuLongTermPowerLimit,
-                CPUShortTermPowerLimit = cpuShortTermPowerLimit,
-                GPUPowerBoost = gpuPowerBoost,
-                GPUConfigurableTGP = gpuConfigurableTGP,
-                FanCooling = fanCooling
-            };
+                var state = await _controller.GetStateAsync();
 
-            await _controller.SetStateAsync(newState).ConfigureAwait(false);
-            await _controller.ApplyStateAsync().ConfigureAwait(false);
+                var cpuLongTermPowerLimit = state.CPULongTermPowerLimit.WithValue((int)_cpuLongTermPowerLimitSlider.Value);
+                var cpuShortTermPowerLimit = state.CPUShortTermPowerLimit.WithValue((int)_cpuShortTermPowerLimitSlider.Value);
+                var gpuPowerBoost = state.GPUPowerBoost.WithValue((int)_gpuPowerBoostSlider.Value);
+                var gpuConfigurableTGP = state.GPUConfigurableTGP.WithValue((int)_gpuConfigurableTGPSlider.Value);
+
+                var fanCooling = _fanCoolingToggle.IsChecked ?? false;
+
+                var newState = new GodModeState
+                {
+                    CPULongTermPowerLimit = cpuLongTermPowerLimit,
+                    CPUShortTermPowerLimit = cpuShortTermPowerLimit,
+                    GPUPowerBoost = gpuPowerBoost,
+                    GPUConfigurableTGP = gpuConfigurableTGP,
+                    FanCooling = fanCooling
+                };
+
+                await _controller.SetStateAsync(newState).ConfigureAwait(false);
+                await _controller.ApplyStateAsync().ConfigureAwait(false);
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't apply settings.", ex);
+
+                await _snackBar.ShowAsync("Couldn't apply setting.", ex.Message);
+            }
         }
 
         private async void ApplyAndCloseButton_Click(object sender, RoutedEventArgs e)

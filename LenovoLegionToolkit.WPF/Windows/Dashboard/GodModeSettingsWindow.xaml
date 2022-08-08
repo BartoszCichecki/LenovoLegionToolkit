@@ -186,5 +186,13 @@
                 Content="Apply &amp; close" />
         </StackPanel>
 
+        <wpfui:Snackbar
+            x:Name="_snackBar"
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            CloseButtonEnabled="False"
+            Icon="ErrorCircle24"
+            Timeout="2000" />
+
     </Grid>
 </local:BaseWindow>
