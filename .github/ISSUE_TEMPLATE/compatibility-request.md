@@ -7,6 +7,12 @@ assignees: ''
 
 ---
 
+<!-- 
+IMPORTANT!
+Compatibility with devices that are not part of Legion series will not be added.
+ -->
+
+
 **First and foremost**
 Did you read the whole README? [Yes/No]
 
