@@ -3,12 +3,14 @@ using System.Threading.Tasks;
 using System.Windows;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.WPF.Windows.Dashboard
 {
     public partial class GodModeSettingsWindow
     {
+        private readonly PowerModeFeature _powerModeFeature = IoCContainer.Resolve<PowerModeFeature>();
         private readonly GodModeController _controller = IoCContainer.Resolve<GodModeController>();
 
         public GodModeSettingsWindow()
@@ -101,8 +103,11 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
                     FanCooling = fanCooling
                 };
 
-                await _controller.SetStateAsync(newState).ConfigureAwait(false);
-                await _controller.ApplyStateAsync().ConfigureAwait(false);
+                if (await _powerModeFeature.GetStateAsync() != PowerModeState.GodMode)
+                    await _powerModeFeature.SetStateAsync(PowerModeState.GodMode);
+
+                await _controller.SetStateAsync(newState);
+                await _controller.ApplyStateAsync();
             }
             catch (Exception ex)
             {
