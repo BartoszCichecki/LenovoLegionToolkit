@@ -105,22 +105,14 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
 
         private void CpuLongTermPowerLimitSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            _cpuLongTermPowerLimitValueLabel.Content = $"{e.NewValue}W";
-
             if (_cpuLongTermPowerLimitSlider.Value > _cpuShortTermPowerLimitSlider.Value)
                 _cpuShortTermPowerLimitSlider.Value = _cpuLongTermPowerLimitSlider.Value;
         }
 
         private void CpuShortTermPowerLimitSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            _cpuShortTermPowerLimitValueLabel.Content = $"{e.NewValue}W";
-
             if (_cpuLongTermPowerLimitSlider.Value > _cpuShortTermPowerLimitSlider.Value)
                 _cpuLongTermPowerLimitSlider.Value = _cpuShortTermPowerLimitSlider.Value;
         }
-
-        private void GpuPowerBoostSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) => _gpuPowerBoostValueLabel.Content = $"{e.NewValue}W";
-
-        private void GpuConfigurableTGPSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) => _gpuConfigurableTGPValueLabel.Content = $"{e.NewValue}W";
     }
 }
