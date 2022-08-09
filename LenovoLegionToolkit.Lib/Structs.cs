@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using LenovoLegionToolkit.Lib.Extensions;
 using Newtonsoft.Json;
 using Octokit;
 
@@ -355,19 +356,13 @@ namespace LenovoLegionToolkit.Lib
 
         public StepperValue(int value, int min, int max, int step)
         {
-            Value = value;
+            Value = Math.Clamp(MathExtensions.RoundNearest(value, step), min, max);
             Min = min;
             Max = max;
             Step = step;
         }
 
-        public StepperValue WithValue(int value)
-        {
-            if (Min > value || Max < value || value % Step != 0)
-                throw new ArgumentOutOfRangeException(nameof(value));
-
-            return new(value, Min, Max, Step);
-        }
+        public StepperValue WithValue(int value) => new(value, Min, Max, Step);
     }
 
     public struct Update
