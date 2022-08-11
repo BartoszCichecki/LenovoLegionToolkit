@@ -42,10 +42,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
         private void Logs_Click(object sender, RoutedEventArgs e)
         {
             var logsDirectory = Path.Combine(Folders.AppData, "log");
-
-            if (!Directory.Exists(logsDirectory))
-                Directory.CreateDirectory(logsDirectory);
-
+            Directory.CreateDirectory(logsDirectory);
             Process.Start("explorer.exe", logsDirectory);
         }
 

@@ -30,8 +30,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         public Log()
         {
-            var appData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            _folderPath = Path.Combine(appData, "LenovoLegionToolkit", "log");
+            _folderPath = Path.Combine(Folders.AppData, "log");
             Directory.CreateDirectory(_folderPath);
             _logPath = Path.Combine(_folderPath, $"log_{DateTime.Now:yyyy_MM_dd_HH_mm_ss}.txt");
         }
