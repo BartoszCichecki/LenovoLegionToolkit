@@ -114,15 +114,21 @@ Just, don't run with this parameter all the time, it creates a **really large** 
 
 It would be great to expand the list of compatible devices, but to do it your help is needed!
 
-If you are willing to check if this app works correctly on your device that is currently unsupported, you can do it by starting the app with `--skip-compat-check` argument. Remember that some functions may not function properly, so keep this in mind.
+If you are willing to check if this app works correctly on your device that is currently unsupported, click _Continue_ on the popup you saw on startup. Lenovo Legion Toolkit will start logging automatically so you can submit them if anything goes wrong.
 
-If you do it, I would appreciate it if you create an issue here on GitHub with the results of your testing. Make sure to include the following information in your issue:
+*Remember that some functions may not function properly, so keep this in mind.*
+
+I would appreciate it, if you create an issue here on GitHub with the results of your testing.
+
+Make sure to include the following information in your issue:
 
 1. Full model name (i.e. Legion 5 Pro 16ACH6H)
 2. List of features that are working as expected.
 3. List of features that seem to not work.
 4. List of features that crash the app.
 
-The more info you add, the better the app will get over time.
+The more info you add, the better the app will get over time. If anything seems off, write down precisely what was wrong and attach logs (`%LOCALAPPDATA%\LenovoLegionToolkit\log`). 
+
+
 
 Thanks in advance!
