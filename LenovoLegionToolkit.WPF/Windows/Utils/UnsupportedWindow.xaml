@@ -100,7 +100,7 @@
                     <Run>but keep in mind that some features may not be available and/or not work properly.</Run>
                     <LineBreak />
                     <LineBreak />
-                    <Run>Logging will be enabled automatically.</Run>
+                    <Run>Logging will be enabled automatically, if you choose to continue.</Run>
                 </TextBlock>
 
                 <wpfui:Hyperlink Content="Check out project page on GitHub for more information." NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit#contribution" />
