@@ -9,7 +9,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
 {
     public partial class UnsupportedWindow
     {
-        private readonly TaskCompletionSource<bool> _taskCompletionSource = new TaskCompletionSource<bool>();
+        private readonly TaskCompletionSource<bool> _taskCompletionSource = new();
 
         public Task<bool> ShouldContinue => _taskCompletionSource.Task;
 

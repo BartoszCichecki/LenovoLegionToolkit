@@ -113,15 +113,12 @@ namespace LenovoLegionToolkit.Lib
         {
             get
             {
-                if (_index is null)
-                {
-                    _index = new StringBuilder()
+                _index ??= new StringBuilder()
                         .Append(Description)
                         .Append(Version)
                         .Append(Category)
                         .Append(FileName)
                         .ToString();
-                }
                 return _index;
             }
         }

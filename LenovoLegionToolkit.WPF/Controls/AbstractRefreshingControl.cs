@@ -55,8 +55,7 @@ namespace LenovoLegionToolkit.WPF.Controls
                 if (DisablesWhileRefreshing)
                     IsEnabled = false;
 
-                if (_refreshTask is null)
-                    _refreshTask = OnRefreshAsync();
+                _refreshTask ??= OnRefreshAsync();
                 await _refreshTask;
             }
             catch (Exception ex)
