@@ -45,7 +45,7 @@ namespace LenovoLegionToolkit.WPF.Windows
 #endif
 
             if (Log.Instance.IsTraceEnabled)
-                _title.Text += " [TRACE ENABLED]";
+                _title.Text += " [LOGGING ENABLED]";
 
             _specialKeyListener.Changed += SpecialKeyListener_Changed;
         }
