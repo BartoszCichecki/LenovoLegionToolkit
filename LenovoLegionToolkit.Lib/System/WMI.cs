@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Management;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.System
@@ -31,34 +33,35 @@ namespace LenovoLegionToolkit.Lib.System
             return watcher;
         }
 
-        public static Task<IEnumerable<T>> ReadAsync<T>(string scope, FormattableString query, Func<PropertyDataCollection, T> converter) => Task.Run<IEnumerable<T>>(() =>
+        public static async Task<IEnumerable<T>> ReadAsync<T>(string scope, FormattableString query, Func<PropertyDataCollection, T> converter)
         {
             var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Reading... [scope={scope}, queryFormatted={queryFormatted}]");
 
-            var result = new List<T>();
-
-            using var searcher = new ManagementObjectSearcher(scope, queryFormatted);
-            foreach (var queryObj in searcher.Get())
-                result.Add(converter(queryObj.Properties));
+            var mos = new ManagementObjectSearcher(scope, queryFormatted);
+            var managementObjects = await mos.GetAsync().ConfigureAwait(false);
+            var result = managementObjects.Select(mo => mo.Properties).Select(converter);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Read [scope={scope}, queryFormatted={queryFormatted}]");
 
             return result;
-        });
+        }
 
-        public static Task CallAsync(string scope, FormattableString query, string methodName, Dictionary<string, object> methodParams) => Task.Run(() =>
+        public static async Task CallAsync(string scope, FormattableString query, string methodName, Dictionary<string, object> methodParams)
         {
             var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Writing... [scope={scope}, queryFormatted={queryFormatted}, methodName={methodName}]");
 
-            using var enumerator = new ManagementObjectSearcher(scope, queryFormatted).Get().GetEnumerator();
-            if (!enumerator.MoveNext())
+            var mos = new ManagementObjectSearcher(scope, queryFormatted);
+            var managementObjects = await mos.GetAsync().ConfigureAwait(false);
+            var managementObject = managementObjects.FirstOrDefault();
+
+            if (managementObject is null)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"No results in query [queryFormatted={queryFormatted}, methodName={methodName}]");
@@ -66,7 +69,7 @@ namespace LenovoLegionToolkit.Lib.System
                 throw new InvalidOperationException("No results in query");
             }
 
-            var mo = (ManagementObject)enumerator.Current;
+            var mo = (ManagementObject)managementObject;
             var methodParamsObject = mo.GetMethodParameters(methodName);
             foreach (var pair in methodParams)
                 methodParamsObject[pair.Key] = pair.Value;
@@ -75,43 +78,43 @@ namespace LenovoLegionToolkit.Lib.System
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Write successful. [queryFormatted={queryFormatted}, methodName={methodName}, methodParams.Count={methodParams?.Count}]");
-        });
+        }
 
-        public static Task<T> CallAsync<T>(string scope, FormattableString query, string methodName, Dictionary<string, object> methodParams, Func<PropertyDataCollection, T> converter) where T : struct
+        public static async Task<T> CallAsync<T>(string scope, FormattableString query, string methodName, Dictionary<string, object> methodParams, Func<PropertyDataCollection, T> converter) where T : struct
         {
-            return Task.Run(() =>
+            var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Writing... [scope={scope}, queryFormatted={queryFormatted}, methodName={methodName}]");
+
+            var mos = new ManagementObjectSearcher(scope, queryFormatted);
+            var managementObjects = await mos.GetAsync().ConfigureAwait(false);
+            var managementObject = managementObjects.FirstOrDefault();
+
+            if (managementObject is null)
             {
-                var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
-
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Writing... [scope={scope}, queryFormatted={queryFormatted}, methodName={methodName}]");
+                    Log.Instance.Trace($"No results in query [queryFormatted={queryFormatted}, methodName={methodName}]");
 
-                using var enumerator = new ManagementObjectSearcher(scope, queryFormatted).Get().GetEnumerator();
-                if (!enumerator.MoveNext())
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"No results in query [queryFormatted={queryFormatted}, methodName={methodName}]");
+                throw new InvalidOperationException("No results in query");
+            }
 
-                    throw new InvalidOperationException("No results in query");
-                }
+            var mo = (ManagementObject)managementObject;
+            var methodParamsObject = mo.GetMethodParameters(methodName);
+            foreach (var pair in methodParams)
+                methodParamsObject[pair.Key] = pair.Value;
 
-                var mo = (ManagementObject)enumerator.Current;
-                var methodParamsObject = mo.GetMethodParameters(methodName);
-                foreach (var pair in methodParams)
-                    methodParamsObject[pair.Key] = pair.Value;
+            var resultProperties = mo.InvokeMethod(methodName, methodParamsObject, null);
 
-                var resultProperties = mo.InvokeMethod(methodName, methodParamsObject, null);
+            if (resultProperties is null)
+                return default;
 
-                if (resultProperties is null)
-                    return default;
+            var result = converter(resultProperties.Properties);
 
-                var result = converter(resultProperties.Properties);
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Write successful. [queryFormatted={queryFormatted}, methodName={methodName}, methodParams.Count={methodParams?.Count}]");
 
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Write successful. [queryFormatted={queryFormatted}, methodName={methodName}, methodParams.Count={methodParams?.Count}]");
-
-                return result;
-            });
+            return result;
         }
 
         private class WMIPropertyValueFormatter : IFormatProvider, ICustomFormatter
