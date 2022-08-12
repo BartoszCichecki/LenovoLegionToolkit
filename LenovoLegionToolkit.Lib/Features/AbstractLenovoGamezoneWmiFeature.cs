@@ -23,6 +23,22 @@ namespace LenovoLegionToolkit.Lib.Features
             _getMethodNameSuffix = getMethodNameSuffix;
         }
 
+        public async Task<bool> IsSupportedAsync()
+        {
+            try
+            {
+                if (_supportMethodName is null)
+                    return true;
+
+                var value = await ExecuteGamezoneAsync(_supportMethodName, "Data").ConfigureAwait(false);
+                return value > _supportOffset;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public virtual Task<T[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<T>());
 
         public virtual async Task<T> GetStateAsync()
@@ -61,15 +77,6 @@ namespace LenovoLegionToolkit.Lib.Features
                 Log.Instance.Trace($"Set state to {state} [feature={GetType().Name}]");
 
             return Task.CompletedTask;
-        }
-
-        private async Task<bool> IsSupportedAsync()
-        {
-            if (_supportMethodName is null)
-                return true;
-
-            var value = await ExecuteGamezoneAsync(_supportMethodName, "Data").ConfigureAwait(false);
-            return value > _supportOffset;
         }
 
         private int ToInternal(T state) => (int)(object)state + _offset;

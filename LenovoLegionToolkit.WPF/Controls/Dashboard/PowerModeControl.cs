@@ -46,9 +46,9 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
                 await RefreshAsync();
         });
 
-        protected override async Task OnStateChange(ComboBox comboBox, IFeature<PowerModeState> feature)
+        protected override async Task OnStateChange(ComboBox comboBox, IFeature<PowerModeState> feature, PowerModeState? newValue, PowerModeState? oldValue)
         {
-            await base.OnStateChange(comboBox, feature);
+            await base.OnStateChange(comboBox, feature, newValue, oldValue);
 
             if (comboBox.TryGetSelectedItem(out PowerModeState state) && state == PowerModeState.GodMode)
             {

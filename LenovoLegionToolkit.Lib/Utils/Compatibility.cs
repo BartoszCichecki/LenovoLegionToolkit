@@ -63,7 +63,8 @@ namespace LenovoLegionToolkit.Lib.Utils
                     {
                         ShouldFlipFnLock = GetShouldFlipFnLock(modelYear),
                         SupportsGodMode = GetSupportsGodMode(biosVersion),
-                        SupportsACDetection = await GetSupportsACDetection(),
+                        SupportsACDetection = await GetSupportsACDetection().ConfigureAwait(false),
+                        SupportsExtendedHybridMode = await GetSupportsExtendedHybridModeAsync().ConfigureAwait(false),
                     }
                 };
             }
@@ -73,16 +74,16 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         public static async Task<(bool isCompatible, MachineInformation machineInformation)> IsCompatibleAsync()
         {
-            var machineInformation = await GetMachineInformation().ConfigureAwait(false);
+            var mi = await GetMachineInformation().ConfigureAwait(false);
 
-            if (!machineInformation.Vendor.Equals(_allowedVendor, StringComparison.InvariantCultureIgnoreCase))
-                return (false, machineInformation);
+            if (!mi.Vendor.Equals(_allowedVendor, StringComparison.InvariantCultureIgnoreCase))
+                return (false, mi);
 
             foreach (var allowedModel in _allowedModels)
-                if (machineInformation.Model.Contains(allowedModel, StringComparison.InvariantCultureIgnoreCase))
-                    return (true, machineInformation);
+                if (mi.Model.Contains(allowedModel, StringComparison.InvariantCultureIgnoreCase))
+                    return (true, mi);
 
-            return (false, machineInformation);
+            return (false, mi);
         }
 
         private static bool GetShouldFlipFnLock(ModelYear modelYear)
@@ -104,6 +105,23 @@ namespace LenovoLegionToolkit.Lib.Utils
         private static async Task<bool> GetSupportsACDetection()
         {
             return await Power.IsACFitForOC().ConfigureAwait(false) != null;
+        }
+
+        private static async Task<bool> GetSupportsExtendedHybridModeAsync()
+        {
+            try
+            {
+                var result = await WMI.CallAsync("root\\WMI",
+                                    $"SELECT * FROM LENOVO_GAMEZONE_DATA",
+                                    "IsSupportIGPUMode",
+                                    new(),
+                                    pdc => (uint)pdc["Data"].Value).ConfigureAwait(false);
+                return result > 0;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         private static async Task<(string, string, string, string)> GetModelDataAsync()
