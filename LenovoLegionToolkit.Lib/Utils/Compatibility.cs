@@ -10,35 +10,36 @@ namespace LenovoLegionToolkit.Lib.Utils
     public static class Compatibility
     {
         private static readonly string _allowedVendor = "LENOVO";
-        private static readonly string[] _allowedModels = new[]
+        private static readonly string _allowedModelLine = "Legion";
+        private static readonly string[] _allowedModelsPrefix = new[]
         {
-            "16ACHg6", // Legion 7 - AMD, nVidia
-            "16ITHg6", // Legion 7 - Intel, nVidia
-            "15IMHg05", // Legion 7 - Intel, nVidia
-            "16ACH6", // Legion 5 Pro - AMD, nVidia
-            "R7000P2020H", // Legion 5 Pro - AMD, nVidia (CN)
-            "Y9000K2020H", // Legioin 7i - Intel, nVidia (CN)
-            "Y9000K2021H", // Legioin 7i - Intel, nVidia (CN)
-            "16ITH6", // Legion 5 Pro - Intel, nVidia
-            "16IAH7", // Legion 5 Pro - Intel, nVidia
-            "17ACH6", // Legion 5 - AMD, nVidia
-            "17ITH6", // Legion 5 - Intel, nVidia
-            "15ACH6", // Legion 5 - AMD, nVidia
-            "15ARH05", // Legion 5 - AMD, nVidia
-            "15IMH05", // Legion 5 - Intel, nVidia
-            "15ITH6", // Legion 5 - Intel, nVidia
-            "15IAH7H", // Legion 5 - Intel, nVidia
-            "17ARH05", // Legion 5 - AMD, nVidia
-            "17IMH05", // Legion 5 - Intel, nVidia
-            "R7000P2021H", // Legion 5 - AMD, nVidia (CN)
-            "R9000P2021H", // Legion 5 Pro - AMD, nVidia (CN)
-            "15ACH6", // Legion S7 - AMD, nVidia
+            "17ACH",
+            "17ARH",
+            "17ITH",
+            "17IMH",
 
+            "16ACH",
+            "16ARH",
+            "16IAH",
+            "16IAX",
+            "16ITH",
+
+            "15ACH",
+            "15ARH",
+            "15IAH",
+            "15IMH",
+            "15ITH",
+
+            "R9000P2021",
+            "R9000P2020",
+            "R7000P2020",
+            "R7000P2021",
+            "Y9000K2020",
+            "Y9000K2021",
+            
             // Limited compatibility
-            "17IRHg", // Legion Y740 - Intel, nVidia
-            "15IR", // Legion Y740 - Intel, nVidia
-            "15IRH", // Legion Y540 - Intel, nVidia
-            "17IRH", // Legion Y540 - Intel, nVidia
+            "17IR",
+            "15IR",
         };
 
         private static MachineInformation? _machineInformation;
@@ -79,7 +80,10 @@ namespace LenovoLegionToolkit.Lib.Utils
             if (!mi.Vendor.Equals(_allowedVendor, StringComparison.InvariantCultureIgnoreCase))
                 return (false, mi);
 
-            foreach (var allowedModel in _allowedModels)
+            if (!mi.Model.Contains(_allowedModelLine, StringComparison.InvariantCultureIgnoreCase))
+                return (false, mi);
+
+            foreach (var allowedModel in _allowedModelsPrefix)
                 if (mi.Model.Contains(allowedModel, StringComparison.InvariantCultureIgnoreCase))
                     return (true, mi);
 
