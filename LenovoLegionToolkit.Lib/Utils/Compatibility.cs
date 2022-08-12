@@ -139,19 +139,26 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         private static bool CheckIf2020OrEarlier()
         {
-            uint inBuffer = 0x2;
-            if (!Native.DeviceIoControl(Devices.GetBattery(), 0x831020E8, ref inBuffer, sizeof(uint), out uint outBuffer, sizeof(uint), out _, IntPtr.Zero))
+            try
             {
-                var error = Marshal.GetLastWin32Error();
+                uint inBuffer = 0x2;
+                if (!Native.DeviceIoControl(Devices.GetBattery(), 0x831020E8, ref inBuffer, sizeof(uint), out uint outBuffer, sizeof(uint), out _, IntPtr.Zero))
+                {
+                    var error = Marshal.GetLastWin32Error();
 
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"DeviceIoControl returned 0, last error: {error}");
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"DeviceIoControl returned 0, last error: {error}");
 
-                throw new InvalidOperationException($"DeviceIoControl returned 0, last error: {error}");
+                    throw new InvalidOperationException($"DeviceIoControl returned 0, last error: {error}");
+                }
+
+                outBuffer = outBuffer.ReverseEndianness();
+                return outBuffer.GetNthBit(19);
             }
-
-            outBuffer = outBuffer.ReverseEndianness();
-            return outBuffer.GetNthBit(19);
+            catch (InvalidOperationException)
+            {
+                return true;
+            }
         }
     }
 }
