@@ -51,13 +51,17 @@ namespace LenovoLegionToolkit.WPF.Controls
             Content = _cardControl;
         }
 
-        private async void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) => await OnStateChange(_comboBox, _feature);
+        private async void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            await OnStateChange(_comboBox, _feature, e.GetNewValue<T>(), e.GetOldValue<T>());
+        }
 
         protected virtual UIElement? GetAccessory()
         {
             _comboBox.SelectionChanged += ComboBox_SelectionChanged;
             _comboBox.Width = 150;
             _comboBox.Visibility = Visibility.Hidden;
+            _comboBox.Margin = new(8, 0, 0, 0);
             return _comboBox;
         }
 
@@ -86,7 +90,7 @@ namespace LenovoLegionToolkit.WPF.Controls
             MessagingCenter.Subscribe<T>(this, () => Dispatcher.InvokeTask(RefreshAsync));
         }
 
-        protected virtual async Task OnStateChange(ComboBox comboBox, IFeature<T> feature)
+        protected virtual async Task OnStateChange(ComboBox comboBox, IFeature<T> feature, T? newValue, T? oldValue)
         {
             if (IsRefreshing)
                 return;

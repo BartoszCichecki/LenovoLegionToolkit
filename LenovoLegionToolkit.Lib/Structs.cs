@@ -85,6 +85,7 @@ namespace LenovoLegionToolkit.Lib
             public bool ShouldFlipFnLock { get; init; }
             public bool SupportsGodMode { get; init; }
             public bool SupportsACDetection { get; init; }
+            public bool SupportsExtendedHybridMode { get; init; }
         }
 
         public string Vendor { get; init; }

@@ -18,7 +18,7 @@ namespace LenovoLegionToolkit.Lib.Features
             {
                 FnLockState.On => true,
                 FnLockState.Off => false,
-                _ => throw new Exception("Invalid state"),
+                _ => throw new InvalidOperationException("Invalid state"),
             };
 
             if (await ShouldFlipAsync().ConfigureAwait(false))

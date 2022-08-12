@@ -19,6 +19,7 @@ namespace LenovoLegionToolkit.WPF.Controls
             FontSize = 12,
             Margin = new(0, 4, 0, 0),
             Visibility = Visibility.Collapsed,
+            TextWrapping = TextWrapping.Wrap,
             TextTrimming = TextTrimming.CharacterEllipsis,
         };
 

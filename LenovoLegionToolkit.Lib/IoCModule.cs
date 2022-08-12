@@ -25,6 +25,8 @@ namespace LenovoLegionToolkit.Lib
             builder.Register<FlipToStartFeature>();
             builder.Register<FnLockFeature>();
             builder.Register<HybridModeFeature>();
+            builder.Register<GSyncFeature>();
+            builder.Register<IGPUModeFeature>();
             builder.Register<OverDriveFeature>();
             builder.Register<PowerModeFeature>();
             builder.Register<RefreshRateFeature>();
