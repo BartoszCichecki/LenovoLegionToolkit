@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Management;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features
@@ -83,44 +85,42 @@ namespace LenovoLegionToolkit.Lib.Features
 
         private T FromInternal(int state) => (T)(object)(state - _offset);
 
-        private Task<int> ExecuteGamezoneAsync(string methodName, string resultPropertyName, Dictionary<string, string>? methodParams = null)
-        {
-            return ExecuteAsync("SELECT * FROM LENOVO_GAMEZONE_DATA", methodName, resultPropertyName, methodParams);
-        }
+        private Task<int> ExecuteGamezoneAsync(string methodName, string resultPropertyName, Dictionary<string, string>? methodParams = null) =>
+            ExecuteAsync("SELECT * FROM LENOVO_GAMEZONE_DATA", methodName, resultPropertyName, methodParams);
 
-        private Task<int> ExecuteAsync(string queryString,
+        private async Task<int> ExecuteAsync(string queryString,
             string methodName,
             string resultPropertyName,
             Dictionary<string, string>? methodParams = null)
         {
-            return Task.Run(() =>
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Executing WMI query... [feature={GetType().Name}, queryString={queryString}, methodName={methodName}, resultPropertyName={resultPropertyName}, methodParams.Count={methodParams?.Count}]");
+
+            var mos = new ManagementObjectSearcher("ROOT\\WMI", queryString);
+            var managementObjects = await mos.GetAsync().ConfigureAwait(false);
+            var managementObject = managementObjects.FirstOrDefault();
+
+            if (managementObject is null)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Executing WMI query... [feature={GetType().Name}, queryString={queryString}, methodName={methodName}, resultPropertyName={resultPropertyName}, methodParams.Count={methodParams?.Count}]");
+                    Log.Instance.Trace($"No results in query [feature={GetType().Name}, queryString={queryString}, methodName={methodName}, resultPropertyName={resultPropertyName}, methodParams.Count={methodParams?.Count}]");
 
-                using var enumerator = new ManagementObjectSearcher("ROOT\\WMI", queryString).Get().GetEnumerator();
-                if (!enumerator.MoveNext())
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"No results in query [feature={GetType().Name}, queryString={queryString}, methodName={methodName}, resultPropertyName={resultPropertyName}, methodParams.Count={methodParams?.Count}]");
+                throw new InvalidOperationException("No results in query");
+            }
 
-                    throw new InvalidOperationException("No results in query");
-                }
+            var mo = (ManagementObject)managementObject;
+            var methodParamsObject = mo.GetMethodParameters(methodName);
+            if (methodParams is not null)
+                foreach (var pair in methodParams)
+                    methodParamsObject[pair.Key] = pair.Value;
 
-                var mo = (ManagementObject)enumerator.Current;
-                var methodParamsObject = mo.GetMethodParameters(methodName);
-                if (methodParams is not null)
-                    foreach (var pair in methodParams)
-                        methodParamsObject[pair.Key] = pair.Value;
+            var result = mo.InvokeMethod(methodName, methodParamsObject, null)?.Properties[resultPropertyName].Value;
+            var intResult = Convert.ToInt32(result);
 
-                var result = mo.InvokeMethod(methodName, methodParamsObject, null)?.Properties[resultPropertyName].Value;
-                var intResult = Convert.ToInt32(result);
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Executed WMI query with result {intResult} [feature={GetType().Name}, queryString={queryString}, methodName={methodName}, resultPropertyName={resultPropertyName}, methodParams.Count={methodParams?.Count}]");
 
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Executed WMI query with result {intResult} [feature={GetType().Name}, queryString={queryString}, methodName={methodName}, resultPropertyName={resultPropertyName}, methodParams.Count={methodParams?.Count}]");
-
-                return intResult;
-            });
+            return intResult;
         }
     }
 }
