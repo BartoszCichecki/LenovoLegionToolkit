@@ -40,9 +40,13 @@ namespace LenovoLegionToolkit.Lib.Features
             var (gsync, igpuMode) = Unpack(state);
 
             if (await _igpuModeFeature.IsSupportedAsync().ConfigureAwait(false))
-                await _igpuModeFeature.SetStateAsync(igpuMode).ConfigureAwait(false);
+            {
+                if (igpuMode != await _igpuModeFeature.GetStateAsync().ConfigureAwait(false))
+                    await _igpuModeFeature.SetStateAsync(igpuMode).ConfigureAwait(false);
+            }
 
-            await _gsyncFeature.SetStateAsync(gsync).ConfigureAwait(false);
+            if (gsync != await _gsyncFeature.GetStateAsync().ConfigureAwait(false))
+                await _gsyncFeature.SetStateAsync(gsync).ConfigureAwait(false);
         }
 
         private (GSyncState, IGPUModeState) Unpack(HybridModeState state) => state switch

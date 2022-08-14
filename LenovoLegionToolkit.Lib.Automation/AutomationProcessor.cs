@@ -62,7 +62,7 @@ namespace LenovoLegionToolkit.Lib.Automation
             if (!potentialMatch)
                 return;
 
-            await RunAsync(e);
+            await RunAsync(e).ConfigureAwait(false);
         }
 
         private async void PowerStateListener_Changed(object? sender, EventArgs e)
@@ -81,7 +81,7 @@ namespace LenovoLegionToolkit.Lib.Automation
             if (!potentialMatch)
                 return;
 
-            await RunAsync(e);
+            await RunAsync(e).ConfigureAwait(false);
         }
 
         public async Task InitializeAsync()
