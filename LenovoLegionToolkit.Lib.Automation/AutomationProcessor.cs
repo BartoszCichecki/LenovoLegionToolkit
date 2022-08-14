@@ -68,7 +68,7 @@ namespace LenovoLegionToolkit.Lib.Automation
         private async void PowerStateListener_Changed(object? sender, EventArgs e)
         {
             var potentialMatch = _pipelines.Select(p => p.Trigger)
-                .Where(t => t is IProcessesAutomationPipelineTrigger)
+                .Where(t => t is IPowerAutomationPipelineTrigger)
                 .Select(async t =>
                 {
                     if (t is null) return false;
