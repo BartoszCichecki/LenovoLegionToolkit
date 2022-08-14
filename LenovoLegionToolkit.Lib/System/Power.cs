@@ -122,7 +122,6 @@ namespace LenovoLegionToolkit.Lib.System
                 value = value[(value.IndexOf('{') + 1)..];
                 value = value[..value.IndexOf('}')];
 
-
                 powerModes[kv.Key] = value;
             }
 
@@ -138,7 +137,7 @@ namespace LenovoLegionToolkit.Lib.System
                 return await WMI.CallAsync("root\\WMI",
                     $"SELECT * FROM LENOVO_GAMEZONE_DATA",
                     "IsACFitForOC",
-                    new Dictionary<string, object>(),
+                    new(),
                     pdc =>
                     {
                         var value = (uint)pdc["Data"].Value;

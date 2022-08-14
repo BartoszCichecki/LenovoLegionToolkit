@@ -88,7 +88,7 @@ namespace LenovoLegionToolkit.Lib.Features
             await WMI.CallAsync(_scope,
                 _query,
                 "Set" + _methodNameSuffix,
-                new() { { _inParameterName, ToInternal(state).ToString() } });
+                new() { { _inParameterName, ToInternal(state).ToString() } }).ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Set state to {state} [feature={GetType().Name}]");
