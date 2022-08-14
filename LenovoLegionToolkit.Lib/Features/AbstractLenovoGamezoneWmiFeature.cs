@@ -21,8 +21,8 @@ namespace LenovoLegionToolkit.Lib.Features
             int offset,
             string? supportMethodName = null,
             int supportOffset = 0,
-            string inParameterName = "Data",
-            string outParameterName = "Value")
+            string inParameterName = "Value",
+            string outParameterName = "Data")
         {
             _methodNameSuffix = methodNameSuffix;
             _offset = offset;
@@ -39,7 +39,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 if (_supportMethodName is null)
                     return true;
 
-                var value = await ExecuteGamezoneAsync(_supportMethodName, "Data").ConfigureAwait(false);
+                var value = await ExecuteGamezoneAsync(_supportMethodName, _outParameterName).ConfigureAwait(false);
                 return value > _supportOffset;
             }
             catch
