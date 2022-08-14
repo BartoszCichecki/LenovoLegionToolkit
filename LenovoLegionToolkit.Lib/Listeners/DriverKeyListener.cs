@@ -18,6 +18,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
         private readonly TouchpadLockFeature _touchpadLockFeature;
 
         private Task? _listenTask;
+        private bool _ignoreNext;
 
         public DriverKeyListener(FnKeys fnKeys, TouchpadLockFeature touchpadLockFeature)
         {
@@ -29,6 +30,8 @@ namespace LenovoLegionToolkit.Lib.Listeners
         {
             _listenTask = Task.Run(HandlerAsync);
         }
+
+        public void IgnoreNext() => _ignoreNext = true;
 
         private async Task HandlerAsync()
         {
@@ -50,6 +53,13 @@ namespace LenovoLegionToolkit.Lib.Listeners
                 while (true)
                 {
                     resetEvent.WaitOne();
+
+                    if (_ignoreNext)
+                    {
+                        _ignoreNext = false;
+                        resetEvent.Reset();
+                        continue;
+                    }
 
                     if (await _fnKeys.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
                     {
