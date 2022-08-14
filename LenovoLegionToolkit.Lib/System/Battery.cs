@@ -32,7 +32,7 @@ namespace LenovoLegionToolkit.Lib.System
             DateTime? manufactureDate = null;
             try
             {
-                manufactureDate = await GetBatteryManufactureDateAsync();
+                manufactureDate = await GetBatteryManufactureDateAsync().ConfigureAwait(false);
             }
             catch (Exception ex)
             {
@@ -195,7 +195,7 @@ namespace LenovoLegionToolkit.Lib.System
             var result = await WMI.ReadAsync("ROOT\\WMI", $"SELECT * FROM Lenovo_BatteryInformation", pdc =>
             {
                 return pdc["CurrentSetting"].Value.ToString();
-            });
+            }).ConfigureAwait(false);
 
             var enumerator = result.GetEnumerator();
             while (enumerator.MoveNext())

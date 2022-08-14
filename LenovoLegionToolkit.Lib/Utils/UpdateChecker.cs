@@ -21,7 +21,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         public async Task<bool> Check()
         {
-            using (await _updateSemaphore.LockAsync())
+            using (await _updateSemaphore.LockAsync().ConfigureAwait(false))
             {
                 try
                 {
@@ -71,13 +71,13 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         public async Task<Update[]> GetUpdates()
         {
-            using (await _updateSemaphore.LockAsync())
+            using (await _updateSemaphore.LockAsync().ConfigureAwait(false))
                 return _updates;
         }
 
         public async Task<string> DownloadLatestUpdate(IProgress<float>? progress = null, CancellationToken cancellationToken = default)
         {
-            using (await _updateSemaphore.LockAsync(cancellationToken))
+            using (await _updateSemaphore.LockAsync(cancellationToken).ConfigureAwait(false))
             {
                 var tempPath = Path.Combine(Path.GetTempPath(), $"LenovoLegionToolkitSetup_{Guid.NewGuid()}.exe");
                 var latestUpdate = _updates.FirstOrDefault();
@@ -90,7 +90,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 
                 using var fileStream = File.OpenWrite(tempPath);
                 using var httpClient = new HttpClient();
-                await httpClient.DownloadAsync(latestUpdate.Url, fileStream, progress, cancellationToken);
+                await httpClient.DownloadAsync(latestUpdate.Url, fileStream, progress, cancellationToken).ConfigureAwait(false);
 
                 return tempPath;
             }
