@@ -137,6 +137,8 @@ namespace LenovoLegionToolkit.WPF.Windows
                     Log.Instance.Trace($"Closing...");
 
                 _titleBar.Tray.Unregister();
+
+                Application.Current.Shutdown();
             }
         }
 
