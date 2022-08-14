@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
@@ -100,7 +99,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         private Task<StepperValue> GetCPULongTermPowerLimitAsync() => WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_CPU_METHOD",
             "CPU_Get_LongTerm_PowerLimit",
-            new Dictionary<string, object>(),
+            new(),
             pdc =>
             {
                 var value = Convert.ToInt32(pdc["CurrentLongTerm_PowerLimit"].Value);
@@ -114,7 +113,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         private Task SetCPULongTermPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_CPU_METHOD",
             "CPU_Set_LongTerm_PowerLimit",
-            new Dictionary<string, object>() { { "value", $"{value.Value}" } });
+            new() { { "value", $"{value.Value}" } });
 
         #endregion
 
@@ -123,7 +122,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         private Task<StepperValue> GetCPUShortTermPowerLimitAsync() => WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_CPU_METHOD",
             "CPU_Get_ShortTerm_PowerLimit",
-            new Dictionary<string, object>(),
+            new(),
             pdc =>
             {
                 var value = Convert.ToInt32(pdc["CurrentShortTerm_PowerLimit"].Value);
@@ -137,7 +136,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         private Task SetCPUShortTermPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_CPU_METHOD",
             "CPU_Set_ShortTerm_PowerLimit",
-            new Dictionary<string, object>() { { "value", $"{value.Value}" } });
+            new() { { "value", $"{value.Value}" } });
 
         #endregion
 
@@ -146,7 +145,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         private Task<StepperValue> GetGPUConfigurableTGPAsync() => WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_GPU_METHOD",
             "GPU_Get_cTGP_PowerLimit",
-            new Dictionary<string, object>(),
+            new(),
             pdc =>
             {
                 var value = Convert.ToInt32(pdc["Current_cTGP_PowerLimit"].Value);
@@ -160,7 +159,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         private Task SetGPUConfigurableTGPAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_GPU_METHOD",
             "GPU_Set_cTGP_PowerLimit",
-            new Dictionary<string, object>() { { "value", $"{value.Value}" } });
+            new() { { "value", $"{value.Value}" } });
 
         #endregion
 
@@ -169,7 +168,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         private Task<StepperValue> GetGPUPowerBoost() => WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_GPU_METHOD",
             "GPU_Get_PPAB_PowerLimit",
-            new Dictionary<string, object>(),
+            new(),
             pdc =>
             {
                 var value = Convert.ToInt32(pdc["CurrentPPAB_PowerLimit"].Value);
@@ -183,7 +182,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         private Task SetGPUPowerBoostAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_GPU_METHOD",
             "GPU_Set_PPAB_PowerLimit",
-            new Dictionary<string, object>() { { "value", $"{value.Value}" } });
+            new() { { "value", $"{value.Value}" } });
 
         #endregion
 
@@ -192,7 +191,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         private Task<bool> GetFanCoolingAsync() => WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_GAMEZONE_DATA",
             "GetFanCoolingStatus",
-            new Dictionary<string, object>(),
+            new(),
             pdc =>
             {
                 var data = (uint)pdc["Data"].Value;
@@ -202,7 +201,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         private Task SetFanCoolingAsync(bool enabled) => WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_GAMEZONE_DATA",
             "SetFanCooling",
-            new Dictionary<string, object>() { { "Data", enabled ? "1" : "0" } });
+            new() { { "Data", enabled ? "1" : "0" } });
 
         #endregion
 
