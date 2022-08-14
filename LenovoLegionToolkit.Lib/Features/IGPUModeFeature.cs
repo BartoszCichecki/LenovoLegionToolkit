@@ -2,6 +2,6 @@
 {
     public class IGPUModeFeature : AbstractLenovoGamezoneWmiFeature<IGPUModeState>
     {
-        public IGPUModeFeature() : base("IGPUModeStatus", 0, "IsSupportIGPUMode") { }
+        public IGPUModeFeature() : base("IGPUModeStatus", 0, "IsSupportIGPUMode", inParameterName: "mode") { }
     }
 }

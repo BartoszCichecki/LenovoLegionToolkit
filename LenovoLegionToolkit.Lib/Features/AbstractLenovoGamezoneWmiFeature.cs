@@ -14,16 +14,22 @@ namespace LenovoLegionToolkit.Lib.Features
         private readonly int _offset;
         private readonly string? _supportMethodName;
         private readonly int _supportOffset;
+        private readonly string _inParameterName;
+        private readonly string _outParameterName;
 
         protected AbstractLenovoGamezoneWmiFeature(string methodNameSuffix,
             int offset,
             string? supportMethodName = null,
-            int supportOffset = 0)
+            int supportOffset = 0,
+            string inParameterName = "Data",
+            string outParameterName = "Value")
         {
             _methodNameSuffix = methodNameSuffix;
             _offset = offset;
             _supportMethodName = supportMethodName;
             _supportOffset = supportOffset;
+            _inParameterName = inParameterName;
+            _outParameterName = outParameterName;
         }
 
         public async Task<bool> IsSupportedAsync()
@@ -57,7 +63,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 throw new NotSupportedException($"Feature {_methodNameSuffix} is not supported.");
             }
 
-            var result = FromInternal(await ExecuteGamezoneAsync("Get" + _methodNameSuffix, "Data").ConfigureAwait(false));
+            var result = FromInternal(await ExecuteGamezoneAsync("Get" + _methodNameSuffix, _outParameterName).ConfigureAwait(false));
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"State is {result} [feature={GetType().Name}]");
@@ -70,10 +76,10 @@ namespace LenovoLegionToolkit.Lib.Features
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Setting state to {state}... [feature={GetType().Name}]");
 
-            var result = await ExecuteGamezoneAsync("Set" + _methodNameSuffix, "Data",
+            var result = await ExecuteGamezoneAsync("Set" + _methodNameSuffix, _outParameterName,
                 new Dictionary<string, string>
                 {
-                    {"Data", ToInternal(state).ToString()}
+                    {_inParameterName, ToInternal(state).ToString()}
                 }).ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
