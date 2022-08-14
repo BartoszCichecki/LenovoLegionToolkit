@@ -167,7 +167,7 @@ namespace LenovoLegionToolkit
                             "Error",
                             MessageBoxButton.OK,
                             MessageBoxImage.Error);
-            Shutdown(-1);
+            Shutdown(1);
         }
 
         private async Task CheckCompatibilityAsync()
@@ -183,14 +183,10 @@ namespace LenovoLegionToolkit
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Incompatible system detected. [Vendor={mi.Vendor}, Model={mi.Model}, MachineType={mi.MachineType}]");
 
-            ShutdownMode = ShutdownMode.OnExplicitShutdown;
-
             var unsuportedWindow = new UnsupportedWindow(mi);
             unsuportedWindow.Show();
 
             var result = await unsuportedWindow.ShouldContinue;
-
-            ShutdownMode = ShutdownMode.OnLastWindowClose;
 
             if (result)
             {
@@ -204,7 +200,7 @@ namespace LenovoLegionToolkit
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Shutting down... [Vendor={mi.Vendor}, Model={mi.Model}, MachineType={mi.MachineType}]");
 
-            Shutdown(-1);
+            Shutdown(100);
         }
 
         private void EnsureSingleInstance()
