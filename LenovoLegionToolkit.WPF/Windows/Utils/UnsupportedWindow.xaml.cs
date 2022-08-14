@@ -48,14 +48,14 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
 
         private void Continue_Click(object sender, RoutedEventArgs e)
         {
-            Close();
             _taskCompletionSource.TrySetResult(true);
+            Close();
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
-            Close();
             _taskCompletionSource.TrySetResult(false);
+            Close();
         }
     }
 }
