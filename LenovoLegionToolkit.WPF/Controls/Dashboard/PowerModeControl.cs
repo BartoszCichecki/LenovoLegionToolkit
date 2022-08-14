@@ -20,7 +20,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
         {
             Icon = SymbolRegular.Settings24,
             FontSize = 20,
-            Margin = new(0, 0, 8, 0),
+            Margin = new(8, 0, 0, 0),
             Visibility = Visibility.Collapsed,
         };
 
