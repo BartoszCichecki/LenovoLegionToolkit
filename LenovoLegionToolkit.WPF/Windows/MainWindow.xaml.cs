@@ -45,7 +45,7 @@ namespace LenovoLegionToolkit.WPF.Windows
 #endif
 
             if (Log.Instance.IsTraceEnabled)
-                _title.Text += " [TRACE ENABLED]";
+                _title.Text += " [LOGGING ENABLED]";
 
             _specialKeyListener.Changed += SpecialKeyListener_Changed;
         }
@@ -115,6 +115,7 @@ namespace LenovoLegionToolkit.WPF.Windows
 
             _loader.IsLoading = false;
 
+            LoadDeviceInfo();
             CheckForUpdates();
         }
 
@@ -136,6 +137,8 @@ namespace LenovoLegionToolkit.WPF.Windows
                     Log.Instance.Trace($"Closing...");
 
                 _titleBar.Tray.Unregister();
+
+                Application.Current.Shutdown();
             }
         }
 
@@ -145,6 +148,17 @@ namespace LenovoLegionToolkit.WPF.Windows
                 return;
 
             CheckForUpdates();
+        }
+
+        private void DeviceInfoIndicator_Click(object sender, RoutedEventArgs e)
+        {
+            var deviceInformationWindow = new DeviceInformationWindow
+            {
+                Owner = this,
+                WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                ShowInTaskbar = false,
+            };
+            deviceInformationWindow.ShowDialog();
         }
 
         private void UpdateIndicator_Click(object sender, RoutedEventArgs e)
@@ -177,6 +191,16 @@ namespace LenovoLegionToolkit.WPF.Windows
                 Width = windowSize.Width;
                 Height = windowSize.Height;
             }
+        }
+
+        private void LoadDeviceInfo()
+        {
+            Task.Run(Compatibility.GetMachineInformation)
+                .ContinueWith(mi =>
+                {
+                    _deviceInfoIndicator.Content = mi.Result.Model;
+                    _deviceInfoIndicator.Visibility = Visibility.Visible;
+                }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         private void CheckForUpdates()

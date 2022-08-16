@@ -1,7 +1,13 @@
 ﻿using System;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.WPF.Windows.Dashboard;
 using Wpf.Ui.Common;
+using Button = Wpf.Ui.Controls.Button;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
@@ -9,6 +15,14 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
     {
         private readonly PowerModeListener _powerModeListener = IoCContainer.Resolve<PowerModeListener>();
         private readonly PowerPlanListener _powerPlanListener = IoCContainer.Resolve<PowerPlanListener>();
+
+        private readonly Button _configButton = new()
+        {
+            Icon = SymbolRegular.Settings24,
+            FontSize = 20,
+            Margin = new(0, 0, 8, 0),
+            Visibility = Visibility.Collapsed,
+        };
 
         public PowerModeControl()
         {
@@ -31,5 +45,48 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             if (IsLoaded && IsVisible)
                 await RefreshAsync();
         });
+
+        protected override async Task OnStateChange(ComboBox comboBox, IFeature<PowerModeState> feature)
+        {
+            await base.OnStateChange(comboBox, feature);
+
+            if (comboBox.TryGetSelectedItem(out PowerModeState state) && state == PowerModeState.GodMode)
+            {
+                _configButton.ToolTip = "Settings";
+                _configButton.Visibility = Visibility.Visible;
+            }
+            else
+                _configButton.Visibility = Visibility.Collapsed;
+        }
+
+        protected override UIElement? GetAccessory()
+        {
+            var comboBox = base.GetAccessory();
+
+            _configButton.Click += ConfigButton_Click;
+
+            var stackPanel = new StackPanel
+            {
+                Orientation = Orientation.Horizontal,
+            };
+            stackPanel.Children.Add(_configButton);
+            stackPanel.Children.Add(comboBox);
+
+            return stackPanel;
+        }
+
+        private void ConfigButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (_comboBox.TryGetSelectedItem(out PowerModeState state) && state == PowerModeState.GodMode)
+            {
+                var window = new GodModeSettingsWindow
+                {
+                    Owner = Window.GetWindow(this),
+                    WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                    ShowInTaskbar = false,
+                };
+                window.ShowDialog();
+            }
+        }
     }
 }

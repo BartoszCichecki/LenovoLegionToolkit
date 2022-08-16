@@ -55,6 +55,12 @@ namespace LenovoLegionToolkit.Lib
         SavedSearches
     }
 
+    public enum ModelYear
+    {
+        MY2020OrEarlier,
+        MY2021OrLater,
+    }
+
     public enum NotificationDuration
     {
         Short,
@@ -76,11 +82,20 @@ namespace LenovoLegionToolkit.Lib
         On,
     }
 
+    public enum PowerAdapterStatus
+    {
+        Connected,
+        ConnectedLowWattage,
+        Disconnected,
+    }
+
     public enum PowerModeState
     {
         Quiet,
         Balance,
         Performance,
+        [Display(Name = "Custom")]
+        GodMode = 254,
     }
 
     public enum ProcessEventInfoType

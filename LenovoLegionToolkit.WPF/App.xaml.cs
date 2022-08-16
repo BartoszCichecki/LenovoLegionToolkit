@@ -19,6 +19,7 @@ using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows;
+using LenovoLegionToolkit.WPF.Windows.Utils;
 using WinFormsApp = System.Windows.Forms.Application;
 using WinFormsHighDpiMode = System.Windows.Forms.HighDpiMode;
 
@@ -166,7 +167,7 @@ namespace LenovoLegionToolkit
                             "Error",
                             MessageBoxButton.OK,
                             MessageBoxImage.Error);
-            Shutdown(-1);
+            Shutdown(1);
         }
 
         private async Task CheckCompatibilityAsync()
@@ -175,15 +176,31 @@ namespace LenovoLegionToolkit
             if (isCompatible)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Compatibility check passed. [Vendor={mi.Vendor}, Model={mi.Model}]");
+                    Log.Instance.Trace($"Compatibility check passed. [Vendor={mi.Vendor}, Model={mi.Model}, MachineType={mi.MachineType}]");
                 return;
             }
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Incompatible system detected, shutting down... [Vendor={mi.Vendor}, Model={mi.Model}]");
+                Log.Instance.Trace($"Incompatible system detected. [Vendor={mi.Vendor}, Model={mi.Model}, MachineType={mi.MachineType}]");
 
-            MessageBox.Show($"This application is not compatible with:\n\n{mi.Vendor} {mi.Model}.\n\nCheck: {Constants.CompatibilityUri} for more information.", "Unsupported device", MessageBoxButton.OK, MessageBoxImage.Error);
-            Shutdown(-1);
+            var unsuportedWindow = new UnsupportedWindow(mi);
+            unsuportedWindow.Show();
+
+            var result = await unsuportedWindow.ShouldContinue;
+
+            if (result)
+            {
+                Log.Instance.IsTraceEnabled = true;
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Compatibility check OVERRIDE. [Vendor={mi.Vendor}, Model={mi.Model}, MachineType={mi.MachineType}, version={Assembly.GetEntryAssembly()?.GetName().Version}, build={Assembly.GetEntryAssembly()?.GetBuildDateTime()?.ToString("yyyyMMddHHmmss") ?? ""}]");
+                return;
+            }
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Shutting down... [Vendor={mi.Vendor}, Model={mi.Model}, MachineType={mi.MachineType}]");
+
+            Shutdown(100);
         }
 
         private void EnsureSingleInstance()

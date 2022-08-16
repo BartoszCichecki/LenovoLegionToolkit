@@ -1,6 +1,9 @@
-﻿using LenovoLegionToolkit.Lib;
+﻿using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
 using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
@@ -19,6 +22,13 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             Subtitle = "Disable touchpad.";
 
             _listener.Changed += Listener_Changed;
+        }
+
+        protected override Task OnStateChange(ToggleSwitch toggle, IFeature<TouchpadLockState> feature)
+        {
+            _listener.IgnoreNext();
+
+            return base.OnStateChange(toggle, feature);
         }
 
         private void Listener_Changed(object? sender, DriverKey e) => Dispatcher.Invoke(async () =>

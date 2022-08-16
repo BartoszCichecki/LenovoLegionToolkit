@@ -22,12 +22,10 @@
 
         <wpfui:TitleBar x:Name="_titleBar" Grid.Row="0" />
 
-        <Grid
-            Grid.Row="0"
-            Height="28"
-            Margin="12,6,150,4">
+        <Grid Grid.Row="0" Margin="12,6,150,4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
@@ -42,11 +40,22 @@
             <wpfui:Badge
                 x:Name="_updateIndicator"
                 Grid.Column="1"
+                Padding="8,4,8,4"
                 Appearance="Success"
-                Content="  Update available!  "
+                Content="Update available!"
                 Cursor="Hand"
                 MouseLeftButtonDown="UpdateIndicator_Click"
                 MouseRightButtonDown="UpdateIndicator_Click"
+                Visibility="Collapsed" />
+
+            <wpfui:Badge
+                x:Name="_deviceInfoIndicator"
+                Grid.Column="2"
+                Padding="8,4,8,4"
+                Appearance="Transparent"
+                Cursor="Hand"
+                MouseLeftButtonDown="DeviceInfoIndicator_Click"
+                MouseRightButtonDown="DeviceInfoIndicator_Click"
                 Visibility="Collapsed" />
 
         </Grid>
