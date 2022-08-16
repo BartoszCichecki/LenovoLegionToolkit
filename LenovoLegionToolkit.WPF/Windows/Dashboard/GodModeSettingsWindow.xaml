@@ -158,7 +158,7 @@
                         <wpfui:CardControl.Header>
                             <controls:CardHeaderControl Title="Maximum fan speed" Subtitle="WARNING:&#x0a;Prolonged usage of this option will degrade fans decreasing their longevity.&#x0a;Seriously, be careful with this option!" />
                         </wpfui:CardControl.Header>
-                        <wpfui:ToggleSwitch x:Name="_fanCoolingToggle" Margin="0,0,0,8" />
+                        <wpfui:ToggleSwitch x:Name="_fanFullSpeedToggle" Margin="0,0,0,8" />
                     </wpfui:CardControl>
 
                 </StackPanel>
