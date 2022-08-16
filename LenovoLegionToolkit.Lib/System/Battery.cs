@@ -192,10 +192,7 @@ namespace LenovoLegionToolkit.Lib.System
 
         private static async Task<DateTime?> GetBatteryManufactureDateAsync()
         {
-            var result = await WMI.ReadAsync("ROOT\\WMI", $"SELECT * FROM Lenovo_BatteryInformation", pdc =>
-            {
-                return pdc["CurrentSetting"].Value.ToString();
-            }).ConfigureAwait(false);
+            var result = await WMI.ReadAsync("ROOT\\WMI", $"SELECT * FROM Lenovo_BatteryInformation", pdc => pdc["CurrentSetting"].Value.ToString()).ConfigureAwait(false);
 
             var enumerator = result.GetEnumerator();
             while (enumerator.MoveNext())
