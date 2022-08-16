@@ -3,31 +3,14 @@ using System.Diagnostics;
 using System.Text;
 using System.Threading;
 using System.Windows;
-using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 
 namespace LenovoLegionToolkit.WPF.Windows.Utils
 {
-    public partial class UpdateWindow
+    public partial class UpdateWindow : IProgress<float>
     {
-        private class DownloadProgress : IProgress<float>
-        {
-            private readonly ProgressBar _progressBar;
-
-            public DownloadProgress(ProgressBar progressBar)
-            {
-                _progressBar = progressBar;
-            }
-
-            public void Report(float value)
-            {
-                _progressBar.IsIndeterminate = !(value > 0);
-                _progressBar.Value = value;
-            }
-        }
-
         private readonly UpdateChecker _updateChecker = IoCContainer.Resolve<UpdateChecker>();
 
         private CancellationTokenSource? _downloadCancellationTokenSource;
@@ -80,7 +63,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
 
                 SetDownloading(true);
 
-                var path = await _updateChecker.DownloadLatestUpdate(new DownloadProgress(_downloadProgressBar), _downloadCancellationTokenSource.Token);
+                var path = await _updateChecker.DownloadLatestUpdate(this, _downloadCancellationTokenSource.Token);
 
                 _downloadCancellationTokenSource = null;
 
@@ -127,5 +110,11 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
                 _cancelDownloadButton.IsEnabled = false;
             }
         }
+
+        public void Report(float value) => Dispatcher.Invoke(() =>
+        {
+            _downloadProgressBar.IsIndeterminate = !(value > 0);
+            _downloadProgressBar.Value = value;
+        });
     }
 }
