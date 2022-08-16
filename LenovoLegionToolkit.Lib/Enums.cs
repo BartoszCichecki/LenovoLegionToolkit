@@ -27,12 +27,6 @@ namespace LenovoLegionToolkit.Lib
         Fn_F10 = 32,
     }
 
-    public enum FanCoolingState
-    {
-        Off,
-        On,
-    }
-
     public enum FlipToStartState
     {
         Off,
