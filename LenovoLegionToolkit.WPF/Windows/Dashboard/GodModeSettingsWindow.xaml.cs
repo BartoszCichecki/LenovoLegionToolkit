@@ -65,7 +65,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
                 _gpuConfigurableTGPSlider.TickFrequency = state.GPUConfigurableTGP.Step;
                 _gpuConfigurableTGPSlider.Value = state.GPUConfigurableTGP.Value;
 
-                _fanCoolingToggle.IsChecked = state.FanCooling;
+                _fanFullSpeedToggle.IsChecked = state.FanFullSpeed;
 
                 await loadingTask;
 
@@ -92,7 +92,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
                 var gpuPowerBoost = state.GPUPowerBoost.WithValue((int)_gpuPowerBoostSlider.Value);
                 var gpuConfigurableTGP = state.GPUConfigurableTGP.WithValue((int)_gpuConfigurableTGPSlider.Value);
 
-                var fanCooling = _fanCoolingToggle.IsChecked ?? false;
+                var fanFullSpeed = _fanFullSpeedToggle.IsChecked ?? false;
 
                 var newState = new GodModeState
                 {
@@ -100,7 +100,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
                     CPUShortTermPowerLimit = cpuShortTermPowerLimit,
                     GPUPowerBoost = gpuPowerBoost,
                     GPUConfigurableTGP = gpuConfigurableTGP,
-                    FanCooling = fanCooling
+                    FanFullSpeed = fanFullSpeed
                 };
 
                 if (await _powerModeFeature.GetStateAsync() != PowerModeState.GodMode)

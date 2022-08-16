@@ -11,7 +11,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         public StepperValue CPUShortTermPowerLimit { get; init; }
         public StepperValue GPUPowerBoost { get; init; }
         public StepperValue GPUConfigurableTGP { get; init; }
-        public bool FanCooling { get; init; }
+        public bool FanFullSpeed { get; init; }
     }
 
     public class GodModeController
@@ -49,7 +49,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 gpuConfigurableTGPState.Max,
                 gpuConfigurableTGPState.Step);
 
-            var fanCooling = _settings.Store.FanCooling ?? await GetFanCoolingAsync().ConfigureAwait(false);
+            var fanFullSpeed = _settings.Store.FanFullSpeed ?? await GetFanFullSpeedAsync().ConfigureAwait(false);
 
             return new GodModeState
             {
@@ -57,7 +57,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 CPUShortTermPowerLimit = cpuShortTermPowerLimit,
                 GPUPowerBoost = gpuPowerBoost,
                 GPUConfigurableTGP = gpuConfigurableTGP,
-                FanCooling = fanCooling
+                FanFullSpeed = fanFullSpeed
             };
         }
 
@@ -67,7 +67,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             _settings.Store.CPUShortTermPowerLimit = state.CPUShortTermPowerLimit;
             _settings.Store.GPUPowerBoost = state.GPUPowerBoost;
             _settings.Store.GPUConfigurableTGP = state.GPUConfigurableTGP;
-            _settings.Store.FanCooling = state.FanCooling;
+            _settings.Store.FanFullSpeed = state.FanFullSpeed;
 
             _settings.SynchronizeStore();
             return Task.CompletedTask;
@@ -79,7 +79,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             var cpuShortTermPowerLimit = _settings.Store.CPUShortTermPowerLimit;
             var gpuPowerBoost = _settings.Store.GPUPowerBoost;
             var gpuConfigurableTGP = _settings.Store.GPUConfigurableTGP;
-            var maxFan = _settings.Store.FanCooling;
+            var maxFan = _settings.Store.FanFullSpeed;
 
             if (cpuLongTermPowerLimit is null) return;
             if (cpuShortTermPowerLimit is null) return;
@@ -91,7 +91,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             await SetCPUShortTermPowerLimitAsync(cpuShortTermPowerLimit.Value).ConfigureAwait(false);
             await SetGPUPowerBoostAsync(gpuPowerBoost.Value).ConfigureAwait(false);
             await SetGPUConfigurableTGPAsync(gpuConfigurableTGP.Value).ConfigureAwait(false);
-            await SetFanCoolingAsync(maxFan.Value).ConfigureAwait(false);
+            await SetFanFullSpeedAsync(maxFan.Value).ConfigureAwait(false);
         }
 
         #region CPU Long Term Power Limit
@@ -186,22 +186,21 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         #endregion
 
-        #region Fan cooling
+        #region Fan Full Speed
 
-        private Task<bool> GetFanCoolingAsync() => WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_GAMEZONE_DATA",
-            "GetFanCoolingStatus",
+        private Task<bool> GetFanFullSpeedAsync() => WMI.CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_FAN_METHOD",
+            "Fan_Get_FullSpeed",
             new(),
             pdc =>
             {
-                var data = (uint)pdc["Data"].Value;
-                return data > 0;
+                return (bool)pdc["Status"].Value;
             });
 
-        private Task SetFanCoolingAsync(bool enabled) => WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_GAMEZONE_DATA",
-            "SetFanCooling",
-            new() { { "Data", enabled ? "1" : "0" } });
+        private Task SetFanFullSpeedAsync(bool enabled) => WMI.CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_FAN_METHOD",
+            "Fan_Set_FullSpeed",
+            new() { { "Status", enabled } });
 
         #endregion
 
