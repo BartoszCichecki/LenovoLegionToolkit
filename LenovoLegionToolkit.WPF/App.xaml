@@ -5,6 +5,7 @@
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     DispatcherUnhandledException="Application_DispatcherUnhandledException"
     Exit="Application_Exit"
+    ShutdownMode="OnExplicitShutdown"
     Startup="Application_Startup">
     <Application.Resources>
         <ResourceDictionary>

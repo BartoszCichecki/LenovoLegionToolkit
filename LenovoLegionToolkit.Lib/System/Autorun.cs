@@ -77,7 +77,7 @@ namespace LenovoLegionToolkit.Lib.System
             td.Data = fileVersion;
             td.Principal.UserId = currentUser;
             td.Principal.RunLevel = TaskRunLevel.Highest;
-            td.Triggers.Add(new LogonTrigger { UserId = currentUser, Delay = new TimeSpan(0, 1, 0) });
+            td.Triggers.Add(new LogonTrigger { UserId = currentUser, Delay = new TimeSpan(0, 0, 30) });
             td.Actions.Add($"\"{filename}\"", "--minimized");
             td.Settings.DisallowStartIfOnBatteries = false;
             td.Settings.StopIfGoingOnBatteries = false;

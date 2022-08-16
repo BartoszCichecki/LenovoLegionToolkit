@@ -6,22 +6,24 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features
 {
-    public abstract class AbstractWmiFeature<T> : IFeature<T> where T : struct, Enum, IComparable
+    public abstract class AbstractLenovoGamezoneWmiFeature<T> : IFeature<T> where T : struct, Enum, IComparable
     {
         private readonly string _methodNameSuffix;
         private readonly int _offset;
         private readonly string? _supportMethodName;
         private readonly int _supportOffset;
+        private readonly string? _getMethodNameSuffix;
 
-        protected AbstractWmiFeature(string methodNameSuffix, int offset, string? supportMethodName = null, int supportOffset = 0)
+        protected AbstractLenovoGamezoneWmiFeature(string methodNameSuffix, int offset, string? supportMethodName = null, int supportOffset = 0, string? getMethodNameSuffix = null)
         {
             _methodNameSuffix = methodNameSuffix;
             _offset = offset;
             _supportMethodName = supportMethodName;
             _supportOffset = supportOffset;
+            _getMethodNameSuffix = getMethodNameSuffix;
         }
 
-        public Task<T[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<T>());
+        public virtual Task<T[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<T>());
 
         public virtual async Task<T> GetStateAsync()
         {
@@ -36,7 +38,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 throw new NotSupportedException($"Feature {_methodNameSuffix} is not supported.");
             }
 
-            var result = FromInternal(await ExecuteGamezoneAsync("Get" + _methodNameSuffix, "Data").ConfigureAwait(false));
+            var result = FromInternal(await ExecuteGamezoneAsync("Get" + (_getMethodNameSuffix ?? _methodNameSuffix), "Data").ConfigureAwait(false));
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"State is {result} [feature={GetType().Name}]");

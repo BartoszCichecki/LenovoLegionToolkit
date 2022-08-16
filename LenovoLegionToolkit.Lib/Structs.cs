@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using LenovoLegionToolkit.Lib.Extensions;
 using Newtonsoft.Json;
 using Octokit;
 
@@ -76,20 +77,23 @@ namespace LenovoLegionToolkit.Lib
             DCSettingValue = dcSettingValue;
         }
     }
+
     public struct MachineInformation
     {
-        public string Vendor { get; }
-        public string MachineType { get; }
-        public string Model { get; }
-        public string SerialNumber { get; }
-
-        public MachineInformation(string vendor, string machineType, string model, string serialNumber)
+        public struct CompatibiltyProperties
         {
-            Vendor = vendor;
-            MachineType = machineType;
-            Model = model;
-            SerialNumber = serialNumber;
+            public bool ShouldFlipFnLock { get; init; }
+            public bool SupportsGodMode { get; init; }
+            public bool SupportsACDetection { get; init; }
         }
+
+        public string Vendor { get; init; }
+        public string MachineType { get; init; }
+        public string Model { get; init; }
+        public string SerialNumber { get; init; }
+        public string BIOSVersion { get; init; }
+        public ModelYear ModelYear { get; init; }
+        public CompatibiltyProperties Properties { get; init; }
     }
 
     public struct Package
@@ -109,15 +113,12 @@ namespace LenovoLegionToolkit.Lib
         {
             get
             {
-                if (_index is null)
-                {
-                    _index = new StringBuilder()
+                _index ??= new StringBuilder()
                         .Append(Description)
                         .Append(Version)
                         .Append(Category)
                         .Append(FileName)
                         .ToString();
-                }
                 return _index;
             }
         }
@@ -341,6 +342,24 @@ namespace LenovoLegionToolkit.Lib
         public static bool operator !=(RefreshRate left, RefreshRate right) => !(left == right);
 
         #endregion
+    }
+
+    public struct StepperValue
+    {
+        public int Value { get; }
+        public int Min { get; }
+        public int Max { get; }
+        public int Step { get; }
+
+        public StepperValue(int value, int min, int max, int step)
+        {
+            Value = Math.Clamp(MathExtensions.RoundNearest(value, step), min, max);
+            Min = min;
+            Max = max;
+            Step = step;
+        }
+
+        public StepperValue WithValue(int value) => new(value, Min, Max, Step);
     }
 
     public struct Update

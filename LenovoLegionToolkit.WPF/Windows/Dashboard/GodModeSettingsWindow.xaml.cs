@@ -1,0 +1,145 @@
+﻿using System;
+using System.Threading.Tasks;
+using System.Windows;
+using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.Utils;
+
+namespace LenovoLegionToolkit.WPF.Windows.Dashboard
+{
+    public partial class GodModeSettingsWindow
+    {
+        private readonly PowerModeFeature _powerModeFeature = IoCContainer.Resolve<PowerModeFeature>();
+        private readonly GodModeController _controller = IoCContainer.Resolve<GodModeController>();
+
+        public GodModeSettingsWindow()
+        {
+            InitializeComponent();
+
+            ResizeMode = ResizeMode.CanMinimize;
+
+            _titleBar.UseSnapLayout = false;
+            _titleBar.CanMaximize = false;
+
+            Loaded += GodModeSettingsWindow_Loaded;
+            IsVisibleChanged += GodModeSettingsWindow_IsVisibleChanged;
+        }
+
+        private async void GodModeSettingsWindow_Loaded(object sender, RoutedEventArgs e) => await RefreshAsync();
+
+        private async void GodModeSettingsWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (IsLoaded && IsVisible)
+                await RefreshAsync();
+        }
+
+        private async Task RefreshAsync()
+        {
+            try
+            {
+                _loader.IsLoading = true;
+                _applyRevertStackPanel.Visibility = Visibility.Hidden;
+
+                var loadingTask = Task.Delay(500);
+
+                var state = await _controller.GetStateAsync();
+
+                _cpuLongTermPowerLimitSlider.Minimum = state.CPULongTermPowerLimit.Min;
+                _cpuLongTermPowerLimitSlider.Maximum = state.CPULongTermPowerLimit.Max;
+                _cpuLongTermPowerLimitSlider.TickFrequency = state.CPULongTermPowerLimit.Step;
+                _cpuLongTermPowerLimitSlider.Value = state.CPULongTermPowerLimit.Value;
+
+                _cpuShortTermPowerLimitSlider.Minimum = state.CPUShortTermPowerLimit.Min;
+                _cpuShortTermPowerLimitSlider.Maximum = state.CPUShortTermPowerLimit.Max;
+                _cpuShortTermPowerLimitSlider.TickFrequency = state.CPUShortTermPowerLimit.Step;
+                _cpuShortTermPowerLimitSlider.Value = state.CPUShortTermPowerLimit.Value;
+
+                _gpuPowerBoostSlider.Minimum = state.GPUPowerBoost.Min;
+                _gpuPowerBoostSlider.Maximum = state.GPUPowerBoost.Max;
+                _gpuPowerBoostSlider.TickFrequency = state.GPUPowerBoost.Step;
+                _gpuPowerBoostSlider.Value = state.GPUPowerBoost.Value;
+
+                _gpuConfigurableTGPSlider.Minimum = state.GPUConfigurableTGP.Min;
+                _gpuConfigurableTGPSlider.Maximum = state.GPUConfigurableTGP.Max;
+                _gpuConfigurableTGPSlider.TickFrequency = state.GPUConfigurableTGP.Step;
+                _gpuConfigurableTGPSlider.Value = state.GPUConfigurableTGP.Value;
+
+                _fanFullSpeedToggle.IsChecked = state.FanFullSpeed;
+
+                await loadingTask;
+
+                _applyRevertStackPanel.Visibility = Visibility.Visible;
+                _loader.IsLoading = false;
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't load settings.", ex);
+
+                await _snackBar.ShowAsync("Couldn't load setting.", ex.Message);
+            }
+        }
+
+        private async Task ApplyAsync()
+        {
+            try
+            {
+                var state = await _controller.GetStateAsync();
+
+                var cpuLongTermPowerLimit = state.CPULongTermPowerLimit.WithValue((int)_cpuLongTermPowerLimitSlider.Value);
+                var cpuShortTermPowerLimit = state.CPUShortTermPowerLimit.WithValue((int)_cpuShortTermPowerLimitSlider.Value);
+                var gpuPowerBoost = state.GPUPowerBoost.WithValue((int)_gpuPowerBoostSlider.Value);
+                var gpuConfigurableTGP = state.GPUConfigurableTGP.WithValue((int)_gpuConfigurableTGPSlider.Value);
+
+                var fanFullSpeed = _fanFullSpeedToggle.IsChecked ?? false;
+
+                var newState = new GodModeState
+                {
+                    CPULongTermPowerLimit = cpuLongTermPowerLimit,
+                    CPUShortTermPowerLimit = cpuShortTermPowerLimit,
+                    GPUPowerBoost = gpuPowerBoost,
+                    GPUConfigurableTGP = gpuConfigurableTGP,
+                    FanFullSpeed = fanFullSpeed
+                };
+
+                if (await _powerModeFeature.GetStateAsync() != PowerModeState.GodMode)
+                    await _powerModeFeature.SetStateAsync(PowerModeState.GodMode);
+
+                await _controller.SetStateAsync(newState);
+                await _controller.ApplyStateAsync();
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't apply settings.", ex);
+
+                await _snackBar.ShowAsync("Couldn't apply setting.", ex.Message);
+            }
+        }
+
+        private async void ApplyAndCloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            await ApplyAsync();
+            Close();
+        }
+
+        private async void ApplyButton_Click(object sender, RoutedEventArgs e)
+        {
+            await ApplyAsync();
+            await RefreshAsync();
+        }
+
+        private void CpuLongTermPowerLimitSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (_cpuLongTermPowerLimitSlider.Value > _cpuShortTermPowerLimitSlider.Value)
+                _cpuShortTermPowerLimitSlider.Value = _cpuLongTermPowerLimitSlider.Value;
+        }
+
+        private void CpuShortTermPowerLimitSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (_cpuLongTermPowerLimitSlider.Value > _cpuShortTermPowerLimitSlider.Value)
+                _cpuLongTermPowerLimitSlider.Value = _cpuShortTermPowerLimitSlider.Value;
+        }
+    }
+}

@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features
 {
     public class FnLockFeature : AbstractDriverFeature<FnLockState>
     {
-        private bool? _shouldFlip;
-
         public FnLockFeature() : base(Drivers.GetEnergy, 0x831020E8) { }
 
         protected override uint GetInBufferValue() => 0x2;
@@ -29,10 +29,10 @@ namespace LenovoLegionToolkit.Lib.Features
 
         protected override async Task<FnLockState> FromInternalAsync(uint state)
         {
-            state = ReverseEndianness(state);
+            state = state.ReverseEndianness();
 
             var lockOn = false;
-            if (GetNthBit(state, 18))
+            if (state.GetNthBit(18))
                 lockOn = true;
             if (await ShouldFlipAsync().ConfigureAwait(false))
                 lockOn = !lockOn;
@@ -42,14 +42,8 @@ namespace LenovoLegionToolkit.Lib.Features
 
         private async Task<bool> ShouldFlipAsync()
         {
-            if (!_shouldFlip.HasValue)
-            {
-                var (_, outBuffer) = await SendCodeAsync(DriverHandle(), ControlCode, GetInBufferValue()).ConfigureAwait(false);
-                outBuffer = ReverseEndianness(outBuffer);
-                _shouldFlip = GetNthBit(outBuffer, 19);
-            }
-
-            return _shouldFlip.Value;
+            var mi = await Compatibility.GetMachineInformation().ConfigureAwait(false);
+            return mi.Properties.ShouldFlipFnLock;
         }
     }
 }

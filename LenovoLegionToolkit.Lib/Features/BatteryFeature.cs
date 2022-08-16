@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System;
 
 namespace LenovoLegionToolkit.Lib.Features
@@ -41,16 +42,16 @@ namespace LenovoLegionToolkit.Lib.Features
 
         protected override Task<BatteryState> FromInternalAsync(uint state)
         {
-            state = ReverseEndianness(state);
-            if (GetNthBit(state, 17)) // is charging?
+            state = state.ReverseEndianness();
+            if (state.GetNthBit(17)) // is charging?
             {
-                if (GetNthBit(state, 26))
+                if (state.GetNthBit(26))
                     return Task.FromResult(BatteryState.RapidCharge);
                 else
                     return Task.FromResult(BatteryState.Normal);
             }
 
-            if (GetNthBit(state, 29))
+            if (state.GetNthBit(29))
                 return Task.FromResult(BatteryState.Conservation);
 
             throw new InvalidOperationException($"Unknown battery state: {state}");
