@@ -110,6 +110,27 @@ LLT is started using Task Scheduler, so that it can launch with admin rights. St
 
 Sometimes new motherboard does not contain correct model numbers and serial numbers. You should try [this tutorial](https://laptopwiki.eu/index.php/guides-and-tutorials/important-bios-related-guides/recover-original-model-sku-values/) to try and recover them. If that method does not succeed, you can workaround by going to `%LOCALAPPDATA%\LenovoLegionToolkit` and creating an `args.txt` file. Inside that file paste `--skip-compat-check`. This will disable all compatibility checks in LLT. Use this workaround only if correct model number, serial number etc. can't be restored.
 
+#### I can't find Legion AI Engine option.
+
+AI Engine is not supported. It requires Lenovo services to run. I recommend simply switching to Performance mode.
+
+#### Which RGB types are supported?
+
+Currently only white-backlight and 4-zone RGB keyboards are supported.
+
+#### Will iCue RGB keyboards be supported?
+
+No. Check out [OpenRGB](https://openrgb.org/) project.
+
+#### Will Legion Spectrum RGB keyboards be supported?
+
+Probably. I would like to add support to Spectrum RGB, but I currently don't have a device that supports it. PRs are welcome.
+
+#### Can I have more RGB effects?
+
+Only options natively supported by hardware are available; adding support for custom effects is not planned. If you would like more customization check out [L5P-Keyboard-RGB](https://github.com/4JX/L5P-Keyboard-RGB) or [OpenRGB](https://openrgb.org/).
+
+
 ## Contribution
 
 I appreciate any feedback that you have, so please do not hesitate to report issues. PRs are also welcome!
