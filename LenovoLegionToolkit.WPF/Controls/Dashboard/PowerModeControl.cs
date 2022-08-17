@@ -59,10 +59,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
                 _configButton.Visibility = Visibility.Collapsed;
         }
 
-        protected override UIElement? GetAccessory()
+        protected override FrameworkElement? GetAccessory(ComboBox comboBox)
         {
-            var comboBox = base.GetAccessory();
-
             _configButton.Click += ConfigButton_Click;
 
             var stackPanel = new StackPanel

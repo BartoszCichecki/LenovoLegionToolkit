@@ -8,8 +8,10 @@ using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Utils;
+using LenovoLegionToolkit.WPF.Windows.Dashboard;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
+using Button = Wpf.Ui.Controls.Button;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
@@ -32,6 +34,13 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
     public class ComboBoxHybridModeControl : AbstractComboBoxFeatureCardControl<HybridModeState>
     {
+        private readonly Button _infoButton = new()
+        {
+            Icon = SymbolRegular.Info24,
+            FontSize = 20,
+            Margin = new(8, 0, 0, 0),
+        };
+
         private bool _ignoreNextStateChange;
 
         public ComboBoxHybridModeControl()
@@ -41,11 +50,20 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             Subtitle = "Select GPU operating mode based on your computer's usage and power conditions.\nSwitching modes may require restart.";
         }
 
-        protected override UIElement? GetAccessory()
+        protected override FrameworkElement? GetAccessory(ComboBox comboBox)
         {
-            var element = base.GetAccessory();
-            _comboBox.Width = 180;
-            return element;
+            comboBox.Width = 180;
+
+            _infoButton.Click += InfoButton_Click;
+
+            var stackPanel = new StackPanel
+            {
+                Orientation = Orientation.Horizontal,
+            };
+            stackPanel.Children.Add(comboBox);
+            stackPanel.Children.Add(_infoButton);
+
+            return stackPanel;
         }
 
         protected override async Task OnStateChange(ComboBox comboBox, IFeature<HybridModeState> feature, HybridModeState? newValue, HybridModeState? oldValue)
@@ -81,6 +99,17 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             }
 
             await base.OnStateChange(comboBox, feature, newValue, oldValue);
+        }
+
+        private void InfoButton_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new ExtendedHybridModeInfoWindow
+            {
+                Owner = Window.GetWindow(this),
+                WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                ShowInTaskbar = false,
+            };
+            window.ShowDialog();
         }
     }
 
