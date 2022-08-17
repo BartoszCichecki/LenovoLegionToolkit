@@ -262,8 +262,10 @@ namespace LenovoLegionToolkit.WPF.Pages
 
             foreach (var package in packages)
             {
-                var control = new PackageControl(_packageDownloader, package, GetDownloadLocation);
-                control.ContextMenu = GetContextMenu(package, packages);
+                var control = new PackageControl(_packageDownloader, package, GetDownloadLocation)
+                {
+                    ContextMenu = GetContextMenu(package, packages)
+                };
                 _packagesStackPanel.Children.Add(control);
             }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.WPF.Extensions;
 using Microsoft.Win32;
@@ -31,6 +32,14 @@ namespace LenovoLegionToolkit.WPF.Windows.Automation
 
             Loaded += PickProcessesWindow_Loaded;
             IsVisibleChanged += PickProcessesWindow_IsVisibleChanged;
+
+            var copyCommand = new RoutedCommand();
+            copyCommand.InputGestures.Add(new KeyGesture(Key.C, ModifierKeys.Control));
+            CommandBindings.Add(new CommandBinding(copyCommand, CopyShortcut));
+
+            var pasteCommand = new RoutedCommand();
+            pasteCommand.InputGestures.Add(new KeyGesture(Key.V, ModifierKeys.Control));
+            CommandBindings.Add(new CommandBinding(pasteCommand, PasteShortcut));
         }
 
         private void PickProcessesWindow_Loaded(object sender, RoutedEventArgs e) => Refresh();
@@ -64,8 +73,18 @@ namespace LenovoLegionToolkit.WPF.Windows.Automation
             if (!result.HasValue || !result.Value)
                 return;
 
-            Processes.Add(ProcessInfo.FromPath(ofd.FileName));
+            var processInfo = ProcessInfo.FromPath(ofd.FileName);
+            if (Processes.Contains(processInfo))
+                return;
 
+            Processes.Add(processInfo);
+
+            Refresh();
+        }
+
+        private void DeleteAllButton_Click(object sender, RoutedEventArgs e)
+        {
+            Processes.Clear();
             Refresh();
         }
 
@@ -78,6 +97,21 @@ namespace LenovoLegionToolkit.WPF.Windows.Automation
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void CopyShortcut(object sender, RoutedEventArgs e)
+        {
+            ClipboardExtensions.SetProcesses(Processes);
+        }
+
+        private void PasteShortcut(object sender, RoutedEventArgs e)
+        {
+            var processes = ClipboardExtensions.GetProcesses().Where(p => !Processes.Contains(p));
+            if (!processes.Any())
+                return;
+
+            Processes.AddRange(processes);
+            Refresh();
         }
 
         public void Refresh()
@@ -136,6 +170,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Automation
             private readonly Button _deleteButton = new()
             {
                 Icon = SymbolRegular.Delete24,
+                FontSize = 18,
                 Margin = new(8, 0, 0, 0),
             };
 
