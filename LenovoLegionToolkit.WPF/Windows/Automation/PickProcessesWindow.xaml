@@ -12,6 +12,7 @@
     Height="500"
     MinWidth="500"
     MinHeight="400">
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -72,6 +73,9 @@
                 <Grid Grid.Row="1" Margin="0,8,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" />
@@ -80,13 +84,41 @@
                     <wpfui:Button
                         x:Name="_addButton"
                         Grid.Column="0"
-                        Width="100"
                         Click="AddButton_Click"
-                        Content="Add" />
+                        FontSize="18"
+                        Icon="Add24"
+                        ToolTip="Add app" />
+
+                    <wpfui:Button
+                        x:Name="_deleteAllButton"
+                        Grid.Column="1"
+                        Margin="8,0,0,0"
+                        Click="DeleteAllButton_Click"
+                        FontSize="18"
+                        Icon="Delete24"
+                        ToolTip="Delete all" />
+
+                    <wpfui:Button
+                        x:Name="_copyButton"
+                        Grid.Column="2"
+                        Margin="8,0,0,0"
+                        Click="CopyShortcut"
+                        FontSize="18"
+                        Icon="Copy24"
+                        ToolTip="Copy all (Ctrl+C)" />
+
+                    <wpfui:Button
+                        x:Name="_pasteButton"
+                        Grid.Column="3"
+                        Margin="8,0,0,0"
+                        Click="PasteShortcut"
+                        FontSize="18"
+                        Icon="ClipboardPaste24"
+                        ToolTip="Paste (Ctrl+V)" />
 
                     <wpfui:Button
                         x:Name="_saveButton"
-                        Grid.Column="2"
+                        Grid.Column="5"
                         Width="100"
                         Appearance="Primary"
                         Click="SaveButton_Click"
@@ -94,7 +126,7 @@
 
                     <wpfui:Button
                         x:Name="_cancelButton"
-                        Grid.Column="3"
+                        Grid.Column="6"
                         Width="100"
                         Margin="8,0,0,0"
                         Click="CancelButton_Click"
@@ -106,4 +138,5 @@
         </controls:LoadableControl>
 
     </Grid>
+
 </local:BaseWindow>
