@@ -44,7 +44,12 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         private void InitializeComponent()
         {
-            _cardHeaderControl.Accessory = GetAccessory();
+            _comboBox.SelectionChanged += ComboBox_SelectionChanged;
+            _comboBox.Width = 150;
+            _comboBox.Visibility = Visibility.Hidden;
+            _comboBox.Margin = new(8, 0, 0, 0);
+
+            _cardHeaderControl.Accessory = GetAccessory(_comboBox);
             _cardControl.Header = _cardHeaderControl;
             _cardControl.Margin = new(0, 0, 0, 8);
 
@@ -56,14 +61,7 @@ namespace LenovoLegionToolkit.WPF.Controls
             await OnStateChange(_comboBox, _feature, e.GetNewValue<T>(), e.GetOldValue<T>());
         }
 
-        protected virtual UIElement? GetAccessory()
-        {
-            _comboBox.SelectionChanged += ComboBox_SelectionChanged;
-            _comboBox.Width = 150;
-            _comboBox.Visibility = Visibility.Hidden;
-            _comboBox.Margin = new(8, 0, 0, 0);
-            return _comboBox;
-        }
+        protected virtual FrameworkElement? GetAccessory(ComboBox comboBox) => comboBox;
 
         protected override async Task OnRefreshAsync()
         {
