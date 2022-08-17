@@ -99,6 +99,7 @@ namespace LenovoLegionToolkit.Lib
 
     public struct Package
     {
+        public string Id { get; }
         public string Description { get; }
         public string Version { get; }
         public string Category { get; }
@@ -124,8 +125,17 @@ namespace LenovoLegionToolkit.Lib
             }
         }
 
-        public Package(string description, string version, string category, string fileName, int fileSize, DateTime releaseDate, string? readme, string fileLocation)
+        public Package(string id,
+            string description,
+            string version,
+            string category,
+            string fileName,
+            int fileSize,
+            DateTime releaseDate,
+            string? readme,
+            string fileLocation)
         {
+            Id = id;
             Description = description;
             Version = version;
             Category = category;

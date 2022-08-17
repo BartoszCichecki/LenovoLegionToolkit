@@ -11,15 +11,20 @@ using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Threading;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Controls.Packages;
 using LenovoLegionToolkit.WPF.Utils;
+using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
+using MenuItem = Wpf.Ui.Controls.MenuItem;
 
 namespace LenovoLegionToolkit.WPF.Pages
 {
     public partial class PackagesPage : Page, IProgress<float>
     {
+        private readonly PackageDownloaderSettings _packageDownloaderSettings = IoCContainer.Resolve<PackageDownloaderSettings>();
         private readonly PackageDownloader _packageDownloader = IoCContainer.Resolve<PackageDownloader>();
 
         private CancellationTokenSource? _getPackagesTokenSource;
@@ -126,13 +131,7 @@ namespace LenovoLegionToolkit.WPF.Pages
 
                 _packages = packages;
 
-                packages = SortAndFilter(packages);
-
-                foreach (var package in packages)
-                {
-                    var control = new PackageControl(_packageDownloader, package, GetDownloadLocation);
-                    _packagesStackPanel.Children.Add(control);
-                }
+                Reload();
             }
             catch (TaskCanceledException)
             {
@@ -190,13 +189,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 _packagesStackPanel.Children.Clear();
                 _scrollViewer.ScrollToHome();
 
-                var packages = SortAndFilter(_packages);
-
-                foreach (var package in packages)
-                {
-                    var control = new PackageControl(_packageDownloader, package, GetDownloadLocation);
-                    _packagesStackPanel.Children.Add(control);
-                }
+                Reload();
             }
             catch (TaskCanceledException) { }
         }
@@ -209,13 +202,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             _packagesStackPanel.Children.Clear();
             _scrollViewer.ScrollToHome();
 
-            var packages = SortAndFilter(_packages);
-
-            foreach (var package in packages)
-            {
-                var control = new PackageControl(_packageDownloader, package, GetDownloadLocation);
-                _packagesStackPanel.Children.Add(control);
-            }
+            Reload();
         }
 
         private string GetDownloadLocation()
@@ -224,6 +211,79 @@ namespace LenovoLegionToolkit.WPF.Pages
             if (!Directory.Exists(location))
                 return KnownFolders.GetPath(KnownFolder.Downloads);
             return location;
+        }
+
+        private ContextMenu? GetContextMenu(Package package, IEnumerable<Package> packages)
+        {
+            if (_packageDownloaderSettings.Store.HiddenPackages.Contains(package.Id))
+                return null;
+
+            var hideMenuItem = new MenuItem
+            {
+                SymbolIcon = SymbolRegular.EyeOff24,
+                Header = "Hide",
+            };
+            hideMenuItem.Click += (s, e) =>
+            {
+                _packageDownloaderSettings.Store.HiddenPackages.Add(package.Id);
+                _packageDownloaderSettings.SynchronizeStore();
+
+                Reload();
+            };
+
+            var hideAllMenuItem = new MenuItem
+            {
+                SymbolIcon = SymbolRegular.EyeOff24,
+                Header = "Hide all",
+            };
+            hideAllMenuItem.Click += (s, e) =>
+            {
+                foreach (var id in packages.Select(p => p.Id))
+                    _packageDownloaderSettings.Store.HiddenPackages.Add(id);
+                _packageDownloaderSettings.SynchronizeStore();
+
+                Reload();
+            };
+
+            var cm = new ContextMenu();
+            cm.Items.Add(hideMenuItem);
+            cm.Items.Add(hideAllMenuItem);
+            return cm;
+        }
+
+        private void Reload()
+        {
+            _packagesStackPanel.Children.Clear();
+
+            if (_packages is null || !_packages.Any())
+                return;
+
+            var packages = SortAndFilter(_packages);
+
+            foreach (var package in packages)
+            {
+                var control = new PackageControl(_packageDownloader, package, GetDownloadLocation);
+                control.ContextMenu = GetContextMenu(package, packages);
+                _packagesStackPanel.Children.Add(control);
+            }
+
+            if (_packageDownloaderSettings.Store.HiddenPackages.Any())
+            {
+                var clearHidden = new Hyperlink
+                {
+                    Icon = SymbolRegular.Eye24,
+                    Content = "Show hidden downloads",
+                    HorizontalAlignment = System.Windows.HorizontalAlignment.Right,
+                };
+                clearHidden.Click += (s, e) =>
+                {
+                    _packageDownloaderSettings.Store.HiddenPackages.Clear();
+                    _packageDownloaderSettings.SynchronizeStore();
+
+                    Reload();
+                };
+                _packagesStackPanel.Children.Add(clearHidden);
+            }
         }
 
         private List<Package> SortAndFilter(List<Package> packages)
@@ -235,6 +295,8 @@ namespace LenovoLegionToolkit.WPF.Pages
                 2 => packages.OrderByDescending(p => p.ReleaseDate),
                 _ => packages.AsEnumerable(),
             };
+
+            result = result.Where(p => !_packageDownloaderSettings.Store.HiddenPackages.Contains(p.Id));
 
             if (!string.IsNullOrWhiteSpace(_filterTextBox.Text))
                 result = result.Where(p => p.Index.Contains(_filterTextBox.Text, StringComparison.InvariantCultureIgnoreCase));

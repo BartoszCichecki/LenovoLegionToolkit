@@ -19,6 +19,7 @@ namespace LenovoLegionToolkit.Lib
             builder.Register<ApplicationSettings>();
             builder.Register<RGBKeyboardSettings>();
             builder.Register<GodModeSettings>();
+            builder.Register<PackageDownloaderSettings>();
 
             builder.Register<AlwaysOnUSBFeature>();
             builder.Register<BatteryFeature>();
