@@ -11,6 +11,7 @@ using LenovoLegionToolkit.Lib.Automation.Pipeline;
 using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 using LenovoLegionToolkit.Lib.Automation.Steps;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Controls.Automation.Steps;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Automation;
@@ -175,11 +176,14 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 var pipeline = CreateAutomationPipeline();
                 await _automationProcessor.RunNowAsync(pipeline);
 
-                await SnackbarHelper.ShowAsync("Run now", "Action ran successfully!");
+                await SnackbarHelper.ShowAsync("Run now", "Completed successfully!");
             }
             catch (Exception ex)
             {
-                await SnackbarHelper.ShowAsync("Run now", ex.Message);
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Run now completed with errors", ex);
+
+                await SnackbarHelper.ShowAsync("Run now", "Completed with errors.");
             }
             finally
             {

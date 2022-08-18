@@ -8,6 +8,7 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.Lib.Utils;
 using NeoSmart.AsyncLock;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
@@ -83,7 +84,15 @@ namespace LenovoLegionToolkit.WPF.Utils
                         Header = menuPipeline.Name ?? "Unnamed",
                         Tag = QuickActionsTag,
                     };
-                    item.Click += async (s, e) => await _automationProcessor.RunNowAsync(menuPipeline);
+                    item.Click += async (s, e) =>
+                    {
+                        try
+                        {
+                            await _automationProcessor.RunNowAsync(menuPipeline);
+                        }
+                        catch (Exception) { }
+                    };
+
                     items.Insert(0, item);
                 }
 
