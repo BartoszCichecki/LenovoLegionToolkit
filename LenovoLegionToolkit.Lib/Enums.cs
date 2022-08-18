@@ -95,6 +95,18 @@ namespace LenovoLegionToolkit.Lib
         TouchpadOff,
     }
 
+    public enum OS
+    {
+        [Display(Name = "Windows 11")]
+        Windows11,
+        [Display(Name = "Windows 10")]
+        Windows10,
+        [Display(Name = "Windows 8")]
+        Windows8,
+        [Display(Name = "Windows 7")]
+        Windows7,
+    }
+
     public enum OverDriveState
     {
         Off,

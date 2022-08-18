@@ -99,23 +99,25 @@ namespace LenovoLegionToolkit.Lib
 
     public struct Package
     {
-        public string Id { get; }
-        public string Description { get; }
-        public string Version { get; }
-        public string Category { get; }
-        public string FileName { get; }
-        public int FileSize { get; }
-        public DateTime ReleaseDate { get; }
-        public string? Readme { get; }
-        public string FileLocation { get; }
+        public string Id { get; init; }
+        public string Title { get; init; }
+        public string Description { get; init; }
+        public string Version { get; init; }
+        public string Category { get; init; }
+        public string FileName { get; init; }
+        public string FileSize { get; init; }
+        public DateTime ReleaseDate { get; init; }
+        public string? Readme { get; init; }
+        public string FileLocation { get; init; }
 
-        private string? _index = null;
+        private string? _index;
 
         public string Index
         {
             get
             {
                 _index ??= new StringBuilder()
+                        .Append(Title)
                         .Append(Description)
                         .Append(Version)
                         .Append(Category)
@@ -123,27 +125,6 @@ namespace LenovoLegionToolkit.Lib
                         .ToString();
                 return _index;
             }
-        }
-
-        public Package(string id,
-            string description,
-            string version,
-            string category,
-            string fileName,
-            int fileSize,
-            DateTime releaseDate,
-            string? readme,
-            string fileLocation)
-        {
-            Id = id;
-            Description = description;
-            Version = version;
-            Category = category;
-            FileName = fileName;
-            FileSize = fileSize;
-            ReleaseDate = releaseDate;
-            Readme = readme;
-            FileLocation = fileLocation;
         }
     }
 

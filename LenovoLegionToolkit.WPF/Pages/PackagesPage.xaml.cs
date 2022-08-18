@@ -11,6 +11,8 @@ using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Threading;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.Lib.PackageDownloader;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
@@ -25,41 +27,34 @@ namespace LenovoLegionToolkit.WPF.Pages
     public partial class PackagesPage : Page, IProgress<float>
     {
         private readonly PackageDownloaderSettings _packageDownloaderSettings = IoCContainer.Resolve<PackageDownloaderSettings>();
-        private readonly PackageDownloader _packageDownloader = IoCContainer.Resolve<PackageDownloader>();
+        private readonly PackageDownloaderFactory _packageDownloaderFactory = IoCContainer.Resolve<PackageDownloaderFactory>();
+
+        private IPackageDownloader? _packageDownloader;
 
         private CancellationTokenSource? _getPackagesTokenSource;
 
-        private List<Package>? _packages;
-
         private CancellationTokenSource? _filterDebounceCancellationTokenSource;
+
+        private List<Package>? _packages;
 
         public PackagesPage()
         {
             Initialized += PackagesPage_Initialized;
+
             InitializeComponent();
         }
 
         private async void PackagesPage_Initialized(object? sender, EventArgs e)
         {
-            var mi = await Compatibility.GetMachineInformation();
-            var os = Environment.OSVersion;
-
-            if (os.Version >= new Version(10, 0, 22000, 0)) // Windows 11
-                _osComboBox.SelectedIndex = 0;
-            else if (os.Version >= new Version(10, 0, 0, 0)) // Windows 10
-                _osComboBox.SelectedIndex = 1;
-            else if (os.Version >= new Version(6, 2, 0, 0)) // Windows 8
-                _osComboBox.SelectedIndex = 2;
-            else if (os.Version >= new Version(6, 1, 0, 0)) // Windows 7
-                _osComboBox.SelectedIndex = 3;
-            else
-                _osComboBox.SelectedIndex = 0;
-
-            _machineTypeTextBox.Text = mi.MachineType;
+            _machineTypeTextBox.Text = (await Compatibility.GetMachineInformation()).MachineType;
+            _osComboBox.SetItems(Enum.GetValues<OS>(), OSExtensions.GetCurrent(), os => os.GetDisplayName());
             _downloadToText.PlaceholderText = _downloadToText.Text = KnownFolders.GetPath(KnownFolder.Downloads);
 
             _downloadPackagesButton.IsEnabled = true;
             _cancelDownloadPackagesButton.IsEnabled = true;
+
+            _sourcePrimaryRadio.Tag = PackageDownloaderFactory.Type.PCSupport;
+            _sourceSecondaryRadio.Tag = PackageDownloaderFactory.Type.Commercial;
         }
 
         public void Report(float value) => Dispatcher.Invoke(() =>
@@ -107,16 +102,8 @@ namespace LenovoLegionToolkit.WPF.Pages
                 _sortingComboBox.SelectedIndex = 2;
 
                 var machineType = _machineTypeTextBox.Text.Trim();
-                var os = _osComboBox.SelectedIndex switch
-                {
-                    0 => "win11",
-                    1 => "win10",
-                    2 => "win8",
-                    3 => "win7",
-                    _ => null,
-                };
 
-                if (string.IsNullOrWhiteSpace(machineType) || machineType.Length != 4 || string.IsNullOrWhiteSpace(os))
+                if (string.IsNullOrWhiteSpace(machineType) || machineType.Length != 4 || !_osComboBox.TryGetSelectedItem(out OS os))
                 {
                     await SnackbarHelper.ShowAsync("Something went wrong", "Check if Machine Type and OS are set correctly.");
                     return;
@@ -127,6 +114,14 @@ namespace LenovoLegionToolkit.WPF.Pages
 
                 var token = _getPackagesTokenSource.Token;
 
+                var packageDownloaderType = new[] {
+                    _sourcePrimaryRadio,
+                    _sourceSecondaryRadio,
+                }.Where(r => r.IsChecked == true)
+                 .Select(r => (PackageDownloaderFactory.Type)r.Tag)
+                 .First();
+
+                _packageDownloader = _packageDownloaderFactory.GetInstance(packageDownloaderType);
                 var packages = await _packageDownloader.GetPackagesAsync(machineType, os, this, token);
 
                 _packages = packages;
@@ -253,6 +248,9 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private void Reload()
         {
+            if (_packageDownloader is null)
+                return;
+
             _packagesStackPanel.Children.Clear();
 
             if (_packages is null || !_packages.Any())
@@ -292,7 +290,7 @@ namespace LenovoLegionToolkit.WPF.Pages
         {
             var result = _sortingComboBox.SelectedIndex switch
             {
-                0 => packages.OrderBy(p => p.Description),
+                0 => packages.OrderBy(p => p.Title),
                 1 => packages.OrderBy(p => p.Category),
                 2 => packages.OrderByDescending(p => p.ReleaseDate),
                 _ => packages.AsEnumerable(),

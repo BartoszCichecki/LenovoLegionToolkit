@@ -18,10 +18,11 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="150" />
                 </Grid.ColumnDefinitions>
 
                 <TextBlock
@@ -36,19 +37,10 @@
                 </TextBlock>
 
                 <TextBlock
-                    x:Name="_descriptionTextBlock"
+                    x:Name="_categoryTextBlock"
                     Grid.Row="1"
                     Grid.Column="0"
-                    Margin="0,8,0,4"
-                    FontSize="14"
-                    FontWeight="Medium"
-                    TextTrimming="CharacterEllipsis" />
-
-                <TextBlock
-                    x:Name="_categoryTextBlock"
-                    Grid.Row="2"
-                    Grid.Column="0"
-                    Margin="0,0,0,4"
+                    Margin="0,4,0,8"
                     FontWeight="Medium">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource TextFillColorTertiary}" />
@@ -56,9 +48,30 @@
                 </TextBlock>
 
                 <TextBlock
-                    x:Name="_detailTextBlock"
+                    x:Name="_titleTextBlock"
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    TextTrimming="CharacterEllipsis" />
+
+                <TextBlock
+                    x:Name="_descriptionTextBlock"
                     Grid.Row="3"
                     Grid.Column="0"
+                    Margin="0,8,0,8"
+                    FontSize="13"
+                    TextWrapping="Wrap">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{DynamicResource TextFillColorSecondary}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+
+                <TextBlock
+                    x:Name="_detailTextBlock"
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Margin="0,4,0,0"
                     TextTrimming="CharacterEllipsis">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource TextFillColorTertiary}" />
@@ -67,7 +80,7 @@
 
                 <TextBlock
                     x:Name="_warningTextBlock"
-                    Grid.Row="4"
+                    Grid.Row="5"
                     Grid.Column="0"
                     Margin="0,4,0,0"
                     Foreground="{DynamicResource SystemFillColorCautionBrush}"
@@ -79,19 +92,19 @@
                 <StackPanel
                     x:Name="_idleStackPanel"
                     Grid.Row="0"
-                    Grid.RowSpan="5"
+                    Grid.RowSpan="6"
                     Grid.Column="1"
+                    HorizontalAlignment="Right"
                     Orientation="Horizontal">
 
                     <wpfui:Button
                         x:Name="_readmeButton"
-                        Margin="8,0,0,0"
+                        Margin="0,0,8,0"
                         Click="ReadmeButton_Click"
                         FontSize="18"
                         Icon="DocumentBulletList24" />
 
                     <wpfui:Button
-                        Margin="8,0,8,0"
                         Click="DownloadButton_Click"
                         FontSize="18"
                         Icon="ArrowDownload24" />
@@ -101,21 +114,19 @@
                 <StackPanel
                     x:Name="_downloadingStackPanel"
                     Grid.Row="0"
-                    Grid.RowSpan="5"
+                    Grid.RowSpan="6"
                     Grid.Column="1"
+                    HorizontalAlignment="Right"
                     Orientation="Horizontal"
                     Visibility="Collapsed">
 
-                    <Label
-                        x:Name="_downloadProgressLabel"
-                        Margin="8,0,0,0"
-                        VerticalContentAlignment="Center" />
+                    <Label x:Name="_downloadProgressLabel" VerticalContentAlignment="Center" />
 
                     <wpfui:ProgressRing
                         x:Name="_downloadProgressRing"
                         Width="24"
                         Height="24"
-                        Margin="8,0,0,0"
+                        Margin="4,0,0,0"
                         IsIndeterminate="true"
                         RenderTransformOrigin="0.5,0.5">
                         <wpfui:ProgressRing.RenderTransform>
@@ -127,7 +138,7 @@
                     </wpfui:ProgressRing>
 
                     <wpfui:Button
-                        Margin="16,0,8,0"
+                        Margin="8,0,0,0"
                         Click="CancelDownloadButton_Click"
                         FontSize="18"
                         Icon="Dismiss24" />
