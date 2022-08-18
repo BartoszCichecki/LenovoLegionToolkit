@@ -175,11 +175,11 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 var pipeline = CreateAutomationPipeline();
                 await _automationProcessor.RunNowAsync(pipeline);
 
-                await SnackbarHelper.ShowAsync("Success", "Action ran successfully!");
+                await SnackbarHelper.ShowAsync("Run now", "Action ran successfully!");
             }
             catch (Exception ex)
             {
-                await SnackbarHelper.ShowAsync("Run failed", ex.Message);
+                await SnackbarHelper.ShowAsync("Run now", ex.Message);
             }
             finally
             {

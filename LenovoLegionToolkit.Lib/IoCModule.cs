@@ -3,6 +3,7 @@ using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.Lib.PackageDownloader;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
@@ -73,7 +74,10 @@ namespace LenovoLegionToolkit.Lib
 
             builder.Register<UpdateChecker>();
             builder.Register<WarrantyChecker>();
-            builder.Register<PackageDownloader>();
+
+            builder.Register<PCSupportPackageDownloader>();
+            builder.Register<CommercialPackageDownloader>();
+            builder.Register<PackageDownloaderFactory>();
         }
     }
 }

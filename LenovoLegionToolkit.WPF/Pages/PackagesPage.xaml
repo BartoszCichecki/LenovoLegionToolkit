@@ -46,8 +46,9 @@
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition MaxWidth="350" />
+                            <ColumnDefinition Width="3*" />
                             <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
                         <Label
@@ -90,12 +91,7 @@
                             x:Name="_osComboBox"
                             Grid.Row="1"
                             Grid.Column="1"
-                            Margin="8,8,0,0">
-                            <ComboBoxItem Content="Windows 11" />
-                            <ComboBoxItem Content="Windows 10" />
-                            <ComboBoxItem Content="Windows 8" />
-                            <ComboBoxItem Content="Windows 7" />
-                        </ComboBox>
+                            Margin="8,8,0,0" />
                         <Grid
                             Grid.Row="2"
                             Grid.Column="1"
@@ -124,13 +120,32 @@
 
                         </Grid>
 
+                        <StackPanel
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            Grid.Column="4"
+                            HorizontalAlignment="Right">
+
+                            <TextBlock Margin="0,0,0,4" Text="Source:" />
+                            <RadioButton
+                                x:Name="_sourcePrimaryRadio"
+                                Content="Primary (Recommended)"
+                                GroupName="source"
+                                IsChecked="True"
+                                ToolTip="Same as Lenovo PC Support" />
+                            <RadioButton
+                                x:Name="_sourceSecondaryRadio"
+                                Content="Secondary"
+                                GroupName="source"
+                                ToolTip="Same as Lenovo DriverGrabber" />
+
+                        </StackPanel>
+
                         <wpfui:Button
                             x:Name="_downloadPackagesButton"
-                            Grid.Row="0"
-                            Grid.RowSpan="3"
-                            Grid.Column="3"
-                            Width="150"
-                            HorizontalAlignment="Right"
+                            Grid.Row="2"
+                            Grid.Column="4"
+                            HorizontalAlignment="Stretch"
                             VerticalAlignment="Bottom"
                             Appearance="Primary"
                             Click="DownloadPackagesButton_Click"
@@ -139,11 +154,9 @@
 
                         <wpfui:Button
                             x:Name="_cancelDownloadPackagesButton"
-                            Grid.Row="0"
-                            Grid.RowSpan="3"
-                            Grid.Column="3"
-                            Width="150"
-                            HorizontalAlignment="Right"
+                            Grid.Row="2"
+                            Grid.Column="4"
+                            HorizontalAlignment="Stretch"
                             VerticalAlignment="Bottom"
                             Appearance="Secondary"
                             Click="CancelDownloadPackagesButton_Click"
