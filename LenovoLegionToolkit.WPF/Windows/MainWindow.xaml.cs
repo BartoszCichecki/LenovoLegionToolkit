@@ -97,6 +97,7 @@ namespace LenovoLegionToolkit.WPF.Windows
                     SendToTray();
                     break;
                 case WindowState.Normal:
+                    RestoreWindowSize();
                     BringToForeground();
                     break;
             }
