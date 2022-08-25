@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
-using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 using LenovoLegionToolkit.Lib.Automation.Utils;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
@@ -48,40 +47,12 @@ namespace LenovoLegionToolkit.Lib.Automation
 
         private async void ProcessListener_Changed(object? sender, ProcessEventInfo e)
         {
-            var potentialMatch = _pipelines.Select(p => p.Trigger)
-                .Where(t => t is IProcessesAutomationPipelineTrigger)
-                .Select(async t =>
-                {
-                    if (t is null) return false;
-                    return await t.IsSatisfiedAsync(e).ConfigureAwait(false);
-                })
-                .Select(t => t.Result)
-                .Where(t => t)
-                .Any();
-
-            if (!potentialMatch)
-                return;
-
-            await RunAsync(e).ConfigureAwait(false);
+            await RunAsync(new ProcessAutomationEvent { ProcessEventInfo = e }).ConfigureAwait(false);
         }
 
         private async void PowerStateListener_Changed(object? sender, EventArgs e)
         {
-            var potentialMatch = _pipelines.Select(p => p.Trigger)
-                .Where(t => t is IPowerAutomationPipelineTrigger)
-                .Select(async t =>
-                {
-                    if (t is null) return false;
-                    return await t.IsSatisfiedAsync(e).ConfigureAwait(false);
-                })
-                .Select(t => t.Result)
-                .Where(t => t)
-                .Any();
-
-            if (!potentialMatch)
-                return;
-
-            await RunAsync(e).ConfigureAwait(false);
+            await RunAsync(new PowerAutomationEvent()).ConfigureAwait(false);
         }
 
         public async Task InitializeAsync()
@@ -129,7 +100,7 @@ namespace LenovoLegionToolkit.Lib.Automation
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Pipeline run on startup pending...");
 
-            _ = Task.Run(RunAsync);
+            _ = Task.Run(() => RunAsync(new StartupAutomationEvent()));
         }
 
         public async Task RunNowAsync(AutomationPipeline pipeline)
@@ -159,9 +130,7 @@ namespace LenovoLegionToolkit.Lib.Automation
             }
         }
 
-        private Task RunAsync() => RunAsync(null);
-
-        private async Task RunAsync(object? context)
+        private async Task RunAsync(IAutomationEvent automationEvent)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Run pending...");
@@ -194,7 +163,7 @@ namespace LenovoLegionToolkit.Lib.Automation
 
                     try
                     {
-                        if (pipeline.Trigger is null || !await pipeline.Trigger.IsSatisfiedAsync(context).ConfigureAwait(false))
+                        if (pipeline.Trigger is null || !await pipeline.Trigger.IsSatisfiedAsync(automationEvent).ConfigureAwait(false))
                         {
                             if (Log.Instance.IsTraceEnabled)
                                 Log.Instance.Trace($"Pipeline triggers not satisfied. [name={pipeline.Name}, trigger={pipeline.Trigger}, steps.Count={pipeline.Steps.Count}]");
@@ -213,13 +182,6 @@ namespace LenovoLegionToolkit.Lib.Automation
                     {
                         if (Log.Instance.IsTraceEnabled)
                             Log.Instance.Trace($"Pipeline run failed. [name={pipeline.Name}, trigger={pipeline.Trigger}]", ex);
-                    }
-
-                    if (pipeline.IsExclusive)
-                    {
-                        if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Pipeline is exclusive. Breaking. [name={pipeline.Name}, trigger={pipeline.Trigger}, steps.Count={pipeline.Steps.Count}]");
-                        break;
                     }
                 }
 

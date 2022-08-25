@@ -16,9 +16,12 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
         [JsonConstructor]
         public ProcessesStopRunningAutomationPipelineTrigger(ProcessInfo[] processes) => Processes = processes;
 
-        public Task<bool> IsSatisfiedAsync(object? context)
+        public Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent)
         {
-            if (context is not ProcessEventInfo pei || pei.Type != ProcessEventInfoType.Stopped)
+            if (automationEvent is StartupAutomationEvent)
+                return Task.FromResult(false);
+
+            if (automationEvent is not ProcessAutomationEvent pae || pae.ProcessEventInfo.Type != ProcessEventInfoType.Stopped)
                 return Task.FromResult(false);
 
             var result = Processes.SelectMany(p => Process.GetProcessesByName(p.Name)).IsEmpty();
