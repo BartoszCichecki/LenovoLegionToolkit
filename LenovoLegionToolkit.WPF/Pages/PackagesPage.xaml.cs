@@ -86,6 +86,9 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private async void DownloadPackagesButton_Click(object sender, RoutedEventArgs e)
         {
+            if (!await ShouldInterruptDownloadsIfRunning())
+                return;
+
             var errored = false;
             try
             {
@@ -171,6 +174,9 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private async void FilterTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if (!await ShouldInterruptDownloadsIfRunning())
+                return;
+
             try
             {
                 if (_packages is null)
@@ -189,8 +195,11 @@ namespace LenovoLegionToolkit.WPF.Pages
             catch (TaskCanceledException) { }
         }
 
-        private void SortingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void SortingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (!await ShouldInterruptDownloadsIfRunning())
+                return;
+
             if (_packages is null)
                 return;
 
@@ -244,6 +253,20 @@ namespace LenovoLegionToolkit.WPF.Pages
             cm.Items.Add(hideMenuItem);
             cm.Items.Add(hideAllMenuItem);
             return cm;
+        }
+
+        private async Task<bool> ShouldInterruptDownloadsIfRunning()
+        {
+            if (_packagesStackPanel?.Children is null)
+                return true;
+
+            if (_packagesStackPanel.Children.ToArray().OfType<PackageControl>().Where(pc => pc.IsDownloading).IsEmpty())
+                return true;
+
+            var result = await MessageBoxHelper.ShowAsync(this,
+                "Download in progress",
+                "Changing sorting, filtering results, hiding packages or refreshing the list will stop the download. Do you want to continue?");
+            return result;
         }
 
         private void Reload()

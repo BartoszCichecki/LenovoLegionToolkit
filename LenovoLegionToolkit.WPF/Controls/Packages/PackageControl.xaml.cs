@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,6 +21,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Packages
         private CancellationTokenSource? _downloadPackageTokenSource;
 
         public Func<string> _getDownloadPath;
+
+        public bool IsDownloading { get; private set; }
 
         public PackageControl(IPackageDownloader packageDownloader, Package package, Func<string> getDownloadPath)
         {
@@ -69,6 +72,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Packages
 
         private async void DownloadButton_Click(object sender, RoutedEventArgs e)
         {
+            IsDownloading = true;
+
             var result = false;
 
             try
@@ -86,6 +91,13 @@ namespace LenovoLegionToolkit.WPF.Controls.Packages
                 result = true;
             }
             catch (TaskCanceledException) { }
+            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Not found 404.", ex);
+
+                SnackbarHelper.Show("The file seems to be gone", "Server returned code 404.", true);
+            }
             catch (HttpRequestException ex)
             {
                 if (Log.Instance.IsTraceEnabled)
@@ -106,6 +118,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Packages
                 _downloadingStackPanel.Visibility = Visibility.Collapsed;
                 _downloadProgressRing.Progress = 0;
                 _downloadProgressLabel.Content = null;
+
+                IsDownloading = false;
             }
 
             if (result)
