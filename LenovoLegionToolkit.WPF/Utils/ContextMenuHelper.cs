@@ -8,7 +8,6 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
 using LenovoLegionToolkit.Lib.Extensions;
-using LenovoLegionToolkit.Lib.Utils;
 using NeoSmart.AsyncLock;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
