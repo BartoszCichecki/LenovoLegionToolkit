@@ -25,7 +25,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             {
                 try
                 {
-                    var timeSpaneSinceLastUpdate = DateTime.Now - _lastUpdate;
+                    var timeSpaneSinceLastUpdate = DateTime.UtcNow - _lastUpdate;
                     var shouldCheck = timeSpaneSinceLastUpdate > _minimumTimeSpanForRefresh;
 
                     if (!shouldCheck)
@@ -64,7 +64,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                 }
                 finally
                 {
-                    _lastUpdate = DateTime.Now;
+                    _lastUpdate = DateTime.UtcNow;
                 }
             }
         }

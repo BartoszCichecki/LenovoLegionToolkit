@@ -7,6 +7,7 @@
 	<ItemGroup>
 		<PackageReference Include="Autofac" Version="6.4.0" />
 		<PackageReference Include="Ben.Demystifier" Version="0.4.1" />
+		<PackageReference Include="CoordinateSharp" Version="2.13.1.1" />
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
 		<PackageReference Include="Microsoft.Win32.SystemEvents" Version="6.0.1" />
 		<PackageReference Include="NAudio.Wasapi" Version="2.1.0" />

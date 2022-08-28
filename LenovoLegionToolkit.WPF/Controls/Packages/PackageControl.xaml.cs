@@ -43,7 +43,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Packages
 
             _readmeButton.Visibility = string.IsNullOrWhiteSpace(package.Readme) ? Visibility.Collapsed : Visibility.Visible;
 
-            var showWarning = package.ReleaseDate < DateTime.Now.AddYears(-1);
+            var showWarning = package.ReleaseDate < DateTime.UtcNow.AddYears(-1);
             _warningTextBlock.Visibility = showWarning ? Visibility.Visible : Visibility.Collapsed;
         }
 

@@ -354,6 +354,12 @@ namespace LenovoLegionToolkit.Lib
         public StepperValue WithValue(int value) => new(value, Min, Max, Step);
     }
 
+    public struct Time
+    {
+        public int Hour { get; init; }
+        public int Minute { get; init; }
+    }
+
     public struct Update
     {
         public Version Version { get; }

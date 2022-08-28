@@ -11,8 +11,8 @@ namespace LenovoLegionToolkit.Lib.Features
 
         public HybridModeFeature(GSyncFeature gsyncFeature, IGPUModeFeature igpuModeFeature)
         {
-            _gsyncFeature = gsyncFeature;
-            _igpuModeFeature = igpuModeFeature;
+            _gsyncFeature = gsyncFeature ?? throw new ArgumentNullException(nameof(gsyncFeature));
+            _igpuModeFeature = igpuModeFeature ?? throw new ArgumentNullException(nameof(igpuModeFeature));
         }
 
         public async Task<HybridModeState[]> GetAllStatesAsync()
