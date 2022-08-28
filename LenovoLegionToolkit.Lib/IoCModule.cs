@@ -21,6 +21,7 @@ namespace LenovoLegionToolkit.Lib
             builder.Register<RGBKeyboardSettings>();
             builder.Register<GodModeSettings>();
             builder.Register<PackageDownloaderSettings>();
+            builder.Register<SunriseSunsetSettings>();
 
             builder.Register<AlwaysOnUSBFeature>();
             builder.Register<BatteryFeature>();
@@ -60,6 +61,9 @@ namespace LenovoLegionToolkit.Lib
             builder.Register<SpecialKeyListener>()
                 .OnActivating(e => e.Instance.Start())
                 .AutoActivate();
+            builder.Register<TimeListener>()
+                .OnActivating(e => e.Instance.Start())
+                .AutoActivate();
             builder.Register<WhiteKeyboardBacklightListener>()
                 .OnActivating(e => e.Instance.Start())
                 .AutoActivate();
@@ -78,6 +82,8 @@ namespace LenovoLegionToolkit.Lib
             builder.Register<PCSupportPackageDownloader>();
             builder.Register<CommercialPackageDownloader>();
             builder.Register<PackageDownloaderFactory>();
+
+            builder.Register<SunriseSunset>();
         }
     }
 }

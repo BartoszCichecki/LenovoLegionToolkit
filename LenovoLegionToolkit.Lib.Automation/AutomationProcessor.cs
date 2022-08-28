@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
+using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 using LenovoLegionToolkit.Lib.Automation.Utils;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
@@ -16,6 +17,7 @@ namespace LenovoLegionToolkit.Lib.Automation
         private readonly AutomationSettings _settings;
         private readonly PowerStateListener _powerStateListener;
         private readonly ProcessListener _processListener;
+        private readonly TimeListener _timeListener;
 
         private readonly AsyncLock _ioLock = new();
         private readonly AsyncLock _runLock = new();
@@ -38,21 +40,52 @@ namespace LenovoLegionToolkit.Lib.Automation
 
         public event EventHandler<List<AutomationPipeline>>? PipelinesChanged;
 
-        public AutomationProcessor(AutomationSettings settings, PowerStateListener powerStateListener, ProcessListener processListener)
+        public AutomationProcessor(AutomationSettings settings, PowerStateListener powerStateListener, ProcessListener processListener, TimeListener timeListener)
         {
             _settings = settings ?? throw new ArgumentNullException(nameof(settings));
             _powerStateListener = powerStateListener ?? throw new ArgumentNullException(nameof(powerStateListener));
             _processListener = processListener ?? throw new ArgumentNullException(nameof(processListener));
+            _timeListener = timeListener ?? throw new ArgumentNullException(nameof(timeListener));
         }
 
-        private async void ProcessListener_Changed(object? sender, ProcessEventInfo e)
+        private async void ProcessListener_Changed(object? sender, ProcessEventInfo processEventInfo)
         {
-            await RunAsync(new ProcessAutomationEvent { ProcessEventInfo = e }).ConfigureAwait(false);
+            var e = new ProcessAutomationEvent { ProcessEventInfo = processEventInfo };
+
+            var potentialMatch = _pipelines.Select(p => p.Trigger)
+                .Where(t => t is not null)
+                .Where(t => t is IProcessesAutomationPipelineTrigger)
+                .Select(async t => await t!.IsSatisfiedAsync(e).ConfigureAwait(false))
+                .Select(t => t.Result)
+                .Where(t => t)
+                .Any();
+
+            if (!potentialMatch)
+                return;
+
+            await RunAsync(e).ConfigureAwait(false);
         }
 
-        private async void PowerStateListener_Changed(object? sender, EventArgs e)
+        private async void PowerStateListener_Changed(object? sender, EventArgs _)
         {
-            await RunAsync(new PowerAutomationEvent()).ConfigureAwait(false);
+            var e = new PowerAutomationEvent();
+
+            var potentialMatch = _pipelines.Select(p => p.Trigger)
+                .Where(t => t is not null)
+                .Where(t => t is IPowerAutomationPipelineTrigger)
+                .Select(async t => await t!.IsSatisfiedAsync(e).ConfigureAwait(false))
+                .Select(t => t.Result)
+                .Where(t => t)
+                .Any();
+
+            if (!potentialMatch)
+                return;
+
+            await RunAsync(e).ConfigureAwait(false);
+        }
+
+        private void TimeListener_Changed(object? sender, Time e)
+        {
         }
 
         public async Task InitializeAsync()
@@ -64,6 +97,7 @@ namespace LenovoLegionToolkit.Lib.Automation
 
                 _powerStateListener.Changed += PowerStateListener_Changed;
                 _processListener.Changed += ProcessListener_Changed;
+                _timeListener.Changed += TimeListener_Changed;
             }
         }
 
@@ -182,6 +216,13 @@ namespace LenovoLegionToolkit.Lib.Automation
                     {
                         if (Log.Instance.IsTraceEnabled)
                             Log.Instance.Trace($"Pipeline run failed. [name={pipeline.Name}, trigger={pipeline.Trigger}]", ex);
+                    }
+
+                    if (pipeline.IsExclusive)
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Pipeline is exclusive. Breaking. [name={pipeline.Name}, trigger={pipeline.Trigger}, steps.Count={pipeline.Steps.Count}]");
+                        break;
                     }
                 }
 

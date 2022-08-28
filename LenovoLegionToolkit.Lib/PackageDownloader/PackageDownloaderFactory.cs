@@ -15,8 +15,8 @@ namespace LenovoLegionToolkit.Lib.PackageDownloader
 
         public PackageDownloaderFactory(PCSupportPackageDownloader pcSupportPackageDownloader, CommercialPackageDownloader commercialPackageDownloader)
         {
-            _pcSupportPackageDownloader = pcSupportPackageDownloader;
-            _commercialPackageDownloader = commercialPackageDownloader;
+            _pcSupportPackageDownloader = pcSupportPackageDownloader ?? throw new ArgumentNullException(nameof(pcSupportPackageDownloader));
+            _commercialPackageDownloader = commercialPackageDownloader ?? throw new ArgumentNullException(nameof(commercialPackageDownloader));
         }
 
         public IPackageDownloader GetInstance(Type type) => type switch

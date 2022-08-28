@@ -49,6 +49,15 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             }
         };
 
+        private readonly CheckBox _isExclusiveCheckBox = new()
+        {
+            HorizontalAlignment = HorizontalAlignment.Left,
+            Content = "Exclusive",
+            ToolTip = "Do not execute further actions when this action runs.",
+            Width = 100,
+            Margin = new(0, 0, 8, 0),
+        };
+
         private readonly Button _runNowButton = new()
         {
             Content = "Run now",
@@ -89,6 +98,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 .OfType<AbstractAutomationStepControl>()
                 .Select(s => s.CreateAutomationStep())
                 .ToList(),
+            IsExclusive = _isExclusiveCheckBox.IsChecked ?? false,
         };
 
         public string? GetName() => AutomationPipeline.Name;
@@ -113,6 +123,16 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 _stepsStackPanel.Children.Add(control);
             }
 
+            if (AutomationPipeline.Trigger is not null)
+            {
+                _isExclusiveCheckBox.IsChecked = AutomationPipeline.IsExclusive;
+                _isExclusiveCheckBox.Checked += (s, e) => OnChanged?.Invoke(this, EventArgs.Empty);
+            }
+            else
+            {
+                _isExclusiveCheckBox.Visibility = Visibility.Hidden;
+            }
+
             _runNowButton.Click += async (s, e) => await RunAsync();
 
             _addStepButton.ContextMenu = await CreateAddStepContextMenuAsync();
@@ -124,10 +144,12 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
             _deletePipelineButton.Click += (s, e) => OnDelete?.Invoke(this, EventArgs.Empty);
 
+            Grid.SetColumn(_isExclusiveCheckBox, 0);
             Grid.SetColumn(_runNowButton, 1);
             Grid.SetColumn(_addStepButton, 2);
             Grid.SetColumn(_deletePipelineButton, 3);
 
+            _buttonsStackPanel.Children.Add(_isExclusiveCheckBox);
             _buttonsStackPanel.Children.Add(_runNowButton);
             _buttonsStackPanel.Children.Add(_addStepButton);
             _buttonsStackPanel.Children.Add(_deletePipelineButton);
