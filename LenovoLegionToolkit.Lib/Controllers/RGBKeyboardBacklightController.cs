@@ -141,86 +141,19 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         public async Task SetPresetAsync(RGBKeyboardBacklightPreset preset)
         {
-            using (await _ioLock.LockAsync().ConfigureAwait(false))
-            {
-#if !MOCK_RGB
-                var handle = DriverHandle;
-                if (handle is null)
-                    throw new InvalidOperationException("RGB Keyboard unsupported.");
-#endif
-
-                await ThrowIfVantageEnabled().ConfigureAwait(false);
-
-                var state = _settings.Store.State;
-                var presets = state.Presets;
-
-                _settings.Store.State = new(preset, presets);
-                _settings.SynchronizeStore();
-
-                RGBKeyboardStateEx str;
-                if (preset == RGBKeyboardBacklightPreset.Off)
-                    str = CreateOffState();
-                else
-                    str = Convert(state.Presets[preset]);
-
-                await SendToDevice(str).ConfigureAwait(false);
-            }
+            await SetStateAsync(new(preset, _settings.Store.State.Presets)).ConfigureAwait(false);
         }
 
         public async Task SetNextPresetAsync()
         {
-            using (await _ioLock.LockAsync().ConfigureAwait(false))
-            {
-#if !MOCK_RGB
-                var handle = DriverHandle;
-                if (handle is null)
-                    throw new InvalidOperationException("RGB Keyboard unsupported.");
-#endif
-
-                await ThrowIfVantageEnabled().ConfigureAwait(false);
-
-                var state = _settings.Store.State;
-
-                var newPreset = state.SelectedPreset.Next();
-                var presets = state.Presets;
-
-                _settings.Store.State = new(newPreset, presets);
-                _settings.SynchronizeStore();
-
-                RGBKeyboardStateEx str;
-                if (newPreset == RGBKeyboardBacklightPreset.Off)
-                    str = CreateOffState();
-                else
-                    str = Convert(state.Presets[newPreset]);
-
-                await SendToDevice(str).ConfigureAwait(false);
-            }
+            await SetPresetAsync(_settings.Store.State.SelectedPreset.Next()).ConfigureAwait(false);
         }
 
         private async Task SetCurrentPresetAsync()
         {
-            using (await _ioLock.LockAsync().ConfigureAwait(false))
-            {
-#if !MOCK_RGB
-                var handle = DriverHandle;
-                if (handle is null)
-                    throw new InvalidOperationException("RGB Keyboard unsupported.");
-#endif
+            await SetPresetAsync(_settings.Store.State.SelectedPreset).ConfigureAwait(false);
 
-                await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-                var state = _settings.Store.State;
-
-                var preset = state.SelectedPreset;
-
-                RGBKeyboardStateEx str;
-                if (preset == RGBKeyboardBacklightPreset.Off)
-                    str = CreateOffState();
-                else
-                    str = Convert(state.Presets[preset]);
-
-                await SendToDevice(str).ConfigureAwait(false);
-            }
         }
 
         private async Task ThrowIfVantageEnabled()
