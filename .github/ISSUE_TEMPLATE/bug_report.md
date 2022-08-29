@@ -7,10 +7,23 @@ assignees: ''
 
 ---
 
+<!-- 
+
+!!! IMPORTANT !!!
+
+Please fill out this template, don't delete it!
+The more information you provide, the easier it will be for me to fix the bug.
+
+Issues that do not follow the template and contain insufficient information will be closed.
+
+-->
+
 **Describe the bug**
+
 A clear and concise description of what the bug is.
 
 **To Reproduce**
+
 Steps to reproduce the behavior:
 1. Go to '...'
 2. Click on '....'
@@ -18,9 +31,11 @@ Steps to reproduce the behavior:
 4. See error
 
 **Expected behavior**
+
 A clear and concise description of what you expected to happen.
 
 **Screenshots**
+
 If applicable, add screenshots to help explain your problem.
 
 **Environment (please complete the following information):**
@@ -32,4 +47,5 @@ If applicable, add screenshots to help explain your problem.
  - Do you have FN Keys service disabled with LLT? [Yes/No]
 
 **Logs**
+
 You might consider running with `--trace` parameter and attaching the log files. See README for details.
