@@ -145,6 +145,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 catch
                 {
                     await SnackbarHelper.ShowAsync("Couldn't disable Vantage", "Vantage may have not been disabled correctly", true);
+                    return;
                 }
 
                 try
@@ -182,6 +183,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 catch
                 {
                     await SnackbarHelper.ShowAsync("Couldn't enable Vantage", "Vantage may have not been enabled correctly", true);
+                    return;
                 }
             }
 
@@ -208,6 +210,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 catch
                 {
                     await SnackbarHelper.ShowAsync("Couldn't disnable Fn Keys", "Fn Keys may have not been disabled correctly", true);
+                    return;
                 }
             }
             else
@@ -219,6 +222,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 catch
                 {
                     await SnackbarHelper.ShowAsync("Couldn't enable Fn Keys", "Fn Keys may have not been enabled correctly", true);
+                    return;
                 }
             }
 
