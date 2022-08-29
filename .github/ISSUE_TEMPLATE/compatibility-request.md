@@ -8,12 +8,18 @@ assignees: ''
 ---
 
 <!-- 
-IMPORTANT!
-Compatibility with devices that are not part of Legion series will not be added.
- -->
 
+!!! IMPORTANT !!!
+
+Please fill out this template, don't delete it!
+The more information you provide, the better.
+
+Issues that do not follow the template and contain insufficient information will be closed.
+
+-->
 
 **First and foremost**
+
 Did you read the whole README? [Yes/No]
 
 **Environment (please complete the following information):**
@@ -23,13 +29,17 @@ Did you read the whole README? [Yes/No]
  - Do you have Vantage installed? [Yes/No]
 
 **List of features that are working as expected**
+
 [e.g. Power Modes, Hybrid Mode etc.]
 
 **List of features that seem to not work**
+
 [e.g. Power Modes, Hybrid Mode etc.]
 
 **List of features that crash the app**
+
 [e.g. Power Modes, Hybrid Mode etc.]
 
 **Additional context**
+
 Add any other context or screenshots about the feature request here.
