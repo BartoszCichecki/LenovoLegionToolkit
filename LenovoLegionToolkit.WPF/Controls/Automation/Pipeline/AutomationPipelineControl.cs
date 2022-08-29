@@ -220,15 +220,28 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             if (!string.IsNullOrWhiteSpace(AutomationPipeline.Name) && AutomationPipeline.Trigger is not null)
                 result += $" | {AutomationPipeline.Trigger.DisplayName}";
 
-            if (AutomationPipeline.Trigger is IProcessesAutomationPipelineTrigger trigger && trigger.Processes.Any())
-                result += $" | Apps: {string.Join(", ", trigger.Processes.Select(p => p.Name))}";
+            if (AutomationPipeline.Trigger is IProcessesAutomationPipelineTrigger pt && pt.Processes.Any())
+                result += $" | Apps: {string.Join(", ", pt.Processes.Select(p => p.Name))}";
+
+            if (AutomationPipeline.Trigger is TimeAutomationPipelineTrigger tt)
+            {
+                if (tt.IsSunrise)
+                    result += " | At sunrise";
+                if (tt.IsSunset)
+                    result += " | At sunset";
+                if (tt.Time is not null)
+                {
+                    var local = DateTimeExtensions.UtcFrom(tt.Time.Value.Hour, tt.Time.Value.Minute).ToLocalTime();
+                    result += $" | At {local.Hour:D2}:{local.Minute:D2}";
+                }
+            }
 
             return result;
         }
 
         private UIElement? GenerateAccessory()
         {
-            if (AutomationPipeline.Trigger is IProcessesAutomationPipelineTrigger t)
+            if (AutomationPipeline.Trigger is IProcessesAutomationPipelineTrigger pt)
             {
                 var button = new Button
                 {
@@ -238,7 +251,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 };
                 button.Click += (s, e) =>
                 {
-                    var window = new PickProcessesWindow(t.Processes)
+                    var window = new PickProcessesWindow(pt.Processes)
                     {
                         Owner = Window.GetWindow(this),
                         WindowStartupLocation = WindowStartupLocation.CenterOwner,
@@ -246,7 +259,37 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                     };
                     window.OnSave += (s, e) =>
                     {
-                        AutomationPipeline.Trigger = t.DeepCopy(e);
+                        AutomationPipeline.Trigger = pt.DeepCopy(e);
+                        _cardHeaderControl.Subtitle = GenerateSubtitle();
+                        _cardHeaderControl.Accessory = GenerateAccessory();
+                        _cardHeaderControl.SubtitleToolTip = _cardHeaderControl.Subtitle;
+                        OnChanged?.Invoke(this, EventArgs.Empty);
+                    };
+                    window.ShowDialog();
+                };
+                return button;
+            }
+
+            if (AutomationPipeline.Trigger is TimeAutomationPipelineTrigger tt)
+            {
+
+                var button = new Button
+                {
+                    Content = "Configure",
+                    Margin = new(16, 0, 16, 0),
+                    Width = 120,
+                };
+                button.Click += (s, e) =>
+                {
+                    var window = new TimeWindow(tt.IsSunrise, tt.IsSunset, tt.Time)
+                    {
+                        Owner = Window.GetWindow(this),
+                        WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                        ShowInTaskbar = false,
+                    };
+                    window.OnSave += (s, e) =>
+                    {
+                        AutomationPipeline.Trigger = tt.DeepCopy(e.Item1, e.Item2, e.Item3);
                         _cardHeaderControl.Subtitle = GenerateSubtitle();
                         _cardHeaderControl.Accessory = GenerateAccessory();
                         _cardHeaderControl.SubtitleToolTip = _cardHeaderControl.Subtitle;

@@ -84,8 +84,22 @@ namespace LenovoLegionToolkit.Lib.Automation
             await RunAsync(e).ConfigureAwait(false);
         }
 
-        private void TimeListener_Changed(object? sender, Time e)
+        private async void TimeListener_Changed(object? sender, Time time)
         {
+            var e = new TimeAutomationEvent { Time = time };
+
+            var potentialMatch = _pipelines.Select(p => p.Trigger)
+                .Where(t => t is not null)
+                .Where(t => t is TimeAutomationPipelineTrigger)
+                .Select(async t => await t!.IsSatisfiedAsync(e).ConfigureAwait(false))
+                .Select(t => t.Result)
+                .Where(t => t)
+                .Any();
+
+            if (!potentialMatch)
+                return;
+
+            await RunAsync(e).ConfigureAwait(false);
         }
 
         public async Task InitializeAsync()

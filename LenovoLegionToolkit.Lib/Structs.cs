@@ -358,6 +358,18 @@ namespace LenovoLegionToolkit.Lib
     {
         public int Hour { get; init; }
         public int Minute { get; init; }
+
+        #region Equality
+
+        public override bool Equals(object? obj) => obj is Time time && Hour == time.Hour && Minute == time.Minute;
+
+        public override int GetHashCode() => HashCode.Combine(Hour, Minute);
+
+        public static bool operator ==(Time left, Time right) => left.Equals(right);
+
+        public static bool operator !=(Time left, Time right) => !(left == right);
+
+        #endregion
     }
 
     public struct Update
