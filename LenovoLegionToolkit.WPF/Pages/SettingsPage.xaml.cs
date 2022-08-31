@@ -138,7 +138,15 @@ namespace LenovoLegionToolkit.WPF.Pages
 
             if (state.Value)
             {
-                await _vantage.DisableAsync();
+                try
+                {
+                    await _vantage.DisableAsync();
+                }
+                catch
+                {
+                    await SnackbarHelper.ShowAsync("Couldn't disable Vantage", "Vantage may have not been disabled correctly", true);
+                    return;
+                }
 
                 try
                 {
@@ -168,7 +176,15 @@ namespace LenovoLegionToolkit.WPF.Pages
                         Log.Instance.Trace($"Couldn't set light controll owner.", ex);
                 }
 
-                await _vantage.EnableAsync();
+                try
+                {
+                    await _vantage.EnableAsync();
+                }
+                catch
+                {
+                    await SnackbarHelper.ShowAsync("Couldn't enable Vantage", "Vantage may have not been enabled correctly", true);
+                    return;
+                }
             }
 
             _vantageToggle.IsEnabled = true;
@@ -186,9 +202,29 @@ namespace LenovoLegionToolkit.WPF.Pages
                 return;
 
             if (state.Value)
-                await _fnKeys.DisableAsync();
+            {
+                try
+                {
+                    await _fnKeys.DisableAsync();
+                }
+                catch
+                {
+                    await SnackbarHelper.ShowAsync("Couldn't disnable Fn Keys", "Fn Keys may have not been disabled correctly", true);
+                    return;
+                }
+            }
             else
-                await _fnKeys.EnableAsync();
+            {
+                try
+                {
+                    await _fnKeys.EnableAsync();
+                }
+                catch
+                {
+                    await SnackbarHelper.ShowAsync("Couldn't enable Fn Keys", "Fn Keys may have not been enabled correctly", true);
+                    return;
+                }
+            }
 
             _fnKeysToggle.IsEnabled = true;
 

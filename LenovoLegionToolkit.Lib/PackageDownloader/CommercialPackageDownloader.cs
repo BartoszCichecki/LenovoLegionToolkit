@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net.Http;
-using System.Security.Cryptography;
-using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
-using LenovoLegionToolkit.Lib.Extensions;
 
-namespace LenovoLegionToolkit.Lib.Utils
+namespace LenovoLegionToolkit.Lib.PackageDownloader
 {
-    public class PackageDownloader
+    public class CommercialPackageDownloader : AbstractPackageDownloader
     {
         private struct PackageDefinition
         {
@@ -28,7 +24,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         private readonly string _catalogBaseUrl = "https://download.lenovo.com/catalog/";
 
-        public async Task<List<Package>> GetPackagesAsync(string machineType, string os, IProgress<float>? progress = null, CancellationToken token = default)
+        public override async Task<List<Package>> GetPackagesAsync(string machineType, OS os, IProgress<float>? progress = null, CancellationToken token = default)
         {
             using var httpClient = new HttpClient();
 
@@ -46,46 +42,10 @@ namespace LenovoLegionToolkit.Lib.Utils
                 packages.Add(package);
 
                 count++;
-                progress?.Report((count * 100) / totalCount);
+                progress?.Report(count * 100 / totalCount);
             }
 
             return packages;
-        }
-
-        public async Task<string> DownloadPackageFileAsync(Package package, string location, IProgress<float>? progress = null, CancellationToken token = default)
-        {
-            using var httpClient = new HttpClient();
-
-            var tempPath = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
-
-            using (var fileStream = File.OpenWrite(tempPath))
-                await httpClient.DownloadAsync(package.FileLocation, fileStream, progress, token).ConfigureAwait(false);
-
-            var fileInfo = new FileInfo(tempPath);
-            if (fileInfo.Length != package.FileSize)
-                throw new InvalidDataException("File size mismatch.");
-
-            var sha256 = await httpClient.GetStringAsync($"{package.FileLocation}.sha256", token).ConfigureAwait(false);
-
-            using (var fileStream = File.OpenRead(tempPath))
-            {
-                using var managedSha256 = SHA256.Create();
-                var fileSha256Bytes = await managedSha256.ComputeHashAsync(fileStream, token).ConfigureAwait(false);
-
-                var fileSha256 = string.Empty;
-                foreach (var b in fileSha256Bytes)
-                    fileSha256 += b.ToString("x2");
-
-                if (sha256 != fileSha256)
-                    throw new InvalidDataException("File checksum mismatch.");
-            }
-
-            var filename = SanitizeFileName(package.Description) + " - " + package.FileName;
-            var finalPath = Path.Combine(location, filename);
-
-            File.Move(tempPath, finalPath, true);
-
-            return finalPath;
         }
 
         private async Task<List<PackageDefinition>> GetPackageDefinitionsAsync(HttpClient httpClient, string location, CancellationToken token)
@@ -126,36 +86,31 @@ namespace LenovoLegionToolkit.Lib.Utils
             var document = new XmlDocument();
             document.LoadXml(packageString);
 
-            var description = document.SelectSingleNode("/Package/Title/Desc")!.InnerText;
+            var id = document.SelectSingleNode("/Package/@id")!.InnerText;
+            var title = document.SelectSingleNode("/Package/Title/Desc")!.InnerText;
             var version = document.SelectSingleNode("/Package/@version")!.InnerText;
             var fileName = document.SelectSingleNode("/Package/Files/Installer/File/Name")!.InnerText;
-            var fileSize = int.Parse(document.SelectSingleNode("/Package/Files/Installer/File/Size")!.InnerText);
+            var fileSizeBytes = int.Parse(document.SelectSingleNode("/Package/Files/Installer/File/Size")!.InnerText);
+            var fileSize = $"{fileSizeBytes / 1024.0 / 1024.0:0.00} MB";
             var releaseDateString = document.SelectSingleNode("/Package/ReleaseDate")!.InnerText;
             var releaseDate = DateTime.Parse(releaseDateString);
             var readmeName = document.SelectSingleNode("/Package/Files/Readme/File/Name")?.InnerText;
             var readme = await GetReadmeAsync(httpClient, $"{baseLocation}/{readmeName}", token).ConfigureAwait(false);
             var fileLocation = $"{baseLocation}/{fileName}";
 
-            return new(description, version, packageDefinition.Category, fileName, fileSize, releaseDate, readme, fileLocation);
-        }
-
-        private async Task<string?> GetReadmeAsync(HttpClient httpClient, string location, CancellationToken token)
-        {
-            try
+            return new()
             {
-                return await httpClient.GetStringAsync(location, token).ConfigureAwait(false);
-            }
-            catch
-            {
-                return null;
-            }
-        }
-
-        private static string SanitizeFileName(string name)
-        {
-            var invalidChars = Regex.Escape(new string(Path.GetInvalidFileNameChars()));
-            var invalidRegStr = string.Format(@"([{0}]*\.+$)|([{0}]+)", invalidChars);
-            return Regex.Replace(name, invalidRegStr, "_");
+                Id = id,
+                Title = title,
+                Description = string.Empty,
+                Version = version,
+                Category = packageDefinition.Category,
+                FileName = fileName,
+                FileSize = fileSize,
+                ReleaseDate = releaseDate,
+                Readme = readme,
+                FileLocation = fileLocation,
+            };
         }
     }
 }

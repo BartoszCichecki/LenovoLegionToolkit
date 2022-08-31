@@ -97,6 +97,7 @@ namespace LenovoLegionToolkit.WPF.Windows
                     SendToTray();
                     break;
                 case WindowState.Normal:
+                    RestoreWindowSize();
                     BringToForeground();
                     break;
             }
@@ -208,7 +209,16 @@ namespace LenovoLegionToolkit.WPF.Windows
             Task.Run(_updateChecker.Check)
                 .ContinueWith(updatesAvailable =>
                 {
-                    _updateIndicator.Visibility = updatesAvailable.Result ? Visibility.Visible : Visibility.Collapsed;
+                    var result = updatesAvailable.Result;
+                    if (result is null)
+                    {
+                        _updateIndicator.Visibility = Visibility.Collapsed;
+                    }
+                    else
+                    {
+                        _updateIndicator.Content = $"Update {result.ToString(3)} available!";
+                        _updateIndicator.Visibility = Visibility.Visible;
+                    }
                 }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 

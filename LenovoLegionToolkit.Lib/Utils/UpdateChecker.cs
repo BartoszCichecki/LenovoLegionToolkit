@@ -19,17 +19,17 @@ namespace LenovoLegionToolkit.Lib.Utils
         private DateTime _lastUpdate = DateTime.MinValue;
         private Update[] _updates = Array.Empty<Update>();
 
-        public async Task<bool> Check()
+        public async Task<Version?> Check()
         {
-            using (await _updateSemaphore.LockAsync())
+            using (await _updateSemaphore.LockAsync().ConfigureAwait(false))
             {
                 try
                 {
-                    var timeSpaneSinceLastUpdate = DateTime.Now - _lastUpdate;
+                    var timeSpaneSinceLastUpdate = DateTime.UtcNow - _lastUpdate;
                     var shouldCheck = timeSpaneSinceLastUpdate > _minimumTimeSpanForRefresh;
 
                     if (!shouldCheck)
-                        return _updates.Any();
+                        return _updates.Any() ? _updates.First().Version : null;
 
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Checking...");
@@ -54,33 +54,33 @@ namespace LenovoLegionToolkit.Lib.Utils
 
                     _updates = updates;
 
-                    return updates.Any();
+                    return _updates.Any() ? _updates.First().Version : null;
                 }
                 catch (Exception ex)
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Error checking for updates.", ex);
-                    return false;
+                    return null;
                 }
                 finally
                 {
-                    _lastUpdate = DateTime.Now;
+                    _lastUpdate = DateTime.UtcNow;
                 }
             }
         }
 
         public async Task<Update[]> GetUpdates()
         {
-            using (await _updateSemaphore.LockAsync())
+            using (await _updateSemaphore.LockAsync().ConfigureAwait(false))
                 return _updates;
         }
 
         public async Task<string> DownloadLatestUpdate(IProgress<float>? progress = null, CancellationToken cancellationToken = default)
         {
-            using (await _updateSemaphore.LockAsync(cancellationToken))
+            using (await _updateSemaphore.LockAsync(cancellationToken).ConfigureAwait(false))
             {
                 var tempPath = Path.Combine(Path.GetTempPath(), $"LenovoLegionToolkitSetup_{Guid.NewGuid()}.exe");
-                var latestUpdate = _updates.FirstOrDefault();
+                var latestUpdate = _updates.OrderByDescending(u => u.Version).FirstOrDefault();
 
                 if (latestUpdate.Equals(default(Update)))
                     throw new InvalidOperationException("No updates available");
@@ -90,7 +90,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 
                 using var fileStream = File.OpenWrite(tempPath);
                 using var httpClient = new HttpClient();
-                await httpClient.DownloadAsync(latestUpdate.Url, fileStream, progress, cancellationToken);
+                await httpClient.DownloadAsync(latestUpdate.Url, fileStream, progress, cancellationToken).ConfigureAwait(false);
 
                 return tempPath;
             }

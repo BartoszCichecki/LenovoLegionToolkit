@@ -11,6 +11,10 @@
     "LenovoLegionToolkit.WPF (Minimized)": {
       "commandName": "Project",
       "commandLineArgs": "--minimized"
+    },
+    "LenovoLegionToolkit.WPF (Trace, Minimized)": {
+      "commandName": "Project",
+      "commandLineArgs": "--trace --minimized"
     }
   }
 }

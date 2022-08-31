@@ -135,7 +135,7 @@ namespace LenovoLegionToolkit.Lib.Features
             }
 
             foreach (var display in Display.GetDisplays())
-                if (await IsInternalAsync(display))
+                if (await IsInternalAsync(display).ConfigureAwait(false))
                     return display;
             return null;
         }
