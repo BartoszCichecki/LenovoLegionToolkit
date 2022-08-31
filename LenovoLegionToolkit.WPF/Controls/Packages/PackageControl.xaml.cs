@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.PackageDownloader;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Packages;
@@ -13,14 +15,16 @@ namespace LenovoLegionToolkit.WPF.Controls.Packages
 {
     public partial class PackageControl : UserControl, IProgress<float>
     {
-        private readonly PackageDownloader _packageDownloader;
+        private readonly IPackageDownloader _packageDownloader;
         private readonly Package _package;
 
         private CancellationTokenSource? _downloadPackageTokenSource;
 
         public Func<string> _getDownloadPath;
 
-        public PackageControl(PackageDownloader packageDownloader, Package package, Func<string> getDownloadPath)
+        public bool IsDownloading { get; private set; }
+
+        public PackageControl(IPackageDownloader packageDownloader, Package package, Func<string> getDownloadPath)
         {
             _packageDownloader = packageDownloader;
             _package = package;
@@ -31,13 +35,15 @@ namespace LenovoLegionToolkit.WPF.Controls.Packages
             Unloaded += PackageControl_Unloaded;
 
             _dateTextBlock.Text = package.ReleaseDate.ToString("d");
+            _titleTextBlock.Text = package.Title;
             _descriptionTextBlock.Text = package.Description;
+            _descriptionTextBlock.Visibility = string.IsNullOrWhiteSpace(package.Description) ? Visibility.Collapsed : Visibility.Visible;
             _categoryTextBlock.Text = package.Category;
-            _detailTextBlock.Text = $"Version {package.Version}  |  {package.FileSize / 1024.0 / 1024.0:0.00} MB  |  {package.FileName}";
+            _detailTextBlock.Text = $"Version {package.Version}  |  {package.FileSize}  |  {package.FileName}";
 
             _readmeButton.Visibility = string.IsNullOrWhiteSpace(package.Readme) ? Visibility.Collapsed : Visibility.Visible;
 
-            var showWarning = package.ReleaseDate < DateTime.Now.AddYears(-1);
+            var showWarning = package.ReleaseDate < DateTime.UtcNow.AddYears(-1);
             _warningTextBlock.Visibility = showWarning ? Visibility.Visible : Visibility.Collapsed;
         }
 
@@ -66,6 +72,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Packages
 
         private async void DownloadButton_Click(object sender, RoutedEventArgs e)
         {
+            IsDownloading = true;
+
             var result = false;
 
             try
@@ -83,6 +91,13 @@ namespace LenovoLegionToolkit.WPF.Controls.Packages
                 result = true;
             }
             catch (TaskCanceledException) { }
+            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Not found 404.", ex);
+
+                SnackbarHelper.Show("The file seems to be gone", "Server returned code 404.", true);
+            }
             catch (HttpRequestException ex)
             {
                 if (Log.Instance.IsTraceEnabled)
@@ -103,6 +118,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Packages
                 _downloadingStackPanel.Visibility = Visibility.Collapsed;
                 _downloadProgressRing.Progress = 0;
                 _downloadProgressLabel.Content = null;
+
+                IsDownloading = false;
             }
 
             if (result)

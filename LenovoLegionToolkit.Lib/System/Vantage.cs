@@ -13,6 +13,7 @@ namespace LenovoLegionToolkit.Lib.System
             "Lenovo\\ImController",
             "Lenovo\\ImController\\Plugins",
             "Lenovo\\ImController\\TimeBasedEvents",
+            "Lenovo\\UDC",
             "Lenovo\\Vantage",
             "Lenovo\\Vantage\\Schedule",
         };

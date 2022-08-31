@@ -6,6 +6,8 @@ namespace LenovoLegionToolkit.Lib.Listeners
     {
         event EventHandler<T>? Changed;
 
-        internal void Start();
+        void Start();
+
+        void Stop();
     }
 }

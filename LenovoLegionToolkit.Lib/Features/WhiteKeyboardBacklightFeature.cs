@@ -29,7 +29,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 WhiteKeyboardBacklightState.Off => new uint[] { 0x00023 },
                 WhiteKeyboardBacklightState.Low => new uint[] { 0x10023 },
                 WhiteKeyboardBacklightState.High => new uint[] { 0x20023 },
-                _ => throw new Exception("Invalid state"),
+                _ => throw new InvalidOperationException("Invalid state"),
             };
             return Task.FromResult(result);
         }
@@ -41,7 +41,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 0x1 => WhiteKeyboardBacklightState.Off,
                 0x3 => WhiteKeyboardBacklightState.Low,
                 0x5 => WhiteKeyboardBacklightState.High,
-                _ => throw new Exception("Invalid state"),
+                _ => throw new InvalidOperationException("Invalid state"),
             };
             return Task.FromResult(result);
         }

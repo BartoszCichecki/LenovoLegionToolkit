@@ -57,7 +57,7 @@
 
                     <wpfui:CardControl Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
-                            <controls:CardHeaderControl Title="Quiet mode" Subtitle="Windows Power Plan to be activated when&#x0a;you switch to Quiet power mode." />
+                            <controls:CardHeaderControl Title="Quiet mode" Subtitle="Windows Power Plan to be activated when you switch to Quiet power mode." />
                         </wpfui:CardControl.Header>
                         <ComboBox
                             x:Name="_quietModeComboBox"
@@ -68,7 +68,7 @@
 
                     <wpfui:CardControl Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
-                            <controls:CardHeaderControl Title="Balance mode" Subtitle="Windows Power Plan to be activated when&#x0a;you switch to Balance power mode." />
+                            <controls:CardHeaderControl Title="Balance mode" Subtitle="Windows Power Plan to be activated when you switch to Balance power mode." />
                         </wpfui:CardControl.Header>
                         <ComboBox
                             x:Name="_balanceModeComboBox"
@@ -79,7 +79,7 @@
 
                     <wpfui:CardControl Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
-                            <controls:CardHeaderControl Title="Performance mode" Subtitle="Windows Power Plan to be activated when&#x0a;you switch to Performance power mode." />
+                            <controls:CardHeaderControl Title="Performance mode" Subtitle="Windows Power Plan to be activated when you switch to Performance power mode." />
                         </wpfui:CardControl.Header>
                         <ComboBox
                             x:Name="_performanceModeComboBox"
@@ -88,9 +88,20 @@
                             SelectionChanged="PerformanceModeComboBox_SelectionChanged" />
                     </wpfui:CardControl>
 
+                    <wpfui:CardControl x:Name="_godModeCardControl" Margin="0,0,0,8">
+                        <wpfui:CardControl.Header>
+                            <controls:CardHeaderControl Title="Custom mode" Subtitle="Windows Power Plan to be activated when you switch to Custom power mode." />
+                        </wpfui:CardControl.Header>
+                        <ComboBox
+                            x:Name="_godModeComboBox"
+                            Width="200"
+                            Margin="0,0,0,8"
+                            SelectionChanged="GodModeComboBox_SelectionChanged" />
+                    </wpfui:CardControl>
+
                     <wpfui:CardControl Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
-                            <controls:CardHeaderControl Title="Always activate Windows Power Plan" Subtitle="Activate Power Plan even when Vantage is enabled. This option is intended only for devices that didn't come with multiple power plans. Those are mostly 2020 models." />
+                            <controls:CardHeaderControl Title="Always activate Windows Power Plan" Subtitle="Activate Power Plan even when Vantage is enabled.&#x0a;This option is intended only for devices that didn't come with multiple power plans." />
                         </wpfui:CardControl.Header>
                         <wpfui:ToggleSwitch
                             x:Name="_activatePowerProfilesWithVantageEnabledToggle"

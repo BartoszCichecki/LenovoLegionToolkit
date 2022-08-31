@@ -31,7 +31,7 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             _folderPath = Path.Combine(Folders.AppData, "log");
             Directory.CreateDirectory(_folderPath);
-            _logPath = Path.Combine(_folderPath, $"log_{DateTime.Now:yyyy_MM_dd_HH_mm_ss}.txt");
+            _logPath = Path.Combine(_folderPath, $"log_{DateTime.UtcNow:yyyy_MM_dd_HH_mm_ss}.txt");
         }
 
         public void Trace(FormattableString message,
@@ -47,7 +47,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             {
                 var lines = new List<string>
                 {
-                    $"[{DateTime.Now:dd/MM/yyyy HH:mm:ss}] [{Environment.CurrentManagedThreadId}] [{Path.GetFileName(file)}#{lineNumber}:{caller}] {message}"
+                    $"[{DateTime.UtcNow:dd/MM/yyyy HH:mm:ss}] [{Environment.CurrentManagedThreadId}] [{Path.GetFileName(file)}#{lineNumber}:{caller}] {message}"
                 };
                 if (ex is not null)
                     lines.Add(Serialize(ex));
@@ -57,7 +57,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         public void ErrorReport(Exception ex)
         {
-            var errorReportPath = Path.Combine(_folderPath, $"error_{DateTime.Now:yyyy_MM_dd_HH_mm_ss}.txt");
+            var errorReportPath = Path.Combine(_folderPath, $"error_{DateTime.UtcNow:yyyy_MM_dd_HH_mm_ss}.txt");
             File.AppendAllLines(errorReportPath, new[] { Serialize(ex) });
         }
 
