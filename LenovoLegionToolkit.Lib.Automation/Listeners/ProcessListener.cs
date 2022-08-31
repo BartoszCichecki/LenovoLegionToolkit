@@ -5,10 +5,12 @@ using System.Diagnostics;
 using System.Linq;
 using System.Management;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.Lib.Utils;
 
-namespace LenovoLegionToolkit.Lib.Listeners
+namespace LenovoLegionToolkit.Lib.Automation.Listeners
 {
-    public class ProcessListener : IListener<ProcessEventInfo>
+    public class ProcessAutomationListener : IListener<ProcessEventInfo>
     {
         private static readonly object _lock = new();
 
@@ -18,7 +20,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
             "CompPkgSrv.exe",
             "conhost.exe",
             "dllhost.exe",
-            "msedgewebview2",
+            "msedge.exe",
             "msedgewebview2.exe",
             "SearchProtocolHost.exe",
             "svchost.exe",
@@ -37,7 +39,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         private readonly Dictionary<int, ProcessInfo> _processCache = new();
 
-        public ProcessListener()
+        public ProcessAutomationListener()
         {
             _instanceCreationListener = new InstanceEventListener(ProcessEventInfoType.Started, "Win32_ProcessStartTrace");
             _instanceCreationListener.Changed += InstanceCreationListener_Changed;
@@ -50,6 +52,14 @@ namespace LenovoLegionToolkit.Lib.Listeners
         {
             _instanceCreationListener.Start();
             _instanceDeletionListener.Start();
+        }
+
+        public void Stop()
+        {
+            _instanceCreationListener.Stop();
+            _instanceDeletionListener.Stop();
+
+            _processCache.Clear();
         }
 
         private void InstanceCreationListener_Changed(object? sender, (ProcessEventInfoType type, int processID, string processName) e)
@@ -88,6 +98,8 @@ namespace LenovoLegionToolkit.Lib.Listeners
         {
             lock (_lock)
             {
+                CleanUpCacheIfNecessary();
+
                 if (string.IsNullOrWhiteSpace(e.processName) || _ignoredNames.Contains(e.processName, StringComparer.InvariantCultureIgnoreCase))
                     return;
 
@@ -101,6 +113,30 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
                 Changed?.Invoke(this, new(e.type, processInfo));
             }
+        }
+
+        private void CleanUpCacheIfNecessary()
+        {
+            if (_processCache.Count < 100)
+                return;
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Cleaning up process cache. Current size: {_processCache.Count}.");
+
+            foreach (var (processId, _) in _processCache)
+            {
+                try
+                {
+                    _ = Process.GetProcessById(processId);
+                }
+                catch (ArgumentException)
+                {
+                    _processCache.Remove(processId);
+                }
+            }
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Cleaned up process cache. Current size: {_processCache.Count}.");
         }
 
         private class InstanceEventListener : AbstractWMIListener<(ProcessEventInfoType, int, string)>

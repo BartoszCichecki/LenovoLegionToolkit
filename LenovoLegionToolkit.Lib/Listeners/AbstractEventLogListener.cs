@@ -20,7 +20,15 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         public void Start()
         {
+            if (_watcher.Enabled)
+                return;
+
             _watcher.Enabled = true;
+        }
+
+        public void Stop()
+        {
+            _watcher.Enabled = false;
         }
 
         protected abstract Task OnChangedAsync();

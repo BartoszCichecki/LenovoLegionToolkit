@@ -40,9 +40,6 @@ namespace LenovoLegionToolkit.Lib
             builder.Register<PowerModeListener>()
                 .OnActivating(e => e.Instance.Start())
                 .AutoActivate();
-            builder.Register<PowerStateListener>()
-                .OnActivating(e => e.Instance.Start())
-                .AutoActivate();
             builder.Register<DisplayConfigurationListener>()
                 .OnActivating(e => e.Instance.Start())
                 .AutoActivate();
@@ -52,16 +49,10 @@ namespace LenovoLegionToolkit.Lib
             builder.Register<PowerPlanListener>()
                 .OnActivating(e => e.Instance.Start())
                 .AutoActivate();
-            builder.Register<ProcessListener>()
-                .OnActivating(e => e.Instance.Start())
-                .AutoActivate();
             builder.Register<RGBKeyboardBacklightListener>()
                 .OnActivating(e => e.Instance.Start())
                 .AutoActivate();
             builder.Register<SpecialKeyListener>()
-                .OnActivating(e => e.Instance.Start())
-                .AutoActivate();
-            builder.Register<TimeListener>()
                 .OnActivating(e => e.Instance.Start())
                 .AutoActivate();
             builder.Register<WhiteKeyboardBacklightListener>()
