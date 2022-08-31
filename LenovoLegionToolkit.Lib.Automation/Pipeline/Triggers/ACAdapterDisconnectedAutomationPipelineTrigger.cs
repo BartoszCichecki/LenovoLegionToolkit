@@ -12,7 +12,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
 
         public async Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent)
         {
-            if (automationEvent is not PowerAutomationEvent || automationEvent is not StartupAutomationEvent)
+            if (automationEvent is not (PowerAutomationEvent or StartupAutomationEvent))
                 return false;
 
             return await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false) == PowerAdapterStatus.Disconnected;
