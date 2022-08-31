@@ -156,7 +156,8 @@ namespace LenovoLegionToolkit.Lib
         Fn_LockOn = 2,
         Fn_LockOff = 3,
         Fn_PrtSc = 4,
-        Fn_R = 16
+        Fn_R = 16,
+        Fn_R_2 = 0x0041002A,
     }
 
     public enum Theme
