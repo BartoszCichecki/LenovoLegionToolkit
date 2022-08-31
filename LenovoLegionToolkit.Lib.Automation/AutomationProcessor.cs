@@ -154,6 +154,14 @@ namespace LenovoLegionToolkit.Lib.Automation
 
         public void RunOnStartup()
         {
+            if (!IsEnabled)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Not enabled. Pipeline run on startup ignored.");
+
+                return;
+            }
+
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Pipeline run on startup pending...");
 
