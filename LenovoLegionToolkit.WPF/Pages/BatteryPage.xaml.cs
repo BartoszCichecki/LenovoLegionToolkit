@@ -97,7 +97,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             _status.Text = GetStatusText(batteryInfo);
             _lowWattageCharger.Visibility = powerAdapterStatus == PowerAdapterStatus.ConnectedLowWattage ? Visibility.Visible : Visibility.Hidden;
             _batteryTemperatureText.Text = GetTemperatureText(batteryInfo.BatteryTemperatureC);
-            _batteryDischargeRateText.Text = $"{batteryInfo.DischargeRate / 1000.0:0.00} W";
+            _batteryDischargeRateText.Text = $"{batteryInfo.DischargeRate / 1000.0:+0.00;-0.00} W";
             _batteryCapacityText.Text = $"{batteryInfo.EstimateChargeRemaining / 1000.0:0.00} Wh";
             _batteryFullChargeCapacityText.Text = $"{batteryInfo.FullChargeCapactiy / 1000.0:0.00} Wh";
             _batteryDesignCapacityText.Text = $"{batteryInfo.DesignCapacity / 1000.0:0.00} Wh";
