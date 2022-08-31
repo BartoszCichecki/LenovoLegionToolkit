@@ -30,7 +30,16 @@ namespace LenovoLegionToolkit.Lib.PackageDownloader
 
             progress?.Report(0);
 
-            var packageDefinitions = await GetPackageDefinitionsAsync(httpClient, $"{_catalogBaseUrl}/{machineType}_{os}.xml", token).ConfigureAwait(false);
+            var osString = os switch
+            {
+                OS.Windows11 => "win11",
+                OS.Windows10 => "win10",
+                OS.Windows8 => "win8",
+                OS.Windows7 => "win7",
+                _ => throw new ArgumentOutOfRangeException(nameof(os), os, null)
+            };
+
+            var packageDefinitions = await GetPackageDefinitionsAsync(httpClient, $"{_catalogBaseUrl}/{machineType}_{osString}.xml", token).ConfigureAwait(false);
 
             var count = 0;
             var totalCount = packageDefinitions.Count;
