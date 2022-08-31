@@ -6,8 +6,6 @@ using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
-#pragma warning disable IDE0052 // Remove unread private members
-
 namespace LenovoLegionToolkit.Lib.Listeners
 {
     public class DriverKeyListener : IListener<DriverKey>
@@ -17,6 +15,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
         private readonly FnKeys _fnKeys;
         private readonly TouchpadLockFeature _touchpadLockFeature;
 
+        private CancellationTokenSource? _cancellationTokenSource;
         private Task? _listenTask;
         private bool _ignoreNext;
 
@@ -28,12 +27,23 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         public void Start()
         {
-            _listenTask = Task.Run(HandlerAsync);
+            if (_listenTask is not null)
+                return;
+
+            _cancellationTokenSource = new();
+            _listenTask = Task.Run(() => HandlerAsync(_cancellationTokenSource.Token));
+        }
+
+        public void Stop()
+        {
+            _cancellationTokenSource?.Cancel();
+            _cancellationTokenSource = null;
+            _listenTask = null;
         }
 
         public void IgnoreNext() => _ignoreNext = true;
 
-        private async Task HandlerAsync()
+        private async Task HandlerAsync(CancellationToken token)
         {
             try
             {
@@ -52,7 +62,9 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
                 while (true)
                 {
-                    resetEvent.WaitOne();
+                    WaitHandle.WaitAny(new[] { resetEvent, token.WaitHandle });
+
+                    token.ThrowIfCancellationRequested();
 
                     if (_ignoreNext)
                     {
@@ -100,6 +112,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
                     resetEvent.Reset();
                 }
             }
+            catch (OperationCanceledException) { }
             catch (ThreadAbortException) { }
             catch (Exception ex)
             {

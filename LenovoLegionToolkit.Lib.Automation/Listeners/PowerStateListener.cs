@@ -1,25 +1,38 @@
 ﻿using System;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32;
 
-namespace LenovoLegionToolkit.Lib.Listeners
+namespace LenovoLegionToolkit.Lib.Automation.Listeners
 {
-    public class PowerStateListener : IListener<EventArgs>
+    public class PowerStateAutomationListener : IListener<EventArgs>
     {
         private readonly RGBKeyboardBacklightController _rgbController;
 
+        private bool _started;
+
         public event EventHandler<EventArgs>? Changed;
 
-        public PowerStateListener(RGBKeyboardBacklightController rgbController)
+        public PowerStateAutomationListener(RGBKeyboardBacklightController rgbController)
         {
             _rgbController = rgbController ?? throw new ArgumentNullException(nameof(rgbController));
         }
 
         public void Start()
         {
+            if (_started)
+                return;
+
             SystemEvents.PowerModeChanged += SystemEvents_PowerModeChanged;
+            _started = true;
+        }
+
+        public void Stop()
+        {
+            SystemEvents.PowerModeChanged -= SystemEvents_PowerModeChanged;
+            _started = false;
         }
 
         private async void SystemEvents_PowerModeChanged(object sender, PowerModeChangedEventArgs e)
