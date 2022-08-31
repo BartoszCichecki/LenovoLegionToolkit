@@ -285,18 +285,31 @@ namespace LenovoLegionToolkit.Lib.Automation
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Starting listeners...");
 
-            var triggers = _pipelines.Select(p => p.Trigger);
-
-            if (triggers.OfType<TimeAutomationPipelineTrigger>().Any())
-                _timeListener.Start();
-
-            if (triggers.OfType<IProcessesAutomationPipelineTrigger>().Any())
-                _processListener.Start();
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Starting power state listener...");
 
             _powerStateListener.Start();
 
+            var triggers = _pipelines.Select(p => p.Trigger).ToArray();
+
+            if (triggers.OfType<IProcessesAutomationPipelineTrigger>().Any())
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Starting process listener...");
+
+                _processListener.Start();
+            }
+
+            if (triggers.OfType<TimeAutomationPipelineTrigger>().Any())
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Starting time listener...");
+
+                _timeListener.Start();
+            }
+
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Started listeners.");
+                Log.Instance.Trace($"Started relevant listeners.");
         }
 
         private void RaisePipelinesChanged()
