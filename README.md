@@ -131,15 +131,27 @@ Probably. I would like to add support to Spectrum RGB, but I currently don't hav
 Only options natively supported by hardware are available; adding support for custom effects is not planned. If you would like more customization check out [L5P-Keyboard-RGB](https://github.com/4JX/L5P-Keyboard-RGB) or [OpenRGB](https://openrgb.org/).
 
 
+## How to collect logs?
+
+In some cases it will be super useful if you can provide logs that this app can create. This helps with debugging and other issue solving.
+
+To collect logs:
+1. Make sure that Lenovo Legion Toolkit is not running (also gone from tray area).
+2. Open `Run` (Win+R) and type there: `"%LOCALAPPDATA%\Programs\LenovoLegionToolkit\Lenovo Legion Toolkit.exe" --trace` and hit OK
+3. LLT will start and in the title bar you should see: `[LOGGING ENABLED]`
+4. Reproduce the issue you have (i.e. try to use the option that causes issues)
+5. Close LLT (also make sure it's gone from tray area)
+6. Again, in `Run` (Win+R) type `"%LOCALAPPDATA%\LenovoLegionToolkit\log"`
+7. You should see at least one file. Theses are the logs you should attach to the issue.
+
+
 ## Contribution
 
 I appreciate any feedback that you have, so please do not hesitate to report issues. PRs are also welcome!
 
 #### Bugs
 
-If you find any bugs in the app, please report them. It will be very helpful if you start the app with `--trace `parameter and reproduce the issue. You can find logs in `%LOCALAPPDATA%\LenovoLegionToolkit\log`. Of course attach the latest log to the issue here on GitHub.
-
-Just, don't run with this parameter all the time, it creates a **really large** amount of logs.
+If you find any bugs in the app, please report them. It will be very helpful if you attach logs that will help to trace the root cause of the issue. You can find logs in `%LOCALAPPDATA%\LenovoLegionToolkit\log`. Of course attach the latest log to the issue here on GitHub.
 
 #### Compatibility
 
