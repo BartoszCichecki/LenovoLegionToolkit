@@ -67,6 +67,7 @@ namespace LenovoLegionToolkit.Lib
             builder.Register<CPUBoostModeController>();
             builder.Register<RGBKeyboardBacklightController>();
             builder.Register<GodModeController>();
+            builder.Register<DisplayBrightnessController>();
 
             builder.Register<UpdateChecker>();
             builder.Register<WarrantyChecker>();
