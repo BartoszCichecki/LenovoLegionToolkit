@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Linq;
 using System.ServiceProcess;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Utils;
@@ -83,10 +84,20 @@ namespace LenovoLegionToolkit.Lib.System
                 return;
             }
 
-            foreach (var task in folder.Tasks)
+            foreach (var task in folder.Tasks.ToArray())
             {
                 task.Definition.Settings.Enabled = enabled;
-                task.RegisterChanges();
+                try
+                {
+                    task.RegisterChanges();
+                }
+                catch (Exception ex)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Failed to register changes on task {task.Name} in {task.Path}.", ex);
+
+                    throw new SoftwareDisablerException($"Failed to register changes on task {task.Name} in {task.Path}.");
+                }
             }
         }
 

@@ -5,8 +5,7 @@ namespace System.Windows.Controls
 {
     public static class ComboBoxExtensions
     {
-        public static void SetItems<T>(this ComboBox comboBox, IEnumerable<T> items,
-            T selectedItem, Func<T, string>? displayValueConverter = null)
+        public static void SetItems<T>(this ComboBox comboBox, IEnumerable<T> items, T selectedItem, Func<T, string>? displayValueConverter = null)
         {
             var boxedItems = items.Select(v => new ComboBoxItem<T>(v, displayValueConverter));
             var selectedBoxedItem = boxedItems.FirstOrDefault(bv => EqualityComparer<T>.Default.Equals(bv.Value, selectedItem));
@@ -14,6 +13,11 @@ namespace System.Windows.Controls
             comboBox.Items.Clear();
             comboBox.Items.AddRange(boxedItems);
             comboBox.SelectedValue = selectedBoxedItem;
+        }
+        public static void SelectItem<T>(this ComboBox comboBox, T item) where T : struct
+        {
+            var boxedItems = comboBox.Items.OfType<ComboBoxItem<T>>().Select(item => item.Value).ToArray();
+            comboBox.SelectedIndex = Array.IndexOf(boxedItems, item);
         }
 
         public static void ClearItems(this ComboBox comboBox)
@@ -32,6 +36,35 @@ namespace System.Windows.Controls
 
             value = default;
             return false;
+        }
+
+        public static T? GetNewValue<T>(this SelectionChangedEventArgs args) where T : struct
+        {
+            var items = args.AddedItems;
+            if (items.Count < 1 || items[0] is not ComboBoxItem<T> item)
+                return null;
+            return item.Value;
+        }
+
+        public static T? GetOldValue<T>(this SelectionChangedEventArgs args) where T : struct
+        {
+            var items = args.RemovedItems;
+            if (items.Count < 1 || items[0] is not ComboBoxItem<T> item)
+                return null;
+            return item.Value;
+        }
+
+        public static bool TryGetOldValue<T>(this SelectionChangedEventArgs args, out T? value)
+        {
+            var newValue = args.RemovedItems.Cast<ComboBoxItem<T>>().FirstOrDefault();
+            if (newValue is null)
+            {
+                value = default;
+                return false;
+            }
+
+            value = newValue.Value;
+            return true;
         }
 
         private class ComboBoxItem<T>

@@ -9,7 +9,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
         {
             Icon = SymbolRegular.UsbStick24;
             Title = "Always on USB";
-            Subtitle = "Charge USB devices, when the computer is\noff or in sleep or hibernation mode.";
+            Subtitle = "Charge USB devices, when the computer is off or in sleep or hibernation mode.";
         }
     }
 }

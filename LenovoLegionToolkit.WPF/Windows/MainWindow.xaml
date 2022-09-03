@@ -40,6 +40,7 @@
             <wpfui:Badge
                 x:Name="_updateIndicator"
                 Grid.Column="1"
+                Margin="0,0,8,0"
                 Padding="8,4,8,4"
                 Appearance="Success"
                 Content="Update available!"

@@ -33,15 +33,18 @@ namespace LenovoLegionToolkit.WPF.Pages
             await RefreshAsync();
         }
 
-        private void EnableAutomaticPipelinesToggle_Click(object sender, RoutedEventArgs e)
+        private async void EnableAutomaticPipelinesToggle_Click(object sender, RoutedEventArgs e)
         {
             var isChecked = _enableAutomaticPipelinesToggle.IsChecked;
             if (isChecked.HasValue)
-                _automationProcessor.IsEnabled = isChecked.Value;
+                await _automationProcessor.SetEnabledAsync(isChecked.Value);
         }
 
         private void NewAutomaticPipelineButton_Click(object sender, RoutedEventArgs e)
         {
+            if (_newAutomaticPipelineButton.ContextMenu is null)
+                return;
+
             _newAutomaticPipelineButton.ContextMenu.PlacementTarget = _newAutomaticPipelineButton;
             _newAutomaticPipelineButton.ContextMenu.Placement = PlacementMode.Bottom;
             _newAutomaticPipelineButton.ContextMenu.IsOpen = true;
@@ -243,6 +246,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 new ACAdapterDisconnectedAutomationPipelineTrigger(),
                 new ProcessesAreRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()),
                 new ProcessesStopRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()),
+                new TimeAutomationPipelineTrigger(false, false, null),
             };
 
             var menuItems = new List<MenuItem>();

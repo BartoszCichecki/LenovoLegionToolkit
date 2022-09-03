@@ -44,22 +44,24 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         private void InitializeComponent()
         {
-            _cardHeaderControl.Accessory = GetAccessory();
+            _comboBox.SelectionChanged += ComboBox_SelectionChanged;
+            _comboBox.Width = 150;
+            _comboBox.Visibility = Visibility.Hidden;
+            _comboBox.Margin = new(8, 0, 0, 0);
+
+            _cardHeaderControl.Accessory = GetAccessory(_comboBox);
             _cardControl.Header = _cardHeaderControl;
             _cardControl.Margin = new(0, 0, 0, 8);
 
             Content = _cardControl;
         }
 
-        private async void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) => await OnStateChange(_comboBox, _feature);
-
-        protected virtual UIElement? GetAccessory()
+        private async void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _comboBox.SelectionChanged += ComboBox_SelectionChanged;
-            _comboBox.Width = 150;
-            _comboBox.Visibility = Visibility.Hidden;
-            return _comboBox;
+            await OnStateChange(_comboBox, _feature, e.GetNewValue<T>(), e.GetOldValue<T>());
         }
+
+        protected virtual FrameworkElement? GetAccessory(ComboBox comboBox) => comboBox;
 
         protected override async Task OnRefreshAsync()
         {
@@ -86,7 +88,7 @@ namespace LenovoLegionToolkit.WPF.Controls
             MessagingCenter.Subscribe<T>(this, () => Dispatcher.InvokeTask(RefreshAsync));
         }
 
-        protected virtual async Task OnStateChange(ComboBox comboBox, IFeature<T> feature)
+        protected virtual async Task OnStateChange(ComboBox comboBox, IFeature<T> feature, T? newValue, T? oldValue)
         {
             if (IsRefreshing)
                 return;

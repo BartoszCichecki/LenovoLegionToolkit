@@ -19,7 +19,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting perfboostmode settings...");
 
-            await EnsureAttributeVisibleAsync();
+            await EnsureAttributeVisibleAsync().ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting power plans...");
@@ -35,7 +35,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Getting perfboostmodes for power plan {powerPlan.Name}... [powerPlan.instanceID={powerPlan.InstanceID}]");
 
-                    var settings = await GetCPUBoostSettingsAsync(powerPlan, cpuBoostModes);
+                    var settings = await GetCPUBoostSettingsAsync(powerPlan, cpuBoostModes).ConfigureAwait(false);
 
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Perfboostmodes settings retrieved for power plan {settings.PowerPlan.Name} [powerPlan.instanceID={settings.PowerPlan.InstanceID}, {string.Join(",", settings.CPUBoostModes.Select(cbm => $"{{{cbm.Name}:{cbm.Value}}}"))}, acSettingsValue={settings.ACSettingValue}, dcSettingValue={settings.DCSettingValue}]");
@@ -61,7 +61,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 Log.Instance.Trace($"Setting perfboostmode to {cpuBoostMode.Name}... [powerPlan.name={powerPlan.Name}, powerPlan.instanceID={powerPlan.InstanceID}, cpuBoostMode.value={cpuBoostMode.Value}, isAC={isAC}]");
 
             var option = isAC ? "/SETACVALUEINDEX" : "/SETDCVALUEINDEX";
-            await CMD.RunAsync("powercfg", $"{option} {powerPlan.Guid} {ProcessorPowerManagementSubgroupGUID} {PowerSettingGUID} {cpuBoostMode.Value}");
+            await CMD.RunAsync("powercfg", $"{option} {powerPlan.Guid} {ProcessorPowerManagementSubgroupGUID} {PowerSettingGUID} {cpuBoostMode.Value}").ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Perfboostmode set to {cpuBoostMode.Name} [powerPlan.name={powerPlan.Name}, powerPlan.instanceID={powerPlan.InstanceID}, cpuBoostMode.value={cpuBoostMode.Value}, isAC={isAC}]");
@@ -72,7 +72,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Ensuring perfboostmode is visible...");
 
-            await CMD.RunAsync("powercfg", "/ATTRIBUTES sub_processor perfboostmode -ATTRIB_HIDE");
+            await CMD.RunAsync("powercfg", "/ATTRIBUTES sub_processor perfboostmode -ATTRIB_HIDE").ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Perfboostmode is visible.");
@@ -93,7 +93,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         private async Task<CPUBoostModeSettings> GetCPUBoostSettingsAsync(PowerPlan powerPlan, List<CPUBoostMode> cpuBoostModes)
         {
-            var output = await CMD.RunAsync("powercfg", $"/QUERY {powerPlan.Guid} {ProcessorPowerManagementSubgroupGUID} {PowerSettingGUID}");
+            var output = await CMD.RunAsync("powercfg", $"/QUERY {powerPlan.Guid} {ProcessorPowerManagementSubgroupGUID} {PowerSettingGUID}").ConfigureAwait(false);
             var outputLines = output
                 .Split(Environment.NewLine)
                 .Select(s => s.Trim());
