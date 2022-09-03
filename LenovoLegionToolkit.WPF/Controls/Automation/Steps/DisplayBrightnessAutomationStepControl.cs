@@ -23,17 +23,6 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
             Icon = SymbolRegular.BrightnessHigh48;
             Title = "Display brightness";
             Subtitle = "Change display brightness of the built-in display.\n\nWARNING: This action will not run correctly,\nif internal display is off.";
-
-            SizeChanged += DisplayBrightnessAutomationStepControl_SizeChanged;
-        }
-
-        private void DisplayBrightnessAutomationStepControl_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            if (!e.WidthChanged)
-                return;
-
-            var newWidth = e.NewSize.Width / 3;
-            _brightness.Width = newWidth;
         }
 
         public override IAutomationStep CreateAutomationStep() => new DisplayBrightnessAutomationStep(_brightness.Text);
