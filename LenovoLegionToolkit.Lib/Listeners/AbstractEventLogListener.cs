@@ -18,17 +18,18 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         public event EventHandler<EventArgs>? Changed;
 
-        public void Start()
+        public Task StartAsync()
         {
-            if (_watcher.Enabled)
-                return;
+            if (!_watcher.Enabled)
+                _watcher.Enabled = true;
 
-            _watcher.Enabled = true;
+            return Task.CompletedTask;
         }
 
-        public void Stop()
+        public Task StopAsync()
         {
             _watcher.Enabled = false;
+            return Task.CompletedTask;
         }
 
         protected abstract Task OnChangedAsync();

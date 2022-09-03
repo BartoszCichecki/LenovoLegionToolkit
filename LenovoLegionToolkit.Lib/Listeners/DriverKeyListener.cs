@@ -25,20 +25,24 @@ namespace LenovoLegionToolkit.Lib.Listeners
             _touchpadLockFeature = touchpadLockFeature ?? throw new ArgumentNullException(nameof(touchpadLockFeature));
         }
 
-        public void Start()
+        public Task StartAsync()
         {
             if (_listenTask is not null)
-                return;
+                return Task.CompletedTask;
 
             _cancellationTokenSource = new();
             _listenTask = Task.Run(() => HandlerAsync(_cancellationTokenSource.Token));
+
+            return Task.CompletedTask;
         }
 
-        public void Stop()
+        public Task StopAsync()
         {
             _cancellationTokenSource?.Cancel();
             _cancellationTokenSource = null;
             _listenTask = null;
+
+            return Task.CompletedTask;
         }
 
         public void IgnoreNext() => _ignoreNext = true;

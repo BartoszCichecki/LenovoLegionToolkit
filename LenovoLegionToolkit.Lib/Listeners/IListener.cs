@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace LenovoLegionToolkit.Lib.Listeners
 {
@@ -6,8 +7,8 @@ namespace LenovoLegionToolkit.Lib.Listeners
     {
         event EventHandler<T>? Changed;
 
-        void Start();
+        Task StartAsync();
 
-        void Stop();
+        Task StopAsync();
     }
 }

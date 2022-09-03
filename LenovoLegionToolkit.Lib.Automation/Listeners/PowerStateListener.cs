@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32;
 
@@ -12,6 +13,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Listeners
         private readonly RGBKeyboardBacklightController _rgbController;
 
         private bool _started;
+        private PowerAdapterStatus? _lastState;
 
         public event EventHandler<EventArgs>? Changed;
 
@@ -20,25 +22,36 @@ namespace LenovoLegionToolkit.Lib.Automation.Listeners
             _rgbController = rgbController ?? throw new ArgumentNullException(nameof(rgbController));
         }
 
-        public void Start()
+        public async Task StartAsync()
         {
             if (_started)
                 return;
+
+            _lastState = await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false);
 
             SystemEvents.PowerModeChanged += SystemEvents_PowerModeChanged;
             _started = true;
         }
 
-        public void Stop()
+        public Task StopAsync()
         {
             SystemEvents.PowerModeChanged -= SystemEvents_PowerModeChanged;
             _started = false;
+
+            return Task.CompletedTask;
         }
 
         private async void SystemEvents_PowerModeChanged(object sender, PowerModeChangedEventArgs e)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Event received. [mode={e.Mode}]");
+
+            var newState = await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false);
+
+            if (newState == _lastState)
+                return;
+
+            _lastState = newState;
 
             if (e.Mode == PowerModes.Suspend)
                 return;
