@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -33,6 +34,8 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
                 return;
             }
 
+            var stepExceptions = new List<Exception>();
+
             foreach (var step in Steps)
             {
                 if (token.IsCancellationRequested)
@@ -45,11 +48,24 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Running step... [type={step.GetType().Name}]");
 
-                await step.RunAsync().ConfigureAwait(false);
+                try
+                {
+                    await step.RunAsync().ConfigureAwait(false);
+                }
+                catch (Exception ex)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Step run failed. [name={step.GetType().Name}]", ex);
+
+                    stepExceptions.Add(ex);
+                }
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Step completed successfully. [type={step.GetType().Name}]");
             }
+
+            if (stepExceptions.Any())
+                throw new AggregateException(stepExceptions);
         }
 
         public AutomationPipeline DeepCopy() => new()

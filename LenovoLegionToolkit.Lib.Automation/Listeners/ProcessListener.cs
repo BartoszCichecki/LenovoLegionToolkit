@@ -48,16 +48,16 @@ namespace LenovoLegionToolkit.Lib.Automation.Listeners
             _instanceDeletionListener.Changed += InstanceDeletionListener_Changed;
         }
 
-        public void Start()
+        public async Task StartAsync()
         {
-            _instanceCreationListener.Start();
-            _instanceDeletionListener.Start();
+            await _instanceCreationListener.StartAsync().ConfigureAwait(false);
+            await _instanceDeletionListener.StartAsync().ConfigureAwait(false);
         }
 
-        public void Stop()
+        public async Task StopAsync()
         {
-            _instanceCreationListener.Stop();
-            _instanceDeletionListener.Stop();
+            await _instanceCreationListener.StopAsync().ConfigureAwait(false);
+            await _instanceDeletionListener.StopAsync().ConfigureAwait(false);
 
             _processCache.Clear();
         }

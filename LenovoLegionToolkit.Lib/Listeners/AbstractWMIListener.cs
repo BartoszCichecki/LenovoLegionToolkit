@@ -27,7 +27,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
             _query = $"SELECT * FROM {eventName}";
         }
 
-        public void Start()
+        public Task StartAsync()
         {
             try
             {
@@ -35,7 +35,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Already started. [listener={GetType().Name}]");
-                    return;
+                    return Task.CompletedTask;
                 }
 
                 if (Log.Instance.IsTraceEnabled)
@@ -48,9 +48,11 @@ namespace LenovoLegionToolkit.Lib.Listeners
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Couldn't start listener. [listener={GetType().Name}]", ex);
             }
+
+            return Task.CompletedTask;
         }
 
-        public void Stop()
+        public Task StopAsync()
         {
             try
             {
@@ -64,6 +66,8 @@ namespace LenovoLegionToolkit.Lib.Listeners
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Couldn't stop listener. [listener={GetType().Name}]", ex);
             }
+
+            return Task.CompletedTask;
         }
 
         protected abstract T GetValue(PropertyDataCollection properties);

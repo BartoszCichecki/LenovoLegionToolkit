@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Timers;
 using LenovoLegionToolkit.Lib.Listeners;
 
@@ -17,15 +18,20 @@ namespace LenovoLegionToolkit.Lib.Automation.Listeners
             _timer.AutoReset = true;
         }
 
-        public void Start()
+        public Task StartAsync()
         {
-            if (_timer.Enabled)
-                return;
+            if (!_timer.Enabled)
+                _timer.Enabled = true;
 
-            _timer.Enabled = true;
+            return Task.CompletedTask;
         }
 
-        public void Stop() => _timer.Enabled = false;
+        public Task StopAsync()
+        {
+            _timer.Enabled = false;
+
+            return Task.CompletedTask;
+        }
 
         private void Timer_Elapsed(object? sender, ElapsedEventArgs e)
         {

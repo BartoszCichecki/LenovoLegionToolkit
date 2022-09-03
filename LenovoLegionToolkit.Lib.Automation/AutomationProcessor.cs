@@ -25,20 +25,7 @@ namespace LenovoLegionToolkit.Lib.Automation
         private List<AutomationPipeline> _pipelines = new();
         private CancellationTokenSource? _cts;
 
-        public bool IsEnabled
-        {
-            get => _settings.Store.IsEnabled;
-            set
-            {
-                using (_ioLock.Lock())
-                {
-                    _settings.Store.IsEnabled = value;
-                    _settings.SynchronizeStore();
-
-                    UpdateListeners();
-                }
-            }
-        }
+        public bool IsEnabled => _settings.Store.IsEnabled;
 
         public event EventHandler<List<AutomationPipeline>>? PipelinesChanged;
 
@@ -107,6 +94,17 @@ namespace LenovoLegionToolkit.Lib.Automation
             await RunAsync(e).ConfigureAwait(false);
         }
 
+        public async Task SetEnabledAsync(bool enabled)
+        {
+            using (await _ioLock.LockAsync().ConfigureAwait(false))
+            {
+                _settings.Store.IsEnabled = enabled;
+                _settings.SynchronizeStore();
+
+                await UpdateListenersAsync().ConfigureAwait(false);
+            }
+        }
+
         public async Task InitializeAsync()
         {
             using (await _ioLock.LockAsync().ConfigureAwait(false))
@@ -118,7 +116,8 @@ namespace LenovoLegionToolkit.Lib.Automation
                 _pipelines = _settings.Store.Pipelines;
 
                 RaisePipelinesChanged();
-                UpdateListeners();
+
+                await UpdateListenersAsync().ConfigureAwait(false);
             }
         }
 
@@ -139,7 +138,7 @@ namespace LenovoLegionToolkit.Lib.Automation
 
                 RaisePipelinesChanged();
 
-                UpdateListeners();
+                await UpdateListenersAsync().ConfigureAwait(false);
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Pipelines reloaded.");
@@ -262,14 +261,14 @@ namespace LenovoLegionToolkit.Lib.Automation
             }
         }
 
-        private void UpdateListeners()
+        private async Task UpdateListenersAsync()
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Stopping listeners...");
 
-            _timeListener.Stop();
-            _processListener.Stop();
-            _powerStateListener.Stop();
+            await _timeListener.StopAsync().ConfigureAwait(false);
+            await _processListener.StopAsync().ConfigureAwait(false);
+            await _powerStateListener.StopAsync().ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Stopped listeners...");
@@ -288,7 +287,7 @@ namespace LenovoLegionToolkit.Lib.Automation
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Starting power state listener...");
 
-            _powerStateListener.Start();
+            await _powerStateListener.StartAsync().ConfigureAwait(false);
 
             var triggers = _pipelines.Select(p => p.Trigger).ToArray();
 
@@ -297,7 +296,7 @@ namespace LenovoLegionToolkit.Lib.Automation
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Starting process listener...");
 
-                _processListener.Start();
+                await _processListener.StartAsync().ConfigureAwait(false);
             }
 
             if (triggers.OfType<TimeAutomationPipelineTrigger>().Any())
@@ -305,7 +304,7 @@ namespace LenovoLegionToolkit.Lib.Automation
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Starting time listener...");
 
-                _timeListener.Start();
+                await _timeListener.StartAsync().ConfigureAwait(false);
             }
 
             if (Log.Instance.IsTraceEnabled)
