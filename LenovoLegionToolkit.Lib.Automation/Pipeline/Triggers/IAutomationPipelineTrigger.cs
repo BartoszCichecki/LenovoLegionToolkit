@@ -8,7 +8,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
         [JsonIgnore]
         string DisplayName { get; }
 
-        Task<bool> IsSatisfiedAsync(object? context);
+        Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent);
 
         IAutomationPipelineTrigger DeepCopy();
     }

@@ -8,9 +8,15 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
     public class ACAdapterConnectedAutomationPipelineTrigger : IAutomationPipelineTrigger, IPowerAutomationPipelineTrigger, IDisallowDuplicatesAutomationPipelineTrigger
     {
         [JsonIgnore]
-        public string DisplayName => "When AC adapter is connected";
+        public string DisplayName => "When on AC power";
 
-        public async Task<bool> IsSatisfiedAsync(object? context) => await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false) == PowerAdapterStatus.Connected;
+        public async Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent)
+        {
+            if (automationEvent is not (PowerAutomationEvent or StartupAutomationEvent))
+                return false;
+
+            return await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false) == PowerAdapterStatus.Connected;
+        }
 
         public IAutomationPipelineTrigger DeepCopy() => new ACAdapterConnectedAutomationPipelineTrigger();
 

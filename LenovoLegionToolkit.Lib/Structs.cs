@@ -85,6 +85,7 @@ namespace LenovoLegionToolkit.Lib
             public bool ShouldFlipFnLock { get; init; }
             public bool SupportsGodMode { get; init; }
             public bool SupportsACDetection { get; init; }
+            public bool SupportsExtendedHybridMode { get; init; }
         }
 
         public string Vendor { get; init; }
@@ -98,22 +99,25 @@ namespace LenovoLegionToolkit.Lib
 
     public struct Package
     {
-        public string Description { get; }
-        public string Version { get; }
-        public string Category { get; }
-        public string FileName { get; }
-        public int FileSize { get; }
-        public DateTime ReleaseDate { get; }
-        public string? Readme { get; }
-        public string FileLocation { get; }
+        public string Id { get; init; }
+        public string Title { get; init; }
+        public string Description { get; init; }
+        public string Version { get; init; }
+        public string Category { get; init; }
+        public string FileName { get; init; }
+        public string FileSize { get; init; }
+        public DateTime ReleaseDate { get; init; }
+        public string? Readme { get; init; }
+        public string FileLocation { get; init; }
 
-        private string? _index = null;
+        private string? _index;
 
         public string Index
         {
             get
             {
                 _index ??= new StringBuilder()
+                        .Append(Title)
                         .Append(Description)
                         .Append(Version)
                         .Append(Category)
@@ -121,18 +125,6 @@ namespace LenovoLegionToolkit.Lib
                         .ToString();
                 return _index;
             }
-        }
-
-        public Package(string description, string version, string category, string fileName, int fileSize, DateTime releaseDate, string? readme, string fileLocation)
-        {
-            Description = description;
-            Version = version;
-            Category = category;
-            FileName = fileName;
-            FileSize = fileSize;
-            ReleaseDate = releaseDate;
-            Readme = readme;
-            FileLocation = fileLocation;
         }
     }
 
@@ -360,6 +352,24 @@ namespace LenovoLegionToolkit.Lib
         }
 
         public StepperValue WithValue(int value) => new(value, Min, Max, Step);
+    }
+
+    public struct Time
+    {
+        public int Hour { get; init; }
+        public int Minute { get; init; }
+
+        #region Equality
+
+        public override bool Equals(object? obj) => obj is Time time && Hour == time.Hour && Minute == time.Minute;
+
+        public override int GetHashCode() => HashCode.Combine(Hour, Minute);
+
+        public static bool operator ==(Time left, Time right) => left.Equals(right);
+
+        public static bool operator !=(Time left, Time right) => !(left == right);
+
+        #endregion
     }
 
     public struct Update

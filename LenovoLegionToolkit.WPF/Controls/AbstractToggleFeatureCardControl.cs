@@ -52,7 +52,7 @@ namespace LenovoLegionToolkit.WPF.Controls
 
             _cardHeaderControl.Accessory = _toggle;
             _cardControl.Header = _cardHeaderControl;
-            _cardControl.Margin = new(0, 0, 0, 8);
+            _cardControl.Margin = new(0, 0, 0, 16);
 
             Content = _cardControl;
         }
