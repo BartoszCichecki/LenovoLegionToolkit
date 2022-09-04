@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report. The more information you provide, the easier it will be for us to fix it!
+        Thanks for taking the time to fill out this bug report. The more information you provide, the easier it will be for me to fix it!
   - type: input
     id: os
     attributes:
@@ -56,22 +56,22 @@ body:
     attributes:
       label: Logs
       description: Please paste or drag and drop log files here. You can check README for instructions on how to collect logs.
-- type: checkboxes
-  id: vantage-fn-keys
-  attributes:
-    label: Do you have Lenovo software installed?
-    description: Check all that you have installed on your system
-    options:
-      - label: Lenovo Vantage
-      - label: Lenovo Hotkeys
-- type: checkboxes
-  id: vantage-fn-keys-disabled
-  attributes:
-    label: Did you disable any Lenovo software using Lenovo Legion Toolkit?
-    description: Check all that you have disabled with Lenovo Legion Toolkit
-    options:
-      - label: Lenovo Vantage
-      - label: Lenovo Hotkeys
+  - type: checkboxes
+    id: vantage-fn-keys
+    attributes:
+      label: Do you have Lenovo software installed?
+      description: Check all that you have installed on your system
+      options:
+        - label: Lenovo Vantage
+        - label: Lenovo Hotkeys
+  - type: checkboxes
+    id: vantage-fn-keys-disabled
+    attributes:
+      label: Did you disable any Lenovo software using Lenovo Legion Toolkit?
+      description: Check all that you have disabled with Lenovo Legion Toolkit
+      options:
+        - label: Lenovo Vantage
+        - label: Lenovo Hotkeys
       
       
       
