@@ -1,33 +1,94 @@
 name: TEST Bug Report
 description: File a bug report
-title: "[Bug]: "
+title: "[BUG]: "
 labels: ["bug"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report!
+        Thanks for taking the time to fill out this bug report. The more information you provide, the easier it will be for us to fix it!
   - type: textarea
-    id: describe-the-bug
+    id: description
     attributes:
-      label: Describe the bug
-      description: A clear and concise description of what the bug is.
+      label: What's wrong?
+      description: Provide description of what is wrong.
       placeholder: Type here...
     validations:
       required: true
   - type: textarea
     id: reproduce
     attributes:
-      label: Reproduction steps
-      description: Describe how to reproduce the behavior.
-      placeholder: Type here...
+      label: How to reproduce the bug?
+      description: Describe how to reproduce the behavior. Try to be as specific as possible.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
     validations:
       required: true
   - type: textarea
     id: expected-behaviour
     attributes:
       label: Expected behavior
-      description: A clear and concise description of what you expected to happen.
+      description: What is the behavior that you expected?
       placeholder: Type here...
     validations:
       required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Please paste the logs here. You can check README for instructions on how to collect logs.
+      render: shell
+  - type: input
+    id: os
+    attributes:
+      label: OS
+      description: Which operating system do you use?
+      placeholder: e.g. Windows 11 21H2 build 22000
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Device
+      description: Which laptop do you use?
+      placeholder: e.g. Legion 5 Pro 16ACH6
+    validations:
+      required: true
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
