@@ -86,7 +86,7 @@
                     Margin="0,4,0,0"
                     Foreground="{DynamicResource TextFillColorTertiaryBrush}"
                     TextWrapping="Wrap">
-                    Use only integrated GPU when on battery and both integrated and discrete GPU when AC adapter is connected. When a non-standard adapter is conenected, system switches to Hybrid-iGPU Only Mode.
+                    Use only integrated GPU when on battery and both integrated and discrete GPU when AC adapter is connected. When a non-standard adapter is connected, system switches to Hybrid-iGPU Only Mode.
                 </TextBlock>
 
                 <TextBlock
