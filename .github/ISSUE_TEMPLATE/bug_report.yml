@@ -8,6 +8,14 @@ body:
       value: |
         Thanks for taking the time to fill out this bug report. The more information you provide, the easier it will be for me to fix it!
   - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Which Lenovo Legion Toolkit version do you use?
+      placeholder: e.g. 2.5.1
+    validations:
+      required: true
+  - type: input
     id: os
     attributes:
       label: OS
