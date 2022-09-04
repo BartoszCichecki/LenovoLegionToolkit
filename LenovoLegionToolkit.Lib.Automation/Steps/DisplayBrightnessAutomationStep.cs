@@ -8,25 +8,22 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
     public class DisplayBrightnessAutomationStep : IAutomationStep
     {
         private readonly DisplayBrightnessController _controller = IoCContainer.Resolve<DisplayBrightnessController>();
-        public string? Brightness { get; }
+        public int Brightness { get; }
 
         [JsonConstructor]
-        public DisplayBrightnessAutomationStep(string? brightness)
+        public DisplayBrightnessAutomationStep(int brightness)
         {
             Brightness = brightness;
         }
-
+        
         public Task<bool> IsSupportedAsync() => Task.FromResult(true);
 
         public async Task RunAsync()
         {
-            if (string.IsNullOrWhiteSpace(Brightness))
+            if (Brightness == 0)
                 return;
-
-            if (int.TryParse(Brightness, out int brightness))
-                await _controller.Set(brightness).ConfigureAwait(false);
-            else
-                return;
+            
+            await _controller.SetBrightnessAsync(Brightness).ConfigureAwait(false);
         }
 
         IAutomationStep IAutomationStep.DeepCopy() => new DisplayBrightnessAutomationStep(Brightness);

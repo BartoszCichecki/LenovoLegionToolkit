@@ -3,17 +3,24 @@ using LenovoLegionToolkit.Lib;
 using System.Windows;
 using System.Windows.Controls;
 using Wpf.Ui.Common;
-using TextBox = Wpf.Ui.Controls.TextBox;
+using NumberBox = Wpf.Ui.Controls.NumberBox;
 using System.Threading.Tasks;
+using System.Globalization;
+using CoordinateSharp.Formatters;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
 {
     public class DisplayBrightnessAutomationStepControl : AbstractAutomationStepControl<DisplayBrightnessAutomationStep>
     {
-        private readonly TextBox _brightness = new()
+        private readonly NumberBox _brightness = new()
         {
             PlaceholderText = "Brightness value",
             Width = 150,
+            IntegersOnly = true,
+            Step = 5,
+            Max = 100,
+            Min = 0,
+            Value = 50,
         };
 
         private readonly StackPanel _stackPanel = new();
@@ -25,13 +32,13 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
             Subtitle = "Change display brightness of the built-in display.\n\nWARNING: This action will not run correctly,\nif internal display is off.";
         }
 
-        public override IAutomationStep CreateAutomationStep() => new DisplayBrightnessAutomationStep(_brightness.Text);
+        public override IAutomationStep CreateAutomationStep() => new DisplayBrightnessAutomationStep((int)_brightness.Value);
 
         protected override UIElement? GetCustomControl()
         {
             _brightness.TextChanged += (s, e) =>
             {
-                if (_brightness.Text != AutomationStep.Brightness)
+                if (_brightness.Value != AutomationStep.Brightness)
                     RaiseChanged();
             };
 
@@ -44,7 +51,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
 
         protected override Task RefreshAsync()
         {
-            _brightness.Text = AutomationStep.Brightness;
+            _brightness.Value = AutomationStep.Brightness;
             return Task.CompletedTask;
         }
     }
