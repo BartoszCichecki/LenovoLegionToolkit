@@ -50,7 +50,7 @@ body:
     validations:
       required: true
   - type: input
-    id: os
+    id: device
     attributes:
       label: Device
       description: Which laptop do you use?
