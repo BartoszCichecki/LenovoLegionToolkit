@@ -73,8 +73,6 @@ body:
         - label: Lenovo Vantage is installed
         - label: Lenovo Hotkeys is installed
         - label: None of the above
-    validations:
-      required: true
   - type: checkboxes
     id: vantage-fn-keys-disabled
     attributes:
@@ -83,10 +81,7 @@ body:
       options:
         - label: Lenovo Vantage
         - label: Lenovo Hotkeys
-        - label: I disabled some software on my own (please write below what you did)
-        - label: None of the above
-    validations:
-      required: true
+        - label: I disabled some things on my own (please write below what you did)
   - type: textarea
     id: additional
     attributes:
