@@ -152,7 +152,9 @@ namespace LenovoLegionToolkit.Lib.System
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 13)]
         private byte[] bytes1;
         public ushort Temperature;
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 68)]
+        public ushort ManufactureDate;
+        public ushort FirstUseDate;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
         private byte[] bytes2;
     }
 

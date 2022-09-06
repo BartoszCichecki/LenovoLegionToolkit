@@ -92,11 +92,18 @@
             <TextBlock x:Name="_batteryCycleCountText" FontSize="14" />
         </wpfui:CardControl>
 
-        <wpfui:CardControl Margin="0,0,0,8">
+        <wpfui:CardControl x:Name="_batteryManufactureDateCardControl" Margin="0,0,0,8">
             <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="Manufacture date" Subtitle="When was the battery manufactured." />
             </wpfui:CardControl.Header>
             <TextBlock x:Name="_batteryManufactureDateText" FontSize="14" />
+        </wpfui:CardControl>
+
+        <wpfui:CardControl x:Name="_batteryFirstUseDateCardControl" Margin="0,0,0,8">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="First use date" Subtitle="When was the battery first used." />
+            </wpfui:CardControl.Header>
+            <TextBlock x:Name="_batteryFirstUseDateText" FontSize="14" />
         </wpfui:CardControl>
 
     </StackPanel>
