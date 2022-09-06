@@ -56,7 +56,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 {
                     try
                     {
-                        var batteryInfo = await Battery.GetBatteryInformationAsync().ConfigureAwait(false); ;
+                        var batteryInfo = Battery.GetBatteryInformation();
                         var powerAdapterStatus = await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false);
                         Dispatcher.Invoke(() => Set(batteryInfo, powerAdapterStatus));
 
@@ -96,12 +96,26 @@ namespace LenovoLegionToolkit.WPF.Pages
             _precentRemaining.Text = $"{batteryInfo.BatteryPercentage}%";
             _status.Text = GetStatusText(batteryInfo);
             _lowWattageCharger.Visibility = powerAdapterStatus == PowerAdapterStatus.ConnectedLowWattage ? Visibility.Visible : Visibility.Hidden;
-            _batteryTemperatureText.Text = GetTemperatureText(batteryInfo.BatteryTemperatureC);
+
+            if (batteryInfo.BatteryTemperatureC is not null)
+                _batteryTemperatureText.Text = GetTemperatureText(batteryInfo.BatteryTemperatureC);
+            else
+                _batteryTemperatureCardControl.Visibility = Visibility.Collapsed;
+
             _batteryDischargeRateText.Text = $"{batteryInfo.DischargeRate / 1000.0:+0.00;-0.00} W";
             _batteryCapacityText.Text = $"{batteryInfo.EstimateChargeRemaining / 1000.0:0.00} Wh";
             _batteryFullChargeCapacityText.Text = $"{batteryInfo.FullChargeCapactiy / 1000.0:0.00} Wh";
             _batteryDesignCapacityText.Text = $"{batteryInfo.DesignCapacity / 1000.0:0.00} Wh";
-            _batteryManufactureDateText.Text = batteryInfo.ManufactureDate?.ToString("d") ?? "-";
+
+            if (batteryInfo.ManufactureDate is not null)
+                _batteryManufactureDateText.Text = batteryInfo.ManufactureDate?.ToString("d") ?? "-";
+            else
+                _batteryManufactureDateCardControl.Visibility = Visibility.Collapsed;
+
+            if (batteryInfo.FirstUseDate is not null)
+                _batteryFirstUseDateText.Text = batteryInfo.FirstUseDate?.ToString("d") ?? "-";
+            else
+                _batteryFirstUseDateCardControl.Visibility = Visibility.Collapsed;
 
             _batteryCycleCountText.Text = $"{batteryInfo.CycleCount}";
         }
