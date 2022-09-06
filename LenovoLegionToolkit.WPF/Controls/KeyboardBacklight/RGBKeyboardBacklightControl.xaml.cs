@@ -83,7 +83,8 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
 
         protected override async Task OnRefreshAsync()
         {
-            var state = await _controller.GetStateAsync();
+            if (!_controller.IsSupported())
+                throw new InvalidOperationException("RGB Keyboard does not seem to be supported");
 
             var vantageStatus = await _vantage.GetStatusAsync();
             if (vantageStatus == SoftwareStatus.Enabled)
@@ -113,6 +114,8 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
 
                 return;
             }
+
+            var state = await _controller.GetStateAsync();
 
             foreach (var presetButton in PresetButtons)
             {
