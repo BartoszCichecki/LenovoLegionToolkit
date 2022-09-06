@@ -9,6 +9,7 @@
             public StepperValue? GPUPowerBoost { get; set; }
             public StepperValue? GPUConfigurableTGP { get; set; }
             public bool? FanFullSpeed { get; set; }
+            public int MaxValueOffset { get; set; }
         }
 
         public override GodModeSettingsStore Default => new();

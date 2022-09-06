@@ -12,6 +12,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         public StepperValue GPUPowerBoost { get; init; }
         public StepperValue GPUConfigurableTGP { get; init; }
         public bool FanFullSpeed { get; init; }
+        public int MaxValueOffset { get; init; }
     }
 
     public class GodModeController
@@ -51,13 +52,16 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
             var fanFullSpeed = _settings.Store.FanFullSpeed ?? await GetFanFullSpeedAsync().ConfigureAwait(false);
 
+            var maxValueOffset = _settings.Store.MaxValueOffset;
+
             return new GodModeState
             {
                 CPULongTermPowerLimit = cpuLongTermPowerLimit,
                 CPUShortTermPowerLimit = cpuShortTermPowerLimit,
                 GPUPowerBoost = gpuPowerBoost,
                 GPUConfigurableTGP = gpuConfigurableTGP,
-                FanFullSpeed = fanFullSpeed
+                FanFullSpeed = fanFullSpeed,
+                MaxValueOffset = maxValueOffset
             };
         }
 
@@ -68,6 +72,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             _settings.Store.GPUPowerBoost = state.GPUPowerBoost;
             _settings.Store.GPUConfigurableTGP = state.GPUConfigurableTGP;
             _settings.Store.FanFullSpeed = state.FanFullSpeed;
+            _settings.Store.MaxValueOffset = state.MaxValueOffset;
 
             _settings.SynchronizeStore();
             return Task.CompletedTask;
