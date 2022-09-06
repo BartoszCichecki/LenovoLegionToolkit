@@ -348,7 +348,7 @@ namespace LenovoLegionToolkit.Lib
 
         public StepperValue(int value, int min, int max, int step)
         {
-            Value = Math.Clamp(MathExtensions.RoundNearest(value, step), min, max);
+            Value = MathExtensions.RoundNearest(value, step);
             Min = min;
             Max = max;
             Step = step;

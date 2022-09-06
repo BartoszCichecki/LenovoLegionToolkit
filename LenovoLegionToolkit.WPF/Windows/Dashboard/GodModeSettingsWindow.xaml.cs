@@ -67,6 +67,22 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
 
                 _fanFullSpeedToggle.IsChecked = state.FanFullSpeed;
 
+                if (state.CPULongTermPowerLimit.Min == state.CPULongTermPowerLimit.Max)
+                    _cpuLongTermPowerLimitSlider.IsEnabled = false;
+                if (state.CPUShortTermPowerLimit.Min == state.CPUShortTermPowerLimit.Max)
+                    _cpuShortTermPowerLimitSlider.IsEnabled = false;
+                if (state.GPUPowerBoost.Min == state.GPUPowerBoost.Max)
+                    _gpuPowerBoostSlider.IsEnabled = false;
+                if (state.GPUConfigurableTGP.Min == state.GPUConfigurableTGP.Max)
+                    _gpuConfigurableTGPSlider.IsEnabled = false;
+
+                var maxValueOffset = state.MaxValueOffset;
+                _cpuLongTermPowerLimitSlider.Maximum += maxValueOffset;
+                _cpuShortTermPowerLimitSlider.Maximum += maxValueOffset;
+                _gpuPowerBoostSlider.Maximum += maxValueOffset;
+                _gpuConfigurableTGPSlider.Maximum += maxValueOffset;
+                _maxValueOffsetNumberBox.Value = maxValueOffset;
+
                 await loadingTask;
 
                 _applyRevertStackPanel.Visibility = Visibility.Visible;
@@ -94,13 +110,16 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
 
                 var fanFullSpeed = _fanFullSpeedToggle.IsChecked ?? false;
 
+                var maxValueOffset = (int)_maxValueOffsetNumberBox.Value;
+
                 var newState = new GodModeState
                 {
                     CPULongTermPowerLimit = cpuLongTermPowerLimit,
                     CPUShortTermPowerLimit = cpuShortTermPowerLimit,
                     GPUPowerBoost = gpuPowerBoost,
                     GPUConfigurableTGP = gpuConfigurableTGP,
-                    FanFullSpeed = fanFullSpeed
+                    FanFullSpeed = fanFullSpeed,
+                    MaxValueOffset = maxValueOffset,
                 };
 
                 if (await _powerModeFeature.GetStateAsync() != PowerModeState.GodMode)
