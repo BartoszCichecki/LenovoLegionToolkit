@@ -96,6 +96,12 @@
                 Visibility="Hidden" />
         </wpfui:CardControl>
 
+        <wpfui:CardAction Margin="0,0,0,8" x:Name="_excludeRefreshRatesCard" Click="ExcludeRefreshRates_Click">
+            <wpfui:CardAction.Content>
+                <controls:CardHeaderControl Title="Exclude Refresh Rates" Subtitle="You can exclude refresh rates, to make Fn+R shortcut more useful." />
+            </wpfui:CardAction.Content>
+        </wpfui:CardAction>
+
         <TextBlock
             Grid.Row="0"
             Margin="0,16,0,0"

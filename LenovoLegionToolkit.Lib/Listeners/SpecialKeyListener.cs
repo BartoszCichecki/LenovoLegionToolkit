@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Management;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
@@ -10,12 +12,13 @@ namespace LenovoLegionToolkit.Lib.Listeners
 {
     public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
     {
+        private readonly ApplicationSettings _settings;
         private readonly FnKeys _fnKeys;
-
         private readonly RefreshRateFeature _feature;
 
-        public SpecialKeyListener(FnKeys fnKeys, RefreshRateFeature feature) : base("ROOT\\WMI", "LENOVO_UTILITY_EVENT")
+        public SpecialKeyListener(ApplicationSettings _settings, FnKeys fnKeys, RefreshRateFeature feature) : base("ROOT\\WMI", "LENOVO_UTILITY_EVENT")
         {
+            this._settings = _settings ?? throw new ArgumentNullException(nameof(_settings));
             _fnKeys = fnKeys ?? throw new ArgumentNullException(nameof(fnKeys));
             _feature = feature ?? throw new ArgumentNullException(nameof(feature));
         }
@@ -30,10 +33,10 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         protected override Task OnChangedAsync(SpecialKey value)
         {
-            if (value == SpecialKey.Fn_R || value == SpecialKey.Fn_R_2)
+            if (value is SpecialKey.Fn_R or SpecialKey.Fn_R_2)
                 return ToggleRefreshRateAsync();
 
-            if (value == SpecialKey.Fn_PrtSc)
+            if (value is SpecialKey.Fn_PrtSc)
                 return OpenSnippingTool();
 
             return Task.CompletedTask;
@@ -57,7 +60,9 @@ namespace LenovoLegionToolkit.Lib.Listeners
                 var all = await _feature.GetAllStatesAsync().ConfigureAwait(false);
                 var current = await _feature.GetStateAsync().ConfigureAwait(false);
 
-                if (all is null || all.Length < 2)
+                all = all.Except(_settings.Store.ExcludedRefreshRates).ToArray();
+
+                if (all.Length < 2)
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Can't switch refresh rate after Fn+R. [all={all?.Length}]");
