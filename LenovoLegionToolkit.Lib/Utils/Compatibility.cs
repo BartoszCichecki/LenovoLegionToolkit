@@ -108,12 +108,12 @@ namespace LenovoLegionToolkit.Lib.Utils
                 return true;
 
             // 2022
-            if (biosVersion.StartsWith("K1CN") && int.TryParse(biosVersion.Replace("K1CN", null).Replace("WW", null), out rev) && rev >= 31)
-                return true;
+            // if (biosVersion.StartsWith("K1CN") && int.TryParse(biosVersion.Replace("K1CN", null).Replace("WW", null), out rev) && rev >= 31)
+            //    return true;
 
             // 2022
-            if (biosVersion.StartsWith("JYCN") && int.TryParse(biosVersion.Replace("JYCN", null).Replace("WW", null), out rev) && rev >= 39)
-                return true;
+            // if (biosVersion.StartsWith("JYCN") && int.TryParse(biosVersion.Replace("JYCN", null).Replace("WW", null), out rev) && rev >= 39)
+            //     return true;
 
             return false;
         }
