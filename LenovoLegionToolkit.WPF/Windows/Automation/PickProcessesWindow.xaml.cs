@@ -114,7 +114,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Automation
             Refresh();
         }
 
-        public void Refresh()
+        private void Refresh()
         {
             _loader.IsLoading = true;
 

@@ -60,6 +60,8 @@ namespace LenovoLegionToolkit.WPF.Pages
             _dontShowNotificationsToggle.IsChecked = _settings.Store.DontShowNotifications;
             _dontShowNotificationsCard.Visibility = fnKeysStatus == SoftwareStatus.Disabled ? Visibility.Visible : Visibility.Collapsed;
 
+            _excludeRefreshRatesCard.Visibility = fnKeysStatus == SoftwareStatus.Disabled ? Visibility.Visible : Visibility.Collapsed;
+
             await loadingTask;
 
             _themeComboBox.Visibility = Visibility.Visible;
@@ -229,6 +231,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             _fnKeysToggle.IsEnabled = true;
 
             _dontShowNotificationsCard.Visibility = state.Value ? Visibility.Visible : Visibility.Collapsed;
+            _excludeRefreshRatesCard.Visibility = state.Value ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private void DontShowNotificationsToggle_Click(object sender, RoutedEventArgs e)
@@ -246,6 +249,16 @@ namespace LenovoLegionToolkit.WPF.Pages
             _settings.SynchronizeStore();
 
             _dontShowNotificationsToggle.IsEnabled = true;
+        }
+        private void ExcludeRefreshRates_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new ExcludeRefreshRatesWindow
+            {
+                Owner = Window.GetWindow(this),
+                WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                ShowInTaskbar = false,
+            };
+            window.ShowDialog();
         }
 
         private void PowerPlans_Click(object sender, RoutedEventArgs e)
