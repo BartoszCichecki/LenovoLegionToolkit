@@ -20,8 +20,10 @@ namespace LenovoLegionToolkit.Lib.System
             double? temperatureC = null;
             try
             {
-                var lenovoInformation = GetLenovoBatteryInformation();
-                temperatureC = (lenovoInformation.Temperature - 2731.6) / 10.0;
+                var temperatureConverted = (GetLenovoBatteryInformation().Temperature - 2731.6) / 10.0;
+                if (temperatureConverted > 0)
+                    temperatureC = temperatureConverted;
+
             }
             catch (Exception ex)
             {
