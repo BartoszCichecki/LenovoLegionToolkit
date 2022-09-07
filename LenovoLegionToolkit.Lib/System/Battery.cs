@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Globalization;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.System
 {
     public static class Battery
     {
-        public static async Task<BatteryInformation> GetBatteryInformationAsync()
+        public static BatteryInformation GetBatteryInformation()
         {
             var powerStatus = GetSystemPowerStatus();
 
@@ -18,26 +15,20 @@ namespace LenovoLegionToolkit.Lib.System
             var status = GetBatteryStatusEx(batteryTag);
 
             double? temperatureC = null;
+            DateTime? manufactureDate = null;
+            DateTime? firstUseDate = null;
             try
             {
-                var lenovoInformation = GetLenovoBatteryInformation();
-                temperatureC = (lenovoInformation.Temperature - 2731.6) / 10.0;
+                var lenovoBatteryInformation = GetLenovoBatteryInformation();
+
+                temperatureC = DecodeTemperatureC(lenovoBatteryInformation.Temperature);
+                manufactureDate = DecodeDateTime(lenovoBatteryInformation.ManufactureDate);
+                firstUseDate = DecodeDateTime(lenovoBatteryInformation.FirstUseDate);
             }
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Failed to get temperature of battery.", ex);
-            }
-
-            DateTime? manufactureDate = null;
-            try
-            {
-                manufactureDate = await GetBatteryManufactureDateAsync().ConfigureAwait(false);
-            }
-            catch (Exception ex)
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Failed to get manufacture date of battery.", ex);
             }
 
             return new(powerStatus.ACLineStatus == ACLineStatusEx.Online,
@@ -50,7 +41,8 @@ namespace LenovoLegionToolkit.Lib.System
                        information.FullChargedCapacity,
                        information.CycleCount,
                        temperatureC,
-                       manufactureDate);
+                       manufactureDate,
+                       firstUseDate);
         }
 
         private static SystemPowerStatusEx GetSystemPowerStatus()
@@ -189,24 +181,27 @@ namespace LenovoLegionToolkit.Lib.System
                 Marshal.FreeHGlobal(batteryInformationPointer);
             }
         }
-
-        private static async Task<DateTime?> GetBatteryManufactureDateAsync()
+        private static DateTime? DecodeDateTime(ushort s)
         {
-            var result = await WMI.ReadAsync("ROOT\\WMI", $"SELECT * FROM Lenovo_BatteryInformation", pdc => pdc["CurrentSetting"].Value.ToString()).ConfigureAwait(false);
-
-            var enumerator = result.GetEnumerator();
-            while (enumerator.MoveNext())
+            try
             {
-                var current = enumerator.Current;
-                if (current is not null && current.StartsWith("BAT0 MfgDate ,"))
-                {
-                    var dateString = current.GetAfterOrEmpty(",");
-                    if (DateTime.TryParseExact(dateString, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out var dateTime))
-                        return dateTime;
-                }
+                var date = new DateTime((s >> 9) + 1980, (s >> 5) & 15, (s & 31), 0, 0, 0, DateTimeKind.Unspecified);
+                if (date.Year is < 2018 or > 2026)
+                    return null;
+                return date;
             }
+            catch
+            {
+                return null;
+            }
+        }
 
-            return null;
+        private static double? DecodeTemperatureC(ushort s)
+        {
+            var value = (s - 2731.6) / 10.0;
+            if (value < 0)
+                return null;
+            return value;
         }
     }
 }

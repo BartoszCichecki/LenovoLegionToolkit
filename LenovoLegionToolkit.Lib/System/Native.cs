@@ -150,10 +150,12 @@ namespace LenovoLegionToolkit.Lib.System
     internal struct LenovoBatteryInformationEx
     {
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 13)]
-        private byte[] bytes1;
+        public byte[] Bytes1;
         public ushort Temperature;
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 68)]
-        private byte[] bytes2;
+        public ushort ManufactureDate;
+        public ushort FirstUseDate;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
+        public byte[] Bytes2;
     }
 
     [StructLayout(LayoutKind.Sequential)]

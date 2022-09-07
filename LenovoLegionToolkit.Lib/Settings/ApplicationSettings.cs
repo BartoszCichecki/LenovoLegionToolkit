@@ -15,6 +15,7 @@ namespace LenovoLegionToolkit.Lib.Settings
             public bool ActivatePowerProfilesWithVantageEnabled { get; set; }
             public bool DontShowNotifications { get; set; }
             public TemperatureUnit TemperatureUnit { get; set; }
+            public List<RefreshRate> ExcludedRefreshRates { get; set; } = new();
         }
 
         protected override string FileName => "settings.json";

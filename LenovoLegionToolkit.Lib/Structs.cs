@@ -22,6 +22,7 @@ namespace LenovoLegionToolkit.Lib
         public int CycleCount { get; }
         public double? BatteryTemperatureC { get; }
         public DateTime? ManufactureDate { get; }
+        public DateTime? FirstUseDate { get; }
 
         public BatteryInformation(
             bool isCharging,
@@ -34,7 +35,8 @@ namespace LenovoLegionToolkit.Lib
             int fullChargeCapactiy,
             int cycleCount,
             double? batteryTemperatureC,
-            DateTime? manufactureDate)
+            DateTime? manufactureDate,
+            DateTime? firstUseDate)
         {
             IsCharging = isCharging;
             BatteryPercentage = batteryPercentage;
@@ -47,6 +49,7 @@ namespace LenovoLegionToolkit.Lib
             CycleCount = cycleCount;
             BatteryTemperatureC = batteryTemperatureC;
             ManufactureDate = manufactureDate;
+            FirstUseDate = firstUseDate;
         }
     }
 
@@ -345,7 +348,7 @@ namespace LenovoLegionToolkit.Lib
 
         public StepperValue(int value, int min, int max, int step)
         {
-            Value = Math.Clamp(MathExtensions.RoundNearest(value, step), min, max);
+            Value = MathExtensions.RoundNearest(value, step);
             Min = min;
             Max = max;
             Step = step;

@@ -9,7 +9,7 @@
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="Custom Mode Settings"
     Width="600"
-    Height="500"
+    Height="700"
     MinWidth="600"
     MinHeight="400">
     <Grid>
@@ -18,7 +18,6 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-
 
         <wpfui:TitleBar
             x:Name="_titleBar"
@@ -156,9 +155,35 @@
 
                     <wpfui:CardControl Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
-                            <controls:CardHeaderControl Title="Maximum fan speed" Subtitle="WARNING:&#x0a;Prolonged usage of this option will degrade fans decreasing their longevity.&#x0a;Seriously, be careful with this option!" />
+                            <controls:CardHeaderControl Title="Maximum fan speed" Subtitle="WARNING!&#x0a;Prolonged usage of this option will degrade fans decreasing their longevity.&#x0a;Seriously, be careful with this option!" />
                         </wpfui:CardControl.Header>
                         <wpfui:ToggleSwitch x:Name="_fanFullSpeedToggle" Margin="0,0,0,8" />
+                    </wpfui:CardControl>
+
+                    <TextBlock
+                        Margin="0,16,0,8"
+                        FontSize="24"
+                        FontWeight="Medium"
+                        Text="Advanced" />
+
+                    <TextBlock
+                        Grid.Row="0"
+                        Margin="0,0,0,24"
+                        FontSize="12"
+                        Text="Do not change options below unless you really know what you are doing." />
+
+                    <wpfui:CardControl Margin="0,0,0,8">
+                        <wpfui:CardControl.Header>
+                            <controls:CardHeaderControl Title="Maximum value adjustment" Subtitle="WARNING!&#x0a;Some laptops may accept higher limits than they indicate, but be careful. This option may result in unpredictable behavior, so if you are not sure what are you doing, leave this at 0." />
+                        </wpfui:CardControl.Header>
+                        <wpfui:NumberBox
+                            x:Name="_maxValueOffsetNumberBox"
+                            Width="120"
+                            HorizontalContentAlignment="Right"
+                            ClearButtonEnabled="False"
+                            IntegersOnly="True"
+                            Max="100"
+                            Min="0" />
                     </wpfui:CardControl>
 
                 </StackPanel>
