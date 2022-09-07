@@ -243,7 +243,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             {
                 var size = Marshal.SizeOf<RGBKeyboardStateEx>();
                 ptr = Marshal.AllocHGlobal(size);
-                Marshal.StructureToPtr(str, ptr, true);
+                Marshal.StructureToPtr(str, ptr, false);
 
                 if (!Native.HidD_SetFeature(handle, ptr, (uint)size))
                     NativeUtils.ThrowIfWin32Error("HidD_SetFeature");
