@@ -5,6 +5,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using ColorPicker;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.WPF.Utils;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 using Button = System.Windows.Controls.Button;
@@ -14,6 +15,8 @@ namespace LenovoLegionToolkit.WPF.Controls
 {
     public class ColorCardControl : UserControl
     {
+        private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
+
         private readonly CardExpander _cardExpander = new();
 
         private readonly CardHeaderControl _cardHeaderControl = new();
@@ -99,6 +102,33 @@ namespace LenovoLegionToolkit.WPF.Controls
             Margin = new(0, 8, 0, 0),
         };
 
+        private readonly Grid _systemAccentColorGrid = new()
+        {
+            ColumnDefinitions =
+            {
+                new() { Width = GridLength.Auto },
+                new() { Width = new(16, GridUnitType.Pixel) },
+                new() { Width = new(1, GridUnitType.Star) },
+            },
+            RowDefinitions =
+            {
+                new() { Height = GridLength.Auto },
+            },
+        };
+
+        private readonly Label _systemAccentColorLabel = new()
+        {
+            Content = "System Accent Color:",
+            VerticalContentAlignment = VerticalAlignment.Center,
+            Margin = new(0, 8, 0, 0),
+        };
+
+        private readonly CheckBox _systemAccentColorCheckBox = new()
+        {
+            IsChecked = false,
+            Margin = new(0, 8, 0, 0),
+        };
+
         public SymbolRegular Icon
         {
             get => _cardExpander.Icon;
@@ -128,6 +158,9 @@ namespace LenovoLegionToolkit.WPF.Controls
             _greenTextBox.TextChanged += ColorTextBox_TextChanged;
             _blueTextBox.TextChanged += ColorTextBox_TextChanged;
             _colorPicker.MouseUp += ColorsPanel_MouseUp;
+            _systemAccentColorCheckBox.Checked += SystemAccentColor_Checked;
+            _systemAccentColorCheckBox.Unchecked += SystemAccentColor_Unchecked;
+
 
             _colorButton.Click += (s, e) => _cardExpander.IsExpanded = !_cardExpander.IsExpanded;
             _cardHeaderControl.Accessory = _colorButton;
@@ -153,13 +186,28 @@ namespace LenovoLegionToolkit.WPF.Controls
             _rgbGrid.Children.Add(_greenTextBox);
             _rgbGrid.Children.Add(_blueTextBox);
 
+            Grid.SetColumn(_systemAccentColorLabel, 0);
+            Grid.SetColumn(_systemAccentColorCheckBox, 2);
+
+            Grid.SetRow(_systemAccentColorLabel, 0);
+            Grid.SetRow(_systemAccentColorCheckBox, 0);
+
+            _systemAccentColorGrid.Children.Add(_systemAccentColorLabel);
+            _systemAccentColorGrid.Children.Add(_systemAccentColorCheckBox);
+
             _colorsPanel.Children.Add(_colorPicker);
             _colorsPanel.Children.Add(_rgbGrid);
+            _colorsPanel.Children.Add(_systemAccentColorGrid);
 
             _cardExpander.Header = _cardHeaderControl;
             _cardExpander.Content = _colorsPanel;
 
             Content = _cardExpander;
+
+            if (Color.Equals(_colorButton.Background, ((SolidColorBrush)SystemParameters.WindowGlassBrush).Color))
+                _systemAccentColorCheckBox.IsChecked = true;
+            else
+                _systemAccentColorCheckBox.IsChecked = false;
         }
 
         private void ColorTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -180,6 +228,11 @@ namespace LenovoLegionToolkit.WPF.Controls
 
             if (Mouse.LeftButton == MouseButtonState.Released && Mouse.RightButton == MouseButtonState.Released)
                 OnChanged?.Invoke(this, EventArgs.Empty);
+
+            if (!Color.Equals(color, ((SolidColorBrush)SystemParameters.WindowGlassBrush).Color))
+                _systemAccentColorCheckBox.IsChecked = false;
+            else
+                _systemAccentColorCheckBox.IsChecked = true;
         }
 
         private void ColorPicker_ColorChanged(object sender, RoutedEventArgs e)
@@ -194,6 +247,36 @@ namespace LenovoLegionToolkit.WPF.Controls
         private void ColorsPanel_MouseUp(object sender, MouseButtonEventArgs e)
         {
             OnChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void SystemAccentColor_Checked(object sender, RoutedEventArgs e)
+        {
+            Color systemAccentColor = ((SolidColorBrush)SystemParameters.WindowGlassBrush).Color;
+            if (Color.Equals(systemAccentColor, _colorPicker.SelectedColor))
+                return;
+
+            _colorPicker.SelectedColor = Color.FromRgb(systemAccentColor.R, systemAccentColor.G, systemAccentColor.B);
+
+            _systemAccentColorCheckBox.IsChecked = true;
+
+            if (Mouse.LeftButton == MouseButtonState.Released && Mouse.RightButton == MouseButtonState.Released)
+                OnChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void SystemAccentColor_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Color accentColor = Color.FromRgb(
+                _themeManager.DefaultAccentColor.R,
+                _themeManager.DefaultAccentColor.G,
+                _themeManager.DefaultAccentColor.B);
+
+            _colorPicker.SelectedColor = Color.FromRgb(
+                accentColor.R,
+                accentColor.G,
+                accentColor.B);
+
+            if (Mouse.LeftButton == MouseButtonState.Released && Mouse.RightButton == MouseButtonState.Released)
+                OnChanged?.Invoke(this, EventArgs.Empty);
         }
 
         public void SetColor(RGBColor color)
