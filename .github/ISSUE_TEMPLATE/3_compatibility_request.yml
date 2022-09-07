@@ -1,0 +1,59 @@
+name: Compatibility Request
+description: Request support for a device that is not supported
+title: "[COMPATIBILITY]: "
+labels: ["compatibility"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this compatibility request. Please provide as much information as possible.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Which Lenovo Legion Toolkit version do you use?
+      placeholder: e.g. 2.5.1
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: OS
+      description: Which operating system do you use?
+      placeholder: e.g. Windows 11 21H2 build 22000
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device
+      description: Which laptop do you use?
+      placeholder: e.g. Legion 5 Pro 16ACH6
+    validations:
+      required: true
+  - type: textarea
+    id: what-was-test
+    attributes:
+      label: Which features of the application did you test?
+      description: A clear and concise description of features that were tested.
+      placeholder: Type here...
+    validations:
+      required: true
+  - type: textarea
+    id: what-is-broken
+    attributes:
+      label: Which features of the application do not work as expected?
+      description: A clear and concise description of features that do not work as expected.
+      placeholder: Type here...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: If you encountered problems, please drag and drop log files here. You can check README for instructions on how to collect logs.
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional information
+      description: If applicable, add screenshots or other relevant information to help explain your problem.

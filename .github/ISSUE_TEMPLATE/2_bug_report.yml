@@ -1,0 +1,89 @@
+name: Bug Report
+description: Something isn't working correctly
+title: "[BUG]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report. The more information you provide, the easier it will be for me to fix it!
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Which Lenovo Legion Toolkit version do you use?
+      placeholder: e.g. 2.5.1
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: OS
+      description: Which operating system do you use?
+      placeholder: e.g. Windows 11 21H2 build 22000
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device
+      description: Which laptop do you use?
+      placeholder: e.g. Legion 5 Pro 16ACH6
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What's wrong?
+      description: Provide description of what is wrong.
+      placeholder: Type here...
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How to reproduce the bug?
+      description: Describe how to reproduce the behavior. Try to be as specific as possible.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behaviour
+    attributes:
+      label: What is the behavior that you expected?
+      description: Describe what did you expect would happen.
+      placeholder: Type here...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Please drag and drop log files here. You can check README for instructions on how to collect logs.
+  - type: checkboxes
+    id: vantage-fn-keys
+    attributes:
+      label: Do you have Lenovo software installed?
+      description: Check all that you have installed on your system
+      options:
+        - label: Lenovo Vantage is installed
+        - label: Lenovo Hotkeys is installed
+        - label: None of the above
+  - type: checkboxes
+    id: vantage-fn-keys-disabled
+    attributes:
+      label: Did you disable any Lenovo software using Lenovo Legion Toolkit?
+      description: Check all that you have disabled with Lenovo Legion Toolkit
+      options:
+        - label: Lenovo Vantage
+        - label: Lenovo Hotkeys
+        - label: I disabled some things on my own (please write below what you did)
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional information
+      description: If applicable, add screenshots or other relevant information to help explain your problem.

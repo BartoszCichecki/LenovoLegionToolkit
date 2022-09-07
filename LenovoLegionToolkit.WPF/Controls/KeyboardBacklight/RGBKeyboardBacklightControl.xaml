@@ -40,7 +40,7 @@
             Margin="0,0,8,24"
             Icon="Warning24">
             <wpfui:CardControl.Header>
-                <controls:CardHeaderControl Title="Unavailable" Subtitle="Keyboard backlight cannot be adjusted, when Vantage and/or it's services are running." />
+                <controls:CardHeaderControl Title="Lenovo Vantage seems to be enabled" Subtitle="Keyboard backlight cannot be controlled in here, when Vantage and/or it's services are running, due to conflicts between the two." />
             </wpfui:CardControl.Header>
         </wpfui:CardControl>
 

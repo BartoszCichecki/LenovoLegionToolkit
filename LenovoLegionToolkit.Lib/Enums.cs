@@ -8,7 +8,7 @@ namespace LenovoLegionToolkit.Lib
         [Display(Name = "On, when sleeping")]
         OnWhenSleeping,
         [Display(Name = "On, always")]
-        OnAlways,
+        OnAlways
     }
 
 
@@ -17,32 +17,32 @@ namespace LenovoLegionToolkit.Lib
         Conservation,
         Normal,
         [Display(Name = "Rapid Charge")]
-        RapidCharge,
+        RapidCharge
     }
 
     public enum DriverKey
     {
         Fn_F4 = 256,
         Fn_F8 = 8192,
-        Fn_F10 = 32,
+        Fn_F10 = 32
     }
 
     public enum FlipToStartState
     {
         Off,
-        On,
+        On
     }
 
     public enum FnLockState
     {
         Off,
-        On,
+        On
     }
 
     public enum GSyncState
     {
         On,
-        Off,
+        Off
     }
 
     public enum HybridModeState
@@ -54,14 +54,14 @@ namespace LenovoLegionToolkit.Lib
         [Display(Name = "Hybrid-Auto Mode", Description = "Use both iGPU and dGPU when on AC power. Use iGPU only on battery.")]
         OnAuto,
         [Display(Name = "dGPU Mode", Description = "Use dGPU only.")]
-        Off,
+        Off
     }
 
     public enum IGPUModeState
     {
         Default,
         IGPUOnly,
-        Auto,
+        Auto
     }
 
     public enum KnownFolder
@@ -77,13 +77,14 @@ namespace LenovoLegionToolkit.Lib
     public enum ModelYear
     {
         MY2020OrEarlier,
-        MY2021OrLater,
+        MY2021,
+        MY2022OrLater
     }
 
     public enum NotificationDuration
     {
         Short,
-        Long,
+        Long
     }
 
     public enum NotificationIcon
@@ -92,7 +93,7 @@ namespace LenovoLegionToolkit.Lib
         MicrophoneOn,
         RefreshRate,
         TouchpadOn,
-        TouchpadOff,
+        TouchpadOff
     }
 
     public enum OS
@@ -104,20 +105,20 @@ namespace LenovoLegionToolkit.Lib
         [Display(Name = "Windows 8")]
         Windows8,
         [Display(Name = "Windows 7")]
-        Windows7,
+        Windows7
     }
 
     public enum OverDriveState
     {
         Off,
-        On,
+        On
     }
 
     public enum PowerAdapterStatus
     {
         Connected,
         ConnectedLowWattage,
-        Disconnected,
+        Disconnected
     }
 
     public enum PowerModeState
@@ -126,13 +127,13 @@ namespace LenovoLegionToolkit.Lib
         Balance,
         Performance,
         [Display(Name = "Custom")]
-        GodMode = 254,
+        GodMode = 254
     }
 
     public enum ProcessEventInfoType
     {
         Started,
-        Stopped,
+        Stopped
     }
 
     public enum RGBKeyboardBacklightChanged { }
@@ -140,7 +141,7 @@ namespace LenovoLegionToolkit.Lib
     public enum RGBKeyboardBrightness
     {
         Low,
-        High,
+        High
     }
 
     public enum RGBKeyboardEffect
@@ -151,7 +152,7 @@ namespace LenovoLegionToolkit.Lib
         [Display(Name = "Wave Right")]
         WaveRTL,
         [Display(Name = "Wave Left")]
-        WaveLTR,
+        WaveLTR
     }
 
     public enum RGBKeyboardBacklightPreset
@@ -162,7 +163,7 @@ namespace LenovoLegionToolkit.Lib
         [Display(Name = "Preset 2")]
         Two = 1,
         [Display(Name = "Preset 3")]
-        Three = 2,
+        Three = 2
     }
 
     public enum RBGKeyboardSpeed
@@ -170,14 +171,14 @@ namespace LenovoLegionToolkit.Lib
         Slowest,
         Slow,
         Fast,
-        Fastest,
+        Fastest
     }
 
     public enum SoftwareStatus
     {
         Enabled,
         Disabled,
-        NotFound,
+        NotFound
     }
 
     public enum SpecialKey
@@ -188,26 +189,26 @@ namespace LenovoLegionToolkit.Lib
         Fn_LockOff = 3,
         Fn_PrtSc = 4,
         Fn_R = 16,
-        Fn_R_2 = 0x0041002A,
+        Fn_R_2 = 0x0041002A
     }
 
     public enum Theme
     {
         System,
         Light,
-        Dark,
+        Dark
     }
 
     public enum TemperatureUnit
     {
         C,
-        F,
+        F
     }
 
     public enum TouchpadLockState
     {
         Off,
-        On,
+        On
     }
 
     public enum WhiteKeyboardBacklightChanged { }
@@ -216,13 +217,13 @@ namespace LenovoLegionToolkit.Lib
     {
         Off,
         Low,
-        High,
+        High
     }
 
     public enum WinKeyState
     {
         Off,
-        On,
+        On
     }
 
     public enum WinKeyChanged { }
