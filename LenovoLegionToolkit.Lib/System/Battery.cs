@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Runtime.InteropServices;
 using LenovoLegionToolkit.Lib.Utils;
 
@@ -24,11 +25,37 @@ namespace LenovoLegionToolkit.Lib.System
                 temperatureC = DecodeTemperatureC(lenovoBatteryInformation.Temperature);
                 manufactureDate = DecodeDateTime(lenovoBatteryInformation.ManufactureDate);
                 firstUseDate = DecodeDateTime(lenovoBatteryInformation.FirstUseDate);
+
+                Log.Instance.Debug("battery", $"Bytes1:          {string.Join(" ", lenovoBatteryInformation.Bytes1.Select(b => Convert.ToString(b, 16)))}");
+                Log.Instance.Debug("battery", $"Temperature:     {lenovoBatteryInformation.Temperature}");
+                Log.Instance.Debug("battery", $"ManufactureDate: {lenovoBatteryInformation.ManufactureDate}");
+                Log.Instance.Debug("battery", $"FirstUseDate:    {lenovoBatteryInformation.FirstUseDate}");
+                Log.Instance.Debug("battery", $"Bytes2:          {string.Join(" ", lenovoBatteryInformation.Bytes2.Select(b => Convert.ToString(b, 16)))}");
             }
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Failed to get temperature of battery.", ex);
+            }
+
+            try
+            {
+                var temp = GetBatteryTemperature(batteryTag);
+                Log.Instance.Debug("battery", $"Temp: {temp}");
+            }
+            catch (Exception e)
+            {
+                Log.Instance.Debug("battery", $"Failed to get temp new style", e);
+            }
+
+            try
+            {
+                var temp = GetBatteryManufactureDateEx(batteryTag);
+                Log.Instance.Debug("battery", $"date: {temp.Year} {temp.Month} {temp.Day}");
+            }
+            catch (Exception e)
+            {
+                Log.Instance.Debug("battery", $"Failed to get date new style", e);
             }
 
             return new(powerStatus.ACLineStatus == ACLineStatusEx.Online,
@@ -102,9 +129,85 @@ namespace LenovoLegionToolkit.Lib.System
                                                     IntPtr.Zero);
 
                 if (!result)
-                    NativeUtils.ThrowIfWin32Error("DeviceIoControl, IOCTL_BATTERY_QUERY_INFORMATION");
+                    NativeUtils.ThrowIfWin32Error("DeviceIoControl, IOCTL_BATTERY_QUERY_INFORMATION.BatteryInformation");
 
                 var bi = Marshal.PtrToStructure<BatteryInformationEx>(informationPointer);
+                return bi;
+            }
+            finally
+            {
+                Marshal.FreeHGlobal(queryInformationPointer);
+                Marshal.FreeHGlobal(informationPointer);
+            }
+        }
+
+        private static uint GetBatteryTemperature(uint batteryTag)
+        {
+            var queryInformationPointer = IntPtr.Zero;
+
+            try
+            {
+                var queryInformation = new BatteryQueryInformationEx
+                {
+                    BatteryTag = batteryTag,
+                    InformationLevel = BatteryQueryInformationLevelEx.BatteryTemperature,
+                };
+                var queryInformationSize = Marshal.SizeOf<BatteryQueryInformationEx>();
+                queryInformationPointer = Marshal.AllocHGlobal(queryInformationSize);
+                Marshal.StructureToPtr(queryInformation, queryInformationPointer, false);
+
+                var result = Native.DeviceIoControl(Devices.GetBattery(),
+                    Native.IOCTL_BATTERY_QUERY_INFORMATION,
+                    queryInformationPointer,
+                    queryInformationSize,
+                    out var temp,
+                    4,
+                    out _,
+                    IntPtr.Zero);
+
+                if (!result)
+                    NativeUtils.ThrowIfWin32Error("DeviceIoControl, IOCTL_BATTERY_QUERY_INFORMATION.BatteryTemperature");
+
+                return temp;
+            }
+            finally
+            {
+                Marshal.FreeHGlobal(queryInformationPointer);
+            }
+        }
+
+        private static BatteryManufactureDateEx GetBatteryManufactureDateEx(uint batteryTag)
+        {
+            var queryInformationPointer = IntPtr.Zero;
+            var informationPointer = IntPtr.Zero;
+
+            try
+            {
+                var queryInformation = new BatteryQueryInformationEx
+                {
+                    BatteryTag = batteryTag,
+                    InformationLevel = BatteryQueryInformationLevelEx.BatteryManufactureDate,
+                };
+                var queryInformationSize = Marshal.SizeOf<BatteryQueryInformationEx>();
+                queryInformationPointer = Marshal.AllocHGlobal(queryInformationSize);
+                Marshal.StructureToPtr(queryInformation, queryInformationPointer, false);
+
+                var informationSize = Marshal.SizeOf<BatteryManufactureDateEx>();
+                informationPointer = Marshal.AllocHGlobal(informationSize);
+
+                var result = Native.DeviceIoControl(Devices.GetBattery(),
+                    Native.IOCTL_BATTERY_QUERY_INFORMATION,
+                    queryInformationPointer,
+                    queryInformationSize,
+                    informationPointer,
+                    informationSize,
+                    out _,
+                    IntPtr.Zero);
+
+                if (!result)
+                    NativeUtils.ThrowIfWin32Error("DeviceIoControl, IOCTL_BATTERY_QUERY_INFORMATION.BatteryManufactureDate");
+
+                var bi = Marshal.PtrToStructure<BatteryManufactureDateEx>(informationPointer);
                 return bi;
             }
             finally

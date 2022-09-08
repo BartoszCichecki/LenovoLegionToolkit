@@ -120,6 +120,14 @@ namespace LenovoLegionToolkit.Lib.System
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+    internal struct BatteryManufactureDateEx
+    {
+        public byte Day;
+        public byte Month;
+        public ushort Year;
+    }
+
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
     internal struct BatteryStatusEx
     {
         public PowerStateEx PowerState;
@@ -390,13 +398,24 @@ namespace LenovoLegionToolkit.Lib.System
             out int pBytesReturned,
             IntPtr lpOverlapped);
 
-        [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         public static extern bool DeviceIoControl(
             SafeFileHandle hDevice,
             uint dwIoControlCode,
             [In] IntPtr inBuffer,
             int nInBufferSize,
             [Out] IntPtr outBuffer,
+            int nOutBufferSize,
+            out uint pBytesReturned,
+            IntPtr lpOverlapped);
+
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        public static extern bool DeviceIoControl(
+            SafeFileHandle hDevice,
+            uint dwIoControlCode,
+            [In] IntPtr inBuffer,
+            int nInBufferSize,
+            [Out] out uint outBuffer,
             int nOutBufferSize,
             out uint pBytesReturned,
             IntPtr lpOverlapped);
@@ -492,7 +511,7 @@ namespace LenovoLegionToolkit.Lib.System
     {
         public static void ThrowIfWin32Error(string description)
         {
-            int errorCode = Marshal.GetLastWin32Error();
+            var errorCode = Marshal.GetLastWin32Error();
             if (errorCode != 0)
                 throw Marshal.GetExceptionForHR(errorCode) ?? throw new Exception($"Unknown Win32 error code {errorCode} in {description}.");
             else
