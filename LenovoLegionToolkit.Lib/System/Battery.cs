@@ -19,11 +19,13 @@ namespace LenovoLegionToolkit.Lib.System
             DateTime? firstUseDate = null;
             try
             {
-                var lenovoBatteryInformation = GetLenovoBatteryInformation();
-
-                temperatureC = DecodeTemperatureC(lenovoBatteryInformation.Temperature);
-                manufactureDate = DecodeDateTime(lenovoBatteryInformation.ManufactureDate);
-                firstUseDate = DecodeDateTime(lenovoBatteryInformation.FirstUseDate);
+                var lenovoBatteryInformation = FindLenovoBatteryInformation();
+                if (lenovoBatteryInformation.HasValue)
+                {
+                    temperatureC = DecodeTemperatureC(lenovoBatteryInformation.Value.Temperature);
+                    manufactureDate = DecodeDateTime(lenovoBatteryInformation.Value.ManufactureDate);
+                    firstUseDate = DecodeDateTime(lenovoBatteryInformation.Value.FirstUseDate);
+                }
             }
             catch (Exception ex)
             {
@@ -154,17 +156,39 @@ namespace LenovoLegionToolkit.Lib.System
             }
         }
 
-        private static LenovoBatteryInformationEx GetLenovoBatteryInformation()
+        private static LenovoBatteryInformationEx? FindLenovoBatteryInformation()
+        {
+            for (uint index = 0; index < 3; index++)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Checking battery data at index {index}...");
+
+                var info = GetLenovoBatteryInformation(index);
+                if (info.Temperature is ushort.MinValue or ushort.MaxValue)
+                    continue;
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Battery data found at index {index}.");
+
+                return info;
+            }
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Battery data not found.");
+
+            return null;
+        }
+
+        private static LenovoBatteryInformationEx GetLenovoBatteryInformation(uint index)
         {
             var batteryInformationPointer = IntPtr.Zero;
             try
             {
-                uint emptyBuffer = 0;
                 var batteryInformationSize = Marshal.SizeOf<LenovoBatteryInformationEx>();
                 batteryInformationPointer = Marshal.AllocHGlobal(batteryInformationSize);
                 var result = Native.DeviceIoControl(Drivers.GetEnergy(),
                                                     0x83102138,
-                                                    ref emptyBuffer,
+                                                    ref index,
                                                     4,
                                                     batteryInformationPointer,
                                                     batteryInformationSize,
