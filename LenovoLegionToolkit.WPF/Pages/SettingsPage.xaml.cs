@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Settings;
@@ -10,7 +9,6 @@ using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Settings;
-using static System.Windows.Forms.AxHost;
 
 namespace LenovoLegionToolkit.WPF.Pages
 {
