@@ -10,6 +10,7 @@ using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Settings;
+using static System.Windows.Forms.AxHost;
 
 namespace LenovoLegionToolkit.WPF.Pages
 {
@@ -97,9 +98,21 @@ namespace LenovoLegionToolkit.WPF.Pages
             if (_isRefreshing)
                 return;
 
+            bool isSystemAccentColor = RGBColor.Equals(_accentColor.GetColor(), _systemAccentColorHelper.SystemAccentColor);
+            if (isSystemAccentColor)
+            {
+                _settings.Store.SystemAccentColor = true;
+            }
+            else
+            {
+                _settings.Store.SystemAccentColor = false;
+            }
+
+            _systemAccentColorToggle.IsChecked = _settings.Store.SystemAccentColor;
+
             _settings.Store.AccentColor = _accentColor.GetColor();
             _settings.SynchronizeStore();
-
+            
             _themeManager.Apply();
         }
 
@@ -114,16 +127,13 @@ namespace LenovoLegionToolkit.WPF.Pages
 
             if (state.Value)
             {
-                _systemAccentColorHelper.Apply();
                 _accentColor.SetColor(_systemAccentColorHelper.SystemAccentColor);
-                _settings.Store.AccentColor = _accentColor.GetColor();
                 _settings.Store.SystemAccentColor = state.Value;
                 _settings.SynchronizeStore();
             }
             else
             {
                 _accentColor.SetColor(_themeManager.DefaultAccentColor);
-                _settings.Store.AccentColor = _accentColor.GetColor();
                 _settings.Store.SystemAccentColor = state.Value;
                 _settings.SynchronizeStore();
             }

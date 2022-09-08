@@ -22,17 +22,6 @@ namespace LenovoLegionToolkit.WPF.Utils
                     ((SolidColorBrush)SystemParameters.WindowGlassBrush).Color.G,
                     ((SolidColorBrush)SystemParameters.WindowGlassBrush).Color.B);
 
-        public bool IsSystemAccentColor
-        {
-            get
-            {
-                var accentColor = _settings.Store.AccentColor;
-                var systemAccentColor = ((SolidColorBrush)SystemParameters.WindowGlassBrush).Color;
-                var isSystemAccentColor = Color.Equals(systemAccentColor, accentColor);
-                return isSystemAccentColor;
-            }
-        }
-
         public event EventHandler? AccentColorApplied;
         
         public SystemAccentColorHelper(ApplicationSettings settings)
