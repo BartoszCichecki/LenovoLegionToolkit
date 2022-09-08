@@ -6,10 +6,10 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this compatibility request. Please provide as much information as possible. |
+        Thanks for taking the time to fill out this compatibility request. Please provide as much information as possible.
         
-        **IMPORTANT:** |
-        ** Support is limited only to laptops from Lenovo Legion series. Other devices will not be supported.** |
+        **IMPORTANT:**
+        **Support is limited only to laptops from Lenovo Legion series. Other devices will not be supported.**
         
   - type: input
     id: version
