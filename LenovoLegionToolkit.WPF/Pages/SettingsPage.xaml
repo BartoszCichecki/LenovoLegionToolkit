@@ -36,10 +36,21 @@
         <controls:ColorCardControl
             x:Name="_accentColor"
             Title="Accent color"
-            Margin="0,0,0,24"
+            Margin="0,0,0,8"
             Icon="Color24"
             OnChanged="AccentColorControl_OnChanged"
             Subtitle="Change the accent color of the app." />
+
+        <wpfui:CardControl Margin="0,0,0,24">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="Use System Accent Color" Subtitle="Use the system accent color in the app.&#x0a;Toggle off the specify the app accent color with the accent color toggle above." />
+            </wpfui:CardControl.Header>
+            <wpfui:ToggleSwitch
+                x:Name="_systemAccentColorToggle"
+                Margin="0,0,0,8"
+                Click="SystemAccentColorToggle_Click"
+                Visibility="Hidden" />
+        </wpfui:CardControl>
 
         <wpfui:CardControl Margin="0,0,0,8">
             <wpfui:CardControl.Header>

@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Settings;
@@ -19,6 +20,7 @@ namespace LenovoLegionToolkit.WPF.Pages
         private readonly FnKeys _fnKeys = IoCContainer.Resolve<FnKeys>();
         private readonly RGBKeyboardBacklightController _rgbKeyboardBacklightController = IoCContainer.Resolve<RGBKeyboardBacklightController>();
         private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
+        private readonly SystemAccentColorHelper _systemAccentColorHelper = IoCContainer.Resolve<SystemAccentColorHelper>();
 
         private bool _isRefreshing;
 
@@ -46,6 +48,7 @@ namespace LenovoLegionToolkit.WPF.Pages
 
             _themeComboBox.SetItems(Enum.GetValues<Theme>(), _settings.Store.Theme);
             _accentColor.SetColor(_settings.Store.AccentColor ?? _themeManager.DefaultAccentColor);
+            _systemAccentColorToggle.IsChecked = _settings.Store.SystemAccentColor;
             _autorunToggle.IsChecked = Autorun.IsEnabled;
             _minimizeOnCloseToggle.IsChecked = _settings.Store.MinimizeOnClose;
 
@@ -65,6 +68,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             await loadingTask;
 
             _themeComboBox.Visibility = Visibility.Visible;
+            _systemAccentColorToggle.Visibility = Visibility.Visible;
             _autorunToggle.Visibility = Visibility.Visible;
             _minimizeOnCloseToggle.Visibility = Visibility.Visible;
             _vantageToggle.Visibility = Visibility.Visible;
@@ -97,6 +101,32 @@ namespace LenovoLegionToolkit.WPF.Pages
             _settings.SynchronizeStore();
 
             _themeManager.Apply();
+        }
+
+        private void SystemAccentColorToggle_Click(object sender, RoutedEventArgs e)
+        {
+            if (_isRefreshing)
+                return;
+
+            var state = _systemAccentColorToggle.IsChecked;
+            if (state is null)
+                return;
+
+            if (state.Value)
+            {
+                _systemAccentColorHelper.Apply();
+                _accentColor.SetColor(_systemAccentColorHelper.SystemAccentColor);
+                _settings.Store.AccentColor = _accentColor.GetColor();
+                _settings.Store.SystemAccentColor = state.Value;
+                _settings.SynchronizeStore();
+            }
+            else
+            {
+                _accentColor.SetColor(_themeManager.DefaultAccentColor);
+                _settings.Store.AccentColor = _accentColor.GetColor();
+                _settings.Store.SystemAccentColor = state.Value;
+                _settings.SynchronizeStore();
+            }
         }
 
         private void AutorunToggle_Click(object sender, RoutedEventArgs e)

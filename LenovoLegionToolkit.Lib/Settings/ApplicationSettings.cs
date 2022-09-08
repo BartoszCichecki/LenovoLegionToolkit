@@ -10,6 +10,7 @@ namespace LenovoLegionToolkit.Lib.Settings
             public WindowSize WindowSize { get; set; }
             public Theme Theme { get; set; }
             public RGBColor? AccentColor { get; set; }
+            public bool SystemAccentColor { get; set; }
             public Dictionary<PowerModeState, string> PowerPlans { get; set; } = new();
             public bool MinimizeOnClose { get; set; }
             public bool ActivatePowerProfilesWithVantageEnabled { get; set; }
