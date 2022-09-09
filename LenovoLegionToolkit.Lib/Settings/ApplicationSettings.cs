@@ -23,7 +23,7 @@ namespace LenovoLegionToolkit.Lib.Settings
 
         public override ApplicationSettingsStore Default => new()
         {
-            Theme = Theme.Dark,
+            Theme = Theme.System,
             SyncSystemAccentColor = true,
             TemperatureUnit = TemperatureUnit.C,
         };
