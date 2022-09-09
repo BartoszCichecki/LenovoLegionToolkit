@@ -117,7 +117,7 @@ namespace LenovoLegionToolkit.WPF.Controls
             set => _cardHeaderControl.Subtitle = value;
         }
 
-        public event EventHandler? OnChanged;
+        public event EventHandler? OnChanged, OnChangedByUser;
 
         public ColorCardControl() => InitializeComponent();
 
@@ -193,6 +193,9 @@ namespace LenovoLegionToolkit.WPF.Controls
             {
                 OnChanged?.Invoke(this, EventArgs.Empty);
 
+                if (!_wasSetColorCalled)
+                    OnChangedByUser?.Invoke(this, EventArgs.Empty);
+
                 _raisedOnChanged = true;
             }
         }
@@ -209,6 +212,7 @@ namespace LenovoLegionToolkit.WPF.Controls
         private void ColorsPanel_MouseUp(object sender, MouseButtonEventArgs e)
         {
             OnChanged?.Invoke(this, EventArgs.Empty);
+            OnChangedByUser?.Invoke(this, EventArgs.Empty);
         }
 
         public void SetColor(RGBColor color)
