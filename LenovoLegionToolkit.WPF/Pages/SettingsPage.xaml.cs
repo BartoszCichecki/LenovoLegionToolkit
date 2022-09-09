@@ -45,7 +45,8 @@ namespace LenovoLegionToolkit.WPF.Pages
             var loadingTask = Task.Delay(250);
 
             _themeComboBox.SetItems(Enum.GetValues<Theme>(), _settings.Store.Theme);
-            _accentColor.SetColor(_settings.Store.AccentColor ?? _themeManager.DefaultAccentColor);
+            _accentColor.SetColor(_themeManager.AccentColor);
+            _accentColor.SetSyncSystemAccentColor(_settings.Store.SyncSystemAccentColor);
             _autorunToggle.IsChecked = Autorun.IsEnabled;
             _minimizeOnCloseToggle.IsChecked = _settings.Store.MinimizeOnClose;
 
@@ -94,6 +95,17 @@ namespace LenovoLegionToolkit.WPF.Pages
                 return;
 
             _settings.Store.AccentColor = _accentColor.GetColor();
+            _settings.SynchronizeStore();
+
+            _themeManager.Apply();
+        }
+
+        private void AccentColorControl_OnSyncSystemAccentColorChanged(object sender, EventArgs e)
+        {
+            if (_isRefreshing)
+                return;
+
+            _settings.Store.SyncSystemAccentColor = _accentColor.GetSyncSystemAccentColor();
             _settings.SynchronizeStore();
 
             _themeManager.Apply();
