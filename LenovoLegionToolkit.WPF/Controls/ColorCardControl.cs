@@ -157,10 +157,12 @@ namespace LenovoLegionToolkit.WPF.Controls
             _colorsPanel.Children.Add(_rgbGrid);
 
             _cardExpander.Header = _cardHeaderControl;
-            _cardExpander.Content = _colorsPanel;
+            _cardExpander.Content = GetCardExpanderPanel();
 
             Content = _cardExpander;
         }
+
+        protected virtual StackPanel GetCardExpanderPanel() => _colorsPanel;
 
         //
         // These flags are used to prevent ColorTextBox_TextChanged from raising OnChanged
