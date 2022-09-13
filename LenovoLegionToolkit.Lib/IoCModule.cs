@@ -16,6 +16,7 @@ namespace LenovoLegionToolkit.Lib
         {
             builder.Register<Vantage>();
             builder.Register<FnKeys>();
+            builder.Register<LegionZone>();
 
             builder.Register<ApplicationSettings>();
             builder.Register<RGBKeyboardSettings>();
