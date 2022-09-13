@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Media;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 
@@ -16,7 +17,7 @@ namespace LenovoLegionToolkit.WPF.Utils
         private const string RegistryKey = "AppsUseLightTheme";
 
         private readonly ApplicationSettings _settings;
-        private readonly IDisposable _themeListener;
+        private readonly SystemThemeListener _listener = IoCContainer.Resolve<SystemThemeListener>();
 
         public RGBColor DefaultAccentColor => new(231, 76, 60);
 
@@ -25,23 +26,23 @@ namespace LenovoLegionToolkit.WPF.Utils
             get
             {
                 var theme = _settings.Store.Theme;
-                var registryValue = Registry.Read(RegistryHive, RegistryPath, RegistryKey, 1);
+                var systemDarkMode = _settings.Default.Theme == Theme.Dark;
 
-                return (theme, registryValue) switch
-                {
-                    (Theme.Light, _) => false,
-                    (Theme.System, 1) => false,
-                    _ => true,
-                };
+                try { systemDarkMode = SystemTheme.GetDarkMode(); } catch { }
+
+                return theme == Theme.Dark || theme == Theme.System && systemDarkMode;
             }
         }
+
+        public RGBColor AccentColor { get; private set; }
 
         public event EventHandler? ThemeApplied;
 
         public ThemeManager(ApplicationSettings settings)
         {
             _settings = settings;
-            _themeListener = Registry.Listen(RegistryHive, RegistryPath, RegistryKey, () => Application.Current.Dispatcher.Invoke(Apply));
+            _listener.Changed += (object? s, SystemThemeSettings e) => Application.Current.Dispatcher.Invoke(Apply);
+            AccentColor = DefaultAccentColor;
         }
 
         public void Apply()
@@ -60,8 +61,10 @@ namespace LenovoLegionToolkit.WPF.Utils
 
         private void SetColor()
         {
-            var accentColorRgb = _settings.Store.AccentColor ?? DefaultAccentColor;
-            var accentColor = Color.FromRgb(accentColorRgb.R, accentColorRgb.G, accentColorRgb.B);
+            AccentColor = _settings.Store.SyncSystemAccentColor ? SystemTheme.GetAccentColor()
+                                                                : _settings.Store.AccentColor ?? DefaultAccentColor;
+
+            var accentColor = Color.FromRgb(AccentColor.R, AccentColor.G, AccentColor.B);
             Wpf.Ui.Appearance.Accent.Apply(systemAccent: accentColor,
                 primaryAccent: accentColor,
                 secondaryAccent: accentColor,
