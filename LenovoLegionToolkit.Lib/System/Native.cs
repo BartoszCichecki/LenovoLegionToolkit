@@ -4,7 +4,6 @@ using System.Runtime.InteropServices;
 using Microsoft.Win32.SafeHandles;
 
 #pragma warning disable CA2101 // Specify marshaling for P/Invoke string arguments
-#pragma warning disable IDE0044 // Add readonly modifier
 
 namespace LenovoLegionToolkit.Lib.System
 {

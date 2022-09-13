@@ -11,37 +11,30 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
     {
         private readonly NumberBox _brightness = new()
         {
-            PlaceholderText = "Brightness value",
             Width = 150,
             IntegersOnly = true,
-            Step = 5,
-            Max = 100,
+            ClearButtonEnabled = false,
             Min = 0,
-            Value = 50,
+            Max = 100,
+            Step = 5,
         };
 
-        private readonly StackPanel _stackPanel = new();
+        private readonly Grid _grid = new();
 
         public DisplayBrightnessAutomationStepControl(DisplayBrightnessAutomationStep step) : base(step)
         {
             Icon = SymbolRegular.BrightnessHigh48;
             Title = "Display brightness";
-            Subtitle = "Change display brightness of the built-in display.\n\nWARNING: This action will not run correctly,\nif internal display is off.";
+            Subtitle = "Change display brightness of the built-in display.\nPower modes change brightness on some devices. Make sure to put this step last, if something doesn't work just right.\n\nWARNING: This action will not run correctly, if internal display is off.";
         }
 
         public override IAutomationStep CreateAutomationStep() => new DisplayBrightnessAutomationStep((int)_brightness.Value);
 
         protected override UIElement? GetCustomControl()
         {
-            _brightness.TextChanged += (s, e) =>
-            {
-                if (_brightness.Value != AutomationStep.Brightness)
-                    RaiseChanged();
-            };
-
-            _stackPanel.Children.Add(_brightness);
-
-            return _stackPanel;
+            _brightness.TextChanged += (s, e) => RaiseChanged();
+            _grid.Children.Add(_brightness);
+            return _grid;
         }
 
         protected override void OnFinishedLoading() { }
