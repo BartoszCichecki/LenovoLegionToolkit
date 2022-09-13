@@ -8,7 +8,6 @@ using LenovoLegionToolkit.Lib.System;
 using NeoSmart.AsyncLock;
 using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32.SafeHandles;
-using LenovoLegionToolkit.Lib.Listeners;
 
 #if !MOCK_RGB
 using System.Runtime.InteropServices;
@@ -26,8 +25,6 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         private readonly Vantage _vantage;
 
-        private readonly SystemThemeListener _systemThemeListener;
-
         private SafeFileHandle? DriverHandle
         {
             get
@@ -39,13 +36,10 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
         }
 
-        public RGBKeyboardBacklightController(RGBKeyboardSettings settings, Vantage vantage, SystemThemeListener listener)
+        public RGBKeyboardBacklightController(RGBKeyboardSettings settings, Vantage vantage)
         {
             _settings = settings ?? throw new ArgumentNullException(nameof(settings));
             _vantage = vantage ?? throw new ArgumentNullException(nameof(vantage));
-            _systemThemeListener = listener ?? throw new ArgumentNullException(nameof(listener));
-
-            _systemThemeListener.Changed += SystemThemeListener_Changed;
         }
 
         public bool IsSupported()
@@ -118,7 +112,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
         }
 
-        public async Task SetStateAsync(RGBKeyboardBacklightState state, RGBColor? systemAccentColor = null)
+        public async Task SetStateAsync(RGBKeyboardBacklightState state)
         {
             using (await _ioLock.LockAsync().ConfigureAwait(false))
             {
@@ -139,43 +133,94 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 if (selectedPreset == RGBKeyboardBacklightPreset.Off)
                     str = CreateOffState();
                 else
-                {
-                    RGBKeyboardBacklightSettings settings = state.Presets[selectedPreset];
-
-                    if (systemAccentColor == null)
-                        systemAccentColor = SystemTheme.GetAccentColor();
-
-                    settings = new RGBKeyboardBacklightSettings(settings.Effect, settings.Speed, settings.Brightness,
-                                     settings.Zone1.SyncSystemAccentColor ? new RGBKeyboardZone(systemAccentColor.Value, true) : settings.Zone1,
-                                     settings.Zone2.SyncSystemAccentColor ? new RGBKeyboardZone(systemAccentColor.Value, true) : settings.Zone2,
-                                     settings.Zone3.SyncSystemAccentColor ? new RGBKeyboardZone(systemAccentColor.Value, true) : settings.Zone3,
-                                     settings.Zone4.SyncSystemAccentColor ? new RGBKeyboardZone(systemAccentColor.Value, true) : settings.Zone4);
-
-                    str = Convert(settings);
-                }
+                    str = Convert(state.Presets[selectedPreset]);
 
                 await SendToDevice(str).ConfigureAwait(false);
             }
         }
 
-        public async Task SetPresetAsync(RGBKeyboardBacklightPreset preset, RGBColor? systemAccentColor = null)
+        public async Task SetPresetAsync(RGBKeyboardBacklightPreset preset)
         {
-            await SetStateAsync(new(preset, _settings.Store.State.Presets), systemAccentColor).ConfigureAwait(false);
+            using (await _ioLock.LockAsync().ConfigureAwait(false))
+            {
+#if !MOCK_RGB
+                var handle = DriverHandle;
+                if (handle is null)
+                    throw new InvalidOperationException("RGB Keyboard unsupported.");
+#endif
+
+                await ThrowIfVantageEnabled().ConfigureAwait(false);
+
+                var state = _settings.Store.State;
+                var presets = state.Presets;
+
+                _settings.Store.State = new(preset, presets);
+                _settings.SynchronizeStore();
+
+                RGBKeyboardStateEx str;
+                if (preset == RGBKeyboardBacklightPreset.Off)
+                    str = CreateOffState();
+                else
+                    str = Convert(state.Presets[preset]);
+
+                await SendToDevice(str).ConfigureAwait(false);
+            }
         }
 
         public async Task SetNextPresetAsync()
         {
-            await SetPresetAsync(_settings.Store.State.SelectedPreset.Next()).ConfigureAwait(false);
+            using (await _ioLock.LockAsync().ConfigureAwait(false))
+            {
+#if !MOCK_RGB
+                var handle = DriverHandle;
+                if (handle is null)
+                    throw new InvalidOperationException("RGB Keyboard unsupported.");
+#endif
+
+                await ThrowIfVantageEnabled().ConfigureAwait(false);
+
+                var state = _settings.Store.State;
+
+                var newPreset = state.SelectedPreset.Next();
+                var presets = state.Presets;
+
+                _settings.Store.State = new(newPreset, presets);
+                _settings.SynchronizeStore();
+
+                RGBKeyboardStateEx str;
+                if (newPreset == RGBKeyboardBacklightPreset.Off)
+                    str = CreateOffState();
+                else
+                    str = Convert(state.Presets[newPreset]);
+
+                await SendToDevice(str).ConfigureAwait(false);
+            }
         }
 
         private async Task SetCurrentPresetAsync()
         {
-            await SetPresetAsync(_settings.Store.State.SelectedPreset).ConfigureAwait(false);
-        }
+            using (await _ioLock.LockAsync().ConfigureAwait(false))
+            {
+#if !MOCK_RGB
+                var handle = DriverHandle;
+                if (handle is null)
+                    throw new InvalidOperationException("RGB Keyboard unsupported.");
+#endif
 
-        private async void SystemThemeListener_Changed(object? sender, SystemThemeSettings e)
-        {
-            await SetPresetAsync(_settings.Store.State.SelectedPreset, e.AccentColor).ConfigureAwait(false);
+                await ThrowIfVantageEnabled().ConfigureAwait(false);
+
+                var state = _settings.Store.State;
+
+                var preset = state.SelectedPreset;
+
+                RGBKeyboardStateEx str;
+                if (preset == RGBKeyboardBacklightPreset.Off)
+                    str = CreateOffState();
+                else
+                    str = Convert(state.Presets[preset]);
+
+                await SendToDevice(str).ConfigureAwait(false);
+            }
         }
 
         private async Task ThrowIfVantageEnabled()
@@ -291,10 +336,10 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
             if (preset.Effect == RGBKeyboardEffect.Static || preset.Effect == RGBKeyboardEffect.Breath)
             {
-                result.Zone1Rgb = new[] { preset.Zone1.Color.R, preset.Zone1.Color.G, preset.Zone1.Color.B };
-                result.Zone2Rgb = new[] { preset.Zone2.Color.R, preset.Zone2.Color.G, preset.Zone2.Color.B };
-                result.Zone3Rgb = new[] { preset.Zone3.Color.R, preset.Zone3.Color.G, preset.Zone3.Color.B };
-                result.Zone4Rgb = new[] { preset.Zone4.Color.R, preset.Zone4.Color.G, preset.Zone4.Color.B };
+                result.Zone1Rgb = new[] { preset.Zone1.R, preset.Zone1.G, preset.Zone1.B };
+                result.Zone2Rgb = new[] { preset.Zone2.R, preset.Zone2.G, preset.Zone2.B };
+                result.Zone3Rgb = new[] { preset.Zone3.R, preset.Zone3.G, preset.Zone3.B };
+                result.Zone4Rgb = new[] { preset.Zone4.R, preset.Zone4.G, preset.Zone4.B };
             }
 
             return result;

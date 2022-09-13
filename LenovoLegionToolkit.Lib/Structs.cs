@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using LenovoLegionToolkit.Lib.Extensions;
-using LenovoLegionToolkit.Lib.Settings;
 using Newtonsoft.Json;
 using Octokit;
 
@@ -238,30 +237,6 @@ namespace LenovoLegionToolkit.Lib
             G = g;
             B = b;
         }
-
-        public override bool Equals(object? obj)
-        {
-            return obj is RGBColor color && R == color.R && G == color.G && B == color.B;
-        }
-
-        public override int GetHashCode() => (R, G, B).GetHashCode();
-
-        public static bool operator ==(RGBColor left, RGBColor right) => left.Equals(right);
-
-        public static bool operator !=(RGBColor left, RGBColor right) => !left.Equals(right);
-    }
-
-    public struct RGBKeyboardZone
-    {
-        public RGBColor Color { get; }
-        public bool SyncSystemAccentColor { get; }
-
-        [JsonConstructor]
-        public RGBKeyboardZone(RGBColor color, bool syncSystemAccentColor)
-        {
-            Color = color;
-            SyncSystemAccentColor = syncSystemAccentColor;
-        }
     }
 
     public struct RGBKeyboardBacklightSettings
@@ -269,28 +244,20 @@ namespace LenovoLegionToolkit.Lib
         public RGBKeyboardEffect Effect { get; } = RGBKeyboardEffect.Static;
         public RBGKeyboardSpeed Speed { get; } = RBGKeyboardSpeed.Slowest;
         public RGBKeyboardBrightness Brightness { get; } = RGBKeyboardBrightness.Low;
-
-        [JsonConverter(typeof(RGBKeyboardSettingsZoneConverter))]
-        public RGBKeyboardZone Zone1 { get; }
-
-        [JsonConverter(typeof(RGBKeyboardSettingsZoneConverter))]
-        public RGBKeyboardZone Zone2 { get; }
-
-        [JsonConverter(typeof(RGBKeyboardSettingsZoneConverter))]
-        public RGBKeyboardZone Zone3 { get; }
-
-        [JsonConverter(typeof(RGBKeyboardSettingsZoneConverter))]
-        public RGBKeyboardZone Zone4 { get; }
+        public RGBColor Zone1 { get; } = new();
+        public RGBColor Zone2 { get; } = new();
+        public RGBColor Zone3 { get; } = new();
+        public RGBColor Zone4 { get; } = new();
 
         [JsonConstructor]
         public RGBKeyboardBacklightSettings(
             RGBKeyboardEffect effect,
             RBGKeyboardSpeed speed,
             RGBKeyboardBrightness brightness,
-            RGBKeyboardZone zone1,
-            RGBKeyboardZone zone2,
-            RGBKeyboardZone zone3,
-            RGBKeyboardZone zone4)
+            RGBColor zone1,
+            RGBColor zone2,
+            RGBColor zone3,
+            RGBColor zone4)
         {
             Effect = effect;
             Speed = speed;
@@ -443,18 +410,6 @@ namespace LenovoLegionToolkit.Lib
         {
             Width = width;
             Height = height;
-        }
-    }
-
-    public struct SystemThemeSettings
-    {
-        public bool IsDarkMode { get; }
-        public RGBColor AccentColor { get; }
-
-        public SystemThemeSettings(bool isDarkMode, RGBColor accentColor)
-        {
-            IsDarkMode = isDarkMode;
-            AccentColor = accentColor;
         }
     }
 }

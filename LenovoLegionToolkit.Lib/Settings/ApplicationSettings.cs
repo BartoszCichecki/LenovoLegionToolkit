@@ -10,7 +10,6 @@ namespace LenovoLegionToolkit.Lib.Settings
             public WindowSize WindowSize { get; set; }
             public Theme Theme { get; set; }
             public RGBColor? AccentColor { get; set; }
-            public bool SyncSystemAccentColor { get; set; }
             public Dictionary<PowerModeState, string> PowerPlans { get; set; } = new();
             public bool MinimizeOnClose { get; set; }
             public bool ActivatePowerProfilesWithVantageEnabled { get; set; }
@@ -24,8 +23,7 @@ namespace LenovoLegionToolkit.Lib.Settings
 
         public override ApplicationSettingsStore Default => new()
         {
-            Theme = Theme.System,
-            SyncSystemAccentColor = true,
+            Theme = Theme.Dark,
             TemperatureUnit = TemperatureUnit.C,
         };
     }
