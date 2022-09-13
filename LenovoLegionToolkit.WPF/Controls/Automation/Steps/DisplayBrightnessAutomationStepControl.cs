@@ -1,12 +1,9 @@
-﻿using LenovoLegionToolkit.Lib.Automation.Steps;
-using LenovoLegionToolkit.Lib;
+﻿using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using LenovoLegionToolkit.Lib.Automation.Steps;
 using Wpf.Ui.Common;
 using NumberBox = Wpf.Ui.Controls.NumberBox;
-using System.Threading.Tasks;
-using System.Globalization;
-using CoordinateSharp.Formatters;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
 {
