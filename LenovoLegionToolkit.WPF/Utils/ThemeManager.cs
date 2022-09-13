@@ -5,10 +5,16 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 
+#pragma warning disable IDE0052 // Remove unread private members
+
 namespace LenovoLegionToolkit.WPF.Utils
 {
     public class ThemeManager
     {
+        private const string RegistryHive = "HKEY_CURRENT_USER";
+        private const string RegistryPath = @"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize";
+        private const string RegistryKey = "AppsUseLightTheme";
+
         private readonly ApplicationSettings _settings;
         private readonly IDisposable _themeListener;
 
