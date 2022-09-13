@@ -62,6 +62,9 @@ namespace LenovoLegionToolkit.Lib
             builder.Register<WinKeyListener>()
                 .OnActivating(e => e.Instance.StartAsync())
                 .AutoActivate();
+            builder.Register<SystemThemeListener>()
+                .OnActivating(e => e.Instance.StartAsync())
+                .AutoActivate();
 
             builder.Register<GPUController>();
             builder.Register<CPUBoostModeController>();

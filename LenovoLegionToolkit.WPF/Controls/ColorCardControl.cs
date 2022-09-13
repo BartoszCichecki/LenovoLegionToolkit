@@ -117,7 +117,7 @@ namespace LenovoLegionToolkit.WPF.Controls
             set => _cardHeaderControl.Subtitle = value;
         }
 
-        public event EventHandler? OnChanged;
+        public event EventHandler? OnChanged, OnChangedByUser;
 
         public ColorCardControl() => InitializeComponent();
 
@@ -157,10 +157,18 @@ namespace LenovoLegionToolkit.WPF.Controls
             _colorsPanel.Children.Add(_rgbGrid);
 
             _cardExpander.Header = _cardHeaderControl;
-            _cardExpander.Content = _colorsPanel;
+            _cardExpander.Content = GetCardExpanderPanel();
 
             Content = _cardExpander;
         }
+
+        protected virtual StackPanel GetCardExpanderPanel() => _colorsPanel;
+
+        //
+        // These flags are used to prevent ColorTextBox_TextChanged from raising OnChanged
+        // repeatedly when SetColor is called.
+        //
+        private bool _wasSetColorCalled = false, _raisedOnChanged = false;
 
         private void ColorTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -178,8 +186,18 @@ namespace LenovoLegionToolkit.WPF.Controls
 
             _colorPicker.SelectedColor = Color.FromRgb(r, g, b);
 
+            if (_wasSetColorCalled && _raisedOnChanged)
+                return;
+
             if (Mouse.LeftButton == MouseButtonState.Released && Mouse.RightButton == MouseButtonState.Released)
+            {
                 OnChanged?.Invoke(this, EventArgs.Empty);
+
+                if (!_wasSetColorCalled)
+                    OnChangedByUser?.Invoke(this, EventArgs.Empty);
+
+                _raisedOnChanged = true;
+            }
         }
 
         private void ColorPicker_ColorChanged(object sender, RoutedEventArgs e)
@@ -194,10 +212,14 @@ namespace LenovoLegionToolkit.WPF.Controls
         private void ColorsPanel_MouseUp(object sender, MouseButtonEventArgs e)
         {
             OnChanged?.Invoke(this, EventArgs.Empty);
+            OnChangedByUser?.Invoke(this, EventArgs.Empty);
         }
 
         public void SetColor(RGBColor color)
         {
+            _wasSetColorCalled = true;
+            _raisedOnChanged = false;
+
             var c = Color.FromRgb(color.R, color.G, color.B);
             _redTextBox.Text = color.R.ToString();
             _greenTextBox.Text = color.G.ToString();
@@ -205,6 +227,8 @@ namespace LenovoLegionToolkit.WPF.Controls
             _colorPicker.SelectedColor = c;
             _colorButton.Background = new SolidColorBrush(c);
             _colorButton.Visibility = Visibility.Visible;
+
+            _wasSetColorCalled = _raisedOnChanged = false;
         }
 
         public RGBColor GetColor()
