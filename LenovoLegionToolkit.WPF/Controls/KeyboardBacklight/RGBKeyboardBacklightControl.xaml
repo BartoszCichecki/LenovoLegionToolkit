@@ -103,7 +103,7 @@
             Margin="0,0,8,0"
             OnChanged="CardControl_OnChanged" />
 
-        <controls:ColorCardSystemAwareControl
+        <controls:ColorCardControl
             x:Name="_zone1Control"
             Title="Zone 1"
             Grid.Row="5"
@@ -111,8 +111,7 @@
             Margin="0,0,8,8"
             VerticalAlignment="Top"
             Icon="Color24"
-            OnChangedByUser="CardControl_OnChanged"
-            OnSyncSystemAccentColorChangedByUser="CardControl_OnChanged">
+            OnChanged="CardControl_OnChanged">
             <controls:ColorCardControl.ContextMenu>
                 <ContextMenu>
                     <wpfui:MenuItem
@@ -121,9 +120,9 @@
                         SymbolIcon="ArrowsBidirectional24" />
                 </ContextMenu>
             </controls:ColorCardControl.ContextMenu>
-        </controls:ColorCardSystemAwareControl>
+        </controls:ColorCardControl>
 
-        <controls:ColorCardSystemAwareControl
+        <controls:ColorCardControl
             x:Name="_zone2Control"
             Title="Zone 2"
             Grid.Row="5"
@@ -131,8 +130,7 @@
             Margin="0,0,8,8"
             VerticalAlignment="Top"
             Icon="Color24"
-            OnChangedByUser="CardControl_OnChanged"
-            OnSyncSystemAccentColorChangedByUser="CardControl_OnChanged">
+            OnChanged="CardControl_OnChanged">
             <controls:ColorCardControl.ContextMenu>
                 <ContextMenu>
                     <wpfui:MenuItem
@@ -141,9 +139,9 @@
                         SymbolIcon="ArrowsBidirectional24" />
                 </ContextMenu>
             </controls:ColorCardControl.ContextMenu>
-        </controls:ColorCardSystemAwareControl>
+        </controls:ColorCardControl>
 
-        <controls:ColorCardSystemAwareControl
+        <controls:ColorCardControl
             x:Name="_zone3Control"
             Title="Zone 3"
             Grid.Row="5"
@@ -151,8 +149,7 @@
             Margin="0,0,8,8"
             VerticalAlignment="Top"
             Icon="Color24"
-            OnChangedByUser="CardControl_OnChanged"
-            OnSyncSystemAccentColorChangedByUser="CardControl_OnChanged">
+            OnChanged="CardControl_OnChanged">
             <controls:ColorCardControl.ContextMenu>
                 <ContextMenu>
                     <wpfui:MenuItem
@@ -161,9 +158,9 @@
                         SymbolIcon="ArrowsBidirectional24" />
                 </ContextMenu>
             </controls:ColorCardControl.ContextMenu>
-        </controls:ColorCardSystemAwareControl>
+        </controls:ColorCardControl>
 
-        <controls:ColorCardSystemAwareControl
+        <controls:ColorCardControl
             x:Name="_zone4Control"
             Title="Zone 4"
             Grid.Row="5"
@@ -171,8 +168,7 @@
             Margin="0,0,8,8"
             VerticalAlignment="Top"
             Icon="Color24"
-            OnChangedByUser="CardControl_OnChanged"
-            OnSyncSystemAccentColorChangedByUser="CardControl_OnChanged">
+            OnChanged="CardControl_OnChanged">
             <controls:ColorCardControl.ContextMenu>
                 <ContextMenu>
                     <wpfui:MenuItem
@@ -181,7 +177,7 @@
                         SymbolIcon="ArrowsBidirectional24" />
                 </ContextMenu>
             </controls:ColorCardControl.ContextMenu>
-        </controls:ColorCardSystemAwareControl>
+        </controls:ColorCardControl>
 
     </Grid>
 

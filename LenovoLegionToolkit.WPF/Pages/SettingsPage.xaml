@@ -33,13 +33,12 @@
                 Visibility="Hidden" />
         </wpfui:CardControl>
 
-        <controls:ColorCardSystemAwareControl
+        <controls:ColorCardControl
             x:Name="_accentColor"
             Title="Accent color"
             Margin="0,0,0,24"
             Icon="Color24"
             OnChanged="AccentColorControl_OnChanged"
-            OnSyncSystemAccentColorChanged="AccentColorControl_OnSyncSystemAccentColorChanged"
             Subtitle="Change the accent color of the app." />
 
         <wpfui:CardControl Margin="0,0,0,8">

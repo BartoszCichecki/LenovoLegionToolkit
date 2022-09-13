@@ -16,7 +16,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
     {
         private Button[] PresetButtons => new[] { _offPresetButton, _preset1Button, _preset2Button, _preset3Button };
 
-        private ColorCardSystemAwareControl[] Zones => new[] { _zone1Control, _zone2Control, _zone3Control, _zone4Control };
+        private ColorCardControl[] Zones => new[] { _zone1Control, _zone2Control, _zone3Control, _zone4Control };
 
         private readonly RGBKeyboardBacklightController _controller = IoCContainer.Resolve<RGBKeyboardBacklightController>();
         private readonly RGBKeyboardBacklightListener _listener = IoCContainer.Resolve<RGBKeyboardBacklightListener>();
@@ -65,14 +65,11 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
         }
         private async void SynchroniseZonesMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is not MenuItem menuItem || menuItem.Parent is not ContextMenu menu || menu.PlacementTarget is not ColorCardSystemAwareControl control)
+            if (sender is not MenuItem menuItem || menuItem.Parent is not ContextMenu menu || menu.PlacementTarget is not ColorCardControl control)
                 return;
 
             foreach (var zone in Zones)
-            {
                 zone.SetColor(control.GetColor());
-                zone.SetSyncSystemAccentColor(control.GetSyncSystemAccentColor());
-            }
 
             await SaveState();
             await RefreshAsync();
@@ -165,21 +162,10 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
 
             if (zonesEnabled)
             {
-                if (!preset.Zone1.SyncSystemAccentColor)
-                    _zone1Control.SetColor(preset.Zone1.Color);
-                _zone1Control.SetSyncSystemAccentColor(preset.Zone1.SyncSystemAccentColor);
-
-                if (!preset.Zone2.SyncSystemAccentColor)
-                    _zone2Control.SetColor(preset.Zone2.Color);
-                _zone2Control.SetSyncSystemAccentColor(preset.Zone2.SyncSystemAccentColor);
-
-                if (!preset.Zone3.SyncSystemAccentColor)
-                    _zone3Control.SetColor(preset.Zone3.Color);
-                _zone3Control.SetSyncSystemAccentColor(preset.Zone3.SyncSystemAccentColor);
-
-                if (!preset.Zone4.SyncSystemAccentColor)
-                    _zone4Control.SetColor(preset.Zone4.Color);
-                _zone4Control.SetSyncSystemAccentColor(preset.Zone4.SyncSystemAccentColor);
+                _zone1Control.SetColor(preset.Zone1);
+                _zone2Control.SetColor(preset.Zone2);
+                _zone3Control.SetColor(preset.Zone3);
+                _zone4Control.SetColor(preset.Zone4);
             }
             else
             {
@@ -214,10 +200,10 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
             presets[selectedPreset] = new(_effectControl.SelectedItem,
                                           _speedControl.SelectedItem,
                                           _brightnessControl.SelectedItem,
-                                          new(_zone1Control.GetColor(), _zone1Control.GetSyncSystemAccentColor()),
-                                          new(_zone2Control.GetColor(), _zone2Control.GetSyncSystemAccentColor()),
-                                          new(_zone3Control.GetColor(), _zone3Control.GetSyncSystemAccentColor()),
-                                          new(_zone4Control.GetColor(), _zone4Control.GetSyncSystemAccentColor()));
+                                          _zone1Control.GetColor(),
+                                          _zone2Control.GetColor(),
+                                          _zone3Control.GetColor(),
+                                          _zone4Control.GetColor());
 
             await _controller.SetStateAsync(new(selectedPreset, presets));
         }
