@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
-using LenovoLegionToolkit.Lib.System;
 using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps
@@ -15,14 +14,14 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
         {
             Brightness = brightness;
         }
-        
+
         public Task<bool> IsSupportedAsync() => Task.FromResult(true);
 
         public async Task RunAsync()
         {
             if (Brightness == 0)
                 return;
-            
+
             await _controller.SetBrightnessAsync(Brightness).ConfigureAwait(false);
         }
 

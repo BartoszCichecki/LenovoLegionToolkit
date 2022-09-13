@@ -1,18 +1,9 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
-using System.Windows.Media;
-using ColorPicker;
 using LenovoLegionToolkit.Lib;
-using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Listeners;
-using LenovoLegionToolkit.Lib.Settings;
-using LenovoLegionToolkit.WPF.Utils;
-using Wpf.Ui.Common;
-using Wpf.Ui.Controls;
-using Button = System.Windows.Controls.Button;
-using Color = System.Windows.Media.Color;
+using LenovoLegionToolkit.Lib.System;
 
 namespace LenovoLegionToolkit.WPF.Controls
 {
