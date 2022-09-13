@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 using Microsoft.Win32;
 using Wpf.Ui.Common;
@@ -101,17 +102,33 @@ namespace LenovoLegionToolkit.WPF.Windows.Automation
 
         private void CopyShortcut(object sender, RoutedEventArgs e)
         {
-            ClipboardExtensions.SetProcesses(Processes);
+            try
+            {
+                ClipboardExtensions.SetProcesses(Processes);
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't copy to clipboard", ex);
+            }
         }
 
         private void PasteShortcut(object sender, RoutedEventArgs e)
         {
-            var processes = ClipboardExtensions.GetProcesses().Where(p => !Processes.Contains(p));
-            if (!processes.Any())
-                return;
+            try
+            {
+                var processes = ClipboardExtensions.GetProcesses().Where(p => !Processes.Contains(p));
+                if (!processes.Any())
+                    return;
 
-            Processes.AddRange(processes);
-            Refresh();
+                Processes.AddRange(processes);
+                Refresh();
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't paste from clipboard", ex);
+            }
         }
 
         private void Refresh()

@@ -88,11 +88,26 @@
                     <Label x:Name="_biosLabel" />
                 </wpfui:CardControl>
 
-                <TextBlock
-                    Margin="0,16,0,24"
-                    FontSize="24"
-                    FontWeight="Medium"
-                    Text="Warranty" />
+
+
+                <Grid Margin="0,16,0,24">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock
+                        Grid.Column="0"
+                        FontSize="24"
+                        FontWeight="Medium"
+                        Text="Warranty" />
+                    <wpfui:Button
+                        x:Name="_refreshWarrantyButton"
+                        Grid.Column="1"
+                        Click="RefreshWarrantyButton_OnClick"
+                        Icon="ArrowClockwise32" />
+                </Grid>
 
                 <wpfui:CardControl Margin="0,0,0,8">
                     <wpfui:CardControl.Header>
@@ -120,6 +135,7 @@
                     x:Name="_warrantyLinkCardAction"
                     Margin="0,8,0,8"
                     Content="Lenovo PC Support"
+                    Click="WarrantyLinkCardAction_OnClick"
                     Icon="Open24"
                     IsEnabled="False"
                     ShowChevron="False" />

@@ -16,6 +16,7 @@ namespace LenovoLegionToolkit.Lib.Settings
             public bool DontShowNotifications { get; set; }
             public TemperatureUnit TemperatureUnit { get; set; }
             public List<RefreshRate> ExcludedRefreshRates { get; set; } = new();
+            public WarrantyInfo? WarrantyInfo { get; set; }
         }
 
         protected override string FileName => "settings.json";
