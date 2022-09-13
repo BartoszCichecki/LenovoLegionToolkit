@@ -21,9 +21,6 @@ namespace LenovoLegionToolkit.WPF.Extensions
         public static IEnumerable<ProcessInfo> GetProcesses()
         {
             var text = Clipboard.GetText();
-            if (text is null)
-                return Array.Empty<ProcessInfo>();
-
             return text.Split(Environment.NewLine)
                 .Select(l => l.Trim('"'))
                 .Where(File.Exists)
