@@ -310,7 +310,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 new BatteryAutomationStep(default),
                 new DeactivateGPUAutomationStep(default),
                 new DelayAutomationStep(default),
-                new DisplayBrightnessAutomationStep(default),
+                new DisplayBrightnessAutomationStep(50),
                 new FlipToStartAutomationStep(default),
                 new FnLockAutomationStep(default),
                 new OverDriveAutomationStep(default),

@@ -13,7 +13,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
         {
             Icon = SymbolRegular.Laptop24;
             Title = "Refresh rate";
-            Subtitle = "Change refresh rate of the built-in display.\n\nWARNING: This action will not run correctly,\nif internal display is off.";
+            Subtitle = "Change refresh rate of the built-in display.\n\nWARNING: This action will not run correctly, if internal display is off.";
 
             _listener.Changed += Listener_Changed;
         }

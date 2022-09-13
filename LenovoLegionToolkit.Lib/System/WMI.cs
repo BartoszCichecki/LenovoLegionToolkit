@@ -45,22 +45,6 @@ namespace LenovoLegionToolkit.Lib.System
             mo.InvokeMethod(methodName, methodParamsObject, null);
         }
 
-        public static async Task CallAsync(string scope, FormattableString query, string methodName, object[] methodParams, bool overload)
-        {
-            var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
-            var mos = new ManagementObjectSearcher(scope, queryFormatted);
-            var managementObjects = await mos.GetAsync().ConfigureAwait(false);
-            var managementObject = managementObjects.FirstOrDefault();
-
-            if (managementObject is null)
-                throw new InvalidOperationException("No results in query");
-
-            var mo = (ManagementObject)managementObject;
-            var methodParamsObject = methodParams;
-
-            mo.InvokeMethod(methodName, methodParamsObject);
-        }
-
         public static async Task<T> CallAsync<T>(string scope, FormattableString query, string methodName, Dictionary<string, object> methodParams, Func<PropertyDataCollection, T> converter) where T : struct
         {
             var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
