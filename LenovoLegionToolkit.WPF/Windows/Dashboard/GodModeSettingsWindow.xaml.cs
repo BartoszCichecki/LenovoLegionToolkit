@@ -65,6 +65,8 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
                 _gpuConfigurableTGPSlider.TickFrequency = state.GPUConfigurableTGP.Step;
                 _gpuConfigurableTGPSlider.Value = state.GPUConfigurableTGP.Value;
 
+                _fanCurveCardExpander.IsEnabled = !state.FanFullSpeed;
+                _fanCurveCardExpander.IsExpanded = !state.FanFullSpeed;
                 _fanFullSpeedToggle.IsChecked = state.FanFullSpeed;
 
                 if (state.CPULongTermPowerLimit.Min == state.CPULongTermPowerLimit.Max)
@@ -159,6 +161,12 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
         {
             if (_cpuLongTermPowerLimitSlider.Value > _cpuShortTermPowerLimitSlider.Value)
                 _cpuLongTermPowerLimitSlider.Value = _cpuShortTermPowerLimitSlider.Value;
+        }
+
+        private void FanFullSpeedToggle_OnClick(object sender, RoutedEventArgs e)
+        {
+            _fanCurveCardExpander.IsEnabled = !(_fanFullSpeedToggle.IsChecked ?? false);
+            _fanCurveCardExpander.IsExpanded = !(_fanFullSpeedToggle.IsChecked ?? false);
         }
     }
 }

@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="Custom Mode Settings"
-    Width="600"
+    Width="700"
     Height="700"
     MinWidth="600"
     MinHeight="400">
@@ -153,11 +153,24 @@
                         FontWeight="Medium"
                         Text="Fans" />
 
+                    <wpfui:CardExpander
+                        x:Name="_fanCurveCardExpander"
+                        Margin="0,0,0,8"
+                        IsExpanded="True">
+                        <wpfui:CardExpander.Header>
+                            <controls:CardHeaderControl Title="Fan curve" Subtitle="Fan speed is not strictly determined by one temperature sensor. It will raise or lower speed per the highest sensor between CPU, GPU and Heatsink temperature. Exact values will appear when you hover mouse over each step." />
+                        </wpfui:CardExpander.Header>
+                        <controls:FanCurveControl x:Name="_fanCurveControl" />
+                    </wpfui:CardExpander>
+
                     <wpfui:CardControl Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
                             <controls:CardHeaderControl Title="Maximum fan speed" Subtitle="WARNING!&#x0a;Prolonged usage of this option will degrade fans decreasing their longevity.&#x0a;Seriously, be careful with this option!" />
                         </wpfui:CardControl.Header>
-                        <wpfui:ToggleSwitch x:Name="_fanFullSpeedToggle" Margin="0,0,0,8" />
+                        <wpfui:ToggleSwitch
+                            x:Name="_fanFullSpeedToggle"
+                            Margin="0,0,0,8"
+                            Click="FanFullSpeedToggle_OnClick" />
                     </wpfui:CardControl>
 
                     <TextBlock
@@ -174,7 +187,7 @@
 
                     <wpfui:CardControl Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
-                            <controls:CardHeaderControl Title="Maximum value adjustment" Subtitle="WARNING!&#x0a;Some laptops may accept higher limits than they indicate, but be careful. This option may result in unpredictable behavior, so if you are not sure what are you doing, leave this at 0." />
+                            <controls:CardHeaderControl Title="Maximum value offset" Subtitle="WARNING!&#x0a;Some laptops may accept higher limits than they indicate, but be careful. This option may result in unpredictable behavior, so if you are not sure what are you doing, leave this at 0." />
                         </wpfui:CardControl.Header>
                         <wpfui:NumberBox
                             x:Name="_maxValueOffsetNumberBox"
