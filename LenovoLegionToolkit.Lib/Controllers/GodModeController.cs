@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 
@@ -11,6 +13,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
         public StepperValue CPUShortTermPowerLimit { get; init; }
         public StepperValue GPUPowerBoost { get; init; }
         public StepperValue GPUConfigurableTGP { get; init; }
+        public FanTableData[]? FanTableData { get; init; }
+        public FanTable? FanTable { get; init; }
         public bool FanFullSpeed { get; init; }
         public int MaxValueOffset { get; init; }
     }
@@ -50,6 +54,12 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 gpuConfigurableTGPState.Max,
                 gpuConfigurableTGPState.Step);
 
+            var fanTableData = await GetFanTableDataAsync().ConfigureAwait(false);
+
+            FanTable? fanTable = null;
+            if (fanTableData is not null)
+                fanTable = _settings.Store.FanTable ?? GetDefaultFanTable();
+
             var fanFullSpeed = _settings.Store.FanFullSpeed ?? await GetFanFullSpeedAsync().ConfigureAwait(false);
 
             var maxValueOffset = _settings.Store.MaxValueOffset;
@@ -60,6 +70,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 CPUShortTermPowerLimit = cpuShortTermPowerLimit,
                 GPUPowerBoost = gpuPowerBoost,
                 GPUConfigurableTGP = gpuConfigurableTGP,
+                FanTableData = fanTableData,
+                FanTable = fanTable,
                 FanFullSpeed = fanFullSpeed,
                 MaxValueOffset = maxValueOffset
             };
@@ -71,6 +83,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             _settings.Store.CPUShortTermPowerLimit = state.CPUShortTermPowerLimit;
             _settings.Store.GPUPowerBoost = state.GPUPowerBoost;
             _settings.Store.GPUConfigurableTGP = state.GPUConfigurableTGP;
+            _settings.Store.FanTable = state.FanTable;
             _settings.Store.FanFullSpeed = state.FanFullSpeed;
             _settings.Store.MaxValueOffset = state.MaxValueOffset;
 
@@ -84,19 +97,33 @@ namespace LenovoLegionToolkit.Lib.Controllers
             var cpuShortTermPowerLimit = _settings.Store.CPUShortTermPowerLimit;
             var gpuPowerBoost = _settings.Store.GPUPowerBoost;
             var gpuConfigurableTGP = _settings.Store.GPUConfigurableTGP;
+            var fanTable = _settings.Store.FanTable;
             var maxFan = _settings.Store.FanFullSpeed;
 
-            if (cpuLongTermPowerLimit is null) return;
-            if (cpuShortTermPowerLimit is null) return;
-            if (gpuPowerBoost is null) return;
-            if (gpuConfigurableTGP is null) return;
-            if (maxFan is null) return;
+            if (cpuLongTermPowerLimit is not null)
+                await SetCPULongTermPowerLimitAsync(cpuLongTermPowerLimit.Value).ConfigureAwait(false);
 
-            await SetCPULongTermPowerLimitAsync(cpuLongTermPowerLimit.Value).ConfigureAwait(false);
-            await SetCPUShortTermPowerLimitAsync(cpuShortTermPowerLimit.Value).ConfigureAwait(false);
-            await SetGPUPowerBoostAsync(gpuPowerBoost.Value).ConfigureAwait(false);
-            await SetGPUConfigurableTGPAsync(gpuConfigurableTGP.Value).ConfigureAwait(false);
-            await SetFanFullSpeedAsync(maxFan.Value).ConfigureAwait(false);
+            if (cpuShortTermPowerLimit is not null)
+                await SetCPUShortTermPowerLimitAsync(cpuShortTermPowerLimit.Value).ConfigureAwait(false);
+
+            if (gpuPowerBoost is not null)
+                await SetGPUPowerBoostAsync(gpuPowerBoost.Value).ConfigureAwait(false);
+
+            if (gpuConfigurableTGP is not null)
+                await SetGPUConfigurableTGPAsync(gpuConfigurableTGP.Value).ConfigureAwait(false);
+
+            if (maxFan is not null)
+            {
+                if (fanTable is null || maxFan.Value)
+                {
+                    await SetFanFullSpeedAsync(maxFan.Value).ConfigureAwait(false);
+                }
+                else
+                {
+                    await SetFanFullSpeedAsync(false).ConfigureAwait(false);
+                    await SetFanTable(fanTable.Value).ConfigureAwait(false);
+                }
+            }
         }
 
         #region CPU Long Term Power Limit
@@ -188,6 +215,50 @@ namespace LenovoLegionToolkit.Lib.Controllers
             $"SELECT * FROM LENOVO_GPU_METHOD",
             "GPU_Set_PPAB_PowerLimit",
             new() { { "value", $"{value.Value}" } });
+
+        #endregion
+
+        #region Fan Table
+
+        private FanTable GetDefaultFanTable() => new(new byte[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
+
+        private async Task<FanTableData[]?> GetFanTableDataAsync()
+        {
+            var data = await WMI.ReadAsync("root\\WMI",
+                $"SELECT * FROM LENOVO_FAN_TABLE_DATA",
+                pdc =>
+                {
+                    var fanId = Convert.ToByte(pdc["Fan_Id"].Value);
+                    var sensorId = Convert.ToByte(pdc["Sensor_ID"].Value);
+                    var fanSpeeds = (ushort[])pdc["FanTable_Data"].Value ?? Array.Empty<ushort>();
+                    var temps = (ushort[])pdc["SensorTable_Data"].Value ?? Array.Empty<ushort>();
+                    return new FanTableData
+                    {
+                        FanId = fanId,
+                        SensorId = sensorId,
+                        FanSpeeds = fanSpeeds,
+                        Temps = temps
+                    };
+                }).ConfigureAwait(false);
+
+            var fanTableData = data.ToArray();
+
+            if (fanTableData.Count() != 3)
+                return null;
+
+            if (fanTableData.Count(ftd => ftd.FanSpeeds.Length == 10) != 3)
+                return null;
+
+            if (fanTableData.Count(ftd => ftd.Temps.Length == 10) != 3)
+                return null;
+
+            return fanTableData;
+        }
+
+        private Task SetFanTable(FanTable fanTable) => WMI.CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_FAN_METHOD",
+            "Fan_Set_Table",
+            new() { { "FanTable", fanTable.ToBytes() } });
 
         #endregion
 

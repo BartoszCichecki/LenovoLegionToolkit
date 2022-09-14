@@ -27,6 +27,12 @@ namespace LenovoLegionToolkit.WPF.Controls
             if (sender is not Slider { IsMouseCaptureWithin: true } currentSlider)
                 return;
 
+            if (currentSlider.Value < 1)
+            {
+                currentSlider.Value = 1;
+                return;
+            }
+
             VerifyValues(currentSlider);
             DrawGraph();
         }

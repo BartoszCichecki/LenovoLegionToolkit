@@ -81,6 +81,22 @@ namespace LenovoLegionToolkit.Lib
         }
     }
 
+    public struct FanTableData
+    {
+        public byte FanId { get; init; }
+        public byte SensorId { get; init; }
+        public ushort[] FanSpeeds { get; init; }
+        public ushort[] Temps { get; init; }
+
+        public FanTableType Type => (FanId, SensorId) switch
+        {
+            (0, 3) => FanTableType.CPU,
+            (1, 4) => FanTableType.GPU,
+            (0, 0) => FanTableType.CPUSensor,
+            _ => FanTableType.Unknown
+        };
+    }
+
     public struct MachineInformation
     {
         public struct CompatibiltyProperties
