@@ -96,6 +96,8 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
                     Log.Instance.Trace($"Couldn't load settings.", ex);
 
                 await _snackBar.ShowAsync("Couldn't load setting.", ex.Message);
+
+                Close();
             }
         }
 
