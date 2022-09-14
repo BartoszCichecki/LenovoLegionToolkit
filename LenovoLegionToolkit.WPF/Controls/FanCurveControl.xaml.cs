@@ -90,8 +90,7 @@ namespace LenovoLegionToolkit.WPF.Controls
 
             // Fill
 
-            var pointCollection = new PointCollection();
-            pointCollection.Add(new(points[0].X, _canvas.ActualHeight));
+            var pointCollection = new PointCollection { new(points[0].X, _canvas.ActualHeight) };
             foreach (var point in points)
                 pointCollection.Add(point);
             pointCollection.Add(new(points[^1].X, _canvas.ActualHeight));

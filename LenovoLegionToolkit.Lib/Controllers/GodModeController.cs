@@ -1,4 +1,6 @@
-﻿using System;
+﻿// #define MOCK_FAN_TABLE
+
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
@@ -220,7 +222,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         #region Fan Table
 
-        private FanTable GetDefaultFanTable() => new(new byte[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
+        private static FanTable GetDefaultFanTable() => new(new byte[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
 
         private async Task<FanTableData[]?> GetFanTableDataAsync()
         {
@@ -241,9 +243,36 @@ namespace LenovoLegionToolkit.Lib.Controllers
                     };
                 }).ConfigureAwait(false);
 
+#if !MOCK_FAN_TABLE
             var fanTableData = data.ToArray();
+#else
+            var fanTableData = new FanTableData[]
+            {
+                new()
+                {
+                    FanId = 0,
+                    SensorId = 3,
+                    FanSpeeds = new ushort[] { 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000 },
+                    Temps = new ushort[] { 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 }
+                },
+                new()
+                {
+                    FanId = 1,
+                    SensorId = 4,
+                    FanSpeeds = new ushort[] { 1100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000 },
+                    Temps = new ushort[] { 20, 11, 12, 13, 14, 15, 16, 17, 18, 19 }
+                },
+                new()
+                {
+                    FanId = 0,
+                    SensorId = 0,
+                    FanSpeeds = new ushort[] { 1000, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000 },
+                    Temps = new ushort[] { 30, 11, 12, 13, 14, 15, 16, 17, 18, 19 }
+                }
+            };
+#endif
 
-            if (fanTableData.Count() != 3)
+            if (fanTableData.Length != 3)
                 return null;
 
             if (fanTableData.Count(ftd => ftd.FanSpeeds.Length == 10) != 3)
