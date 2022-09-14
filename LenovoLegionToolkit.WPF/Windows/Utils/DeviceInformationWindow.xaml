@@ -134,8 +134,8 @@
                 <wpfui:CardAction
                     x:Name="_warrantyLinkCardAction"
                     Margin="0,8,0,8"
-                    Content="Lenovo PC Support"
                     Click="WarrantyLinkCardAction_OnClick"
+                    Content="Lenovo PC Support"
                     Icon="Open24"
                     IsEnabled="False"
                     ShowChevron="False" />
