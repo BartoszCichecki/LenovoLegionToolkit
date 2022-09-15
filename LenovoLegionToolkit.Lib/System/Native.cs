@@ -169,6 +169,9 @@ namespace LenovoLegionToolkit.Lib.System
             if (fanTable.Length != 10)
                 throw new ArgumentException("Length must be 10.", nameof(fanTable));
 
+            for (var i = 0; i < fanTable.Length; i++)
+                fanTable[i] = Math.Clamp(fanTable[i], (ushort)1, (ushort)10u);
+
             FSTM = 1;
             FSID = 0;
             FSTL = 0;
