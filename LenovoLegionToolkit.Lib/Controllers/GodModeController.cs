@@ -1,4 +1,4 @@
-﻿// #define MOCK_FAN_TABLE
+﻿#define MOCK_FAN_TABLE
 
 using System;
 using System.Linq;
@@ -15,8 +15,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         public StepperValue CPUShortTermPowerLimit { get; init; }
         public StepperValue GPUPowerBoost { get; init; }
         public StepperValue GPUConfigurableTGP { get; init; }
-        public FanTableData[]? FanTableData { get; init; }
-        public FanTable? FanTable { get; init; }
+        public FanTableInfo? FanTableInfo { get; init; }
         public bool FanFullSpeed { get; init; }
         public int MaxValueOffset { get; init; }
     }
@@ -56,12 +55,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 gpuConfigurableTGPState.Max,
                 gpuConfigurableTGPState.Step);
 
-            var fanTableData = await GetFanTableDataAsync().ConfigureAwait(false);
-
-            FanTable? fanTable = null;
-            if (fanTableData is not null)
-                fanTable = _settings.Store.FanTable ?? GetDefaultFanTable();
-
+            var fanTableInfo = await GetFanTableInfoAsync().ConfigureAwait(false);
             var fanFullSpeed = _settings.Store.FanFullSpeed ?? await GetFanFullSpeedAsync().ConfigureAwait(false);
 
             var maxValueOffset = _settings.Store.MaxValueOffset;
@@ -72,8 +66,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 CPUShortTermPowerLimit = cpuShortTermPowerLimit,
                 GPUPowerBoost = gpuPowerBoost,
                 GPUConfigurableTGP = gpuConfigurableTGP,
-                FanTableData = fanTableData,
-                FanTable = fanTable,
+                FanTableInfo = fanTableInfo,
                 FanFullSpeed = fanFullSpeed,
                 MaxValueOffset = maxValueOffset
             };
@@ -85,7 +78,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             _settings.Store.CPUShortTermPowerLimit = state.CPUShortTermPowerLimit;
             _settings.Store.GPUPowerBoost = state.GPUPowerBoost;
             _settings.Store.GPUConfigurableTGP = state.GPUConfigurableTGP;
-            _settings.Store.FanTable = state.FanTable;
+            _settings.Store.FanTable = state.FanTableInfo?.Table;
             _settings.Store.FanFullSpeed = state.FanFullSpeed;
             _settings.Store.MaxValueOffset = state.MaxValueOffset;
 
@@ -126,6 +119,16 @@ namespace LenovoLegionToolkit.Lib.Controllers
                     await SetFanTable(fanTable.Value).ConfigureAwait(false);
                 }
             }
+        }
+
+        private async Task<FanTableInfo?> GetFanTableInfoAsync()
+        {
+            var fanTableData = await GetFanTableDataAsync().ConfigureAwait(false);
+            if (fanTableData is null)
+                return null;
+
+            var fanTable = _settings.Store.FanTable ?? GetDefaultFanTable();
+            return new FanTableInfo(fanTableData, fanTable);
         }
 
         #region CPU Long Term Power Limit
@@ -222,7 +225,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         #region Fan Table
 
-        private static FanTable GetDefaultFanTable() => new(new byte[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
+        private static FanTable GetDefaultFanTable() => new(new ushort[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
 
         private async Task<FanTableData[]?> GetFanTableDataAsync()
         {
