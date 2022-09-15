@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using LenovoLegionToolkit.Lib;
@@ -13,6 +15,7 @@ namespace LenovoLegionToolkit.WPF.Controls
     public partial class FanCurveControl
     {
         private readonly List<Slider> _sliders = new();
+        private readonly ToolTip _customToolTip = new();
 
         private FanTableData[]? _tableData;
 
@@ -57,6 +60,53 @@ namespace LenovoLegionToolkit.WPF.Controls
             return new(_tableData, new FanTable(fanTable));
         }
 
+        private Slider GenerateSlider(int index, int minimum, int maximum)
+        {
+            var slider = new Slider
+            {
+                HorizontalAlignment = HorizontalAlignment.Center,
+                Orientation = Orientation.Vertical,
+                IsSnapToTickEnabled = true,
+                TickFrequency = 1,
+                Maximum = maximum,
+                Minimum = minimum,
+                Tag = index,
+            };
+
+            slider.MouseMove += Slider_MouseMove;
+            slider.ValueChanged += Slider_OnValueChanged;
+
+            Grid.SetColumn(slider, index + 1);
+
+            return slider;
+        }
+
+        private void Slider_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (sender is not Slider slider)
+                return;
+
+            if (slider.Template.FindName("PART_Track", slider) is not Track track)
+                return;
+
+            if (!track.Thumb.IsMouseOver)
+            {
+                _customToolTip.IsOpen = false;
+                return;
+            }
+
+            _customToolTip.Content = $"YOLO {slider.Tag}";
+
+            _customToolTip.Placement = PlacementMode.Custom;
+            _customToolTip.PlacementTarget = track.Thumb;
+            _customToolTip.CustomPopupPlacementCallback = ToolTipCustomPopupPlacementCallback;
+
+            _customToolTip.HorizontalOffset += -0.1;
+            _customToolTip.HorizontalOffset += +0.1;
+
+            _customToolTip.IsOpen = true;
+        }
+
         private void Slider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             if (_sliders.Count < 2)
@@ -73,6 +123,14 @@ namespace LenovoLegionToolkit.WPF.Controls
 
             VerifyValues(currentSlider);
             DrawGraph();
+        }
+
+        private CustomPopupPlacement[] ToolTipCustomPopupPlacementCallback(Size size, Size targetSize, Point _)
+        {
+            return new CustomPopupPlacement[]
+            {
+                new(new((targetSize.Width - size.Width) * 0.5, -targetSize.Height - 32), PopupPrimaryAxis.Vertical)
+            };
         }
 
         private void VerifyValues(Slider currentSlider)
@@ -142,23 +200,6 @@ namespace LenovoLegionToolkit.WPF.Controls
                 Points = pointCollection
             };
             _canvas.Children.Add(polygon);
-        }
-
-        private Slider GenerateSlider(int index, int minimum, int maximum)
-        {
-            var slider = new Slider
-            {
-                HorizontalAlignment = HorizontalAlignment.Center,
-                Orientation = Orientation.Vertical,
-                IsSnapToTickEnabled = true,
-                TickFrequency = 1,
-                Maximum = maximum,
-                Minimum = minimum,
-                Tag = index
-            };
-            slider.ValueChanged += Slider_OnValueChanged;
-            Grid.SetColumn(slider, index + 1);
-            return slider;
         }
 
         private Point GetThumbLocation(Slider slider)
