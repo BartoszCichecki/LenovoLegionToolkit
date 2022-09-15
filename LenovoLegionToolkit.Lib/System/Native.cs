@@ -164,7 +164,7 @@ namespace LenovoLegionToolkit.Lib.System
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 38)]
         public byte[] Padding;
 
-        public FanTable(byte[] fanTable)
+        public FanTable(ushort[] fanTable)
         {
             if (fanTable.Length != 10)
                 throw new ArgumentException("Length must be 10.", nameof(fanTable));
@@ -184,6 +184,8 @@ namespace LenovoLegionToolkit.Lib.System
             FSS9 = fanTable[9];
             Padding = new byte[38];
         }
+
+        public ushort[] GetTable() => new[] { FSS0, FSS1, FSS2, FSS3, FSS4, FSS5, FSS6, FSS7, FSS8, FSS9 };
     }
 
     [StructLayout(LayoutKind.Sequential)]

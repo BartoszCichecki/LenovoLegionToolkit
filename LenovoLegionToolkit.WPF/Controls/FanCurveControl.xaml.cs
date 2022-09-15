@@ -1,27 +1,65 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.Lib.System;
 
 namespace LenovoLegionToolkit.WPF.Controls
 {
     public partial class FanCurveControl
     {
-        private Slider[] _sliders;
+        private readonly List<Slider> _sliders = new();
+
+        private FanTableData[]? _tableData;
 
         public FanCurveControl()
         {
             InitializeComponent();
+        }
 
-            _sliders = _slidersGrid.Children.OfType<Slider>().ToArray();
+        protected override Size ArrangeOverride(Size arrangeBounds)
+        {
+            var size = base.ArrangeOverride(arrangeBounds);
+
             DrawGraph();
+
+            return size;
+        }
+
+        public void SetFanTableInfo(FanTableInfo fanTableInfo)
+        {
+            _sliders.Clear();
+            _slidersGrid.Children.Clear();
+
+            var tableValues = fanTableInfo.Table.GetTable();
+
+            for (var i = 0; i < tableValues.Length; i++)
+            {
+                var slider = GenerateSlider(i, 0, 10);
+                slider.Value = tableValues[i];
+                _sliders.Add(slider);
+                _slidersGrid.Children.Add(slider);
+            }
+
+            _tableData = fanTableInfo.Data;
+        }
+
+        public FanTableInfo? GetFanTableInfo()
+        {
+            if (_tableData is null)
+                return null;
+
+            var fanTable = _sliders.Select(s => (ushort)s.Value).ToArray();
+            return new(_tableData, new FanTable(fanTable));
         }
 
         private void Slider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if (_sliders.Length < 2)
+            if (_sliders.Count < 2)
                 return;
 
             if (sender is not Slider { IsMouseCaptureWithin: true } currentSlider)
@@ -39,13 +77,13 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         private void VerifyValues(Slider currentSlider)
         {
-            var currentIndex = Array.IndexOf(_sliders, currentSlider);
+            var currentIndex = _sliders.IndexOf(currentSlider);
             if (currentIndex < 0)
                 return;
 
             var currentValue = currentSlider.Value;
-            var slidersBefore = _sliders[..currentIndex];
-            var slidersAfter = _sliders[(currentIndex + 1)..];
+            var slidersBefore = _sliders.Take(currentIndex);
+            var slidersAfter = _sliders.Skip(currentIndex + 1);
 
             foreach (var slider in slidersBefore)
             {
@@ -70,6 +108,9 @@ namespace LenovoLegionToolkit.WPF.Controls
                 .Select(GetThumbLocation)
                 .Select(p => new Point(p.X, p.Y))
                 .ToArray();
+
+            if (points.IsEmpty())
+                return;
 
             // Line
 
@@ -101,6 +142,23 @@ namespace LenovoLegionToolkit.WPF.Controls
                 Points = pointCollection
             };
             _canvas.Children.Add(polygon);
+        }
+
+        private Slider GenerateSlider(int index, int minimum, int maximum)
+        {
+            var slider = new Slider
+            {
+                HorizontalAlignment = HorizontalAlignment.Center,
+                Orientation = Orientation.Vertical,
+                IsSnapToTickEnabled = true,
+                TickFrequency = 1,
+                Maximum = maximum,
+                Minimum = minimum,
+                Tag = index
+            };
+            slider.ValueChanged += Slider_OnValueChanged;
+            Grid.SetColumn(slider, index + 1);
+            return slider;
         }
 
         private Point GetThumbLocation(Slider slider)
