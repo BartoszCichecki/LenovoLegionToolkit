@@ -1,4 +1,4 @@
-﻿#define MOCK_FAN_TABLE
+﻿// #define MOCK_FAN_TABLE
 
 using System;
 using System.Linq;
