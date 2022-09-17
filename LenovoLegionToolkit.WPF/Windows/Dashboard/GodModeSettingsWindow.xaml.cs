@@ -69,10 +69,9 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
                 if (fanTableInfo.HasValue)
                     _fanCurveControl.SetFanTableInfo(fanTableInfo.Value);
                 else
-                    _fanCurveCardExpander.Visibility = Visibility.Collapsed;
+                    _fanCurveCardControl.Visibility = Visibility.Collapsed;
 
-                _fanCurveCardExpander.IsEnabled = !state.FanFullSpeed;
-                _fanCurveCardExpander.IsExpanded = !state.FanFullSpeed;
+                _fanCurveCardControl.IsEnabled = !state.FanFullSpeed;
                 _fanFullSpeedToggle.IsChecked = state.FanFullSpeed;
 
                 if (state.CPULongTermPowerLimit.Min == state.CPULongTermPowerLimit.Max)
@@ -175,8 +174,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
 
         private void FanFullSpeedToggle_OnClick(object sender, RoutedEventArgs e)
         {
-            _fanCurveCardExpander.IsEnabled = !(_fanFullSpeedToggle.IsChecked ?? false);
-            _fanCurveCardExpander.IsExpanded = !(_fanFullSpeedToggle.IsChecked ?? false);
+            _fanCurveCardControl.IsEnabled = !(_fanFullSpeedToggle.IsChecked ?? false);
         }
     }
 }
