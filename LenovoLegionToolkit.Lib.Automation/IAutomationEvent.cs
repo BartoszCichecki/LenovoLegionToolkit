@@ -4,7 +4,12 @@
 
     public struct StartupAutomationEvent : IAutomationEvent { }
 
-    public struct PowerAutomationEvent : IAutomationEvent { }
+    public struct PowerStateAutomationEvent : IAutomationEvent { }
+
+    public struct PowerModeAutomationEvent : IAutomationEvent
+    {
+        public PowerModeState PowerModeState { get; init; }
+    }
 
     public struct ProcessAutomationEvent : IAutomationEvent
     {

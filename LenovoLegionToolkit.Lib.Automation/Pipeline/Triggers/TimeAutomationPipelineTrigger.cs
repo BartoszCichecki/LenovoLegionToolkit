@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
 {
-    public class TimeAutomationPipelineTrigger : IAutomationPipelineTrigger
+    public class TimeAutomationPipelineTrigger : IAutomationPipelineTrigger, ITimeAutomationPipelineTrigger
     {
         public bool IsSunrise { get; }
 

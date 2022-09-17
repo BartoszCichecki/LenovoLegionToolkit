@@ -188,6 +188,10 @@ namespace LenovoLegionToolkit.WPF.Pages
             renameMenuItem.Click += async (s, e) => await RenamePipelineAsync(control);
             menuItems.Add(renameMenuItem);
 
+            var deleteMenuItem = new MenuItem { SymbolIcon = SymbolRegular.Delete24, Header = "Delete" };
+            deleteMenuItem.Click += async (s, e) => await DeletePipelineAsync(control, stackPanel);
+            menuItems.Add(deleteMenuItem);
+
             control.ContextMenu = new();
             control.ContextMenu.Items.AddRange(menuItems);
             control.ContextMenu.IsOpen = true;
@@ -244,16 +248,20 @@ namespace LenovoLegionToolkit.WPF.Pages
         {
             var triggers = new List<IAutomationPipelineTrigger>
             {
-                new ACAdapterConnectedAutomationPipelineTrigger()
+                new AcAdapterConnectedAutomationPipelineTrigger()
             };
 
             if ((await Compatibility.GetMachineInformation()).Properties.SupportsACDetection)
-                triggers.Add(new LowWattageACAdapterConnectedAutomationPipelineTrigger());
+                triggers.Add(new LowWattageAcAdapterConnectedAutomationPipelineTrigger());
 
-            triggers.Add(new ACAdapterDisconnectedAutomationPipelineTrigger());
-            triggers.Add(new ProcessesAreRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()));
-            triggers.Add(new ProcessesStopRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()));
-            triggers.Add(new TimeAutomationPipelineTrigger(false, false, null));
+            triggers.AddRange(new IAutomationPipelineTrigger[]
+            {
+                new AcAdapterDisconnectedAutomationPipelineTrigger(),
+                new PowerModeAutomationPipelineTrigger(PowerModeState.Balance),
+                new ProcessesAreRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()),
+                new ProcessesStopRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()),
+                new TimeAutomationPipelineTrigger(false, false, null),
+            });
 
             var menuItems = new List<MenuItem>();
 
