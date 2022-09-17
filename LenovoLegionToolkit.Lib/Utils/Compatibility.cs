@@ -97,21 +97,20 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         private static bool GetSupportsGodMode(string biosVersion)
         {
-            // 2021
-            if (biosVersion.StartsWith("GKCN") && int.TryParse(biosVersion.Replace("GKCN", null).Replace("WW", null), out var rev) && rev >= 49)
-                return true;
+            (string, int)[] supportedBiosVersions =
+            {
+                ("GKCN", 49),
+                ("H1CN", 49),
+                ("HHCN", 23),
+                ("K1CN", 31),
+                ("JYCN", 39)
+            };
 
-            // 2021
-            if (biosVersion.StartsWith("HHCN") && int.TryParse(biosVersion.Replace("HHCN", null).Replace("WW", null), out rev) && rev >= 23)
-                return true;
-
-            // 2022
-            // if (biosVersion.StartsWith("K1CN") && int.TryParse(biosVersion.Replace("K1CN", null).Replace("WW", null), out rev) && rev >= 31)
-            //    return true;
-
-            // 2022
-            // if (biosVersion.StartsWith("JYCN") && int.TryParse(biosVersion.Replace("JYCN", null).Replace("WW", null), out rev) && rev >= 39)
-            //     return true;
+            foreach (var (biosPrefix, minimumVersion) in supportedBiosVersions)
+            {
+                if (biosVersion.StartsWith(biosPrefix) && int.TryParse(biosVersion.Replace(biosPrefix, null).Replace("WW", null), out var rev) && rev >= minimumVersion)
+                    return true;
+            }
 
             return false;
         }

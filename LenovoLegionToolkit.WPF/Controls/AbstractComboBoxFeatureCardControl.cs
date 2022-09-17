@@ -45,7 +45,7 @@ namespace LenovoLegionToolkit.WPF.Controls
         private void InitializeComponent()
         {
             _comboBox.SelectionChanged += ComboBox_SelectionChanged;
-            _comboBox.Width = 150;
+            _comboBox.Width = 165;
             _comboBox.Visibility = Visibility.Hidden;
             _comboBox.Margin = new(8, 0, 0, 0);
 
