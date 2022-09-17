@@ -5,22 +5,22 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
 {
-    public class ACAdapterConnectedAutomationPipelineTrigger : IAutomationPipelineTrigger, IPowerAutomationPipelineTrigger, IDisallowDuplicatesAutomationPipelineTrigger
+    public class AcAdapterConnectedAutomationPipelineTrigger : IAutomationPipelineTrigger, IPowerStateAutomationPipelineTrigger, IDisallowDuplicatesAutomationPipelineTrigger
     {
         [JsonIgnore]
         public string DisplayName => "When AC power adapter is connected";
 
         public async Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent)
         {
-            if (automationEvent is not (PowerAutomationEvent or StartupAutomationEvent))
+            if (automationEvent is not (PowerStateAutomationEvent or StartupAutomationEvent))
                 return false;
 
             return await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false) == PowerAdapterStatus.Connected;
         }
 
-        public IAutomationPipelineTrigger DeepCopy() => new ACAdapterConnectedAutomationPipelineTrigger();
+        public IAutomationPipelineTrigger DeepCopy() => new AcAdapterConnectedAutomationPipelineTrigger();
 
-        public override bool Equals(object? obj) => obj is ACAdapterConnectedAutomationPipelineTrigger;
+        public override bool Equals(object? obj) => obj is AcAdapterConnectedAutomationPipelineTrigger;
 
         public override int GetHashCode() => HashCode.Combine(DisplayName);
     }

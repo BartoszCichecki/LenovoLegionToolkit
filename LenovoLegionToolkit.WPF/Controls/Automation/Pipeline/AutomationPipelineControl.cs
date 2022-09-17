@@ -220,10 +220,13 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             if (!string.IsNullOrWhiteSpace(AutomationPipeline.Name) && AutomationPipeline.Trigger is not null)
                 result += $" | {AutomationPipeline.Trigger.DisplayName}";
 
+            if (AutomationPipeline.Trigger is IPowerModeAutomationPipelineTrigger p)
+                result += $" | Power Mode: {p.PowerModeState.GetDisplayName()}";
+
             if (AutomationPipeline.Trigger is IProcessesAutomationPipelineTrigger pt && pt.Processes.Any())
                 result += $" | Apps: {string.Join(", ", pt.Processes.Select(p => p.Name))}";
 
-            if (AutomationPipeline.Trigger is TimeAutomationPipelineTrigger tt)
+            if (AutomationPipeline.Trigger is ITimeAutomationPipelineTrigger tt)
             {
                 if (tt.IsSunrise)
                     result += " | At sunrise";
@@ -241,6 +244,35 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
         private UIElement? GenerateAccessory()
         {
+            if (AutomationPipeline.Trigger is IPowerModeAutomationPipelineTrigger pmt)
+            {
+                var button = new Button
+                {
+                    Content = "Configure",
+                    Margin = new(16, 0, 16, 0),
+                    Width = 120,
+                };
+                button.Click += (s, e) =>
+                {
+                    var window = new PowerModeWindow(pmt.PowerModeState)
+                    {
+                        Owner = Window.GetWindow(this),
+                        WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                        ShowInTaskbar = false,
+                    };
+                    window.OnSave += (s, e) =>
+                    {
+                        AutomationPipeline.Trigger = pmt.DeepCopy(e);
+                        _cardHeaderControl.Subtitle = GenerateSubtitle();
+                        _cardHeaderControl.Accessory = GenerateAccessory();
+                        _cardHeaderControl.SubtitleToolTip = _cardHeaderControl.Subtitle;
+                        OnChanged?.Invoke(this, EventArgs.Empty);
+                    };
+                    window.ShowDialog();
+                };
+                return button;
+            }
+
             if (AutomationPipeline.Trigger is IProcessesAutomationPipelineTrigger pt)
             {
                 var button = new Button
@@ -270,7 +302,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 return button;
             }
 
-            if (AutomationPipeline.Trigger is TimeAutomationPipelineTrigger tt)
+            if (AutomationPipeline.Trigger is ITimeAutomationPipelineTrigger tt)
             {
 
                 var button = new Button
@@ -332,7 +364,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
                 var control = GenerateStepControl(step);
                 var menuItem = new MenuItem { SymbolIcon = control.Icon, Header = control.Title };
-                if (AllowDuplicates(step))
+                if (ShouldAllow(step))
                     menuItem.Click += async (s, e) => await AddStepAsync(control);
                 else
                     menuItem.IsEnabled = false;
@@ -434,7 +466,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
         private async Task AddStepAsync(AbstractAutomationStepControl control)
         {
-            if (!AllowDuplicates(control.AutomationStep))
+            if (!ShouldAllow(control.AutomationStep))
                 return;
 
             _stepsStackPanel.Children.Add(control);
@@ -455,8 +487,11 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             OnChanged?.Invoke(this, EventArgs.Empty);
         }
 
-        private bool AllowDuplicates(IAutomationStep step)
+        private bool ShouldAllow(IAutomationStep step)
         {
+            if (step is PowerModeAutomationStep && AutomationPipeline.Trigger is IPowerModeAutomationPipelineTrigger)
+                return false;
+
             if (step is IDisallowDuplicatesAutomationStep)
             {
                 var alreadyContains = _stepsStackPanel.Children.ToArray()

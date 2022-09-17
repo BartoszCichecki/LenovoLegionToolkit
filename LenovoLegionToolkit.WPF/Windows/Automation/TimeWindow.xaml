@@ -9,9 +9,8 @@
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="Time"
     MinWidth="400"
-    MinHeight="300"
     MaxWidth="400"
-    MaxHeight="300">
+    SizeToContent="Height">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

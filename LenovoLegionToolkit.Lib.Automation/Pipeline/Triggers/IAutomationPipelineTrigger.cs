@@ -15,12 +15,27 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
 
     public interface IDisallowDuplicatesAutomationPipelineTrigger { }
 
-    public interface IPowerAutomationPipelineTrigger { }
+    public interface IPowerStateAutomationPipelineTrigger { }
+
+    public interface IPowerModeAutomationPipelineTrigger
+    {
+        PowerModeState PowerModeState { get; }
+
+        IAutomationPipelineTrigger DeepCopy(PowerModeState powerModeState);
+    }
 
     public interface IProcessesAutomationPipelineTrigger
     {
         ProcessInfo[] Processes { get; }
 
         IAutomationPipelineTrigger DeepCopy(ProcessInfo[] processes);
+    }
+
+    public interface ITimeAutomationPipelineTrigger
+    {
+        bool IsSunrise { get; }
+        bool IsSunset { get; }
+        Time? Time { get; }
+        IAutomationPipelineTrigger DeepCopy(bool isSunrise, bool isSunset, Time? time);
     }
 }
