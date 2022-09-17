@@ -27,6 +27,14 @@ namespace LenovoLegionToolkit.Lib
         Fn_F10 = 32
     }
 
+    public enum FanTableType
+    {
+        Unknown,
+        CPU,
+        GPU,
+        CPUSensor
+    }
+
     public enum FlipToStartState
     {
         Off,

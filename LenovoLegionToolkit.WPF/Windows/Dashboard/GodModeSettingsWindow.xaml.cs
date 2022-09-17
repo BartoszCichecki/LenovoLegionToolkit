@@ -65,6 +65,13 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
                 _gpuConfigurableTGPSlider.TickFrequency = state.GPUConfigurableTGP.Step;
                 _gpuConfigurableTGPSlider.Value = state.GPUConfigurableTGP.Value;
 
+                var fanTableInfo = state.FanTableInfo;
+                if (fanTableInfo.HasValue)
+                    _fanCurveControl.SetFanTableInfo(fanTableInfo.Value);
+                else
+                    _fanCurveCardControl.Visibility = Visibility.Collapsed;
+
+                _fanCurveCardControl.IsEnabled = !state.FanFullSpeed;
                 _fanFullSpeedToggle.IsChecked = state.FanFullSpeed;
 
                 if (state.CPULongTermPowerLimit.Min == state.CPULongTermPowerLimit.Max)
@@ -94,6 +101,8 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
                     Log.Instance.Trace($"Couldn't load settings.", ex);
 
                 await _snackBar.ShowAsync("Couldn't load setting.", ex.Message);
+
+                Close();
             }
         }
 
@@ -108,6 +117,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
                 var gpuPowerBoost = state.GPUPowerBoost.WithValue((int)_gpuPowerBoostSlider.Value);
                 var gpuConfigurableTGP = state.GPUConfigurableTGP.WithValue((int)_gpuConfigurableTGPSlider.Value);
 
+                var fanTableInfo = _fanCurveControl.GetFanTableInfo();
                 var fanFullSpeed = _fanFullSpeedToggle.IsChecked ?? false;
 
                 var maxValueOffset = (int)_maxValueOffsetNumberBox.Value;
@@ -118,6 +128,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
                     CPUShortTermPowerLimit = cpuShortTermPowerLimit,
                     GPUPowerBoost = gpuPowerBoost,
                     GPUConfigurableTGP = gpuConfigurableTGP,
+                    FanTableInfo = fanTableInfo,
                     FanFullSpeed = fanFullSpeed,
                     MaxValueOffset = maxValueOffset,
                 };
@@ -159,6 +170,11 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
         {
             if (_cpuLongTermPowerLimitSlider.Value > _cpuShortTermPowerLimitSlider.Value)
                 _cpuLongTermPowerLimitSlider.Value = _cpuShortTermPowerLimitSlider.Value;
+        }
+
+        private void FanFullSpeedToggle_OnClick(object sender, RoutedEventArgs e)
+        {
+            _fanCurveCardControl.IsEnabled = !(_fanFullSpeedToggle.IsChecked ?? false);
         }
     }
 }
