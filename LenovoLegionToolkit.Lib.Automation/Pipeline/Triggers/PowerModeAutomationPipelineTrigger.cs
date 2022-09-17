@@ -15,15 +15,16 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
             PowerModeState = powerModeState;
         }
 
-        public async Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent)
+        public Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent)
         {
             if (automationEvent is StartupAutomationEvent)
-                return false;
+                return Task.FromResult(false);
 
             if (automationEvent is not PowerModeAutomationEvent pmae)
-                return false;
+                return Task.FromResult(false);
 
-            return pmae.PowerModeState == PowerModeState;
+            var result = pmae.PowerModeState == PowerModeState;
+            return Task.FromResult(result);
         }
 
         public IAutomationPipelineTrigger DeepCopy() => new PowerModeAutomationPipelineTrigger(PowerModeState);
