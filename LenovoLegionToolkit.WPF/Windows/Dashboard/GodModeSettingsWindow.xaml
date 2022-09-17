@@ -153,15 +153,14 @@
                         FontWeight="Medium"
                         Text="Fans" />
 
-                    <wpfui:CardExpander
-                        x:Name="_fanCurveCardExpander"
-                        Margin="0,0,0,8"
-                        IsExpanded="True">
-                        <wpfui:CardExpander.Header>
-                            <controls:CardHeaderControl Title="Fan curve" Subtitle="Fan speed is not strictly determined by one temperature sensor. It will raise or lower speed per the highest sensor between CPU, GPU and Heatsink temperature. Exact values will appear when you hover mouse over each step." />
-                        </wpfui:CardExpander.Header>
-                        <controls:FanCurveControl x:Name="_fanCurveControl" />
-                    </wpfui:CardExpander>
+                    <wpfui:CardControl x:Name="_fanCurveCardControl" Margin="0,0,0,8">
+                        <wpfui:CardControl.Header>
+                            <StackPanel>
+                                <controls:CardHeaderControl Title="Fan curve" Subtitle="Fan speed is not strictly determined by one temperature sensor. It will raise or lower speed per the highest sensor between CPU, GPU and Heatsink temperature. Exact values will appear when you hover mouse over each step." />
+                                <controls:FanCurveControl x:Name="_fanCurveControl" Margin="0,24,0,0" />
+                            </StackPanel>
+                        </wpfui:CardControl.Header>
+                    </wpfui:CardControl>
 
                     <wpfui:CardControl Margin="0,0,0,8">
                         <wpfui:CardControl.Header>

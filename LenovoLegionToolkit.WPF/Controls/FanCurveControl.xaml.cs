@@ -15,7 +15,7 @@ namespace LenovoLegionToolkit.WPF.Controls
     public partial class FanCurveControl
     {
         private readonly List<Slider> _sliders = new();
-        private readonly ToolTip _customToolTip = new();
+        private readonly InfoTooltip _customToolTip = new();
 
         private FanTableData[]? _tableData;
 
@@ -27,9 +27,7 @@ namespace LenovoLegionToolkit.WPF.Controls
         protected override Size ArrangeOverride(Size arrangeBounds)
         {
             var size = base.ArrangeOverride(arrangeBounds);
-
             DrawGraph();
-
             return size;
         }
 
@@ -89,13 +87,13 @@ namespace LenovoLegionToolkit.WPF.Controls
             if (slider.Template.FindName("PART_Track", slider) is not Track track)
                 return;
 
-            if (!track.Thumb.IsMouseOver)
+            if (!track.Thumb.IsMouseOver || _tableData is null)
             {
                 _customToolTip.IsOpen = false;
                 return;
             }
 
-            _customToolTip.Content = $"YOLO {slider.Tag}";
+            _customToolTip.Update(_tableData, (int)slider.Value);
 
             _customToolTip.Placement = PlacementMode.Custom;
             _customToolTip.PlacementTarget = track.Thumb;
@@ -129,7 +127,7 @@ namespace LenovoLegionToolkit.WPF.Controls
         {
             return new CustomPopupPlacement[]
             {
-                new(new((targetSize.Width - size.Width) * 0.5, -targetSize.Height - 32), PopupPrimaryAxis.Vertical)
+                new(new((targetSize.Width - size.Width) * 0.5, -targetSize.Height -size.Height + 8), PopupPrimaryAxis.Vertical)
             };
         }
 
@@ -209,6 +207,81 @@ namespace LenovoLegionToolkit.WPF.Controls
             var x = slider.ActualWidth * 0.5;
             var point = slider.TranslatePoint(new(x, y), _canvas);
             return point;
+        }
+        private class InfoTooltip : ToolTip
+        {
+            private readonly Grid _grid = new()
+            {
+                ColumnDefinitions =
+                {
+                    new() { Width = GridLength.Auto},
+                    new () { Width = GridLength.Auto}
+                },
+                RowDefinitions =
+                {
+                    new() { Height = GridLength.Auto},
+                    new() { Height = GridLength.Auto},
+                    new() { Height = GridLength.Auto}
+                }
+            };
+
+            private readonly TextBlock _desc1 = new() { Text = "CPU:", Margin = new(0, 0, 8, 0) };
+            private readonly TextBlock _desc2 = new() { Text = "CPU Sensor:", Margin = new(0, 0, 8, 0) };
+            private readonly TextBlock _desc3 = new() { Text = "GPU:", Margin = new(0, 0, 8, 0) };
+
+            private readonly TextBlock _value1 = new();
+            private readonly TextBlock _value2 = new();
+            private readonly TextBlock _value3 = new();
+
+            public InfoTooltip()
+            {
+                InitializeComponent();
+            }
+
+            private void InitializeComponent()
+            {
+                SetResourceReference(StyleProperty, typeof(ToolTip));
+
+                Grid.SetColumn(_desc1, 0);
+                Grid.SetColumn(_desc2, 0);
+                Grid.SetColumn(_desc3, 0);
+                Grid.SetColumn(_value1, 1);
+                Grid.SetColumn(_value3, 1);
+                Grid.SetColumn(_value2, 1);
+
+                Grid.SetRow(_desc1, 0);
+                Grid.SetRow(_desc2, 1);
+                Grid.SetRow(_desc3, 2);
+                Grid.SetRow(_value1, 0);
+                Grid.SetRow(_value2, 1);
+                Grid.SetRow(_value3, 2);
+
+                _grid.Children.Add(_desc1);
+                _grid.Children.Add(_desc2);
+                _grid.Children.Add(_desc3);
+                _grid.Children.Add(_value1);
+                _grid.Children.Add(_value2);
+                _grid.Children.Add(_value3);
+
+                Content = _grid;
+            }
+
+            public void Update(FanTableData[] tableData, int value)
+            {
+                var index = value - 1;
+                _value1.Text = tableData
+                    .Where(td => td.Type == FanTableType.CPU)
+                    .Select(td => $"{td.Temps[index]}°C @ {td.FanSpeeds[index]}RPM")
+                    .FirstOrDefault() ?? "-";
+                _value2.Text = tableData
+                    .Where(td => td.Type == FanTableType.CPUSensor)
+                    .Select(td => $"{td.Temps[index]}°C @ {td.FanSpeeds[index]}RPM")
+                    .FirstOrDefault() ?? "-";
+                _value3.Text = tableData
+                    .Where(td => td.Type == FanTableType.GPU)
+                    .Select(td => $"{td.Temps[index]}°C @ {td.FanSpeeds[index]}RPM")
+                    .FirstOrDefault() ?? "-";
+            }
         }
     }
 }
