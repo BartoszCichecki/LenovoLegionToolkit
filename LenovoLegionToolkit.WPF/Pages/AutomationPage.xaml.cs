@@ -248,15 +248,15 @@ namespace LenovoLegionToolkit.WPF.Pages
         {
             var triggers = new List<IAutomationPipelineTrigger>
             {
-                new AcAdapterConnectedAutomationPipelineTrigger()
+                new ACAdapterConnectedAutomationPipelineTrigger()
             };
 
             if ((await Compatibility.GetMachineInformation()).Properties.SupportsACDetection)
-                triggers.Add(new LowWattageAcAdapterConnectedAutomationPipelineTrigger());
+                triggers.Add(new LowWattageACAdapterConnectedAutomationPipelineTrigger());
 
             triggers.AddRange(new IAutomationPipelineTrigger[]
             {
-                new AcAdapterDisconnectedAutomationPipelineTrigger(),
+                new ACAdapterDisconnectedAutomationPipelineTrigger(),
                 new PowerModeAutomationPipelineTrigger(PowerModeState.Balance),
                 new ProcessesAreRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()),
                 new ProcessesStopRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()),
