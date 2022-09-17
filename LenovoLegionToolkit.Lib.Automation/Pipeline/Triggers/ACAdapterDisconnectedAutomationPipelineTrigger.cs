@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
 {
-    public class AcAdapterDisconnectedAutomationPipelineTrigger : IAutomationPipelineTrigger, IPowerStateAutomationPipelineTrigger, IDisallowDuplicatesAutomationPipelineTrigger
+    public class ACAdapterDisconnectedAutomationPipelineTrigger : IAutomationPipelineTrigger, IPowerStateAutomationPipelineTrigger, IDisallowDuplicatesAutomationPipelineTrigger
     {
         [JsonIgnore]
         public string DisplayName => "When AC power adapter is disconnected";
@@ -18,9 +18,9 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
             return await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false) == PowerAdapterStatus.Disconnected;
         }
 
-        public IAutomationPipelineTrigger DeepCopy() => new AcAdapterDisconnectedAutomationPipelineTrigger();
+        public IAutomationPipelineTrigger DeepCopy() => new ACAdapterDisconnectedAutomationPipelineTrigger();
 
-        public override bool Equals(object? obj) => obj is AcAdapterDisconnectedAutomationPipelineTrigger;
+        public override bool Equals(object? obj) => obj is ACAdapterDisconnectedAutomationPipelineTrigger;
 
         public override int GetHashCode() => HashCode.Combine(DisplayName);
     }
