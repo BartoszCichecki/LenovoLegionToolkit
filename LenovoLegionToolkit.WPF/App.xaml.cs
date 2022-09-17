@@ -27,7 +27,7 @@ using WinFormsHighDpiMode = System.Windows.Forms.HighDpiMode;
 
 namespace LenovoLegionToolkit
 {
-    public partial class App : Application
+    public partial class App
     {
         private const string MutexName = "LenovoLegionToolkit_Mutex_6efcc882-924c-4cbc-8fec-f45c25696f98";
         private const string EventName = "LenovoLegionToolkit_Event_6efcc882-924c-4cbc-8fec-f45c25696f98";
@@ -97,7 +97,7 @@ namespace LenovoLegionToolkit
                 if (rgbKeyboardBacklightController.IsSupported())
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Setting light controll owner and restoring preset...");
+                        Log.Instance.Trace($"Setting light control owner and restoring preset...");
 
                     await rgbKeyboardBacklightController.SetLightControlOwnerAsync(true, true);
                 }
@@ -110,7 +110,7 @@ namespace LenovoLegionToolkit
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't set light controll owner or current preset.", ex);
+                    Log.Instance.Trace($"Couldn't set light control owner or current preset.", ex);
             }
 
             Autorun.Validate();
