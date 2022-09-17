@@ -97,10 +97,8 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         private static bool GetSupportsGodMode(string biosVersion)
         {
-            int rev;
-
             // 2021
-            if (biosVersion.StartsWith("GKCN") && int.TryParse(biosVersion.Replace("GKCN", null).Replace("WW", null), out rev) && rev >= 49)
+            if (biosVersion.StartsWith("GKCN") && int.TryParse(biosVersion.Replace("GKCN", null).Replace("WW", null), out var rev) && rev >= 49)
                 return true;
 
             // 2021

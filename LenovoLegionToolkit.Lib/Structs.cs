@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.Lib.System;
 using Newtonsoft.Json;
 using Octokit;
 
@@ -18,7 +19,7 @@ namespace LenovoLegionToolkit.Lib
         public int DischargeRate { get; }
         public int EstimateChargeRemaining { get; }
         public int DesignCapacity { get; }
-        public int FullChargeCapactiy { get; }
+        public int FullChargeCapacity { get; }
         public int CycleCount { get; }
         public double? BatteryTemperatureC { get; }
         public DateTime? ManufactureDate { get; }
@@ -32,7 +33,7 @@ namespace LenovoLegionToolkit.Lib
             int dischargeRate,
             int estimateChargeRemaining,
             int designCapacity,
-            int fullChargeCapactiy,
+            int fullChargeCapacity,
             int cycleCount,
             double? batteryTemperatureC,
             DateTime? manufactureDate,
@@ -45,7 +46,7 @@ namespace LenovoLegionToolkit.Lib
             DischargeRate = dischargeRate;
             EstimateChargeRemaining = estimateChargeRemaining;
             DesignCapacity = designCapacity;
-            FullChargeCapactiy = fullChargeCapactiy;
+            FullChargeCapacity = fullChargeCapacity;
             CycleCount = cycleCount;
             BatteryTemperatureC = batteryTemperatureC;
             ManufactureDate = manufactureDate;
@@ -78,6 +79,34 @@ namespace LenovoLegionToolkit.Lib
             CPUBoostModes = cpuBoostModes;
             ACSettingValue = acSettingValue;
             DCSettingValue = dcSettingValue;
+        }
+    }
+
+    public struct FanTableData
+    {
+        public byte FanId { get; init; }
+        public byte SensorId { get; init; }
+        public ushort[] FanSpeeds { get; init; }
+        public ushort[] Temps { get; init; }
+
+        public FanTableType Type => (FanId, SensorId) switch
+        {
+            (0, 3) => FanTableType.CPU,
+            (1, 4) => FanTableType.GPU,
+            (0, 0) => FanTableType.CPUSensor,
+            _ => FanTableType.Unknown
+        };
+    }
+
+    public struct FanTableInfo
+    {
+        public FanTableData[] Data { get; }
+        public FanTable Table { get; }
+
+        public FanTableInfo(FanTableData[] data, FanTable table)
+        {
+            Data = data;
+            Table = table;
         }
     }
 
