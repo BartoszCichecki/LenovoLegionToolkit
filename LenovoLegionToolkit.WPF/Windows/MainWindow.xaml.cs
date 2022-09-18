@@ -30,7 +30,6 @@ namespace LenovoLegionToolkit.WPF.Windows
         {
             InitializeComponent();
             InitializeTray();
-            RestoreWindowSize();
 
             Loaded += MainWindow_Loaded;
             Closing += MainWindow_Closing;
@@ -93,11 +92,9 @@ namespace LenovoLegionToolkit.WPF.Windows
             switch (WindowState)
             {
                 case WindowState.Minimized:
-                    SaveWindowSize();
                     SendToTray();
                     break;
                 case WindowState.Normal:
-                    RestoreWindowSize();
                     BringToForeground();
                     break;
             }
@@ -122,8 +119,6 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private void MainWindow_Closing(object? sender, CancelEventArgs e)
         {
-            SaveWindowSize();
-
             if (_settings.Store.MinimizeOnClose)
             {
                 if (Log.Instance.IsTraceEnabled)
@@ -174,25 +169,6 @@ namespace LenovoLegionToolkit.WPF.Windows
         }
 
         private void NotifyIcon_LeftClick([NotNull] NotifyIcon sender, RoutedEventArgs e) => BringToForeground();
-
-        private void SaveWindowSize()
-        {
-            if (WindowState == WindowState.Maximized)
-                return;
-
-            _settings.Store.WindowSize = new(ActualWidth, ActualHeight);
-            _settings.SynchronizeStore();
-        }
-
-        private void RestoreWindowSize()
-        {
-            var windowSize = _settings.Store.WindowSize;
-            if (windowSize.Width >= MinWidth && windowSize.Height >= MinHeight)
-            {
-                Width = windowSize.Width;
-                Height = windowSize.Height;
-            }
-        }
 
         private void LoadDeviceInfo()
         {
