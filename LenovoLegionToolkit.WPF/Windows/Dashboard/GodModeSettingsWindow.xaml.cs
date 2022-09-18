@@ -45,23 +45,25 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
 
                 var state = await _controller.GetStateAsync();
 
+                var maxValueOffset = state.MaxValueOffset;
+
                 _cpuLongTermPowerLimitSlider.Minimum = state.CPULongTermPowerLimit.Min;
-                _cpuLongTermPowerLimitSlider.Maximum = state.CPULongTermPowerLimit.Max;
+                _cpuLongTermPowerLimitSlider.Maximum = state.CPULongTermPowerLimit.Max + maxValueOffset;
                 _cpuLongTermPowerLimitSlider.TickFrequency = state.CPULongTermPowerLimit.Step;
                 _cpuLongTermPowerLimitSlider.Value = state.CPULongTermPowerLimit.Value;
 
                 _cpuShortTermPowerLimitSlider.Minimum = state.CPUShortTermPowerLimit.Min;
-                _cpuShortTermPowerLimitSlider.Maximum = state.CPUShortTermPowerLimit.Max;
+                _cpuShortTermPowerLimitSlider.Maximum = state.CPUShortTermPowerLimit.Max + maxValueOffset;
                 _cpuShortTermPowerLimitSlider.TickFrequency = state.CPUShortTermPowerLimit.Step;
                 _cpuShortTermPowerLimitSlider.Value = state.CPUShortTermPowerLimit.Value;
 
                 _gpuPowerBoostSlider.Minimum = state.GPUPowerBoost.Min;
-                _gpuPowerBoostSlider.Maximum = state.GPUPowerBoost.Max;
+                _gpuPowerBoostSlider.Maximum = state.GPUPowerBoost.Max + maxValueOffset;
                 _gpuPowerBoostSlider.TickFrequency = state.GPUPowerBoost.Step;
                 _gpuPowerBoostSlider.Value = state.GPUPowerBoost.Value;
 
                 _gpuConfigurableTGPSlider.Minimum = state.GPUConfigurableTGP.Min;
-                _gpuConfigurableTGPSlider.Maximum = state.GPUConfigurableTGP.Max;
+                _gpuConfigurableTGPSlider.Maximum = state.GPUConfigurableTGP.Max + maxValueOffset;
                 _gpuConfigurableTGPSlider.TickFrequency = state.GPUConfigurableTGP.Step;
                 _gpuConfigurableTGPSlider.Value = state.GPUConfigurableTGP.Value;
 
@@ -83,12 +85,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
                 if (state.GPUConfigurableTGP.Min == state.GPUConfigurableTGP.Max)
                     _gpuConfigurableTGPSlider.IsEnabled = false;
 
-                var maxValueOffset = state.MaxValueOffset;
-                _cpuLongTermPowerLimitSlider.Maximum += maxValueOffset;
-                _cpuShortTermPowerLimitSlider.Maximum += maxValueOffset;
-                _gpuPowerBoostSlider.Maximum += maxValueOffset;
-                _gpuConfigurableTGPSlider.Maximum += maxValueOffset;
-                _maxValueOffsetNumberBox.Value = maxValueOffset;
+                _maxValueOffsetNumberBox.Text = $"{maxValueOffset}";
 
                 await loadingTask;
 

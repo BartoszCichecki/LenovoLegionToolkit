@@ -157,7 +157,7 @@
                         <wpfui:CardControl.Header>
                             <StackPanel>
                                 <controls:CardHeaderControl Title="Fan curve" Subtitle="Fan speed is not strictly determined by one temperature sensor. It will raise or lower speed per the highest sensor between CPU, GPU and Heatsink temperature. Exact values will appear when you hover mouse over each step." />
-                                <controls:FanCurveControl x:Name="_fanCurveControl" Margin="0,24,0,0" />
+                                <controls:FanCurveControl x:Name="_fanCurveControl" Margin="0,32,0,0" />
                             </StackPanel>
                         </wpfui:CardControl.Header>
                     </wpfui:CardControl>
