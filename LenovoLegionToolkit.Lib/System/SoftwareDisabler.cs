@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.ServiceProcess;
 using System.Threading.Tasks;
@@ -18,50 +19,44 @@ namespace LenovoLegionToolkit.Lib.System
         protected abstract string[] ScheduledTasksPaths { get; }
         protected abstract string[] ServiceNames { get; }
 
-        public virtual Task<SoftwareStatus> GetStatusAsync()
+        protected abstract string[] ProcessNames { get; }
+
+        public virtual Task<SoftwareStatus> GetStatusAsync() => Task.Run(() =>
         {
-            return Task.Run(() =>
+            try
             {
-                try
-                {
-                    return IsServicesEnabled() ? SoftwareStatus.Enabled : SoftwareStatus.Disabled;
-                }
-                catch (SoftwareDisablerException)
-                {
-                    return SoftwareStatus.NotFound;
-                }
-            });
-        }
+                return AreServicesEnabled() || AreProcessesRunning() ? SoftwareStatus.Enabled : SoftwareStatus.Disabled;
+            }
+            catch (SoftwareDisablerException)
+            {
+                return SoftwareStatus.NotFound;
+            }
+        });
 
-        public virtual Task EnableAsync()
+        public virtual Task EnableAsync() => Task.Run(() =>
         {
-            return Task.Run(() =>
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Enabling...");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Enabling...");
 
-                SetScheduledTasksEnabled(true);
-                SetServicesEnabled(true);
+            SetScheduledTasksEnabled(true);
+            SetServicesEnabled(true);
 
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Enabled");
-            });
-        }
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Enabled");
+        });
 
-        public virtual Task DisableAsync()
+        public virtual Task DisableAsync() => Task.Run(async () =>
         {
-            return Task.Run(() =>
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Disabling...");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Disabling...");
 
-                SetScheduledTasksEnabled(false);
-                SetServicesEnabled(false);
+            SetScheduledTasksEnabled(false);
+            SetServicesEnabled(false);
+            await KillProcessesAsync().ConfigureAwait(false);
 
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Disabled");
-            });
-        }
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Disabled");
+        });
 
         private void SetScheduledTasksEnabled(bool enabled)
         {
@@ -101,7 +96,7 @@ namespace LenovoLegionToolkit.Lib.System
             }
         }
 
-        private bool IsServicesEnabled()
+        private bool AreServicesEnabled()
         {
             var result = true;
             foreach (var serviceName in ServiceNames)
@@ -189,6 +184,45 @@ namespace LenovoLegionToolkit.Lib.System
 
                 throw new SoftwareDisablerException(serviceName);
             }
+        }
+
+        private bool AreProcessesRunning()
+        {
+            foreach (var process in Process.GetProcesses())
+                foreach (var processName in ProcessNames)
+                {
+                    try
+                    {
+                        if (process.ProcessName.StartsWith(processName, StringComparison.InvariantCultureIgnoreCase))
+                            return true;
+                    }
+                    catch
+                    {
+                    }
+                }
+
+            return false;
+        }
+
+        private async Task KillProcessesAsync()
+        {
+            foreach (var process in Process.GetProcesses())
+                foreach (var processName in ProcessNames)
+                {
+                    try
+                    {
+                        if (process.ProcessName.StartsWith(processName, StringComparison.InvariantCultureIgnoreCase))
+                        {
+                            process.Kill();
+                            await process.WaitForExitAsync().ConfigureAwait(false);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Couldn't kill process.", ex);
+                    }
+                }
         }
     }
 }
