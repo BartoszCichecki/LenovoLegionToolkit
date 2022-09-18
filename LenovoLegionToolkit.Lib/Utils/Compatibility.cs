@@ -103,7 +103,8 @@ namespace LenovoLegionToolkit.Lib.Utils
                 ("H1CN", 49),
                 ("HHCN", 23),
                 ("K1CN", 31),
-                ("JYCN", 39)
+                ("JYCN", 39),
+                ("J2CN", 40)
             };
 
             foreach (var (biosPrefix, minimumVersion) in supportedBiosVersions)
