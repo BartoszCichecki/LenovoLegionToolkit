@@ -21,7 +21,7 @@ namespace LenovoLegionToolkit.Lib.System
 
         protected abstract string[] ProcessNames { get; }
 
-        public virtual Task<SoftwareStatus> GetStatusAsync() => Task.Run(() =>
+        public Task<SoftwareStatus> GetStatusAsync() => Task.Run(() =>
         {
             try
             {
