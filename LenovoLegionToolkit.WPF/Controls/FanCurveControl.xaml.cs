@@ -22,6 +22,13 @@ namespace LenovoLegionToolkit.WPF.Controls
         public FanCurveControl()
         {
             InitializeComponent();
+
+            MouseLeave += FanCurveControl_MouseLeave;
+        }
+
+        private void FanCurveControl_MouseLeave(object sender, MouseEventArgs e)
+        {
+            _customToolTip.IsOpen = false;
         }
 
         protected override Size ArrangeOverride(Size arrangeBounds)
@@ -93,7 +100,7 @@ namespace LenovoLegionToolkit.WPF.Controls
                 return;
             }
 
-            _customToolTip.Update(_tableData, (int)slider.Value);
+            _customToolTip.Update(_tableData, (int)slider.Tag, (int)slider.Value - 1);
 
             _customToolTip.Placement = PlacementMode.Custom;
             _customToolTip.PlacementTarget = track.Thumb;
@@ -266,21 +273,43 @@ namespace LenovoLegionToolkit.WPF.Controls
                 Content = _grid;
             }
 
-            public void Update(FanTableData[] tableData, int value)
+            public void Update(FanTableData[] tableData, int index, int value)
             {
-                var index = value - 1;
-                _value1.Text = tableData
-                    .Where(td => td.Type == FanTableType.CPU)
-                    .Select(td => $"{td.Temps[index]}°C @ {td.FanSpeeds[index]}RPM")
-                    .FirstOrDefault() ?? "-";
-                _value2.Text = tableData
-                    .Where(td => td.Type == FanTableType.CPUSensor)
-                    .Select(td => $"{td.Temps[index]}°C @ {td.FanSpeeds[index]}RPM")
-                    .FirstOrDefault() ?? "-";
-                _value3.Text = tableData
-                    .Where(td => td.Type == FanTableType.GPU)
-                    .Select(td => $"{td.Temps[index]}°C @ {td.FanSpeeds[index]}RPM")
-                    .FirstOrDefault() ?? "-";
+                try
+                {
+                    _value1.Text = tableData
+                        .Where(td => td.Type == FanTableType.CPU)
+                        .Select(td => $"{td.Temps[index]}°C @ {td.FanSpeeds[value]}RPM")
+                        .FirstOrDefault() ?? "-";
+                }
+                catch
+                {
+                    _value1.Text = "-";
+                }
+
+                try
+                {
+                    _value2.Text = tableData
+                        .Where(td => td.Type == FanTableType.CPUSensor)
+                        .Select(td => $"{td.Temps[index]}°C @ {td.FanSpeeds[value]}RPM")
+                        .FirstOrDefault() ?? "-";
+                }
+                catch
+                {
+                    _value2.Text = "-";
+                }
+
+                try
+                {
+                    _value3.Text = tableData
+                        .Where(td => td.Type == FanTableType.GPU)
+                        .Select(td => $"{td.Temps[index]}°C @ {td.FanSpeeds[value]}RPM")
+                        .FirstOrDefault() ?? "-";
+                }
+                catch
+                {
+                    _value3.Text = "-";
+                }
             }
         }
     }
