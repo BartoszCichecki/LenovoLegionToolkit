@@ -113,7 +113,9 @@ namespace LenovoLegionToolkit
                     Log.Instance.Trace($"Couldn't set light control owner or current preset.", ex);
             }
 
+#if !DEBUG
             Autorun.Validate();
+#endif
 
             var mainWindow = new MainWindow
             {
