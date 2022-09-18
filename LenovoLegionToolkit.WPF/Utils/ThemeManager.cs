@@ -18,7 +18,7 @@ namespace LenovoLegionToolkit.WPF.Utils
         private readonly ApplicationSettings _settings;
         private readonly IDisposable _themeListener;
 
-        public RGBColor DefaultAccentColor => new(231, 76, 60);
+        public RGBColor DefaultAccentColor => new(255, 29, 56);
 
         public bool IsDarkMode
         {
