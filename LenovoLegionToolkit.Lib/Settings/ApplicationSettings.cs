@@ -7,7 +7,6 @@ namespace LenovoLegionToolkit.Lib.Settings
     {
         public class ApplicationSettingsStore
         {
-            public WindowSize WindowSize { get; set; }
             public Theme Theme { get; set; }
             public RGBColor? AccentColor { get; set; }
             public Dictionary<PowerModeState, string> PowerPlans { get; set; } = new();
