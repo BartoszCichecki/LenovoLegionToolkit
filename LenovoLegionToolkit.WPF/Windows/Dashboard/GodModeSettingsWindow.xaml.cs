@@ -13,6 +13,8 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
         private readonly PowerModeFeature _powerModeFeature = IoCContainer.Resolve<PowerModeFeature>();
         private readonly GodModeController _controller = IoCContainer.Resolve<GodModeController>();
 
+        private bool _isRefreshing;
+
         public GodModeSettingsWindow()
         {
             InitializeComponent();
@@ -36,6 +38,8 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
 
         private async Task RefreshAsync()
         {
+            _isRefreshing = true;
+
             try
             {
                 _loader.IsLoading = true;
@@ -101,6 +105,10 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
 
                 Close();
             }
+            finally
+            {
+                _isRefreshing = false;
+            }
         }
 
         private async Task ApplyAsync()
@@ -159,12 +167,18 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
 
         private void CpuLongTermPowerLimitSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
+            if (_isRefreshing)
+                return;
+
             if (_cpuLongTermPowerLimitSlider.Value > _cpuShortTermPowerLimitSlider.Value)
                 _cpuShortTermPowerLimitSlider.Value = _cpuLongTermPowerLimitSlider.Value;
         }
 
         private void CpuShortTermPowerLimitSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
+            if (_isRefreshing)
+                return;
+
             if (_cpuLongTermPowerLimitSlider.Value > _cpuShortTermPowerLimitSlider.Value)
                 _cpuLongTermPowerLimitSlider.Value = _cpuShortTermPowerLimitSlider.Value;
         }
