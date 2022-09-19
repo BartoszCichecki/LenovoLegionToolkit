@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Extensions;
 using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
@@ -23,6 +25,10 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
                 return Task.FromResult(false);
 
             var result = Processes.Contains(pae.ProcessEventInfo.Process);
+            if (!result)
+                return Task.FromResult(false);
+
+            result = Processes.SelectMany(p => Process.GetProcessesByName(p.Name)).IsEmpty();
             return Task.FromResult(result);
         }
 
