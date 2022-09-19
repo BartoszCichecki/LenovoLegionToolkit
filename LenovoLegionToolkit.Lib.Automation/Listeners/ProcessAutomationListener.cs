@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Management;
 using System.Threading.Tasks;
@@ -87,7 +88,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Listeners
                 if (_ignoredPaths.Any(p => processPath.StartsWith(p, StringComparison.InvariantCultureIgnoreCase)))
                     return;
 
-                var processInfo = new ProcessInfo(e.processName, processPath);
+                var processInfo = new ProcessInfo(Path.GetFileNameWithoutExtension(e.processName), processPath);
                 _processCache[e.processID] = processInfo;
 
                 Changed?.Invoke(this, new(e.type, processInfo));
