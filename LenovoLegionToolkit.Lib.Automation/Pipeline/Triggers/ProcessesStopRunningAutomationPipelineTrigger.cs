@@ -22,8 +22,8 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
             if (automationEvent is not ProcessAutomationEvent { ProcessEventInfo.Type: ProcessEventInfoType.Stopped } pae)
                 return Task.FromResult(false);
 
-            var matches = Processes.Contains(pae.ProcessEventInfo.Process);
-            return Task.FromResult(matches);
+            var result = Processes.Contains(pae.ProcessEventInfo.Process);
+            return Task.FromResult(result);
         }
 
         public IAutomationPipelineTrigger DeepCopy() => new ProcessesStopRunningAutomationPipelineTrigger(Processes);
