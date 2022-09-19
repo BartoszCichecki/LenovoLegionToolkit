@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.Extensions;
 using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
@@ -21,11 +19,11 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
             if (automationEvent is StartupAutomationEvent)
                 return Task.FromResult(false);
 
-            if (automationEvent is not ProcessAutomationEvent pae || pae.ProcessEventInfo.Type != ProcessEventInfoType.Stopped)
+            if (automationEvent is not ProcessAutomationEvent { ProcessEventInfo.Type: ProcessEventInfoType.Stopped } pae)
                 return Task.FromResult(false);
 
-            var result = Processes.SelectMany(p => Process.GetProcessesByName(p.Name)).IsEmpty();
-            return Task.FromResult(result);
+            var matches = Processes.Contains(pae.ProcessEventInfo.Process);
+            return Task.FromResult(matches);
         }
 
         public IAutomationPipelineTrigger DeepCopy() => new ProcessesStopRunningAutomationPipelineTrigger(Processes);
