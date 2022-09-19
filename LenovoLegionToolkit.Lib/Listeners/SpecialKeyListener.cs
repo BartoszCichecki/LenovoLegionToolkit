@@ -16,9 +16,9 @@ namespace LenovoLegionToolkit.Lib.Listeners
         private readonly FnKeys _fnKeys;
         private readonly RefreshRateFeature _feature;
 
-        public SpecialKeyListener(ApplicationSettings _settings, FnKeys fnKeys, RefreshRateFeature feature) : base("ROOT\\WMI", "LENOVO_UTILITY_EVENT")
+        public SpecialKeyListener(ApplicationSettings settings, FnKeys fnKeys, RefreshRateFeature feature) : base("ROOT\\WMI", "LENOVO_UTILITY_EVENT")
         {
-            this._settings = _settings ?? throw new ArgumentNullException(nameof(_settings));
+            _settings = settings ?? throw new ArgumentNullException(nameof(settings));
             _fnKeys = fnKeys ?? throw new ArgumentNullException(nameof(fnKeys));
             _feature = feature ?? throw new ArgumentNullException(nameof(feature));
         }
@@ -27,20 +27,20 @@ namespace LenovoLegionToolkit.Lib.Listeners
         {
             var property = properties["PressTypeDataVal"];
             var propertyValue = Convert.ToInt32(property.Value);
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Event received: [value={propertyValue}]");
+
             var value = (SpecialKey)(object)propertyValue;
             return value;
         }
 
-        protected override Task OnChangedAsync(SpecialKey value)
+        protected override Task OnChangedAsync(SpecialKey value) => value switch
         {
-            if (value is SpecialKey.Fn_R or SpecialKey.Fn_R_2)
-                return ToggleRefreshRateAsync();
-
-            if (value is SpecialKey.Fn_PrtSc)
-                return OpenSnippingTool();
-
-            return Task.CompletedTask;
-        }
+            SpecialKey.Fn_R or SpecialKey.Fn_R_2 => ToggleRefreshRateAsync(),
+            SpecialKey.Fn_PrtSc => OpenSnippingTool(),
+            _ => Task.CompletedTask
+        };
 
         private async Task ToggleRefreshRateAsync()
         {
