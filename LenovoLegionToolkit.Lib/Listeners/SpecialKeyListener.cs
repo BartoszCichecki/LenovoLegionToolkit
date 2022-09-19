@@ -29,7 +29,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
             var propertyValue = Convert.ToInt32(property.Value);
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Event received: [value={propertyValue}]");
+                Log.Instance.Trace($"Event received. [value={propertyValue}]");
 
             var value = (SpecialKey)(object)propertyValue;
             return value;
