@@ -14,6 +14,9 @@ using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
+#if !DEBUG
+using LenovoLegionToolkit.Lib.System;
+#endif
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF;
 using LenovoLegionToolkit.WPF.Utils;
