@@ -151,23 +151,23 @@ namespace LenovoLegionToolkit
             try
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Resigning light controll owner...");
+                    Log.Instance.Trace($"Resigning light control owner...");
 
                 await IoCContainer.Resolve<RGBKeyboardBacklightController>().SetLightControlOwnerAsync(false);
             }
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't set light controll owner.", ex);
+                    Log.Instance.Trace($"Couldn't set light control owner.", ex);
             }
         }
 
         private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            Log.Instance.Trace($"Unhandled exception occured.", e.Exception);
+            Log.Instance.Trace($"Unhandled exception occurred.", e.Exception);
             Log.Instance.ErrorReport(e.Exception);
 
-            MessageBox.Show($"Unexpected exception occured:\n{e.Exception.Message}\n\nPlease report the issue on {Constants.BugReportUri}.",
+            MessageBox.Show($"Unexpected exception occurred:\n{e.Exception.Message}\n\nPlease report the issue on {Constants.BugReportUri}.",
                             "Error",
                             MessageBoxButton.OK,
                             MessageBoxImage.Error);

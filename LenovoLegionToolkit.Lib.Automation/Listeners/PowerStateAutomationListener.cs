@@ -43,18 +43,28 @@ namespace LenovoLegionToolkit.Lib.Automation.Listeners
 
         private async void SystemEvents_PowerModeChanged(object sender, PowerModeChangedEventArgs e)
         {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Event received. [mode={e.Mode}]");
-
             var newState = await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false);
 
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Event received. [e.Mode={e.Mode}, newState={newState}]");
+
             if (newState == _lastState)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Event skipped. [newState={newState}, lastState={_lastState}]");
+
                 return;
+            }
 
             _lastState = newState;
 
             if (e.Mode == PowerModes.Suspend)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Event skipped. [e.Mode={e.Mode}]");
+
                 return;
+            }
 
             await OnChangedAsync(e.Mode).ConfigureAwait(false);
             Changed?.Invoke(this, EventArgs.Empty);
