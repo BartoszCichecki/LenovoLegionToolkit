@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Threading;
@@ -180,12 +181,12 @@ namespace LenovoLegionToolkit
             if (isCompatible)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Compatibility check passed. [Vendor={mi.Vendor}, Model={mi.Model}, MachineType={mi.MachineType}]");
+                    Log.Instance.Trace($"Compatibility check passed. [Vendor={mi.Vendor}, Model={mi.Model}, MachineType={mi.MachineType}, BIOS={mi.BIOSVersion}, MY={mi.ModelYear}]");
                 return;
             }
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Incompatible system detected. [Vendor={mi.Vendor}, Model={mi.Model}, MachineType={mi.MachineType}]");
+                Log.Instance.Trace($"Incompatible system detected. [Vendor={mi.Vendor}, Model={mi.Model}, MachineType={mi.MachineType}, BIOS={mi.BIOSVersion}, MY={mi.ModelYear}]");
 
             var unsuportedWindow = new UnsupportedWindow(mi);
             unsuportedWindow.Show();
@@ -278,8 +279,22 @@ namespace LenovoLegionToolkit
         {
             var result = args.Contains("--trace");
             if (result)
+            {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Argument present");
+            }
+
+            if (!result)
+            {
+                if (Keyboard.IsKeyDown(Key.LeftShift) && Keyboard.IsKeyDown(Key.LeftCtrl))
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"LeftShift+LeftCtrl down.");
+
+                    result = true;
+                }
+            }
+
             return result;
         }
 

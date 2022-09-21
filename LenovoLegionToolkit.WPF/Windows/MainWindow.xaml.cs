@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Settings;
@@ -44,7 +45,10 @@ namespace LenovoLegionToolkit.WPF.Windows
 #endif
 
             if (Log.Instance.IsTraceEnabled)
+            {
                 _title.Text += " [LOGGING ENABLED]";
+                _openLogIndicator.Visibility = Visibility.Visible;
+            }
 
             _specialKeyListener.Changed += SpecialKeyListener_Changed;
         }
@@ -144,6 +148,19 @@ namespace LenovoLegionToolkit.WPF.Windows
                 return;
 
             CheckForUpdates();
+        }
+
+        private void OpenLogIndicator_Click(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                new Uri(Log.Instance.LogPath).Open();
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Failed to open log.", ex);
+            }
         }
 
         private void DeviceInfoIndicator_Click(object sender, RoutedEventArgs e)
