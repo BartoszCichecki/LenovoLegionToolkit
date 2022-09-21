@@ -25,6 +25,8 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         public bool IsTraceEnabled { get; set; }
 
+        public string LogPath => _logPath;
+
         private Log()
         {
             _folderPath = Path.Combine(Folders.AppData, "log");

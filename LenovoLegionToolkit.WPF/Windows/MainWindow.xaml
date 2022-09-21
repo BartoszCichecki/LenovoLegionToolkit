@@ -27,6 +27,7 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
             <TextBlock
@@ -38,8 +39,20 @@
                 Text="Lenovo Legion Toolkit" />
 
             <wpfui:Badge
-                x:Name="_updateIndicator"
+                x:Name="_openLogIndicator"
                 Grid.Column="1"
+                Margin="0,0,8,0"
+                Padding="8,4,8,4"
+                Appearance="Caution"
+                Content="Log"
+                Cursor="Hand"
+                MouseLeftButtonDown="OpenLogIndicator_Click"
+                MouseRightButtonDown="OpenLogIndicator_Click"
+                Visibility="Collapsed" />
+
+            <wpfui:Badge
+                x:Name="_updateIndicator"
+                Grid.Column="2"
                 Margin="0,0,8,0"
                 Padding="8,4,8,4"
                 Appearance="Success"
@@ -51,7 +64,7 @@
 
             <wpfui:Badge
                 x:Name="_deviceInfoIndicator"
-                Grid.Column="2"
+                Grid.Column="3"
                 Padding="8,4,8,4"
                 Appearance="Transparent"
                 Cursor="Hand"
