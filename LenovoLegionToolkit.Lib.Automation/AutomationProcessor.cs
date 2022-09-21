@@ -58,6 +58,9 @@ namespace LenovoLegionToolkit.Lib.Automation
             if (!potentialMatch)
                 return;
 
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Change detected from power state listener.");
+
             await RunAsync(e).ConfigureAwait(false);
         }
 
@@ -75,6 +78,9 @@ namespace LenovoLegionToolkit.Lib.Automation
 
             if (!potentialMatch)
                 return;
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Change detected from power mode listener. [powerModeState={powerModeState}]");
 
             await RunAsync(e).ConfigureAwait(false);
         }
@@ -94,6 +100,9 @@ namespace LenovoLegionToolkit.Lib.Automation
             if (!potentialMatch)
                 return;
 
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Change detected from process listener. [processEventInfo.Process.Name={processEventInfo.Process.Name}, processEventInfo.Type={processEventInfo.Type}]");
+
             await RunAsync(e).ConfigureAwait(false);
         }
 
@@ -111,6 +120,9 @@ namespace LenovoLegionToolkit.Lib.Automation
 
             if (!potentialMatch)
                 return;
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Change detected from time listener. [time={time.Hour}:{time.Minute}]");
 
             await RunAsync(e).ConfigureAwait(false);
         }
