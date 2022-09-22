@@ -48,12 +48,6 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
 
         private void UpdateWindow_Closing(object? sender, System.ComponentModel.CancelEventArgs e) => _downloadCancellationTokenSource?.Cancel();
 
-        private void DonateCardAction_Click(object sender, RoutedEventArgs e)
-        {
-            Constants.PayPalUri.Open();
-            e.Handled = true;
-        }
-
         private async void DownloadButton_Click(object sender, RoutedEventArgs e)
         {
             try

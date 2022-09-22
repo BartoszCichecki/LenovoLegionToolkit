@@ -47,7 +47,6 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
@@ -61,28 +60,11 @@
                     FontWeight="Medium"
                     Text="What's new?" />
 
-                <wpfui:CardAction
-                    Grid.Row="1"
-                    Margin="0,0,0,16"
-                    Click="DonateCardAction_Click"
-                    Icon="Info24">
-                    <StackPanel>
-                        <TextBlock
-                            Margin="0,0,0,4"
-                            FontWeight="Medium"
-                            Text="If you enjoy using the Lenovo Legion Toolkit, please consider donating" />
-                        <TextBlock
-                            FontSize="11"
-                            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                            Text="You can find the donate option also on the About page." />
-                    </StackPanel>
-                </wpfui:CardAction>
-
-                <markdig:MarkdownViewer x:Name="_markdownViewer" Grid.Row="2" />
+                <markdig:MarkdownViewer x:Name="_markdownViewer" Grid.Row="1" />
 
                 <ProgressBar
                     x:Name="_downloadProgressBar"
-                    Grid.Row="3"
+                    Grid.Row="2"
                     Margin="0,16,0,16"
                     IsIndeterminate="True"
                     Maximum="1"
@@ -91,7 +73,7 @@
 
                 <Button
                     x:Name="_downloadButton"
-                    Grid.Row="4"
+                    Grid.Row="3"
                     Width="150"
                     Height="32"
                     Margin="0,0,0,16"
@@ -102,7 +84,7 @@
 
                 <Button
                     x:Name="_cancelDownloadButton"
-                    Grid.Row="5"
+                    Grid.Row="4"
                     Width="150"
                     Height="32"
                     Margin="0,0,0,16"

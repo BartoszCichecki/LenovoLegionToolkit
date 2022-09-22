@@ -51,29 +51,6 @@
             Padding="0,24,0,8"
             FontSize="14"
             FontWeight="Medium"
-            Text="Donate" />
-        <Image
-            Width="250"
-            Margin="0,8,0,0"
-            HorizontalAlignment="Left"
-            Cursor="Hand"
-            MouseLeftButtonDown="DonateButton_Click"
-            MouseRightButtonDown="DonateButton_Click"
-            Source="../Assets/paypal_button.png" />
-        <Border
-            Width="250"
-            Height="250"
-            Margin="0,16,0,0"
-            HorizontalAlignment="Left"
-            Background="White"
-            CornerRadius="8">
-            <Image Margin="8" Source="../Assets/paypal_qr.png" />
-        </Border>
-
-        <TextBlock
-            Padding="0,24,0,8"
-            FontSize="14"
-            FontWeight="Medium"
             Text="3rd party libraries" />
 
         <Grid>

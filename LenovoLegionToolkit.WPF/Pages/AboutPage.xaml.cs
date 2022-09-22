@@ -1,8 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Reflection;
-using System.Windows;
 using LenovoLegionToolkit.Lib.Extensions;
-using LenovoLegionToolkit.WPF.Extensions;
 
 namespace LenovoLegionToolkit.WPF.Pages
 {
@@ -39,12 +37,6 @@ namespace LenovoLegionToolkit.WPF.Pages
             _version.Text += VersionText;
             _build.Text += BuildText;
             _copyright.Text = CopyrightText;
-        }
-
-        private void DonateButton_Click(object sender, RoutedEventArgs e)
-        {
-            Constants.PayPalUri.Open();
-            e.Handled = true;
         }
     }
 }
