@@ -7,6 +7,7 @@ using LenovoLegionToolkit.Lib.Automation.Listeners;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
 using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 using LenovoLegionToolkit.Lib.Automation.Utils;
+using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
 using NeoSmart.AsyncLock;
 
