@@ -2,7 +2,7 @@
 
 [![Build](https://github.com/BartoszCichecki/LenovoLegionToolkit/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/BartoszCichecki/LenovoLegionToolkit/actions/workflows/build.yml) [![Join Discord](https://img.shields.io/discord/761178912230473768?label=Legion%20Series%20Discord)](https://discord.com/invite/legionseries)
 
-This is a utility created for Lenovo Legion 5, 5 Pro, 7, etc. laptops, that allows changing a couple of features that are only available in Lenovo Vantage.
+This is a utility created for Lenovo Legion laptops, that allows changing a couple of features that are only available in Lenovo Vantage or Legion Zone.
 
 It runs no background services, uses less memory, uses virtually no CPU, and contains no telemetry. Just like Lenovo Vantage, this application is Windows only.
 
@@ -30,40 +30,27 @@ You can download the installer from the Releases page here: [Latest release](htt
 
 ## Compatibility
 
-Lenovo Legion Toolkit is compatible with a lot of Lenovo Legion laptops from 2020 and 2021 running Windows 10 and 11. All testing done by me is done always on the latest Windows 11 update and Legion 5 Pro 16ACH6H.
+Lenovo Legion Toolkit is compatible with a lot of Lenovo Legion laptops from 2020, 2021 and 2022 running Windows 10 and 11. All testing done by me is done always on the latest Windows 11 update and Legion 5 Pro 16ACH6H.
 
 If you are getting an incompatible message on startup, you can check the *Contribution* section down at the bottom, to see how can you help. Keep in mind, that not always I can make all options compatible with all hardware since I do not have access to it.
 
-**Note:** Y-models (Y540, Y740, etc) have limited compatibility only, meaning not all options work.
-
 The list of supported models can be found here: [Compatibility.cs](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/LenovoLegionToolkit.Lib/Utils/Compatibility.cs).
+
+Support for other laptop that are not part of Legion line is not planned.
 
 ## Features
 
 The app allows to:
 
 - Change settings like power mode, battery charging mode, etc. that are available only through Vantage.
+- Access to Custom Mode available only in Legion Zone, including Fan Control on 2022 models.
 - 4-zone RGB and White backlight keyboards support.
 - Change display refresh rate (built-in display only).
 - Deactivate discrete GPU (nVidia only).
 - View battery statistics.
 - Download software updates.
 - Define Actions that will run when the laptop is i.e. connected to AC power.
-- Disable/enable Lenovo Vantage and Fn Keys service without uninstalling it.
-
-##### Disable/enable Lenovo Vantage
-
-You can disable Lenovo Vantage without uninstalling it. It is especially useful if you want to keep Vantage around i.e. for checking updates.
-
-You can do it from the Settings page. If you disable Vantage, it will stop and disable its services, and disable all funky Lenovo Scheduled tasks. Once Vantage is disabled, it will no longer start any background processes on startup.
-
-If you want to open Lenovo Vantage, you need to re-enable it from the tool, otherwise, it will prompt to reinstall itself.
-
-##### Disable/enable Fn Keys service
-
-You can disable Lenovo Fn Keys services without uninstalling them. You can do it from the Settings page. If you disable Fn Keys service, it will stop and disable its services, and disable all funky Lenovo Scheduled tasks. Once Fn Keys service is disabled, it will no longer start any background processes on startup.
-
-Lenovo Legion Toolkit will handle all Fn key shortcuts.
+- Disable/enable Lenovo Vantage, Legion Zone and Lenovo Hotkeys service without uninstalling it.
 
 ##### Deactivate discrete GPU
 
@@ -130,12 +117,19 @@ Probably. I would like to add support to Spectrum RGB, but I currently don't hav
 
 Only options natively supported by hardware are available; adding support for custom effects is not planned. If you would like more customization check out [L5P-Keyboard-RGB](https://github.com/4JX/L5P-Keyboard-RGB) or [OpenRGB](https://openrgb.org/).
 
+#### Can you add fan control to other models?
+
+If you have a 2022 Legion that does not support it make a ticket and we'll try to add suport for it. Older models will not be supported due to technical limitations.
+
 
 ## How to collect logs?
 
 In some cases it will be super useful if you can provide logs that this app can create. This helps with debugging and other issue solving.
 
+
+
 To collect logs:
+
 1. Make sure that Lenovo Legion Toolkit is not running (also gone from tray area).
 2. Open `Run` (Win+R) and type there: `"%LOCALAPPDATA%\Programs\LenovoLegionToolkit\Lenovo Legion Toolkit.exe" --trace` and hit OK
 3. LLT will start and in the title bar you should see: `[LOGGING ENABLED]`
@@ -143,6 +137,15 @@ To collect logs:
 5. Close LLT (also make sure it's gone from tray area)
 6. Again, in `Run` (Win+R) type `"%LOCALAPPDATA%\LenovoLegionToolkit\log"`
 7. You should see at least one file. Theses are the logs you should attach to the issue.
+
+
+
+On version 2.6.0 or higher, you can also enable logs in a quicker way:
+
+1. Make sure that Lenovo Legion Toolkit is not running (also gone from tray area).
+2. Hold down Left Ctrl and Left Shift
+3. Double click Lenovo Legion Toolkit icon
+4. LLT will start and in the title bar you should see: `[LOGGING ENABLED]` you will also see an orange link to open the log file.
 
 
 ## Contribution
