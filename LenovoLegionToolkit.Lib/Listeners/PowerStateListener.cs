@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
-using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32;
 
-namespace LenovoLegionToolkit.Lib.Automation.Listeners
+namespace LenovoLegionToolkit.Lib.Listeners
 {
-    public class PowerStateAutomationListener : IListener<EventArgs>
+    public class PowerStateListener : IListener<EventArgs>
     {
         private readonly RGBKeyboardBacklightController _rgbController;
 
@@ -17,7 +16,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Listeners
 
         public event EventHandler<EventArgs>? Changed;
 
-        public PowerStateAutomationListener(RGBKeyboardBacklightController rgbController)
+        public PowerStateListener(RGBKeyboardBacklightController rgbController)
         {
             _rgbController = rgbController ?? throw new ArgumentNullException(nameof(rgbController));
         }
@@ -48,6 +47,8 @@ namespace LenovoLegionToolkit.Lib.Automation.Listeners
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Event received. [e.Mode={e.Mode}, newState={newState}]");
 
+            await RestoreRGBKeyboardState(e.Mode).ConfigureAwait(false);
+
             if (newState == _lastState)
             {
                 if (Log.Instance.IsTraceEnabled)
@@ -66,11 +67,10 @@ namespace LenovoLegionToolkit.Lib.Automation.Listeners
                 return;
             }
 
-            await OnChangedAsync(e.Mode).ConfigureAwait(false);
             Changed?.Invoke(this, EventArgs.Empty);
         }
 
-        private async Task OnChangedAsync(PowerModes mode)
+        private async Task RestoreRGBKeyboardState(PowerModes mode)
         {
             if (mode != PowerModes.Resume)
                 return;
