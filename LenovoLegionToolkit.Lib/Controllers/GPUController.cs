@@ -43,15 +43,15 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         private readonly AsyncLock _lock = new();
 
-        private Task? _refreshTask = null;
-        private CancellationTokenSource? _refreshCancellationTokenSource = null;
+        private Task? _refreshTask;
+        private CancellationTokenSource? _refreshCancellationTokenSource;
 
         private Status _status = Status.Unknown;
         private List<Process> _processes = new();
-        private string? _gpuInstanceId = null;
-        private string? _performanceState = null;
+        private string? _gpuInstanceId;
+        private string? _performanceState;
 
-        public bool IsActive => _status == Status.MonitorsConnected || _status == Status.DeactivatePossible;
+        public bool IsActive => _status is Status.MonitorsConnected or Status.DeactivatePossible;
         public bool CanBeDeactivated => _status == Status.DeactivatePossible;
 
         public event EventHandler? WillRefresh;
@@ -168,7 +168,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                     catch (Exception ex)
                     {
                         if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Couldnt kill process. [pid={process.Id}, name={process.ProcessName}]", ex);
+                            Log.Instance.Trace($"Couldn't kill process. [pid={process.Id}, name={process.ProcessName}]", ex);
                     }
                 }
 
@@ -219,7 +219,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             catch (Exception ex) when (ex is not TaskCanceledException)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Exception occured", ex);
+                    Log.Instance.Trace($"Exception occurred", ex);
 
                 throw;
             }
