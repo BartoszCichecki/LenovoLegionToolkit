@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Utils;
+using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Windows.Dashboard
 {
@@ -51,25 +53,13 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
 
                 var maxValueOffset = state.MaxValueOffset;
 
-                _cpuLongTermPowerLimitSlider.Minimum = state.CPULongTermPowerLimit.Min;
-                _cpuLongTermPowerLimitSlider.Maximum = state.CPULongTermPowerLimit.Max + maxValueOffset;
-                _cpuLongTermPowerLimitSlider.TickFrequency = state.CPULongTermPowerLimit.Step;
-                _cpuLongTermPowerLimitSlider.Value = state.CPULongTermPowerLimit.Value;
-
-                _cpuShortTermPowerLimitSlider.Minimum = state.CPUShortTermPowerLimit.Min;
-                _cpuShortTermPowerLimitSlider.Maximum = state.CPUShortTermPowerLimit.Max + maxValueOffset;
-                _cpuShortTermPowerLimitSlider.TickFrequency = state.CPUShortTermPowerLimit.Step;
-                _cpuShortTermPowerLimitSlider.Value = state.CPUShortTermPowerLimit.Value;
-
-                _gpuPowerBoostSlider.Minimum = state.GPUPowerBoost.Min;
-                _gpuPowerBoostSlider.Maximum = state.GPUPowerBoost.Max + maxValueOffset;
-                _gpuPowerBoostSlider.TickFrequency = state.GPUPowerBoost.Step;
-                _gpuPowerBoostSlider.Value = state.GPUPowerBoost.Value;
-
-                _gpuConfigurableTGPSlider.Minimum = state.GPUConfigurableTGP.Min;
-                _gpuConfigurableTGPSlider.Maximum = state.GPUConfigurableTGP.Max + maxValueOffset;
-                _gpuConfigurableTGPSlider.TickFrequency = state.GPUConfigurableTGP.Step;
-                _gpuConfigurableTGPSlider.Value = state.GPUConfigurableTGP.Value;
+                SetSliderValues(_cpuLongTermPowerLimitCardControl, _cpuLongTermPowerLimitSlider, state.CPULongTermPowerLimit, maxValueOffset);
+                SetSliderValues(_cpuShortTermPowerLimitCardControl, _cpuShortTermPowerLimitSlider, state.CPUShortTermPowerLimit, maxValueOffset);
+                SetSliderValues(_cpuCrossLoadingLimitCardControl, _cpuCrossLoadingLimitSlider, state.CPUCrossLoadingPowerLimit, maxValueOffset);
+                SetSliderValues(_cpuTemperatureLimitCardControl, _cpuTemperatureLimitSlider, state.CPUTemperatureLimit, maxValueOffset);
+                SetSliderValues(_gpuPowerBoostCardControl, _gpuPowerBoostSlider, state.GPUPowerBoost, maxValueOffset);
+                SetSliderValues(_gpuConfigurableTGPCardControl, _gpuConfigurableTGPSlider, state.GPUConfigurableTGP, maxValueOffset);
+                SetSliderValues(_gpuTemperatureLimitCardControl, _gpuTemperatureLimitSlider, state.GPUTemperatureLimit, maxValueOffset);
 
                 var fanTableInfo = state.FanTableInfo;
                 if (fanTableInfo.HasValue)
@@ -79,15 +69,6 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
 
                 _fanCurveCardControl.IsEnabled = !state.FanFullSpeed;
                 _fanFullSpeedToggle.IsChecked = state.FanFullSpeed;
-
-                if (state.CPULongTermPowerLimit.Min == state.CPULongTermPowerLimit.Max)
-                    _cpuLongTermPowerLimitSlider.IsEnabled = false;
-                if (state.CPUShortTermPowerLimit.Min == state.CPUShortTermPowerLimit.Max)
-                    _cpuShortTermPowerLimitSlider.IsEnabled = false;
-                if (state.GPUPowerBoost.Min == state.GPUPowerBoost.Max)
-                    _gpuPowerBoostSlider.IsEnabled = false;
-                if (state.GPUConfigurableTGP.Min == state.GPUConfigurableTGP.Max)
-                    _gpuConfigurableTGPSlider.IsEnabled = false;
 
                 _maxValueOffsetNumberBox.Text = $"{maxValueOffset}";
 
@@ -117,10 +98,34 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
             {
                 var state = await _controller.GetStateAsync();
 
-                var cpuLongTermPowerLimit = state.CPULongTermPowerLimit.WithValue((int)_cpuLongTermPowerLimitSlider.Value);
-                var cpuShortTermPowerLimit = state.CPUShortTermPowerLimit.WithValue((int)_cpuShortTermPowerLimitSlider.Value);
-                var gpuPowerBoost = state.GPUPowerBoost.WithValue((int)_gpuPowerBoostSlider.Value);
-                var gpuConfigurableTGP = state.GPUConfigurableTGP.WithValue((int)_gpuConfigurableTGPSlider.Value);
+                StepperValue? cpuLongTermPowerLimit = null;
+                StepperValue? cpuShortTermPowerLimit = null;
+                StepperValue? cpuCrossLoadingPowerLimit = null;
+                StepperValue? cpuTemperatureLimit = null;
+                StepperValue? gpuPowerBoost = null;
+                StepperValue? gpuConfigurableTGP = null;
+                StepperValue? gpuTemperatureLimit = null;
+
+                if (state.CPULongTermPowerLimit.HasValue)
+                    cpuLongTermPowerLimit = state.CPULongTermPowerLimit.Value.WithValue((int)_cpuLongTermPowerLimitSlider.Value);
+
+                if (state.CPUShortTermPowerLimit.HasValue)
+                    cpuShortTermPowerLimit = state.CPUShortTermPowerLimit.Value.WithValue((int)_cpuShortTermPowerLimitSlider.Value);
+
+                if (state.CPUCrossLoadingPowerLimit.HasValue)
+                    cpuCrossLoadingPowerLimit = state.CPUCrossLoadingPowerLimit.Value.WithValue((int)_cpuCrossLoadingLimitSlider.Value);
+
+                if (state.CPUTemperatureLimit.HasValue)
+                    cpuTemperatureLimit = state.CPUTemperatureLimit.Value.WithValue((int)_cpuTemperatureLimitSlider.Value);
+
+                if (state.GPUPowerBoost.HasValue)
+                    gpuPowerBoost = state.GPUPowerBoost.Value.WithValue((int)_gpuPowerBoostSlider.Value);
+
+                if (state.GPUConfigurableTGP.HasValue)
+                    gpuConfigurableTGP = state.GPUConfigurableTGP.Value.WithValue((int)_gpuConfigurableTGPSlider.Value);
+
+                if (state.GPUTemperatureLimit.HasValue)
+                    cpuTemperatureLimit = state.GPUTemperatureLimit.Value.WithValue((int)_gpuTemperatureLimitSlider.Value);
 
                 var fanTableInfo = _fanCurveControl.GetFanTableInfo();
                 var fanFullSpeed = _fanFullSpeedToggle.IsChecked ?? false;
@@ -131,8 +136,11 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
                 {
                     CPULongTermPowerLimit = cpuLongTermPowerLimit,
                     CPUShortTermPowerLimit = cpuShortTermPowerLimit,
+                    CPUCrossLoadingPowerLimit = cpuCrossLoadingPowerLimit,
+                    CPUTemperatureLimit = cpuTemperatureLimit,
                     GPUPowerBoost = gpuPowerBoost,
                     GPUConfigurableTGP = gpuConfigurableTGP,
+                    GPUTemperatureLimit = gpuTemperatureLimit,
                     FanTableInfo = fanTableInfo,
                     FanFullSpeed = fanFullSpeed,
                     MaxValueOffset = maxValueOffset,
@@ -151,6 +159,23 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
 
                 await _snackBar.ShowAsync("Couldn't apply setting.", ex.Message);
             }
+        }
+
+        private void SetSliderValues(CardControl cardControl, Slider slider, StepperValue? stepperValue, int maxValueOffset)
+        {
+            if (!stepperValue.HasValue)
+            {
+                cardControl.Visibility = Visibility.Collapsed;
+                return;
+            }
+
+            slider.Minimum = stepperValue.Value.Min;
+            slider.Maximum = stepperValue.Value.Max + maxValueOffset;
+            slider.TickFrequency = stepperValue.Value.Step;
+            slider.Value = stepperValue.Value.Value;
+
+            if (stepperValue.Value.Min == stepperValue.Value.Max)
+                slider.IsEnabled = false;
         }
 
         private async void ApplyAndCloseButton_Click(object sender, RoutedEventArgs e)
