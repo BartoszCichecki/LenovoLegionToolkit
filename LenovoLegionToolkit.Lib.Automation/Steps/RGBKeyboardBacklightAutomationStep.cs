@@ -4,7 +4,7 @@ using LenovoLegionToolkit.Lib.Controllers;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps
 {
-    public class RGBKeyboardBacklightAutomationStep : IAutomationStep<RGBKeyboardBacklightPreset>, IDisallowDuplicatesAutomationStep
+    public class RGBKeyboardBacklightAutomationStep : IAutomationStep<RGBKeyboardBacklightPreset>
     {
         private readonly RGBKeyboardBacklightController _controller = IoCContainer.Resolve<RGBKeyboardBacklightController>();
 

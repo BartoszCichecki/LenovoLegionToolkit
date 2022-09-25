@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps
 {
-    public class DisplayBrightnessAutomationStep : IAutomationStep, IDisallowDuplicatesAutomationStep
+    public class DisplayBrightnessAutomationStep : IAutomationStep
     {
         private readonly DisplayBrightnessController _controller = IoCContainer.Resolve<DisplayBrightnessController>();
         public int Brightness { get; }
