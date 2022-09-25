@@ -17,6 +17,4 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
 
         Task<T[]> GetAllStatesAsync();
     }
-
-    public interface IDisallowDuplicatesAutomationStep { }
 }

@@ -492,16 +492,6 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             if (step is PowerModeAutomationStep && AutomationPipeline.Trigger is IPowerModeAutomationPipelineTrigger)
                 return false;
 
-            if (step is IDisallowDuplicatesAutomationStep)
-            {
-                var alreadyContains = _stepsStackPanel.Children.ToArray()
-                    .OfType<AbstractAutomationStepControl>()
-                    .Select(c => c.AutomationStep)
-                    .Any(s => s.GetType() == step.GetType());
-
-                return !alreadyContains;
-            }
-
             return true;
         }
     }
