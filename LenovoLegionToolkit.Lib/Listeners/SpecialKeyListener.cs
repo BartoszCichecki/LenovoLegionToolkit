@@ -39,8 +39,20 @@ namespace LenovoLegionToolkit.Lib.Listeners
         {
             SpecialKey.Fn_R or SpecialKey.Fn_R_2 => ToggleRefreshRateAsync(),
             SpecialKey.Fn_PrtSc => OpenSnippingTool(),
+            SpecialKey.CameraOn or SpecialKey.CameraOff => NotifyCameraState(value),
             _ => Task.CompletedTask
         };
+
+        private Task NotifyCameraState(SpecialKey value)
+        {
+            if (value == SpecialKey.CameraOn)
+                MessagingCenter.Publish(new Notification(NotificationIcon.CameraOn, "Camera on", NotificationDuration.Short));
+
+            if (value == SpecialKey.CameraOff)
+                MessagingCenter.Publish(new Notification(NotificationIcon.CameraOff, "Camera off", NotificationDuration.Short));
+
+            return Task.CompletedTask;
+        }
 
         private async Task ToggleRefreshRateAsync()
         {
