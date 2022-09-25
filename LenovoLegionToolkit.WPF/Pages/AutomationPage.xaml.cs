@@ -261,6 +261,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 new ProcessesAreRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()),
                 new ProcessesStopRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()),
                 new TimeAutomationPipelineTrigger(false, false, null),
+                new OnStartupAutomationPipelineTrigger()
             });
 
             var menuItems = new List<MenuItem>();
