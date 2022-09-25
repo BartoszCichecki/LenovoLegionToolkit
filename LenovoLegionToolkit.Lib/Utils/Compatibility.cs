@@ -30,12 +30,11 @@ namespace LenovoLegionToolkit.Lib.Utils
             "15IMH",
             "15ITH",
 
-            "R9000P2021",
-            "R9000P2020",
-            "R7000P2020",
-            "R7000P2021",
-            "Y9000K2020",
-            "Y9000K2021",
+            "R9000P",
+            "R7000P",
+            "Y9000K",
+            "Y9000P",
+            "Y9000X",
             
             // Limited compatibility
             "17IR",
