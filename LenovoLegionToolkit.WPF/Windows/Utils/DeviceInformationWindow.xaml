@@ -135,7 +135,7 @@
                     x:Name="_warrantyLinkCardAction"
                     Margin="0,8,0,8"
                     Click="WarrantyLinkCardAction_OnClick"
-                    Content="Lenovo PC Support"
+                    Content="Lenovo Support"
                     Icon="Open24"
                     IsEnabled="False"
                     ShowChevron="False" />
