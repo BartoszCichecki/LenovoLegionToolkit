@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -43,25 +44,25 @@ namespace LenovoLegionToolkit.WPF.Windows.Automation
             CommandBindings.Add(new CommandBinding(pasteCommand, PasteShortcut));
         }
 
-        private void PickProcessesWindow_Loaded(object sender, RoutedEventArgs e) => Refresh();
+        private async void PickProcessesWindow_Loaded(object sender, RoutedEventArgs e) => await RefreshAsync();
 
-        private void PickProcessesWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private async void PickProcessesWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (IsLoaded && IsVisible)
-                Refresh();
+                await RefreshAsync();
         }
 
-        private void Item_OnDelete(object? sender, EventArgs e)
+        private async void Item_OnDelete(object? sender, EventArgs e)
         {
             if (sender is not ListItem listItem)
                 return;
 
             Processes.Remove(listItem.Process);
 
-            Refresh();
+            await RefreshAsync();
         }
 
-        private void AddButton_Click(object sender, RoutedEventArgs e)
+        private async void AddButton_Click(object sender, RoutedEventArgs e)
         {
             var ofd = new OpenFileDialog
             {
@@ -80,13 +81,14 @@ namespace LenovoLegionToolkit.WPF.Windows.Automation
 
             Processes.Add(processInfo);
 
-            Refresh();
+            await RefreshAsync();
         }
 
-        private void DeleteAllButton_Click(object sender, RoutedEventArgs e)
+        private async void DeleteAllButton_Click(object sender, RoutedEventArgs e)
         {
             Processes.Clear();
-            Refresh();
+
+            await RefreshAsync();
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -113,7 +115,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Automation
             }
         }
 
-        private void PasteShortcut(object sender, RoutedEventArgs e)
+        private async void PasteShortcut(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -122,7 +124,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Automation
                     return;
 
                 Processes.AddRange(processes);
-                Refresh();
+                await RefreshAsync();
             }
             catch (Exception ex)
             {
@@ -131,9 +133,11 @@ namespace LenovoLegionToolkit.WPF.Windows.Automation
             }
         }
 
-        private void Refresh()
+        private async Task RefreshAsync()
         {
             _loader.IsLoading = true;
+
+            var loadingTask = Task.Delay(500);
 
             var processes = Processes;
 
@@ -144,6 +148,8 @@ namespace LenovoLegionToolkit.WPF.Windows.Automation
                 item.OnDelete += Item_OnDelete;
                 _list.Items.Add(item);
             }
+
+            await loadingTask;
 
             _loader.IsLoading = false;
         }

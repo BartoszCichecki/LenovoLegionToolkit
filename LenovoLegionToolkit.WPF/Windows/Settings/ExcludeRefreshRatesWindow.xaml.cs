@@ -40,6 +40,8 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
         {
             _loader.IsLoading = true;
 
+            var loadingTask = Task.Delay(500);
+
             var refreshRates = await _feature.GetAllStatesAsync();
             var excluded = _settings.Store.ExcludedRefreshRates;
 
@@ -70,6 +72,8 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
                 };
                 _list.Items.Add(item);
             }
+
+            await loadingTask;
 
             _loader.IsLoading = false;
         }

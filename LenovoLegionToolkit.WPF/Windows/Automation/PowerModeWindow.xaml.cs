@@ -43,6 +43,8 @@ namespace LenovoLegionToolkit.WPF.Windows.Automation
         {
             _loader.IsLoading = true;
 
+            var loadingTask = Task.Delay(500);
+
             var states = await _feature.GetAllStatesAsync();
 
             foreach (var state in states)
@@ -51,10 +53,13 @@ namespace LenovoLegionToolkit.WPF.Windows.Automation
                 {
                     Content = state.GetDisplayName(),
                     Tag = state,
-                    IsChecked = state == _powerModeState
+                    IsChecked = state == _powerModeState,
+                    Margin = new(0, 0, 0, 8)
                 };
                 _content.Children.Add(radio);
             }
+
+            await loadingTask;
 
             _loader.IsLoading = false;
         }

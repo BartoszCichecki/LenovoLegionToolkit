@@ -48,7 +48,8 @@
         <controls:LoadableControl
             x:Name="_loader"
             Grid.Row="1"
-            Margin="12,0,12,12">
+            Margin="12,0,12,12"
+            IndicatorVerticalAlignment="Center">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />

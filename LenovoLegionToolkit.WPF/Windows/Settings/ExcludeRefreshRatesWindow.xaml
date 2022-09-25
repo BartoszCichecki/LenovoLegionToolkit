@@ -7,7 +7,7 @@
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Exclude RefreshAsync Rates"
+    Title="Exclude Refresh Rates"
     Width="300"
     Height="400"
     MinWidth="300"
@@ -43,14 +43,15 @@
                 VerticalAlignment="Center"
                 FontSize="12"
                 IsHitTestVisible="False"
-                Text="Exclude RefreshAsync Rates" />
+                Text="Exclude Refresh Rates" />
 
         </Grid>
 
         <controls:LoadableControl
             x:Name="_loader"
             Grid.Row="1"
-            Margin="12,0,12,12">
+            Margin="12,0,12,12"
+            IndicatorVerticalAlignment="Center">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
