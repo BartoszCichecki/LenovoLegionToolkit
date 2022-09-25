@@ -125,7 +125,6 @@ namespace LenovoLegionToolkit.Lib
         public string Model { get; init; }
         public string SerialNumber { get; init; }
         public string BIOSVersion { get; init; }
-        public ModelYear ModelYear { get; init; }
         public CompatibiltyProperties Properties { get; init; }
     }
 
