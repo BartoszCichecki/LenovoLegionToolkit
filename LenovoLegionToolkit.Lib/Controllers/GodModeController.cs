@@ -177,6 +177,52 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         #endregion
 
+        #region CPU Cross Loading Power Limit
+
+        private Task<StepperValue> GetCPUCrossLoadingPowerLimitAsync() => WMI.CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_CPU_METHOD",
+            "CPU_Get_Cross_Loading_PowerLimit",
+            new(),
+            pdc =>
+            {
+                var value = Convert.ToInt32(pdc["CurrentCpuCrossLoading"].Value);
+                var min = Convert.ToInt32(pdc["MinCpuCrossLoading"].Value);
+                var max = Convert.ToInt32(pdc["MaxCpuCrossLoading"].Value);
+                var step = Convert.ToInt32(pdc["step"].Value);
+
+                return new StepperValue(value, min, max, step);
+            });
+
+        private Task SetCPUCrossLoadingPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_CPU_METHOD",
+            "CPU_Set_Cross_Loading_PowerLimit",
+            new() { { "value", $"{value.Value}" } });
+
+        #endregion
+
+        #region CPU Temperature Limit
+
+        private Task<StepperValue> GetCPUTemperatureLimitAsync() => WMI.CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_CPU_METHOD",
+            "CPU_Get_Temperature_Control",
+            new(),
+            pdc =>
+            {
+                var value = Convert.ToInt32(pdc["CurrentTemperatueControl"].Value);
+                var min = Convert.ToInt32(pdc["MinTemperatueControl"].Value);
+                var max = Convert.ToInt32(pdc["MaxTemperatueControl"].Value);
+                var step = Convert.ToInt32(pdc["step"].Value);
+
+                return new StepperValue(value, min, max, step);
+            });
+
+        private Task SetCPUTemperatureLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_CPU_METHOD",
+            "CPU_Set_Temperature_Control",
+            new() { { "value", $"{value.Value}" } });
+
+        #endregion
+
         #region GPU Configurable TGP
 
         private Task<StepperValue> GetGPUConfigurableTGPAsync() => WMI.CallAsync("root\\WMI",
@@ -219,6 +265,29 @@ namespace LenovoLegionToolkit.Lib.Controllers
         private Task SetGPUPowerBoostAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_GPU_METHOD",
             "GPU_Set_PPAB_PowerLimit",
+            new() { { "value", $"{value.Value}" } });
+
+        #endregion
+
+        #region GPU Temperature Limit
+
+        private Task<StepperValue> GetGPUTemperatureLimitAsync() => WMI.CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_GPU_METHOD",
+            "GPU_Get_Temperature_Limit",
+            new(),
+            pdc =>
+            {
+                var value = Convert.ToInt32(pdc["CurrentTemperatueLimit"].Value);
+                var min = Convert.ToInt32(pdc["MinTemperatueLimit"].Value);
+                var max = Convert.ToInt32(pdc["MaxTemperatueLimit"].Value);
+                var step = Convert.ToInt32(pdc["step"].Value);
+
+                return new StepperValue(value, min, max, step);
+            });
+
+        private Task SetGPUTemperatureLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_GPU_METHOD",
+            "GPU_Set_Temperature_Limit",
             new() { { "value", $"{value.Value}" } });
 
         #endregion
