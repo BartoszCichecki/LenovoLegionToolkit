@@ -34,7 +34,11 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private async void KeyboardBacklightPage_Loaded(object sender, RoutedEventArgs e)
         {
-            await Task.WhenAll(_rgbKeyboardBacklightControl.FinishedLoadingTask, _whiteKeyboardBacklightControl.FinishedLoadingTask);
+            await Task.WhenAll(
+                _rgbKeyboardBacklightControl.FinishedLoadingTask,
+                _whiteKeyboardBacklightControl.FinishedLoadingTask,
+                Task.Delay(1000)
+            );
 
             var rgb = _rgbKeyboardBacklightControl.Visibility == Visibility.Visible;
             var white = _whiteKeyboardBacklightControl.Visibility == Visibility.Visible;

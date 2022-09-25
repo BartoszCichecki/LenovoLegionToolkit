@@ -9,7 +9,6 @@
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="About your device"
     Width="500"
-    Height="500"
     SizeToContent="Height">
 
     <Grid>

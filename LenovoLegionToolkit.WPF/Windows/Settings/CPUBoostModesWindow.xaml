@@ -8,10 +8,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="Update available"
-    Width="600"
-    Height="500"
     MinWidth="500"
-    MinHeight="400">
+    MaxWidth="500"
+    SizeToContent="Height">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -57,6 +56,7 @@
         </controls:LoadableControl>
 
         <wpfui:Hyperlink
+            x:Name="_learnMore"
             Grid.Row="2"
             Margin="12,12,12,12"
             HorizontalAlignment="Right"

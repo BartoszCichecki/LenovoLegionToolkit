@@ -5,7 +5,6 @@
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="About GPU Working Modes"
-    Width="550"
     MinWidth="550"
     MaxWidth="550"
     SizeToContent="Height">
