@@ -50,10 +50,24 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
                 var warrantyInfo = await _warrantyChecker.GetWarrantyInfo(mi, forceRefresh);
                 _warrantyLinkCardAction.IsEnabled = false;
 
-                _warrantyStatusLabel.Content = warrantyInfo.Status ?? "-";
-                _warrantyStartLabel.Content = warrantyInfo.Start is not null ? $"{warrantyInfo.Start:d}" : "-";
-                _warrantyEndLabel.Content = warrantyInfo.End is not null ? $"{warrantyInfo.End:d}" : "-";
-                _warrantyLinkCardAction.Tag = warrantyInfo.Link;
+                if (!warrantyInfo.HasValue)
+                    return;
+
+                if (warrantyInfo.Value.LinkOnly)
+                {
+                    _warrantyStatusLabel.Content = "Check Lenovo Support";
+                    _warrantyStartLabel.Content = "Check Lenovo Support";
+                    _warrantyEndLabel.Content = "Check Lenovo Support";
+                }
+                else
+                {
+                    _warrantyStatusLabel.Content = warrantyInfo.Value.Status ?? "-";
+                    _warrantyStartLabel.Content = warrantyInfo.Value.Start is not null ? $"{warrantyInfo.Value.Start:d}" : "-";
+                    _warrantyEndLabel.Content = warrantyInfo.Value.End is not null ? $"{warrantyInfo.Value.End:d}" : "-";
+                }
+
+                _warrantyLinkCardAction.Tag = warrantyInfo.Value.Link;
+
                 _warrantyLinkCardAction.IsEnabled = true;
             }
             catch (Exception ex)
