@@ -15,6 +15,8 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
 
     public interface IDisallowDuplicatesAutomationPipelineTrigger { }
 
+    public interface IOnStartupAutomationPipelineTrigger { }
+
     public interface IPowerStateAutomationPipelineTrigger { }
 
     public interface IPowerModeAutomationPipelineTrigger

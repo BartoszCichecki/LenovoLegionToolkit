@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
@@ -30,5 +31,13 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
         public IAutomationPipelineTrigger DeepCopy() => new PowerModeAutomationPipelineTrigger(PowerModeState);
 
         public IAutomationPipelineTrigger DeepCopy(PowerModeState powerModeState) => new PowerModeAutomationPipelineTrigger(powerModeState);
+
+
+        public override bool Equals(object? obj)
+        {
+            return obj is PowerModeAutomationPipelineTrigger t && PowerModeState == t.PowerModeState;
+        }
+
+        public override int GetHashCode() => HashCode.Combine(PowerModeState);
     }
 }

@@ -33,8 +33,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
 
         public override bool Equals(object? obj)
         {
-            return obj is ProcessesAreRunningAutomationPipelineTrigger running &&
-                   Processes.SequenceEqual(running.Processes);
+            return obj is ProcessesAreRunningAutomationPipelineTrigger t && Processes.SequenceEqual(t.Processes);
         }
 
         public override int GetHashCode() => HashCode.Combine(Processes);

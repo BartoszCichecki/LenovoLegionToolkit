@@ -53,10 +53,10 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
 
         public override bool Equals(object? obj)
         {
-            return obj is TimeAutomationPipelineTrigger trigger &&
-                   IsSunrise == trigger.IsSunrise &&
-                   IsSunset == trigger.IsSunset &&
-                   Time == trigger.Time;
+            return obj is TimeAutomationPipelineTrigger t &&
+                   IsSunrise == t.IsSunrise &&
+                   IsSunset == t.IsSunset &&
+                   Time == t.Time;
         }
 
         public override int GetHashCode() => HashCode.Combine(IsSunrise, IsSunset, Time);
