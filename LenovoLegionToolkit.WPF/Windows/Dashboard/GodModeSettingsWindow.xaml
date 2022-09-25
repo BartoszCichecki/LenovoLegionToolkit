@@ -60,7 +60,7 @@
                         FontWeight="Medium"
                         Text="CPU" />
 
-                    <wpfui:CardControl Margin="0,0,0,8">
+                    <wpfui:CardControl x:Name="_cpuLongTermPowerLimitCardControl" Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
                             <controls:CardHeaderControl Title="Long Term Power Limit" />
                         </wpfui:CardControl.Header>
@@ -81,7 +81,7 @@
                         </StackPanel>
                     </wpfui:CardControl>
 
-                    <wpfui:CardControl Margin="0,0,0,8">
+                    <wpfui:CardControl x:Name="_cpuShortTermPowerLimitCardControl" Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
                             <controls:CardHeaderControl Title="Short Term Power Limit" />
                         </wpfui:CardControl.Header>
@@ -102,13 +102,53 @@
                         </StackPanel>
                     </wpfui:CardControl>
 
+                    <wpfui:CardControl x:Name="_cpuCrossLoadingLimitCardControl" Margin="0,0,0,8">
+                        <wpfui:CardControl.Header>
+                            <controls:CardHeaderControl Title="Long Term Power Limit (Cross Loading)" />
+                        </wpfui:CardControl.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Slider
+                                x:Name="_cpuCrossLoadingLimitSlider"
+                                Width="200"
+                                IsSnapToTickEnabled="True"
+                                Value="-1" />
+                            <Label
+                                x:Name="_cpuCrossLoadingLimitValueLabel"
+                                Width="50"
+                                Margin="8,0,0,0"
+                                HorizontalContentAlignment="Right"
+                                Content="{Binding ElementName=_cpuCrossLoadingLimitSlider, Path=Value}"
+                                ContentStringFormat="{}{0}W" />
+                        </StackPanel>
+                    </wpfui:CardControl>
+
+                    <wpfui:CardControl x:Name="_cpuTemperatureLimitCardControl" Margin="0,0,0,8">
+                        <wpfui:CardControl.Header>
+                            <controls:CardHeaderControl Title="CPU Temperature Limit" />
+                        </wpfui:CardControl.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Slider
+                                x:Name="_cpuTemperatureLimitSlider"
+                                Width="200"
+                                IsSnapToTickEnabled="True"
+                                Value="-1" />
+                            <Label
+                                x:Name="_cpuTemperatureLimitValueLabel"
+                                Width="50"
+                                Margin="8,0,0,0"
+                                HorizontalContentAlignment="Right"
+                                Content="{Binding ElementName=_cpuTemperatureLimitSlider, Path=Value}"
+                                ContentStringFormat="{}{0}°C" />
+                        </StackPanel>
+                    </wpfui:CardControl>
+
                     <TextBlock
                         Margin="0,16,0,24"
                         FontSize="24"
                         FontWeight="Medium"
                         Text="GPU" />
 
-                    <wpfui:CardControl Margin="0,0,0,8">
+                    <wpfui:CardControl x:Name="_gpuPowerBoostCardControl" Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
                             <controls:CardHeaderControl Title="Dynamic Boost" />
                         </wpfui:CardControl.Header>
@@ -128,7 +168,7 @@
                         </StackPanel>
                     </wpfui:CardControl>
 
-                    <wpfui:CardControl Margin="0,0,0,8">
+                    <wpfui:CardControl x:Name="_gpuConfigurableTGPCardControl" Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
                             <controls:CardHeaderControl Title="Configurable TGP" />
                         </wpfui:CardControl.Header>
@@ -144,6 +184,26 @@
                                 HorizontalContentAlignment="Right"
                                 Content="{Binding ElementName=_gpuConfigurableTGPSlider, Path=Value}"
                                 ContentStringFormat="{}{0}W" />
+                        </StackPanel>
+                    </wpfui:CardControl>
+
+                    <wpfui:CardControl x:Name="_gpuTemperatureLimitCardControl" Margin="0,0,0,8">
+                        <wpfui:CardControl.Header>
+                            <controls:CardHeaderControl Title="GPU Temperature Limit" />
+                        </wpfui:CardControl.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Slider
+                                x:Name="_gpuTemperatureLimitSlider"
+                                Width="200"
+                                IsSnapToTickEnabled="True"
+                                Value="-1" />
+                            <Label
+                                x:Name="_gpuTemperatureLimitValueLabel"
+                                Width="50"
+                                Margin="8,0,0,0"
+                                HorizontalContentAlignment="Right"
+                                Content="{Binding ElementName=_gpuTemperatureLimitSlider, Path=Value}"
+                                ContentStringFormat="{}{0}°C" />
                         </StackPanel>
                     </wpfui:CardControl>
 
