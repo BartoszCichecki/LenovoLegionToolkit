@@ -82,13 +82,6 @@ namespace LenovoLegionToolkit.Lib
         SavedSearches
     }
 
-    public enum ModelYear
-    {
-        MY2020OrEarlier,
-        MY2021,
-        MY2022OrLater
-    }
-
     public enum NotificationDuration
     {
         Short,

@@ -49,24 +49,36 @@ namespace LenovoLegionToolkit.Lib.Utils
             {
                 var (vendor, machineType, model, serialNumber) = await GetModelDataAsync().ConfigureAwait(false);
                 var biosVersion = await GetBIOSVersionAsync().ConfigureAwait(false);
-                var modelYear = await GetModelYearAsync();
 
-                _machineInformation = new()
+                var machineInformation = new MachineInformation
                 {
                     Vendor = vendor,
                     MachineType = machineType,
                     Model = model,
                     SerialNumber = serialNumber,
                     BIOSVersion = biosVersion,
-                    ModelYear = modelYear,
                     Properties = new()
                     {
-                        ShouldFlipFnLock = GetShouldFlipFnLock(modelYear),
+                        ShouldFlipFnLock = GetShouldFlipFnLock(),
                         SupportsGodMode = GetSupportsGodMode(biosVersion),
                         SupportsACDetection = await GetSupportsACDetection().ConfigureAwait(false),
-                        SupportsExtendedHybridMode = GetSupportsExtendedHybridMode(modelYear)
+                        SupportsExtendedHybridMode = await GetSupportsExtendedHybridModeAsync().ConfigureAwait(false)
                     }
                 };
+
+                if (Log.Instance.IsTraceEnabled)
+                {
+                    Log.Instance.Trace($"Retrieved machine information:");
+                    Log.Instance.Trace($" * Vendor: {machineInformation.Vendor}");
+                    Log.Instance.Trace($" * Machine Type: {machineInformation.MachineType}");
+                    Log.Instance.Trace($" * Model: {machineInformation.Model}");
+                    Log.Instance.Trace($" * SupportsACDetection: {machineInformation.Properties.SupportsACDetection}");
+                    Log.Instance.Trace($" * ShouldFlipFnLock: {machineInformation.Properties.ShouldFlipFnLock}");
+                    Log.Instance.Trace($" * SupportsGodMode: {machineInformation.Properties.SupportsGodMode}");
+                    Log.Instance.Trace($" * SupportsExtendedHybridMode: {machineInformation.Properties.SupportsExtendedHybridMode}");
+                }
+
+                _machineInformation = machineInformation;
             }
 
             return _machineInformation.Value;
@@ -89,9 +101,35 @@ namespace LenovoLegionToolkit.Lib.Utils
             return (false, mi);
         }
 
-        private static bool GetShouldFlipFnLock(ModelYear modelYear)
+        private static bool GetShouldFlipFnLock()
         {
-            return modelYear == ModelYear.MY2020OrEarlier;
+            try
+            {
+                uint inBuffer = 0x2;
+                if (!Native.DeviceIoControl(Devices.GetBattery(),
+                        0x831020E8,
+                        ref inBuffer,
+                        sizeof(uint),
+                        out var outBuffer,
+                        sizeof(uint),
+                        out _,
+                        IntPtr.Zero))
+                {
+                    var error = Marshal.GetLastWin32Error();
+
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"DeviceIoControl returned 0, last error: {error}");
+
+                    throw new InvalidOperationException($"DeviceIoControl returned 0, last error: {error}");
+                }
+
+                outBuffer = outBuffer.ReverseEndianness();
+                return outBuffer.GetNthBit(19);
+            }
+            catch (InvalidOperationException)
+            {
+                return false;
+            }
         }
 
         private static bool GetSupportsGodMode(string biosVersion)
@@ -120,9 +158,21 @@ namespace LenovoLegionToolkit.Lib.Utils
             return await Power.IsACFitForOC().ConfigureAwait(false) != null;
         }
 
-        private static bool GetSupportsExtendedHybridMode(ModelYear modelYear)
+        private static async Task<bool> GetSupportsExtendedHybridModeAsync()
         {
-            return modelYear == ModelYear.MY2022OrLater;
+            try
+            {
+                var result = await WMI.CallAsync("root\\WMI",
+                    $"SELECT * FROM LENOVO_GAMEZONE_DATA",
+                    "IsSupportIGPUMode",
+                    new(),
+                    pdc => (uint)pdc["Data"].Value).ConfigureAwait(false);
+                return result > 0;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         private static async Task<(string, string, string, string)> GetModelDataAsync()
@@ -146,58 +196,6 @@ namespace LenovoLegionToolkit.Lib.Utils
                                 $"SELECT * FROM Win32_BIOS",
                                 pdc => (string)pdc["Name"].Value).ConfigureAwait(false);
             return result.First();
-        }
-
-        private static async Task<ModelYear> GetModelYearAsync()
-        {
-            if (CheckIf2020OrEarlier())
-                return ModelYear.MY2020OrEarlier;
-
-            if (await CheckIf2022OrLaterAsync().ConfigureAwait(false))
-                return ModelYear.MY2022OrLater;
-
-            return ModelYear.MY2021;
-        }
-
-        private static bool CheckIf2020OrEarlier()
-        {
-            try
-            {
-                uint inBuffer = 0x2;
-                if (!Native.DeviceIoControl(Devices.GetBattery(), 0x831020E8, ref inBuffer, sizeof(uint), out uint outBuffer, sizeof(uint), out _, IntPtr.Zero))
-                {
-                    var error = Marshal.GetLastWin32Error();
-
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"DeviceIoControl returned 0, last error: {error}");
-
-                    throw new InvalidOperationException($"DeviceIoControl returned 0, last error: {error}");
-                }
-
-                outBuffer = outBuffer.ReverseEndianness();
-                return outBuffer.GetNthBit(19);
-            }
-            catch (InvalidOperationException)
-            {
-                return true;
-            }
-        }
-
-        private static async Task<bool> CheckIf2022OrLaterAsync()
-        {
-            try
-            {
-                var result = await WMI.CallAsync("root\\WMI",
-                    $"SELECT * FROM LENOVO_GAMEZONE_DATA",
-                    "IsSupportIGPUMode",
-                    new(),
-                    pdc => (uint)pdc["Data"].Value).ConfigureAwait(false);
-                return result > 0;
-            }
-            catch
-            {
-                return false;
-            }
         }
     }
 }

@@ -181,12 +181,12 @@ namespace LenovoLegionToolkit
             if (isCompatible)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Compatibility check passed. [Vendor={mi.Vendor}, Model={mi.Model}, MachineType={mi.MachineType}, BIOS={mi.BIOSVersion}, MY={mi.ModelYear}]");
+                    Log.Instance.Trace($"Compatibility check passed. [Vendor={mi.Vendor}, Model={mi.Model}, MachineType={mi.MachineType}, BIOS={mi.BIOSVersion}]");
                 return;
             }
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Incompatible system detected. [Vendor={mi.Vendor}, Model={mi.Model}, MachineType={mi.MachineType}, BIOS={mi.BIOSVersion}, MY={mi.ModelYear}]");
+                Log.Instance.Trace($"Incompatible system detected. [Vendor={mi.Vendor}, Model={mi.Model}, MachineType={mi.MachineType}, BIOS={mi.BIOSVersion}]");
 
             var unsuportedWindow = new UnsupportedWindow(mi);
             unsuportedWindow.Show();
