@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
+using System.Linq;
 using System.Runtime.InteropServices;
 using LenovoLegionToolkit.Lib.Utils;
 
@@ -13,6 +16,7 @@ namespace LenovoLegionToolkit.Lib.System
             var batteryTag = GetBatteryTag();
             var information = GetBatteryInformationEx(batteryTag);
             var status = GetBatteryStatusEx(batteryTag);
+            var onBatterySince = GetOnBatterySince();
 
             double? temperatureC = null;
             DateTime? manufactureDate = null;
@@ -33,18 +37,22 @@ namespace LenovoLegionToolkit.Lib.System
                     Log.Instance.Trace($"Failed to get temperature of battery.", ex);
             }
 
-            return new(powerStatus.ACLineStatus == ACLineStatusEx.Online,
-                       powerStatus.BatteryLifePercent,
-                       powerStatus.BatteryLifeTime,
-                       powerStatus.BatteryFullLifeTime,
-                       status.Rate,
-                       (int)status.Capacity,
-                       information.DesignedCapacity,
-                       information.FullChargedCapacity,
-                       information.CycleCount,
-                       temperatureC,
-                       manufactureDate,
-                       firstUseDate);
+            return new()
+            {
+                IsCharging = powerStatus.ACLineStatus == ACLineStatusEx.Online,
+                BatteryPercentage = powerStatus.BatteryLifePercent,
+                OnBatterySince = onBatterySince,
+                BatteryLifeRemaining = powerStatus.BatteryLifeTime,
+                FullBatteryLifeRemaining = powerStatus.BatteryFullLifeTime,
+                DischargeRate = status.Rate,
+                EstimateChargeRemaining = (int)status.Capacity,
+                DesignCapacity = information.DesignedCapacity,
+                FullChargeCapacity = information.FullChargedCapacity,
+                CycleCount = information.CycleCount,
+                BatteryTemperatureC = temperatureC,
+                ManufactureDate = manufactureDate,
+                FirstUseDate = firstUseDate
+            };
         }
 
         private static SystemPowerStatusEx GetSystemPowerStatus()
@@ -205,6 +213,43 @@ namespace LenovoLegionToolkit.Lib.System
                 Marshal.FreeHGlobal(batteryInformationPointer);
             }
         }
+        private static DateTime? GetOnBatterySince()
+        {
+            try
+            {
+                var logs = new List<(DateTime Date, bool IsACOnline)>();
+
+                var query = new EventLogQuery("System", PathType.LogName, "*[System[EventID=105]]");
+                using var logReader = new EventLogReader(query);
+                using var propertySelector = new EventLogPropertySelector(new[] { "Event/EventData/Data[@Name='AcOnline']" });
+
+                while (logReader.ReadEvent() is EventLogRecord record)
+                {
+                    var date = record.TimeCreated;
+                    var isAcOnline = record.GetPropertyValues(propertySelector)[0] as bool?;
+
+                    if (date is null || isAcOnline is null)
+                        continue;
+
+                    logs.Add((date.Value, isAcOnline.Value));
+                }
+
+                if (logs.Count < 1)
+                    return null;
+
+                var lastLog = logs.MaxBy(l => l.Date);
+                if (!lastLog.IsACOnline)
+                    return lastLog.Date;
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Failed to get event.", ex);
+            }
+
+            return null;
+        }
+
         private static DateTime? DecodeDateTime(ushort s)
         {
             try

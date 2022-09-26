@@ -87,6 +87,13 @@
 
         <wpfui:CardControl Margin="0,0,0,8">
             <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="On battery since" Subtitle="Time since when laptop was connect to AC power.&#x0a;This time might not be accurate if laptop was charged when sleeping or off." />
+            </wpfui:CardControl.Header>
+            <TextBlock x:Name="_onBatterySinceText" FontSize="14" />
+        </wpfui:CardControl>
+
+        <wpfui:CardControl Margin="0,0,0,8">
+            <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="Cycle count" Subtitle="Number of charge/discharge cycles." />
             </wpfui:CardControl.Header>
             <TextBlock x:Name="_batteryCycleCountText" FontSize="14" />
