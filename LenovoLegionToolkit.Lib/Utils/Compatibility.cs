@@ -10,9 +10,13 @@ namespace LenovoLegionToolkit.Lib.Utils
     public static class Compatibility
     {
         private static readonly string _allowedVendor = "LENOVO";
-        private static readonly string _allowedModelLine = "Legion";
-        private static readonly string[] _allowedModelsPrefix = new[]
-        {
+
+        private static readonly string[] _allowedModelLines = {
+            "Legion",
+            "Ideapad"
+        };
+
+        private static readonly string[] _allowedModelsPrefix = {
             "17ACH",
             "17ARH",
             "17ITH",
@@ -38,7 +42,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             
             // Limited compatibility
             "17IR",
-            "15IR",
+            "15IR"
         };
 
         private static MachineInformation? _machineInformation;
@@ -91,8 +95,9 @@ namespace LenovoLegionToolkit.Lib.Utils
             if (!mi.Vendor.Equals(_allowedVendor, StringComparison.InvariantCultureIgnoreCase))
                 return (false, mi);
 
-            if (!mi.Model.Contains(_allowedModelLine, StringComparison.InvariantCultureIgnoreCase))
-                return (false, mi);
+            foreach (var allowedModel in _allowedModelLines)
+                if (mi.Model.Contains(allowedModel, StringComparison.InvariantCultureIgnoreCase))
+                    return (true, mi);
 
             foreach (var allowedModel in _allowedModelsPrefix)
                 if (mi.Model.Contains(allowedModel, StringComparison.InvariantCultureIgnoreCase))
