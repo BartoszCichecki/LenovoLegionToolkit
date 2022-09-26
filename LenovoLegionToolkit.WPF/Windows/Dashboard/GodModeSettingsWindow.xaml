@@ -246,7 +246,7 @@
 
                     <wpfui:CardControl Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
-                            <controls:CardHeaderControl Title="Maximum value offset" Subtitle="WARNING!&#x0a;Some laptops may accept higher limits than they indicate, but be careful. This option may result in unpredictable behavior, so if you are not sure what are you doing, leave this at 0." />
+                            <controls:CardHeaderControl Title="Maximum Power Limit offset" Subtitle="WARNING!&#x0a;Some laptops may accept higher power limits than they indicate, but be careful. This option may result in unpredictable behavior, so if you are not sure what are you doing, leave this at 0." />
                         </wpfui:CardControl.Header>
                         <wpfui:NumberBox
                             x:Name="_maxValueOffsetNumberBox"
