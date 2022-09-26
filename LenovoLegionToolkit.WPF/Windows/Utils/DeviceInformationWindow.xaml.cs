@@ -53,19 +53,9 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
                 if (!warrantyInfo.HasValue)
                     return;
 
-                if (warrantyInfo.Value.LinkOnly)
-                {
-                    _warrantyStatusLabel.Content = "Check Lenovo Support";
-                    _warrantyStartLabel.Content = "Check Lenovo Support";
-                    _warrantyEndLabel.Content = "Check Lenovo Support";
-                }
-                else
-                {
-                    _warrantyStatusLabel.Content = warrantyInfo.Value.Status ?? "-";
-                    _warrantyStartLabel.Content = warrantyInfo.Value.Start is not null ? $"{warrantyInfo.Value.Start:d}" : "-";
-                    _warrantyEndLabel.Content = warrantyInfo.Value.End is not null ? $"{warrantyInfo.Value.End:d}" : "-";
-                }
-
+                _warrantyStatusLabel.Content = warrantyInfo.Value.Status ?? "-";
+                _warrantyStartLabel.Content = warrantyInfo.Value.Start is not null ? $"{warrantyInfo.Value.Start:d}" : "-";
+                _warrantyEndLabel.Content = warrantyInfo.Value.End is not null ? $"{warrantyInfo.Value.End:d}" : "-";
                 _warrantyLinkCardAction.Tag = warrantyInfo.Value.Link;
 
                 _warrantyLinkCardAction.IsEnabled = true;
