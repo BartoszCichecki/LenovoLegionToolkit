@@ -27,10 +27,12 @@ namespace LenovoLegionToolkit.Lib.Controllers
     public class GodModeController
     {
         private readonly GodModeSettings _settings;
+        private readonly LegionZone _legionZone;
 
-        public GodModeController(GodModeSettings settings)
+        public GodModeController(GodModeSettings settings, LegionZone legionZone)
         {
-            _settings = settings;
+            _settings = settings ?? throw new ArgumentNullException(nameof(settings));
+            _legionZone = legionZone ?? throw new ArgumentNullException(nameof(legionZone));
         }
 
         public async Task<GodModeState> GetStateAsync()
@@ -95,6 +97,9 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         public async Task ApplyStateAsync()
         {
+            if (await _legionZone.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+                throw new InvalidOperationException("Can't apply state when Legion Zone is running.");
+
             var cpuLongTermPowerLimit = _settings.Store.CPULongTermPowerLimit;
             var cpuShortTermPowerLimit = _settings.Store.CPUShortTermPowerLimit;
             var cpuCrossLoadingPowerLimit = _settings.Store.CPUCrossLoadingPowerLimit;

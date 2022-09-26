@@ -5,6 +5,8 @@ using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Dashboard;
 using Wpf.Ui.Common;
 using Button = Wpf.Ui.Controls.Button;
@@ -48,15 +50,25 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
         protected override async Task OnStateChange(ComboBox comboBox, IFeature<PowerModeState> feature, PowerModeState? newValue, PowerModeState? oldValue)
         {
-            await base.OnStateChange(comboBox, feature, newValue, oldValue);
-
-            if (comboBox.TryGetSelectedItem(out PowerModeState state) && state == PowerModeState.GodMode)
+            try
             {
-                _configButton.ToolTip = "Settings";
-                _configButton.Visibility = Visibility.Visible;
+                await base.OnStateChange(comboBox, feature, newValue, oldValue);
+
+                if (comboBox.TryGetSelectedItem(out PowerModeState state) && state == PowerModeState.GodMode)
+                {
+                    _configButton.ToolTip = "Settings";
+                    _configButton.Visibility = Visibility.Visible;
+                }
+                else
+                    _configButton.Visibility = Visibility.Collapsed;
             }
-            else
-                _configButton.Visibility = Visibility.Collapsed;
+            catch (InvalidOperationException ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"State change failed.", ex);
+
+                await SnackbarHelper.ShowAsync("Couldn't change Power Mode", ex.Message, true);
+            }
         }
 
         protected override FrameworkElement? GetAccessory(ComboBox comboBox)

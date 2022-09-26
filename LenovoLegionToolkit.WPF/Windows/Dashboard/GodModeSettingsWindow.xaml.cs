@@ -155,9 +155,9 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't apply settings.", ex);
+                    Log.Instance.Trace($"Couldn't apply settings", ex);
 
-                await _snackBar.ShowAsync("Couldn't apply setting.", ex.Message);
+                await _snackBar.ShowAsync("Couldn't apply settings", ex.Message);
             }
         }
 
