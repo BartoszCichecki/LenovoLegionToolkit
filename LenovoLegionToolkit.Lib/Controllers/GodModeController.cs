@@ -328,7 +328,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         private Task SetCPUCrossLoadingPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_CPU_METHOD",
             "CPU_Set_Cross_Loading_PowerLimit",
-            new() { { "value", $"{value.Value}" } });
+            new() { { "CurrentCpuCrossLoading", $"{value.Value}" } });
 
         #endregion
 
