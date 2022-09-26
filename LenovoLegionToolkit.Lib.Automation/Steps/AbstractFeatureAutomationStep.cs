@@ -26,11 +26,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
 
         public async Task RunAsync()
         {
-            var currentState = await _feature.GetStateAsync().ConfigureAwait(false);
-            if (State.Equals(currentState))
-                return;
             await _feature.SetStateAsync(State).ConfigureAwait(false);
-
             MessagingCenter.Publish(State);
         }
 
