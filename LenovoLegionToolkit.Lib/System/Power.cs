@@ -87,26 +87,34 @@ namespace LenovoLegionToolkit.Lib.System
                 return;
             }
 
-            var powerPlan = (await GetPowerPlansAsync()).FirstOrDefault(pp => pp.InstanceID.Contains(powerPlanId));
-            if (powerPlan.Equals(default(PowerPlan)))
+            var powerPlans = await GetPowerPlansAsync().ConfigureAwait(false);
+
+            if (Log.Instance.IsTraceEnabled)
+            {
+                Log.Instance.Trace($"Available power plans:");
+                foreach (var powerPlan in powerPlans)
+                    Log.Instance.Trace($" - {powerPlan.Name} [guid={powerPlan.Guid}, isActive={powerPlan.IsActive}]");
+            }
+
+            var powerPlanToActivate = powerPlans.FirstOrDefault(pp => pp.InstanceID.Contains(powerPlanId));
+            if (powerPlanToActivate.Equals(default(PowerPlan)))
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Power plan {powerPlanId} was not found");
-
                 return;
             }
-            if (powerPlan.IsActive)
+
+            if (powerPlanToActivate.IsActive)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Power plan {powerPlanId} is already active");
-
+                    Log.Instance.Trace($"Power plan {powerPlanToActivate.Guid} is already active. [name={powerPlanToActivate.Name}]");
                 return;
             }
 
-            await CMD.RunAsync("powercfg", $"/s {powerPlan.Guid}").ConfigureAwait(false);
+            await CMD.RunAsync("powercfg", $"/s {powerPlanToActivate.Guid}").ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Power plan {powerPlan.Guid} activated");
+                Log.Instance.Trace($"Power plan {powerPlanToActivate.Guid} activated. [name={powerPlanToActivate.Name}]");
         }
 
         public static PowerModeState[] GetMatchingPowerModes(string powerPlanId)
