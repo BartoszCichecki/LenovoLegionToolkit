@@ -13,7 +13,7 @@ namespace LenovoLegionToolkit.Lib.Features
 
         public PowerModeFeature(GodModeController controller) : base("SmartFanMode", 1, "IsSupportSmartFan")
         {
-            _controller = controller;
+            _controller = controller ?? throw new ArgumentNullException(nameof(controller));
         }
 
         public override async Task<PowerModeState[]> GetAllStatesAsync()
@@ -35,17 +35,7 @@ namespace LenovoLegionToolkit.Lib.Features
             await Power.ActivatePowerPlanAsync(state, true).ConfigureAwait(false);
 
             if (state == PowerModeState.GodMode)
-            {
-                try
-                {
-                    await _controller.ApplyStateAsync().ConfigureAwait(false);
-                }
-                catch (Exception ex)
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"GodMode state might have not been applied correctly.", ex);
-                }
-            }
+                await _controller.ApplyStateAsync().ConfigureAwait(false);
         }
 
         public async Task EnsureCorrectPowerPlanIsSetAsync()

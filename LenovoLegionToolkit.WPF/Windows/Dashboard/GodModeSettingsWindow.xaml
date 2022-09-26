@@ -287,9 +287,9 @@
             x:Name="_snackBar"
             Grid.Row="1"
             HorizontalAlignment="Center"
-            CloseButtonEnabled="False"
+            CloseButtonEnabled="True"
             Icon="ErrorCircle24"
-            Timeout="2000" />
+            Timeout="5000" />
 
     </Grid>
 </local:BaseWindow>

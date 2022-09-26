@@ -16,6 +16,8 @@ namespace LenovoLegionToolkit.WPF.Utils
                 return;
 
             snackBar.Icon = isError ? SymbolRegular.ErrorCircle24 : SymbolRegular.Checkmark24;
+            snackBar.Timeout = isError ? 5000 : 2000;
+            snackBar.CloseButtonEnabled = isError;
             await snackBar.ShowAsync(title, message);
         }
 
@@ -28,6 +30,8 @@ namespace LenovoLegionToolkit.WPF.Utils
                 return;
 
             snackBar.Icon = isError ? SymbolRegular.ErrorCircle24 : SymbolRegular.Checkmark24;
+            snackBar.Timeout = isError ? 5000 : 2000;
+            snackBar.CloseButtonEnabled = isError;
             snackBar.Show(title, message);
         }
     }

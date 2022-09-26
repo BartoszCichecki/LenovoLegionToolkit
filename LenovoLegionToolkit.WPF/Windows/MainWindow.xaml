@@ -154,8 +154,7 @@
                     MinWidth="300"
                     MaxWidth="600"
                     HorizontalAlignment="Center"
-                    Icon="Checkmark24"
-                    Timeout="2000" />
+                    Icon="Checkmark24" />
 
             </Grid>
 
