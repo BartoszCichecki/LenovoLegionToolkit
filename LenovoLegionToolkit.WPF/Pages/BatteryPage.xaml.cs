@@ -102,6 +102,18 @@ namespace LenovoLegionToolkit.WPF.Pages
             else
                 _batteryTemperatureCardControl.Visibility = Visibility.Collapsed;
 
+            if (!batteryInfo.IsCharging && batteryInfo.OnBatterySince.HasValue)
+            {
+                var onBatterySince = batteryInfo.OnBatterySince.Value;
+                var dateText = onBatterySince.ToString("G");
+                var duration = DateTime.Now.Subtract(onBatterySince);
+                _onBatterySinceText.Text = $"{dateText} ({duration.Hours}h {duration.Minutes}m {duration.Seconds}s)";
+            }
+            else
+            {
+                _onBatterySinceText.Text = "-";
+            }
+
             _batteryDischargeRateText.Text = $"{batteryInfo.DischargeRate / 1000.0:+0.00;-0.00;0.00} W";
             _batteryCapacityText.Text = $"{batteryInfo.EstimateChargeRemaining / 1000.0:0.00} Wh";
             _batteryFullChargeCapacityText.Text = $"{batteryInfo.FullChargeCapacity / 1000.0:0.00} Wh";
@@ -126,16 +138,14 @@ namespace LenovoLegionToolkit.WPF.Pages
             {
                 if (batteryInfo.DischargeRate > 0)
                     return "Connected, charging...";
-                else
-                    return $"Connected, not charging";
+
+                return "Connected, not charging";
             }
-            else
-            {
-                if (batteryInfo.BatteryLifeRemaining < 0)
-                    return "Estimating time...";
-                else
-                    return $"Estimated time remaining: {GetTimeString(batteryInfo.BatteryLifeRemaining)}";
-            }
+
+            if (batteryInfo.BatteryLifeRemaining < 0)
+                return "Estimating time...";
+
+            return $"Estimated time remaining: {GetTimeString(batteryInfo.BatteryLifeRemaining)}";
         }
 
         private static string GetTimeString(int seconds)

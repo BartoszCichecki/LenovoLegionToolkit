@@ -12,46 +12,19 @@ namespace LenovoLegionToolkit.Lib
 {
     public struct BatteryInformation
     {
-        public bool IsCharging { get; }
-        public int BatteryPercentage { get; }
-        public int BatteryLifeRemaining { get; }
-        public int FullBatteryLifeRemaining { get; }
-        public int DischargeRate { get; }
-        public int EstimateChargeRemaining { get; }
-        public int DesignCapacity { get; }
-        public int FullChargeCapacity { get; }
-        public int CycleCount { get; }
-        public double? BatteryTemperatureC { get; }
-        public DateTime? ManufactureDate { get; }
-        public DateTime? FirstUseDate { get; }
-
-        public BatteryInformation(
-            bool isCharging,
-            int batteryPercentage,
-            int batteryLifeRemaining,
-            int fullBatteryLifeRemaining,
-            int dischargeRate,
-            int estimateChargeRemaining,
-            int designCapacity,
-            int fullChargeCapacity,
-            int cycleCount,
-            double? batteryTemperatureC,
-            DateTime? manufactureDate,
-            DateTime? firstUseDate)
-        {
-            IsCharging = isCharging;
-            BatteryPercentage = batteryPercentage;
-            BatteryLifeRemaining = batteryLifeRemaining;
-            FullBatteryLifeRemaining = fullBatteryLifeRemaining;
-            DischargeRate = dischargeRate;
-            EstimateChargeRemaining = estimateChargeRemaining;
-            DesignCapacity = designCapacity;
-            FullChargeCapacity = fullChargeCapacity;
-            CycleCount = cycleCount;
-            BatteryTemperatureC = batteryTemperatureC;
-            ManufactureDate = manufactureDate;
-            FirstUseDate = firstUseDate;
-        }
+        public bool IsCharging { get; init; }
+        public int BatteryPercentage { get; init; }
+        public DateTime? OnBatterySince { get; init; }
+        public int BatteryLifeRemaining { get; init; }
+        public int FullBatteryLifeRemaining { get; init; }
+        public int DischargeRate { get; init; }
+        public int EstimateChargeRemaining { get; init; }
+        public int DesignCapacity { get; init; }
+        public int FullChargeCapacity { get; init; }
+        public int CycleCount { get; init; }
+        public double? BatteryTemperatureC { get; init; }
+        public DateTime? ManufactureDate { get; init; }
+        public DateTime? FirstUseDate { get; init; }
     }
 
     public struct CPUBoostMode
