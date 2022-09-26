@@ -56,10 +56,10 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
                 SetSliderValues(_cpuLongTermPowerLimitCardControl, _cpuLongTermPowerLimitSlider, state.CPULongTermPowerLimit, maxValueOffset);
                 SetSliderValues(_cpuShortTermPowerLimitCardControl, _cpuShortTermPowerLimitSlider, state.CPUShortTermPowerLimit, maxValueOffset);
                 SetSliderValues(_cpuCrossLoadingLimitCardControl, _cpuCrossLoadingLimitSlider, state.CPUCrossLoadingPowerLimit, maxValueOffset);
-                SetSliderValues(_cpuTemperatureLimitCardControl, _cpuTemperatureLimitSlider, state.CPUTemperatureLimit, maxValueOffset);
+                SetSliderValues(_cpuTemperatureLimitCardControl, _cpuTemperatureLimitSlider, state.CPUTemperatureLimit);
                 SetSliderValues(_gpuPowerBoostCardControl, _gpuPowerBoostSlider, state.GPUPowerBoost, maxValueOffset);
                 SetSliderValues(_gpuConfigurableTGPCardControl, _gpuConfigurableTGPSlider, state.GPUConfigurableTGP, maxValueOffset);
-                SetSliderValues(_gpuTemperatureLimitCardControl, _gpuTemperatureLimitSlider, state.GPUTemperatureLimit, maxValueOffset);
+                SetSliderValues(_gpuTemperatureLimitCardControl, _gpuTemperatureLimitSlider, state.GPUTemperatureLimit);
 
                 var fanTableInfo = state.FanTableInfo;
                 if (fanTableInfo.HasValue)
@@ -125,7 +125,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
                     gpuConfigurableTGP = state.GPUConfigurableTGP.Value.WithValue((int)_gpuConfigurableTGPSlider.Value);
 
                 if (state.GPUTemperatureLimit.HasValue)
-                    cpuTemperatureLimit = state.GPUTemperatureLimit.Value.WithValue((int)_gpuTemperatureLimitSlider.Value);
+                    gpuTemperatureLimit = state.GPUTemperatureLimit.Value.WithValue((int)_gpuTemperatureLimitSlider.Value);
 
                 var fanTableInfo = _fanCurveControl.GetFanTableInfo();
                 var fanFullSpeed = _fanFullSpeedToggle.IsChecked ?? false;
@@ -161,7 +161,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
             }
         }
 
-        private void SetSliderValues(CardControl cardControl, Slider slider, StepperValue? stepperValue, int maxValueOffset)
+        private void SetSliderValues(CardControl cardControl, Slider slider, StepperValue? stepperValue, int maxValueOffset = 0)
         {
             if (!stepperValue.HasValue)
             {

@@ -35,7 +35,17 @@ namespace LenovoLegionToolkit.Lib.Features
             await Power.ActivatePowerPlanAsync(state, true).ConfigureAwait(false);
 
             if (state == PowerModeState.GodMode)
-                await _controller.ApplyStateAsync().ConfigureAwait(false);
+            {
+                try
+                {
+                    await _controller.ApplyStateAsync().ConfigureAwait(false);
+                }
+                catch (Exception ex)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"GodMode state might have not been applied correctly.", ex);
+                }
+            }
         }
 
         public async Task EnsureCorrectPowerPlanIsSetAsync()
