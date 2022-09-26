@@ -423,7 +423,6 @@ namespace LenovoLegionToolkit.Lib
 
     public struct WarrantyInfo
     {
-        public bool LinkOnly { get; init; }
         public string? Status { get; init; }
         public DateTime? Start { get; init; }
         public DateTime? End { get; init; }
