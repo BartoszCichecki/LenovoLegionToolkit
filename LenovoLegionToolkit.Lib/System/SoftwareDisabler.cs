@@ -18,7 +18,6 @@ namespace LenovoLegionToolkit.Lib.System
     {
         protected abstract string[] ScheduledTasksPaths { get; }
         protected abstract string[] ServiceNames { get; }
-
         protected abstract string[] ProcessNames { get; }
 
         public Task<SoftwareStatus> GetStatusAsync() => Task.Run(() =>
@@ -111,7 +110,7 @@ namespace LenovoLegionToolkit.Lib.System
                 var service = new ServiceController(serviceName);
                 return service.Status != ServiceControllerStatus.Stopped || service.Status == ServiceControllerStatus.StopPending;
             }
-            catch (InvalidOperationException ex) when ((ex.InnerException as Win32Exception)?.NativeErrorCode == 1060)
+            catch (InvalidOperationException)
             {
                 throw new SoftwareDisablerException(serviceName);
             }
