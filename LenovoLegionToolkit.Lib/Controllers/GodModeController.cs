@@ -98,7 +98,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         public async Task ApplyStateAsync()
         {
             if (await _legionZone.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
-                throw new InvalidOperationException("Can't apply state when Legion Zone is running.");
+                throw new InvalidOperationException("Can't correctly apply state when Legion Zone is running.");
 
             var cpuLongTermPowerLimit = _settings.Store.CPULongTermPowerLimit;
             var cpuShortTermPowerLimit = _settings.Store.CPUShortTermPowerLimit;
