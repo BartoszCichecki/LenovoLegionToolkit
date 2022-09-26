@@ -24,7 +24,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
             if (string.IsNullOrWhiteSpace(ScriptPath))
                 return;
 
-            await CMD.RunAsync(ScriptPath, ScriptArguments ?? "").ConfigureAwait(false);
+            await CMD.RunAsync(ScriptPath, ScriptArguments ?? "", false).ConfigureAwait(false);
         }
 
         IAutomationStep IAutomationStep.DeepCopy() => new RunAutomationStep(ScriptPath, ScriptArguments);
