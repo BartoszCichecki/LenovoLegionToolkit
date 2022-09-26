@@ -20,54 +20,75 @@ namespace LenovoLegionToolkit.Lib.System
 
         public static async Task<IEnumerable<T>> ReadAsync<T>(string scope, FormattableString query, Func<PropertyDataCollection, T> converter)
         {
-            var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
-            var mos = new ManagementObjectSearcher(scope, queryFormatted);
-            var managementObjects = await mos.GetAsync().ConfigureAwait(false);
-            var result = managementObjects.Select(mo => mo.Properties).Select(converter);
-            return result;
+            try
+            {
+                var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
+                var mos = new ManagementObjectSearcher(scope, queryFormatted);
+                var managementObjects = await mos.GetAsync().ConfigureAwait(false);
+                var result = managementObjects.Select(mo => mo.Properties).Select(converter);
+                return result;
+            }
+            catch (ManagementException ex)
+            {
+                throw new ManagementException($"Read failed: {ex.Message}. [scope={scope}, query={query}]", ex);
+            }
         }
 
         public static async Task CallAsync(string scope, FormattableString query, string methodName, Dictionary<string, object> methodParams)
         {
-            var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
-            var mos = new ManagementObjectSearcher(scope, queryFormatted);
-            var managementObjects = await mos.GetAsync().ConfigureAwait(false);
-            var managementObject = managementObjects.FirstOrDefault();
+            try
+            {
+                var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
+                var mos = new ManagementObjectSearcher(scope, queryFormatted);
+                var managementObjects = await mos.GetAsync().ConfigureAwait(false);
+                var managementObject = managementObjects.FirstOrDefault();
 
-            if (managementObject is null)
-                throw new InvalidOperationException("No results in query");
+                if (managementObject is null)
+                    throw new InvalidOperationException("No results in query");
 
-            var mo = (ManagementObject)managementObject;
-            var methodParamsObject = mo.GetMethodParameters(methodName);
-            foreach (var pair in methodParams)
-                methodParamsObject[pair.Key] = pair.Value;
+                var mo = (ManagementObject)managementObject;
+                var methodParamsObject = mo.GetMethodParameters(methodName);
+                foreach (var pair in methodParams)
+                    methodParamsObject[pair.Key] = pair.Value;
 
-            mo.InvokeMethod(methodName, methodParamsObject, null);
+                mo.InvokeMethod(methodName, methodParamsObject, null);
+            }
+            catch (ManagementException ex)
+            {
+                throw new ManagementException($"Call failed: {ex.Message}. [scope={scope}, query={query}, methodName={methodName}]", ex);
+            }
         }
 
         public static async Task<T> CallAsync<T>(string scope, FormattableString query, string methodName, Dictionary<string, object> methodParams, Func<PropertyDataCollection, T> converter) where T : struct
         {
-            var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
+            try
+            {
+                var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
 
-            var mos = new ManagementObjectSearcher(scope, queryFormatted);
-            var managementObjects = await mos.GetAsync().ConfigureAwait(false);
-            var managementObject = managementObjects.FirstOrDefault();
+                var mos = new ManagementObjectSearcher(scope, queryFormatted);
+                var managementObjects = await mos.GetAsync().ConfigureAwait(false);
+                var managementObject = managementObjects.FirstOrDefault();
 
-            if (managementObject is null)
-                throw new InvalidOperationException("No results in query");
+                if (managementObject is null)
+                    throw new InvalidOperationException("No results in query");
 
-            var mo = (ManagementObject)managementObject;
-            var methodParamsObject = mo.GetMethodParameters(methodName);
-            foreach (var pair in methodParams)
-                methodParamsObject[pair.Key] = pair.Value;
+                var mo = (ManagementObject)managementObject;
+                var methodParamsObject = mo.GetMethodParameters(methodName);
+                foreach (var pair in methodParams)
+                    methodParamsObject[pair.Key] = pair.Value;
 
-            var resultProperties = mo.InvokeMethod(methodName, methodParamsObject, null);
+                var resultProperties = mo.InvokeMethod(methodName, methodParamsObject, null);
 
-            if (resultProperties is null)
-                return default;
+                if (resultProperties is null)
+                    return default;
 
-            var result = converter(resultProperties.Properties);
-            return result;
+                var result = converter(resultProperties.Properties);
+                return result;
+            }
+            catch (ManagementException ex)
+            {
+                throw new ManagementException($"Call failed: {ex.Message}. [scope={scope}, query={query}, methodName={methodName}]", ex);
+            }
         }
 
         private class WMIPropertyValueFormatter : IFormatProvider, ICustomFormatter
