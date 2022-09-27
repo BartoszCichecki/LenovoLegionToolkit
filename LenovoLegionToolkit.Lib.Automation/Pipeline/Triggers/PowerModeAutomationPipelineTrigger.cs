@@ -32,7 +32,6 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
 
         public IAutomationPipelineTrigger DeepCopy(PowerModeState powerModeState) => new PowerModeAutomationPipelineTrigger(powerModeState);
 
-
         public override bool Equals(object? obj)
         {
             return obj is PowerModeAutomationPipelineTrigger t && PowerModeState == t.PowerModeState;
