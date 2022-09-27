@@ -5,7 +5,7 @@ using LenovoLegionToolkit.Lib.System;
 
 namespace LenovoLegionToolkit.Lib.Listeners
 {
-    public class PowerModeListener : AbstractWMIListener<PowerModeState>
+    public class PowerModeListener : AbstractWMIListener<PowerModeState>, INotifyingListener<PowerModeState>
     {
         public PowerModeListener() : base("ROOT\\WMI", "LENOVO_GAMEZONE_SMART_FAN_MODE_EVENT") { }
 
@@ -18,5 +18,11 @@ namespace LenovoLegionToolkit.Lib.Listeners
         }
 
         protected override Task OnChangedAsync(PowerModeState value) => Power.ActivatePowerPlanAsync(value);
+
+        public async Task NotifyAsync(PowerModeState value)
+        {
+            await OnChangedAsync(value).ConfigureAwait(false);
+            RaiseChanged(value);
+        }
     }
 }

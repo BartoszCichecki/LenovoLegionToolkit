@@ -17,7 +17,7 @@ namespace LenovoLegionToolkit.Lib.Automation
     {
         private readonly AutomationSettings _settings;
         private readonly PowerStateListener _powerStateListener;
-        private readonly PowerModeAutomationListener _powerModeListener;
+        private readonly PowerModeListener _powerModeListener;
         private readonly ProcessAutomationListener _processListener;
         private readonly TimeAutomationListener _timeListener;
 
@@ -33,7 +33,7 @@ namespace LenovoLegionToolkit.Lib.Automation
 
         public AutomationProcessor(AutomationSettings settings,
             PowerStateListener powerStateListener,
-            PowerModeAutomationListener powerModeListener,
+            PowerModeListener powerModeListener,
             ProcessAutomationListener processListener,
             TimeAutomationListener timeListener)
         {
@@ -44,100 +44,7 @@ namespace LenovoLegionToolkit.Lib.Automation
             _timeListener = timeListener ?? throw new ArgumentNullException(nameof(timeListener));
         }
 
-        private async void PowerStateListener_Changed(object? sender, EventArgs _)
-        {
-            var e = new PowerStateAutomationEvent();
-
-            var potentialMatch = _pipelines.Select(p => p.Trigger)
-                .Where(t => t is not null)
-                .Where(t => t is IPowerStateAutomationPipelineTrigger)
-                .Select(async t => await t!.IsSatisfiedAsync(e).ConfigureAwait(false))
-                .Select(t => t.Result)
-                .Where(t => t)
-                .Any();
-
-            if (!potentialMatch)
-                return;
-
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Change detected from power state listener.");
-
-            await RunAsync(e).ConfigureAwait(false);
-        }
-
-        private async void PowerModeListenerOnChanged(object? sender, PowerModeState powerModeState)
-        {
-            var e = new PowerModeAutomationEvent { PowerModeState = powerModeState };
-
-            var potentialMatch = _pipelines.Select(p => p.Trigger)
-                .Where(t => t is not null)
-                .Where(t => t is IPowerModeAutomationPipelineTrigger)
-                .Select(async t => await t!.IsSatisfiedAsync(e).ConfigureAwait(false))
-                .Select(t => t.Result)
-                .Where(t => t)
-                .Any();
-
-            if (!potentialMatch)
-                return;
-
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Change detected from power mode listener. [powerModeState={powerModeState}]");
-
-            await RunAsync(e).ConfigureAwait(false);
-        }
-
-        private async void ProcessListener_Changed(object? sender, ProcessEventInfo processEventInfo)
-        {
-            var e = new ProcessAutomationEvent { ProcessEventInfo = processEventInfo };
-
-            var potentialMatch = _pipelines.Select(p => p.Trigger)
-                .Where(t => t is not null)
-                .Where(t => t is IProcessesAutomationPipelineTrigger)
-                .Select(async t => await t!.IsSatisfiedAsync(e).ConfigureAwait(false))
-                .Select(t => t.Result)
-                .Where(t => t)
-                .Any();
-
-            if (!potentialMatch)
-                return;
-
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Change detected from process listener. [processEventInfo.Process.Name={processEventInfo.Process.Name}, processEventInfo.Type={processEventInfo.Type}]");
-
-            await RunAsync(e).ConfigureAwait(false);
-        }
-
-        private async void TimeListener_Changed(object? sender, Time time)
-        {
-            var e = new TimeAutomationEvent { Time = time };
-
-            var potentialMatch = _pipelines.Select(p => p.Trigger)
-                .Where(t => t is not null)
-                .Where(t => t is TimeAutomationPipelineTrigger)
-                .Select(async t => await t!.IsSatisfiedAsync(e).ConfigureAwait(false))
-                .Select(t => t.Result)
-                .Where(t => t)
-                .Any();
-
-            if (!potentialMatch)
-                return;
-
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Change detected from time listener. [time={time.Hour}:{time.Minute}]");
-
-            await RunAsync(e).ConfigureAwait(false);
-        }
-
-        public async Task SetEnabledAsync(bool enabled)
-        {
-            using (await _ioLock.LockAsync().ConfigureAwait(false))
-            {
-                _settings.Store.IsEnabled = enabled;
-                _settings.SynchronizeStore();
-
-                await UpdateListenersAsync().ConfigureAwait(false);
-            }
-        }
+        #region Initialization / pipeline reloading
 
         public async Task InitializeAsync()
         {
@@ -151,6 +58,17 @@ namespace LenovoLegionToolkit.Lib.Automation
                 _pipelines = _settings.Store.Pipelines;
 
                 RaisePipelinesChanged();
+
+                await UpdateListenersAsync().ConfigureAwait(false);
+            }
+        }
+
+        public async Task SetEnabledAsync(bool enabled)
+        {
+            using (await _ioLock.LockAsync().ConfigureAwait(false))
+            {
+                _settings.Store.IsEnabled = enabled;
+                _settings.SynchronizeStore();
 
                 await UpdateListenersAsync().ConfigureAwait(false);
             }
@@ -185,6 +103,10 @@ namespace LenovoLegionToolkit.Lib.Automation
             using (await _ioLock.LockAsync().ConfigureAwait(false))
                 return _pipelines.Select(p => p.DeepCopy()).ToList();
         }
+
+        #endregion
+
+        #region Run
 
         public void RunOnStartup()
         {
@@ -296,6 +218,118 @@ namespace LenovoLegionToolkit.Lib.Automation
             }
         }
 
+        #endregion
+
+        #region Listeners
+
+        private async void PowerStateListener_Changed(object? sender, EventArgs _)
+        {
+            var e = new PowerStateAutomationEvent();
+            await ProcessEvent(e).ConfigureAwait(false);
+        }
+
+        private async void PowerModeListenerOnChanged(object? sender, PowerModeState powerModeState)
+        {
+            var e = new PowerModeAutomationEvent { PowerModeState = powerModeState };
+            await ProcessEvent(e).ConfigureAwait(false);
+        }
+
+        private async void ProcessListener_Changed(object? sender, ProcessEventInfo processEventInfo)
+        {
+            var e = new ProcessAutomationEvent { ProcessEventInfo = processEventInfo };
+            await ProcessEvent(e).ConfigureAwait(false);
+        }
+
+        private async void TimeListener_Changed(object? sender, Time time)
+        {
+            var e = new TimeAutomationEvent { Time = time };
+            await ProcessEvent(e).ConfigureAwait(false);
+        }
+
+        #endregion
+
+        #region Event processing
+
+        private async Task ProcessEvent(PowerStateAutomationEvent e)
+        {
+            var potentialMatch = _pipelines.Select(p => p.Trigger)
+                .Where(t => t is not null)
+                .Where(t => t is IPowerStateAutomationPipelineTrigger)
+                .Select(async t => await t!.IsSatisfiedAsync(e).ConfigureAwait(false))
+                .Select(t => t.Result)
+                .Where(t => t)
+                .Any();
+
+            if (!potentialMatch)
+                return;
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Processing power state event.");
+
+            await RunAsync(e).ConfigureAwait(false);
+        }
+
+        private async Task ProcessEvent(PowerModeAutomationEvent e)
+        {
+            var potentialMatch = _pipelines.Select(p => p.Trigger)
+                .Where(t => t is not null)
+                .Where(t => t is IPowerModeAutomationPipelineTrigger)
+                .Select(async t => await t!.IsSatisfiedAsync(e).ConfigureAwait(false))
+                .Select(t => t.Result)
+                .Where(t => t)
+                .Any();
+
+            if (!potentialMatch)
+                return;
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Processing power mode event. [powerModeState={e.PowerModeState}]");
+
+            await RunAsync(e).ConfigureAwait(false);
+        }
+
+        private async Task ProcessEvent(ProcessAutomationEvent e)
+        {
+            var potentialMatch = _pipelines.Select(p => p.Trigger)
+                .Where(t => t is not null)
+                .Where(t => t is IProcessesAutomationPipelineTrigger)
+                .Select(async t => await t!.IsSatisfiedAsync(e).ConfigureAwait(false))
+                .Select(t => t.Result)
+                .Where(t => t)
+                .Any();
+
+            if (!potentialMatch)
+                return;
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Processing process event. [process.Name={e.ProcessEventInfo.Process.Name}, type={e.ProcessEventInfo.Type}]");
+
+            await RunAsync(e).ConfigureAwait(false);
+        }
+
+        private async Task ProcessEvent(TimeAutomationEvent e)
+        {
+            var potentialMatch = _pipelines.Select(p => p.Trigger)
+                .Where(t => t is not null)
+                .Where(t => t is TimeAutomationPipelineTrigger)
+                .Select(async t => await t!.IsSatisfiedAsync(e).ConfigureAwait(false))
+                .Select(t => t.Result)
+                .Where(t => t)
+                .Any();
+
+            if (!potentialMatch)
+                return;
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Processing time event. [time={e.Time.Hour}:{e.Time.Minute}]");
+
+            await RunAsync(e).ConfigureAwait(false);
+        }
+
+        #endregion
+
+        #region Helper methods
+
         private async Task UpdateListenersAsync()
         {
             if (Log.Instance.IsTraceEnabled)
@@ -303,7 +337,6 @@ namespace LenovoLegionToolkit.Lib.Automation
 
             await _timeListener.StopAsync().ConfigureAwait(false);
             await _processListener.StopAsync().ConfigureAwait(false);
-            await _powerModeListener.StopAsync().ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Stopped listeners...");
@@ -320,14 +353,6 @@ namespace LenovoLegionToolkit.Lib.Automation
                 Log.Instance.Trace($"Starting listeners...");
 
             var triggers = _pipelines.Select(p => p.Trigger).ToArray();
-
-            if (triggers.OfType<IPowerModeAutomationPipelineTrigger>().Any())
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Starting power mode listener...");
-
-                await _powerModeListener.StartAsync().ConfigureAwait(false);
-            }
 
             if (triggers.OfType<IProcessesAutomationPipelineTrigger>().Any())
             {
@@ -353,5 +378,8 @@ namespace LenovoLegionToolkit.Lib.Automation
         {
             PipelinesChanged?.Invoke(this, _pipelines.Select(p => p.DeepCopy()).ToList());
         }
+
+        #endregion
+
     }
 }

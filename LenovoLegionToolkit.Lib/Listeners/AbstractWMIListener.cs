@@ -74,6 +74,8 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         protected abstract Task OnChangedAsync(T value);
 
+        protected void RaiseChanged(T value) => Changed?.Invoke(this, value);
+
         private async void Handler(PropertyDataCollection properties)
         {
             var value = GetValue(properties);
@@ -82,7 +84,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
                 Log.Instance.Trace($"Event received. [value={value}, listener={GetType().Name}]");
 
             await OnChangedAsync(value).ConfigureAwait(false);
-            Changed?.Invoke(this, value);
+            RaiseChanged(value);
         }
     }
 }
