@@ -11,4 +11,9 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         Task StopAsync();
     }
+
+    public interface INotifyingListener<T> : IListener<T>
+    {
+        Task NotifyAsync(T value);
+    }
 }
