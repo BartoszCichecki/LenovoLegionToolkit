@@ -237,9 +237,9 @@ namespace LenovoLegionToolkit.Lib.System
                 if (logs.Count < 1)
                     return null;
 
-                var lastLog = logs.MaxBy(l => l.Date);
-                if (!lastLog.IsACOnline)
-                    return lastLog.Date;
+                var (dateTime, isACOnline) = logs.MaxBy(l => l.Date);
+                if (!isACOnline)
+                    return dateTime;
             }
             catch (Exception ex)
             {
