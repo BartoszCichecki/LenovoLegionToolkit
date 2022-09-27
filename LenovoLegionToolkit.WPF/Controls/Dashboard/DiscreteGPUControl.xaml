@@ -17,27 +17,47 @@
             x:Name="_content"
             Orientation="Vertical"
             Visibility="Hidden">
-            <StackPanel
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Orientation="Horizontal">
+            <Grid HorizontalAlignment="Right">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
                 <Ellipse
                     x:Name="_discreteGPUStatusActiveIndicator"
-                    Width="10"
-                    Height="10"
+                    Grid.Column="0"
+                    Width="12"
+                    Height="12"
                     Fill="#FF8BC34A"
                     Visibility="Collapsed" />
                 <Ellipse
                     x:Name="_discreteGPUStatusInactiveIndicator"
-                    Width="10"
-                    Height="10"
+                    Grid.Column="0"
+                    Width="12"
+                    Height="12"
                     Fill="#BF360C"
                     Visibility="Collapsed" />
-                <TextBlock
+                <Label
                     x:Name="_discreteGPUStatusDescription"
-                    Margin="4,0,0,0"
-                    FontWeight="Medium" />
-            </StackPanel>
+                    Grid.Column="1"
+                    Margin="8,4,0,0"
+                    VerticalAlignment="Center"
+                    FontWeight="Medium">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource TextFillColorPrimary}" />
+                    </Label.Foreground>
+                </Label>
+
+                <wpfui:Button
+                    x:Name="_gpuInfoButton"
+                    Grid.Column="2"
+                    Margin="8,0,0,0"
+                    ClickMode="Hover"
+                    Icon="QuestionCircle24"
+                    ToolTipService.InitialShowDelay="0" />
+
+            </Grid>
             <wpfui:Button
                 x:Name="_deactivateGPUButton"
                 Width="150"
@@ -56,9 +76,8 @@
                             x:Name="_deactivateGPUButtonText"
                             Grid.Column="1"
                             Margin="8,0,8,2"
-                            FontWeight="Medium">
-                            Deactivate
-                        </TextBlock>
+                            FontWeight="Medium"
+                            Text="Deactivate" />
                         <wpfui:SymbolIcon
                             x:Name="_deactivateGPUButtonIcon"
                             Grid.Column="0"

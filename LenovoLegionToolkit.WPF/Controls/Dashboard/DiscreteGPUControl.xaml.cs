@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls.Primitives;
 using System.Windows.Threading;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
@@ -44,51 +46,51 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
         private void GpuController_Refreshed(object? sender, GPUController.RefreshedEventArgs e) => Dispatcher.Invoke(() =>
         {
-            var performanceStateText = $"Performance state:\n{e.PerformanceState ?? "Unknown"}";
+            var tooltipStringBuilder = new StringBuilder("Performance state:");
+            tooltipStringBuilder.AppendLine().Append(e.PerformanceState ?? "Unknown").AppendLine().AppendLine();
 
-            if (e.Status == GPUController.Status.Unknown || e.Status == GPUController.Status.NVIDIAGPUNotFound)
+            if (e.Status is GPUController.Status.Unknown or GPUController.Status.NVIDIAGPUNotFound)
             {
-                _discreteGPUStatusDescription.Text = "-";
-                _discreteGPUStatusDescription.ToolTip = null;
                 _discreteGPUStatusActiveIndicator.Visibility = Visibility.Collapsed;
                 _discreteGPUStatusInactiveIndicator.Visibility = Visibility.Collapsed;
+                _discreteGPUStatusDescription.Content = "-";
+                _gpuInfoButton.ToolTip = null;
+                _gpuInfoButton.IsEnabled = false;
             }
             else if (e.IsActive)
             {
-                var status = "Active";
-                var processes = string.Empty;
+                var processesStringBuilder = new StringBuilder();
 
                 if (e.ProcessCount > 0)
                 {
-                    status += $" ({e.ProcessCount} app{(e.ProcessCount > 1 ? "s" : "")})";
-                    processes += "Processes:";
-
+                    processesStringBuilder.Append("Processes:");
                     foreach (var p in e.Processes)
                     {
                         try
                         {
-                            processes += $"\n · {p.ProcessName}";
+                            processesStringBuilder.AppendLine().Append(" · ").Append(p.ProcessName);
                         }
                         catch { }
                     }
                 }
                 else
                 {
-                    processes += "No processes";
-
+                    processesStringBuilder.Append("No processes");
                 }
 
-                _discreteGPUStatusDescription.Text = status;
-                _discreteGPUStatusDescription.ToolTip = $"{performanceStateText}\n\n{processes}";
                 _discreteGPUStatusActiveIndicator.Visibility = Visibility.Visible;
                 _discreteGPUStatusInactiveIndicator.Visibility = Visibility.Collapsed;
+                _discreteGPUStatusDescription.Content = "Active";
+                _gpuInfoButton.ToolTip = tooltipStringBuilder.Append(processesStringBuilder).ToString();
+                _gpuInfoButton.IsEnabled = true;
             }
             else
             {
-                _discreteGPUStatusDescription.Text = "Inactive";
-                _discreteGPUStatusDescription.ToolTip = $"nVidia GPU is not active.\n\n{performanceStateText}";
                 _discreteGPUStatusActiveIndicator.Visibility = Visibility.Collapsed;
                 _discreteGPUStatusInactiveIndicator.Visibility = Visibility.Visible;
+                _discreteGPUStatusDescription.Content = "Inactive";
+                _gpuInfoButton.ToolTip = tooltipStringBuilder.Append("nVidia GPU is not active.").ToString();
+                _gpuInfoButton.IsEnabled = true;
             }
 
             _deactivateGPUButton.IsEnabled = e.CanBeDeactivated;
@@ -117,8 +119,11 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
         private void DeactivateGPUButton_Click(object sender, RoutedEventArgs e)
         {
+            if (_deactivateGPUButton.ContextMenu is null)
+                return;
+
             _deactivateGPUButton.ContextMenu.PlacementTarget = _deactivateGPUButton;
-            _deactivateGPUButton.ContextMenu.Placement = System.Windows.Controls.Primitives.PlacementMode.Bottom;
+            _deactivateGPUButton.ContextMenu.Placement = PlacementMode.Bottom;
             _deactivateGPUButton.ContextMenu.IsOpen = true;
         }
 
