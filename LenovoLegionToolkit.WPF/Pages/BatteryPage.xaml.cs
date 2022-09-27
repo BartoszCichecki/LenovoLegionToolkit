@@ -60,7 +60,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                         var powerAdapterStatus = await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false);
                         Dispatcher.Invoke(() => Set(batteryInfo, powerAdapterStatus));
 
-                        await Task.Delay(1000, token);
+                        await Task.Delay(2000, token);
                     }
                     catch (TaskCanceledException) { }
                     catch (Exception ex)
