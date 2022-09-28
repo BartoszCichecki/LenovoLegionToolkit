@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Interop;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Settings;
@@ -27,11 +28,14 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         public Snackbar Snackbar => _snackBar;
 
+        private uint _taskbarCreatedMessageId;
+
         public MainWindow()
         {
             InitializeComponent();
             InitializeTray();
 
+            SourceInitialized += MainWindow_SourceInitialized;
             Loaded += MainWindow_Loaded;
             Closing += MainWindow_Closing;
             IsVisibleChanged += MainWindow_IsVisibleChanged;
@@ -88,20 +92,13 @@ namespace LenovoLegionToolkit.WPF.Windows
             BringToForeground();
         });
 
-        private void MainWindow_StateChanged(object? sender, EventArgs e)
+        private void MainWindow_SourceInitialized(object? sender, EventArgs args)
         {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Window state changed to {WindowState}");
+            _taskbarCreatedMessageId = Native.RegisterWindowMessage("TaskbarCreated");
+            Native.ChangeWindowMessageFilter(_taskbarCreatedMessageId, 1);
 
-            switch (WindowState)
-            {
-                case WindowState.Minimized:
-                    SendToTray();
-                    break;
-                case WindowState.Normal:
-                    BringToForeground();
-                    break;
-            }
+            var source = PresentationSource.FromVisual(this) as HwndSource;
+            source?.AddHook(WndProc);
         }
 
         private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -139,6 +136,22 @@ namespace LenovoLegionToolkit.WPF.Windows
                 _titleBar.Tray.Unregister();
 
                 Application.Current.Shutdown();
+            }
+        }
+
+        private void MainWindow_StateChanged(object? sender, EventArgs e)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Window state changed to {WindowState}");
+
+            switch (WindowState)
+            {
+                case WindowState.Minimized:
+                    SendToTray();
+                    break;
+                case WindowState.Normal:
+                    BringToForeground();
+                    break;
             }
         }
 
@@ -186,6 +199,17 @@ namespace LenovoLegionToolkit.WPF.Windows
         }
 
         private void NotifyIcon_LeftClick([NotNull] NotifyIcon sender, RoutedEventArgs e) => BringToForeground();
+
+        private IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam, ref bool handled)
+        {
+            if (msg == _taskbarCreatedMessageId)
+            {
+                InitializeTray();
+                handled = true;
+            }
+
+            return IntPtr.Zero;
+        }
 
         private void LoadDeviceInfo()
         {

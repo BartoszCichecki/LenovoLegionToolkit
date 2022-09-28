@@ -1,4 +1,5 @@
-﻿using LenovoLegionToolkit.Lib;
+﻿using System;
+using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation.Steps;
 using LenovoLegionToolkit.Lib.Listeners;
 using Wpf.Ui.Common;
@@ -18,7 +19,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
             _listener.Changed += Listener_Changed;
         }
 
-        private void Listener_Changed(object? sender, System.EventArgs e) => Dispatcher.Invoke(async () =>
+        private void Listener_Changed(object? sender, EventArgs e) => Dispatcher.Invoke(async () =>
         {
             if (IsLoaded && IsVisible)
                 await RefreshAsync();

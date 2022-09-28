@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Listeners;
@@ -29,7 +30,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
                 Visibility = Visibility.Visible;
         }
 
-        private void Listener_Changed(object? sender, System.EventArgs e) => Dispatcher.Invoke(async () =>
+        private void Listener_Changed(object? sender, EventArgs e) => Dispatcher.Invoke(async () =>
         {
             if (IsLoaded)
                 await RefreshAsync();

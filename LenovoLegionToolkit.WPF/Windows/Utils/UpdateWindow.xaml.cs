@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Text;
 using System.Threading;
@@ -46,7 +47,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
             _downloadButton.IsEnabled = true;
         }
 
-        private void UpdateWindow_Closing(object? sender, System.ComponentModel.CancelEventArgs e) => _downloadCancellationTokenSource?.Cancel();
+        private void UpdateWindow_Closing(object? sender, CancelEventArgs e) => _downloadCancellationTokenSource?.Cancel();
 
         private async void DownloadButton_Click(object sender, RoutedEventArgs e)
         {
