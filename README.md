@@ -4,6 +4,8 @@
 
 This is a utility created for Lenovo Legion laptops, that allows changing a couple of features that are only available in Lenovo Vantage or Legion Zone.
 
+**If your laptop is not part of Legion or Ideapad Gaming lines, this software is not for you.**
+
 It runs no background services, uses less memory, uses virtually no CPU, and contains no telemetry. Just like Lenovo Vantage, this application is Windows only.
 
 Join the Legion Series Discord: https://discord.com/invite/legionseries!
