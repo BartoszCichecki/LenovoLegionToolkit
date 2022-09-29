@@ -14,9 +14,7 @@ namespace LenovoLegionToolkit.Lib.Features
         private readonly GodModeController _godModeController;
         private readonly PowerModeListener _listener;
 
-        public PowerModeFeature(AIModeController aiModeController,
-            GodModeController godModeController,
-            PowerModeListener listener)
+        public PowerModeFeature(AIModeController aiModeController, GodModeController godModeController, PowerModeListener listener)
             : base("SmartFanMode", 1, "IsSupportSmartFan")
         {
             _aiModeController = aiModeController ?? throw new ArgumentNullException(nameof(aiModeController));
