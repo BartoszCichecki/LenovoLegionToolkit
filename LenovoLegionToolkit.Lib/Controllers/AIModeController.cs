@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
@@ -22,7 +21,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         private IDisposable? _startProcessListener;
         private IDisposable? _stopProcessListener;
 
-        private IEnumerable<SubMode> _subModes = Array.Empty<SubMode>();
+        private SubMode[]? _subModes;
 
         public AIModeController(BalanceModeSettings settings)
         {
@@ -93,6 +92,9 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         private int GetSubMode(string processName)
         {
+            if (_subModes is null)
+                return 0;
+
             return _subModes
                 .Where(sm => sm.ProcessName.Equals(processName, StringComparison.InvariantCultureIgnoreCase))
                 .Select(sm => sm.Mode)
@@ -119,17 +121,19 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         private async Task LoadSubModes()
         {
-            if (_subModes.IsEmpty())
+            if (_subModes is not null)
                 return;
 
-            _subModes = await WMI.ReadAsync("root\\WMI",
+            var subModes = await WMI.ReadAsync("root\\WMI",
                 $"SELECT * FROM LENOVO_INTELLIGENT_OP_LIST",
                 pdc =>
                 {
-                    var processName = pdc["processname"].ToString();
-                    var mode = Convert.ToInt32(pdc["mode"]);
+                    var processName = pdc["processname"].Value.ToString();
+                    var mode = Convert.ToInt32(pdc["mode"].Value);
                     return new SubMode { ProcessName = processName, Mode = mode };
                 }).ConfigureAwait(false);
+
+            _subModes = subModes.ToArray();
         }
 
         private Task SetSubMode(int mode) => WMI.CallAsync("root\\WMI",
