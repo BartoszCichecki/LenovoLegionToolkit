@@ -41,8 +41,6 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             Margin = new(8, 0, 0, 0),
         };
 
-        private bool _ignoreNextStateChange;
-
         public ComboBoxHybridModeControl()
         {
             Icon = SymbolRegular.LeafOne24;
@@ -68,37 +66,23 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
         protected override async Task OnStateChange(ComboBox comboBox, IFeature<HybridModeState> feature, HybridModeState? newValue, HybridModeState? oldValue)
         {
-            if (_ignoreNextStateChange)
-            {
-                _ignoreNextStateChange = false;
-                return;
-            }
-
             if (newValue is null || oldValue is null)
                 return;
 
-            if (newValue == HybridModeState.Off || oldValue == HybridModeState.Off)
-            {
-                var result = await MessageBoxHelper.ShowAsync(
-                    this,
-                    "Restart required",
-                    $"Changing to {newValue.GetDisplayName()} requires restart. Do you want to restart now?");
-
-                if (result)
-                {
-                    await base.OnStateChange(comboBox, feature, newValue, oldValue);
-                    await Power.RestartAsync();
-                }
-                else
-                {
-                    _ignoreNextStateChange = true;
-                    comboBox.SelectItem(oldValue.Value);
-                }
-
-                return;
-            }
-
             await base.OnStateChange(comboBox, feature, newValue, oldValue);
+
+            if (newValue != HybridModeState.Off && oldValue != HybridModeState.Off)
+                return;
+
+            var result = await MessageBoxHelper.ShowAsync(
+                this,
+                "Restart required",
+                $"Changing to {newValue.GetDisplayName()} requires restart. Do you want to restart now?",
+                "Restart now",
+                "I will restart later");
+
+            if (result)
+                await Power.RestartAsync();
         }
 
         private void InfoButton_Click(object sender, RoutedEventArgs e)
@@ -128,18 +112,17 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
         protected override async Task OnStateChange(ToggleSwitch toggle, IFeature<HybridModeState> feature)
         {
+            await base.OnStateChange(toggle, feature);
+
             var result = await MessageBoxHelper.ShowAsync(
                 this,
                 "Restart required",
-                "Changing Hybrid Mode requires restart. Do you want to restart now?");
+                "Changing Hybrid Mode requires restart. Do you want to restart now?",
+                "Restart now",
+                "I will restart later");
 
             if (result)
-            {
-                await base.OnStateChange(toggle, feature);
                 await Power.RestartAsync();
-            }
-            else
-                toggle.IsChecked = !toggle.IsChecked;
         }
     }
 }
