@@ -28,12 +28,12 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         public Snackbar Snackbar => _snackBar;
 
+        private NotifyIcon? _notifyIcon;
         private uint _taskbarCreatedMessageId;
 
         public MainWindow()
         {
             InitializeComponent();
-            InitializeTray();
 
             SourceInitialized += MainWindow_SourceInitialized;
             Loaded += MainWindow_Loaded;
@@ -59,6 +59,8 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private void InitializeTray()
         {
+            _notifyIcon?.Unregister();
+
             ContextMenuHelper.Instance.BringToForegroundAction = BringToForeground;
 
             var notifyIcon = new NotifyIcon
@@ -70,7 +72,9 @@ namespace LenovoLegionToolkit.WPF.Windows
                 Menu = ContextMenuHelper.Instance.ContextMenu,
             };
             notifyIcon.LeftClick += NotifyIcon_LeftClick;
-            _titleBar.Tray = notifyIcon;
+            notifyIcon.Register();
+
+            _notifyIcon = notifyIcon;
         }
 
         private void SpecialKeyListener_Changed(object? sender, SpecialKey e) => Dispatcher.Invoke(async () =>
@@ -116,6 +120,8 @@ namespace LenovoLegionToolkit.WPF.Windows
 
             LoadDeviceInfo();
             CheckForUpdates();
+
+            InitializeTray();
         }
 
         private void MainWindow_Closing(object? sender, CancelEventArgs e)
