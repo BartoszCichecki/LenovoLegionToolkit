@@ -83,6 +83,19 @@ namespace LenovoLegionToolkit
             try
             {
                 if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Ensuring AI Mode is set...");
+
+                await IoCContainer.Resolve<PowerModeFeature>().EnsureAIModeIsSetAsync();
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't set AI Mode.", ex);
+            }
+
+            try
+            {
+                if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Ensuring correct power plan is set...");
 
                 await IoCContainer.Resolve<PowerModeFeature>().EnsureCorrectPowerPlanIsSetAsync();
