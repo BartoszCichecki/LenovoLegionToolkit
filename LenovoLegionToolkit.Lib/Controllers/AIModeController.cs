@@ -65,6 +65,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
             _startProcessListener?.Dispose();
             _stopProcessListener?.Dispose();
 
+            _runningProcessIds.Clear();
+
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Stopped");
 
