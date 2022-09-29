@@ -216,16 +216,16 @@ namespace LenovoLegionToolkit.WPF.Windows
 
             if (msg == 537)
             {
-                Task.Run(async () =>
-                {
-                    try
-                    {
-                        await WMI.CallAsync("root\\WMI", $"SELECT * FROM LENOVO_GAMEZONE_DATA", "NotifyDGPUStatus", new());
-                    }
-                    catch
-                    {
-                    }
-                });
+                //Task.Run(async () =>
+                //{
+                //    try
+                //    {
+                //        await WMI.CallAsync("root\\WMI", $"SELECT * FROM LENOVO_GAMEZONE_DATA", "NotifyDGPUStatus", new());
+                //    }
+                //    catch
+                //    {
+                //    }
+                //});
             }
 
             return IntPtr.Zero;

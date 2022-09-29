@@ -56,7 +56,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 if (igpuMode != await _igpuModeFeature.GetStateAsync().ConfigureAwait(false))
                 {
                     await _igpuModeFeature.SetStateAsync(igpuMode).ConfigureAwait(false);
-                    //ScanDevicesDelayed();
+                    ScanDevicesDelayed();
                 }
             }
 
@@ -72,7 +72,7 @@ namespace LenovoLegionToolkit.Lib.Features
         {
             Task.Run(async () =>
             {
-                await Task.Delay(1000).ConfigureAwait(false);
+                await Task.Delay(2000).ConfigureAwait(false);
                 await CMD.RunAsync("pnputil", "/scan-devices /async").ConfigureAwait(false);
             }).ContinueWith(t =>
             {
