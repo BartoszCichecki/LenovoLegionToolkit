@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Linq;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
@@ -10,18 +9,14 @@ namespace LenovoLegionToolkit.Lib.Controllers
 {
     public class AIModeController
     {
-        private struct SubMode
-        {
-            public string ProcessName { get; init; }
-            public int Mode { get; init; }
-        }
+        private readonly HashSet<int> _runningProcessIds = new();
 
         private readonly BalanceModeSettings _settings;
 
         private IDisposable? _startProcessListener;
         private IDisposable? _stopProcessListener;
 
-        private SubMode[]? _subModes;
+        private Dictionary<string, int>? _subModes;
 
         public AIModeController(BalanceModeSettings settings)
         {
@@ -66,57 +61,56 @@ namespace LenovoLegionToolkit.Lib.Controllers
             return Task.CompletedTask;
         }
 
-        private void ProcessStarted(string processName)
+        private void ProcessStarted(string processName, int processId)
         {
             var mode = GetSubMode(processName);
             if (mode < 1)
                 return;
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Process {processName} started. [mode={mode}]");
+                Log.Instance.Trace($"Process {processName} started. [processId={processId}, mode={mode}]");
+
+            _runningProcessIds.Add(processId);
 
             Task.Run(() => SetSubMode(mode));
         }
 
-        private void ProcessStopped(string processName)
+        private void ProcessStopped(int processId)
         {
-            var mode = GetSubMode(processName);
-            if (mode < 1)
+            if (!_runningProcessIds.Contains(processId))
                 return;
 
+            _runningProcessIds.Remove(processId);
+
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Process {processName} stopped.");
+                Log.Instance.Trace($"Process {processId} stopped.");
 
             Task.Run(() => SetSubMode(0));
         }
 
-        private int GetSubMode(string processName)
-        {
-            if (_subModes is null)
-                return 0;
-
-            return _subModes
-                .Where(sm => sm.ProcessName.Equals(processName, StringComparison.InvariantCultureIgnoreCase))
-                .Select(sm => sm.Mode)
-                .FirstOrDefault();
-        }
+        private int GetSubMode(string processName) => _subModes?.TryGetValue(processName, out var result) == true ? result : 0;
 
         private IDisposable CreateStartProcessListener() => WMI.Listen("root\\CIMV2",
             $"SELECT * FROM Win32_ProcessStartTrace",
             pdc =>
             {
-                var processName = pdc["ProcessName"].ToString();
-                if (processName is not null)
-                    ProcessStarted(processName);
+                var processName = pdc["ProcessName"].Value.ToString();
+                if (!int.TryParse(pdc["ProcessID"].Value?.ToString(), out var processID))
+                    processID = 0;
+
+                if (processName is not null && processID > 0)
+                    ProcessStarted(processName, processID);
             });
 
         private IDisposable CreateStopProcessListener() => WMI.Listen("root\\CIMV2",
             $"SELECT * FROM Win32_ProcessStopTrace",
             pdc =>
             {
-                var processName = pdc["ProcessName"].ToString();
-                if (processName is not null)
-                    ProcessStopped(processName);
+                if (!int.TryParse(pdc["ProcessID"].Value?.ToString(), out var processId))
+                    processId = 0;
+
+                if (processId > 0)
+                    ProcessStopped(processId);
             });
 
         private async Task LoadSubModes()
@@ -130,10 +124,17 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 {
                     var processName = pdc["processname"].Value.ToString();
                     var mode = Convert.ToInt32(pdc["mode"].Value);
-                    return new SubMode { ProcessName = processName, Mode = mode };
+                    return (processName, mode);
                 }).ConfigureAwait(false);
 
-            _subModes = subModes.ToArray();
+            _subModes = new();
+
+            foreach (var (processName, mode) in subModes)
+            {
+                if (processName is null)
+                    continue;
+                _subModes[processName] = mode;
+            }
         }
 
         private Task SetSubMode(int mode) => WMI.CallAsync("root\\WMI",
