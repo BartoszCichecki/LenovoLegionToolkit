@@ -54,7 +54,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             {
                 await base.OnStateChange(comboBox, feature, newValue, oldValue);
 
-                if (comboBox.TryGetSelectedItem(out PowerModeState state) && state == PowerModeState.GodMode)
+                if (comboBox.TryGetSelectedItem(out PowerModeState state) && state is PowerModeState.GodMode or PowerModeState.Balance)
                 {
                     _configButton.ToolTip = "Settings";
                     _configButton.Visibility = Visibility.Visible;
@@ -87,7 +87,21 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
         private void ConfigButton_Click(object sender, RoutedEventArgs e)
         {
-            if (_comboBox.TryGetSelectedItem(out PowerModeState state) && state == PowerModeState.GodMode)
+            if (!_comboBox.TryGetSelectedItem(out PowerModeState state))
+                return;
+
+            if (state == PowerModeState.Balance)
+            {
+                var window = new BalanceModeSettingsWindow
+                {
+                    Owner = Window.GetWindow(this),
+                    WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                    ShowInTaskbar = false,
+                };
+                window.ShowDialog();
+            }
+
+            if (state == PowerModeState.GodMode)
             {
                 var window = new GodModeSettingsWindow
                 {

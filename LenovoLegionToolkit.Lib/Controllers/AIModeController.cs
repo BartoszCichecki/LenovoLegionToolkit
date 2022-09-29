@@ -18,6 +18,16 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         private Dictionary<string, int>? _subModes;
 
+        public bool IsEnabled
+        {
+            get => _settings.Store.AIModeEnabled;
+            set
+            {
+                _settings.Store.AIModeEnabled = value;
+                _settings.SynchronizeStore();
+            }
+        }
+
         public AIModeController(BalanceModeSettings settings)
         {
             _settings = settings ?? throw new ArgumentNullException(nameof(settings));
