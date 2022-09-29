@@ -41,8 +41,6 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             Margin = new(8, 0, 0, 0),
         };
 
-        private bool _ignoreNextStateChange;
-
         public ComboBoxHybridModeControl()
         {
             Icon = SymbolRegular.LeafOne24;
