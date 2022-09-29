@@ -10,7 +10,18 @@ It runs no background services, uses less memory, uses virtually no CPU, and con
 
 Join the Legion Series Discord: https://discord.com/invite/legionseries!
 
-![screenshot](assets/screenshot.png)
+<img src="assets/screenshot.png" width="700" alt="PayPal QR code" />
+
+# Table of Contents
+  - [Disclaimer](#disclaimer)
+  - [Donate](#donate)
+  - [Download](#download)
+  - [Compatibility](#compatibility)
+  - [Features](#features)
+  - [Credits](#credits)
+  - [FAQ](#faq)
+  - [How to collect logs?](#how-to-collect-logs)
+  - [Contribution](#contribution)
 
 ## Disclaimer
 
