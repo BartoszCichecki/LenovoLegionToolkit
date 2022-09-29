@@ -53,7 +53,7 @@
             </Grid.RowDefinitions>
 
             <StackPanel Grid.Row="0">
-                <CheckBox x:Name="_aiModeCheckBox" Content="Enable AI Mode" />
+                <CheckBox x:Name="_aiModeCheckBox" Content="Enable AI Engine" />
 
                 <TextBlock Margin="32,4,0,0" TextWrapping="Wrap">
                     <TextBlock.Foreground>
