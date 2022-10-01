@@ -10,7 +10,7 @@ namespace LenovoLegionToolkit.Lib.Features
         public override async Task SetStateAsync(IGPUModeState state)
         {
             await base.SetStateAsync(state).ConfigureAwait(false);
-            await CMD.RunAsync("pnputil", "/scan-devices /async").ConfigureAwait(false);
+            //await CMD.RunAsync("pnputil", "/scan-devices /async").ConfigureAwait(false);
             //await NotifyDGPUStatusAsync(state).ConfigureAwait(false);
         }
 
