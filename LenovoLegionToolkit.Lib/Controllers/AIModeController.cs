@@ -39,7 +39,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         public async Task StartStopAsync(PowerModeState powerModeState)
         {
             var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
-            var isCompatible = mi.Properties.SupportsIntelligentMode;
+            var isCompatible = mi.Properties.SupportsIntelligentSubMode;
             if (!isCompatible)
                 return;
 
