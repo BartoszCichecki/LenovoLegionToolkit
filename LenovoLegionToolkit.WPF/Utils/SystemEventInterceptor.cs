@@ -22,7 +22,7 @@ namespace LenovoLegionToolkit.WPF.Utils
 
         public SystemEventInterceptor(IntPtr handle)
         {
-            //Register(handle);
+            Register(handle);
             AssignHandle(handle);
         }
 
