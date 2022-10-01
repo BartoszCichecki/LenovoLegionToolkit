@@ -213,9 +213,10 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private void RegisterHooks()
         {
-            var source = PresentationSource.FromVisual(this) as HwndSource;
-            source?.AddHook(Hook);
-            source?.AddHook(_igpuModeFeature.Hook);
+            if (PresentationSource.FromVisual(this) is not HwndSource source)
+                return;
+
+            source.AddHook(Hook);
         }
 
         private IntPtr Hook(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam, ref bool handled)
