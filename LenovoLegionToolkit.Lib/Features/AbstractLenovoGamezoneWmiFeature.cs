@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
+using Microsoft.VisualBasic;
 
 namespace LenovoLegionToolkit.Lib.Features
 {
@@ -16,13 +17,18 @@ namespace LenovoLegionToolkit.Lib.Features
         private readonly int _supportOffset;
         private readonly string _inParameterName;
         private readonly string _outParameterName;
+        private readonly string? _notifyUpdateMethodName;
+        private readonly string _notifyUpdateInParameterNameName;
+
 
         protected AbstractLenovoGamezoneWmiFeature(string methodNameSuffix,
             int offset,
             string? supportMethodName = null,
             int supportOffset = 0,
             string inParameterName = "Data",
-            string outParameterName = "Data")
+            string outParameterName = "Data",
+            string? notifyUpdateMethodName = null,
+            string notifyUpdateInParameterNameName = "Status")
         {
             _methodNameSuffix = methodNameSuffix;
             _offset = offset;
@@ -30,6 +36,8 @@ namespace LenovoLegionToolkit.Lib.Features
             _supportOffset = supportOffset;
             _inParameterName = inParameterName;
             _outParameterName = outParameterName;
+            _notifyUpdateMethodName = notifyUpdateMethodName;
+            _notifyUpdateInParameterNameName = notifyUpdateInParameterNameName; 
         }
 
         public async Task<bool> IsSupportedAsync()
@@ -89,7 +97,13 @@ namespace LenovoLegionToolkit.Lib.Features
                 _query,
                 "Set" + _methodNameSuffix,
                 new() { { _inParameterName, ToInternal(state).ToString() } }).ConfigureAwait(false);
-
+            if (_notifyUpdateMethodName != null)
+            {
+                await WMI.CallAsync(_scope,
+                _query,
+                _notifyUpdateMethodName,
+                new() { { _notifyUpdateInParameterNameName, ToInternal(state).ToString() } }).ConfigureAwait(false);
+            }
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Set state to {state} [feature={GetType().Name}]");
         }
