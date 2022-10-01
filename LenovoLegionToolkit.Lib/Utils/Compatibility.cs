@@ -47,7 +47,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         private static MachineInformation? _machineInformation;
 
-        public static async Task<MachineInformation> GetMachineInformation()
+        public static async Task<MachineInformation> GetMachineInformationAsync()
         {
             if (!_machineInformation.HasValue)
             {
@@ -92,7 +92,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         public static async Task<(bool isCompatible, MachineInformation machineInformation)> IsCompatibleAsync()
         {
-            var mi = await GetMachineInformation().ConfigureAwait(false);
+            var mi = await GetMachineInformationAsync().ConfigureAwait(false);
 
             if (!mi.Vendor.Equals(_allowedVendor, StringComparison.InvariantCultureIgnoreCase))
                 return (false, mi);

@@ -24,7 +24,7 @@ namespace LenovoLegionToolkit.Lib.Features
 
         public override async Task<PowerModeState[]> GetAllStatesAsync()
         {
-            var mi = await Compatibility.GetMachineInformation().ConfigureAwait(false);
+            var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
             if (mi.Properties.SupportsGodMode)
                 return new[] { PowerModeState.Quiet, PowerModeState.Balance, PowerModeState.Performance, PowerModeState.GodMode };
 

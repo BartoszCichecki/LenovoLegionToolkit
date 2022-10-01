@@ -219,7 +219,7 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private void LoadDeviceInfo()
         {
-            Task.Run(Compatibility.GetMachineInformation)
+            Task.Run(Compatibility.GetMachineInformationAsync)
                 .ContinueWith(mi =>
                 {
                     _deviceInfoIndicator.Content = mi.Result.Model;

@@ -42,7 +42,7 @@ namespace LenovoLegionToolkit.Lib.Features
 
         private async Task<bool> ShouldFlipAsync()
         {
-            var mi = await Compatibility.GetMachineInformation().ConfigureAwait(false);
+            var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
             return mi.Properties.ShouldFlipFnLock;
         }
     }
