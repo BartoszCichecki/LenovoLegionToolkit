@@ -56,7 +56,6 @@ namespace LenovoLegionToolkit.Lib.Features
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Error occurred.", ex);
-
             }
         }
     }
