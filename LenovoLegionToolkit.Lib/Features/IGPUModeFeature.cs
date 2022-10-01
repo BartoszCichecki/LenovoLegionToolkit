@@ -23,13 +23,13 @@ namespace LenovoLegionToolkit.Lib.Features
             if (devBroadcastDeviceInterface.ClassGuid != NativeConstants.GUID_DISPLAY_DEVICE_ARRIVAL)
                 return IntPtr.Zero;
 
-            Task.Run(NotifyDGPUStatus);
+            Task.Run(NotifyDGPUStatusAsync);
             handled = true;
 
             return IntPtr.Zero;
         }
 
-        private async Task NotifyDGPUStatus()
+        private async Task NotifyDGPUStatusAsync()
         {
             try
             {
