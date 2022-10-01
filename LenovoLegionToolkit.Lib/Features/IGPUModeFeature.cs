@@ -36,10 +36,20 @@ namespace LenovoLegionToolkit.Lib.Features
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Attempting notify...");
 
+                var mi = await Compatibility.GetMachineInformation().ConfigureAwait(false);
+                if (!mi.Properties.SupportsExtendedHybridMode)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Unsupported.");
+
+                    return;
+                }
+
                 if (!await IsSupportedAsync().ConfigureAwait(false))
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Unsupported.");
+
                     return;
                 }
 
