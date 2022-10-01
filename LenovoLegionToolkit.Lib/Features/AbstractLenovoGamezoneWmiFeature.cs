@@ -7,8 +7,8 @@ namespace LenovoLegionToolkit.Lib.Features
 {
     public abstract class AbstractLenovoGamezoneWmiFeature<T> : IFeature<T> where T : struct, Enum, IComparable
     {
-        private static readonly string _scope = @"root\WMI";
-        private static readonly FormattableString _query = $"SELECT * FROM LENOVO_GAMEZONE_DATA";
+        protected static readonly string Scope = @"root\WMI";
+        protected static readonly FormattableString Query = $"SELECT * FROM LENOVO_GAMEZONE_DATA";
 
         private readonly string _methodNameSuffix;
         private readonly int _offset;
@@ -16,8 +16,6 @@ namespace LenovoLegionToolkit.Lib.Features
         private readonly int _supportOffset;
         private readonly string _inParameterName;
         private readonly string _outParameterName;
-        private readonly string? _notifyUpdateMethodName;
-        private readonly string _notifyUpdateInParameterNameName;
 
 
         protected AbstractLenovoGamezoneWmiFeature(string methodNameSuffix,
@@ -25,9 +23,7 @@ namespace LenovoLegionToolkit.Lib.Features
             string? supportMethodName = null,
             int supportOffset = 0,
             string inParameterName = "Data",
-            string outParameterName = "Data",
-            string? notifyUpdateMethodName = null,
-            string notifyUpdateInParameterNameName = "Status")
+            string outParameterName = "Data")
         {
             _methodNameSuffix = methodNameSuffix;
             _offset = offset;
@@ -35,8 +31,6 @@ namespace LenovoLegionToolkit.Lib.Features
             _supportOffset = supportOffset;
             _inParameterName = inParameterName;
             _outParameterName = outParameterName;
-            _notifyUpdateMethodName = notifyUpdateMethodName;
-            _notifyUpdateInParameterNameName = notifyUpdateInParameterNameName; 
         }
 
         public async Task<bool> IsSupportedAsync()
@@ -46,8 +40,8 @@ namespace LenovoLegionToolkit.Lib.Features
                 if (_supportMethodName is null)
                     return true;
 
-                var value = await WMI.CallAsync(_scope,
-                    _query,
+                var value = await WMI.CallAsync(Scope,
+                    Query,
                     _supportMethodName,
                     new(),
                     pdc => Convert.ToInt32(pdc[_outParameterName].Value)).ConfigureAwait(false);
@@ -74,8 +68,8 @@ namespace LenovoLegionToolkit.Lib.Features
                 throw new NotSupportedException($"Feature {_methodNameSuffix} is not supported.");
             }
 
-            var internalResult = await WMI.CallAsync(_scope,
-                _query,
+            var internalResult = await WMI.CallAsync(Scope,
+                Query,
                 "Get" + _methodNameSuffix,
                 new(),
                 pdc => Convert.ToInt32(pdc[_outParameterName].Value)).ConfigureAwait(false);
@@ -92,23 +86,17 @@ namespace LenovoLegionToolkit.Lib.Features
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Setting state to {state}... [feature={GetType().Name}]");
 
-            await WMI.CallAsync(_scope,
-                _query,
+            await WMI.CallAsync(Scope,
+                Query,
                 "Set" + _methodNameSuffix,
                 new() { { _inParameterName, ToInternal(state).ToString() } }).ConfigureAwait(false);
-            if (_notifyUpdateMethodName != null)
-            {
-                await WMI.CallAsync(_scope,
-                _query,
-                _notifyUpdateMethodName,
-                new() { { _notifyUpdateInParameterNameName, ToInternal(state).ToString() } }).ConfigureAwait(false);
-            }
+
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Set state to {state} [feature={GetType().Name}]");
         }
 
-        private int ToInternal(T state) => (int)(object)state + _offset;
+        protected int ToInternal(T state) => (int)(object)state + _offset;
 
-        private T FromInternal(int state) => (T)(object)(state - _offset);
+        protected T FromInternal(int state) => (T)(object)(state - _offset);
     }
 }

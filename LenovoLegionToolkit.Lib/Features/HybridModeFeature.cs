@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features
@@ -54,10 +53,7 @@ namespace LenovoLegionToolkit.Lib.Features
             if (await _igpuModeFeature.IsSupportedAsync().ConfigureAwait(false))
             {
                 if (igpuMode != await _igpuModeFeature.GetStateAsync().ConfigureAwait(false))
-                {
                     await _igpuModeFeature.SetStateAsync(igpuMode).ConfigureAwait(false);
-                    ScanDevicesDelayed();
-                }
             }
 
             if (gsync != await _gsyncFeature.GetStateAsync().ConfigureAwait(false))
@@ -66,22 +62,6 @@ namespace LenovoLegionToolkit.Lib.Features
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"State set to {state} [gsync={gsync}, igpuMode={igpuMode}]");
-        }
-
-        private void ScanDevicesDelayed()
-        {
-            Task.Run(async () =>
-            {
-                await Task.Delay(2000).ConfigureAwait(false);
-                await CMD.RunAsync("pnputil", "/scan-devices /async").ConfigureAwait(false);
-            }).ContinueWith(t =>
-            {
-                if (!t.IsFaulted)
-                    return;
-
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Scan devices failed.", t.Exception);
-            });
         }
 
         private (GSyncState, IGPUModeState) Unpack(HybridModeState state) => state switch
