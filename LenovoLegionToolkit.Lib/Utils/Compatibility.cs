@@ -66,7 +66,8 @@ namespace LenovoLegionToolkit.Lib.Utils
                         ShouldFlipFnLock = GetShouldFlipFnLock(),
                         SupportsGodMode = GetSupportsGodMode(biosVersion),
                         SupportsACDetection = await GetSupportsACDetection().ConfigureAwait(false),
-                        SupportsExtendedHybridMode = await GetSupportsExtendedHybridModeAsync().ConfigureAwait(false)
+                        SupportsExtendedHybridMode = await GetSupportsExtendedHybridModeAsync().ConfigureAwait(false),
+                        SupportsIntelligentSubModeAsync = await GetSupportsIntelligentSubModeAsync().ConfigureAwait(false)
                     }
                 };
 
@@ -80,6 +81,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                     Log.Instance.Trace($" * ShouldFlipFnLock: {machineInformation.Properties.ShouldFlipFnLock}");
                     Log.Instance.Trace($" * SupportsGodMode: {machineInformation.Properties.SupportsGodMode}");
                     Log.Instance.Trace($" * SupportsExtendedHybridMode: {machineInformation.Properties.SupportsExtendedHybridMode}");
+                    Log.Instance.Trace($" * SupportsIntelligentSubModeAsync: {machineInformation.Properties.SupportsIntelligentSubModeAsync}");
                 }
 
                 _machineInformation = machineInformation;
@@ -173,6 +175,23 @@ namespace LenovoLegionToolkit.Lib.Utils
                     new(),
                     pdc => (uint)pdc["Data"].Value).ConfigureAwait(false);
                 return result > 0;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private static async Task<bool> GetSupportsIntelligentSubModeAsync()
+        {
+            try
+            {
+                _ = await WMI.CallAsync("root\\WMI",
+                    $"SELECT * FROM LENOVO_GAMEZONE_DATA",
+                    "GetIntelligentSubMode",
+                    new(),
+                    pdc => (uint)pdc["Data"].Value).ConfigureAwait(false);
+                return true;
             }
             catch
             {
