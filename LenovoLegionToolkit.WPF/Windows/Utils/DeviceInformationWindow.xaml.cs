@@ -29,7 +29,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
 
         private async Task RefreshAsync(bool forceRefresh = false)
         {
-            var mi = await Compatibility.GetMachineInformation();
+            var mi = await Compatibility.GetMachineInformationAsync();
 
             _manufacturerLabel.Content = mi.Vendor;
             _modelLabel.Content = mi.Model;

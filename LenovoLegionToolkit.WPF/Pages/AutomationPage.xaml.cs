@@ -251,7 +251,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 new ACAdapterConnectedAutomationPipelineTrigger()
             };
 
-            if ((await Compatibility.GetMachineInformation()).Properties.SupportsACDetection)
+            if ((await Compatibility.GetMachineInformationAsync()).Properties.SupportsACDetection)
                 triggers.Add(new LowWattageACAdapterConnectedAutomationPipelineTrigger());
 
             triggers.AddRange(new IAutomationPipelineTrigger[]

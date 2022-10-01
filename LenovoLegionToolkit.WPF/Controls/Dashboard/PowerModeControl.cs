@@ -57,7 +57,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
                 if (!comboBox.TryGetSelectedItem(out PowerModeState state))
                     return;
 
-                var mi = await Compatibility.GetMachineInformation();
+                var mi = await Compatibility.GetMachineInformationAsync();
 
                 switch (state)
                 {
