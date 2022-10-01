@@ -149,7 +149,7 @@
                 </Border>
 
                 <wpfui:Snackbar
-                    x:Name="_snackBar"
+                    x:Name="_snackbar"
                     Grid.Column="1"
                     MinWidth="300"
                     MaxWidth="600"

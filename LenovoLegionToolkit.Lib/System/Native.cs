@@ -7,6 +7,13 @@ using Microsoft.Win32.SafeHandles;
 
 namespace LenovoLegionToolkit.Lib.System
 {
+    internal struct NativeConstants
+    {
+        public static int WM_DEVICECHANGE = 537;
+        public static int DBT_DEVTYP_HANDLE = 5;
+        public static Guid GUID_DISPLAY_DEVICE_ARRIVAL = new("1CA05180-A699-450A-9A0C-DE4FBE3DDD89");
+    }
+
     internal enum FirmwareTypeEx
     {
         Unknown,
@@ -143,6 +150,25 @@ namespace LenovoLegionToolkit.Lib.System
         public PowerStateEx PowerState;
         public uint LowCapacity;
         public uint HighCapacity;
+    }
+
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+    internal struct DevBroadcastHdr
+    {
+        public int Size;
+        public int DeviceType;
+        public int Reserved;
+    }
+
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+    internal struct DevBroadcastDeviceInterface
+    {
+        public int Size;
+        public int Devicetype;
+        public int Reserved;
+        public Guid ClassGuid;
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 255)]
+        public string Name;
     }
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]

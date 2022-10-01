@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Interop;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
@@ -22,11 +23,12 @@ namespace LenovoLegionToolkit.WPF.Windows
     public partial class MainWindow
     {
         private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
-        private readonly UpdateChecker _updateChecker = IoCContainer.Resolve<UpdateChecker>();
-        private readonly SpecialKeyListener _specialKeyListener = IoCContainer.Resolve<SpecialKeyListener>();
         private readonly FnKeys _fnKeys = IoCContainer.Resolve<FnKeys>();
+        private readonly IGPUModeFeature _igpuModeFeature = IoCContainer.Resolve<IGPUModeFeature>();
+        private readonly SpecialKeyListener _specialKeyListener = IoCContainer.Resolve<SpecialKeyListener>();
+        private readonly UpdateChecker _updateChecker = IoCContainer.Resolve<UpdateChecker>();
 
-        public Snackbar Snackbar => _snackBar;
+        public Snackbar Snackbar => _snackbar;
 
         private NotifyIcon? _notifyIcon;
         private uint _taskbarCreatedMessageId;
@@ -98,11 +100,8 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private void MainWindow_SourceInitialized(object? sender, EventArgs args)
         {
-            _taskbarCreatedMessageId = Native.RegisterWindowMessage("TaskbarCreated");
-            Native.ChangeWindowMessageFilter(_taskbarCreatedMessageId, 1);
-
-            var source = PresentationSource.FromVisual(this) as HwndSource;
-            source?.AddHook(WndProc);
+            RegisterWindowMessages();
+            RegisterHooks();
         }
 
         private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -206,26 +205,25 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private void NotifyIcon_LeftClick([NotNull] NotifyIcon sender, RoutedEventArgs e) => BringToForeground();
 
-        private IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam, ref bool handled)
+        private void RegisterWindowMessages()
+        {
+            _taskbarCreatedMessageId = Native.RegisterWindowMessage("TaskbarCreated");
+            Native.ChangeWindowMessageFilter(_taskbarCreatedMessageId, 1);
+        }
+
+        private void RegisterHooks()
+        {
+            var source = PresentationSource.FromVisual(this) as HwndSource;
+            source?.AddHook(Hook);
+            source?.AddHook(_igpuModeFeature.Hook);
+        }
+
+        private IntPtr Hook(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam, ref bool handled)
         {
             if (msg == _taskbarCreatedMessageId)
             {
                 InitializeTray();
                 handled = true;
-            }
-
-            if (msg == 537)
-            {
-                //Task.Run(async () =>
-                //{
-                //    try
-                //    {
-                //        await WMI.CallAsync("root\\WMI", $"SELECT * FROM LENOVO_GAMEZONE_DATA", "NotifyDGPUStatus", new());
-                //    }
-                //    catch
-                //    {
-                //    }
-                //});
             }
 
             return IntPtr.Zero;
