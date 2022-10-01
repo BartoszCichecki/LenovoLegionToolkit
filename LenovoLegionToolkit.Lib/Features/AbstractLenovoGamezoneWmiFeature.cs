@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
-using Microsoft.VisualBasic;
 
 namespace LenovoLegionToolkit.Lib.Features
 {
