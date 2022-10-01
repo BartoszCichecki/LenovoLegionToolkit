@@ -33,6 +33,9 @@ namespace LenovoLegionToolkit.Lib.Features
         {
             try
             {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Attempting notify...");
+
                 if (!await IsSupportedAsync().ConfigureAwait(false))
                 {
                     if (Log.Instance.IsTraceEnabled)
@@ -45,6 +48,9 @@ namespace LenovoLegionToolkit.Lib.Features
                     Query,
                     "NotifyDGPUStatus",
                     new() { { "Status", ToInternal(state).ToString() } }).ConfigureAwait(false);
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Notified.");
             }
             catch (Exception ex)
             {
