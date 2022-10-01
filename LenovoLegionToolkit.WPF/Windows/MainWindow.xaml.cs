@@ -7,7 +7,6 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Interop;
 using LenovoLegionToolkit.Lib;
-using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
@@ -24,7 +23,6 @@ namespace LenovoLegionToolkit.WPF.Windows
     {
         private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
         private readonly FnKeys _fnKeys = IoCContainer.Resolve<FnKeys>();
-        private readonly IGPUModeFeature _igpuModeFeature = IoCContainer.Resolve<IGPUModeFeature>();
         private readonly SpecialKeyListener _specialKeyListener = IoCContainer.Resolve<SpecialKeyListener>();
         private readonly UpdateChecker _updateChecker = IoCContainer.Resolve<UpdateChecker>();
 
@@ -98,8 +96,13 @@ namespace LenovoLegionToolkit.WPF.Windows
             BringToForeground();
         });
 
+        private SystemEventInterceptor? _systemEventInterceptor;
+
         private void MainWindow_SourceInitialized(object? sender, EventArgs args)
         {
+            var helper = new WindowInteropHelper(this);
+            _systemEventInterceptor = new SystemEventInterceptor(helper.Handle);
+
             RegisterWindowMessages();
             RegisterHooks();
         }
