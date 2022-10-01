@@ -91,7 +91,7 @@ namespace LenovoLegionToolkit.Lib
             public bool SupportsGodMode { get; init; }
             public bool SupportsACDetection { get; init; }
             public bool SupportsExtendedHybridMode { get; init; }
-            public bool SupportsIntelligentMode { get; init; }
+            public bool SupportsIntelligentSubMode { get; init; }
         }
 
         public string Vendor { get; init; }

@@ -67,7 +67,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                         SupportsGodMode = GetSupportsGodMode(biosVersion),
                         SupportsACDetection = await GetSupportsACDetection().ConfigureAwait(false),
                         SupportsExtendedHybridMode = await GetSupportsExtendedHybridModeAsync().ConfigureAwait(false),
-                        SupportsIntelligentSubModeAsync = await GetSupportsIntelligentSubModeAsync().ConfigureAwait(false)
+                        SupportsIntelligentSubMode = await GetSupportsIntelligentSubModeAsync().ConfigureAwait(false)
                     }
                 };
 
@@ -81,7 +81,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                     Log.Instance.Trace($" * ShouldFlipFnLock: {machineInformation.Properties.ShouldFlipFnLock}");
                     Log.Instance.Trace($" * SupportsGodMode: {machineInformation.Properties.SupportsGodMode}");
                     Log.Instance.Trace($" * SupportsExtendedHybridMode: {machineInformation.Properties.SupportsExtendedHybridMode}");
-                    Log.Instance.Trace($" * SupportsIntelligentSubModeAsync: {machineInformation.Properties.SupportsIntelligentSubModeAsync}");
+                    Log.Instance.Trace($" * SupportsIntelligentSubMode: {machineInformation.Properties.SupportsIntelligentSubMode}");
                 }
 
                 _machineInformation = machineInformation;
