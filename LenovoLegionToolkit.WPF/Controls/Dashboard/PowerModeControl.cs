@@ -54,22 +54,25 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             {
                 await base.OnStateChange(comboBox, feature, newValue, oldValue);
 
+                if (!comboBox.TryGetSelectedItem(out PowerModeState state))
+                    return;
+
                 var mi = await Compatibility.GetMachineInformation();
 
-                if (comboBox.TryGetSelectedItem(out PowerModeState state) && state is PowerModeState.Balance && mi.Properties.SupportsIntelligentMode)
+                switch (state)
                 {
-                    _configButton.ToolTip = "Settings";
-                    _configButton.Visibility = Visibility.Visible;
-                }
-                else if (comboBox.TryGetSelectedItem(out state) && state is PowerModeState.GodMode)
-                {
-                    _configButton.ToolTip = "Settings";
-                    _configButton.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    _configButton.ToolTip = null;
-                    _configButton.Visibility = Visibility.Collapsed;
+                    case PowerModeState.Balance when mi.Properties.SupportsIntelligentSubMode:
+                        _configButton.ToolTip = "Settings";
+                        _configButton.Visibility = Visibility.Visible;
+                        break;
+                    case PowerModeState.GodMode:
+                        _configButton.ToolTip = "Settings";
+                        _configButton.Visibility = Visibility.Visible;
+                        break;
+                    default:
+                        _configButton.ToolTip = null;
+                        _configButton.Visibility = Visibility.Collapsed;
+                        break;
                 }
             }
             catch (InvalidOperationException ex)
