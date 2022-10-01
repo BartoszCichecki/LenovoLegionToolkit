@@ -2,7 +2,7 @@
 
 [![Build](https://github.com/BartoszCichecki/LenovoLegionToolkit/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/BartoszCichecki/LenovoLegionToolkit/actions/workflows/build.yml) [![Join Discord](https://img.shields.io/discord/761178912230473768?label=Legion%20Series%20Discord)](https://discord.com/invite/legionseries)
 
-This is a utility created for Lenovo Legion laptops, that allows changing a couple of features that are only available in Lenovo Vantage or Legion Zone.
+Lenovo Legion Toolkit (LLT) is a utility created for Lenovo Legion laptops, that allows changing a couple of features that are only available in Lenovo Vantage or Legion Zone.
 
 **If your laptop is not part of Legion or Ideapad Gaming lines, this software is not for you.**
 
@@ -10,7 +10,18 @@ It runs no background services, uses less memory, uses virtually no CPU, and con
 
 Join the Legion Series Discord: https://discord.com/invite/legionseries!
 
-![screenshot](assets/screenshot.png)
+<img src="assets/screenshot.png" width="700" alt="PayPal QR code" />
+
+# Table of Contents
+  - [Disclaimer](#disclaimer)
+  - [Donate](#donate)
+  - [Download](#download)
+  - [Compatibility](#compatibility)
+  - [Features](#features)
+  - [Credits](#credits)
+  - [FAQ](#faq)
+  - [How to collect logs?](#how-to-collect-logs)
+  - [Contribution](#contribution)
 
 ## Disclaimer
 
@@ -33,6 +44,8 @@ You can download the installer from the Releases page here: [Latest release](htt
 ## Compatibility
 
 Lenovo Legion Toolkit is compatible with a lot of Lenovo Legion laptops from 2020, 2021 and 2022 running Windows 10 and 11. All testing done by me is done always on the latest Windows 11 update and Legion 5 Pro 16ACH6H.
+
+Overall the recommendation is to disable or uninstall Vantage, Hotkeys and Legion Zone while using LLT. There are some functions that cause conflicts or may not work properly when LLT is working along side other Lenovo apps.
 
 If you are getting an incompatible message on startup, you can check the *Contribution* section down at the bottom, to see how can you help. Keep in mind, that not always I can make all options compatible with all hardware since I do not have access to it.
 
