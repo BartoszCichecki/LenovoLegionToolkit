@@ -55,17 +55,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 Log.Instance.Trace($"Starting...");
 
             await StopAsync().ConfigureAwait(false);
-
             await LoadSubModesAsync().ConfigureAwait(false);
-
-            if (_subModeData.Count < 1)
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Will not start.");
-
-                return;
-            }
-
             await SetSubModeIfNeededAsync().ConfigureAwait(false);
 
             _startProcessListener = CreateStartProcessListener();
@@ -75,7 +65,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 Log.Instance.Trace($"Started");
         }
 
-        private Task StopAsync()
+        private async Task StopAsync()
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Stopping...");
@@ -86,17 +76,15 @@ namespace LenovoLegionToolkit.Lib.Controllers
             _runningProcessIds.Clear();
             _subModeData.Clear();
 
+            await SetSubModeAsync(0).ConfigureAwait(false);
+
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Stopped");
-
-            return Task.CompletedTask;
         }
 
         private void ProcessStarted(string processName, int processId)
         {
             var subMode = GetSubMode(processName);
-            if (subMode < 1)
-                return;
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Process {processName} started. [processId={processId}, subMode={subMode}]");
@@ -116,10 +104,10 @@ namespace LenovoLegionToolkit.Lib.Controllers
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Process {processId} stopped.");
 
-            Task.Run(() => SetSubModeAsync(0));
+            Task.Run(() => SetSubModeAsync(1));
         }
 
-        private int GetSubMode(string processName) => _subModeData.TryGetValue(processName, out var result) ? result : 0;
+        private int GetSubMode(string processName) => _subModeData.TryGetValue(processName, out var result) ? result : 1;
 
         private IDisposable CreateStartProcessListener() => WMI.Listen("root\\CIMV2",
             $"SELECT * FROM Win32_ProcessStartTrace",
@@ -173,6 +161,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         private async Task SetSubModeIfNeededAsync()
         {
+            var currentSubMode = 1;
+
             foreach (var (processName, subMode) in _subModeData)
             {
                 var process = Process.GetProcessesByName(Path.GetFileNameWithoutExtension(processName)).FirstOrDefault();
@@ -183,9 +173,11 @@ namespace LenovoLegionToolkit.Lib.Controllers
                     Log.Instance.Trace($"Found running process {processName}. [processId={process.Id}, subMode={subMode}]");
 
                 _runningProcessIds.Add(process.Id);
-                await SetSubModeAsync(subMode).ConfigureAwait(false);
+                currentSubMode = subMode;
                 break;
             }
+
+            await SetSubModeAsync(currentSubMode).ConfigureAwait(false);
         }
 
         private async Task SetSubModeAsync(int subMode)
