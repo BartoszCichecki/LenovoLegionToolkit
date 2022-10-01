@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
@@ -10,13 +14,12 @@ namespace LenovoLegionToolkit.Lib.Controllers
     public class AIModeController
     {
         private readonly HashSet<int> _runningProcessIds = new();
+        private readonly Dictionary<string, int> _subModeData = new();
 
         private readonly BalanceModeSettings _settings;
 
         private IDisposable? _startProcessListener;
         private IDisposable? _stopProcessListener;
-
-        private Dictionary<string, int>? _subModes;
 
         public bool IsEnabled
         {
@@ -48,7 +51,17 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
             await StopAsync().ConfigureAwait(false);
 
-            await LoadSubModes().ConfigureAwait(false);
+            await LoadSubModesAsync().ConfigureAwait(false);
+
+            if (_subModeData.Count < 1)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Will not start.");
+
+                return;
+            }
+
+            await SetSubModeIfNeededAsync().ConfigureAwait(false);
 
             _startProcessListener = CreateStartProcessListener();
             _stopProcessListener = CreateStopProcessListener();
@@ -66,6 +79,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             _stopProcessListener?.Dispose();
 
             _runningProcessIds.Clear();
+            _subModeData.Clear();
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Stopped");
@@ -75,16 +89,16 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         private void ProcessStarted(string processName, int processId)
         {
-            var mode = GetSubMode(processName);
-            if (mode < 1)
+            var subMode = GetSubMode(processName);
+            if (subMode < 1)
                 return;
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Process {processName} started. [processId={processId}, mode={mode}]");
+                Log.Instance.Trace($"Process {processName} started. [processId={processId}, subMode={subMode}]");
 
             _runningProcessIds.Add(processId);
 
-            Task.Run(() => SetSubMode(mode));
+            Task.Run(() => SetSubModeAsync(subMode));
         }
 
         private void ProcessStopped(int processId)
@@ -97,10 +111,10 @@ namespace LenovoLegionToolkit.Lib.Controllers
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Process {processId} stopped.");
 
-            Task.Run(() => SetSubMode(0));
+            Task.Run(() => SetSubModeAsync(0));
         }
 
-        private int GetSubMode(string processName) => _subModes?.TryGetValue(processName, out var result) == true ? result : 0;
+        private int GetSubMode(string processName) => _subModeData.TryGetValue(processName, out var result) ? result : 0;
 
         private IDisposable CreateStartProcessListener() => WMI.Listen("root\\CIMV2",
             $"SELECT * FROM Win32_ProcessStartTrace",
@@ -125,12 +139,13 @@ namespace LenovoLegionToolkit.Lib.Controllers
                     ProcessStopped(processId);
             });
 
-        private async Task LoadSubModes()
+        private async Task LoadSubModesAsync()
         {
-            if (_subModes is not null)
-                return;
+            _subModeData.Clear();
 
-            var subModes = await WMI.ReadAsync("root\\WMI",
+            try
+            {
+                var subModes = await WMI.ReadAsync("root\\WMI",
                 $"SELECT * FROM LENOVO_INTELLIGENT_OP_LIST",
                 pdc =>
                 {
@@ -139,19 +154,52 @@ namespace LenovoLegionToolkit.Lib.Controllers
                     return (processName, mode);
                 }).ConfigureAwait(false);
 
-            _subModes = new();
+                _subModeData.AddRange(subModes.OfType<(string, int)>().ToDictionary(sm => sm.Item1, sm => sm.Item2));
 
-            foreach (var (processName, mode) in subModes)
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Loaded {_subModeData.Count} sub modes.");
+            }
+            catch (Exception ex)
             {
-                if (processName is null)
-                    continue;
-                _subModes[processName] = mode;
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Failed to load sub modes.", ex);
             }
         }
 
-        private Task SetSubMode(int mode) => WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_GAMEZONE_DATA",
-            "SetIntelligentSubMode",
-            new() { { "Data", mode } });
+        private async Task SetSubModeIfNeededAsync()
+        {
+            foreach (var (processName, subMode) in _subModeData)
+            {
+                var process = Process.GetProcessesByName(Path.GetFileNameWithoutExtension(processName)).FirstOrDefault();
+                if (process is null)
+                    continue;
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Found running process {processName}. [processId={process.Id}, subMode={subMode}]");
+
+                _runningProcessIds.Add(process.Id);
+                await SetSubModeAsync(subMode).ConfigureAwait(false);
+                break;
+            }
+        }
+
+        private async Task SetSubModeAsync(int subMode)
+        {
+            try
+            {
+                await WMI.CallAsync("root\\WMI",
+                    $"SELECT * FROM LENOVO_GAMEZONE_DATA",
+                    "SetIntelligentSubMode",
+                    new() { { "Data", subMode } }).ConfigureAwait(false);
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Sub mode set to {subMode}.");
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Failed to set sub mode {subMode}.", ex);
+            }
+        }
     }
 }
