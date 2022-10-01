@@ -210,8 +210,8 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private void RegisterWindowMessages()
         {
-            _taskbarCreatedMessageId = Native.RegisterWindowMessage("TaskbarCreated");
-            Native.ChangeWindowMessageFilter(_taskbarCreatedMessageId, 1);
+            _taskbarCreatedMessageId = Native.User32.RegisterWindowMessage("TaskbarCreated");
+            Native.User32.ChangeWindowMessageFilter(_taskbarCreatedMessageId, 1);
         }
 
         private void RegisterHooks()
