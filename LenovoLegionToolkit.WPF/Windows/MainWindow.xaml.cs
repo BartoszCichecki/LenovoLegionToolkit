@@ -5,7 +5,6 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Interop;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Settings;
@@ -28,8 +27,8 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         public Snackbar Snackbar => _snackbar;
 
+        private SystemEventInterceptor? _systemEventInterceptor;
         private NotifyIcon? _notifyIcon;
-        private uint _taskbarCreatedMessageId;
 
         public MainWindow()
         {
@@ -98,8 +97,10 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private void MainWindow_SourceInitialized(object? sender, EventArgs args)
         {
-            RegisterWindowMessages();
-            RegisterHooks();
+            var systemEventInterceptor = new SystemEventInterceptor(this);
+            systemEventInterceptor.OnTaskbarCreated += (_, _) => InitializeTray();
+            systemEventInterceptor.OnDisplayDeviceArrival += async (_, _) => await IoCContainer.Resolve<IGPUModeFeature>().NotifyDGPUStatusIfNeeded();
+            _systemEventInterceptor = systemEventInterceptor;
         }
 
         private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -136,6 +137,7 @@ namespace LenovoLegionToolkit.WPF.Windows
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Closing...");
 
+                _systemEventInterceptor = null;
                 _notifyIcon?.Unregister();
 
                 Application.Current.Shutdown();
@@ -202,31 +204,6 @@ namespace LenovoLegionToolkit.WPF.Windows
         }
 
         private void NotifyIcon_LeftClick([NotNull] NotifyIcon sender, RoutedEventArgs e) => BringToForeground();
-
-        private void RegisterWindowMessages()
-        {
-            _taskbarCreatedMessageId = Native.RegisterWindowMessage("TaskbarCreated");
-            Native.ChangeWindowMessageFilter(_taskbarCreatedMessageId, 1);
-        }
-
-        private void RegisterHooks()
-        {
-            if (PresentationSource.FromVisual(this) is not HwndSource source)
-                return;
-
-            source.AddHook(Hook);
-        }
-
-        private IntPtr Hook(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam, ref bool handled)
-        {
-            if (msg == _taskbarCreatedMessageId)
-            {
-                InitializeTray();
-                handled = true;
-            }
-
-            return IntPtr.Zero;
-        }
 
         private void LoadDeviceInfo()
         {

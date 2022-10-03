@@ -13,6 +13,15 @@ namespace LenovoLegionToolkit.Lib.Features
             await NotifyDGPUStatusAsync(state).ConfigureAwait(false);
         }
 
+        public async Task NotifyDGPUStatusIfNeeded()
+        {
+            if (!await IsSupportedAsync().ConfigureAwait(false))
+                return;
+
+            var state = await GetStateAsync().ConfigureAwait(false);
+            await NotifyDGPUStatusAsync(state).ConfigureAwait(false);
+        }
+
         private Task NotifyDGPUStatusAsync(IGPUModeState state) => WMI.CallAsync(Scope,
             Query,
             "NotifyDGPUStatus",
