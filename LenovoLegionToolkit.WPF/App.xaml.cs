@@ -40,7 +40,7 @@ namespace LenovoLegionToolkit
 
         private async void Application_Startup(object sender, StartupEventArgs e)
         {
-            var args = e.Args.Concat(LoadExternalArgs());
+            var args = e.Args.Concat(LoadExternalArgs()).ToArray();
 
             if (IsTraceEnabled(args))
                 Log.Instance.IsTraceEnabled = true;
