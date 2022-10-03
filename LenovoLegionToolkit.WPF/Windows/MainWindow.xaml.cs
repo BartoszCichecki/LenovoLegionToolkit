@@ -138,6 +138,7 @@ namespace LenovoLegionToolkit.WPF.Windows
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Closing...");
 
+                _systemEventInterceptor = null;
                 _notifyIcon?.Unregister();
 
                 Application.Current.Shutdown();
