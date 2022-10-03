@@ -1,22 +1,40 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.Windows;
 using System.Windows.Forms;
-using LenovoLegionToolkit.Lib;
-using LenovoLegionToolkit.Lib.Features;
-using LenovoLegionToolkit.Lib.Utils;
+using System.Windows.Interop;
 
 namespace LenovoLegionToolkit.WPF.Utils
 {
     internal class SystemEventInterceptor : NativeWindow
     {
-        // Should free this on exit
-        private IntPtr _displayArrivalHandle;
+        private readonly uint _taskbarCreatedMessageId;
+        private readonly IntPtr _displayArrivalHandle;
 
-        public SystemEventInterceptor(IntPtr handle)
+        public event EventHandler? OnTaskbarCreated;
+        public event EventHandler? OnDisplayDeviceArrival;
+
+        public SystemEventInterceptor(Window window)
         {
+            var handle = new WindowInteropHelper(window).Handle;
+
+            _taskbarCreatedMessageId = RegisterTaskbarCreatedMessage();
             _displayArrivalHandle = RegisterDisplayArrival(handle);
 
             AssignHandle(handle);
+        }
+
+        ~SystemEventInterceptor()
+        {
+            if (_displayArrivalHandle != IntPtr.Zero)
+                _ = Native.User32.UnregisterDeviceNotification(_displayArrivalHandle);
+        }
+
+        private uint RegisterTaskbarCreatedMessage()
+        {
+            var message = Native.User32.RegisterWindowMessage("TaskbarCreated");
+            Native.User32.ChangeWindowMessageFilter(_taskbarCreatedMessageId, 1u);
+            return message;
         }
 
         private IntPtr RegisterDisplayArrival(IntPtr handle)
@@ -30,64 +48,33 @@ namespace LenovoLegionToolkit.WPF.Utils
                 str.ClassGuid = Native.GUID_DISPLAY_DEVICE_ARRIVAL;
                 ptr = Marshal.AllocHGlobal(Marshal.SizeOf(str));
                 Marshal.StructureToPtr(str, ptr, true);
-                return Native.User32.RegisterDeviceNotification(handle, ptr, 0U);
+                return Native.User32.RegisterDeviceNotification(handle, ptr, 0u);
             }
             finally
             {
-
                 Marshal.FreeHGlobal(ptr);
             }
         }
 
         protected override void WndProc(ref Message m)
         {
-            if (m.Msg == Native.WM_DEVICECHANGE)
+            if (m.Msg == _taskbarCreatedMessageId)
             {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"WM_DEVICECHANGE");
+                OnTaskbarCreated?.Invoke(this, EventArgs.Empty);
+            }
 
-                if (m.LParam != IntPtr.Zero)
+            if (m.Msg == Native.WM_DEVICECHANGE && m.LParam != IntPtr.Zero)
+            {
+                var devBroadcastHdr = Marshal.PtrToStructure<Native.DevBroadcastHdr>(m.LParam);
+                if (devBroadcastHdr.DeviceType == Native.DBT_DEVTYPE_HANDLE)
                 {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"m.LParam != IntPtr.Zero");
-
-                    var devBroadcastHdr = Marshal.PtrToStructure<Native.DevBroadcastHdr>(m.LParam);
-                    if (devBroadcastHdr.DeviceType == Native.DBT_DEVTYPE_HANDLE)
-                    {
-                        if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"devBroadcastHdr.DeviceType == DBT_DEVTYP_HANDLE");
-
-                        var devBroadcastDeviceInterface = Marshal.PtrToStructure<Native.DevBroadcastDeviceInterface>(m.LParam);
-                        if (devBroadcastDeviceInterface.ClassGuid == Native.GUID_DISPLAY_DEVICE_ARRIVAL)
-                        {
-                            if (Log.Instance.IsTraceEnabled)
-                                Log.Instance.Trace($"devBroadcastDeviceInterface.ClassGuid == GUID_DISPLAY_DEVICE_ARRIVAL");
-
-                            if (Log.Instance.IsTraceEnabled)
-                                Log.Instance.Trace($"NotifyDGPU");
-
-                            NotifyDGPU();
-                        }
-                    }
+                    var devBroadcastDeviceInterface = Marshal.PtrToStructure<Native.DevBroadcastDeviceInterface>(m.LParam);
+                    if (devBroadcastDeviceInterface.ClassGuid == Native.GUID_DISPLAY_DEVICE_ARRIVAL)
+                        OnDisplayDeviceArrival?.Invoke(this, EventArgs.Empty);
                 }
             }
 
             base.WndProc(ref m);
-        }
-
-        // Some error handling would be nice and no async void
-        private async void NotifyDGPU()
-        {
-            var feat = IoCContainer.Resolve<IGPUModeFeature>();
-
-            if (!await feat.IsSupportedAsync())
-                return;
-
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Notifying...");
-
-            var state = await feat.GetStateAsync();
-            await feat.NotifyDGPUStatusAsync(state);
         }
     }
 }
