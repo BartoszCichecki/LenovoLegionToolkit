@@ -102,7 +102,7 @@ namespace LenovoLegionToolkit.WPF.Windows
         {
             var systemEventInterceptor = new SystemEventInterceptor(this);
             systemEventInterceptor.OnTaskbarCreated += (_, _) => InitializeTray();
-            systemEventInterceptor.OnDisplayDeviceArrival += async (_, _) => await IoCContainer.Resolve<IGPUModeFeature>().NotifyDGPUStatusIfNeeded();
+            systemEventInterceptor.OnDisplayDeviceArrival += async (_, _) => await IoCContainer.Resolve<IGPUModeFeature>().NotifyDGPUStatusIfNeededAsync();
             _systemEventInterceptor = systemEventInterceptor;
         }
 
