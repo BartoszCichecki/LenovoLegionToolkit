@@ -13,7 +13,7 @@ namespace LenovoLegionToolkit.Lib.Features
             await NotifyDGPUStatusAsync(state).ConfigureAwait(false);
         }
 
-        public async Task NotifyDGPUStatusIfNeeded()
+        public async Task NotifyDGPUStatusIfNeededAsync()
         {
             if (!await IsSupportedAsync().ConfigureAwait(false))
                 return;
