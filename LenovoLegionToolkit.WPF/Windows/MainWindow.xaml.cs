@@ -17,6 +17,8 @@ using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Utils;
 using Wpf.Ui.Controls;
 
+#pragma warning disable IDE0052 // Remove unread private members
+
 namespace LenovoLegionToolkit.WPF.Windows
 {
     public partial class MainWindow

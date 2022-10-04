@@ -297,6 +297,7 @@ namespace LenovoLegionToolkit.Lib.System
     internal static class Native
     {
         public static readonly Guid GUID_DEVCLASS_BATTERY = new(0x72631E54, 0x78A4, 0x11D0, 0xBC, 0xF7, 0x00, 0xAA, 0x00, 0xB7, 0xB3, 0x2A);
+        public static readonly Guid GUID_DISPLAY_DEVICE_ARRIVAL = new("1CA05180-A699-450A-9A0C-DE4FBE3DDD89");
 
         public const uint IOCTL_BATTERY_QUERY_TAG = (0x00000029 << 16) | ((int)FileAccess.Read << 14) | (0x10 << 2) | (0);
         public const uint IOCTL_BATTERY_QUERY_INFORMATION = (0x00000029 << 16) | ((int)FileAccess.Read << 14) | (0x11 << 2) | (0);
@@ -490,7 +491,7 @@ namespace LenovoLegionToolkit.Lib.System
 
         [DllImport("hid.dll", CharSet = CharSet.Auto, SetLastError = true)]
         public static extern bool HidD_SetFeature(SafeFileHandle handle, IntPtr ptr, uint bufferLength);
-        
+
         [DllImport("cfgmgr32.dll", SetLastError = true)]
         public static extern int CM_Get_DevNode_Status(out uint status, out uint probNum, uint devInst, int flags);
     }
