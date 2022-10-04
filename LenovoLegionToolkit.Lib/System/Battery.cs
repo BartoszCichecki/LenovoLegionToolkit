@@ -4,6 +4,7 @@ using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Runtime.InteropServices;
 using LenovoLegionToolkit.Lib.Utils;
+using Vanara.PInvoke;
 
 namespace LenovoLegionToolkit.Lib.System
 {
@@ -39,11 +40,11 @@ namespace LenovoLegionToolkit.Lib.System
 
             return new()
             {
-                IsCharging = powerStatus.ACLineStatus == ACLineStatusEx.Online,
+                IsCharging = powerStatus.ACLineStatus == Kernel32.AC_STATUS.AC_ONLINE,
                 BatteryPercentage = powerStatus.BatteryLifePercent,
                 OnBatterySince = onBatterySince,
-                BatteryLifeRemaining = powerStatus.BatteryLifeTime,
-                FullBatteryLifeRemaining = powerStatus.BatteryFullLifeTime,
+                BatteryLifeRemaining = (int)powerStatus.BatteryLifeTime,
+                FullBatteryLifeRemaining = (int)powerStatus.BatteryFullLifeTime,
                 DischargeRate = status.Rate,
                 EstimateChargeRemaining = (int)status.Capacity,
                 DesignCapacity = information.DesignedCapacity,
@@ -55,9 +56,9 @@ namespace LenovoLegionToolkit.Lib.System
             };
         }
 
-        private static SystemPowerStatusEx GetSystemPowerStatus()
+        private static Kernel32.SYSTEM_POWER_STATUS GetSystemPowerStatus()
         {
-            var result = Native.GetSystemPowerStatus(out SystemPowerStatusEx sps);
+            var result = Kernel32.GetSystemPowerStatus(out var sps);
 
             if (!result)
                 NativeUtils.ThrowIfWin32Error("GetSystemPowerStatus");
@@ -68,6 +69,7 @@ namespace LenovoLegionToolkit.Lib.System
         private static uint GetBatteryTag()
         {
             uint emptyInput = 0;
+
             var result = Native.DeviceIoControl(Devices.GetBattery(),
                 Native.IOCTL_BATTERY_QUERY_TAG,
                 ref emptyInput,

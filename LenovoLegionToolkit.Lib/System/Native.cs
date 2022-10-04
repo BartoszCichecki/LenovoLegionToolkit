@@ -213,17 +213,6 @@ namespace LenovoLegionToolkit.Lib.System
         public string DevicePath;
     }
 
-    [StructLayout(LayoutKind.Sequential)]
-    internal struct SystemPowerStatusEx
-    {
-        public ACLineStatusEx ACLineStatus;
-        public BatteryFlagEx BatteryFlag;
-        public byte BatteryLifePercent;
-        public byte Reserved1;
-        public int BatteryLifeTime;
-        public int BatteryFullLifeTime;
-    }
-
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct HIDDAttributesEx
     {
@@ -326,9 +315,6 @@ namespace LenovoLegionToolkit.Lib.System
             uint deviceInterfaceDetailDataSize,
             out uint requiredSize,
             IntPtr deviceInfoData);
-
-        [DllImport("kernel32.dll")]
-        public static extern bool GetSystemPowerStatus(out SystemPowerStatusEx sps);
 
         [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
         public static extern IntPtr CreateFile(
