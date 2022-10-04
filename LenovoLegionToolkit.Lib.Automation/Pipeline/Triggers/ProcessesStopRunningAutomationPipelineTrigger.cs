@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.Lib.Utils;
 using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
@@ -24,10 +25,22 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
             if (automationEvent is not ProcessAutomationEvent { ProcessEventInfo.Type: ProcessEventInfoType.Stopped } pae)
                 return Task.FromResult(false);
 
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Checking for {pae.ProcessEventInfo.Process.Name}... [processes={string.Join(",", Processes.Select(p => p.Name))}]");
+
             if (!Processes.Contains(pae.ProcessEventInfo.Process))
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Process name {pae.ProcessEventInfo.Process.Name} not in the list.");
+
                 return Task.FromResult(false);
+            }
 
             var result = Processes.SelectMany(p => Process.GetProcessesByName(p.Name)).IsEmpty();
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Process name {pae.ProcessEventInfo.Process.Name} found in process list: {!result}.");
+
             return Task.FromResult(result);
         }
 
