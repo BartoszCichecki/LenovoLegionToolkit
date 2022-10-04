@@ -208,7 +208,7 @@ namespace LenovoLegionToolkit.Lib.System
     {
         public int CbSize;
         public Guid InterfaceClassGuid;
-        public int Flags;
+        public uint DevInst;
         public UIntPtr Reserved;
     }
 
@@ -490,6 +490,9 @@ namespace LenovoLegionToolkit.Lib.System
 
         [DllImport("hid.dll", CharSet = CharSet.Auto, SetLastError = true)]
         public static extern bool HidD_SetFeature(SafeFileHandle handle, IntPtr ptr, uint bufferLength);
+        
+        [DllImport("cfgmgr32.dll", SetLastError = true)]
+        public static extern int CM_Get_DevNode_Status(out uint status, out uint probNum, uint devInst, int flags);
     }
 
     internal static class NativeUtils

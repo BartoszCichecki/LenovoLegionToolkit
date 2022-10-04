@@ -62,6 +62,8 @@ namespace LenovoLegionToolkit
                 new WPF.IoCModule()
             );
 
+            await new IGPUModeFeature().IsDGPUAvailableAsync();
+
             if (ShouldForceDisableRGBKeyboardSupport(args))
                 IoCContainer.Resolve<RGBKeyboardBacklightController>().ForceDisable = true;
 
