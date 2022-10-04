@@ -7,6 +7,7 @@ using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Dashboard;
 using Wpf.Ui.Common;
@@ -64,6 +65,13 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             return stackPanel;
         }
 
+        protected override void OnFinishedLoading()
+        {
+            base.OnFinishedLoading();
+
+            MessagingCenter.Subscribe<IGPUModeState>(this, () => Dispatcher.InvokeTask(RefreshAsync));
+        }
+
         protected override async Task OnStateChange(ComboBox comboBox, IFeature<HybridModeState> feature, HybridModeState? newValue, HybridModeState? oldValue)
         {
             if (newValue is null || oldValue is null)
@@ -72,7 +80,10 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             await base.OnStateChange(comboBox, feature, newValue, oldValue);
 
             if (newValue != HybridModeState.Off && oldValue != HybridModeState.Off)
+            {
+                await RefreshAsync();
                 return;
+            }
 
             var result = await MessageBoxHelper.ShowAsync(
                 this,
@@ -83,6 +94,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
             if (result)
                 await Power.RestartAsync();
+            else
+                await RefreshAsync();
         }
 
         private void InfoButton_Click(object sender, RoutedEventArgs e)
