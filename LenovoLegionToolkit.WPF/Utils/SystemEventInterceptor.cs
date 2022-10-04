@@ -3,6 +3,7 @@ using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Interop;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.WPF.Utils
 {
@@ -60,11 +61,17 @@ namespace LenovoLegionToolkit.WPF.Utils
         {
             if (m.Msg == _taskbarCreatedMessageId)
             {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"TaskbarCreated received.");
+
                 OnTaskbarCreated?.Invoke(this, EventArgs.Empty);
             }
 
             if (m.Msg == Native.WM_DEVICECHANGE && m.LParam != IntPtr.Zero)
             {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"WM_DEVICECHANGE received.");
+
                 var devBroadcastHdr = Marshal.PtrToStructure<Native.DevBroadcastHdr>(m.LParam);
                 if (devBroadcastHdr.DeviceType == Native.DBT_DEVTYPE_HANDLE)
                 {
