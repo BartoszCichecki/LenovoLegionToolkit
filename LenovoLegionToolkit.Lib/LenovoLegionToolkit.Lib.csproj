@@ -21,6 +21,7 @@
 		<PackageReference Include="TaskScheduler" Version="2.10.1" />
 		<PackageReference Include="Vanara.PInvoke.Kernel32" Version="3.4.9" />
 		<PackageReference Include="Vanara.PInvoke.Security" Version="3.4.9" />
+		<PackageReference Include="Vanara.PInvoke.Shell32" Version="3.4.9" />
 		<PackageReference Include="WindowsDisplayAPI" Version="1.3.0.13" />
 	</ItemGroup>
 </Project>
