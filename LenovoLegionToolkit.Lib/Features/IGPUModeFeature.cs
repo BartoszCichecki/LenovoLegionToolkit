@@ -20,8 +20,6 @@ namespace LenovoLegionToolkit.Lib.Features
                 var isAvailable = await IsDGPUAvailableAsync().ConfigureAwait(false);
                 await NotifyDGPUStatusAsync(isAvailable).ConfigureAwait(false);
 
-                MessagingCenter.Publish(await GetStateAsync().ConfigureAwait(false));
-
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Notified: {isAvailable}");
             }
