@@ -6,7 +6,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:kb="clr-namespace:LenovoLegionToolkit.WPF.Controls.KeyboardBacklight"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="Keyboard Backlight"
     d:DesignHeight="450"
     d:DesignWidth="800"
