@@ -7,22 +7,6 @@ using Microsoft.Win32.SafeHandles;
 
 namespace LenovoLegionToolkit.Lib.System
 {
-    internal enum FirmwareTypeEx
-    {
-        Unknown,
-        Bios,
-        Uefi,
-        Max,
-    }
-
-    [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    internal struct TokenPrivelegeEx
-    {
-        public int Count;
-        public long Luid;
-        public int Attr;
-    }
-
     internal enum ACLineStatusEx : byte
     {
         Offline = 0,
@@ -302,9 +286,6 @@ namespace LenovoLegionToolkit.Lib.System
         public const uint IOCTL_BATTERY_QUERY_INFORMATION = (0x00000029 << 16) | ((int)FileAccess.Read << 14) | (0x11 << 2) | (0);
         public const uint IOCTL_BATTERY_QUERY_STATUS = (0x00000029 << 16) | ((int)FileAccess.Read << 14) | (0x13 << 2) | (0);
 
-        public const uint DIGCF_PRESENT = 0x2;
-        public const uint DIGCF_DEVICEINTERFACE = 0x10;
-
         public const int ERROR_NO_MORE_ITEMS = 259;
 
         [DllImport("shell32.dll", CharSet = CharSet.Unicode, ExactSpelling = true, PreserveSig = false)]
@@ -405,51 +386,6 @@ namespace LenovoLegionToolkit.Lib.System
             out uint pBytesReturned,
             IntPtr lpOverlapped);
 
-        [DllImport("kernel32.dll", SetLastError = true)]
-        public static extern int GetFirmwareEnvironmentVariableExW(
-          [MarshalAs(UnmanagedType.LPWStr)] string lpName,
-          [MarshalAs(UnmanagedType.LPWStr)] string lpGuid,
-          IntPtr pBuffer,
-          int nSize,
-          IntPtr pAttribute);
-
-        [DllImport("kernel32.dll", SetLastError = true)]
-        public static extern int SetFirmwareEnvironmentVariableExW(
-          [MarshalAs(UnmanagedType.LPWStr)] string lpName,
-          [MarshalAs(UnmanagedType.LPWStr)] string lpGuid,
-          IntPtr pBuffer,
-          int nSize,
-          int attribute);
-
-        [DllImport("kernel32.dll")]
-        public static extern IntPtr GetCurrentProcess();
-
-        [DllImport("kernel32.dll", SetLastError = true)]
-        public static extern bool GetFirmwareType(ref FirmwareTypeEx firmwareType);
-
-        [DllImport("advapi32.dll", CharSet = CharSet.Unicode)]
-        public static extern bool LookupPrivilegeValue(
-          string? lpSystemName,
-          string lpName,
-          ref long lpLuid);
-
-        [DllImport("advapi32.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool AdjustTokenPrivileges(
-          IntPtr tokenHandle,
-          [MarshalAs(UnmanagedType.Bool)] bool disableAllPrivileges,
-          ref TokenPrivelegeEx newState,
-          int zero,
-          IntPtr null1,
-          IntPtr null2);
-
-        [DllImport("advapi32.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool OpenProcessToken(
-          IntPtr processHandle,
-          uint desiredAccess,
-          ref IntPtr tokenHandle);
-
         [DllImport("hid.dll", EntryPoint = "HidD_GetHidGuid", SetLastError = true, CharSet = CharSet.Auto)]
         public static extern void HidD_GetHidGuid(out Guid guid);
 
@@ -473,11 +409,11 @@ namespace LenovoLegionToolkit.Lib.System
     {
         public static void ThrowIfWin32Error(string description)
         {
-            int errorCode = Marshal.GetLastWin32Error();
+            var errorCode = Marshal.GetLastWin32Error();
             if (errorCode != 0)
                 throw Marshal.GetExceptionForHR(errorCode) ?? throw new Exception($"Unknown Win32 error code {errorCode} in {description}.");
-            else
-                throw new Exception($"{description} failed but Win32 didn't catch an error.");
+
+            throw new Exception($"{description} failed but Win32 didn't catch an error.");
         }
     }
 }

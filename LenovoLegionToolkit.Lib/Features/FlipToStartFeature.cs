@@ -1,5 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using Vanara.PInvoke;
 
 namespace LenovoLegionToolkit.Lib.Features
 {
@@ -18,7 +19,13 @@ namespace LenovoLegionToolkit.Lib.Features
             public byte Reserved3;
         }
 
-        public FlipToStartFeature() : base("{D743491E-F484-4952-A87D-8D5DD189B70C}", "FBSWIF", 7) { }
+        public FlipToStartFeature() : base("{D743491E-F484-4952-A87D-8D5DD189B70C}",
+            "FBSWIF",
+        Kernel32.VARIABLE_ATTRIBUTE.VARIABLE_ATTRIBUTE_NON_VOLATILE |
+            Kernel32.VARIABLE_ATTRIBUTE.VARIABLE_ATTRIBUTE_BOOTSERVICE_ACCESS |
+            Kernel32.VARIABLE_ATTRIBUTE.VARIABLE_ATTRIBUTE_RUNTIME_ACCESS)
+        {
+        }
 
         public override async Task<FlipToStartState> GetStateAsync()
         {
