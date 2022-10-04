@@ -450,29 +450,6 @@ namespace LenovoLegionToolkit.Lib.System
           uint desiredAccess,
           ref IntPtr tokenHandle);
 
-        [DllImport("advapi32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
-        public static extern bool ChangeServiceConfig(
-            IntPtr hService,
-            uint nServiceType,
-            uint nStartType,
-            uint nErrorControl,
-            string? lpBinaryPathName,
-            string? lpLoadOrderGroup,
-            IntPtr lpdwTagId,
-            [In] char[]? lpDependencies,
-            string? lpServiceStartName,
-            string? lpPassword,
-            string? lpDisplayName);
-
-        [DllImport("advapi32.dll", SetLastError = true, CharSet = CharSet.Auto)]
-        public static extern IntPtr OpenService(IntPtr hSCManager, string lpServiceName, uint dwDesiredAccess);
-
-        [DllImport("advapi32.dll", EntryPoint = "OpenSCManagerW", ExactSpelling = true, CharSet = CharSet.Unicode, SetLastError = true)]
-        public static extern IntPtr OpenSCManager(string? machineName, string? databaseName, uint dwAccess);
-
-        [DllImport("advapi32.dll", EntryPoint = "CloseServiceHandle")]
-        public static extern int CloseServiceHandle(IntPtr hSCObject);
-
         [DllImport("hid.dll", EntryPoint = "HidD_GetHidGuid", SetLastError = true, CharSet = CharSet.Auto)]
         public static extern void HidD_GetHidGuid(out Guid guid);
 
