@@ -17,8 +17,6 @@ using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Utils;
 using Wpf.Ui.Controls;
 
-#pragma warning disable IDE0052 // Remove unread private members
-
 namespace LenovoLegionToolkit.WPF.Windows
 {
     public partial class MainWindow
@@ -102,7 +100,7 @@ namespace LenovoLegionToolkit.WPF.Windows
         {
             var systemEventInterceptor = new SystemEventInterceptor(this);
             systemEventInterceptor.OnTaskbarCreated += (_, _) => InitializeTray();
-            systemEventInterceptor.OnDisplayDeviceArrival += async (_, _) => await IoCContainer.Resolve<IGPUModeFeature>().NotifyDGPUStatusIfNeededAsync();
+            systemEventInterceptor.OnDisplayDeviceArrival += async (_, _) => await IoCContainer.Resolve<IGPUModeFeature>().NotifyAsync();
             _systemEventInterceptor = systemEventInterceptor;
         }
 

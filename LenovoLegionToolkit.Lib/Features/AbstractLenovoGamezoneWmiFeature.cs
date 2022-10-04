@@ -95,8 +95,8 @@ namespace LenovoLegionToolkit.Lib.Features
                 Log.Instance.Trace($"Set state to {state} [feature={GetType().Name}]");
         }
 
-        protected int ToInternal(T state) => (int)(object)state + _offset;
+        private int ToInternal(T state) => (int)(object)state + _offset;
 
-        protected T FromInternal(int state) => (T)(object)(state - _offset);
+        private T FromInternal(int state) => (T)(object)(state - _offset);
     }
 }
