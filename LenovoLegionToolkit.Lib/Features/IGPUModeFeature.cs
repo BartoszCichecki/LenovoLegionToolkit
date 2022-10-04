@@ -17,11 +17,13 @@ namespace LenovoLegionToolkit.Lib.Features
                 if (!await IsSupportedAsync().ConfigureAwait(false))
                     return;
 
-                var state = await IsDGPUAvailableAsync().ConfigureAwait(false);
-                await NotifyDGPUStatusAsync(state).ConfigureAwait(false);
+                var isAvailable = await IsDGPUAvailableAsync().ConfigureAwait(false);
+                await NotifyDGPUStatusAsync(isAvailable).ConfigureAwait(false);
+
+                MessagingCenter.Publish(await GetStateAsync().ConfigureAwait(false));
 
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Notified: {state}");
+                    Log.Instance.Trace($"Notified: {isAvailable}");
             }
             catch (Exception ex)
             {

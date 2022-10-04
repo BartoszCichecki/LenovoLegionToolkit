@@ -66,7 +66,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                         ShouldFlipFnLock = GetShouldFlipFnLock(),
                         SupportsGodMode = GetSupportsGodMode(biosVersion),
                         SupportsACDetection = await GetSupportsACDetection().ConfigureAwait(false),
-                        SupportsExtendedHybridMode = await GetSupportsExtendedHybridModeAsync().ConfigureAwait(false)
+                        SupportsExtendedHybridMode = true //await GetSupportsExtendedHybridModeAsync().ConfigureAwait(false)
                     }
                 };
 
