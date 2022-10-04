@@ -2,6 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features
 {
@@ -11,34 +12,54 @@ namespace LenovoLegionToolkit.Lib.Features
 
         public async Task NotifyAsync()
         {
-            if (!await IsSupportedAsync().ConfigureAwait(false))
-                return;
-
-            var state = await IsDGPUAvailableAsync().ConfigureAwait(false);
-            await NotifyDGPUStatusAsync(state).ConfigureAwait(false);
-        }
-
-        private Task<HardwareId> GetDGPUHardwareId() => WMI.CallAsync(Scope,
-            Query,
-            "GetDGPUHWId",
-            new(),
-            pdc =>
+            try
             {
-                var id = pdc["Data"].ToString();
-                return HardwareId.FromDGPUHWId(id);
-            });
+                if (!await IsSupportedAsync().ConfigureAwait(false))
+                    return;
+
+                var state = await IsDGPUAvailableAsync().ConfigureAwait(false);
+                await NotifyDGPUStatusAsync(state).ConfigureAwait(false);
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Notified: {state}");
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Failed to notify.", ex);
+            }
+        }
 
         private Task NotifyDGPUStatusAsync(bool state) => WMI.CallAsync(Scope,
             Query,
             "NotifyDGPUStatus",
             new() { { "Status", state ? "1" : "0" } });
 
-        public async Task<bool> IsDGPUAvailableAsync()
+        private async Task<HardwareId> GetDGPUHardwareId()
         {
-            //var dgpuHardwareId = await GetDGPUHardwareId().ConfigureAwait(false);
-            var dgpuHardwareId = HardwareId.FromDGPUHWId("PCIVEN_10DE&DEV_24DD&SUBSYS_3A4F17AA");
+            try
+            {
+                return await WMI.CallAsync(Scope,
+                    Query,
+                    "GetDGPUHWId",
+                    new(),
+                    pdc =>
+                    {
+                        var id = pdc["Data"].ToString();
+                        return HardwareId.FromDGPUHWId(id);
+                    }).ConfigureAwait(false);
+            }
+            catch (Exception)
+            {
+                return new();
+            }
+        }
 
-            var guidDisplayDeviceArrival = new Guid("1CA05180-A699-450A-9A0C-DE4FBE3DDD89");
+        private async Task<bool> IsDGPUAvailableAsync()
+        {
+            var dgpuHardwareId = await GetDGPUHardwareId().ConfigureAwait(false);
+
+            var guidDisplayDeviceArrival = Native.GUID_DISPLAY_DEVICE_ARRIVAL;
             var deviceHandle = Native.SetupDiGetClassDevs(ref guidDisplayDeviceArrival,
                 null,
                 IntPtr.Zero,
@@ -93,7 +114,13 @@ namespace LenovoLegionToolkit.Lib.Features
                 if (dgpuHardwareId != HardwareId.FromDevicePath(deviceDetailData.DevicePath))
                     continue;
 
-                var ret = Native.CM_Get_DevNode_Status(out var status, out var prodNum, deviceInfoData.DevInst, 0);
+                if (Native.CM_Get_DevNode_Status(out var status, out _, deviceInfoData.DevInst, 0) != 0)
+                    continue;
+
+                if ((status & 0x400) != 0)
+                    continue;
+
+                return true;
             }
 
             return false;

@@ -30,14 +30,14 @@ namespace LenovoLegionToolkit.WPF.Utils
                 _ = Native.User32.UnregisterDeviceNotification(_displayArrivalHandle);
         }
 
-        private uint RegisterTaskbarCreatedMessage()
+        private static uint RegisterTaskbarCreatedMessage()
         {
             var message = Native.User32.RegisterWindowMessage("TaskbarCreated");
             Native.User32.ChangeWindowMessageFilter(message, 1u);
             return message;
         }
 
-        private IntPtr RegisterDisplayArrival(IntPtr handle)
+        private static IntPtr RegisterDisplayArrival(IntPtr handle)
         {
             var ptr = IntPtr.Zero;
             try
