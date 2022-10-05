@@ -16,16 +16,16 @@ namespace LenovoLegionToolkit.Lib.Extensions
 
             try
             {
-                scManagerHandle = PInvoke.OpenSCManager(null as string, null, PInvokeExtensions.SC_MANAGER_ALL_ACCESS);
+                scManagerHandle = PInvoke.OpenSCManager(null as string, null, PInvoke.SC_MANAGER_ALL_ACCESS);
                 if (scManagerHandle == IntPtr.Zero)
                     throw new ExternalException("Open Service Manager Error");
 
-                serviceHandle = PInvoke.OpenService(scManagerHandle, svc.ServiceName, PInvokeExtensions.SERVICE_CHANGE_CONFIG);
+                serviceHandle = PInvoke.OpenService(scManagerHandle, svc.ServiceName, PInvoke.SERVICE_CHANGE_CONFIG);
                 if (serviceHandle == IntPtr.Zero)
                     throw new ExternalException("Open Service Error");
 
                 var result = PInvoke.ChangeServiceConfig(serviceHandle,
-                    PInvokeExtensions.SERVICE_NO_CHANGE,
+                    PInvoke.SERVICE_NO_CHANGE,
                     enabled ? SERVICE_START_TYPE.SERVICE_AUTO_START : SERVICE_START_TYPE.SERVICE_DISABLED,
                     SERVICE_ERROR.SERVICE_ERROR_NORMAL,
                     null as string,

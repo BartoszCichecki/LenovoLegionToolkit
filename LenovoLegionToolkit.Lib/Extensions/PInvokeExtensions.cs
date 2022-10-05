@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Runtime.InteropServices;
 using Microsoft.Win32.SafeHandles;
 using Windows.Win32;
@@ -10,21 +9,7 @@ namespace LenovoLegionToolkit.Lib.Extensions
     {
         public const int ERROR_NO_MORE_ITEMS = 259;
 
-        public static readonly Guid GUID_DEVCLASS_BATTERY = new(0x72631E54, 0x78A4, 0x11D0, 0xBC, 0xF7, 0x00, 0xAA, 0x00, 0xB7, 0xB3, 0x2A);
-
-        public const uint IOCTL_BATTERY_QUERY_INFORMATION = (0x00000029 << 16) | ((int)FileAccess.Read << 14) | (0x11 << 2) | (0);
-        public const uint IOCTL_BATTERY_QUERY_STATUS = (0x00000029 << 16) | ((int)FileAccess.Read << 14) | (0x13 << 2) | (0);
-        public const uint IOCTL_BATTERY_QUERY_TAG = (0x00000029 << 16) | ((int)FileAccess.Read << 14) | (0x10 << 2) | (0);
-
-        public const uint DIGCF_PRESENT = 0x00000002;
-        public const uint DIGCF_DEVICEINTERFACE = 0x00000010;
-
         public const uint KF_FLAG_DEFAULT = 0;
-
-        public const uint SC_MANAGER_ALL_ACCESS = 0x000F003F;
-
-        public const uint SERVICE_CHANGE_CONFIG = 2;
-        public const uint SERVICE_NO_CHANGE = 0xFFFFFFFF;
 
         public const uint VARIABLE_ATTRIBUTE_BOOTSERVICE_ACCESS = 2;
         public const uint VARIABLE_ATTRIBUTE_NON_VOLATILE = 1;

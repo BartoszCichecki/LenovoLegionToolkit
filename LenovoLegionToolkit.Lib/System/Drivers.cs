@@ -3,8 +3,6 @@ using Microsoft.Win32.SafeHandles;
 using Windows.Win32;
 using Windows.Win32.Storage.FileSystem;
 
-#pragma warning disable CA1416 // Validate platform compatibility
-
 namespace LenovoLegionToolkit.Lib.System
 {
     internal static class Drivers
