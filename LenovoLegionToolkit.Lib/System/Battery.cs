@@ -70,7 +70,7 @@ namespace LenovoLegionToolkit.Lib.System
         private static uint GetBatteryTag()
         {
             var result = PInvokeExtensions.DeviceIoControl(Devices.GetBattery(),
-                PInvokeExtensions.IOCTL_BATTERY_QUERY_TAG,
+                PInvoke.IOCTL_BATTERY_QUERY_TAG,
                 0u,
                 out uint tag);
 
@@ -89,7 +89,7 @@ namespace LenovoLegionToolkit.Lib.System
             };
 
             var result = PInvokeExtensions.DeviceIoControl(Devices.GetBattery(),
-                PInvokeExtensions.IOCTL_BATTERY_QUERY_INFORMATION,
+                PInvoke.IOCTL_BATTERY_QUERY_INFORMATION,
                 queryInformation,
                 out BATTERY_INFORMATION bi);
 
@@ -105,9 +105,9 @@ namespace LenovoLegionToolkit.Lib.System
                 BatteryTag = batteryTag,
             };
             var result = PInvokeExtensions.DeviceIoControl(Devices.GetBattery(),
-                PInvokeExtensions.IOCTL_BATTERY_QUERY_STATUS,
-                                                waitStatus,
-                                                out BATTERY_STATUS s);
+                PInvoke.IOCTL_BATTERY_QUERY_STATUS,
+                waitStatus,
+                out BATTERY_STATUS s);
 
             if (!result)
                 PInvokeExtensions.ThrowIfWin32Error("DeviceIoControl, IOCTL_BATTERY_QUERY_STATUS");

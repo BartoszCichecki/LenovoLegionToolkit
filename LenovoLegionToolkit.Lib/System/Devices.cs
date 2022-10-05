@@ -27,11 +27,11 @@ namespace LenovoLegionToolkit.Lib.System
                 if (_battery is not null)
                     return _battery;
 
-                var devClassBatteryGuid = PInvokeExtensions.GUID_DEVCLASS_BATTERY;
+                var devClassBatteryGuid = PInvoke.GUID_DEVCLASS_BATTERY;
                 var deviceHandle = PInvoke.SetupDiGetClassDevs(devClassBatteryGuid,
                     null,
                     HWND.Null,
-                    PInvokeExtensions.DIGCF_PRESENT | PInvokeExtensions.DIGCF_DEVICEINTERFACE);
+                    PInvoke.DIGCF_PRESENT | PInvoke.DIGCF_DEVICEINTERFACE);
                 if (deviceHandle.IsInvalid)
                     PInvokeExtensions.ThrowIfWin32Error("SetupDiGetClassDevs");
 
@@ -100,7 +100,7 @@ namespace LenovoLegionToolkit.Lib.System
                 var deviceHandle = PInvoke.SetupDiGetClassDevs(devClassHidGuid,
                     null,
                     HWND.Null,
-                    PInvokeExtensions.DIGCF_PRESENT | PInvokeExtensions.DIGCF_DEVICEINTERFACE);
+                    PInvoke.DIGCF_PRESENT | PInvoke.DIGCF_DEVICEINTERFACE);
 
                 uint index = 0;
                 while (true)

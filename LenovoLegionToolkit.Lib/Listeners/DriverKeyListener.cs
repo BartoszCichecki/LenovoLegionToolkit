@@ -8,8 +8,6 @@ using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using Windows.Win32;
 
-#pragma warning disable CA1416 // Validate platform compatibility
-
 namespace LenovoLegionToolkit.Lib.Listeners
 {
     public class DriverKeyListener : IListener<DriverKey>
