@@ -98,11 +98,15 @@ namespace LenovoLegionToolkit.WPF.Windows
             BringToForeground();
         });
 
-        private void MainWindow_SourceInitialized(object? sender, EventArgs args)
+        private async void MainWindow_SourceInitialized(object? sender, EventArgs args)
         {
+            var igpuModeFeature = IoCContainer.Resolve<IGPUModeFeature>();
+
+            await igpuModeFeature.NotifyAsync();
+
             var systemEventInterceptor = new SystemEventInterceptor(this);
             systemEventInterceptor.OnTaskbarCreated += (_, _) => InitializeTray();
-            systemEventInterceptor.OnDisplayDeviceArrival += (_, _) => Dispatcher.BeginInvoke(async () => await IoCContainer.Resolve<IGPUModeFeature>().NotifyAsync());
+            systemEventInterceptor.OnDisplayDeviceArrival += (_, _) => Dispatcher.BeginInvoke(async () => await igpuModeFeature.NotifyAsync());
             _systemEventInterceptor = systemEventInterceptor;
         }
 
