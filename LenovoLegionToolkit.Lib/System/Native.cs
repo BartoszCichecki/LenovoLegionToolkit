@@ -50,7 +50,7 @@ namespace LenovoLegionToolkit.Lib.System
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    internal struct LenovoBatteryInformationEx
+    internal struct LENOVO_BATTERY_INFORMATION
     {
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 13)]
         public byte[] Bytes1;
@@ -62,7 +62,7 @@ namespace LenovoLegionToolkit.Lib.System
     }
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    public struct RGBKeyboardStateEx
+    public struct LENOVO_RGB_KEYBOARD_STATE
     {
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
         public byte[] Header;

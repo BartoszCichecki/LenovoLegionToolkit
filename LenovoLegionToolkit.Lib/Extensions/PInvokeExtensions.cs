@@ -6,7 +6,7 @@ using Windows.Win32;
 
 namespace LenovoLegionToolkit.Lib.Extensions
 {
-    public static class PInvokeExtensions
+    internal static class PInvokeExtensions
     {
         public const int ERROR_NO_MORE_ITEMS = 259;
 
