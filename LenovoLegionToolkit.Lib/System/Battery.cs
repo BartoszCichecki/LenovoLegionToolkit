@@ -62,7 +62,7 @@ namespace LenovoLegionToolkit.Lib.System
             var result = PInvoke.GetSystemPowerStatus(out var sps);
 
             if (!result)
-                NativeUtils.ThrowIfWin32Error("GetSystemPowerStatus");
+                PInvokeExtensions.ThrowIfWin32Error("GetSystemPowerStatus");
 
             return sps;
         }
@@ -75,7 +75,7 @@ namespace LenovoLegionToolkit.Lib.System
                 out uint tag);
 
             if (!result)
-                NativeUtils.ThrowIfWin32Error("DeviceIoControl, IOCTL_BATTERY_QUERY_TAG");
+                PInvokeExtensions.ThrowIfWin32Error("DeviceIoControl, IOCTL_BATTERY_QUERY_TAG");
 
             return tag;
         }

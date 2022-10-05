@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
@@ -55,7 +56,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
                 var resetEvent = new ManualResetEvent(false);
                 var setHandleResult = BindListener(resetEvent);
                 if (!setHandleResult)
-                    NativeUtils.ThrowIfWin32Error("DeviceIoControl, setHandleResult");
+                    PInvokeExtensions.ThrowIfWin32Error("DeviceIoControl, setHandleResult");
 
                 while (true)
                 {
@@ -81,7 +82,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
                     var getValueResult = GetValue(out var value);
                     if (!getValueResult)
-                        NativeUtils.ThrowIfWin32Error("DeviceIoControl, getValueResult");
+                        PInvokeExtensions.ThrowIfWin32Error("DeviceIoControl, getValueResult");
 
                     var key = (DriverKey)value;
                     if (Enum.IsDefined(key))
