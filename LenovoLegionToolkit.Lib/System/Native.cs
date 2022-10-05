@@ -1,9 +1,5 @@
 ﻿using System;
-using System.IO;
 using System.Runtime.InteropServices;
-using Microsoft.Win32.SafeHandles;
-
-#pragma warning disable CA2101 // Specify marshaling for P/Invoke string arguments
 
 namespace LenovoLegionToolkit.Lib.System
 {
@@ -20,52 +16,12 @@ namespace LenovoLegionToolkit.Lib.System
     }
 
     [Flags]
-    internal enum DeviceGetClassFlagsEx : uint
-    {
-        DIGCF_DEFAULT = 0x00000001,
-        DIGCF_PRESENT = 0x00000002,
-        DIGCF_ALLCLASSES = 0x00000004,
-        DIGCF_PROFILE = 0x00000008,
-        DIGCF_DEVICEINTERFACE = 0x00000010
-    }
-
-    [Flags]
-    internal enum FileAttributesEx : uint
-    {
-        Readonly = 0x00000001,
-        Hidden = 0x00000002,
-        System = 0x00000004,
-        Directory = 0x00000010,
-        Archive = 0x00000020,
-        Device = 0x00000040,
-        Normal = 0x00000080,
-        Temporary = 0x00000100,
-        SparseFile = 0x00000200,
-        ReparsePoint = 0x00000400,
-        Compressed = 0x00000800,
-        Offline = 0x00001000,
-        NotContentIndexed = 0x00002000,
-        Encrypted = 0x00004000,
-        Write_Through = 0x80000000,
-        Overlapped = 0x40000000,
-        NoBuffering = 0x20000000,
-        RandomAccess = 0x10000000,
-        SequentialScan = 0x08000000,
-        DeleteOnClose = 0x04000000,
-        BackupSemantics = 0x02000000,
-        PosixSemantics = 0x01000000,
-        OpenReparsePoint = 0x00200000,
-        OpenNoRecall = 0x00100000,
-        FirstPipeInstance = 0x00080000
-    }
-
-    [Flags]
     internal enum PowerStateEx : uint
     {
-        BATTERY_POWER_ONLINE = 0x00000001,
-        BATTERY_DISCHARGING = 0x00000002,
-        BATTERY_CHARGING = 0x00000004,
-        BATTERY_CRITICAL = 0x00000008
+        BATTERY_POWER_ONLINE = 1,
+        BATTERY_DISCHARGING = 2,
+        BATTERY_CHARGING = 4,
+        BATTERY_CRITICAL = 8
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
@@ -170,63 +126,6 @@ namespace LenovoLegionToolkit.Lib.System
         public byte[] Bytes2;
     }
 
-    [StructLayout(LayoutKind.Sequential)]
-    internal struct SpDeviceInfoDataEx
-    {
-        public int CbSize;
-        public Guid InterfaceClassGuid;
-        public int Flags;
-        public UIntPtr Reserved;
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    internal struct SpDeviceInterfaceDataEx
-    {
-        public int CbSize;
-        public Guid InterfaceClassGuid;
-        public int Flags;
-        public UIntPtr Reserved;
-    }
-
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
-    internal struct SpDeviceInterfaceDetailDataEx
-    {
-        public int CbSize;
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)]
-        public string DevicePath;
-    }
-
-    [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    public struct HIDDAttributesEx
-    {
-        public int CbSize;
-        public ushort VendorID;
-        public ushort ProductID;
-        public ushort VersionNumber;
-    }
-
-    [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    public struct HIDPCapsEx
-    {
-        public ushort Usage;
-        public ushort UsagePage;
-        public ushort InputReportByteLength;
-        public ushort OutputReportByteLength;
-        public ushort FeatureReportByteLength;
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 17)]
-        public ushort[] Reserved;
-        public ushort NumberLinkCollectionNodes;
-        public ushort NumberInputButtonCaps;
-        public ushort NumberInputValueCaps;
-        public ushort NumberInputDataIndices;
-        public ushort NumberOutputButtonCaps;
-        public ushort NumberOutputValueCaps;
-        public ushort NumberOutputDataIndices;
-        public ushort NumberFeatureButtonCaps;
-        public ushort NumberFeatureValueCaps;
-        public ushort NumberFeatureDataIndices;
-    };
-
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct RGBKeyboardStateEx
     {
@@ -248,103 +147,6 @@ namespace LenovoLegionToolkit.Lib.System
         public byte WaveRTL;
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 13)]
         public byte[] Unused;
-    }
-
-    internal static class Native
-    {
-        public static readonly Guid GUID_DEVCLASS_BATTERY = new(0x72631E54, 0x78A4, 0x11D0, 0xBC, 0xF7, 0x00, 0xAA, 0x00, 0xB7, 0xB3, 0x2A);
-
-
-
-        public const int ERROR_NO_MORE_ITEMS = 259;
-
-        [DllImport("setupapi.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        public static extern IntPtr SetupDiGetClassDevs(
-            ref Guid guid,
-            string? enumerator,
-            IntPtr hwnd,
-            DeviceGetClassFlagsEx flags);
-
-        [DllImport("setupapi.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        public static extern bool SetupDiEnumDeviceInterfaces(
-            IntPtr hdevInfo,
-            IntPtr devInfo,
-            ref Guid guid,
-            uint memberIndex,
-            ref SpDeviceInterfaceDataEx devInterfaceData);
-
-        [DllImport("setupapi.dll", SetLastError = true)]
-        public static extern bool SetupDiEnumDeviceInfo(
-            IntPtr hdevInfo,
-            uint index,
-            ref SpDeviceInfoDataEx deviceInfoData);
-
-        [DllImport("setupapi.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        public static extern bool SetupDiGetDeviceInterfaceDetail(
-            IntPtr hdevInfo,
-            ref SpDeviceInterfaceDataEx deviceInterfaceData,
-            ref SpDeviceInterfaceDetailDataEx deviceInterfaceDetailData,
-            uint deviceInterfaceDetailDataSize,
-            out uint requiredSize,
-            IntPtr deviceInfoData);
-
-        [DllImport("setupapi.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        public static extern bool SetupDiGetDeviceInterfaceDetail(
-            IntPtr hdevInfo,
-            ref SpDeviceInterfaceDataEx deviceInterfaceData,
-            IntPtr deviceInterfaceDetailData,
-            uint deviceInterfaceDetailDataSize,
-            out uint requiredSize,
-            IntPtr deviceInfoData);
-
-        [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
-        public static extern IntPtr CreateFile(
-            string filename,
-            [MarshalAs(UnmanagedType.U4)] FileAccess desiredAccess,
-            [MarshalAs(UnmanagedType.U4)] FileShare shareMode,
-            IntPtr securityAttributes,
-            [MarshalAs(UnmanagedType.U4)] FileMode creationDisposition,
-            [MarshalAs(UnmanagedType.U4)] FileAttributesEx flags,
-            IntPtr template);
-
-        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
-        public static extern IntPtr CreateFileW(
-            [MarshalAs(UnmanagedType.LPWStr)] string filename,
-            uint access,
-            uint share,
-            IntPtr securityAttributes,
-            uint creationDisposition,
-            uint flagsAndAttributes,
-            IntPtr templateFile);
-
-        [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        public static extern bool DeviceIoControl(
-            SafeFileHandle hDevice,
-            uint dwIoControlCode,
-            ref uint inBuffer,
-            int nInBufferSize,
-            out uint outBuffer,
-            int nOutBufferSize,
-            out int pBytesReturned,
-            IntPtr lpOverlapped);
-
-        [DllImport("hid.dll", EntryPoint = "HidD_GetHidGuid", SetLastError = true, CharSet = CharSet.Auto)]
-        public static extern void HidD_GetHidGuid(out Guid guid);
-
-        [DllImport("hid.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        public static extern bool HidD_GetAttributes(SafeFileHandle handle, ref HIDDAttributesEx attributes);
-
-        [DllImport("hid.dll", SetLastError = true)]
-        public static extern bool HidD_GetPreparsedData(SafeFileHandle handle, ref IntPtr preparsedData);
-
-        [DllImport("hid.dll", SetLastError = true)]
-        public static extern bool HidD_FreePreparsedData(IntPtr preparsedData);
-
-        [DllImport("hid.dll", SetLastError = true)]
-        public static extern uint HidP_GetCaps(IntPtr preparsedData, out HIDPCapsEx capabilities);
-
-        [DllImport("hid.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        public static extern bool HidD_SetFeature(SafeFileHandle handle, IntPtr ptr, uint bufferLength);
     }
 
     internal static class NativeUtils

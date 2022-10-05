@@ -2,6 +2,7 @@
 
 using System;
 using System.Threading.Tasks;
+using Windows.Win32;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
@@ -230,7 +231,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 throw new InvalidOperationException("Can't manage RGB keyboard with Vantage enabled.");
         }
 
-        private Task SendToDevice(RGBKeyboardStateEx str) => Task.Run(() =>
+        private unsafe Task SendToDevice(RGBKeyboardStateEx str) => Task.Run(() =>
         {
 #if !MOCK_RGB
             var handle = DriverHandle;
@@ -245,7 +246,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 ptr = Marshal.AllocHGlobal(size);
                 Marshal.StructureToPtr(str, ptr, false);
 
-                if (!Native.HidD_SetFeature(handle, ptr, (uint)size))
+                if (!PInvoke.HidD_SetFeature(handle, ptr.ToPointer(), (uint)size))
                     NativeUtils.ThrowIfWin32Error("HidD_SetFeature");
             }
             finally

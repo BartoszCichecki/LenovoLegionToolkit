@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
+using Windows.Win32;
 
 namespace LenovoLegionToolkit.Lib.System
 {
@@ -23,10 +24,10 @@ namespace LenovoLegionToolkit.Lib.System
 
         public static async Task<PowerAdapterStatus> IsPowerAdapterConnectedAsync()
         {
-            if (!Kernel32.GetSystemPowerStatus(out var sps))
+            if (!PInvoke.GetSystemPowerStatus(out var sps))
                 return PowerAdapterStatus.Connected;
 
-            var adapterConnected = sps.ACLineStatus == Kernel32.AC_STATUS.AC_ONLINE;
+            var adapterConnected = sps.ACLineStatus == 1;
             var isACFitForOC = await IsACFitForOC().ConfigureAwait(false);
 
             return (adapterConnected, isACFitForOC) switch
