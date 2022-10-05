@@ -6,7 +6,7 @@ namespace LenovoLegionToolkit.Lib.Features
 {
     public class WhiteKeyboardBacklightFeature : AbstractDriverFeature<WhiteKeyboardBacklightState>
     {
-        public WhiteKeyboardBacklightFeature() : base(Drivers.GetEnergy, 0x83102144) { }
+        public WhiteKeyboardBacklightFeature() : base(Drivers.GetEnergy, Drivers.IOCTL_ENERGY_KEYBOARD) { }
 
         public async override Task<WhiteKeyboardBacklightState> GetStateAsync()
         {
