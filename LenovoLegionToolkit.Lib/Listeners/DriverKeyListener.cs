@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
+using Windows.Win32;
 
 namespace LenovoLegionToolkit.Lib.Listeners
 {
@@ -52,15 +53,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
             try
             {
                 var resetEvent = new ManualResetEvent(false);
-                var handle = (uint)resetEvent.SafeWaitHandle.DangerousGetHandle();
-                var setHandleResult = Native.DeviceIoControl(Drivers.GetEnergy(),
-                                                     0x831020D8,
-                                                     ref handle,
-                                                     0x10,
-                                                     out _,
-                                                     0,
-                                                     out _,
-                                                     IntPtr.Zero);
+                var setHandleResult = BindListener(resetEvent);
                 if (!setHandleResult)
                     NativeUtils.ThrowIfWin32Error("DeviceIoControl, setHandleResult");
 
@@ -86,15 +79,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
                         continue;
                     }
 
-                    uint inBuff = 0;
-                    var getValueResult = Native.DeviceIoControl(Drivers.GetEnergy(),
-                                                                0x831020CC,
-                                                                ref inBuff,
-                                                                0x4,
-                                                                out uint value,
-                                                                0x4,
-                                                                out _,
-                                                                IntPtr.Zero);
+                    var getValueResult = GetValue(out var value);
                     if (!getValueResult)
                         NativeUtils.ThrowIfWin32Error("DeviceIoControl, getValueResult");
 
@@ -166,6 +151,35 @@ namespace LenovoLegionToolkit.Lib.Listeners
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Unknown exception. [value={value}]", ex);
             }
+        }
+
+        private static unsafe bool BindListener(WaitHandle waitHandle)
+        {
+            var handle = (uint)waitHandle.SafeWaitHandle.DangerousGetHandle();
+            return PInvoke.DeviceIoControl(Drivers.GetEnergy(),
+                0x831020D8,
+                &handle,
+                16,
+                null,
+                0,
+                null,
+                null);
+        }
+
+        private static unsafe bool GetValue(out uint value)
+        {
+            uint inBuff = 0;
+            uint outBuff = 0;
+            var result = PInvoke.DeviceIoControl(Drivers.GetEnergy(),
+                0x831020CC,
+                &inBuff,
+                4,
+                &outBuff,
+                4,
+                null,
+                null);
+            value = outBuff;
+            return result;
         }
     }
 }
