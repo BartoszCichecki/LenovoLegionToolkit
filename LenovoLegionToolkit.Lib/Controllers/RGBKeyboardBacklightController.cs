@@ -247,7 +247,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 Marshal.StructureToPtr(str, ptr, false);
 
                 if (!PInvoke.HidD_SetFeature(handle, ptr.ToPointer(), (uint)size))
-                    NativeUtils.ThrowIfWin32Error("HidD_SetFeature");
+                    PInvokeExtensions.ThrowIfWin32Error("HidD_SetFeature");
             }
             finally
             {
