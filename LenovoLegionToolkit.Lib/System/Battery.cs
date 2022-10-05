@@ -115,7 +115,7 @@ namespace LenovoLegionToolkit.Lib.System
             return s;
         }
 
-        private static LenovoBatteryInformationEx? FindLenovoBatteryInformation()
+        private static LENOVO_BATTERY_INFORMATION? FindLenovoBatteryInformation()
         {
             for (uint index = 0; index < 3; index++)
             {
@@ -138,12 +138,12 @@ namespace LenovoLegionToolkit.Lib.System
             return null;
         }
 
-        private static LenovoBatteryInformationEx GetLenovoBatteryInformation(uint index)
+        private static LENOVO_BATTERY_INFORMATION GetLenovoBatteryInformation(uint index)
         {
             var result = PInvokeExtensions.DeviceIoControl(Drivers.GetEnergy(),
                                                 Drivers.IOCTL_ENERGY_BATTERY_INFORMATION,
                                                 index,
-                                                out LenovoBatteryInformationEx bi);
+                                                out LENOVO_BATTERY_INFORMATION bi);
             if (!result)
                 PInvokeExtensions.ThrowIfWin32Error("DeviceIoControl, 0x83102138");
 
