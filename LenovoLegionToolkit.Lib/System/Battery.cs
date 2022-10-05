@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
-using System.Runtime.InteropServices;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Utils;
-using Vanara.PInvoke;
+using Windows.Win32;
+using Windows.Win32.System.Power;
 
 namespace LenovoLegionToolkit.Lib.System
 {
@@ -40,7 +41,7 @@ namespace LenovoLegionToolkit.Lib.System
 
             return new()
             {
-                IsCharging = powerStatus.ACLineStatus == Kernel32.AC_STATUS.AC_ONLINE,
+                IsCharging = powerStatus.ACLineStatus == 1,
                 BatteryPercentage = powerStatus.BatteryLifePercent,
                 OnBatterySince = onBatterySince,
                 BatteryLifeRemaining = (int)powerStatus.BatteryLifeTime,
@@ -56,9 +57,9 @@ namespace LenovoLegionToolkit.Lib.System
             };
         }
 
-        private static Kernel32.SYSTEM_POWER_STATUS GetSystemPowerStatus()
+        private static SYSTEM_POWER_STATUS GetSystemPowerStatus()
         {
-            var result = Kernel32.GetSystemPowerStatus(out var sps);
+            var result = PInvoke.GetSystemPowerStatus(out var sps);
 
             if (!result)
                 NativeUtils.ThrowIfWin32Error("GetSystemPowerStatus");
@@ -68,16 +69,10 @@ namespace LenovoLegionToolkit.Lib.System
 
         private static uint GetBatteryTag()
         {
-            uint emptyInput = 0;
-
-            var result = Native.DeviceIoControl(Devices.GetBattery(),
-                Native.IOCTL_BATTERY_QUERY_TAG,
-                ref emptyInput,
-                4,
-                out uint tag,
-                4,
-                out _,
-                IntPtr.Zero);
+            var result = PInvokeExtensions.DeviceIoControl(Devices.GetBattery(),
+                PInvokeExtensions.IOCTL_BATTERY_QUERY_TAG,
+                0u,
+                out uint tag);
 
             if (!result)
                 NativeUtils.ThrowIfWin32Error("DeviceIoControl, IOCTL_BATTERY_QUERY_TAG");
@@ -87,83 +82,37 @@ namespace LenovoLegionToolkit.Lib.System
 
         private static BatteryInformationEx GetBatteryInformationEx(uint batteryTag)
         {
-            var queryInformationPointer = IntPtr.Zero;
-            var informationPointer = IntPtr.Zero;
-
-            try
+            var queryInformation = new BatteryQueryInformationEx
             {
-                var queryInformation = new BatteryQueryInformationEx
-                {
-                    BatteryTag = batteryTag,
-                    InformationLevel = BatteryQueryInformationLevelEx.BatteryInformation,
-                };
-                var queryInformationSize = Marshal.SizeOf<BatteryQueryInformationEx>();
-                queryInformationPointer = Marshal.AllocHGlobal(queryInformationSize);
-                Marshal.StructureToPtr(queryInformation, queryInformationPointer, false);
+                BatteryTag = batteryTag,
+                InformationLevel = BatteryQueryInformationLevelEx.BatteryInformation,
+            };
 
-                var informationSize = Marshal.SizeOf<BatteryInformationEx>();
-                informationPointer = Marshal.AllocHGlobal(informationSize);
+            var result = PInvokeExtensions.DeviceIoControl(Devices.GetBattery(),
+                PInvokeExtensions.IOCTL_BATTERY_QUERY_INFORMATION,
+                queryInformation,
+                out BatteryInformationEx bi);
 
-                var result = Native.DeviceIoControl(Devices.GetBattery(),
-                                                    Native.IOCTL_BATTERY_QUERY_INFORMATION,
-                                                    queryInformationPointer,
-                                                    queryInformationSize,
-                                                    informationPointer,
-                                                    informationSize,
-                                                    out _,
-                                                    IntPtr.Zero);
-
-                if (!result)
-                    NativeUtils.ThrowIfWin32Error("DeviceIoControl, IOCTL_BATTERY_QUERY_INFORMATION");
-
-                var bi = Marshal.PtrToStructure<BatteryInformationEx>(informationPointer);
-                return bi;
-            }
-            finally
-            {
-                Marshal.FreeHGlobal(queryInformationPointer);
-                Marshal.FreeHGlobal(informationPointer);
-            }
+            if (!result)
+                PInvokeExtensions.ThrowIfWin32Error("DeviceIoControl, IOCTL_BATTERY_QUERY_INFORMATION");
+            return bi;
         }
 
         private static BatteryStatusEx GetBatteryStatusEx(uint batteryTag)
         {
-            var waitStatusPointer = IntPtr.Zero;
-            var statusPointer = IntPtr.Zero;
-
-            try
+            var waitStatus = new BatteryWaitStatusEx
             {
-                var waitStatus = new BatteryWaitStatusEx
-                {
-                    BatteryTag = batteryTag,
-                };
-                var waitStatusSize = Marshal.SizeOf<BatteryWaitStatusEx>();
-                waitStatusPointer = Marshal.AllocHGlobal(waitStatusSize);
-                Marshal.StructureToPtr(waitStatus, waitStatusPointer, false);
+                BatteryTag = batteryTag,
+            };
+            var result = PInvokeExtensions.DeviceIoControl(Devices.GetBattery(),
+                PInvokeExtensions.IOCTL_BATTERY_QUERY_STATUS,
+                                                waitStatus,
+                                                out BatteryStatusEx s);
 
-                var statusSize = Marshal.SizeOf<BatteryStatusEx>();
-                statusPointer = Marshal.AllocHGlobal(statusSize);
+            if (!result)
+                PInvokeExtensions.ThrowIfWin32Error("DeviceIoControl, IOCTL_BATTERY_QUERY_STATUS");
 
-                var result = Native.DeviceIoControl(Devices.GetBattery(),
-                                                    Native.IOCTL_BATTERY_QUERY_STATUS,
-                                                    waitStatusPointer,
-                                                    waitStatusSize,
-                                                    statusPointer,
-                                                    statusSize,
-                                                    out _,
-                                                    IntPtr.Zero);
-
-                if (!result)
-                    NativeUtils.ThrowIfWin32Error("DeviceIoControl, IOCTL_BATTERY_QUERY_STATUS");
-
-                var s = Marshal.PtrToStructure<BatteryStatusEx>(statusPointer);
-                return s;
-            }
-            finally
-            {
-                Marshal.FreeHGlobal(waitStatusPointer);
-                Marshal.FreeHGlobal(statusPointer);
-            }
+            return s;
         }
 
         private static LenovoBatteryInformationEx? FindLenovoBatteryInformation()
@@ -191,29 +140,14 @@ namespace LenovoLegionToolkit.Lib.System
 
         private static LenovoBatteryInformationEx GetLenovoBatteryInformation(uint index)
         {
-            var batteryInformationPointer = IntPtr.Zero;
-            try
-            {
-                var batteryInformationSize = Marshal.SizeOf<LenovoBatteryInformationEx>();
-                batteryInformationPointer = Marshal.AllocHGlobal(batteryInformationSize);
-                var result = Native.DeviceIoControl(Drivers.GetEnergy(),
-                                                    0x83102138,
-                                                    ref index,
-                                                    4,
-                                                    batteryInformationPointer,
-                                                    batteryInformationSize,
-                                                    out _,
-                                                    IntPtr.Zero);
-                if (!result)
-                    NativeUtils.ThrowIfWin32Error("DeviceIoControl, 0x83102138");
+            var result = PInvokeExtensions.DeviceIoControl(Drivers.GetEnergy(),
+                                                Drivers.IOCTL_ENERGY,
+                                                index,
+                                                out LenovoBatteryInformationEx bi);
+            if (!result)
+                PInvokeExtensions.ThrowIfWin32Error("DeviceIoControl, 0x83102138");
 
-                var bi = Marshal.PtrToStructure<LenovoBatteryInformationEx>(batteryInformationPointer);
-                return bi;
-            }
-            finally
-            {
-                Marshal.FreeHGlobal(batteryInformationPointer);
-            }
+            return bi;
         }
         private static DateTime? GetOnBatterySince()
         {

@@ -1,52 +1,50 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.ServiceProcess;
-using Vanara.PInvoke;
+using Windows.Win32;
+using Windows.Win32.Security;
+using Windows.Win32.System.Services;
 
 namespace LenovoLegionToolkit.Lib.Extensions
 {
     internal static class ServiceControllerExtension
     {
-        public static void ChangeStartMode(this ServiceController svc, bool enabled)
+        public static unsafe void ChangeStartMode(this ServiceController svc, bool enabled)
         {
-            var scManagerHandle = new AdvApi32.SafeSC_HANDLE(IntPtr.Zero);
-            var serviceHandle = new AdvApi32.SafeSC_HANDLE(IntPtr.Zero);
+            var scManagerHandle = new SC_HANDLE();
+            var serviceHandle = new SC_HANDLE();
 
             try
             {
-                scManagerHandle = AdvApi32.OpenSCManager(null, null, AdvApi32.ScManagerAccessTypes.SC_MANAGER_ALL_ACCESS);
+                scManagerHandle = PInvoke.OpenSCManager(null as string, null, PInvokeExtensions.SC_MANAGER_ALL_ACCESS);
                 if (scManagerHandle == IntPtr.Zero)
                     throw new ExternalException("Open Service Manager Error");
 
-                serviceHandle = AdvApi32.OpenService(
-                    scManagerHandle,
-                    svc.ServiceName,
-                    AdvApi32.ServiceAccessTypes.SERVICE_CHANGE_CONFIG | AdvApi32.ServiceAccessTypes.SERVICE_CHANGE_CONFIG);
-
+                serviceHandle = PInvoke.OpenService(scManagerHandle, svc.ServiceName, PInvokeExtensions.SERVICE_CHANGE_CONFIG);
                 if (serviceHandle == IntPtr.Zero)
                     throw new ExternalException("Open Service Error");
 
-                var result = AdvApi32.ChangeServiceConfig(
-                    serviceHandle,
-                    AdvApi32.ServiceTypes.SERVICE_NO_CHANGE,
-                    enabled ? AdvApi32.ServiceStartType.SERVICE_AUTO_START : AdvApi32.ServiceStartType.SERVICE_DISABLED,
-                    AdvApi32.ServiceErrorControlType.SERVICE_NO_CHANGE);
+                var result = PInvoke.ChangeServiceConfig(serviceHandle,
+                    PInvokeExtensions.SERVICE_NO_CHANGE,
+                    enabled ? SERVICE_START_TYPE.SERVICE_AUTO_START : SERVICE_START_TYPE.SERVICE_DISABLED,
+                    SERVICE_ERROR.SERVICE_ERROR_NORMAL,
+                    null as string,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null);
 
                 if (result)
                     return;
 
-                var nError = Marshal.GetLastWin32Error();
-                var win32Exception = new Win32Exception(nError);
-                throw new ExternalException($"Could not change service start type: {win32Exception.Message}");
-
+                PInvokeExtensions.ThrowIfWin32Error($"Could not change service: {svc.ServiceName}");
             }
             finally
             {
-                if (serviceHandle != IntPtr.Zero)
-                    AdvApi32.CloseServiceHandle(serviceHandle);
-                if (scManagerHandle != IntPtr.Zero)
-                    AdvApi32.CloseServiceHandle(scManagerHandle);
+                PInvoke.CloseServiceHandle(serviceHandle);
+                PInvoke.CloseServiceHandle(scManagerHandle);
             }
         }
     }

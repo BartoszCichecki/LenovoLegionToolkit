@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using Vanara.PInvoke;
+using LenovoLegionToolkit.Lib.Extensions;
+using Windows.Win32;
 
 namespace LenovoLegionToolkit.Lib.System
 {
     public static class KnownFolders
     {
-        private static readonly Dictionary<KnownFolder, Guid> Guids = new()
+        private static readonly Dictionary<KnownFolder, Guid> Folders = new()
         {
             [KnownFolder.Contacts] = new("56784854-C6CB-462B-8169-88E350ACB882"),
             [KnownFolder.Downloads] = new("374DE290-123F-4565-9164-39C4925E467B"),
@@ -18,7 +19,10 @@ namespace LenovoLegionToolkit.Lib.System
 
         public static string GetPath(KnownFolder knownFolder)
         {
-            return Shell32.SHGetKnownFolderPath(Guids[knownFolder], Shell32.KNOWN_FOLDER_FLAG.KF_FLAG_DEFAULT, HTOKEN.NULL, out var path) == HRESULT.S_OK ? path : string.Empty;
+            string? path = null;
+            if (PInvoke.SHGetKnownFolderPath(Folders[knownFolder], PInvokeExtensions.KF_FLAG_DEFAULT, null, out var ppszPath).Succeeded)
+                path = ppszPath.ToString();
+            return path ?? string.Empty;
         }
     }
 }

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
-using Vanara.PInvoke;
 
 namespace LenovoLegionToolkit.Lib.System
 {
