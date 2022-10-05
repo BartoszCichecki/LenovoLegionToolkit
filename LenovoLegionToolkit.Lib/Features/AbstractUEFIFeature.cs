@@ -2,7 +2,10 @@
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Utils;
-using Vanara.PInvoke;
+using Windows.Win32;
+using Windows.Win32.Security;
+
+#pragma warning disable CA1416 // Validate platform compatibility
 
 namespace LenovoLegionToolkit.Lib.Features
 {
@@ -10,9 +13,9 @@ namespace LenovoLegionToolkit.Lib.Features
     {
         private readonly string _guid;
         private readonly string _scopeName;
-        private readonly Kernel32.VARIABLE_ATTRIBUTE _scopeAttribute;
+        private readonly uint _scopeAttribute;
 
-        protected AbstractUEFIFeature(string guid, string scopeName, Kernel32.VARIABLE_ATTRIBUTE scopeAttribute)
+        protected AbstractUEFIFeature(string guid, string scopeName, uint scopeAttribute)
         {
             _guid = guid;
             _scopeName = scopeName;
@@ -25,12 +28,12 @@ namespace LenovoLegionToolkit.Lib.Features
 
         public abstract Task SetStateAsync(T state);
 
-        protected Task<S> ReadFromUefiAsync<S>(S structure) where S : struct => Task.Run(() =>
+        protected unsafe Task<TS> ReadFromUefiAsync<TS>() where TS : struct => Task.Run(() =>
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Reading from UEFI... [feature={GetType().Name}]");
 
-            var ptr = Marshal.AllocHGlobal(Marshal.SizeOf<S>());
+            var ptr = Marshal.AllocHGlobal(Marshal.SizeOf<TS>());
 
             try
             {
@@ -39,13 +42,13 @@ namespace LenovoLegionToolkit.Lib.Features
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Cannot set UEFI privilages [feature={GetType().Name}]");
 
-                    throw new InvalidOperationException($"Cannot set privilages UEFI");
+                    throw new InvalidOperationException("Cannot set privilages UEFI");
                 }
 
-                Marshal.StructureToPtr(structure, ptr, false);
-                if (Kernel32.GetFirmwareEnvironmentVariableEx(_scopeName, _guid, ptr, (uint)Marshal.SizeOf<S>(), out _) != Win32Error.ERROR_SUCCESS)
+                var ptrSize = (uint)Marshal.SizeOf<TS>();
+                if (PInvoke.GetFirmwareEnvironmentVariableEx(_scopeName, _guid, ptr.ToPointer(), ptrSize, null) != 0)
                 {
-                    var result = Marshal.PtrToStructure<S>(ptr);
+                    var result = Marshal.PtrToStructure<TS>(ptr);
 
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Read from UEFI successful [feature={GetType().Name}]");
@@ -67,9 +70,9 @@ namespace LenovoLegionToolkit.Lib.Features
             }
         });
 
-        protected Task WriteToUefiAsync<S>(S structure) where S : struct => Task.Run(() =>
+        protected unsafe Task WriteToUefiAsync<TS>(TS structure) where TS : struct => Task.Run(() =>
         {
-            var ptr = Marshal.AllocHGlobal(Marshal.SizeOf<S>());
+            var ptr = Marshal.AllocHGlobal(Marshal.SizeOf<TS>());
 
             try
             {
@@ -78,11 +81,12 @@ namespace LenovoLegionToolkit.Lib.Features
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Cannot set UEFI privilages [feature={GetType().Name}]");
 
-                    throw new InvalidOperationException($"Cannot set privilages UEFI");
+                    throw new InvalidOperationException("Cannot set privilages UEFI");
                 }
 
                 Marshal.StructureToPtr(structure, ptr, false);
-                if (!Kernel32.SetFirmwareEnvironmentVariableEx(_scopeName, _guid, ptr, (uint)Marshal.SizeOf<S>(), _scopeAttribute))
+                var ptrSize = (uint)Marshal.SizeOf<TS>();
+                if (!PInvoke.SetFirmwareEnvironmentVariableEx(_scopeName, _guid, ptr.ToPointer(), ptrSize, _scopeAttribute))
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Cannot write variable {_scopeName} to UEFI [feature={GetType().Name}]");
@@ -102,11 +106,13 @@ namespace LenovoLegionToolkit.Lib.Features
             }
         });
 
-        private bool SetPrivilege(bool enable)
+        private unsafe bool SetPrivilege(bool enable)
         {
             try
             {
-                if (!AdvApi32.OpenProcessToken(Kernel32.GetCurrentProcess(), AdvApi32.TokenAccess.TOKEN_QUERY | AdvApi32.TokenAccess.TOKEN_ADJUST_PRIVILEGES, out var token))
+                using var handle = PInvoke.GetCurrentProcess_SafeHandle();
+
+                if (!PInvoke.OpenProcessToken(handle, TOKEN_ACCESS_MASK.TOKEN_QUERY | TOKEN_ACCESS_MASK.TOKEN_ADJUST_PRIVILEGES, out var token))
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Could not open process token [feature={GetType().Name}]");
@@ -114,7 +120,7 @@ namespace LenovoLegionToolkit.Lib.Features
                     return false;
                 }
 
-                if (!AdvApi32.LookupPrivilegeValue(null, "SeSystemEnvironmentPrivilege", out var luid))
+                if (!PInvoke.LookupPrivilegeValue(null, "SeSystemEnvironmentPrivilege", out var luid))
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Could not look up privilege value [feature={GetType().Name}]");
@@ -122,12 +128,14 @@ namespace LenovoLegionToolkit.Lib.Features
                     return false;
                 }
 
-                var state = new AdvApi32.TOKEN_PRIVILEGES(luid,
-                    enable
-                        ? AdvApi32.PrivilegeAttributes.SE_PRIVILEGE_ENABLED
-                        : AdvApi32.PrivilegeAttributes.SE_PRIVILEGE_DISABLED);
+                var state = new TOKEN_PRIVILEGES { PrivilegeCount = 1 };
+                state.Privileges[0] = new LUID_AND_ATTRIBUTES()
+                {
+                    Luid = luid,
+                    Attributes = enable ? TOKEN_PRIVILEGES_ATTRIBUTES.SE_PRIVILEGE_ENABLED : 0
+                };
 
-                if (AdvApi32.AdjustTokenPrivileges(token, false, in state, out _) != Win32Error.ERROR_SUCCESS)
+                if (!PInvoke.AdjustTokenPrivileges(token, false, state, 0, null, null))
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Could not adjust token privileges [feature={GetType().Name}]");

@@ -7,23 +7,6 @@ using Microsoft.Win32.SafeHandles;
 
 namespace LenovoLegionToolkit.Lib.System
 {
-    internal enum ACLineStatusEx : byte
-    {
-        Offline = 0,
-        Online = 1,
-        Unknown = 255
-    }
-
-    internal enum BatteryFlagEx : byte
-    {
-        High = 1,
-        Low = 2,
-        Critical = 4,
-        Charging = 8,
-        NoSystemBattery = 128,
-        Unknown = 255
-    }
-
     internal enum BatteryQueryInformationLevelEx
     {
         BatteryInformation = 0,
@@ -271,9 +254,7 @@ namespace LenovoLegionToolkit.Lib.System
     {
         public static readonly Guid GUID_DEVCLASS_BATTERY = new(0x72631E54, 0x78A4, 0x11D0, 0xBC, 0xF7, 0x00, 0xAA, 0x00, 0xB7, 0xB3, 0x2A);
 
-        public const uint IOCTL_BATTERY_QUERY_TAG = (0x00000029 << 16) | ((int)FileAccess.Read << 14) | (0x10 << 2) | (0);
-        public const uint IOCTL_BATTERY_QUERY_INFORMATION = (0x00000029 << 16) | ((int)FileAccess.Read << 14) | (0x11 << 2) | (0);
-        public const uint IOCTL_BATTERY_QUERY_STATUS = (0x00000029 << 16) | ((int)FileAccess.Read << 14) | (0x13 << 2) | (0);
+
 
         public const int ERROR_NO_MORE_ITEMS = 259;
 
@@ -345,28 +326,6 @@ namespace LenovoLegionToolkit.Lib.System
             out uint outBuffer,
             int nOutBufferSize,
             out int pBytesReturned,
-            IntPtr lpOverlapped);
-
-        [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        public static extern bool DeviceIoControl(
-            SafeFileHandle hDevice,
-            uint dwIoControlCode,
-            ref uint inBuffer,
-            int nInBufferSize,
-            [Out] IntPtr outBuffer,
-            int nOutBufferSize,
-            out int pBytesReturned,
-            IntPtr lpOverlapped);
-
-        [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
-        public static extern bool DeviceIoControl(
-            SafeFileHandle hDevice,
-            uint dwIoControlCode,
-            [In] IntPtr inBuffer,
-            int nInBufferSize,
-            [Out] IntPtr outBuffer,
-            int nOutBufferSize,
-            out uint pBytesReturned,
             IntPtr lpOverlapped);
 
         [DllImport("hid.dll", EntryPoint = "HidD_GetHidGuid", SetLastError = true, CharSet = CharSet.Auto)]

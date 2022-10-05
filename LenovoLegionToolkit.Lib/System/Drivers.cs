@@ -5,6 +5,8 @@ namespace LenovoLegionToolkit.Lib.System
 {
     internal static class Drivers
     {
+        public const uint IOCTL_ENERGY = 0x83102138;
+
         private static readonly object _locker = new();
 
         private static SafeFileHandle? _energy;
