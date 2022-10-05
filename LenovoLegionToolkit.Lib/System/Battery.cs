@@ -16,8 +16,8 @@ namespace LenovoLegionToolkit.Lib.System
             var powerStatus = GetSystemPowerStatus();
 
             var batteryTag = GetBatteryTag();
-            var information = GetBatteryInformationEx(batteryTag);
-            var status = GetBatteryStatusEx(batteryTag);
+            var information = GetBatteryInformation(batteryTag);
+            var status = GetBatteryStatus(batteryTag);
             var onBatterySince = GetOnBatterySince();
 
             double? temperatureC = null;
@@ -48,9 +48,9 @@ namespace LenovoLegionToolkit.Lib.System
                 FullBatteryLifeRemaining = (int)powerStatus.BatteryFullLifeTime,
                 DischargeRate = status.Rate,
                 EstimateChargeRemaining = (int)status.Capacity,
-                DesignCapacity = information.DesignedCapacity,
-                FullChargeCapacity = information.FullChargedCapacity,
-                CycleCount = information.CycleCount,
+                DesignCapacity = (int)information.DesignedCapacity,
+                FullChargeCapacity = (int)information.FullChargedCapacity,
+                CycleCount = (int)information.CycleCount,
                 BatteryTemperatureC = temperatureC,
                 ManufactureDate = manufactureDate,
                 FirstUseDate = firstUseDate
@@ -80,34 +80,34 @@ namespace LenovoLegionToolkit.Lib.System
             return tag;
         }
 
-        private static BatteryInformationEx GetBatteryInformationEx(uint batteryTag)
+        private static BATTERY_INFORMATION GetBatteryInformation(uint batteryTag)
         {
-            var queryInformation = new BatteryQueryInformationEx
+            var queryInformation = new BATTERY_QUERY_INFORMATION
             {
                 BatteryTag = batteryTag,
-                InformationLevel = BatteryQueryInformationLevelEx.BatteryInformation,
+                InformationLevel = BATTERY_QUERY_INFORMATION_LEVEL.BatteryInformation,
             };
 
             var result = PInvokeExtensions.DeviceIoControl(Devices.GetBattery(),
                 PInvokeExtensions.IOCTL_BATTERY_QUERY_INFORMATION,
                 queryInformation,
-                out BatteryInformationEx bi);
+                out BATTERY_INFORMATION bi);
 
             if (!result)
                 PInvokeExtensions.ThrowIfWin32Error("DeviceIoControl, IOCTL_BATTERY_QUERY_INFORMATION");
             return bi;
         }
 
-        private static BatteryStatusEx GetBatteryStatusEx(uint batteryTag)
+        private static BATTERY_STATUS GetBatteryStatus(uint batteryTag)
         {
-            var waitStatus = new BatteryWaitStatusEx
+            var waitStatus = new BATTERY_WAIT_STATUS
             {
                 BatteryTag = batteryTag,
             };
             var result = PInvokeExtensions.DeviceIoControl(Devices.GetBattery(),
                 PInvokeExtensions.IOCTL_BATTERY_QUERY_STATUS,
                                                 waitStatus,
-                                                out BatteryStatusEx s);
+                                                out BATTERY_STATUS s);
 
             if (!result)
                 PInvokeExtensions.ThrowIfWin32Error("DeviceIoControl, IOCTL_BATTERY_QUERY_STATUS");
