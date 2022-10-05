@@ -8,6 +8,8 @@ using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using Windows.Win32;
 
+#pragma warning disable CA1416 // Validate platform compatibility
+
 namespace LenovoLegionToolkit.Lib.Listeners
 {
     public class DriverKeyListener : IListener<DriverKey>
@@ -158,7 +160,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
         {
             var handle = (uint)waitHandle.SafeWaitHandle.DangerousGetHandle();
             return PInvoke.DeviceIoControl(Drivers.GetEnergy(),
-                0x831020D8,
+                Drivers.IOCTL_KEY_WAIT_HANDLE,
                 &handle,
                 16,
                 null,
@@ -172,7 +174,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
             uint inBuff = 0;
             uint outBuff = 0;
             var result = PInvoke.DeviceIoControl(Drivers.GetEnergy(),
-                0x831020CC,
+                Drivers.IOCTL_KEY_VALUE,
                 &inBuff,
                 4,
                 &outBuff,

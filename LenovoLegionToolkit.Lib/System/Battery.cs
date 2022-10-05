@@ -141,7 +141,7 @@ namespace LenovoLegionToolkit.Lib.System
         private static LenovoBatteryInformationEx GetLenovoBatteryInformation(uint index)
         {
             var result = PInvokeExtensions.DeviceIoControl(Drivers.GetEnergy(),
-                                                Drivers.IOCTL_ENERGY,
+                                                Drivers.IOCTL_ENERGY_BATTERY_INFORMATION,
                                                 index,
                                                 out LenovoBatteryInformationEx bi);
             if (!result)

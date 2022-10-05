@@ -3,11 +3,18 @@ using Microsoft.Win32.SafeHandles;
 using Windows.Win32;
 using Windows.Win32.Storage.FileSystem;
 
+#pragma warning disable CA1416 // Validate platform compatibility
+
 namespace LenovoLegionToolkit.Lib.System
 {
     internal static class Drivers
     {
-        public const uint IOCTL_ENERGY = 0x83102138;
+        public const uint IOCTL_ENERGY_BATTERY_INFORMATION = 0x83102138;
+        public const uint IOCTL_ENERGY_SETTINGS = 0x831020E8;
+        public const uint IOCTL_ENERGY_BATTERY_CHARGE_MODE = 0x831020F8;
+        public const uint IOCTL_ENERGY_KEYBOARD = 0x83102144;
+        public const uint IOCTL_KEY_WAIT_HANDLE = 0x831020D8;
+        public const uint IOCTL_KEY_VALUE = 0x831020CC;
 
         private static readonly object _locker = new();
 

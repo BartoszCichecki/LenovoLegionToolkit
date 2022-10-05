@@ -110,7 +110,7 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             try
             {
-                if (PInvokeExtensions.DeviceIoControl(Devices.GetBattery(), 0x831020E8, 2u, out uint result))
+                if (PInvokeExtensions.DeviceIoControl(Devices.GetBattery(), Drivers.IOCTL_ENERGY_SETTINGS, 2u, out uint result))
                     return result.ReverseEndianness().GetNthBit(19);
 
                 var error = Marshal.GetLastWin32Error();
