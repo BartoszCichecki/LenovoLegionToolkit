@@ -17,7 +17,7 @@ namespace LenovoLegionToolkit.Lib.Features
 
         public async Task<HybridModeState[]> GetAllStatesAsync()
         {
-            var mi = await Compatibility.GetMachineInformation().ConfigureAwait(false);
+            var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
             if (mi.Properties.SupportsExtendedHybridMode)
                 return new[] { HybridModeState.On, HybridModeState.OnIGPUOnly, HybridModeState.OnAuto, HybridModeState.Off };
             else

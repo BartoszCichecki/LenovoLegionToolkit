@@ -1,13 +1,19 @@
 ﻿using System;
 using System.Management;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.System;
 
 namespace LenovoLegionToolkit.Lib.Listeners
 {
     public class PowerModeListener : AbstractWMIListener<PowerModeState>, INotifyingListener<PowerModeState>
     {
-        public PowerModeListener() : base("ROOT\\WMI", "LENOVO_GAMEZONE_SMART_FAN_MODE_EVENT") { }
+        private readonly AIModeController _aiModeController;
+
+        public PowerModeListener(AIModeController aiModeController) : base("ROOT\\WMI", "LENOVO_GAMEZONE_SMART_FAN_MODE_EVENT")
+        {
+            _aiModeController = aiModeController ?? throw new ArgumentNullException(nameof(aiModeController)); ;
+        }
 
         protected override PowerModeState GetValue(PropertyDataCollection properties)
         {
@@ -17,7 +23,11 @@ namespace LenovoLegionToolkit.Lib.Listeners
             return value;
         }
 
-        protected override Task OnChangedAsync(PowerModeState value) => Power.ActivatePowerPlanAsync(value);
+        protected override async Task OnChangedAsync(PowerModeState value)
+        {
+            await _aiModeController.StartStopAsync(value).ConfigureAwait(false);
+            await Power.ActivatePowerPlanAsync(value).ConfigureAwait(false);
+        }
 
         public async Task NotifyAsync(PowerModeState value)
         {

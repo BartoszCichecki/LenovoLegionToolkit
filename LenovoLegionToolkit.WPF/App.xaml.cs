@@ -83,6 +83,19 @@ namespace LenovoLegionToolkit
             try
             {
                 if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Ensuring AI Mode is set...");
+
+                await IoCContainer.Resolve<PowerModeFeature>().EnsureAIModeIsSetAsync();
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't set AI Mode.", ex);
+            }
+
+            try
+            {
+                if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Ensuring correct power plan is set...");
 
                 await IoCContainer.Resolve<PowerModeFeature>().EnsureCorrectPowerPlanIsSetAsync();
@@ -147,20 +160,18 @@ namespace LenovoLegionToolkit
                 Log.Instance.Trace($"Start up complete");
         }
 
-        private async void Application_Exit(object sender, ExitEventArgs e)
+        public async Task ShutdownAsync()
         {
-            try
+            if (IoCContainer.TryResolve<RGBKeyboardBacklightController>() is { } rgbKeyboardBacklightController)
             {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Resigning light control owner...");
+                if (rgbKeyboardBacklightController.IsSupported())
+                    await rgbKeyboardBacklightController.SetLightControlOwnerAsync(false);
+            }
 
-                await IoCContainer.Resolve<RGBKeyboardBacklightController>().SetLightControlOwnerAsync(false);
-            }
-            catch (Exception ex)
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't set light control owner.", ex);
-            }
+            if (IoCContainer.TryResolve<AIModeController>() is { } aiModeController)
+                await aiModeController.StopAsync();
+
+            Shutdown();
         }
 
         private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)

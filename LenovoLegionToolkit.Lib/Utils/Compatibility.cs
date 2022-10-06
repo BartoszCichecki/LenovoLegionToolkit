@@ -47,7 +47,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         private static MachineInformation? _machineInformation;
 
-        public static async Task<MachineInformation> GetMachineInformation()
+        public static async Task<MachineInformation> GetMachineInformationAsync()
         {
             if (!_machineInformation.HasValue)
             {
@@ -66,7 +66,8 @@ namespace LenovoLegionToolkit.Lib.Utils
                         ShouldFlipFnLock = GetShouldFlipFnLock(),
                         SupportsGodMode = GetSupportsGodMode(biosVersion),
                         SupportsACDetection = await GetSupportsACDetection().ConfigureAwait(false),
-                        SupportsExtendedHybridMode = await GetSupportsExtendedHybridModeAsync().ConfigureAwait(false)
+                        SupportsExtendedHybridMode = await GetSupportsExtendedHybridModeAsync().ConfigureAwait(false),
+                        SupportsIntelligentSubMode = await GetSupportsIntelligentSubModeAsync().ConfigureAwait(false)
                     }
                 };
 
@@ -80,6 +81,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                     Log.Instance.Trace($" * ShouldFlipFnLock: {machineInformation.Properties.ShouldFlipFnLock}");
                     Log.Instance.Trace($" * SupportsGodMode: {machineInformation.Properties.SupportsGodMode}");
                     Log.Instance.Trace($" * SupportsExtendedHybridMode: {machineInformation.Properties.SupportsExtendedHybridMode}");
+                    Log.Instance.Trace($" * SupportsIntelligentSubMode: {machineInformation.Properties.SupportsIntelligentSubMode}");
                 }
 
                 _machineInformation = machineInformation;
@@ -90,7 +92,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         public static async Task<(bool isCompatible, MachineInformation machineInformation)> IsCompatibleAsync()
         {
-            var mi = await GetMachineInformation().ConfigureAwait(false);
+            var mi = await GetMachineInformationAsync().ConfigureAwait(false);
 
             if (!mi.Vendor.Equals(_allowedVendor, StringComparison.InvariantCultureIgnoreCase))
                 return (false, mi);
@@ -162,6 +164,23 @@ namespace LenovoLegionToolkit.Lib.Utils
                     new(),
                     pdc => (uint)pdc["Data"].Value).ConfigureAwait(false);
                 return result > 0;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private static async Task<bool> GetSupportsIntelligentSubModeAsync()
+        {
+            try
+            {
+                _ = await WMI.CallAsync("root\\WMI",
+                    $"SELECT * FROM LENOVO_GAMEZONE_DATA",
+                    "GetIntelligentSubMode",
+                    new(),
+                    pdc => (uint)pdc["Data"].Value).ConfigureAwait(false);
+                return true;
             }
             catch
             {
