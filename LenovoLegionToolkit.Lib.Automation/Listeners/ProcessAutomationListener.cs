@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -21,8 +20,10 @@ namespace LenovoLegionToolkit.Lib.Automation.Listeners
             "CompPkgSrv.exe",
             "conhost.exe",
             "dllhost.exe",
+            "Lenovo Legion Toolkit.exe",
             "msedge.exe",
             "msedgewebview2.exe",
+            "NvOAWrapperCache.exe",
             "SearchProtocolHost.exe",
             "svchost.exe",
             "WmiPrvSE.exe",
@@ -78,9 +79,11 @@ namespace LenovoLegionToolkit.Lib.Automation.Listeners
                 {
                     processPath = Process.GetProcessById(e.processID).MainModule?.FileName;
                 }
-                catch (ArgumentException) { }
-                catch (InvalidOperationException) { }
-                catch (Win32Exception) { }
+                catch (Exception ex)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Can't get process {e.processName} details.", ex);
+                }
 
                 if (string.IsNullOrWhiteSpace(processPath))
                     return;
