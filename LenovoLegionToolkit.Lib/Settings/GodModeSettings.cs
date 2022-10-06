@@ -1,6 +1,4 @@
-﻿using LenovoLegionToolkit.Lib.System;
-
-namespace LenovoLegionToolkit.Lib.Settings
+﻿namespace LenovoLegionToolkit.Lib.Settings
 {
     public class GodModeSettings : AbstractSettings<GodModeSettings.GodModeSettingsStore>
     {

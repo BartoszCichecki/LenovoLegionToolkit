@@ -24,7 +24,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
         private async void HybridModeControl_Initialized(object? sender, EventArgs e)
         {
-            var mi = await Compatibility.GetMachineInformation();
+            var mi = await Compatibility.GetMachineInformationAsync();
             if (mi.Properties.SupportsExtendedHybridMode)
                 Content = new ComboBoxHybridModeControl();
             else

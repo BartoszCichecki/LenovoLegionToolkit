@@ -46,7 +46,7 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private async void PackagesPage_Initialized(object? sender, EventArgs e)
         {
-            _machineTypeTextBox.Text = (await Compatibility.GetMachineInformation()).MachineType;
+            _machineTypeTextBox.Text = (await Compatibility.GetMachineInformationAsync()).MachineType;
             _osComboBox.SetItems(Enum.GetValues<OS>(), OSExtensions.GetCurrent(), os => os.GetDisplayName());
             _downloadToText.PlaceholderText = _downloadToText.Text = KnownFolders.GetPath(KnownFolder.Downloads);
 

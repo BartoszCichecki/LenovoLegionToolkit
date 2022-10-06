@@ -1,10 +1,9 @@
 ﻿<Application
-    x:Class="LenovoLegionToolkit.App"
+    x:Class="LenovoLegionToolkit.WPF.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     DispatcherUnhandledException="Application_DispatcherUnhandledException"
-    Exit="Application_Exit"
     ShutdownMode="OnExplicitShutdown"
     Startup="Application_Startup">
     <Application.Resources>
