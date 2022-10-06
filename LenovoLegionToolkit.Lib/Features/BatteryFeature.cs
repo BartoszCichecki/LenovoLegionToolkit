@@ -7,7 +7,7 @@ namespace LenovoLegionToolkit.Lib.Features
 {
     public class BatteryFeature : AbstractDriverFeature<BatteryState>
     {
-        public BatteryFeature() : base(Drivers.GetEnergy, 0x831020F8) { }
+        public BatteryFeature() : base(Drivers.GetEnergy, Drivers.IOCTL_ENERGY_BATTERY_CHARGE_MODE) { }
 
         protected override uint GetInBufferValue() => 0xFF;
 

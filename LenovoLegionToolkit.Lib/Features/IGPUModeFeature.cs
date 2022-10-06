@@ -1,8 +1,14 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using Windows.Win32;
+using Windows.Win32.Devices.DeviceAndDriverInstallation;
+using Windows.Win32.Foundation;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
+
+#pragma warning disable CA1416 // Validate platform compatibility
 
 namespace LenovoLegionToolkit.Lib.Features
 {
@@ -17,7 +23,8 @@ namespace LenovoLegionToolkit.Lib.Features
                 if (!await IsSupportedAsync().ConfigureAwait(false))
                     return;
 
-                var isAvailable = await IsDGPUAvailableAsync().ConfigureAwait(false);
+                var dgpuHardwareId = await GetDGPUHardwareId().ConfigureAwait(false);
+                var isAvailable = IsDGPUAvailable(dgpuHardwareId);
                 await NotifyDGPUStatusAsync(isAvailable).ConfigureAwait(false);
 
                 if (Log.Instance.IsTraceEnabled)
@@ -55,15 +62,13 @@ namespace LenovoLegionToolkit.Lib.Features
             }
         }
 
-        private async Task<bool> IsDGPUAvailableAsync()
+        private unsafe bool IsDGPUAvailable(HardwareId dgpuHardwareId)
         {
-            var dgpuHardwareId = await GetDGPUHardwareId().ConfigureAwait(false);
-
-            var guidDisplayDeviceArrival = Native.GUID_DISPLAY_DEVICE_ARRIVAL;
-            var deviceHandle = Native.SetupDiGetClassDevs(ref guidDisplayDeviceArrival,
+            var guidDisplayDeviceArrival = PInvoke.GUID_DISPLAY_DEVICE_ARRIVAL;
+            var deviceHandle = PInvoke.SetupDiGetClassDevs(guidDisplayDeviceArrival,
                 null,
-                IntPtr.Zero,
-                DeviceGetClassFlagsEx.DIGCF_DEVICEINTERFACE | DeviceGetClassFlagsEx.DIGCF_PRESENT | DeviceGetClassFlagsEx.DIGCF_PROFILE);
+                HWND.Null,
+                PInvoke.DIGCF_DEVICEINTERFACE | PInvoke.DIGCF_PRESENT | PInvoke.DIGCF_PROFILE);
 
             uint index = 0;
             while (true)
@@ -71,50 +76,50 @@ namespace LenovoLegionToolkit.Lib.Features
                 var currentIndex = index;
                 index++;
 
-                var deviceInfoData = new SpDeviceInfoDataEx { CbSize = Marshal.SizeOf<SpDeviceInfoDataEx>() };
-                var result1 = Native.SetupDiEnumDeviceInfo(deviceHandle, currentIndex, ref deviceInfoData);
+                var deviceInfoData = new SP_DEVINFO_DATA { cbSize = (uint)Marshal.SizeOf<SP_DEVINFO_DATA>() };
+                var result1 = PInvoke.SetupDiEnumDeviceInfo(deviceHandle, currentIndex, ref deviceInfoData);
                 if (!result1)
                 {
-                    if (Marshal.GetLastWin32Error() == Native.ERROR_NO_MORE_ITEMS)
+                    if (Marshal.GetLastWin32Error() == PInvokeExtensions.ERROR_NO_MORE_ITEMS)
                         break;
 
-                    NativeUtils.ThrowIfWin32Error("SetupDiEnumDeviceInfo");
+                    PInvokeExtensions.ThrowIfWin32Error("SetupDiEnumDeviceInfo");
                 }
 
-                var deviceInterfaceData = new SpDeviceInterfaceDataEx { CbSize = Marshal.SizeOf<SpDeviceInterfaceDataEx>() };
-                var deviceDetailData = new SpDeviceInterfaceDetailDataEx { CbSize = IntPtr.Size == 8 ? 8 : 4 + Marshal.SystemDefaultCharSize };
-
-                var result2 = Native.SetupDiEnumDeviceInterfaces(deviceHandle,
-                    IntPtr.Zero,
-                    ref guidDisplayDeviceArrival,
-                    currentIndex,
-                    ref deviceInterfaceData);
+                var deviceInterfaceData = new SP_DEVICE_INTERFACE_DATA { cbSize = (uint)Marshal.SizeOf<SP_DEVICE_INTERFACE_DATA>() };
+                var result2 = PInvoke.SetupDiEnumDeviceInterfaces(deviceHandle, null, guidDisplayDeviceArrival, currentIndex, ref deviceInterfaceData);
                 if (!result2)
-                    NativeUtils.ThrowIfWin32Error("SetupDiEnumDeviceInterfaces");
+                    PInvokeExtensions.ThrowIfWin32Error("SetupDiEnumDeviceInterfaces");
 
-                _ = Native.SetupDiGetDeviceInterfaceDetail(deviceHandle,
-                    ref deviceInterfaceData,
-                    IntPtr.Zero,
-                    0,
-                    out var deviceDetailDataSize,
-                    IntPtr.Zero);
+                var requiredSize = 0u;
+                _ = PInvoke.SetupDiGetDeviceInterfaceDetail(deviceHandle, deviceInterfaceData, null, 0, &requiredSize, null);
 
-                var result3 = Native.SetupDiGetDeviceInterfaceDetail(deviceHandle,
-                    ref deviceInterfaceData,
-                    ref deviceDetailData,
-                    deviceDetailDataSize,
-                    out _,
-                    IntPtr.Zero);
-                if (!result3)
-                    NativeUtils.ThrowIfWin32Error("SetupDiGetDeviceInterfaceDetail");
+                string devicePath;
+                var output = IntPtr.Zero;
+                try
+                {
+                    output = Marshal.AllocHGlobal((int)requiredSize);
+                    var deviceDetailData = (SP_DEVICE_INTERFACE_DETAIL_DATA_W*)output.ToPointer();
+                    deviceDetailData->cbSize = (uint)Marshal.SizeOf<SP_DEVICE_INTERFACE_DETAIL_DATA_W>();
 
-                if (!deviceDetailData.DevicePath.Contains(guidDisplayDeviceArrival.ToString()))
+                    var result3 = PInvoke.SetupDiGetDeviceInterfaceDetail(deviceHandle, deviceInterfaceData, deviceDetailData, requiredSize, null, null);
+                    if (!result3)
+                        PInvokeExtensions.ThrowIfWin32Error("SetupDiGetDeviceInterfaceDetail");
+
+                    devicePath = new string(&deviceDetailData->DevicePath._0);
+                }
+                finally
+                {
+                    Marshal.FreeHGlobal(output);
+                }
+
+                if (!devicePath.Contains(guidDisplayDeviceArrival.ToString()))
                     continue;
 
-                if (dgpuHardwareId != HardwareId.FromDevicePath(deviceDetailData.DevicePath))
+                if (dgpuHardwareId != HardwareId.FromDevicePath(devicePath))
                     continue;
 
-                if (Native.CM_Get_DevNode_Status(out var status, out _, deviceInfoData.DevInst, 0) != 0)
+                if (PInvoke.CM_Get_DevNode_Status(out var status, out _, deviceInfoData.DevInst, 0) != 0)
                     continue;
 
                 if ((status & 0x400) != 0)
