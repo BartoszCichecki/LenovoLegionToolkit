@@ -110,26 +110,15 @@ namespace LenovoLegionToolkit.Lib.Utils
         {
             try
             {
-                uint inBuffer = 0x2;
-                if (!Native.DeviceIoControl(Devices.GetBattery(),
-                        0x831020E8,
-                        ref inBuffer,
-                        sizeof(uint),
-                        out var outBuffer,
-                        sizeof(uint),
-                        out _,
-                        IntPtr.Zero))
-                {
-                    var error = Marshal.GetLastWin32Error();
+                if (PInvokeExtensions.DeviceIoControl(Devices.GetBattery(), Drivers.IOCTL_ENERGY_SETTINGS, 2u, out uint result))
+                    return result.ReverseEndianness().GetNthBit(19);
 
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"DeviceIoControl returned 0, last error: {error}");
+                var error = Marshal.GetLastWin32Error();
 
-                    throw new InvalidOperationException($"DeviceIoControl returned 0, last error: {error}");
-                }
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"DeviceIoControl returned 0, last error: {error}");
 
-                outBuffer = outBuffer.ReverseEndianness();
-                return outBuffer.GetNthBit(19);
+                throw new InvalidOperationException($"DeviceIoControl returned 0, last error: {error}");
             }
             catch (InvalidOperationException)
             {
