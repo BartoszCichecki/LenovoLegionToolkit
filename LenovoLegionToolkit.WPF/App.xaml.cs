@@ -1,4 +1,7 @@
-﻿using System;
+﻿#if !DEBUG
+using LenovoLegionToolkit.Lib.System;
+#endif
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,11 +18,7 @@ using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
-#if !DEBUG
-using LenovoLegionToolkit.Lib.System;
-#endif
 using LenovoLegionToolkit.Lib.Utils;
-using LenovoLegionToolkit.WPF;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows;
 using LenovoLegionToolkit.WPF.Windows.Utils;
@@ -28,7 +27,7 @@ using WinFormsHighDpiMode = System.Windows.Forms.HighDpiMode;
 
 #pragma warning disable IDE0052 // Remove unread private members
 
-namespace LenovoLegionToolkit
+namespace LenovoLegionToolkit.WPF
 {
     public partial class App
     {
@@ -40,7 +39,7 @@ namespace LenovoLegionToolkit
 
         private async void Application_Startup(object sender, StartupEventArgs e)
         {
-            var args = e.Args.Concat(LoadExternalArgs());
+            var args = e.Args.Concat(LoadExternalArgs()).ToArray();
 
             if (IsTraceEnabled(args))
                 Log.Instance.IsTraceEnabled = true;
@@ -162,14 +161,22 @@ namespace LenovoLegionToolkit
 
         public async Task ShutdownAsync()
         {
-            if (IoCContainer.TryResolve<RGBKeyboardBacklightController>() is { } rgbKeyboardBacklightController)
+            try
             {
-                if (rgbKeyboardBacklightController.IsSupported())
-                    await rgbKeyboardBacklightController.SetLightControlOwnerAsync(false);
+                if (IoCContainer.TryResolve<RGBKeyboardBacklightController>() is { } rgbKeyboardBacklightController)
+                {
+                    if (rgbKeyboardBacklightController.IsSupported())
+                        await rgbKeyboardBacklightController.SetLightControlOwnerAsync(false);
+                }
             }
+            catch { }
 
-            if (IoCContainer.TryResolve<AIModeController>() is { } aiModeController)
-                await aiModeController.StopAsync();
+            try
+            {
+                if (IoCContainer.TryResolve<AIModeController>() is { } aiModeController)
+                    await aiModeController.StopAsync();
+            }
+            catch { }
 
             Shutdown();
         }
