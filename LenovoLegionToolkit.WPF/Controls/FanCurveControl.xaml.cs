@@ -8,7 +8,6 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Extensions;
-using LenovoLegionToolkit.Lib.System;
 
 namespace LenovoLegionToolkit.WPF.Controls
 {
