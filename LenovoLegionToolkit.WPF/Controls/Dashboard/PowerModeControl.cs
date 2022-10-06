@@ -54,13 +54,26 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             {
                 await base.OnStateChange(comboBox, feature, newValue, oldValue);
 
-                if (comboBox.TryGetSelectedItem(out PowerModeState state) && state == PowerModeState.GodMode)
+                if (!comboBox.TryGetSelectedItem(out PowerModeState state))
+                    return;
+
+                var mi = await Compatibility.GetMachineInformationAsync();
+
+                switch (state)
                 {
-                    _configButton.ToolTip = "Settings";
-                    _configButton.Visibility = Visibility.Visible;
+                    case PowerModeState.Balance when mi.Properties.SupportsIntelligentSubMode:
+                        _configButton.ToolTip = "Settings";
+                        _configButton.Visibility = Visibility.Visible;
+                        break;
+                    case PowerModeState.GodMode:
+                        _configButton.ToolTip = "Settings";
+                        _configButton.Visibility = Visibility.Visible;
+                        break;
+                    default:
+                        _configButton.ToolTip = null;
+                        _configButton.Visibility = Visibility.Collapsed;
+                        break;
                 }
-                else
-                    _configButton.Visibility = Visibility.Collapsed;
             }
             catch (InvalidOperationException ex)
             {
@@ -87,7 +100,21 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
         private void ConfigButton_Click(object sender, RoutedEventArgs e)
         {
-            if (_comboBox.TryGetSelectedItem(out PowerModeState state) && state == PowerModeState.GodMode)
+            if (!_comboBox.TryGetSelectedItem(out PowerModeState state))
+                return;
+
+            if (state == PowerModeState.Balance)
+            {
+                var window = new BalanceModeSettingsWindow
+                {
+                    Owner = Window.GetWindow(this),
+                    WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                    ShowInTaskbar = false,
+                };
+                window.ShowDialog();
+            }
+
+            if (state == PowerModeState.GodMode)
             {
                 var window = new GodModeSettingsWindow
                 {

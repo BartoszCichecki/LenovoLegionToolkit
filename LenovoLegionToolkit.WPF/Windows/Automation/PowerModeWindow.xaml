@@ -5,8 +5,9 @@
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Time"
+    Title="Power Mode"
     MinWidth="400"
+    MinHeight="300"
     MaxWidth="400"
     SizeToContent="Height">
     <Grid>
