@@ -26,5 +26,14 @@ namespace LenovoLegionToolkit.Lib
                 throw new InvalidOperationException("IoCContainer must be initialized first");
             return _container.Resolve<T>();
         }
+
+        public static T? TryResolve<T>() where T : class
+        {
+            if (_container is null)
+                throw new InvalidOperationException("IoCContainer must be initialized first");
+            _ = _container.TryResolve(out T? value);
+            return value;
+        }
+
     }
 }

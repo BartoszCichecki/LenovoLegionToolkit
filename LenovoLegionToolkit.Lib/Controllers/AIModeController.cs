@@ -49,7 +49,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 await StopAsync().ConfigureAwait(false);
         }
 
-        private async Task StartAsync()
+        public async Task StartAsync()
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Starting...");
@@ -65,7 +65,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 Log.Instance.Trace($"Started");
         }
 
-        private async Task StopAsync()
+        public async Task StopAsync()
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Stopping...");

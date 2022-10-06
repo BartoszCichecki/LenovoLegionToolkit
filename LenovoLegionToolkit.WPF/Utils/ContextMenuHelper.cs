@@ -28,7 +28,8 @@ namespace LenovoLegionToolkit.WPF.Utils
 
         public ContextMenu ContextMenu { get; }
 
-        public Action? BringToForegroundAction { get; set; }
+        public Action? BringToForeground { get; set; }
+        public Func<Task>? Close { get; set; }
 
         private static ContextMenuHelper? _instance;
 
@@ -39,10 +40,14 @@ namespace LenovoLegionToolkit.WPF.Utils
             ContextMenu = new ContextMenu();
 
             var openMenuItem = new MenuItem { Header = "Open", Tag = StaticTag };
-            openMenuItem.Click += (s, e) => BringToForegroundAction?.Invoke();
+            openMenuItem.Click += (s, e) => BringToForeground?.Invoke();
 
             var closeMenuItem = new MenuItem { Header = "Close", Tag = StaticTag };
-            closeMenuItem.Click += (s, e) => Application.Current.Shutdown();
+            closeMenuItem.Click += async (s, e) =>
+            {
+                if (Close is not null)
+                    await Close.Invoke();
+            };
 
             ContextMenu.Items.Add(openMenuItem);
             ContextMenu.Items.Add(closeMenuItem);
@@ -123,7 +128,7 @@ namespace LenovoLegionToolkit.WPF.Utils
                 menuItem.Click += async (s, e) =>
                 {
                     ContextMenu.IsOpen = false;
-                    BringToForegroundAction?.Invoke();
+                    BringToForeground?.Invoke();
                     await Task.Delay(500); // Give window time to come back
                     navigationStore.Navigate(item.PageTag);
                 };
