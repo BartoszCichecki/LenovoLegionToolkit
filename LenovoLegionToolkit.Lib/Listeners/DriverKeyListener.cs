@@ -111,7 +111,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
             }
         }
 
-        protected async Task OnChangedAsync(DriverKey value)
+        private async Task OnChangedAsync(DriverKey value)
         {
             try
             {
