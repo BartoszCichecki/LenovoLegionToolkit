@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using LenovoLegionToolkit.Lib.Extensions;
-using LenovoLegionToolkit.Lib.System;
 using Newtonsoft.Json;
 using Octokit;
 
@@ -69,6 +68,67 @@ namespace LenovoLegionToolkit.Lib
             (0, 0) => FanTableType.CPUSensor,
             _ => FanTableType.Unknown
         };
+    }
+
+    public struct FanTable
+    {
+        public byte FSTM { get; set; }
+        public byte FSID { get; set; }
+        public uint FSTL { get; set; }
+        public ushort FSS0 { get; set; }
+        public ushort FSS1 { get; set; }
+        public ushort FSS2 { get; set; }
+        public ushort FSS3 { get; set; }
+        public ushort FSS4 { get; set; }
+        public ushort FSS5 { get; set; }
+        public ushort FSS6 { get; set; }
+        public ushort FSS7 { get; set; }
+        public ushort FSS8 { get; set; }
+        public ushort FSS9 { get; set; }
+
+        public FanTable(ushort[] fanTable)
+        {
+            if (fanTable.Length != 10)
+                throw new ArgumentException("Length must be 10.", nameof(fanTable));
+
+            for (var i = 0; i < fanTable.Length; i++)
+                fanTable[i] = Math.Clamp(fanTable[i], (ushort)1, (ushort)10u);
+
+            FSTM = 1;
+            FSID = 0;
+            FSTL = 0;
+            FSS0 = fanTable[0];
+            FSS1 = fanTable[1];
+            FSS2 = fanTable[2];
+            FSS3 = fanTable[3];
+            FSS4 = fanTable[4];
+            FSS5 = fanTable[5];
+            FSS6 = fanTable[6];
+            FSS7 = fanTable[7];
+            FSS8 = fanTable[8];
+            FSS9 = fanTable[9];
+        }
+
+        public ushort[] GetTable() => new[] { FSS0, FSS1, FSS2, FSS3, FSS4, FSS5, FSS6, FSS7, FSS8, FSS9 };
+
+        public byte[] GetBytes()
+        {
+            using var ms = new MemoryStream(new byte[64]);
+            ms.WriteByte(FSTM);
+            ms.WriteByte(FSID);
+            ms.Write(BitConverter.GetBytes(FSTL));
+            ms.Write(BitConverter.GetBytes(FSS0));
+            ms.Write(BitConverter.GetBytes(FSS1));
+            ms.Write(BitConverter.GetBytes(FSS2));
+            ms.Write(BitConverter.GetBytes(FSS3));
+            ms.Write(BitConverter.GetBytes(FSS4));
+            ms.Write(BitConverter.GetBytes(FSS5));
+            ms.Write(BitConverter.GetBytes(FSS6));
+            ms.Write(BitConverter.GetBytes(FSS7));
+            ms.Write(BitConverter.GetBytes(FSS8));
+            ms.Write(BitConverter.GetBytes(FSS9));
+            return ms.ToArray();
+        }
     }
 
     public struct FanTableInfo

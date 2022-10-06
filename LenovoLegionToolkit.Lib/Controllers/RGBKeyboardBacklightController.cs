@@ -2,6 +2,7 @@
 
 using System;
 using System.Threading.Tasks;
+using Windows.Win32;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
@@ -129,7 +130,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
                 var selectedPreset = state.SelectedPreset;
 
-                RGBKeyboardStateEx str;
+                LENOVO_RGB_KEYBOARD_STATE str;
                 if (selectedPreset == RGBKeyboardBacklightPreset.Off)
                     str = CreateOffState();
                 else
@@ -157,7 +158,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 _settings.Store.State = new(preset, presets);
                 _settings.SynchronizeStore();
 
-                RGBKeyboardStateEx str;
+                LENOVO_RGB_KEYBOARD_STATE str;
                 if (preset == RGBKeyboardBacklightPreset.Off)
                     str = CreateOffState();
                 else
@@ -187,7 +188,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 _settings.Store.State = new(newPreset, presets);
                 _settings.SynchronizeStore();
 
-                RGBKeyboardStateEx str;
+                LENOVO_RGB_KEYBOARD_STATE str;
                 if (newPreset == RGBKeyboardBacklightPreset.Off)
                     str = CreateOffState();
                 else
@@ -213,7 +214,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
                 var preset = state.SelectedPreset;
 
-                RGBKeyboardStateEx str;
+                LENOVO_RGB_KEYBOARD_STATE str;
                 if (preset == RGBKeyboardBacklightPreset.Off)
                     str = CreateOffState();
                 else
@@ -230,7 +231,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 throw new InvalidOperationException("Can't manage RGB keyboard with Vantage enabled.");
         }
 
-        private Task SendToDevice(RGBKeyboardStateEx str) => Task.Run(() =>
+        private unsafe Task SendToDevice(LENOVO_RGB_KEYBOARD_STATE str) => Task.Run(() =>
         {
 #if !MOCK_RGB
             var handle = DriverHandle;
@@ -241,12 +242,12 @@ namespace LenovoLegionToolkit.Lib.Controllers
             var ptr = IntPtr.Zero;
             try
             {
-                var size = Marshal.SizeOf<RGBKeyboardStateEx>();
+                var size = Marshal.SizeOf<LENOVO_RGB_KEYBOARD_STATE>();
                 ptr = Marshal.AllocHGlobal(size);
                 Marshal.StructureToPtr(str, ptr, false);
 
-                if (!Native.HidD_SetFeature(handle, ptr, (uint)size))
-                    NativeUtils.ThrowIfWin32Error("HidD_SetFeature");
+                if (!PInvoke.HidD_SetFeature(handle, ptr.ToPointer(), (uint)size))
+                    PInvokeExtensions.ThrowIfWin32Error("HidD_SetFeature");
             }
             finally
             {
@@ -255,7 +256,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 #endif
         });
 
-        private RGBKeyboardStateEx CreateOffState()
+        private LENOVO_RGB_KEYBOARD_STATE CreateOffState()
         {
             return new()
             {
@@ -271,9 +272,9 @@ namespace LenovoLegionToolkit.Lib.Controllers
             };
         }
 
-        private RGBKeyboardStateEx Convert(RGBKeyboardBacklightSettings preset)
+        private LENOVO_RGB_KEYBOARD_STATE Convert(RGBKeyboardBacklightSettings preset)
         {
-            var result = new RGBKeyboardStateEx
+            var result = new LENOVO_RGB_KEYBOARD_STATE
             {
                 Header = new byte[] { 0xCC, 0x16 },
                 Unused = new byte[13],
