@@ -137,6 +137,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                 ("HHCN", 23),
                 ("K1CN", 31),
                 ("J2CN", 40),
+                ("JUCN", 51),
                 ("JYCN", 39)
             };
 
