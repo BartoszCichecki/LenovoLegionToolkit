@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls.Primitives;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
+using Windows.Win32;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 {
@@ -19,6 +20,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             _gpuController.Refreshed += GpuController_Refreshed;
 
             IsVisibleChanged += DiscreteGPUControl_IsVisibleChanged;
+
+            MessagingCenter.Subscribe<Guid>(this, Handler);
         }
 
         protected override void OnFinishedLoading() { }
@@ -33,6 +36,16 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
             await _gpuController.StartAsync();
         }
+
+        private async void Handler(Guid guid)
+        {
+            if (guid != PInvoke.GUID_DISPLAY_DEVICE_ARRIVAL || IsVisible)
+                return;
+
+            Visibility = Visibility.Visible;
+            await RefreshAsync();
+        }
+
         private async void DiscreteGPUControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (IsVisible)
