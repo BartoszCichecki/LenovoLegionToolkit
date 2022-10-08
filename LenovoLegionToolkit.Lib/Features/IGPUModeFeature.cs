@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
-using Windows.Win32;
-using Windows.Win32.Devices.DeviceAndDriverInstallation;
-using Windows.Win32.Foundation;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
+using Windows.Win32;
+using Windows.Win32.Devices.DeviceAndDriverInstallation;
+using Windows.Win32.Foundation;
 
 #pragma warning disable CA1416 // Validate platform compatibility
 

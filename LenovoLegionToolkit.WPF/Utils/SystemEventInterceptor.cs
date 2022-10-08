@@ -4,55 +4,71 @@ using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Interop;
 using LenovoLegionToolkit.Lib.Utils;
-using Vanara.PInvoke;
+using Microsoft.Win32.SafeHandles;
+using Windows.Win32;
+using Windows.Win32.System.Power;
+using Windows.Win32.System.SystemServices;
+using Windows.Win32.UI.WindowsAndMessaging;
 
 namespace LenovoLegionToolkit.WPF.Utils
 {
-    internal class SystemEventInterceptor : NativeWindow
+    internal unsafe class SystemEventInterceptor : NativeWindow
     {
-        internal static Guid GUID_DISPLAY_DEVICE_ARRIVAL = new("1CA05180-A699-450A-9A0C-DE4FBE3DDD89");
+        private readonly SafeHandle _safeHandle;
 
         private readonly uint _taskbarCreatedMessageId;
-        private readonly User32.SafeHDEVNOTIFY _displayArrivalHandle;
+        private readonly void* _displayArrivalHandle;
+        private readonly SafeHandle _powerNotificationHandle;
 
         public event EventHandler? OnTaskbarCreated;
         public event EventHandler? OnDisplayDeviceArrival;
+        public event EventHandler? OnResumed;
 
         public SystemEventInterceptor(Window window)
         {
-            var handle = new WindowInteropHelper(window).Handle;
+            var ptr = new WindowInteropHelper(window).Handle;
+            _safeHandle = new SafeAccessTokenHandle(ptr);
 
             _taskbarCreatedMessageId = RegisterTaskbarCreatedMessage();
-            _displayArrivalHandle = RegisterDisplayArrival(handle);
+            _displayArrivalHandle = RegisterDisplayArrival(_safeHandle);
+            _powerNotificationHandle = RegisterPowerNotification(_safeHandle);
 
-            AssignHandle(handle);
+            AssignHandle(ptr);
         }
 
         ~SystemEventInterceptor()
         {
-            if (_displayArrivalHandle != User32.HDEVNOTIFY.NULL)
-                User32.UnregisterDeviceNotification(_displayArrivalHandle);
+            PInvoke.UnregisterDeviceNotification(_displayArrivalHandle);
+            PInvoke.UnregisterPowerSettingNotification(new HPOWERNOTIFY(_powerNotificationHandle.DangerousGetHandle()));
+
+            _powerNotificationHandle.DangerousRelease();
+            _safeHandle.Dispose();
         }
 
         private static uint RegisterTaskbarCreatedMessage()
         {
-            var message = User32.RegisterWindowMessage("TaskbarCreated");
-            User32.ChangeWindowMessageFilter(message, User32.MessageFilterFlag.MSGFLT_ADD);
+            var message = PInvoke.RegisterWindowMessage("TaskbarCreated");
+            PInvoke.ChangeWindowMessageFilter(message, CHANGE_WINDOW_MESSAGE_FILTER_FLAGS.MSGFLT_ADD);
             return message;
         }
 
-        private static User32.SafeHDEVNOTIFY RegisterDisplayArrival(IntPtr handle)
+        private static SafeHandle RegisterPowerNotification(SafeHandle handle)
+        {
+            return PInvoke.RegisterPowerSettingNotification(handle, PInvoke.GUID_MONITOR_POWER_ON, 0);
+        }
+
+        private static void* RegisterDisplayArrival(SafeHandle handle)
         {
             var ptr = IntPtr.Zero;
             try
             {
-                var str = new User32.DEV_BROADCAST_DEVICEINTERFACE();
+                var str = new DEV_BROADCAST_DEVICEINTERFACE_W();
                 str.dbcc_size = (uint)Marshal.SizeOf(str);
-                str.dbcc_devicetype = User32.DBT_DEVTYPE.DBT_DEVTYP_DEVICEINTERFACE;
-                str.dbcc_classguid = GUID_DISPLAY_DEVICE_ARRIVAL;
+                str.dbcc_devicetype = (uint)DEV_BROADCAST_HDR_DEVICE_TYPE.DBT_DEVTYP_DEVICEINTERFACE;
+                str.dbcc_classguid = PInvoke.GUID_DISPLAY_DEVICE_ARRIVAL;
                 ptr = Marshal.AllocHGlobal(Marshal.SizeOf(str));
                 Marshal.StructureToPtr(str, ptr, true);
-                return User32.RegisterDeviceNotification(handle, ptr, User32.DEVICE_NOTIFY.DEVICE_NOTIFY_WINDOW_HANDLE);
+                return PInvoke.RegisterDeviceNotification(handle, ptr.ToPointer(), POWER_SETTING_REGISTER_NOTIFICATION_FLAGS.DEVICE_NOTIFY_WINDOW_HANDLE);
             }
             finally
             {
@@ -70,18 +86,32 @@ namespace LenovoLegionToolkit.WPF.Utils
                 OnTaskbarCreated?.Invoke(this, EventArgs.Empty);
             }
 
-            if (m.Msg == User32.WM_DEVICECHANGE)
+            if (m.Msg == PInvoke.WM_POWERBROADCAST)
+            {
+                if (m.WParam == (IntPtr)PInvoke.PBT_POWERSETTINGCHANGE)
+                {
+                    var powerBroadcastSettings = Marshal.PtrToStructure<POWERBROADCAST_SETTING>(m.LParam);
+                    if (powerBroadcastSettings.PowerSetting == PInvoke.GUID_MONITOR_POWER_ON)
+                    {
+                        var data = powerBroadcastSettings.Data._0;
+                        if (data == 1)
+                            OnResumed?.Invoke(this, EventArgs.Empty);
+                    }
+                }
+            }
+
+            if (m.Msg == PInvoke.WM_DEVICECHANGE)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"WM_DEVICECHANGE received.");
 
                 if (m.LParam != IntPtr.Zero)
                 {
-                    var devBroadcastHdr = Marshal.PtrToStructure<User32.DEV_BROADCAST_HDR>(m.LParam);
-                    if (devBroadcastHdr.dbch_devicetype == User32.DBT_DEVTYPE.DBT_DEVTYP_DEVICEINTERFACE)
+                    var devBroadcastHdr = Marshal.PtrToStructure<DEV_BROADCAST_HDR>(m.LParam);
+                    if (devBroadcastHdr.dbch_devicetype == DEV_BROADCAST_HDR_DEVICE_TYPE.DBT_DEVTYP_DEVICEINTERFACE)
                     {
-                        var devBroadcastDeviceInterface = Marshal.PtrToStructure<User32.DEV_BROADCAST_DEVICEINTERFACE>(m.LParam);
-                        if (devBroadcastDeviceInterface.dbcc_classguid == GUID_DISPLAY_DEVICE_ARRIVAL)
+                        var devBroadcastDeviceInterface = Marshal.PtrToStructure<DEV_BROADCAST_DEVICEINTERFACE_W>(m.LParam);
+                        if (devBroadcastDeviceInterface.dbcc_classguid == PInvoke.GUID_DISPLAY_DEVICE_ARRIVAL)
                             OnDisplayDeviceArrival?.Invoke(this, EventArgs.Empty);
                     }
                 }
