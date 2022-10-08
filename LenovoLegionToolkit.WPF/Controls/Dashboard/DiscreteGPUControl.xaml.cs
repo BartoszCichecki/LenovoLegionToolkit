@@ -55,8 +55,11 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
                 _discreteGPUStatusDescription.Content = "-";
                 _gpuInfoButton.ToolTip = null;
                 _gpuInfoButton.IsEnabled = false;
+                Visibility = Visibility.Collapsed;
+                return;
             }
-            else if (e.IsActive)
+
+            if (e.IsActive)
             {
                 var processesStringBuilder = new StringBuilder();
 

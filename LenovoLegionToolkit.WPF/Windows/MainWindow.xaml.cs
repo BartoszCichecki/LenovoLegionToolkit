@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
@@ -215,7 +214,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             updateWindow.ShowDialog();
         }
 
-        private void NotifyIcon_LeftClick([NotNull] NotifyIcon sender, RoutedEventArgs e) => BringToForeground();
+        private void NotifyIcon_LeftClick(NotifyIcon sender, RoutedEventArgs e) => BringToForeground();
 
         private void LoadDeviceInfo()
         {
