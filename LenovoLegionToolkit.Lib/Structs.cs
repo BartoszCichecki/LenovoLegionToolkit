@@ -152,6 +152,7 @@ namespace LenovoLegionToolkit.Lib
             public bool SupportsACDetection { get; init; }
             public bool SupportsExtendedHybridMode { get; init; }
             public bool SupportsIntelligentSubMode { get; init; }
+            public bool HasPerformanceModeSwitchingBug { get; init; }
         }
 
         public string Vendor { get; init; }

@@ -39,8 +39,9 @@ namespace LenovoLegionToolkit.Lib.Features
 
             var currentState = await GetStateAsync().ConfigureAwait(false);
 
-            // Peformance mode relies on some properties set by Balance (like dGPU temp limit).
-            if (currentState == PowerModeState.Quiet && state == PowerModeState.Performance)
+            // Workaround: Peformance mode doesn't update the dGPU temp limit (and possibly other properties) on some Gen 7 devices.
+            var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
+            if (mi.Properties.HasPerformanceModeSwitchingBug && currentState == PowerModeState.Quiet && state == PowerModeState.Performance)
                 await base.SetStateAsync(PowerModeState.Balance).ConfigureAwait(false);
 
             await base.SetStateAsync(state).ConfigureAwait(false);
