@@ -67,7 +67,8 @@ namespace LenovoLegionToolkit.Lib.Utils
                         SupportsGodMode = GetSupportsGodMode(biosVersion),
                         SupportsACDetection = await GetSupportsACDetection().ConfigureAwait(false),
                         SupportsExtendedHybridMode = await GetSupportsExtendedHybridModeAsync().ConfigureAwait(false),
-                        SupportsIntelligentSubMode = await GetSupportsIntelligentSubModeAsync().ConfigureAwait(false)
+                        SupportsIntelligentSubMode = await GetSupportsIntelligentSubModeAsync().ConfigureAwait(false),
+                        HasPerformanceModeSwitchingBug = GetHasPerformanceModeSwitchingBug(biosVersion)
                     }
                 };
 
@@ -210,6 +211,23 @@ namespace LenovoLegionToolkit.Lib.Utils
                                 $"SELECT * FROM Win32_BIOS",
                                 pdc => (string)pdc["Name"].Value).ConfigureAwait(false);
             return result.First();
+        }
+
+        private static bool GetHasPerformanceModeSwitchingBug(string biosVersion)
+        {
+            (string, int?)[] affectedBiosList =
+            {
+                ("J2CN", null)
+            };
+
+            foreach (var (biosPrefix, maximumVersion) in affectedBiosList)
+            {
+                if (biosVersion.StartsWith(biosPrefix)
+                    && (maximumVersion == null || int.TryParse(biosVersion.Replace(biosPrefix, null).Replace("WW", null), out var rev) && rev <= maximumVersion))
+                    return true;
+            }
+
+            return false;
         }
     }
 }
