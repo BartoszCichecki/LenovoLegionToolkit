@@ -39,6 +39,10 @@ namespace LenovoLegionToolkit.Lib.Features
 
             var currentState = await GetStateAsync().ConfigureAwait(false);
 
+            // Peformance mode relies on some properties set by Balance (like dGPU temp limit).
+            if (currentState == PowerModeState.Quiet && state == PowerModeState.Performance)
+                await base.SetStateAsync(PowerModeState.Balance).ConfigureAwait(false);
+
             await base.SetStateAsync(state).ConfigureAwait(false);
 
             await _aiModeController.StartStopAsync(state).ConfigureAwait(false);
