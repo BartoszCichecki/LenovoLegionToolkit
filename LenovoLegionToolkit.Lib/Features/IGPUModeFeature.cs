@@ -8,8 +8,6 @@ using Windows.Win32;
 using Windows.Win32.Devices.DeviceAndDriverInstallation;
 using Windows.Win32.Foundation;
 
-#pragma warning disable CA1416 // Validate platform compatibility
-
 namespace LenovoLegionToolkit.Lib.Features
 {
     public class IGPUModeFeature : AbstractLenovoGamezoneWmiFeature<IGPUModeState>

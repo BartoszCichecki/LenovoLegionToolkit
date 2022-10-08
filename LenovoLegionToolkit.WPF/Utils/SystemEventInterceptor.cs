@@ -3,6 +3,7 @@ using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Interop;
+using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32.SafeHandles;
 using Windows.Win32;
@@ -112,7 +113,10 @@ namespace LenovoLegionToolkit.WPF.Utils
                     {
                         var devBroadcastDeviceInterface = Marshal.PtrToStructure<DEV_BROADCAST_DEVICEINTERFACE_W>(m.LParam);
                         if (devBroadcastDeviceInterface.dbcc_classguid == PInvoke.GUID_DISPLAY_DEVICE_ARRIVAL)
+                        {
                             OnDisplayDeviceArrival?.Invoke(this, EventArgs.Empty);
+                            MessagingCenter.Publish(PInvoke.GUID_DISPLAY_DEVICE_ARRIVAL);
+                        }
                     }
                 }
             }
