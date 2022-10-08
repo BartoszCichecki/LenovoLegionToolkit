@@ -68,16 +68,14 @@ namespace LenovoLegionToolkit.WPF.Controls
             var items = await _feature.GetAllStatesAsync();
             var selectedItem = await _feature.GetStateAsync();
 
-            static string displayName(T value)
+            static string DisplayName(T value) => value switch
             {
-                if (value is IDisplayName dn)
-                    return dn.DisplayName;
-                if (value is Enum e)
-                    return e.GetDisplayName();
-                return value.ToString() ?? throw new InvalidOperationException("Unsupported type");
-            }
+                IDisplayName dn => dn.DisplayName,
+                Enum e => e.GetDisplayName(),
+                _ => value.ToString() ?? throw new InvalidOperationException("Unsupported type")
+            };
 
-            _comboBox.SetItems(items, selectedItem, displayName);
+            _comboBox.SetItems(items, selectedItem, DisplayName);
             _comboBox.IsEnabled = items.Any();
         }
 
@@ -96,7 +94,7 @@ namespace LenovoLegionToolkit.WPF.Controls
             if (!comboBox.TryGetSelectedItem(out T selectedState))
                 return;
 
-            T currentState = await feature.GetStateAsync();
+            var currentState = await feature.GetStateAsync();
 
             if (selectedState.Equals(currentState))
                 return;

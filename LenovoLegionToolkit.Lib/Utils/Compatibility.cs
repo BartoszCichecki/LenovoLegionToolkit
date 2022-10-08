@@ -63,7 +63,6 @@ namespace LenovoLegionToolkit.Lib.Utils
                     BIOSVersion = biosVersion,
                     Properties = new()
                     {
-                        ShouldFlipFnLock = GetShouldFlipFnLock(),
                         SupportsGodMode = GetSupportsGodMode(biosVersion),
                         SupportsACDetection = await GetSupportsACDetection().ConfigureAwait(false),
                         SupportsExtendedHybridMode = await GetSupportsExtendedHybridModeAsync().ConfigureAwait(false),
@@ -79,7 +78,6 @@ namespace LenovoLegionToolkit.Lib.Utils
                     Log.Instance.Trace($" * Machine Type: {machineInformation.MachineType}");
                     Log.Instance.Trace($" * Model: {machineInformation.Model}");
                     Log.Instance.Trace($" * SupportsACDetection: {machineInformation.Properties.SupportsACDetection}");
-                    Log.Instance.Trace($" * ShouldFlipFnLock: {machineInformation.Properties.ShouldFlipFnLock}");
                     Log.Instance.Trace($" * SupportsGodMode: {machineInformation.Properties.SupportsGodMode}");
                     Log.Instance.Trace($" * SupportsExtendedHybridMode: {machineInformation.Properties.SupportsExtendedHybridMode}");
                     Log.Instance.Trace($" * SupportsIntelligentSubMode: {machineInformation.Properties.SupportsIntelligentSubMode}");
@@ -107,26 +105,6 @@ namespace LenovoLegionToolkit.Lib.Utils
                     return (true, mi);
 
             return (false, mi);
-        }
-
-        private static bool GetShouldFlipFnLock()
-        {
-            try
-            {
-                if (PInvokeExtensions.DeviceIoControl(Devices.GetBattery(), Drivers.IOCTL_ENERGY_SETTINGS, 2u, out uint result))
-                    return result.ReverseEndianness().GetNthBit(19);
-
-                var error = Marshal.GetLastWin32Error();
-
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"DeviceIoControl returned 0, last error: {error}");
-
-                throw new InvalidOperationException($"DeviceIoControl returned 0, last error: {error}");
-            }
-            catch (InvalidOperationException)
-            {
-                return false;
-            }
         }
 
         private static bool GetSupportsGodMode(string biosVersion)
