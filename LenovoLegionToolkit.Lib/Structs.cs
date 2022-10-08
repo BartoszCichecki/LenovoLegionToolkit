@@ -145,9 +145,8 @@ namespace LenovoLegionToolkit.Lib
 
     public struct MachineInformation
     {
-        public struct CompatibiltyProperties
+        public struct CompatibilityProperties
         {
-            public bool ShouldFlipFnLock { get; init; }
             public bool SupportsGodMode { get; init; }
             public bool SupportsACDetection { get; init; }
             public bool SupportsExtendedHybridMode { get; init; }
@@ -160,7 +159,7 @@ namespace LenovoLegionToolkit.Lib
         public string Model { get; init; }
         public string SerialNumber { get; init; }
         public string BIOSVersion { get; init; }
-        public CompatibiltyProperties Properties { get; init; }
+        public CompatibilityProperties Properties { get; init; }
     }
 
     public struct Package
