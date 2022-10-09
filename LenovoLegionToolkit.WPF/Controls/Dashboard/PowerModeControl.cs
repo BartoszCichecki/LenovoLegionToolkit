@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Dashboard;
@@ -17,6 +21,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
     {
         private readonly PowerModeListener _powerModeListener = IoCContainer.Resolve<PowerModeListener>();
         private readonly PowerPlanListener _powerPlanListener = IoCContainer.Resolve<PowerPlanListener>();
+        private readonly PowerModeFeature _powerModeFeature = IoCContainer.Resolve<PowerModeFeature>();
 
         private readonly Button _configButton = new()
         {
@@ -26,11 +31,17 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             Visibility = Visibility.Collapsed,
         };
 
+        private readonly TextBlock _actualPowerModeTextBlock = new()
+        {
+            Margin = new(8, 4, 0, 0),
+            FontSize = 12,
+        };
+
         public PowerModeControl()
         {
             Icon = SymbolRegular.Gauge24;
             Title = "Power Mode";
-            Subtitle = "Select performance mode.\nYou can switch mode with Fn+Q.";
+            Subtitle = "Select your preferred power mode.\nYou can switch mode with Fn+Q.";
 
             _powerModeListener.Changed += PowerModeListener_Changed;
             _powerPlanListener.Changed += PowerPlanListener_Changed;
@@ -41,6 +52,43 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             if (IsLoaded && IsVisible)
                 await RefreshAsync();
         });
+
+        private async Task UpdateActualPowerModeTextBlock()
+        {
+            var targetState = await _powerModeFeature.GetStateAsync();
+            var currentState = await _powerModeFeature.GetActualStateAsync();
+            bool isGodModeActive = targetState == PowerModeState.GodMode && currentState == PowerModeState.Performance;
+            bool isStateSupported = targetState == currentState || isGodModeActive;
+
+            _actualPowerModeTextBlock.Visibility = isStateSupported ? Visibility.Collapsed : Visibility.Visible;
+
+            if (isStateSupported)
+                return;
+
+            _actualPowerModeTextBlock.Inlines.Clear();
+
+            var text = new List<(Run, string?)>
+            {
+                (new Run("Active mode: "), "TextFillColorTertiaryBrush"),
+                (new Run(currentState.GetDisplayName()) { FontWeight = FontWeights.DemiBold }, null),
+            };
+
+            if (await Power.IsPowerAdapterConnectedAsync() != PowerAdapterStatus.Connected)
+                text.Add((new Run("\nThe selected mode will take effect when plugged in."), "TextFillColorTertiaryBrush"));
+
+            foreach (var (run, foreground) in text)
+            {
+                _actualPowerModeTextBlock.Inlines.Add(run);
+                if (foreground != null)
+                    run.SetResourceReference(ForegroundProperty, foreground);
+            }
+        }
+
+        protected override async Task OnRefreshAsync()
+        {
+            await base.OnRefreshAsync();
+            await UpdateActualPowerModeTextBlock();
+        }
 
         private void PowerPlanListener_Changed(object? sender, EventArgs e) => Dispatcher.Invoke(async () =>
         {
@@ -95,7 +143,15 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             stackPanel.Children.Add(_configButton);
             stackPanel.Children.Add(comboBox);
 
-            return stackPanel;
+            var verticalStackPanel = new StackPanel
+            {
+                Orientation = Orientation.Vertical,
+                VerticalAlignment = VerticalAlignment.Center
+            };
+            verticalStackPanel.Children.Add(stackPanel);
+            verticalStackPanel.Children.Add(_actualPowerModeTextBlock);
+
+            return verticalStackPanel;
         }
 
         private void ConfigButton_Click(object sender, RoutedEventArgs e)
