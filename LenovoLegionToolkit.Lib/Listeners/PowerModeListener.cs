@@ -14,6 +14,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
         private readonly AIModeController _aiModeController;
         private readonly PowerModeFeature _powerModeFeature;
         private readonly GodModeController _godModeController;
+
         public PowerModeListener(AIModeController aiModeController, PowerModeFeature powerModeFeature, GodModeController godModeController)
             : base("ROOT\\WMI", "LENOVO_GAMEZONE_THERMAL_MODE_EVENT")
         {
