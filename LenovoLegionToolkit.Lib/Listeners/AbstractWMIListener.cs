@@ -76,7 +76,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         protected void RaiseChanged(T value) => Changed?.Invoke(this, value);
 
-        private async void Handler(PropertyDataCollection properties)
+        protected virtual async void Handler(PropertyDataCollection properties)
         {
             var value = GetValue(properties);
 

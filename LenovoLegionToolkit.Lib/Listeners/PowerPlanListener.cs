@@ -48,7 +48,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
             }
 
             var powerMode = powerModes[0];
-            var currentPowerMode = await _feature.GetStateAsync().ConfigureAwait(false);
+            var currentPowerMode = await _feature.GetActualStateAsync().ConfigureAwait(false);
             if (powerMode == currentPowerMode)
             {
                 if (Log.Instance.IsTraceEnabled)
