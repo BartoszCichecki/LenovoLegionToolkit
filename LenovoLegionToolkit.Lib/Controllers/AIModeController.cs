@@ -43,13 +43,24 @@ namespace LenovoLegionToolkit.Lib.Controllers
             if (!isCompatible)
                 return;
 
-            if (powerModeState == PowerModeState.Balance && _settings.Store.AIModeEnabled)
+            if (powerModeState != PowerModeState.Balance)
+            {
+                await StopAsync(false).ConfigureAwait(false);
+                return;
+            }
+
+            if (_settings.Store.AIModeEnabled)
                 await StartAsync().ConfigureAwait(false);
             else
                 await StopAsync().ConfigureAwait(false);
         }
 
-        public async Task StartAsync()
+        public async Task StopAsync(PowerModeState powerModeState)
+        {
+            await StopAsync(powerModeState == PowerModeState.Balance).ConfigureAwait(false);
+        }
+
+        private async Task StartAsync()
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Starting...");
@@ -65,10 +76,10 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 Log.Instance.Trace($"Started");
         }
 
-        public async Task StopAsync()
+        private async Task StopAsync(bool setSubMode = true)
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Stopping...");
+                Log.Instance.Trace($"Stopping... [setSubMode={setSubMode}]");
 
             _startProcessListener?.Dispose();
             _stopProcessListener?.Dispose();
@@ -76,7 +87,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
             _runningProcessIds.Clear();
             _subModeData.Clear();
 
-            await SetSubModeAsync(0).ConfigureAwait(false);
+            if (setSubMode)
+                await SetSubModeAsync(0).ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Stopped");
