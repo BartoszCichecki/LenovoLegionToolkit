@@ -50,7 +50,7 @@ namespace LenovoLegionToolkit.Lib.Features
                     new(),
                     pdc =>
                     {
-                        var id = pdc["Data"].ToString();
+                        var id = pdc["Data"].Value.ToString();
                         return HardwareId.FromDGPUHWId(id);
                     }).ConfigureAwait(false);
             }
