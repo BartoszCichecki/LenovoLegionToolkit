@@ -94,7 +94,7 @@ namespace LenovoLegionToolkit.WPF.Controls
             if (!comboBox.TryGetSelectedItem(out T selectedState))
                 return;
 
-            T currentState = await feature.GetStateAsync();
+            var currentState = await feature.GetStateAsync();
 
             if (selectedState.Equals(currentState))
                 return;

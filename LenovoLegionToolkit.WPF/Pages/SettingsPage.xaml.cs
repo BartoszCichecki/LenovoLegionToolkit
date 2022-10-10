@@ -55,7 +55,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             _vantageToggle.IsChecked = vantageStatus == SoftwareStatus.Disabled;
 
             var legionZoneStatus = await _legionZone.GetStatusAsync();
-            _legionZoneToggle.Visibility = legionZoneStatus != SoftwareStatus.NotFound ? Visibility.Visible : Visibility.Collapsed;
+            _legionZoneCard.Visibility = legionZoneStatus != SoftwareStatus.NotFound ? Visibility.Visible : Visibility.Collapsed;
             _legionZoneToggle.IsChecked = legionZoneStatus == SoftwareStatus.Disabled;
 
             var fnKeysStatus = await _fnKeys.GetStatusAsync();
