@@ -173,8 +173,8 @@ namespace LenovoLegionToolkit.WPF
 
             try
             {
-                if (IoCContainer.TryResolve<AIModeController>() is { } aiModeController)
-                    await aiModeController.StopAsync();
+                if (IoCContainer.TryResolve<PowerModeFeature>() is { } powerModeFeature)
+                    await powerModeFeature.EnsureAIModeIsOffAsync();
             }
             catch { }
 
