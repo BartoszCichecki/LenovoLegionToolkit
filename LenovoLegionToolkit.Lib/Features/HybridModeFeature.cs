@@ -52,13 +52,11 @@ namespace LenovoLegionToolkit.Lib.Features
 
             if (await _igpuModeFeature.IsSupportedAsync().ConfigureAwait(false))
             {
-                if (igpuMode != await _igpuModeFeature.GetStateAsync().ConfigureAwait(false))
-                    await _igpuModeFeature.SetStateAsync(igpuMode).ConfigureAwait(false);
+                await _igpuModeFeature.SetStateAsync(igpuMode).ConfigureAwait(false);
+                await _igpuModeFeature.NotifyAsync().ConfigureAwait(false);
             }
 
-            if (gsync != await _gsyncFeature.GetStateAsync().ConfigureAwait(false))
-                await _gsyncFeature.SetStateAsync(gsync).ConfigureAwait(false);
-
+            await _gsyncFeature.SetStateAsync(gsync).ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"State set to {state} [gsync={gsync}, igpuMode={igpuMode}]");
