@@ -202,6 +202,10 @@ namespace LenovoLegionToolkit.Lib
                 foreach (var subPath in path.Split("&"))
                 {
                     var subSubPaths = subPath.Split("_");
+
+                    if (subSubPaths.Length != 2)
+                        continue;
+
                     var type = subSubPaths[0];
                     var value = subSubPaths[1].ToUpperInvariant();
 
