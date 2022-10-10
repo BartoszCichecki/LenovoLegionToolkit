@@ -11,14 +11,12 @@ namespace LenovoLegionToolkit.Lib.Features
     public class PowerModeFeature : AbstractLenovoGamezoneWmiFeature<PowerModeState>
     {
         private readonly AIModeController _aiModeController;
-        private readonly GodModeController _godModeController;
         private readonly PowerModeListener _listener;
 
-        public PowerModeFeature(AIModeController aiModeController, GodModeController godModeController, PowerModeListener listener)
+        public PowerModeFeature(AIModeController aiModeController, PowerModeListener listener)
             : base("SmartFanMode", 1, "IsSupportSmartFan")
         {
             _aiModeController = aiModeController ?? throw new ArgumentNullException(nameof(aiModeController));
-            _godModeController = godModeController ?? throw new ArgumentNullException(nameof(godModeController));
             _listener = listener ?? throw new ArgumentNullException(nameof(listener));
         }
 
@@ -46,15 +44,7 @@ namespace LenovoLegionToolkit.Lib.Features
 
             await base.SetStateAsync(state).ConfigureAwait(false);
 
-            await _aiModeController.StartStopAsync(state).ConfigureAwait(false);
-
-            if (state == PowerModeState.GodMode)
-                await _godModeController.ApplyStateAsync().ConfigureAwait(false);
-
-            await Power.ActivatePowerPlanAsync(state, true).ConfigureAwait(false);
-
-            if (state != currentState)
-                await _listener.NotifyAsync(state).ConfigureAwait(false);
+            await _listener.NotifyAsync(state).ConfigureAwait(false);
         }
 
         public async Task EnsureCorrectPowerPlanIsSetAsync()
@@ -67,6 +57,12 @@ namespace LenovoLegionToolkit.Lib.Features
         {
             var state = await GetStateAsync().ConfigureAwait(false);
             await _aiModeController.StartStopAsync(state).ConfigureAwait(false);
+        }
+
+        public async Task EnsureAIModeIsOffAsync()
+        {
+            var state = await GetStateAsync().ConfigureAwait(false);
+            await _aiModeController.StopAsync(state).ConfigureAwait(false);
         }
     }
 }

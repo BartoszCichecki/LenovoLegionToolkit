@@ -83,6 +83,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
             if (result)
                 await Power.RestartAsync();
+            else
+                await RefreshAsync();
         }
 
         private void InfoButton_Click(object sender, RoutedEventArgs e)
