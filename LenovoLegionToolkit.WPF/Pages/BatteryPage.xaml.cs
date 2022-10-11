@@ -175,11 +175,10 @@ namespace LenovoLegionToolkit.WPF.Pages
             {
                 temperature *= 9.0 / 5.0;
                 temperature += 32;
-                return $"{temperature:0.0} °F";
+                return $"{temperature:0.0} {Resource.Fahrenheit}";
             }
 
-
-            return $"{temperature:0.0} °C";
+            return $"{temperature:0.0} {Resource.Celsius}";
         }
 
         private void BatteryTemperatureCardControl_Click(object sender, RoutedEventArgs e)
