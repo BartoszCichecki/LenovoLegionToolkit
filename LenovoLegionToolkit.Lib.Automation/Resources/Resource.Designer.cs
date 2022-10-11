@@ -97,6 +97,24 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} seconds.
+        /// </summary>
+        public static string Delay_DisplayName_ManySeconds {
+            get {
+                return ResourceManager.GetString("Delay_DisplayName_ManySeconds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1 second.
+        /// </summary>
+        public static string Delay_OneSecond {
+            get {
+                return ResourceManager.GetString("Delay_OneSecond", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to When low wattage AC power adapter is connected.
         /// </summary>
         public static string LowWattageACAdapterConnectedAutomationPipelineTrigger_DisplayName {
