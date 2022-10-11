@@ -4,8 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Custom Mode Settings"
+    Title="{x:Static resources:Resource.GodModeSettingsWindow_Title}"
     Width="700"
     Height="700"
     MinWidth="600"
@@ -40,7 +41,7 @@
                 VerticalAlignment="Center"
                 FontSize="12"
                 IsHitTestVisible="False"
-                Text="Custom Mode Settings" />
+                Text="{x:Static resources:Resource.GodModeSettingsWindow_Title}" />
 
         </Grid>
 
@@ -56,11 +57,11 @@
                         Margin="0,16,0,24"
                         FontSize="24"
                         FontWeight="Medium"
-                        Text="CPU" />
+                        Text="{x:Static resources:Resource.GodModeSettingsWindow_CPU_Title}" />
 
                     <wpfui:CardControl x:Name="_cpuLongTermPowerLimitCardControl" Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
-                            <controls:CardHeaderControl Title="Long Term Power Limit" />
+                            <controls:CardHeaderControl Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_LongTermPL}" />
                         </wpfui:CardControl.Header>
                         <StackPanel Orientation="Horizontal">
                             <Slider
@@ -81,7 +82,7 @@
 
                     <wpfui:CardControl x:Name="_cpuShortTermPowerLimitCardControl" Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
-                            <controls:CardHeaderControl Title="Short Term Power Limit" />
+                            <controls:CardHeaderControl Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_ShortTermPL}" />
                         </wpfui:CardControl.Header>
                         <StackPanel Orientation="Horizontal">
                             <Slider
@@ -102,7 +103,7 @@
 
                     <wpfui:CardControl x:Name="_cpuCrossLoadingLimitCardControl" Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
-                            <controls:CardHeaderControl Title="Long Term Power Limit (Cross Loading)" />
+                            <controls:CardHeaderControl Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_CrossLoading}" />
                         </wpfui:CardControl.Header>
                         <StackPanel Orientation="Horizontal">
                             <Slider
@@ -122,7 +123,7 @@
 
                     <wpfui:CardControl x:Name="_cpuTemperatureLimitCardControl" Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
-                            <controls:CardHeaderControl Title="CPU Temperature Limit" />
+                            <controls:CardHeaderControl Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_TempLimit}" />
                         </wpfui:CardControl.Header>
                         <StackPanel Orientation="Horizontal">
                             <Slider
@@ -144,11 +145,11 @@
                         Margin="0,16,0,24"
                         FontSize="24"
                         FontWeight="Medium"
-                        Text="GPU" />
+                        Text="{x:Static resources:Resource.GodModeSettingsWindow_GPU_Title}" />
 
                     <wpfui:CardControl x:Name="_gpuPowerBoostCardControl" Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
-                            <controls:CardHeaderControl Title="Dynamic Boost" />
+                            <controls:CardHeaderControl Title="{x:Static resources:Resource.GodModeSettingsWindow_GPU_DynamicBoost}" />
                         </wpfui:CardControl.Header>
                         <StackPanel Orientation="Horizontal">
                             <Slider
@@ -168,7 +169,7 @@
 
                     <wpfui:CardControl x:Name="_gpuConfigurableTGPCardControl" Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
-                            <controls:CardHeaderControl Title="Configurable TGP" />
+                            <controls:CardHeaderControl Title="{x:Static resources:Resource.GodModeSettingsWindow_GPU_CTGP}" />
                         </wpfui:CardControl.Header>
                         <StackPanel Orientation="Horizontal">
                             <Slider
@@ -187,7 +188,7 @@
 
                     <wpfui:CardControl x:Name="_gpuTemperatureLimitCardControl" Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
-                            <controls:CardHeaderControl Title="GPU Temperature Limit" />
+                            <controls:CardHeaderControl Title="{x:Static resources:Resource.GodModeSettingsWindow_GPU_TempLimit}" />
                         </wpfui:CardControl.Header>
                         <StackPanel Orientation="Horizontal">
                             <Slider
@@ -209,12 +210,12 @@
                         Margin="0,16,0,24"
                         FontSize="24"
                         FontWeight="Medium"
-                        Text="Fans" />
+                        Text="{x:Static resources:Resource.GodModeSettingsWindow_Fans_Title}" />
 
                     <wpfui:CardControl x:Name="_fanCurveCardControl" Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
                             <StackPanel>
-                                <controls:CardHeaderControl Title="Fan curve" Subtitle="Fan speed is not strictly determined by one temperature sensor. It will raise or lower speed per the highest sensor between CPU, GPU and Heatsink temperature. Exact values will appear when you hover mouse over each step." />
+                                <controls:CardHeaderControl Title="{x:Static resources:Resource.GodModeSettingsWindow_Fans_Curve_Title}" Subtitle="{x:Static resources:Resource.GodModeSettingsWindow_Fans_Curve_Message}" />
                                 <controls:FanCurveControl x:Name="_fanCurveControl" Margin="0,32,0,0" />
                             </StackPanel>
                         </wpfui:CardControl.Header>
@@ -222,7 +223,7 @@
 
                     <wpfui:CardControl Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
-                            <controls:CardHeaderControl Title="Maximum fan speed" Subtitle="WARNING!&#x0a;Prolonged usage of this option will degrade fans decreasing their longevity.&#x0a;Seriously, be careful with this option!" />
+                            <controls:CardHeaderControl Title="{x:Static resources:Resource.GodModeSettingsWindow_Fans_Max_Title}" Subtitle="{x:Static resources:Resource.GodModeSettingsWindow_Fans_Max_Message}" />
                         </wpfui:CardControl.Header>
                         <wpfui:ToggleSwitch
                             x:Name="_fanFullSpeedToggle"
@@ -234,17 +235,16 @@
                         Margin="0,16,0,8"
                         FontSize="24"
                         FontWeight="Medium"
-                        Text="Advanced" />
+                        Text="{x:Static resources:Resource.GodModeSettingsWindow_Advanced_Title}" />
 
                     <TextBlock
-                        Grid.Row="0"
                         Margin="0,0,0,24"
                         FontSize="12"
-                        Text="Do not change options below unless you really know what you are doing." />
+                        Text="{x:Static resources:Resource.GodModeSettingsWindow_Advanced_Message}" />
 
                     <wpfui:CardControl Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
-                            <controls:CardHeaderControl Title="Maximum Power Limit offset" Subtitle="WARNING!&#x0a;Some laptops may accept higher power limits than they indicate, but be careful. This option may result in unpredictable behavior, so if you are not sure what are you doing, leave this at 0." />
+                            <controls:CardHeaderControl Title="{x:Static resources:Resource.GodModeSettingsWindow_Advanced_MaxOffset_Title}" Subtitle="{x:Static resources:Resource.GodModeSettingsWindow_Advanced_MaxOffset_Message}" />
                         </wpfui:CardControl.Header>
                         <wpfui:NumberBox
                             x:Name="_maxValueOffsetNumberBox"
@@ -271,14 +271,14 @@
                 x:Name="_applyButton"
                 Width="120"
                 Click="ApplyButton_Click"
-                Content="Apply" />
+                Content="{x:Static resources:Resource.Apply}" />
             <wpfui:Button
                 x:Name="_applyAndCloseButton"
                 Width="120"
                 Margin="12,0,0,0"
                 Appearance="Primary"
                 Click="ApplyAndCloseButton_Click"
-                Content="Apply &amp; close" />
+                Content="{x:Static resources:Resource.ApplyAndClose}" />
         </StackPanel>
 
         <wpfui:Snackbar
