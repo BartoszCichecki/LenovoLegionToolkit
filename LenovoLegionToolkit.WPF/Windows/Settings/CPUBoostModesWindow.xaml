@@ -61,7 +61,7 @@
             HorizontalAlignment="Right"
             Content="{x:Static resources:Resource.CPUBoostModesWindow_LearnMore}"
             Icon="Link24"
-            NavigateUri="https://docs.microsoft.com/en-us/windows-server/administration/performance-tuning/hardware/power/power-performance-tuning#processor-performance-boost-mode" />
+            NavigateUri="https://docs.microsoft.com/windows-server/administration/performance-tuning/hardware/power/power-performance-tuning#processor-performance-boost-mode" />
 
     </Grid>
 </local:BaseWindow>
