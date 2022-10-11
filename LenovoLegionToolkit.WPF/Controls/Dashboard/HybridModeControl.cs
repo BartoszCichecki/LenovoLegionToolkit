@@ -50,7 +50,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
         protected override FrameworkElement? GetAccessory(ComboBox comboBox)
         {
-            comboBox.Width = 180;
+            comboBox.Width = 150;
 
             _infoButton.Click += InfoButton_Click;
 
@@ -72,7 +72,10 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             await base.OnStateChange(comboBox, feature, newValue, oldValue);
 
             if (newValue != HybridModeState.Off && oldValue != HybridModeState.Off)
+            {
+                await RefreshAsync();
                 return;
+            }
 
             var result = await MessageBoxHelper.ShowAsync(
                 this,

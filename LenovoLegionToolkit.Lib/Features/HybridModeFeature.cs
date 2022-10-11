@@ -20,33 +20,46 @@ namespace LenovoLegionToolkit.Lib.Features
             var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
             if (mi.Properties.SupportsExtendedHybridMode)
                 return new[] { HybridModeState.On, HybridModeState.OnIGPUOnly, HybridModeState.OnAuto, HybridModeState.Off };
-            else
-                return new[] { HybridModeState.On, HybridModeState.Off };
+
+            return new[] { HybridModeState.On, HybridModeState.Off };
         }
 
         public async Task<HybridModeState> GetStateAsync()
         {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Getting state...");
+
             var gsync = await _gsyncFeature.GetStateAsync().ConfigureAwait(false);
 
             var igpuMode = IGPUModeState.Default;
             if (await _igpuModeFeature.IsSupportedAsync().ConfigureAwait(false))
                 igpuMode = await _igpuModeFeature.GetStateAsync().ConfigureAwait(false);
 
-            return Pack(gsync, igpuMode);
+            var state = Pack(gsync, igpuMode);
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"State is {state} [gsync={gsync}, igpuMode={igpuMode}]");
+
+            return state;
         }
 
         public async Task SetStateAsync(HybridModeState state)
         {
             var (gsync, igpuMode) = Unpack(state);
 
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Setting state to {state}... [gsync={gsync}, igpuMode={igpuMode}]");
+
             if (await _igpuModeFeature.IsSupportedAsync().ConfigureAwait(false))
             {
-                if (igpuMode != await _igpuModeFeature.GetStateAsync().ConfigureAwait(false))
-                    await _igpuModeFeature.SetStateAsync(igpuMode).ConfigureAwait(false);
+                await _igpuModeFeature.SetStateAsync(igpuMode).ConfigureAwait(false);
+                await _igpuModeFeature.NotifyAsync().ConfigureAwait(false);
             }
 
-            if (gsync != await _gsyncFeature.GetStateAsync().ConfigureAwait(false))
-                await _gsyncFeature.SetStateAsync(gsync).ConfigureAwait(false);
+            await _gsyncFeature.SetStateAsync(gsync).ConfigureAwait(false);
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"State set to {state} [gsync={gsync}, igpuMode={igpuMode}]");
         }
 
         private (GSyncState, IGPUModeState) Unpack(HybridModeState state) => state switch

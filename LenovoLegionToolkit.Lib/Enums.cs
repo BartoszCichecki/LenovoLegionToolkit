@@ -55,13 +55,13 @@ namespace LenovoLegionToolkit.Lib
 
     public enum HybridModeState
     {
-        [Display(Name = "Hybrid Mode", Description = "Automatically switch between iGPU and dGPU.")]
+        [Display(Name = "Hybrid", Description = "Automatically switch between iGPU and dGPU.")]
         On,
-        [Display(Name = "Hybrid-iGPU Only Mode", Description = "Use iGPU only.")]
+        [Display(Name = "Hybrid-iGPU", Description = "Use iGPU only.")]
         OnIGPUOnly,
-        [Display(Name = "Hybrid-Auto Mode", Description = "Use both iGPU and dGPU when on AC power. Use iGPU only on battery.")]
+        [Display(Name = "Hybrid-Auto", Description = "Use both iGPU and dGPU when on AC power. Use iGPU only on battery.")]
         OnAuto,
-        [Display(Name = "dGPU Mode", Description = "Use dGPU only.")]
+        [Display(Name = "dGPU", Description = "Use dGPU only.")]
         Off
     }
 
