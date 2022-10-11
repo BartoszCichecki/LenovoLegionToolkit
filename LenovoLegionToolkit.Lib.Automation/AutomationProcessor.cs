@@ -121,7 +121,7 @@ namespace LenovoLegionToolkit.Lib.Automation
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Pipeline run on startup pending...");
 
-            _ = Task.Run(() => RunAsync(new StartupAutomationEvent()));
+            Task.Run(() => RunAsync(new StartupAutomationEvent()));
         }
 
         public async Task RunNowAsync(AutomationPipeline pipeline)

@@ -5,7 +5,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
 {
     public abstract class AbstractFeatureAutomationStep<T> : IAutomationStep<T> where T : struct
     {
-        protected readonly IFeature<T> Feature = IoCContainer.Resolve<IFeature<T>>();
+        private readonly IFeature<T> _feature = IoCContainer.Resolve<IFeature<T>>();
 
         public T State { get; }
 
@@ -15,7 +15,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
         {
             try
             {
-                _ = await Feature.GetStateAsync().ConfigureAwait(false);
+                _ = await _feature.GetStateAsync().ConfigureAwait(false);
                 return true;
             }
             catch
@@ -26,15 +26,13 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
 
         public virtual async Task RunAsync()
         {
-            var currentState = await Feature.GetStateAsync().ConfigureAwait(false);
-            if (State.Equals(currentState))
-                return;
-            await Feature.SetStateAsync(State).ConfigureAwait(false);
-
+            var currentState = await _feature.GetStateAsync().ConfigureAwait(false);
+            if (!State.Equals(currentState))
+                await _feature.SetStateAsync(State).ConfigureAwait(false);
             MessagingCenter.Publish(State);
         }
 
-        public Task<T[]> GetAllStatesAsync() => Feature.GetAllStatesAsync();
+        public Task<T[]> GetAllStatesAsync() => _feature.GetAllStatesAsync();
 
         public abstract IAutomationStep DeepCopy();
     }

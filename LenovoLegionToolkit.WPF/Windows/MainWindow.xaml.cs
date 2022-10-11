@@ -1,12 +1,11 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Interop;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
@@ -17,19 +16,21 @@ using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Utils;
 using Wpf.Ui.Controls;
 
+#pragma warning disable IDE0052 // Remove unread private members
+
 namespace LenovoLegionToolkit.WPF.Windows
 {
     public partial class MainWindow
     {
         private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
-        private readonly UpdateChecker _updateChecker = IoCContainer.Resolve<UpdateChecker>();
-        private readonly SpecialKeyListener _specialKeyListener = IoCContainer.Resolve<SpecialKeyListener>();
         private readonly FnKeys _fnKeys = IoCContainer.Resolve<FnKeys>();
+        private readonly SpecialKeyListener _specialKeyListener = IoCContainer.Resolve<SpecialKeyListener>();
+        private readonly UpdateChecker _updateChecker = IoCContainer.Resolve<UpdateChecker>();
 
-        public Snackbar Snackbar => _snackBar;
+        public Snackbar Snackbar => _snackbar;
 
+        private SystemEventInterceptor? _systemEventInterceptor;
         private NotifyIcon? _notifyIcon;
-        private uint _taskbarCreatedMessageId;
 
         public MainWindow()
         {
@@ -97,13 +98,18 @@ namespace LenovoLegionToolkit.WPF.Windows
             BringToForeground();
         });
 
-        private void MainWindow_SourceInitialized(object? sender, EventArgs args)
+        private async void MainWindow_SourceInitialized(object? sender, EventArgs args)
         {
-            _taskbarCreatedMessageId = Native.RegisterWindowMessage("TaskbarCreated");
-            Native.ChangeWindowMessageFilter(_taskbarCreatedMessageId, 1);
+            var systemEventInterceptor = new SystemEventInterceptor(this);
+            systemEventInterceptor.OnTaskbarCreated += (_, _) => InitializeTray();
+            systemEventInterceptor.OnDisplayDeviceArrival += (_, _) => Task.Run(IoCContainer.Resolve<IGPUModeFeature>().NotifyAsync);
+            systemEventInterceptor.OnResumed += (_, _) => Task.Run(async () =>
+            {
+                await Task.Delay(5_000).ConfigureAwait(false);
+                await IoCContainer.Resolve<IGPUModeFeature>().NotifyAsync().ConfigureAwait(false);
+            });
 
-            var source = PresentationSource.FromVisual(this) as HwndSource;
-            source?.AddHook(WndProc);
+            _systemEventInterceptor = systemEventInterceptor;
         }
 
         private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -140,6 +146,7 @@ namespace LenovoLegionToolkit.WPF.Windows
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Closing...");
 
+                _systemEventInterceptor = null;
                 _notifyIcon?.Unregister();
 
                 await ((App)Application.Current).ShutdownAsync();
@@ -205,18 +212,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             updateWindow.ShowDialog();
         }
 
-        private void NotifyIcon_LeftClick([NotNull] NotifyIcon sender, RoutedEventArgs e) => BringToForeground();
-
-        private IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam, ref bool handled)
-        {
-            if (msg == _taskbarCreatedMessageId)
-            {
-                InitializeTray();
-                handled = true;
-            }
-
-            return IntPtr.Zero;
-        }
+        private void NotifyIcon_LeftClick(NotifyIcon sender, RoutedEventArgs e) => BringToForeground();
 
         private void LoadDeviceInfo()
         {
