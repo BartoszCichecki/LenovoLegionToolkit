@@ -101,11 +101,11 @@
     <value>Always on USB</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-		<value>Charge USB devices, when the computer is off or in sleep or hibernation mode.</value>
-	</data>
+    <value>Charge USB devices, when the computer is off or in sleep or hibernation mode.</value>
+  </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
-		<value>Always on USB</value>
-	</data>
+    <value>Always on USB</value>
+  </data>
   <data name="AppName" xml:space="preserve">
     <value>LenovoLegionToolkit</value>
   </data>
@@ -144,59 +144,59 @@ Only actions that match current state will run.</value>
     <value>Automation</value>
   </data>
   <data name="AutomationPipelineControl_AddStep" xml:space="preserve">
-		<value>Add step</value>
-	</data>
+    <value>Add step</value>
+  </data>
   <data name="AutomationPipelineControl_Configure" xml:space="preserve">
-		<value>Configure</value>
-	</data>
+    <value>Configure</value>
+  </data>
   <data name="AutomationPipelineControl_Exclusive" xml:space="preserve">
-		<value>Exclusive</value>
-	</data>
+    <value>Exclusive</value>
+  </data>
   <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
-		<value>Do not execute further actions when this action runs.</value>
-	</data>
+    <value>Do not execute further actions when this action runs.</value>
+  </data>
   <data name="AutomationPipelineControl_MoveDown" xml:space="preserve">
-		<value>Move down</value>
-	</data>
+    <value>Move down</value>
+  </data>
   <data name="AutomationPipelineControl_MoveUp" xml:space="preserve">
-		<value>Move up</value>
-	</data>
+    <value>Move up</value>
+  </data>
   <data name="AutomationPipelineControl_RunNow" xml:space="preserve">
-		<value>Run now</value>
-	</data>
+    <value>Run now</value>
+  </data>
   <data name="AutomationPipelineControl_RunNow_Error_Message" xml:space="preserve">
-		<value>Completed with errors.</value>
-	</data>
+    <value>Completed with errors.</value>
+  </data>
   <data name="AutomationPipelineControl_RunNow_Error_Title" xml:space="preserve">
-		<value>Run now</value>
-	</data>
+    <value>Run now</value>
+  </data>
   <data name="AutomationPipelineControl_RunNow_Success_Message" xml:space="preserve">
-		<value>Completed successfully!</value>
-	</data>
+    <value>Completed successfully!</value>
+  </data>
   <data name="AutomationPipelineControl_RunNow_Success_Title" xml:space="preserve">
-		<value>Run now</value>
-	</data>
+    <value>Run now</value>
+  </data>
   <data name="AutomationPipelineControl_Running" xml:space="preserve">
-		<value>Running...</value>
-	</data>
+    <value>Running...</value>
+  </data>
   <data name="AutomationPipelineControl_SubtitlePart_Apps" xml:space="preserve">
-		<value>Apps</value>
-	</data>
+    <value>Apps</value>
+  </data>
   <data name="AutomationPipelineControl_SubtitlePart_AtSunrise" xml:space="preserve">
-		<value>At sunrise</value>
-	</data>
+    <value>At sunrise</value>
+  </data>
   <data name="AutomationPipelineControl_SubtitlePart_AtSunset" xml:space="preserve">
-		<value>At sunset</value>
-	</data>
+    <value>At sunset</value>
+  </data>
   <data name="AutomationPipelineControl_SubtitlePart_AtTime" xml:space="preserve">
-		<value>At {0:D2}:{1:D2}</value>
-	</data>
+    <value>At {0:D2}:{1:D2}</value>
+  </data>
   <data name="AutomationPipelineControl_SubtitlePart_PowerMode" xml:space="preserve">
-		<value>Power Mode</value>
-	</data>
+    <value>Power Mode</value>
+  </data>
   <data name="AutomationPipelineControl_Unnamed" xml:space="preserve">
-		<value>Unnamed</value>
-	</data>
+    <value>Unnamed</value>
+  </data>
   <data name="BalanceModeSettingsWindow_AIEngine_Message" xml:space="preserve">
     <value>Automatically detects when certain games are running and tweaks CPU and GPU performance. Temperatures and fan noise might increase.</value>
   </data>
@@ -207,11 +207,11 @@ Only actions that match current state will run.</value>
     <value>Balance Mode Settings</value>
   </data>
   <data name="BatteryAutomationStepControl_Message" xml:space="preserve">
-		<value>Choose how the battery is charged.</value>
-	</data>
+    <value>Choose how the battery is charged.</value>
+  </data>
   <data name="BatteryAutomationStepControl_Title" xml:space="preserve">
-		<value>Battery Mode</value>
-	</data>
+    <value>Battery Mode</value>
+  </data>
   <data name="BatteryModeControl_Message" xml:space="preserve">
     <value>Choose how the battery is charged.</value>
   </data>
@@ -309,20 +309,20 @@ Only actions that match current state will run.</value>
     <value>Cancel</value>
   </data>
   <data name="Celsius" xml:space="preserve">
-		<value>°C</value>
-	</data>
+    <value>°C</value>
+  </data>
   <data name="Close" xml:space="preserve">
     <value>Close</value>
   </data>
   <data name="ColorCardControl_Blue" xml:space="preserve">
-		<value>Blue</value>
-	</data>
+    <value>Blue</value>
+  </data>
   <data name="ColorCardControl_Green" xml:space="preserve">
-		<value>Green</value>
-	</data>
+    <value>Green</value>
+  </data>
   <data name="ColorCardControl_Red" xml:space="preserve">
-		<value>Red</value>
-	</data>
+    <value>Red</value>
+  </data>
   <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
     <value>Select GPU operating mode based on your computer's usage and power conditions.
 Switching modes may require restart.</value>
@@ -358,19 +358,19 @@ Switching modes may require restart.</value>
     <value>Home</value>
   </data>
   <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
-		<value>Disable discrete GPU if it is active unnecessarily.
+    <value>Disable discrete GPU if it is active unnecessarily.
 
 WARNING: This action will not run correctly, if internal display is off or Hybrid mode is not active.</value>
-	</data>
+  </data>
   <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
-		<value>Deactivate GPU</value>
-	</data>
+    <value>Deactivate GPU</value>
+  </data>
   <data name="DelayAutomationStepControl_Message" xml:space="preserve">
-		<value>Add delay before running next step.</value>
-	</data>
+    <value>Add delay before running next step.</value>
+  </data>
   <data name="DelayAutomationStepControl_Title" xml:space="preserve">
-		<value>Delay</value>
-	</data>
+    <value>Delay</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
   </data>
@@ -455,14 +455,14 @@ Remember, that some programs might crash if you do it.</value>
     <value>Discrete GPU</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-		<value>Change display brightness of the built-in display.
+    <value>Change display brightness of the built-in display.
 Power modes change brightness on some devices. Make sure to put this step last, if something doesn't work just right.
 
 WARNING: This action will not run correctly, if internal display is off.</value>
-	</data>
+  </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
-		<value>Display brightness</value>
-	</data>
+    <value>Display brightness</value>
+  </data>
   <data name="DonatePage_Message" xml:space="preserve">
     <value>Development and maintenance of Lenovo Legion Toolkit takes a lot of time. If you like using this software you can support it's future by donating an amount of your choice.
 
@@ -513,29 +513,29 @@ Thanks in advance!</value>
     <value>About GPU Working Modes</value>
   </data>
   <data name="Fahrenheit" xml:space="preserve">
-		<value>°F</value>
-	</data>
+    <value>°F</value>
+  </data>
   <data name="FanCurveControl_CPU" xml:space="preserve">
-		<value>CPU:</value>
-	</data>
+    <value>CPU:</value>
+  </data>
   <data name="FanCurveControl_CPUSensor" xml:space="preserve">
-		<value>CPU Sensor:</value>
-	</data>
+    <value>CPU Sensor:</value>
+  </data>
   <data name="FanCurveControl_FanSpeed" xml:space="preserve">
-		<value>Fan Speed</value>
-	</data>
+    <value>Fan Speed</value>
+  </data>
   <data name="FanCurveControl_GPU" xml:space="preserve">
-		<value>GPU:</value>
-	</data>
+    <value>GPU:</value>
+  </data>
   <data name="FanCurveControl_RPM" xml:space="preserve">
-		<value>RPM</value>
-	</data>
+    <value>RPM</value>
+  </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
-		<value>Turn on the laptop when you open the lid.</value>
-	</data>
+    <value>Turn on the laptop when you open the lid.</value>
+  </data>
   <data name="FlipToStartAutomationStepControl_Title" xml:space="preserve">
-		<value>Flip To Start</value>
-	</data>
+    <value>Flip To Start</value>
+  </data>
   <data name="FlipToStartControl_Message" xml:space="preserve">
     <value>Turn on the laptop when you open the lid.</value>
   </data>
@@ -543,11 +543,11 @@ Thanks in advance!</value>
     <value>Flip To Start</value>
   </data>
   <data name="FnLockAutomationStepControl_Message" xml:space="preserve">
-		<value>Use secondary functions of F1-F12 keys without holding Fn key.</value>
-	</data>
+    <value>Use secondary functions of F1-F12 keys without holding Fn key.</value>
+  </data>
   <data name="FnLockAutomationStepControl_Title" xml:space="preserve">
-		<value>Fn Lock</value>
-	</data>
+    <value>Fn Lock</value>
+  </data>
   <data name="FnLockControl_Message" xml:space="preserve">
     <value>Use secondary functions of F1-F12 keys without holding Fn key.</value>
   </data>
@@ -583,11 +583,11 @@ Some laptops may accept higher power limits than they indicate, but be careful. 
     <value>CPU</value>
   </data>
   <data name="GodModeSettingsWindow_Error_Apply_Title" xml:space="preserve">
-		<value>Couldn't apply settings</value>
-	</data>
+    <value>Couldn't apply settings</value>
+  </data>
   <data name="GodModeSettingsWindow_Error_Load_Title" xml:space="preserve">
-		<value>Couldn't load setting.</value>
-	</data>
+    <value>Couldn't load setting.</value>
+  </data>
   <data name="GodModeSettingsWindow_Fans_Curve_Message" xml:space="preserve">
     <value>Fan speed is not strictly determined by one temperature sensor. It will raise or lower speed per the highest sensor between CPU, GPU and Heatsink temperature. Exact values will appear when you hover mouse over each step.</value>
   </data>
@@ -642,11 +642,11 @@ Seriously, be careful with this option!</value>
     <value>Open</value>
   </data>
   <data name="OverDriveAutomationStepControl_Message" xml:space="preserve">
-		<value>Improve response time of the built-in display.</value>
-	</data>
+    <value>Improve response time of the built-in display.</value>
+  </data>
   <data name="OverDriveAutomationStepControl_Title" xml:space="preserve">
-		<value>Over Drive</value>
-	</data>
+    <value>Over Drive</value>
+  </data>
   <data name="OverDriveControl_Message" xml:space="preserve">
     <value>Improve response time of the built-in display.</value>
   </data>
@@ -729,11 +729,11 @@ Seriously, be careful with this option!</value>
     <value>Apps</value>
   </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-		<value>Select performance mode.</value>
-	</data>
+    <value>Select performance mode.</value>
+  </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
-		<value>Power Mode</value>
-	</data>
+    <value>Power Mode</value>
+  </data>
   <data name="PowerModeControl_ChangeError" xml:space="preserve">
     <value>Couldn't change Power Mode</value>
   </data>
@@ -766,11 +766,11 @@ You can switch mode with Fn+Q.</value>
     <value>Power Plans</value>
   </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
-		<value>Adjust keyboard backlight preset.</value>
-	</data>
+    <value>Adjust keyboard backlight preset.</value>
+  </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
-		<value>Keyboard backlight</value>
-	</data>
+    <value>Keyboard backlight</value>
+  </data>
   <data name="RGBKeyboardBacklightControl_Preset1" xml:space="preserve">
     <value>Preset 1</value>
   </data>
@@ -817,13 +817,13 @@ You can switch mode with Fn+Q.</value>
     <value>Refresh</value>
   </data>
   <data name="RefreshRateAutomationStepControl_Message" xml:space="preserve">
-		<value>Change refresh rate of the built-in display.
+    <value>Change refresh rate of the built-in display.
 
 WARNING: This action will not run correctly, if internal display is off.</value>
-	</data>
+  </data>
   <data name="RefreshRateAutomationStepControl_Title" xml:space="preserve">
-		<value>Refresh rate</value>
-	</data>
+    <value>Refresh rate</value>
+  </data>
   <data name="RefreshRateControl_Message" xml:space="preserve">
     <value>Change refresh rate of the built-in display.</value>
   </data>
@@ -840,18 +840,18 @@ WARNING: This action will not run correctly, if internal display is off.</value>
     <value>Revert</value>
   </data>
   <data name="RunAutomationStepControl_ExeArguments" xml:space="preserve">
-		<value>Arguments</value>
-	</data>
+    <value>Arguments</value>
+  </data>
   <data name="RunAutomationStepControl_ExePath" xml:space="preserve">
-		<value>ExecutablePath</value>
-	</data>
+    <value>ExecutablePath</value>
+  </data>
   <data name="RunAutomationStepControl_Message" xml:space="preserve">
-		<value>Run a script or a program.
+    <value>Run a script or a program.
 Make sure that your script runs correctly first.</value>
-	</data>
+  </data>
   <data name="RunAutomationStepControl_Title" xml:space="preserve">
-		<value>Run</value>
-	</data>
+    <value>Run</value>
+  </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
   </data>
@@ -956,11 +956,11 @@ Requires restart.</value>
     <value>Hybrid Mode</value>
   </data>
   <data name="TouchpadLockAutomationStepControl_Message" xml:space="preserve">
-		<value>Disable touchpad.</value>
-	</data>
+    <value>Disable touchpad.</value>
+  </data>
   <data name="TouchpadLockAutomationStepControl_Title" xml:space="preserve">
-		<value>Touchpad Lock</value>
-	</data>
+    <value>Touchpad Lock</value>
+  </data>
   <data name="TouchpadLockControl_Message" xml:space="preserve">
     <value>Disable touchpad.</value>
   </data>
@@ -1012,11 +1012,11 @@ Logging will be enabled automatically, if you choose to continue.</value>
     <value>What's new?</value>
   </data>
   <data name="WhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
-		<value>Adjust keyboard backlight brightness.</value>
-	</data>
+    <value>Adjust keyboard backlight brightness.</value>
+  </data>
   <data name="WhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
-		<value>Keyboard backlight</value>
-	</data>
+    <value>Keyboard backlight</value>
+  </data>
   <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>You can change brightness with Fn+Space</value>
   </data>
@@ -1024,11 +1024,11 @@ Logging will be enabled automatically, if you choose to continue.</value>
     <value>Brightness</value>
   </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
-		<value>Enabled or disable Windows key.</value>
-	</data>
+    <value>Enabled or disable Windows key.</value>
+  </data>
   <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
-		<value>Windows Key</value>
-	</data>
+    <value>Windows Key</value>
+  </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>Only works on built-in keyboard.</value>
   </data>
