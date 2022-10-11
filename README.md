@@ -43,7 +43,7 @@ You can download the installer from the Releases page here: [Latest release](htt
 
 ## Compatibility
 
-Lenovo Legion Toolkit is compatible with a lot of Lenovo Legion laptops from 2020, 2021 and 2022 running Windows 10 and 11. All testing done by me is done always on the latest Windows 11 update and Legion 5 Pro 16ACH6H.
+Lenovo Legion Toolkit is compatible with a lot of Lenovo Legion and Ideapad Gaming laptops from 2020, 2021 and 2022 running Windows 10 and 11.
 
 Overall the recommendation is to disable or uninstall Vantage, Hotkeys and Legion Zone while using LLT. There are some functions that cause conflicts or may not work properly when LLT is working along side other Lenovo apps.
 
