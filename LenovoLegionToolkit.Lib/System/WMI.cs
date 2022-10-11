@@ -9,6 +9,21 @@ namespace LenovoLegionToolkit.Lib.System
 {
     public static class WMI
     {
+        public static async Task<bool> Exists(string scope, FormattableString query)
+        {
+            try
+            {
+                var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
+                var mos = new ManagementObjectSearcher(scope, queryFormatted);
+                var managementObjects = await mos.GetAsync().ConfigureAwait(false);
+                return managementObjects.Any();
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public static IDisposable Listen(string scope, FormattableString query, Action<PropertyDataCollection> handler)
         {
             var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
