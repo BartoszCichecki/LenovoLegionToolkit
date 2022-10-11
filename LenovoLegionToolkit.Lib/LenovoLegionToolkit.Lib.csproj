@@ -4,6 +4,7 @@
 		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
 		<Nullable>enable</Nullable>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<NeutralLanguage>en</NeutralLanguage>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Autofac" Version="6.4.0" />
