@@ -69,4 +69,10 @@
 	<data name="TimeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
 		<value>At specified time</value>
 	</data>
+	<data name="Delay_OneSecond" xml:space="preserve">
+		<value>1 second</value>
+	</data>
+	<data name="Delay_DisplayName_ManySeconds" xml:space="preserve">
+		<value>{0} seconds</value>
+	</data>
 </root>

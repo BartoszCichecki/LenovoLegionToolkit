@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using LenovoLegionToolkit.Lib.Automation.Resources;
+using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation
 {
@@ -9,15 +10,7 @@ namespace LenovoLegionToolkit.Lib.Automation
         [JsonConstructor]
         public Delay(int delaySeconds) => DelaySeconds = delaySeconds;
 
-        public string DisplayName
-        {
-            get
-            {
-                if (DelaySeconds == 1)
-                    return "1 second";
-                return $"{DelaySeconds} seconds";
-            }
-        }
+        public string DisplayName => DelaySeconds == 1 ? Resource.Delay_OneSecond : string.Format(Resource.Delay_DisplayName_ManySeconds, DelaySeconds);
     }
 
 }
