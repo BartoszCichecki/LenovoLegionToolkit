@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Automation.Resources;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Utils;
 using Newtonsoft.Json;
@@ -10,7 +11,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
 {
     public class ProcessesStopRunningAutomationPipelineTrigger : IAutomationPipelineTrigger, IProcessesAutomationPipelineTrigger
     {
-        public string DisplayName => "When app closes";
+        public string DisplayName => Resource.ProcessesStopRunningAutomationPipelineTrigger_DisplayName;
 
         public ProcessInfo[] Processes { get; }
 
