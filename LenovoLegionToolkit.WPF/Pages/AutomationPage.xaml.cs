@@ -211,6 +211,10 @@ namespace LenovoLegionToolkit.WPF.Pages
             var control = GenerateControl(pipeline, _automaticPipelinesStackPanel);
             _automaticPipelinesStackPanel.Children.Insert(0, control);
 
+            _noAutomaticActionsText.Visibility = _automaticPipelinesStackPanel.Children.Count < 1
+                ? Visibility.Visible
+                : Visibility.Collapsed;
+
             await RefreshNewAutomaticPipelineButtonAsync();
             PipelinesChanged();
         }
@@ -224,6 +228,10 @@ namespace LenovoLegionToolkit.WPF.Pages
             var pipeline = new AutomationPipeline(newName);
             var control = GenerateControl(pipeline, _manualPipelinesStackPanel);
             _manualPipelinesStackPanel.Children.Insert(0, control);
+            
+            _noManualActionsText.Visibility = _manualPipelinesStackPanel.Children.Count < 1
+                ? Visibility.Visible
+                : Visibility.Collapsed;
 
             await RefreshNewAutomaticPipelineButtonAsync();
             PipelinesChanged();
@@ -239,6 +247,13 @@ namespace LenovoLegionToolkit.WPF.Pages
         private async Task DeletePipelineAsync(AutomationPipelineControl control, StackPanel stackPanel)
         {
             stackPanel.Children.Remove(control);
+
+            _noAutomaticActionsText.Visibility = _automaticPipelinesStackPanel.Children.Count < 1
+                ? Visibility.Visible
+                : Visibility.Collapsed;
+            _noManualActionsText.Visibility = _manualPipelinesStackPanel.Children.Count < 1
+                ? Visibility.Visible
+                : Visibility.Collapsed;
 
             await RefreshNewAutomaticPipelineButtonAsync();
             PipelinesChanged();

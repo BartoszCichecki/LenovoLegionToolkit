@@ -256,7 +256,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 }
                 catch
                 {
-                    await SnackbarHelper.ShowAsync("Couldn't disnable Fn Keys", "Fn Keys may have not been disabled correctly", true);
+                    await SnackbarHelper.ShowAsync("Couldn't disable Fn Keys", "Fn Keys may have not been disabled correctly", true);
                     return;
                 }
             }

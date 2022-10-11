@@ -12,6 +12,7 @@ using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Pages;
+using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Utils;
 using Wpf.Ui.Controls;
@@ -67,7 +68,7 @@ namespace LenovoLegionToolkit.WPF.Windows
 
             var notifyIcon = new NotifyIcon
             {
-                TooltipText = "Lenovo Legion Toolkit",
+                TooltipText = Resource.AppName,
                 Icon = ImageSourceExtensions.ApplicationIcon(),
                 FocusOnLeftClick = false,
                 MenuOnRightClick = true,
@@ -236,7 +237,7 @@ namespace LenovoLegionToolkit.WPF.Windows
                     }
                     else
                     {
-                        _updateIndicator.Content = $"Update {result.ToString(3)} available!";
+                        _updateIndicator.Content = string.Format(Resource.UpdateAvailableWithVersion, result.ToString(3));
                         _updateIndicator.Visibility = Visibility.Visible;
                     }
                 }, TaskScheduler.FromCurrentSynchronizationContext());
