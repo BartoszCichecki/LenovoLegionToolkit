@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Automation.Resources;
 using LenovoLegionToolkit.Lib.Utils;
 using Newtonsoft.Json;
 
@@ -13,7 +14,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
 
         public Time? Time { get; }
 
-        public string DisplayName => "At specified time";
+        public string DisplayName => Resource.TimeAutomationPipelineTrigger_DisplayName;
 
         private readonly SunriseSunset _sunriseSunset = IoCContainer.Resolve<SunriseSunset>();
 

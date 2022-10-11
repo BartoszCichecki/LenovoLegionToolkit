@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Automation.Resources;
 using LenovoLegionToolkit.Lib.Utils;
 using Newtonsoft.Json;
 
@@ -9,7 +10,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
 {
     public class ProcessesAreRunningAutomationPipelineTrigger : IAutomationPipelineTrigger, IProcessesAutomationPipelineTrigger
     {
-        public string DisplayName => "When app is running";
+        public string DisplayName => Resource.ProcessesAreRunningAutomationPipelineTrigger_DisplayName;
 
         public ProcessInfo[] Processes { get; }
 
