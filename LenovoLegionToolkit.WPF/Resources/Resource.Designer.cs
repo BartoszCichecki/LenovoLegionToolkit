@@ -61,93 +61,83 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lenovo Legion Toolkit.
+        /// </summary>
+        public static string AboutPage_AppName {
+            get {
+                return ResourceManager.GetString("AboutPage_AppName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Build: .
+        /// </summary>
+        public static string AboutPage_Build {
+            get {
+                return ResourceManager.GetString("AboutPage_Build", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Latest release on GitHub.
+        /// </summary>
+        public static string AboutPage_LatestReleaseOnGitHub {
+            get {
+                return ResourceManager.GetString("AboutPage_LatestReleaseOnGitHub", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Links.
+        /// </summary>
+        public static string AboutPage_Links {
+            get {
+                return ResourceManager.GetString("AboutPage_Links", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Project website on GitHub.
+        /// </summary>
+        public static string AboutPage_ProjectWebsiteOnGitHub {
+            get {
+                return ResourceManager.GetString("AboutPage_ProjectWebsiteOnGitHub", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3rd party libraries.
+        /// </summary>
+        public static string AboutPage_ThirdPartyLibraries {
+            get {
+                return ResourceManager.GetString("AboutPage_ThirdPartyLibraries", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
-        public static string About_Title {
+        public static string AboutPage_Title {
             get {
-                return ResourceManager.GetString("About_Title", resourceCulture);
+                return ResourceManager.GetString("AboutPage_Title", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Connected, charging....
+        ///   Looks up a localized string similar to Version: .
         /// </summary>
-        public static string ACAdapterConnectedAndCharging {
+        public static string AboutPage_Version {
             get {
-                return ResourceManager.GetString("ACAdapterConnectedAndCharging", resourceCulture);
+                return ResourceManager.GetString("AboutPage_Version", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Connected, not charging.
+        ///   Looks up a localized string similar to Add.
         /// </summary>
-        public static string ACAdapterConnectedNotCharging {
+        public static string Add {
             get {
-                return ResourceManager.GetString("ACAdapterConnectedNotCharging", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Change the accent color of the app..
-        /// </summary>
-        public static string AccentColor_Description {
-            get {
-                return ResourceManager.GetString("AccentColor_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Accent color.
-        /// </summary>
-        public static string AccentColor_Title {
-            get {
-                return ResourceManager.GetString("AccentColor_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to No Actions defined. Click &quot;Add new&quot; to create new Action..
-        /// </summary>
-        public static string Actions_Empty {
-            get {
-                return ResourceManager.GetString("Actions_Empty", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to If enabled these action will run automatically. Whenever state changes, all actions will be evaluated from top to bottom.
-        ///Only actions that match current state will run..
-        /// </summary>
-        public static string Actions_Message {
-            get {
-                return ResourceManager.GetString("Actions_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Actions.
-        /// </summary>
-        public static string Actions_Title {
-            get {
-                return ResourceManager.GetString("Actions_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Lenovo Legion Toolkit must be running for automatic actions to work..
-        /// </summary>
-        public static string ActionsEnable_Message {
-            get {
-                return ResourceManager.GetString("ActionsEnable_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Enable.
-        /// </summary>
-        public static string ActionsEnabled_Title {
-            get {
-                return ResourceManager.GetString("ActionsEnabled_Title", resourceCulture);
+                return ResourceManager.GetString("Add", resourceCulture);
             }
         }
         
@@ -161,25 +151,25 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do not change options below unless you really know what you are doing..
+        ///   Looks up a localized string similar to Activate Power Plan even when Vantage is enabled.&amp;#x0a;This option is intended only for devices that didn&apos;t come with multiple power plans..
         /// </summary>
-        public static string Advanced_Message {
+        public static string AlwaysActivatePowerPlans_Message {
             get {
-                return ResourceManager.GetString("Advanced_Message", resourceCulture);
+                return ResourceManager.GetString("AlwaysActivatePowerPlans_Message", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Advanced.
+        ///   Looks up a localized string similar to Always activate Windows Power Plan.
         /// </summary>
-        public static string Advanced_Title {
+        public static string AlwaysActivatePowerPlans_Title {
             get {
-                return ResourceManager.GetString("Advanced_Title", resourceCulture);
+                return ResourceManager.GetString("AlwaysActivatePowerPlans_Title", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lenovo Legion Toolkit.
+        ///   Looks up a localized string similar to LenovoLegionToolkit.
         /// </summary>
         public static string AppName {
             get {
@@ -188,205 +178,516 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No Actions defined. Click &quot;Add new&quot; to create new Action..
+        /// </summary>
+        public static string AutomationPage_Actions_Empty {
+            get {
+                return ResourceManager.GetString("AutomationPage_Actions_Empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If enabled these action will run automatically. Whenever state changes, all actions will be evaluated from top to bottom.
+        ///Only actions that match current state will run..
+        /// </summary>
+        public static string AutomationPage_Actions_Message {
+            get {
+                return ResourceManager.GetString("AutomationPage_Actions_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Actions.
+        /// </summary>
+        public static string AutomationPage_Actions_Title {
+            get {
+                return ResourceManager.GetString("AutomationPage_Actions_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lenovo Legion Toolkit must be running for automatic actions to work..
+        /// </summary>
+        public static string AutomationPage_ActionsEnable_Message {
+            get {
+                return ResourceManager.GetString("AutomationPage_ActionsEnable_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable.
+        /// </summary>
+        public static string AutomationPage_ActionsEnabled_Title {
+            get {
+                return ResourceManager.GetString("AutomationPage_ActionsEnabled_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Quick Actions defined. Click &quot;Add new&quot; to create new Quick Action..
+        /// </summary>
+        public static string AutomationPage_QuickActions_Empty {
+            get {
+                return ResourceManager.GetString("AutomationPage_QuickActions_Empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quick actions are available in the right click menu of the tray icon..
+        /// </summary>
+        public static string AutomationPage_QuickActions_Message {
+            get {
+                return ResourceManager.GetString("AutomationPage_QuickActions_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quick Actions.
+        /// </summary>
+        public static string AutomationPage_QuickActions_Title {
+            get {
+                return ResourceManager.GetString("AutomationPage_QuickActions_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Automation.
         /// </summary>
-        public static string Automation_Title {
+        public static string AutomationPage_Title {
             get {
-                return ResourceManager.GetString("Automation_Title", resourceCulture);
+                return ResourceManager.GetString("AutomationPage_Title", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Start minimized to tray when you log in to Windows.
-        ///Startup is delayed by 30 seconds for compatibility reasons..
+        ///   Looks up a localized string similar to Connected, charging....
         /// </summary>
-        public static string Autorun_Message {
+        public static string BatteryPage_ACAdapterConnectedAndCharging {
             get {
-                return ResourceManager.GetString("Autorun_Message", resourceCulture);
+                return ResourceManager.GetString("BatteryPage_ACAdapterConnectedAndCharging", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Autorun.
+        ///   Looks up a localized string similar to Connected, not charging.
         /// </summary>
-        public static string Autorun_Title {
+        public static string BatteryPage_ACAdapterConnectedNotCharging {
             get {
-                return ResourceManager.GetString("Autorun_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Battery.
-        /// </summary>
-        public static string Battery_Title {
-            get {
-                return ResourceManager.GetString("Battery_Title", resourceCulture);
+                return ResourceManager.GetString("BatteryPage_ACAdapterConnectedNotCharging", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Current temperature of the battery..
         /// </summary>
-        public static string BatteryTemperature_Message {
+        public static string BatteryPage_BatteryTemperature_Message {
             get {
-                return ResourceManager.GetString("BatteryTemperature_Message", resourceCulture);
+                return ResourceManager.GetString("BatteryPage_BatteryTemperature_Message", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Battery temperature.
         /// </summary>
-        public static string BatteryTemperature_Title {
+        public static string BatteryPage_BatteryTemperature_Title {
             get {
-                return ResourceManager.GetString("BatteryTemperature_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Build: .
-        /// </summary>
-        public static string Build {
-            get {
-                return ResourceManager.GetString("Build", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to CPU Boost Modes.
-        /// </summary>
-        public static string CPUBoostModes {
-            get {
-                return ResourceManager.GetString("CPUBoostModes", resourceCulture);
+                return ResourceManager.GetString("BatteryPage_BatteryTemperature_Title", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Current battery capacity..
         /// </summary>
-        public static string CurrentCapacity_Message {
+        public static string BatteryPage_CurrentCapacity_Message {
             get {
-                return ResourceManager.GetString("CurrentCapacity_Message", resourceCulture);
+                return ResourceManager.GetString("BatteryPage_CurrentCapacity_Message", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Current capacity.
         /// </summary>
-        public static string CurrentCapacity_Title {
+        public static string BatteryPage_CurrentCapacity_Title {
             get {
-                return ResourceManager.GetString("CurrentCapacity_Title", resourceCulture);
+                return ResourceManager.GetString("BatteryPage_CurrentCapacity_Title", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Number of charge/discharge cycles..
         /// </summary>
-        public static string CycleCount_Message {
+        public static string BatteryPage_CycleCount_Message {
             get {
-                return ResourceManager.GetString("CycleCount_Message", resourceCulture);
+                return ResourceManager.GetString("BatteryPage_CycleCount_Message", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Cycle count.
         /// </summary>
-        public static string CycleCount_Title {
+        public static string BatteryPage_CycleCount_Title {
             get {
-                return ResourceManager.GetString("CycleCount_Title", resourceCulture);
+                return ResourceManager.GetString("BatteryPage_CycleCount_Title", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Battery capacity as designed..
         /// </summary>
-        public static string DesignCapacity_Message {
+        public static string BatteryPage_DesignCapacity_Message {
             get {
-                return ResourceManager.GetString("DesignCapacity_Message", resourceCulture);
+                return ResourceManager.GetString("BatteryPage_DesignCapacity_Message", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Design capacity.
         /// </summary>
-        public static string DesignCapacity_Title {
+        public static string BatteryPage_DesignCapacity_Title {
             get {
-                return ResourceManager.GetString("DesignCapacity_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Disable Legion Zone and it&apos;s service without uninstalling it.
-        ///Restart is recommended after changing this option..
-        /// </summary>
-        public static string DisableLegionZone_Message {
-            get {
-                return ResourceManager.GetString("DisableLegionZone_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Disable Legion Zone.
-        /// </summary>
-        public static string DisableLegionZone_Title {
-            get {
-                return ResourceManager.GetString("DisableLegionZone_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Disable Lenovo Hotkeys and it&apos;s service without uninstalling it.
-        ///If disabled, this app will handle Fn shortcuts
-        ///Restart is recommended after changing this option..
-        /// </summary>
-        public static string DisableLenovoHotkeys_Message {
-            get {
-                return ResourceManager.GetString("DisableLenovoHotkeys_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Disable Lenovo Hotkeys.
-        /// </summary>
-        public static string DisableLenovoHotkeys_Title {
-            get {
-                return ResourceManager.GetString("DisableLenovoHotkeys_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Disable Lenovo Vantage and it&apos;s service without uninstalling it.
-        ///Restart is recommended after changing this option..
-        /// </summary>
-        public static string DisableVantage_Message {
-            get {
-                return ResourceManager.GetString("DisableVantage_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Disable Lenovo Vantage.
-        /// </summary>
-        public static string DisableVantage_Title {
-            get {
-                return ResourceManager.GetString("DisableVantage_Title", resourceCulture);
+                return ResourceManager.GetString("BatteryPage_DesignCapacity_Title", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Rate at which battery is charged (+), or discharged (-)..
         /// </summary>
-        public static string DischargeRate_Message {
+        public static string BatteryPage_DischargeRate_Message {
             get {
-                return ResourceManager.GetString("DischargeRate_Message", resourceCulture);
+                return ResourceManager.GetString("BatteryPage_DischargeRate_Message", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Discharge rate.
         /// </summary>
-        public static string DischargeRate_Title {
+        public static string BatteryPage_DischargeRate_Title {
             get {
-                return ResourceManager.GetString("DischargeRate_Title", resourceCulture);
+                return ResourceManager.GetString("BatteryPage_DischargeRate_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Estimated time remaining: {0}.
+        /// </summary>
+        public static string BatteryPage_EstimatedBatteryLifeRemaining {
+            get {
+                return ResourceManager.GetString("BatteryPage_EstimatedBatteryLifeRemaining", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Estimating time....
+        /// </summary>
+        public static string BatteryPage_EstimatingBatteryLife {
+            get {
+                return ResourceManager.GetString("BatteryPage_EstimatingBatteryLife", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When was the battery first used..
+        /// </summary>
+        public static string BatteryPage_FirstUse_Message {
+            get {
+                return ResourceManager.GetString("BatteryPage_FirstUse_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First use date.
+        /// </summary>
+        public static string BatteryPage_FirstUseDate_Title {
+            get {
+                return ResourceManager.GetString("BatteryPage_FirstUseDate_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Battery capacity when fully charged..
+        /// </summary>
+        public static string BatteryPage_FullChargeCapacity_Message {
+            get {
+                return ResourceManager.GetString("BatteryPage_FullChargeCapacity_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Full charge capacity.
+        /// </summary>
+        public static string BatteryPage_FullChargeCapacity_Title {
+            get {
+                return ResourceManager.GetString("BatteryPage_FullChargeCapacity_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Low wattage charger connected.
+        /// </summary>
+        public static string BatteryPage_LowWattageChargerConnected {
+            get {
+                return ResourceManager.GetString("BatteryPage_LowWattageChargerConnected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When was the battery manufactured..
+        /// </summary>
+        public static string BatteryPage_ManufactureDate_Message {
+            get {
+                return ResourceManager.GetString("BatteryPage_ManufactureDate_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manufacture date.
+        /// </summary>
+        public static string BatteryPage_ManufactureDate_Title {
+            get {
+                return ResourceManager.GetString("BatteryPage_ManufactureDate_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time since laptop was last connected to AC power.&amp;#x0a;This time might not be accurate if laptop was charged when sleeping or off..
+        /// </summary>
+        public static string BatteryPage_OnBatterySince_Message {
+            get {
+                return ResourceManager.GetString("BatteryPage_OnBatterySince_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to On battery since.
+        /// </summary>
+        public static string BatteryPage_OnBatterySince_Title {
+            get {
+                return ResourceManager.GetString("BatteryPage_OnBatterySince_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Battery.
+        /// </summary>
+        public static string BatteryPage_Title {
+            get {
+                return ResourceManager.GetString("BatteryPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        public static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quick Actions.
+        /// </summary>
+        public static string ContextMenu_QuickActions {
+            get {
+                return ResourceManager.GetString("ContextMenu_QuickActions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Continue.
+        /// </summary>
+        public static string Continue {
+            get {
+                return ResourceManager.GetString("Continue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy all.
+        /// </summary>
+        public static string CopyAll {
+            get {
+                return ResourceManager.GetString("CopyAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Learn more at microsoft.com.
+        /// </summary>
+        public static string CPUBoostModesWindow_LearnMore {
+            get {
+                return ResourceManager.GetString("CPUBoostModesWindow_LearnMore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CPU Boost Modes.
+        /// </summary>
+        public static string CPUBoostModesWindow_Title {
+            get {
+                return ResourceManager.GetString("CPUBoostModesWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Graphics.
+        /// </summary>
+        public static string DashboardPage_Graphics_Title {
+            get {
+                return ResourceManager.GetString("DashboardPage_Graphics_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other.
+        /// </summary>
+        public static string DashboardPage_Other_Title {
+            get {
+                return ResourceManager.GetString("DashboardPage_Other_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Power.
+        /// </summary>
+        public static string DashboardPage_Power_Title {
+            get {
+                return ResourceManager.GetString("DashboardPage_Power_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        public static string DashboardPage_Title {
+            get {
+                return ResourceManager.GetString("DashboardPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BIOS version.
+        /// </summary>
+        public static string DeviceInformationWindow_BiosVersion_Title {
+            get {
+                return ResourceManager.GetString("DeviceInformationWindow_BiosVersion_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Device.
+        /// </summary>
+        public static string DeviceInformationWindow_Device_Title {
+            get {
+                return ResourceManager.GetString("DeviceInformationWindow_Device_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lenovo Support.
+        /// </summary>
+        public static string DeviceInformationWindow_LenovoSupport {
+            get {
+                return ResourceManager.GetString("DeviceInformationWindow_LenovoSupport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Machine Type.
+        /// </summary>
+        public static string DeviceInformationWindow_MachineType_Title {
+            get {
+                return ResourceManager.GetString("DeviceInformationWindow_MachineType_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manufacturer.
+        /// </summary>
+        public static string DeviceInformationWindow_Manufacturer_Title {
+            get {
+                return ResourceManager.GetString("DeviceInformationWindow_Manufacturer_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model.
+        /// </summary>
+        public static string DeviceInformationWindow_Model_Title {
+            get {
+                return ResourceManager.GetString("DeviceInformationWindow_Model_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Serial number.
+        /// </summary>
+        public static string DeviceInformationWindow_SerialNumber_Title {
+            get {
+                return ResourceManager.GetString("DeviceInformationWindow_SerialNumber_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About your device.
+        /// </summary>
+        public static string DeviceInformationWindow_Title {
+            get {
+                return ResourceManager.GetString("DeviceInformationWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warranty.
+        /// </summary>
+        public static string DeviceInformationWindow_Warranty_Title {
+            get {
+                return ResourceManager.GetString("DeviceInformationWindow_Warranty_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End date.
+        /// </summary>
+        public static string DeviceInformationWindow_WarrantyEndDate_Title {
+            get {
+                return ResourceManager.GetString("DeviceInformationWindow_WarrantyEndDate_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start date.
+        /// </summary>
+        public static string DeviceInformationWindow_WarrantyStartDate_Title {
+            get {
+                return ResourceManager.GetString("DeviceInformationWindow_WarrantyStartDate_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        public static string DeviceInformationWindow_WarrantyStatus_Title {
+            get {
+                return ResourceManager.GetString("DeviceInformationWindow_WarrantyStatus_Title", resourceCulture);
             }
         }
         
@@ -397,127 +698,36 @@ namespace LenovoLegionToolkit.WPF.Resources {
         ///
         ///Thanks in advance!.
         /// </summary>
-        public static string Donate_Message {
+        public static string DonatePage_Message {
             get {
-                return ResourceManager.GetString("Donate_Message", resourceCulture);
+                return ResourceManager.GetString("DonatePage_Message", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Donate.
         /// </summary>
-        public static string Donate_Title {
+        public static string DonatePage_Title {
             get {
-                return ResourceManager.GetString("Donate_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Disables notification for Fn keys actions like microphone mute
-        ///Enable this option if you have conflicts with full screen applications..
-        /// </summary>
-        public static string DontShowNotifications_Message {
-            get {
-                return ResourceManager.GetString("DontShowNotifications_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Don&apos;t show notifications.
-        /// </summary>
-        public static string DontShowNotifications_Title {
-            get {
-                return ResourceManager.GetString("DontShowNotifications_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Estimated time remaining: {0}.
-        /// </summary>
-        public static string EstimatedBatteryLifeRemaining {
-            get {
-                return ResourceManager.GetString("EstimatedBatteryLifeRemaining", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Estimating time....
-        /// </summary>
-        public static string EstimatingBatteryLife {
-            get {
-                return ResourceManager.GetString("EstimatingBatteryLife", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to You can exclude refresh rates, to make Fn+R shortcut more useful..
-        /// </summary>
-        public static string ExcludeRefreshRates_Message {
-            get {
-                return ResourceManager.GetString("ExcludeRefreshRates_Message", resourceCulture);
+                return ResourceManager.GetString("DonatePage_Title", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Exclude Refresh Rates.
         /// </summary>
-        public static string ExcludeRefreshRates_Title {
+        public static string ExcludeRefreshRatesWindow_Title {
             get {
-                return ResourceManager.GetString("ExcludeRefreshRates_Title", resourceCulture);
+                return ResourceManager.GetString("ExcludeRefreshRatesWindow_Title", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When was the battery first used..
+        ///   Looks up a localized string similar to Exit.
         /// </summary>
-        public static string FirstUse_Message {
+        public static string Exit {
             get {
-                return ResourceManager.GetString("FirstUse_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to First use date.
-        /// </summary>
-        public static string FirstUseDate_Title {
-            get {
-                return ResourceManager.GetString("FirstUseDate_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Battery capacity when fully charged..
-        /// </summary>
-        public static string FullChargeCapacity_Message {
-            get {
-                return ResourceManager.GetString("FullChargeCapacity_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Full charge capacity.
-        /// </summary>
-        public static string FullChargeCapacity_Title {
-            get {
-                return ResourceManager.GetString("FullChargeCapacity_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Graphics.
-        /// </summary>
-        public static string Graphics_Title {
-            get {
-                return ResourceManager.GetString("Graphics_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Home.
-        /// </summary>
-        public static string Home_Title {
-            get {
-                return ResourceManager.GetString("Home_Title", resourceCulture);
+                return ResourceManager.GetString("Exit", resourceCulture);
             }
         }
         
@@ -540,164 +750,263 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Keyboard Backlight.
-        /// </summary>
-        public static string KeyboardBacklight_Title {
-            get {
-                return ResourceManager.GetString("KeyboardBacklight_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Latest release on GitHub.
-        /// </summary>
-        public static string LatestReleaseOnGitHub {
-            get {
-                return ResourceManager.GetString("LatestReleaseOnGitHub", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Links.
-        /// </summary>
-        public static string Links {
-            get {
-                return ResourceManager.GetString("Links", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Low wattage charger connected.
-        /// </summary>
-        public static string LowWattageChargerConnected {
-            get {
-                return ResourceManager.GetString("LowWattageChargerConnected", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to When was the battery manufactured..
-        /// </summary>
-        public static string ManufactureDate_Message {
-            get {
-                return ResourceManager.GetString("ManufactureDate_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Manufacture date.
-        /// </summary>
-        public static string ManufactureDate_Title {
-            get {
-                return ResourceManager.GetString("ManufactureDate_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Always minimize to tray. Close with right click on tray icon..
-        /// </summary>
-        public static string MinimizeOnClose_Message {
-            get {
-                return ResourceManager.GetString("MinimizeOnClose_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Minimize on close.
-        /// </summary>
-        public static string MinimizeOnClose_Title {
-            get {
-                return ResourceManager.GetString("MinimizeOnClose_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to No compatible keyboards found.
         /// </summary>
-        public static string NoCompatibleKeyboardsFound {
+        public static string KeyboardBacklightPage_NoCompatibleKeyboardsFound {
             get {
-                return ResourceManager.GetString("NoCompatibleKeyboardsFound", resourceCulture);
+                return ResourceManager.GetString("KeyboardBacklightPage_NoCompatibleKeyboardsFound", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Time since laptop was last connected to AC power.&amp;#x0a;This time might not be accurate if laptop was charged when sleeping or off..
+        ///   Looks up a localized string similar to Keyboard Backlight.
         /// </summary>
-        public static string OnBatterySince_Message {
+        public static string KeyboardBacklightPage_Title {
             get {
-                return ResourceManager.GetString("OnBatterySince_Message", resourceCulture);
+                return ResourceManager.GetString("KeyboardBacklightPage_Title", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to On battery since.
+        ///   Looks up a localized string similar to Update available!.
         /// </summary>
-        public static string OnBatterySince_Title {
+        public static string MainWindow_UpdateAvailable {
             get {
-                return ResourceManager.GetString("OnBatterySince_Title", resourceCulture);
+                return ResourceManager.GetString("MainWindow_UpdateAvailable", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Other.
+        ///   Looks up a localized string similar to Update {0} available!.
         /// </summary>
-        public static string Other_Title {
+        public static string MainWindow_UpdateAvailableWithVersion {
             get {
-                return ResourceManager.GetString("Other_Title", resourceCulture);
+                return ResourceManager.GetString("MainWindow_UpdateAvailableWithVersion", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Power.
+        ///   Looks up a localized string similar to Open.
         /// </summary>
-        public static string Power_Title {
+        public static string Open {
             get {
-                return ResourceManager.GetString("Power_Title", resourceCulture);
+                return ResourceManager.GetString("Open", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Power plans.
+        ///   Looks up a localized string similar to Below is a list of software packages that are marked as compatible with your laptop.&amp;#x0a;Always make sure that you are installing correct packages..
         /// </summary>
-        public static string PowerPlans {
+        public static string PackagesPage_Disclaimer_Message {
             get {
-                return ResourceManager.GetString("PowerPlans", resourceCulture);
+                return ResourceManager.GetString("PackagesPage_Disclaimer_Message", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Project website on GitHub.
+        ///   Looks up a localized string similar to Important.
         /// </summary>
-        public static string ProjectWebsiteOnGitHub {
+        public static string PackagesPage_Disclaimer_Title {
             get {
-                return ResourceManager.GetString("ProjectWebsiteOnGitHub", resourceCulture);
+                return ResourceManager.GetString("PackagesPage_Disclaimer_Title", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No Quick Actions defined. Click &quot;Add new&quot; to create new Quick Action..
+        ///   Looks up a localized string similar to Download to:.
         /// </summary>
-        public static string QuickActions_Empty {
+        public static string PackagesPage_DownloadTo {
             get {
-                return ResourceManager.GetString("QuickActions_Empty", resourceCulture);
+                return ResourceManager.GetString("PackagesPage_DownloadTo", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quick actions are available in the right click menu of the tray icon..
+        ///   Looks up a localized string similar to Filter....
         /// </summary>
-        public static string QuickActions_Message {
+        public static string PackagesPage_Filter {
             get {
-                return ResourceManager.GetString("QuickActions_Message", resourceCulture);
+                return ResourceManager.GetString("PackagesPage_Filter", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quick Actions.
+        ///   Looks up a localized string similar to Machine Type:.
         /// </summary>
-        public static string QuickActions_Title {
+        public static string PackagesPage_MachineType {
             get {
-                return ResourceManager.GetString("QuickActions_Title", resourceCulture);
+                return ResourceManager.GetString("PackagesPage_MachineType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operating System:.
+        /// </summary>
+        public static string PackagesPage_OperatingSystem {
+            get {
+                return ResourceManager.GetString("PackagesPage_OperatingSystem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Primary (Recommended).
+        /// </summary>
+        public static string PackagesPage_PrimarySource {
+            get {
+                return ResourceManager.GetString("PackagesPage_PrimarySource", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Same as Lenovo PC Support.
+        /// </summary>
+        public static string PackagesPage_PrimarySource_ToolTip {
+            get {
+                return ResourceManager.GetString("PackagesPage_PrimarySource_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Secondary.
+        /// </summary>
+        public static string PackagesPage_SecondarySource {
+            get {
+                return ResourceManager.GetString("PackagesPage_SecondarySource", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Same as Lenovo DriverGrabber.
+        /// </summary>
+        public static string PackagesPage_SecondarySource_ToolTip {
+            get {
+                return ResourceManager.GetString("PackagesPage_SecondarySource_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Category.
+        /// </summary>
+        public static string PackagesPage_Sort_Category {
+            get {
+                return ResourceManager.GetString("PackagesPage_Sort_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        public static string PackagesPage_Sort_Date {
+            get {
+                return ResourceManager.GetString("PackagesPage_Sort_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string PackagesPage_Sort_Name {
+            get {
+                return ResourceManager.GetString("PackagesPage_Sort_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Downloads.
+        /// </summary>
+        public static string PackagesPage_Title {
+            get {
+                return ResourceManager.GetString("PackagesPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Paste.
+        /// </summary>
+        public static string Paste {
+            get {
+                return ResourceManager.GetString("Paste", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Apps.
+        /// </summary>
+        public static string PickProcessesWindow_Title {
+            get {
+                return ResourceManager.GetString("PickProcessesWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Power Mode.
+        /// </summary>
+        public static string PowerModeWindow_Title {
+            get {
+                return ResourceManager.GetString("PowerModeWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Balance mode.
+        /// </summary>
+        public static string PowerPlansWindow_BalanceMode {
+            get {
+                return ResourceManager.GetString("PowerPlansWindow_BalanceMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom mode.
+        /// </summary>
+        public static string PowerPlansWindow_CustomMode {
+            get {
+                return ResourceManager.GetString("PowerPlansWindow_CustomMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Performance mode.
+        /// </summary>
+        public static string PowerPlansWindow_PerformanceMode {
+            get {
+                return ResourceManager.GetString("PowerPlansWindow_PerformanceMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quiet mode.
+        /// </summary>
+        public static string PowerPlansWindow_QuietMode {
+            get {
+                return ResourceManager.GetString("PowerPlansWindow_QuietMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Power Plans.
+        /// </summary>
+        public static string PowerPlansWindow_Title {
+            get {
+                return ResourceManager.GetString("PowerPlansWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Readme.
+        /// </summary>
+        public static string ReadmeWindow_Title {
+            get {
+                return ResourceManager.GetString("ReadmeWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Refresh.
+        /// </summary>
+        public static string Refresh {
+            get {
+                return ResourceManager.GetString("Refresh", resourceCulture);
             }
         }
         
@@ -720,38 +1029,251 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Settings.
+        ///   Looks up a localized string similar to Change the accent color of the app..
         /// </summary>
-        public static string Settings_Title {
+        public static string SettingsPage_AccentColor_Description {
             get {
-                return ResourceManager.GetString("Settings_Title", resourceCulture);
+                return ResourceManager.GetString("SettingsPage_AccentColor_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accent color.
+        /// </summary>
+        public static string SettingsPage_AccentColor_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_AccentColor_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do not change options below unless you really know what you are doing..
+        /// </summary>
+        public static string SettingsPage_Advanced_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_Advanced_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Advanced.
+        /// </summary>
+        public static string SettingsPage_Advanced_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_Advanced_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start minimized to tray when you log in to Windows.
+        ///Startup is delayed by 30 seconds for compatibility reasons..
+        /// </summary>
+        public static string SettingsPage_Autorun_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_Autorun_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Autorun.
+        /// </summary>
+        public static string SettingsPage_Autorun_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_Autorun_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CPU Boost Modes.
+        /// </summary>
+        public static string SettingsPage_CPUBoostModes_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_CPUBoostModes_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable Legion Zone and it&apos;s service without uninstalling it.
+        ///Restart is recommended after changing this option..
+        /// </summary>
+        public static string SettingsPage_DisableLegionZone_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_DisableLegionZone_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable Legion Zone.
+        /// </summary>
+        public static string SettingsPage_DisableLegionZone_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_DisableLegionZone_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable Lenovo Hotkeys and it&apos;s service without uninstalling it.
+        ///If disabled, this app will handle Fn shortcuts
+        ///Restart is recommended after changing this option..
+        /// </summary>
+        public static string SettingsPage_DisableLenovoHotkeys_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_DisableLenovoHotkeys_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable Lenovo Hotkeys.
+        /// </summary>
+        public static string SettingsPage_DisableLenovoHotkeys_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_DisableLenovoHotkeys_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable Lenovo Vantage and it&apos;s service without uninstalling it.
+        ///Restart is recommended after changing this option..
+        /// </summary>
+        public static string SettingsPage_DisableVantage_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_DisableVantage_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable Lenovo Vantage.
+        /// </summary>
+        public static string SettingsPage_DisableVantage_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_DisableVantage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disables notification for Fn keys actions like microphone mute
+        ///Enable this option if you have conflicts with full screen applications..
+        /// </summary>
+        public static string SettingsPage_DontShowNotifications_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_DontShowNotifications_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Don&apos;t show notifications.
+        /// </summary>
+        public static string SettingsPage_DontShowNotifications_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_DontShowNotifications_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can exclude refresh rates, to make Fn+R shortcut more useful..
+        /// </summary>
+        public static string SettingsPage_ExcludeRefreshRates_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_ExcludeRefreshRates_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exclude Refresh Rates.
+        /// </summary>
+        public static string SettingsPage_ExcludeRefreshRates_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_ExcludeRefreshRates_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Always minimize to tray. Close with right click on tray icon..
+        /// </summary>
+        public static string SettingsPage_MinimizeOnClose_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_MinimizeOnClose_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimize on close.
+        /// </summary>
+        public static string SettingsPage_MinimizeOnClose_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_MinimizeOnClose_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Power plans.
+        /// </summary>
+        public static string SettingsPage_PowerPlans_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_PowerPlans_Title", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Set light theme, dark theme or follow system settings..
         /// </summary>
-        public static string Theme_Description {
+        public static string SettingsPage_Theme_Description {
             get {
-                return ResourceManager.GetString("Theme_Description", resourceCulture);
+                return ResourceManager.GetString("SettingsPage_Theme_Description", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Theme.
         /// </summary>
-        public static string Theme_Title {
+        public static string SettingsPage_Theme_Title {
             get {
-                return ResourceManager.GetString("Theme_Title", resourceCulture);
+                return ResourceManager.GetString("SettingsPage_Theme_Title", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 3rd party libraries.
+        ///   Looks up a localized string similar to Settings.
         /// </summary>
-        public static string ThirdPartyLibraries {
+        public static string SettingsPage_Title {
             get {
-                return ResourceManager.GetString("ThirdPartyLibraries", resourceCulture);
+                return ResourceManager.GetString("SettingsPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sunrise.
+        /// </summary>
+        public static string TimeWindow_Sunrise {
+            get {
+                return ResourceManager.GetString("TimeWindow_Sunrise", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sunrise.
+        /// </summary>
+        public static string TimeWindow_Sunset {
+            get {
+                return ResourceManager.GetString("TimeWindow_Sunset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time.
+        /// </summary>
+        public static string TimeWindow_Time {
+            get {
+                return ResourceManager.GetString("TimeWindow_Time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time.
+        /// </summary>
+        public static string TimeWindow_TimeWindow_Title {
+            get {
+                return ResourceManager.GetString("TimeWindow_TimeWindow_Title", resourceCulture);
             }
         }
         
@@ -768,29 +1290,112 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Update available!.
+        ///   Looks up a localized string similar to Unnamed.
         /// </summary>
-        public static string UpdateAvailable {
+        public static string Unnamed {
             get {
-                return ResourceManager.GetString("UpdateAvailable", resourceCulture);
+                return ResourceManager.GetString("Unnamed", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Update {0} available!.
+        ///   Looks up a localized string similar to You may choose to continue at your own risk, but keep in mind that some features may not be available and/or not work properly.
+        ///
+        ///Logging will be enabled automatically, if you choose to continue..
         /// </summary>
-        public static string UpdateAvailableWithVersion {
+        public static string UnsupportedWindow_Disclaimer {
             get {
-                return ResourceManager.GetString("UpdateAvailableWithVersion", resourceCulture);
+                return ResourceManager.GetString("UnsupportedWindow_Disclaimer", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Version: .
+        ///   Looks up a localized string similar to Check out project page on GitHub for more information..
         /// </summary>
-        public static string Version {
+        public static string UnsupportedWindow_Disclaimer_GitHub {
             get {
-                return ResourceManager.GetString("Version", resourceCulture);
+                return ResourceManager.GetString("UnsupportedWindow_Disclaimer_GitHub", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Logs folder.
+        /// </summary>
+        public static string UnsupportedWindow_Disclaimer_Logs {
+            get {
+                return ResourceManager.GetString("UnsupportedWindow_Disclaimer_Logs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Machine Type: .
+        /// </summary>
+        public static string UnsupportedWindow_MachineType {
+            get {
+                return ResourceManager.GetString("UnsupportedWindow_MachineType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lenovo Legion Toolkit has not been tested with your device..
+        /// </summary>
+        public static string UnsupportedWindow_Message {
+            get {
+                return ResourceManager.GetString("UnsupportedWindow_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model: .
+        /// </summary>
+        public static string UnsupportedWindow_Model {
+            get {
+                return ResourceManager.GetString("UnsupportedWindow_Model", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unsupported device.
+        /// </summary>
+        public static string UnsupportedWindow_Title {
+            get {
+                return ResourceManager.GetString("UnsupportedWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vendor: .
+        /// </summary>
+        public static string UnsupportedWindow_Vendor {
+            get {
+                return ResourceManager.GetString("UnsupportedWindow_Vendor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update.
+        /// </summary>
+        public static string Update {
+            get {
+                return ResourceManager.GetString("Update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update available.
+        /// </summary>
+        public static string UpdateWindow_Title {
+            get {
+                return ResourceManager.GetString("UpdateWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What&apos;s new?.
+        /// </summary>
+        public static string UpdateWindow_WhatsNew {
+            get {
+                return ResourceManager.GetString("UpdateWindow_WhatsNew", resourceCulture);
             }
         }
     }

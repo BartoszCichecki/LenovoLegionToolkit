@@ -68,7 +68,7 @@ namespace LenovoLegionToolkit.WPF.Windows
 
             var notifyIcon = new NotifyIcon
             {
-                TooltipText = Resource.AppName,
+                TooltipText = Resource.AboutPage_AppName,
                 Icon = ImageSourceExtensions.ApplicationIcon(),
                 FocusOnLeftClick = false,
                 MenuOnRightClick = true,
@@ -237,7 +237,7 @@ namespace LenovoLegionToolkit.WPF.Windows
                     }
                     else
                     {
-                        _updateIndicator.Content = string.Format(Resource.UpdateAvailableWithVersion, result.ToString(3));
+                        _updateIndicator.Content = string.Format(Resource.MainWindow_UpdateAvailableWithVersion, result.ToString(3));
                         _updateIndicator.Visibility = Visibility.Visible;
                     }
                 }, TaskScheduler.FromCurrentSynchronizationContext());

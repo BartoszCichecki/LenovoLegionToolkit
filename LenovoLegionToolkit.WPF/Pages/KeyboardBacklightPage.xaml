@@ -7,7 +7,7 @@
     xmlns:kb="clr-namespace:LenovoLegionToolkit.WPF.Controls.KeyboardBacklight"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
-    Title="{x:Static resources:Resource.KeyboardBacklight_Title}"
+    Title="{x:Static resources:Resource.KeyboardBacklightPage_Title}"
     d:DesignHeight="450"
     d:DesignWidth="800"
     Style="{StaticResource UiPageScrollable}"
@@ -20,7 +20,7 @@
             Margin="0,16,0,24"
             FontSize="24"
             FontWeight="Medium"
-            Text="{x:Static resources:Resource.KeyboardBacklight_Title}" />
+            Text="{x:Static resources:Resource.KeyboardBacklightPage_Title}" />
 
         <controls:LoadableControl x:Name="_loader">
             <StackPanel>
@@ -28,7 +28,7 @@
                     x:Name="_noKeyboardsText"
                     FontSize="14"
                     Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                    Text="{x:Static resources:Resource.NoCompatibleKeyboardsFound}" />
+                    Text="{x:Static resources:Resource.KeyboardBacklightPage_NoCompatibleKeyboardsFound}" />
 
                 <kb:RGBKeyboardBacklightControl x:Name="_rgbKeyboardBacklightControl" Margin="0,0,8,0" />
                 <kb:WhiteKeyboardBacklightControl x:Name="_whiteKeyboardBacklightControl" Margin="0,0,16,0" />

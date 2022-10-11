@@ -5,9 +5,9 @@
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
-    Title="{x:Static resources:Resource.Settings_Title}"
+    xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Title="{x:Static resources:Resource.SettingsPage_Title}"
     d:DesignHeight="450"
     d:DesignWidth="800"
     Style="{StaticResource UiPageScrollable}"
@@ -19,11 +19,11 @@
             Margin="0,16,0,24"
             FontSize="24"
             FontWeight="Medium"
-            Text="{x:Static resources:Resource.Settings_Title}" />
+            Text="{x:Static resources:Resource.SettingsPage_Title}" />
 
         <wpfui:CardControl Margin="0,0,0,8" Icon="DarkTheme24">
             <wpfui:CardControl.Header>
-                <controls:CardHeaderControl Title="{x:Static resources:Resource.Theme_Title}" Subtitle="{x:Static resources:Resource.Theme_Description}" />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_Theme_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_Theme_Description}" />
             </wpfui:CardControl.Header>
             <ComboBox
                 x:Name="_themeComboBox"
@@ -35,15 +35,15 @@
 
         <controls:ColorCardControl
             x:Name="_accentColor"
-            Title="{x:Static resources:Resource.AccentColor_Title}"
+            Title="{x:Static resources:Resource.SettingsPage_AccentColor_Title}"
             Margin="0,0,0,24"
             Icon="Color24"
             OnChanged="AccentColorControl_OnChanged"
-            Subtitle="{x:Static resources:Resource.AccentColor_Description}" />
+            Subtitle="{x:Static resources:Resource.SettingsPage_AccentColor_Description}" />
 
         <wpfui:CardControl Margin="0,0,0,8">
             <wpfui:CardControl.Header>
-                <controls:CardHeaderControl Title="{x:Static resources:Resource.Autorun_Title}" Subtitle="{x:Static resources:Resource.Autorun_Message}" />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_Autorun_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_Autorun_Message}" />
             </wpfui:CardControl.Header>
             <wpfui:ToggleSwitch
                 x:Name="_autorunToggle"
@@ -54,7 +54,7 @@
 
         <wpfui:CardControl Margin="0,0,0,24">
             <wpfui:CardControl.Header>
-                <controls:CardHeaderControl Title="{x:Static resources:Resource.MinimizeOnClose_Title}" Subtitle="{x:Static resources:Resource.MinimizeOnClose_Message}" />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_MinimizeOnClose_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_MinimizeOnClose_Message}" />
             </wpfui:CardControl.Header>
             <wpfui:ToggleSwitch
                 x:Name="_minimizeOnCloseToggle"
@@ -65,7 +65,7 @@
 
         <wpfui:CardControl x:Name="_vantageCard" Margin="0,0,0,8">
             <wpfui:CardControl.Header>
-                <controls:CardHeaderControl Title="{x:Static resources:Resource.DisableVantage_Title}" Subtitle="{x:Static resources:Resource.DisableVantage_Message}" />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_DisableVantage_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_DisableVantage_Message}" />
             </wpfui:CardControl.Header>
             <wpfui:ToggleSwitch
                 x:Name="_vantageToggle"
@@ -76,7 +76,7 @@
 
         <wpfui:CardControl x:Name="_legionZoneCard" Margin="0,0,0,8">
             <wpfui:CardControl.Header>
-                <controls:CardHeaderControl Title="{x:Static resources:Resource.DisableLegionZone_Title}" Subtitle="{x:Static resources:Resource.DisableLegionZone_Message}" />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_DisableLegionZone_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_DisableLegionZone_Message}" />
             </wpfui:CardControl.Header>
             <wpfui:ToggleSwitch
                 x:Name="_legionZoneToggle"
@@ -87,7 +87,7 @@
 
         <wpfui:CardControl x:Name="_fnKeysCard" Margin="0,0,0,24">
             <wpfui:CardControl.Header>
-                <controls:CardHeaderControl Title="{x:Static resources:Resource.DisableLenovoHotkeys_Title}" Subtitle="{x:Static resources:Resource.DisableLenovoHotkeys_Message}" />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_DisableLenovoHotkeys_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_DisableLenovoHotkeys_Message}" />
             </wpfui:CardControl.Header>
             <wpfui:ToggleSwitch
                 x:Name="_fnKeysToggle"
@@ -98,7 +98,7 @@
 
         <wpfui:CardControl x:Name="_dontShowNotificationsCard" Margin="0,0,0,8">
             <wpfui:CardControl.Header>
-                <controls:CardHeaderControl Title="{x:Static resources:Resource.DontShowNotifications_Title}" Subtitle="{x:Static resources:Resource.DontShowNotifications_Message}" />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_DontShowNotifications_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_DontShowNotifications_Message}" />
             </wpfui:CardControl.Header>
             <wpfui:ToggleSwitch
                 x:Name="_dontShowNotificationsToggle"
@@ -112,7 +112,7 @@
             Margin="0,0,0,8"
             Click="ExcludeRefreshRates_Click">
             <wpfui:CardAction.Content>
-                <controls:CardHeaderControl Title="{x:Static resources:Resource.ExcludeRefreshRates_Title}" Subtitle="{x:Static resources:Resource.ExcludeRefreshRates_Message}" />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_ExcludeRefreshRates_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_ExcludeRefreshRates_Message}" />
             </wpfui:CardAction.Content>
         </wpfui:CardAction>
 
@@ -121,23 +121,23 @@
             Margin="0,16,0,0"
             FontSize="24"
             FontWeight="Medium"
-            Text="{x:Static resources:Resource.Advanced_Title}" />
+            Text="{x:Static resources:Resource.SettingsPage_Advanced_Title}" />
 
         <TextBlock
             Grid.Row="0"
             Margin="0,8,0,24"
             FontSize="12"
-            Text="{x:Static resources:Resource.Advanced_Message}" />
+            Text="{x:Static resources:Resource.SettingsPage_Advanced_Message}" />
 
         <wpfui:CardAction Margin="0,0,0,8" Click="PowerPlans_Click">
             <wpfui:CardAction.Content>
-                <controls:CardHeaderControl Title="{x:Static resources:Resource.PowerPlans}" />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_PowerPlans_Title}" />
             </wpfui:CardAction.Content>
         </wpfui:CardAction>
 
         <wpfui:CardAction Margin="0,0,0,8" Click="CPUBoostModes_Click">
             <wpfui:CardAction.Content>
-                <controls:CardHeaderControl Title="{x:Static resources:Resource.CPUBoostModes}" />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_CPUBoostModes_Title}" />
             </wpfui:CardAction.Content>
         </wpfui:CardAction>
 

@@ -5,9 +5,9 @@
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
-    Title="{x:Static resources:Resource.Automation_Title}"
+    xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Title="{x:Static resources:Resource.AutomationPage_Title}"
     d:DesignHeight="450"
     d:DesignWidth="800"
     Style="{StaticResource UiPage}"
@@ -33,12 +33,12 @@
                     <TextBlock
                         FontSize="24"
                         FontWeight="Medium"
-                        Text="{x:Static resources:Resource.Actions_Title}" />
+                        Text="{x:Static resources:Resource.AutomationPage_Actions_Title}" />
 
-                    <TextBlock Margin="0,8,0,0" Text="{x:Static resources:Resource.Actions_Message}" />
+                    <TextBlock Margin="0,8,0,0" Text="{x:Static resources:Resource.AutomationPage_Actions_Message}" />
                 </StackPanel>
 
-                    <controls:LoadableControl
+                <controls:LoadableControl
                     x:Name="_loaderAutomatic"
                     Grid.Row="1"
                     ContentVisibilityWhileLoading="Collapsed">
@@ -46,7 +46,7 @@
 
                         <wpfui:CardControl Margin="0,0,0,24">
                             <wpfui:CardControl.Header>
-                                <controls:CardHeaderControl Title="{x:Static resources:Resource.ActionsEnabled_Title}" Subtitle="{x:Static resources:Resource.ActionsEnable_Message}" />
+                                <controls:CardHeaderControl Title="{x:Static resources:Resource.AutomationPage_ActionsEnabled_Title}" Subtitle="{x:Static resources:Resource.AutomationPage_ActionsEnable_Message}" />
                             </wpfui:CardControl.Header>
                             <wpfui:ToggleSwitch
                                 x:Name="_enableAutomaticPipelinesToggle"
@@ -60,7 +60,7 @@
                             HorizontalAlignment="Center"
                             FontWeight="Medium"
                             Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                            Text="{x:Static resources:Resource.Actions_Empty}" />
+                            Text="{x:Static resources:Resource.AutomationPage_Actions_Empty}" />
 
                         <StackPanel x:Name="_automaticPipelinesStackPanel" />
 
@@ -85,9 +85,9 @@
                     <TextBlock
                         FontSize="24"
                         FontWeight="Medium"
-                        Text="{x:Static resources:Resource.QuickActions_Title}" />
+                        Text="{x:Static resources:Resource.AutomationPage_QuickActions_Title}" />
 
-                    <TextBlock Margin="0,8,0,0" Text="{x:Static resources:Resource.QuickActions_Message}"/>
+                    <TextBlock Margin="0,8,0,0" Text="{x:Static resources:Resource.AutomationPage_QuickActions_Message}" />
 
                 </StackPanel>
 
@@ -103,7 +103,7 @@
                             HorizontalAlignment="Center"
                             FontWeight="Medium"
                             Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                            Text="{x:Static resources:Resource.QuickActions_Empty}" />
+                            Text="{x:Static resources:Resource.AutomationPage_QuickActions_Empty}" />
 
                         <StackPanel x:Name="_manualPipelinesStackPanel" />
 

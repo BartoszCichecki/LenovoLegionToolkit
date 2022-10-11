@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
-    Title="{x:Static resources:Resource.Donate_Title}"
+    Title="{x:Static resources:Resource.DonatePage_Title}"
     d:DesignHeight="450"
     d:DesignWidth="800"
     Style="{StaticResource UiPageScrollable}"
@@ -16,16 +16,16 @@
             Margin="0,16,0,24"
             FontSize="24"
             FontWeight="Medium"
-            Text="{x:Static resources:Resource.Donate_Title}" />
+            Text="{x:Static resources:Resource.DonatePage_Title}" />
 
         <TextBlock
             MaxWidth="450"
             Margin="0,0,0,24"
             HorizontalAlignment="Left"
             FontSize="14"
+            Text="{x:Static resources:Resource.DonatePage_Message}"
             TextAlignment="Justify"
-            TextWrapping="Wrap"
-            Text="{x:Static resources:Resource.Donate_Message}" />
+            TextWrapping="Wrap" />
 
         <Image
             Width="250"

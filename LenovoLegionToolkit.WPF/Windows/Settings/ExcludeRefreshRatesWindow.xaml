@@ -4,8 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Exclude Refresh Rates"
+    Title="{x:Static resources:Resource.ExcludeRefreshRatesWindow_Title}"
     Width="300"
     Height="400"
     MinWidth="300"
@@ -41,7 +42,7 @@
                 VerticalAlignment="Center"
                 FontSize="12"
                 IsHitTestVisible="False"
-                Text="Exclude Refresh Rates" />
+                Text="{x:Static resources:Resource.ExcludeRefreshRatesWindow_Title}" />
 
         </Grid>
 
@@ -82,7 +83,7 @@
                         Width="100"
                         Appearance="Primary"
                         Click="SaveButton_Click"
-                        Content="Save" />
+                        Content="{x:Static resources:Resource.Save}" />
 
                     <wpfui:Button
                         x:Name="_cancelButton"
@@ -90,7 +91,7 @@
                         Width="100"
                         Margin="8,0,0,0"
                         Click="CancelButton_Click"
-                        Content="Cancel" />
+                        Content="{x:Static resources:Resource.Cancel}" />
 
                 </Grid>
 
