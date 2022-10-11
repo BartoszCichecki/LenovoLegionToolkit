@@ -138,15 +138,15 @@ namespace LenovoLegionToolkit.WPF.Pages
             if (batteryInfo.IsCharging)
             {
                 if (batteryInfo.DischargeRate > 0)
-                    return Resource.ACAdapterConnectedAndCharging;
+                    return Resource.BatteryPage_ACAdapterConnectedAndCharging;
 
-                return Resource.ACAdapterConnectedNotCharging;
+                return Resource.BatteryPage_ACAdapterConnectedNotCharging;
             }
 
             if (batteryInfo.BatteryLifeRemaining < 0)
-                return Resource.EstimatingBatteryLife;
+                return Resource.BatteryPage_EstimatingBatteryLife;
 
-            return string.Format(Resource.EstimatedBatteryLifeRemaining, GetTimeString(batteryInfo.BatteryLifeRemaining));
+            return string.Format(Resource.BatteryPage_EstimatedBatteryLifeRemaining, GetTimeString(batteryInfo.BatteryLifeRemaining));
         }
 
         private static string GetTimeString(int seconds)

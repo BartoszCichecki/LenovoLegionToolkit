@@ -4,8 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Update available"
+    Title="{x:Static resources:Resource.CPUBoostModesWindow_Title}"
     MinWidth="500"
     MaxWidth="500"
     SizeToContent="Height">
@@ -39,7 +40,7 @@
                 VerticalAlignment="Center"
                 FontSize="12"
                 IsHitTestVisible="False"
-                Text="CPU Boost Modes" />
+                Text="{x:Static resources:Resource.CPUBoostModesWindow_Title}" />
 
         </Grid>
 
@@ -58,7 +59,7 @@
             Grid.Row="2"
             Margin="12,12,12,12"
             HorizontalAlignment="Right"
-            Content="Learn more at microsoft.com"
+            Content="{x:Static resources:Resource.CPUBoostModesWindow_LearnMore}"
             Icon="Link24"
             NavigateUri="https://docs.microsoft.com/en-us/windows-server/administration/performance-tuning/hardware/power/power-performance-tuning#processor-performance-boost-mode" />
 
