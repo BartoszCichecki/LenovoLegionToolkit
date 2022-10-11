@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
@@ -99,7 +100,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             BringToForeground();
         });
 
-        private async void MainWindow_SourceInitialized(object? sender, EventArgs args)
+        private void MainWindow_SourceInitialized(object? sender, EventArgs args)
         {
             var systemEventInterceptor = new SystemEventInterceptor(this);
             systemEventInterceptor.OnTaskbarCreated += (_, _) => InitializeTray();
@@ -213,7 +214,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             updateWindow.ShowDialog();
         }
 
-        private void NotifyIcon_LeftClick(NotifyIcon sender, RoutedEventArgs e) => BringToForeground();
+        private void NotifyIcon_LeftClick([NotNull] NotifyIcon sender, RoutedEventArgs e) => BringToForeground();
 
         private void LoadDeviceInfo()
         {
