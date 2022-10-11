@@ -39,6 +39,8 @@ namespace LenovoLegionToolkit.WPF
 
         private async void Application_Startup(object sender, StartupEventArgs e)
         {
+            await CheckBasicCompatibilityAsync();
+
             var args = e.Args.Concat(LoadExternalArgs()).ToArray();
 
             if (IsTraceEnabled(args))
@@ -193,6 +195,17 @@ namespace LenovoLegionToolkit.WPF
             Shutdown(1);
         }
 
+        private async Task CheckBasicCompatibilityAsync()
+        {
+            var isCompatible = await Compatibility.CheckBasicCompatibility();
+            if (isCompatible)
+                return;
+
+            MessageBox.Show("This device is not compatible with Lenovo Legion Toolkit.", "Lenovo Legion Toolkit", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            Shutdown(99);
+        }
+
         private async Task CheckCompatibilityAsync()
         {
             var (isCompatible, mi) = await Compatibility.IsCompatibleAsync();
@@ -206,10 +219,10 @@ namespace LenovoLegionToolkit.WPF
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Incompatible system detected. [Vendor={mi.Vendor}, Model={mi.Model}, MachineType={mi.MachineType}, BIOS={mi.BIOSVersion}]");
 
-            var unsuportedWindow = new UnsupportedWindow(mi);
-            unsuportedWindow.Show();
+            var unsupportedWindow = new UnsupportedWindow(mi);
+            unsupportedWindow.Show();
 
-            var result = await unsuportedWindow.ShouldContinue;
+            var result = await unsupportedWindow.ShouldContinue;
 
             if (result)
             {
