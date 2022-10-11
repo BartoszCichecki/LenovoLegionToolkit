@@ -3,6 +3,7 @@
 		<TargetFramework>net6.0-windows</TargetFramework>
 		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
 		<Nullable>enable</Nullable>
+		<NeutralLanguage>en</NeutralLanguage>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Autofac" Version="6.4.0" />
