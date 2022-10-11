@@ -169,6 +169,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Charge USB devices, when the computer is off or in sleep or hibernation mode..
+        /// </summary>
+        public static string AlwaysOnUSBControl_Message {
+            get {
+                return ResourceManager.GetString("AlwaysOnUSBControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Always on USB.
+        /// </summary>
+        public static string AlwaysOnUSBControl_Title {
+            get {
+                return ResourceManager.GetString("AlwaysOnUSBControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to LenovoLegionToolkit.
         /// </summary>
         public static string AppName {
@@ -256,6 +274,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string AutomationPage_Title {
             get {
                 return ResourceManager.GetString("AutomationPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose how the battery is charged..
+        /// </summary>
+        public static string BatteryModeControl_Message {
+            get {
+                return ResourceManager.GetString("BatteryModeControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Battery Mode.
+        /// </summary>
+        public static string BatteryModeControl_Title {
+            get {
+                return ResourceManager.GetString("BatteryModeControl_Title", resourceCulture);
             }
         }
         
@@ -494,6 +530,43 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select GPU operating mode based on your computer&apos;s usage and power conditions.
+        ///Switching modes may require restart..
+        /// </summary>
+        public static string ComboBoxHybridModeControl_Message {
+            get {
+                return ResourceManager.GetString("ComboBoxHybridModeControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Changing to {0} requires restart. Do you want to restart now?.
+        /// </summary>
+        public static string ComboBoxHybridModeControl_RestartRequired_Message {
+            get {
+                return ResourceManager.GetString("ComboBoxHybridModeControl_RestartRequired_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restart required.
+        /// </summary>
+        public static string ComboBoxHybridModeControl_RestartRequired_Title {
+            get {
+                return ResourceManager.GetString("ComboBoxHybridModeControl_RestartRequired_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GPU Working Mode.
+        /// </summary>
+        public static string ComboBoxHybridModeControl_Title {
+            get {
+                return ResourceManager.GetString("ComboBoxHybridModeControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Quick Actions.
         /// </summary>
         public static string ContextMenu_QuickActions {
@@ -692,6 +765,134 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Active.
+        /// </summary>
+        public static string DiscreteGPUControl_Active {
+            get {
+                return ResourceManager.GetString("DiscreteGPUControl_Active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deactivate.
+        /// </summary>
+        public static string DiscreteGPUControl_Deactivate {
+            get {
+                return ResourceManager.GetString("DiscreteGPUControl_Deactivate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to nVidia GPU can be disabled.
+        ///
+        ///Remember, that some programs might crash if you do it..
+        /// </summary>
+        public static string DiscreteGPUControl_DisablePossible {
+            get {
+                return ResourceManager.GetString("DiscreteGPUControl_DisablePossible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to nVidia GPU is not active..
+        /// </summary>
+        public static string DiscreteGPUControl_GPUIsNotActive {
+            get {
+                return ResourceManager.GetString("DiscreteGPUControl_GPUIsNotActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inactive.
+        /// </summary>
+        public static string DiscreteGPUControl_Inactive {
+            get {
+                return ResourceManager.GetString("DiscreteGPUControl_Inactive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kill apps.
+        /// </summary>
+        public static string DiscreteGPUControl_KillApps {
+            get {
+                return ResourceManager.GetString("DiscreteGPUControl_KillApps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable discrete GPU if it is active unnecessarily..
+        /// </summary>
+        public static string DiscreteGPUControl_Message {
+            get {
+                return ResourceManager.GetString("DiscreteGPUControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A monitor is connected to nVidia GPU..
+        /// </summary>
+        public static string DiscreteGPUControl_MonitorConnected {
+            get {
+                return ResourceManager.GetString("DiscreteGPUControl_MonitorConnected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No processes.
+        /// </summary>
+        public static string DiscreteGPUControl_NoProcesses {
+            get {
+                return ResourceManager.GetString("DiscreteGPUControl_NoProcesses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Performance state:.
+        /// </summary>
+        public static string DiscreteGPUControl_PerformanceState {
+            get {
+                return ResourceManager.GetString("DiscreteGPUControl_PerformanceState", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown.
+        /// </summary>
+        public static string DiscreteGPUControl_PerformanceState_Unknown {
+            get {
+                return ResourceManager.GetString("DiscreteGPUControl_PerformanceState_Unknown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Processes:.
+        /// </summary>
+        public static string DiscreteGPUControl_Processes {
+            get {
+                return ResourceManager.GetString("DiscreteGPUControl_Processes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restart GPU.
+        /// </summary>
+        public static string DiscreteGPUControl_RestartGPU {
+            get {
+                return ResourceManager.GetString("DiscreteGPUControl_RestartGPU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Discrete GPU.
+        /// </summary>
+        public static string DiscreteGPUControl_Title {
+            get {
+                return ResourceManager.GetString("DiscreteGPUControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Development and maintenance of Lenovo Legion Toolkit takes a lot of time. If you like using this software you can support it&apos;s future by donating an amount of your choice.
         ///
         ///Click the PayPal logo below or scan the QR code to donate with PayPal.
@@ -728,6 +929,42 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string Exit {
             get {
                 return ResourceManager.GetString("Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turn on the laptop when you open the lid..
+        /// </summary>
+        public static string FlipToStartControl_Message {
+            get {
+                return ResourceManager.GetString("FlipToStartControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flip To Start.
+        /// </summary>
+        public static string FlipToStartControl_Title {
+            get {
+                return ResourceManager.GetString("FlipToStartControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use secondary functions of F1-F12 keys without holding Fn key..
+        /// </summary>
+        public static string FnLockControl_Message {
+            get {
+                return ResourceManager.GetString("FnLockControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fn Lock.
+        /// </summary>
+        public static string FnLockControl_Title {
+            get {
+                return ResourceManager.GetString("FnLockControl_Title", resourceCulture);
             }
         }
         
@@ -791,6 +1028,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string Open {
             get {
                 return ResourceManager.GetString("Open", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Improve response time of the built-in display..
+        /// </summary>
+        public static string OverDriveControl_Message {
+            get {
+                return ResourceManager.GetString("OverDriveControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Over Drive.
+        /// </summary>
+        public static string OverDriveControl_Title {
+            get {
+                return ResourceManager.GetString("OverDriveControl_Title", resourceCulture);
             }
         }
         
@@ -939,6 +1194,43 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Couldn&apos;t change Power Mode.
+        /// </summary>
+        public static string PowerModeControl_ChangeError {
+            get {
+                return ResourceManager.GetString("PowerModeControl_ChangeError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select performance mode.
+        ///You can switch mode with Fn+Q..
+        /// </summary>
+        public static string PowerModeControl_Message {
+            get {
+                return ResourceManager.GetString("PowerModeControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string PowerModeControl_Settings {
+            get {
+                return ResourceManager.GetString("PowerModeControl_Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Power Mode.
+        /// </summary>
+        public static string PowerModeControl_Title {
+            get {
+                return ResourceManager.GetString("PowerModeControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Power Mode.
         /// </summary>
         public static string PowerModeWindow_Title {
@@ -1007,6 +1299,42 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string Refresh {
             get {
                 return ResourceManager.GetString("Refresh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change refresh rate of the built-in display..
+        /// </summary>
+        public static string RefreshRateControl_Message {
+            get {
+                return ResourceManager.GetString("RefreshRateControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Refresh rate.
+        /// </summary>
+        public static string RefreshRateControl_Title {
+            get {
+                return ResourceManager.GetString("RefreshRateControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I will restart later.
+        /// </summary>
+        public static string RestartLater {
+            get {
+                return ResourceManager.GetString("RestartLater", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restart now.
+        /// </summary>
+        public static string RestartNow {
+            get {
+                return ResourceManager.GetString("RestartNow", resourceCulture);
             }
         }
         
@@ -1278,6 +1606,61 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Allow switching between integrated and discrete GPU.
+        ///Requires restart..
+        /// </summary>
+        public static string ToggleHybridModeControl_Message {
+            get {
+                return ResourceManager.GetString("ToggleHybridModeControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Changing Hybrid Mode requires restart. Do you want to restart now?.
+        /// </summary>
+        public static string ToggleHybridModeControl_RestartRequired_Message {
+            get {
+                return ResourceManager.GetString("ToggleHybridModeControl_RestartRequired_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restart required.
+        /// </summary>
+        public static string ToggleHybridModeControl_RestartRequired_Title {
+            get {
+                return ResourceManager.GetString("ToggleHybridModeControl_RestartRequired_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hybrid Mode.
+        /// </summary>
+        public static string ToggleHybridModeControl_Title {
+            get {
+                return ResourceManager.GetString("ToggleHybridModeControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable touchpad..
+        /// </summary>
+        public static string TouchpadLockControl_Message {
+            get {
+                return ResourceManager.GetString("TouchpadLockControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Touchpad Lock.
+        /// </summary>
+        public static string TouchpadLockControl_Title {
+            get {
+                return ResourceManager.GetString("TouchpadLockControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unexpected exception occurred:
         ///{0}
         ///
@@ -1396,6 +1779,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string UpdateWindow_WhatsNew {
             get {
                 return ResourceManager.GetString("UpdateWindow_WhatsNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Only works on built-in keyboard..
+        /// </summary>
+        public static string WinKeyControl_Message {
+            get {
+                return ResourceManager.GetString("WinKeyControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Windows Key Lock.
+        /// </summary>
+        public static string WinKeyControl_Title {
+            get {
+                return ResourceManager.GetString("WinKeyControl_Title", resourceCulture);
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
@@ -12,8 +13,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
         public OverDriveControl()
         {
             Icon = SymbolRegular.TopSpeed24;
-            Title = "Over Drive";
-            Subtitle = "Improve response time of the built-in display.";
+            Title = Resource.OverDriveControl_Title;
+            Subtitle = Resource.OverDriveControl_Message;
         }
     }
 }
