@@ -209,6 +209,15 @@ Only actions that match current state will run.</value>
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Battery</value>
   </data>
+  <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
+		<value>On battery</value>
+	</data>
+  <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
+		<value>Plugged in</value>
+	</data>
+  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
+		<value>Power plans</value>
+	</data>
   <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
 	  <value>Learn more at microsoft.com</value>
   </data>
@@ -393,6 +402,33 @@ Thanks in advance!</value>
   <data name="OverDriveControl_Title" xml:space="preserve">
 		<value>Over Drive</value>
 	</data>
+  <data name="PackageControl_DownloadComplete_Message" xml:space="preserve">
+		<value>{0} downloaded!</value>
+	</data>
+  <data name="PackageControl_DownloadComplete_Title" xml:space="preserve">
+		<value>Download complete</value>
+	</data>
+  <data name="PackageControl_GeneralError_Title" xml:space="preserve">
+		<value>Something went wrong</value>
+	</data>
+  <data name="PackageControl_Http404Error_Message" xml:space="preserve">
+		<value>Server returned code 404.</value>
+	</data>
+  <data name="PackageControl_Http404Error_Title" xml:space="preserve">
+		<value>The file seems to be gone</value>
+	</data>
+  <data name="PackageControl_HttpGeneralError_Message" xml:space="preserve">
+		<value>Check if your internet connection is up and running.</value>
+	</data>
+  <data name="PackageControl_HttpGeneralError_Title" xml:space="preserve">
+		<value>Something went wrong</value>
+	</data>
+  <data name="PackageControl_OldPackageWarning" xml:space="preserve">
+		<value>This package is more than a year old.</value>
+	</data>
+  <data name="PackageControl_Version" xml:space="preserve">
+		<value>Version</value>
+	</data>
   <data name="PackagesPage_Disclaimer_Message" xml:space="preserve">
 	  <value>Below is a list of software packages that are marked as compatible with your laptop.&amp;#x0a;Always make sure that you are installing correct packages.</value>
   </data>
@@ -472,6 +508,45 @@ You can switch mode with Fn+Q.</value>
   <data name="PowerPlansWindow_Title" xml:space="preserve">
 	  <value>Power Plans</value>
   </data>
+  <data name="RGBKeyboardBacklightControl_Preset1" xml:space="preserve">
+		<value>Preset 1</value>
+	</data>
+  <data name="RGBKeyboardBacklightControl_Preset2" xml:space="preserve">
+		<value>Preset 2</value>
+	</data>
+  <data name="RGBKeyboardBacklightControl_Preset3" xml:space="preserve">
+		<value>Preset 3</value>
+	</data>
+  <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
+		<value>Off</value>
+	</data>
+  <data name="RGBKeyboardBacklightControl_VantageEnabled_Message" xml:space="preserve">
+		<value>Keyboard backlight cannot be controlled in here, when Vantage and/or it's services are running, due to conflicts between the two.</value>
+	</data>
+  <data name="RGBKeyboardBacklightControl_VantageEnabled_Title" xml:space="preserve">
+		<value>Lenovo Vantage seems to be enabled</value>
+	</data>
+  <data name="RGBKeyboardBacklightControl_Zone1" xml:space="preserve">
+		<value>Zone 1</value>
+	</data>
+  <data name="RGBKeyboardBacklightControl_Zone2" xml:space="preserve">
+		<value>Zone 2</value>
+	</data>
+  <data name="RGBKeyboardBacklightControl_Zone3" xml:space="preserve">
+		<value>Zone 3</value>
+	</data>
+  <data name="RGBKeyboardBacklightControl_Zone4" xml:space="preserve">
+		<value>Zone 4</value>
+	</data>
+  <data name="RGBKeyboardBrightnessCardControl_Brightness" xml:space="preserve">
+		<value>Brightness</value>
+	</data>
+  <data name="RGBKeyboardEffectCardControl_Title" xml:space="preserve">
+		<value>Effect</value>
+	</data>
+  <data name="RGBKeyboardSpeedCardControl_Title" xml:space="preserve">
+		<value>Speed</value>
+	</data>
   <data name="ReadmeWindow_Title" xml:space="preserve">
 	  <value>Readme</value>
   </data>
@@ -646,6 +721,12 @@ Logging will be enabled automatically, if you choose to continue.</value>
   <data name="UpdateWindow_WhatsNew" xml:space="preserve">
 	  <value>What's new?</value>
   </data>
+  <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
+		<value>You can change brightness with Fn+Space</value>
+	</data>
+  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
+		<value>Brightness</value>
+	</data>
   <data name="WinKeyControl_Message" xml:space="preserve">
 		<value>Only works on built-in keyboard.</value>
 	</data>

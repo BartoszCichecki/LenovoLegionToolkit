@@ -5,12 +5,13 @@
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <wpfui:CardExpander x:Name="_expander" Margin="0,8,0,0">
+    <wpfui:CardExpander Margin="0,8,0,0">
         <wpfui:CardExpander.Header>
-            <controls:CardHeaderControl x:Name="_headerControl" Title="Power plans" />
+            <controls:CardHeaderControl x:Name="_headerControl" Title="{x:Static resources:Resource.CPUBoostModeControl_PowerPlans}" />
         </wpfui:CardExpander.Header>
 
         <Grid>
@@ -27,12 +28,12 @@
                 Grid.Row="0"
                 Grid.Column="0"
                 VerticalAlignment="Center"
-                Text="Plugged in" />
+                Text="{x:Static resources:Resource.CPUBoostModeControl_PluggedIn}" />
             <TextBlock
                 Grid.Row="1"
                 Grid.Column="0"
                 VerticalAlignment="Center"
-                Text="On battery" />
+                Text="{x:Static resources:Resource.CPUBoostModeControl_OnBattery}" />
             <ComboBox
                 x:Name="_comboBoxAC"
                 Grid.Row="0"

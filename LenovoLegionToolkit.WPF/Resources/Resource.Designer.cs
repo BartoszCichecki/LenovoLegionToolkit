@@ -594,6 +594,33 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to On battery.
+        /// </summary>
+        public static string CPUBoostModeControl_OnBattery {
+            get {
+                return ResourceManager.GetString("CPUBoostModeControl_OnBattery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plugged in.
+        /// </summary>
+        public static string CPUBoostModeControl_PluggedIn {
+            get {
+                return ResourceManager.GetString("CPUBoostModeControl_PluggedIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Power plans.
+        /// </summary>
+        public static string CPUBoostModeControl_PowerPlans {
+            get {
+                return ResourceManager.GetString("CPUBoostModeControl_PowerPlans", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Learn more at microsoft.com.
         /// </summary>
         public static string CPUBoostModesWindow_LearnMore {
@@ -1050,6 +1077,87 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} downloaded!.
+        /// </summary>
+        public static string PackageControl_DownloadComplete_Message {
+            get {
+                return ResourceManager.GetString("PackageControl_DownloadComplete_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download complete.
+        /// </summary>
+        public static string PackageControl_DownloadComplete_Title {
+            get {
+                return ResourceManager.GetString("PackageControl_DownloadComplete_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something went wrong.
+        /// </summary>
+        public static string PackageControl_GeneralError_Title {
+            get {
+                return ResourceManager.GetString("PackageControl_GeneralError_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server returned code 404..
+        /// </summary>
+        public static string PackageControl_Http404Error_Message {
+            get {
+                return ResourceManager.GetString("PackageControl_Http404Error_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The file seems to be gone.
+        /// </summary>
+        public static string PackageControl_Http404Error_Title {
+            get {
+                return ResourceManager.GetString("PackageControl_Http404Error_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check if your internet connection is up and running..
+        /// </summary>
+        public static string PackageControl_HttpGeneralError_Message {
+            get {
+                return ResourceManager.GetString("PackageControl_HttpGeneralError_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something went wrong.
+        /// </summary>
+        public static string PackageControl_HttpGeneralError_Title {
+            get {
+                return ResourceManager.GetString("PackageControl_HttpGeneralError_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This package is more than a year old..
+        /// </summary>
+        public static string PackageControl_OldPackageWarning {
+            get {
+                return ResourceManager.GetString("PackageControl_OldPackageWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version.
+        /// </summary>
+        public static string PackageControl_Version {
+            get {
+                return ResourceManager.GetString("PackageControl_Version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Below is a list of software packages that are marked as compatible with your laptop.&amp;#x0a;Always make sure that you are installing correct packages..
         /// </summary>
         public static string PackagesPage_Disclaimer_Message {
@@ -1344,6 +1452,123 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string Revert {
             get {
                 return ResourceManager.GetString("Revert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preset 1.
+        /// </summary>
+        public static string RGBKeyboardBacklightControl_Preset1 {
+            get {
+                return ResourceManager.GetString("RGBKeyboardBacklightControl_Preset1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preset 2.
+        /// </summary>
+        public static string RGBKeyboardBacklightControl_Preset2 {
+            get {
+                return ResourceManager.GetString("RGBKeyboardBacklightControl_Preset2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preset 3.
+        /// </summary>
+        public static string RGBKeyboardBacklightControl_Preset3 {
+            get {
+                return ResourceManager.GetString("RGBKeyboardBacklightControl_Preset3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Off.
+        /// </summary>
+        public static string RGBKeyboardBacklightControl_PresetOff {
+            get {
+                return ResourceManager.GetString("RGBKeyboardBacklightControl_PresetOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keyboard backlight cannot be controlled in here, when Vantage and/or it&apos;s services are running, due to conflicts between the two..
+        /// </summary>
+        public static string RGBKeyboardBacklightControl_VantageEnabled_Message {
+            get {
+                return ResourceManager.GetString("RGBKeyboardBacklightControl_VantageEnabled_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lenovo Vantage seems to be enabled.
+        /// </summary>
+        public static string RGBKeyboardBacklightControl_VantageEnabled_Title {
+            get {
+                return ResourceManager.GetString("RGBKeyboardBacklightControl_VantageEnabled_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zone 1.
+        /// </summary>
+        public static string RGBKeyboardBacklightControl_Zone1 {
+            get {
+                return ResourceManager.GetString("RGBKeyboardBacklightControl_Zone1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zone 2.
+        /// </summary>
+        public static string RGBKeyboardBacklightControl_Zone2 {
+            get {
+                return ResourceManager.GetString("RGBKeyboardBacklightControl_Zone2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zone 3.
+        /// </summary>
+        public static string RGBKeyboardBacklightControl_Zone3 {
+            get {
+                return ResourceManager.GetString("RGBKeyboardBacklightControl_Zone3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zone 4.
+        /// </summary>
+        public static string RGBKeyboardBacklightControl_Zone4 {
+            get {
+                return ResourceManager.GetString("RGBKeyboardBacklightControl_Zone4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brightness.
+        /// </summary>
+        public static string RGBKeyboardBrightnessCardControl_Brightness {
+            get {
+                return ResourceManager.GetString("RGBKeyboardBrightnessCardControl_Brightness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Effect.
+        /// </summary>
+        public static string RGBKeyboardEffectCardControl_Title {
+            get {
+                return ResourceManager.GetString("RGBKeyboardEffectCardControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Speed.
+        /// </summary>
+        public static string RGBKeyboardSpeedCardControl_Title {
+            get {
+                return ResourceManager.GetString("RGBKeyboardSpeedCardControl_Title", resourceCulture);
             }
         }
         
@@ -1779,6 +2004,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string UpdateWindow_WhatsNew {
             get {
                 return ResourceManager.GetString("UpdateWindow_WhatsNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can change brightness with Fn+Space.
+        /// </summary>
+        public static string WhiteKeyboardBacklightControl_Message {
+            get {
+                return ResourceManager.GetString("WhiteKeyboardBacklightControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brightness.
+        /// </summary>
+        public static string WhiteKeyboardBacklightControl_Title {
+            get {
+                return ResourceManager.GetString("WhiteKeyboardBacklightControl_Title", resourceCulture);
             }
         }
         
