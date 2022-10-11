@@ -76,7 +76,7 @@ namespace LenovoLegionToolkit.Lib.Features
             (GSyncState.On, IGPUModeState.Default) => HybridModeState.On,
             (GSyncState.On, IGPUModeState.IGPUOnly) => HybridModeState.OnIGPUOnly,
             (GSyncState.On, IGPUModeState.Auto) => HybridModeState.OnAuto,
-            (GSyncState.Off, IGPUModeState.Default) => HybridModeState.Off,
+            (GSyncState.Off, _) => HybridModeState.Off,
             _ => throw new InvalidOperationException("Invalid state"),
         };
     }
