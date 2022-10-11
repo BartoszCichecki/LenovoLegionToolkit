@@ -1,4 +1,5 @@
 ﻿using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
@@ -12,8 +13,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
         public FlipToStartControl()
         {
             Icon = SymbolRegular.Power24;
-            Title = "Flip To Start";
-            Subtitle = "Turn on the laptop when you open the lid.";
+            Title = Resource.FlipToStartControl_Title;
+            Subtitle = Resource.FlipToStartControl_Message;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
@@ -15,8 +16,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
         public FnLockControl()
         {
             Icon = SymbolRegular.Keyboard24;
-            Title = "Fn Lock";
-            Subtitle = "Use secondary functions of F1-F12 keys without holding Fn key.";
+            Title = Resource.FnLockControl_Title;
+            Subtitle = Resource.FnLockControl_Message;
 
             _listener.Changed += Listener_Changed;
         }
@@ -26,7 +27,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             if (!IsLoaded || !IsVisible)
                 return;
 
-            if (e == SpecialKey.Fn_LockOn || e == SpecialKey.Fn_LockOff)
+            if (e is SpecialKey.Fn_LockOn or SpecialKey.Fn_LockOff)
                 await RefreshAsync();
         });
     }
