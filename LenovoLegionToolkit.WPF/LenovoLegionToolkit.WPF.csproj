@@ -55,4 +55,17 @@
 		<Resource Include="Assets\paypal_button.png" />
 		<Resource Include="Assets\paypal_qr.png" />
 	</ItemGroup>
+	<ItemGroup>
+	  <Compile Update="Resources\Resource.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Resource.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Update="Resources\Resource.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	</ItemGroup>
 </Project>

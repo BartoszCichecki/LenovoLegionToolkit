@@ -19,6 +19,7 @@ using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows;
 using LenovoLegionToolkit.WPF.Windows.Utils;
@@ -188,7 +189,7 @@ namespace LenovoLegionToolkit.WPF
             Log.Instance.Trace($"Unhandled exception occurred.", e.Exception);
             Log.Instance.ErrorReport(e.Exception);
 
-            MessageBox.Show($"Unexpected exception occurred:\n{e.Exception.Message}\n\nPlease report the issue on {Constants.BugReportUri}.",
+            MessageBox.Show(string.Format(Resource.UnexpectedException, e.Exception.Message, Constants.BugReportUri),
                             "Error",
                             MessageBoxButton.OK,
                             MessageBoxImage.Error);
@@ -201,7 +202,7 @@ namespace LenovoLegionToolkit.WPF
             if (isCompatible)
                 return;
 
-            MessageBox.Show("This device is not compatible with Lenovo Legion Toolkit.", "Lenovo Legion Toolkit", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(Resource.IncompatibleDevice_Message, Resource.IncompatibleDevice_Title, MessageBoxButton.OK, MessageBoxImage.Error);
 
             Shutdown(99);
         }

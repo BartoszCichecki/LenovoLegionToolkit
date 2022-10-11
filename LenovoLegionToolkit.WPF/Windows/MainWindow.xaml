@@ -8,7 +8,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:pages="clr-namespace:LenovoLegionToolkit.WPF.Pages"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Lenovo Legion Toolkit"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
+    Title="{x:Static resources:Resource.AppName}"
     Width="1150"
     Height="750"
     MinWidth="650"
@@ -36,7 +37,7 @@
                 VerticalAlignment="Center"
                 FontSize="12"
                 IsHitTestVisible="False"
-                Text="Lenovo Legion Toolkit" />
+                Text="{x:Static resources:Resource.AppName}" />
 
             <wpfui:Badge
                 x:Name="_openLogIndicator"
@@ -56,7 +57,7 @@
                 Margin="0,0,8,0"
                 Padding="8,4,8,4"
                 Appearance="Success"
-                Content="Update available!"
+                Content="{x:Static resources:Resource.UpdateAvailable}"
                 Cursor="Hand"
                 MouseLeftButtonDown="UpdateIndicator_Click"
                 MouseRightButtonDown="UpdateIndicator_Click"

@@ -6,7 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Settings"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
+    Title="{x:Static resources:Resource.Settings_Title}"
     d:DesignHeight="450"
     d:DesignWidth="800"
     Style="{StaticResource UiPageScrollable}"
@@ -15,15 +16,14 @@
     <StackPanel Margin="0,0,16,12">
 
         <TextBlock
-            Grid.Row="0"
             Margin="0,16,0,24"
             FontSize="24"
             FontWeight="Medium"
-            Text="Settings" />
+            Text="{x:Static resources:Resource.Settings_Title}" />
 
         <wpfui:CardControl Margin="0,0,0,8" Icon="DarkTheme24">
             <wpfui:CardControl.Header>
-                <controls:CardHeaderControl Title="Theme" Subtitle="Set light theme, dark theme or follow system settings." />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.Theme_Title}" Subtitle="{x:Static resources:Resource.Theme_Description}" />
             </wpfui:CardControl.Header>
             <ComboBox
                 x:Name="_themeComboBox"
@@ -35,15 +35,15 @@
 
         <controls:ColorCardControl
             x:Name="_accentColor"
-            Title="Accent color"
+            Title="{x:Static resources:Resource.AccentColor_Title}"
             Margin="0,0,0,24"
             Icon="Color24"
             OnChanged="AccentColorControl_OnChanged"
-            Subtitle="Change the accent color of the app." />
+            Subtitle="{x:Static resources:Resource.AccentColor_Description}" />
 
         <wpfui:CardControl Margin="0,0,0,8">
             <wpfui:CardControl.Header>
-                <controls:CardHeaderControl Title="Autorun" Subtitle="Start minimized to tray when you log in to Windows.&#x0a;Startup is delayed by 30 seconds for compatibility reasons." />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.Autorun_Title}" Subtitle="{x:Static resources:Resource.Autorun_Message}" />
             </wpfui:CardControl.Header>
             <wpfui:ToggleSwitch
                 x:Name="_autorunToggle"
@@ -54,7 +54,7 @@
 
         <wpfui:CardControl Margin="0,0,0,24">
             <wpfui:CardControl.Header>
-                <controls:CardHeaderControl Title="Minimize on close" Subtitle="Always minimize to tray. Close with right click on tray icon." />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.MinimizeOnClose_Title}" Subtitle="{x:Static resources:Resource.MinimizeOnClose_Message}" />
             </wpfui:CardControl.Header>
             <wpfui:ToggleSwitch
                 x:Name="_minimizeOnCloseToggle"
@@ -65,7 +65,7 @@
 
         <wpfui:CardControl x:Name="_vantageCard" Margin="0,0,0,8">
             <wpfui:CardControl.Header>
-                <controls:CardHeaderControl Title="Disable Lenovo Vantage" Subtitle="Disable Lenovo Vantage and it's service without uninstalling it.&#x0a;Restart is recommended after changing this option." />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.DisableVantage_Title}" Subtitle="{x:Static resources:Resource.DisableVantage_Message}" />
             </wpfui:CardControl.Header>
             <wpfui:ToggleSwitch
                 x:Name="_vantageToggle"
@@ -76,7 +76,7 @@
 
         <wpfui:CardControl x:Name="_legionZoneCard" Margin="0,0,0,8">
             <wpfui:CardControl.Header>
-                <controls:CardHeaderControl Title="Disable Legion Zone" Subtitle="Disable Legion Zone and it's service without uninstalling it.&#x0a;Restart is recommended after changing this option." />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.DisableLegionZone_Title}" Subtitle="{x:Static resources:Resource.DisableLegionZone_Message}" />
             </wpfui:CardControl.Header>
             <wpfui:ToggleSwitch
                 x:Name="_legionZoneToggle"
@@ -87,7 +87,7 @@
 
         <wpfui:CardControl x:Name="_fnKeysCard" Margin="0,0,0,24">
             <wpfui:CardControl.Header>
-                <controls:CardHeaderControl Title="Disable Lenovo Hotkeys" Subtitle="Disable Lenovo Hotkeys and it's service without uninstalling it.&#x0a;If disabled, this app will handle Fn shortcuts.&#x0a;Restart is recommended after changing this option." />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.DisableLenovoHotkeys_Title}" Subtitle="{x:Static resources:Resource.DisableLenovoHotkeys_Message}" />
             </wpfui:CardControl.Header>
             <wpfui:ToggleSwitch
                 x:Name="_fnKeysToggle"
@@ -98,7 +98,7 @@
 
         <wpfui:CardControl x:Name="_dontShowNotificationsCard" Margin="0,0,0,8">
             <wpfui:CardControl.Header>
-                <controls:CardHeaderControl Title="Don't show notifications" Subtitle="Disables notification for Fn keys actions like microphone mute.&#x0a;Enable this option if you have conflicts with full screen applications." />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.DontShowNotifications_Title}" Subtitle="{x:Static resources:Resource.DontShowNotifications_Message}" />
             </wpfui:CardControl.Header>
             <wpfui:ToggleSwitch
                 x:Name="_dontShowNotificationsToggle"
@@ -112,7 +112,7 @@
             Margin="0,0,0,8"
             Click="ExcludeRefreshRates_Click">
             <wpfui:CardAction.Content>
-                <controls:CardHeaderControl Title="Exclude Refresh Rates" Subtitle="You can exclude refresh rates, to make Fn+R shortcut more useful." />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.ExcludeRefreshRates_Title}" Subtitle="{x:Static resources:Resource.ExcludeRefreshRates_Message}" />
             </wpfui:CardAction.Content>
         </wpfui:CardAction>
 
@@ -121,23 +121,23 @@
             Margin="0,16,0,0"
             FontSize="24"
             FontWeight="Medium"
-            Text="Advanced" />
+            Text="{x:Static resources:Resource.Advanced_Title}" />
 
         <TextBlock
             Grid.Row="0"
             Margin="0,8,0,24"
             FontSize="12"
-            Text="Do not change options below unless you really know what you are doing." />
+            Text="{x:Static resources:Resource.Advanced_Message}" />
 
         <wpfui:CardAction Margin="0,0,0,8" Click="PowerPlans_Click">
             <wpfui:CardAction.Content>
-                <controls:CardHeaderControl Title="Power plans" />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.PowerPlans}" />
             </wpfui:CardAction.Content>
         </wpfui:CardAction>
 
         <wpfui:CardAction Margin="0,0,0,8" Click="CPUBoostModes_Click">
             <wpfui:CardAction.Content>
-                <controls:CardHeaderControl Title="CPU Boost Modes" />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.CPUBoostModes}" />
             </wpfui:CardAction.Content>
         </wpfui:CardAction>
 

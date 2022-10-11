@@ -4,7 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="About"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
+    Title="{x:Static resources:Resource.Donate_Title}"
     d:DesignHeight="450"
     d:DesignWidth="800"
     Style="{StaticResource UiPageScrollable}"
@@ -15,7 +16,7 @@
             Margin="0,16,0,24"
             FontSize="24"
             FontWeight="Medium"
-            Text="Donate" />
+            Text="{x:Static resources:Resource.Donate_Title}" />
 
         <TextBlock
             MaxWidth="450"
@@ -23,12 +24,8 @@
             HorizontalAlignment="Left"
             FontSize="14"
             TextAlignment="Justify"
-            TextWrapping="Wrap">
-            Development and maintenance of Lenovo Legion Toolkit takes a lot of time. If you like using this software you can support it's future by donating an amount of your choice.<LineBreak />
-            <LineBreak />
-            Click the PayPal logo below or scan the QR code to donate with PayPal.<LineBreak />
-            <LineBreak />
-            Thanks in advance!</TextBlock>
+            TextWrapping="Wrap"
+            Text="{x:Static resources:Resource.Donate_Message}" />
 
         <Image
             Width="250"

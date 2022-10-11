@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="IncompatibleDevice_Message" xml:space="preserve">
+    <value>This device is not compatible with Lenovo Legion Toolkit.</value>
+  </data>
+  <data name="IncompatibleDevice_Title" xml:space="preserve">
+    <value>Lenovo Legion Toolkit</value>
+  </data>
+  <data name="UnexpectedException" xml:space="preserve">
+    <value>Unexpected exception occurred:
+{0}
+
+Please report the issue on {1}.</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Lenovo Legion Toolkit</value>
+  </data>
+  <data name="UpdateAvailable" xml:space="preserve">
+    <value>Update available!</value>
+  </data>
+  <data name="UpdateAvailableWithVersion" xml:space="preserve">
+    <value>Update {0} available!</value>
+  </data>
+  <data name="ProjectWebsiteOnGitHub" xml:space="preserve">
+    <value>Project website on GitHub</value>
+  </data>
+  <data name="LatestReleaseOnGitHub" xml:space="preserve">
+    <value>Latest release on GitHub</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version: </value>
+  </data>
+  <data name="Build" xml:space="preserve">
+    <value>Build: </value>
+  </data>
+  <data name="About_Title" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="ThirdPartyLibraries" xml:space="preserve">
+    <value>3rd party libraries</value>
+  </data>
+  <data name="Links" xml:space="preserve">
+    <value>Links</value>
+  </data>
+  <data name="Donate_Title" xml:space="preserve">
+    <value>Donate</value>
+  </data>
+  <data name="Donate_Message" xml:space="preserve">
+    <value>Development and maintenance of Lenovo Legion Toolkit takes a lot of time. If you like using this software you can support it's future by donating an amount of your choice.
+
+Click the PayPal logo below or scan the QR code to donate with PayPal.
+
+Thanks in advance!</value>
+  </data>
+  <data name="Settings_Title" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Theme_Title" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="Theme_Description" xml:space="preserve">
+    <value>Set light theme, dark theme or follow system settings.</value>
+  </data>
+  <data name="AccentColor_Title" xml:space="preserve">
+    <value>Accent color</value>
+  </data>
+  <data name="AccentColor_Description" xml:space="preserve">
+    <value>Change the accent color of the app.</value>
+  </data>
+  <data name="Autorun_Title" xml:space="preserve">
+    <value>Autorun</value>
+  </data>
+  <data name="Autorun_Message" xml:space="preserve">
+    <value>Start minimized to tray when you log in to Windows.
+Startup is delayed by 30 seconds for compatibility reasons.</value>
+  </data>
+  <data name="MinimizeOnClose_Title" xml:space="preserve">
+    <value>Minimize on close</value>
+  </data>
+  <data name="MinimizeOnClose_Message" xml:space="preserve">
+    <value>Always minimize to tray. Close with right click on tray icon.</value>
+  </data>
+  <data name="DisableVantage_Title" xml:space="preserve">
+    <value>Disable Lenovo Vantage</value>
+  </data>
+  <data name="DisableVantage_Message" xml:space="preserve">
+    <value>Disable Lenovo Vantage and it's service without uninstalling it.
+Restart is recommended after changing this option.</value>
+  </data>
+  <data name="DisableLegionZone_Title" xml:space="preserve">
+    <value>Disable Legion Zone</value>
+  </data>
+  <data name="DisableLegionZone_Message" xml:space="preserve">
+    <value>Disable Legion Zone and it's service without uninstalling it.
+Restart is recommended after changing this option.</value>
+  </data>
+  <data name="DisableLenovoHotkeys_Title" xml:space="preserve">
+    <value>Disable Lenovo Hotkeys</value>
+  </data>
+  <data name="DisableLenovoHotkeys_Message" xml:space="preserve">
+    <value>Disable Lenovo Hotkeys and it's service without uninstalling it.
+If disabled, this app will handle Fn shortcuts
+Restart is recommended after changing this option.</value>
+  </data>
+  <data name="DontShowNotifications_Title" xml:space="preserve">
+    <value>Don't show notifications</value>
+  </data>
+  <data name="DontShowNotifications_Message" xml:space="preserve">
+    <value>Disables notification for Fn keys actions like microphone mute
+Enable this option if you have conflicts with full screen applications.</value>
+  </data>
+  <data name="ExcludeRefreshRates_Title" xml:space="preserve">
+    <value>Exclude Refresh Rates</value>
+  </data>
+  <data name="ExcludeRefreshRates_Message" xml:space="preserve">
+    <value>You can exclude refresh rates, to make Fn+R shortcut more useful.</value>
+  </data>
+  <data name="Advanced_Title" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
+  <data name="Advanced_Message" xml:space="preserve">
+    <value>Do not change options below unless you really know what you are doing.</value>
+  </data>
+  <data name="PowerPlans" xml:space="preserve">
+    <value>Power plans</value>
+  </data>
+  <data name="CPUBoostModes" xml:space="preserve">
+    <value>CPU Boost Modes</value>
+  </data>
+  <data name="Battery_Title" xml:space="preserve">
+    <value>Battery</value>
+  </data>
+  <data name="LowWattageChargerConnected" xml:space="preserve">
+    <value>Low wattage charger connected</value>
+  </data>
+  <data name="BatteryTemperature_Title" xml:space="preserve">
+    <value>Battery temperature</value>
+  </data>
+  <data name="BatteryTemperature_Message" xml:space="preserve">
+    <value>Current temperature of the battery.</value>
+  </data>
+  <data name="DischargeRate_Title" xml:space="preserve">
+    <value>Discharge rate</value>
+  </data>
+  <data name="DischargeRate_Message" xml:space="preserve">
+    <value>Rate at which battery is charged (+), or discharged (-).</value>
+  </data>
+  <data name="CurrentCapacity_Title" xml:space="preserve">
+    <value>Current capacity</value>
+  </data>
+  <data name="CurrentCapacity_Message" xml:space="preserve">
+    <value>Current battery capacity.</value>
+  </data>
+  <data name="FullChargeCapacity_Title" xml:space="preserve">
+    <value>Full charge capacity</value>
+  </data>
+  <data name="FullChargeCapacity_Message" xml:space="preserve">
+    <value>Battery capacity when fully charged.</value>
+  </data>
+  <data name="DesignCapacity_Title" xml:space="preserve">
+    <value>Design capacity</value>
+  </data>
+  <data name="DesignCapacity_Message" xml:space="preserve">
+    <value>Battery capacity as designed.</value>
+  </data>
+  <data name="OnBatterySince_Title" xml:space="preserve">
+    <value>On battery since</value>
+  </data>
+  <data name="OnBatterySince_Message" xml:space="preserve">
+    <value>Time since laptop was last connected to AC power.&amp;#x0a;This time might not be accurate if laptop was charged when sleeping or off.</value>
+  </data>
+  <data name="CycleCount_Title" xml:space="preserve">
+    <value>Cycle count</value>
+  </data>
+  <data name="CycleCount_Message" xml:space="preserve">
+    <value>Number of charge/discharge cycles.</value>
+  </data>
+  <data name="ManufactureDate_Title" xml:space="preserve">
+    <value>Manufacture date</value>
+  </data>
+  <data name="ManufactureDate_Message" xml:space="preserve">
+    <value>When was the battery manufactured.</value>
+  </data>
+  <data name="FirstUseDate_Title" xml:space="preserve">
+    <value>First use date</value>
+  </data>
+  <data name="FirstUse_Message" xml:space="preserve">
+    <value>When was the battery first used.</value>
+  </data>
+  <data name="ACAdapterConnectedAndCharging" xml:space="preserve">
+    <value>Connected, charging...</value>
+  </data>
+  <data name="ACAdapterConnectedNotCharging" xml:space="preserve">
+    <value>Connected, not charging</value>
+  </data>
+  <data name="EstimatingBatteryLife" xml:space="preserve">
+    <value>Estimating time...</value>
+  </data>
+  <data name="EstimatedBatteryLifeRemaining" xml:space="preserve">
+    <value>Estimated time remaining: {0}</value>
+  </data>
+  <data name="Home_Title" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Power_Title" xml:space="preserve">
+    <value>Power</value>
+  </data>
+  <data name="Graphics_Title" xml:space="preserve">
+    <value>Graphics</value>
+  </data>
+  <data name="Other_Title" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="KeyboardBacklight_Title" xml:space="preserve">
+    <value>Keyboard Backlight</value>
+  </data>
+  <data name="NoCompatibleKeyboardsFound" xml:space="preserve">
+    <value>No compatible keyboards found</value>
+  </data>
+  <data name="Automation_Title" xml:space="preserve">
+    <value>Automation</value>
+  </data>
+  <data name="Actions_Title" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Actions_Message" xml:space="preserve">
+    <value>If enabled these action will run automatically. Whenever state changes, all actions will be evaluated from top to bottom.
+Only actions that match current state will run.</value>
+  </data>
+  <data name="QuickActions_Title" xml:space="preserve">
+    <value>Quick Actions</value>
+  </data>
+  <data name="QuickActions_Message" xml:space="preserve">
+    <value>Quick actions are available in the right click menu of the tray icon.</value>
+  </data>
+  <data name="QuickActions_Empty" xml:space="preserve">
+    <value>No Quick Actions defined. Click "Add new" to create new Quick Action.</value>
+  </data>
+  <data name="AddNew" xml:space="preserve">
+    <value>Add new</value>
+  </data>
+  <data name="Actions_Empty" xml:space="preserve">
+    <value>No Actions defined. Click "Add new" to create new Action.</value>
+  </data>
+  <data name="ActionsEnabled_Title" xml:space="preserve">
+    <value>Enable</value>
+  </data>
+  <data name="ActionsEnable_Message" xml:space="preserve">
+    <value>Lenovo Legion Toolkit must be running for automatic actions to work.</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+	  <value>Save</value>
+  </data>
+  <data name="Revert" xml:space="preserve">
+	  <value>Revert</value>
+  </data>
+</root>
