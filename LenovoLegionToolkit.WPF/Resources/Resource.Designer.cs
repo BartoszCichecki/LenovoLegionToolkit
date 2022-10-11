@@ -187,6 +187,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Apply.
+        /// </summary>
+        public static string Apply {
+            get {
+                return ResourceManager.GetString("Apply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Apply &amp; close.
+        /// </summary>
+        public static string ApplyAndClose {
+            get {
+                return ResourceManager.GetString("ApplyAndClose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to LenovoLegionToolkit.
         /// </summary>
         public static string AppName {
@@ -274,6 +292,33 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string AutomationPage_Title {
             get {
                 return ResourceManager.GetString("AutomationPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Automatically detects when certain games are running and tweaks CPU and GPU performance. Temperatures and fan noise might increase..
+        /// </summary>
+        public static string BalanceModeSettingsWindow_AIEngine_Message {
+            get {
+                return ResourceManager.GetString("BalanceModeSettingsWindow_AIEngine_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable AI Engine.
+        /// </summary>
+        public static string BalanceModeSettingsWindow_AIEngine_Title {
+            get {
+                return ResourceManager.GetString("BalanceModeSettingsWindow_AIEngine_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Balance Mode Settings.
+        /// </summary>
+        public static string BalanceModeSettingsWindow_Title {
+            get {
+                return ResourceManager.GetString("BalanceModeSettingsWindow_Title", resourceCulture);
             }
         }
         
@@ -960,6 +1005,105 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Use only integrated GPU when on battery and both integrated and discrete GPU when AC adapter is connected. When a non-standard adapter is connected, system switches to Hybrid-iGPU Only Mode..
+        /// </summary>
+        public static string ExtendedHybridModeInfoWindow_Auto_Message {
+            get {
+                return ResourceManager.GetString("ExtendedHybridModeInfoWindow_Auto_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hybrid-Auto Mode.
+        /// </summary>
+        public static string ExtendedHybridModeInfoWindow_Auto_Title {
+            get {
+                return ResourceManager.GetString("ExtendedHybridModeInfoWindow_Auto_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Switching to and from this mode requires restart..
+        /// </summary>
+        public static string ExtendedHybridModeInfoWindow_DGPU_Disclaimer {
+            get {
+                return ResourceManager.GetString("ExtendedHybridModeInfoWindow_DGPU_Disclaimer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use only discrete GPU. This mode provides best graphics performance, but increases power consumption..
+        /// </summary>
+        public static string ExtendedHybridModeInfoWindow_DGPU_Message {
+            get {
+                return ResourceManager.GetString("ExtendedHybridModeInfoWindow_DGPU_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to dGPU Mode.
+        /// </summary>
+        public static string ExtendedHybridModeInfoWindow_DGPU_Title {
+            get {
+                return ResourceManager.GetString("ExtendedHybridModeInfoWindow_DGPU_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Both integrated and discrete GPU are enabled. System will automatically switch between them based on it&apos;s needs..
+        /// </summary>
+        public static string ExtendedHybridModeInfoWindow_Hybrid_Message {
+            get {
+                return ResourceManager.GetString("ExtendedHybridModeInfoWindow_Hybrid_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hybrid Mode.
+        /// </summary>
+        public static string ExtendedHybridModeInfoWindow_Hybrid_Title {
+            get {
+                return ResourceManager.GetString("ExtendedHybridModeInfoWindow_Hybrid_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This mode only takes effect when discrete GPU is not working..
+        /// </summary>
+        public static string ExtendedHybridModeInfoWindow_IGPU_Disclaimer {
+            get {
+                return ResourceManager.GetString("ExtendedHybridModeInfoWindow_IGPU_Disclaimer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Only use integrated GPU. This mode minimizes power consumption and noise..
+        /// </summary>
+        public static string ExtendedHybridModeInfoWindow_IGPU_Message {
+            get {
+                return ResourceManager.GetString("ExtendedHybridModeInfoWindow_IGPU_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hybrid-iGPU Only Mode.
+        /// </summary>
+        public static string ExtendedHybridModeInfoWindow_IGPU_Title {
+            get {
+                return ResourceManager.GetString("ExtendedHybridModeInfoWindow_IGPU_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About GPU Working Modes.
+        /// </summary>
+        public static string ExtendedHybridModeInfoWindow_Title {
+            get {
+                return ResourceManager.GetString("ExtendedHybridModeInfoWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Turn on the laptop when you open the lid..
         /// </summary>
         public static string FlipToStartControl_Message {
@@ -992,6 +1136,198 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string FnLockControl_Title {
             get {
                 return ResourceManager.GetString("FnLockControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WARNING!
+        ///Some laptops may accept higher power limits than they indicate, but be careful. This option may result in unpredictable behavior, so if you are not sure what are you doing, leave this at 0..
+        /// </summary>
+        public static string GodModeSettingsWindow_Advanced_MaxOffset_Message {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_Advanced_MaxOffset_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximum Power Limit offset.
+        /// </summary>
+        public static string GodModeSettingsWindow_Advanced_MaxOffset_Title {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_Advanced_MaxOffset_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do not change options below unless you really know what you are doing..
+        /// </summary>
+        public static string GodModeSettingsWindow_Advanced_Message {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_Advanced_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Advanced.
+        /// </summary>
+        public static string GodModeSettingsWindow_Advanced_Title {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_Advanced_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Long Term Power Limit (Cross Loading).
+        /// </summary>
+        public static string GodModeSettingsWindow_CPU_CrossLoading {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_CPU_CrossLoading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Long Term Power Limit.
+        /// </summary>
+        public static string GodModeSettingsWindow_CPU_LongTermPL {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_CPU_LongTermPL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Short Term Power Limit.
+        /// </summary>
+        public static string GodModeSettingsWindow_CPU_ShortTermPL {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_CPU_ShortTermPL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CPU Temperature Limit.
+        /// </summary>
+        public static string GodModeSettingsWindow_CPU_TempLimit {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_CPU_TempLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CPU.
+        /// </summary>
+        public static string GodModeSettingsWindow_CPU_Title {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_CPU_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Couldn&apos;t apply settings.
+        /// </summary>
+        public static string GodModeSettingsWindow_Error_Apply_Title {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_Error_Apply_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Couldn&apos;t load setting..
+        /// </summary>
+        public static string GodModeSettingsWindow_Error_Load_Title {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_Error_Load_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fan speed is not strictly determined by one temperature sensor. It will raise or lower speed per the highest sensor between CPU, GPU and Heatsink temperature. Exact values will appear when you hover mouse over each step..
+        /// </summary>
+        public static string GodModeSettingsWindow_Fans_Curve_Message {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_Fans_Curve_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fan curve.
+        /// </summary>
+        public static string GodModeSettingsWindow_Fans_Curve_Title {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_Fans_Curve_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WARNING!
+        ///Prolonged usage of this option will degrade fans decreasing their longevity.
+        ///Seriously, be careful with this option!.
+        /// </summary>
+        public static string GodModeSettingsWindow_Fans_Max_Message {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_Fans_Max_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximum fan speed.
+        /// </summary>
+        public static string GodModeSettingsWindow_Fans_Max_Title {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_Fans_Max_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fans.
+        /// </summary>
+        public static string GodModeSettingsWindow_Fans_Title {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_Fans_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Configurable TGP.
+        /// </summary>
+        public static string GodModeSettingsWindow_GPU_CTGP {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_GPU_CTGP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dynamic Boost.
+        /// </summary>
+        public static string GodModeSettingsWindow_GPU_DynamicBoost {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_GPU_DynamicBoost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GPU Temperature Limit.
+        /// </summary>
+        public static string GodModeSettingsWindow_GPU_TempLimit {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_GPU_TempLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GPU.
+        /// </summary>
+        public static string GodModeSettingsWindow_GPU_Title {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_GPU_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom Mode Settings.
+        /// </summary>
+        public static string GodModeSettingsWindow_Title {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_Title", resourceCulture);
             }
         }
         

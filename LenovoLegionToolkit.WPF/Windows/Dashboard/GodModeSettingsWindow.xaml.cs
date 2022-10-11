@@ -6,6 +6,7 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Windows.Dashboard
@@ -82,7 +83,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Couldn't load settings.", ex);
 
-                await _snackBar.ShowAsync("Couldn't load setting.", ex.Message);
+                await _snackBar.ShowAsync(Resource.GodModeSettingsWindow_Error_Load_Title, ex.Message);
 
                 Close();
             }
@@ -157,7 +158,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Couldn't apply settings", ex);
 
-                await _snackBar.ShowAsync("Couldn't apply settings", ex.Message);
+                await _snackBar.ShowAsync(Resource.GodModeSettingsWindow_Error_Apply_Title, ex.Message);
             }
         }
 
