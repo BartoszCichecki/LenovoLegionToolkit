@@ -57,6 +57,12 @@
   <data name="BatteryState_RapidCharge" xml:space="preserve">
 		<value>Rapid Charge</value>
 	</data>
+  <data name="GPUController_PoweredOff" xml:space="preserve">
+		<value>Powered Off</value>
+	</data>
+  <data name="GPUController_PoweredOn" xml:space="preserve">
+		<value>Powered On</value>
+	</data>
   <data name="HybridModeState_Off" xml:space="preserve">
 		<value>dGPU</value>
 	</data>

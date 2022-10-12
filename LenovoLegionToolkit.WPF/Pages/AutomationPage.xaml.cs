@@ -12,6 +12,7 @@ using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Controls.Automation.Pipeline;
+using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using Wpf.Ui.Common;
 using MenuItem = Wpf.Ui.Controls.MenuItem;
@@ -80,7 +81,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 await _automationProcessor.ReloadPipelinesAsync(pipelines);
                 await RefreshAsync();
 
-                await SnackbarHelper.ShowAsync("Saved", "Changes were saved successfully!");
+                await SnackbarHelper.ShowAsync(Resource.AutomationPage_Saved_Title, Resource.AutomationPage_Saved_Message);
             }
             finally
             {
@@ -93,7 +94,7 @@ namespace LenovoLegionToolkit.WPF.Pages
         {
             await RefreshAsync();
 
-            await SnackbarHelper.ShowAsync("Reverted", "All changes reverted!");
+            await SnackbarHelper.ShowAsync(Resource.AutomationPage_Reverted_Title, Resource.AutomationPage_Reverted_Message);
         }
 
         private async Task RefreshAsync()

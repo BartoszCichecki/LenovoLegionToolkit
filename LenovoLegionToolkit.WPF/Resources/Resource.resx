@@ -62,7 +62,7 @@
     <value>Lenovo Legion Toolkit</value>
   </data>
   <data name="AboutPage_Build" xml:space="preserve">
-    <value>Build: </value>
+    <value>Build</value>
   </data>
   <data name="AboutPage_LatestReleaseOnGitHub" xml:space="preserve">
     <value>Latest release on GitHub</value>
@@ -80,7 +80,7 @@
     <value>About</value>
   </data>
   <data name="AboutPage_Version" xml:space="preserve">
-    <value>Version: </value>
+    <value>Version</value>
   </data>
   <data name="Add" xml:space="preserve">
     <value>Add</value>
@@ -89,8 +89,9 @@
     <value>Add new</value>
   </data>
   <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Activate Power Plan even when Vantage is enabled.&amp;#x0a;This option is intended only for devices that didn't come with multiple power plans.</value>
-  </data>
+		<value>Activate Power Plan even when Vantage is enabled.
+This option is intended only for devices that didn't come with multiple power plans.</value>
+	</data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Always activate Windows Power Plan</value>
   </data>
@@ -140,6 +141,18 @@ Only actions that match current state will run.</value>
   <data name="AutomationPage_QuickActions_Title" xml:space="preserve">
     <value>Quick Actions</value>
   </data>
+  <data name="AutomationPage_Reverted_Message" xml:space="preserve">
+		<value>All changes reverted!</value>
+	</data>
+  <data name="AutomationPage_Reverted_Title" xml:space="preserve">
+		<value>Reverted</value>
+	</data>
+  <data name="AutomationPage_Saved_Message" xml:space="preserve">
+		<value>Changes were saved successfully!</value>
+	</data>
+  <data name="AutomationPage_Saved_Title" xml:space="preserve">
+		<value>Saved</value>
+	</data>
   <data name="AutomationPage_Title" xml:space="preserve">
     <value>Automation</value>
   </data>
@@ -179,6 +192,12 @@ Only actions that match current state will run.</value>
   <data name="AutomationPipelineControl_Running" xml:space="preserve">
     <value>Running...</value>
   </data>
+  <data name="AutomationPipelineControl_Step" xml:space="preserve">
+		<value>{0} step</value>
+	</data>
+  <data name="AutomationPipelineControl_Step_Many" xml:space="preserve">
+		<value>{0} steps</value>
+	</data>
   <data name="AutomationPipelineControl_SubtitlePart_Apps" xml:space="preserve">
     <value>Apps</value>
   </data>
@@ -282,7 +301,8 @@ Only actions that match current state will run.</value>
     <value>Manufacture date</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-    <value>Time since laptop was last connected to AC power.&amp;#x0a;This time might not be accurate if laptop was charged when sleeping or off.</value>
+    <value>Time since laptop was last connected to AC power.
+This time might not be accurate if laptop was charged when sleeping or off.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
     <value>On battery since</value>
@@ -440,13 +460,13 @@ Remember, that some programs might crash if you do it.</value>
     <value>No processes</value>
   </data>
   <data name="DiscreteGPUControl_PerformanceState" xml:space="preserve">
-    <value>Performance state:</value>
+    <value>Performance state</value>
   </data>
   <data name="DiscreteGPUControl_PerformanceState_Unknown" xml:space="preserve">
     <value>Unknown</value>
   </data>
   <data name="DiscreteGPUControl_Processes" xml:space="preserve">
-    <value>Processes:</value>
+    <value>Processes</value>
   </data>
   <data name="DiscreteGPUControl_RestartGPU" xml:space="preserve">
     <value>Restart GPU</value>
@@ -516,16 +536,16 @@ Thanks in advance!</value>
     <value>°F</value>
   </data>
   <data name="FanCurveControl_CPU" xml:space="preserve">
-    <value>CPU:</value>
+    <value>CPU</value>
   </data>
   <data name="FanCurveControl_CPUSensor" xml:space="preserve">
-    <value>CPU Sensor:</value>
+    <value>CPU Sensor</value>
   </data>
   <data name="FanCurveControl_FanSpeed" xml:space="preserve">
     <value>Fan Speed</value>
   </data>
   <data name="FanCurveControl_GPU" xml:space="preserve">
-    <value>GPU:</value>
+    <value>GPU</value>
   </data>
   <data name="FanCurveControl_RPM" xml:space="preserve">
     <value>RPM</value>
@@ -681,22 +701,29 @@ Seriously, be careful with this option!</value>
     <value>Version</value>
   </data>
   <data name="PackagesPage_Disclaimer_Message" xml:space="preserve">
-    <value>Below is a list of software packages that are marked as compatible with your laptop.&amp;#x0a;Always make sure that you are installing correct packages.</value>
-  </data>
+		<value>Below is a list of software packages that are marked as compatible with your laptop.
+Always make sure that you are installing correct packages.</value>
+	</data>
   <data name="PackagesPage_Disclaimer_Title" xml:space="preserve">
     <value>Important</value>
   </data>
+  <data name="PackagesPage_DownloadFailed_Message" xml:space="preserve">
+		<value>Check if Machine Type and OS are set correctly.</value>
+	</data>
+  <data name="PackagesPage_DownloadFailed_Title" xml:space="preserve">
+		<value>Something went wrong</value>
+	</data>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
-    <value>Download to:</value>
+    <value>Download to</value>
   </data>
   <data name="PackagesPage_Filter" xml:space="preserve">
     <value>Filter...</value>
   </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
-    <value>Machine Type:</value>
+    <value>Machine Type</value>
   </data>
   <data name="PackagesPage_OperatingSystem" xml:space="preserve">
-    <value>Operating System:</value>
+    <value>Operating System</value>
   </data>
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Primary (Recommended)</value>
@@ -877,6 +904,12 @@ Startup is delayed by 30 seconds for compatibility reasons.</value>
   <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
     <value>CPU Boost Modes</value>
   </data>
+  <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
+		<value>Legion Zone may have not been disabled correctly</value>
+	</data>
+  <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
+		<value>Couldn't disable Legion Zone</value>
+	</data>
   <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
     <value>Disable Legion Zone and it's service without uninstalling it.
 Restart is recommended after changing this option.</value>
@@ -884,6 +917,12 @@ Restart is recommended after changing this option.</value>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
     <value>Disable Legion Zone</value>
   </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Error_Message" xml:space="preserve">
+		<value>Lenovo Hotkeys may have not been disabled correctly</value>
+	</data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
+		<value>Couldn't disable Lenovo Hotkeys</value>
+	</data>
   <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
     <value>Disable Lenovo Hotkeys and it's service without uninstalling it.
 If disabled, this app will handle Fn shortcuts
@@ -892,6 +931,12 @@ Restart is recommended after changing this option.</value>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Disable Lenovo Hotkeys</value>
   </data>
+  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
+		<value>Vantage may have not been disabled correctly</value>
+	</data>
+  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
+		<value>Couldn't disable Vantage</value>
+	</data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Disable Lenovo Vantage and it's service without uninstalling it.
 Restart is recommended after changing this option.</value>
@@ -906,6 +951,24 @@ Enable this option if you have conflicts with full screen applications.</value>
   <data name="SettingsPage_DontShowNotifications_Title" xml:space="preserve">
     <value>Don't show notifications</value>
   </data>
+  <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
+		<value>Legion Zone may have not been enabled correctly</value>
+	</data>
+  <data name="SettingsPage_EnableLegionZone_Error_Title" xml:space="preserve">
+		<value>Couldn't enable Legion Zone</value>
+	</data>
+  <data name="SettingsPage_EnableLenovoHotkeys_Error_Message" xml:space="preserve">
+		<value>Lenovo Hotkeys may have not been enabled correctly</value>
+	</data>
+  <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
+		<value>Couldn't enable Lenovo Hotkeys Keys</value>
+	</data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+		<value>Vantage may have not been enabled correctly</value>
+	</data>
+  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+		<value>Couldn't enable Vantage</value>
+	</data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>You can exclude refresh rates, to make Fn+R shortcut more useful.</value>
   </data>
@@ -988,19 +1051,19 @@ Logging will be enabled automatically, if you choose to continue.</value>
     <value>Logs folder</value>
   </data>
   <data name="UnsupportedWindow_MachineType" xml:space="preserve">
-    <value>Machine Type: </value>
+    <value>Machine Type</value>
   </data>
   <data name="UnsupportedWindow_Message" xml:space="preserve">
     <value>Lenovo Legion Toolkit has not been tested with your device.</value>
   </data>
   <data name="UnsupportedWindow_Model" xml:space="preserve">
-    <value>Model: </value>
+    <value>Model</value>
   </data>
   <data name="UnsupportedWindow_Title" xml:space="preserve">
     <value>Unsupported device</value>
   </data>
   <data name="UnsupportedWindow_Vendor" xml:space="preserve">
-    <value>Vendor: </value>
+    <value>Vendor</value>
   </data>
   <data name="Update" xml:space="preserve">
     <value>Update</value>

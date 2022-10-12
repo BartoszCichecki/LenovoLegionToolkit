@@ -7,6 +7,7 @@ using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Settings;
 
@@ -152,7 +153,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 }
                 catch
                 {
-                    await SnackbarHelper.ShowAsync("Couldn't disable Vantage", "Vantage may have not been disabled correctly", true);
+                    await SnackbarHelper.ShowAsync(Resource.SettingsPage_DisableVantage_Error_Title, Resource.SettingsPage_DisableVantage_Error_Message, true);
                     return;
                 }
 
@@ -190,7 +191,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 }
                 catch
                 {
-                    await SnackbarHelper.ShowAsync("Couldn't enable Vantage", "Vantage may have not been enabled correctly", true);
+                    await SnackbarHelper.ShowAsync(Resource.SettingsPage_EnableVantage_Error_Title, Resource.SettingsPage_EnableVantage_Error_Message, true);
                     return;
                 }
             }
@@ -217,7 +218,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 }
                 catch
                 {
-                    await SnackbarHelper.ShowAsync("Couldn't disable Legion Zone", "Legion Zone may have not been disabled correctly", true);
+                    await SnackbarHelper.ShowAsync(Resource.SettingsPage_DisableLegionZone_Error_Title, Resource.SettingsPage_DisableLegionZone_Error_Message, true);
                     return;
                 }
             }
@@ -229,7 +230,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 }
                 catch
                 {
-                    await SnackbarHelper.ShowAsync("Couldn't enable Legion Zone", "Legion Zone may have not been enabled correctly", true);
+                    await SnackbarHelper.ShowAsync(Resource.SettingsPage_EnableLegionZone_Error_Title, Resource.SettingsPage_EnableLegionZone_Error_Message, true);
                     return;
                 }
             }
@@ -256,7 +257,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 }
                 catch
                 {
-                    await SnackbarHelper.ShowAsync("Couldn't disable Fn Keys", "Fn Keys may have not been disabled correctly", true);
+                    await SnackbarHelper.ShowAsync(Resource.SettingsPage_DisableLenovoHotkeys_Error_Title, Resource.SettingsPage_DisableLenovoHotkeys_Error_Message, true);
                     return;
                 }
             }
@@ -268,7 +269,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 }
                 catch
                 {
-                    await SnackbarHelper.ShowAsync("Couldn't enable Fn Keys", "Fn Keys may have not been enabled correctly", true);
+                    await SnackbarHelper.ShowAsync(Resource.SettingsPage_EnableLenovoHotkeys_Error_Title, Resource.SettingsPage_EnableLenovoHotkeys_Error_Message, true);
                     return;
                 }
             }

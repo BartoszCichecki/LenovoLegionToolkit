@@ -210,7 +210,7 @@ namespace LenovoLegionToolkit.WPF
         private async Task CheckCompatibilityAsync()
         {
             var (isCompatible, mi) = await Compatibility.IsCompatibleAsync();
-            if (isCompatible)
+            if (!isCompatible)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Compatibility check passed. [Vendor={mi.Vendor}, Model={mi.Model}, MachineType={mi.MachineType}, BIOS={mi.BIOSVersion}]");

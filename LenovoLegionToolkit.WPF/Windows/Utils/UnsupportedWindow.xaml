@@ -70,14 +70,17 @@
                     <TextBlock
                         Grid.Row="0"
                         Grid.Column="0"
+                        FontWeight="Medium"
                         Text="{x:Static resources:Resource.UnsupportedWindow_Vendor}" />
                     <TextBlock
                         Grid.Row="1"
                         Grid.Column="0"
+                        FontWeight="Medium"
                         Text="{x:Static resources:Resource.UnsupportedWindow_Model}" />
                     <TextBlock
                         Grid.Row="2"
                         Grid.Column="0"
+                        FontWeight="Medium"
                         Text="{x:Static resources:Resource.UnsupportedWindow_MachineType}" />
 
                     <TextBlock

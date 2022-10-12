@@ -10,7 +10,7 @@ namespace LenovoLegionToolkit.Lib.Automation
         [JsonConstructor]
         public Delay(int delaySeconds) => DelaySeconds = delaySeconds;
 
-        public string DisplayName => DelaySeconds == 1 ? Resource.Delay_OneSecond : string.Format(Resource.Delay_DisplayName_ManySeconds, DelaySeconds);
+        public string DisplayName => string.Format(DelaySeconds == 1 ? Resource.Delay_Second : Resource.Delay_Second_Many, DelaySeconds);
     }
 
 }

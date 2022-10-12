@@ -34,8 +34,8 @@ namespace LenovoLegionToolkit.WPF.Pages
         {
             InitializeComponent();
 
-            _version.Text += VersionText;
-            _build.Text += BuildText;
+            _version.Text += $" {VersionText}";
+            _build.Text += $" {BuildText}";
             _copyright.Text = CopyrightText;
         }
     }
