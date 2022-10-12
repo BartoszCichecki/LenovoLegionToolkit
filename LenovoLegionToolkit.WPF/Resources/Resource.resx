@@ -107,9 +107,9 @@ This option is intended only for devices that didn't come with multiple power pl
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>Always on USB</value>
   </data>
-  <data name="AppName" xml:space="preserve">
-    <value>LenovoLegionToolkit</value>
-  </data>
+	<data name="AppName" xml:space="preserve">
+		<value>Lenovo Legion Toolkit</value>
+	</data>
   <data name="Apply" xml:space="preserve">
     <value>Apply</value>
   </data>
@@ -409,9 +409,9 @@ WARNING: This action will not run correctly, if internal display is off or Hybri
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>BIOS version</value>
   </data>
-  <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
-    <value>Device</value>
-  </data>
+	<data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
+		<value>Device1</value>
+	</data>
   <data name="DeviceInformationWindow_LenovoSupport" xml:space="preserve">
     <value>Lenovo Support</value>
   </data>
@@ -1011,6 +1011,12 @@ Enable this option if you have conflicts with full screen applications.</value>
   <data name="SettingsPage_ExcludeRefreshRates_Title" xml:space="preserve">
     <value>Exclude Refresh Rates</value>
   </data>
+  <data name="SettingsPage_Language_Message" xml:space="preserve">
+		<value>Select language</value>
+	</data>
+  <data name="SettingsPage_Language_Title" xml:space="preserve">
+		<value>Language</value>
+	</data>
   <data name="SettingsPage_MinimizeOnClose_Message" xml:space="preserve">
     <value>Always minimize to tray. Close with right click on tray icon.</value>
   </data>
@@ -1139,5 +1145,8 @@ Logging will be enabled automatically, if you choose to continue.</value>
   </data>
   <data name="Yes" xml:space="preserve">
 		<value>Yes</value>
+	</data>
+	<data name="Resource.pl" xml:space="preserve">
+		<value />
 	</data>
 </root>

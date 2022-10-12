@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -46,6 +48,17 @@ namespace LenovoLegionToolkit.WPF.Pages
 
             var loadingTask = Task.Delay(250);
 
+            var languages = ResourceHelper.GetLanguages().ToArray();
+            if (languages.Length > 1)
+            {
+                _langComboBox.SetItems(languages, _settings.Store.CultureInfo, cc => cc.NativeName);
+                _langComboBox.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                _langCardControl.Visibility = Visibility.Collapsed;
+            }
+
             _themeComboBox.SetItems(Enum.GetValues<Theme>(), _settings.Store.Theme);
             _accentColor.SetColor(_settings.Store.AccentColor ?? _themeManager.DefaultAccentColor);
             _autorunToggle.IsChecked = Autorun.IsEnabled;
@@ -79,6 +92,23 @@ namespace LenovoLegionToolkit.WPF.Pages
             _dontShowNotificationsToggle.Visibility = Visibility.Visible;
 
             _isRefreshing = false;
+        }
+
+        private async void LangComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (_isRefreshing)
+                return;
+
+            if (!_langComboBox.TryGetSelectedItem(out CultureInfo? cultureInfo) || cultureInfo is null)
+                return;
+
+            _settings.Store.CultureInfo = cultureInfo;
+            _settings.SynchronizeStore();
+
+            var result = await MessageBoxHelper.ShowAsync(this, "Restart required",
+                "Language will be changed after Lenovo Legion Toolkit is restarted.", "Exit", "Not now");
+            if (result)
+                await ((App)Application.Current).ShutdownAsync();
         }
 
         private void ThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

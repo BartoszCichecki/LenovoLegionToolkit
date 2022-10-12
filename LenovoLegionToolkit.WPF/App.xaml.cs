@@ -18,6 +18,7 @@ using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
@@ -55,14 +56,12 @@ namespace LenovoLegionToolkit.WPF
 
             EnsureSingleInstance();
 
+            IoCContainer.Initialize(new Lib.IoCModule(), new Lib.Automation.IoCModule(), new IoCModule());
+
+            CultureHelper.Set(IoCContainer.Resolve<ApplicationSettings>().Store.CultureInfo);
+
             if (!ShouldByPassCompatibilityCheck(args))
                 await CheckCompatibilityAsync();
-
-            IoCContainer.Initialize(
-                new Lib.IoCModule(),
-                new Lib.Automation.IoCModule(),
-                new WPF.IoCModule()
-            );
 
             if (ShouldForceDisableRGBKeyboardSupport(args))
                 IoCContainer.Resolve<RGBKeyboardBacklightController>().ForceDisable = true;
@@ -210,7 +209,7 @@ namespace LenovoLegionToolkit.WPF
         private async Task CheckCompatibilityAsync()
         {
             var (isCompatible, mi) = await Compatibility.IsCompatibleAsync();
-            if (!isCompatible)
+            if (isCompatible)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Compatibility check passed. [Vendor={mi.Vendor}, Model={mi.Model}, MachineType={mi.MachineType}, BIOS={mi.BIOSVersion}]");

@@ -20,7 +20,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    //[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resource {
         
@@ -224,7 +224,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LenovoLegionToolkit.
+        ///   Looks up a localized string similar to Lenovo Legion Toolkit.
         /// </summary>
         public static string AppName {
             get {
@@ -1102,7 +1102,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Device.
+        ///   Looks up a localized string similar to Device1.
         /// </summary>
         public static string DeviceInformationWindow_Device_Title {
             get {
@@ -2387,6 +2387,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Resource_pl {
+            get {
+                return ResourceManager.GetString("Resource.pl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to I will restart later.
         /// </summary>
         public static string RestartLater {
@@ -2858,6 +2867,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string SettingsPage_ExcludeRefreshRates_Title {
             get {
                 return ResourceManager.GetString("SettingsPage_ExcludeRefreshRates_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select language.
+        /// </summary>
+        public static string SettingsPage_Language_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_Language_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        public static string SettingsPage_Language_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_Language_Title", resourceCulture);
             }
         }
         

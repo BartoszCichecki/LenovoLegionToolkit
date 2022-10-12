@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 
 namespace LenovoLegionToolkit.Lib.Settings
 {
@@ -7,7 +8,8 @@ namespace LenovoLegionToolkit.Lib.Settings
     {
         public class ApplicationSettingsStore
         {
-            public Theme Theme { get; set; }
+            public CultureInfo CultureInfo { get; set; } = new("en");
+            public Theme Theme { get; set; } = Theme.Dark;
             public RGBColor? AccentColor { get; set; }
             public Dictionary<PowerModeState, string> PowerPlans { get; set; } = new();
             public bool MinimizeOnClose { get; set; }
@@ -20,10 +22,6 @@ namespace LenovoLegionToolkit.Lib.Settings
 
         protected override string FileName => "settings.json";
 
-        public override ApplicationSettingsStore Default => new()
-        {
-            Theme = Theme.Dark,
-            TemperatureUnit = TemperatureUnit.C,
-        };
+        public override ApplicationSettingsStore Default => new();
     }
 }
