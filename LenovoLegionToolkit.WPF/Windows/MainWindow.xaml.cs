@@ -98,7 +98,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             BringToForeground();
         });
 
-        private async void MainWindow_SourceInitialized(object? sender, EventArgs args)
+        private void MainWindow_SourceInitialized(object? sender, EventArgs args)
         {
             var systemEventInterceptor = new SystemEventInterceptor(this);
             systemEventInterceptor.OnTaskbarCreated += (_, _) => InitializeTray();
