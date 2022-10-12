@@ -214,9 +214,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             var stepsCount = _stepsStackPanel.Children.ToArray()
                 .OfType<AbstractAutomationStepControl>()
                 .Count();
-            var stepsCountModifier = stepsCount != 1 ? "s" : "";
 
-            var result = $"{stepsCount} step{stepsCountModifier}";
+            var result = string.Format(stepsCount == 1 ? Resource.AutomationPipelineControl_Step : Resource.AutomationPipelineControl_Step_Many, stepsCount);
 
             if (!string.IsNullOrWhiteSpace(AutomationPipeline.Name) && AutomationPipeline.Trigger is not null)
                 result += $" | {AutomationPipeline.Trigger.DisplayName}";

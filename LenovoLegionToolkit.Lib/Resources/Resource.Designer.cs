@@ -115,6 +115,24 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Powered Off.
+        /// </summary>
+        public static string GPUController_PoweredOff {
+            get {
+                return ResourceManager.GetString("GPUController_PoweredOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Powered On.
+        /// </summary>
+        public static string GPUController_PoweredOn {
+            get {
+                return ResourceManager.GetString("GPUController_PoweredOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to dGPU.
         /// </summary>
         public static string HybridModeState_Off {

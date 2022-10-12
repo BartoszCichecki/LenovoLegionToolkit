@@ -97,20 +97,20 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} seconds.
+        ///   Looks up a localized string similar to {0} second.
         /// </summary>
-        public static string Delay_DisplayName_ManySeconds {
+        public static string Delay_Second {
             get {
-                return ResourceManager.GetString("Delay_DisplayName_ManySeconds", resourceCulture);
+                return ResourceManager.GetString("Delay_Second", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1 second.
+        ///   Looks up a localized string similar to {0} seconds.
         /// </summary>
-        public static string Delay_OneSecond {
+        public static string Delay_Second_Many {
             get {
-                return ResourceManager.GetString("Delay_OneSecond", resourceCulture);
+                return ResourceManager.GetString("Delay_Second_Many", resourceCulture);
             }
         }
         

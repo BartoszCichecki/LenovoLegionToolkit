@@ -232,9 +232,9 @@ namespace LenovoLegionToolkit.WPF.Controls
                 }
             };
 
-            private readonly TextBlock _desc1 = new() { Text = Resource.FanCurveControl_CPU, Margin = new(0, 0, 8, 0) };
-            private readonly TextBlock _desc2 = new() { Text = Resource.FanCurveControl_CPUSensor, Margin = new(0, 0, 8, 0) };
-            private readonly TextBlock _desc3 = new() { Text = Resource.FanCurveControl_GPU, Margin = new(0, 0, 8, 0) };
+            private readonly TextBlock _desc1 = new() { Text = Resource.FanCurveControl_CPU, FontWeight = FontWeights.Medium, Margin = new(0, 0, 8, 0) };
+            private readonly TextBlock _desc2 = new() { Text = Resource.FanCurveControl_CPUSensor, FontWeight = FontWeights.Medium, Margin = new(0, 0, 8, 0) };
+            private readonly TextBlock _desc3 = new() { Text = Resource.FanCurveControl_GPU, FontWeight = FontWeights.Medium, Margin = new(0, 0, 8, 0) };
 
             private readonly TextBlock _value1 = new();
             private readonly TextBlock _value2 = new();
