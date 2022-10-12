@@ -94,4 +94,7 @@
   <data name="TimeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>At specified time</value>
   </data>
+	<data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
 </root>

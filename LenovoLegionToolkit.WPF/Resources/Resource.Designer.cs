@@ -279,6 +279,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Name....
+        /// </summary>
+        public static string AutomationPage_AddManualPipeline_Placeholder {
+            get {
+                return ResourceManager.GetString("AutomationPage_AddManualPipeline_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new.
+        /// </summary>
+        public static string AutomationPage_AddManualPipeline_Title {
+            get {
+                return ResourceManager.GetString("AutomationPage_AddManualPipeline_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No Quick Actions defined. Click &quot;Add new&quot; to create new Quick Action..
         /// </summary>
         public static string AutomationPage_QuickActions_Empty {
@@ -302,6 +320,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string AutomationPage_QuickActions_Title {
             get {
                 return ResourceManager.GetString("AutomationPage_QuickActions_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name....
+        /// </summary>
+        public static string AutomationPage_RenamePipeline_Placeholder {
+            get {
+                return ResourceManager.GetString("AutomationPage_RenamePipeline_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rename.
+        /// </summary>
+        public static string AutomationPage_RenamePipeline_Title {
+            get {
+                return ResourceManager.GetString("AutomationPage_RenamePipeline_Title", resourceCulture);
             }
         }
         
@@ -1336,6 +1372,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Make sure that laptop display is on. Lenovo Legion Toolkit can&apos;t load refresh rates for a display that is not on..
+        /// </summary>
+        public static string ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message {
+            get {
+                return ResourceManager.GetString("ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Refresh Rates found.
+        /// </summary>
+        public static string ExcludeRefreshRatesWindow_NoRefreshRatesFound_Title {
+            get {
+                return ResourceManager.GetString("ExcludeRefreshRatesWindow_NoRefreshRatesFound_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exclude Refresh Rates.
         /// </summary>
         public static string ExcludeRefreshRatesWindow_Title {
@@ -1825,6 +1879,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        public static string OK {
+            get {
+                return ResourceManager.GetString("OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Open.
         /// </summary>
         public static string Open {
@@ -1984,6 +2056,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string PackagesPage_DownloadFailed_Title {
             get {
                 return ResourceManager.GetString("PackagesPage_DownloadFailed_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Changing sorting, filtering results, hiding packages or refreshing the list will stop the download. Do you want to continue?.
+        /// </summary>
+        public static string PackagesPage_DownloadInProgress_Message {
+            get {
+                return ResourceManager.GetString("PackagesPage_DownloadInProgress_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download in progress.
+        /// </summary>
+        public static string PackagesPage_DownloadInProgress_Title {
+            get {
+                return ResourceManager.GetString("PackagesPage_DownloadInProgress_Title", resourceCulture);
             }
         }
         
@@ -2174,6 +2264,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string PowerModeWindow_Title {
             get {
                 return ResourceManager.GetString("PowerModeWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enabling this option when Lenovo Vantage is running and it changes power plans on your laptop might result in unexpected behavior..
+        /// </summary>
+        public static string PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message {
+            get {
+                return ResourceManager.GetString("PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure?.
+        /// </summary>
+        public static string PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title {
+            get {
+                return ResourceManager.GetString("PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title", resourceCulture);
             }
         }
         
@@ -2917,6 +3025,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Try again.
+        /// </summary>
+        public static string TryAgain {
+            get {
+                return ResourceManager.GetString("TryAgain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unexpected exception occurred:
         ///{0}
         ///
@@ -3107,6 +3224,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string WinKeyControl_Title {
             get {
                 return ResourceManager.GetString("WinKeyControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

@@ -222,7 +222,9 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private async Task AddManualPipelineAsync()
         {
-            var newName = await MessageBoxHelper.ShowInputAsync(this, "Add new", "Name...");
+            var newName = await MessageBoxHelper.ShowInputAsync(this,
+                Resource.AutomationPage_AddManualPipeline_Title,
+                Resource.AutomationPage_AddManualPipeline_Placeholder);
             if (string.IsNullOrWhiteSpace(newName))
                 return;
 
@@ -241,7 +243,11 @@ namespace LenovoLegionToolkit.WPF.Pages
         private async Task RenamePipelineAsync(AutomationPipelineControl control)
         {
             var name = control.GetName();
-            var newName = await MessageBoxHelper.ShowInputAsync(this, "Rename", "Name...", name, allowEmpty: true);
+            var newName = await MessageBoxHelper.ShowInputAsync(this,
+                Resource.AutomationPage_RenamePipeline_Title,
+                Resource.AutomationPage_RenamePipeline_Placeholder,
+                name,
+                allowEmpty: true);
             control.SetName(newName);
         }
 

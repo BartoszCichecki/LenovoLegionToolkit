@@ -132,6 +132,12 @@ Only actions that match current state will run.</value>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>Actions</value>
   </data>
+  <data name="AutomationPage_AddManualPipeline_Placeholder" xml:space="preserve">
+		<value>Name...</value>
+	</data>
+  <data name="AutomationPage_AddManualPipeline_Title" xml:space="preserve">
+		<value>Add new</value>
+	</data>
   <data name="AutomationPage_QuickActions_Empty" xml:space="preserve">
     <value>No Quick Actions defined. Click "Add new" to create new Quick Action.</value>
   </data>
@@ -141,6 +147,12 @@ Only actions that match current state will run.</value>
   <data name="AutomationPage_QuickActions_Title" xml:space="preserve">
     <value>Quick Actions</value>
   </data>
+  <data name="AutomationPage_RenamePipeline_Placeholder" xml:space="preserve">
+		<value>Name...</value>
+	</data>
+  <data name="AutomationPage_RenamePipeline_Title" xml:space="preserve">
+		<value>Rename</value>
+	</data>
   <data name="AutomationPage_Reverted_Message" xml:space="preserve">
 		<value>All changes reverted!</value>
 	</data>
@@ -326,8 +338,8 @@ This time might not be accurate if laptop was charged when sleeping or off.</val
     <value>CPU Boost Modes</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
+		<value>Cancel</value>
+	</data>
   <data name="Celsius" xml:space="preserve">
     <value>°C</value>
   </data>
@@ -493,6 +505,12 @@ Thanks in advance!</value>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Donate</value>
   </data>
+  <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
+		<value>Make sure that laptop display is on. Lenovo Legion Toolkit can't load refresh rates for a display that is not on.</value>
+	</data>
+  <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Title" xml:space="preserve">
+		<value>No Refresh Rates found</value>
+	</data>
   <data name="ExcludeRefreshRatesWindow_Title" xml:space="preserve">
     <value>Exclude Refresh Rates</value>
   </data>
@@ -658,6 +676,12 @@ Seriously, be careful with this option!</value>
   <data name="MainWindow_UpdateAvailableWithVersion" xml:space="preserve">
     <value>Update {0} available!</value>
   </data>
+  <data name="No" xml:space="preserve">
+		<value>No</value>
+	</data>
+  <data name="OK" xml:space="preserve">
+		<value>OK</value>
+	</data>
   <data name="Open" xml:space="preserve">
     <value>Open</value>
   </data>
@@ -712,6 +736,12 @@ Always make sure that you are installing correct packages.</value>
 	</data>
   <data name="PackagesPage_DownloadFailed_Title" xml:space="preserve">
 		<value>Something went wrong</value>
+	</data>
+  <data name="PackagesPage_DownloadInProgress_Message" xml:space="preserve">
+		<value>Changing sorting, filtering results, hiding packages or refreshing the list will stop the download. Do you want to continue?</value>
+	</data>
+  <data name="PackagesPage_DownloadInProgress_Title" xml:space="preserve">
+		<value>Download in progress</value>
 	</data>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Download to</value>
@@ -777,6 +807,12 @@ You can switch mode with Fn+Q.</value>
   <data name="PowerModeWindow_Title" xml:space="preserve">
     <value>Power Mode</value>
   </data>
+  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
+		<value>Enabling this option when Lenovo Vantage is running and it changes power plans on your laptop might result in unexpected behavior.</value>
+	</data>
+  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
+		<value>Are you sure?</value>
+	</data>
   <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
     <value>Balance mode</value>
   </data>
@@ -1030,6 +1066,9 @@ Requires restart.</value>
   <data name="TouchpadLockControl_Title" xml:space="preserve">
     <value>Touchpad Lock</value>
   </data>
+  <data name="TryAgain" xml:space="preserve">
+		<value>Try again</value>
+	</data>
   <data name="UnexpectedException" xml:space="preserve">
     <value>Unexpected exception occurred:
 {0}
@@ -1098,4 +1137,7 @@ Logging will be enabled automatically, if you choose to continue.</value>
   <data name="WinKeyControl_Title" xml:space="preserve">
     <value>Windows Key Lock</value>
   </data>
+  <data name="Yes" xml:space="preserve">
+		<value>Yes</value>
+	</data>
 </root>

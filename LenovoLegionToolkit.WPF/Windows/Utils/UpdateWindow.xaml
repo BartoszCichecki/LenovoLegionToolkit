@@ -6,6 +6,7 @@
     xmlns:markdig="clr-namespace:Markdig.Wpf;assembly=Markdig.Wpf"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:resources1="clr-namespace:LenovoLegionToolkit.Lib.Automation.Resources;assembly=LenovoLegionToolkit.Lib.Automation"
     Title="{x:Static resources:Resource.UpdateWindow_Title}"
     Width="800"
     Height="500">
@@ -89,7 +90,7 @@
                     Margin="0,0,0,16"
                     HorizontalAlignment="Center"
                     Click="CancelDownloadButton_Click"
-                    Content="{x:Static resources:Resource.Cancel}"
+                    Content="{x:Static resources1:Resource.Cancel}"
                     IsEnabled="False"
                     Visibility="Collapsed" />
             </Grid>
