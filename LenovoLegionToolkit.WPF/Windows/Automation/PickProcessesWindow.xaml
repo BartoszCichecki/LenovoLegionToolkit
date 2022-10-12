@@ -6,6 +6,7 @@
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:resources1="clr-namespace:LenovoLegionToolkit.Lib.Automation.Resources;assembly=LenovoLegionToolkit.Lib.Automation"
     Title="{x:Static resources:Resource.PickProcessesWindow_Title}"
     Width="600"
     Height="500"
@@ -130,7 +131,7 @@
                         Width="100"
                         Margin="8,0,0,0"
                         Click="CancelButton_Click"
-                        Content="{x:Static resources:Resource.Cancel}" />
+                        Content="{x:Static resources1:Resource.Cancel}" />
 
                 </Grid>
 

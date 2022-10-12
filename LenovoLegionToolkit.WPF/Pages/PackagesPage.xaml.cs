@@ -264,10 +264,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             if (_packagesStackPanel.Children.ToArray().OfType<PackageControl>().Where(pc => pc.IsDownloading).IsEmpty())
                 return true;
 
-            var result = await MessageBoxHelper.ShowAsync(this,
-                "Download in progress",
-                "Changing sorting, filtering results, hiding packages or refreshing the list will stop the download. Do you want to continue?");
-            return result;
+            return await MessageBoxHelper.ShowAsync(this, Resource.PackagesPage_DownloadInProgress_Title, Resource.PackagesPage_DownloadInProgress_Message);
         }
 
         private void Reload()
