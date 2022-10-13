@@ -4,8 +4,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:markdig="clr-namespace:Markdig.Wpf;assembly=Markdig.Wpf"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
+    xmlns:resources1="clr-namespace:LenovoLegionToolkit.Lib.Automation.Resources;assembly=LenovoLegionToolkit.Lib.Automation"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Update available"
+    Title="{x:Static resources:Resource.UpdateWindow_Title}"
     Width="800"
     Height="500">
     <Grid>
@@ -37,7 +39,7 @@
                 VerticalAlignment="Center"
                 FontSize="12"
                 IsHitTestVisible="False"
-                Text="Update available" />
+                Text="{x:Static resources:Resource.UpdateWindow_Title}" />
 
         </Grid>
 
@@ -56,7 +58,7 @@
                     Margin="0,0,0,24"
                     FontSize="24"
                     FontWeight="Medium"
-                    Text="What's new?" />
+                    Text="{x:Static resources:Resource.UpdateWindow_WhatsNew}" />
 
                 <markdig:MarkdownViewer x:Name="_markdownViewer" Grid.Row="1" />
 
@@ -77,7 +79,7 @@
                     Margin="0,0,0,16"
                     HorizontalAlignment="Center"
                     Click="DownloadButton_Click"
-                    Content="Update"
+                    Content="{x:Static resources:Resource.Update}"
                     IsEnabled="False" />
 
                 <Button
@@ -88,7 +90,7 @@
                     Margin="0,0,0,16"
                     HorizontalAlignment="Center"
                     Click="CancelDownloadButton_Click"
-                    Content="Cancel"
+                    Content="{x:Static resources1:Resource.Cancel}"
                     IsEnabled="False"
                     Visibility="Collapsed" />
             </Grid>

@@ -4,8 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="About your device"
+    Title="{x:Static resources:Resource.DeviceInformationWindow_Title}"
     Width="500"
     SizeToContent="Height">
 
@@ -38,7 +39,7 @@
                 VerticalAlignment="Center"
                 FontSize="12"
                 IsHitTestVisible="False"
-                Text="About your device" />
+                Text="{x:Static resources:Resource.DeviceInformationWindow_Title}" />
 
         </Grid>
 
@@ -49,43 +50,41 @@
                     Margin="0,16,0,24"
                     FontSize="24"
                     FontWeight="Medium"
-                    Text="Device" />
+                    Text="{x:Static resources:Resource.DeviceInformationWindow_Device_Title}" />
 
                 <wpfui:CardControl Margin="0,0,0,8" Click="DeviceCardControl_Click">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="Manufacturer" />
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_Manufacturer_Title}" />
                     </wpfui:CardControl.Header>
                     <Label x:Name="_manufacturerLabel" />
                 </wpfui:CardControl>
 
                 <wpfui:CardControl Margin="0,0,0,8" Click="DeviceCardControl_Click">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="Model" />
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_Model_Title}" />
                     </wpfui:CardControl.Header>
                     <Label x:Name="_modelLabel" />
                 </wpfui:CardControl>
 
                 <wpfui:CardControl Margin="0,0,0,8" Click="DeviceCardControl_Click">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="Machine Type" />
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_MachineType_Title}" />
                     </wpfui:CardControl.Header>
                     <Label x:Name="_mtmLabel" />
                 </wpfui:CardControl>
                 <wpfui:CardControl Margin="0,0,0,8" Click="DeviceCardControl_Click">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="Serial number" />
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_SerialNumber_Title}" />
                     </wpfui:CardControl.Header>
                     <Label x:Name="_serialNumberLabel" />
                 </wpfui:CardControl>
 
                 <wpfui:CardControl Margin="0,0,0,8" Click="DeviceCardControl_Click">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="BIOS version" />
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_BiosVersion_Title}" />
                     </wpfui:CardControl.Header>
                     <Label x:Name="_biosLabel" />
                 </wpfui:CardControl>
-
-
 
                 <Grid Margin="0,16,0,24">
 
@@ -98,7 +97,7 @@
                         Grid.Column="0"
                         FontSize="24"
                         FontWeight="Medium"
-                        Text="Warranty" />
+                        Text="{x:Static resources:Resource.DeviceInformationWindow_Warranty_Title}" />
                     <wpfui:Button
                         x:Name="_refreshWarrantyButton"
                         Grid.Column="1"
@@ -108,21 +107,21 @@
 
                 <wpfui:CardControl Margin="0,0,0,8">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="Status" />
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_WarrantyStatus_Title}" />
                     </wpfui:CardControl.Header>
                     <Label x:Name="_warrantyStatusLabel" Content="-" />
                 </wpfui:CardControl>
 
                 <wpfui:CardControl Margin="0,0,0,8">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="Start date" />
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_WarrantyStartDate_Title}" />
                     </wpfui:CardControl.Header>
                     <Label x:Name="_warrantyStartLabel" Content="-" />
                 </wpfui:CardControl>
 
                 <wpfui:CardControl Margin="0,0,0,8">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="End date" />
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_WarrantyEndDate_Title}" />
                     </wpfui:CardControl.Header>
                     <Label x:Name="_warrantyEndLabel" Content="-" />
                 </wpfui:CardControl>
@@ -132,7 +131,7 @@
                     x:Name="_warrantyLinkCardAction"
                     Margin="0,8,0,8"
                     Click="WarrantyLinkCardAction_OnClick"
-                    Content="Lenovo Support"
+                    Content="{x:Static resources:Resource.DeviceInformationWindow_LenovoSupport}"
                     Icon="Open24"
                     IsChevronVisible="False"
                     IsEnabled="False" />

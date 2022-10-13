@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     d:DesignHeight="450"
     d:DesignWidth="800"
@@ -84,10 +85,9 @@
                     Grid.Column="0"
                     Margin="0,4,0,0"
                     Foreground="{DynamicResource SystemFillColorCautionBrush}"
+                    Text="{x:Static resources:Resource.PackageControl_OldPackageWarning}"
                     TextTrimming="CharacterEllipsis"
-                    Visibility="Collapsed">
-                    This package is more than a year old.
-                </TextBlock>
+                    Visibility="Collapsed" />
 
                 <StackPanel
                     x:Name="_idleStackPanel"

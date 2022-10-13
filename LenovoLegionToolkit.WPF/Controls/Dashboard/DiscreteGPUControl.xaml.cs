@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls.Primitives;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.WPF.Resources;
 using Windows.Win32;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
@@ -58,8 +59,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
         private void GpuController_Refreshed(object? sender, GPUController.RefreshedEventArgs e) => Dispatcher.Invoke(() =>
         {
-            var tooltipStringBuilder = new StringBuilder("Performance state:");
-            tooltipStringBuilder.AppendLine().Append(e.PerformanceState ?? "Unknown").AppendLine().AppendLine();
+            var tooltipStringBuilder = new StringBuilder(Resource.DiscreteGPUControl_PerformanceState);
+            tooltipStringBuilder.AppendLine().Append(e.PerformanceState ?? Resource.DiscreteGPUControl_PerformanceState_Unknown).AppendLine().AppendLine();
 
             if (e.Status is GPUController.Status.Unknown or GPUController.Status.NVIDIAGPUNotFound)
             {
@@ -78,7 +79,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
                 if (e.ProcessCount > 0)
                 {
-                    processesStringBuilder.Append("Processes:");
+                    processesStringBuilder.Append(Resource.DiscreteGPUControl_Processes);
                     foreach (var p in e.Processes)
                     {
                         try
@@ -90,12 +91,12 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
                 }
                 else
                 {
-                    processesStringBuilder.Append("No processes");
+                    processesStringBuilder.Append(Resource.DiscreteGPUControl_NoProcesses);
                 }
 
                 _discreteGPUStatusActiveIndicator.Visibility = Visibility.Visible;
                 _discreteGPUStatusInactiveIndicator.Visibility = Visibility.Collapsed;
-                _discreteGPUStatusDescription.Content = "Active";
+                _discreteGPUStatusDescription.Content = Resource.DiscreteGPUControl_Active;
                 _gpuInfoButton.ToolTip = tooltipStringBuilder.Append(processesStringBuilder).ToString();
                 _gpuInfoButton.IsEnabled = true;
             }
@@ -103,8 +104,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             {
                 _discreteGPUStatusActiveIndicator.Visibility = Visibility.Collapsed;
                 _discreteGPUStatusInactiveIndicator.Visibility = Visibility.Visible;
-                _discreteGPUStatusDescription.Content = "Inactive";
-                _gpuInfoButton.ToolTip = tooltipStringBuilder.Append("nVidia GPU is not active.").ToString();
+                _discreteGPUStatusDescription.Content = Resource.DiscreteGPUControl_Inactive;
+                _gpuInfoButton.ToolTip = tooltipStringBuilder.Append(Resource.DiscreteGPUControl_GPUIsNotActive).ToString();
                 _gpuInfoButton.IsEnabled = true;
             }
 
@@ -123,9 +124,9 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
             _deactivateGPUButton.ToolTip = e.Status switch
             {
-                GPUController.Status.MonitorsConnected => "A monitor is connected to nVidia GPU.",
-                GPUController.Status.DeactivatePossible => "nVidia GPU can be disabled.\n\nRemember, that some programs might crash if you do it.",
-                GPUController.Status.Inactive => "nVidia GPU is not active.",
+                GPUController.Status.MonitorsConnected => Resource.DiscreteGPUControl_MonitorConnected,
+                GPUController.Status.DeactivatePossible => Resource.DiscreteGPUControl_DisablePossible,
+                GPUController.Status.Inactive => Resource.DiscreteGPUControl_GPUIsNotActive,
                 _ => null,
             };
 

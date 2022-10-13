@@ -19,6 +19,7 @@ using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows;
 using LenovoLegionToolkit.WPF.Windows.Utils;
@@ -37,8 +38,12 @@ namespace LenovoLegionToolkit.WPF
         private Mutex? _mutex;
         private EventWaitHandle? _eventWaitHandle;
 
+        public new static App Current => (App)Application.Current;
+
         private async void Application_Startup(object sender, StartupEventArgs e)
         {
+            await LocalizationHelper.SetLanguageAsync();
+
             await CheckBasicCompatibilityAsync();
 
             var args = e.Args.Concat(LoadExternalArgs()).ToArray();
@@ -54,14 +59,14 @@ namespace LenovoLegionToolkit.WPF
 
             EnsureSingleInstance();
 
-            if (!ShouldByPassCompatibilityCheck(args))
-                await CheckCompatibilityAsync();
-
             IoCContainer.Initialize(
                 new Lib.IoCModule(),
                 new Lib.Automation.IoCModule(),
-                new WPF.IoCModule()
-            );
+                new IoCModule()
+                );
+
+            if (!ShouldByPassCompatibilityCheck(args))
+                await CheckCompatibilityAsync();
 
             if (ShouldForceDisableRGBKeyboardSupport(args))
                 IoCContainer.Resolve<RGBKeyboardBacklightController>().ForceDisable = true;
@@ -161,6 +166,22 @@ namespace LenovoLegionToolkit.WPF
                 Log.Instance.Trace($"Start up complete");
         }
 
+        public void RestartMainWindow()
+        {
+            if (MainWindow is MainWindow mw)
+            {
+                mw.SuppressClosingEventHandler = true;
+                mw.Close();
+            }
+
+            var mainWindow = new MainWindow
+            {
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+            MainWindow = mainWindow;
+            mainWindow.Show();
+        }
+
         public async Task ShutdownAsync()
         {
             try
@@ -188,7 +209,7 @@ namespace LenovoLegionToolkit.WPF
             Log.Instance.Trace($"Unhandled exception occurred.", e.Exception);
             Log.Instance.ErrorReport(e.Exception);
 
-            MessageBox.Show($"Unexpected exception occurred:\n{e.Exception.Message}\n\nPlease report the issue on {Constants.BugReportUri}.",
+            MessageBox.Show(string.Format(Resource.UnexpectedException, e.Exception.Message, Constants.BugReportUri),
                             "Error",
                             MessageBoxButton.OK,
                             MessageBoxImage.Error);
@@ -201,7 +222,7 @@ namespace LenovoLegionToolkit.WPF
             if (isCompatible)
                 return;
 
-            MessageBox.Show("This device is not compatible with Lenovo Legion Toolkit.", "Lenovo Legion Toolkit", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(Resource.IncompatibleDevice_Message, Resource.IncompatibleDevice_Title, MessageBoxButton.OK, MessageBoxImage.Error);
 
             Shutdown(99);
         }

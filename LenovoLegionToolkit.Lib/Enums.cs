@@ -1,22 +1,26 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using LenovoLegionToolkit.Lib.Resources;
 
 namespace LenovoLegionToolkit.Lib
 {
     public enum AlwaysOnUSBState
     {
+        [Display(ResourceType = typeof(Resource), Name = "AlwaysOnUSBState_Off")]
         Off,
-        [Display(Name = "On, when sleeping")]
+        [Display(ResourceType = typeof(Resource), Name = "AlwaysOnUSBState_OnWhenSleeping")]
         OnWhenSleeping,
-        [Display(Name = "On, always")]
+        [Display(ResourceType = typeof(Resource), Name = "AlwaysOnUSBState_OnAlways")]
         OnAlways
     }
 
 
     public enum BatteryState
     {
+        [Display(ResourceType = typeof(Resource), Name = "BatteryState_Conservation")]
         Conservation,
+        [Display(ResourceType = typeof(Resource), Name = "BatteryState_Normal")]
         Normal,
-        [Display(Name = "Rapid Charge")]
+        [Display(ResourceType = typeof(Resource), Name = "BatteryState_RapidCharge")]
         RapidCharge
     }
 
@@ -55,13 +59,13 @@ namespace LenovoLegionToolkit.Lib
 
     public enum HybridModeState
     {
-        [Display(Name = "Hybrid", Description = "Automatically switch between iGPU and dGPU.")]
+        [Display(ResourceType = typeof(Resource), Name = "HybridModeState_On")]
         On,
-        [Display(Name = "Hybrid-iGPU", Description = "Use iGPU only.")]
+        [Display(ResourceType = typeof(Resource), Name = "HybridModeState_OnIGPUOnly")]
         OnIGPUOnly,
-        [Display(Name = "Hybrid-Auto", Description = "Use both iGPU and dGPU when on AC power. Use iGPU only on battery.")]
+        [Display(ResourceType = typeof(Resource), Name = "HybridModeState_OnAuto")]
         OnAuto,
-        [Display(Name = "dGPU", Description = "Use dGPU only.")]
+        [Display(ResourceType = typeof(Resource), Name = "HybridModeState_Off")]
         Off
     }
 
@@ -126,10 +130,13 @@ namespace LenovoLegionToolkit.Lib
 
     public enum PowerModeState
     {
+        [Display(ResourceType = typeof(Resource), Name = "PowerModeState_Quiet")]
         Quiet,
+        [Display(ResourceType = typeof(Resource), Name = "PowerModeState_Balance")]
         Balance,
+        [Display(ResourceType = typeof(Resource), Name = "PowerModeState_Performance")]
         Performance,
-        [Display(Name = "Custom")]
+        [Display(ResourceType = typeof(Resource), Name = "PowerModeState_GodMode")]
         GodMode = 254
     }
 
@@ -143,37 +150,47 @@ namespace LenovoLegionToolkit.Lib
 
     public enum RGBKeyboardBrightness
     {
+        [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardBrightness_Low")]
         Low,
+        [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardBrightness_High")]
         High
     }
 
     public enum RGBKeyboardEffect
     {
+        [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardEffect_Static")]
         Static,
+        [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardEffect_Breath")]
         Breath,
+        [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardEffect_Smooth")]
         Smooth,
-        [Display(Name = "Wave Right")]
+        [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardEffect_WaveRTL")]
         WaveRTL,
-        [Display(Name = "Wave Left")]
+        [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardEffect_WaveLTR")]
         WaveLTR
     }
 
     public enum RGBKeyboardBacklightPreset
     {
+        [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardBacklightPreset_Off")]
         Off = -1,
-        [Display(Name = "Preset 1")]
+        [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardBacklightPreset_One")]
         One = 0,
-        [Display(Name = "Preset 2")]
+        [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardBacklightPreset_Two")]
         Two = 1,
-        [Display(Name = "Preset 3")]
+        [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardBacklightPreset_Three")]
         Three = 2
     }
 
     public enum RBGKeyboardSpeed
     {
+        [Display(ResourceType = typeof(Resource), Name = "RBGKeyboardSpeed_Slowest")]
         Slowest,
+        [Display(ResourceType = typeof(Resource), Name = "RBGKeyboardSpeed_Slow")]
         Slow,
+        [Display(ResourceType = typeof(Resource), Name = "RBGKeyboardSpeed_Fast")]
         Fast,
+        [Display(ResourceType = typeof(Resource), Name = "RBGKeyboardSpeed_Fastest")]
         Fastest
     }
 
@@ -199,8 +216,11 @@ namespace LenovoLegionToolkit.Lib
 
     public enum Theme
     {
+        [Display(ResourceType = typeof(Resource), Name = "Theme_System")]
         System,
+        [Display(ResourceType = typeof(Resource), Name = "Theme_Light")]
         Light,
+        [Display(ResourceType = typeof(Resource), Name = "Theme_Dark")]
         Dark
     }
 
@@ -220,8 +240,11 @@ namespace LenovoLegionToolkit.Lib
 
     public enum WhiteKeyboardBacklightState
     {
+        [Display(ResourceType = typeof(Resource), Name = "WhiteKeyboardBacklightState_Off")]
         Off,
+        [Display(ResourceType = typeof(Resource), Name = "WhiteKeyboardBacklightState_Low")]
         Low,
+        [Display(ResourceType = typeof(Resource), Name = "WhiteKeyboardBacklightState_High")]
         High
     }
 

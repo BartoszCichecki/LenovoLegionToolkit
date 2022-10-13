@@ -4,8 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="About"
+    Title="{x:Static resources:Resource.AboutPage_Title}"
     d:DesignHeight="450"
     d:DesignWidth="800"
     Style="{StaticResource UiPageScrollable}"
@@ -16,34 +17,34 @@
             Margin="0,16,0,24"
             FontSize="24"
             FontWeight="Medium"
-            Text="About" />
+            Text="{x:Static resources:Resource.AboutPage_Title}" />
 
         <TextBlock
             Padding="0,0,0,8"
             FontSize="16"
             FontWeight="Medium"
-            Text="Lenovo Legion Toolkit" />
+            Text="{x:Static resources:Resource.AboutPage_AppName}" />
         <TextBlock
             x:Name="_version"
             Padding="0,0,0,8"
-            Text="Version: " />
+            Text="{x:Static resources:Resource.AboutPage_Version}" />
         <TextBlock
             x:Name="_build"
             Padding="0,0,0,16"
-            Text="Build: " />
+            Text="{x:Static resources:Resource.AboutPage_Build}" />
         <TextBlock x:Name="_copyright" />
 
         <TextBlock
             Padding="0,24,0,8"
             FontSize="14"
             FontWeight="Medium"
-            Text="Links" />
+            Text="{x:Static resources:Resource.AboutPage_Links}" />
         <wpfui:Hyperlink
-            Content="Project website on GitHub"
+            Content="{x:Static resources:Resource.AboutPage_ProjectWebsiteOnGitHub}"
             Icon="Link24"
             NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit" />
         <wpfui:Hyperlink
-            Content="Latest release on GitHub"
+            Content="{x:Static resources:Resource.AboutPage_LatestReleaseOnGitHub}"
             Icon="Link24"
             NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit/releases/latest" />
 
@@ -51,7 +52,7 @@
             Padding="0,24,0,8"
             FontSize="14"
             FontWeight="Medium"
-            Text="3rd party libraries" />
+            Text="{x:Static resources:Resource.AboutPage_ThirdPartyLibraries}" />
 
         <Grid>
             <Grid.ColumnDefinitions>
