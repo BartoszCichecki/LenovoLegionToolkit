@@ -1,4 +1,5 @@
 ﻿using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
@@ -8,8 +9,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
         public BatteryModeControl()
         {
             Icon = SymbolRegular.BatteryCharge24;
-            Title = "Battery Mode";
-            Subtitle = "Choose how the battery is charged.";
+            Title = Resource.BatteryModeControl_Title;
+            Subtitle = Resource.BatteryModeControl_Message;
         }
     }
 }

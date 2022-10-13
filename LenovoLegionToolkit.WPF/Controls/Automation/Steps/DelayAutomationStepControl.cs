@@ -1,5 +1,6 @@
 ﻿using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Automation.Steps;
+using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
@@ -9,8 +10,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
         public DelayAutomationStepControl(IAutomationStep<Delay> step) : base(step)
         {
             Icon = SymbolRegular.Clock24;
-            Title = "Delay";
-            Subtitle = "Add delay before running next step.";
+            Title = Resource.DelayAutomationStepControl_Title;
+            Subtitle = Resource.DelayAutomationStepControl_Message;
         }
     }
 }

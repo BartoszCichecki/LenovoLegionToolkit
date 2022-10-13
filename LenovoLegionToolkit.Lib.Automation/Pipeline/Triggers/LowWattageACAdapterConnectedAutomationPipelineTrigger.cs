@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Automation.Resources;
 using LenovoLegionToolkit.Lib.System;
 using Newtonsoft.Json;
 
@@ -8,7 +9,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
     public class LowWattageACAdapterConnectedAutomationPipelineTrigger : IAutomationPipelineTrigger, IPowerStateAutomationPipelineTrigger, IDisallowDuplicatesAutomationPipelineTrigger
     {
         [JsonIgnore]
-        public string DisplayName => "When low wattage AC power adapter is connected";
+        public string DisplayName => Resource.LowWattageACAdapterConnectedAutomationPipelineTrigger_DisplayName;
 
         public async Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent)
         {

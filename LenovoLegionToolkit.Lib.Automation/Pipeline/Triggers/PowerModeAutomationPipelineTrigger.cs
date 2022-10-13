@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Automation.Resources;
 using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
 {
     public class PowerModeAutomationPipelineTrigger : IAutomationPipelineTrigger, IPowerModeAutomationPipelineTrigger
     {
-        public string DisplayName => "When power mode is changed";
+        public string DisplayName => Resource.PowerModeAutomationPipelineTrigger_DisplayName;
 
         public PowerModeState PowerModeState { get; }
 
