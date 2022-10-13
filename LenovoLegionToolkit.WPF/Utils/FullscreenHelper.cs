@@ -1,42 +1,27 @@
-﻿using System;
-using System.Runtime.InteropServices;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using Windows.Win32;
+using Windows.Win32.Foundation;
 
 namespace LenovoLegionToolkit.WPF.Utils
 {
     public static class FullscreenHelper
     {
-        [StructLayout(LayoutKind.Sequential)]
-        private struct Rect
-        {
-            public int Left;
-            public int Top;
-            public int Right;
-            public int Bottom;
-        }
-
-        [DllImport("user32.dll")]
-        private static extern IntPtr GetForegroundWindow();
-        [DllImport("user32.dll")]
-        private static extern IntPtr GetDesktopWindow();
-        [DllImport("user32.dll")]
-        private static extern IntPtr GetShellWindow();
-        [DllImport("user32.dll", SetLastError = true)]
-        private static extern int GetWindowRect(IntPtr hwnd, out Rect rc);
-
         public static bool IsAnyApplicationFullscreen()
         {
-            var hwndDesktop = GetDesktopWindow();
-            var hwndShell = GetShellWindow();
+            var hwndDesktop = PInvoke.GetDesktopWindow();
+            var hwndShell = PInvoke.GetShellWindow();
 
-            var hwndForeground = GetForegroundWindow();
-            if (hwndForeground == IntPtr.Zero || hwndForeground == hwndDesktop || hwndForeground == hwndShell)
+            var hwndForeground = PInvoke.GetForegroundWindow();
+            if (hwndForeground == HWND.Null || hwndForeground == hwndDesktop || hwndForeground == hwndShell)
                 return false;
 
-            _ = GetWindowRect(hwndForeground, out Rect appBounds);
-            var screenBounds = Screen.FromHandle(hwndForeground).Bounds;
+            var result = PInvoke.GetWindowRect(hwndForeground, out var appBounds);
+            if (!result)
+                return false;
 
-            return appBounds.Bottom - appBounds.Top == screenBounds.Height && appBounds.Right - appBounds.Left == screenBounds.Width;
+            var screenBounds = Screen.FromHandle(hwndForeground.Value).Bounds;
+
+            return appBounds.bottom - appBounds.top == screenBounds.Height && appBounds.right - appBounds.left == screenBounds.Width;
         }
     }
 }
