@@ -5,7 +5,7 @@ namespace System.Windows.Controls
 {
     public static class ComboBoxExtensions
     {
-        public static void SetItems<T>(this ComboBox comboBox, IEnumerable<T> items, T selectedItem, Func<T, string>? displayValueConverter = null)
+        public static void SetItems<T>(this ComboBox comboBox, IEnumerable<T> items, T selectedItem, Func<T, string>? displayValueConverter)
         {
             var boxedItems = items.Select(v => new ComboBoxItem<T>(v, displayValueConverter));
             var selectedBoxedItem = boxedItems.FirstOrDefault(bv => EqualityComparer<T>.Default.Equals(bv.Value, selectedItem));

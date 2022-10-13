@@ -340,7 +340,7 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to System.
+        ///   Looks up a localized string similar to Dark.
         /// </summary>
         public static string Theme_Dark {
             get {
@@ -349,7 +349,7 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to System.
+        ///   Looks up a localized string similar to Light.
         /// </summary>
         public static string Theme_Light {
             get {
