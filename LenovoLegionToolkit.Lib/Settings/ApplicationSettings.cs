@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Globalization;
 
 namespace LenovoLegionToolkit.Lib.Settings
 {
@@ -8,7 +7,6 @@ namespace LenovoLegionToolkit.Lib.Settings
     {
         public class ApplicationSettingsStore
         {
-            public CultureInfo CultureInfo { get; set; } = new("en");
             public Theme Theme { get; set; } = Theme.Dark;
             public RGBColor? AccentColor { get; set; }
             public Dictionary<PowerModeState, string> PowerPlans { get; set; } = new();

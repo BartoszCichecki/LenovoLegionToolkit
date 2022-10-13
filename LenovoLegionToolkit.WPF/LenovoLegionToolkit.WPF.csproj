@@ -64,9 +64,6 @@
 	  </Compile>
 	</ItemGroup>
 	<ItemGroup>
-	  <EmbeddedResource Update="Resources\Resource.pl.resx">
-	    <DependentUpon>Resource.resx</DependentUpon>
-	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Resource.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>Resource.Designer.cs</LastGenOutput>

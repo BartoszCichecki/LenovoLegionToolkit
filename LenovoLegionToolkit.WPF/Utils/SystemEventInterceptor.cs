@@ -25,25 +25,28 @@ namespace LenovoLegionToolkit.WPF.Utils
         public event EventHandler? OnDisplayDeviceArrival;
         public event EventHandler? OnResumed;
 
-        public SystemEventInterceptor(Window window)
+        public SystemEventInterceptor(Window parent)
         {
-            var ptr = new WindowInteropHelper(window).Handle;
+            var ptr = new WindowInteropHelper(parent).Handle;
             _safeHandle = new SafeAccessTokenHandle(ptr);
 
             _taskbarCreatedMessageId = RegisterTaskbarCreatedMessage();
             _displayArrivalHandle = RegisterDisplayArrival(_safeHandle);
             _powerNotificationHandle = RegisterPowerNotification(_safeHandle);
 
+            parent.Closed += Parent_Closed;
+
             AssignHandle(ptr);
         }
 
-        ~SystemEventInterceptor()
+        private void Parent_Closed(object? sender, EventArgs e)
         {
             PInvoke.UnregisterDeviceNotification(_displayArrivalHandle);
             PInvoke.UnregisterPowerSettingNotification(new HPOWERNOTIFY(_powerNotificationHandle.DangerousGetHandle()));
 
             _powerNotificationHandle.DangerousRelease();
-            _safeHandle.Dispose();
+
+            ReleaseHandle();
         }
 
         private static uint RegisterTaskbarCreatedMessage()

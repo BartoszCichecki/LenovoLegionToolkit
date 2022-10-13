@@ -18,7 +18,6 @@ using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
-using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
@@ -39,8 +38,12 @@ namespace LenovoLegionToolkit.WPF
         private Mutex? _mutex;
         private EventWaitHandle? _eventWaitHandle;
 
+        public new static App Current => (App)Application.Current;
+
         private async void Application_Startup(object sender, StartupEventArgs e)
         {
+            await LocalizationHelper.SetLanguageAsync();
+
             await CheckBasicCompatibilityAsync();
 
             var args = e.Args.Concat(LoadExternalArgs()).ToArray();
@@ -56,9 +59,11 @@ namespace LenovoLegionToolkit.WPF
 
             EnsureSingleInstance();
 
-            IoCContainer.Initialize(new Lib.IoCModule(), new Lib.Automation.IoCModule(), new IoCModule());
-
-            CultureHelper.Set(IoCContainer.Resolve<ApplicationSettings>().Store.CultureInfo);
+            IoCContainer.Initialize(
+                new Lib.IoCModule(),
+                new Lib.Automation.IoCModule(),
+                new IoCModule()
+                );
 
             if (!ShouldByPassCompatibilityCheck(args))
                 await CheckCompatibilityAsync();
@@ -159,6 +164,22 @@ namespace LenovoLegionToolkit.WPF
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Start up complete");
+        }
+
+        public void RestartMainWindow()
+        {
+            if (MainWindow is MainWindow mw)
+            {
+                mw.SuppressClosingEventHandler = true;
+                mw.Close();
+            }
+
+            var mainWindow = new MainWindow
+            {
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+            MainWindow = mainWindow;
+            mainWindow.Show();
         }
 
         public async Task ShutdownAsync()
