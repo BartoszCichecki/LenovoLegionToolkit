@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
@@ -60,7 +61,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 _langCardControl.Visibility = Visibility.Collapsed;
             }
 
-            _themeComboBox.SetItems(Enum.GetValues<Theme>(), _settings.Store.Theme);
+            _themeComboBox.SetItems(Enum.GetValues<Theme>(), _settings.Store.Theme, t => t.GetDisplayName());
             _accentColor.SetColor(_settings.Store.AccentColor ?? _themeManager.DefaultAccentColor);
             _autorunToggle.IsChecked = Autorun.IsEnabled;
             _minimizeOnCloseToggle.IsChecked = _settings.Store.MinimizeOnClose;
