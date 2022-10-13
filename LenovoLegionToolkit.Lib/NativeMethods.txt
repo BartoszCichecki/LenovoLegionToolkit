@@ -70,3 +70,8 @@ RegisterPowerSettingNotification
 RegisterWindowMessage
 UnregisterDeviceNotification
 UnregisterPowerSettingNotification
+
+GetForegroundWindow
+GetDesktopWindow
+GetShellWindow
+GetWindowRect
