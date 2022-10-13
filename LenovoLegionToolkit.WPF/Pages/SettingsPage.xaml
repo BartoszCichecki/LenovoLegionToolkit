@@ -21,6 +21,21 @@
             FontWeight="Medium"
             Text="{x:Static resources:Resource.SettingsPage_Title}" />
 
+        <wpfui:CardControl
+            x:Name="_langCardControl"
+            Margin="0,0,0,8"
+            Icon="LocalLanguage24">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_Language_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_Language_Message}" />
+            </wpfui:CardControl.Header>
+            <ComboBox
+                x:Name="_langComboBox"
+                Width="150"
+                Margin="0,0,0,8"
+                SelectionChanged="LangComboBox_SelectionChanged"
+                Visibility="Hidden" />
+        </wpfui:CardControl>
+
         <wpfui:CardControl Margin="0,0,0,8" Icon="DarkTheme24">
             <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_Theme_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_Theme_Description}" />
@@ -36,25 +51,10 @@
         <controls:ColorCardControl
             x:Name="_accentColor"
             Title="{x:Static resources:Resource.SettingsPage_AccentColor_Title}"
-            Margin="0,0,0,8"
+            Margin="0,0,0,24"
             Icon="Color24"
             OnChanged="AccentColorControl_OnChanged"
             Subtitle="{x:Static resources:Resource.SettingsPage_AccentColor_Description}" />
-
-        <wpfui:CardControl
-            x:Name="_langCardControl"
-            Margin="0,0,0,24"
-            Icon="LocalLanguage24">
-            <wpfui:CardControl.Header>
-                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_Language_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_Language_Message}" />
-            </wpfui:CardControl.Header>
-            <ComboBox
-                x:Name="_langComboBox"
-                Width="150"
-                Margin="0,0,0,8"
-                SelectionChanged="LangComboBox_SelectionChanged"
-                Visibility="Hidden" />
-        </wpfui:CardControl>
 
         <wpfui:CardControl Margin="0,0,0,8">
             <wpfui:CardControl.Header>

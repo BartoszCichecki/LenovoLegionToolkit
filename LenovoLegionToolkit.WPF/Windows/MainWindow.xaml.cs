@@ -29,6 +29,8 @@ namespace LenovoLegionToolkit.WPF.Windows
         private readonly SpecialKeyListener _specialKeyListener = IoCContainer.Resolve<SpecialKeyListener>();
         private readonly UpdateChecker _updateChecker = IoCContainer.Resolve<UpdateChecker>();
 
+        public bool SuppressClosingEventHandler { get; set; }
+
         public Snackbar Snackbar => _snackbar;
 
         private SystemEventInterceptor? _systemEventInterceptor;
@@ -41,6 +43,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             SourceInitialized += MainWindow_SourceInitialized;
             Loaded += MainWindow_Loaded;
             Closing += MainWindow_Closing;
+            Closed += MainWindow_Closed;
             IsVisibleChanged += MainWindow_IsVisibleChanged;
             StateChanged += MainWindow_StateChanged;
 
@@ -65,7 +68,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             _notifyIcon?.Unregister();
 
             ContextMenuHelper.Instance.BringToForeground = BringToForeground;
-            ContextMenuHelper.Instance.Close = ((App)Application.Current).ShutdownAsync;
+            ContextMenuHelper.Instance.Close = App.Current.ShutdownAsync;
 
             var notifyIcon = new NotifyIcon
             {
@@ -135,6 +138,9 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private async void MainWindow_Closing(object? sender, CancelEventArgs e)
         {
+            if (SuppressClosingEventHandler)
+                return;
+
             if (_settings.Store.MinimizeOnClose)
             {
                 if (Log.Instance.IsTraceEnabled)
@@ -148,11 +154,15 @@ namespace LenovoLegionToolkit.WPF.Windows
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Closing...");
 
-                _systemEventInterceptor = null;
                 _notifyIcon?.Unregister();
 
-                await ((App)Application.Current).ShutdownAsync();
+                await App.Current.ShutdownAsync();
             }
+        }
+
+        private void MainWindow_Closed(object? sender, EventArgs e)
+        {
+            _systemEventInterceptor = null;
         }
 
         private void MainWindow_StateChanged(object? sender, EventArgs e)

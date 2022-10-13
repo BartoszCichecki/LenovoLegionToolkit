@@ -48,10 +48,11 @@ namespace LenovoLegionToolkit.WPF.Pages
 
             var loadingTask = Task.Delay(250);
 
-            var languages = ResourceHelper.GetLanguages().ToArray();
+            var languages = LocalizationHelper.GetLanguages().ToArray();
+            var language = await LocalizationHelper.GetLanguageAsync();
             if (languages.Length > 1)
             {
-                _langComboBox.SetItems(languages, _settings.Store.CultureInfo, cc => cc.NativeName);
+                _langComboBox.SetItems(languages, language, cc => cc.NativeName);
                 _langComboBox.Visibility = Visibility.Visible;
             }
             else
@@ -102,13 +103,9 @@ namespace LenovoLegionToolkit.WPF.Pages
             if (!_langComboBox.TryGetSelectedItem(out CultureInfo? cultureInfo) || cultureInfo is null)
                 return;
 
-            _settings.Store.CultureInfo = cultureInfo;
-            _settings.SynchronizeStore();
+            await LocalizationHelper.SetLanguageAsync(cultureInfo);
 
-            var result = await MessageBoxHelper.ShowAsync(this, "Restart required",
-                "Language will be changed after Lenovo Legion Toolkit is restarted.", "Exit", "Not now");
-            if (result)
-                await ((App)Application.Current).ShutdownAsync();
+            App.Current.RestartMainWindow();
         }
 
         private void ThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
