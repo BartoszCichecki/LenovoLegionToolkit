@@ -8,6 +8,7 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.WPF.Resources;
 using NeoSmart.AsyncLock;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
@@ -39,10 +40,10 @@ namespace LenovoLegionToolkit.WPF.Utils
         {
             ContextMenu = new ContextMenu();
 
-            var openMenuItem = new MenuItem { Header = "Open", Tag = StaticTag };
+            var openMenuItem = new MenuItem { Header = Resource.Open, Tag = StaticTag };
             openMenuItem.Click += (s, e) => BringToForeground?.Invoke();
 
-            var closeMenuItem = new MenuItem { Header = "Close", Tag = StaticTag };
+            var closeMenuItem = new MenuItem { Header = Resource.Close, Tag = StaticTag };
             closeMenuItem.Click += async (s, e) =>
             {
                 if (Close is not null)
@@ -77,7 +78,7 @@ namespace LenovoLegionToolkit.WPF.Utils
 
                 var items = new List<Control>
                 {
-                    new MenuItem { Header = "Quick Actions", Tag = QuickActionsTag, IsEnabled = false }
+                    new MenuItem { Header = Resource.ContextMenu_QuickActions, Tag = QuickActionsTag, IsEnabled = false }
                 };
 
                 foreach (var menuPipeline in pipelines.Where(p => p.Trigger is null))
@@ -85,7 +86,7 @@ namespace LenovoLegionToolkit.WPF.Utils
                     var item = new MenuItem
                     {
                         SymbolIcon = SymbolRegular.Play24,
-                        Header = menuPipeline.Name ?? "Unnamed",
+                        Header = menuPipeline.Name ?? Resource.Unnamed,
                         Tag = QuickActionsTag,
                     };
                     item.Click += async (s, e) =>

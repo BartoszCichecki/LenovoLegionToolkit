@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib.Automation.Steps;
+using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Common;
 using TextBox = Wpf.Ui.Controls.TextBox;
 
@@ -11,14 +12,14 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
     {
         private readonly TextBox _scriptPath = new()
         {
-            PlaceholderText = "ExecutablePath",
+            PlaceholderText = Resource.RunAutomationStepControl_ExePath,
             Width = 300,
             Margin = new(0, 0, 0, 8),
         };
 
         private readonly TextBox _scriptArguments = new()
         {
-            PlaceholderText = "Arguments",
+            PlaceholderText = Resource.RunAutomationStepControl_ExeArguments,
             Width = 300,
         };
 
@@ -27,8 +28,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
         public RunAutomationStepControl(RunAutomationStep step) : base(step)
         {
             Icon = SymbolRegular.WindowConsole20;
-            Title = "Run";
-            Subtitle = "Run a script or a program.\nMake sure that your script runs correctly first.";
+            Title = Resource.RunAutomationStepControl_Title;
+            Subtitle = Resource.RunAutomationStepControl_Message;
 
             SizeChanged += RunAutomationStepControl_SizeChanged;
         }

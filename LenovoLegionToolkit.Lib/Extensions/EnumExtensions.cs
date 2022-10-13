@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Reflection;
 
 namespace LenovoLegionToolkit.Lib.Extensions
 {
@@ -14,7 +15,14 @@ namespace LenovoLegionToolkit.Lib.Extensions
                 .GetCustomAttributes(false)
                 .OfType<DisplayAttribute>()
                 .FirstOrDefault();
-            return displayAttribute?.Name ?? enumValue.ToString();
+
+            if (displayAttribute?.Name is null)
+                return enumValue.ToString();
+
+            if (displayAttribute.ResourceType?.GetProperty(displayAttribute.Name, BindingFlags.Static | BindingFlags.Public)?.GetValue(null) is string str)
+                return str;
+
+            return displayAttribute.Name;
         }
     }
 }

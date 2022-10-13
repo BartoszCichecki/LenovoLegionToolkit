@@ -1,5 +1,6 @@
 ﻿using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
@@ -11,8 +12,8 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
         public WhiteKeyboardBacklightControl()
         {
             Icon = SymbolRegular.Keyboard24;
-            Title = "Brightness";
-            Subtitle = "You can change brightness with Fn+Space";
+            Title = Resource.WhiteKeyboardBacklightControl_Title;
+            Subtitle = Resource.WhiteKeyboardBacklightControl_Message;
 
             _listener.Changed += Listener_Changed;
         }

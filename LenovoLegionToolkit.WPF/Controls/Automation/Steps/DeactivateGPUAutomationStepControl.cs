@@ -1,5 +1,6 @@
 ﻿using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Automation.Steps;
+using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
@@ -9,8 +10,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
         public DeactivateGPUAutomationStepControl(DeactivateGPUAutomationStep step) : base(step)
         {
             Icon = SymbolRegular.DeveloperBoard24;
-            Title = "Deactivate GPU";
-            Subtitle = "Disable discrete GPU if it is active unnecessarily.\n\nWARNING: This action will not run correctly, if internal display is off or Hybrid mode is not active.";
+            Title = Resource.DeactivateGPUAutomationStepControl_Title;
+            Subtitle = Resource.DeactivateGPUAutomationStepControl_Message;
         }
     }
 }

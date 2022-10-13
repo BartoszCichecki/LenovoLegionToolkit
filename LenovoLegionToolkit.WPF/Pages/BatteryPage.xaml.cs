@@ -6,6 +6,7 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Common;
 
 #pragma warning disable IDE0052 // Remove unread private members
@@ -137,15 +138,15 @@ namespace LenovoLegionToolkit.WPF.Pages
             if (batteryInfo.IsCharging)
             {
                 if (batteryInfo.DischargeRate > 0)
-                    return "Connected, charging...";
+                    return Resource.BatteryPage_ACAdapterConnectedAndCharging;
 
-                return "Connected, not charging";
+                return Resource.BatteryPage_ACAdapterConnectedNotCharging;
             }
 
             if (batteryInfo.BatteryLifeRemaining < 0)
-                return "Estimating time...";
+                return Resource.BatteryPage_EstimatingBatteryLife;
 
-            return $"Estimated time remaining: {GetTimeString(batteryInfo.BatteryLifeRemaining)}";
+            return string.Format(Resource.BatteryPage_EstimatedBatteryLifeRemaining, GetTimeString(batteryInfo.BatteryLifeRemaining));
         }
 
         private static string GetTimeString(int seconds)
@@ -174,11 +175,10 @@ namespace LenovoLegionToolkit.WPF.Pages
             {
                 temperature *= 9.0 / 5.0;
                 temperature += 32;
-                return $"{temperature:0.0} °F";
+                return $"{temperature:0.0} {Resource.Fahrenheit}";
             }
 
-
-            return $"{temperature:0.0} °C";
+            return $"{temperature:0.0} {Resource.Celsius}";
         }
 
         private void BatteryTemperatureCardControl_Click(object sender, RoutedEventArgs e)

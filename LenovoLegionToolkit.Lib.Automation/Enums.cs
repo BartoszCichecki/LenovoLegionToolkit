@@ -1,12 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using LenovoLegionToolkit.Lib.Automation.Resources;
 
 namespace LenovoLegionToolkit.Lib.Automation
 {
     public enum DeactivateGPUAutomationStepState
     {
-        [Display(Name = "Kill apps")]
+        [Display(ResourceType = typeof(Resource), Name = "DeactivateGPUAutomationStepState_KillApps")]
         KillApps,
-        [Display(Name = "Restart GPU")]
+        [Display(ResourceType = typeof(Resource), Name = "DeactivateGPUAutomationStepState_RestartGPU")]
         RestartGPU,
     }
 }

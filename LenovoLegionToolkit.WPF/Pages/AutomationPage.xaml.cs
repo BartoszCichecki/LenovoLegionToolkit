@@ -12,6 +12,7 @@ using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Controls.Automation.Pipeline;
+using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using Wpf.Ui.Common;
 using MenuItem = Wpf.Ui.Controls.MenuItem;
@@ -80,7 +81,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 await _automationProcessor.ReloadPipelinesAsync(pipelines);
                 await RefreshAsync();
 
-                await SnackbarHelper.ShowAsync("Saved", "Changes were saved successfully!");
+                await SnackbarHelper.ShowAsync(Resource.AutomationPage_Saved_Title, Resource.AutomationPage_Saved_Message);
             }
             finally
             {
@@ -93,7 +94,7 @@ namespace LenovoLegionToolkit.WPF.Pages
         {
             await RefreshAsync();
 
-            await SnackbarHelper.ShowAsync("Reverted", "All changes reverted!");
+            await SnackbarHelper.ShowAsync(Resource.AutomationPage_Reverted_Title, Resource.AutomationPage_Reverted_Message);
         }
 
         private async Task RefreshAsync()
@@ -211,19 +212,29 @@ namespace LenovoLegionToolkit.WPF.Pages
             var control = GenerateControl(pipeline, _automaticPipelinesStackPanel);
             _automaticPipelinesStackPanel.Children.Insert(0, control);
 
+            _noAutomaticActionsText.Visibility = _automaticPipelinesStackPanel.Children.Count < 1
+                ? Visibility.Visible
+                : Visibility.Collapsed;
+
             await RefreshNewAutomaticPipelineButtonAsync();
             PipelinesChanged();
         }
 
         private async Task AddManualPipelineAsync()
         {
-            var newName = await MessageBoxHelper.ShowInputAsync(this, "Add new", "Name...");
+            var newName = await MessageBoxHelper.ShowInputAsync(this,
+                Resource.AutomationPage_AddManualPipeline_Title,
+                Resource.AutomationPage_AddManualPipeline_Placeholder);
             if (string.IsNullOrWhiteSpace(newName))
                 return;
 
             var pipeline = new AutomationPipeline(newName);
             var control = GenerateControl(pipeline, _manualPipelinesStackPanel);
             _manualPipelinesStackPanel.Children.Insert(0, control);
+
+            _noManualActionsText.Visibility = _manualPipelinesStackPanel.Children.Count < 1
+                ? Visibility.Visible
+                : Visibility.Collapsed;
 
             await RefreshNewAutomaticPipelineButtonAsync();
             PipelinesChanged();
@@ -232,13 +243,24 @@ namespace LenovoLegionToolkit.WPF.Pages
         private async Task RenamePipelineAsync(AutomationPipelineControl control)
         {
             var name = control.GetName();
-            var newName = await MessageBoxHelper.ShowInputAsync(this, "Rename", "Name...", name, allowEmpty: true);
+            var newName = await MessageBoxHelper.ShowInputAsync(this,
+                Resource.AutomationPage_RenamePipeline_Title,
+                Resource.AutomationPage_RenamePipeline_Placeholder,
+                name,
+                allowEmpty: true);
             control.SetName(newName);
         }
 
         private async Task DeletePipelineAsync(AutomationPipelineControl control, StackPanel stackPanel)
         {
             stackPanel.Children.Remove(control);
+
+            _noAutomaticActionsText.Visibility = _automaticPipelinesStackPanel.Children.Count < 1
+                ? Visibility.Visible
+                : Visibility.Collapsed;
+            _noManualActionsText.Visibility = _manualPipelinesStackPanel.Children.Count < 1
+                ? Visibility.Visible
+                : Visibility.Collapsed;
 
             await RefreshNewAutomaticPipelineButtonAsync();
             PipelinesChanged();

@@ -1,5 +1,6 @@
 ﻿using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
@@ -17,8 +18,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
         public WinKeyControl()
         {
             Icon = SymbolRegular.Keyboard24;
-            Title = "Windows Key Lock";
-            Subtitle = "Only works on built-in keyboard.";
+            Title = Resource.WinKeyControl_Title;
+            Subtitle = Resource.WinKeyControl_Message;
 
             _listener.Changed += Listener_Changed;
         }

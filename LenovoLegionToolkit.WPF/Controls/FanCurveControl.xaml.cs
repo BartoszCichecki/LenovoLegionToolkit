@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.WPF.Resources;
 
 namespace LenovoLegionToolkit.WPF.Controls
 {
@@ -231,9 +232,9 @@ namespace LenovoLegionToolkit.WPF.Controls
                 }
             };
 
-            private readonly TextBlock _desc1 = new() { Text = "CPU:", Margin = new(0, 0, 8, 0) };
-            private readonly TextBlock _desc2 = new() { Text = "CPU Sensor:", Margin = new(0, 0, 8, 0) };
-            private readonly TextBlock _desc3 = new() { Text = "GPU:", Margin = new(0, 0, 8, 0) };
+            private readonly TextBlock _desc1 = new() { Text = Resource.FanCurveControl_CPU, FontWeight = FontWeights.Medium, Margin = new(0, 0, 8, 0) };
+            private readonly TextBlock _desc2 = new() { Text = Resource.FanCurveControl_CPUSensor, FontWeight = FontWeights.Medium, Margin = new(0, 0, 8, 0) };
+            private readonly TextBlock _desc3 = new() { Text = Resource.FanCurveControl_GPU, FontWeight = FontWeights.Medium, Margin = new(0, 0, 8, 0) };
 
             private readonly TextBlock _value1 = new();
             private readonly TextBlock _value2 = new();
@@ -278,7 +279,7 @@ namespace LenovoLegionToolkit.WPF.Controls
                 {
                     _value1.Text = tableData
                         .Where(td => td.Type == FanTableType.CPU)
-                        .Select(td => $"{td.Temps[index]}°C @ {td.FanSpeeds[value]}RPM")
+                        .Select(td => $"{td.Temps[index]}{Resource.Celsius} @ {td.FanSpeeds[value]} {Resource.FanCurveControl_RPM}")
                         .FirstOrDefault() ?? "-";
                 }
                 catch
@@ -290,7 +291,7 @@ namespace LenovoLegionToolkit.WPF.Controls
                 {
                     _value2.Text = tableData
                         .Where(td => td.Type == FanTableType.CPUSensor)
-                        .Select(td => $"{td.Temps[index]}°C @ {td.FanSpeeds[value]}RPM")
+                        .Select(td => $"{td.Temps[index]}{Resource.Celsius} @ {td.FanSpeeds[value]} {Resource.FanCurveControl_RPM}")
                         .FirstOrDefault() ?? "-";
                 }
                 catch
@@ -302,7 +303,7 @@ namespace LenovoLegionToolkit.WPF.Controls
                 {
                     _value3.Text = tableData
                         .Where(td => td.Type == FanTableType.GPU)
-                        .Select(td => $"{td.Temps[index]}°C @ {td.FanSpeeds[value]}RPM")
+                        .Select(td => $"{td.Temps[index]}{Resource.Celsius} @ {td.FanSpeeds[value]} {Resource.FanCurveControl_RPM}")
                         .FirstOrDefault() ?? "-";
                 }
                 catch

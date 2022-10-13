@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Automation.Resources;
 using LenovoLegionToolkit.Lib.System;
 using Newtonsoft.Json;
 
@@ -8,7 +9,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
     public class ACAdapterDisconnectedAutomationPipelineTrigger : IAutomationPipelineTrigger, IPowerStateAutomationPipelineTrigger, IDisallowDuplicatesAutomationPipelineTrigger
     {
         [JsonIgnore]
-        public string DisplayName => "When AC power adapter is disconnected";
+        public string DisplayName => Resource.ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName;
 
         public async Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent)
         {

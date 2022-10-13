@@ -4,16 +4,16 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.PackageDownloader;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Packages;
 
 namespace LenovoLegionToolkit.WPF.Controls.Packages
 {
-    public partial class PackageControl : UserControl, IProgress<float>
+    public partial class PackageControl : IProgress<float>
     {
         private readonly IPackageDownloader _packageDownloader;
         private readonly Package _package;
@@ -39,7 +39,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Packages
             _descriptionTextBlock.Text = package.Description;
             _descriptionTextBlock.Visibility = string.IsNullOrWhiteSpace(package.Description) ? Visibility.Collapsed : Visibility.Visible;
             _categoryTextBlock.Text = package.Category;
-            _detailTextBlock.Text = $"Version {package.Version}  |  {package.FileSize}  |  {package.FileName}";
+            _detailTextBlock.Text = $"{Resource.PackageControl_Version} {package.Version}  |  {package.FileSize}  |  {package.FileName}";
 
             _readmeButton.Visibility = string.IsNullOrWhiteSpace(package.Readme) ? Visibility.Collapsed : Visibility.Visible;
 
@@ -96,21 +96,21 @@ namespace LenovoLegionToolkit.WPF.Controls.Packages
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Not found 404.", ex);
 
-                SnackbarHelper.Show("The file seems to be gone", "Server returned code 404.", true);
+                SnackbarHelper.Show(Resource.PackageControl_Http404Error_Title, Resource.PackageControl_Http404Error_Message, true);
             }
             catch (HttpRequestException ex)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Error occured when downloading package file.", ex);
 
-                SnackbarHelper.Show("Something went wrong", "Check if your internet connection is up and running.", true);
+                SnackbarHelper.Show(Resource.PackageControl_HttpGeneralError_Title, Resource.PackageControl_HttpGeneralError_Message, true);
             }
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Error occured when downloading package file.", ex);
 
-                SnackbarHelper.Show("Something went wrong", ex.Message, true);
+                SnackbarHelper.Show(Resource.PackageControl_GeneralError_Title, ex.Message, true);
             }
             finally
             {
@@ -123,7 +123,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Packages
             }
 
             if (result)
-                await SnackbarHelper.ShowAsync("Download complete", $"{_package.FileName} downloaded!");
+                await SnackbarHelper.ShowAsync(Resource.PackageControl_DownloadComplete_Title, string.Format(Resource.PackageControl_DownloadComplete_Message, _package.FileName));
         }
 
         private void CancelDownloadButton_Click(object sender, RoutedEventArgs e) => _downloadPackageTokenSource?.Cancel();

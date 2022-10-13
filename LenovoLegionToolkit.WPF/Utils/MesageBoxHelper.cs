@@ -1,7 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Common;
 using MessageBox = Wpf.Ui.Controls.MessageBox;
 using TextBox = Wpf.Ui.Controls.TextBox;
@@ -10,24 +12,24 @@ namespace LenovoLegionToolkit.WPF.Utils
 {
     public static class MessageBoxHelper
     {
-        public static Task<bool> ShowAsync(
-            DependencyObject dependencyObject,
+        public static Task<bool> ShowAsync(DependencyObject dependencyObject,
             string title,
             string message,
-            string leftButton = "Yes",
-            string rightButton = "No"
-        )
+            string? leftButton = null,
+            string? rightButton = null
+            )
         {
-            return ShowAsync(Window.GetWindow(dependencyObject), title, message, leftButton, rightButton);
+            var window = Window.GetWindow(dependencyObject) ?? Application.Current.MainWindow;
+            if (window is null)
+                throw new InvalidOperationException("Cannot show message without window.");
+            return ShowAsync(window, title, message, leftButton, rightButton);
         }
 
-        public static Task<bool> ShowAsync(
-            Window window,
+        public static Task<bool> ShowAsync(Window window,
             string title,
             string message,
-            string primaryButton = "Yes",
-            string secondaryButton = "No"
-        )
+            string? primaryButton = null,
+            string? secondaryButton = null)
         {
             var tcs = new TaskCompletionSource<bool>();
 
@@ -40,8 +42,8 @@ namespace LenovoLegionToolkit.WPF.Utils
                     Text = message,
                     TextWrapping = TextWrapping.Wrap,
                 },
-                ButtonLeftName = primaryButton,
-                ButtonRightName = secondaryButton,
+                ButtonLeftName = primaryButton ?? Resource.Yes,
+                ButtonRightName = secondaryButton ?? Resource.No,
                 ShowInTaskbar = false,
                 Topmost = false,
                 ResizeMode = ResizeMode.NoResize,
@@ -70,12 +72,15 @@ namespace LenovoLegionToolkit.WPF.Utils
             string title,
             string? placeholder = null,
             string? text = null,
-            string primaryButton = "OK",
-            string secondaryButton = "Cancel",
+            string? primaryButton = null,
+            string? secondaryButton = null,
             bool allowEmpty = false
         )
         {
-            return ShowInputAsync(Window.GetWindow(dependencyObject), title, placeholder, text, primaryButton, secondaryButton, allowEmpty);
+            var window = Window.GetWindow(dependencyObject) ?? Application.Current.MainWindow;
+            if (window is null)
+                throw new InvalidOperationException("Cannot show message without window.");
+            return ShowInputAsync(window, title, placeholder, text, primaryButton, secondaryButton, allowEmpty);
         }
 
         public static Task<string?> ShowInputAsync(
@@ -83,8 +88,8 @@ namespace LenovoLegionToolkit.WPF.Utils
             string title,
             string? placeholder = null,
             string? text = null,
-            string primaryButton = "OK",
-            string secondaryButton = "Cancel",
+            string? primaryButton = null,
+            string? secondaryButton = null,
             bool allowEmpty = false
         )
         {
@@ -106,8 +111,8 @@ namespace LenovoLegionToolkit.WPF.Utils
                 Title = title,
                 Content = textBox,
                 ButtonLeftAppearance = ControlAppearance.Transparent,
-                ButtonLeftName = primaryButton,
-                ButtonRightName = secondaryButton,
+                ButtonLeftName = primaryButton ?? Resource.OK,
+                ButtonRightName = secondaryButton ?? Resource.Cancel,
                 ShowInTaskbar = false,
                 Topmost = false,
                 MinHeight = 160,
@@ -123,10 +128,10 @@ namespace LenovoLegionToolkit.WPF.Utils
             messageBox.ButtonLeftClick += (s, e) =>
             {
                 var content = textBox.Text?.Trim();
-                var text = string.IsNullOrWhiteSpace(content) ? null : content;
-                if (!allowEmpty && text is null)
+                var newText = string.IsNullOrWhiteSpace(content) ? null : content;
+                if (!allowEmpty && newText is null)
                     return;
-                tcs.SetResult(text);
+                tcs.SetResult(newText);
                 messageBox.Close();
             };
             messageBox.ButtonRightClick += (s, e) =>
