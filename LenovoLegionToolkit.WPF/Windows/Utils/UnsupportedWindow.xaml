@@ -4,8 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Unsupported device"
+    Title="{x:Static resources:Resource.UnsupportedWindow_Title}"
     MinWidth="650"
     MinHeight="420"
     MaxWidth="650"
@@ -24,7 +25,7 @@
         </Grid.RowDefinitions>
 
         <wpfui:TitleBar
-            Title="Unsupported device"
+            Title="{x:Static resources:Resource.UnsupportedWindow_Title}"
             Grid.Row="0"
             CanMaximize="false"
             ShowMaximize="false"
@@ -52,7 +53,7 @@
                 <TextBlock
                     Margin="0,0,0,16"
                     FontWeight="Medium"
-                    Text="Lenovo Legion Toolkit has not been tested with your device."
+                    Text="{x:Static resources:Resource.UnsupportedWindow_Message}"
                     TextWrapping="Wrap" />
 
                 <Grid>
@@ -69,15 +70,18 @@
                     <TextBlock
                         Grid.Row="0"
                         Grid.Column="0"
-                        Text="Vendor: " />
+                        FontWeight="Medium"
+                        Text="{x:Static resources:Resource.UnsupportedWindow_Vendor}" />
                     <TextBlock
                         Grid.Row="1"
                         Grid.Column="0"
-                        Text="Model: " />
+                        FontWeight="Medium"
+                        Text="{x:Static resources:Resource.UnsupportedWindow_Model}" />
                     <TextBlock
                         Grid.Row="2"
                         Grid.Column="0"
-                        Text="Machine Type: " />
+                        FontWeight="Medium"
+                        Text="{x:Static resources:Resource.UnsupportedWindow_MachineType}" />
 
                     <TextBlock
                         x:Name="_vendorText"
@@ -93,17 +97,13 @@
                         Grid.Column="1" />
                 </Grid>
 
-                <TextBlock Margin="0,16,0,24" TextWrapping="Wrap">
-                    <Run>You may choose to continue</Run>
-                    <Run FontWeight="Bold">at your own risk,</Run>
-                    <Run>but keep in mind that some features may not be available and/or not work properly.</Run>
-                    <LineBreak />
-                    <LineBreak />
-                    <Run>Logging will be enabled automatically, if you choose to continue.</Run>
-                </TextBlock>
+                <TextBlock
+                    Margin="0,16,0,24"
+                    Text="{x:Static resources:Resource.UnsupportedWindow_Disclaimer}"
+                    TextWrapping="Wrap" />
 
-                <wpfui:Hyperlink Content="Check out project page on GitHub for more information." NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit#contribution" />
-                <wpfui:Hyperlink Click="Logs_Click" Content="Logs folder" />
+                <wpfui:Hyperlink Content="{x:Static resources:Resource.UnsupportedWindow_Disclaimer_GitHub}" NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit#contribution" />
+                <wpfui:Hyperlink Click="Logs_Click" Content="{x:Static resources:Resource.UnsupportedWindow_Disclaimer_Logs}" />
 
             </StackPanel>
 
@@ -124,14 +124,14 @@
                     Width="120"
                     Appearance="Primary"
                     Click="Exit_Click"
-                    Content="Exit" />
+                    Content="{x:Static resources:Resource.Exit}" />
                 <wpfui:Button
                     x:Name="_continueButton"
                     Grid.Column="2"
                     Width="120"
                     Appearance="Secondary"
                     Click="Continue_Click"
-                    Content="Continue"
+                    Content="{x:Static resources:Resource.Continue}"
                     IsEnabled="False" />
             </Grid>
         </Grid>

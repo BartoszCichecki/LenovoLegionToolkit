@@ -5,8 +5,9 @@
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Automation"
+    Title="{x:Static resources:Resource.AutomationPage_Title}"
     d:DesignHeight="450"
     d:DesignWidth="800"
     Style="{StaticResource UiPage}"
@@ -32,11 +33,9 @@
                     <TextBlock
                         FontSize="24"
                         FontWeight="Medium"
-                        Text="Actions" />
+                        Text="{x:Static resources:Resource.AutomationPage_Actions_Title}" />
 
-                    <TextBlock Margin="0,8,0,0">
-                        If enabled these action will run automatically. Whenever state changes, all actions<LineBreak />
-                        will be evaluated from top to bottom. Only actions that match current state will run.</TextBlock>
+                    <TextBlock Margin="0,8,0,0" Text="{x:Static resources:Resource.AutomationPage_Actions_Message}" />
                 </StackPanel>
 
                 <controls:LoadableControl
@@ -47,7 +46,7 @@
 
                         <wpfui:CardControl Margin="0,0,0,24">
                             <wpfui:CardControl.Header>
-                                <controls:CardHeaderControl Title="Enable" Subtitle="Lenovo Legion Toolkit must be running for automatic actions to work." />
+                                <controls:CardHeaderControl Title="{x:Static resources:Resource.AutomationPage_ActionsEnabled_Title}" Subtitle="{x:Static resources:Resource.AutomationPage_ActionsEnable_Message}" />
                             </wpfui:CardControl.Header>
                             <wpfui:ToggleSwitch
                                 x:Name="_enableAutomaticPipelinesToggle"
@@ -61,7 +60,7 @@
                             HorizontalAlignment="Center"
                             FontWeight="Medium"
                             Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                            Text="No Actions defined. Click &quot;Add new&quot; to create new Action." />
+                            Text="{x:Static resources:Resource.AutomationPage_Actions_Empty}" />
 
                         <StackPanel x:Name="_automaticPipelinesStackPanel" />
 
@@ -71,7 +70,7 @@
                                 Width="120"
                                 Appearance="Primary"
                                 Click="NewAutomaticPipelineButton_Click"
-                                Content="Add new">
+                                Content="{x:Static resources:Resource.AddNew}">
                                 <wpfui:Button.ContextMenu>
                                     <ContextMenu />
                                 </wpfui:Button.ContextMenu>
@@ -86,11 +85,9 @@
                     <TextBlock
                         FontSize="24"
                         FontWeight="Medium"
-                        Text="Quick Actions" />
+                        Text="{x:Static resources:Resource.AutomationPage_QuickActions_Title}" />
 
-                    <TextBlock Margin="0,8,0,0">
-                        Quick actions are available in the right click menu of the tray icon.
-                    </TextBlock>
+                    <TextBlock Margin="0,8,0,0" Text="{x:Static resources:Resource.AutomationPage_QuickActions_Message}" />
 
                 </StackPanel>
 
@@ -106,7 +103,7 @@
                             HorizontalAlignment="Center"
                             FontWeight="Medium"
                             Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                            Text="No Quick Actions defined. Click &quot;Add new&quot; to create new Quick Action." />
+                            Text="{x:Static resources:Resource.AutomationPage_QuickActions_Empty}" />
 
                         <StackPanel x:Name="_manualPipelinesStackPanel" />
 
@@ -116,7 +113,7 @@
                                 Width="120"
                                 Appearance="Primary"
                                 Click="NewManualPipelineButton_Click"
-                                Content="Add new" />
+                                Content="{x:Static resources:Resource.AddNew}" />
                         </StackPanel>
 
                     </StackPanel>
@@ -138,12 +135,12 @@
                 Width="120"
                 Appearance="Primary"
                 Click="SaveButton_Click"
-                Content="Save" />
+                Content="{x:Static resources:Resource.Save}" />
             <wpfui:Button
                 Width="120"
                 Margin="12,0,0,0"
                 Click="RevertButton_Click"
-                Content="Revert" />
+                Content="{x:Static resources:Resource.Revert}" />
 
         </StackPanel>
 

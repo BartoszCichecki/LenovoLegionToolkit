@@ -6,6 +6,7 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Settings;
+using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 
 namespace LenovoLegionToolkit.WPF.Windows.Settings
@@ -50,10 +51,10 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
                 await Task.Delay(500);
 
                 var result = await MessageBoxHelper.ShowAsync(this,
-                    "No Refresh Rates found",
-                    "Make sure that laptop display is on. Lenovo Legion Toolkit can't load refresh rates for a display that is not on.",
-                    "Try again",
-                    "Cancel");
+                    Resource.ExcludeRefreshRatesWindow_NoRefreshRatesFound_Title,
+                    Resource.ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message,
+                    Resource.TryAgain,
+                    Resource.Cancel);
 
                 if (result)
                     await RefreshAsync();

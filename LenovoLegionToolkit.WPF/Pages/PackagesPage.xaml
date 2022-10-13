@@ -5,8 +5,10 @@
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
+    xmlns:resources1="clr-namespace:LenovoLegionToolkit.Lib.Automation.Resources;assembly=LenovoLegionToolkit.Lib.Automation"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Downloads"
+    Title="{x:Static resources:Resource.PackagesPage_Title}"
     d:DesignHeight="450"
     d:DesignWidth="800"
     Style="{StaticResource UiPage}"
@@ -31,7 +33,7 @@
                 Margin="0,24,0,24"
                 FontSize="24"
                 FontWeight="Medium"
-                Text="Downloads" />
+                Text="{x:Static resources:Resource.PackagesPage_Title}" />
 
             <wpfui:CardControl
                 Grid.Row="1"
@@ -55,7 +57,7 @@
                             Grid.Row="0"
                             Grid.Column="0"
                             VerticalContentAlignment="Center"
-                            Content="Machine Type:">
+                            Content="{x:Static resources:Resource.PackagesPage_MachineType}">
                             <Label.Foreground>
                                 <SolidColorBrush Color="{DynamicResource TextFillColorPrimary}" />
                             </Label.Foreground>
@@ -65,7 +67,7 @@
                             Grid.Column="0"
                             Margin="0,8,0,0"
                             VerticalContentAlignment="Center"
-                            Content="Operating System:">
+                            Content="{x:Static resources:Resource.PackagesPage_OperatingSystem}">
                             <Label.Foreground>
                                 <SolidColorBrush Color="{DynamicResource TextFillColorPrimary}" />
                             </Label.Foreground>
@@ -75,7 +77,7 @@
                             Grid.Column="0"
                             Margin="0,8,0,0"
                             VerticalContentAlignment="Center"
-                            Content="Download to:">
+                            Content="{x:Static resources:Resource.PackagesPage_DownloadTo}">
                             <Label.Foreground>
                                 <SolidColorBrush Color="{DynamicResource TextFillColorPrimary}" />
                             </Label.Foreground>
@@ -129,15 +131,15 @@
                             <TextBlock Margin="0,0,0,4" Text="Source:" />
                             <RadioButton
                                 x:Name="_sourcePrimaryRadio"
-                                Content="Primary (Recommended)"
+                                Content="{x:Static resources:Resource.PackagesPage_PrimarySource}"
                                 GroupName="source"
                                 IsChecked="True"
-                                ToolTip="Same as Lenovo PC Support" />
+                                ToolTip="{x:Static resources:Resource.PackagesPage_PrimarySource_ToolTip}" />
                             <RadioButton
                                 x:Name="_sourceSecondaryRadio"
-                                Content="Secondary"
+                                Content="{x:Static resources:Resource.PackagesPage_SecondarySource}"
                                 GroupName="source"
-                                ToolTip="Same as Lenovo DriverGrabber" />
+                                ToolTip="{x:Static resources:Resource.PackagesPage_SecondarySource_ToolTip}" />
 
                         </StackPanel>
 
@@ -149,7 +151,7 @@
                             VerticalAlignment="Bottom"
                             Appearance="Primary"
                             Click="DownloadPackagesButton_Click"
-                            Content="Refresh"
+                            Content="{x:Static resources:Resource.Refresh}"
                             IsEnabled="false" />
 
                         <wpfui:Button
@@ -160,7 +162,7 @@
                             VerticalAlignment="Bottom"
                             Appearance="Secondary"
                             Click="CancelDownloadPackagesButton_Click"
-                            Content="Cancel"
+                            Content="{x:Static resources1:Resource.Cancel}"
                             IsEnabled="false"
                             Visibility="Collapsed" />
                     </Grid>
@@ -182,11 +184,11 @@
                                     <TextBlock
                                         Margin="0,0,0,4"
                                         FontWeight="Medium"
-                                        Text="Important" />
+                                        Text="{x:Static resources:Resource.PackagesPage_Disclaimer_Title}" />
                                     <TextBlock
                                         FontSize="12"
                                         Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                        Text="Below is a list of software packages that are marked as compatible with your laptop.&#x0a;Always make sure that you are installing correct packages." />
+                                        Text="{x:Static resources:Resource.PackagesPage_Disclaimer_Message}" />
                                 </StackPanel>
                             </wpfui:CardControl.Header>
                         </wpfui:CardControl>
@@ -203,7 +205,7 @@
                                 Grid.Column="0"
                                 Icon="Search24"
                                 PlaceholderEnabled="True"
-                                PlaceholderText="Filter..."
+                                PlaceholderText="{x:Static resources:Resource.PackagesPage_Filter}"
                                 TextChanged="FilterTextBox_TextChanged" />
 
                             <ComboBox
@@ -211,9 +213,9 @@
                                 Grid.Column="2"
                                 SelectedIndex="2"
                                 SelectionChanged="SortingComboBox_SelectionChanged">
-                                <ComboBoxItem Content="Name" />
-                                <ComboBoxItem Content="Category" />
-                                <ComboBoxItem Content="Date" />
+                                <ComboBoxItem Content="{x:Static resources:Resource.PackagesPage_Sort_Name}" />
+                                <ComboBoxItem Content="{x:Static resources:Resource.PackagesPage_Sort_Category}" />
+                                <ComboBoxItem Content="{x:Static resources:Resource.PackagesPage_Sort_Date}" />
                             </ComboBox>
 
                         </Grid>
@@ -226,7 +228,5 @@
             </controls:LoadableControl>
 
         </Grid>
-
     </Grid>
-
 </Page>

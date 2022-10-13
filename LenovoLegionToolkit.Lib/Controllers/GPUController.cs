@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.Lib.Resources;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using NeoSmart.AsyncLock;
@@ -259,14 +260,14 @@ namespace LenovoLegionToolkit.Lib.Controllers
             try
             {
                 var stateId = gpu.PerformanceStatesInfo.CurrentPerformanceState.StateId.ToString().GetUntilOrEmpty("_");
-                _performanceState = "Powered On";
+                _performanceState = Resource.GPUController_PoweredOn;
                 if (!string.IsNullOrWhiteSpace(stateId))
                     _performanceState += $", {stateId}";
 
             }
             catch (Exception ex) when (ex.Message == "NVAPI_GPU_NOT_POWERED")
             {
-                _performanceState = "Powered Off";
+                _performanceState = Resource.GPUController_PoweredOff;
             }
             catch (Exception ex)
             {

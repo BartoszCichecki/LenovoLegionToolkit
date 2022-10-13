@@ -1,4 +1,5 @@
 ﻿using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
@@ -8,7 +9,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
         public RGBKeyboardSpeedCardControl()
         {
             Icon = SymbolRegular.Keyboard24;
-            Title = "Speed";
+            Title = Resource.RGBKeyboardSpeedCardControl_Title;
         }
     }
 }

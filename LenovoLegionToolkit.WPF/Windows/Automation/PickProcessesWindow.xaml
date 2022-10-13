@@ -4,8 +4,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
+    xmlns:resources1="clr-namespace:LenovoLegionToolkit.Lib.Automation.Resources;assembly=LenovoLegionToolkit.Lib.Automation"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Apps"
+    Title="{x:Static resources:Resource.PickProcessesWindow_Title}"
     Width="600"
     Height="500"
     MinWidth="500"
@@ -41,7 +43,7 @@
                 VerticalAlignment="Center"
                 FontSize="12"
                 IsHitTestVisible="False"
-                Text="Apps" />
+                Text="{x:Static resources:Resource.PickProcessesWindow_Title}" />
 
         </Grid>
 
@@ -86,7 +88,7 @@
                         Click="AddButton_Click"
                         FontSize="18"
                         Icon="Add24"
-                        ToolTip="Add app" />
+                        ToolTip="{x:Static resources:Resource.Add}" />
 
                     <wpfui:Button
                         x:Name="_deleteAllButton"
@@ -95,7 +97,7 @@
                         Click="DeleteAllButton_Click"
                         FontSize="18"
                         Icon="Delete24"
-                        ToolTip="Delete all" />
+                        ToolTip="{x:Static resources:Resource.Delete}" />
 
                     <wpfui:Button
                         x:Name="_copyButton"
@@ -104,7 +106,7 @@
                         Click="CopyShortcut"
                         FontSize="18"
                         Icon="Copy24"
-                        ToolTip="Copy all (Ctrl+C)" />
+                        ToolTip="{x:Static resources:Resource.CopyAll}" />
 
                     <wpfui:Button
                         x:Name="_pasteButton"
@@ -113,7 +115,7 @@
                         Click="PasteShortcut"
                         FontSize="18"
                         Icon="ClipboardPaste24"
-                        ToolTip="Paste (Ctrl+V)" />
+                        ToolTip="{x:Static resources:Resource.Paste}" />
 
                     <wpfui:Button
                         x:Name="_saveButton"
@@ -121,7 +123,7 @@
                         Width="100"
                         Appearance="Primary"
                         Click="SaveButton_Click"
-                        Content="Save" />
+                        Content="{x:Static resources:Resource.Save}" />
 
                     <wpfui:Button
                         x:Name="_cancelButton"
@@ -129,7 +131,7 @@
                         Width="100"
                         Margin="8,0,0,0"
                         Click="CancelButton_Click"
-                        Content="Cancel" />
+                        Content="{x:Static resources1:Resource.Cancel}" />
 
                 </Grid>
 

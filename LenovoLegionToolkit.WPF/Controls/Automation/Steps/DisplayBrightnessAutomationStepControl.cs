@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib.Automation.Steps;
+using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Common;
 using NumberBox = Wpf.Ui.Controls.NumberBox;
 
@@ -24,8 +25,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
         public DisplayBrightnessAutomationStepControl(DisplayBrightnessAutomationStep step) : base(step)
         {
             Icon = SymbolRegular.BrightnessHigh48;
-            Title = "Display brightness";
-            Subtitle = "Change display brightness of the built-in display.\nPower modes change brightness on some devices. Make sure to put this step last, if something doesn't work just right.\n\nWARNING: This action will not run correctly, if internal display is off.";
+            Title = Resource.DisplayBrightnessAutomationStepControl_Title;
+            Subtitle = Resource.DisplayBrightnessAutomationStepControl_Message;
         }
 
         public override IAutomationStep CreateAutomationStep() => new DisplayBrightnessAutomationStep((int)_brightness.Value);

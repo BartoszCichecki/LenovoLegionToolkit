@@ -63,7 +63,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
                 _downloadCancellationTokenSource = null;
 
                 Process.Start(path);
-                Application.Current.Shutdown();
+                await App.Current.ShutdownAsync();
             }
             catch (OperationCanceledException)
             {
