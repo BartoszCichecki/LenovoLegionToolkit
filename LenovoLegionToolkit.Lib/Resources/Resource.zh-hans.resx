@@ -89,10 +89,10 @@
 		<value>混合模式</value>
 	</data>
   <data name="HybridModeState_OnAuto" xml:space="preserve">
-		<value>混合模式-自动</value>
+		<value>混合自动模式</value>
 	</data>
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
-		<value>混合模式-核显模式</value>
+		<value>混合核显模式</value>
 	</data>
   <data name="PowerModeState_Balance" xml:space="preserve">
 		<value>均衡模式</value>

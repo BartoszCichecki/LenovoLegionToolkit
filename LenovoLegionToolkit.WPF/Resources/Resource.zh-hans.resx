@@ -307,14 +307,14 @@
     <value>已插入低功率充电器</value>
   </data>
   <data name="BatteryPage_ManufactureDate_Message" xml:space="preserve">
-    <value>电池的生产日期</value>
+    <value>电池的生产日期。</value>
   </data>
   <data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
     <value>生产日期</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
     <value>笔记本充电器拔下后到现在的时间。
-当笔记本在关机或休眠时充电后，此时间不一定准确。</value>
+此时间不一定准确，当笔记本在关机或休眠时充电该时间可能出错。</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
     <value>电池使用时间</value>
@@ -512,13 +512,13 @@
 		<value>未发现可调节刷新率</value>
 	</data>
   <data name="ExcludeRefreshRatesWindow_Title" xml:space="preserve">
-    <value>无可选刷新率</value>
+    <value>快捷键刷新率档位选择</value>
   </data>
   <data name="Exit" xml:space="preserve">
     <value>退出</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
-    <value>使用电池时只使用核显，连接充电器时同时使用核显与独显。当连接非标准充电器器时，系统会切换到 混合独显模式。</value>
+    <value>使用电池时只使用核显，连接充电器时同时使用核显与独显。当连接非标准充电器器时，系统会切换到混合核显模式。</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
     <value>混合自动模式</value>
@@ -674,7 +674,7 @@
     <value>新版本可用！</value>
   </data>
   <data name="MainWindow_UpdateAvailableWithVersion" xml:space="preserve">
-    <value>可升级至{0}新版本！</value>
+    <value>新版本！可升级至{0}！</value>
   </data>
   <data name="No" xml:space="preserve">
 		<value>否</value>
@@ -725,8 +725,9 @@
     <value>版本</value>
   </data>
   <data name="PackagesPage_Disclaimer_Message" xml:space="preserve">
-		<value>下面的软件包被标记为适配你的电脑型号，
-请确保你安装的软件对应型号与版本正确。</value>
+		<value>下面是根据你的电脑型号获取的软件列表，
+请确保你安装的软件对应型号与版本正确。
+同时下列软件来自于联想国际服务网站，软件和驱动不一定适用于在中国大陆销售的机型。</value>
 	</data>
   <data name="PackagesPage_Disclaimer_Title" xml:space="preserve">
     <value>重要提醒</value>
@@ -1067,7 +1068,7 @@
     <value>锁定触摸板</value>
   </data>
   <data name="TouchpadLockControl_Message" xml:space="preserve">
-    <value>停用触摸板。推荐在使用署表示开启避免误触。</value>
+    <value>停用触摸板。推荐在使用鼠标时开启以避免误触。</value>
   </data>
   <data name="TouchpadLockControl_Title" xml:space="preserve">
     <value>锁定触摸板</value>
