@@ -67,7 +67,7 @@
                         <StackPanel Margin="0,8,0,0" HorizontalAlignment="Right">
                             <wpfui:Button
                                 x:Name="_newAutomaticPipelineButton"
-                                Width="120"
+                                MinWidth="120"
                                 Appearance="Primary"
                                 Click="NewAutomaticPipelineButton_Click"
                                 Content="{x:Static resources:Resource.AddNew}">
@@ -110,7 +110,7 @@
                         <StackPanel Margin="0,8,0,0" HorizontalAlignment="Right">
                             <wpfui:Button
                                 x:Name="_newManualPipelineButton"
-                                Width="120"
+                                MinWidth="120"
                                 Appearance="Primary"
                                 Click="NewManualPipelineButton_Click"
                                 Content="{x:Static resources:Resource.AddNew}" />
@@ -132,12 +132,12 @@
 
             <wpfui:Button
                 x:Name="_saveButton"
-                Width="120"
+                MinWidth="120"
                 Appearance="Primary"
                 Click="SaveButton_Click"
                 Content="{x:Static resources:Resource.Save}" />
             <wpfui:Button
-                Width="120"
+                MinWidth="120"
                 Margin="12,0,0,0"
                 Click="RevertButton_Click"
                 Content="{x:Static resources:Resource.Revert}" />

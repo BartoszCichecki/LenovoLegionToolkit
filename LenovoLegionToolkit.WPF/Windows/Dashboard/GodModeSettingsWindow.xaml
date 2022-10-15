@@ -269,12 +269,12 @@
             Visibility="Collapsed">
             <wpfui:Button
                 x:Name="_applyButton"
-                Width="120"
+                MinWidth="120"
                 Click="ApplyButton_Click"
                 Content="{x:Static resources:Resource.Apply}" />
             <wpfui:Button
                 x:Name="_applyAndCloseButton"
-                Width="120"
+                MinWidth="120"
                 Margin="12,0,0,0"
                 Appearance="Primary"
                 Click="ApplyAndCloseButton_Click"

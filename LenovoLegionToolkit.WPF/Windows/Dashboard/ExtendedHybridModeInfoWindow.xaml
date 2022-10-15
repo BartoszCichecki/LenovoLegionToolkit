@@ -107,7 +107,7 @@
 
         <StackPanel Grid.Row="2" Margin="16,16,16,16">
             <wpfui:Button
-                Width="120"
+                MinWidth="120"
                 HorizontalAlignment="Center"
                 Appearance="Primary"
                 Click="CloseButton_Click"
