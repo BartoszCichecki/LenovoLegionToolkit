@@ -2970,7 +2970,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select language.
+        ///   Looks up a localized string similar to Select language..
         /// </summary>
         public static string SettingsPage_Language_Message {
             get {
