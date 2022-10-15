@@ -1,5 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
@@ -59,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutPage_AppName" xml:space="preserve">
-    <value>联想拯救者工具箱 | Lenovo Legion Toolkit</value>
+    <value>联想拯救箱 | Lenovo Legion Toolkit</value>
   </data>
   <data name="AboutPage_Build" xml:space="preserve">
     <value>Build</value>
@@ -89,27 +148,29 @@
     <value>新建</value>
   </data>
   <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-		<value>当Vantage启用时仍然启用电源计划
+    <value>当Vantage启用时仍然启用电源计划
 此选项仅适用于没有附带多种电源计划的设备。</value>
-	</data>
+  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>始终启用Windows电源计划</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>在电脑关机、睡眠或休眠时USB保持供电。</value>
+    <value>在电脑关机、睡眠或休眠时USB保持供电。
+并不是全部的USB接口，一般是笔记本旁标有电池标志的USB接口。</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>保持USB供电</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-    <value>在电脑关机、睡眠或休眠时USB保持供电。</value>
+    <value>在电脑关机、睡眠或休眠时USB保持供电。
+并不是全部的USB接口，一般是笔记本旁标有电池标志的USB接口。</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>保持USB供电</value>
   </data>
-	<data name="AppName" xml:space="preserve">
-		<value>联想拯救者工具箱 | Lenovo Legion Toolkit</value>
-	</data>
+  <data name="AppName" xml:space="preserve">
+    <value>联想拯救箱 | Lenovo Legion Toolkit</value>
+  </data>
   <data name="Apply" xml:space="preserve">
     <value>应用</value>
   </data>
@@ -133,11 +194,11 @@
     <value>自动化</value>
   </data>
   <data name="AutomationPage_AddManualPipeline_Placeholder" xml:space="preserve">
-		<value>点此输入名称</value>
-	</data>
+    <value>点此输入名称</value>
+  </data>
   <data name="AutomationPage_AddManualPipeline_Title" xml:space="preserve">
-		<value>新建</value>
-	</data>
+    <value>新建</value>
+  </data>
   <data name="AutomationPage_QuickActions_Empty" xml:space="preserve">
     <value>没有快捷方式，请点击“新建”来新建快捷方式。</value>
   </data>
@@ -148,28 +209,28 @@
     <value>快捷方式</value>
   </data>
   <data name="AutomationPage_RenamePipeline_Placeholder" xml:space="preserve">
-		<value>点此输入名称</value>
-	</data>
+    <value>点此输入名称</value>
+  </data>
   <data name="AutomationPage_RenamePipeline_Title" xml:space="preserve">
-		<value>重命名</value>
-	</data>
+    <value>重命名</value>
+  </data>
   <data name="AutomationPage_Reverted_Message" xml:space="preserve">
-		<value>所有修改已被重置</value>
-	</data>
+    <value>所有修改已被重置</value>
+  </data>
   <data name="AutomationPage_Reverted_Title" xml:space="preserve">
-		<value>重置</value>
-	</data>
+    <value>重置</value>
+  </data>
   <data name="AutomationPage_Saved_Message" xml:space="preserve">
-		<value>所有修改已成功保存</value>
-	</data>
+    <value>所有修改已成功保存</value>
+  </data>
   <data name="AutomationPage_Saved_Title" xml:space="preserve">
-		<value>已保存</value>
-	</data>
+    <value>已保存</value>
+  </data>
   <data name="AutomationPage_Title" xml:space="preserve">
     <value>自动化</value>
   </data>
   <data name="AutomationPipelineControl_AddStep" xml:space="preserve">
-    <value>添加操作</value>
+    <value>添加步骤</value>
   </data>
   <data name="AutomationPipelineControl_Configure" xml:space="preserve">
     <value>配置</value>
@@ -205,11 +266,11 @@
     <value>运行中...</value>
   </data>
   <data name="AutomationPipelineControl_Step" xml:space="preserve">
-		<value>共{0}个步骤</value>
-	</data>
+    <value>共{0}个步骤</value>
+  </data>
   <data name="AutomationPipelineControl_Step_Many" xml:space="preserve">
-		<value>共{0}个步骤</value>
-	</data>
+    <value>共{0}个步骤</value>
+  </data>
   <data name="AutomationPipelineControl_SubtitlePart_Apps" xml:space="preserve">
     <value>应用列表</value>
   </data>
@@ -338,8 +399,8 @@
     <value>CPU睿频模式</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-		<value>取消</value>
-	</data>
+    <value>取消</value>
+  </data>
   <data name="Celsius" xml:space="preserve">
     <value>°C</value>
   </data>
@@ -347,13 +408,13 @@
     <value>关闭</value>
   </data>
   <data name="ColorCardControl_Blue" xml:space="preserve">
-    <value>B</value>
+    <value>蓝色 (B)</value>
   </data>
   <data name="ColorCardControl_Green" xml:space="preserve">
-    <value>G</value>
+    <value>绿色 (G)</value>
   </data>
   <data name="ColorCardControl_Red" xml:space="preserve">
-    <value>R</value>
+    <value>红色 (R)</value>
   </data>
   <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
     <value>根据你的使用场景所需的性能与续航选择显卡工作模式。
@@ -409,9 +470,9 @@
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>BIOS版本</value>
   </data>
-	<data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
-		<value>设备信息</value>
-	</data>
+  <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
+    <value>设备信息</value>
+  </data>
   <data name="DeviceInformationWindow_LenovoSupport" xml:space="preserve">
     <value>打开联想服务</value>
   </data>
@@ -496,7 +557,7 @@
     <value>显示器亮度</value>
   </data>
   <data name="DonatePage_Message" xml:space="preserve">
-    <value>开发与维护联想拯救者工具箱需要大量时间。如果你喜欢这个软件，你可以通过赞助来支持软件的开发。
+    <value>开发与维护联想拯救箱需要大量时间。如果你喜欢这个软件，你可以通过赞助来支持软件的开发。
 
 点击下方的PayPal图标或扫描二维码使用PayPal赞助。
 
@@ -506,11 +567,11 @@
     <value>赞助</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
-		<value>请确保笔记本屏幕已打开，联想拯救者工具箱无法加载关闭的屏幕的刷新率。</value>
-	</data>
+    <value>请确保笔记本屏幕已打开，联想拯救箱无法加载关闭的屏幕的刷新率。</value>
+  </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Title" xml:space="preserve">
-		<value>未发现可调节刷新率</value>
-	</data>
+    <value>未发现可调节刷新率</value>
+  </data>
   <data name="ExcludeRefreshRatesWindow_Title" xml:space="preserve">
     <value>快捷键刷新率档位选择</value>
   </data>
@@ -560,7 +621,7 @@
     <value>CPU传感器</value>
   </data>
   <data name="FanCurveControl_FanSpeed" xml:space="preserve">
-    <value>风扇速度</value>
+    <value>风扇转速</value>
   </data>
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>GPU</value>
@@ -581,20 +642,22 @@
     <value>开盖启动</value>
   </data>
   <data name="FnLockAutomationStepControl_Message" xml:space="preserve">
-    <value>开启后将无需按下Fn键即可触发功能。</value>
+    <value>开启后将无需按下Fn键即可触发功能。
+开启后需通过按下Fn键才可触发原F1至F12键。</value>
   </data>
   <data name="FnLockAutomationStepControl_Title" xml:space="preserve">
     <value>锁定Fn键</value>
   </data>
   <data name="FnLockControl_Message" xml:space="preserve">
-    <value>开启后将无需按下Fn键即可触发功能。</value>
+    <value>开启后将无需按下Fn键即可触发功能
+开启后需通过按下Fn键才可触发原F1至F12键。</value>
   </data>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>锁定Fn键</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
     <value>警告！
-一些笔记本可以使用更高的功耗限制，但【一定小心】，这个选项可能会导致位置后果！除非你【准确的知道你在做什么】，否则这个选项保持0.</value>
+一些笔记本可以使用更高的功耗限制，但【一定小心】，这个选项可能会导致位置后果！除非你【准确的知道你在做什么】，否则请保持这个选项为0。</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
     <value>最大功耗限制偏移量</value>
@@ -606,13 +669,13 @@
     <value>高级选项</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_CrossLoading" xml:space="preserve">
-    <value>长时间功耗限制 (Cross Loading)</value>
+    <value>长时睿频功耗限制 (Cross Loading)</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_LongTermPL" xml:space="preserve">
-    <value>长时间功耗限制</value>
+    <value>长时睿频功耗限制 (PL1)</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_ShortTermPL" xml:space="preserve">
-    <value>短时功耗限制</value>
+    <value>短时睿频功耗限制 (PL2)</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_TempLimit" xml:space="preserve">
     <value>CPU温度限制</value>
@@ -627,7 +690,7 @@
     <value>无法加载设置</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Curve_Message" xml:space="preserve">
-    <value>风扇速度不是严格的由一个温度传感器决定的。它将根据CPU、GPU和散热器温度之间的最高值决定转速。当你把鼠标悬停在上时，可以看到准确的数值。</value>
+    <value>风扇速度不是仅仅由一个温度传感器决定的。它将根据CPU、GPU和散热器温度之间的最高值决定转速。把鼠标悬停滑块在上时，可以看到准确的数值。</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Curve_Title" xml:space="preserve">
     <value>风扇曲线</value>
@@ -647,7 +710,7 @@
     <value>可配置 TGP</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_DynamicBoost" xml:space="preserve">
-    <value>动态睿频</value>
+    <value>动态加速功率 (DynamicBoost)</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_TempLimit" xml:space="preserve">
     <value>显卡温度限制</value>
@@ -659,10 +722,10 @@
     <value>自定义模式设置</value>
   </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
-    <value>此设备可能与联想拯救者工具箱不兼容</value>
+    <value>此设备可能与联想拯救箱不兼容</value>
   </data>
   <data name="IncompatibleDevice_Title" xml:space="preserve">
-    <value>联想拯救者工具箱 Lenovo Legion Toolkit</value>
+    <value>联想拯救箱 Lenovo Legion Toolkit</value>
   </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
     <value>未发现兼容的键盘</value>
@@ -677,25 +740,26 @@
     <value>新版本！可升级至{0}！</value>
   </data>
   <data name="No" xml:space="preserve">
-		<value>否</value>
-	</data>
+    <value>否</value>
+  </data>
   <data name="OK" xml:space="preserve">
-		<value>是</value>
-	</data>
+    <value>是</value>
+  </data>
   <data name="Open" xml:space="preserve">
     <value>打开</value>
   </data>
   <data name="OverDriveAutomationStepControl_Message" xml:space="preserve">
-    <value>提升内置屏幕响应时间。</value>
+    <value>开启后通过加压超频提升内置屏幕响应速度，可能会导致屏幕过冲产生鬼影。</value>
   </data>
   <data name="OverDriveAutomationStepControl_Title" xml:space="preserve">
-    <value>Over Drive</value>
+    <value>OverDrive</value>
   </data>
   <data name="OverDriveControl_Message" xml:space="preserve">
-    <value>提升内置屏幕响应时间。</value>
+    <value>开启后通过加压超频提升内置屏幕响应速度，
+可能会导致屏幕过冲产生鬼影。</value>
   </data>
   <data name="OverDriveControl_Title" xml:space="preserve">
-    <value>Over Drive</value>
+    <value>OverDrive</value>
   </data>
   <data name="PackageControl_DownloadComplete_Message" xml:space="preserve">
     <value>已下载{0}！</value>
@@ -725,25 +789,25 @@
     <value>版本</value>
   </data>
   <data name="PackagesPage_Disclaimer_Message" xml:space="preserve">
-		<value>下面是根据你的电脑型号获取的软件列表，
+    <value>下面是根据你的电脑型号获取的软件列表，
 请确保你安装的软件对应型号与版本正确。
 同时下列软件来自于联想国际服务网站，软件和驱动不一定适用于在中国大陆销售的机型。</value>
-	</data>
+  </data>
   <data name="PackagesPage_Disclaimer_Title" xml:space="preserve">
     <value>重要提醒</value>
   </data>
   <data name="PackagesPage_DownloadFailed_Message" xml:space="preserve">
-		<value>请确保机器类型与系统类型设置正确！</value>
-	</data>
+    <value>请确保机器类型与系统类型设置正确！</value>
+  </data>
   <data name="PackagesPage_DownloadFailed_Title" xml:space="preserve">
-		<value>什么地方出错了(っ °Д °;)っ</value>
-	</data>
+    <value>什么地方出错了(っ °Д °;)っ</value>
+  </data>
   <data name="PackagesPage_DownloadInProgress_Message" xml:space="preserve">
-		<value>改变排序、搜索关键词、隐藏软件包或刷新列表将停止下载。确定吗？</value>
-	</data>
+    <value>改变排序、搜索关键词、隐藏软件包或刷新列表将停止下载。确定吗？</value>
+  </data>
   <data name="PackagesPage_DownloadInProgress_Title" xml:space="preserve">
-		<value>下载进行中</value>
-	</data>
+    <value>下载进行中</value>
+  </data>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>下载到</value>
   </data>
@@ -809,11 +873,11 @@
     <value>性能模式</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-		<value>当Lenovo Vantage运行时启用该选项并修改笔记本上的电源计划可能会导致意外情况。</value>
-	</data>
+    <value>当Lenovo Vantage运行时启用该选项并修改笔记本上的电源计划可能会导致意外情况。</value>
+  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
-		<value>你确定吗？</value>
-	</data>
+    <value>你确定吗？</value>
+  </data>
   <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
     <value>均衡模式</value>
   </data>
@@ -920,10 +984,10 @@
     <value>保存</value>
   </data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
-    <value>改变应用的重点色。</value>
+    <value>改变应用的主题色。</value>
   </data>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
-    <value>重点色</value>
+    <value>主题色</value>
   </data>
   <data name="SettingsPage_Advanced_Message" xml:space="preserve">
     <value>不要修改下面的选项，除非你准确的知道你在做什么。</value>
@@ -942,11 +1006,11 @@
     <value>CPU睿频模式</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
-		<value>Legion Zone可能没有被正确禁用。</value>
-	</data>
+    <value>Legion Zone可能没有被正确禁用。</value>
+  </data>
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
-		<value>无法禁用Legion Zone</value>
-	</data>
+    <value>无法禁用Legion Zone</value>
+  </data>
   <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
     <value>禁用Legion Zone服务而无需卸载。
 推荐修改此项后重启电脑。</value>
@@ -955,11 +1019,11 @@
     <value>禁用Legion Zone</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Message" xml:space="preserve">
-		<value>Lenovo Hotkeys可能没有被正确禁用。</value>
-	</data>
+    <value>Lenovo Hotkeys可能没有被正确禁用。</value>
+  </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
-		<value>无法禁用Lenovo Hotkeys</value>
-	</data>
+    <value>无法禁用Lenovo Hotkeys</value>
+  </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
     <value>禁用Lenovo Hotkeys而无需卸载。
 禁用后本应用将接管Fn快捷键。
@@ -969,11 +1033,11 @@
     <value>禁用Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-		<value>Vantage可能没有被正确禁用。</value>
-	</data>
+    <value>Vantage可能没有被正确禁用。</value>
+  </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-		<value>无法禁用Vantage</value>
-	</data>
+    <value>无法禁用Vantage</value>
+  </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>禁用Lenovo Vantage而无需卸载。
 推荐修改此项后重启电脑。</value>
@@ -989,23 +1053,23 @@
     <value>不要显示弹窗</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
-		<value>Legion Zone可能没有被正确启用。</value>
-	</data>
+    <value>Legion Zone可能没有被正确启用。</value>
+  </data>
   <data name="SettingsPage_EnableLegionZone_Error_Title" xml:space="preserve">
-		<value>无法启用Legion Zone</value>
-	</data>
+    <value>无法启用Legion Zone</value>
+  </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Message" xml:space="preserve">
-		<value>Lenovo Hotkeys可能没有被正确启用。</value>
-	</data>
+    <value>Lenovo Hotkeys可能没有被正确启用。</value>
+  </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
-		<value>无法启用Lenovo Hotkeys Keys</value>
-	</data>
+    <value>无法启用Lenovo Hotkeys Keys</value>
+  </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-		<value>Vantage可能没有被正确启用</value>
-	</data>
+    <value>Vantage可能没有被正确启用</value>
+  </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-		<value>无法启用Vantage</value>
-	</data>
+    <value>无法启用Vantage</value>
+  </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>你可以排除某个刷新率，使Fn+R快捷键切换更快速。</value>
   </data>
@@ -1013,11 +1077,11 @@
     <value>排除刷新率</value>
   </data>
   <data name="SettingsPage_Language_Message" xml:space="preserve">
-		<value>选择语言</value>
-	</data>
+    <value>选择语言</value>
+  </data>
   <data name="SettingsPage_Language_Title" xml:space="preserve">
-		<value>语言</value>
-	</data>
+    <value>语言</value>
+  </data>
   <data name="SettingsPage_MinimizeOnClose_Message" xml:space="preserve">
     <value>总是最小化到托盘。在托盘图标上点击右键即可关闭。</value>
   </data>
@@ -1074,8 +1138,8 @@
     <value>锁定触摸板</value>
   </data>
   <data name="TryAgain" xml:space="preserve">
-		<value>重试</value>
-	</data>
+    <value>重试</value>
+  </data>
   <data name="UnexpectedException" xml:space="preserve">
     <value>发生了意外错误：
 {0}
@@ -1118,7 +1182,7 @@
     <value>有新的更新！</value>
   </data>
   <data name="UpdateWindow_WhatsNew" xml:space="preserve">
-    <value>新的功能与修改：</value>
+    <value>各版本更新日志：</value>
   </data>
   <data name="WhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>调节键盘背光亮度</value>
@@ -1145,9 +1209,9 @@
     <value>锁定Win键</value>
   </data>
   <data name="Yes" xml:space="preserve">
-		<value>是</value>
-	</data>
-	<data name="Resource.pl" xml:space="preserve">
-		<value />
-	</data>
+    <value>是</value>
+  </data>
+  <data name="Resource.pl" xml:space="preserve">
+    <value />
+  </data>
 </root>
