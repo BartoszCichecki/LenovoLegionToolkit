@@ -2576,7 +2576,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Keyboard backlight cannot be controlled in here, when Vantage and/or it&apos;s services are running, due to conflicts between the two..
+        ///   Looks up a localized string similar to Keyboard backlight cannot be controlled in here when Vantage or it&apos;s services are running..
         /// </summary>
         public static string RGBKeyboardBacklightControl_VantageEnabled_Message {
             get {
