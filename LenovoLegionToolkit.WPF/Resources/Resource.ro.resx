@@ -1179,4 +1179,7 @@ Salvarea logurilor va fi activată automat dacă alegeți să continuați.</valu
 	<data name="Yes" xml:space="preserve">
     <value>Da</value>
   </data>
+	<data name="AboutPage_TranslationCredit" xml:space="preserve">
+		<value>Traducere de Mario Bălănică</value>
+	</data>
 </root>
