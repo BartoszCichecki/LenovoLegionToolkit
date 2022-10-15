@@ -102,6 +102,9 @@ Special thanks to:
 * [falahati](https://github.com/falahati), for creating [NvAPIWrapper](https://github.com/falahati/NvAPIWrapper) and [WindowsDisplayAPI](https://github.com/falahati/WindowsDisplayAPI)
 * [SmokelessCPU](https://github.com/SmokelessCPU) for help with 4-zone RGB keyboard support
 
+Translations provided by:
+* Chinese - [凌卡Karl](https://github.com/KarlLee830)
+
 ## FAQ
 
 #### Why doesn't LLT launch on startup even though Autorun option is enabled?
