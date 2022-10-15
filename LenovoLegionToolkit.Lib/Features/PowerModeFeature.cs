@@ -47,19 +47,19 @@ namespace LenovoLegionToolkit.Lib.Features
 
         public async Task EnsureCorrectPowerPlanIsSetAsync()
         {
-            var state = await GetStateAsync().ConfigureAwait(false);
+            var state = await GetActualStateAsync().ConfigureAwait(false);
             await Power.ActivatePowerPlanAsync(state, true).ConfigureAwait(false);
         }
 
         public async Task EnsureAIModeIsSetAsync()
         {
-            var state = await GetStateAsync().ConfigureAwait(false);
+            var state = await GetActualStateAsync().ConfigureAwait(false);
             await _aiModeController.StartAsync(state).ConfigureAwait(false);
         }
 
         public async Task EnsureAIModeIsOffAsync()
         {
-            var state = await GetStateAsync().ConfigureAwait(false);
+            var state = await GetActualStateAsync().ConfigureAwait(false);
             await _aiModeController.StopAsync(state).ConfigureAwait(false);
         }
 
