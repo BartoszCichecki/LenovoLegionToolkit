@@ -174,6 +174,10 @@ On version 2.6.0 or higher, you can also enable logs in a quicker way:
 
 I appreciate any feedback that you have, so please do not hesitate to report issues. PRs are also welcome!
 
+#### Translation
+
+Lenovo Legion Toolkit is in the process of getting translations for more languages. For now please hold with creating PRs, because a process is being put in place for making the translation process more streamlined.
+
 #### Bugs
 
 If you find any bugs in the app, please report them. It will be very helpful if you attach logs that will help to trace the root cause of the issue. You can find logs in `%LOCALAPPDATA%\LenovoLegionToolkit\log`. Of course attach the latest log to the issue here on GitHub.
