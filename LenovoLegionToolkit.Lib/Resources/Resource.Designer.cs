@@ -367,6 +367,24 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to In warranty.
+        /// </summary>
+        public static string WarrantyChecker_InWarranty {
+            get {
+                return ResourceManager.GetString("WarrantyChecker_InWarranty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expired.
+        /// </summary>
+        public static string WarrantyChecker_WarrantyExpired {
+            get {
+                return ResourceManager.GetString("WarrantyChecker_WarrantyExpired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to High.
         /// </summary>
         public static string WhiteKeyboardBacklightState_High {

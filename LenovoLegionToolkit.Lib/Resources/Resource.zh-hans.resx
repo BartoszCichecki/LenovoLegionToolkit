@@ -169,4 +169,10 @@
   <data name="WhiteKeyboardBacklightState_Off" xml:space="preserve">
 		<value>关闭</value>
 	</data>
+	<data name="WarrantyChecker_InWarranty" xml:space="preserve">
+		<value>在保</value>
+	</data>
+	<data name="WarrantyChecker_WarrantyExpired" xml:space="preserve">
+		<value>过保</value>
+	</data>
 </root>
