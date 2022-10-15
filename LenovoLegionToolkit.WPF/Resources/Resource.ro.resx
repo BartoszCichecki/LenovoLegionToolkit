@@ -1,0 +1,1182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="AboutPage_AppName" xml:space="preserve">
+    <value>Lenovo Legion Toolkit</value>
+  </data>
+	<data name="AboutPage_Build" xml:space="preserve">
+    <value>Compilare</value>
+  </data>
+	<data name="AboutPage_LatestReleaseOnGitHub" xml:space="preserve">
+    <value>Ultima versiune pe GitHub</value>
+  </data>
+	<data name="AboutPage_Links" xml:space="preserve">
+    <value>Linkuri</value>
+  </data>
+	<data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
+    <value>Website-ul proiectului pe GitHub</value>
+  </data>
+	<data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
+    <value>Biblioteci terțe</value>
+  </data>
+	<data name="AboutPage_Title" xml:space="preserve">
+    <value>Despre</value>
+  </data>
+	<data name="AboutPage_Version" xml:space="preserve">
+    <value>Versiune</value>
+  </data>
+	<data name="Add" xml:space="preserve">
+    <value>Adăugați</value>
+  </data>
+	<data name="AddNew" xml:space="preserve">
+    <value>Adăugați nou</value>
+  </data>
+	<data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
+    <value>Activați planul de alimentare chiar și atunci când Vantage este activat.
+Această opțiune este destinată numai dispozitivelor care nu au mai multe planuri de alimentare.</value>
+  </data>
+	<data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
+    <value>Activați întotdeauna planul de alimentare Windows</value>
+  </data>
+	<data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
+    <value>Încărcați dispozitivele USB, când computerul este oprit sau în modul de repaus sau hibernare.</value>
+  </data>
+	<data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
+    <value>USB mereu activ</value>
+  </data>
+	<data name="AlwaysOnUSBControl_Message" xml:space="preserve">
+    <value>Încărcați dispozitivele USB, când computerul este oprit sau în modul de repaus sau hibernare.</value>
+  </data>
+	<data name="AlwaysOnUSBControl_Title" xml:space="preserve">
+    <value>USB mereu activ</value>
+  </data>
+	<data name="Apply" xml:space="preserve">
+    <value>Aplicare</value>
+  </data>
+	<data name="ApplyAndClose" xml:space="preserve">
+    <value>Aplicare &amp; închidere</value>
+  </data>
+	<data name="AppName" xml:space="preserve">
+    <value>Lenovo Legion Toolkit</value>
+  </data>
+	<data name="AutomationPage_ActionsEnabled_Title" xml:space="preserve">
+    <value>Activare</value>
+  </data>
+	<data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
+    <value>Lenovo Legion Toolkit trebuie să ruleze pentru ca acțiunile automate să funcționeze.</value>
+  </data>
+	<data name="AutomationPage_Actions_Empty" xml:space="preserve">
+    <value>Nicio Acțiune definită. Apăsați pe "Adăugați nou" pentru a crea o nouă Acțiune.</value>
+  </data>
+	<data name="AutomationPage_Actions_Message" xml:space="preserve">
+    <value>Dacă setarea este activată, aceste acțiuni vor rula automat. Ori de câte ori starea se schimbă, toate acțiunile vor fi evaluate de sus până jos.
+Se vor rula numai acțiunile care se potrivesc cu starea actuală.</value>
+  </data>
+	<data name="AutomationPage_Actions_Title" xml:space="preserve">
+    <value>Acțiuni</value>
+  </data>
+	<data name="AutomationPage_AddManualPipeline_Placeholder" xml:space="preserve">
+    <value>Nume...</value>
+  </data>
+	<data name="AutomationPage_AddManualPipeline_Title" xml:space="preserve">
+    <value>Adăugați nou</value>
+  </data>
+	<data name="AutomationPage_QuickActions_Empty" xml:space="preserve">
+    <value>Nicio Acțiune Rapidă definită. Apăsați pe "Adăugați nou" pentru a crea o nouă Acțiune Rapidă.</value>
+  </data>
+	<data name="AutomationPage_QuickActions_Message" xml:space="preserve">
+    <value>Acțiunile rapide sunt disponibile în meniul clic dreapta al pictogramei din tray.</value>
+  </data>
+	<data name="AutomationPage_QuickActions_Title" xml:space="preserve">
+    <value>Acțiuni Rapide</value>
+  </data>
+	<data name="AutomationPage_RenamePipeline_Placeholder" xml:space="preserve">
+    <value>Nume...</value>
+  </data>
+	<data name="AutomationPage_RenamePipeline_Title" xml:space="preserve">
+    <value>Redenumiți</value>
+  </data>
+	<data name="AutomationPage_Reverted_Message" xml:space="preserve">
+    <value>Toate modificările au fost anulate!</value>
+  </data>
+	<data name="AutomationPage_Reverted_Title" xml:space="preserve">
+    <value>Anulat</value>
+  </data>
+	<data name="AutomationPage_Saved_Message" xml:space="preserve">
+    <value>Modificările au fost salvate cu succes!</value>
+  </data>
+	<data name="AutomationPage_Saved_Title" xml:space="preserve">
+    <value>Salvat</value>
+  </data>
+	<data name="AutomationPage_Title" xml:space="preserve">
+    <value>Automatizare</value>
+  </data>
+	<data name="AutomationPipelineControl_AddStep" xml:space="preserve">
+    <value>Adăugați pas</value>
+  </data>
+	<data name="AutomationPipelineControl_Configure" xml:space="preserve">
+    <value>Configurare</value>
+  </data>
+	<data name="AutomationPipelineControl_Exclusive" xml:space="preserve">
+    <value>Exclusiv</value>
+  </data>
+	<data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
+    <value>Nu executa alte acțiuni când se execută această acțiune.</value>
+  </data>
+	<data name="AutomationPipelineControl_MoveDown" xml:space="preserve">
+    <value>Mutați jos</value>
+  </data>
+	<data name="AutomationPipelineControl_MoveUp" xml:space="preserve">
+    <value>Mutați sus</value>
+  </data>
+	<data name="AutomationPipelineControl_Running" xml:space="preserve">
+    <value>Rulează...</value>
+  </data>
+	<data name="AutomationPipelineControl_RunNow" xml:space="preserve">
+    <value>Rulați acum</value>
+  </data>
+	<data name="AutomationPipelineControl_RunNow_Error_Message" xml:space="preserve">
+    <value>Completat cu erori.</value>
+  </data>
+	<data name="AutomationPipelineControl_RunNow_Error_Title" xml:space="preserve">
+    <value>Rulați acum</value>
+  </data>
+	<data name="AutomationPipelineControl_RunNow_Success_Message" xml:space="preserve">
+    <value>Completat cu succes!</value>
+  </data>
+	<data name="AutomationPipelineControl_RunNow_Success_Title" xml:space="preserve">
+    <value>Rulați acum</value>
+  </data>
+	<data name="AutomationPipelineControl_Step" xml:space="preserve">
+    <value>{0} pas</value>
+  </data>
+	<data name="AutomationPipelineControl_Step_Many" xml:space="preserve">
+    <value>{0} pași</value>
+  </data>
+	<data name="AutomationPipelineControl_SubtitlePart_Apps" xml:space="preserve">
+    <value>Aplicații</value>
+  </data>
+	<data name="AutomationPipelineControl_SubtitlePart_AtSunrise" xml:space="preserve">
+    <value>La răsărit</value>
+  </data>
+	<data name="AutomationPipelineControl_SubtitlePart_AtSunset" xml:space="preserve">
+    <value>La apus</value>
+  </data>
+	<data name="AutomationPipelineControl_SubtitlePart_AtTime" xml:space="preserve">
+    <value>La {0:D2}:{1:D2}</value>
+  </data>
+	<data name="AutomationPipelineControl_SubtitlePart_PowerMode" xml:space="preserve">
+    <value>Mod Putere</value>
+  </data>
+	<data name="AutomationPipelineControl_Unnamed" xml:space="preserve">
+    <value>Fără nume</value>
+  </data>
+	<data name="BalanceModeSettingsWindow_AIEngine_Message" xml:space="preserve">
+    <value>Detectează automat când rulează anumite jocuri și modifică performanța CPU și GPU. Temperaturile și zgomotul ventilatorului pot crește.</value>
+  </data>
+	<data name="BalanceModeSettingsWindow_AIEngine_Title" xml:space="preserve">
+    <value>Activați AI Engine</value>
+  </data>
+	<data name="BalanceModeSettingsWindow_Title" xml:space="preserve">
+    <value>Setări mod Echilibrat</value>
+  </data>
+	<data name="BatteryAutomationStepControl_Message" xml:space="preserve">
+    <value>Alegeți cum este încărcată bateria.</value>
+  </data>
+	<data name="BatteryAutomationStepControl_Title" xml:space="preserve">
+    <value>Mod Baterie</value>
+  </data>
+	<data name="BatteryModeControl_Message" xml:space="preserve">
+    <value>Alegeți cum este încărcată bateria.</value>
+  </data>
+	<data name="BatteryModeControl_Title" xml:space="preserve">
+    <value>Mod baterie</value>
+  </data>
+	<data name="BatteryPage_ACAdapterConnectedAndCharging" xml:space="preserve">
+    <value>Conectat, se încarcă...</value>
+  </data>
+	<data name="BatteryPage_ACAdapterConnectedNotCharging" xml:space="preserve">
+    <value>Conectat, nu se încarcă</value>
+  </data>
+	<data name="BatteryPage_BatteryTemperature_Message" xml:space="preserve">
+    <value>Temperatura actuală a bateriei.</value>
+  </data>
+	<data name="BatteryPage_BatteryTemperature_Title" xml:space="preserve">
+    <value>Temperatură baterie</value>
+  </data>
+	<data name="BatteryPage_CurrentCapacity_Message" xml:space="preserve">
+    <value>Capacitatea actuală a bateriei.</value>
+  </data>
+	<data name="BatteryPage_CurrentCapacity_Title" xml:space="preserve">
+    <value>Capacitate actuală</value>
+  </data>
+	<data name="BatteryPage_CycleCount_Message" xml:space="preserve">
+    <value>Numărul de cicluri încărcare/descărcare.</value>
+  </data>
+	<data name="BatteryPage_CycleCount_Title" xml:space="preserve">
+    <value>Număr de cicluri</value>
+  </data>
+	<data name="BatteryPage_DesignCapacity_Message" xml:space="preserve">
+    <value>Capacitatea bateriei conform proiectării.</value>
+  </data>
+	<data name="BatteryPage_DesignCapacity_Title" xml:space="preserve">
+    <value>Capacitate originală</value>
+  </data>
+	<data name="BatteryPage_DischargeRate_Message" xml:space="preserve">
+    <value>Rata la care bateria este încărcată (+) sau descărcată (-).</value>
+  </data>
+	<data name="BatteryPage_DischargeRate_Title" xml:space="preserve">
+    <value>Rată de descărcare</value>
+  </data>
+	<data name="BatteryPage_EstimatedBatteryLifeRemaining" xml:space="preserve">
+    <value>Timp rămas estimat: {0}</value>
+  </data>
+	<data name="BatteryPage_EstimatingBatteryLife" xml:space="preserve">
+    <value>Se estimează timpul...</value>
+  </data>
+	<data name="BatteryPage_FirstUseDate_Title" xml:space="preserve">
+    <value>Data primei utilizări</value>
+  </data>
+	<data name="BatteryPage_FirstUse_Message" xml:space="preserve">
+    <value>Când a fost folosită prima dată bateria.</value>
+  </data>
+	<data name="BatteryPage_FullChargeCapacity_Message" xml:space="preserve">
+    <value>Capacitatea bateriei când este complet încărcată.</value>
+  </data>
+	<data name="BatteryPage_FullChargeCapacity_Title" xml:space="preserve">
+    <value>Capacitate la încărcare completă</value>
+  </data>
+	<data name="BatteryPage_LowWattageChargerConnected" xml:space="preserve">
+    <value>Alimentator de putere redusă conectat</value>
+  </data>
+	<data name="BatteryPage_ManufactureDate_Message" xml:space="preserve">
+    <value>Când a fost fabricată bateria.</value>
+  </data>
+	<data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
+    <value>Dată fabricare</value>
+  </data>
+	<data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
+    <value>Timp scurs de când laptopul a fost conectat ultima dată la alimentator.
+Este posibil ca acest timp să nu fie precis dacă laptopul a fost încărcat în mod repaus sau oprit.</value>
+  </data>
+	<data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
+    <value>Pe baterie timp de</value>
+  </data>
+	<data name="BatteryPage_Title" xml:space="preserve">
+    <value>Baterie</value>
+  </data>
+	<data name="Cancel" xml:space="preserve">
+    <value>Anulare</value>
+  </data>
+	<data name="Celsius" xml:space="preserve">
+    <value>°C</value>
+  </data>
+	<data name="Close" xml:space="preserve">
+    <value>Închidere</value>
+  </data>
+	<data name="ColorCardControl_Blue" xml:space="preserve">
+    <value>Albastru</value>
+  </data>
+	<data name="ColorCardControl_Green" xml:space="preserve">
+    <value>Verde</value>
+  </data>
+	<data name="ColorCardControl_Red" xml:space="preserve">
+    <value>Roșu</value>
+  </data>
+	<data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
+    <value>Selectați modul de operare GPU în funcție de utilizarea computerului și de condițiile de alimentare.
+Schimbarea modurilor poate necesita repornirea.</value>
+  </data>
+	<data name="ComboBoxHybridModeControl_RestartRequired_Message" xml:space="preserve">
+    <value>Schimbarea la {0} necesită repornirea. Doriți să reporniți acum?</value>
+  </data>
+	<data name="ComboBoxHybridModeControl_RestartRequired_Title" xml:space="preserve">
+    <value>Repornire necesară</value>
+  </data>
+	<data name="ComboBoxHybridModeControl_Title" xml:space="preserve">
+    <value>Mod de funcționare GPU</value>
+  </data>
+	<data name="ContextMenu_QuickActions" xml:space="preserve">
+    <value>Acțiuni Rapide</value>
+  </data>
+	<data name="Continue" xml:space="preserve">
+    <value>Continuare</value>
+  </data>
+	<data name="CopyAll" xml:space="preserve">
+    <value>Copiere integrală</value>
+  </data>
+	<data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
+    <value>Pe baterie</value>
+  </data>
+	<data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
+    <value>Alimentat</value>
+  </data>
+	<data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
+    <value>Planuri de alimentare</value>
+  </data>
+	<data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
+    <value>Aflați mai multe la microsoft.com</value>
+  </data>
+	<data name="CPUBoostModesWindow_Title" xml:space="preserve">
+    <value>Moduri boost CPU</value>
+  </data>
+	<data name="DashboardPage_Graphics_Title" xml:space="preserve">
+    <value>Grafică</value>
+  </data>
+	<data name="DashboardPage_Other_Title" xml:space="preserve">
+    <value>Altele</value>
+  </data>
+	<data name="DashboardPage_Power_Title" xml:space="preserve">
+    <value>Putere</value>
+  </data>
+	<data name="DashboardPage_Title" xml:space="preserve">
+    <value>Acasă</value>
+  </data>
+	<data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
+    <value>Dezactivați GPU-ul dedicat dacă este activ inutil.
+
+ATENȚIE: Această acțiune nu va rula corect dacă afișajul intern este oprit sau modul hibrid nu este activ.</value>
+  </data>
+	<data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
+    <value>Dezactivați GPU</value>
+  </data>
+	<data name="DelayAutomationStepControl_Message" xml:space="preserve">
+    <value>Adăugați o întârziere înainte de a rula următorul pas.</value>
+  </data>
+	<data name="DelayAutomationStepControl_Title" xml:space="preserve">
+    <value>Întârziere</value>
+  </data>
+	<data name="Delete" xml:space="preserve">
+    <value>Ștergere</value>
+  </data>
+	<data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
+    <value>Versiune BIOS</value>
+  </data>
+	<data name="DeviceInformationWindow_Copied_Message" xml:space="preserve">
+    <value>"{0}" copiat în clipboard.</value>
+  </data>
+	<data name="DeviceInformationWindow_Copied_Title" xml:space="preserve">
+    <value>Copiat!</value>
+  </data>
+	<data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
+    <value>Dispozitiv</value>
+  </data>
+	<data name="DeviceInformationWindow_LenovoSupport" xml:space="preserve">
+    <value>Suport Lenovo</value>
+  </data>
+	<data name="DeviceInformationWindow_MachineType_Title" xml:space="preserve">
+    <value>Tip sistem</value>
+  </data>
+	<data name="DeviceInformationWindow_Manufacturer_Title" xml:space="preserve">
+    <value>Producător</value>
+  </data>
+	<data name="DeviceInformationWindow_Model_Title" xml:space="preserve">
+    <value>Model</value>
+  </data>
+	<data name="DeviceInformationWindow_SerialNumber_Title" xml:space="preserve">
+    <value>Număr de serie</value>
+  </data>
+	<data name="DeviceInformationWindow_Title" xml:space="preserve">
+    <value>Despre dispozitivul dvs.</value>
+  </data>
+	<data name="DeviceInformationWindow_WarrantyEndDate_Title" xml:space="preserve">
+    <value>Dată încheiere</value>
+  </data>
+	<data name="DeviceInformationWindow_WarrantyStartDate_Title" xml:space="preserve">
+    <value>Dată început</value>
+  </data>
+	<data name="DeviceInformationWindow_WarrantyStatus_Title" xml:space="preserve">
+    <value>Stare</value>
+  </data>
+	<data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
+    <value>Garanție</value>
+  </data>
+	<data name="DiscreteGPUControl_Active" xml:space="preserve">
+    <value>Activ</value>
+  </data>
+	<data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
+    <value>Dezactivare</value>
+  </data>
+	<data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
+    <value>GPU-ul nVidia poate fi dezactivat.
+
+Țineți cont că unele programe se pot bloca dacă o faceți.</value>
+  </data>
+	<data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
+    <value>GPU-ul nVidia nu este activ.</value>
+  </data>
+	<data name="DiscreteGPUControl_Inactive" xml:space="preserve">
+    <value>Inactiv</value>
+  </data>
+	<data name="DiscreteGPUControl_KillApps" xml:space="preserve">
+    <value>Închidere aplicații</value>
+  </data>
+	<data name="DiscreteGPUControl_Message" xml:space="preserve">
+    <value>Dezactivați GPU-ul dedicat dacă este activ inutil.</value>
+  </data>
+	<data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
+    <value>Un monitor este conectat la GPU-ul nVidia.</value>
+  </data>
+	<data name="DiscreteGPUControl_NoProcesses" xml:space="preserve">
+    <value>Niciun proces</value>
+  </data>
+	<data name="DiscreteGPUControl_PerformanceState" xml:space="preserve">
+    <value>Stare performanță</value>
+  </data>
+	<data name="DiscreteGPUControl_PerformanceState_Unknown" xml:space="preserve">
+    <value>Necunoscut</value>
+  </data>
+	<data name="DiscreteGPUControl_Processes" xml:space="preserve">
+    <value>Procese</value>
+  </data>
+	<data name="DiscreteGPUControl_RestartGPU" xml:space="preserve">
+    <value>Repornire GPU</value>
+  </data>
+	<data name="DiscreteGPUControl_Title" xml:space="preserve">
+    <value>GPU dedicat</value>
+  </data>
+	<data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
+    <value>Schimbați luminozitatea afișajului încorporat.
+Modurile de putere modifică luminozitatea pe unele dispozitive. Asigurați-vă că puneți acest pas pe ultimul loc dacă ceva nu funcționează corect.
+
+ATENȚIE: Această acțiune nu va rula corect dacă afișajul intern este oprit.</value>
+  </data>
+	<data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
+    <value>Luminozitate afișaj</value>
+  </data>
+	<data name="DonatePage_Message" xml:space="preserve">
+    <value>Dezvoltarea și întreținerea Lenovo Legion Toolkit necesită mult timp. Dacă vă place acest software, îi puteți sprijini viitorul donând o sumă la alegere.
+
+Faceți clic pe sigla PayPal de mai jos sau scanați codul QR pentru a dona cu PayPal.
+
+Mulțumesc anticipat!</value>
+  </data>
+	<data name="DonatePage_Title" xml:space="preserve">
+    <value>Donație</value>
+  </data>
+	<data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
+    <value>Asigurați-vă că afișajul laptopului este pornit. Lenovo Legion Toolkit nu poate încărca rate de reîmprospătare pentru un afișaj care nu este pornit.</value>
+  </data>
+	<data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Title" xml:space="preserve">
+    <value>Nicio rată de reîmprospătare găsită</value>
+  </data>
+	<data name="ExcludeRefreshRatesWindow_Title" xml:space="preserve">
+    <value>Excludere rată de reîmprospătare</value>
+  </data>
+	<data name="Exit" xml:space="preserve">
+    <value>Ieșire</value>
+  </data>
+	<data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
+    <value>Utilizează doar GPU-ul integrat pe baterie și ambele când alimentatorul este conectat. Când este conectat un alimentator non-standard, sistemul comută la modul Hibrid-iGPU.</value>
+  </data>
+	<data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
+    <value>Mod Hibrid-Auto</value>
+  </data>
+	<data name="ExtendedHybridModeInfoWindow_DGPU_Disclaimer" xml:space="preserve">
+    <value>Trecerea la și de la acest mod necesită repornirea.</value>
+  </data>
+	<data name="ExtendedHybridModeInfoWindow_DGPU_Message" xml:space="preserve">
+    <value>Utilizează numai GPU-ul dedicat. Acest mod oferă cea mai bună performanță grafică, dar crește consumul de energie.</value>
+  </data>
+	<data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
+    <value>Mod dGPU</value>
+  </data>
+	<data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
+    <value>Sunt activate atât GPU-ul integrat cât și cel dedicat. Sistemul va comuta automat între ele în funcție de nevoile sale.</value>
+  </data>
+	<data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
+    <value>Mod Hibrid</value>
+  </data>
+	<data name="ExtendedHybridModeInfoWindow_IGPU_Disclaimer" xml:space="preserve">
+    <value>Acest mod are efect numai atunci când GPU-ul dedicat nu este utilizat.</value>
+  </data>
+	<data name="ExtendedHybridModeInfoWindow_IGPU_Message" xml:space="preserve">
+    <value>Utilizează numai GPU-ul integrat. Acest mod minimizează consumul de energie și zgomotul.</value>
+  </data>
+	<data name="ExtendedHybridModeInfoWindow_IGPU_Title" xml:space="preserve">
+    <value>Mod Hibrid-iGPU</value>
+  </data>
+	<data name="ExtendedHybridModeInfoWindow_Title" xml:space="preserve">
+    <value>Despre modurile de funcționare GPU</value>
+  </data>
+	<data name="Fahrenheit" xml:space="preserve">
+    <value>°F</value>
+  </data>
+	<data name="FanCurveControl_CPU" xml:space="preserve">
+    <value>CPU</value>
+  </data>
+	<data name="FanCurveControl_CPUSensor" xml:space="preserve">
+    <value>Senzor CPU</value>
+  </data>
+	<data name="FanCurveControl_FanSpeed" xml:space="preserve">
+    <value>Viteză ventilator</value>
+  </data>
+	<data name="FanCurveControl_GPU" xml:space="preserve">
+    <value>GPU</value>
+  </data>
+	<data name="FanCurveControl_RPM" xml:space="preserve">
+    <value>RPM</value>
+  </data>
+	<data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
+    <value>Pornire automată a laptop-ului la deschiderea capacului.</value>
+  </data>
+	<data name="FlipToStartAutomationStepControl_Title" xml:space="preserve">
+    <value>Flip To Start</value>
+  </data>
+	<data name="FlipToStartControl_Message" xml:space="preserve">
+    <value>Pornire automată a laptop-ului la deschiderea capacului.</value>
+  </data>
+	<data name="FlipToStartControl_Title" xml:space="preserve">
+    <value>Flip To Start</value>
+  </data>
+	<data name="FnLockAutomationStepControl_Message" xml:space="preserve">
+    <value>Utilizați funcțiile secundare ale tastelor F1-F12 fără a ține apăsată tasta Fn.</value>
+  </data>
+	<data name="FnLockAutomationStepControl_Title" xml:space="preserve">
+    <value>Blocare Fn</value>
+  </data>
+	<data name="FnLockControl_Message" xml:space="preserve">
+    <value>Utilizați funcțiile secundare ale tastelor F1-F12 fără a ține apăsată tasta Fn.</value>
+  </data>
+	<data name="FnLockControl_Title" xml:space="preserve">
+    <value>Blocare Fn</value>
+  </data>
+	<data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
+    <value>ATENȚIE!
+Unele laptop-uri pot accepta limite de putere mai mari decât indică, dar aveți grijă. Această opțiune poate duce la un comportament imprevizibil, așa că dacă nu știți ce faceți, lăsați setarea pe 0.</value>
+  </data>
+	<data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
+    <value>Ridicare limită maximă de putere</value>
+  </data>
+	<data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
+    <value>Nu modificați opțiunile de mai jos decât dacă știți cu adevărat ce faceți.</value>
+  </data>
+	<data name="GodModeSettingsWindow_Advanced_Title" xml:space="preserve">
+    <value>Avansat</value>
+  </data>
+	<data name="GodModeSettingsWindow_CPU_CrossLoading" xml:space="preserve">
+    <value>Limită de putere pe termen lung (Cross Loading)</value>
+  </data>
+	<data name="GodModeSettingsWindow_CPU_LongTermPL" xml:space="preserve">
+    <value>Limită de putere pe termen lung</value>
+  </data>
+	<data name="GodModeSettingsWindow_CPU_ShortTermPL" xml:space="preserve">
+    <value>Limită de putere pe termen scurt</value>
+  </data>
+	<data name="GodModeSettingsWindow_CPU_TempLimit" xml:space="preserve">
+    <value>Limită temperatură CPU</value>
+  </data>
+	<data name="GodModeSettingsWindow_CPU_Title" xml:space="preserve">
+    <value>CPU</value>
+  </data>
+	<data name="GodModeSettingsWindow_Error_Apply_Title" xml:space="preserve">
+    <value>Nu s-au putut aplica setările.</value>
+  </data>
+	<data name="GodModeSettingsWindow_Error_Load_Title" xml:space="preserve">
+    <value>Nu s-au putut încărca setările.</value>
+  </data>
+	<data name="GodModeSettingsWindow_Fans_Curve_Message" xml:space="preserve">
+    <value>Viteza ventilatorului nu este determinată strict de un singur senzor de temperatură. Va crește sau va scădea în funcție de senzorul care raportează cea mai mare temperatură dintre CPU, GPU și radiator. Valorile exacte vor apărea când treceți cu mouse-ul peste fiecare pas.</value>
+  </data>
+	<data name="GodModeSettingsWindow_Fans_Curve_Title" xml:space="preserve">
+    <value>Curbă de viteză ventilator</value>
+  </data>
+	<data name="GodModeSettingsWindow_Fans_Max_Message" xml:space="preserve">
+    <value>ATENȚIE!
+Utilizarea prelungită a acestei opțiuni poate degrada ventilatoarele, scăzând longevitatea acestora. 
+Serios, aveți grijă cu această opțiune!</value>
+  </data>
+	<data name="GodModeSettingsWindow_Fans_Max_Title" xml:space="preserve">
+    <value>Viteză maximă ventilator</value>
+  </data>
+	<data name="GodModeSettingsWindow_Fans_Title" xml:space="preserve">
+    <value>Ventilatoare</value>
+  </data>
+	<data name="GodModeSettingsWindow_GPU_CTGP" xml:space="preserve">
+    <value>TGP configurabil</value>
+  </data>
+	<data name="GodModeSettingsWindow_GPU_DynamicBoost" xml:space="preserve">
+    <value>Boost dinamic</value>
+  </data>
+	<data name="GodModeSettingsWindow_GPU_TempLimit" xml:space="preserve">
+    <value>Limită temperatură GPU</value>
+  </data>
+	<data name="GodModeSettingsWindow_GPU_Title" xml:space="preserve">
+    <value>GPU</value>
+  </data>
+	<data name="GodModeSettingsWindow_Title" xml:space="preserve">
+    <value>Setări mod Personalizat</value>
+  </data>
+	<data name="IncompatibleDevice_Message" xml:space="preserve">
+    <value>Acest dispozitiv nu este compatibil cu Lenovo Legion Toolkit.</value>
+  </data>
+	<data name="IncompatibleDevice_Title" xml:space="preserve">
+    <value>Lenovo Legion Toolkit</value>
+  </data>
+	<data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
+    <value>Nicio tastatură compatibilă găsită</value>
+  </data>
+	<data name="KeyboardBacklightPage_Title" xml:space="preserve">
+    <value>Iluminare tastatură</value>
+  </data>
+	<data name="MainWindow_NavigationItem_About" xml:space="preserve">
+    <value>Despre</value>
+  </data>
+	<data name="MainWindow_NavigationItem_Actions" xml:space="preserve">
+    <value>Acțiuni</value>
+  </data>
+	<data name="MainWindow_NavigationItem_Battery" xml:space="preserve">
+    <value>Baterie</value>
+  </data>
+	<data name="MainWindow_NavigationItem_Dashboard" xml:space="preserve">
+    <value>Bord</value>
+  </data>
+	<data name="MainWindow_NavigationItem_Donate" xml:space="preserve">
+    <value>Donație</value>
+  </data>
+	<data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
+    <value>Tastatură</value>
+  </data>
+	<data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
+    <value>Pachete</value>
+  </data>
+	<data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
+    <value>Setări</value>
+  </data>
+	<data name="MainWindow_UpdateAvailable" xml:space="preserve">
+    <value>Actualizare disponibilă!</value>
+  </data>
+	<data name="MainWindow_UpdateAvailableWithVersion" xml:space="preserve">
+    <value>Actualizarea {0} disponibilă!</value>
+  </data>
+	<data name="No" xml:space="preserve">
+    <value>Nu</value>
+  </data>
+	<data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+	<data name="Open" xml:space="preserve">
+    <value>Deschidere</value>
+  </data>
+	<data name="OverDriveAutomationStepControl_Message" xml:space="preserve">
+    <value>Îmbunătățirea timpului de răspuns al afișajului încorporat.</value>
+  </data>
+	<data name="OverDriveAutomationStepControl_Title" xml:space="preserve">
+    <value>Over Drive</value>
+  </data>
+	<data name="OverDriveControl_Message" xml:space="preserve">
+    <value>Îmbunătățirea timpului de răspuns al afișajului încorporat.</value>
+  </data>
+	<data name="OverDriveControl_Title" xml:space="preserve">
+    <value>Over Drive</value>
+  </data>
+	<data name="PackageControl_DownloadComplete_Message" xml:space="preserve">
+    <value>{0} descărcat!</value>
+  </data>
+	<data name="PackageControl_DownloadComplete_Title" xml:space="preserve">
+    <value>Descărcare completă</value>
+  </data>
+	<data name="PackageControl_GeneralError_Title" xml:space="preserve">
+    <value>Ceva nu a mers bine</value>
+  </data>
+	<data name="PackageControl_Http404Error_Message" xml:space="preserve">
+    <value>Serverul a returnat codul 404.</value>
+  </data>
+	<data name="PackageControl_Http404Error_Title" xml:space="preserve">
+    <value>Se pare că fișierul nu mai este disponibil</value>
+  </data>
+	<data name="PackageControl_HttpGeneralError_Message" xml:space="preserve">
+    <value>Verificați dacă conexiunea dvs. la internet este funcțională.</value>
+  </data>
+	<data name="PackageControl_HttpGeneralError_Title" xml:space="preserve">
+    <value>Ceva nu a mers bine</value>
+  </data>
+	<data name="PackageControl_OldPackageWarning" xml:space="preserve">
+    <value>Acest pachet este vechi de mai mult de un an.</value>
+  </data>
+	<data name="PackageControl_Version" xml:space="preserve">
+    <value>Versiune</value>
+  </data>
+	<data name="PackagesPage_Disclaimer_Message" xml:space="preserve">
+    <value>Mai jos este o listă de pachete software care sunt marcate ca fiind compatibile cu laptopul dvs.
+Asigurați-vă întotdeauna că instalați pachetele corecte.</value>
+  </data>
+	<data name="PackagesPage_Disclaimer_Title" xml:space="preserve">
+    <value>Important</value>
+  </data>
+	<data name="PackagesPage_DownloadFailed_Message" xml:space="preserve">
+    <value>Verificați dacă Tipul sistemului și Sistemul de operare sunt setate corect.</value>
+  </data>
+	<data name="PackagesPage_DownloadFailed_Title" xml:space="preserve">
+    <value>Ceva nu a mers bine</value>
+  </data>
+	<data name="PackagesPage_DownloadInProgress_Message" xml:space="preserve">
+    <value>Modificarea sortării, filtrarea rezultatelor, ascunderea pachetelor sau reîmprospătarea listei va opri descărcarea. Doriți să continuați?</value>
+  </data>
+	<data name="PackagesPage_DownloadInProgress_Title" xml:space="preserve">
+    <value>Descărcare în curs</value>
+  </data>
+	<data name="PackagesPage_DownloadTo" xml:space="preserve">
+    <value>Descărcați la</value>
+  </data>
+	<data name="PackagesPage_Filter" xml:space="preserve">
+    <value>Filtru...</value>
+  </data>
+	<data name="PackagesPage_MachineType" xml:space="preserve">
+    <value>Tip sistem</value>
+  </data>
+	<data name="PackagesPage_OperatingSystem" xml:space="preserve">
+    <value>Sistem de operare</value>
+  </data>
+	<data name="PackagesPage_PrimarySource" xml:space="preserve">
+    <value>Principal (recomandat)</value>
+  </data>
+	<data name="PackagesPage_PrimarySource_ToolTip" xml:space="preserve">
+    <value>La fel ca Lenovo PC Support</value>
+  </data>
+	<data name="PackagesPage_SecondarySource" xml:space="preserve">
+    <value>Secundar</value>
+  </data>
+	<data name="PackagesPage_SecondarySource_ToolTip" xml:space="preserve">
+    <value>La fel ca Lenovo DriverGrabber</value>
+  </data>
+	<data name="PackagesPage_Sort_Category" xml:space="preserve">
+    <value>Categorie</value>
+  </data>
+	<data name="PackagesPage_Sort_Date" xml:space="preserve">
+    <value>Dată</value>
+  </data>
+	<data name="PackagesPage_Sort_Name" xml:space="preserve">
+    <value>Nume</value>
+  </data>
+	<data name="PackagesPage_Source" xml:space="preserve">
+    <value>Sursă</value>
+  </data>
+	<data name="PackagesPage_Title" xml:space="preserve">
+    <value>Descărcări</value>
+  </data>
+	<data name="Paste" xml:space="preserve">
+    <value>Lipire</value>
+  </data>
+	<data name="PickProcessesWindow_Title" xml:space="preserve">
+    <value>Aplicații</value>
+  </data>
+	<data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
+    <value>Selectați modul de performanță.</value>
+  </data>
+	<data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
+    <value>Mod putere</value>
+  </data>
+	<data name="PowerModeControl_ChangeError" xml:space="preserve">
+    <value>Nu s-a putut schimba modul de putere</value>
+  </data>
+	<data name="PowerModeControl_Message" xml:space="preserve">
+    <value>Selectați modul de performanță.
+Puteți schimba modul apăsând Fn+Q.</value>
+  </data>
+	<data name="PowerModeControl_Settings" xml:space="preserve">
+    <value>Setări</value>
+  </data>
+	<data name="PowerModeControl_Title" xml:space="preserve">
+    <value>Mod putere</value>
+  </data>
+	<data name="PowerModeWindow_Title" xml:space="preserve">
+    <value>Mod putere</value>
+  </data>
+	<data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
+    <value>Activarea acestei opțiuni atunci când Lenovo Vantage rulează și modifică planurile de alimentare de pe laptop poate duce la un comportament neașteptat.</value>
+  </data>
+	<data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
+    <value>Sunteți sigur(ă)?</value>
+  </data>
+	<data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
+    <value>Mod Echilibrat</value>
+  </data>
+	<data name="PowerPlansWindow_CustomMode" xml:space="preserve">
+    <value>Mod Personalizat</value>
+  </data>
+	<data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
+    <value>Mod Performant</value>
+  </data>
+	<data name="PowerPlansWindow_QuietMode" xml:space="preserve">
+    <value>Mod Liniștit</value>
+  </data>
+	<data name="PowerPlansWindow_Title" xml:space="preserve">
+    <value>Planuri de alimentare</value>
+  </data>
+	<data name="ReadmeWindow_Title" xml:space="preserve">
+    <value>Citiți-mă</value>
+  </data>
+	<data name="Refresh" xml:space="preserve">
+    <value>Reîmprospătare</value>
+  </data>
+	<data name="RefreshRateAutomationStepControl_Message" xml:space="preserve">
+    <value>Modificați rata de reîmprospătare a afișajului încorporat.
+
+ATENȚIE: Această acțiune nu va rula corect dacă afișajul incorporat este oprit.</value>
+  </data>
+	<data name="RefreshRateAutomationStepControl_Title" xml:space="preserve">
+    <value>Rată de reîmprospătare</value>
+  </data>
+	<data name="RefreshRateControl_Message" xml:space="preserve">
+    <value>Modificați rata de reîmprospătare a afișajului încorporat.</value>
+  </data>
+	<data name="RefreshRateControl_Title" xml:space="preserve">
+    <value>Rată de reîmprospătare</value>
+  </data>
+	<data name="RestartLater" xml:space="preserve">
+    <value>Voi reporni mai târziu</value>
+  </data>
+	<data name="RestartNow" xml:space="preserve">
+    <value>Repornire acum</value>
+  </data>
+	<data name="Revert" xml:space="preserve">
+    <value>Revenire</value>
+  </data>
+	<data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Modificați profilul de iluminare al tastaturii.</value>
+  </data>
+	<data name="RGBKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Iluminare tastatură</value>
+  </data>
+	<data name="RGBKeyboardBacklightControl_Preset1" xml:space="preserve">
+    <value>Profil 1</value>
+  </data>
+	<data name="RGBKeyboardBacklightControl_Preset2" xml:space="preserve">
+    <value>Profil 2</value>
+  </data>
+	<data name="RGBKeyboardBacklightControl_Preset3" xml:space="preserve">
+    <value>Profil 3</value>
+  </data>
+	<data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
+    <value>Oprit</value>
+  </data>
+	<data name="RGBKeyboardBacklightControl_VantageEnabled_Message" xml:space="preserve">
+    <value>Iluminarea tastaturii nu poate fi controlată aici, când Vantage și/sau serviciile sale rulează, din cauza conflictelor dintre cele două.</value>
+  </data>
+	<data name="RGBKeyboardBacklightControl_VantageEnabled_Title" xml:space="preserve">
+    <value>Lenovo Vantage pare să fie activat</value>
+  </data>
+	<data name="RGBKeyboardBacklightControl_Zone1" xml:space="preserve">
+    <value>Zona 1</value>
+  </data>
+	<data name="RGBKeyboardBacklightControl_Zone2" xml:space="preserve">
+    <value>Zona 2</value>
+  </data>
+	<data name="RGBKeyboardBacklightControl_Zone3" xml:space="preserve">
+    <value>Zona 3</value>
+  </data>
+	<data name="RGBKeyboardBacklightControl_Zone4" xml:space="preserve">
+    <value>Zona 4</value>
+  </data>
+	<data name="RGBKeyboardBrightnessCardControl_Brightness" xml:space="preserve">
+    <value>Luminozitate</value>
+  </data>
+	<data name="RGBKeyboardEffectCardControl_Title" xml:space="preserve">
+    <value>Efect</value>
+  </data>
+	<data name="RGBKeyboardSpeedCardControl_Title" xml:space="preserve">
+    <value>Viteză</value>
+  </data>
+	<data name="RunAutomationStepControl_ExeArguments" xml:space="preserve">
+    <value>Argumente</value>
+  </data>
+	<data name="RunAutomationStepControl_ExePath" xml:space="preserve">
+    <value>Cale executabil</value>
+  </data>
+	<data name="RunAutomationStepControl_Message" xml:space="preserve">
+    <value>Rulați un script sau un program.
+Asigurați-vă mai întâi că scriptul rulează corect.</value>
+  </data>
+	<data name="RunAutomationStepControl_Title" xml:space="preserve">
+    <value>Rulare</value>
+  </data>
+	<data name="Save" xml:space="preserve">
+    <value>Salvare</value>
+  </data>
+	<data name="SettingsPage_AccentColor_Description" xml:space="preserve">
+    <value>Schimbați culoarea de accent a aplicației.</value>
+  </data>
+	<data name="SettingsPage_AccentColor_Title" xml:space="preserve">
+    <value>Culoare de accent</value>
+  </data>
+	<data name="SettingsPage_Advanced_Message" xml:space="preserve">
+    <value>Nu modificați opțiunile de mai jos decât dacă știți cu adevărat ce faceți.</value>
+  </data>
+	<data name="SettingsPage_Advanced_Title" xml:space="preserve">
+    <value>Avansat</value>
+  </data>
+	<data name="SettingsPage_Autorun_Message" xml:space="preserve">
+    <value>Pornire minimizată în tray când vă conectați la Windows.
+Pornirea este întârziată cu 30 de secunde din motive de compatibilitate.</value>
+  </data>
+	<data name="SettingsPage_Autorun_Title" xml:space="preserve">
+    <value>Pornire automată</value>
+  </data>
+	<data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
+    <value>Moduri boost CPU</value>
+  </data>
+	<data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
+    <value>Este posibil ca Legion Zone să nu fi fost dezactivat corect</value>
+  </data>
+	<data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
+    <value>Nu s-a putut dezactiva Legion Zone</value>
+  </data>
+	<data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
+    <value>Dezactivați Legion Zone și serviciul său fără a-l dezinstala.
+Se recomandă repornirea după modificarea acestei opțiuni.</value>
+  </data>
+	<data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
+    <value>Dezactivare Legion Zone</value>
+  </data>
+	<data name="SettingsPage_DisableLenovoHotkeys_Error_Message" xml:space="preserve">
+    <value>Este posibil ca Lenovo Hotkeys să nu fi fost dezactivat corect</value>
+  </data>
+	<data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
+    <value>Nu s-a putut dezactiva Lenovo Hotkeys</value>
+  </data>
+	<data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
+    <value>Dezactivați Lenovo Hotkeys și serviciul său fără a-l dezinstala.
+Daca este dezactivat, această aplicație va gestiona în schimb comenzile rapide cu tasta Fn.
+Se recomandă repornirea după modificarea acestei opțiuni.</value>
+  </data>
+	<data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
+    <value>Dezactivare Lenovo Hotkeys</value>
+  </data>
+	<data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
+    <value>Este posibil ca Vantage să nu fi fost dezactivat corect</value>
+  </data>
+	<data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
+    <value>Nu s-a putut dezactiva Vantage</value>
+  </data>
+	<data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
+    <value>Dezactivați Lenovo Vantage și serviciul său fără a-l dezinstala.
+Se recomandă repornirea după modificarea acestei opțiuni.</value>
+  </data>
+	<data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
+    <value>Dezactivare Lenovo Vantage</value>
+  </data>
+	<data name="SettingsPage_DontShowNotifications_Message" xml:space="preserve">
+    <value>Dezactivează notificarea pentru acțiunile tastelor Fn, cum ar fi dezactivarea sunetului microfonului.
+Activați această opțiune dacă aveți conflicte cu aplicațiile pe ecran complet.</value>
+  </data>
+	<data name="SettingsPage_DontShowNotifications_Title" xml:space="preserve">
+    <value>Nu afișa notificări</value>
+  </data>
+	<data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
+    <value>Este posibil ca Legion Zone să nu fi fost activat corect</value>
+  </data>
+	<data name="SettingsPage_EnableLegionZone_Error_Title" xml:space="preserve">
+    <value>Nu s-a putut activa Legion Zone</value>
+  </data>
+	<data name="SettingsPage_EnableLenovoHotkeys_Error_Message" xml:space="preserve">
+    <value>Este posibil ca Lenovo Hotkeys să nu fi fost activat corect</value>
+  </data>
+	<data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
+    <value>Nu s-a putut activa Lenovo Hotkeys Keys</value>
+  </data>
+	<data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+    <value>Este posibil ca Vantage să nu fi fost activat corect</value>
+  </data>
+	<data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+    <value>Nu s-a putut activa Vantage</value>
+  </data>
+	<data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
+    <value>Puteți exclude rate de reîmprospătare pentru a face comanda rapidă Fn+R mai utilă.</value>
+  </data>
+	<data name="SettingsPage_ExcludeRefreshRates_Title" xml:space="preserve">
+    <value>Excludere rate de reîmprospătare</value>
+  </data>
+	<data name="SettingsPage_Language_Message" xml:space="preserve">
+    <value>Selectați limba</value>
+  </data>
+	<data name="SettingsPage_Language_Title" xml:space="preserve">
+    <value>Limbă</value>
+  </data>
+	<data name="SettingsPage_MinimizeOnClose_Message" xml:space="preserve">
+    <value>Minimizare întotdeauna în tray. Închideți cu clic dreapta pe pictograma din tray.</value>
+  </data>
+	<data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
+    <value>Minimizare la închidere</value>
+  </data>
+	<data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
+    <value>Planuri de alimentare</value>
+  </data>
+	<data name="SettingsPage_Theme_Description" xml:space="preserve">
+    <value>Setați tema luminoasă, întunecată sau urmărirea preferinței de sistem.</value>
+  </data>
+	<data name="SettingsPage_Theme_Title" xml:space="preserve">
+    <value>Temă</value>
+  </data>
+	<data name="SettingsPage_Title" xml:space="preserve">
+    <value>Setări</value>
+  </data>
+	<data name="TimeWindow_Sunrise" xml:space="preserve">
+    <value>Răsărit</value>
+  </data>
+	<data name="TimeWindow_Sunset" xml:space="preserve">
+    <value>Apus</value>
+  </data>
+	<data name="TimeWindow_Time" xml:space="preserve">
+    <value>Timp</value>
+  </data>
+	<data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
+    <value>Timp</value>
+  </data>
+	<data name="ToggleHybridModeControl_Message" xml:space="preserve">
+    <value>Permite comutarea între GPU integrat și cel dedicat.
+Necesită repornirea.</value>
+  </data>
+	<data name="ToggleHybridModeControl_RestartRequired_Message" xml:space="preserve">
+    <value>Schimbarea modului hibrid necesită repornirea. Doriți să reporniți acum?</value>
+  </data>
+	<data name="ToggleHybridModeControl_RestartRequired_Title" xml:space="preserve">
+    <value>Repornire necesară</value>
+  </data>
+	<data name="ToggleHybridModeControl_Title" xml:space="preserve">
+    <value>Mod Hibrid</value>
+  </data>
+	<data name="TouchpadLockAutomationStepControl_Message" xml:space="preserve">
+    <value>Dezactivați touchpadul.</value>
+  </data>
+	<data name="TouchpadLockAutomationStepControl_Title" xml:space="preserve">
+    <value>Blocare Touchpad</value>
+  </data>
+	<data name="TouchpadLockControl_Message" xml:space="preserve">
+    <value>Dezactivați touchpadul.</value>
+  </data>
+	<data name="TouchpadLockControl_Title" xml:space="preserve">
+    <value>Blocare Touchpad</value>
+  </data>
+	<data name="TryAgain" xml:space="preserve">
+    <value>Încercați din nou</value>
+  </data>
+	<data name="UnexpectedException" xml:space="preserve">
+    <value>A apărut o eroare neașteptată:
+{0}
+
+Vă rugăm să raportați problema pe {1}.</value>
+  </data>
+	<data name="Unnamed" xml:space="preserve">
+    <value>Fără nume</value>
+  </data>
+	<data name="UnsupportedWindow_Disclaimer" xml:space="preserve">
+    <value>Puteți alege să continuați pe propriul risc, dar rețineți că unele funcții pot să nu fie disponibile și/sau să nu funcționeze corect.
+
+Salvarea logurilor va fi activată automat dacă alegeți să continuați.</value>
+  </data>
+	<data name="UnsupportedWindow_Disclaimer_GitHub" xml:space="preserve">
+    <value>Consultați pagina proiectului de pe GitHub pentru mai multe informații.</value>
+  </data>
+	<data name="UnsupportedWindow_Disclaimer_Logs" xml:space="preserve">
+    <value>Dosarul logurilor</value>
+  </data>
+	<data name="UnsupportedWindow_MachineType" xml:space="preserve">
+    <value>Tip sistem</value>
+  </data>
+	<data name="UnsupportedWindow_Message" xml:space="preserve">
+    <value>Lenovo Legion Toolkit nu a fost testat cu dispozitivul dvs.</value>
+  </data>
+	<data name="UnsupportedWindow_Model" xml:space="preserve">
+    <value>Model</value>
+  </data>
+	<data name="UnsupportedWindow_Title" xml:space="preserve">
+    <value>Dispozitiv neacceptat</value>
+  </data>
+	<data name="UnsupportedWindow_Vendor" xml:space="preserve">
+    <value>Furnizor</value>
+  </data>
+	<data name="Update" xml:space="preserve">
+    <value>Actualizare</value>
+  </data>
+	<data name="UpdateWindow_Title" xml:space="preserve">
+    <value>Actualizare disponibilă</value>
+  </data>
+	<data name="UpdateWindow_WhatsNew" xml:space="preserve">
+    <value>Ce-i nou?</value>
+  </data>
+	<data name="WhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Reglați luminozitatea iluminării tastaturii.</value>
+  </data>
+	<data name="WhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Iluminare tastatură</value>
+  </data>
+	<data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
+    <value>Puteți schimba luminozitatea apăsând Fn+Space</value>
+  </data>
+	<data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Luminozitate</value>
+  </data>
+	<data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
+    <value>Activați sau dezactivați tasta Windows.</value>
+  </data>
+	<data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
+    <value>Tasta Windows</value>
+  </data>
+	<data name="WinKeyControl_Message" xml:space="preserve">
+    <value>Funcționează doar pe tastatura încorporată.</value>
+  </data>
+	<data name="WinKeyControl_Title" xml:space="preserve">
+    <value>Blocare tastă Windows</value>
+  </data>
+	<data name="Yes" xml:space="preserve">
+    <value>Da</value>
+  </data>
+</root>
