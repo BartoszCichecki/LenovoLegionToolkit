@@ -883,7 +883,7 @@ You can switch mode with Fn+Q.</value>
     <value>Off</value>
   </data>
   <data name="RGBKeyboardBacklightControl_VantageEnabled_Message" xml:space="preserve">
-    <value>Keyboard backlight cannot be controlled in here, when Vantage and/or it's services are running, due to conflicts between the two.</value>
+    <value>Keyboard backlight cannot be controlled in here when Vantage or it's services are running.</value>
   </data>
   <data name="RGBKeyboardBacklightControl_VantageEnabled_Title" xml:space="preserve">
     <value>Lenovo Vantage seems to be enabled</value>
