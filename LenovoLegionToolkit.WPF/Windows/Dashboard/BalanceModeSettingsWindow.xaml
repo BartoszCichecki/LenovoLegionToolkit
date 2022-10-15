@@ -76,14 +76,14 @@
 
                 <wpfui:Button
                     Grid.Column="1"
-                    Width="100"
+                    MinWidth="100"
                     Appearance="Primary"
                     Click="SaveButton_Click"
                     Content="{x:Static resources:Resource.Save}" />
 
                 <wpfui:Button
                     Grid.Column="2"
-                    Width="100"
+                    MinWidth="100"
                     Margin="8,0,0,0"
                     Click="CancelButton_Click"
                     Content="{x:Static resources1:Resource.Cancel}" />

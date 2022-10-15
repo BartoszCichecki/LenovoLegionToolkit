@@ -55,28 +55,28 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             HorizontalAlignment = HorizontalAlignment.Left,
             Content = Resource.AutomationPipelineControl_Exclusive,
             ToolTip = Resource.AutomationPipelineControl_Exclusive_ToolTip,
-            Width = 100,
+            MinWidth = 100,
             Margin = new(0, 0, 8, 0),
         };
 
         private readonly Button _runNowButton = new()
         {
             Content = Resource.AutomationPipelineControl_RunNow,
-            Width = 100,
+            MinWidth = 100,
             Margin = new(0, 0, 8, 0),
         };
 
         private readonly Button _addStepButton = new()
         {
             Content = Resource.AutomationPipelineControl_AddStep,
-            Width = 100,
+            MinWidth = 100,
             Margin = new(0, 0, 8, 0),
         };
 
         private readonly Button _deletePipelineButton = new()
         {
             Content = Resource.Delete,
-            Width = 100,
+            MinWidth = 100,
         };
 
         public AutomationPipeline AutomationPipeline { get; }
@@ -250,7 +250,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 {
                     Content = Resource.AutomationPipelineControl_Configure,
                     Margin = new(16, 0, 16, 0),
-                    Width = 120,
+                    MinWidth = 120,
                 };
                 button.Click += (s, e) =>
                 {
@@ -279,7 +279,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 {
                     Content = Resource.AutomationPipelineControl_Configure,
                     Margin = new(16, 0, 16, 0),
-                    Width = 120,
+                    MinWidth = 120,
                 };
                 button.Click += (s, e) =>
                 {
@@ -309,7 +309,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 {
                     Content = Resource.AutomationPipelineControl_Configure,
                     Margin = new(16, 0, 16, 0),
-                    Width = 120,
+                    MinWidth = 120,
                 };
                 button.Click += (s, e) =>
                 {
