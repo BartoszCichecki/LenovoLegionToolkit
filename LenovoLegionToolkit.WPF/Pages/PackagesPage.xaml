@@ -128,7 +128,7 @@
                             Grid.Column="4"
                             HorizontalAlignment="Right">
 
-                            <TextBlock Margin="0,0,0,4" Text="Source:" />
+                            <TextBlock Margin="0,0,0,4" Text="{x:Static resources:Resource.PackagesPage_Source}" />
                             <RadioButton
                                 x:Name="_sourcePrimaryRadio"
                                 Content="{x:Static resources:Resource.PackagesPage_PrimarySource}"

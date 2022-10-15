@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Globalization;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -49,7 +48,7 @@ namespace LenovoLegionToolkit.WPF.Pages
 
             var loadingTask = Task.Delay(250);
 
-            var languages = LocalizationHelper.GetLanguages().ToArray();
+            var languages = LocalizationHelper.Languages;
             var language = await LocalizationHelper.GetLanguageAsync();
             if (languages.Length > 1)
             {
