@@ -52,7 +52,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
             IsEnabledChanged += CardControl_IsEnabledChanged;
 
             _comboBox.SelectionChanged += ComboBox_SelectionChanged;
-            _comboBox.Width = 150;
+            _comboBox.MinWidth = 150;
 
             _cardHeaderControl.Accessory = _comboBox;
             _cardControl.Header = _cardHeaderControl;

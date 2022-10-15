@@ -59,120 +59,114 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AlwaysOnUSBState_Off" xml:space="preserve">
-		<value>关闭</value>
-	</data>
+    <value>Dezactivat</value>
+  </data>
   <data name="AlwaysOnUSBState_OnAlways" xml:space="preserve">
-		<value>保持开启</value>
-	</data>
+    <value>Activat, tot timpul</value>
+  </data>
   <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
-		<value>仅在睡眠时</value>
-	</data>
+    <value>Activat, doar in mod repaus</value>
+  </data>
   <data name="BatteryState_Conservation" xml:space="preserve">
-		<value>养护</value>
-	</data>
+    <value>Conservare</value>
+  </data>
   <data name="BatteryState_Normal" xml:space="preserve">
-		<value>常规</value>
-	</data>
+    <value>Normal</value>
+  </data>
   <data name="BatteryState_RapidCharge" xml:space="preserve">
-		<value>快充</value>
-	</data>
+    <value>Încărcare rapidă</value>
+  </data>
   <data name="GPUController_PoweredOff" xml:space="preserve">
-		<value>关闭</value>
-	</data>
+    <value>Oprit</value>
+  </data>
   <data name="GPUController_PoweredOn" xml:space="preserve">
-		<value>启用</value>
-	</data>
+    <value>Pornit</value>
+  </data>
   <data name="HybridModeState_Off" xml:space="preserve">
-		<value>独显直连模式</value>
-	</data>
+    <value>dGPU</value>
+  </data>
   <data name="HybridModeState_On" xml:space="preserve">
-		<value>混合模式</value>
-	</data>
+    <value>Hibrid</value>
+  </data>
   <data name="HybridModeState_OnAuto" xml:space="preserve">
-		<value>混合自动模式</value>
-	</data>
+    <value>Hibrid-Auto</value>
+  </data>
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
-		<value>混合核显模式</value>
-	</data>
+    <value>Hibrid-iGPU</value>
+  </data>
   <data name="PowerModeState_Balance" xml:space="preserve">
-		<value>均衡模式</value>
-	</data>
+    <value>Echilibrat</value>
+  </data>
   <data name="PowerModeState_GodMode" xml:space="preserve">
-		<value>自定义模式</value>
-	</data>
+    <value>Personalizat</value>
+  </data>
   <data name="PowerModeState_Performance" xml:space="preserve">
-		<value>野兽模式</value>
-	</data>
+    <value>Performant</value>
+  </data>
   <data name="PowerModeState_Quiet" xml:space="preserve">
-		<value>安静模式</value>
-	</data>
+    <value>Liniștit</value>
+  </data>
   <data name="RBGKeyboardSpeed_Fast" xml:space="preserve">
-		<value>快</value>
-	</data>
+    <value>Rapid</value>
+  </data>
   <data name="RBGKeyboardSpeed_Fastest" xml:space="preserve">
-		<value>最快</value>
-	</data>
+    <value>Cel mai rapid</value>
+  </data>
   <data name="RBGKeyboardSpeed_Slow" xml:space="preserve">
-		<value>慢</value>
-	</data>
+    <value>Lent</value>
+  </data>
   <data name="RBGKeyboardSpeed_Slowest" xml:space="preserve">
-		<value>最慢</value>
-	</data>
+    <value>Cel mai lent</value>
+  </data>
   <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
-		<value>关闭</value>
-	</data>
+    <value>Oprit</value>
+  </data>
   <data name="RGBKeyboardBacklightPreset_One" xml:space="preserve">
-		<value>预设1</value>
-	</data>
+    <value>Profil 1</value>
+  </data>
   <data name="RGBKeyboardBacklightPreset_Three" xml:space="preserve">
-		<value>预设3</value>
-	</data>
+    <value>Profil 3</value>
+  </data>
   <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
-		<value>预设2</value>
-	</data>
+    <value>Profil 2</value>
+  </data>
   <data name="RGBKeyboardBrightness_High" xml:space="preserve">
-		<value>高亮度</value>
-	</data>
+    <value>Ridicată</value>
+  </data>
   <data name="RGBKeyboardBrightness_Low" xml:space="preserve">
-		<value>低亮度</value>
-	</data>
+    <value>Scăzută</value>
+  </data>
   <data name="RGBKeyboardEffect_Breath" xml:space="preserve">
-		<value>呼吸</value>
-	</data>
+    <value>Respirație</value>
+  </data>
   <data name="RGBKeyboardEffect_Smooth" xml:space="preserve">
-		<value>平滑</value>
-	</data>
+    <value>Tranziție lină culori</value>
+  </data>
   <data name="RGBKeyboardEffect_Static" xml:space="preserve">
-		<value>静态</value>
-	</data>
+    <value>Static</value>
+  </data>
   <data name="RGBKeyboardEffect_WaveLTR" xml:space="preserve">
-		<value>从左向右</value>
-	</data>
+    <value>Val culori spre stânga</value>
+  </data>
   <data name="RGBKeyboardEffect_WaveRTL" xml:space="preserve">
-		<value>从右向左</value>
-	</data>
+    <value>Val culori spre dreapta</value>
+  </data>
   <data name="Theme_Dark" xml:space="preserve">
-		<value>深色模式</value>
-	</data>
+    <value>Întunecat</value>
+  </data>
   <data name="Theme_Light" xml:space="preserve">
-		<value>浅色模式</value>
-	</data>
+    <value>Luminos</value>
+  </data>
   <data name="Theme_System" xml:space="preserve">
-		<value>跟随系统</value>
-	</data>
+    <value>Sistem</value>
+  </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
-		<value>高亮度</value>
-	</data>
+    <value>Ridicată</value>
+  </data>
   <data name="WhiteKeyboardBacklightState_Low" xml:space="preserve">
-		<value>低亮度</value>
-	</data>
+    <value>Scăzută</value>
+  </data>
   <data name="WhiteKeyboardBacklightState_Off" xml:space="preserve">
-		<value>关闭</value>
-	</data>
-	<data name="WarrantyChecker_InWarranty" xml:space="preserve">
-		<value>在保</value>
-	</data>
-	<data name="WarrantyChecker_WarrantyExpired" xml:space="preserve">
-		<value>过保</value>
-	</data>
+    <value>Oprit</value>
+  </data>
 </root>

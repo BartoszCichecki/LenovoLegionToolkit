@@ -14,7 +14,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation
 
         private readonly ComboBox _comboBox = new()
         {
-            Width = 150,
+            MinWidth = 150,
             Visibility = Visibility.Hidden,
         };
 

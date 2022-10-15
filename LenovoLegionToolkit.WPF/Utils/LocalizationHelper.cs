@@ -16,6 +16,7 @@ namespace LenovoLegionToolkit.WPF.Utils
         public static readonly CultureInfo[] Languages = {
             new("en"),
             new("zh-hans"),
+            new("ro"),
         };
 
         public static async Task SetLanguageAsync()

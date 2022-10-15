@@ -104,6 +104,7 @@ Special thanks to:
 
 Translations provided by:
 * Chinese - [凌卡Karl](https://github.com/KarlLee830)
+* Romanian - [Mario Bălănică](https://github.com/mariobalanica)
 
 ## FAQ
 
