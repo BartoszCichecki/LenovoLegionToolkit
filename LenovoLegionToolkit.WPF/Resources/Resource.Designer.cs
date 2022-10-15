@@ -124,6 +124,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string AboutPage_TranslationCredit {
+            get {
+                return ResourceManager.GetString("AboutPage_TranslationCredit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Version.
         /// </summary>
         public static string AboutPage_Version {
@@ -1102,7 +1111,25 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Device1.
+        ///   Looks up a localized string similar to &quot;{0}&quot; copied to clipboard..
+        /// </summary>
+        public static string DeviceInformationWindow_Copied_Message {
+            get {
+                return ResourceManager.GetString("DeviceInformationWindow_Copied_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copied!.
+        /// </summary>
+        public static string DeviceInformationWindow_Copied_Title {
+            get {
+                return ResourceManager.GetString("DeviceInformationWindow_Copied_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Device.
         /// </summary>
         public static string DeviceInformationWindow_Device_Title {
             get {
@@ -1861,6 +1888,78 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        public static string MainWindow_NavigationItem_About {
+            get {
+                return ResourceManager.GetString("MainWindow_NavigationItem_About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Actions.
+        /// </summary>
+        public static string MainWindow_NavigationItem_Actions {
+            get {
+                return ResourceManager.GetString("MainWindow_NavigationItem_Actions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Battery.
+        /// </summary>
+        public static string MainWindow_NavigationItem_Battery {
+            get {
+                return ResourceManager.GetString("MainWindow_NavigationItem_Battery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dashboard.
+        /// </summary>
+        public static string MainWindow_NavigationItem_Dashboard {
+            get {
+                return ResourceManager.GetString("MainWindow_NavigationItem_Dashboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Donate.
+        /// </summary>
+        public static string MainWindow_NavigationItem_Donate {
+            get {
+                return ResourceManager.GetString("MainWindow_NavigationItem_Donate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keyboard.
+        /// </summary>
+        public static string MainWindow_NavigationItem_Keyboard {
+            get {
+                return ResourceManager.GetString("MainWindow_NavigationItem_Keyboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Packages.
+        /// </summary>
+        public static string MainWindow_NavigationItem_Packages {
+            get {
+                return ResourceManager.GetString("MainWindow_NavigationItem_Packages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string MainWindow_NavigationItem_Settings {
+            get {
+                return ResourceManager.GetString("MainWindow_NavigationItem_Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Update available!.
         /// </summary>
         public static string MainWindow_UpdateAvailable {
@@ -2177,6 +2276,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Source.
+        /// </summary>
+        public static string PackagesPage_Source {
+            get {
+                return ResourceManager.GetString("PackagesPage_Source", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Downloads.
         /// </summary>
         public static string PackagesPage_Title {
@@ -2383,15 +2491,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string RefreshRateControl_Title {
             get {
                 return ResourceManager.GetString("RefreshRateControl_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string Resource_pl {
-            get {
-                return ResourceManager.GetString("Resource.pl", resourceCulture);
             }
         }
         

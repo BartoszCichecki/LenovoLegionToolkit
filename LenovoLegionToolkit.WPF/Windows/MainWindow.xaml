@@ -95,28 +95,28 @@
 
                     <wpfui:NavigationStore.Items>
                         <wpfui:NavigationItem
-                            Content="Dashboard"
+                            Content="{x:Static resources:Resource.MainWindow_NavigationItem_Dashboard}"
                             Icon="Home24"
                             PageTag="dashboard"
                             PageType="{x:Type pages:DashboardPage}" />
                         <wpfui:NavigationItem
                             x:Name="_keyboardItem"
-                            Content="Keyboard"
+                            Content="{x:Static resources:Resource.MainWindow_NavigationItem_Keyboard}"
                             Icon="Keyboard24"
                             PageTag="keyboardBacklight"
                             PageType="{x:Type pages:KeyboardBacklightPage}" />
                         <wpfui:NavigationItem
-                            Content="Battery"
+                            Content="{x:Static resources:Resource.MainWindow_NavigationItem_Battery}"
                             Icon="BatteryCheckmark24"
                             PageTag="battery"
                             PageType="{x:Type pages:BatteryPage}" />
                         <wpfui:NavigationItem
-                            Content="Actions"
+                            Content="{x:Static resources:Resource.MainWindow_NavigationItem_Actions}"
                             Icon="Rocket24"
                             PageTag="automation"
                             PageType="{x:Type pages:AutomationPage}" />
                         <wpfui:NavigationItem
-                            Content="Downloads"
+                            Content="{x:Static resources:Resource.MainWindow_NavigationItem_Packages}"
                             Icon="Box24"
                             PageTag="packages"
                             PageType="{x:Type pages:PackagesPage}" />
@@ -124,17 +124,17 @@
 
                     <wpfui:NavigationStore.Footer>
                         <wpfui:NavigationItem
-                            Content="Settings"
+                            Content="{x:Static resources:Resource.MainWindow_NavigationItem_Settings}"
                             Icon="Settings24"
                             PageTag="settings"
                             PageType="{x:Type pages:SettingsPage}" />
                         <wpfui:NavigationItem
-                            Content="Donate"
+                            Content="{x:Static resources:Resource.MainWindow_NavigationItem_Donate}"
                             Icon="Money24"
                             PageTag="donate"
                             PageType="{x:Type pages:DonatePage}" />
                         <wpfui:NavigationItem
-                            Content="About"
+                            Content="{x:Static resources:Resource.MainWindow_NavigationItem_About}"
                             Icon="Info24"
                             PageTag="about"
                             PageType="{x:Type pages:AboutPage}" />
