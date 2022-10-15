@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
+using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Windows.Utils
@@ -81,7 +82,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
             try
             {
                 Clipboard.SetText(str);
-                await _snackBar.ShowAsync("Copied!", $"\"{str}\" copied to clipboard.");
+                await _snackBar.ShowAsync(Resource.DeviceInformationWindow_Copied_Title, string.Format(Resource.DeviceInformationWindow_Copied_Message, str));
             }
             catch (Exception ex)
             {
