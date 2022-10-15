@@ -112,10 +112,6 @@ LLT is started using Task Scheduler, so that it can launch with admin rights. St
 
 Sometimes new motherboard does not contain correct model numbers and serial numbers. You should try [this tutorial](https://laptopwiki.eu/index.php/guides-and-tutorials/important-bios-related-guides/recover-original-model-sku-values/) to try and recover them. If that method does not succeed, you can workaround by going to `%LOCALAPPDATA%\LenovoLegionToolkit` and creating an `args.txt` file. Inside that file paste `--skip-compat-check`. This will disable all compatibility checks in LLT. Use this workaround only if correct model number, serial number etc. can't be restored.
 
-#### I can't find Legion AI Engine option.
-
-AI Engine is not supported. It requires Lenovo services to run. I recommend simply switching to Performance mode.
-
 #### Which RGB types are supported?
 
 Currently only white-backlight and 4-zone RGB keyboards are supported.
