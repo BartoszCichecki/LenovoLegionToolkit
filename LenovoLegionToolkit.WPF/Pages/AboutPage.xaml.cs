@@ -1,6 +1,9 @@
 ﻿using System.Diagnostics;
+using System.Globalization;
 using System.Reflection;
+using System.Windows;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.WPF.Resources;
 
 namespace LenovoLegionToolkit.WPF.Pages
 {
@@ -37,6 +40,8 @@ namespace LenovoLegionToolkit.WPF.Pages
             _version.Text += $" {VersionText}";
             _build.Text += $" {BuildText}";
             _copyright.Text = CopyrightText;
+
+            _translationCredit.Visibility = Resource.Culture.Equals(new CultureInfo("en")) ? Visibility.Collapsed : Visibility.Visible;
         }
     }
 }
