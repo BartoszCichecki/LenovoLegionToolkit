@@ -35,7 +35,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation
         private readonly Button _deleteButton = new()
         {
             Icon = SymbolRegular.Dismiss24,
-            Width = 34,
+            MinWidth = 34,
             Height = 34,
             Margin = new(8, 0, 0, 0),
         };

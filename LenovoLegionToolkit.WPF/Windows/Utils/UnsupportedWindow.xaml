@@ -121,14 +121,14 @@
 
                 <wpfui:Button
                     Grid.Column="0"
-                    Width="120"
+                    MinWidth="120"
                     Appearance="Primary"
                     Click="Exit_Click"
                     Content="{x:Static resources:Resource.Exit}" />
                 <wpfui:Button
                     x:Name="_continueButton"
                     Grid.Column="2"
-                    Width="120"
+                    MinWidth="120"
                     Appearance="Secondary"
                     Click="Continue_Click"
                     Content="{x:Static resources:Resource.Continue}"
