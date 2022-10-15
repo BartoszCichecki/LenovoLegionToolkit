@@ -51,7 +51,7 @@ If you are getting an incompatible message on startup, you can check the *Contri
 
 The list of supported models can be found here: [Compatibility.cs](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/LenovoLegionToolkit.Lib/Utils/Compatibility.cs).
 
-Support for other laptop that are not part of Legion line is not planned.
+**Support for other laptop that are not part of Legion or Ideapad Gaming lines is not planned.**
 
 ## Features
 
@@ -111,10 +111,6 @@ LLT is started using Task Scheduler, so that it can launch with admin rights. St
 #### My motherboard was replaced and now LLT gives me incompatible massage. What do I do?
 
 Sometimes new motherboard does not contain correct model numbers and serial numbers. You should try [this tutorial](https://laptopwiki.eu/index.php/guides-and-tutorials/important-bios-related-guides/recover-original-model-sku-values/) to try and recover them. If that method does not succeed, you can workaround by going to `%LOCALAPPDATA%\LenovoLegionToolkit` and creating an `args.txt` file. Inside that file paste `--skip-compat-check`. This will disable all compatibility checks in LLT. Use this workaround only if correct model number, serial number etc. can't be restored.
-
-#### I can't find Legion AI Engine option.
-
-AI Engine is not supported. It requires Lenovo services to run. I recommend simply switching to Performance mode.
 
 #### Which RGB types are supported?
 
