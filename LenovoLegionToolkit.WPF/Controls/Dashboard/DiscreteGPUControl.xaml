@@ -62,7 +62,7 @@
             </Grid>
             <wpfui:Button
                 x:Name="_deactivateGPUButton"
-                Width="150"
+                MinWidth="150"
                 Margin="0,8,0,0"
                 Appearance="Primary"
                 Click="DeactivateGPUButton_Click"
