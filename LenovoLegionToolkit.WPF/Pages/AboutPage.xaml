@@ -32,7 +32,9 @@
             x:Name="_build"
             Padding="0,0,0,16"
             Text="{x:Static resources:Resource.AboutPage_Build}" />
+
         <TextBlock x:Name="_copyright" />
+        <TextBlock Padding="0,8,0,0" Text="{x:Static resources:Resource.AboutPage_TranslationCredit}" />
 
         <TextBlock
             Padding="0,24,0,8"
