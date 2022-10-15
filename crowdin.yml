@@ -1,3 +1,0 @@
-files:
-  - source: Resource.resx
-    translation: Resource.%two_letters_code%.resx
