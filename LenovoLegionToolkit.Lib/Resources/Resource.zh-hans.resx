@@ -65,7 +65,7 @@
 		<value>保持开启</value>
 	</data>
   <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
-		<value>仅在睡眠时可用</value>
+		<value>仅在睡眠时</value>
 	</data>
   <data name="BatteryState_Conservation" xml:space="preserve">
 		<value>养护</value>
