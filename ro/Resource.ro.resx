@@ -58,43 +58,123 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Când alimentatorul este conectat</value>
+  <data name="AlwaysOnUSBState_Off" xml:space="preserve">
+    <value>Dezactivat</value>
   </data>
-  <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Când alimentatorul este deconectat</value>
+  <data name="AlwaysOnUSBState_OnAlways" xml:space="preserve">
+    <value>Activat, tot timpul</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Anulare</value>
+  <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
+    <value>Activat, doar in mod repaus</value>
   </data>
-  <data name="DeactivateGPUAutomationStepState_KillApps" xml:space="preserve">
-    <value>Închidere aplicații</value>
+  <data name="BatteryState_Conservation" xml:space="preserve">
+    <value>Conservare</value>
   </data>
-  <data name="DeactivateGPUAutomationStepState_RestartGPU" xml:space="preserve">
-    <value>Repornire GPU</value>
+  <data name="BatteryState_Normal" xml:space="preserve">
+    <value>Normal</value>
   </data>
-  <data name="Delay_Second" xml:space="preserve">
-    <value>{0} secundă</value>
+  <data name="BatteryState_RapidCharge" xml:space="preserve">
+    <value>Încărcare rapidă</value>
   </data>
-  <data name="Delay_Second_Many" xml:space="preserve">
-    <value>{0} secunde</value>
+  <data name="GPUController_PoweredOff" xml:space="preserve">
+    <value>Oprit</value>
   </data>
-  <data name="LowWattageACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Când alimentatorul de putere scăzută este conectat</value>
+  <data name="GPUController_PoweredOn" xml:space="preserve">
+    <value>Pornit</value>
   </data>
-  <data name="OnStartupAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>La pornire</value>
+  <data name="HybridModeState_Off" xml:space="preserve">
+    <value>dGPU</value>
   </data>
-  <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Când modul de putere este schimbat</value>
+  <data name="HybridModeState_On" xml:space="preserve">
+    <value>Hibrid</value>
   </data>
-  <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Când o aplicație rulează</value>
+  <data name="HybridModeState_OnAuto" xml:space="preserve">
+    <value>Hibrid-Auto</value>
   </data>
-  <data name="ProcessesStopRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Când o aplicație se închide</value>
+  <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
+    <value>Hibrid-iGPU</value>
   </data>
-  <data name="TimeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>La timpul specificat</value>
+  <data name="PowerModeState_Balance" xml:space="preserve">
+    <value>Echilibrat</value>
+  </data>
+  <data name="PowerModeState_GodMode" xml:space="preserve">
+    <value>Personalizat</value>
+  </data>
+  <data name="PowerModeState_Performance" xml:space="preserve">
+    <value>Performant</value>
+  </data>
+  <data name="PowerModeState_Quiet" xml:space="preserve">
+    <value>Liniștit</value>
+  </data>
+  <data name="RBGKeyboardSpeed_Fast" xml:space="preserve">
+    <value>Rapid</value>
+  </data>
+  <data name="RBGKeyboardSpeed_Fastest" xml:space="preserve">
+    <value>Cel mai rapid</value>
+  </data>
+  <data name="RBGKeyboardSpeed_Slow" xml:space="preserve">
+    <value>Lent</value>
+  </data>
+  <data name="RBGKeyboardSpeed_Slowest" xml:space="preserve">
+    <value>Cel mai lent</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
+    <value>Oprit</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_One" xml:space="preserve">
+    <value>Profil 1</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Three" xml:space="preserve">
+    <value>Profil 3</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
+    <value>Profil 2</value>
+  </data>
+  <data name="RGBKeyboardBrightness_High" xml:space="preserve">
+    <value>Ridicată</value>
+  </data>
+  <data name="RGBKeyboardBrightness_Low" xml:space="preserve">
+    <value>Scăzută</value>
+  </data>
+  <data name="RGBKeyboardEffect_Breath" xml:space="preserve">
+    <value>Respirație</value>
+  </data>
+  <data name="RGBKeyboardEffect_Smooth" xml:space="preserve">
+    <value>Tranziție lină culori</value>
+  </data>
+  <data name="RGBKeyboardEffect_Static" xml:space="preserve">
+    <value>Static</value>
+  </data>
+  <data name="RGBKeyboardEffect_WaveLTR" xml:space="preserve">
+    <value>Val culori spre stânga</value>
+  </data>
+  <data name="RGBKeyboardEffect_WaveRTL" xml:space="preserve">
+    <value>Val culori spre dreapta</value>
+  </data>
+  <data name="Theme_Dark" xml:space="preserve">
+    <value>Întunecat</value>
+  </data>
+  <data name="Theme_Light" xml:space="preserve">
+    <value>Luminos</value>
+  </data>
+  <data name="Theme_System" xml:space="preserve">
+    <value>Sistem</value>
+  </data>
+  <data name="WarrantyChecker_InWarranty" xml:space="preserve">
+    <value>In warranty</value>
+    <comment>This needs to be translated only into Chinese.</comment>
+  </data>
+  <data name="WarrantyChecker_WarrantyExpired" xml:space="preserve">
+    <value>Expired</value>
+    <comment>This needs to be translated only into Chinese.</comment>
+  </data>
+  <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
+    <value>Ridicată</value>
+  </data>
+  <data name="WhiteKeyboardBacklightState_Low" xml:space="preserve">
+    <value>Scăzută</value>
+  </data>
+  <data name="WhiteKeyboardBacklightState_Off" xml:space="preserve">
+    <value>Oprit</value>
   </data>
 </root>
