@@ -79,6 +79,9 @@
   <data name="AboutPage_Title" xml:space="preserve">
     <value>关于</value>
   </data>
+  <data name="AboutPage_TranslationCredit" xml:space="preserve">
+    <value>Translated by Karl Lee. 由凌卡Karl汉化。</value>
+  </data>
   <data name="AboutPage_Version" xml:space="preserve">
     <value>版本</value>
   </data>
@@ -119,7 +122,7 @@
     <value>应用并关闭</value>
   </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
-    <value>只有联想拯救者运行时自动化才可生效。</value>
+    <value>只有联想拯救箱运行时自动化才可生效。</value>
   </data>
   <data name="AutomationPage_ActionsEnabled_Title" xml:space="preserve">
     <value>启用自动化</value>
@@ -411,6 +414,12 @@
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>BIOS版本</value>
   </data>
+  <data name="DeviceInformationWindow_Copied_Message" xml:space="preserve">
+    <value>"{0}" 已复制到剪切板。</value>
+  </data>
+  <data name="DeviceInformationWindow_Copied_Title" xml:space="preserve">
+    <value>已复制！</value>
+  </data>
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
     <value>设备信息</value>
   </data>
@@ -599,7 +608,7 @@
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
     <value>警告！
-一些笔记本可以使用更高的功耗限制，但【一定小心】，这个选项可能会导致位置后果！除非你【准确的知道你在做什么】，否则请保持这个选项为0。</value>
+一些笔记本可以使用更高的功耗限制，但【一定小心】，这个选项可能会导致未知后果！除非你【准确的知道你在做什么】，否则请保持这个选项为0。</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
     <value>最大功耗限制偏移量</value>
@@ -674,6 +683,30 @@
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>键盘背光</value>
+  </data>
+  <data name="MainWindow_NavigationItem_About" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Actions" xml:space="preserve">
+    <value>自动化</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Battery" xml:space="preserve">
+    <value>电池</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Dashboard" xml:space="preserve">
+    <value>控制台</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Donate" xml:space="preserve">
+    <value>赞助</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
+    <value>键盘</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
+    <value>软件下载</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
+    <value>设置</value>
   </data>
   <data name="MainWindow_UpdateAvailable" xml:space="preserve">
     <value>新版本可用！</value>
@@ -783,6 +816,9 @@
   <data name="PackagesPage_Sort_Name" xml:space="preserve">
     <value>名字</value>
   </data>
+  <data name="PackagesPage_Source" xml:space="preserve">
+    <value>来源</value>
+  </data>
   <data name="PackagesPage_Title" xml:space="preserve">
     <value>驱动下载</value>
   </data>
@@ -803,7 +839,7 @@
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>选择性能模式
-你可以通过快捷键 Fn+Q 修改</value>
+你可以通过快捷键 Fn+Q 快速更改。</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
     <value>设置</value>
@@ -1145,10 +1181,10 @@
     <value>Win键开关</value>
   </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
-    <value>仅在内置键盘上生效。</value>
+    <value>仅在内置键盘上生效。开启后Win键按下不再有反应。</value>
   </data>
   <data name="WinKeyControl_Title" xml:space="preserve">
-    <value>锁定Win键</value>
+    <value>禁用Win键</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>是</value>
