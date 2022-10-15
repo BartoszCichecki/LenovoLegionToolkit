@@ -640,9 +640,9 @@
   <data name="GodModeSettingsWindow_Error_Load_Title" xml:space="preserve">
     <value>无法加载设置</value>
   </data>
-  <data name="GodModeSettingsWindow_Fans_Curve_Message" xml:space="preserve">
-    <value>风扇速度不是仅仅由一个温度传感器决定的。它将根据CPU、GPU和散热器温度之间的最高值决定转速。把鼠标悬停滑块在上时，可以看到准确的数值。</value>
-  </data>
+	<data name="GodModeSettingsWindow_Fans_Curve_Message" xml:space="preserve">
+		<value>风扇速度不是仅仅由一个温度传感器决定的。它将根据CPU、GPU和散热器温度之间的最高值决定转速。把鼠标悬停在滑块上时，可以看到准确的数值。</value>
+	</data>
   <data name="GodModeSettingsWindow_Fans_Curve_Title" xml:space="preserve">
     <value>风扇曲线</value>
   </data>
