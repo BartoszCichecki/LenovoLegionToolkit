@@ -64,6 +64,9 @@
   <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>When AC power adapter is disconnected</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
   <data name="DeactivateGPUAutomationStepState_KillApps" xml:space="preserve">
     <value>Kill apps</value>
   </data>
@@ -93,8 +96,5 @@
   </data>
   <data name="TimeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>At specified time</value>
-  </data>
-	<data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
   </data>
 </root>
