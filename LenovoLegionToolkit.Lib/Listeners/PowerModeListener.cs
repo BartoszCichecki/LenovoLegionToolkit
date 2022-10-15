@@ -62,12 +62,6 @@ namespace LenovoLegionToolkit.Lib.Listeners
             // but at least it does fire reliably and we can call GetThermalMode ourselves.
             value = await _powerModeFeature.GetActualStateAsync().ConfigureAwait(false);
 
-            var targetState = await _powerModeFeature.GetStateAsync().ConfigureAwait(false);
-
-            // _powerModeFeature.GetActualStateAsync() doesn't return PowerModeState.GodMode so we have to check manually.
-            if (value == PowerModeState.Performance && targetState == PowerModeState.GodMode)
-                value = targetState;
-
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Patched the event. [value={value}, listener={GetType().Name}]");
 

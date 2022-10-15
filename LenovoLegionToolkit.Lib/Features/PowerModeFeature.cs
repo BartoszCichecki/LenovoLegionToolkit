@@ -65,16 +65,27 @@ namespace LenovoLegionToolkit.Lib.Features
             await _aiModeController.StopAsync(state).ConfigureAwait(false);
         }
 
-        public Task<PowerModeState> GetActualStateAsync() => WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_GAMEZONE_DATA",
-            "GetThermalMode",
-            new(),
-            pdc =>
-            {
-                var value = Convert.ToInt32(pdc["Data"].Value) - 1;
-                if (!Enum.IsDefined(typeof(PowerModeState), value))
-                    throw new InvalidOperationException($"Invalid thermal mode received. value={value}");
-                return (PowerModeState)value;
-            });
+        public async Task<PowerModeState> GetActualStateAsync()
+        {
+            var targetState = await GetStateAsync().ConfigureAwait(false);
+
+            var currentState = await WMI.CallAsync(Scope,
+                Query,
+                "GetThermalMode",
+                new(),
+                pdc =>
+                {
+                    var value = Convert.ToInt32(pdc["Data"].Value) - 1;
+                    if (!Enum.IsDefined(typeof(PowerModeState), value))
+                        throw new InvalidOperationException($"Invalid thermal mode received. value={value}");
+                    return (PowerModeState)value;
+                }).ConfigureAwait(false);
+
+            // GetThermalMode() never returns PowerModeState.GodMode so we have to check manually.
+            if (currentState == PowerModeState.Performance && targetState == PowerModeState.GodMode)
+                return targetState;
+
+            return currentState;
+        }
     }
 }

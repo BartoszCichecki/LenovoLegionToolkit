@@ -58,8 +58,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
         {
             var targetState = await _powerModeFeature.GetStateAsync();
             var currentState = await _powerModeFeature.GetActualStateAsync();
-            bool isGodModeActive = targetState == PowerModeState.GodMode && currentState == PowerModeState.Performance;
-            bool isStateSupported = targetState == currentState || isGodModeActive;
+            bool isStateSupported = targetState == currentState;
 
             _actualPowerModeTextBlock.Visibility = isStateSupported ? Visibility.Collapsed : Visibility.Visible;
 
