@@ -59,42 +59,42 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>When AC power adapter is connected</value>
+    <value>当充电器插入时</value>
   </data>
   <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>When AC power adapter is disconnected</value>
+    <value>当充电器断开时</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>取消</value>
   </data>
   <data name="DeactivateGPUAutomationStepState_KillApps" xml:space="preserve">
-    <value>Kill apps</value>
+    <value>强制关闭应用</value>
   </data>
   <data name="DeactivateGPUAutomationStepState_RestartGPU" xml:space="preserve">
-    <value>Restart GPU</value>
+    <value>重启显卡</value>
   </data>
   <data name="Delay_Second" xml:space="preserve">
-    <value>{0} second</value>
+    <value>{0}秒</value>
   </data>
   <data name="Delay_Second_Many" xml:space="preserve">
-    <value>{0} seconds</value>
+    <value>{0}秒</value>
   </data>
   <data name="LowWattageACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>When low wattage AC power adapter is connected</value>
+    <value>当低功率充电器插入时</value>
   </data>
   <data name="OnStartupAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>On startup</value>
+    <value>当开机时</value>
   </data>
   <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>When power mode is changed</value>
+    <value>当性能模式改变时</value>
   </data>
   <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>When app is running</value>
+    <value>当指定的应用运行时</value>
   </data>
   <data name="ProcessesStopRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>When app closes</value>
+    <value>当指定的应用关闭时</value>
   </data>
   <data name="TimeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>At specified time</value>
+    <value>在特定的时间</value>
   </data>
 </root>
