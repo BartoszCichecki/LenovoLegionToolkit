@@ -290,7 +290,7 @@
     <value>未命名</value>
   </data>
   <data name="BalanceModeSettingsWindow_AIEngine_Message" xml:space="preserve">
-    <value>自动检测某些游戏的运行情况，并调整CPU和GPU性能。可能会增加机身温度和风扇噪音。</value>
+    <value>启用LegionAI引擎以自动检测游戏玩法并调整CPU/GPU性能。可能会增加机身温度和风扇噪音。</value>
   </data>
   <data name="BalanceModeSettingsWindow_AIEngine_Title" xml:space="preserve">
     <value>启用Legion AI 引擎</value>
@@ -305,7 +305,7 @@
     <value>充电模式</value>
   </data>
   <data name="BatteryModeControl_Message" xml:space="preserve">
-    <value>选择电池充电模式。</value>
+    <value>选择电池充电模式。养护模式可充至75%~80%，快充可使用较大功率充电。</value>
   </data>
   <data name="BatteryModeControl_Title" xml:space="preserve">
     <value>充电模式</value>
@@ -375,7 +375,7 @@
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
     <value>笔记本充电器拔下后到现在的时间。
-此时间不一定准确，当笔记本在关机或休眠时充电该时间可能出错。</value>
+当笔记本在关机或休眠时充电可能会导致此时间不准确。</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
     <value>电池使用时间</value>
@@ -507,12 +507,12 @@
     <value>活动中</value>
   </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
-    <value>休眠中</value>
+    <value>强制休眠显卡</value>
   </data>
   <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-    <value>英伟达显卡可以停用
+    <value>手动强制休眠英伟达显卡
 
-谨记，如果停用可能导致一些应用崩溃。</value>
+谨记，如果强制休眠可能导致一些应用崩溃。</value>
   </data>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>英伟达显卡休眠中</value>
@@ -524,7 +524,8 @@
     <value>关闭占用应用</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-    <value>在不需要时停用显卡。</value>
+    <value>在不需要时通过关闭占用应用或重启显卡强制休眠显卡，减少发热与风扇噪音。
+可能会导致应用崩溃，请尽量手动关闭将鼠标放到右侧问号图标处看到的使用显卡的程序。</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>一个显示器已连接到英伟达显卡</value>
@@ -1083,7 +1084,7 @@
     <value>语言</value>
   </data>
   <data name="SettingsPage_MinimizeOnClose_Message" xml:space="preserve">
-    <value>总是最小化到托盘。在托盘图标上点击右键即可关闭。</value>
+    <value>总是最小化到托盘。开启后右键点击托盘图标点击关闭即可关闭软件。</value>
   </data>
   <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
     <value>关闭时最小化</value>
@@ -1173,7 +1174,7 @@
     <value>不支持的设备</value>
   </data>
   <data name="UnsupportedWindow_Vendor" xml:space="preserve">
-    <value>供应商</value>
+    <value>制造商</value>
   </data>
   <data name="Update" xml:space="preserve">
     <value>更新</value>
@@ -1185,16 +1186,16 @@
     <value>各版本更新日志：</value>
   </data>
   <data name="WhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
-    <value>调节键盘背光亮度</value>
+    <value>调节键盘背光</value>
   </data>
   <data name="WhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
     <value>键盘背光</value>
   </data>
   <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
-    <value>你可以通过快捷键 Fn+空格 调节亮度</value>
+    <value>你可以通过快捷键 Fn+空格 调节键盘背光开关与亮度。</value>
   </data>
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
-    <value>亮度</value>
+    <value>键盘背光亮度</value>
   </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
     <value>启用或禁用Win键。</value>
