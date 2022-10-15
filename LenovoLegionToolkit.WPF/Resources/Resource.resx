@@ -1048,7 +1048,7 @@ Enable this option if you have conflicts with full screen applications.</value>
     <value>Exclude Refresh Rates</value>
   </data>
   <data name="SettingsPage_Language_Message" xml:space="preserve">
-    <value>Select language</value>
+    <value>Select language.</value>
   </data>
   <data name="SettingsPage_Language_Title" xml:space="preserve">
     <value>Language</value>
