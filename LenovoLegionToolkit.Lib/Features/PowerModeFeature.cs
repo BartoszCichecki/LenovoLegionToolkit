@@ -11,13 +11,11 @@ namespace LenovoLegionToolkit.Lib.Features
     public class PowerModeFeature : AbstractLenovoGamezoneWmiFeature<PowerModeState>
     {
         private readonly AIModeController _aiModeController;
-        private readonly GodModeController _godModeController;
 
-        public PowerModeFeature(AIModeController aiModeController, GodModeController godModeController)
+        public PowerModeFeature(AIModeController aiModeController)
             : base("SmartFanMode", 1, "IsSupportSmartFan")
         {
             _aiModeController = aiModeController ?? throw new ArgumentNullException(nameof(aiModeController));
-            _godModeController = godModeController ?? throw new ArgumentNullException(nameof(godModeController));
         }
 
         public override async Task<PowerModeState[]> GetAllStatesAsync()
