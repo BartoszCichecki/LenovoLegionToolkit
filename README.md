@@ -51,7 +51,7 @@ If you are getting an incompatible message on startup, you can check the *Contri
 
 The list of supported models can be found here: [Compatibility.cs](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/LenovoLegionToolkit.Lib/Utils/Compatibility.cs).
 
-Support for other laptop that are not part of Legion line is not planned.
+**Support for other laptop that are not part of Legion or Ideapad Gaming lines is not planned.**
 
 ## Features
 
