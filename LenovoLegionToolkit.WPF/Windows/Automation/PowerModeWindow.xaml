@@ -4,8 +4,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
+    xmlns:resources1="clr-namespace:LenovoLegionToolkit.Lib.Automation.Resources;assembly=LenovoLegionToolkit.Lib.Automation"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Power Mode"
+    Title="{x:Static resources:Resource.PowerModeWindow_Title}"
     MinWidth="400"
     MinHeight="300"
     MaxWidth="400"
@@ -40,7 +42,7 @@
                 VerticalAlignment="Center"
                 FontSize="12"
                 IsHitTestVisible="False"
-                Text="Power Mode" />
+                Text="{x:Static resources:Resource.PowerModeWindow_Title}" />
 
         </Grid>
 
@@ -67,18 +69,18 @@
                     <wpfui:Button
                         x:Name="_saveButton"
                         Grid.Column="1"
-                        Width="100"
+                        MinWidth="100"
                         Appearance="Primary"
                         Click="SaveButton_Click"
-                        Content="Save" />
+                        Content="{x:Static resources:Resource.Save}" />
 
                     <wpfui:Button
                         x:Name="_cancelButton"
                         Grid.Column="2"
-                        Width="100"
+                        MinWidth="100"
                         Margin="8,0,0,0"
                         Click="CancelButton_Click"
-                        Content="Cancel" />
+                        Content="{x:Static resources1:Resource.Cancel}" />
 
                 </Grid>
 

@@ -7,8 +7,9 @@
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:pages="clr-namespace:LenovoLegionToolkit.WPF.Pages"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Lenovo Legion Toolkit"
+    Title="{x:Static resources:Resource.AppName}"
     Width="1150"
     Height="750"
     MinWidth="650"
@@ -36,7 +37,7 @@
                 VerticalAlignment="Center"
                 FontSize="12"
                 IsHitTestVisible="False"
-                Text="Lenovo Legion Toolkit" />
+                Text="{x:Static resources:Resource.AppName}" />
 
             <wpfui:Badge
                 x:Name="_openLogIndicator"
@@ -56,7 +57,7 @@
                 Margin="0,0,8,0"
                 Padding="8,4,8,4"
                 Appearance="Success"
-                Content="Update available!"
+                Content="{x:Static resources:Resource.MainWindow_UpdateAvailable}"
                 Cursor="Hand"
                 MouseLeftButtonDown="UpdateIndicator_Click"
                 MouseRightButtonDown="UpdateIndicator_Click"
@@ -94,28 +95,28 @@
 
                     <wpfui:NavigationStore.Items>
                         <wpfui:NavigationItem
-                            Content="Dashboard"
+                            Content="{x:Static resources:Resource.MainWindow_NavigationItem_Dashboard}"
                             Icon="Home24"
                             PageTag="dashboard"
                             PageType="{x:Type pages:DashboardPage}" />
                         <wpfui:NavigationItem
                             x:Name="_keyboardItem"
-                            Content="Keyboard"
+                            Content="{x:Static resources:Resource.MainWindow_NavigationItem_Keyboard}"
                             Icon="Keyboard24"
                             PageTag="keyboardBacklight"
                             PageType="{x:Type pages:KeyboardBacklightPage}" />
                         <wpfui:NavigationItem
-                            Content="Battery"
+                            Content="{x:Static resources:Resource.MainWindow_NavigationItem_Battery}"
                             Icon="BatteryCheckmark24"
                             PageTag="battery"
                             PageType="{x:Type pages:BatteryPage}" />
                         <wpfui:NavigationItem
-                            Content="Actions"
+                            Content="{x:Static resources:Resource.MainWindow_NavigationItem_Actions}"
                             Icon="Rocket24"
                             PageTag="automation"
                             PageType="{x:Type pages:AutomationPage}" />
                         <wpfui:NavigationItem
-                            Content="Downloads"
+                            Content="{x:Static resources:Resource.MainWindow_NavigationItem_Packages}"
                             Icon="Box24"
                             PageTag="packages"
                             PageType="{x:Type pages:PackagesPage}" />
@@ -123,17 +124,17 @@
 
                     <wpfui:NavigationStore.Footer>
                         <wpfui:NavigationItem
-                            Content="Settings"
+                            Content="{x:Static resources:Resource.MainWindow_NavigationItem_Settings}"
                             Icon="Settings24"
                             PageTag="settings"
                             PageType="{x:Type pages:SettingsPage}" />
                         <wpfui:NavigationItem
-                            Content="Donate"
+                            Content="{x:Static resources:Resource.MainWindow_NavigationItem_Donate}"
                             Icon="Money24"
                             PageTag="donate"
                             PageType="{x:Type pages:DonatePage}" />
                         <wpfui:NavigationItem
-                            Content="About"
+                            Content="{x:Static resources:Resource.MainWindow_NavigationItem_About}"
                             Icon="Info24"
                             PageTag="about"
                             PageType="{x:Type pages:AboutPage}" />
@@ -149,7 +150,7 @@
                 </Border>
 
                 <wpfui:Snackbar
-                    x:Name="_snackBar"
+                    x:Name="_snackbar"
                     Grid.Column="1"
                     MinWidth="300"
                     MaxWidth="600"

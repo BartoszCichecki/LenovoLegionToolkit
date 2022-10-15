@@ -4,7 +4,7 @@
 
 Lenovo Legion Toolkit (LLT) is a utility created for Lenovo Legion laptops, that allows changing a couple of features that are only available in Lenovo Vantage or Legion Zone.
 
-**If your laptop is not part of Legion or Ideapad Gaming lines, this software is not for you.**
+**If your laptop is not part of Legion or Ideapad Gaming lines, this software is not for you. Please do NOT open compatibility requests for other devices. Issues will be closed and not looked at!**
 
 It runs no background services, uses less memory, uses virtually no CPU, and contains no telemetry. Just like Lenovo Vantage, this application is Windows only.
 
@@ -43,7 +43,7 @@ You can download the installer from the Releases page here: [Latest release](htt
 
 ## Compatibility
 
-Lenovo Legion Toolkit is compatible with a lot of Lenovo Legion laptops from 2020, 2021 and 2022 running Windows 10 and 11. All testing done by me is done always on the latest Windows 11 update and Legion 5 Pro 16ACH6H.
+Lenovo Legion Toolkit is compatible with a lot of Lenovo Legion and Ideapad Gaming laptops from 2020, 2021 and 2022 running Windows 10 and 11.
 
 Overall the recommendation is to disable or uninstall Vantage, Hotkeys and Legion Zone while using LLT. There are some functions that cause conflicts or may not work properly when LLT is working along side other Lenovo apps.
 
@@ -51,7 +51,7 @@ If you are getting an incompatible message on startup, you can check the *Contri
 
 The list of supported models can be found here: [Compatibility.cs](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/LenovoLegionToolkit.Lib/Utils/Compatibility.cs).
 
-Support for other laptop that are not part of Legion line is not planned.
+**Support for other laptop that are not part of Legion or Ideapad Gaming lines is not planned.**
 
 ## Features
 
@@ -102,6 +102,10 @@ Special thanks to:
 * [falahati](https://github.com/falahati), for creating [NvAPIWrapper](https://github.com/falahati/NvAPIWrapper) and [WindowsDisplayAPI](https://github.com/falahati/WindowsDisplayAPI)
 * [SmokelessCPU](https://github.com/SmokelessCPU) for help with 4-zone RGB keyboard support
 
+Translations provided by:
+* Chinese - [凌卡Karl](https://github.com/KarlLee830)
+* Romanian - [Mario Bălănică](https://github.com/mariobalanica)
+
 ## FAQ
 
 #### Why doesn't LLT launch on startup even though Autorun option is enabled?
@@ -111,10 +115,6 @@ LLT is started using Task Scheduler, so that it can launch with admin rights. St
 #### My motherboard was replaced and now LLT gives me incompatible massage. What do I do?
 
 Sometimes new motherboard does not contain correct model numbers and serial numbers. You should try [this tutorial](https://laptopwiki.eu/index.php/guides-and-tutorials/important-bios-related-guides/recover-original-model-sku-values/) to try and recover them. If that method does not succeed, you can workaround by going to `%LOCALAPPDATA%\LenovoLegionToolkit` and creating an `args.txt` file. Inside that file paste `--skip-compat-check`. This will disable all compatibility checks in LLT. Use this workaround only if correct model number, serial number etc. can't be restored.
-
-#### I can't find Legion AI Engine option.
-
-AI Engine is not supported. It requires Lenovo services to run. I recommend simply switching to Performance mode.
 
 #### Which RGB types are supported?
 

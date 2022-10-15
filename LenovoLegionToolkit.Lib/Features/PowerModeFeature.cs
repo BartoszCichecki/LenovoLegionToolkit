@@ -37,7 +37,9 @@ namespace LenovoLegionToolkit.Lib.Features
 
             var currentState = await GetStateAsync().ConfigureAwait(false);
 
-            // Workaround: Peformance mode doesn't update the dGPU temp limit (and possibly other properties) on some Gen 7 devices.
+            await _aiModeController.StopAsync(currentState).ConfigureAwait(false);
+
+            // Workaround: Performance mode doesn't update the dGPU temp limit (and possibly other properties) on some Gen 7 devices.
             var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
             if (mi.Properties.HasPerformanceModeSwitchingBug && currentState == PowerModeState.Quiet && state == PowerModeState.Performance)
                 await base.SetStateAsync(PowerModeState.Balance).ConfigureAwait(false);
@@ -54,7 +56,13 @@ namespace LenovoLegionToolkit.Lib.Features
         public async Task EnsureAIModeIsSetAsync()
         {
             var state = await GetStateAsync().ConfigureAwait(false);
-            await _aiModeController.StartStopAsync(state).ConfigureAwait(false);
+            await _aiModeController.StartAsync(state).ConfigureAwait(false);
+        }
+
+        public async Task EnsureAIModeIsOffAsync()
+        {
+            var state = await GetStateAsync().ConfigureAwait(false);
+            await _aiModeController.StopAsync(state).ConfigureAwait(false);
         }
 
         public Task<PowerModeState> GetActualStateAsync() => WMI.CallAsync("root\\WMI",

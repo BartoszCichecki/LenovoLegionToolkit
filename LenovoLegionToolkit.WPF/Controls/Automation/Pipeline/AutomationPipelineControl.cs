@@ -13,6 +13,7 @@ using LenovoLegionToolkit.Lib.Automation.Steps;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Controls.Automation.Steps;
+using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Automation;
 using Wpf.Ui.Common;
@@ -52,30 +53,30 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
         private readonly CheckBox _isExclusiveCheckBox = new()
         {
             HorizontalAlignment = HorizontalAlignment.Left,
-            Content = "Exclusive",
-            ToolTip = "Do not execute further actions when this action runs.",
-            Width = 100,
+            Content = Resource.AutomationPipelineControl_Exclusive,
+            ToolTip = Resource.AutomationPipelineControl_Exclusive_ToolTip,
+            MinWidth = 100,
             Margin = new(0, 0, 8, 0),
         };
 
         private readonly Button _runNowButton = new()
         {
-            Content = "Run now",
-            Width = 100,
+            Content = Resource.AutomationPipelineControl_RunNow,
+            MinWidth = 100,
             Margin = new(0, 0, 8, 0),
         };
 
         private readonly Button _addStepButton = new()
         {
-            Content = "Add step",
-            Width = 100,
+            Content = Resource.AutomationPipelineControl_AddStep,
+            MinWidth = 100,
             Margin = new(0, 0, 8, 0),
         };
 
         private readonly Button _deletePipelineButton = new()
         {
-            Content = "Delete",
-            Width = 100,
+            Content = Resource.Delete,
+            MinWidth = 100,
         };
 
         public AutomationPipeline AutomationPipeline { get; }
@@ -172,22 +173,22 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             try
             {
                 _runNowButton.IsEnabled = false;
-                _runNowButton.Content = "Running...";
+                _runNowButton.Content = Resource.AutomationPipelineControl_Running;
                 var pipeline = CreateAutomationPipeline();
                 await _automationProcessor.RunNowAsync(pipeline);
 
-                await SnackbarHelper.ShowAsync("Run now", "Completed successfully!");
+                await SnackbarHelper.ShowAsync(Resource.AutomationPipelineControl_RunNow_Success_Title, Resource.AutomationPipelineControl_RunNow_Success_Message);
             }
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Run now completed with errors", ex);
 
-                await SnackbarHelper.ShowAsync("Run now", "Completed with errors.");
+                await SnackbarHelper.ShowAsync(Resource.AutomationPipelineControl_RunNow_Error_Title, Resource.AutomationPipelineControl_RunNow_Error_Message);
             }
             finally
             {
-                _runNowButton.Content = "Run now";
+                _runNowButton.Content = Resource.AutomationPipelineControl_RunNow;
                 _runNowButton.IsEnabled = true;
             }
         }
@@ -205,7 +206,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             if (AutomationPipeline.Trigger is not null)
                 return AutomationPipeline.Trigger.DisplayName;
 
-            return "Unnamed";
+            return Resource.AutomationPipelineControl_Unnamed;
         }
 
         private string GenerateSubtitle()
@@ -213,29 +214,28 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             var stepsCount = _stepsStackPanel.Children.ToArray()
                 .OfType<AbstractAutomationStepControl>()
                 .Count();
-            var stepsCountModifier = stepsCount != 1 ? "s" : "";
 
-            var result = $"{stepsCount} step{stepsCountModifier}";
+            var result = string.Format(stepsCount == 1 ? Resource.AutomationPipelineControl_Step : Resource.AutomationPipelineControl_Step_Many, stepsCount);
 
             if (!string.IsNullOrWhiteSpace(AutomationPipeline.Name) && AutomationPipeline.Trigger is not null)
                 result += $" | {AutomationPipeline.Trigger.DisplayName}";
 
             if (AutomationPipeline.Trigger is IPowerModeAutomationPipelineTrigger p)
-                result += $" | Power Mode: {p.PowerModeState.GetDisplayName()}";
+                result += $" | {Resource.AutomationPipelineControl_SubtitlePart_PowerMode}: {p.PowerModeState.GetDisplayName()}";
 
             if (AutomationPipeline.Trigger is IProcessesAutomationPipelineTrigger pt && pt.Processes.Any())
-                result += $" | Apps: {string.Join(", ", pt.Processes.Select(p => p.Name))}";
+                result += $" | {Resource.AutomationPipelineControl_SubtitlePart_Apps}: {string.Join(", ", pt.Processes.Select(p => p.Name))}";
 
             if (AutomationPipeline.Trigger is ITimeAutomationPipelineTrigger tt)
             {
                 if (tt.IsSunrise)
-                    result += " | At sunrise";
+                    result += $" | {Resource.AutomationPipelineControl_SubtitlePart_AtSunrise}";
                 if (tt.IsSunset)
-                    result += " | At sunset";
+                    result += $" | {Resource.AutomationPipelineControl_SubtitlePart_AtSunset}";
                 if (tt.Time is not null)
                 {
                     var local = DateTimeExtensions.UtcFrom(tt.Time.Value.Hour, tt.Time.Value.Minute).ToLocalTime();
-                    result += $" | At {local.Hour:D2}:{local.Minute:D2}";
+                    result += $" | {string.Format(Resource.AutomationPipelineControl_SubtitlePart_AtTime, local.Hour, local.Minute)}";
                 }
             }
 
@@ -248,9 +248,9 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             {
                 var button = new Button
                 {
-                    Content = "Configure",
+                    Content = Resource.AutomationPipelineControl_Configure,
                     Margin = new(16, 0, 16, 0),
-                    Width = 120,
+                    MinWidth = 120,
                 };
                 button.Click += (s, e) =>
                 {
@@ -277,9 +277,9 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             {
                 var button = new Button
                 {
-                    Content = "Configure",
+                    Content = Resource.AutomationPipelineControl_Configure,
                     Margin = new(16, 0, 16, 0),
-                    Width = 120,
+                    MinWidth = 120,
                 };
                 button.Click += (s, e) =>
                 {
@@ -307,9 +307,9 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
                 var button = new Button
                 {
-                    Content = "Configure",
+                    Content = Resource.AutomationPipelineControl_Configure,
                     Margin = new(16, 0, 16, 0),
-                    Width = 120,
+                    MinWidth = 120,
                 };
                 button.Click += (s, e) =>
                 {
@@ -431,7 +431,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             var moveUpMenuItem = new MenuItem
             {
                 SymbolIcon = SymbolRegular.ArrowUp24,
-                Header = "Move up"
+                Header = Resource.AutomationPipelineControl_MoveUp
             };
             if (index > 0)
                 moveUpMenuItem.Click += (s, e) => MoveStep(control, index - 1);
@@ -442,7 +442,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             var moveDownMenuItem = new MenuItem
             {
                 SymbolIcon = SymbolRegular.ArrowDown24,
-                Header = "Move down"
+                Header = Resource.AutomationPipelineControl_MoveDown
             };
             if (index < maxIndex)
                 moveDownMenuItem.Click += (s, e) => MoveStep(control, index + 1);

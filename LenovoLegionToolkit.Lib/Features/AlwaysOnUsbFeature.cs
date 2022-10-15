@@ -26,15 +26,16 @@ namespace LenovoLegionToolkit.Lib.Features
         protected override Task<AlwaysOnUSBState> FromInternalAsync(uint state)
         {
             state = state.ReverseEndianness();
+
             if (state.GetNthBit(31)) // is on?
             {
                 if (state.GetNthBit(23))
                     return Task.FromResult(AlwaysOnUSBState.OnAlways);
-                else
-                    return Task.FromResult(AlwaysOnUSBState.OnWhenSleeping);
+
+                return Task.FromResult(AlwaysOnUSBState.OnWhenSleeping);
             }
-            else
-                return Task.FromResult(AlwaysOnUSBState.Off);
+
+            return Task.FromResult(AlwaysOnUSBState.Off);
         }
     }
 }

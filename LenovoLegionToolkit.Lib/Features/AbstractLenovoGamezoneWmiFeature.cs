@@ -7,8 +7,8 @@ namespace LenovoLegionToolkit.Lib.Features
 {
     public abstract class AbstractLenovoGamezoneWmiFeature<T> : IFeature<T> where T : struct, Enum, IComparable
     {
-        private static readonly string _scope = @"root\WMI";
-        private static readonly FormattableString _query = $"SELECT * FROM LENOVO_GAMEZONE_DATA";
+        protected static readonly string Scope = @"root\WMI";
+        protected static readonly FormattableString Query = $"SELECT * FROM LENOVO_GAMEZONE_DATA";
 
         private readonly string _methodNameSuffix;
         private readonly int _offset;
@@ -16,6 +16,7 @@ namespace LenovoLegionToolkit.Lib.Features
         private readonly int _supportOffset;
         private readonly string _inParameterName;
         private readonly string _outParameterName;
+
 
         protected AbstractLenovoGamezoneWmiFeature(string methodNameSuffix,
             int offset,
@@ -39,8 +40,8 @@ namespace LenovoLegionToolkit.Lib.Features
                 if (_supportMethodName is null)
                     return true;
 
-                var value = await WMI.CallAsync(_scope,
-                    _query,
+                var value = await WMI.CallAsync(Scope,
+                    Query,
                     _supportMethodName,
                     new(),
                     pdc => Convert.ToInt32(pdc[_outParameterName].Value)).ConfigureAwait(false);
@@ -67,8 +68,8 @@ namespace LenovoLegionToolkit.Lib.Features
                 throw new NotSupportedException($"Feature {_methodNameSuffix} is not supported.");
             }
 
-            var internalResult = await WMI.CallAsync(_scope,
-                _query,
+            var internalResult = await WMI.CallAsync(Scope,
+                Query,
                 "Get" + _methodNameSuffix,
                 new(),
                 pdc => Convert.ToInt32(pdc[_outParameterName].Value)).ConfigureAwait(false);
@@ -85,8 +86,8 @@ namespace LenovoLegionToolkit.Lib.Features
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Setting state to {state}... [feature={GetType().Name}]");
 
-            await WMI.CallAsync(_scope,
-                _query,
+            await WMI.CallAsync(Scope,
+                Query,
                 "Set" + _methodNameSuffix,
                 new() { { _inParameterName, ToInternal(state).ToString() } }).ConfigureAwait(false);
 

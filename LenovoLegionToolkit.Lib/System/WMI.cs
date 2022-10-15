@@ -9,13 +9,45 @@ namespace LenovoLegionToolkit.Lib.System
 {
     public static class WMI
     {
+        private class DisposableListener : IDisposable
+        {
+            private ManagementEventWatcher? _watcher;
+
+            public DisposableListener(ManagementEventWatcher watcher)
+            {
+                _watcher = watcher;
+            }
+
+            public void Dispose()
+            {
+                _watcher?.Stop();
+                _watcher?.Dispose();
+                _watcher = null;
+            }
+        }
+
+        public static async Task<bool> Exists(string scope, FormattableString query)
+        {
+            try
+            {
+                var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
+                var mos = new ManagementObjectSearcher(scope, queryFormatted);
+                var managementObjects = await mos.GetAsync().ConfigureAwait(false);
+                return managementObjects.Any();
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public static IDisposable Listen(string scope, FormattableString query, Action<PropertyDataCollection> handler)
         {
             var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
             var watcher = new ManagementEventWatcher(scope, queryFormatted);
             watcher.EventArrived += (s, e) => handler(e.NewEvent.Properties);
             watcher.Start();
-            return watcher;
+            return new DisposableListener(watcher);
         }
 
         public static async Task<IEnumerable<T>> ReadAsync<T>(string scope, FormattableString query, Func<PropertyDataCollection, T> converter)

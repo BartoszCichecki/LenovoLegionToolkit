@@ -5,6 +5,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using ColorPicker;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 using Button = System.Windows.Controls.Button;
@@ -53,21 +54,21 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         private readonly Label _redLabel = new()
         {
-            Content = "Red:",
+            Content = Resource.ColorCardControl_Red,
             VerticalContentAlignment = VerticalAlignment.Center,
             Margin = new(0, 8, 0, 0),
         };
 
         private readonly Label _greenLabel = new()
         {
-            Content = "Green:",
+            Content = Resource.ColorCardControl_Green,
             VerticalContentAlignment = VerticalAlignment.Center,
             Margin = new(0, 8, 0, 0),
         };
 
         private readonly Label _blueLabel = new()
         {
-            Content = "Blue:",
+            Content = Resource.ColorCardControl_Blue,
             VerticalContentAlignment = VerticalAlignment.Center,
             Margin = new(0, 8, 0, 0),
         };

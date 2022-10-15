@@ -10,6 +10,7 @@ using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Dashboard;
 using Wpf.Ui.Common;
@@ -40,8 +41,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
         public PowerModeControl()
         {
             Icon = SymbolRegular.Gauge24;
-            Title = "Power Mode";
-            Subtitle = "Select your preferred power mode.\nYou can switch mode with Fn+Q.";
+            Title = Resource.PowerModeControl_Title;
+            Subtitle = Resource.PowerModeControl_Message;
 
             _powerModeListener.Changed += PowerModeListener_Changed;
             _powerPlanListener.Changed += PowerPlanListener_Changed;
@@ -110,11 +111,11 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
                 switch (state)
                 {
                     case PowerModeState.Balance when mi.Properties.SupportsIntelligentSubMode:
-                        _configButton.ToolTip = "Settings";
+                        _configButton.ToolTip = Resource.PowerModeControl_Settings;
                         _configButton.Visibility = Visibility.Visible;
                         break;
                     case PowerModeState.GodMode:
-                        _configButton.ToolTip = "Settings";
+                        _configButton.ToolTip = Resource.PowerModeControl_Settings;
                         _configButton.Visibility = Visibility.Visible;
                         break;
                     default:
@@ -128,7 +129,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"State change failed.", ex);
 
-                await SnackbarHelper.ShowAsync("Couldn't change Power Mode", ex.Message, true);
+                await SnackbarHelper.ShowAsync(Resource.PowerModeControl_ChangeError, ex.Message, true);
             }
         }
 

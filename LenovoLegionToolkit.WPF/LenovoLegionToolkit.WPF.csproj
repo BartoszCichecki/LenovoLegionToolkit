@@ -18,11 +18,13 @@
 		<IncludeAllContentForSelfExtract>false</IncludeAllContentForSelfExtract>
 		<SatelliteResourceLanguages>en</SatelliteResourceLanguages>
 	</PropertyGroup>
-	<PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 		<SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("yyyyMMddHHmmss"))</SourceRevisionId>
 	</PropertyGroup>
 	<PropertyGroup>
 		<ApplicationManifest>app.manifest</ApplicationManifest>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+		<NeutralLanguage>en</NeutralLanguage>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 	  <DebugType>portable</DebugType>
@@ -53,5 +55,24 @@
 		<Resource Include="Assets\icon.ico" />
 		<Resource Include="Assets\paypal_button.png" />
 		<Resource Include="Assets\paypal_qr.png" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Compile Update="Resources\Resource.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Resource.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Update="Resources\Resource.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Resource.zh-hans.resx">
+	    <DependentUpon>Resource.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Resource.ro.resx">
+		<DependentUpon>Resource.resx</DependentUpon>
+	  </EmbeddedResource>
 	</ItemGroup>
 </Project>

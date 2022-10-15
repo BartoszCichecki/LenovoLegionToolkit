@@ -72,6 +72,8 @@ body:
     attributes:
       label: Logs
       description: Please drag and drop log files here. You can check README for instructions on how to collect logs.
+    validations:
+      required: true
   - type: checkboxes
     id: vantage-fn-keys
     attributes:

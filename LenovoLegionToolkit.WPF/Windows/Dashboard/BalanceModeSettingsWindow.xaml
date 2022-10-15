@@ -6,8 +6,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
+    xmlns:resources1="clr-namespace:LenovoLegionToolkit.Lib.Automation.Resources;assembly=LenovoLegionToolkit.Lib.Automation"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Balance Mode Settings"
+    Title="{x:Static resources:Resource.BalanceModeSettingsWindow_Title}"
     MinWidth="400"
     MinHeight="220"
     MaxWidth="400"
@@ -42,7 +44,7 @@
                 VerticalAlignment="Center"
                 FontSize="12"
                 IsHitTestVisible="False"
-                Text="Balance Mode Settings" />
+                Text="{x:Static resources:Resource.BalanceModeSettingsWindow_Title}" />
 
         </Grid>
 
@@ -53,13 +55,15 @@
             </Grid.RowDefinitions>
 
             <StackPanel Grid.Row="0">
-                <CheckBox x:Name="_aiModeCheckBox" Content="Enable AI Engine" />
+                <CheckBox x:Name="_aiModeCheckBox" Content="{x:Static resources:Resource.BalanceModeSettingsWindow_AIEngine_Title}" />
 
-                <TextBlock Margin="32,4,0,0" TextWrapping="Wrap">
+                <TextBlock
+                    Margin="32,4,0,0"
+                    Text="{x:Static resources:Resource.BalanceModeSettingsWindow_AIEngine_Message}"
+                    TextWrapping="Wrap">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource TextFillColorTertiary}" />
                     </TextBlock.Foreground>
-                    Automatically detects when certain games are running and tweaks CPU and GPU performance. Temperatures and fan noise might increase.
                 </TextBlock>
             </StackPanel>
 
@@ -72,17 +76,17 @@
 
                 <wpfui:Button
                     Grid.Column="1"
-                    Width="100"
+                    MinWidth="100"
                     Appearance="Primary"
                     Click="SaveButton_Click"
-                    Content="Save" />
+                    Content="{x:Static resources:Resource.Save}" />
 
                 <wpfui:Button
                     Grid.Column="2"
-                    Width="100"
+                    MinWidth="100"
                     Margin="8,0,0,0"
                     Click="CancelButton_Click"
-                    Content="Cancel" />
+                    Content="{x:Static resources1:Resource.Cancel}" />
 
             </Grid>
 

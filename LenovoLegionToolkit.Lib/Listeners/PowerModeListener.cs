@@ -33,7 +33,12 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         protected override async Task OnChangedAsync(PowerModeState value)
         {
-            await _aiModeController.StartStopAsync(value).ConfigureAwait(false);
+            await _aiModeController.StopAsync(value).ConfigureAwait(false);
+            await _aiModeController.StartAsync(value).ConfigureAwait(false);
+
+            if (value == PowerModeState.GodMode)
+                await _godModeController.ApplyStateAsync().ConfigureAwait(false);
+
             await Power.ActivatePowerPlanAsync(value).ConfigureAwait(false);
 
             if (value == PowerModeState.GodMode)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Automation.Resources;
 using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
@@ -7,7 +8,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
     public class OnStartupAutomationPipelineTrigger : IAutomationPipelineTrigger, IOnStartupAutomationPipelineTrigger, IDisallowDuplicatesAutomationPipelineTrigger
     {
         [JsonIgnore]
-        public string DisplayName => "On startup";
+        public string DisplayName => Resource.OnStartupAutomationPipelineTrigger_DisplayName;
 
         public Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent)
         {
