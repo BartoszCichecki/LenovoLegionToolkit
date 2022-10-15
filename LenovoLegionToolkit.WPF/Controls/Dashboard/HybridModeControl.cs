@@ -51,7 +51,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
         protected override FrameworkElement? GetAccessory(ComboBox comboBox)
         {
-            comboBox.Width = 150;
+            comboBox.MinWidth = 150;
 
             _infoButton.Click += InfoButton_Click;
 
