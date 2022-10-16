@@ -40,9 +40,6 @@ namespace LenovoLegionToolkit.Lib.Listeners
                 await _godModeController.ApplyStateAsync().ConfigureAwait(false);
 
             await Power.ActivatePowerPlanAsync(value).ConfigureAwait(false);
-
-            if (value == PowerModeState.GodMode)
-                await _godModeController.ApplyStateAsync().ConfigureAwait(false);
         }
 
         public async Task NotifyAsync(PowerModeState value)
