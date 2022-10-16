@@ -27,7 +27,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
             {
                 case ProcessState.Start:
                     foreach (ProcessInfo process in State.Processes)
-                        await CMD.RunAsync(process.ExecutablePath, "").ConfigureAwait(false);
+                        await CMD.RunAsync(process.ExecutablePath, "", false).ConfigureAwait(false);
                     break;
                 case ProcessState.Stop:
                     foreach (ProcessInfo process in State.Processes)
