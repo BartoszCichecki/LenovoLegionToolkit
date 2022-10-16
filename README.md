@@ -8,7 +8,7 @@
 
 <br />
 
-![Ukrainian Flag](assets\ukraine_flag_bar.png)
+![Ukrainian Flag](assets/ukraine_flag_bar.png)
 
 Support the Armed Forces of Ukraine and People Affected by Russia’s Aggression:
 
@@ -17,7 +17,7 @@ Support the Armed Forces of Ukraine and People Affected by Russia’s Aggression
 
 **Слава Україні!**
 
-![Ukrainian Flag](assets\ukraine_flag_bar.png)
+![Ukrainian Flag](assets/ukraine_flag_bar.png)
 
 <br />
 
