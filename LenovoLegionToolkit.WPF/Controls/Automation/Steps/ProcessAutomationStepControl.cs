@@ -32,7 +32,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
         public ProcessAutomationStepControl(ProcessAutomationStep step) : base(step)
         {
             Icon = SymbolRegular.Apps24;
-            Title = "Processes Automation";
+            Title = "Process Automation";
             Subtitle = "Select Processes to start or stop.";
         }
 
@@ -85,7 +85,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
 
         protected override Task RefreshAsync()
         {
-            var items = Task.FromResult(Enum.GetValues<ProcessState>());
+            var items = AutomationStep.GetAllStatesAsync();
             var selectedItem = AutomationStep.State.State;
 
             static string displayName(ProcessState value)
@@ -98,6 +98,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
             _state.State = selectedItem;
             _comboBoxState.SetItems(items.Result, selectedItem, displayName);
             _comboBoxState.IsEnabled = items.Result.Any();
+
+            _state.Processes = AutomationStep.State.Processes;
 
             return Task.CompletedTask;
         }
