@@ -1,6 +1,12 @@
+<img height="128" align="left" src="assets/logo.png" alt="Logo">
+
 # Lenovo Legion Toolkit
 
-[![Build](https://github.com/BartoszCichecki/LenovoLegionToolkit/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/BartoszCichecki/LenovoLegionToolkit/actions/workflows/build.yml) [![Join Discord](https://img.shields.io/discord/761178912230473768?label=Legion%20Series%20Discord)](https://discord.com/invite/legionseries)
+[![Build](https://github.com/BartoszCichecki/LenovoLegionToolkit/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/BartoszCichecki/LenovoLegionToolkit/actions/workflows/build.yml)
+[![Crowdin](https://badges.crowdin.net/llt/localized.svg)](https://crowdin.com)
+[![Join Discord](https://img.shields.io/discord/761178912230473768?label=Legion%20Series%20Discord)](https://discord.com/invite/legionseries)
+
+<br />
 
 Lenovo Legion Toolkit (LLT) is a utility created for Lenovo Legion laptops, that allows changing a couple of features that are only available in Lenovo Vantage or Legion Zone.
 
@@ -11,6 +17,7 @@ It runs no background services, uses less memory, uses virtually no CPU, and con
 Join the Legion Series Discord: https://discord.com/invite/legionseries!
 
 <img src="assets/screenshot.png" width="700" alt="PayPal QR code" />
+
 
 # Table of Contents
   - [Disclaimer](#disclaimer)
@@ -166,6 +173,10 @@ On version 2.6.0 or higher, you can also enable logs in a quicker way:
 ## Contribution
 
 I appreciate any feedback that you have, so please do not hesitate to report issues. PRs are also welcome!
+
+#### Translation
+
+Lenovo Legion Toolkit is in the process of getting translations for more languages. For now please hold with creating PRs, because a process is being put in place for making the translation process more streamlined.
 
 #### Bugs
 

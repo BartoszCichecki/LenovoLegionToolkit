@@ -124,7 +124,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to English translation by Bartosz Cichecki.
         /// </summary>
         public static string AboutPage_TranslationCredit {
             get {
@@ -2594,7 +2594,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Keyboard backlight cannot be controlled in here, when Vantage and/or it&apos;s services are running, due to conflicts between the two..
+        ///   Looks up a localized string similar to Keyboard backlight cannot be controlled in here when Vantage or it&apos;s services are running..
         /// </summary>
         public static string RGBKeyboardBacklightControl_VantageEnabled_Message {
             get {
@@ -2988,7 +2988,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select language.
+        ///   Looks up a localized string similar to Select language..
         /// </summary>
         public static string SettingsPage_Language_Message {
             get {
