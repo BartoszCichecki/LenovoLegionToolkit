@@ -1,3 +1,4 @@
+pull_request_title: [Crowdin] Translation updates
 files:
   - source: Resource.resx
     translation: /%original_path%/Resource.%two_letters_code%.resx
