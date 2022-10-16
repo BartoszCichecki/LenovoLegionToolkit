@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AlwaysOnUSBState_Off" xml:space="preserve">
+    <value>Tắt</value>
+  </data>
+  <data name="AlwaysOnUSBState_OnAlways" xml:space="preserve">
+    <value>Luôn Bật</value>
+  </data>
+  <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
+    <value>Bật, Chỉ khi Ngủ</value>
+  </data>
+  <data name="BatteryState_Conservation" xml:space="preserve">
+    <value>Bảo vệ pin</value>
+  </data>
+  <data name="BatteryState_Normal" xml:space="preserve">
+    <value>Bình thường</value>
+  </data>
+  <data name="BatteryState_RapidCharge" xml:space="preserve">
+    <value>Sạc Nhanh</value>
+  </data>
+  <data name="GPUController_PoweredOff" xml:space="preserve">
+    <value>Powered Off</value>
+  </data>
+  <data name="GPUController_PoweredOn" xml:space="preserve">
+    <value>Powered On</value>
+  </data>
+  <data name="HybridModeState_Off" xml:space="preserve">
+    <value>GPU rời</value>
+  </data>
+  <data name="HybridModeState_On" xml:space="preserve">
+    <value>Hybrid</value>
+  </data>
+  <data name="HybridModeState_OnAuto" xml:space="preserve">
+    <value>Hybrid- Tự động</value>
+  </data>
+  <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
+    <value>Hybrid- chỉ iGPU</value>
+  </data>
+  <data name="PowerModeState_Balance" xml:space="preserve">
+    <value>Cân Bằng</value>
+  </data>
+  <data name="PowerModeState_GodMode" xml:space="preserve">
+    <value>Tùy Chỉnh</value>
+  </data>
+  <data name="PowerModeState_Performance" xml:space="preserve">
+    <value>Hiệu suất</value>
+  </data>
+  <data name="PowerModeState_Quiet" xml:space="preserve">
+    <value>Im Lặng</value>
+  </data>
+  <data name="RBGKeyboardSpeed_Fast" xml:space="preserve">
+    <value>Nhanh</value>
+  </data>
+  <data name="RBGKeyboardSpeed_Fastest" xml:space="preserve">
+    <value>Nhanh hơn</value>
+  </data>
+  <data name="RBGKeyboardSpeed_Slow" xml:space="preserve">
+    <value>Chậm</value>
+  </data>
+  <data name="RBGKeyboardSpeed_Slowest" xml:space="preserve">
+    <value>Chậm hơn</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
+    <value>Tắt</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_One" xml:space="preserve">
+    <value>Cài đặt 1</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Three" xml:space="preserve">
+    <value>Cài đặt 3</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
+    <value>Cài đặt 2</value>
+  </data>
+  <data name="RGBKeyboardBrightness_High" xml:space="preserve">
+    <value>Cao</value>
+  </data>
+  <data name="RGBKeyboardBrightness_Low" xml:space="preserve">
+    <value>Thấp</value>
+  </data>
+  <data name="RGBKeyboardEffect_Breath" xml:space="preserve">
+    <value>Thở</value>
+  </data>
+  <data name="RGBKeyboardEffect_Smooth" xml:space="preserve">
+    <value>Mượt</value>
+  </data>
+  <data name="RGBKeyboardEffect_Static" xml:space="preserve">
+    <value>Tĩnh</value>
+  </data>
+  <data name="RGBKeyboardEffect_WaveLTR" xml:space="preserve">
+    <value>Sóng, bên trái</value>
+  </data>
+  <data name="RGBKeyboardEffect_WaveRTL" xml:space="preserve">
+    <value>Sóng, bên phải</value>
+  </data>
+  <data name="Theme_Dark" xml:space="preserve">
+    <value>Tối</value>
+  </data>
+  <data name="Theme_Light" xml:space="preserve">
+    <value>Sáng</value>
+  </data>
+  <data name="Theme_System" xml:space="preserve">
+    <value>Hệ thống</value>
+  </data>
+  <data name="WarrantyChecker_InWarranty" xml:space="preserve">
+    <value>Còn bảo hành</value>
+    <comment>This needs to be translated only into Chinese.</comment>
+  </data>
+  <data name="WarrantyChecker_WarrantyExpired" xml:space="preserve">
+    <value>Hết bảo hành</value>
+    <comment>This needs to be translated only into Chinese.</comment>
+  </data>
+  <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
+    <value>Cao</value>
+  </data>
+  <data name="WhiteKeyboardBacklightState_Low" xml:space="preserve">
+    <value>Thấp</value>
+  </data>
+  <data name="WhiteKeyboardBacklightState_Off" xml:space="preserve">
+    <value>Tắt</value>
+  </data>
+</root>
