@@ -156,6 +156,9 @@ Only options natively supported by hardware are available; adding support for cu
 
 If you have a 2022 Legion that does not support it make a ticket and we'll try to add suport for it. Older models will not be supported due to technical limitations.
 
+#### Why is my Fn lock is flipped?
+
+Some devices experience this issue and frankly, I have no idea why. It is known issue, but if you know how to solve it, check out the Contribution section.
 
 ## How to collect logs?
 
@@ -183,11 +186,12 @@ On version 2.6.0 or higher, you can also enable logs in a quicker way:
 
 ## Contribution
 
-I appreciate any feedback that you have, so please do not hesitate to report issues. PRs are also welcome!
+I appreciate any feedback that you have, so please do not hesitate to report issues.
+Pull Requests are also welcome, but make sure to check out [CONTRIBUTING.md](CONTRIBUTING.md) first!
 
 #### Translation
 
-Lenovo Legion Toolkit is in the process of getting translations for more languages. For now please hold with creating PRs, because a process is being put in place for making the translation process more streamlined.
+Crowdin has been selected as the tool for handling translations. If you want to contribute, go to https://crowdin.com/project/llt and request access.
 
 #### Bugs
 
