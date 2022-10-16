@@ -123,7 +123,7 @@ Special thanks to:
 * [SmokelessCPU](https://github.com/SmokelessCPU) for help with 4-zone RGB keyboard support
 
 Translations provided by:
-* Chinese - [凌卡Karl](https://github.com/KarlLee830)
+* Chinese - [凌卡Karl](https://github.com/KarlLee830), [DavidLogic](https://github.com/DavidLogic)
 * Romanian - [Mario Bălănică](https://github.com/mariobalanica)
 
 ## FAQ
@@ -162,7 +162,6 @@ If you have a 2022 Legion that does not support it make a ticket and we'll try t
 In some cases it will be super useful if you can provide logs that this app can create. This helps with debugging and other issue solving.
 
 
-
 To collect logs:
 
 1. Make sure that Lenovo Legion Toolkit is not running (also gone from tray area).
@@ -172,7 +171,6 @@ To collect logs:
 5. Close LLT (also make sure it's gone from tray area)
 6. Again, in `Run` (Win+R) type `"%LOCALAPPDATA%\LenovoLegionToolkit\log"`
 7. You should see at least one file. Theses are the logs you should attach to the issue.
-
 
 
 On version 2.6.0 or higher, you can also enable logs in a quicker way:
