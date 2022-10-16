@@ -160,6 +160,10 @@ If you have a 2022 Legion that does not support it make a ticket and we'll try t
 
 Some devices experience this issue and frankly, I have no idea why. It is known issue, but if you know how to solve it, check out the Contribution section.
 
+#### Why is switching to Performance mode seems buggy, when AI Engine is enabled?
+
+It seems that some BIOS versions indeed have a weird issue when using Fn+Q. Only hope is to wait for Lenovo to fix it.
+
 ## How to collect logs?
 
 In some cases it will be super useful if you can provide logs that this app can create. This helps with debugging and other issue solving.
