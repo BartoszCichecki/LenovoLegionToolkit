@@ -8,6 +8,19 @@
 
 <br />
 
+![Ukrainian Flag](assets\ukraine_flag_bar.png)
+
+Support the Armed Forces of Ukraine and People Affected by Russia’s Aggression:
+
+* Humanitarian Aid: https://bank.gov.ua/en/about/humanitarian-aid-to-ukraine
+* Support Armed Forces of Ukraine: https://bank.gov.ua/en/about/support-the-armed-forces
+
+**Слава Україні!**
+
+![Ukrainian Flag](assets\ukraine_flag_bar.png)
+
+<br />
+
 Lenovo Legion Toolkit (LLT) is a utility created for Lenovo Legion laptops, that allows changing a couple of features that are only available in Lenovo Vantage or Legion Zone.
 
 **If your laptop is not part of Legion or Ideapad Gaming lines, this software is not for you. Please do NOT open compatibility requests for other devices. Issues will be closed and not looked at!**
