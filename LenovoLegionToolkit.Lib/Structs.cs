@@ -568,4 +568,78 @@ namespace LenovoLegionToolkit.Lib
             Height = height;
         }
     }
+
+    public struct TDPLimits
+    {
+        public double Stapm { get; set; }
+        public double Fast { get; set; }
+        public double Slow { get; set; }
+
+        [JsonConstructor]
+        public TDPLimits(
+            double stapm,
+            double fast,
+            double slow)
+        {
+            Stapm = stapm;
+            Fast = fast;
+            Slow = slow;
+        }
+    }
+
+    public struct TDPState
+    {
+        public Dictionary<TDPMode, TDPLimits> Mode { get; set; }
+
+        [JsonConstructor]
+        public TDPState(Dictionary<TDPMode, TDPLimits> mode)
+        {
+            Mode = mode;
+        }
+    }
+
+    public struct ProcessorTDPState
+    {
+        public double Stapm { get; set; }
+        public double Fast { get; set; }
+        public double Slow { get; set; }
+        public bool UseMSR { get; set; }
+        public bool MaintainTDP { get; set; }
+        public int Interval { get; set; }
+
+        [JsonConstructor]
+        public ProcessorTDPState(
+            double stapm,
+            double fast,
+            double slow,
+            bool useMSR,
+            bool maintainTDP,
+            int interval
+        )
+        {
+            Stapm = stapm;
+            Fast = fast;
+            Slow = slow;
+            UseMSR = useMSR;
+            MaintainTDP = maintainTDP;
+            Interval = interval;
+        }
+    }
+
+    public struct ProcessAutomationState
+    {
+        public ProcessInfo[] Processes { get; set; }
+        public ProcessState State { get; set;}
+
+
+        [JsonConstructor]
+        public ProcessAutomationState(
+            ProcessInfo[] processes,
+            ProcessState state
+        )
+        {
+            Processes = processes;
+            State = state;
+        }
+    }
 }
