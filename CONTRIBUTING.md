@@ -1,6 +1,7 @@
 ## Welcome to Lenvo Legion Toolkit contributing guide
 
 Thanks for investing your time in contributing to this project!
+
 Giving the growing popularity of LLT, here are a few rules to follow to ensure that your contribution goes smoothly.
 
 1. All pull requests need an accompanying issue.
