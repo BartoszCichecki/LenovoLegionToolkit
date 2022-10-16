@@ -2330,6 +2330,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Active mode: {0}.
+        /// </summary>
+        public static string PowerModeControl_ActiveMode {
+            get {
+                return ResourceManager.GetString("PowerModeControl_ActiveMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Couldn&apos;t change Power Mode.
         /// </summary>
         public static string PowerModeControl_ChangeError {
@@ -2345,6 +2354,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string PowerModeControl_Message {
             get {
                 return ResourceManager.GetString("PowerModeControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The selected mode will take effect when plugged in..
+        /// </summary>
+        public static string PowerModeControl_SelectedMode_RequiresACAdapter {
+            get {
+                return ResourceManager.GetString("PowerModeControl_SelectedMode_RequiresACAdapter", resourceCulture);
             }
         }
         

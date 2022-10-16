@@ -837,6 +837,12 @@ Puteți schimba modul apăsând Fn+Q.</value>
 	<data name="PowerModeControl_Title" xml:space="preserve">
     <value>Mod putere</value>
   </data>
+	<data name="PowerModeControl_ActiveMode" xml:space="preserve">
+    <value>Mod activ: {0}</value>
+  </data>
+	<data name="PowerModeControl_SelectedMode_RequiresACAdapter" xml:space="preserve">
+    <value>Modul selectat va avea efect atunci când este conectat alimentatorul.</value>
+  </data>
 	<data name="PowerModeWindow_Title" xml:space="preserve">
     <value>Mod putere</value>
   </data>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -36,6 +37,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
         {
             Margin = new(8, 4, 0, 0),
             FontSize = 12,
+            MaxWidth = 280,
+            TextWrapping = TextWrapping.Wrap
         };
 
         public PowerModeControl()
@@ -67,14 +70,18 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
             _actualPowerModeTextBlock.Inlines.Clear();
 
-            var text = new List<(Run, string?)>
+            var text = new List<(Run, string?)>();
+
+            foreach (string str in Regex.Split(Resource.PowerModeControl_ActiveMode, "({.*?})"))
             {
-                (new Run("Active mode: "), "TextFillColorTertiaryBrush"),
-                (new Run(currentState.GetDisplayName()) { FontWeight = FontWeights.DemiBold }, null),
-            };
+                if (str == "{0}")
+                    text.Add((new Run(currentState.GetDisplayName()) { FontWeight = FontWeights.DemiBold }, null));
+                else
+                    text.Add((new Run(str), "TextFillColorTertiaryBrush"));
+            }
 
             if (await Power.IsPowerAdapterConnectedAsync() != PowerAdapterStatus.Connected)
-                text.Add((new Run("\nThe selected mode will take effect when plugged in."), "TextFillColorTertiaryBrush"));
+                text.Add((new Run($"\n{Resource.PowerModeControl_SelectedMode_RequiresACAdapter}"), "TextFillColorTertiaryBrush"));
 
             foreach (var (run, foreground) in text)
             {
