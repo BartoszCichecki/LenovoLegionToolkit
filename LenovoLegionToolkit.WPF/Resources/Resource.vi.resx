@@ -320,28 +320,28 @@ Chỉ có các chức năng hợp với điều kiện sẽ được chạy.</va
 Thời gian có thể không chính xác nếu laptop được sạc khi Ngủ hoặc Tắt.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
-    <value>On battery since</value>
+    <value>Thời gian chạy trên pin</value>
   </data>
   <data name="BatteryPage_Title" xml:space="preserve">
-    <value>Battery</value>
+    <value>Pin</value>
   </data>
   <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
-    <value>On battery</value>
+    <value>Chạy trên Pin</value>
   </data>
   <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>Plugged in</value>
+    <value>Kết nối với nguồn điện</value>
   </data>
   <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
     <value>Power plans</value>
   </data>
   <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
-    <value>Learn more at microsoft.com</value>
+    <value>Tìm hiểu thêm tại microsoft.com</value>
   </data>
   <data name="CPUBoostModesWindow_Title" xml:space="preserve">
-    <value>CPU Boost Modes</value>
+    <value>Các chế độ CPU Boost</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Hủy</value>
   </data>
   <data name="Celsius" xml:space="preserve">
     <value>°C</value>
@@ -475,89 +475,89 @@ Remember, that some programs might crash if you do it.</value>
     <value>Disable discrete GPU if it is active unnecessarily.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
-    <value>A monitor is connected to nVidia GPU.</value>
+    <value>Một màn hình được kết nối tới GPU Nvidia rời.</value>
   </data>
   <data name="DiscreteGPUControl_NoProcesses" xml:space="preserve">
-    <value>No processes</value>
+    <value>Không có tiến trình nào</value>
   </data>
   <data name="DiscreteGPUControl_PerformanceState" xml:space="preserve">
-    <value>Performance state</value>
+    <value>Chế độ hoạt động</value>
   </data>
   <data name="DiscreteGPUControl_PerformanceState_Unknown" xml:space="preserve">
-    <value>Unknown</value>
+    <value>Không biết</value>
   </data>
   <data name="DiscreteGPUControl_Processes" xml:space="preserve">
-    <value>Processes</value>
+    <value>Các tiến trình</value>
   </data>
   <data name="DiscreteGPUControl_RestartGPU" xml:space="preserve">
-    <value>Restart GPU</value>
+    <value>Khởi động lại GPU</value>
   </data>
   <data name="DiscreteGPUControl_Title" xml:space="preserve">
-    <value>Discrete GPU</value>
+    <value>GPU rời</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-    <value>Change display brightness of the built-in display.
-Power modes change brightness on some devices. Make sure to put this step last, if something doesn't work just right.
+    <value>Thay đổi độ sáng màn hình laptop.
+Thay đổi các chế độ ảnh hưởng đến độ sáng màn hình trên một số thiết bị. Hãy để bước này được thực hiện cuối cùng nếu nó chạy không đúng.
 
-WARNING: This action will not run correctly, if internal display is off.</value>
+CẢNH BÁO: Hành động có thể chạy không đúng nếu màn hình laptop tắt.</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
-    <value>Display brightness</value>
+    <value>Độ sáng màn hình</value>
   </data>
   <data name="DonatePage_Message" xml:space="preserve">
-    <value>Development and maintenance of Lenovo Legion Toolkit takes a lot of time. If you like using this software you can support it's future by donating an amount of your choice.
+    <value>Phát triển và duy trì Lenovo Legion Toolkit tốn rất nhiều thời gian. Nếu bạn thích phần mềm này, bạn có thể hỗ trợ nó tùy tấm lòng.
 
-Click the PayPal logo below or scan the QR code to donate with PayPal.
+Bấm vào logo Paypal bên dưới hoặc quét mã QR để ủng hộ với Paypal.
 
-Thanks in advance!</value>
+Xin được cảm ơn trước!</value>
   </data>
   <data name="DonatePage_Title" xml:space="preserve">
-    <value>Donate</value>
+    <value>Ủng hộ</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
-    <value>Make sure that laptop display is on. Lenovo Legion Toolkit can't load refresh rates for a display that is not on.</value>
+    <value>Hãy đảm bảo màn hình laptop bật. Lenovo Legion Toolkit không thể đổi tốc độ làm tươi nếu màn hình không bật.</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Title" xml:space="preserve">
-    <value>No Refresh Rates found</value>
+    <value>Không có tốc độ làm tươi nào được tìm thấy</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_Title" xml:space="preserve">
-    <value>Exclude Refresh Rates</value>
+    <value>Loại trừ các tốc độ làm tươi</value>
   </data>
   <data name="Exit" xml:space="preserve">
-    <value>Exit</value>
+    <value>Thoát</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
-    <value>Use only integrated GPU when on battery and both integrated and discrete GPU when AC adapter is connected. When a non-standard adapter is connected, system switches to Hybrid-iGPU Only Mode.</value>
+    <value>Chỉ sử dụng GPU tích hợp khi chạy trên nguồn pin và dùng cả hai GPU khi được nối với nguồn điện. Khi sử dụng sạc công suất thấp, hệ thống sẽ đổi sang Hybrid- chỉ GPU tích hợp.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
-    <value>Hybrid-Auto Mode</value>
+    <value>Hybrid- Tự động</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Disclaimer" xml:space="preserve">
-    <value>Switching to and from this mode requires restart.</value>
+    <value>Cần khởi động để kích hoạt hoặc tắt chế độ này.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Message" xml:space="preserve">
-    <value>Use only discrete GPU. This mode provides best graphics performance, but increases power consumption.</value>
+    <value>Chỉ sử dụng GPU rời. Chế độ này tốt nhất cho hiệu năng đồ họa, nhưng Rất hao pin.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
-    <value>dGPU Mode</value>
+    <value>GPU rời</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
-    <value>Both integrated and discrete GPU are enabled. System will automatically switch between them based on it's needs.</value>
+    <value>Cả hai GPU sẽ được kích hoạt. Hệ thống sẽ tự đổi giữa hai GPU tùy vào sử dụng.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
-    <value>Hybrid Mode</value>
+    <value>Hybrid</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Disclaimer" xml:space="preserve">
-    <value>This mode only takes effect when discrete GPU is not working.</value>
+    <value>Chế độ này chỉ kích hoạt khi GPU rời không hoạt động.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Message" xml:space="preserve">
-    <value>Only use integrated GPU. This mode minimizes power consumption and noise.</value>
+    <value>Chỉ sử dụng GPU tích hợp. Chế độ này tối thiểu tiếng ồn và điện năng tiêu thụ.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Title" xml:space="preserve">
-    <value>Hybrid-iGPU Only Mode</value>
+    <value>Hybrid- Chỉ GPU tích hợp</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Title" xml:space="preserve">
-    <value>About GPU Working Modes</value>
+    <value>Về các chế độ GPU</value>
   </data>
   <data name="Fahrenheit" xml:space="preserve">
     <value>°F</value>
