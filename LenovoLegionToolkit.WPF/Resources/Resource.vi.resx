@@ -183,10 +183,10 @@ Chỉ có các chức năng hợp với điều kiện sẽ được chạy.</va
   <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
     <value>Không thực hiện thêm bất kì Hành động khác sau khi thực hiện xong.</value>
   </data>
-  <data name="AutomationPipelineControl_MoveDown" xml:space="preserve">
+  <data name="MoveDown" xml:space="preserve">
     <value>Di chuyển lên</value>
   </data>
-  <data name="AutomationPipelineControl_MoveUp" xml:space="preserve">
+  <data name="MoveUp" xml:space="preserve">
     <value>Di chuyển xuống</value>
   </data>
   <data name="AutomationPipelineControl_RunNow" xml:space="preserve">
@@ -929,6 +929,9 @@ CẢNH BÁO! Hành động sẽ không chạy nếu màn hình laptop tắt.</va
   <data name="RefreshRateControl_Title" xml:space="preserve">
     <value>Tần số quét</value>
   </data>
+  <data name="Rename" xml:space="preserve">
+		<value>Đặt lại tên</value>
+	</data>
   <data name="RestartLater" xml:space="preserve">
     <value>Tôi sẽ khởi động lại sau</value>
   </data>
