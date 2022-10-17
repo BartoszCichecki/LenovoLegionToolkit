@@ -6,7 +6,11 @@
 [![Crowdin](https://badges.crowdin.net/llt/localized.svg)](https://crowdin.com/project/llt)
 [![Join Discord](https://img.shields.io/discord/761178912230473768?label=Legion%20Series%20Discord)](https://discord.com/invite/legionseries)
 
-**如果你是中国/中文用户，请[点此访问中文版README自述文件](README_zh-hans.md)，内有中文QQ频道加入链接，推送最新正式版、内测版并附带国内高速镜像下载地址。**
+---
+
+Other language versions of this README file
+
+[简体中文版简介](README_zh-hans.md)
 
 <br />
 
