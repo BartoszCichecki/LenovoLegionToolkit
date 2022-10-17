@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutPage_AppName" xml:space="preserve">
-    <value>Lenovo Legion Toolkit</value>
+    <value>拯救者工具箱 Lenovo Legion Toolkit</value>
   </data>
   <data name="AboutPage_Build" xml:space="preserve">
     <value>Build</value>
@@ -139,7 +139,7 @@
     <value>关于</value>
   </data>
   <data name="AboutPage_TranslationCredit" xml:space="preserve">
-    <value>Translated by Karl Lee. 由凌卡Karl汉化。开源社区参与者进行完善。</value>
+    <value>Translated by Karl Lee and Community. 由凌卡Karl与开源社区参与者汉化。</value>
   </data>
   <data name="AboutPage_Version" xml:space="preserve">
     <value>版本</value>
@@ -172,7 +172,7 @@
     <value>保持USB供电</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>Lenovo Legion Toolkit</value>
+    <value>拯救者工具箱 | Lenovo Legion Toolkit</value>
   </data>
   <data name="Apply" xml:space="preserve">
     <value>应用</value>
@@ -181,7 +181,7 @@
     <value>应用并关闭</value>
   </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
-    <value>只有程序运行时自动化才可生效。</value>
+    <value>只有在本程序运行时自动化才可生效。</value>
   </data>
   <data name="AutomationPage_ActionsEnabled_Title" xml:space="preserve">
     <value>启用自动化</value>
@@ -483,16 +483,16 @@
     <value>设备信息</value>
   </data>
   <data name="DeviceInformationWindow_LenovoSupport" xml:space="preserve">
-    <value>联想支持</value>
+    <value>点击访问联想服务网站查看详细保修信息</value>
   </data>
   <data name="DeviceInformationWindow_MachineType_Title" xml:space="preserve">
-    <value>产品类型</value>
+    <value>设备代号</value>
   </data>
   <data name="DeviceInformationWindow_Manufacturer_Title" xml:space="preserve">
     <value>制造商</value>
   </data>
   <data name="DeviceInformationWindow_Model_Title" xml:space="preserve">
-    <value>产品型号</value>
+    <value>设备型号</value>
   </data>
   <data name="DeviceInformationWindow_SerialNumber_Title" xml:space="preserve">
     <value>序列号</value>
@@ -735,7 +735,7 @@
     <value>此设备可能与联想拯救箱不兼容</value>
   </data>
   <data name="IncompatibleDevice_Title" xml:space="preserve">
-    <value>联想拯救箱 Lenovo Legion Toolkit</value>
+    <value>拯救者工具箱 Lenovo Legion Toolkit</value>
   </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
     <value>未发现兼容的键盘</value>
@@ -849,7 +849,7 @@
     <value>搜索...</value>
   </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
-    <value>设备型号</value>
+    <value>设备代号</value>
   </data>
   <data name="PackagesPage_OperatingSystem" xml:space="preserve">
     <value>系统</value>
@@ -1201,7 +1201,7 @@
     <value>设备类型</value>
   </data>
   <data name="UnsupportedWindow_Message" xml:space="preserve">
-    <value>Lenovo Legion Toolkit尚未在您的设备上经过测试。</value>
+    <value>拯救者工具箱 Lenovo Legion Toolkit尚未在您的设备上经过测试。</value>
   </data>
   <data name="UnsupportedWindow_Model" xml:space="preserve">
     <value>设备型号</value>
