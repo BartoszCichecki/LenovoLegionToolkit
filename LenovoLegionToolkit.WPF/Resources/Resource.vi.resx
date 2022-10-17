@@ -65,13 +65,13 @@
     <value>Bản dựng</value>
   </data>
   <data name="AboutPage_LatestReleaseOnGitHub" xml:space="preserve">
-    <value>Latest release on GitHub</value>
+    <value>Phiên bản mới nhất trên Github</value>
   </data>
   <data name="AboutPage_Links" xml:space="preserve">
     <value>Liên kết</value>
   </data>
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
-    <value>Project website on GitHub</value>
+    <value>Liên kết đến dự án trên Github</value>
   </data>
   <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
     <value>Thư viện bên thứ ba</value>
@@ -96,7 +96,7 @@
 Lựa chọn này chỉ dành cho thiết bị không đi kèm với nhiều Power Plan khác nhau.</value>
   </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
-    <value>Always activate Windows Power Plan</value>
+    <value>Luôn kích hoạt Windows Power Plan</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
     <value>Sạc các thiết bị khác qua cổng USB, khi máy tính Tắt, trong chế độ Ngủ hoặc Ngủ đông.</value>
@@ -178,10 +178,10 @@ Chỉ có các chức năng hợp với điều kiện sẽ được chạy.</va
     <value>Tùy chỉnh</value>
   </data>
   <data name="AutomationPipelineControl_Exclusive" xml:space="preserve">
-    <value>Exclusive</value>
+    <value>Đặc quyền</value>
   </data>
   <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
-    <value>Do not execute further actions when this action runs.</value>
+    <value>Không thực hiện thêm bất kì Hành động khác sau khi thực hiện xong.</value>
   </data>
   <data name="AutomationPipelineControl_MoveDown" xml:space="preserve">
     <value>Di chuyển lên</value>
@@ -211,10 +211,10 @@ Chỉ có các chức năng hợp với điều kiện sẽ được chạy.</va
     <value>{0} bước</value>
   </data>
   <data name="AutomationPipelineControl_Step_Many" xml:space="preserve">
-    <value>{0} steps</value>
+    <value>{0} bước</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_Apps" xml:space="preserve">
-    <value>Apps</value>
+    <value>Ứng Dụng</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_AtSunrise" xml:space="preserve">
     <value>Lúc bình minh</value>
@@ -238,10 +238,10 @@ Chỉ có các chức năng hợp với điều kiện sẽ được chạy.</va
     <value>Kích hoạt AI Engine</value>
   </data>
   <data name="BalanceModeSettingsWindow_Title" xml:space="preserve">
-    <value>Balance Mode Settings</value>
+    <value>Cài đặt Cân bằng</value>
   </data>
   <data name="BatteryAutomationStepControl_Message" xml:space="preserve">
-    <value>Choose how the battery is charged.</value>
+    <value>Chọn pin được sạc như thế nào.</value>
   </data>
   <data name="BatteryAutomationStepControl_Title" xml:space="preserve">
     <value>Chế độ Pin</value>
@@ -347,132 +347,132 @@ Thời gian có thể không chính xác nếu laptop được sạc khi Ngủ h
     <value>°C</value>
   </data>
   <data name="Close" xml:space="preserve">
-    <value>Close</value>
+    <value>Đóng</value>
   </data>
   <data name="ColorCardControl_Blue" xml:space="preserve">
-    <value>Blue</value>
+    <value>Xanh dương</value>
   </data>
   <data name="ColorCardControl_Green" xml:space="preserve">
-    <value>Green</value>
+    <value>Xanh lá</value>
   </data>
   <data name="ColorCardControl_Red" xml:space="preserve">
-    <value>Red</value>
+    <value>Đỏ</value>
   </data>
   <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
-    <value>Select GPU operating mode based on your computer's usage and power conditions.
-Switching modes may require restart.</value>
+    <value>Lựa chọn Chế độ hoạt động của GPU dựa trên sử dụng và nguồn điện.
+Thay đổi các chế độ có thể cần phải khởi động lại.</value>
   </data>
   <data name="ComboBoxHybridModeControl_RestartRequired_Message" xml:space="preserve">
-    <value>Changing to {0} requires restart. Do you want to restart now?</value>
+    <value>Thay đổi chế độ sang {0} cần phải khởi động lại. Bạn có muốn khởi động lại ngay?</value>
   </data>
   <data name="ComboBoxHybridModeControl_RestartRequired_Title" xml:space="preserve">
-    <value>Restart required</value>
+    <value>Cần khởi động lại</value>
   </data>
   <data name="ComboBoxHybridModeControl_Title" xml:space="preserve">
-    <value>GPU Working Mode</value>
+    <value>Chế độ hoạt động của GPU</value>
   </data>
   <data name="ContextMenu_QuickActions" xml:space="preserve">
-    <value>Quick Actions</value>
+    <value>Phím tắt Hành động</value>
   </data>
   <data name="Continue" xml:space="preserve">
-    <value>Continue</value>
+    <value>Tiếp tục</value>
   </data>
   <data name="CopyAll" xml:space="preserve">
-    <value>Copy all</value>
+    <value>Sao chép tất cả</value>
   </data>
   <data name="DashboardPage_Graphics_Title" xml:space="preserve">
-    <value>Graphics</value>
+    <value>Đồ Họa</value>
   </data>
   <data name="DashboardPage_Other_Title" xml:space="preserve">
-    <value>Other</value>
+    <value>Khác</value>
   </data>
   <data name="DashboardPage_Power_Title" xml:space="preserve">
-    <value>Power</value>
+    <value>Nguồn</value>
   </data>
   <data name="DashboardPage_Title" xml:space="preserve">
-    <value>Home</value>
+    <value>Bảng điều khiển</value>
   </data>
   <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
-    <value>Disable discrete GPU if it is active unnecessarily.
+    <value>Ngắt GPU rời nếu bị kích hoạt ngoài ý muốn.
 
-WARNING: This action will not run correctly, if internal display is off or Hybrid mode is not active.</value>
+CẢNH BÁO: Hành động sẽ không chạy đúng nếu màn hình laptop không bật hoặc chế độ Hybrid không được kích hoạt.</value>
   </data>
   <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
-    <value>Deactivate GPU</value>
+    <value>Ngắt GPU rời</value>
   </data>
   <data name="DelayAutomationStepControl_Message" xml:space="preserve">
-    <value>Add delay before running next step.</value>
+    <value>Thêm thời gian chờ trước khi thực hiện bước tiếp theo.</value>
   </data>
   <data name="DelayAutomationStepControl_Title" xml:space="preserve">
-    <value>Delay</value>
+    <value>Thời gian chờ</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
+    <value>Xóa</value>
   </data>
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
-    <value>BIOS version</value>
+    <value>Phiên bản BIOS</value>
   </data>
   <data name="DeviceInformationWindow_Copied_Message" xml:space="preserve">
-    <value>"{0}" copied to clipboard.</value>
+    <value>"{0}" sao chép vào clipboard.</value>
   </data>
   <data name="DeviceInformationWindow_Copied_Title" xml:space="preserve">
-    <value>Copied!</value>
+    <value>Đã sao chép!</value>
   </data>
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
-    <value>Device</value>
+    <value>Thiết bị</value>
   </data>
   <data name="DeviceInformationWindow_LenovoSupport" xml:space="preserve">
     <value>Lenovo Support</value>
   </data>
   <data name="DeviceInformationWindow_MachineType_Title" xml:space="preserve">
-    <value>Machine Type</value>
+    <value>Mã Máy</value>
   </data>
   <data name="DeviceInformationWindow_Manufacturer_Title" xml:space="preserve">
-    <value>Manufacturer</value>
+    <value>Nhà sản xuất</value>
   </data>
   <data name="DeviceInformationWindow_Model_Title" xml:space="preserve">
-    <value>Model</value>
+    <value>Mẫu máy</value>
   </data>
   <data name="DeviceInformationWindow_SerialNumber_Title" xml:space="preserve">
-    <value>Serial number</value>
+    <value>Số sê-ri</value>
   </data>
   <data name="DeviceInformationWindow_Title" xml:space="preserve">
-    <value>About your device</value>
+    <value>Về thiết bị của bạn</value>
   </data>
   <data name="DeviceInformationWindow_WarrantyEndDate_Title" xml:space="preserve">
-    <value>End date</value>
+    <value>Ngày hết bảo hành</value>
   </data>
   <data name="DeviceInformationWindow_WarrantyStartDate_Title" xml:space="preserve">
-    <value>Start date</value>
+    <value>Ngày bắt đầu bảo hành</value>
   </data>
   <data name="DeviceInformationWindow_WarrantyStatus_Title" xml:space="preserve">
-    <value>Status</value>
+    <value>Tình trạng bảo hành</value>
   </data>
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
-    <value>Warranty</value>
+    <value>Bảo hành</value>
   </data>
   <data name="DiscreteGPUControl_Active" xml:space="preserve">
-    <value>Active</value>
+    <value>Kích hoạt</value>
   </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
-    <value>Deactivate</value>
+    <value>Ngắt kích hoạt</value>
   </data>
   <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-    <value>nVidia GPU can be disabled.
+    <value>GPU rời có thể được ngắt kích hoạt.
 
-Remember, that some programs might crash if you do it.</value>
+Một số ứng dụng có thể dừng đột ngột nếu thực hiện.</value>
   </data>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>nVidia GPU is not active.</value>
+    <value>GPU rời không hoạt động.</value>
   </data>
   <data name="DiscreteGPUControl_Inactive" xml:space="preserve">
-    <value>Inactive</value>
+    <value>Không hoạt động</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
-    <value>Kill apps</value>
+    <value>Tắt app dùng GPU rời</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-    <value>Disable discrete GPU if it is active unnecessarily.</value>
+    <value>Tắt GPU rời nếu nó bị kích hoạt không cần thiết.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>Một màn hình được kết nối tới GPU Nvidia rời.</value>
@@ -515,13 +515,13 @@ Xin được cảm ơn trước!</value>
     <value>Ủng hộ</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
-    <value>Hãy đảm bảo màn hình laptop bật. Lenovo Legion Toolkit không thể đổi tốc độ làm tươi nếu màn hình không bật.</value>
+    <value>Hãy đảm bảo màn hình laptop bật. Lenovo Legion Toolkit không thể đổi tần số quét nếu màn hình laptop không bật.</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Title" xml:space="preserve">
-    <value>Không có tốc độ làm tươi nào được tìm thấy</value>
+    <value>Không có tần số quét nào được tìm thấy</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_Title" xml:space="preserve">
-    <value>Loại trừ các tốc độ làm tươi</value>
+    <value>Loại trừ các tần số quét</value>
   </data>
   <data name="Exit" xml:space="preserve">
     <value>Thoát</value>
@@ -566,10 +566,10 @@ Xin được cảm ơn trước!</value>
     <value>CPU</value>
   </data>
   <data name="FanCurveControl_CPUSensor" xml:space="preserve">
-    <value>CPU Sensor</value>
+    <value>Cảm biến CPU</value>
   </data>
   <data name="FanCurveControl_FanSpeed" xml:space="preserve">
-    <value>Fan Speed</value>
+    <value>Tốc độ quạt</value>
   </data>
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>GPU</value>
@@ -578,608 +578,608 @@ Xin được cảm ơn trước!</value>
     <value>RPM</value>
   </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
-    <value>Turn on the laptop when you open the lid.</value>
+    <value>Bật máy khi lật mở màn hình.</value>
   </data>
   <data name="FlipToStartAutomationStepControl_Title" xml:space="preserve">
-    <value>Flip To Start</value>
+    <value>Lật để bật máy</value>
   </data>
   <data name="FlipToStartControl_Message" xml:space="preserve">
-    <value>Turn on the laptop when you open the lid.</value>
+    <value>Bật máy khi lật mở màn hình.</value>
   </data>
   <data name="FlipToStartControl_Title" xml:space="preserve">
-    <value>Flip To Start</value>
+    <value>Lật để bật máy</value>
   </data>
   <data name="FnLockAutomationStepControl_Message" xml:space="preserve">
-    <value>Use secondary functions of F1-F12 keys without holding Fn key.</value>
+    <value>Sử dụng các chức năng thứ 2 của hàng phím chức năng F1-F12 mà không giữ phím FN.</value>
   </data>
   <data name="FnLockAutomationStepControl_Title" xml:space="preserve">
-    <value>Fn Lock</value>
+    <value>Khóa phím Fn</value>
   </data>
   <data name="FnLockControl_Message" xml:space="preserve">
-    <value>Use secondary functions of F1-F12 keys without holding Fn key.</value>
+    <value>Sử dụng các chức năng thứ 2 của hàng phím F1-F12 mà không giữ phím FN.</value>
   </data>
   <data name="FnLockControl_Title" xml:space="preserve">
-    <value>Fn Lock</value>
+    <value>Khóa phím Fn</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>WARNING!
-Some laptops may accept higher power limits than they indicate, but be careful. This option may result in unpredictable behavior, so if you are not sure what are you doing, leave this at 0.</value>
+    <value>CẢNH BÁO!
+Một số laptop có thể nhận mức TDP cao hơn cho phép, nhưng hãy cẩn thận. Chức năng có thể dẫn đến laptop hoạt động không ổn định. Nếu bạn không biết bạn đang làm gì, giữ nguyên giá trị này tại 0.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
-    <value>Maximum Power Limit offset</value>
+    <value>Offset cho TDP</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
-    <value>Do not change options below unless you really know what you are doing.</value>
+    <value>ĐỪNG THAY ĐỔI BẤT KỲ GIÁ TRỊ NÀO DƯỚI ĐÂY TRỪ PHI BẠN BIẾT BẠN ĐANG LÀM GÌ!!!</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_Title" xml:space="preserve">
-    <value>Advanced</value>
+    <value>Nâng cao</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_CrossLoading" xml:space="preserve">
-    <value>Long Term Power Limit (Cross Loading)</value>
+    <value>Giới hạn công xuất thời gian dài (Tải trên cả CPU và GPU)</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_LongTermPL" xml:space="preserve">
-    <value>Long Term Power Limit</value>
+    <value>Giới hạn công xuất thời gian dài</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_ShortTermPL" xml:space="preserve">
-    <value>Short Term Power Limit</value>
+    <value>Giới hạn công xuất thời gian ngắn</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_TempLimit" xml:space="preserve">
-    <value>CPU Temperature Limit</value>
+    <value>Giới hạn nhiệt độ CPU</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_Title" xml:space="preserve">
     <value>CPU</value>
   </data>
   <data name="GodModeSettingsWindow_Error_Apply_Title" xml:space="preserve">
-    <value>Couldn't apply settings</value>
+    <value>Không thể áp dụng cài đặt</value>
   </data>
   <data name="GodModeSettingsWindow_Error_Load_Title" xml:space="preserve">
-    <value>Couldn't load setting.</value>
+    <value>Không để tải cài đặt trước đó.</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Curve_Message" xml:space="preserve">
-    <value>Fan speed is not strictly determined by one temperature sensor. It will raise or lower speed per the highest sensor between CPU, GPU and Heatsink temperature. Exact values will appear when you hover mouse over each step.</value>
+    <value>Tốc độ quạt không chỉ được quyết định bởi 1 cảm biến nhiệt độ. Nó sẽ tự điều chỉnh tùy theo nhiệt độ cao nhất giữa CPU, GPU và nhiệt độ tản nhiệt. Giá trị nhiệt độ chính xác sẽ xuất hiện khi rê chuột trên mỗi mốc cài đặt.</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Curve_Title" xml:space="preserve">
-    <value>Fan curve</value>
+    <value>Cài đặt tốc độ quạt</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Max_Message" xml:space="preserve">
-    <value>WARNING!
-Prolonged usage of this option will degrade fans decreasing their longevity.
-Seriously, be careful with this option!</value>
+    <value>CẢNH BÁO!
+Chạy quạt 100% có khả năng cao gây hư hỏng vòng bi quạt và ảnh hưởng tuổi thọ quạt.
+RẤT CẨN THẬN KHI SỬ DỤNG LỰA CHỌN NÀY!!!</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Max_Title" xml:space="preserve">
-    <value>Maximum fan speed</value>
+    <value>Tốc độ quạt tối đa</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Title" xml:space="preserve">
-    <value>Fans</value>
+    <value>Quạt</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_CTGP" xml:space="preserve">
-    <value>Configurable TGP</value>
+    <value>TDP tùy chỉnh cho GPU</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_DynamicBoost" xml:space="preserve">
     <value>Dynamic Boost</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_TempLimit" xml:space="preserve">
-    <value>GPU Temperature Limit</value>
+    <value>Giới hạn nhiệt độ GPU</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_Title" xml:space="preserve">
     <value>GPU</value>
   </data>
   <data name="GodModeSettingsWindow_Title" xml:space="preserve">
-    <value>Custom Mode Settings</value>
+    <value>Cài đặt Chế độ Tùy Chỉnh</value>
   </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
-    <value>This device is not compatible with Lenovo Legion Toolkit.</value>
+    <value>Thiết bị này không tương thích với Lenovo Legion Toolkit.</value>
   </data>
   <data name="IncompatibleDevice_Title" xml:space="preserve">
     <value>Lenovo Legion Toolkit</value>
   </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
-    <value>No compatible keyboards found</value>
+    <value>Không tìm thấy bàn phím tương thích</value>
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
-    <value>Keyboard Backlight</value>
+    <value>Đèn nền bàn phím</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
-    <value>About</value>
+    <value>Thông tin</value>
   </data>
   <data name="MainWindow_NavigationItem_Actions" xml:space="preserve">
-    <value>Actions</value>
+    <value>Hành động</value>
   </data>
   <data name="MainWindow_NavigationItem_Battery" xml:space="preserve">
-    <value>Battery</value>
+    <value>Pin</value>
   </data>
   <data name="MainWindow_NavigationItem_Dashboard" xml:space="preserve">
-    <value>Dashboard</value>
+    <value>Bảng điều khiển</value>
   </data>
   <data name="MainWindow_NavigationItem_Donate" xml:space="preserve">
-    <value>Donate</value>
+    <value>Ủng hộ</value>
   </data>
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
-    <value>Keyboard</value>
+    <value>Bàn phím</value>
   </data>
   <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-    <value>Packages</value>
+    <value>Các gói</value>
   </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
-    <value>Settings</value>
+    <value>Cài đặt</value>
   </data>
   <data name="MainWindow_UpdateAvailable" xml:space="preserve">
-    <value>Update available!</value>
+    <value>Có cập nhật mới!</value>
   </data>
   <data name="MainWindow_UpdateAvailableWithVersion" xml:space="preserve">
-    <value>Update {0} available!</value>
+    <value>Bản cập nhật {0} đã có sẵn!</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>No</value>
+    <value>Không</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="Open" xml:space="preserve">
-    <value>Open</value>
+    <value>Mở</value>
   </data>
   <data name="OverDriveAutomationStepControl_Message" xml:space="preserve">
-    <value>Improve response time of the built-in display.</value>
+    <value>Cải thiện thời gian phản hồi cho màn hình laptop.</value>
   </data>
   <data name="OverDriveAutomationStepControl_Title" xml:space="preserve">
     <value>Over Drive</value>
   </data>
   <data name="OverDriveControl_Message" xml:space="preserve">
-    <value>Improve response time of the built-in display.</value>
+    <value>Cải thiện thời gian phản hồi cho màn hình laptop.</value>
   </data>
   <data name="OverDriveControl_Title" xml:space="preserve">
     <value>Over Drive</value>
   </data>
   <data name="PackageControl_DownloadComplete_Message" xml:space="preserve">
-    <value>{0} downloaded!</value>
+    <value>{0} đã được tải về!</value>
   </data>
   <data name="PackageControl_DownloadComplete_Title" xml:space="preserve">
-    <value>Download complete</value>
+    <value>Đã hoàn tất tải xuống</value>
   </data>
   <data name="PackageControl_GeneralError_Title" xml:space="preserve">
-    <value>Something went wrong</value>
+    <value>Đã có lỗi xảy ra</value>
   </data>
   <data name="PackageControl_Http404Error_Message" xml:space="preserve">
-    <value>Server returned code 404.</value>
+    <value>Máy chủ trả lỗi 404.</value>
   </data>
   <data name="PackageControl_Http404Error_Title" xml:space="preserve">
-    <value>The file seems to be gone</value>
+    <value>Không tìm thấy tệp tin</value>
   </data>
   <data name="PackageControl_HttpGeneralError_Message" xml:space="preserve">
-    <value>Check if your internet connection is up and running.</value>
+    <value>Kiểm tra kết nối internet của bạn.</value>
   </data>
   <data name="PackageControl_HttpGeneralError_Title" xml:space="preserve">
-    <value>Something went wrong</value>
+    <value>Đã có lỗi xảy ra</value>
   </data>
   <data name="PackageControl_OldPackageWarning" xml:space="preserve">
-    <value>This package is more than a year old.</value>
+    <value>Gói cài đặt này đã hơn 1 năm tuổi.</value>
   </data>
   <data name="PackageControl_Version" xml:space="preserve">
-    <value>Version</value>
+    <value>Phiên bản</value>
   </data>
   <data name="PackagesPage_Disclaimer_Message" xml:space="preserve">
-    <value>Below is a list of software packages that are marked as compatible with your laptop.
-Always make sure that you are installing correct packages.</value>
+    <value>Dưới đây là danh sách các gói cài đặt được đánh dấu là tương thích với laptop của bạn.
+Luôn kiểm tra rằng bạn cài đặt đúng gói cài đặt mong muốn.</value>
   </data>
   <data name="PackagesPage_Disclaimer_Title" xml:space="preserve">
-    <value>Important</value>
+    <value>Quan trọng</value>
   </data>
   <data name="PackagesPage_DownloadFailed_Message" xml:space="preserve">
-    <value>Check if Machine Type and OS are set correctly.</value>
+    <value>Kiểm tra Mã máy và OS được đặt đúng.</value>
   </data>
   <data name="PackagesPage_DownloadFailed_Title" xml:space="preserve">
-    <value>Something went wrong</value>
+    <value>Đã có lỗi xảy ra</value>
   </data>
   <data name="PackagesPage_DownloadInProgress_Message" xml:space="preserve">
-    <value>Changing sorting, filtering results, hiding packages or refreshing the list will stop the download. Do you want to continue?</value>
+    <value>Đổi thứ tự sắp xếp, lọc kết quả, ẩn các gói cài đặt hoặc làm mới danh sách sẽ dừng tất cả các gói đang được tải về. Bạn có muốn tiếp tục?</value>
   </data>
   <data name="PackagesPage_DownloadInProgress_Title" xml:space="preserve">
-    <value>Download in progress</value>
+    <value>Đang tải xuống</value>
   </data>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
-    <value>Download to</value>
+    <value>Tải về vị trí</value>
   </data>
   <data name="PackagesPage_Filter" xml:space="preserve">
-    <value>Filter...</value>
+    <value>Lọc...</value>
   </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
-    <value>Machine Type</value>
+    <value>Mã máy</value>
   </data>
   <data name="PackagesPage_OperatingSystem" xml:space="preserve">
-    <value>Operating System</value>
+    <value>Hệ điều hành</value>
   </data>
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
-    <value>Primary (Recommended)</value>
+    <value>Chính (Khuyên Dùng)</value>
   </data>
   <data name="PackagesPage_PrimarySource_ToolTip" xml:space="preserve">
-    <value>Same as Lenovo PC Support</value>
+    <value>Tương tự như trên Lenovo PC Support</value>
   </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
-    <value>Secondary</value>
+    <value>Phụ</value>
   </data>
   <data name="PackagesPage_SecondarySource_ToolTip" xml:space="preserve">
-    <value>Same as Lenovo DriverGrabber</value>
+    <value>Tương tự như Lenovo DriverGrabber</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
-    <value>Category</value>
+    <value>Danh mục</value>
   </data>
   <data name="PackagesPage_Sort_Date" xml:space="preserve">
-    <value>Date</value>
+    <value>Ngày</value>
   </data>
   <data name="PackagesPage_Sort_Name" xml:space="preserve">
-    <value>Name</value>
+    <value>Tên</value>
   </data>
   <data name="PackagesPage_Source" xml:space="preserve">
-    <value>Source</value>
+    <value>Nguồn</value>
   </data>
   <data name="PackagesPage_Title" xml:space="preserve">
-    <value>Downloads</value>
+    <value>Tải về</value>
   </data>
   <data name="Paste" xml:space="preserve">
-    <value>Paste</value>
+    <value>Dán</value>
   </data>
   <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Apps</value>
+    <value>Ứng Dụng</value>
   </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-    <value>Select performance mode.</value>
+    <value>Lựa chọn Chế độ.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
-    <value>Power Mode</value>
+    <value>Chế độ</value>
   </data>
   <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>Couldn't change Power Mode</value>
+    <value>Không thể đổi Chế độ</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
-    <value>Select performance mode.
-You can switch mode with Fn+Q.</value>
+    <value>Chọn Chế độ hiệu năng.
+Bạn có thể thay đổi giữa các Chế độ với Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
-    <value>Settings</value>
+    <value>Cài đặt</value>
   </data>
   <data name="PowerModeControl_Title" xml:space="preserve">
-    <value>Power Mode</value>
+    <value>Chế độ</value>
   </data>
   <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>Power Mode</value>
+    <value>Chế độ</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Enabling this option when Lenovo Vantage is running and it changes power plans on your laptop might result in unexpected behavior.</value>
+    <value>Bật tùy chọn này khi Lenovo Vantage đang chạy và nếu có xung đột với lựa chọn Power plan, có thể gây ra lỗi.</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
-    <value>Are you sure?</value>
+    <value>Bạn chắc chứ?</value>
   </data>
   <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
-    <value>Balance mode</value>
+    <value>Cân bằng</value>
   </data>
   <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
-    <value>Custom mode</value>
+    <value>Tùy Chỉnh</value>
   </data>
   <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
-    <value>Performance mode</value>
+    <value>Hiệu Suất</value>
   </data>
   <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
-    <value>Quiet mode</value>
+    <value>Im Lặng</value>
   </data>
   <data name="PowerPlansWindow_Title" xml:space="preserve">
-    <value>Power Plans</value>
+    <value>Power plans</value>
   </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
-    <value>Adjust keyboard backlight preset.</value>
+    <value>Thay đổi tùy chọn đèn nền bàn phím.</value>
   </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
-    <value>Keyboard backlight</value>
+    <value>Đèn nền bàn phím</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Preset1" xml:space="preserve">
-    <value>Preset 1</value>
+    <value>Thiết lập 1</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Preset2" xml:space="preserve">
-    <value>Preset 2</value>
+    <value>Thiết lập 2</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Preset3" xml:space="preserve">
-    <value>Preset 3</value>
+    <value>Thiết lập 3</value>
   </data>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
-    <value>Off</value>
+    <value>Tắt</value>
   </data>
   <data name="RGBKeyboardBacklightControl_VantageEnabled_Message" xml:space="preserve">
-    <value>Keyboard backlight cannot be controlled in here when Vantage or it's services are running.</value>
+    <value>Đèn nền bàn phím không thể được tùy chỉnh nếu Lenovo vantage hoặc các chương trình con của nó đang chạy.</value>
   </data>
   <data name="RGBKeyboardBacklightControl_VantageEnabled_Title" xml:space="preserve">
-    <value>Lenovo Vantage seems to be enabled</value>
+    <value>Dường như Lenovo Vantage đang chạy</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Zone1" xml:space="preserve">
-    <value>Zone 1</value>
+    <value>Vùng 1</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Zone2" xml:space="preserve">
-    <value>Zone 2</value>
+    <value>Vùng 2</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Zone3" xml:space="preserve">
-    <value>Zone 3</value>
+    <value>Vùng 3</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Zone4" xml:space="preserve">
-    <value>Zone 4</value>
+    <value>Vùng 4</value>
   </data>
   <data name="RGBKeyboardBrightnessCardControl_Brightness" xml:space="preserve">
-    <value>Brightness</value>
+    <value>Độ sáng</value>
   </data>
   <data name="RGBKeyboardEffectCardControl_Title" xml:space="preserve">
-    <value>Effect</value>
+    <value>Hiệu Ứng</value>
   </data>
   <data name="RGBKeyboardSpeedCardControl_Title" xml:space="preserve">
-    <value>Speed</value>
+    <value>Tốc độ</value>
   </data>
   <data name="ReadmeWindow_Title" xml:space="preserve">
     <value>Readme</value>
   </data>
   <data name="Refresh" xml:space="preserve">
-    <value>Refresh</value>
+    <value>Làm mới</value>
   </data>
   <data name="RefreshRateAutomationStepControl_Message" xml:space="preserve">
-    <value>Change refresh rate of the built-in display.
+    <value>Thay đổi tần số quét màn hình laptop.
 
-WARNING: This action will not run correctly, if internal display is off.</value>
+CẢNH BÁO! Hành động sẽ không chạy nếu màn hình laptop tắt.</value>
   </data>
   <data name="RefreshRateAutomationStepControl_Title" xml:space="preserve">
-    <value>Refresh rate</value>
+    <value>Tần số quét</value>
   </data>
   <data name="RefreshRateControl_Message" xml:space="preserve">
-    <value>Change refresh rate of the built-in display.</value>
+    <value>Thay đổi tần số quét màn hình laptop.</value>
   </data>
   <data name="RefreshRateControl_Title" xml:space="preserve">
-    <value>Refresh rate</value>
+    <value>Tần số quét</value>
   </data>
   <data name="RestartLater" xml:space="preserve">
-    <value>I will restart later</value>
+    <value>Tôi sẽ khởi động lại sau</value>
   </data>
   <data name="RestartNow" xml:space="preserve">
-    <value>Restart now</value>
+    <value>Khởi động lại ngay</value>
   </data>
   <data name="Revert" xml:space="preserve">
-    <value>Revert</value>
+    <value>Hoàn tác</value>
   </data>
   <data name="RunAutomationStepControl_ExeArguments" xml:space="preserve">
-    <value>Arguments</value>
+    <value>Tham số</value>
   </data>
   <data name="RunAutomationStepControl_ExePath" xml:space="preserve">
-    <value>ExecutablePath</value>
+    <value>Đường dẫn tới tệp thực thi</value>
   </data>
   <data name="RunAutomationStepControl_Message" xml:space="preserve">
-    <value>Run a script or a program.
-Make sure that your script runs correctly first.</value>
+    <value>Chạy một chương trình hoặc một script.
+Hãy đảm bảo chương trình hoặc script của bạn chạy đúng trước.</value>
   </data>
   <data name="RunAutomationStepControl_Title" xml:space="preserve">
-    <value>Run</value>
+    <value>Chạy</value>
   </data>
   <data name="Save" xml:space="preserve">
-    <value>Save</value>
+    <value>Lưu</value>
   </data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
-    <value>Change the accent color of the app.</value>
+    <value>Thay đổi màu sắc chủ đạo của ứng dụng.</value>
   </data>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
-    <value>Accent color</value>
+    <value>Màu chủ đề</value>
   </data>
   <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Do not change options below unless you really know what you are doing.</value>
+    <value>ĐỪNG THAY ĐỔI BẤT KỲ GIÁ TRỊ NÀO DƯỚI ĐÂY TRỪ PHI BẠN BIẾT BẠN ĐANG LÀM GÌ!</value>
   </data>
   <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Advanced</value>
+    <value>Nâng cao</value>
   </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
-    <value>Start minimized to tray when you log in to Windows.
-Startup is delayed by 30 seconds for compatibility reasons.</value>
+    <value>Chạy tự động khi đăng nhập vào windows.
+Chương trình sẽ chạy trễ sau 30s vì lý do tương thích.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
-    <value>Autorun</value>
+    <value>Tự động chạy</value>
   </data>
   <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>CPU Boost Modes</value>
+    <value>Các chế độ CPU Boost</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
-    <value>Legion Zone may have not been disabled correctly</value>
+    <value>Legion Zone có thể đã được ngắt kích hoạt không đúng</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
-    <value>Couldn't disable Legion Zone</value>
+    <value>Không thể ngắt kích hoạt Legion Zone</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
-    <value>Disable Legion Zone and it's service without uninstalling it.
-Restart is recommended after changing this option.</value>
+    <value>Ngắt kích hoạt Legion Zone và các dịch vụ con mà không cần gỡ cài đặt.
+Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
-    <value>Disable Legion Zone</value>
+    <value>Ngắt kích hoạt Legion Zone</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Message" xml:space="preserve">
-    <value>Lenovo Hotkeys may have not been disabled correctly</value>
+    <value>Lenovo Hotkeys có thể đã được ngắt kích hoạt không đúng</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
-    <value>Couldn't disable Lenovo Hotkeys</value>
+    <value>Không thể ngắt kích hoạt Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
-    <value>Disable Lenovo Hotkeys and it's service without uninstalling it.
-If disabled, this app will handle Fn shortcuts
-Restart is recommended after changing this option.</value>
+    <value>Ngắt kích hoạt Lenovo Hotkeys và các dịch vụ con mà không cần gỡ cài đặt.
+Nếu ngắt kích hoạt, Legion Toolkit sẽ xử lý các phím tắt Fn.
+Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
-    <value>Disable Lenovo Hotkeys</value>
+    <value>Ngắt kích hoạt Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage may have not been disabled correctly</value>
+    <value>Lenovo Vantage có thể đã được ngắt kích hoạt không đúng</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Couldn't disable Vantage</value>
+    <value>Không thể ngắt kích hoạt Lenovo Vantage</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>Disable Lenovo Vantage and it's service without uninstalling it.
-Restart is recommended after changing this option.</value>
+    <value>Ngắt kích hoạt Lenovo Vantage và các dịch vụ con mà không cần gỡ cài đặt.
+Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
-    <value>Disable Lenovo Vantage</value>
+    <value>Ngắt kích hoạt Lenovo Vantage</value>
   </data>
   <data name="SettingsPage_DontShowNotifications_Message" xml:space="preserve">
-    <value>Disables notification for Fn keys actions like microphone mute
-Enable this option if you have conflicts with full screen applications.</value>
+    <value>Tắt các thông báo cho các phím tắt Fn, ví dụ như mute microphone.
+Bật tùy chọn này nếu có xung đột với các ứng dụng chạy toàn màn hình.</value>
   </data>
   <data name="SettingsPage_DontShowNotifications_Title" xml:space="preserve">
-    <value>Don't show notifications</value>
+    <value>Không hiện bất kì thông báo nào</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
-    <value>Legion Zone may have not been enabled correctly</value>
+    <value>Legion Zone có thể đã được kích hoạt không đúng</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Title" xml:space="preserve">
-    <value>Couldn't enable Legion Zone</value>
+    <value>Không thể kích hoạt Legion Zone</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Message" xml:space="preserve">
-    <value>Lenovo Hotkeys may have not been enabled correctly</value>
+    <value>Lenovo Hotkeys có thể đã được kích hoạt không đúng</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
-    <value>Couldn't enable Lenovo Hotkeys Keys</value>
+    <value>Không thể kích hoạt Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage may have not been enabled correctly</value>
+    <value>Lenovo Vantage có thể đã được kích hoạt không đúng</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Couldn't enable Vantage</value>
+    <value>Không thể kích hoạt Lenovo Vantage</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
-    <value>You can exclude refresh rates, to make Fn+R shortcut more useful.</value>
+    <value>Bạn có thể loại trừ một số tần số quét, để chức năng Fn+R hữu dụng hơn.</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Title" xml:space="preserve">
-    <value>Exclude Refresh Rates</value>
+    <value>Loại trừ các tần số quét</value>
   </data>
   <data name="SettingsPage_Language_Message" xml:space="preserve">
-    <value>Select language.</value>
+    <value>Chọn ngôn ngữ.</value>
   </data>
   <data name="SettingsPage_Language_Title" xml:space="preserve">
-    <value>Language</value>
+    <value>Ngôn ngữ</value>
   </data>
   <data name="SettingsPage_MinimizeOnClose_Message" xml:space="preserve">
-    <value>Always minimize to tray. Close with right click on tray icon.</value>
+    <value>Luôn thu nhỏ về khay. Nhấp chuột trái vào biểu tượng để đóng.</value>
   </data>
   <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
-    <value>Minimize on close</value>
+    <value>Thu nhỏ khi đóng</value>
   </data>
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Power plans</value>
   </data>
   <data name="SettingsPage_Theme_Description" xml:space="preserve">
-    <value>Set light theme, dark theme or follow system settings.</value>
+    <value>Đặt giao diện sáng hoặc tối tùy theo cài đặt hệ thống.</value>
   </data>
   <data name="SettingsPage_Theme_Title" xml:space="preserve">
-    <value>Theme</value>
+    <value>Giao diện</value>
   </data>
   <data name="SettingsPage_Title" xml:space="preserve">
-    <value>Settings</value>
+    <value>Cài đặt</value>
   </data>
   <data name="TimeWindow_Sunrise" xml:space="preserve">
-    <value>Sunrise</value>
+    <value>Bình minh</value>
   </data>
   <data name="TimeWindow_Sunset" xml:space="preserve">
-    <value>Sunrise</value>
+    <value>Bình minh</value>
   </data>
   <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Time</value>
+    <value>Thời gian</value>
   </data>
   <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
-    <value>Time</value>
+    <value>Thời gian</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
-    <value>Allow switching between integrated and discrete GPU.
-Requires restart.</value>
+    <value>Cho phép đổi giữa GPU tích hợp và GPU rời.
+Yêu cầu khởi động lại.</value>
   </data>
   <data name="ToggleHybridModeControl_RestartRequired_Message" xml:space="preserve">
-    <value>Changing Hybrid Mode requires restart. Do you want to restart now?</value>
+    <value>Thay đổi chế độ Hybrid cần phải khởi động lại. Bạn có muốn khởi động lại ngay?</value>
   </data>
   <data name="ToggleHybridModeControl_RestartRequired_Title" xml:space="preserve">
-    <value>Restart required</value>
+    <value>Cần khởi động lại</value>
   </data>
   <data name="ToggleHybridModeControl_Title" xml:space="preserve">
-    <value>Hybrid Mode</value>
+    <value>Hybrid</value>
   </data>
   <data name="TouchpadLockAutomationStepControl_Message" xml:space="preserve">
-    <value>Disable touchpad.</value>
+    <value>Tắt Touchpad.</value>
   </data>
   <data name="TouchpadLockAutomationStepControl_Title" xml:space="preserve">
-    <value>Touchpad Lock</value>
+    <value>Khóa Touchpad</value>
   </data>
   <data name="TouchpadLockControl_Message" xml:space="preserve">
-    <value>Disable touchpad.</value>
+    <value>Tắt Touchpad.</value>
   </data>
   <data name="TouchpadLockControl_Title" xml:space="preserve">
-    <value>Touchpad Lock</value>
+    <value>Khóa Touchpad</value>
   </data>
   <data name="TryAgain" xml:space="preserve">
-    <value>Try again</value>
+    <value>Thử lại</value>
   </data>
   <data name="UnexpectedException" xml:space="preserve">
-    <value>Unexpected exception occurred:
+    <value>Lỗi ngoài ý muốn đã xảy ra: 
 {0}
 
-Please report the issue on {1}.</value>
+Hãy báo cáo lỗi này tại {1}.</value>
   </data>
   <data name="Unnamed" xml:space="preserve">
-    <value>Unnamed</value>
+    <value>Chưa có tên</value>
   </data>
   <data name="UnsupportedWindow_Disclaimer" xml:space="preserve">
-    <value>You may choose to continue at your own risk, but keep in mind that some features may not be available and/or not work properly.
+    <value>Bạn có thể tiếp tục, tuy nhiên nhiều chức năng sẽ không có sẵn, gây lỗi hoặc hoạt động không ổn định.
 
-Logging will be enabled automatically, if you choose to continue.</value>
+Logging sẽ được tự động bật, nếu bạn chọn tiếp tục.</value>
   </data>
   <data name="UnsupportedWindow_Disclaimer_GitHub" xml:space="preserve">
-    <value>Check out project page on GitHub for more information.</value>
+    <value>Hãy truy cập trang của dự án trên Github để có thêm thông tin.</value>
   </data>
   <data name="UnsupportedWindow_Disclaimer_Logs" xml:space="preserve">
-    <value>Logs folder</value>
+    <value>Thư mục log</value>
   </data>
   <data name="UnsupportedWindow_MachineType" xml:space="preserve">
-    <value>Machine Type</value>
+    <value>Mã máy</value>
   </data>
   <data name="UnsupportedWindow_Message" xml:space="preserve">
-    <value>Lenovo Legion Toolkit has not been tested with your device.</value>
+    <value>Lenovo Legion Toolkit chưa được thử với thiết bị của bạn.</value>
   </data>
   <data name="UnsupportedWindow_Model" xml:space="preserve">
-    <value>Model</value>
+    <value>Mẫu máy</value>
   </data>
   <data name="UnsupportedWindow_Title" xml:space="preserve">
-    <value>Unsupported device</value>
+    <value>Thiết bị không được hỗ trợ</value>
   </data>
   <data name="UnsupportedWindow_Vendor" xml:space="preserve">
     <value>Vendor</value>
   </data>
   <data name="Update" xml:space="preserve">
-    <value>Update</value>
+    <value>Cập nhật</value>
   </data>
   <data name="UpdateWindow_Title" xml:space="preserve">
-    <value>Update available</value>
+    <value>Có cập nhật mới</value>
   </data>
   <data name="UpdateWindow_WhatsNew" xml:space="preserve">
-    <value>What's new?</value>
+    <value>Có gì mới?</value>
   </data>
   <data name="WhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
-    <value>Adjust keyboard backlight brightness.</value>
+    <value>Thay đổi độ sáng đèn nền bàn phím.</value>
   </data>
   <data name="WhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
-    <value>Keyboard backlight</value>
+    <value>Đèn nền bàn phím</value>
   </data>
   <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
-    <value>You can change brightness with Fn+Space</value>
+    <value>Bạn có thể thay đổi độ sáng đèn nền phím bằng Fn+Space</value>
   </data>
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
-    <value>Brightness</value>
+    <value>Độ sáng</value>
   </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
-    <value>Enabled or disable Windows key.</value>
+    <value>Bật hoặc tắt phím Windows.</value>
   </data>
   <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
-    <value>Windows Key</value>
+    <value>Phím Windows</value>
   </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
-    <value>Only works on built-in keyboard.</value>
+    <value>Chỉ hoạt động với bàn phím laptop.</value>
   </data>
   <data name="WinKeyControl_Title" xml:space="preserve">
-    <value>Windows Key Lock</value>
+    <value>Khóa phím Windows</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Yes</value>
+    <value>Có</value>
   </data>
 </root>
