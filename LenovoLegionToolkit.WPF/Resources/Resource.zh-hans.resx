@@ -139,7 +139,7 @@
     <value>关于</value>
   </data>
   <data name="AboutPage_TranslationCredit" xml:space="preserve">
-    <value>Translated by Karl Lee and Community. 由凌卡Karl与开源社区参与者汉化。</value>
+    <value>Translated by Karl Lee. 由凌卡Karl汉化，开源社区校正。</value>
   </data>
   <data name="AboutPage_Version" xml:space="preserve">
     <value>版本</value>
