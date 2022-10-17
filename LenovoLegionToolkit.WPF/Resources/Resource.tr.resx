@@ -183,10 +183,10 @@ Yalnızca mevcut durumla eşleşen eylemler çalışacaktır.</value>
   <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
     <value>Bu eylem çalıştığında başka eylemler yürütmeyin.</value>
   </data>
-  <data name="AutomationPipelineControl_MoveDown" xml:space="preserve">
+  <data name="MoveDown" xml:space="preserve">
     <value>Aşağı Taşı</value>
   </data>
-  <data name="AutomationPipelineControl_MoveUp" xml:space="preserve">
+  <data name="MoveUp" xml:space="preserve">
     <value>Yukarı taşı</value>
   </data>
   <data name="AutomationPipelineControl_RunNow" xml:space="preserve">
