@@ -26,11 +26,5 @@
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>Resource.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
-	  <EmbeddedResource Update="Resources\Resource.zh-hans.resx">
-	    <DependentUpon>Resource.resx</DependentUpon>
-	  </EmbeddedResource>
-	  <EmbeddedResource Update="Resources\Resource.ro.resx">
-		<DependentUpon>Resource.resx</DependentUpon>
-	  </EmbeddedResource>
 	</ItemGroup>
 </Project>
