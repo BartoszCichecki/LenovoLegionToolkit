@@ -59,42 +59,42 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>When AC power adapter is connected</value>
+    <value>AC güç adaptörü bağlanınca</value>
   </data>
   <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>When AC power adapter is disconnected</value>
+    <value>AC güç adaptörü çıkarılınca</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>İptal</value>
   </data>
   <data name="DeactivateGPUAutomationStepState_KillApps" xml:space="preserve">
-    <value>Kill apps</value>
+    <value>Uygulamaları Kapat</value>
   </data>
   <data name="DeactivateGPUAutomationStepState_RestartGPU" xml:space="preserve">
-    <value>Restart GPU</value>
+    <value>GPU'yu yeniden başlat</value>
   </data>
   <data name="Delay_Second" xml:space="preserve">
-    <value>{0} second</value>
+    <value>{0} saniye</value>
   </data>
   <data name="Delay_Second_Many" xml:space="preserve">
-    <value>{0} seconds</value>
+    <value>{0} saniye</value>
   </data>
   <data name="LowWattageACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>When low wattage AC power adapter is connected</value>
+    <value>Düşük güçlü AC güç adaptörü bağlanırsa</value>
   </data>
   <data name="OnStartupAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>On startup</value>
+    <value>Başlangıçta</value>
   </data>
   <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>When power mode is changed</value>
+    <value>Performans modu değiştiğinde</value>
   </data>
   <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>When app is running</value>
+    <value>Uygulama çalıştığında</value>
   </data>
   <data name="ProcessesStopRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>When app closes</value>
+    <value>Uygulama kapandığında</value>
   </data>
   <data name="TimeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>At specified time</value>
+    <value>Belirli bir zamanda</value>
   </data>
 </root>
