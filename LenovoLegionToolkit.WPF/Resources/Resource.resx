@@ -183,10 +183,10 @@ Only actions that match current state will run.</value>
   <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
     <value>Do not execute further actions when this action runs.</value>
   </data>
-  <data name="AutomationPipelineControl_MoveDown" xml:space="preserve">
+  <data name="MoveDown" xml:space="preserve">
     <value>Move down</value>
   </data>
-  <data name="AutomationPipelineControl_MoveUp" xml:space="preserve">
+  <data name="MoveUp" xml:space="preserve">
     <value>Move up</value>
   </data>
   <data name="AutomationPipelineControl_RunNow" xml:space="preserve">
@@ -929,6 +929,9 @@ WARNING: This action will not run correctly, if internal display is off.</value>
   <data name="RefreshRateControl_Title" xml:space="preserve">
     <value>Refresh rate</value>
   </data>
+  <data name="Rename" xml:space="preserve">
+		<value>Rename</value>
+	</data>
   <data name="RestartLater" xml:space="preserve">
     <value>I will restart later</value>
   </data>
