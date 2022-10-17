@@ -124,7 +124,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to English translation by Bartosz Cichecki.
+        ///   Looks up a localized string similar to Translations provided by community..
         /// </summary>
         public static string AboutPage_TranslationCredit {
             get {
