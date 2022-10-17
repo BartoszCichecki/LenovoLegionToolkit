@@ -59,122 +59,122 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AlwaysOnUSBState_Off" xml:space="preserve">
-    <value>Off</value>
+    <value>Apagado</value>
   </data>
   <data name="AlwaysOnUSBState_OnAlways" xml:space="preserve">
-    <value>On, always</value>
+    <value>Siempre encendido</value>
   </data>
   <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
-    <value>On, when sleeping</value>
+    <value>Encendido, al suspender</value>
   </data>
   <data name="BatteryState_Conservation" xml:space="preserve">
-    <value>Conservation</value>
+    <value>Conservador</value>
   </data>
   <data name="BatteryState_Normal" xml:space="preserve">
     <value>Normal</value>
   </data>
   <data name="BatteryState_RapidCharge" xml:space="preserve">
-    <value>Rapid Charge</value>
+    <value>Carga rápida</value>
   </data>
   <data name="GPUController_PoweredOff" xml:space="preserve">
-    <value>Powered Off</value>
+    <value>Desactivado</value>
   </data>
   <data name="GPUController_PoweredOn" xml:space="preserve">
-    <value>Powered On</value>
+    <value>Activado</value>
   </data>
   <data name="HybridModeState_Off" xml:space="preserve">
     <value>dGPU</value>
   </data>
   <data name="HybridModeState_On" xml:space="preserve">
-    <value>Hybrid</value>
+    <value>Híbrido</value>
   </data>
   <data name="HybridModeState_OnAuto" xml:space="preserve">
-    <value>Hybrid-Auto</value>
+    <value>Híbrido-automático</value>
   </data>
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
-    <value>Hybrid-iGPU</value>
+    <value>Híbrido-iGPU</value>
   </data>
   <data name="PowerModeState_Balance" xml:space="preserve">
-    <value>Balance</value>
+    <value>Equilibrado</value>
   </data>
   <data name="PowerModeState_GodMode" xml:space="preserve">
-    <value>Custom</value>
+    <value>Personalizado</value>
   </data>
   <data name="PowerModeState_Performance" xml:space="preserve">
-    <value>Performance</value>
+    <value>Rendimiento</value>
   </data>
   <data name="PowerModeState_Quiet" xml:space="preserve">
-    <value>Quiet</value>
+    <value>Tranquilo</value>
   </data>
   <data name="RBGKeyboardSpeed_Fast" xml:space="preserve">
-    <value>Fast</value>
+    <value>Rápido</value>
   </data>
   <data name="RBGKeyboardSpeed_Fastest" xml:space="preserve">
-    <value>Fastest</value>
+    <value>Más rápido</value>
   </data>
   <data name="RBGKeyboardSpeed_Slow" xml:space="preserve">
-    <value>Slow</value>
+    <value>Lento</value>
   </data>
   <data name="RBGKeyboardSpeed_Slowest" xml:space="preserve">
-    <value>Slowest</value>
+    <value>Más lento</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
-    <value>Off</value>
+    <value>Apagado</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_One" xml:space="preserve">
-    <value>Preset 1</value>
+    <value>Predefinido 1</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Three" xml:space="preserve">
-    <value>Preset 3</value>
+    <value>Predefinido 3</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
-    <value>Preset 2</value>
+    <value>Predefinido 2</value>
   </data>
   <data name="RGBKeyboardBrightness_High" xml:space="preserve">
-    <value>High</value>
+    <value>Alto</value>
   </data>
   <data name="RGBKeyboardBrightness_Low" xml:space="preserve">
-    <value>Low</value>
+    <value>Bajo</value>
   </data>
   <data name="RGBKeyboardEffect_Breath" xml:space="preserve">
-    <value>Breath</value>
+    <value>Continuo</value>
   </data>
   <data name="RGBKeyboardEffect_Smooth" xml:space="preserve">
-    <value>Smooth</value>
+    <value>Suave</value>
   </data>
   <data name="RGBKeyboardEffect_Static" xml:space="preserve">
-    <value>Static</value>
+    <value>Estático</value>
   </data>
   <data name="RGBKeyboardEffect_WaveLTR" xml:space="preserve">
-    <value>Wave Left</value>
+    <value>A la izquierda</value>
   </data>
   <data name="RGBKeyboardEffect_WaveRTL" xml:space="preserve">
-    <value>Wave Right</value>
+    <value>A la derecha</value>
   </data>
   <data name="Theme_Dark" xml:space="preserve">
-    <value>Dark</value>
+    <value>Oscuro</value>
   </data>
   <data name="Theme_Light" xml:space="preserve">
-    <value>Light</value>
+    <value>Claro</value>
   </data>
   <data name="Theme_System" xml:space="preserve">
-    <value>System</value>
+    <value>Sistema</value>
   </data>
   <data name="WarrantyChecker_InWarranty" xml:space="preserve">
-    <value>In warranty</value>
+    <value>En garantía</value>
     <comment>This needs to be translated only into Chinese.</comment>
   </data>
   <data name="WarrantyChecker_WarrantyExpired" xml:space="preserve">
-    <value>Expired</value>
+    <value>Expirado</value>
     <comment>This needs to be translated only into Chinese.</comment>
   </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
-    <value>High</value>
+    <value>Alta</value>
   </data>
   <data name="WhiteKeyboardBacklightState_Low" xml:space="preserve">
-    <value>Low</value>
+    <value>Baja</value>
   </data>
   <data name="WhiteKeyboardBacklightState_Off" xml:space="preserve">
-    <value>Off</value>
+    <value>Apagado</value>
   </data>
 </root>
