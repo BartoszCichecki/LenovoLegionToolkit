@@ -6,6 +6,12 @@
 [![Crowdin](https://badges.crowdin.net/llt/localized.svg)](https://crowdin.com/project/llt)
 [![Join Discord](https://img.shields.io/discord/761178912230473768?label=Legion%20Series%20Discord)](https://discord.com/invite/legionseries)
 
+---
+
+Other language versions of this README file
+
+[简体中文版简介](README_zh-hans.md)
+
 <br />
 
 ![Ukrainian Flag](assets/ukraine_flag_bar.png)
@@ -132,7 +138,7 @@ Translations provided by:
 
 LLT is started using Task Scheduler, so that it can launch with admin rights. Startup is delayed by 1 minutes (30 seconds in version 2.4.0 and up) to allow other components to start and be ready to use. If you don't see LLT in tray after a ~minute after seeing your desktop, create an issue.
 
-#### My motherboard was replaced and now LLT gives me incompatible massage. What do I do?
+#### My motherboard was replaced and now LLT gives me incompatible message. What do I do?
 
 Sometimes new motherboard does not contain correct model numbers and serial numbers. You should try [this tutorial](https://laptopwiki.eu/index.php/guides-and-tutorials/important-bios-related-guides/recover-original-model-sku-values/) to try and recover them. If that method does not succeed, you can workaround by going to `%LOCALAPPDATA%\LenovoLegionToolkit` and creating an `args.txt` file. Inside that file paste `--skip-compat-check`. This will disable all compatibility checks in LLT. Use this workaround only if correct model number, serial number etc. can't be restored.
 
