@@ -19,7 +19,7 @@
 <img src="assets/screenshot.png" width="700" alt="PayPal QR code" />
 
 
-# Table of Contents
+# 目录
   - [免责声明](#免责声明)
   - [捐赠](#捐赠)
   - [下载](#下载)
