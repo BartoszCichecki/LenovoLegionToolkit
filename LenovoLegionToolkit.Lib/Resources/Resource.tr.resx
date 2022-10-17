@@ -59,122 +59,122 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AlwaysOnUSBState_Off" xml:space="preserve">
-    <value>Off</value>
+    <value>Kapalı</value>
   </data>
   <data name="AlwaysOnUSBState_OnAlways" xml:space="preserve">
-    <value>On, always</value>
+    <value>Her zaman açık</value>
   </data>
   <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
-    <value>On, when sleeping</value>
+    <value>Uykudayken açık</value>
   </data>
   <data name="BatteryState_Conservation" xml:space="preserve">
-    <value>Conservation</value>
+    <value>Pil Koruma Modu</value>
   </data>
   <data name="BatteryState_Normal" xml:space="preserve">
     <value>Normal</value>
   </data>
   <data name="BatteryState_RapidCharge" xml:space="preserve">
-    <value>Rapid Charge</value>
+    <value>Hızlı Şarj</value>
   </data>
   <data name="GPUController_PoweredOff" xml:space="preserve">
-    <value>Powered Off</value>
+    <value>Kapatıldı</value>
   </data>
   <data name="GPUController_PoweredOn" xml:space="preserve">
-    <value>Powered On</value>
+    <value>Açık</value>
   </data>
   <data name="HybridModeState_Off" xml:space="preserve">
     <value>dGPU</value>
   </data>
   <data name="HybridModeState_On" xml:space="preserve">
-    <value>Hybrid</value>
+    <value>Hibrit</value>
   </data>
   <data name="HybridModeState_OnAuto" xml:space="preserve">
-    <value>Hybrid-Auto</value>
+    <value>Hibrit-Oto</value>
   </data>
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
-    <value>Hybrid-iGPU</value>
+    <value>Hibrit-iGPU</value>
   </data>
   <data name="PowerModeState_Balance" xml:space="preserve">
-    <value>Balance</value>
+    <value>Denge</value>
   </data>
   <data name="PowerModeState_GodMode" xml:space="preserve">
-    <value>Custom</value>
+    <value>Özel</value>
   </data>
   <data name="PowerModeState_Performance" xml:space="preserve">
-    <value>Performance</value>
+    <value>Performans</value>
   </data>
   <data name="PowerModeState_Quiet" xml:space="preserve">
-    <value>Quiet</value>
+    <value>Sessiz</value>
   </data>
   <data name="RBGKeyboardSpeed_Fast" xml:space="preserve">
-    <value>Fast</value>
+    <value>Hızlı</value>
   </data>
   <data name="RBGKeyboardSpeed_Fastest" xml:space="preserve">
-    <value>Fastest</value>
+    <value>En Hızlı</value>
   </data>
   <data name="RBGKeyboardSpeed_Slow" xml:space="preserve">
-    <value>Slow</value>
+    <value>Yavaş</value>
   </data>
   <data name="RBGKeyboardSpeed_Slowest" xml:space="preserve">
-    <value>Slowest</value>
+    <value>En yavaş</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
-    <value>Off</value>
+    <value>Kapalı</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_One" xml:space="preserve">
-    <value>Preset 1</value>
+    <value>1. Hazır Ayar</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Three" xml:space="preserve">
-    <value>Preset 3</value>
+    <value>3. Hazır Ayar</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
-    <value>Preset 2</value>
+    <value>2. Hazır Ayar</value>
   </data>
   <data name="RGBKeyboardBrightness_High" xml:space="preserve">
-    <value>High</value>
+    <value>Yüksek</value>
   </data>
   <data name="RGBKeyboardBrightness_Low" xml:space="preserve">
-    <value>Low</value>
+    <value>Düşük</value>
   </data>
   <data name="RGBKeyboardEffect_Breath" xml:space="preserve">
-    <value>Breath</value>
+    <value>Nefes</value>
   </data>
   <data name="RGBKeyboardEffect_Smooth" xml:space="preserve">
-    <value>Smooth</value>
+    <value>Akıcı</value>
   </data>
   <data name="RGBKeyboardEffect_Static" xml:space="preserve">
-    <value>Static</value>
+    <value>Sabit</value>
   </data>
   <data name="RGBKeyboardEffect_WaveLTR" xml:space="preserve">
-    <value>Wave Left</value>
+    <value>Soldan Dalga</value>
   </data>
   <data name="RGBKeyboardEffect_WaveRTL" xml:space="preserve">
-    <value>Wave Right</value>
+    <value>Sağdan Dalga</value>
   </data>
   <data name="Theme_Dark" xml:space="preserve">
-    <value>Dark</value>
+    <value>Koyu</value>
   </data>
   <data name="Theme_Light" xml:space="preserve">
-    <value>Light</value>
+    <value>Açık</value>
   </data>
   <data name="Theme_System" xml:space="preserve">
-    <value>System</value>
+    <value>Sistem</value>
   </data>
   <data name="WarrantyChecker_InWarranty" xml:space="preserve">
-    <value>In warranty</value>
+    <value>Garanti mevcut</value>
     <comment>This needs to be translated only into Chinese.</comment>
   </data>
   <data name="WarrantyChecker_WarrantyExpired" xml:space="preserve">
-    <value>Expired</value>
+    <value>Geçersiz</value>
     <comment>This needs to be translated only into Chinese.</comment>
   </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
-    <value>High</value>
+    <value>Yüksek</value>
   </data>
   <data name="WhiteKeyboardBacklightState_Low" xml:space="preserve">
-    <value>Low</value>
+    <value>Düşük</value>
   </data>
   <data name="WhiteKeyboardBacklightState_Off" xml:space="preserve">
-    <value>Off</value>
+    <value>Kapalı</value>
   </data>
 </root>
