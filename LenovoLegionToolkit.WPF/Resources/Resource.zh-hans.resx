@@ -185,10 +185,10 @@
   <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
     <value>勾选后，此条件将无法新建自动化。</value>
   </data>
-  <data name="AutomationPipelineControl_MoveDown" xml:space="preserve">
+  <data name="MoveDown" xml:space="preserve">
     <value>上移</value>
   </data>
-  <data name="AutomationPipelineControl_MoveUp" xml:space="preserve">
+  <data name="MoveUp" xml:space="preserve">
     <value>下移</value>
   </data>
   <data name="AutomationPipelineControl_RunNow" xml:space="preserve">

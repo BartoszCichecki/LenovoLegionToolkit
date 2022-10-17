@@ -183,10 +183,10 @@ Only actions that match current state will run.</value>
   <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
     <value>Nemoj izvršavati dalje radnje kada se ova akcija pokrene.</value>
   </data>
-  <data name="AutomationPipelineControl_MoveDown" xml:space="preserve">
+  <data name="MoveDown" xml:space="preserve">
     <value>Pomjeri dolje</value>
   </data>
-  <data name="AutomationPipelineControl_MoveUp" xml:space="preserve">
+  <data name="MoveUp" xml:space="preserve">
     <value>Pomjeri gore</value>
   </data>
   <data name="AutomationPipelineControl_RunNow" xml:space="preserve">

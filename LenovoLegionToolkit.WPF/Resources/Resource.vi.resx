@@ -183,10 +183,10 @@ Chỉ có các chức năng hợp với điều kiện sẽ được chạy.</va
   <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
     <value>Không thực hiện thêm bất kì Hành động khác sau khi thực hiện xong.</value>
   </data>
-  <data name="AutomationPipelineControl_MoveDown" xml:space="preserve">
+  <data name="MoveDown" xml:space="preserve">
     <value>Di chuyển lên</value>
   </data>
-  <data name="AutomationPipelineControl_MoveUp" xml:space="preserve">
+  <data name="MoveUp" xml:space="preserve">
     <value>Di chuyển xuống</value>
   </data>
   <data name="AutomationPipelineControl_RunNow" xml:space="preserve">

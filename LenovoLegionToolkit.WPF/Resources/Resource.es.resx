@@ -183,10 +183,10 @@ Sólo se ejecutarán las acciones que coincidan con el estado actual.</value>
   <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
     <value>No ejecutar más acciones al iniciar esta acción.</value>
   </data>
-  <data name="AutomationPipelineControl_MoveDown" xml:space="preserve">
+  <data name="MoveDown" xml:space="preserve">
     <value>Mover abajo</value>
   </data>
-  <data name="AutomationPipelineControl_MoveUp" xml:space="preserve">
+  <data name="MoveUp" xml:space="preserve">
     <value>Mover arriba</value>
   </data>
   <data name="AutomationPipelineControl_RunNow" xml:space="preserve">

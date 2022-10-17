@@ -183,10 +183,10 @@ Se vor rula numai acțiunile care se potrivesc cu starea actuală.</value>
   <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
     <value>Nu executa alte acțiuni când se execută această acțiune.</value>
   </data>
-  <data name="AutomationPipelineControl_MoveDown" xml:space="preserve">
+  <data name="MoveDown" xml:space="preserve">
     <value>Mutați jos</value>
   </data>
-  <data name="AutomationPipelineControl_MoveUp" xml:space="preserve">
+  <data name="MoveUp" xml:space="preserve">
     <value>Mutați sus</value>
   </data>
   <data name="AutomationPipelineControl_RunNow" xml:space="preserve">

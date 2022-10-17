@@ -432,24 +432,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Move down.
-        /// </summary>
-        public static string AutomationPipelineControl_MoveDown {
-            get {
-                return ResourceManager.GetString("AutomationPipelineControl_MoveDown", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Move up.
-        /// </summary>
-        public static string AutomationPipelineControl_MoveUp {
-            get {
-                return ResourceManager.GetString("AutomationPipelineControl_MoveUp", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Running....
         /// </summary>
         public static string AutomationPipelineControl_Running {
@@ -1978,6 +1960,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Move down.
+        /// </summary>
+        public static string MoveDown {
+            get {
+                return ResourceManager.GetString("MoveDown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move up.
+        /// </summary>
+        public static string MoveUp {
+            get {
+                return ResourceManager.GetString("MoveUp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No.
         /// </summary>
         public static string No {
@@ -2491,6 +2491,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string RefreshRateControl_Title {
             get {
                 return ResourceManager.GetString("RefreshRateControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rename.
+        /// </summary>
+        public static string Rename {
+            get {
+                return ResourceManager.GetString("Rename", resourceCulture);
             }
         }
         
