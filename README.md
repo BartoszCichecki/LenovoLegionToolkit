@@ -130,6 +130,9 @@ Special thanks to:
 Translations provided by:
 * Chinese - [凌卡Karl](https://github.com/KarlLee830), [DavidLogic](https://github.com/DavidLogic)
 * Romanian - [Mario Bălănică](https://github.com/mariobalanica)
+* Spanish - M.A.G.
+* Turkish - Undervolt
+* Vietnamese - Not_Nhan
 
 ## FAQ
 
