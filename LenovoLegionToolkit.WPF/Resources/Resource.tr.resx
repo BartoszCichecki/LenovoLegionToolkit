@@ -929,6 +929,9 @@ UYARI: Yerleşik ekran kapalıysa bu eylem düzgün çalışmayacaktır.</value>
   <data name="RefreshRateControl_Title" xml:space="preserve">
     <value>Yenileme hızı</value>
   </data>
+  <data name="Rename" xml:space="preserve">
+		<value>Yeniden adlandır</value>
+	</data>
   <data name="RestartLater" xml:space="preserve">
     <value>Sonra yeniden başlatacağım</value>
   </data>

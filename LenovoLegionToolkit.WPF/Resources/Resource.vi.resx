@@ -929,6 +929,9 @@ CẢNH BÁO! Hành động sẽ không chạy nếu màn hình laptop tắt.</va
   <data name="RefreshRateControl_Title" xml:space="preserve">
     <value>Tần số quét</value>
   </data>
+  <data name="Rename" xml:space="preserve">
+		<value>Đặt lại tên</value>
+	</data>
   <data name="RestartLater" xml:space="preserve">
     <value>Tôi sẽ khởi động lại sau</value>
   </data>

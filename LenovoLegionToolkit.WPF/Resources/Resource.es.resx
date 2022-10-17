@@ -929,6 +929,9 @@ AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está
   <data name="RefreshRateControl_Title" xml:space="preserve">
     <value>Tasa de refresco</value>
   </data>
+  <data name="Rename" xml:space="preserve">
+		<value>Renombrar</value>
+	</data>
   <data name="RestartLater" xml:space="preserve">
     <value>Reiniciar más tarde</value>
   </data>
