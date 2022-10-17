@@ -110,7 +110,7 @@
 * [SmokelessCPU](https://github.com/SmokelessCPU) 帮助我适配了4分区RGB键盘背光。
 
 翻译贡献者：
-* 中文 - 软件本体与此README文档：[凌卡Karl](https://github.com/KarlLee830)，校正：[DavidLogic](https://github.com/DavidLogic)
+* 中文 - [凌卡Karl](https://github.com/KarlLee830), [DavidLogic](https://github.com/DavidLogic)
 * 罗马尼亚语 - [Mario Bălănică](https://github.com/mariobalanica)
 
 ## FAQ
