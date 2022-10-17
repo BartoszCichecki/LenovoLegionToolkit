@@ -77,10 +77,10 @@
     <value>Sạc Nhanh</value>
   </data>
   <data name="GPUController_PoweredOff" xml:space="preserve">
-    <value>Powered Off</value>
+    <value>Ngắt kích hoạt</value>
   </data>
   <data name="GPUController_PoweredOn" xml:space="preserve">
-    <value>Powered On</value>
+    <value>Kích hoạt</value>
   </data>
   <data name="HybridModeState_Off" xml:space="preserve">
     <value>GPU rời</value>
@@ -92,7 +92,7 @@
     <value>Hybrid- Tự động</value>
   </data>
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
-    <value>Hybrid- chỉ iGPU</value>
+    <value>Hybrid- chỉ GPU tích hợp</value>
   </data>
   <data name="PowerModeState_Balance" xml:space="preserve">
     <value>Cân Bằng</value>
@@ -122,13 +122,13 @@
     <value>Tắt</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_One" xml:space="preserve">
-    <value>Cài đặt 1</value>
+    <value>Thiết lập 1</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Three" xml:space="preserve">
-    <value>Cài đặt 3</value>
+    <value>Thiết lập 3</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
-    <value>Cài đặt 2</value>
+    <value>Thiết lập 2</value>
   </data>
   <data name="RGBKeyboardBrightness_High" xml:space="preserve">
     <value>Cao</value>
