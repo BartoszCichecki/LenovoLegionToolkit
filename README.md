@@ -8,11 +8,10 @@
 
 ---
 
-Other language versions of this README file
+#### Other language versions of this README file:
+* [简体中文版简介](README_zh-hans.md)
 
-[简体中文版简介](README_zh-hans.md)
-
-<br />
+---
 
 ![Ukrainian Flag](assets/ukraine_flag_bar.png)
 
