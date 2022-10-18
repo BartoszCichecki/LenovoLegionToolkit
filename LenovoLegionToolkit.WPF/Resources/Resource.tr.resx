@@ -78,9 +78,11 @@
   </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>Hakkında</value>
+    <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
   </data>
   <data name="AboutPage_TranslationCredit" xml:space="preserve">
     <value>Undervolt tarafından Türkçe çeviri</value>
+    <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
   </data>
   <data name="AboutPage_Version" xml:space="preserve">
     <value>Versiyon</value>
@@ -183,12 +185,6 @@ Yalnızca mevcut durumla eşleşen eylemler çalışacaktır.</value>
   <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
     <value>Bu eylem çalıştığında başka eylemler yürütmeyin.</value>
   </data>
-  <data name="MoveDown" xml:space="preserve">
-    <value>Aşağı Taşı</value>
-  </data>
-  <data name="MoveUp" xml:space="preserve">
-    <value>Yukarı taşı</value>
-  </data>
   <data name="AutomationPipelineControl_RunNow" xml:space="preserve">
     <value>Şimdi çalıştır</value>
   </data>
@@ -211,7 +207,7 @@ Yalnızca mevcut durumla eşleşen eylemler çalışacaktır.</value>
     <value>{0} Adım</value>
   </data>
   <data name="AutomationPipelineControl_Step_Many" xml:space="preserve">
-    <value>{0} Adımlar</value>
+    <value>{0} Adım</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_Apps" xml:space="preserve">
     <value>Uygulamalar</value>
@@ -320,7 +316,7 @@ Yalnızca mevcut durumla eşleşen eylemler çalışacaktır.</value>
 Dizüstü bilgisayar uyurken veya kapalıyken şarj edildiyse bu süre doğru olmayabilir.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
-    <value>O zamandan beri batarya devrede</value>
+    <value>Bataryada geçen süre</value>
   </data>
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Pil / Batarya</value>
@@ -472,7 +468,7 @@ Bunu yaparsanız bazı programların çökebileceğini unutmayın.</value>
     <value>Uygulamaları Kapat</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-    <value>Gereksiz yere etkinse ayrı GPU'yu devre dışı bırakın.</value>
+    <value>Gereksiz yere etkinse harici GPU'yu devre dışı bırakın.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>nVidia GPU'ya bir monitör bağlı.</value>
@@ -551,7 +547,7 @@ PayPal ile bağış yapmak için aşağıdaki PayPal logosuna tıklayın veya QR
     <value>Bu mod, yalnızca ayrı GPU çalışmadığında etkili olur.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Message" xml:space="preserve">
-    <value>Bu mod, yalnızca harici GPU çalışmadığında etkili olur.</value>
+    <value>Yalnızca entegre GPU'yu kullanın. Bu mod, güç tüketimini ve gürültüyü en aza indirir.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Title" xml:space="preserve">
     <value>Yalnızca Hibrit-iGPU Modu</value>
@@ -636,7 +632,7 @@ Bazı bilgisayarlar, belirtilenden daha yüksek güç sınırlarını kabul edeb
     <value>Ayar yüklenemedi.</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Curve_Message" xml:space="preserve">
-    <value>Fan hızı kesin olarak bir sıcaklık sensörü tarafından belirlenmemektedir. CPU, GPU ve Soğutucu sıcaklığı arasındaki en yüksek sensör başına hızı artıracak veya azaltacaktır. Fareyi her adımın üzerine getirdiğinizde tam değerler görünecektir.</value>
+    <value>Fan hızı kesin olarak 1 sıcaklık sensörü tarafından belirlenmemektedir. CPU, GPU ve Soğutucu sıcaklığı arasındaki en yüksek sensör başına hızı artıracak veya azaltacaktır. Fareyi her adımın üzerine getirdiğinizde tam değerler görünecektir.</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Curve_Title" xml:space="preserve">
     <value>Fan eğrisi</value>
@@ -686,10 +682,10 @@ Cidden, bu seçeneğe dikkat edin!</value>
     <value>Eylemler</value>
   </data>
   <data name="MainWindow_NavigationItem_Battery" xml:space="preserve">
-    <value>Pil / Batarya</value>
+    <value>Batarya</value>
   </data>
   <data name="MainWindow_NavigationItem_Dashboard" xml:space="preserve">
-    <value>Kontrol Paneli</value>
+    <value>Menü</value>
   </data>
   <data name="MainWindow_NavigationItem_Donate" xml:space="preserve">
     <value>Bağış</value>
@@ -708,6 +704,12 @@ Cidden, bu seçeneğe dikkat edin!</value>
   </data>
   <data name="MainWindow_UpdateAvailableWithVersion" xml:space="preserve">
     <value>{0} Güncelleme mevcut!</value>
+  </data>
+  <data name="MoveDown" xml:space="preserve">
+    <value>Aşağı Taşı</value>
+  </data>
+  <data name="MoveUp" xml:space="preserve">
+    <value>Yukarı taşı</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>Hayır</value>
@@ -930,8 +932,8 @@ UYARI: Yerleşik ekran kapalıysa bu eylem düzgün çalışmayacaktır.</value>
     <value>Yenileme hızı</value>
   </data>
   <data name="Rename" xml:space="preserve">
-		<value>Yeniden adlandır</value>
-	</data>
+    <value>Yeniden adlandır</value>
+  </data>
   <data name="RestartLater" xml:space="preserve">
     <value>Sonra yeniden başlatacağım</value>
   </data>
@@ -1087,7 +1089,7 @@ Tam ekran uygulamalarda rahatsız oluyorsanız bu seçeneği etkinleştirin.</va
     <value>Zaman</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
-    <value>Entegre ve ayrı GPU arasında geçişe izin verin.
+    <value>Entegre ve harici GPU arasında geçişe izin verin.
 Yeniden başlatma gerektirir.</value>
   </data>
   <data name="ToggleHybridModeControl_RestartRequired_Message" xml:space="preserve">
