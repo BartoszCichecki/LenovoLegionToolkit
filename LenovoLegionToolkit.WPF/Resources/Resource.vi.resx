@@ -78,10 +78,9 @@
   </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>Thông tin</value>
-    <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
   </data>
   <data name="AboutPage_TranslationCredit" xml:space="preserve">
-    <value>Bản dịch tiếng Việt do Not_Nhan thực hiện.</value>
+    <value>Bản dịch tiếng Việt do Not_Nhan &amp; Kuri thực hiện.</value>
     <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
   </data>
   <data name="AboutPage_Version" xml:space="preserve">
@@ -101,13 +100,13 @@ Lựa chọn này chỉ dành cho thiết bị không đi kèm với nhiều Pow
     <value>Luôn kích hoạt Windows Power Plan</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>Sạc các thiết bị khác qua cổng USB, khi máy tính đang tắt, ở chế độ ngủ hay ở chế độ ngủ đông.</value>
+    <value>Sạc các thiết bị khác qua cổng USB, khi máy tính đang Tắt, ở chế độ Ngủ hay ở chế độ Ngủ đông.</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>Luôn bật cổng USB</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-    <value>Sạc các thiết bị khác qua cổng USB, khi máy tính đang tắt, ở chế độ ngủ hay ở chế độ ngủ đông.</value>
+    <value>Sạc các thiết bị khác qua cổng USB, khi máy tính đang Tắt, ở chế độ Ngủ hay ở chế độ Ngủ đông.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>Luôn bật cổng USB</value>
@@ -356,7 +355,7 @@ Thời gian có thể không chính xác nếu laptop được sạc khi Ngủ h
   </data>
   <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
     <value>Lựa chọn Chế độ hoạt động của GPU dựa trên sử dụng và nguồn điện.
-Thay đổi các chế độ có thể cần phải khởi động lại.</value>
+Chuyển đổi giữa các chế độ có thể cần phải khởi động lại.</value>
   </data>
   <data name="ComboBoxHybridModeControl_RestartRequired_Message" xml:space="preserve">
     <value>Thay đổi chế độ sang {0} cần phải khởi động lại. Bạn có muốn khởi động lại ngay?</value>
@@ -386,7 +385,7 @@ Thay đổi các chế độ có thể cần phải khởi động lại.</value
     <value>Nguồn</value>
   </data>
   <data name="DashboardPage_Title" xml:space="preserve">
-    <value>Bảng điều khiển</value>
+    <value>Trang chủ</value>
   </data>
   <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
     <value>Ngắt GPU rời nếu bị kích hoạt ngoài ý muốn.
@@ -639,8 +638,8 @@ Một số laptop có thể nhận mức TDP cao hơn cho phép, nhưng hãy c�
   </data>
   <data name="GodModeSettingsWindow_Fans_Max_Message" xml:space="preserve">
     <value>CẢNH BÁO!
-Cho quạt chạy 100% tốc độ một cách lâu dài có khả năng cao gây hư hỏng vòng bi quạt và ảnh hưởng tuổi thọ quạt.
-THẬT CẨN THẬN KHI SỬ DỤNG LỰA CHỌN NÀY!!!</value>
+Cho quạt chạy 100% tốc độ trong thời gian dài có khả năng cao gây hư hỏng vòng bi quạt và ảnh hưởng tuổi thọ quạt.
+THẬT CẨN THẬN KHI SỬ DỤNG LỰA CHỌN NÀY!!! KHÔNG NÊN SỬ DỤNG TÍNH NĂNG NÀY KHI CHƠI GAME!!</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Max_Title" xml:space="preserve">
     <value>Tốc độ quạt tối đa</value>
@@ -685,7 +684,7 @@ THẬT CẨN THẬN KHI SỬ DỤNG LỰA CHỌN NÀY!!!</value>
     <value>Pin</value>
   </data>
   <data name="MainWindow_NavigationItem_Dashboard" xml:space="preserve">
-    <value>Bảng điều khiển</value>
+    <value>Trang chủ</value>
   </data>
   <data name="MainWindow_NavigationItem_Donate" xml:space="preserve">
     <value>Ủng hộ</value>
@@ -694,7 +693,7 @@ THẬT CẨN THẬN KHI SỬ DỤNG LỰA CHỌN NÀY!!!</value>
     <value>Bàn phím</value>
   </data>
   <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-    <value>Gói tài nguyên</value>
+    <value>Tải về</value>
   </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Cài đặt</value>
@@ -779,7 +778,7 @@ Luôn kiểm tra rằng bạn cài đặt đúng gói cài đặt mong muốn.</
     <value>Đang tải xuống</value>
   </data>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
-    <value>Tải về vị trí</value>
+    <value>Vị trí tải về</value>
   </data>
   <data name="PackagesPage_Filter" xml:space="preserve">
     <value>Lọc...</value>
@@ -833,8 +832,8 @@ Luôn kiểm tra rằng bạn cài đặt đúng gói cài đặt mong muốn.</
     <value>Không thể đổi Chế độ</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
-    <value>Chọn Chế độ hiệu năng.
-Bạn có thể thay đổi giữa các Chế độ với Fn+Q.</value>
+    <value>Chuyển đổi các Chế độ hiệu năng.
+Bạn có thể chuyển đổi giữa các Chế độ với Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
     <value>Cài đặt</value>
@@ -1022,11 +1021,11 @@ Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
     <value>Ngắt kích hoạt Lenovo Vantage</value>
   </data>
   <data name="SettingsPage_DontShowNotifications_Message" xml:space="preserve">
-    <value>Tắt các thông báo cho các phím tắt Fn, ví dụ như mute microphone.
+    <value>Tắt các thông báo cho các phím tắt Fn, ví dụ như tắt mic thu âm.
 Bật tùy chọn này nếu có xung đột với các ứng dụng chạy toàn màn hình.</value>
   </data>
   <data name="SettingsPage_DontShowNotifications_Title" xml:space="preserve">
-    <value>Không hiện bất kì thông báo nào</value>
+    <value>Tắt tất cả thông báo</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone có thể đã được kích hoạt không đúng</value>
