@@ -71,16 +71,18 @@
     <value>Enlaces</value>
   </data>
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
-    <value>Página web del proyecto en GitHub</value>
+    <value>Sitio web del proyecto en GitHub</value>
   </data>
   <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
     <value>Librerías de terceros usadas</value>
   </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>Acerca de</value>
+    <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
   </data>
   <data name="AboutPage_TranslationCredit" xml:space="preserve">
-    <value>Traducción española:  M.A.G.</value>
+    <value>Traducido al español por: M.A.G.</value>
+    <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
   </data>
   <data name="AboutPage_Version" xml:space="preserve">
     <value>Versión</value>
@@ -182,12 +184,6 @@ Sólo se ejecutarán las acciones que coincidan con el estado actual.</value>
   </data>
   <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
     <value>No ejecutar más acciones al iniciar esta acción.</value>
-  </data>
-  <data name="MoveDown" xml:space="preserve">
-    <value>Mover abajo</value>
-  </data>
-  <data name="MoveUp" xml:space="preserve">
-    <value>Mover arriba</value>
   </data>
   <data name="AutomationPipelineControl_RunNow" xml:space="preserve">
     <value>Ejecutar ahora</value>
@@ -709,6 +705,12 @@ En serio, ¡tenga cuidado con esta opción!</value>
   <data name="MainWindow_UpdateAvailableWithVersion" xml:space="preserve">
     <value>¡Actualización {0} disponible!</value>
   </data>
+  <data name="MoveDown" xml:space="preserve">
+    <value>Mover abajo</value>
+  </data>
+  <data name="MoveUp" xml:space="preserve">
+    <value>Mover arriba</value>
+  </data>
   <data name="No" xml:space="preserve">
     <value>No</value>
   </data>
@@ -930,8 +932,8 @@ AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está
     <value>Tasa de refresco</value>
   </data>
   <data name="Rename" xml:space="preserve">
-		<value>Renombrar</value>
-	</data>
+    <value>Renombrar</value>
+  </data>
   <data name="RestartLater" xml:space="preserve">
     <value>Reiniciar más tarde</value>
   </data>
