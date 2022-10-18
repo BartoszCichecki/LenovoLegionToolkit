@@ -101,13 +101,13 @@ Lựa chọn này chỉ dành cho thiết bị không đi kèm với nhiều Pow
     <value>Luôn kích hoạt Windows Power Plan</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>Sạc các thiết bị khác qua cổng USB, khi máy tính Tắt, trong chế độ Ngủ hoặc Ngủ đông.</value>
+    <value>Sạc các thiết bị khác qua cổng USB, khi máy tính đang tắt, ở chế độ ngủ hay ở chế độ ngủ đông.</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>Luôn bật cổng USB</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-    <value>Sạc các thiết bị khác qua cổng USB, khi máy tính Tắt, trong chế độ Ngủ hoặc Ngủ đông.</value>
+    <value>Sạc các thiết bị khác qua cổng USB, khi máy tính đang tắt, ở chế độ ngủ hay ở chế độ ngủ đông.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>Luôn bật cổng USB</value>
@@ -195,7 +195,7 @@ Chỉ có các chức năng hợp với điều kiện sẽ được chạy.</va
     <value>Chạy ngay bây giờ</value>
   </data>
   <data name="AutomationPipelineControl_RunNow_Success_Message" xml:space="preserve">
-    <value>Hoàn tất thành công!</value>
+    <value>Hoàn tất!</value>
   </data>
   <data name="AutomationPipelineControl_RunNow_Success_Title" xml:space="preserve">
     <value>Chạy ngay bây giờ</value>
@@ -234,7 +234,7 @@ Chỉ có các chức năng hợp với điều kiện sẽ được chạy.</va
     <value>Kích hoạt AI Engine</value>
   </data>
   <data name="BalanceModeSettingsWindow_Title" xml:space="preserve">
-    <value>Cài đặt Cân bằng</value>
+    <value>Cài đặt chế độ Cân bằng</value>
   </data>
   <data name="BatteryAutomationStepControl_Message" xml:space="preserve">
     <value>Chọn pin được sạc như thế nào.</value>
@@ -501,11 +501,11 @@ CẢNH BÁO: Hành động có thể chạy không đúng nếu màn hình lapto
     <value>Độ sáng màn hình</value>
   </data>
   <data name="DonatePage_Message" xml:space="preserve">
-    <value>Phát triển và duy trì Lenovo Legion Toolkit tốn rất nhiều thời gian. Nếu bạn thích phần mềm này, bạn có thể hỗ trợ nó tùy tấm lòng.
+    <value>Phát triển và duy trì Lenovo Legion Toolkit tốn rất nhiều thời gian. Nếu bạn thích phần mềm này, bạn có thể tuỳ tâm hỗ trợ chút tiền cho việc hỗ trợ nó sau này.
 
-Bấm vào logo Paypal bên dưới hoặc quét mã QR để ủng hộ với Paypal.
+Bấm vào logo PayPal bên dưới hoặc quét mã QR để ủng hộ qua PayPal.
 
-Xin được cảm ơn trước!</value>
+Xin chân thành cảm ơn!</value>
   </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Ủng hộ</value>
@@ -605,19 +605,19 @@ Một số laptop có thể nhận mức TDP cao hơn cho phép, nhưng hãy c�
     <value>Offset cho TDP</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
-    <value>ĐỪNG THAY ĐỔI BẤT KỲ GIÁ TRỊ NÀO DƯỚI ĐÂY TRỪ PHI BẠN BIẾT BẠN ĐANG LÀM GÌ!!!</value>
+    <value>KHÔNG THAY ĐỔI BẤT CỨ GIÁ TRỊ NÀO DƯỚI ĐÂY NẾU BẠN KHÔNG BIẾT CÔNG DỤNG CỦA CHÚNG!</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_Title" xml:space="preserve">
     <value>Nâng cao</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_CrossLoading" xml:space="preserve">
-    <value>Giới hạn công xuất thời gian dài (Tải trên cả CPU và GPU)</value>
+    <value>Giới hạn công suất thời gian dài (Khi cả CPU và GPU chịu tải lớn)</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_LongTermPL" xml:space="preserve">
-    <value>Giới hạn công xuất thời gian dài</value>
+    <value>Giới hạn công suất thời gian dài</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_ShortTermPL" xml:space="preserve">
-    <value>Giới hạn công xuất thời gian ngắn</value>
+    <value>Giới hạn công suất thời gian ngắn</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_TempLimit" xml:space="preserve">
     <value>Giới hạn nhiệt độ CPU</value>
@@ -639,8 +639,8 @@ Một số laptop có thể nhận mức TDP cao hơn cho phép, nhưng hãy c�
   </data>
   <data name="GodModeSettingsWindow_Fans_Max_Message" xml:space="preserve">
     <value>CẢNH BÁO!
-Chạy quạt 100% có khả năng cao gây hư hỏng vòng bi quạt và ảnh hưởng tuổi thọ quạt.
-RẤT CẨN THẬN KHI SỬ DỤNG LỰA CHỌN NÀY!!!</value>
+Cho quạt chạy 100% tốc độ một cách lâu dài có khả năng cao gây hư hỏng vòng bi quạt và ảnh hưởng tuổi thọ quạt.
+THẬT CẨN THẬN KHI SỬ DỤNG LỰA CHỌN NÀY!!!</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Max_Title" xml:space="preserve">
     <value>Tốc độ quạt tối đa</value>
@@ -694,7 +694,7 @@ RẤT CẨN THẬN KHI SỬ DỤNG LỰA CHỌN NÀY!!!</value>
     <value>Bàn phím</value>
   </data>
   <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-    <value>Các gói</value>
+    <value>Gói tài nguyên</value>
   </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Cài đặt</value>
@@ -767,7 +767,7 @@ Luôn kiểm tra rằng bạn cài đặt đúng gói cài đặt mong muốn.</
     <value>Quan trọng</value>
   </data>
   <data name="PackagesPage_DownloadFailed_Message" xml:space="preserve">
-    <value>Kiểm tra Mã máy và OS được đặt đúng.</value>
+    <value>Kiểm tra Mã máy và Hệ điều hành được đặt đúng.</value>
   </data>
   <data name="PackagesPage_DownloadFailed_Title" xml:space="preserve">
     <value>Đã có lỗi xảy ra</value>
