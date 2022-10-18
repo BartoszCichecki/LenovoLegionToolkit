@@ -83,7 +83,7 @@
     <value>Uključeno</value>
   </data>
   <data name="HybridModeState_Off" xml:space="preserve">
-    <value>dGPU</value>
+    <value>Diskretna grafička</value>
   </data>
   <data name="HybridModeState_On" xml:space="preserve">
     <value>Hibridni režim</value>
@@ -122,13 +122,13 @@
     <value>Ugašeno</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_One" xml:space="preserve">
-    <value>Preset 1</value>
+    <value>Šablon 1</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Three" xml:space="preserve">
-    <value>Preset 3</value>
+    <value>Šablon 3</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
-    <value>Preset 2</value>
+    <value>Šablon 2</value>
   </data>
   <data name="RGBKeyboardBrightness_High" xml:space="preserve">
     <value>Visoko</value>
