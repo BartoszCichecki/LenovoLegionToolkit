@@ -78,10 +78,9 @@
   </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>Thông tin</value>
-    <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
   </data>
   <data name="AboutPage_TranslationCredit" xml:space="preserve">
-    <value>Bản dịch tiếng Việt do Not_Nhan thực hiện.</value>
+    <value>Bản dịch tiếng Việt do Not_Nhan &amp; Kuri thực hiện.</value>
     <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
   </data>
   <data name="AboutPage_Version" xml:space="preserve">
@@ -101,13 +100,13 @@ Lựa chọn này chỉ dành cho thiết bị không đi kèm với nhiều Pow
     <value>Luôn kích hoạt Windows Power Plan</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>Sạc các thiết bị khác qua cổng USB, khi máy tính đang tắt, ở chế độ ngủ hay ở chế độ ngủ đông.</value>
+    <value>Sạc các thiết bị khác qua cổng USB, khi máy tính đang Tắt, ở chế độ Ngủ hay ở chế độ Ngủ đông.</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>Luôn bật cổng USB</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-    <value>Sạc các thiết bị khác qua cổng USB, khi máy tính đang tắt, ở chế độ ngủ hay ở chế độ ngủ đông.</value>
+    <value>Sạc các thiết bị khác qua cổng USB, khi máy tính đang Tắt, ở chế độ Ngủ hay ở chế độ Ngủ đông.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>Luôn bật cổng USB</value>
@@ -386,7 +385,7 @@ Thay đổi các chế độ có thể cần phải khởi động lại.</value
     <value>Nguồn</value>
   </data>
   <data name="DashboardPage_Title" xml:space="preserve">
-    <value>Bảng điều khiển</value>
+    <value>Trang chủ</value>
   </data>
   <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
     <value>Ngắt GPU rời nếu bị kích hoạt ngoài ý muốn.
@@ -685,7 +684,7 @@ THẬT CẨN THẬN KHI SỬ DỤNG LỰA CHỌN NÀY!!!</value>
     <value>Pin</value>
   </data>
   <data name="MainWindow_NavigationItem_Dashboard" xml:space="preserve">
-    <value>Bảng điều khiển</value>
+    <value>Trang chủ</value>
   </data>
   <data name="MainWindow_NavigationItem_Donate" xml:space="preserve">
     <value>Ủng hộ</value>
@@ -694,7 +693,7 @@ THẬT CẨN THẬN KHI SỬ DỤNG LỰA CHỌN NÀY!!!</value>
     <value>Bàn phím</value>
   </data>
   <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-    <value>Gói tài nguyên</value>
+    <value>Tải về</value>
   </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Cài đặt</value>
@@ -779,7 +778,7 @@ Luôn kiểm tra rằng bạn cài đặt đúng gói cài đặt mong muốn.</
     <value>Đang tải xuống</value>
   </data>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
-    <value>Tải về vị trí</value>
+    <value>Vị trí tải về</value>
   </data>
   <data name="PackagesPage_Filter" xml:space="preserve">
     <value>Lọc...</value>
