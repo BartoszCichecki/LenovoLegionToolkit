@@ -544,7 +544,7 @@ PayPal ile bağış yapmak için aşağıdaki PayPal logosuna tıklayın veya QR
     <value>Hibrit Kipi</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Disclaimer" xml:space="preserve">
-    <value>Bu mod, yalnızca ayrı GPU çalışmadığında etkili olur.</value>
+    <value>Bu mod, yalnızca harici GPU çalışmadığında etkili olur.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Message" xml:space="preserve">
     <value>Yalnızca entegre GPU'yu kullanın. Bu mod, güç tüketimini ve gürültüyü en aza indirir.</value>
