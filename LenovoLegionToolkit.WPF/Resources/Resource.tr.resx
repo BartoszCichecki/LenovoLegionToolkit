@@ -78,7 +78,6 @@
   </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>Hakkında</value>
-    <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
   </data>
   <data name="AboutPage_TranslationCredit" xml:space="preserve">
     <value>Undervolt tarafından Türkçe çeviri</value>
