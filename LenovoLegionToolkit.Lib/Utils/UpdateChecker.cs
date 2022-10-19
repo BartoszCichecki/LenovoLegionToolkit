@@ -88,7 +88,7 @@ namespace LenovoLegionToolkit.Lib.Utils
                 if (latestUpdate.Url is null)
                     throw new InvalidOperationException("Setup file URL could not be found");
 
-                using var fileStream = File.OpenWrite(tempPath);
+                await using var fileStream = File.OpenWrite(tempPath);
                 using var httpClient = new HttpClient();
                 await httpClient.DownloadAsync(latestUpdate.Url, fileStream, progress, cancellationToken).ConfigureAwait(false);
 

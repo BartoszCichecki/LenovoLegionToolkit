@@ -54,7 +54,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
                 if (!warrantyInfo.HasValue)
                     return;
 
-                _warrantyStatusLabel.Content = warrantyInfo.Value.Status ?? "-";
+                _warrantyStatusLabel.Content = TryLocalizeStatus(warrantyInfo.Value.Status);
                 _warrantyStartLabel.Content = warrantyInfo.Value.Start is not null ? $"{warrantyInfo.Value.Start:d}" : "-";
                 _warrantyEndLabel.Content = warrantyInfo.Value.End is not null ? $"{warrantyInfo.Value.End:d}" : "-";
                 _warrantyLinkCardAction.Tag = warrantyInfo.Value.Link;
@@ -70,6 +70,20 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
             {
                 _refreshWarrantyButton.IsEnabled = true;
             }
+        }
+
+        private static string TryLocalizeStatus(string? status)
+        {
+            if (status is null)
+                return "-";
+
+            if (status.Equals("In Warranty", StringComparison.CurrentCultureIgnoreCase))
+                return Resource.DeviceInformationWindow_InWarranty;
+
+            if (status.Equals("Out of Warranty", StringComparison.CurrentCultureIgnoreCase))
+                return Resource.DeviceInformationWindow_OutOfWarranty;
+
+            return status;
         }
 
         private async void RefreshWarrantyButton_OnClick(object sender, RoutedEventArgs e) => await RefreshAsync(true);
