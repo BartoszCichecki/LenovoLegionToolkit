@@ -416,7 +416,7 @@ WAARSCHUWING: Deze actie wordt niet correct uitgevoerd als het interne display i
     <value>Apparaat</value>
   </data>
   <data name="DeviceInformationWindow_InWarranty" xml:space="preserve">
-    <value>In garrantie</value>
+    <value>In garantie</value>
   </data>
   <data name="DeviceInformationWindow_LenovoSupport" xml:space="preserve">
     <value>Lenovo Support</value>
