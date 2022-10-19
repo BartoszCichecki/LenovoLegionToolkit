@@ -160,14 +160,6 @@
   <data name="Theme_System" xml:space="preserve">
     <value>Sistemska</value>
   </data>
-  <data name="WarrantyChecker_InWarranty" xml:space="preserve">
-    <value>In warranty</value>
-    <comment>This needs to be translated only into Chinese.</comment>
-  </data>
-  <data name="WarrantyChecker_WarrantyExpired" xml:space="preserve">
-    <value>Expired</value>
-    <comment>This needs to be translated only into Chinese.</comment>
-  </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
     <value>Visoko</value>
   </data>
