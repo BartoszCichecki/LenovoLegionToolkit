@@ -129,8 +129,10 @@ Special thanks to:
 
 Translations provided by:
 * Chinese - [凌卡Karl](https://github.com/KarlLee830), [DavidLogic](https://github.com/DavidLogic)
+* Dutch - Melm
 * Romanian - [Mario Bălănică](https://github.com/mariobalanica)
 * Spanish - M.A.G.
+* Russian - [Edward Johan](https://github.com/younyokel)
 * Turkish - Undervolt
 * Vietnamese - Not_Nhan
 
