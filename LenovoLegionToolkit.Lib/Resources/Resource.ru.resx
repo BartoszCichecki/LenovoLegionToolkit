@@ -68,7 +68,7 @@
     <value>Вкл. в спящем режиме</value>
   </data>
   <data name="BatteryState_Conservation" xml:space="preserve">
-    <value>Энергосбережение</value>
+    <value>Консервация</value>
   </data>
   <data name="BatteryState_Normal" xml:space="preserve">
     <value>Обычный</value>
