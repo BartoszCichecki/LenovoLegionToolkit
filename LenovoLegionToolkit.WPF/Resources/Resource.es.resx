@@ -416,6 +416,9 @@ AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
     <value>Dispositivo</value>
   </data>
+  <data name="DeviceInformationWindow_InWarranty" xml:space="preserve">
+    <value>En garantía</value>
+  </data>
   <data name="DeviceInformationWindow_LenovoSupport" xml:space="preserve">
     <value>Soporte de Lenovo</value>
   </data>
@@ -427,6 +430,9 @@ AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está
   </data>
   <data name="DeviceInformationWindow_Model_Title" xml:space="preserve">
     <value>Modelo</value>
+  </data>
+  <data name="DeviceInformationWindow_OutOfWarranty" xml:space="preserve">
+    <value>Expirado</value>
   </data>
   <data name="DeviceInformationWindow_SerialNumber_Title" xml:space="preserve">
     <value>Número de serie</value>
