@@ -160,14 +160,6 @@
   <data name="Theme_System" xml:space="preserve">
     <value>Sistema</value>
   </data>
-  <data name="WarrantyChecker_InWarranty" xml:space="preserve">
-    <value>En garantía</value>
-    <comment>This needs to be translated only into Chinese.</comment>
-  </data>
-  <data name="WarrantyChecker_WarrantyExpired" xml:space="preserve">
-    <value>Expirado</value>
-    <comment>This needs to be translated only into Chinese.</comment>
-  </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
     <value>Alta</value>
   </data>
