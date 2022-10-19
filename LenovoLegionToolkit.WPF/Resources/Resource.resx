@@ -416,6 +416,9 @@ WARNING: This action will not run correctly, if internal display is off or Hybri
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
     <value>Device</value>
   </data>
+  <data name="DeviceInformationWindow_InWarranty" xml:space="preserve">
+    <value>In Warranty</value>
+  </data>
   <data name="DeviceInformationWindow_LenovoSupport" xml:space="preserve">
     <value>Lenovo Support</value>
   </data>
@@ -427,6 +430,9 @@ WARNING: This action will not run correctly, if internal display is off or Hybri
   </data>
   <data name="DeviceInformationWindow_Model_Title" xml:space="preserve">
     <value>Model</value>
+  </data>
+  <data name="DeviceInformationWindow_OutOfWarranty" xml:space="preserve">
+    <value>Out of Warranty</value>
   </data>
   <data name="DeviceInformationWindow_SerialNumber_Title" xml:space="preserve">
     <value>Serial number</value>
