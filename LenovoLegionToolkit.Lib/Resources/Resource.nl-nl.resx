@@ -104,7 +104,7 @@
     <value>Prestaties</value>
   </data>
   <data name="PowerModeState_Quiet" xml:space="preserve">
-    <value>Stille</value>
+    <value>Stil</value>
   </data>
   <data name="RBGKeyboardSpeed_Fast" xml:space="preserve">
     <value>Snel</value>
