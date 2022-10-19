@@ -44,9 +44,13 @@ namespace LenovoLegionToolkit.WPF
         {
             await LocalizationHelper.SetLanguageAsync();
 
-            await CheckBasicCompatibilityAsync();
-
             var args = e.Args.Concat(LoadExternalArgs()).ToArray();
+
+            if (!ShouldByPassCompatibilityCheck(args))
+            {
+                await CheckBasicCompatibilityAsync();
+                await CheckCompatibilityAsync();
+            }
 
             if (IsTraceEnabled(args))
                 Log.Instance.IsTraceEnabled = true;
@@ -64,9 +68,6 @@ namespace LenovoLegionToolkit.WPF
                 new Lib.Automation.IoCModule(),
                 new IoCModule()
                 );
-
-            if (!ShouldByPassCompatibilityCheck(args))
-                await CheckCompatibilityAsync();
 
             if (ShouldForceDisableRGBKeyboardSupport(args))
                 IoCContainer.Resolve<RGBKeyboardBacklightController>().ForceDisable = true;
