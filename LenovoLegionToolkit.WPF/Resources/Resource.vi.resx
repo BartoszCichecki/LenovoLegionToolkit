@@ -416,6 +416,9 @@ CẢNH BÁO: Hành động sẽ không chạy đúng nếu màn hình laptop kh�
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
     <value>Thiết bị</value>
   </data>
+  <data name="DeviceInformationWindow_InWarranty" xml:space="preserve">
+    <value>Còn bảo hành</value>
+  </data>
   <data name="DeviceInformationWindow_LenovoSupport" xml:space="preserve">
     <value>Lenovo Support</value>
   </data>
@@ -427,6 +430,9 @@ CẢNH BÁO: Hành động sẽ không chạy đúng nếu màn hình laptop kh�
   </data>
   <data name="DeviceInformationWindow_Model_Title" xml:space="preserve">
     <value>Mẫu máy</value>
+  </data>
+  <data name="DeviceInformationWindow_OutOfWarranty" xml:space="preserve">
+    <value>Hết bảo hành</value>
   </data>
   <data name="DeviceInformationWindow_SerialNumber_Title" xml:space="preserve">
     <value>Số sê-ri</value>
