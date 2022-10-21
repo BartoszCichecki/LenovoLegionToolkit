@@ -90,7 +90,7 @@
     <value>Добавить</value>
   </data>
   <data name="AddNew" xml:space="preserve">
-    <value>Добавить новую</value>
+    <value>Добавить новое действие</value>
   </data>
   <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
     <value>Активировать схемы питания даже при работе Vantage.
@@ -453,7 +453,7 @@
     <value>Гарантия</value>
   </data>
   <data name="DiscreteGPUControl_Active" xml:space="preserve">
-    <value>Активный</value>
+    <value>Активен</value>
   </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Деактивировать</value>
@@ -467,7 +467,7 @@
     <value>Графический процессор nVidia не активен.</value>
   </data>
   <data name="DiscreteGPUControl_Inactive" xml:space="preserve">
-    <value>Неактивный</value>
+    <value>Неактивен</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Завершить процессы</value>
@@ -838,7 +838,7 @@
     <value>Не удалось изменить режим питания</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
-    <value>Выбрать режим работы.
+    <value>Выберите режим работы.
 Переключение режима осуществляется с помощью Fn+Q. </value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
