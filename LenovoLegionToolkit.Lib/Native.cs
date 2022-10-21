@@ -2,6 +2,9 @@
 
 namespace LenovoLegionToolkit.Lib
 {
+
+    #region Battery
+
     [StructLayout(LayoutKind.Sequential)]
     internal struct LENOVO_BATTERY_INFORMATION
     {
@@ -13,6 +16,10 @@ namespace LenovoLegionToolkit.Lib
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
         public byte[] Bytes2;
     }
+
+    #endregion
+
+    #region RGB Keyboard
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     internal struct LENOVO_RGB_KEYBOARD_STATE
@@ -36,6 +43,10 @@ namespace LenovoLegionToolkit.Lib
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 13)]
         public byte[] Unused;
     }
+
+    #endregion
+
+    #region Spectrum Keyboard
 
     internal enum LENOVO_SPECTRUM_OPERATION_TYPE : byte
     {
@@ -70,15 +81,13 @@ namespace LenovoLegionToolkit.Lib
         ColorList = 2
     }
 
-    // Verify
     internal enum LENOVO_SPECTRUM_SPEED : byte
     {
-        Speed1 = 0,
-        Speed2 = 1,
-        Speed3 = 2
+        Speed1 = 1,
+        Speed2 = 2,
+        Speed3 = 3
     }
 
-    // Verify
     internal enum LENOVO_SPECTRUM_DIRECTION : byte
     {
         None = 0,
@@ -98,34 +107,33 @@ namespace LenovoLegionToolkit.Lib
     internal struct LENOVO_SPECTRUM_HEADER
     {
         public byte Head = 7;
-        public LENOVO_SPECTRUM_OPERATION_TYPE OperationType;
-        public byte PacketSize; // %256
+        public LENOVO_SPECTRUM_OPERATION_TYPE Type;
+        public byte Size; // %256
         public byte Tail = 3;
 
-        public LENOVO_SPECTRUM_HEADER(LENOVO_SPECTRUM_OPERATION_TYPE operationType, int packetSize) : this()
+        public LENOVO_SPECTRUM_HEADER(LENOVO_SPECTRUM_OPERATION_TYPE type, int size) : this()
         {
-            OperationType = operationType;
-            PacketSize = (byte)(packetSize % 256);
+            Type = type;
+            Size = (byte)(size % 256);
         }
     }
 
-    // Verify
     [StructLayout(LayoutKind.Sequential)]
     internal struct LENOVO_SPECTRUM_EFFECT_HEADER
     {
         byte Head = 0x6;
-        byte Param1Header = 0x1;
+        byte Unknown1 = 0x1;
         LENOVO_SPECTRUM_EFFECT_TYPE EffectType;
-        byte Param2Header = 0x2;
+        byte Unknown2 = 0x2;
         LENOVO_SPECTRUM_SPEED Speed;
-        byte Param3Header = 0x3;
-        byte Unknown = 0x0;
-        byte Param4Header = 0x4;
+        byte Unknown3 = 0x3;
+        byte Unknown4 = 0x0;
+        byte Unknown5 = 0x4;
         LENOVO_SPECTRUM_DIRECTION Direction;
-        byte Param5Header = 0x5;
+        byte Unknown6 = 0x5;
         LENOVO_SPECTRUM_COLOR_MODE ColorMode;
-        byte Param6Header = 0x6;
-        byte Param7Header = 0x0;
+        byte Unknown7 = 0x6;
+        byte Tail = 0x0;
 
         public LENOVO_SPECTRUM_EFFECT_HEADER(
             LENOVO_SPECTRUM_EFFECT_TYPE effectType,
@@ -138,7 +146,18 @@ namespace LenovoLegionToolkit.Lib
             Direction = direction;
             ColorMode = colorMode;
         }
-    };
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    internal struct LENOVO_SPECTRUM_EFFECT
+    {
+        public byte EffectNo;
+        public LENOVO_SPECTRUM_EFFECT_HEADER EffectHeader;
+        public byte NumberOfColors;
+        public LENOVO_SPECTRUM_COLOR[] Colors;
+        public byte NumberOfKeys;
+        public ushort[] Keys;
+    }
 
     [StructLayout(LayoutKind.Sequential, Size = 960)]
     internal struct LENOVO_SPECTRUM_SET_BRIGHTHNESS
@@ -166,15 +185,23 @@ namespace LenovoLegionToolkit.Lib
         }
     }
 
-    // Verify
     [StructLayout(LayoutKind.Sequential, Size = 960)]
-    internal struct LENOVO_SPECTRUM_SET_EFFECT
+    internal struct LENOVO_SPECTRUM_SET_EFFECTS
     {
         public LENOVO_SPECTRUM_HEADER Header;
-        public LENOVO_SPECTRUM_EFFECT_HEADER EffectHeader;
-        public byte NumberOfColors;
-        public LENOVO_SPECTRUM_COLOR[] Colors;
-        public byte NumberOfKeys;
-        public ushort[] Keys;
+        public byte Profile;
+        public byte Unknown1 = 1;
+        public byte Unknown2 = 1;
+        public LENOVO_SPECTRUM_EFFECT[] Effects;
+
+        public LENOVO_SPECTRUM_SET_EFFECTS(LENOVO_SPECTRUM_HEADER header, byte profile, LENOVO_SPECTRUM_EFFECT[] effects) : this()
+        {
+            Header = header;
+            Profile = profile;
+            Effects = effects;
+        }
     }
+
+    #endregion
+
 }
