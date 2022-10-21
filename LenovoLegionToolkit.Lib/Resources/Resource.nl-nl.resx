@@ -65,7 +65,7 @@
     <value>Aan, altijd</value>
   </data>
   <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
-    <value>Aan, wanneer in-slaap</value>
+    <value>Aan, wanneer in slaapstand</value>
   </data>
   <data name="BatteryState_Conservation" xml:space="preserve">
     <value>Behoudmodus</value>
@@ -74,10 +74,10 @@
     <value>Normaal</value>
   </data>
   <data name="BatteryState_RapidCharge" xml:space="preserve">
-    <value>Snel opladen</value>
+    <value>Snelladen</value>
   </data>
   <data name="GPUController_PoweredOff" xml:space="preserve">
-    <value>Uitgezet</value>
+    <value>Uitgeschakeld</value>
   </data>
   <data name="GPUController_PoweredOn" xml:space="preserve">
     <value>Ingeschakeld</value>
@@ -101,7 +101,7 @@
     <value>Aangepast</value>
   </data>
   <data name="PowerModeState_Performance" xml:space="preserve">
-    <value>Prestaties</value>
+    <value>Prestatie</value>
   </data>
   <data name="PowerModeState_Quiet" xml:space="preserve">
     <value>Stil</value>
@@ -116,7 +116,7 @@
     <value>Langzaam</value>
   </data>
   <data name="RBGKeyboardSpeed_Slowest" xml:space="preserve">
-    <value>Langzaamste</value>
+    <value>Langzaamst</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
     <value>Uit</value>
