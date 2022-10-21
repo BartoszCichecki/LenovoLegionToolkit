@@ -103,13 +103,13 @@ Esta opción está pensada sólo para dispositivos que no vienen con múltiples 
     <value>Cargar dispositivos USB, cuando el equipo esté apagado o en modo de suspensión o hibernación.</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
-    <value>Siempre en USB</value>
+    <value>USB siempre encendido</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
     <value>Cargar dispositivos USB, cuando el equipo esté apagado o en modo de suspensión o hibernación.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
-    <value>Siempre en USB</value>
+    <value>USB siempre encendido</value>
   </data>
   <data name="AppName" xml:space="preserve">
     <value>Lenovo Legion Toolkit</value>
@@ -121,7 +121,7 @@ Esta opción está pensada sólo para dispositivos que no vienen con múltiples 
     <value>Aplicar y cerrar</value>
   </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
-    <value>Lenovo Legion Toolkit debe estar funcionando para que las acciones automáticas se ejecuten.</value>
+    <value>Lenovo Legion Toolkit deberá estar ejecutándose para que funcionen las acciones automáticas.</value>
   </data>
   <data name="AutomationPage_ActionsEnabled_Title" xml:space="preserve">
     <value>Activar</value>
@@ -130,7 +130,7 @@ Esta opción está pensada sólo para dispositivos que no vienen con múltiples 
     <value>Ninguna acción definida. Haga clic en "Añadir nueva" para crear una nueva acción.</value>
   </data>
   <data name="AutomationPage_Actions_Message" xml:space="preserve">
-    <value>Si se activan estas acciones, se ejecutarán automáticamente. Siempre que el estado cambie, todas acciones se revisarán de arriba a abajo.
+    <value>Al activar estas acciones, se ejecutarán automáticamente. Cada vez que el estado cambie, se evaluarán las acciones de arriba a abajo.
 Sólo se ejecutarán las acciones que coincidan con el estado actual.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
@@ -146,7 +146,7 @@ Sólo se ejecutarán las acciones que coincidan con el estado actual.</value>
     <value>Ninguna acción definida. Haga clic en "Añadir nueva" para crear una nueva acción rápida.</value>
   </data>
   <data name="AutomationPage_QuickActions_Message" xml:space="preserve">
-    <value>Las acciones rápidas están disponibles en el menú, haga clic derecho en el icono de la bandeja.</value>
+    <value>Haciendo clic derecho en el icono de la bandeja, se mostrará un menú con las acciones rápidas disponibles.</value>
   </data>
   <data name="AutomationPage_QuickActions_Title" xml:space="preserve">
     <value>Acciones rápidas</value>
@@ -312,7 +312,7 @@ Sólo se ejecutarán las acciones que coincidan con el estado actual.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
     <value>Tiempo transcurrido desde la última conexión del portátil a la corriente eléctrica.
-Esta hora puede no ser correcta si el portátil se ha cargado mientras dormía o estaba apagado.</value>
+Esta hora puede no ser correcta si el portátil se ha cargado mientras estaba suspendido o apagado.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
     <value>Con batería desde</value>
@@ -473,7 +473,7 @@ Recuerde que algunos programas pueden bloquearse si lo hace.</value>
     <value>Terminar aplicaciones</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-    <value>Desactivar la GPU externa si esté activa innecesariamente.</value>
+    <value>Desactivar la GPU externa si está activa innecesariamente.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>Un monitor está conectado a la GPU nVidia.</value>
@@ -765,8 +765,8 @@ En serio, ¡tenga cuidado con esta opción!</value>
     <value>Versión</value>
   </data>
   <data name="PackagesPage_Disclaimer_Message" xml:space="preserve">
-    <value>A continuación encontrará una lista de paquetes de programas que están marcados como compatibles con su portátil.
-Asegúrese siempre de instalar los paquetes correctos.</value>
+    <value>A continuación encontrará una lista de programas compatibles con su portátil.
+Asegúrese de instalar siempre los paquetes correctos.</value>
   </data>
   <data name="PackagesPage_Disclaimer_Title" xml:space="preserve">
     <value>Importante</value>
@@ -978,7 +978,7 @@ Asegúrese primero de que su script se ejecuta correctamente.</value>
   </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Minimizado en la bandeja al iniciar Windows.
-El inicio se demora 30 segundos por razones de compatibilidad.</value>
+El inicio se demorará 30 segundos por razones de compatibilidad.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Ejecución automática</value>
@@ -1064,7 +1064,8 @@ Activar esta opción si tiene conflictos con las aplicaciones en pantalla comple
     <value>Idioma</value>
   </data>
   <data name="SettingsPage_MinimizeOnClose_Message" xml:space="preserve">
-    <value>Minimizar siempre en la bandeja. Cerrar con un clic derecho en el icono de la bandeja.</value>
+    <value>Minimizar siempre en la bandeja. Haciendo clic derecho en el icono de la bandeja, podrá cerrar el programa.
+</value>
   </data>
   <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
     <value>Minimizar al cerrar</value>
