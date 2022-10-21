@@ -93,10 +93,10 @@
     <value>Nieuwe Toevoegen</value>
   </data>
   <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Activeer Energie Plan zelfs wanneer Vantage is ingeschakeld.</value>
+    <value>Activeer energiebeheerschema zelfs wanneer Vantage is ingeschakeld.</value>
   </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
-    <value>Activeer altijd Windows Energie Plan</value>
+    <value>Activeer altijd de Windows Energiebeheerschema</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
     <value>Laad USB-apparaten op wanneer de computer is uitgeschakeld of in de slaap- of sluimerstand staat.</value>
@@ -114,7 +114,7 @@
     <value>Lenovo Legion Toolkit</value>
   </data>
   <data name="Apply" xml:space="preserve">
-    <value>Opslaan</value>
+    <value>Toepassen</value>
   </data>
   <data name="ApplyAndClose" xml:space="preserve">
     <value>Opslaan &amp; sluiten</value>
@@ -139,10 +139,10 @@ Alleen acties die overeenkomen met de huidige status worden uitgevoerd.</value>
     <value>Naam...</value>
   </data>
   <data name="AutomationPage_AddManualPipeline_Title" xml:space="preserve">
-    <value>Nieuw Toevoegen</value>
+    <value>Nieuw toevoegen</value>
   </data>
   <data name="AutomationPage_QuickActions_Empty" xml:space="preserve">
-    <value>Geen snelle acties gedefinieerd. Klik op "Nieuwe toevoegen" om een nieuwe snelle actie te maken.</value>
+    <value>Geen snelle acties gedefinieerd. Klik op "Nieuw toevoegen" om een nieuwe snelle actie te maken.</value>
   </data>
   <data name="AutomationPage_QuickActions_Message" xml:space="preserve">
     <value>Snelle acties zijn beschikbaar in het rechtsklikmenu van het systeemvakpictogram.</value>
@@ -163,7 +163,7 @@ Alleen acties die overeenkomen met de huidige status worden uitgevoerd.</value>
     <value>Teruggedraaid</value>
   </data>
   <data name="AutomationPage_Saved_Message" xml:space="preserve">
-    <value>Wijzigingen opgeslagen!</value>
+    <value>Wijzigingen zijn succesvol opgeslagen!</value>
   </data>
   <data name="AutomationPage_Saved_Title" xml:space="preserve">
     <value>Opgeslagen</value>
