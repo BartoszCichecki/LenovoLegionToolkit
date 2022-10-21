@@ -92,6 +92,17 @@ The app allows to:
 - Define Actions that will run when the laptop is i.e. connected to AC power.
 - Disable/enable Lenovo Vantage, Legion Zone and Lenovo Hotkeys service without uninstalling it.
 
+##### Custom Mode support
+
+Custom Mode is supported on following BIOS versions:
+* GKCN49WW and higher
+* H1CN49WW and higher
+* HHCN23WW and higher
+* K1CN31WW and higher
+* J2CN40WW and higher
+* JUCN51WW and higher
+* JYCN39WW and higher
+
 ##### Deactivate discrete GPU
 
 Sometimes discrete GPU stays active even when it should not. This can happen for example, if you work with an external screen and you disconnect it - some processes will keep running on discrete GPU keeping it alive and shortening battery life.
