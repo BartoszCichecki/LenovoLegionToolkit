@@ -59,10 +59,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Wanneer de AC-stroomadapter is aangesloten</value>
+    <value>Wanneer de oplader is aangesloten</value>
   </data>
   <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Wanneer de AC-stroomadapter is losgekoppeld</value>
+    <value>Wanneer de oplader is losgekoppeld</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Annuleren</value>
@@ -92,7 +92,7 @@
     <value>Wanneer de app actief is</value>
   </data>
   <data name="ProcessesStopRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Wanneer app sluit</value>
+    <value>Wanneer app afgesloten</value>
   </data>
   <data name="TimeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Op bepaalde tijd</value>
