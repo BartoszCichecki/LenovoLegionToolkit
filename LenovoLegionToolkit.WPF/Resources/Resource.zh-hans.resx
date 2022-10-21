@@ -555,7 +555,7 @@
     <value>这种模式只有在独显停用时才会生效。</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Message" xml:space="preserve">
-    <value>仅使用独显，将获得最长的续航与最小的风扇噪音。</value>
+    <value>仅使用核显，将获得最长的续航与最小的风扇噪音。</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Title" xml:space="preserve">
     <value>混合核显模式</value>
@@ -594,8 +594,8 @@
     <value>开盖启动</value>
   </data>
   <data name="FnLockAutomationStepControl_Message" xml:space="preserve">
-    <value>开启后将无需按下Fn键即可触发功能。
-开启后需通过按下Fn键才可触发原F1至F12键。</value>
+    <value>开启后将无需按下Fn键即可触发功能，
+触发原F1至F12键需按下Fn键。</value>
   </data>
   <data name="FnLockAutomationStepControl_Title" xml:space="preserve">
     <value>锁定Fn键</value>
