@@ -46,7 +46,55 @@ namespace LenovoLegionToolkit.Lib
         AuroraSendBitmap = 0xA1
     }
 
-    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    internal enum LENOVO_SPECTRUM_EFFECT_TYPE : byte
+    {
+        ScreenRainbow = 1,
+        RainbowWave = 2,
+        ColorChange = 3,
+        ColorPulse = 4,
+        ColorWave = 5,
+        Smooth = 6,
+        Rain = 7,
+        Ripple = 8,
+        AudioBounceLighting = 9,
+        AudioRippleLighting = 10,
+        Always = 11,
+        TypeLighting = 12,
+        LegionAuroraSync = 13,
+    }
+
+    internal enum LENOVO_SPECTRUM_COLOR_MODE : byte
+    {
+        None = 0,
+        RandomColor = 1,
+        ColorList = 2
+    }
+
+    // Verify
+    internal enum LENOVO_SPECTRUM_SPEED : byte
+    {
+        Speed1 = 0,
+        Speed2 = 1,
+        Speed3 = 2
+    }
+
+    // Verify
+    internal enum LENOVO_SPECTRUM_DIRECTION : byte
+    {
+        None = 0,
+        LTR = 1,
+        RTL = 2
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    internal struct LENOVO_SPECTRUM_COLOR
+    {
+        public byte Red;
+        public byte Green;
+        public byte Blue;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
     internal struct LENOVO_SPECTRUM_HEADER
     {
         public byte Head = 7;
@@ -61,7 +109,38 @@ namespace LenovoLegionToolkit.Lib
         }
     }
 
-    [StructLayout(LayoutKind.Sequential, Pack = 1, Size = 960)]
+    // Verify
+    [StructLayout(LayoutKind.Sequential)]
+    internal struct LENOVO_SPECTRUM_EFFECT_HEADER
+    {
+        byte Head = 0x6;
+        byte Param1Header = 0x1;
+        LENOVO_SPECTRUM_EFFECT_TYPE EffectType;
+        byte Param2Header = 0x2;
+        LENOVO_SPECTRUM_SPEED Speed;
+        byte Param3Header = 0x3;
+        byte Unknown = 0x0;
+        byte Param4Header = 0x4;
+        LENOVO_SPECTRUM_DIRECTION Direction;
+        byte Param5Header = 0x5;
+        LENOVO_SPECTRUM_COLOR_MODE ColorMode;
+        byte Param6Header = 0x6;
+        byte Param7Header = 0x0;
+
+        public LENOVO_SPECTRUM_EFFECT_HEADER(
+            LENOVO_SPECTRUM_EFFECT_TYPE effectType,
+            LENOVO_SPECTRUM_SPEED speed,
+            LENOVO_SPECTRUM_DIRECTION direction,
+            LENOVO_SPECTRUM_COLOR_MODE colorMode)
+        {
+            EffectType = effectType;
+            Speed = speed;
+            Direction = direction;
+            ColorMode = colorMode;
+        }
+    };
+
+    [StructLayout(LayoutKind.Sequential, Size = 960)]
     internal struct LENOVO_SPECTRUM_SET_BRIGHTHNESS
     {
         public LENOVO_SPECTRUM_HEADER Header;
@@ -87,9 +166,15 @@ namespace LenovoLegionToolkit.Lib
         }
     }
 
+    // Verify
     [StructLayout(LayoutKind.Sequential, Size = 960)]
     internal struct LENOVO_SPECTRUM_SET_EFFECT
     {
         public LENOVO_SPECTRUM_HEADER Header;
+        public LENOVO_SPECTRUM_EFFECT_HEADER EffectHeader;
+        public byte NumberOfColors;
+        public LENOVO_SPECTRUM_COLOR[] Colors;
+        public byte NumberOfKeys;
+        public ushort[] Keys;
     }
 }
