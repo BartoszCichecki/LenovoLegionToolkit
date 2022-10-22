@@ -1,4 +1,6 @@
 ﻿using System.Runtime.InteropServices;
+using LenovoLegionToolkit.Lib.System;
+using Windows.Win32;
 
 namespace LenovoLegionToolkit.Lib
 {
@@ -199,6 +201,48 @@ namespace LenovoLegionToolkit.Lib
             Header = header;
             Profile = profile;
             Effects = effects;
+        }
+    }
+
+    [StructLayout(LayoutKind.Sequential, Size = 960)]
+    internal struct LENOVO_SPECTRUM_STATE
+    {
+        public byte ReportId;
+        public byte Unknown1;
+        public byte Unknown2;
+        public byte Unknown3;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 191)]
+        public KeyData[] Data;
+        public byte Unknown4;
+    }
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    internal struct KeyData
+    {
+        public ushort Key;
+        public LENOVO_SPECTRUM_COLOR Color;
+    }
+
+    public static class SpectrumTest
+    {
+        public static unsafe void GetState()
+        {
+            var kb = Devices.GetSpectrumRGBKeyboard();
+
+            var size = Marshal.SizeOf<LENOVO_SPECTRUM_STATE>();
+            var ptr = Marshal.AllocHGlobal(size);
+            Marshal.Copy(new byte[] { 7 }, 0, ptr, 1);
+
+            var result = PInvoke.HidD_GetFeature(kb, ptr.ToPointer(), (uint)size);
+
+            if (result)
+            {
+                var str = Marshal.PtrToStructure<LENOVO_SPECTRUM_STATE>(ptr);
+            }
+            else
+            {
+                var errorCode = Marshal.GetLastWin32Error();
+            }
         }
     }
 
