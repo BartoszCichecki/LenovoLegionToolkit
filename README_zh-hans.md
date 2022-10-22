@@ -113,8 +113,10 @@
 
 翻译贡献者：
 * 中文 - [凌卡Karl](https://github.com/KarlLee830), [DavidLogic](https://github.com/DavidLogic)
+* 荷兰语 - Melm
 * 罗马尼亚语 - [Mario Bălănică](https://github.com/mariobalanica)
 * 西班牙语 - M.A.G.
+* 俄语 - [Edward Johan](https://github.com/younyokel)
 * 土耳其语 - Undervolt
 * 越南语 - Not_Nhan
 
