@@ -212,12 +212,12 @@ namespace LenovoLegionToolkit.Lib
         public byte Unknown2;
         public byte Unknown3;
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 191)]
-        public KeyData[] Data;
+        public LENOVO_SPECTRUM_KEY_STATE[] Data;
         public byte Unknown4;
     }
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    internal struct KeyData
+    internal struct LENOVO_SPECTRUM_KEY_STATE
     {
         public ushort Key;
         public LENOVO_SPECTRUM_COLOR Color;
