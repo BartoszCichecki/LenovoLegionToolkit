@@ -199,8 +199,7 @@ namespace LenovoLegionToolkit.Lib.System
                     PInvoke.HidP_GetCaps(preParsedData, out var caps);
 
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace(
-                            $"Checking device... [vendorId={hiddAttributes.VendorID:X2}, productId={hiddAttributes.ProductID:X2}, descriptorLength={caps.FeatureReportByteLength}]");
+                        Log.Instance.Trace($"Checking device... [vendorId={hiddAttributes.VendorID:X2}, productId={hiddAttributes.ProductID:X2}, descriptorLength={caps.FeatureReportByteLength}]");
 
                     if (hiddAttributes.VendorID == vendorId && (hiddAttributes.ProductID & productIdMask) == productIdMasked && caps.FeatureReportByteLength == descriptorLength)
                         return fileHandle;
