@@ -59,114 +59,114 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AlwaysOnUSBState_Off" xml:space="preserve">
-    <value>Выкл.</value>
+    <value>Desligado</value>
   </data>
   <data name="AlwaysOnUSBState_OnAlways" xml:space="preserve">
-    <value>Вкл. всегда</value>
+    <value>Sempre Ativo</value>
   </data>
   <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
-    <value>Вкл. в спящем режиме</value>
+    <value>Ativado, quando em suspensão</value>
   </data>
   <data name="BatteryState_Conservation" xml:space="preserve">
-    <value>Консервация</value>
+    <value>Modo Conservador</value>
   </data>
   <data name="BatteryState_Normal" xml:space="preserve">
-    <value>Обычный</value>
+    <value>Normal</value>
   </data>
   <data name="BatteryState_RapidCharge" xml:space="preserve">
-    <value>Быстрая зарядка</value>
+    <value>Carga Rápida</value>
   </data>
   <data name="GPUController_PoweredOff" xml:space="preserve">
-    <value>Отключен</value>
+    <value>Desligado</value>
   </data>
   <data name="GPUController_PoweredOn" xml:space="preserve">
-    <value>Задействован</value>
+    <value>Ligado</value>
   </data>
   <data name="HybridModeState_Off" xml:space="preserve">
-    <value>Дискретная видеокарта</value>
+    <value>GPU Dedicada</value>
   </data>
   <data name="HybridModeState_On" xml:space="preserve">
-    <value>Гибридный режим</value>
+    <value>Modo Híbrido</value>
   </data>
   <data name="HybridModeState_OnAuto" xml:space="preserve">
-    <value>Hybrid-Auto</value>
+    <value>Modo Híbrido Automático</value>
   </data>
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
-    <value>Hybrid-iGPU</value>
+    <value>Somente GPU Integrada</value>
   </data>
   <data name="PowerModeState_Balance" xml:space="preserve">
-    <value>Сбалансированный</value>
+    <value>Balanceado</value>
   </data>
   <data name="PowerModeState_GodMode" xml:space="preserve">
-    <value>Пользовательский</value>
+    <value>Personalizado</value>
   </data>
   <data name="PowerModeState_Performance" xml:space="preserve">
-    <value>Макс. производительность</value>
+    <value>Performance</value>
   </data>
   <data name="PowerModeState_Quiet" xml:space="preserve">
-    <value>Тихий режим</value>
+    <value>Silencioso</value>
   </data>
   <data name="RBGKeyboardSpeed_Fast" xml:space="preserve">
-    <value>Быстро</value>
+    <value>Rápido</value>
   </data>
   <data name="RBGKeyboardSpeed_Fastest" xml:space="preserve">
-    <value>Самая быстрая</value>
+    <value>Super-rápido</value>
   </data>
   <data name="RBGKeyboardSpeed_Slow" xml:space="preserve">
-    <value>Медленно</value>
+    <value>Lento</value>
   </data>
   <data name="RBGKeyboardSpeed_Slowest" xml:space="preserve">
-    <value>Самая медленная</value>
+    <value>Muito lenta</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
-    <value>Откл.</value>
+    <value>Desligado</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_One" xml:space="preserve">
-    <value>Пресет 1</value>
+    <value>Predefinição 1</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Three" xml:space="preserve">
-    <value>Пресет 2</value>
+    <value>Predefinição 3</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
-    <value>Пресет 3</value>
+    <value>Predefinição 2</value>
   </data>
   <data name="RGBKeyboardBrightness_High" xml:space="preserve">
-    <value>Высокая</value>
+    <value>Alta</value>
   </data>
   <data name="RGBKeyboardBrightness_Low" xml:space="preserve">
-    <value>Низкая</value>
+    <value>Baixa</value>
   </data>
   <data name="RGBKeyboardEffect_Breath" xml:space="preserve">
-    <value>Дыхание</value>
+    <value>Respiração</value>
   </data>
   <data name="RGBKeyboardEffect_Smooth" xml:space="preserve">
-    <value>Плавный</value>
+    <value>Suave</value>
   </data>
   <data name="RGBKeyboardEffect_Static" xml:space="preserve">
-    <value>Статичный</value>
+    <value>Estático</value>
   </data>
   <data name="RGBKeyboardEffect_WaveLTR" xml:space="preserve">
-    <value>Волна (влево)</value>
+    <value>Onda (para esquerda)</value>
   </data>
   <data name="RGBKeyboardEffect_WaveRTL" xml:space="preserve">
-    <value>Волна (вправо)</value>
+    <value>Onda (para direita)</value>
   </data>
   <data name="Theme_Dark" xml:space="preserve">
-    <value>Темная</value>
+    <value>Escuro</value>
   </data>
   <data name="Theme_Light" xml:space="preserve">
-    <value>Светлая</value>
+    <value>Claro</value>
   </data>
   <data name="Theme_System" xml:space="preserve">
-    <value>Системная тема</value>
+    <value>Sistema</value>
   </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
-    <value>Высокая</value>
+    <value>Alto</value>
   </data>
   <data name="WhiteKeyboardBacklightState_Low" xml:space="preserve">
-    <value>Низкая</value>
+    <value>Baixo</value>
   </data>
   <data name="WhiteKeyboardBacklightState_Off" xml:space="preserve">
-    <value>Откл.</value>
+    <value>Desligado</value>
   </data>
 </root>
