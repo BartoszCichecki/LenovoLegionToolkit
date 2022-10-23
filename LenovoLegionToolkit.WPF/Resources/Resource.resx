@@ -719,6 +719,24 @@ Seriously, be careful with this option!</value>
   <data name="No" xml:space="preserve">
     <value>No</value>
   </data>
+  <data name="Notification_CameraOff" xml:space="preserve">
+		<value>Camera off</value>
+	</data>
+  <data name="Notification_CameraOn" xml:space="preserve">
+		<value>Camera on</value>
+	</data>
+  <data name="Notification_MicrophoneOff" xml:space="preserve">
+		<value>Microphone off</value>
+	</data>
+  <data name="Notification_MicrophoneOn" xml:space="preserve">
+		<value>Microphone on</value>
+	</data>
+  <data name="Notification_TouchpadOff" xml:space="preserve">
+		<value>Touchpad off</value>
+	</data>
+  <data name="Notification_TouchpadOn" xml:space="preserve">
+		<value>Touchpad on</value>
+	</data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>

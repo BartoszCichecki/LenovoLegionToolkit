@@ -56,10 +56,10 @@ namespace LenovoLegionToolkit.Lib.Listeners
                 }
 
                 if (value == SpecialKey.CameraOn)
-                    MessagingCenter.Publish(new Notification(NotificationIcon.CameraOn, "Camera on", NotificationDuration.Short));
+                    MessagingCenter.Publish(new Notification(NotificationType.CameraOn, NotificationDuration.Short));
 
                 if (value == SpecialKey.CameraOff)
-                    MessagingCenter.Publish(new Notification(NotificationIcon.CameraOff, "Camera off", NotificationDuration.Short));
+                    MessagingCenter.Publish(new Notification(NotificationType.CameraOff, NotificationDuration.Short));
             }
             catch { }
         }
@@ -101,7 +101,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
                 await _feature.SetStateAsync(next).ConfigureAwait(false);
 
-                MessagingCenter.Publish(new Notification(NotificationIcon.RefreshRate, next.DisplayName, NotificationDuration.Long));
+                MessagingCenter.Publish(new Notification(NotificationType.RefreshRate, NotificationDuration.Long, next.DisplayName));
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Switched refresh rate after Fn+R to {next}.");

@@ -289,17 +289,17 @@ namespace LenovoLegionToolkit.Lib
 
     public struct Notification
     {
-        public NotificationIcon Icon { get; }
-
-        public string Text { get; }
+        public NotificationType Type { get; }
 
         public NotificationDuration Duration { get; }
 
-        public Notification(NotificationIcon icon, string text, NotificationDuration duration)
+        public object[] Args { get; }
+
+        public Notification(NotificationType type, NotificationDuration duration, params object[] args)
         {
-            Icon = icon;
-            Text = text;
+            Type = type;
             Duration = duration;
+            Args = args;
         }
     }
 
