@@ -8,8 +8,6 @@ using Windows.Win32.Devices.DeviceAndDriverInstallation;
 using Windows.Win32.Foundation;
 using Windows.Win32.Storage.FileSystem;
 
-#pragma warning disable CA1416 // Validate platform compatibility
-
 namespace LenovoLegionToolkit.Lib.System
 {
     internal static class Devices
