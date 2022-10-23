@@ -62,7 +62,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             try
             {
                 _saveButton.IsEnabled = false;
-                _saveButton.Content = "Saving...";
+                _saveButton.Content = Resource.Saving;
 
                 var automaticPipelines = _automaticPipelinesStackPanel.Children.ToArray()
                     .OfType<AutomationPipelineControl>()
@@ -85,7 +85,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             }
             finally
             {
-                _saveButton.Content = "Save";
+                _saveButton.Content = Resource.Save;
                 _saveButton.IsEnabled = true;
             }
         }

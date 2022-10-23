@@ -2,6 +2,7 @@
 using System.Windows.Threading;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Settings;
+using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Windows.Utils;
 using Wpf.Ui.Common;
 
@@ -30,24 +31,36 @@ namespace LenovoLegionToolkit.WPF.Utils
             if (FullscreenHelper.IsAnyApplicationFullscreen())
                 return;
 
-            var symbol = notification.Icon switch
+            var symbol = notification.Type switch
             {
-                NotificationIcon.MicrophoneOn => SymbolRegular.Mic24,
-                NotificationIcon.MicrophoneOff => SymbolRegular.Mic24,
-                NotificationIcon.RefreshRate => SymbolRegular.Desktop24,
-                NotificationIcon.TouchpadOn => SymbolRegular.Tablet24,
-                NotificationIcon.TouchpadOff => SymbolRegular.Tablet24,
-                NotificationIcon.CameraOn => SymbolRegular.Camera24,
-                NotificationIcon.CameraOff => SymbolRegular.Camera24,
+                NotificationType.CameraOn => SymbolRegular.Camera24,
+                NotificationType.CameraOff => SymbolRegular.Camera24,
+                NotificationType.MicrophoneOn => SymbolRegular.Mic24,
+                NotificationType.MicrophoneOff => SymbolRegular.Mic24,
+                NotificationType.RefreshRate => SymbolRegular.Desktop24,
+                NotificationType.TouchpadOn => SymbolRegular.Tablet24,
+                NotificationType.TouchpadOff => SymbolRegular.Tablet24,
                 _ => SymbolRegular.Info24,
             };
 
-            SymbolRegular? overlaySymbol = notification.Icon switch
+            SymbolRegular? overlaySymbol = notification.Type switch
             {
-                NotificationIcon.MicrophoneOff => SymbolRegular.Line24,
-                NotificationIcon.TouchpadOff => SymbolRegular.Line24,
-                NotificationIcon.CameraOff => SymbolRegular.Line24,
+                NotificationType.CameraOff => SymbolRegular.Line24,
+                NotificationType.MicrophoneOff => SymbolRegular.Line24,
+                NotificationType.TouchpadOff => SymbolRegular.Line24,
                 _ => null,
+            };
+
+            var text = notification.Type switch
+            {
+                NotificationType.CameraOn => Resource.Notification_CameraOn,
+                NotificationType.CameraOff => Resource.Notification_CameraOff,
+                NotificationType.MicrophoneOn => Resource.Notification_MicrophoneOn,
+                NotificationType.MicrophoneOff => Resource.Notification_MicrophoneOff,
+                NotificationType.RefreshRate => string.Format($"{0}", notification.Args),
+                NotificationType.TouchpadOn => Resource.Notification_TouchpadOn,
+                NotificationType.TouchpadOff => Resource.Notification_TouchpadOff,
+                _ => string.Empty,
             };
 
             var closeAfter = notification.Duration switch
@@ -56,7 +69,7 @@ namespace LenovoLegionToolkit.WPF.Utils
                 _ => 1000,
             };
 
-            ShowNotification(symbol, overlaySymbol, notification.Text, closeAfter);
+            ShowNotification(symbol, overlaySymbol, text, closeAfter);
         });
 
         private void ShowNotification(SymbolRegular symbol, SymbolRegular? overlaySymbol, string text, int closeAfter)
