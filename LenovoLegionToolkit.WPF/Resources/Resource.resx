@@ -964,6 +964,9 @@ Make sure that your script runs correctly first.</value>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="Saving" xml:space="preserve">
+		<value>Saving...</value>
+	</data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
     <value>Change the accent color of the app.</value>
   </data>
