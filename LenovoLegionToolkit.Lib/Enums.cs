@@ -92,7 +92,7 @@ namespace LenovoLegionToolkit.Lib
         Long
     }
 
-    public enum NotificationIcon
+    public enum NotificationType
     {
         MicrophoneOff,
         MicrophoneOn,
