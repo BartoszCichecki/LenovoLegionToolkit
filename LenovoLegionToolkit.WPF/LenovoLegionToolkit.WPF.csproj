@@ -16,7 +16,7 @@
 		<PublishReadyToRun>false</PublishReadyToRun>
 		<PublishUrl>publish\</PublishUrl>
 		<IncludeAllContentForSelfExtract>false</IncludeAllContentForSelfExtract>
-		<SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+		<SatelliteResourceLanguages>en;zh-hans;es;nl-nl;ro;ru;tr;vi</SatelliteResourceLanguages>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 		<SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("yyyyMMddHHmmss"))</SourceRevisionId>
@@ -40,6 +40,7 @@
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Autofac" Version="6.4.0" />
+		<PackageReference Include="Humanizer" Version="2.14.1" />
 		<PackageReference Include="Markdig" Version="0.30.4" />
 		<PackageReference Include="Markdig.Wpf" Version="0.5.0.1" />
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />

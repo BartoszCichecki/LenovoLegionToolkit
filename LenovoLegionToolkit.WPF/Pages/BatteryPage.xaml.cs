@@ -2,6 +2,8 @@
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using Humanizer;
+using Humanizer.Localisation;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
@@ -106,9 +108,9 @@ namespace LenovoLegionToolkit.WPF.Pages
             if (!batteryInfo.IsCharging && batteryInfo.OnBatterySince.HasValue)
             {
                 var onBatterySince = batteryInfo.OnBatterySince.Value;
-                var dateText = onBatterySince.ToString("G");
+                var dateText = onBatterySince.ToString("G", Resource.Culture);
                 var duration = DateTime.Now.Subtract(onBatterySince);
-                _onBatterySinceText.Text = $"{dateText} ({duration.Hours}h {duration.Minutes}m {duration.Seconds}s)";
+                _onBatterySinceText.Text = $"{dateText} ({duration.Humanize(2, Resource.Culture, minUnit: TimeUnit.Second)})";
             }
             else
             {
@@ -121,12 +123,12 @@ namespace LenovoLegionToolkit.WPF.Pages
             _batteryDesignCapacityText.Text = $"{batteryInfo.DesignCapacity / 1000.0:0.00} Wh";
 
             if (batteryInfo.ManufactureDate is not null)
-                _batteryManufactureDateText.Text = batteryInfo.ManufactureDate?.ToString("d") ?? "-";
+                _batteryManufactureDateText.Text = batteryInfo.ManufactureDate?.ToString("d", Resource.Culture) ?? "-";
             else
                 _batteryManufactureDateCardControl.Visibility = Visibility.Collapsed;
 
             if (batteryInfo.FirstUseDate is not null)
-                _batteryFirstUseDateText.Text = batteryInfo.FirstUseDate?.ToString("d") ?? "-";
+                _batteryFirstUseDateText.Text = batteryInfo.FirstUseDate?.ToString("d", Resource.Culture) ?? "-";
             else
                 _batteryFirstUseDateCardControl.Visibility = Visibility.Collapsed;
 
@@ -146,22 +148,8 @@ namespace LenovoLegionToolkit.WPF.Pages
             if (batteryInfo.BatteryLifeRemaining < 0)
                 return Resource.BatteryPage_EstimatingBatteryLife;
 
-            return string.Format(Resource.BatteryPage_EstimatedBatteryLifeRemaining, GetTimeString(batteryInfo.BatteryLifeRemaining));
-        }
-
-        private static string GetTimeString(int seconds)
-        {
-            var timeSpan = TimeSpan.FromSeconds(seconds);
-            var result = string.Empty;
-
-            var hours = timeSpan.Hours;
-            if (hours > 0)
-                result += $"{hours} hour{(hours == 1 ? "" : "s")} ";
-
-            var minutes = timeSpan.Minutes;
-            result += $"{minutes} minute{(minutes == 1 ? "" : "s")}";
-
-            return result;
+            var time = TimeSpan.FromSeconds(batteryInfo.BatteryLifeRemaining).Humanize(2, Resource.Culture);
+            return string.Format(Resource.BatteryPage_EstimatedBatteryLifeRemaining, time);
         }
 
         private string GetTemperatureText(double? temperature)

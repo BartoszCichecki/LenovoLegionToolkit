@@ -2005,6 +2005,60 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Camera off.
+        /// </summary>
+        public static string Notification_CameraOff {
+            get {
+                return ResourceManager.GetString("Notification_CameraOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Camera on.
+        /// </summary>
+        public static string Notification_CameraOn {
+            get {
+                return ResourceManager.GetString("Notification_CameraOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Microphone off.
+        /// </summary>
+        public static string Notification_MicrophoneOff {
+            get {
+                return ResourceManager.GetString("Notification_MicrophoneOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Microphone on.
+        /// </summary>
+        public static string Notification_MicrophoneOn {
+            get {
+                return ResourceManager.GetString("Notification_MicrophoneOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Touchpad off.
+        /// </summary>
+        public static string Notification_TouchpadOff {
+            get {
+                return ResourceManager.GetString("Notification_TouchpadOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Touchpad on.
+        /// </summary>
+        public static string Notification_TouchpadOn {
+            get {
+                return ResourceManager.GetString("Notification_TouchpadOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to OK.
         /// </summary>
         public static string OK {
@@ -2726,6 +2780,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saving....
+        /// </summary>
+        public static string Saving {
+            get {
+                return ResourceManager.GetString("Saving", resourceCulture);
             }
         }
         
