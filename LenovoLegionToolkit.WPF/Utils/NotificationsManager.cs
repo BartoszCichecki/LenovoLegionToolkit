@@ -38,6 +38,9 @@ namespace LenovoLegionToolkit.WPF.Utils
                 NotificationType.MicrophoneOn => SymbolRegular.Mic24,
                 NotificationType.MicrophoneOff => SymbolRegular.Mic24,
                 NotificationType.RefreshRate => SymbolRegular.Desktop24,
+                NotificationType.SpectrumBacklightOn => SymbolRegular.Lightbulb24,
+                NotificationType.SpectrumBacklightOff => SymbolRegular.Lightbulb24,
+                NotificationType.SpectrumBacklightPreset => SymbolRegular.Lightbulb24,
                 NotificationType.TouchpadOn => SymbolRegular.Tablet24,
                 NotificationType.TouchpadOff => SymbolRegular.Tablet24,
                 _ => SymbolRegular.Info24,
@@ -47,6 +50,7 @@ namespace LenovoLegionToolkit.WPF.Utils
             {
                 NotificationType.CameraOff => SymbolRegular.Line24,
                 NotificationType.MicrophoneOff => SymbolRegular.Line24,
+                NotificationType.SpectrumBacklightOff => SymbolRegular.Line24,
                 NotificationType.TouchpadOff => SymbolRegular.Line24,
                 _ => null,
             };
@@ -58,6 +62,9 @@ namespace LenovoLegionToolkit.WPF.Utils
                 NotificationType.MicrophoneOn => Resource.Notification_MicrophoneOn,
                 NotificationType.MicrophoneOff => Resource.Notification_MicrophoneOff,
                 NotificationType.RefreshRate => string.Format($"{0}", notification.Args),
+                NotificationType.SpectrumBacklightOn => string.Format("Backlight {0}", notification.Args),
+                NotificationType.SpectrumBacklightOff => "Backlight off",
+                NotificationType.SpectrumBacklightPreset => string.Format("Preset {0}", notification.Args),
                 NotificationType.TouchpadOn => Resource.Notification_TouchpadOn,
                 NotificationType.TouchpadOff => Resource.Notification_TouchpadOff,
                 _ => string.Empty,
