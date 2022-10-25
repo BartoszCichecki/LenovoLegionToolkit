@@ -94,13 +94,26 @@ namespace LenovoLegionToolkit.Lib
 
     public enum NotificationType
     {
+        ACAdapterConnected,
+        ACAdapterConnectedLowWattage,
+        ACAdapterDisconnected,
+        CameraOn,
+        CameraOff,
+        CapsLockOn,
+        CapsLockOff,
+        FnLockOn,
+        FnLockOff,
         MicrophoneOff,
         MicrophoneOn,
+        NumLockOn,
+        NumLockOff,
+        PowerMode,
         RefreshRate,
+        RGBKeyboardPreset,
+        RGBKeyboardPresetOff,
         TouchpadOn,
         TouchpadOff,
-        CameraOn,
-        CameraOff
+        WhiteKeyboardBacklight
     }
 
     public enum OS
@@ -203,7 +216,6 @@ namespace LenovoLegionToolkit.Lib
 
     public enum SpecialKey
     {
-        Unknown = 0,
         Fn_F9 = 1,
         Fn_LockOn = 2,
         Fn_LockOff = 3,

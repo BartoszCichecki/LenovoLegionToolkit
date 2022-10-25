@@ -1016,11 +1016,11 @@ Restart je preporučen nakon promijene ove opcije.</value>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Onemogući Lenovo Vantage</value>
   </data>
-  <data name="SettingsPage_DontShowNotifications_Message" xml:space="preserve">
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
     <value>Onemogućuje notifikacije za Fn kratice kao što je utišavanje mikrofona
 Omogućite ovu opciju ukoliko imate konflikata sa aplikacijama u fullscreenu.</value>
   </data>
-  <data name="SettingsPage_DontShowNotifications_Title" xml:space="preserve">
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Ne prikazuj obavještenja</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
