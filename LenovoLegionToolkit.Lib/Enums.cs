@@ -100,7 +100,11 @@ namespace LenovoLegionToolkit.Lib
         TouchpadOn,
         TouchpadOff,
         CameraOn,
-        CameraOff
+        CameraOff,
+        CapsLockOn,
+        CapsLockOff,
+        NumLockOn,
+        NumLockOff
     }
 
     public enum OS

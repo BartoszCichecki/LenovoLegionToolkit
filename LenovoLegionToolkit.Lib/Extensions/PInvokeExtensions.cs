@@ -5,11 +5,14 @@ using Windows.Win32;
 
 namespace LenovoLegionToolkit.Lib.Extensions
 {
-    internal static class PInvokeExtensions
+    public static class PInvokeExtensions
     {
         public const int ERROR_NO_MORE_ITEMS = 259;
 
         public const uint KF_FLAG_DEFAULT = 0;
+
+        public const uint VK_CAPITAL = 0x14;
+        public const uint VK_NUMLOCK = 0x90;
 
         public const uint VARIABLE_ATTRIBUTE_BOOTSERVICE_ACCESS = 2;
         public const uint VARIABLE_ATTRIBUTE_NON_VOLATILE = 1;

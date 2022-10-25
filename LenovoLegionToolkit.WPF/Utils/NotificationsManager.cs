@@ -33,10 +33,14 @@ namespace LenovoLegionToolkit.WPF.Utils
 
             var symbol = notification.Type switch
             {
+                NotificationType.CapsLockOn => SymbolRegular.KeyboardShiftUppercase24,
+                NotificationType.CapsLockOff => SymbolRegular.KeyboardShiftUppercase24,
                 NotificationType.CameraOn => SymbolRegular.Camera24,
                 NotificationType.CameraOff => SymbolRegular.Camera24,
                 NotificationType.MicrophoneOn => SymbolRegular.Mic24,
                 NotificationType.MicrophoneOff => SymbolRegular.Mic24,
+                NotificationType.NumLockOn => SymbolRegular.Keyboard12324,
+                NotificationType.NumLockOff => SymbolRegular.Keyboard12324,
                 NotificationType.RefreshRate => SymbolRegular.Desktop24,
                 NotificationType.TouchpadOn => SymbolRegular.Tablet24,
                 NotificationType.TouchpadOff => SymbolRegular.Tablet24,
@@ -45,18 +49,24 @@ namespace LenovoLegionToolkit.WPF.Utils
 
             SymbolRegular? overlaySymbol = notification.Type switch
             {
+                NotificationType.CapsLockOff => SymbolRegular.Line24,
                 NotificationType.CameraOff => SymbolRegular.Line24,
                 NotificationType.MicrophoneOff => SymbolRegular.Line24,
+                NotificationType.NumLockOff => SymbolRegular.Line24,
                 NotificationType.TouchpadOff => SymbolRegular.Line24,
                 _ => null,
             };
 
             var text = notification.Type switch
             {
+                NotificationType.CapsLockOn => "Caps Lock on",
+                NotificationType.CapsLockOff => "Caps Lock off",
                 NotificationType.CameraOn => Resource.Notification_CameraOn,
                 NotificationType.CameraOff => Resource.Notification_CameraOff,
                 NotificationType.MicrophoneOn => Resource.Notification_MicrophoneOn,
                 NotificationType.MicrophoneOff => Resource.Notification_MicrophoneOff,
+                NotificationType.NumLockOn => "Num Lock on",
+                NotificationType.NumLockOff => "Num Lock off",
                 NotificationType.RefreshRate => string.Format($"{0}", notification.Args),
                 NotificationType.TouchpadOn => Resource.Notification_TouchpadOn,
                 NotificationType.TouchpadOff => Resource.Notification_TouchpadOff,
