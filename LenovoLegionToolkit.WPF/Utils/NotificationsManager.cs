@@ -46,6 +46,8 @@ namespace LenovoLegionToolkit.WPF.Utils
                 NotificationType.NumLockOff => _settings.Store.Notifications.CapsNumLock,
                 NotificationType.PowerMode => _settings.Store.Notifications.PowerMode,
                 NotificationType.RefreshRate => _settings.Store.Notifications.RefreshRate,
+                NotificationType.RGBKeyboardPreset => _settings.Store.Notifications.KeyboardBacklight,
+                NotificationType.RGBKeyboardPresetOff => _settings.Store.Notifications.KeyboardBacklight,
                 NotificationType.TouchpadOn => _settings.Store.Notifications.TouchpadLock,
                 NotificationType.TouchpadOff => _settings.Store.Notifications.TouchpadLock,
                 NotificationType.WhiteKeyboardBacklight => _settings.Store.Notifications.KeyboardBacklight,
@@ -69,9 +71,11 @@ namespace LenovoLegionToolkit.WPF.Utils
                 NotificationType.NumLockOff => SymbolRegular.Keyboard12324,
                 NotificationType.PowerMode => SymbolRegular.Gauge24,
                 NotificationType.RefreshRate => SymbolRegular.Desktop24,
+                NotificationType.RGBKeyboardPreset => SymbolRegular.Lightbulb24,
+                NotificationType.RGBKeyboardPresetOff => SymbolRegular.Lightbulb24,
                 NotificationType.TouchpadOn => SymbolRegular.Tablet24,
                 NotificationType.TouchpadOff => SymbolRegular.Tablet24,
-                NotificationType.WhiteKeyboardBacklight => SymbolRegular.Keyboard24,
+                NotificationType.WhiteKeyboardBacklight => SymbolRegular.Lightbulb24,
                 _ => throw new ArgumentException(nameof(notification.Type))
             };
 
@@ -82,6 +86,7 @@ namespace LenovoLegionToolkit.WPF.Utils
                 NotificationType.FnLockOff => SymbolRegular.Line24,
                 NotificationType.MicrophoneOff => SymbolRegular.Line24,
                 NotificationType.NumLockOff => SymbolRegular.Line24,
+                NotificationType.RGBKeyboardPresetOff => SymbolRegular.Line24,
                 NotificationType.TouchpadOff => SymbolRegular.Line24,
                 _ => null,
             };
@@ -100,6 +105,8 @@ namespace LenovoLegionToolkit.WPF.Utils
                 NotificationType.NumLockOff => Resource.Notification_NumLockOff,
                 NotificationType.PowerMode => string.Format("{0}", notification.Args),
                 NotificationType.RefreshRate => string.Format("{0}", notification.Args),
+                NotificationType.RGBKeyboardPreset => string.Format("{0}", notification.Args),
+                NotificationType.RGBKeyboardPresetOff => string.Format("{0}", notification.Args),
                 NotificationType.TouchpadOn => Resource.Notification_TouchpadOn,
                 NotificationType.TouchpadOff => Resource.Notification_TouchpadOff,
                 NotificationType.WhiteKeyboardBacklight => string.Format(Resource.Notification_WhiteKeyboardBacklight, notification.Args),

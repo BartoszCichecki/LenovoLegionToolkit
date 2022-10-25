@@ -14,7 +14,7 @@ namespace LenovoLegionToolkit.Lib.Settings
             public bool PowerMode { get; set; }
             public bool RefreshRate { get; set; } = true;
             public bool Microphone { get; set; } = true;
-            public bool KeyboardBacklight { get; set; }
+            public bool KeyboardBacklight { get; set; } = true;
         }
 
         public class ApplicationSettingsStore
