@@ -2005,6 +2005,33 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to AC adapter connected.
+        /// </summary>
+        public static string Notification_ACAdapterConnected {
+            get {
+                return ResourceManager.GetString("Notification_ACAdapterConnected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AC adapter connected (Low wattage).
+        /// </summary>
+        public static string Notification_ACAdapterConnectedLowWattage {
+            get {
+                return ResourceManager.GetString("Notification_ACAdapterConnectedLowWattage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AC adapter disconnected.
+        /// </summary>
+        public static string Notification_ACAdapterDisconnected {
+            get {
+                return ResourceManager.GetString("Notification_ACAdapterDisconnected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Camera off.
         /// </summary>
         public static string Notification_CameraOff {
@@ -2118,6 +2145,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string Notification_WhiteKeyboardBacklight {
             get {
                 return ResourceManager.GetString("Notification_WhiteKeyboardBacklight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AC Adapter.
+        /// </summary>
+        public static string NotificationsSettingsWindow_ACAdapter {
+            get {
+                return ResourceManager.GetString("NotificationsSettingsWindow_ACAdapter", resourceCulture);
             }
         }
         

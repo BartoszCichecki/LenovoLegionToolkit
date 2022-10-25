@@ -14,11 +14,12 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
             _capsNumLockCard,
             _fnLockCard,
             _touchpadLockCard,
+            _keyboardBacklightCard,
             _cameraLockCard,
+            _microphoneCard,
             _powerModeCard,
             _refreshRateCard,
-            _microphoneCard,
-            _keyboardBacklightCard
+            _acAdapterCard
         };
 
         public NotificationsSettingsWindow()
@@ -35,11 +36,12 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
             _capsNumLockToggle.IsChecked = _settings.Store.Notifications.CapsNumLock;
             _fnLockToggle.IsChecked = _settings.Store.Notifications.FnLock;
             _touchpadLockToggle.IsChecked = _settings.Store.Notifications.TouchpadLock;
+            _keyboardBacklightToggle.IsChecked = _settings.Store.Notifications.KeyboardBacklight;
             _cameraLockToggle.IsChecked = _settings.Store.Notifications.CameraLock;
+            _microphoneToggle.IsChecked = _settings.Store.Notifications.Microphone;
             _powerModeToggle.IsChecked = _settings.Store.Notifications.PowerMode;
             _refreshRateToggle.IsChecked = _settings.Store.Notifications.RefreshRate;
-            _microphoneToggle.IsChecked = _settings.Store.Notifications.Microphone;
-            _keyboardBacklightToggle.IsChecked = _settings.Store.Notifications.KeyboardBacklight;
+            _acAdapterToggle.IsChecked = _settings.Store.Notifications.ACAdapter;
 
             RefreshCards();
         }
@@ -72,8 +74,6 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
 
             _settings.Store.Notifications.CapsNumLock = state.Value;
             _settings.SynchronizeStore();
-
-            RefreshCards();
         }
 
         private void FnLockToggle_Click(object sender, RoutedEventArgs e)
@@ -84,8 +84,6 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
 
             _settings.Store.Notifications.FnLock = state.Value;
             _settings.SynchronizeStore();
-
-            RefreshCards();
         }
 
         private void TouchpadLockToggle_Click(object sender, RoutedEventArgs e)
@@ -96,56 +94,6 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
 
             _settings.Store.Notifications.TouchpadLock = state.Value;
             _settings.SynchronizeStore();
-
-            RefreshCards();
-        }
-
-        private void CameraLockToggle_Click(object sender, RoutedEventArgs e)
-        {
-            var state = _cameraLockToggle.IsChecked;
-            if (state is null)
-                return;
-
-            _settings.Store.Notifications.CameraLock = state.Value;
-            _settings.SynchronizeStore();
-
-            RefreshCards();
-        }
-
-        private void PowerModeToggle_Click(object sender, RoutedEventArgs e)
-        {
-            var state = _powerModeToggle.IsChecked;
-            if (state is null)
-                return;
-
-            _settings.Store.Notifications.PowerMode = state.Value;
-            _settings.SynchronizeStore();
-
-            RefreshCards();
-        }
-
-        private void RefreshRateToggle_Click(object sender, RoutedEventArgs e)
-        {
-            var state = _refreshRateToggle.IsChecked;
-            if (state is null)
-                return;
-
-            _settings.Store.Notifications.RefreshRate = state.Value;
-            _settings.SynchronizeStore();
-
-            RefreshCards();
-        }
-
-        private void MicrophoneToggle_Click(object sender, RoutedEventArgs e)
-        {
-            var state = _microphoneToggle.IsChecked;
-            if (state is null)
-                return;
-
-            _settings.Store.Notifications.Microphone = state.Value;
-            _settings.SynchronizeStore();
-
-            RefreshCards();
         }
 
         private void KeyboardBacklightToggle_Click(object sender, RoutedEventArgs e)
@@ -156,8 +104,56 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
 
             _settings.Store.Notifications.KeyboardBacklight = state.Value;
             _settings.SynchronizeStore();
+        }
 
-            RefreshCards();
+        private void CameraLockToggle_Click(object sender, RoutedEventArgs e)
+        {
+            var state = _cameraLockToggle.IsChecked;
+            if (state is null)
+                return;
+
+            _settings.Store.Notifications.CameraLock = state.Value;
+            _settings.SynchronizeStore();
+        }
+
+        private void MicrophoneToggle_Click(object sender, RoutedEventArgs e)
+        {
+            var state = _microphoneToggle.IsChecked;
+            if (state is null)
+                return;
+
+            _settings.Store.Notifications.Microphone = state.Value;
+            _settings.SynchronizeStore();
+        }
+
+        private void PowerModeToggle_Click(object sender, RoutedEventArgs e)
+        {
+            var state = _powerModeToggle.IsChecked;
+            if (state is null)
+                return;
+
+            _settings.Store.Notifications.PowerMode = state.Value;
+            _settings.SynchronizeStore();
+        }
+
+        private void RefreshRateToggle_Click(object sender, RoutedEventArgs e)
+        {
+            var state = _refreshRateToggle.IsChecked;
+            if (state is null)
+                return;
+
+            _settings.Store.Notifications.RefreshRate = state.Value;
+            _settings.SynchronizeStore();
+        }
+
+        private void ACAdapterToggle_Click(object sender, RoutedEventArgs e)
+        {
+            var state = _acAdapterToggle.IsChecked;
+            if (state is null)
+                return;
+
+            _settings.Store.Notifications.ACAdapter = state.Value;
+            _settings.SynchronizeStore();
         }
     }
 }

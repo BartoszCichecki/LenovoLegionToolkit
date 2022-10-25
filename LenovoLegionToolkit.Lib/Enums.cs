@@ -94,6 +94,9 @@ namespace LenovoLegionToolkit.Lib
 
     public enum NotificationType
     {
+        ACAdapterConnected,
+        ACAdapterConnectedLowWattage,
+        ACAdapterDisconnected,
         CameraOn,
         CameraOff,
         CapsLockOn,

@@ -10,11 +10,12 @@ namespace LenovoLegionToolkit.Lib.Settings
             public bool CapsNumLock { get; set; }
             public bool FnLock { get; set; }
             public bool TouchpadLock { get; set; } = true;
+            public bool KeyboardBacklight { get; set; } = true;
             public bool CameraLock { get; set; } = true;
+            public bool Microphone { get; set; } = true;
             public bool PowerMode { get; set; }
             public bool RefreshRate { get; set; } = true;
-            public bool Microphone { get; set; } = true;
-            public bool KeyboardBacklight { get; set; } = true;
+            public bool ACAdapter { get; set; }
         }
 
         public class ApplicationSettingsStore

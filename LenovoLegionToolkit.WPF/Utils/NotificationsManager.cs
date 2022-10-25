@@ -34,6 +34,9 @@ namespace LenovoLegionToolkit.WPF.Utils
 
             var allow = notification.Type switch
             {
+                NotificationType.ACAdapterConnected => _settings.Store.Notifications.ACAdapter,
+                NotificationType.ACAdapterConnectedLowWattage => _settings.Store.Notifications.ACAdapter,
+                NotificationType.ACAdapterDisconnected => _settings.Store.Notifications.ACAdapter,
                 NotificationType.CapsLockOn => _settings.Store.Notifications.CapsNumLock,
                 NotificationType.CapsLockOff => _settings.Store.Notifications.CapsNumLock,
                 NotificationType.CameraOn => _settings.Store.Notifications.CameraLock,
@@ -59,6 +62,9 @@ namespace LenovoLegionToolkit.WPF.Utils
 
             var symbol = notification.Type switch
             {
+                NotificationType.ACAdapterConnected => SymbolRegular.BatteryCharge24,
+                NotificationType.ACAdapterConnectedLowWattage => SymbolRegular.BatteryCharge24,
+                NotificationType.ACAdapterDisconnected => SymbolRegular.BatteryCharge24,
                 NotificationType.CapsLockOn => SymbolRegular.KeyboardShiftUppercase24,
                 NotificationType.CapsLockOff => SymbolRegular.KeyboardShiftUppercase24,
                 NotificationType.CameraOn => SymbolRegular.Camera24,
@@ -81,6 +87,7 @@ namespace LenovoLegionToolkit.WPF.Utils
 
             SymbolRegular? overlaySymbol = notification.Type switch
             {
+                NotificationType.ACAdapterDisconnected => SymbolRegular.Line24,
                 NotificationType.CapsLockOff => SymbolRegular.Line24,
                 NotificationType.CameraOff => SymbolRegular.Line24,
                 NotificationType.FnLockOff => SymbolRegular.Line24,
@@ -93,6 +100,9 @@ namespace LenovoLegionToolkit.WPF.Utils
 
             var text = notification.Type switch
             {
+                NotificationType.ACAdapterConnected => Resource.Notification_ACAdapterConnected,
+                NotificationType.ACAdapterConnectedLowWattage => Resource.Notification_ACAdapterConnectedLowWattage,
+                NotificationType.ACAdapterDisconnected => Resource.Notification_ACAdapterDisconnected,
                 NotificationType.CapsLockOn => Resource.Notification_CapsLockOn,
                 NotificationType.CapsLockOff => Resource.Notification_CapsLockOff,
                 NotificationType.CameraOn => Resource.Notification_CameraOn,

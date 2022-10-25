@@ -719,6 +719,15 @@ Seriously, be careful with this option!</value>
   <data name="No" xml:space="preserve">
     <value>No</value>
   </data>
+  <data name="Notification_ACAdapterConnected" xml:space="preserve">
+		<value>AC adapter connected</value>
+	</data>
+  <data name="Notification_ACAdapterConnectedLowWattage" xml:space="preserve">
+		<value>AC adapter connected (Low wattage)</value>
+	</data>
+  <data name="Notification_ACAdapterDisconnected" xml:space="preserve">
+		<value>AC adapter disconnected</value>
+	</data>
   <data name="Notification_CameraOff" xml:space="preserve">
 		<value>Camera off</value>
 	</data>
@@ -757,6 +766,9 @@ Seriously, be careful with this option!</value>
 	</data>
   <data name="Notification_WhiteKeyboardBacklight" xml:space="preserve">
 		<value>Backlight {0}</value>
+	</data>
+  <data name="NotificationsSettingsWindow_ACAdapter" xml:space="preserve">
+		<value>AC Adapter</value>
 	</data>
   <data name="NotificationsSettingsWindow_CameraLock" xml:space="preserve">
 		<value>Camera Lock</value>
