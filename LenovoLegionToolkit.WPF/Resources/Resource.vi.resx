@@ -1047,11 +1047,11 @@ Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Ngắt kích hoạt Lenovo Vantage</value>
   </data>
-  <data name="SettingsPage_DontShowNotifications_Message" xml:space="preserve">
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
     <value>Tắt các thông báo cho các phím tắt Fn, ví dụ như tắt mic thu âm.
 Bật tùy chọn này nếu có xung đột với các ứng dụng chạy toàn màn hình.</value>
   </data>
-  <data name="SettingsPage_DontShowNotifications_Title" xml:space="preserve">
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Tắt tất cả thông báo</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">

@@ -725,17 +725,72 @@ Seriously, be careful with this option!</value>
   <data name="Notification_CameraOn" xml:space="preserve">
 		<value>Camera on</value>
 	</data>
+  <data name="Notification_CapsLockOff" xml:space="preserve">
+		<value>Caps Lock off</value>
+	</data>
+  <data name="Notification_CapsLockOn" xml:space="preserve">
+		<value>Caps Lock on</value>
+	</data>
+  <data name="Notification_FnLockOff" xml:space="preserve">
+		<value>Fn Lock off</value>
+	</data>
+  <data name="Notification_FnLockOn" xml:space="preserve">
+		<value>Fn Lock on</value>
+	</data>
   <data name="Notification_MicrophoneOff" xml:space="preserve">
 		<value>Microphone off</value>
 	</data>
   <data name="Notification_MicrophoneOn" xml:space="preserve">
 		<value>Microphone on</value>
 	</data>
+  <data name="Notification_NumLockOff" xml:space="preserve">
+		<value>Num Lock off</value>
+	</data>
+  <data name="Notification_NumLockOn" xml:space="preserve">
+		<value>Num Lock on</value>
+	</data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
 		<value>Touchpad off</value>
 	</data>
   <data name="Notification_TouchpadOn" xml:space="preserve">
 		<value>Touchpad on</value>
+	</data>
+  <data name="Notification_WhiteKeyboardBacklight" xml:space="preserve">
+		<value>Backlight {0}</value>
+	</data>
+  <data name="NotificationsSettingsWindow_CameraLock" xml:space="preserve">
+		<value>Camera Lock</value>
+	</data>
+  <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
+		<value>Caps Lock and Num Lock</value>
+	</data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
+    <value>Disables notification for Fn keys actions like microphone mute
+Enable this option if you have conflicts with full screen applications.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
+    <value>Don't show notifications</value>
+  </data>
+  <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
+		<value>Fn Lock</value>
+	</data>
+  <data name="NotificationsSettingsWindow_KeyboardBacklight" xml:space="preserve">
+		<value>Keyboard Backlight</value>
+	</data>
+  <data name="NotificationsSettingsWindow_Microphone" xml:space="preserve">
+		<value>Microphone</value>
+	</data>
+  <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
+		<value>Power Mode</value>
+	</data>
+  <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
+		<value>Refresh Rate</value>
+	</data>
+  <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
+		<value>Notifications</value>
+	</data>
+  <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
+		<value>Touchpad Lock</value>
 	</data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
@@ -1047,13 +1102,6 @@ Restart is recommended after changing this option.</value>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Disable Lenovo Vantage</value>
   </data>
-  <data name="SettingsPage_DontShowNotifications_Message" xml:space="preserve">
-    <value>Disables notification for Fn keys actions like microphone mute
-Enable this option if you have conflicts with full screen applications.</value>
-  </data>
-  <data name="SettingsPage_DontShowNotifications_Title" xml:space="preserve">
-    <value>Don't show notifications</value>
-  </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone may have not been enabled correctly</value>
   </data>
@@ -1090,6 +1138,12 @@ Enable this option if you have conflicts with full screen applications.</value>
   <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
     <value>Minimize on close</value>
   </data>
+  <data name="SettingsPage_Notifications_Message" xml:space="preserve">
+		<value>Configure which notifications are shown.</value>
+	</data>
+  <data name="SettingsPage_Notifications_Title" xml:space="preserve">
+		<value>Notifications</value>
+	</data>
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Power plans</value>
   </data>
@@ -1213,10 +1267,4 @@ Logging will be enabled automatically, if you choose to continue.</value>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
-	<data name="SettingsPage_Notifications_Title" xml:space="preserve">
-		<value>Notifications</value>
-	</data>
-	<data name="SettingsPage_Notifications_Message" xml:space="preserve">
-		<value>Configure which notifications are shown.</value>
-	</data>
 </root>
