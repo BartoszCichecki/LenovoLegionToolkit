@@ -86,7 +86,17 @@
                         Click="TouchpadLockToggle_Click" />
                 </wpfui:CardControl>
 
-                <wpfui:CardControl x:Name="_cameraLockCard" Margin="0,0,0,24">
+                <wpfui:CardControl x:Name="_keyboardBacklightCard" Margin="0,0,0,24">
+                    <wpfui:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_KeyboardBacklight}" />
+                    </wpfui:CardControl.Header>
+                    <wpfui:ToggleSwitch
+                        x:Name="_keyboardBacklightToggle"
+                        Margin="0,0,0,8"
+                        Click="KeyboardBacklightToggle_Click" />
+                </wpfui:CardControl>
+
+                <wpfui:CardControl x:Name="_cameraLockCard" Margin="0,0,0,8">
                     <wpfui:CardControl.Header>
                         <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_CameraLock}" />
                     </wpfui:CardControl.Header>
@@ -94,6 +104,16 @@
                         x:Name="_cameraLockToggle"
                         Margin="0,0,0,8"
                         Click="CameraLockToggle_Click" />
+                </wpfui:CardControl>
+
+                <wpfui:CardControl x:Name="_microphoneCard" Margin="0,0,0,24">
+                    <wpfui:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_Microphone}" />
+                    </wpfui:CardControl.Header>
+                    <wpfui:ToggleSwitch
+                        x:Name="_microphoneToggle"
+                        Margin="0,0,0,8"
+                        Click="MicrophoneToggle_Click" />
                 </wpfui:CardControl>
 
                 <wpfui:CardControl x:Name="_powerModeCard" Margin="0,0,0,8">
@@ -106,7 +126,7 @@
                         Click="PowerModeToggle_Click" />
                 </wpfui:CardControl>
 
-                <wpfui:CardControl x:Name="_refreshRateCard" Margin="0,0,0,8">
+                <wpfui:CardControl x:Name="_refreshRateCard" Margin="0,0,0,24">
                     <wpfui:CardControl.Header>
                         <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_RefreshRate}" />
                     </wpfui:CardControl.Header>
@@ -116,24 +136,14 @@
                         Click="RefreshRateToggle_Click" />
                 </wpfui:CardControl>
 
-                <wpfui:CardControl x:Name="_microphoneCard" Margin="0,0,0,8">
+                <wpfui:CardControl x:Name="_acAdapterCard" Margin="0,0,0,8">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_Microphone}" />
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_ACAdapter}" />
                     </wpfui:CardControl.Header>
                     <wpfui:ToggleSwitch
-                        x:Name="_microphoneToggle"
+                        x:Name="_acAdapterToggle"
                         Margin="0,0,0,8"
-                        Click="MicrophoneToggle_Click" />
-                </wpfui:CardControl>
-
-                <wpfui:CardControl x:Name="_keyboardBacklightCard" Margin="0,0,0,8">
-                    <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_KeyboardBacklight}" />
-                    </wpfui:CardControl.Header>
-                    <wpfui:ToggleSwitch
-                        x:Name="_keyboardBacklightToggle"
-                        Margin="0,0,0,8"
-                        Click="KeyboardBacklightToggle_Click" />
+                        Click="ACAdapterToggle_Click" />
                 </wpfui:CardControl>
 
             </StackPanel>
