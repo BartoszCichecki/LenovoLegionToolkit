@@ -432,7 +432,7 @@
     <value>Модель</value>
   </data>
   <data name="DeviceInformationWindow_OutOfWarranty" xml:space="preserve">
-    <value>Истек</value>
+    <value>Не действует</value>
   </data>
   <data name="DeviceInformationWindow_SerialNumber_Title" xml:space="preserve">
     <value>Серийный номер</value>
@@ -681,7 +681,7 @@
     <value>Подсветка клавиатуры</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
-    <value>О программе</value>
+    <value>О ПО</value>
   </data>
   <data name="MainWindow_NavigationItem_Actions" xml:space="preserve">
     <value>Действия</value>
@@ -719,6 +719,24 @@
   <data name="No" xml:space="preserve">
     <value>Нет</value>
   </data>
+  <data name="Notification_CameraOff" xml:space="preserve">
+		<value>Камера отключена</value>
+	</data>
+  <data name="Notification_CameraOn" xml:space="preserve">
+		<value>Камера включена</value>
+	</data>
+  <data name="Notification_MicrophoneOff" xml:space="preserve">
+		<value>Микрофон отключен</value>
+	</data>
+  <data name="Notification_MicrophoneOn" xml:space="preserve">
+		<value>Микрофон включен</value>
+	</data>
+  <data name="Notification_TouchpadOff" xml:space="preserve">
+		<value>Сенсорная панель отключена</value>
+	</data>
+  <data name="Notification_TouchpadOn" xml:space="preserve">
+		<value>Сенсорная панель включена</value>
+	</data>
   <data name="OK" xml:space="preserve">
     <value>ОК</value>
   </data>
@@ -964,6 +982,9 @@
   <data name="Save" xml:space="preserve">
     <value>Сохранить</value>
   </data>
+  <data name="Saving" xml:space="preserve">
+		<value>Сохранение...</value>
+	</data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
     <value>Изменить контрастный цвет приложения.</value>
   </data>
