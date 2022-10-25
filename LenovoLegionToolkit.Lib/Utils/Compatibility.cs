@@ -113,6 +113,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             {
                 ("GKCN", 49),
                 ("H1CN", 49),
+                ("HACN", 31),
                 ("HHCN", 23),
                 ("K1CN", 31),
                 ("J2CN", 40),
