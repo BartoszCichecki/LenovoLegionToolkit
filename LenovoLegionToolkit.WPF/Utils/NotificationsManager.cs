@@ -88,21 +88,21 @@ namespace LenovoLegionToolkit.WPF.Utils
 
             var text = notification.Type switch
             {
-                NotificationType.CapsLockOn => "Caps Lock on",
-                NotificationType.CapsLockOff => "Caps Lock off",
+                NotificationType.CapsLockOn => Resource.Notification_CapsLockOn,
+                NotificationType.CapsLockOff => Resource.Notification_CapsLockOff,
                 NotificationType.CameraOn => Resource.Notification_CameraOn,
                 NotificationType.CameraOff => Resource.Notification_CameraOff,
-                NotificationType.FnLockOn => "Fn Lock on",
-                NotificationType.FnLockOff => "Fn Lock off",
+                NotificationType.FnLockOn => Resource.Notification_FnLockOn,
+                NotificationType.FnLockOff => Resource.Notification_FnLockOff,
                 NotificationType.MicrophoneOn => Resource.Notification_MicrophoneOn,
                 NotificationType.MicrophoneOff => Resource.Notification_MicrophoneOff,
-                NotificationType.NumLockOn => "Num Lock on",
-                NotificationType.NumLockOff => "Num Lock off",
+                NotificationType.NumLockOn => Resource.Notification_NumLockOn,
+                NotificationType.NumLockOff => Resource.Notification_NumLockOff,
                 NotificationType.PowerMode => string.Format("{0}", notification.Args),
                 NotificationType.RefreshRate => string.Format("{0}", notification.Args),
                 NotificationType.TouchpadOn => Resource.Notification_TouchpadOn,
                 NotificationType.TouchpadOff => Resource.Notification_TouchpadOff,
-                NotificationType.WhiteKeyboardBacklight => string.Format("Backlight {0}", notification.Args),
+                NotificationType.WhiteKeyboardBacklight => string.Format(Resource.Notification_WhiteKeyboardBacklight, notification.Args),
                 _ => throw new ArgumentException(nameof(notification.Type))
             };
 

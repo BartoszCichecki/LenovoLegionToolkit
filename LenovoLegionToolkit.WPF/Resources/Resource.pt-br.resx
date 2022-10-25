@@ -1047,11 +1047,11 @@ O reinicialização é recomendada após alterar esta opção.</value>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Desativar o Lenovo Vantage</value>
   </data>
-  <data name="SettingsPage_DontShowNotifications_Message" xml:space="preserve">
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
     <value>Desativar as notificações para ações das teclas Fn, como silenciar o microfone
 Ative esta opção se você tiver conflitos com aplicativos de tela inteira.</value>
   </data>
-  <data name="SettingsPage_DontShowNotifications_Title" xml:space="preserve">
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Não exibir notificações</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">

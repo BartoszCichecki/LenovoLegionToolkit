@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Notifications"
+    Title="{x:Static resources:Resource.NotificationsSettingsWindow_Title}"
     MinWidth="500"
     MaxWidth="500"
     SizeToContent="Height">
@@ -40,7 +40,7 @@
                 VerticalAlignment="Center"
                 FontSize="12"
                 IsHitTestVisible="False"
-                Text="Notifications" />
+                Text="{x:Static resources:Resource.NotificationsSettingsWindow_Title}" />
         </Grid>
 
         <wpfui:DynamicScrollViewer Grid.Row="1" Margin="12,0,0,0">
@@ -48,7 +48,7 @@
 
                 <wpfui:CardControl Margin="0,0,0,24">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_DontShowNotifications_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_DontShowNotifications_Message}" />
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_DontShowNotifications_Title}" Subtitle="{x:Static resources:Resource.NotificationsSettingsWindow_DontShowNotifications_Message}" />
                     </wpfui:CardControl.Header>
                     <wpfui:ToggleSwitch
                         x:Name="_dontShowNotificationsToggle"
@@ -58,7 +58,7 @@
 
                 <wpfui:CardControl x:Name="_capsNumLockCard" Margin="0,0,0,8">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="Caps Lock and Num Lock" />
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_CapsAndNumLock}" />
                     </wpfui:CardControl.Header>
                     <wpfui:ToggleSwitch
                         x:Name="_capsNumLockToggle"
@@ -68,7 +68,7 @@
 
                 <wpfui:CardControl x:Name="_fnLockCard" Margin="0,0,0,8">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="Fn Lock" />
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_FnLock}" />
                     </wpfui:CardControl.Header>
                     <wpfui:ToggleSwitch
                         x:Name="_fnLockToggle"
@@ -78,7 +78,7 @@
 
                 <wpfui:CardControl x:Name="_touchpadLockCard" Margin="0,0,0,8">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="Touchpad Lock" />
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_TouchpadLock}" />
                     </wpfui:CardControl.Header>
                     <wpfui:ToggleSwitch
                         x:Name="_touchpadLockToggle"
@@ -88,7 +88,7 @@
 
                 <wpfui:CardControl x:Name="_cameraLockCard" Margin="0,0,0,24">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="Camera Lock" />
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_CameraLock}" />
                     </wpfui:CardControl.Header>
                     <wpfui:ToggleSwitch
                         x:Name="_cameraLockToggle"
@@ -98,7 +98,7 @@
 
                 <wpfui:CardControl x:Name="_powerModeCard" Margin="0,0,0,8">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="Power Mode" />
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_PowerMode}" />
                     </wpfui:CardControl.Header>
                     <wpfui:ToggleSwitch
                         x:Name="_powerModeToggle"
@@ -108,7 +108,7 @@
 
                 <wpfui:CardControl x:Name="_refreshRateCard" Margin="0,0,0,8">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="Refresh Rate" />
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_RefreshRate}" />
                     </wpfui:CardControl.Header>
                     <wpfui:ToggleSwitch
                         x:Name="_refreshRateToggle"
@@ -118,7 +118,7 @@
 
                 <wpfui:CardControl x:Name="_microphoneCard" Margin="0,0,0,8">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="Microphone" />
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_Microphone}" />
                     </wpfui:CardControl.Header>
                     <wpfui:ToggleSwitch
                         x:Name="_microphoneToggle"
@@ -128,7 +128,7 @@
 
                 <wpfui:CardControl x:Name="_keyboardBacklightCard" Margin="0,0,0,8">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="Keyboard Backlight" />
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_KeyboardBacklight}" />
                     </wpfui:CardControl.Header>
                     <wpfui:ToggleSwitch
                         x:Name="_keyboardBacklightToggle"
