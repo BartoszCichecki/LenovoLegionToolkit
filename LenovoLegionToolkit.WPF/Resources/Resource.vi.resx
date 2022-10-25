@@ -719,6 +719,24 @@ THẬT CẨN THẬN KHI SỬ DỤNG LỰA CHỌN NÀY!!! KHÔNG NÊN SỬ DỤNG
   <data name="No" xml:space="preserve">
     <value>Không</value>
   </data>
+  <data name="Notification_CameraOff" xml:space="preserve">
+		<value>Camera tắt</value>
+	</data>
+  <data name="Notification_CameraOn" xml:space="preserve">
+		<value>Camera bật</value>
+	</data>
+  <data name="Notification_MicrophoneOff" xml:space="preserve">
+		<value>Microphone tắt</value>
+	</data>
+  <data name="Notification_MicrophoneOn" xml:space="preserve">
+		<value>Microphone bật</value>
+	</data>
+  <data name="Notification_TouchpadOff" xml:space="preserve">
+		<value>Touchpad tắt</value>
+	</data>
+  <data name="Notification_TouchpadOn" xml:space="preserve">
+		<value>Touchpad bật</value>
+	</data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
@@ -964,6 +982,9 @@ Hãy đảm bảo chương trình hoặc script của bạn chạy đúng trư�
   <data name="Save" xml:space="preserve">
     <value>Lưu</value>
   </data>
+  <data name="Saving" xml:space="preserve">
+		<value>Đang lưu...</value>
+	</data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
     <value>Thay đổi màu sắc chủ đạo của ứng dụng.</value>
   </data>
