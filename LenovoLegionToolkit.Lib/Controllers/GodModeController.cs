@@ -37,31 +37,31 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         public async Task<GodModeState> GetStateAsync()
         {
+            var maxValueOffset = _settings.Store.MaxValueOffset;
+
             var cpuLongTermPowerLimitState = await GetCPULongTermPowerLimitAsync().OrNull().ConfigureAwait(false);
-            var cpuLongTermPowerLimit = CreateStepperValue(cpuLongTermPowerLimitState, _settings.Store.CPULongTermPowerLimit);
+            var cpuLongTermPowerLimit = CreateStepperValue(cpuLongTermPowerLimitState, _settings.Store.CPULongTermPowerLimit, maxValueOffset);
 
             var cpuShortTermPowerLimitState = await GetCPUShortTermPowerLimitAsync().OrNull().ConfigureAwait(false);
-            var cpuShortTermPowerLimit = CreateStepperValue(cpuShortTermPowerLimitState, _settings.Store.CPUShortTermPowerLimit);
+            var cpuShortTermPowerLimit = CreateStepperValue(cpuShortTermPowerLimitState, _settings.Store.CPUShortTermPowerLimit, maxValueOffset);
 
             var cpuCrossLoadingPowerLimitState = await GetCPUCrossLoadingPowerLimitAsync().OrNull().ConfigureAwait(false);
-            var cpuCrossLoadingPowerLimit = CreateStepperValue(cpuCrossLoadingPowerLimitState, _settings.Store.CPUCrossLoadingPowerLimit);
+            var cpuCrossLoadingPowerLimit = CreateStepperValue(cpuCrossLoadingPowerLimitState, _settings.Store.CPUCrossLoadingPowerLimit, maxValueOffset);
 
             var cpuTemperatureLimitState = await GetCPUTemperatureLimitAsync().OrNull().ConfigureAwait(false);
-            var cpuTemperatureLimit = CreateStepperValue(cpuTemperatureLimitState, _settings.Store.CPUTemperatureLimit);
+            var cpuTemperatureLimit = CreateStepperValue(cpuTemperatureLimitState, _settings.Store.CPUTemperatureLimit, maxValueOffset);
 
             var gpuPowerBoostState = await GetGPUPowerBoost().OrNull().ConfigureAwait(false);
-            var gpuPowerBoost = CreateStepperValue(gpuPowerBoostState, _settings.Store.GPUPowerBoost);
+            var gpuPowerBoost = CreateStepperValue(gpuPowerBoostState, _settings.Store.GPUPowerBoost, maxValueOffset);
 
             var gpuConfigurableTGPState = await GetGPUConfigurableTGPAsync().OrNull().ConfigureAwait(false);
-            var gpuConfigurableTGP = CreateStepperValue(gpuConfigurableTGPState, _settings.Store.GPUConfigurableTGP);
+            var gpuConfigurableTGP = CreateStepperValue(gpuConfigurableTGPState, _settings.Store.GPUConfigurableTGP, maxValueOffset);
 
             var gpuTemperatureLimitState = await GetGPUTemperatureLimitAsync().OrNull().ConfigureAwait(false);
-            var gpuTemperatureLimit = CreateStepperValue(gpuTemperatureLimitState, _settings.Store.GPUTemperatureLimit);
+            var gpuTemperatureLimit = CreateStepperValue(gpuTemperatureLimitState, _settings.Store.GPUTemperatureLimit, maxValueOffset);
 
             var fanTableInfo = await GetFanTableInfoAsync().ConfigureAwait(false);
             var fanFullSpeed = _settings.Store.FanFullSpeed ?? await GetFanFullSpeedAsync().ConfigureAwait(false);
-
-            var maxValueOffset = _settings.Store.MaxValueOffset;
 
             return new GodModeState
             {
@@ -260,9 +260,9 @@ namespace LenovoLegionToolkit.Lib.Controllers
             return new FanTableInfo(fanTableData, fanTable);
         }
 
-        private static StepperValue? CreateStepperValue(StepperValue? state, StepperValue? store)
+        private static StepperValue? CreateStepperValue(StepperValue? state, StepperValue? store, int maxValueOffset)
         {
-            if (!state.HasValue || state.Value.Min == state.Value.Max)
+            if (!state.HasValue || state.Value.Min == state.Value.Max + maxValueOffset)
                 return null;
 
             return new StepperValue(store?.Value ?? state.Value.Value, state.Value.Min, state.Value.Max, state.Value.Step);
