@@ -175,7 +175,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
             slider.TickFrequency = stepperValue.Value.Step;
             slider.Value = stepperValue.Value.Value;
 
-            if (stepperValue.Value.Min == stepperValue.Value.Max)
+            if (stepperValue.Value.Min == stepperValue.Value.Max + maxValueOffset)
                 slider.IsEnabled = false;
         }
 
