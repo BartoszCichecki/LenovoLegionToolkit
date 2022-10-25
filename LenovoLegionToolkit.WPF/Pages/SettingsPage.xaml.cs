@@ -62,7 +62,7 @@ namespace LenovoLegionToolkit.WPF.Pages
 
             _themeComboBox.SetItems(Enum.GetValues<Theme>(), _settings.Store.Theme, t => t.GetDisplayName());
             _accentColor.SetColor(_settings.Store.AccentColor ?? _themeManager.DefaultAccentColor);
-            _autorunToggle.IsChecked = Autorun.IsEnabled;
+            _autorunComboBox.SetItems(Enum.GetValues<AutorunState>(), Autorun.State, t => t.GetDisplayName());
             _minimizeOnCloseToggle.IsChecked = _settings.Store.MinimizeOnClose;
 
             var vantageStatus = await _vantage.GetStatusAsync();
@@ -83,7 +83,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             await loadingTask;
 
             _themeComboBox.Visibility = Visibility.Visible;
-            _autorunToggle.Visibility = Visibility.Visible;
+            _autorunComboBox.Visibility = Visibility.Visible;
             _minimizeOnCloseToggle.Visibility = Visibility.Visible;
             _vantageToggle.Visibility = Visibility.Visible;
             _legionZoneToggle.Visibility = Visibility.Visible;
@@ -131,19 +131,15 @@ namespace LenovoLegionToolkit.WPF.Pages
             _themeManager.Apply();
         }
 
-        private void AutorunToggle_Click(object sender, RoutedEventArgs e)
+        private void AutorunComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (_isRefreshing)
                 return;
 
-            var state = _autorunToggle.IsChecked;
-            if (state is null)
+            if (!_autorunComboBox.TryGetSelectedItem(out AutorunState state))
                 return;
 
-            if (state.Value)
-                Autorun.Enable();
-            else
-                Autorun.Disable();
+            Autorun.Set(state);
         }
 
         private void MinimizeOnCloseToggle_Click(object sender, RoutedEventArgs e)

@@ -13,6 +13,16 @@ namespace LenovoLegionToolkit.Lib
         OnAlways
     }
 
+    public enum AutorunState
+    {
+        [Display(ResourceType = typeof(Resource), Name = "AutorunState_Enabled")]
+        Enabled,
+        [Display(ResourceType = typeof(Resource), Name = "AutorunState_EnabledDelayed")]
+        EnabledDelayed,
+        [Display(ResourceType = typeof(Resource), Name = "AutorunState_Disabled")]
+        Disabled
+    }
+
 
     public enum BatteryState
     {

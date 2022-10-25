@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Security.Principal;
 using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32.TaskScheduler;
@@ -10,7 +11,18 @@ namespace LenovoLegionToolkit.Lib.System
     {
         private const string TaskName = "LenovoLegionToolkit_Autorun_6efcc882-924c-4cbc-8fec-f45c25696f98";
 
-        public static bool IsEnabled => TaskService.Instance.GetTask(TaskName) is not null;
+        public static AutorunState State
+        {
+            get
+            {
+                var task = TaskService.Instance.GetTask(TaskName);
+                if (task is null)
+                    return AutorunState.Disabled;
+
+                var delayed = task.Definition.Triggers.OfType<LogonTrigger>().FirstOrDefault()?.Delay > TimeSpan.Zero;
+                return delayed ? AutorunState.EnabledDelayed : AutorunState.Enabled;
+            }
+        }
 
         public static void Validate()
         {
@@ -51,10 +63,20 @@ namespace LenovoLegionToolkit.Lib.System
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Enabling autorun again...");
 
-            Enable();
+            var delayed = currentTask.Definition.Triggers.OfType<LogonTrigger>().FirstOrDefault()?.Delay > TimeSpan.Zero;
+
+            Enable(delayed);
         }
 
-        public static void Enable()
+        public static void Set(AutorunState state)
+        {
+            if (state == AutorunState.Disabled)
+                Disable();
+            else
+                Enable(state == AutorunState.EnabledDelayed);
+        }
+
+        private static void Enable(bool delayed)
         {
             Disable();
 
@@ -77,7 +99,7 @@ namespace LenovoLegionToolkit.Lib.System
             td.Data = fileVersion;
             td.Principal.UserId = currentUser;
             td.Principal.RunLevel = TaskRunLevel.Highest;
-            td.Triggers.Add(new LogonTrigger { UserId = currentUser, Delay = new TimeSpan(0, 0, 30) });
+            td.Triggers.Add(new LogonTrigger { UserId = currentUser, Delay = new TimeSpan(0, 0, delayed ? 30 : 0) });
             td.Actions.Add($"\"{filename}\"", "--minimized");
             td.Settings.DisallowStartIfOnBatteries = false;
             td.Settings.StopIfGoingOnBatteries = false;
@@ -87,7 +109,7 @@ namespace LenovoLegionToolkit.Lib.System
                 Log.Instance.Trace($"Autorun enabled");
         }
 
-        public static void Disable()
+        private static void Disable()
         {
             try
             {
