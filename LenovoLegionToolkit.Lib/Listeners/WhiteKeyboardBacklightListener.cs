@@ -9,6 +9,11 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         protected override WhiteKeyboardBacklightChanged GetValue(PropertyDataCollection properties) => default;
 
-        protected override Task OnChangedAsync(WhiteKeyboardBacklightChanged value) => Task.CompletedTask;
+        protected override Task OnChangedAsync(WhiteKeyboardBacklightChanged value)
+        {
+            MessagingCenter.Publish(new Notification(NotificationType.WhiteKeyboardBacklight, NotificationDuration.Short));
+
+            return Task.CompletedTask;
+        }
     }
 }

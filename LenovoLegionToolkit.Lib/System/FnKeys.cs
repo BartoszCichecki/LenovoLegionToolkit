@@ -15,7 +15,7 @@ namespace LenovoLegionToolkit.Lib.System
             Registry.SetUWPStartup("LenovoUtility", "LenovoUtilityID", true);
         }
 
-        public async override Task DisableAsync()
+        public override async Task DisableAsync()
         {
             await base.DisableAsync().ConfigureAwait(false);
             Registry.SetUWPStartup("LenovoUtility", "LenovoUtilityID", false);
