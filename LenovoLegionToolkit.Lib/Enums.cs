@@ -106,6 +106,8 @@ namespace LenovoLegionToolkit.Lib
         NumLockOff,
         PowerMode,
         RefreshRate,
+        RGBKeyboardPreset,
+        RGBKeyboardPresetOff,
         TouchpadOn,
         TouchpadOff,
         WhiteKeyboardBacklight
