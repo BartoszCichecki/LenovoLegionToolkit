@@ -30,7 +30,7 @@
             </wpfui:CardControl.Header>
             <ComboBox
                 x:Name="_langComboBox"
-                MinWidth="150"
+                MinWidth="160"
                 Margin="0,0,0,8"
                 SelectionChanged="LangComboBox_SelectionChanged"
                 Visibility="Hidden" />
@@ -42,7 +42,7 @@
             </wpfui:CardControl.Header>
             <ComboBox
                 x:Name="_themeComboBox"
-                MinWidth="150"
+                MinWidth="160"
                 Margin="0,0,0,8"
                 SelectionChanged="ThemeComboBox_SelectionChanged"
                 Visibility="Hidden" />
