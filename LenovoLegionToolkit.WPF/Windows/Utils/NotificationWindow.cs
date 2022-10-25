@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -16,7 +17,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
                 new() { Width = GridLength.Auto, },
                 new() { Width = new(1, GridUnitType.Star) },
             },
-            Margin = new(16, 16, 16, 16),
+            Margin = new(16, 16, 32, 16),
         };
 
         public readonly SymbolIcon _symbolIcon = new()
@@ -41,8 +42,8 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
         public NotificationWindow(SymbolRegular symbol, SymbolRegular? overlaySymbol, string text)
         {
             InitializeStyle();
-            InitializePosition();
             InitializeContent(symbol, overlaySymbol, text);
+            InitializePosition();
 
             MouseDown += (s, e) => Close();
         }
@@ -72,8 +73,10 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
 
         private void InitializePosition()
         {
-            Width = MinWidth = 300;
-            Height = MinHeight = 80;
+            _mainGrid.Measure(new Size(double.PositiveInfinity, 80));
+
+            Width = MinWidth = Math.Max(_mainGrid.DesiredSize.Width, 300);
+            Height = MinHeight = _mainGrid.DesiredSize.Height;
 
             var desktopWorkingArea = SystemParameters.WorkArea;
             Left = desktopWorkingArea.Right - Width - 16;
