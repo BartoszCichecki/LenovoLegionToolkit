@@ -1213,4 +1213,10 @@ Logging will be enabled automatically, if you choose to continue.</value>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
+	<data name="SettingsPage_Notifications_Title" xml:space="preserve">
+		<value>Notifications</value>
+	</data>
+	<data name="SettingsPage_Notifications_Message" xml:space="preserve">
+		<value>Configure which notifications are shown.</value>
+	</data>
 </root>
