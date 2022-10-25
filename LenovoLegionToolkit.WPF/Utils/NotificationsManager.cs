@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Threading;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Settings;
@@ -31,26 +32,54 @@ namespace LenovoLegionToolkit.WPF.Utils
             if (FullscreenHelper.IsAnyApplicationFullscreen())
                 return;
 
+            var allow = notification.Type switch
+            {
+                NotificationType.CapsLockOn => _settings.Store.Notifications.CapsNumLock,
+                NotificationType.CapsLockOff => _settings.Store.Notifications.CapsNumLock,
+                NotificationType.CameraOn => _settings.Store.Notifications.CameraLock,
+                NotificationType.CameraOff => _settings.Store.Notifications.CameraLock,
+                NotificationType.FnLockOn => _settings.Store.Notifications.FnLock,
+                NotificationType.FnLockOff => _settings.Store.Notifications.FnLock,
+                NotificationType.MicrophoneOn => _settings.Store.Notifications.Microphone,
+                NotificationType.MicrophoneOff => _settings.Store.Notifications.Microphone,
+                NotificationType.NumLockOn => _settings.Store.Notifications.CapsNumLock,
+                NotificationType.NumLockOff => _settings.Store.Notifications.CapsNumLock,
+                NotificationType.PowerMode => _settings.Store.Notifications.PowerMode,
+                NotificationType.RefreshRate => _settings.Store.Notifications.RefreshRate,
+                NotificationType.TouchpadOn => _settings.Store.Notifications.TouchpadLock,
+                NotificationType.TouchpadOff => _settings.Store.Notifications.TouchpadLock,
+                NotificationType.WhiteKeyboardBacklight => _settings.Store.Notifications.KeyboardBacklight,
+                _ => throw new ArgumentException(nameof(notification.Type))
+            };
+
+            if (!allow)
+                return;
+
             var symbol = notification.Type switch
             {
                 NotificationType.CapsLockOn => SymbolRegular.KeyboardShiftUppercase24,
                 NotificationType.CapsLockOff => SymbolRegular.KeyboardShiftUppercase24,
                 NotificationType.CameraOn => SymbolRegular.Camera24,
                 NotificationType.CameraOff => SymbolRegular.Camera24,
+                NotificationType.FnLockOn => SymbolRegular.Keyboard24,
+                NotificationType.FnLockOff => SymbolRegular.Keyboard24,
                 NotificationType.MicrophoneOn => SymbolRegular.Mic24,
                 NotificationType.MicrophoneOff => SymbolRegular.Mic24,
                 NotificationType.NumLockOn => SymbolRegular.Keyboard12324,
                 NotificationType.NumLockOff => SymbolRegular.Keyboard12324,
+                NotificationType.PowerMode => SymbolRegular.Gauge24,
                 NotificationType.RefreshRate => SymbolRegular.Desktop24,
                 NotificationType.TouchpadOn => SymbolRegular.Tablet24,
                 NotificationType.TouchpadOff => SymbolRegular.Tablet24,
-                _ => SymbolRegular.Info24,
+                NotificationType.WhiteKeyboardBacklight => SymbolRegular.Keyboard24,
+                _ => throw new ArgumentException(nameof(notification.Type))
             };
 
             SymbolRegular? overlaySymbol = notification.Type switch
             {
                 NotificationType.CapsLockOff => SymbolRegular.Line24,
                 NotificationType.CameraOff => SymbolRegular.Line24,
+                NotificationType.FnLockOff => SymbolRegular.Line24,
                 NotificationType.MicrophoneOff => SymbolRegular.Line24,
                 NotificationType.NumLockOff => SymbolRegular.Line24,
                 NotificationType.TouchpadOff => SymbolRegular.Line24,
@@ -63,14 +92,18 @@ namespace LenovoLegionToolkit.WPF.Utils
                 NotificationType.CapsLockOff => "Caps Lock off",
                 NotificationType.CameraOn => Resource.Notification_CameraOn,
                 NotificationType.CameraOff => Resource.Notification_CameraOff,
+                NotificationType.FnLockOn => "Fn Lock on",
+                NotificationType.FnLockOff => "Fn Lock off",
                 NotificationType.MicrophoneOn => Resource.Notification_MicrophoneOn,
                 NotificationType.MicrophoneOff => Resource.Notification_MicrophoneOff,
                 NotificationType.NumLockOn => "Num Lock on",
                 NotificationType.NumLockOff => "Num Lock off",
-                NotificationType.RefreshRate => string.Format($"{0}", notification.Args),
+                NotificationType.PowerMode => string.Format("{0}", notification.Args),
+                NotificationType.RefreshRate => string.Format("{0}", notification.Args),
                 NotificationType.TouchpadOn => Resource.Notification_TouchpadOn,
                 NotificationType.TouchpadOff => Resource.Notification_TouchpadOff,
-                _ => string.Empty,
+                NotificationType.WhiteKeyboardBacklight => string.Format("Backlight {0}", notification.Args),
+                _ => throw new ArgumentException(nameof(notification.Type))
             };
 
             var closeAfter = notification.Duration switch

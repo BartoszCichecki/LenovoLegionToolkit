@@ -3096,6 +3096,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Configure which notifications are shown..
+        /// </summary>
+        public static string SettingsPage_Notifications_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_Notifications_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notifications.
+        /// </summary>
+        public static string SettingsPage_Notifications_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_Notifications_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Power plans.
         /// </summary>
         public static string SettingsPage_PowerPlans_Title {
