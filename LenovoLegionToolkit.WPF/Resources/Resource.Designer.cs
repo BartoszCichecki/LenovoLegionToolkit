@@ -2158,11 +2158,11 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Camera Lock.
+        ///   Looks up a localized string similar to Camera.
         /// </summary>
-        public static string NotificationsSettingsWindow_CameraLock {
+        public static string NotificationsSettingsWindow_Camera {
             get {
-                return ResourceManager.GetString("NotificationsSettingsWindow_CameraLock", resourceCulture);
+                return ResourceManager.GetString("NotificationsSettingsWindow_Camera", resourceCulture);
             }
         }
         

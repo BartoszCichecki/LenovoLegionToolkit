@@ -54,8 +54,8 @@
 
                 <wpfui:Button
                     Grid.Row="1"
-                    MinWidth="150"
                     Height="32"
+                    MinWidth="150"
                     Margin="0,16,0,16"
                     HorizontalAlignment="Center"
                     Appearance="Primary"
