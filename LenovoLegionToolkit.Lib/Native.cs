@@ -53,10 +53,15 @@ namespace LenovoLegionToolkit.Lib
     internal enum LENOVO_SPECTRUM_OPERATION_TYPE : byte
     {
         ProfileSet1 = 0xC8,
+        GetProfile = 0xCA,
         EffectChange = 0xCB,
         ProfileSet2 = 0xCC,
+        GetBrightness = 0xCD,
         Brightness = 0xCE,
-        AuroraSendBitmap = 0xA1
+        AuroraSendBitmap = 0xA1,
+        State = 0x03,
+        Unknown1 = 0xC6,
+        Unknown2 = 0x04,
     }
 
     internal enum LENOVO_SPECTRUM_EFFECT_TYPE : byte
@@ -162,6 +167,27 @@ namespace LenovoLegionToolkit.Lib
     }
 
     [StructLayout(LayoutKind.Sequential, Size = 960)]
+    internal struct LENOVO_SPECTRUM_GET_BRIGHTNESS
+    {
+        public LENOVO_SPECTRUM_HEADER Header;
+
+        public LENOVO_SPECTRUM_GET_BRIGHTNESS()
+        {
+            Header = new LENOVO_SPECTRUM_HEADER(LENOVO_SPECTRUM_OPERATION_TYPE.GetBrightness, 0xC0);
+        }
+    }
+
+    [StructLayout(LayoutKind.Sequential, Size = 960)]
+    internal struct LENOVO_SPECTRUM_GET_BRIGTHNESS_RESPONSE
+    {
+        public byte ReportId;
+        public LENOVO_SPECTRUM_OPERATION_TYPE Type;
+        public byte Unknown2;
+        public byte Unknown3;
+        public byte Brightness;
+    }
+
+    [StructLayout(LayoutKind.Sequential, Size = 960)]
     internal struct LENOVO_SPECTRUM_SET_BRIGHTHNESS
     {
         public LENOVO_SPECTRUM_HEADER Header;
@@ -172,6 +198,27 @@ namespace LenovoLegionToolkit.Lib
             Header = new(LENOVO_SPECTRUM_OPERATION_TYPE.Brightness, 0xC0);
             Brightness = brightness;
         }
+    }
+
+    [StructLayout(LayoutKind.Sequential, Size = 960)]
+    internal struct LENOVO_SPECTRUM_GET_PROFILE
+    {
+        public LENOVO_SPECTRUM_HEADER Header;
+
+        public LENOVO_SPECTRUM_GET_PROFILE()
+        {
+            Header = new LENOVO_SPECTRUM_HEADER(LENOVO_SPECTRUM_OPERATION_TYPE.GetProfile, 0xC0);
+        }
+    }
+
+    [StructLayout(LayoutKind.Sequential, Size = 960)]
+    internal struct LENOVO_SPECTRUM_GET_PROFILE_RESPONSE
+    {
+        public byte ReportId;
+        public LENOVO_SPECTRUM_OPERATION_TYPE Type;
+        public byte Unknown2;
+        public byte Unknown3;
+        public byte Profile;
     }
 
     [StructLayout(LayoutKind.Sequential, Size = 960)]
@@ -208,7 +255,7 @@ namespace LenovoLegionToolkit.Lib
     internal struct LENOVO_SPECTRUM_STATE
     {
         public byte ReportId;
-        public byte Unknown1;
+        public LENOVO_SPECTRUM_OPERATION_TYPE Type;
         public byte Unknown2;
         public byte Unknown3;
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 191)]
@@ -238,6 +285,63 @@ namespace LenovoLegionToolkit.Lib
             if (result)
             {
                 var str = Marshal.PtrToStructure<LENOVO_SPECTRUM_STATE>(ptr);
+                var keys = str.Data;
+            }
+            else
+            {
+                var errorCode = Marshal.GetLastWin32Error();
+            }
+        }
+
+        public static unsafe void GetBrightness()
+        {
+            var kb = Devices.GetSpectrumRGBKeyboard();
+
+            var getBrightness = new LENOVO_SPECTRUM_GET_BRIGHTNESS();
+            var getBrightnessSize = Marshal.SizeOf<LENOVO_SPECTRUM_GET_BRIGHTNESS>();
+            var ptr1 = Marshal.AllocHGlobal(getBrightnessSize);
+            Marshal.StructureToPtr(getBrightness, ptr1, false);
+
+            var result1 = PInvoke.HidD_SetFeature(kb, ptr1.ToPointer(), (uint)getBrightnessSize);
+
+            var size = Marshal.SizeOf<LENOVO_SPECTRUM_GET_BRIGTHNESS_RESPONSE>();
+            var ptr = Marshal.AllocHGlobal(size);
+            Marshal.Copy(new byte[] { 7 }, 0, ptr, 1);
+
+            var result = PInvoke.HidD_GetFeature(kb, ptr.ToPointer(), (uint)size);
+
+            if (result)
+            {
+                var str = Marshal.PtrToStructure<LENOVO_SPECTRUM_GET_BRIGTHNESS_RESPONSE>(ptr);
+                var brightness = str.Brightness;
+            }
+            else
+            {
+                var errorCode = Marshal.GetLastWin32Error();
+            }
+        }
+
+        public static unsafe void GetProfile()
+        {
+            var kb = Devices.GetSpectrumRGBKeyboard();
+
+            var getBrightness = new LENOVO_SPECTRUM_GET_PROFILE();
+            var getBrightnessSize = Marshal.SizeOf<LENOVO_SPECTRUM_GET_PROFILE>();
+            var ptr1 = Marshal.AllocHGlobal(getBrightnessSize);
+            Marshal.StructureToPtr(getBrightness, ptr1, false);
+
+            var result1 = PInvoke.HidD_SetFeature(kb, ptr1.ToPointer(), (uint)getBrightnessSize);
+
+            var size = Marshal.SizeOf<LENOVO_SPECTRUM_GET_PROFILE_RESPONSE>();
+            var ptr = Marshal.AllocHGlobal(size);
+            Marshal.Copy(new byte[] { 7 }, 0, ptr, 1);
+
+            var result = PInvoke.HidD_GetFeature(kb, ptr.ToPointer(), (uint)size);
+
+            if (result)
+            {
+                var str = Marshal.PtrToStructure<LENOVO_SPECTRUM_GET_PROFILE_RESPONSE>(ptr);
+                var profile = str.Profile;
             }
             else
             {

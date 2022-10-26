@@ -43,6 +43,8 @@ namespace LenovoLegionToolkit.WPF
         private async void Application_Startup(object sender, StartupEventArgs e)
         {
             //SpectrumTest.GetState();
+            //SpectrumTest.GetBrightness();
+            //SpectrumTest.GetProfile();
 
             await LocalizationHelper.SetLanguageAsync();
 
