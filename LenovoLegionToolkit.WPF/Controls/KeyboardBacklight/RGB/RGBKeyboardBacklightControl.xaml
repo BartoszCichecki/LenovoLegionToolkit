@@ -1,13 +1,13 @@
 ﻿<controls:AbstractRefreshingControl
-    x:Class="LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.RGBKeyboardBacklightControl"
+    x:Class="LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.RGB.RGBKeyboardBacklightControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:kb="clr-namespace:LenovoLegionToolkit.WPF.Controls.KeyboardBacklight"
     xmlns:lib="clr-namespace:LenovoLegionToolkit.Lib;assembly=LenovoLegionToolkit.Lib"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
+    xmlns:rgb="clr-namespace:LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.RGB"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     d:DesignWidth="800"
     mc:Ignorable="d">
@@ -82,21 +82,21 @@
             Content="{x:Static resources:Resource.RGBKeyboardBacklightControl_Preset3}"
             Tag="{x:Static lib:RGBKeyboardBacklightPreset.Three}" />
 
-        <kb:RGBKeyboardBrightnessCardControl
+        <rgb:RGBKeyboardBrightnessCardControl
             x:Name="_brightnessControl"
             Grid.Row="2"
             Grid.Column="0"
             Grid.ColumnSpan="4"
             Margin="0,0,8,0"
             OnChanged="CardControl_OnChanged" />
-        <kb:RGBKeyboardEffectCardControl
+        <rgb:RGBKeyboardEffectCardControl
             x:Name="_effectControl"
             Grid.Row="3"
             Grid.Column="0"
             Grid.ColumnSpan="4"
             Margin="0,0,8,0"
             OnChanged="CardControl_OnChanged" />
-        <kb:RGBKeyboardSpeedCardControl
+        <rgb:RGBKeyboardSpeedCardControl
             x:Name="_speedControl"
             Grid.Row="4"
             Grid.Column="0"
@@ -115,10 +115,7 @@
             OnChanged="CardControl_OnChanged">
             <controls:ColorCardControl.ContextMenu>
                 <ContextMenu>
-                    <wpfui:MenuItem
-                        Click="SynchroniseZonesMenuItem_Click"
-                        Header="Synchronise zones"
-                        SymbolIcon="ArrowsBidirectional24" />
+                    <wpfui:MenuItem Click="SynchroniseZonesMenuItem_Click" Header="Synchronise zones" SymbolIcon="ArrowsBidirectional24" />
                 </ContextMenu>
             </controls:ColorCardControl.ContextMenu>
         </controls:ColorCardControl>
@@ -134,10 +131,7 @@
             OnChanged="CardControl_OnChanged">
             <controls:ColorCardControl.ContextMenu>
                 <ContextMenu>
-                    <wpfui:MenuItem
-                        Click="SynchroniseZonesMenuItem_Click"
-                        Header="Synchronise zones"
-                        SymbolIcon="ArrowsBidirectional24" />
+                    <wpfui:MenuItem Click="SynchroniseZonesMenuItem_Click" Header="Synchronise zones" SymbolIcon="ArrowsBidirectional24" />
                 </ContextMenu>
             </controls:ColorCardControl.ContextMenu>
         </controls:ColorCardControl>
@@ -153,10 +147,7 @@
             OnChanged="CardControl_OnChanged">
             <controls:ColorCardControl.ContextMenu>
                 <ContextMenu>
-                    <wpfui:MenuItem
-                        Click="SynchroniseZonesMenuItem_Click"
-                        Header="Synchronise zones"
-                        SymbolIcon="ArrowsBidirectional24" />
+                    <wpfui:MenuItem Click="SynchroniseZonesMenuItem_Click" Header="Synchronise zones" SymbolIcon="ArrowsBidirectional24" />
                 </ContextMenu>
             </controls:ColorCardControl.ContextMenu>
         </controls:ColorCardControl>
@@ -172,10 +163,7 @@
             OnChanged="CardControl_OnChanged">
             <controls:ColorCardControl.ContextMenu>
                 <ContextMenu>
-                    <wpfui:MenuItem
-                        Click="SynchroniseZonesMenuItem_Click"
-                        Header="Synchronise zones"
-                        SymbolIcon="ArrowsBidirectional24" />
+                    <wpfui:MenuItem Click="SynchroniseZonesMenuItem_Click" Header="Synchronise zones" SymbolIcon="ArrowsBidirectional24" />
                 </ContextMenu>
             </controls:ColorCardControl.ContextMenu>
         </controls:ColorCardControl>
