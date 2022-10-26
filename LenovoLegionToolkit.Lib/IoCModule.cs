@@ -69,6 +69,7 @@ namespace LenovoLegionToolkit.Lib
 
             builder.Register<GPUController>();
             builder.Register<CPUBoostModeController>();
+            builder.Register<SpectrumKeyboardBacklightController>();
             builder.Register<RGBKeyboardBacklightController>();
             builder.Register<GodModeController>();
             builder.Register<DisplayBrightnessController>();
