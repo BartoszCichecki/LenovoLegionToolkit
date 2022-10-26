@@ -719,24 +719,91 @@ En serio, ¡tenga cuidado con esta opción!</value>
   <data name="No" xml:space="preserve">
     <value>No</value>
   </data>
+  <data name="Notification_ACAdapterConnected" xml:space="preserve">
+    <value>Adaptador de corriente alterna conectado</value>
+  </data>
+  <data name="Notification_ACAdapterConnectedLowWattage" xml:space="preserve">
+    <value>Adaptador de corriente alterna conectado (bajo consumo)</value>
+  </data>
+  <data name="Notification_ACAdapterDisconnected" xml:space="preserve">
+    <value>Adaptador de corriente alterna desconectado</value>
+  </data>
   <data name="Notification_CameraOff" xml:space="preserve">
-		<value>Cámara apagada</value>
-	</data>
+    <value>Cámara apagada</value>
+  </data>
   <data name="Notification_CameraOn" xml:space="preserve">
-		<value>Cámara encendida</value>
-	</data>
+    <value>Cámara encendida</value>
+  </data>
+  <data name="Notification_CapsLockOff" xml:space="preserve">
+    <value>Bloqueo de mayúsculas desactivado</value>
+  </data>
+  <data name="Notification_CapsLockOn" xml:space="preserve">
+    <value>Bloqueo de mayúsculas activado</value>
+  </data>
+  <data name="Notification_FnLockOff" xml:space="preserve">
+    <value>Bloqueo tecla Fn desactivado</value>
+  </data>
+  <data name="Notification_FnLockOn" xml:space="preserve">
+    <value>Bloqueo tecla Fn activado</value>
+  </data>
   <data name="Notification_MicrophoneOff" xml:space="preserve">
-		<value>Micrófono apagado</value>
-	</data>
+    <value>Micrófono apagado</value>
+  </data>
   <data name="Notification_MicrophoneOn" xml:space="preserve">
-		<value>Micrófono encendido</value>
-	</data>
+    <value>Micrófono encendido</value>
+  </data>
+  <data name="Notification_NumLockOff" xml:space="preserve">
+    <value>Bloqueo numérico desactivado</value>
+  </data>
+  <data name="Notification_NumLockOn" xml:space="preserve">
+    <value>Bloqueo numérico activado</value>
+  </data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
-		<value>Teclado táctil apagado</value>
-	</data>
+    <value>Teclado táctil apagado</value>
+  </data>
   <data name="Notification_TouchpadOn" xml:space="preserve">
-		<value>Teclado táctil encendido</value>
-	</data>
+    <value>Teclado táctil encendido</value>
+  </data>
+  <data name="Notification_WhiteKeyboardBacklight" xml:space="preserve">
+    <value>Retroiluminación {0}</value>
+  </data>
+  <data name="NotificationsSettingsWindow_ACAdapter" xml:space="preserve">
+    <value>Adaptador de corriente alterna</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Camera" xml:space="preserve">
+    <value>Cámara </value>
+  </data>
+  <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
+    <value>Bloqueo de mayúsculas y bloqueo numérico</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
+    <value>Desactivar las notificaciones de las acciones de las teclas Fn como el silenciamiento del micrófono
+Activar esta opción si tiene conflictos con las aplicaciones en pantalla completa.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
+    <value>No mostrar notificaciones</value>
+  </data>
+  <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
+    <value>Bloqueo de tecla Fn</value>
+  </data>
+  <data name="NotificationsSettingsWindow_KeyboardBacklight" xml:space="preserve">
+    <value>Retroalimentación del teclado</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Microphone" xml:space="preserve">
+    <value>Micrófono </value>
+  </data>
+  <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
+    <value>Modo de alimentación </value>
+  </data>
+  <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
+    <value>Tasa de refresco</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
+    <value>Notificaciones</value>
+  </data>
+  <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
+    <value>Bloqueo de teclado táctil </value>
+  </data>
   <data name="OK" xml:space="preserve">
     <value>Aceptar</value>
   </data>
@@ -983,8 +1050,8 @@ Asegúrese primero de que su script se ejecuta correctamente.</value>
     <value>Guardar</value>
   </data>
   <data name="Saving" xml:space="preserve">
-		<value>Guardando...</value>
-	</data>
+    <value>Guardando...</value>
+  </data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
     <value>Cambiar el color característico de la aplicación.</value>
   </data>
@@ -1047,13 +1114,6 @@ Se recomienda reiniciar después de cambiar esta opción.</value>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Desactivar Lenovo Vantage</value>
   </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>Desactivar las notificaciones de las acciones de las teclas Fn como el silenciamiento del micrófono
-Activar esta opción si tiene conflictos con las aplicaciones en pantalla completa.</value>
-  </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
-    <value>No mostrar notificaciones</value>
-  </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Es posible que Legion Zone no se haya activado correctamente</value>
   </data>
@@ -1090,6 +1150,12 @@ Activar esta opción si tiene conflictos con las aplicaciones en pantalla comple
   </data>
   <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
     <value>Minimizar al cerrar</value>
+  </data>
+  <data name="SettingsPage_Notifications_Message" xml:space="preserve">
+    <value>Configurar qué notificaciones se muestran</value>
+  </data>
+  <data name="SettingsPage_Notifications_Title" xml:space="preserve">
+    <value>Notificaciones</value>
   </data>
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Planes de energía</value>
