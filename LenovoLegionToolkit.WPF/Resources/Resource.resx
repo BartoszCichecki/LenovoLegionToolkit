@@ -720,62 +720,62 @@ Seriously, be careful with this option!</value>
     <value>No</value>
   </data>
   <data name="Notification_ACAdapterConnected" xml:space="preserve">
-		<value>AC adapter connected</value>
-	</data>
+    <value>AC adapter connected</value>
+  </data>
   <data name="Notification_ACAdapterConnectedLowWattage" xml:space="preserve">
-		<value>AC adapter connected (Low wattage)</value>
-	</data>
+    <value>AC adapter connected (Low wattage)</value>
+  </data>
   <data name="Notification_ACAdapterDisconnected" xml:space="preserve">
-		<value>AC adapter disconnected</value>
-	</data>
+    <value>AC adapter disconnected</value>
+  </data>
   <data name="Notification_CameraOff" xml:space="preserve">
-		<value>Camera off</value>
-	</data>
+    <value>Camera off</value>
+  </data>
   <data name="Notification_CameraOn" xml:space="preserve">
-		<value>Camera on</value>
-	</data>
+    <value>Camera on</value>
+  </data>
   <data name="Notification_CapsLockOff" xml:space="preserve">
-		<value>Caps Lock off</value>
-	</data>
+    <value>Caps Lock off</value>
+  </data>
   <data name="Notification_CapsLockOn" xml:space="preserve">
-		<value>Caps Lock on</value>
-	</data>
+    <value>Caps Lock on</value>
+  </data>
   <data name="Notification_FnLockOff" xml:space="preserve">
-		<value>Fn Lock off</value>
-	</data>
+    <value>Fn Lock off</value>
+  </data>
   <data name="Notification_FnLockOn" xml:space="preserve">
-		<value>Fn Lock on</value>
-	</data>
+    <value>Fn Lock on</value>
+  </data>
   <data name="Notification_MicrophoneOff" xml:space="preserve">
-		<value>Microphone off</value>
-	</data>
+    <value>Microphone off</value>
+  </data>
   <data name="Notification_MicrophoneOn" xml:space="preserve">
-		<value>Microphone on</value>
-	</data>
+    <value>Microphone on</value>
+  </data>
   <data name="Notification_NumLockOff" xml:space="preserve">
-		<value>Num Lock off</value>
-	</data>
+    <value>Num Lock off</value>
+  </data>
   <data name="Notification_NumLockOn" xml:space="preserve">
-		<value>Num Lock on</value>
-	</data>
+    <value>Num Lock on</value>
+  </data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
-		<value>Touchpad off</value>
-	</data>
+    <value>Touchpad off</value>
+  </data>
   <data name="Notification_TouchpadOn" xml:space="preserve">
-		<value>Touchpad on</value>
-	</data>
+    <value>Touchpad on</value>
+  </data>
   <data name="Notification_WhiteKeyboardBacklight" xml:space="preserve">
-		<value>Backlight {0}</value>
-	</data>
+    <value>Backlight {0}</value>
+  </data>
   <data name="NotificationsSettingsWindow_ACAdapter" xml:space="preserve">
-		<value>AC Adapter</value>
-	</data>
-  <data name="NotificationsSettingsWindow_CameraLock" xml:space="preserve">
-		<value>Camera Lock</value>
-	</data>
+    <value>AC Adapter</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Camera" xml:space="preserve">
+    <value>Camera</value>
+  </data>
   <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
-		<value>Caps Lock and Num Lock</value>
-	</data>
+    <value>Caps Lock and Num Lock</value>
+  </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
     <value>Disables notification for Fn keys actions like microphone mute
 Enable this option if you have conflicts with full screen applications.</value>
@@ -784,26 +784,26 @@ Enable this option if you have conflicts with full screen applications.</value>
     <value>Don't show notifications</value>
   </data>
   <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
-		<value>Fn Lock</value>
-	</data>
+    <value>Fn Lock</value>
+  </data>
   <data name="NotificationsSettingsWindow_KeyboardBacklight" xml:space="preserve">
-		<value>Keyboard Backlight</value>
-	</data>
+    <value>Keyboard Backlight</value>
+  </data>
   <data name="NotificationsSettingsWindow_Microphone" xml:space="preserve">
-		<value>Microphone</value>
-	</data>
+    <value>Microphone</value>
+  </data>
   <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
-		<value>Power Mode</value>
-	</data>
+    <value>Power Mode</value>
+  </data>
   <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
-		<value>Refresh Rate</value>
-	</data>
+    <value>Refresh Rate</value>
+  </data>
   <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
-		<value>Notifications</value>
-	</data>
+    <value>Notifications</value>
+  </data>
   <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
-		<value>Touchpad Lock</value>
-	</data>
+    <value>Touchpad Lock</value>
+  </data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
@@ -1050,8 +1050,8 @@ Make sure that your script runs correctly first.</value>
     <value>Save</value>
   </data>
   <data name="Saving" xml:space="preserve">
-		<value>Saving...</value>
-	</data>
+    <value>Saving...</value>
+  </data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
     <value>Change the accent color of the app.</value>
   </data>
@@ -1151,11 +1151,11 @@ Restart is recommended after changing this option.</value>
     <value>Minimize on close</value>
   </data>
   <data name="SettingsPage_Notifications_Message" xml:space="preserve">
-		<value>Configure which notifications are shown.</value>
-	</data>
+    <value>Configure which notifications are shown.</value>
+  </data>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
-		<value>Notifications</value>
-	</data>
+    <value>Notifications</value>
+  </data>
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Power plans</value>
   </data>
