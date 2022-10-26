@@ -70,7 +70,10 @@ namespace LenovoLegionToolkit.Lib.Controllers
                         Log.Instance.Trace($"Taking ownership...");
 
 #if !MOCK_RGB
-                    await WMI.CallAsync("ROOT\\WMI", $"SELECT * FROM LENOVO_GAMEZONE_DATA", "SetLightControlOwner", new() { { "Data", enable ? 1 : 0 } }).ConfigureAwait(false);
+                    await WMI.CallAsync("ROOT\\WMI",
+                        $"SELECT * FROM LENOVO_GAMEZONE_DATA",
+                        "SetLightControlOwner",
+                        new() { { "Data", enable ? 1 : 0 } }).ConfigureAwait(false);
 #endif
 
                     if (Log.Instance.IsTraceEnabled)
