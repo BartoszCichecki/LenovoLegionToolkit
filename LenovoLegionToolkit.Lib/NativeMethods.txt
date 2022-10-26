@@ -1,5 +1,10 @@
 ﻿WM_DEVICECHANGE
+WM_KEYUP
 WM_POWERBROADCAST
+
+HC_ACTION
+
+KBDLLHOOKSTRUCT
 
 BATTERY_INFORMATION
 BATTERY_QUERY_INFORMATION 
@@ -72,7 +77,10 @@ RegisterWindowMessage
 UnregisterDeviceNotification
 UnregisterPowerSettingNotification
 
+CallNextHookEx
 GetForegroundWindow
 GetDesktopWindow
 GetShellWindow
 GetWindowRect
+SetWindowsHookEx
+UnhookWindowsHookEx

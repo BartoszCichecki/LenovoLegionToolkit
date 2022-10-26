@@ -719,6 +719,24 @@ Serios, aveți grijă cu această opțiune!</value>
   <data name="No" xml:space="preserve">
     <value>Nu</value>
   </data>
+  <data name="Notification_CameraOff" xml:space="preserve">
+		<value>Cameră oprită</value>
+	</data>
+  <data name="Notification_CameraOn" xml:space="preserve">
+		<value>Cameră pornită</value>
+	</data>
+  <data name="Notification_MicrophoneOff" xml:space="preserve">
+		<value>Microfon oprit</value>
+	</data>
+  <data name="Notification_MicrophoneOn" xml:space="preserve">
+		<value>Microfon pornit</value>
+	</data>
+  <data name="Notification_TouchpadOff" xml:space="preserve">
+		<value>Touchpad oprit</value>
+	</data>
+  <data name="Notification_TouchpadOn" xml:space="preserve">
+		<value>Touchpad pornit</value>
+	</data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
@@ -964,6 +982,9 @@ Asigurați-vă mai întâi că scriptul rulează corect.</value>
   <data name="Save" xml:space="preserve">
     <value>Salvare</value>
   </data>
+  <data name="Saving" xml:space="preserve">
+		<value>Se salvează...</value>
+	</data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
     <value>Schimbați culoarea de accent a aplicației.</value>
   </data>
@@ -1026,11 +1047,11 @@ Se recomandă repornirea după modificarea acestei opțiuni.</value>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Dezactivare Lenovo Vantage</value>
   </data>
-  <data name="SettingsPage_DontShowNotifications_Message" xml:space="preserve">
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
     <value>Dezactivează notificarea pentru acțiunile tastelor Fn, cum ar fi dezactivarea sunetului microfonului.
 Activați această opțiune dacă aveți conflicte cu aplicațiile pe ecran complet.</value>
   </data>
-  <data name="SettingsPage_DontShowNotifications_Title" xml:space="preserve">
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Nu afișa notificări</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
