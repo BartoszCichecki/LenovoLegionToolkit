@@ -168,7 +168,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
         }
 
-        public async Task SetNextPresetAsync()
+        public async Task<RGBKeyboardBacklightPreset> SetNextPresetAsync()
         {
             using (await _ioLock.LockAsync().ConfigureAwait(false))
             {
@@ -195,6 +195,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
                     str = Convert(state.Presets[newPreset]);
 
                 await SendToDevice(str).ConfigureAwait(false);
+
+                return newPreset;
             }
         }
 

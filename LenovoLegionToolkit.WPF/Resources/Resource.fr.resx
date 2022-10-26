@@ -1016,11 +1016,11 @@ Restart is recommended after changing this option.</value>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Disable Lenovo Vantage</value>
   </data>
-  <data name="SettingsPage_DontShowNotifications_Message" xml:space="preserve">
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
     <value>Disables notification for Fn keys actions like microphone mute
 Enable this option if you have conflicts with full screen applications.</value>
   </data>
-  <data name="SettingsPage_DontShowNotifications_Title" xml:space="preserve">
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Don't show notifications</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">

@@ -68,6 +68,19 @@ namespace LenovoLegionToolkit.Lib.Listeners
             }
 
             Changed?.Invoke(this, EventArgs.Empty);
+
+            switch (newState)
+            {
+                case PowerAdapterStatus.Connected:
+                    MessagingCenter.Publish(new Notification(NotificationType.ACAdapterConnected, NotificationDuration.Short));
+                    break;
+                case PowerAdapterStatus.ConnectedLowWattage:
+                    MessagingCenter.Publish(new Notification(NotificationType.ACAdapterConnectedLowWattage, NotificationDuration.Short));
+                    break;
+                case PowerAdapterStatus.Disconnected:
+                    MessagingCenter.Publish(new Notification(NotificationType.ACAdapterDisconnected, NotificationDuration.Short));
+                    break;
+            }
         }
 
         private async Task RestoreRGBKeyboardState(PowerModes mode)

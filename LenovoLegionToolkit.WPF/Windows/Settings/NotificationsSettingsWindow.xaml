@@ -1,0 +1,153 @@
+﻿<local:BaseWindow
+    x:Class="LenovoLegionToolkit.WPF.Windows.Settings.NotificationsSettingsWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
+    xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
+    xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Title="{x:Static resources:Resource.NotificationsSettingsWindow_Title}"
+    MinWidth="500"
+    MaxWidth="500"
+    SizeToContent="Height">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <wpfui:TitleBar
+            x:Name="_titleBar"
+            Grid.Row="0"
+            CanMaximize="false"
+            ShowMaximize="false"
+            ShowMinimize="false"
+            UseSnapLayout="false" />
+
+        <Grid
+            Grid.Row="0"
+            Height="24"
+            Margin="12,8,12,8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock
+                x:Name="_title"
+                Grid.Column="0"
+                VerticalAlignment="Center"
+                FontSize="12"
+                IsHitTestVisible="False"
+                Text="{x:Static resources:Resource.NotificationsSettingsWindow_Title}" />
+        </Grid>
+
+        <wpfui:DynamicScrollViewer Grid.Row="1" Margin="12,0,0,0">
+            <StackPanel Margin="0,0,16,0">
+
+                <wpfui:CardControl Margin="0,0,0,24">
+                    <wpfui:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_DontShowNotifications_Title}" Subtitle="{x:Static resources:Resource.NotificationsSettingsWindow_DontShowNotifications_Message}" />
+                    </wpfui:CardControl.Header>
+                    <wpfui:ToggleSwitch
+                        x:Name="_dontShowNotificationsToggle"
+                        Margin="0,0,0,8"
+                        Click="DontShowNotificationsToggle_Click" />
+                </wpfui:CardControl>
+
+                <wpfui:CardControl x:Name="_capsNumLockCard" Margin="0,0,0,8">
+                    <wpfui:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_CapsAndNumLock}" />
+                    </wpfui:CardControl.Header>
+                    <wpfui:ToggleSwitch
+                        x:Name="_capsNumLockToggle"
+                        Margin="0,0,0,8"
+                        Click="CapsNumLockToggle_Click" />
+                </wpfui:CardControl>
+
+                <wpfui:CardControl x:Name="_fnLockCard" Margin="0,0,0,8">
+                    <wpfui:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_FnLock}" />
+                    </wpfui:CardControl.Header>
+                    <wpfui:ToggleSwitch
+                        x:Name="_fnLockToggle"
+                        Margin="0,0,0,8"
+                        Click="FnLockToggle_Click" />
+                </wpfui:CardControl>
+
+                <wpfui:CardControl x:Name="_touchpadLockCard" Margin="0,0,0,8">
+                    <wpfui:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_TouchpadLock}" />
+                    </wpfui:CardControl.Header>
+                    <wpfui:ToggleSwitch
+                        x:Name="_touchpadLockToggle"
+                        Margin="0,0,0,8"
+                        Click="TouchpadLockToggle_Click" />
+                </wpfui:CardControl>
+
+                <wpfui:CardControl x:Name="_keyboardBacklightCard" Margin="0,0,0,24">
+                    <wpfui:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_KeyboardBacklight}" />
+                    </wpfui:CardControl.Header>
+                    <wpfui:ToggleSwitch
+                        x:Name="_keyboardBacklightToggle"
+                        Margin="0,0,0,8"
+                        Click="KeyboardBacklightToggle_Click" />
+                </wpfui:CardControl>
+
+                <wpfui:CardControl x:Name="_cameraLockCard" Margin="0,0,0,8">
+                    <wpfui:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_Camera}" />
+                    </wpfui:CardControl.Header>
+                    <wpfui:ToggleSwitch
+                        x:Name="_cameraLockToggle"
+                        Margin="0,0,0,8"
+                        Click="CameraLockToggle_Click" />
+                </wpfui:CardControl>
+
+                <wpfui:CardControl x:Name="_microphoneCard" Margin="0,0,0,24">
+                    <wpfui:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_Microphone}" />
+                    </wpfui:CardControl.Header>
+                    <wpfui:ToggleSwitch
+                        x:Name="_microphoneToggle"
+                        Margin="0,0,0,8"
+                        Click="MicrophoneToggle_Click" />
+                </wpfui:CardControl>
+
+                <wpfui:CardControl x:Name="_powerModeCard" Margin="0,0,0,8">
+                    <wpfui:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_PowerMode}" />
+                    </wpfui:CardControl.Header>
+                    <wpfui:ToggleSwitch
+                        x:Name="_powerModeToggle"
+                        Margin="0,0,0,8"
+                        Click="PowerModeToggle_Click" />
+                </wpfui:CardControl>
+
+                <wpfui:CardControl x:Name="_refreshRateCard" Margin="0,0,0,24">
+                    <wpfui:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_RefreshRate}" />
+                    </wpfui:CardControl.Header>
+                    <wpfui:ToggleSwitch
+                        x:Name="_refreshRateToggle"
+                        Margin="0,0,0,8"
+                        Click="RefreshRateToggle_Click" />
+                </wpfui:CardControl>
+
+                <wpfui:CardControl x:Name="_acAdapterCard" Margin="0,0,0,8">
+                    <wpfui:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_ACAdapter}" />
+                    </wpfui:CardControl.Header>
+                    <wpfui:ToggleSwitch
+                        x:Name="_acAdapterToggle"
+                        Margin="0,0,0,8"
+                        Click="ACAdapterToggle_Click" />
+                </wpfui:CardControl>
+
+            </StackPanel>
+        </wpfui:DynamicScrollViewer>
+
+    </Grid>
+</local:BaseWindow>

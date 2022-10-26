@@ -719,6 +719,24 @@ Sério, cuidado com essa opção!</value>
   <data name="No" xml:space="preserve">
     <value>Não</value>
   </data>
+  <data name="Notification_CameraOff" xml:space="preserve">
+		<value>Câmera desligada</value>
+	</data>
+  <data name="Notification_CameraOn" xml:space="preserve">
+		<value>Câmera ligada</value>
+	</data>
+  <data name="Notification_MicrophoneOff" xml:space="preserve">
+		<value>Microfone desligado</value>
+	</data>
+  <data name="Notification_MicrophoneOn" xml:space="preserve">
+		<value>Microfone ligado</value>
+	</data>
+  <data name="Notification_TouchpadOff" xml:space="preserve">
+		<value>Touchpad desligado</value>
+	</data>
+  <data name="Notification_TouchpadOn" xml:space="preserve">
+		<value>Touchpad ligado</value>
+	</data>
   <data name="OK" xml:space="preserve">
     <value>Aceitar</value>
   </data>
@@ -964,6 +982,9 @@ Certifique-se de que seu script seja executado corretamente primeiro.</value>
   <data name="Save" xml:space="preserve">
     <value>Salvar</value>
   </data>
+  <data name="Saving" xml:space="preserve">
+		<value>Salvando...</value>
+	</data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
     <value>Alterar o tema e as cores do aplicativo.</value>
   </data>
@@ -1026,11 +1047,11 @@ O reinicialização é recomendada após alterar esta opção.</value>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Desativar o Lenovo Vantage</value>
   </data>
-  <data name="SettingsPage_DontShowNotifications_Message" xml:space="preserve">
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
     <value>Desativar as notificações para ações das teclas Fn, como silenciar o microfone
 Ative esta opção se você tiver conflitos com aplicativos de tela inteira.</value>
   </data>
-  <data name="SettingsPage_DontShowNotifications_Title" xml:space="preserve">
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Não exibir notificações</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">

@@ -719,6 +719,24 @@ En serio, ¡tenga cuidado con esta opción!</value>
   <data name="No" xml:space="preserve">
     <value>No</value>
   </data>
+  <data name="Notification_CameraOff" xml:space="preserve">
+		<value>Cámara apagada</value>
+	</data>
+  <data name="Notification_CameraOn" xml:space="preserve">
+		<value>Cámara encendida</value>
+	</data>
+  <data name="Notification_MicrophoneOff" xml:space="preserve">
+		<value>Micrófono apagado</value>
+	</data>
+  <data name="Notification_MicrophoneOn" xml:space="preserve">
+		<value>Micrófono encendido</value>
+	</data>
+  <data name="Notification_TouchpadOff" xml:space="preserve">
+		<value>Teclado táctil apagado</value>
+	</data>
+  <data name="Notification_TouchpadOn" xml:space="preserve">
+		<value>Teclado táctil encendido</value>
+	</data>
   <data name="OK" xml:space="preserve">
     <value>Aceptar</value>
   </data>
@@ -964,6 +982,9 @@ Asegúrese primero de que su script se ejecuta correctamente.</value>
   <data name="Save" xml:space="preserve">
     <value>Guardar</value>
   </data>
+  <data name="Saving" xml:space="preserve">
+		<value>Guardando...</value>
+	</data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
     <value>Cambiar el color característico de la aplicación.</value>
   </data>
@@ -1026,11 +1047,11 @@ Se recomienda reiniciar después de cambiar esta opción.</value>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Desactivar Lenovo Vantage</value>
   </data>
-  <data name="SettingsPage_DontShowNotifications_Message" xml:space="preserve">
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
     <value>Desactivar las notificaciones de las acciones de las teclas Fn como el silenciamiento del micrófono
 Activar esta opción si tiene conflictos con las aplicaciones en pantalla completa.</value>
   </data>
-  <data name="SettingsPage_DontShowNotifications_Title" xml:space="preserve">
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>No mostrar notificaciones</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">

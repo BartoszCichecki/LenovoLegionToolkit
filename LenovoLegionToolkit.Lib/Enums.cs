@@ -13,6 +13,16 @@ namespace LenovoLegionToolkit.Lib
         OnAlways
     }
 
+    public enum AutorunState
+    {
+        [Display(ResourceType = typeof(Resource), Name = "AutorunState_Enabled")]
+        Enabled,
+        [Display(ResourceType = typeof(Resource), Name = "AutorunState_EnabledDelayed")]
+        EnabledDelayed,
+        [Display(ResourceType = typeof(Resource), Name = "AutorunState_Disabled")]
+        Disabled
+    }
+
 
     public enum BatteryState
     {
@@ -94,16 +104,29 @@ namespace LenovoLegionToolkit.Lib
 
     public enum NotificationType
     {
-        MicrophoneOff,
-        MicrophoneOn,
-        RefreshRate,
-        TouchpadOn,
-        TouchpadOff,
+        ACAdapterConnected,
+        ACAdapterConnectedLowWattage,
+        ACAdapterDisconnected,
         CameraOn,
         CameraOff,
+        CapsLockOn,
+        CapsLockOff,
+        FnLockOn,
+        FnLockOff,
+        MicrophoneOff,
+        MicrophoneOn,
+        NumLockOn,
+        NumLockOff,
+        PowerMode,
+        RefreshRate,
+        RGBKeyboardPreset,
+        RGBKeyboardPresetOff,
         SpectrumBacklightOn,
         SpectrumBacklightOff,
-        SpectrumBacklightPreset
+        SpectrumBacklightPreset,
+        TouchpadOn,
+        TouchpadOff,
+        WhiteKeyboardBacklight
     }
 
     public enum OS
@@ -206,7 +229,6 @@ namespace LenovoLegionToolkit.Lib
 
     public enum SpecialKey
     {
-        Unknown = 0,
         Fn_F9 = 1,
         Fn_LockOn = 2,
         Fn_LockOff = 3,
