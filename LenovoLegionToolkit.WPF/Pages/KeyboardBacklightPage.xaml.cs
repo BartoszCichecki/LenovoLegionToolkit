@@ -17,6 +17,10 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         public static async Task<bool> IsSupportedAsync()
         {
+            var spectrumController = IoCContainer.Resolve<SpectrumKeyboardBacklightController>();
+            if (spectrumController.IsSupported())
+                return true;
+
             var rgbController = IoCContainer.Resolve<RGBKeyboardBacklightController>();
             if (rgbController.IsSupported())
                 return true;
@@ -35,14 +39,16 @@ namespace LenovoLegionToolkit.WPF.Pages
         private async void KeyboardBacklightPage_Loaded(object sender, RoutedEventArgs e)
         {
             await Task.WhenAll(
+                _spectrumKeyboardBacklightControl.FinishedLoadingTask,
                 _rgbKeyboardBacklightControl.FinishedLoadingTask,
                 _whiteKeyboardBacklightControl.FinishedLoadingTask,
                 Task.Delay(1000)
             );
 
+            var spectrum = _spectrumKeyboardBacklightControl.Visibility == Visibility.Visible;
             var rgb = _rgbKeyboardBacklightControl.Visibility == Visibility.Visible;
             var white = _whiteKeyboardBacklightControl.Visibility == Visibility.Visible;
-            _noKeyboardsText.Visibility = (rgb || white) ? Visibility.Collapsed : Visibility.Visible;
+            _noKeyboardsText.Visibility = spectrum || rgb || white ? Visibility.Collapsed : Visibility.Visible;
 
             _loader.IsLoading = false;
         }
