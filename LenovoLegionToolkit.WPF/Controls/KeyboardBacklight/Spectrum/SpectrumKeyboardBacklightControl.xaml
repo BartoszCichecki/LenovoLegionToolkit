@@ -6,10 +6,59 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:spectrum="clr-namespace:LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum"
+    xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <Grid>
-        <spectrum:SpectrumDevice />
-    </Grid>
+    <StackPanel Margin="0,0,8,0">
+
+        <wpfui:CardControl Margin="0,0,0,8">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="Backlight" />
+            </wpfui:CardControl.Header>
+            <wpfui:CardControl.Content>
+                <ComboBox MinWidth="150" />
+            </wpfui:CardControl.Content>
+        </wpfui:CardControl>
+
+        <wpfui:CardControl Margin="0,0,0,8">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="Profile" />
+            </wpfui:CardControl.Header>
+            <wpfui:CardControl.Content>
+                <ComboBox MinWidth="150" />
+            </wpfui:CardControl.Content>
+        </wpfui:CardControl>
+
+        <spectrum:SpectrumDevice x:Name="_device" HorizontalAlignment="Center" Margin="0,24,0,24">
+            <spectrum:SpectrumDevice.LayoutTransform>
+                <ScaleTransform ScaleX="2" ScaleY="2" />
+            </spectrum:SpectrumDevice.LayoutTransform>
+        </spectrum:SpectrumDevice>
+
+        <wpfui:Button Icon="Add24" Content="Add effect" HorizontalAlignment="Right" Appearance="Primary" Margin="0,0,0,8" />
+
+        <StackPanel Margin="0,0,0,8">
+
+            <wpfui:CardControl Margin="0,0,0,8">
+                <wpfui:CardControl.Header>
+                    <controls:CardHeaderControl Title="Effect 1" />
+                </wpfui:CardControl.Header>
+                <wpfui:CardControl.Content>
+                    <wpfui:Button Icon="Delete24" />
+                </wpfui:CardControl.Content>
+            </wpfui:CardControl>
+
+            <wpfui:CardControl Margin="0,0,0,8">
+                <wpfui:CardControl.Header>
+                    <controls:CardHeaderControl Title="Effect 2" />
+                </wpfui:CardControl.Header>
+                <wpfui:CardControl.Content>
+                    <wpfui:Button Icon="Delete24" />
+                </wpfui:CardControl.Content>
+            </wpfui:CardControl>
+
+        </StackPanel>
+
+    </StackPanel>
 </controls:AbstractRefreshingControl>
