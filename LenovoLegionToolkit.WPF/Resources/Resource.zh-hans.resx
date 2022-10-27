@@ -724,24 +724,91 @@
   <data name="No" xml:space="preserve">
     <value>否</value>
   </data>
+  <data name="Notification_ACAdapterConnected" xml:space="preserve">
+    <value>充电器已插入</value>
+  </data>
+  <data name="Notification_ACAdapterConnectedLowWattage" xml:space="preserve">
+    <value>充电器已插入（低功率）</value>
+  </data>
+  <data name="Notification_ACAdapterDisconnected" xml:space="preserve">
+    <value>充电器已拔出</value>
+  </data>
   <data name="Notification_CameraOff" xml:space="preserve">
-		<value>摄像头已关闭</value>
-	</data>
+    <value>摄像头已关闭</value>
+  </data>
   <data name="Notification_CameraOn" xml:space="preserve">
-		<value>摄像头已开启</value>
-	</data>
+    <value>摄像头已开启</value>
+  </data>
+  <data name="Notification_CapsLockOff" xml:space="preserve">
+    <value>Caps Lock 关</value>
+  </data>
+  <data name="Notification_CapsLockOn" xml:space="preserve">
+    <value>Caps Lock 开</value>
+  </data>
+  <data name="Notification_FnLockOff" xml:space="preserve">
+    <value>锁定Fn键 关</value>
+  </data>
+  <data name="Notification_FnLockOn" xml:space="preserve">
+    <value>锁定Fn键 开</value>
+  </data>
   <data name="Notification_MicrophoneOff" xml:space="preserve">
-		<value>麦克风已关闭</value>
-	</data>
+    <value>麦克风已关闭</value>
+  </data>
   <data name="Notification_MicrophoneOn" xml:space="preserve">
-		<value>麦克风已开启</value>
-	</data>
+    <value>麦克风已开启</value>
+  </data>
+  <data name="Notification_NumLockOff" xml:space="preserve">
+    <value>Num Lock 关</value>
+  </data>
+  <data name="Notification_NumLockOn" xml:space="preserve">
+    <value>Num Lock 开</value>
+  </data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
-		<value>触摸板已关闭</value>
-	</data>
+    <value>触摸板已关闭</value>
+  </data>
   <data name="Notification_TouchpadOn" xml:space="preserve">
-		<value>触摸板已开启</value>
-	</data>
+    <value>触摸板已开启</value>
+  </data>
+  <data name="Notification_WhiteKeyboardBacklight" xml:space="preserve">
+    <value>背光 {0}</value>
+  </data>
+  <data name="NotificationsSettingsWindow_ACAdapter" xml:space="preserve">
+    <value>充电器</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Camera" xml:space="preserve">
+    <value>摄像头</value>
+  </data>
+  <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
+    <value>Caps Lock 和 Num Lock</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
+    <value>禁用麦克风静音等Fn键操作的弹窗
+如果弹窗与全屏应用有冲突，请启用此选项。</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
+    <value>不要显示弹窗</value>
+  </data>
+  <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
+    <value>锁定Fn键</value>
+  </data>
+  <data name="NotificationsSettingsWindow_KeyboardBacklight" xml:space="preserve">
+    <value>键盘背光</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Microphone" xml:space="preserve">
+    <value>麦克风</value>
+  </data>
+  <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
+    <value>性能模式</value>
+  </data>
+  <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
+    <value>刷新率</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
+    <value>提示弹窗</value>
+  </data>
+  <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
+    <value>触摸板锁定</value>
+  </data>
   <data name="OK" xml:space="preserve">
     <value>是</value>
   </data>
@@ -990,8 +1057,8 @@
     <value>保存</value>
   </data>
   <data name="Saving" xml:space="preserve">
-		<value>保存中...</value>
-	</data>
+    <value>保存中...</value>
+  </data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
     <value>改变应用的主题色。</value>
   </data>
@@ -1054,13 +1121,6 @@
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>禁用Lenovo Vantage</value>
   </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>禁用麦克风静音等Fn键操作的弹窗
-如果弹窗与全屏应用有冲突，请启用此选项。</value>
-  </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
-    <value>不要显示弹窗</value>
-  </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone可能没有被正确启用。</value>
   </data>
@@ -1096,6 +1156,12 @@
   </data>
   <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
     <value>关闭时最小化</value>
+  </data>
+  <data name="SettingsPage_Notifications_Message" xml:space="preserve">
+    <value>选择显示哪些通知弹窗。</value>
+  </data>
+  <data name="SettingsPage_Notifications_Title" xml:space="preserve">
+    <value>提示弹窗</value>
   </data>
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>性能计划</value>
