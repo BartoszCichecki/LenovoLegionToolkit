@@ -67,6 +67,15 @@
   <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
     <value>Activat, doar in mod repaus</value>
   </data>
+  <data name="AutorunState_Disabled" xml:space="preserve">
+		<value>Dezactivat</value>
+	</data>
+  <data name="AutorunState_Enabled" xml:space="preserve">
+		<value>Activat</value>
+	</data>
+  <data name="AutorunState_EnabledDelayed" xml:space="preserve">
+		<value>Activat, cu întârziere</value>
+	</data>
   <data name="BatteryState_Conservation" xml:space="preserve">
     <value>Conservare</value>
   </data>
