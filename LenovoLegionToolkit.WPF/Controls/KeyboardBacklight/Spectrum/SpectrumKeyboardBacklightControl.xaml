@@ -6,37 +6,143 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:spectrum="clr-namespace:LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
     <StackPanel Margin="0,0,8,0">
 
-        <wpfui:CardControl Margin="0,0,0,8">
+        <wpfui:CardControl Margin="0,0,0,24">
             <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="Backlight" />
             </wpfui:CardControl.Header>
             <wpfui:CardControl.Content>
-                <ComboBox MinWidth="150" />
+                <Slider
+                    x:Name="_brightnessSlider"
+                    Width="200"
+                    IsSnapToTickEnabled="True"
+                    Maximum="9"
+                    Minimum="0"
+                    TickFrequency="1"
+                    TickPlacement="BottomRight"
+                    ValueChanged="BrightnessSlider_OnValueChanged" />
             </wpfui:CardControl.Content>
         </wpfui:CardControl>
 
-        <wpfui:CardControl Margin="0,0,0,8">
-            <wpfui:CardControl.Header>
-                <controls:CardHeaderControl Title="Profile" />
-            </wpfui:CardControl.Header>
-            <wpfui:CardControl.Content>
-                <ComboBox MinWidth="150" />
-            </wpfui:CardControl.Content>
-        </wpfui:CardControl>
+        <Grid
+            Height="36"
+            Margin="0,0,0,48"
+            HorizontalAlignment="Stretch">
 
-        <spectrum:SpectrumDevice x:Name="_device" HorizontalAlignment="Center" Margin="0,24,0,24">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="8" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="8" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="8" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="8" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="8" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.Resources>
+                <Style BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="RadioButton" />
+            </Grid.Resources>
+
+            <RadioButton
+                x:Name="_profileButton1"
+                Grid.Column="0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Click="ProfileButton_OnClick"
+                Content="1"
+                GroupName="profile">
+                <RadioButton.Tag>
+                    <system:Int32>1</system:Int32>
+                </RadioButton.Tag>
+            </RadioButton>
+            <RadioButton
+                x:Name="_profileButton2"
+                Grid.Column="2"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Click="ProfileButton_OnClick"
+                Content="2"
+                GroupName="profile">
+                <RadioButton.Tag>
+                    <system:Int32>2</system:Int32>
+                </RadioButton.Tag>
+            </RadioButton>
+            <RadioButton
+                x:Name="_profileButton3"
+                Grid.Column="4"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Click="ProfileButton_OnClick"
+                Content="3"
+                GroupName="profile">
+                <RadioButton.Tag>
+                    <system:Int32>3</system:Int32>
+                </RadioButton.Tag>
+            </RadioButton>
+            <RadioButton
+                x:Name="_profileButton4"
+                Grid.Column="6"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Click="ProfileButton_OnClick"
+                Content="4"
+                GroupName="profile">
+                <RadioButton.Tag>
+                    <system:Int32>4</system:Int32>
+                </RadioButton.Tag>
+            </RadioButton>
+            <RadioButton
+                x:Name="_profileButton5"
+                Grid.Column="8"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Click="ProfileButton_OnClick"
+                Content="5"
+                GroupName="profile">
+                <RadioButton.Tag>
+                    <system:Int32>5</system:Int32>
+                </RadioButton.Tag>
+            </RadioButton>
+            <RadioButton
+                x:Name="_profileButton6"
+                Grid.Column="10"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Click="ProfileButton_OnClick"
+                Content="6"
+                GroupName="profile">
+                <RadioButton.Tag>
+                    <system:Int32>6</system:Int32>
+                </RadioButton.Tag>
+            </RadioButton>
+
+        </Grid>
+
+        <spectrum:SpectrumDevice
+            x:Name="_device"
+            Margin="0,0,0,24"
+            HorizontalAlignment="Center">
             <spectrum:SpectrumDevice.LayoutTransform>
                 <ScaleTransform ScaleX="2" ScaleY="2" />
             </spectrum:SpectrumDevice.LayoutTransform>
         </spectrum:SpectrumDevice>
 
-        <wpfui:Button Icon="Add24" Content="Add effect" HorizontalAlignment="Right" Appearance="Primary" Margin="0,0,0,8" />
+        <wpfui:Button
+            Margin="0,0,0,8"
+            HorizontalAlignment="Right"
+            Appearance="Primary"
+            Content="Add effect"
+            Icon="Add24" />
 
         <StackPanel Margin="0,0,0,8">
 

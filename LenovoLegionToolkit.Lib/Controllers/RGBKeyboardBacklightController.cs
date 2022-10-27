@@ -18,9 +18,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 {
     public class RGBKeyboardBacklightController
     {
-        public bool ForceDisable { get; set; } = false;
-
-        private readonly AsyncLock _ioLock = new();
+        private static readonly AsyncLock IoLock = new();
 
         private readonly RGBKeyboardSettings _settings;
 
@@ -36,6 +34,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 return Devices.GetRGBKeyboard();
             }
         }
+        public bool ForceDisable { get; set; }
 
         public RGBKeyboardBacklightController(RGBKeyboardSettings settings, Vantage vantage)
         {
@@ -54,7 +53,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         public async Task SetLightControlOwnerAsync(bool enable, bool restorePreset = false)
         {
-            using (await _ioLock.LockAsync().ConfigureAwait(false))
+            using (await IoLock.LockAsync().ConfigureAwait(false))
             {
                 try
                 {
@@ -102,7 +101,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         public async Task<RGBKeyboardBacklightState> GetStateAsync()
         {
-            using (await _ioLock.LockAsync().ConfigureAwait(false))
+            using (await IoLock.LockAsync().ConfigureAwait(false))
             {
 #if !MOCK_RGB
                 var handle = DriverHandle;
@@ -118,7 +117,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         public async Task SetStateAsync(RGBKeyboardBacklightState state)
         {
-            using (await _ioLock.LockAsync().ConfigureAwait(false))
+            using (await IoLock.LockAsync().ConfigureAwait(false))
             {
 #if !MOCK_RGB
                 var handle = DriverHandle;
@@ -145,7 +144,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         public async Task SetPresetAsync(RGBKeyboardBacklightPreset preset)
         {
-            using (await _ioLock.LockAsync().ConfigureAwait(false))
+            using (await IoLock.LockAsync().ConfigureAwait(false))
             {
 #if !MOCK_RGB
                 var handle = DriverHandle;
@@ -173,7 +172,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         public async Task<RGBKeyboardBacklightPreset> SetNextPresetAsync()
         {
-            using (await _ioLock.LockAsync().ConfigureAwait(false))
+            using (await IoLock.LockAsync().ConfigureAwait(false))
             {
 #if !MOCK_RGB
                 var handle = DriverHandle;
@@ -205,7 +204,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         private async Task SetCurrentPresetAsync()
         {
-            using (await _ioLock.LockAsync().ConfigureAwait(false))
+            using (await IoLock.LockAsync().ConfigureAwait(false))
             {
 #if !MOCK_RGB
                 var handle = DriverHandle;
