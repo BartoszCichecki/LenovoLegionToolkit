@@ -719,24 +719,91 @@ Serios, aveți grijă cu această opțiune!</value>
   <data name="No" xml:space="preserve">
     <value>Nu</value>
   </data>
+  <data name="Notification_ACAdapterConnected" xml:space="preserve">
+    <value>Alimentator conectat</value>
+  </data>
+  <data name="Notification_ACAdapterConnectedLowWattage" xml:space="preserve">
+    <value>Alimentator de putere redusă conectat</value>
+  </data>
+  <data name="Notification_ACAdapterDisconnected" xml:space="preserve">
+    <value>Alimentator deconectat</value>
+  </data>
   <data name="Notification_CameraOff" xml:space="preserve">
-		<value>Cameră oprită</value>
-	</data>
+    <value>Cameră oprită</value>
+  </data>
   <data name="Notification_CameraOn" xml:space="preserve">
-		<value>Cameră pornită</value>
-	</data>
+    <value>Cameră pornită</value>
+  </data>
+  <data name="Notification_CapsLockOff" xml:space="preserve">
+    <value>Caps Lock dezactivat</value>
+  </data>
+  <data name="Notification_CapsLockOn" xml:space="preserve">
+    <value>Caps Lock activat</value>
+  </data>
+  <data name="Notification_FnLockOff" xml:space="preserve">
+    <value>Blocare Fn dezactivată</value>
+  </data>
+  <data name="Notification_FnLockOn" xml:space="preserve">
+    <value>Blocare Fn activată</value>
+  </data>
   <data name="Notification_MicrophoneOff" xml:space="preserve">
-		<value>Microfon oprit</value>
-	</data>
+    <value>Microfon oprit</value>
+  </data>
   <data name="Notification_MicrophoneOn" xml:space="preserve">
-		<value>Microfon pornit</value>
-	</data>
+    <value>Microfon pornit</value>
+  </data>
+  <data name="Notification_NumLockOff" xml:space="preserve">
+    <value>Num Lock dezactivat</value>
+  </data>
+  <data name="Notification_NumLockOn" xml:space="preserve">
+    <value>Num Lock activat</value>
+  </data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
-		<value>Touchpad oprit</value>
-	</data>
+    <value>Touchpad oprit</value>
+  </data>
   <data name="Notification_TouchpadOn" xml:space="preserve">
-		<value>Touchpad pornit</value>
-	</data>
+    <value>Touchpad pornit</value>
+  </data>
+  <data name="Notification_WhiteKeyboardBacklight" xml:space="preserve">
+    <value>Iluminare {0}</value>
+  </data>
+  <data name="NotificationsSettingsWindow_ACAdapter" xml:space="preserve">
+    <value>Alimentator</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Camera" xml:space="preserve">
+    <value>Cameră</value>
+  </data>
+  <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
+    <value>Caps Lock și Num Lock</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
+    <value>Dezactivează notificarea pentru acțiunile tastelor Fn, cum ar fi dezactivarea sunetului microfonului.
+Activați această opțiune dacă aveți conflicte cu aplicațiile pe ecran complet.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
+    <value>Nu afișa notificări</value>
+  </data>
+  <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
+    <value>Blocare Fn</value>
+  </data>
+  <data name="NotificationsSettingsWindow_KeyboardBacklight" xml:space="preserve">
+    <value>Iluminare tastatură</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Microphone" xml:space="preserve">
+    <value>Microfon</value>
+  </data>
+  <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
+    <value>Mod putere</value>
+  </data>
+  <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
+    <value>Rată de reîmprospătare</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
+    <value>Notificări</value>
+  </data>
+  <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
+    <value>Blocare Touchpad</value>
+  </data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
@@ -983,8 +1050,8 @@ Asigurați-vă mai întâi că scriptul rulează corect.</value>
     <value>Salvare</value>
   </data>
   <data name="Saving" xml:space="preserve">
-		<value>Se salvează...</value>
-	</data>
+    <value>Se salvează...</value>
+  </data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
     <value>Schimbați culoarea de accent a aplicației.</value>
   </data>
@@ -1047,13 +1114,6 @@ Se recomandă repornirea după modificarea acestei opțiuni.</value>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Dezactivare Lenovo Vantage</value>
   </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>Dezactivează notificarea pentru acțiunile tastelor Fn, cum ar fi dezactivarea sunetului microfonului.
-Activați această opțiune dacă aveți conflicte cu aplicațiile pe ecran complet.</value>
-  </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
-    <value>Nu afișa notificări</value>
-  </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Este posibil ca Legion Zone să nu fi fost activat corect</value>
   </data>
@@ -1089,6 +1149,12 @@ Activați această opțiune dacă aveți conflicte cu aplicațiile pe ecran comp
   </data>
   <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
     <value>Minimizare la închidere</value>
+  </data>
+  <data name="SettingsPage_Notifications_Message" xml:space="preserve">
+    <value>Configurați care notificări sunt afișate.</value>
+  </data>
+  <data name="SettingsPage_Notifications_Title" xml:space="preserve">
+    <value>Notificări</value>
   </data>
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Planuri de alimentare</value>
