@@ -3028,8 +3028,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Start minimized to tray when you log in to Windows.
-        ///Startup is delayed by 30 seconds for compatibility reasons..
+        ///   Looks up a localized string similar to Start minimized to tray when you log in to Windows..
         /// </summary>
         public static string SettingsPage_Autorun_Message {
             get {
