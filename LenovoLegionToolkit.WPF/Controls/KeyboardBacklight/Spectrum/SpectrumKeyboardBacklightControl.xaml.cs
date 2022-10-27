@@ -40,9 +40,6 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 
         private void SpectrumKeyboardBacklightControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            if (!e.WidthChanged)
-                return;
-
             if (_device.LayoutTransform is not ScaleTransform scaleTransform)
                 return;
 
