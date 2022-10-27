@@ -7,7 +7,7 @@ using System.Windows.Media;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Listeners;
-using LenovoLegionToolkit.WPF.Extensions;
+using LenovoLegionToolkit.Lib.System;
 
 namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 {
@@ -15,6 +15,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
     {
         private readonly SpectrumKeyboardBacklightController _controller = IoCContainer.Resolve<SpectrumKeyboardBacklightController>();
         private readonly SpecialKeyListener _listener = IoCContainer.Resolve<SpecialKeyListener>();
+        private readonly Vantage _vantage = IoCContainer.Resolve<Vantage>();
 
         private RadioButton[] ProfileButtons => new[]
         {
@@ -37,8 +38,11 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             _listener.Changed += Listener_Changed;
         }
 
-        private void SpectrumKeyboardBacklightControl_SizeChanged(object sender, System.Windows.SizeChangedEventArgs e)
+        private void SpectrumKeyboardBacklightControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
+            if (!e.WidthChanged)
+                return;
+
             if (_device.LayoutTransform is not ScaleTransform scaleTransform)
                 return;
 
@@ -49,8 +53,14 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             scaleTransform.ScaleY = scale;
         }
 
-        private void Listener_Changed(object? sender, SpecialKey e) => Dispatcher.InvokeTask(async () =>
+        private void Listener_Changed(object? sender, SpecialKey e) => Dispatcher.Invoke(async () =>
         {
+            if (!IsLoaded || !IsVisible)
+                return;
+
+            if (!_controller.IsSupported() || await _vantage.GetStatusAsync() == SoftwareStatus.Enabled)
+                return;
+
             switch (e)
             {
                 case SpecialKey.SpectrumBacklightOff
@@ -72,6 +82,21 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 
         protected override async Task OnRefreshAsync()
         {
+            if (!_controller.IsSupported())
+                throw new InvalidOperationException("Spectrum Keyboard does not seem to be supported");
+
+            var vantageStatus = await _vantage.GetStatusAsync();
+            if (vantageStatus == SoftwareStatus.Enabled)
+            {
+                _vantageWarningCard.Visibility = Visibility.Visible;
+                _content.IsEnabled = false;
+
+                return;
+            }
+
+            _vantageWarningCard.Visibility = Visibility.Collapsed;
+            _content.IsEnabled = true;
+
             await RefreshBrightnessAsync();
             await RefreshProfileAsync();
         }

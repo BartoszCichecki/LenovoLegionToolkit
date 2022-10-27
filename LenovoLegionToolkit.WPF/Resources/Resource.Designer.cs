@@ -1870,6 +1870,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Keyboard backlight cannot be controlled in here when Vantage or it&apos;s services are running..
+        /// </summary>
+        public static string Keyboard_VantageEnabledWarning_Message {
+            get {
+                return ResourceManager.GetString("Keyboard_VantageEnabledWarning_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lenovo Vantage seems to be enabled.
+        /// </summary>
+        public static string Keyboard_VantageEnabledWarning_Title {
+            get {
+                return ResourceManager.GetString("Keyboard_VantageEnabledWarning_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No compatible keyboards found.
         /// </summary>
         public static string KeyboardBacklightPage_NoCompatibleKeyboardsFound {
@@ -2852,24 +2870,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string RGBKeyboardBacklightControl_PresetOff {
             get {
                 return ResourceManager.GetString("RGBKeyboardBacklightControl_PresetOff", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Keyboard backlight cannot be controlled in here when Vantage or it&apos;s services are running..
-        /// </summary>
-        public static string RGBKeyboardBacklightControl_VantageEnabled_Message {
-            get {
-                return ResourceManager.GetString("RGBKeyboardBacklightControl_VantageEnabled_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Lenovo Vantage seems to be enabled.
-        /// </summary>
-        public static string RGBKeyboardBacklightControl_VantageEnabled_Title {
-            get {
-                return ResourceManager.GetString("RGBKeyboardBacklightControl_VantageEnabled_Title", resourceCulture);
             }
         }
         

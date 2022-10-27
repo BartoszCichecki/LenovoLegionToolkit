@@ -34,31 +34,94 @@
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
-        <controls:SpectrumKeyboardButton Grid.Row="0" Grid.Column="6" Height="32" Margin="0,0,0,24" />
+        <controls:SpectrumKeyboardButton
+            Grid.Row="0"
+            Grid.Column="6"
+            Height="32"
+            Margin="0,0,0,24" />
 
-        <controls:SpectrumKeyboard Grid.Row="2" Grid.RowSpan="5" Grid.Column="1" Grid.ColumnSpan="6" Padding="16" />
+        <controls:SpectrumKeyboard
+            Grid.Row="2"
+            Grid.RowSpan="5"
+            Grid.Column="1"
+            Grid.ColumnSpan="6"
+            Padding="16" />
 
-        <controls:SpectrumKeyboardButton Grid.Row="1" Grid.Column="1" Margin="2" />
-        <controls:SpectrumKeyboardButton Grid.Row="1" Grid.Column="2" Margin="2" />
-        <controls:SpectrumKeyboardButton Grid.Row="1" Grid.Column="5" Margin="2" />
-        <controls:SpectrumKeyboardButton Grid.Row="1" Grid.Column="6" Margin="2" />
+        <controls:SpectrumKeyboardButton
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="2" />
+        <controls:SpectrumKeyboardButton
+            Grid.Row="1"
+            Grid.Column="2"
+            Margin="2" />
+        <controls:SpectrumKeyboardButton
+            Grid.Row="1"
+            Grid.Column="5"
+            Margin="2" />
+        <controls:SpectrumKeyboardButton
+            Grid.Row="1"
+            Grid.Column="6"
+            Margin="2" />
 
-        <controls:SpectrumKeyboardButton Grid.Row="2" Grid.Column="0" Margin="2" />
-        <controls:SpectrumKeyboardButton Grid.Row="3" Grid.Column="0" Margin="2" />
-        <controls:SpectrumKeyboardButton Grid.Row="5" Grid.Column="0" Margin="2" />
-        <controls:SpectrumKeyboardButton Grid.Row="6" Grid.Column="0" Margin="2" />
+        <controls:SpectrumKeyboardButton
+            Grid.Row="2"
+            Grid.Column="0"
+            Margin="2" />
+        <controls:SpectrumKeyboardButton
+            Grid.Row="3"
+            Grid.Column="0"
+            Margin="2" />
+        <controls:SpectrumKeyboardButton
+            Grid.Row="5"
+            Grid.Column="0"
+            Margin="2" />
+        <controls:SpectrumKeyboardButton
+            Grid.Row="6"
+            Grid.Column="0"
+            Margin="2" />
 
-        <controls:SpectrumKeyboardButton Grid.Row="2" Grid.Column="7" Margin="2" />
-        <controls:SpectrumKeyboardButton Grid.Row="3" Grid.Column="7" Margin="2" />
-        <controls:SpectrumKeyboardButton Grid.Row="5" Grid.Column="7" Margin="2" />
-        <controls:SpectrumKeyboardButton Grid.Row="6" Grid.Column="7" Margin="2" />
+        <controls:SpectrumKeyboardButton
+            Grid.Row="2"
+            Grid.Column="7"
+            Margin="2" />
+        <controls:SpectrumKeyboardButton
+            Grid.Row="3"
+            Grid.Column="7"
+            Margin="2" />
+        <controls:SpectrumKeyboardButton
+            Grid.Row="5"
+            Grid.Column="7"
+            Margin="2" />
+        <controls:SpectrumKeyboardButton
+            Grid.Row="6"
+            Grid.Column="7"
+            Margin="2" />
 
-        <controls:SpectrumKeyboardButton Grid.Row="7" Grid.Column="1" Margin="2" />
-        <controls:SpectrumKeyboardButton Grid.Row="7" Grid.Column="2" Margin="2" />
-        <controls:SpectrumKeyboardButton Grid.Row="7" Grid.Column="3" Margin="2" />
-        <controls:SpectrumKeyboardButton Grid.Row="7" Grid.Column="4" Margin="2" />
-        <controls:SpectrumKeyboardButton Grid.Row="7" Grid.Column="5" Margin="2" />
-        <controls:SpectrumKeyboardButton Grid.Row="7" Grid.Column="6" Margin="2" />
+        <controls:SpectrumKeyboardButton
+            Grid.Row="7"
+            Grid.Column="1"
+            Margin="2" />
+        <controls:SpectrumKeyboardButton
+            Grid.Row="7"
+            Grid.Column="2"
+            Margin="2" />
+        <controls:SpectrumKeyboardButton
+            Grid.Row="7"
+            Grid.Column="3"
+            Margin="2" />
+        <controls:SpectrumKeyboardButton
+            Grid.Row="7"
+            Grid.Column="4"
+            Margin="2" />
+        <controls:SpectrumKeyboardButton
+            Grid.Row="7"
+            Grid.Column="5"
+            Margin="2" />
+        <controls:SpectrumKeyboardButton
+            Grid.Row="7"
+            Grid.Column="6"
+            Margin="2" />
 
     </Grid>
 

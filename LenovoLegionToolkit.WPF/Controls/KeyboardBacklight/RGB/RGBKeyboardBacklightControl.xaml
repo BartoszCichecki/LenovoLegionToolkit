@@ -41,7 +41,7 @@
             Margin="0,0,8,24"
             Icon="Warning24">
             <wpfui:CardControl.Header>
-                <controls:CardHeaderControl Title="{x:Static resources:Resource.RGBKeyboardBacklightControl_VantageEnabled_Title}" Subtitle="{x:Static resources:Resource.RGBKeyboardBacklightControl_VantageEnabled_Message}" />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.Keyboard_VantageEnabledWarning_Title}" Subtitle="{x:Static resources:Resource.Keyboard_VantageEnabledWarning_Message}" />
             </wpfui:CardControl.Header>
         </wpfui:CardControl>
 
@@ -115,7 +115,10 @@
             OnChanged="CardControl_OnChanged">
             <controls:ColorCardControl.ContextMenu>
                 <ContextMenu>
-                    <wpfui:MenuItem Click="SynchroniseZonesMenuItem_Click" Header="Synchronise zones" SymbolIcon="ArrowsBidirectional24" />
+                    <wpfui:MenuItem
+                        Click="SynchroniseZonesMenuItem_Click"
+                        Header="Synchronise zones"
+                        SymbolIcon="ArrowsBidirectional24" />
                 </ContextMenu>
             </controls:ColorCardControl.ContextMenu>
         </controls:ColorCardControl>
@@ -131,7 +134,10 @@
             OnChanged="CardControl_OnChanged">
             <controls:ColorCardControl.ContextMenu>
                 <ContextMenu>
-                    <wpfui:MenuItem Click="SynchroniseZonesMenuItem_Click" Header="Synchronise zones" SymbolIcon="ArrowsBidirectional24" />
+                    <wpfui:MenuItem
+                        Click="SynchroniseZonesMenuItem_Click"
+                        Header="Synchronise zones"
+                        SymbolIcon="ArrowsBidirectional24" />
                 </ContextMenu>
             </controls:ColorCardControl.ContextMenu>
         </controls:ColorCardControl>
@@ -147,7 +153,10 @@
             OnChanged="CardControl_OnChanged">
             <controls:ColorCardControl.ContextMenu>
                 <ContextMenu>
-                    <wpfui:MenuItem Click="SynchroniseZonesMenuItem_Click" Header="Synchronise zones" SymbolIcon="ArrowsBidirectional24" />
+                    <wpfui:MenuItem
+                        Click="SynchroniseZonesMenuItem_Click"
+                        Header="Synchronise zones"
+                        SymbolIcon="ArrowsBidirectional24" />
                 </ContextMenu>
             </controls:ColorCardControl.ContextMenu>
         </controls:ColorCardControl>
@@ -163,7 +172,10 @@
             OnChanged="CardControl_OnChanged">
             <controls:ColorCardControl.ContextMenu>
                 <ContextMenu>
-                    <wpfui:MenuItem Click="SynchroniseZonesMenuItem_Click" Header="Synchronise zones" SymbolIcon="ArrowsBidirectional24" />
+                    <wpfui:MenuItem
+                        Click="SynchroniseZonesMenuItem_Click"
+                        Header="Synchronise zones"
+                        SymbolIcon="ArrowsBidirectional24" />
                 </ContextMenu>
             </controls:ColorCardControl.ContextMenu>
         </controls:ColorCardControl>

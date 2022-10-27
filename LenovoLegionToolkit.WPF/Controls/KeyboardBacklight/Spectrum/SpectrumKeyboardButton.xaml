@@ -16,6 +16,9 @@
             BorderThickness="4"
             CornerRadius="4"
             Opacity="0.6" />
-        <ToggleButton x:Name="_button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        <ToggleButton
+            x:Name="_button"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch" />
     </Grid>
 </UserControl>
