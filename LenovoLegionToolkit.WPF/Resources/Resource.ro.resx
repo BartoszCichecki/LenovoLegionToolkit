@@ -907,10 +907,10 @@ Puteți schimba modul apăsând Fn+Q.</value>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>Oprit</value>
   </data>
-  <data name="RGBKeyboardBacklightControl_VantageEnabled_Message" xml:space="preserve">
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>Iluminarea tastaturii nu poate fi controlată aici, când Vantage și/sau serviciile sale rulează, din cauza conflictelor dintre cele două.</value>
   </data>
-  <data name="RGBKeyboardBacklightControl_VantageEnabled_Title" xml:space="preserve">
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage pare să fie activat</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Zone1" xml:space="preserve">

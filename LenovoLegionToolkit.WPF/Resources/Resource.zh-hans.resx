@@ -914,10 +914,10 @@
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>关闭</value>
   </data>
-  <data name="RGBKeyboardBacklightControl_VantageEnabled_Message" xml:space="preserve">
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>由于Vantage或其服务正在运行导致冲突，无法在此控制键盘背光。</value>
   </data>
-  <data name="RGBKeyboardBacklightControl_VantageEnabled_Title" xml:space="preserve">
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage似乎已启用。</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Zone1" xml:space="preserve">
