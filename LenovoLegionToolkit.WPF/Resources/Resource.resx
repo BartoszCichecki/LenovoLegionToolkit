@@ -1065,8 +1065,7 @@ Make sure that your script runs correctly first.</value>
     <value>Advanced</value>
   </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
-    <value>Start minimized to tray when you log in to Windows.
-Startup is delayed by 30 seconds for compatibility reasons.</value>
+    <value>Start minimized to tray when you log in to Windows.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Autorun</value>
