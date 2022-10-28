@@ -7,19 +7,25 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners
 {
-    public class WhiteKeyboardBacklightListener : AbstractWMIListener<WhiteKeyboardBacklightChanged>
+    public class LightingChangeListener : AbstractWMIListener<LightingChangeState>
     {
         private readonly WhiteKeyboardBacklightFeature _feature;
-        public WhiteKeyboardBacklightListener(WhiteKeyboardBacklightFeature feature)
+        public LightingChangeListener(WhiteKeyboardBacklightFeature feature)
             : base("ROOT\\WMI", "LENOVO_LIGHTING_EVENT")
         {
             _feature = feature ?? throw new ArgumentNullException(nameof(feature));
         }
 
-        protected override WhiteKeyboardBacklightChanged GetValue(PropertyDataCollection properties) => default;
-
-        protected override async Task OnChangedAsync(WhiteKeyboardBacklightChanged value)
+        protected override LightingChangeState GetValue(PropertyDataCollection properties)
         {
+            return (LightingChangeState)Convert.ToInt32(properties["Key_ID"].Value);
+        }
+
+        protected override async Task OnChangedAsync(LightingChangeState value)
+        {
+            if (value != LightingChangeState.KeyboardBacklight)
+                return;
+
             try
             {
                 var state = await _feature.GetStateAsync().ConfigureAwait(false);

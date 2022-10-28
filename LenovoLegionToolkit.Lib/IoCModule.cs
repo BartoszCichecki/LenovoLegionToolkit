@@ -60,7 +60,7 @@ namespace LenovoLegionToolkit.Lib
             builder.Register<SpecialKeyListener>()
                 .OnActivating(e => e.Instance.StartAsync().AsValueTask())
                 .AutoActivate();
-            builder.Register<WhiteKeyboardBacklightListener>()
+            builder.Register<LightingChangeListener>()
                 .OnActivating(e => e.Instance.StartAsync().AsValueTask())
                 .AutoActivate();
             builder.Register<WinKeyListener>()

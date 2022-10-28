@@ -67,6 +67,15 @@
   <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
     <value>Вкл. в спящем режиме</value>
   </data>
+  <data name="AutorunState_Disabled" xml:space="preserve">
+		<value>Отключено</value>
+	</data>
+  <data name="AutorunState_Enabled" xml:space="preserve">
+		<value>Включено</value>
+	</data>
+  <data name="AutorunState_EnabledDelayed" xml:space="preserve">
+		<value>Включено с задержкой</value>
+	</data>
   <data name="BatteryState_Conservation" xml:space="preserve">
     <value>Консервация</value>
   </data>

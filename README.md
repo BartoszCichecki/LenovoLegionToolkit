@@ -145,8 +145,10 @@ Translations provided by:
 * Dutch - Melm
 * Romanian - [Mario Bălănică](https://github.com/mariobalanica)
 * Spanish - M.A.G.
+* Portuguese (Brasil) - Vernon
 * Russian - [Edward Johan](https://github.com/younyokel)
 * Turkish - Undervolt
+* Ukrainian -  Владислав «vaidee» Придатько
 * Vietnamese - Not_Nhan
 
 ## FAQ

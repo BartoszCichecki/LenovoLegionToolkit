@@ -67,6 +67,15 @@
   <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
     <value>Encendido, al suspender</value>
   </data>
+  <data name="AutorunState_Disabled" xml:space="preserve">
+		<value>Deshabilitado</value>
+	</data>
+  <data name="AutorunState_Enabled" xml:space="preserve">
+		<value>Activado</value>
+	</data>
+  <data name="AutorunState_EnabledDelayed" xml:space="preserve">
+		<value>Activado, retrasado</value>
+	</data>
   <data name="BatteryState_Conservation" xml:space="preserve">
     <value>Conservador</value>
   </data>

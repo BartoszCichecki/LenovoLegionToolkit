@@ -104,7 +104,7 @@ namespace LenovoLegionToolkit.Lib.Features
                     if (!result3)
                         PInvokeExtensions.ThrowIfWin32Error("SetupDiGetDeviceInterfaceDetail");
 
-                    devicePath = new string(&deviceDetailData->DevicePath._0);
+                    devicePath = new string(deviceDetailData->DevicePath.Value);
                 }
                 finally
                 {
