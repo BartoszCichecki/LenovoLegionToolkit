@@ -129,7 +129,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 }
 
                 var state = new TOKEN_PRIVILEGES { PrivilegeCount = 1 };
-                state.Privileges[0] = new LUID_AND_ATTRIBUTES()
+                state.Privileges._0 = new LUID_AND_ATTRIBUTES()
                 {
                     Luid = luid,
                     Attributes = enable ? TOKEN_PRIVILEGES_ATTRIBUTES.SE_PRIVILEGE_ENABLED : 0

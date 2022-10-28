@@ -56,7 +56,7 @@ namespace LenovoLegionToolkit.Lib.System
                     if (!result3)
                         PInvokeExtensions.ThrowIfWin32Error("SetupDiEnumDeviceInterfaces");
 
-                    devicePath = new string(&deviceDetailData->DevicePath._0);
+                    devicePath = new string(deviceDetailData->DevicePath.Value);
                 }
                 finally
                 {
@@ -139,7 +139,7 @@ namespace LenovoLegionToolkit.Lib.System
                         if (!result3)
                             PInvokeExtensions.ThrowIfWin32Error("SetupDiEnumDeviceInterfaces");
 
-                        devicePath = new string(&deviceDetailData->DevicePath._0);
+                        devicePath = new string(deviceDetailData->DevicePath.Value);
                     }
                     finally
                     {
