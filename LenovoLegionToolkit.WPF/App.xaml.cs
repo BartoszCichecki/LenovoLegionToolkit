@@ -46,14 +46,14 @@ namespace LenovoLegionToolkit.WPF
 
             var args = e.Args.Concat(LoadExternalArgs()).ToArray();
 
+            if (IsTraceEnabled(args))
+                Log.Instance.IsTraceEnabled = true;
+
             if (!ShouldByPassCompatibilityCheck(args))
             {
                 await CheckBasicCompatibilityAsync();
                 await CheckCompatibilityAsync();
             }
-
-            if (IsTraceEnabled(args))
-                Log.Instance.IsTraceEnabled = true;
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Starting... [version={Assembly.GetEntryAssembly()?.GetName().Version}, build={Assembly.GetEntryAssembly()?.GetBuildDateTime()?.ToString("yyyyMMddHHmmss") ?? ""}]");
