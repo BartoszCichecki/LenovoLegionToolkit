@@ -1065,8 +1065,7 @@ Asegúrese primero de que su script se ejecuta correctamente.</value>
     <value>Avanzado</value>
   </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
-    <value>Minimizado en la bandeja al iniciar Windows.
-El inicio se demorará 30 segundos por razones de compatibilidad.</value>
+    <value>Minimizar en la bandeja al iniciar la sesión de Windows.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Ejecución automática</value>
