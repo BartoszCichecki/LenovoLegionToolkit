@@ -1065,8 +1065,7 @@ Asigurați-vă mai întâi că scriptul rulează corect.</value>
     <value>Avansat</value>
   </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
-    <value>Pornire minimizată în tray când vă conectați la Windows.
-Pornirea este întârziată cu 30 de secunde din motive de compatibilitate.</value>
+    <value>Pornire minimizată în tray atunci când vă conectați la Windows.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Pornire automată</value>
