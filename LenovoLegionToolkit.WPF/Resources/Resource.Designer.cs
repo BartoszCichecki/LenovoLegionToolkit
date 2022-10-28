@@ -2158,11 +2158,11 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Camera Lock.
+        ///   Looks up a localized string similar to Camera.
         /// </summary>
-        public static string NotificationsSettingsWindow_CameraLock {
+        public static string NotificationsSettingsWindow_Camera {
             get {
-                return ResourceManager.GetString("NotificationsSettingsWindow_CameraLock", resourceCulture);
+                return ResourceManager.GetString("NotificationsSettingsWindow_Camera", resourceCulture);
             }
         }
         
@@ -3028,8 +3028,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Start minimized to tray when you log in to Windows.
-        ///Startup is delayed by 30 seconds for compatibility reasons..
+        ///   Looks up a localized string similar to Start minimized to tray when you log in to Windows..
         /// </summary>
         public static string SettingsPage_Autorun_Message {
             get {

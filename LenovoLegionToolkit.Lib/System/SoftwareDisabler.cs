@@ -184,7 +184,7 @@ namespace LenovoLegionToolkit.Lib.System
             }
         }
 
-        private bool AreProcessesRunning()
+        protected virtual bool AreProcessesRunning()
         {
             foreach (var process in Process.GetProcesses())
                 foreach (var processName in ProcessNames)
@@ -202,7 +202,7 @@ namespace LenovoLegionToolkit.Lib.System
             return false;
         }
 
-        private async Task KillProcessesAsync()
+        protected virtual async Task KillProcessesAsync()
         {
             foreach (var process in Process.GetProcesses())
                 foreach (var processName in ProcessNames)
