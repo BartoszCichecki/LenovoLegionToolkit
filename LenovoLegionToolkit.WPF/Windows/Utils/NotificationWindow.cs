@@ -59,7 +59,6 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
 
         private void InitializeStyle()
         {
-            WindowStyle = WindowStyle.None;
             WindowStartupLocation = WindowStartupLocation.Manual;
             ResizeMode = ResizeMode.NoResize;
 
