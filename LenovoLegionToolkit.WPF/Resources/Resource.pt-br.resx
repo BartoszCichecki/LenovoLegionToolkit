@@ -1065,8 +1065,7 @@ Certifique-se de que seu script seja executado corretamente primeiro.</value>
     <value>Avançado</value>
   </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
-    <value>Iniciar minimizado na bandeja ao fazer login no Windows.
-A inicialização será atrasada em 30 segundos por motivos de compatibilidade.</value>
+    <value>Iniciar minizado na bandeja de notificações quando logar no Windows.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Execução automática</value>
