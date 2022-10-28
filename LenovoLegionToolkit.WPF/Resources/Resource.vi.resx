@@ -719,24 +719,91 @@ THẬT CẨN THẬN KHI SỬ DỤNG LỰA CHỌN NÀY!!! KHÔNG NÊN SỬ DỤNG
   <data name="No" xml:space="preserve">
     <value>Không</value>
   </data>
+  <data name="Notification_ACAdapterConnected" xml:space="preserve">
+    <value>Đã kết nối nguồn điện ngoài</value>
+  </data>
+  <data name="Notification_ACAdapterConnectedLowWattage" xml:space="preserve">
+    <value>Đã kết nối nguồn điện ngoài (công suất thấp)</value>
+  </data>
+  <data name="Notification_ACAdapterDisconnected" xml:space="preserve">
+    <value>Đã ngắt kết nối nguồn điện ngoài</value>
+  </data>
   <data name="Notification_CameraOff" xml:space="preserve">
-		<value>Camera tắt</value>
-	</data>
+    <value>Camera tắt</value>
+  </data>
   <data name="Notification_CameraOn" xml:space="preserve">
-		<value>Camera bật</value>
-	</data>
+    <value>Camera bật</value>
+  </data>
+  <data name="Notification_CapsLockOff" xml:space="preserve">
+    <value>Caps Lock tắt</value>
+  </data>
+  <data name="Notification_CapsLockOn" xml:space="preserve">
+    <value>Caps Lock bật</value>
+  </data>
+  <data name="Notification_FnLockOff" xml:space="preserve">
+    <value>Khóa phím Fn tắt</value>
+  </data>
+  <data name="Notification_FnLockOn" xml:space="preserve">
+    <value>Khóa phím Fn bật</value>
+  </data>
   <data name="Notification_MicrophoneOff" xml:space="preserve">
-		<value>Microphone tắt</value>
-	</data>
+    <value>Microphone tắt</value>
+  </data>
   <data name="Notification_MicrophoneOn" xml:space="preserve">
-		<value>Microphone bật</value>
-	</data>
+    <value>Microphone bật</value>
+  </data>
+  <data name="Notification_NumLockOff" xml:space="preserve">
+    <value>Numlock tắt</value>
+  </data>
+  <data name="Notification_NumLockOn" xml:space="preserve">
+    <value>Numlock bật</value>
+  </data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
-		<value>Touchpad tắt</value>
-	</data>
+    <value>Touchpad tắt</value>
+  </data>
   <data name="Notification_TouchpadOn" xml:space="preserve">
-		<value>Touchpad bật</value>
-	</data>
+    <value>Touchpad bật</value>
+  </data>
+  <data name="Notification_WhiteKeyboardBacklight" xml:space="preserve">
+    <value>Đèn nền bàn phím {0}</value>
+  </data>
+  <data name="NotificationsSettingsWindow_ACAdapter" xml:space="preserve">
+    <value>Nguồn điện</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Camera" xml:space="preserve">
+    <value>Camera</value>
+  </data>
+  <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
+    <value>Caps Lock và Num Lock</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
+    <value>Tắt các thông báo cho các phím tắt Fn, ví dụ như tắt mic thu âm.
+Bật tùy chọn này nếu có xung đột với các ứng dụng chạy toàn màn hình.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
+    <value>Tắt tất cả thông báo</value>
+  </data>
+  <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
+    <value>Khóa phím Fn</value>
+  </data>
+  <data name="NotificationsSettingsWindow_KeyboardBacklight" xml:space="preserve">
+    <value>Đèn nền bàn phím</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Microphone" xml:space="preserve">
+    <value>Microphone</value>
+  </data>
+  <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
+    <value>Chế độ</value>
+  </data>
+  <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
+    <value>Tần số quét</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
+    <value>Thông báo</value>
+  </data>
+  <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
+    <value>Khóa Touchpad</value>
+  </data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
@@ -983,8 +1050,8 @@ Hãy đảm bảo chương trình hoặc script của bạn chạy đúng trư�
     <value>Lưu</value>
   </data>
   <data name="Saving" xml:space="preserve">
-		<value>Đang lưu...</value>
-	</data>
+    <value>Đang lưu...</value>
+  </data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
     <value>Thay đổi màu sắc chủ đạo của ứng dụng.</value>
   </data>
@@ -998,8 +1065,7 @@ Hãy đảm bảo chương trình hoặc script của bạn chạy đúng trư�
     <value>Nâng cao</value>
   </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
-    <value>Chạy tự động khi đăng nhập vào windows.
-Chương trình sẽ chạy trễ sau 30s vì lý do tương thích.</value>
+    <value>Chạy trong nền ngay khi khởi động Windows.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Tự động chạy</value>
@@ -1047,13 +1113,6 @@ Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Ngắt kích hoạt Lenovo Vantage</value>
   </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>Tắt các thông báo cho các phím tắt Fn, ví dụ như tắt mic thu âm.
-Bật tùy chọn này nếu có xung đột với các ứng dụng chạy toàn màn hình.</value>
-  </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
-    <value>Tắt tất cả thông báo</value>
-  </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone có thể đã được kích hoạt không đúng</value>
   </data>
@@ -1089,6 +1148,12 @@ Bật tùy chọn này nếu có xung đột với các ứng dụng chạy toà
   </data>
   <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
     <value>Thu nhỏ khi đóng</value>
+  </data>
+  <data name="SettingsPage_Notifications_Message" xml:space="preserve">
+    <value>Cài đặt thông báo nào sẽ được hiển thị.</value>
+  </data>
+  <data name="SettingsPage_Notifications_Title" xml:space="preserve">
+    <value>Thông báo</value>
   </data>
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Power plans</value>
