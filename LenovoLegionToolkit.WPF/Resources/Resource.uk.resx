@@ -1062,8 +1062,7 @@
     <value>Розширені</value>
   </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
-    <value>Відкривати згорнутим у трей при вході у Windows.
-Запуск буде затримано на 30 секунд через причини сумісності.</value>
+    <value>Запускати згорнутим в трей, коли ви входите у Windows.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Автозапуск</value>
