@@ -86,7 +86,7 @@
     <value>При запуске системы</value>
   </data>
   <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>При изменении режима питания</value>
+    <value>Когда измененен режима питания</value>
   </data>
   <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Когда приложение запущено</value>
