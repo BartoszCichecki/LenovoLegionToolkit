@@ -126,7 +126,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
                             MessagingCenter.Publish(new Notification(NotificationType.MicrophoneOff, NotificationDuration.Short));
 
                         break;
-                    case DriverKey.Fn_F10:
+                    case DriverKey.Fn_F10 or DriverKey.Fn_F10_2:
                         var status = await _touchpadLockFeature.GetStateAsync().ConfigureAwait(false);
 
                         if (status == TouchpadLockState.Off)
@@ -135,7 +135,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
                             MessagingCenter.Publish(new Notification(NotificationType.TouchpadOff, NotificationDuration.Short));
 
                         break;
-                    case DriverKey.Fn_F8:
+                    case DriverKey.Fn_F8 or DriverKey.Fn_F8_2:
                         Process.Start(new ProcessStartInfo
                         {
                             FileName = "cmd",
