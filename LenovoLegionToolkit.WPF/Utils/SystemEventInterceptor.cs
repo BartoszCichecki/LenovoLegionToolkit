@@ -103,9 +103,9 @@ namespace LenovoLegionToolkit.WPF.Utils
                     var powerBroadcastSettings = Marshal.PtrToStructure<POWERBROADCAST_SETTING>(m.LParam);
                     if (powerBroadcastSettings.PowerSetting == PInvoke.GUID_MONITOR_POWER_ON)
                     {
-                        var data = powerBroadcastSettings.Data._0;
-                        if (data == 1)
-                            OnResumed?.Invoke(this, EventArgs.Empty);
+                        // var data = powerBroadcastSettings.Data.ToArray()[0];//._0;
+                        // if (data == 1)
+                        //     OnResumed?.Invoke(this, EventArgs.Empty);
                     }
                 }
             }

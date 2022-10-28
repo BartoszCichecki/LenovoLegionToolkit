@@ -13,6 +13,16 @@ namespace LenovoLegionToolkit.Lib
         OnAlways
     }
 
+    public enum AutorunState
+    {
+        [Display(ResourceType = typeof(Resource), Name = "AutorunState_Enabled")]
+        Enabled,
+        [Display(ResourceType = typeof(Resource), Name = "AutorunState_EnabledDelayed")]
+        EnabledDelayed,
+        [Display(ResourceType = typeof(Resource), Name = "AutorunState_Disabled")]
+        Disabled
+    }
+
 
     public enum BatteryState
     {
@@ -28,7 +38,9 @@ namespace LenovoLegionToolkit.Lib
     {
         Fn_F4 = 256,
         Fn_F8 = 8192,
-        Fn_F10 = 32
+        Fn_F8_2 = 8704,
+        Fn_F10 = 32,
+        Fn_F10_2 = 1056
     }
 
     public enum FanTableType
@@ -84,6 +96,14 @@ namespace LenovoLegionToolkit.Lib
         Links,
         SavedGames,
         SavedSearches
+    }
+
+    public enum LightingChangeState
+    {
+        Panel = 0,
+        Ports = 1,
+        KeyboardBrightness = 2,
+        KeyboardBacklight = 3
     }
 
     public enum NotificationDuration
@@ -247,8 +267,6 @@ namespace LenovoLegionToolkit.Lib
         Off,
         On
     }
-
-    public enum WhiteKeyboardBacklightChanged { }
 
     public enum WhiteKeyboardBacklightState
     {
