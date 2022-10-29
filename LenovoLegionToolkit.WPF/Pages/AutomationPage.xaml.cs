@@ -104,7 +104,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             _loaderAutomatic.IsLoading = true;
             _loaderManual.IsLoading = true;
 
-            var loadingTask = Task.Delay(1000);
+            var loadingTask = Task.Delay(TimeSpan.FromSeconds(1));
 
             var pipelines = await _automationProcessor.GetPipelinesAsync();
 

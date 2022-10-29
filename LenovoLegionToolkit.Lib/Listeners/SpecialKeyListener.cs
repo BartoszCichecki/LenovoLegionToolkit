@@ -12,7 +12,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
 {
     public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
     {
-        private readonly DebounceDispatcher _refreshRateDebouncer = new(TimeSpan.FromSeconds(1.5));
+        private readonly ThrottleFirstDispatcher _refreshRateDispatcher = new(TimeSpan.FromSeconds(1.5));
 
         private readonly ApplicationSettings _settings;
         private readonly FnKeys _fnKeys;
@@ -67,7 +67,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
             catch { }
         }
 
-        private Task ToggleRefreshRateAsync() => _refreshRateDebouncer.DebounceAsync(async () =>
+        private Task ToggleRefreshRateAsync() => _refreshRateDispatcher.DispatchAsync(async () =>
         {
             try
             {
@@ -104,7 +104,10 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
                 await _feature.SetStateAsync(next).ConfigureAwait(false);
 
-                MessagingCenter.Publish(new Notification(NotificationType.RefreshRate, NotificationDuration.Long, next.DisplayName));
+                _ = Task.Delay(TimeSpan.FromSeconds(2)).ContinueWith(_ =>
+                {
+                    MessagingCenter.Publish(new Notification(NotificationType.RefreshRate, NotificationDuration.Long, next.DisplayName));
+                });
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Switched refresh rate after Fn+R to {next}.");
