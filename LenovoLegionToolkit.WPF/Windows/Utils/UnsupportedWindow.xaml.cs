@@ -28,7 +28,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
             for (var i = 5; i > 0; i--)
             {
                 _continueButton.Content = $"Continue ({i})";
-                await Task.Delay(1000);
+                await Task.Delay(TimeSpan.FromSeconds(1));
             }
 
             _continueButton.Content = "Continue";
