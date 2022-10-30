@@ -131,7 +131,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 
                     var delay = Task.Delay(_refreshStateInterval, token);
 
-                    var state = await _controller.GetState();
+                    var state = await _controller.GetStateAsync();
 
                     foreach (var button in _device.Buttons)
                     {
