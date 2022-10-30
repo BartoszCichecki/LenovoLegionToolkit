@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -8,14 +9,19 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 {
     public partial class SpectrumKeyboardBacklightControl
     {
+        private readonly TimeSpan _refreshStateInterval = TimeSpan.FromMilliseconds(100);
+
         private readonly SpectrumKeyboardBacklightController _controller = IoCContainer.Resolve<SpectrumKeyboardBacklightController>();
         private readonly SpecialKeyListener _listener = IoCContainer.Resolve<SpecialKeyListener>();
         private readonly Vantage _vantage = IoCContainer.Resolve<Vantage>();
+
+        private CancellationTokenSource? _refreshStateCancellationTokenSource;
 
         private RadioButton[] ProfileButtons => new[]
         {
@@ -33,9 +39,24 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
         {
             InitializeComponent();
 
+            IsVisibleChanged += SpectrumKeyboardBacklightControl_IsVisibleChanged;
             SizeChanged += SpectrumKeyboardBacklightControl_SizeChanged;
 
             _listener.Changed += Listener_Changed;
+        }
+
+        private void SpectrumKeyboardBacklightControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (!IsVisible)
+            {
+                _refreshStateCancellationTokenSource?.Cancel();
+                return;
+            }
+
+            _refreshStateCancellationTokenSource?.Cancel();
+            _refreshStateCancellationTokenSource = new();
+
+            _ = RefreshStateAsync(_refreshStateCancellationTokenSource.Token);
         }
 
         private void SpectrumKeyboardBacklightControl_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -43,7 +64,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             if (_device.LayoutTransform is not ScaleTransform scaleTransform)
                 return;
 
-            var target = (0.75 * ActualWidth) / _device.ActualWidth;
+            var target = 0.75 * ActualWidth / _device.ActualWidth;
             var scale = Math.Clamp(target, 0.5, 1.5);
 
             scaleTransform.ScaleX = scale;
@@ -99,6 +120,52 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
         }
 
         protected override void OnFinishedLoading() { }
+
+        private async Task RefreshStateAsync(CancellationToken token)
+        {
+            try
+            {
+                while (true)
+                {
+                    token.ThrowIfCancellationRequested();
+
+                    var delay = Task.Delay(_refreshStateInterval, token);
+
+                    var state = await _controller.GetState();
+
+                    foreach (var button in _device.Buttons)
+                    {
+                        if (!state.TryGetValue(button.KeyCode, out var rgb))
+                        {
+                            button.Color = null;
+                            continue;
+                        }
+
+                        if (rgb.R < 1 && rgb.G < 1 && rgb.B < 1)
+                        {
+                            button.Color = null;
+                            continue;
+                        }
+
+                        button.Color = Color.FromRgb(rgb.R, rgb.G, rgb.B);
+                    }
+
+                    await delay;
+                }
+            }
+            catch (TaskCanceledException) { }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Failed to refresh state.", ex);
+            }
+            finally
+            {
+                foreach (var button in _device.Buttons)
+                    button._background.Background = null;
+            }
+
+        }
 
         private async Task RefreshBrightnessAsync()
         {

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
@@ -59,6 +61,24 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
             var input = new LENOVO_SPECTRUM_SET_PROFILE((byte)profile, true);
             SetFeature(input);
+        }
+
+        public async Task<Dictionary<ushort, RGBColor>> GetState()
+        {
+            ThrowIfHandleNull();
+            await ThrowIfVantageEnabled().ConfigureAwait(false);
+
+            GetFeature(out LENOVO_SPECTRUM_STATE state);
+
+            var dict = new Dictionary<ushort, RGBColor>();
+
+            foreach (var key in state.Data.Where(k => k.Key > 0))
+            {
+                var rgb = new RGBColor(key.Color.Red, key.Color.Green, key.Color.Blue);
+                dict.TryAdd(key.Key, rgb);
+            }
+
+            return dict;
         }
 
         private void ThrowIfHandleNull()

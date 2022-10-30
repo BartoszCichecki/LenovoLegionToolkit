@@ -14,8 +14,7 @@
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             BorderThickness="4"
-            CornerRadius="4"
-            Opacity="0.6" />
+            CornerRadius="4" />
         <ToggleButton
             x:Name="_button"
             HorizontalAlignment="Stretch"
