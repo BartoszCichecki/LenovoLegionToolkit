@@ -29,8 +29,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
         protected override async Task OnChangedAsync(PowerModeState value)
         {
             await ChangeDependenciesAsync(value).ConfigureAwait(false);
-
-            MessagingCenter.Publish(new Notification(NotificationType.PowerMode, NotificationDuration.Short, value.GetDisplayName()));
+            PublishNotification(value);
         }
 
         public async Task NotifyAsync(PowerModeState value)
@@ -48,6 +47,25 @@ namespace LenovoLegionToolkit.Lib.Listeners
                 await _godModeController.ApplyStateAsync().ConfigureAwait(false);
 
             await Power.ActivatePowerPlanAsync(value).ConfigureAwait(false);
+        }
+
+        private static void PublishNotification(PowerModeState value)
+        {
+            switch (value)
+            {
+                case PowerModeState.Quiet:
+                    MessagingCenter.Publish(new Notification(NotificationType.PowerModeQuiet, NotificationDuration.Short, value.GetDisplayName()));
+                    break;
+                case PowerModeState.Balance:
+                    MessagingCenter.Publish(new Notification(NotificationType.PowerModeBalance, NotificationDuration.Short, value.GetDisplayName()));
+                    break;
+                case PowerModeState.Performance:
+                    MessagingCenter.Publish(new Notification(NotificationType.PowerModePerformance, NotificationDuration.Short, value.GetDisplayName()));
+                    break;
+                case PowerModeState.GodMode:
+                    MessagingCenter.Publish(new Notification(NotificationType.PowerModeGodMode, NotificationDuration.Short, value.GetDisplayName()));
+                    break;
+            }
         }
     }
 }

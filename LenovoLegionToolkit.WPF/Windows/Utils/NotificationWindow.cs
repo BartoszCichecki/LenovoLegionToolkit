@@ -39,10 +39,10 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
             VerticalContentAlignment = VerticalAlignment.Center,
         };
 
-        public NotificationWindow(SymbolRegular symbol, SymbolRegular? overlaySymbol, string text)
+        public NotificationWindow(SymbolRegular symbol, SymbolRegular? overlaySymbol, Color? symbolColor, string text)
         {
             InitializeStyle();
-            InitializeContent(symbol, overlaySymbol, text);
+            InitializeContent(symbol, overlaySymbol, symbolColor, text);
             InitializePosition();
 
             MouseDown += (s, e) => Close();
@@ -82,10 +82,11 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
             Top = desktopWorkingArea.Bottom - Height - 16;
         }
 
-        private void InitializeContent(SymbolRegular symbol, SymbolRegular? overlaySymbol, string text)
+        private void InitializeContent(SymbolRegular symbol, SymbolRegular? overlaySymbol, Color? symbolColor, string text)
         {
             _symbolIcon.Symbol = symbol;
             _textBlock.Content = text;
+
 
             Grid.SetColumn(_symbolIcon, 0);
             Grid.SetColumn(_textBlock, 1);
@@ -98,6 +99,13 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
                 _overlaySymbolIcon.Symbol = overlaySymbol.Value;
                 Grid.SetColumn(_overlaySymbolIcon, 0);
                 _mainGrid.Children.Add(_overlaySymbolIcon);
+            }
+
+            if (symbolColor.HasValue)
+            {
+                var brush = new SolidColorBrush(symbolColor.Value);
+                _symbolIcon.Foreground = brush;
+                _overlaySymbolIcon.Foreground = brush;
             }
 
             Content = _mainGrid;
