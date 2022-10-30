@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Media;
 using System.Windows.Threading;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Settings;
@@ -47,7 +48,10 @@ namespace LenovoLegionToolkit.WPF.Utils
                 NotificationType.MicrophoneOff => _settings.Store.Notifications.Microphone,
                 NotificationType.NumLockOn => _settings.Store.Notifications.CapsNumLock,
                 NotificationType.NumLockOff => _settings.Store.Notifications.CapsNumLock,
-                NotificationType.PowerMode => _settings.Store.Notifications.PowerMode,
+                NotificationType.PowerModeQuiet => _settings.Store.Notifications.PowerMode,
+                NotificationType.PowerModeBalance => _settings.Store.Notifications.PowerMode,
+                NotificationType.PowerModePerformance => _settings.Store.Notifications.PowerMode,
+                NotificationType.PowerModeGodMode => _settings.Store.Notifications.PowerMode,
                 NotificationType.RefreshRate => _settings.Store.Notifications.RefreshRate,
                 NotificationType.RGBKeyboardPreset => _settings.Store.Notifications.KeyboardBacklight,
                 NotificationType.RGBKeyboardPresetOff => _settings.Store.Notifications.KeyboardBacklight,
@@ -75,7 +79,10 @@ namespace LenovoLegionToolkit.WPF.Utils
                 NotificationType.MicrophoneOff => SymbolRegular.Mic24,
                 NotificationType.NumLockOn => SymbolRegular.Keyboard12324,
                 NotificationType.NumLockOff => SymbolRegular.Keyboard12324,
-                NotificationType.PowerMode => SymbolRegular.Gauge24,
+                NotificationType.PowerModeQuiet => SymbolRegular.Gauge24,
+                NotificationType.PowerModeBalance => SymbolRegular.Gauge24,
+                NotificationType.PowerModePerformance => SymbolRegular.Gauge24,
+                NotificationType.PowerModeGodMode => SymbolRegular.Gauge24,
                 NotificationType.RefreshRate => SymbolRegular.Desktop24,
                 NotificationType.RGBKeyboardPreset => SymbolRegular.Lightbulb24,
                 NotificationType.RGBKeyboardPresetOff => SymbolRegular.Lightbulb24,
@@ -113,7 +120,10 @@ namespace LenovoLegionToolkit.WPF.Utils
                 NotificationType.MicrophoneOff => Resource.Notification_MicrophoneOff,
                 NotificationType.NumLockOn => Resource.Notification_NumLockOn,
                 NotificationType.NumLockOff => Resource.Notification_NumLockOff,
-                NotificationType.PowerMode => string.Format("{0}", notification.Args),
+                NotificationType.PowerModeQuiet => string.Format("{0}", notification.Args),
+                NotificationType.PowerModeBalance => string.Format("{0}", notification.Args),
+                NotificationType.PowerModePerformance => string.Format("{0}", notification.Args),
+                NotificationType.PowerModeGodMode => string.Format("{0}", notification.Args),
                 NotificationType.RefreshRate => string.Format("{0}", notification.Args),
                 NotificationType.RGBKeyboardPreset => string.Format("{0}", notification.Args),
                 NotificationType.RGBKeyboardPresetOff => string.Format("{0}", notification.Args),
@@ -123,20 +133,28 @@ namespace LenovoLegionToolkit.WPF.Utils
                 _ => throw new ArgumentException(nameof(notification.Type))
             };
 
+            Color? symbolColor = notification.Type switch
+            {
+                NotificationType.PowerModeQuiet => Color.FromRgb(53, 123, 242),
+                NotificationType.PowerModePerformance => Color.FromRgb(212, 51, 51),
+                NotificationType.PowerModeGodMode => Color.FromRgb(99, 52, 227),
+                _ => null
+            };
+
             var closeAfter = notification.Duration switch
             {
                 NotificationDuration.Long => 5000,
                 _ => 1000,
             };
 
-            ShowNotification(symbol, overlaySymbol, text, closeAfter);
+            ShowNotification(symbol, overlaySymbol, symbolColor, text, closeAfter);
         });
 
-        private void ShowNotification(SymbolRegular symbol, SymbolRegular? overlaySymbol, string text, int closeAfter)
+        private void ShowNotification(SymbolRegular symbol, SymbolRegular? overlaySymbol, Color? symbolColor, string text, int closeAfter)
         {
             _window?.Close();
 
-            var nw = new NotificationWindow(symbol, overlaySymbol, text) { Owner = Application.Current.MainWindow };
+            var nw = new NotificationWindow(symbol, overlaySymbol, symbolColor, text) { Owner = Application.Current.MainWindow };
             nw.Show(closeAfter);
             _window = nw;
         }
