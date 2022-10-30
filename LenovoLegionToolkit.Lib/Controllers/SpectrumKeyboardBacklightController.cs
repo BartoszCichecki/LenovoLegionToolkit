@@ -63,7 +63,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             SetFeature(input);
         }
 
-        public async Task<Dictionary<ushort, RGBColor>> GetState()
+        public async Task<Dictionary<ushort, RGBColor>> GetStateAsync()
         {
             ThrowIfHandleNull();
             await ThrowIfVantageEnabled().ConfigureAwait(false);
