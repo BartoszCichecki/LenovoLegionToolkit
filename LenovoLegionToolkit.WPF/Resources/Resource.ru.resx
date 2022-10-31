@@ -693,7 +693,7 @@
     <value>Обзор</value>
   </data>
   <data name="MainWindow_NavigationItem_Donate" xml:space="preserve">
-    <value>Поддержка</value>
+    <value>Донат</value>
   </data>
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
     <value>Клавиатура</value>
