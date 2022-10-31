@@ -977,8 +977,7 @@ UYARI: Yerleşik ekran kapalıysa bu eylem düzgün çalışmayacaktır.</value>
     <value>Gelişmiş</value>
   </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
-    <value>Windows'ta oturum açtığınızda küçültülmüş halde başlatın.
-Uyumluluk nedenleriyle 30 saniye gecikme vardır.</value>
+    <value>Windows'ta oturum açtığınızda küçültülmüş halde başlatın.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Otomatik Çalıştırma</value>
