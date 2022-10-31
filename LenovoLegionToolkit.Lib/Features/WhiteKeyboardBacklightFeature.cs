@@ -8,12 +8,11 @@ namespace LenovoLegionToolkit.Lib.Features
     {
         public WhiteKeyboardBacklightFeature() : base(Drivers.GetEnergy, Drivers.IOCTL_ENERGY_KEYBOARD) { }
 
-        public override async Task IsSupportedAsync()
+        public override async Task<bool> IsSupportedAsync()
         {
             var outBuffer = await SendCodeAsync(DriverHandle(), ControlCode, 0x1).ConfigureAwait(false);
             outBuffer >>= 1;
-            if (outBuffer != 0x2)
-                throw new InvalidOperationException("Not supported.");
+            return outBuffer == 0x2;
         }
 
         public override async Task<WhiteKeyboardBacklightState> GetStateAsync()
