@@ -161,7 +161,7 @@ namespace LenovoLegionToolkit.WPF
 
         private async Task CheckBasicCompatibilityAsync()
         {
-            var isCompatible = await Compatibility.CheckBasicCompatibility();
+            var isCompatible = await Compatibility.CheckBasicCompatibilityAsync();
             if (isCompatible)
                 return;
 
