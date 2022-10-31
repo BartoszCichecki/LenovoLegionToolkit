@@ -978,8 +978,7 @@ Zorg ervoor dat uw script eerst correct wordt uitgevoerd.</value>
     <value>Geavanceerd</value>
   </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
-    <value>Start geminimaliseerd naar lade wanneer u zich aanmeldt bij Windows.
-Het opstarten wordt om compatibiliteitsredenen met 30 seconden vertraagd.</value>
+    <value>Start geminimaliseerd naar lade wanneer u zich aanmeldt bij Windows.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Automatisch uitvoeren</value>

@@ -17,7 +17,6 @@ namespace LenovoLegionToolkit.Lib.Features
         private readonly string _inParameterName;
         private readonly string _outParameterName;
 
-
         protected AbstractLenovoGamezoneWmiFeature(string methodNameSuffix,
             int offset,
             string? supportMethodName = null,
@@ -59,14 +58,6 @@ namespace LenovoLegionToolkit.Lib.Features
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting state... [feature={GetType().Name}]");
-
-            if (!await IsSupportedAsync().ConfigureAwait(false))
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Feature {_methodNameSuffix} is not supported [feature={GetType().Name}]");
-
-                throw new NotSupportedException($"Feature {_methodNameSuffix} is not supported.");
-            }
 
             var internalResult = await WMI.CallAsync(Scope,
                 Query,

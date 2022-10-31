@@ -65,6 +65,9 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         protected override async Task OnRefreshAsync()
         {
+            if (!await _feature.IsSupportedAsync())
+                throw new NotSupportedException();
+
             var items = await _feature.GetAllStatesAsync();
             var selectedItem = await _feature.GetStateAsync();
 

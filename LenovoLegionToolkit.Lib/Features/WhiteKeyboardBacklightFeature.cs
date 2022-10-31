@@ -8,16 +8,11 @@ namespace LenovoLegionToolkit.Lib.Features
     {
         public WhiteKeyboardBacklightFeature() : base(Drivers.GetEnergy, Drivers.IOCTL_ENERGY_KEYBOARD) { }
 
-        public override async Task<WhiteKeyboardBacklightState> GetStateAsync()
+        public override async Task<bool> IsSupportedAsync()
         {
-            await IsSupportedAsync().ConfigureAwait(false);
-            return await base.GetStateAsync().ConfigureAwait(false);
-        }
-
-        public override async Task SetStateAsync(WhiteKeyboardBacklightState state)
-        {
-            await IsSupportedAsync().ConfigureAwait(false);
-            await base.SetStateAsync(state).ConfigureAwait(false);
+            var outBuffer = await SendCodeAsync(DriverHandle(), ControlCode, 0x1).ConfigureAwait(false);
+            outBuffer >>= 1;
+            return outBuffer == 0x2;
         }
 
         protected override uint GetInBufferValue() => 0x22;
@@ -44,14 +39,6 @@ namespace LenovoLegionToolkit.Lib.Features
                 _ => throw new InvalidOperationException("Invalid state"),
             };
             return Task.FromResult(result);
-        }
-
-        private async Task IsSupportedAsync()
-        {
-            var outBuffer = await SendCodeAsync(DriverHandle(), ControlCode, 0x1).ConfigureAwait(false);
-            outBuffer >>= 1;
-            if (outBuffer != 0x2)
-                throw new InvalidOperationException("Not supported.");
         }
     }
 }

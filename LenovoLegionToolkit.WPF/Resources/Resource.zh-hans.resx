@@ -601,8 +601,8 @@
     <value>锁定Fn键</value>
   </data>
   <data name="FnLockControl_Message" xml:space="preserve">
-    <value>开启后将无需按下Fn键即可触发功能
-开启后需通过按下Fn键才可触发原F1至F12键。</value>
+    <value>开启后将无需按下Fn键即可触发功能，
+触发原F1至F12键需按下Fn键。</value>
   </data>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>锁定Fn键</value>

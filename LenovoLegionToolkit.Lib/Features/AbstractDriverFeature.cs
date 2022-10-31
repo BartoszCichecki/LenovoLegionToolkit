@@ -20,7 +20,18 @@ namespace LenovoLegionToolkit.Lib.Features
             ControlCode = controlCode;
         }
 
-        public Task<bool> IsSupportedAsync() => Task.FromResult(true);
+        public virtual async Task<bool> IsSupportedAsync()
+        {
+            try
+            {
+                _ = await GetStateAsync().ConfigureAwait(false);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
         public Task<T[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<T>());
 
