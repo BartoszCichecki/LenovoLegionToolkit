@@ -9,11 +9,6 @@ namespace LenovoLegionToolkit.Lib.Utils
     {
         private static readonly string _allowedVendor = "LENOVO";
 
-        private static readonly string[] _allowedModelLines = {
-            "Legion",
-            "Ideapad"
-        };
-
         private static readonly string[] _allowedModelsPrefix = {
             "17ACH",
             "17ARH",
@@ -40,6 +35,7 @@ namespace LenovoLegionToolkit.Lib.Utils
             
             // Limited compatibility
             "17IR",
+            "15IC",
             "15IR"
         };
 
@@ -95,10 +91,6 @@ namespace LenovoLegionToolkit.Lib.Utils
 
             if (!mi.Vendor.Equals(_allowedVendor, StringComparison.InvariantCultureIgnoreCase))
                 return (false, mi);
-
-            foreach (var allowedModel in _allowedModelLines)
-                if (mi.Model.Contains(allowedModel, StringComparison.InvariantCultureIgnoreCase))
-                    return (true, mi);
 
             foreach (var allowedModel in _allowedModelsPrefix)
                 if (mi.Model.Contains(allowedModel, StringComparison.InvariantCultureIgnoreCase))

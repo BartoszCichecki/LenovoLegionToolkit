@@ -16,13 +16,13 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         private readonly ApplicationSettings _settings;
         private readonly FnKeys _fnKeys;
-        private readonly RefreshRateFeature _feature;
+        private readonly RefreshRateFeature _refreshRateFeature;
 
         public SpecialKeyListener(ApplicationSettings settings, FnKeys fnKeys, RefreshRateFeature feature) : base("ROOT\\WMI", "LENOVO_UTILITY_EVENT")
         {
             _settings = settings ?? throw new ArgumentNullException(nameof(settings));
             _fnKeys = fnKeys ?? throw new ArgumentNullException(nameof(fnKeys));
-            _feature = feature ?? throw new ArgumentNullException(nameof(feature));
+            _refreshRateFeature = feature ?? throw new ArgumentNullException(nameof(feature));
         }
 
         protected override SpecialKey GetValue(PropertyDataCollection properties)
@@ -79,11 +79,14 @@ namespace LenovoLegionToolkit.Lib.Listeners
                     return;
                 }
 
+                if (!await _refreshRateFeature.IsSupportedAsync().ConfigureAwait(false))
+                    return;
+
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Switch refresh rate after Fn+R...");
 
-                var all = await _feature.GetAllStatesAsync().ConfigureAwait(false);
-                var current = await _feature.GetStateAsync().ConfigureAwait(false);
+                var all = await _refreshRateFeature.GetAllStatesAsync().ConfigureAwait(false);
+                var current = await _refreshRateFeature.GetStateAsync().ConfigureAwait(false);
 
                 all = all.Except(_settings.Store.ExcludedRefreshRates).ToArray();
 
@@ -102,7 +105,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
                 var next = all[newIndex];
 
-                await _feature.SetStateAsync(next).ConfigureAwait(false);
+                await _refreshRateFeature.SetStateAsync(next).ConfigureAwait(false);
 
                 _ = Task.Delay(TimeSpan.FromSeconds(2)).ContinueWith(_ =>
                 {
