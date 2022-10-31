@@ -15,18 +15,6 @@ namespace LenovoLegionToolkit.Lib.Features
             return outBuffer == 0x2;
         }
 
-        public override async Task<WhiteKeyboardBacklightState> GetStateAsync()
-        {
-            await IsSupportedAsync().ConfigureAwait(false);
-            return await base.GetStateAsync().ConfigureAwait(false);
-        }
-
-        public override async Task SetStateAsync(WhiteKeyboardBacklightState state)
-        {
-            await IsSupportedAsync().ConfigureAwait(false);
-            await base.SetStateAsync(state).ConfigureAwait(false);
-        }
-
         protected override uint GetInBufferValue() => 0x22;
 
         protected override Task<uint[]> ToInternalAsync(WhiteKeyboardBacklightState state)

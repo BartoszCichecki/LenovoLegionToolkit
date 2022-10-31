@@ -59,14 +59,6 @@ namespace LenovoLegionToolkit.Lib.Features
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting state... [feature={GetType().Name}]");
 
-            if (!await IsSupportedAsync().ConfigureAwait(false))
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Feature {_methodNameSuffix} is not supported [feature={GetType().Name}]");
-
-                throw new NotSupportedException($"Feature {_methodNameSuffix} is not supported.");
-            }
-
             var internalResult = await WMI.CallAsync(Scope,
                 Query,
                 "Get" + _methodNameSuffix,
