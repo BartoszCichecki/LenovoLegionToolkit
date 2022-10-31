@@ -133,7 +133,7 @@
 * 葡萄牙语（巴西） - Vernon
 * 俄语 - [Edward Johan](https://github.com/younyokel)
 * 土耳其语 - Undervolt
-* 乌克兰语 -  Владислав «vaidee» Придатько
+* 乌克兰语 -  [Владислав «vaidee» Придатько](https://github.com/va1dee)
 * 越南语 - Not_Nhan
 
 ## FAQ
