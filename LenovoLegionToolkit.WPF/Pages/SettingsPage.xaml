@@ -143,7 +143,10 @@
             FontSize="12"
             Text="{x:Static resources:Resource.SettingsPage_Advanced_Message}" />
 
-        <wpfui:CardAction Margin="0,0,0,8" Click="PowerPlans_Click">
+        <wpfui:CardAction
+            x:Name="_powerPlansCard"
+            Margin="0,0,0,8"
+            Click="PowerPlans_Click">
             <wpfui:CardAction.Content>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_PowerPlans_Title}" />
             </wpfui:CardAction.Content>

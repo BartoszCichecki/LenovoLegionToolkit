@@ -128,6 +128,9 @@ namespace LenovoLegionToolkit.Lib.Listeners
                         break;
 
                     case DriverKey.Fn_F10 or DriverKey.Fn_F10_2:
+                        if (!await _touchpadLockFeature.IsSupportedAsync().ConfigureAwait(false))
+                            break;
+
                         var status = await _touchpadLockFeature.GetStateAsync().ConfigureAwait(false);
                         if (status == TouchpadLockState.Off)
                             MessagingCenter.Publish(new Notification(NotificationType.TouchpadOn, NotificationDuration.Short));
@@ -147,6 +150,9 @@ namespace LenovoLegionToolkit.Lib.Listeners
                         break;
 
                     case DriverKey.Fn_Space:
+                        if (!await _whiteKeyboardBacklightFeature.IsSupportedAsync().ConfigureAwait(false))
+                            break;
+
                         var state = await _whiteKeyboardBacklightFeature.GetStateAsync().ConfigureAwait(false);
                         MessagingCenter.Publish(new Notification(NotificationType.WhiteKeyboardBacklight, NotificationDuration.Short, state.GetDisplayName()));
                         break;
