@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AlwaysOnUSBState_Off" xml:space="preserve">
-    <value>Off</value>
+    <value>Desligado</value>
   </data>
   <data name="AlwaysOnUSBState_OnAlways" xml:space="preserve">
     <value>Sempre ligado</value>
@@ -71,7 +71,7 @@
 		<value>Desativado</value>
 	</data>
   <data name="AutorunState_Enabled" xml:space="preserve">
-		<value>Ligado</value>
+		<value>Ativado</value>
 	</data>
   <data name="AutorunState_EnabledDelayed" xml:space="preserve">
 		<value>Ativado com atraso</value>
@@ -140,7 +140,7 @@
     <value>Predefinição 2</value>
   </data>
   <data name="RGBKeyboardBrightness_High" xml:space="preserve">
-    <value>Alto</value>
+    <value>Alta</value>
   </data>
   <data name="RGBKeyboardBrightness_Low" xml:space="preserve">
     <value>Baixo</value>
@@ -170,12 +170,12 @@
     <value>Sistema</value>
   </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
-    <value>Alto</value>
+    <value>Alta</value>
   </data>
   <data name="WhiteKeyboardBacklightState_Low" xml:space="preserve">
-    <value>Baixo</value>
+    <value>Baixa</value>
   </data>
   <data name="WhiteKeyboardBacklightState_Off" xml:space="preserve">
-    <value>Desligado</value>
+    <value>Desligada</value>
   </data>
 </root>
