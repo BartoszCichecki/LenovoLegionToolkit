@@ -17,7 +17,6 @@ namespace LenovoLegionToolkit.Lib.Features
         private readonly string _inParameterName;
         private readonly string _outParameterName;
 
-
         protected AbstractLenovoGamezoneWmiFeature(string methodNameSuffix,
             int offset,
             string? supportMethodName = null,
