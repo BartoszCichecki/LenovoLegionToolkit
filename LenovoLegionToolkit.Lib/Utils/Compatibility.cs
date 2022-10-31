@@ -41,7 +41,7 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         private static MachineInformation? _machineInformation;
 
-        public static Task<bool> CheckBasicCompatibility() => WMI.Exists("root\\WMI", $"SELECT * FROM LENOVO_GAMEZONE_DATA");
+        public static Task<bool> CheckBasicCompatibilityAsync() => WMI.ExistsAsync("root\\WMI", $"SELECT * FROM LENOVO_GAMEZONE_DATA");
 
         public static async Task<MachineInformation> GetMachineInformationAsync()
         {

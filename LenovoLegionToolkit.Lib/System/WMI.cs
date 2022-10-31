@@ -26,7 +26,7 @@ namespace LenovoLegionToolkit.Lib.System
             }
         }
 
-        public static async Task<bool> Exists(string scope, FormattableString query)
+        public static async Task<bool> ExistsAsync(string scope, FormattableString query)
         {
             try
             {
