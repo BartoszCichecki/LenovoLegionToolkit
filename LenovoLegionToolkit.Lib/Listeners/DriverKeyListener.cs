@@ -16,15 +16,17 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         private readonly FnKeys _fnKeys;
         private readonly TouchpadLockFeature _touchpadLockFeature;
+        private readonly WhiteKeyboardBacklightFeature _whiteKeyboardBacklightFeature;
 
         private CancellationTokenSource? _cancellationTokenSource;
         private Task? _listenTask;
         private bool _ignoreNext;
 
-        public DriverKeyListener(FnKeys fnKeys, TouchpadLockFeature touchpadLockFeature)
+        public DriverKeyListener(FnKeys fnKeys, TouchpadLockFeature touchpadLockFeature, WhiteKeyboardBacklightFeature whiteKeyboardBacklightFeature)
         {
             _fnKeys = fnKeys ?? throw new ArgumentNullException(nameof(fnKeys));
             _touchpadLockFeature = touchpadLockFeature ?? throw new ArgumentNullException(nameof(touchpadLockFeature));
+            _whiteKeyboardBacklightFeature = whiteKeyboardBacklightFeature ?? throw new ArgumentNullException(nameof(whiteKeyboardBacklightFeature));
         }
 
         public Task StartAsync()
@@ -119,22 +121,20 @@ namespace LenovoLegionToolkit.Lib.Listeners
                 {
                     case DriverKey.Fn_F4:
                         var enabled = Microphone.Toggle();
-
                         if (enabled)
                             MessagingCenter.Publish(new Notification(NotificationType.MicrophoneOn, NotificationDuration.Short));
                         else
                             MessagingCenter.Publish(new Notification(NotificationType.MicrophoneOff, NotificationDuration.Short));
-
                         break;
+
                     case DriverKey.Fn_F10 or DriverKey.Fn_F10_2:
                         var status = await _touchpadLockFeature.GetStateAsync().ConfigureAwait(false);
-
                         if (status == TouchpadLockState.Off)
                             MessagingCenter.Publish(new Notification(NotificationType.TouchpadOn, NotificationDuration.Short));
                         else
                             MessagingCenter.Publish(new Notification(NotificationType.TouchpadOff, NotificationDuration.Short));
-
                         break;
+
                     case DriverKey.Fn_F8 or DriverKey.Fn_F8_2:
                         Process.Start(new ProcessStartInfo
                         {
@@ -145,12 +145,17 @@ namespace LenovoLegionToolkit.Lib.Listeners
                             WindowStyle = ProcessWindowStyle.Hidden,
                         });
                         break;
+
+                    case DriverKey.Fn_Space:
+                        var state = await _whiteKeyboardBacklightFeature.GetStateAsync().ConfigureAwait(false);
+                        MessagingCenter.Publish(new Notification(NotificationType.WhiteKeyboardBacklight, NotificationDuration.Short, state.GetDisplayName()));
+                        break;
                 }
             }
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Unknown exception. [value={value}]", ex);
+                    Log.Instance.Trace($"Couldn't handle key press. [value={value}]", ex);
             }
         }
 

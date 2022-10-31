@@ -40,7 +40,8 @@ namespace LenovoLegionToolkit.Lib
         Fn_F8 = 8192,
         Fn_F8_2 = 8704,
         Fn_F10 = 32,
-        Fn_F10_2 = 1056
+        Fn_F10_2 = 1056,
+        Fn_Space = 4096,
     }
 
     public enum FanTableType
@@ -102,8 +103,6 @@ namespace LenovoLegionToolkit.Lib
     {
         Panel = 0,
         Ports = 1,
-        KeyboardBrightness = 2,
-        KeyboardBacklight = 3
     }
 
     public enum NotificationDuration
