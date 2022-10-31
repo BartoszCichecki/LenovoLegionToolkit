@@ -150,6 +150,12 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
                         button.Color = Color.FromRgb(rgb.R, rgb.G, rgb.B);
                     }
 
+                    if (Log.Instance.IsTraceEnabled && _device.Buttons.Length != state.Count)
+                    {
+                        var codes = state.Keys.Except(_device.Buttons.Select(b => b.KeyCode)).Select(kc => $"{kc:X}");
+                        Log.Instance.Trace($"Some reported keycodes were not used: {string.Join(",", codes)}");
+                    }
+
                     await delay;
                 }
             }

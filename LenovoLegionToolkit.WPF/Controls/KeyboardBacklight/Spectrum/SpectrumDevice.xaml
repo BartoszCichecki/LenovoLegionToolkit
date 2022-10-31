@@ -39,7 +39,7 @@
             Grid.Column="6"
             Height="32"
             Margin="0,0,0,24"
-            KeyCode="0x05D" />
+            KeyCode="0x05DD" />
 
         <controls:SpectrumKeyboard
             x:Name="_keyboard"
