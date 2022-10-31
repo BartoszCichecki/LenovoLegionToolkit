@@ -254,7 +254,7 @@ Somente ações que corresponder com o estado atual serão executadas.</value>
     <value>Conectado, não carregando</value>
   </data>
   <data name="BatteryPage_BatteryTemperature_Message" xml:space="preserve">
-    <value>Temperatura atual de batería.</value>
+    <value>Temperatura atual da batería.</value>
   </data>
   <data name="BatteryPage_BatteryTemperature_Title" xml:space="preserve">
     <value>Temperatura da bateria</value>
@@ -305,14 +305,14 @@ Somente ações que corresponder com o estado atual serão executadas.</value>
     <value>Carregador de baixo consumo conectado</value>
   </data>
   <data name="BatteryPage_ManufactureDate_Message" xml:space="preserve">
-    <value>Data de fabricação.</value>
+    <value>Data de fabricação da bateria.</value>
   </data>
   <data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
     <value>Data de fabricação</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
     <value>Tempo desde que o notebook foi desconectado do carregador.
-Este tempo pode não ser exato caso o notebook for carregado em estado de suspensão ou desligado.</value>
+Este tempo pode não ser exato caso o equipamento for carregado em estado de suspensão ou desligado.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
     <value>Em bateria desde</value>
@@ -616,13 +616,13 @@ Alguns notebooks podem aceitar limites de energia maiores do que indicado, mas t
     <value>Avançado</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_CrossLoading" xml:space="preserve">
-    <value>Limite de potência de longo prazo (Cross Loading)</value>
+    <value>Power Limit de Longo Prazo (Cross Loading)</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_LongTermPL" xml:space="preserve">
-    <value>Limite de potência de longo prazo</value>
+    <value>Power Limit de Longo Prazo</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_ShortTermPL" xml:space="preserve">
-    <value>Limite de energia de curto prazo</value>
+    <value>Power Limit de Curto Prazo</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_TempLimit" xml:space="preserve">
     <value>Limite de temperatura da CPU</value>
@@ -869,7 +869,7 @@ Sempre certifique-se de estar instalando os pacotes corretos.</value>
     <value>Download em andamento</value>
   </data>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
-    <value>Baixar para</value>
+    <value>Salvar em</value>
   </data>
   <data name="PackagesPage_Filter" xml:space="preserve">
     <value>Filtro...</value>
@@ -923,7 +923,7 @@ Sempre certifique-se de estar instalando os pacotes corretos.</value>
     <value>Não foi possível alterar o plano de energia</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
-    <value>Selecione o modo performance.
+    <value>Selecione o modo de desempenho.
 Você pode alternar entre os modos pressionando Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
@@ -1095,7 +1095,7 @@ A reinicialização é recomendada após alterar esta opção.</value>
   <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
     <value>Desativar o Lenovo Hotkeys e seu serviço sem desinstalá-lo.
 Se desativado, este aplicativo lidará com atalhos Fn
-O reinicialização é recomendada após alterar esta opção.</value>
+A reinicialização é recomendada após alterar esta opção.</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Desativar o Lenovo Hotkeys</value>
@@ -1108,7 +1108,7 @@ O reinicialização é recomendada após alterar esta opção.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Desative o Lenovo Vantage e seu serviço sem desinstalá-lo.
-O reinicialização é recomendada após alterar esta opção.</value>
+A reinicialização é recomendada após alterar esta opção.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Desativar o Lenovo Vantage</value>
