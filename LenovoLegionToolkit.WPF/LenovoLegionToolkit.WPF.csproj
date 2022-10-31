@@ -16,7 +16,7 @@
 		<PublishReadyToRun>false</PublishReadyToRun>
 		<PublishUrl>publish\</PublishUrl>
 		<IncludeAllContentForSelfExtract>false</IncludeAllContentForSelfExtract>
-		<SatelliteResourceLanguages>en;zh;zh-hans;es;nl;nl-nl;pt;pt-br;ro;ru;ukr;tr;vi</SatelliteResourceLanguages>
+		<SatelliteResourceLanguages>en;cs;zh;zh-hans;es;nl;nl-nl;pt;pt-br;ro;ru;ukr;tr;vi</SatelliteResourceLanguages>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 		<SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("yyyyMMddHHmmss"))</SourceRevisionId>

@@ -62,503 +62,503 @@
     <value>Lenovo Legion Toolkit</value>
   </data>
   <data name="AboutPage_Build" xml:space="preserve">
-    <value>Compilação</value>
+    <value>Build</value>
   </data>
   <data name="AboutPage_LatestReleaseOnGitHub" xml:space="preserve">
-    <value>Última versão no GitHub</value>
+    <value>Poslední verze na GitHubu</value>
   </data>
   <data name="AboutPage_Links" xml:space="preserve">
-    <value>Links</value>
+    <value>Odkazy</value>
   </data>
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
-    <value>Site do projeto no GitHub</value>
+    <value>Stránka projektu na GitHubu</value>
   </data>
   <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
-    <value>Bibliotecas de Terceiros</value>
+    <value>Knihovny třetích stran</value>
   </data>
   <data name="AboutPage_Title" xml:space="preserve">
-    <value>Sobre</value>
+    <value>O aplikaci</value>
   </data>
   <data name="AboutPage_TranslationCredit" xml:space="preserve">
-    <value>Traduzido para o Português (Brasil) por Vernnon!.</value>
+    <value>Překlady od komunity.</value>
     <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
   </data>
   <data name="AboutPage_Version" xml:space="preserve">
-    <value>Versão</value>
+    <value>Verze</value>
   </data>
   <data name="Add" xml:space="preserve">
-    <value>Adicionar</value>
+    <value>Přidat</value>
   </data>
   <data name="AddNew" xml:space="preserve">
-    <value>Adicionar um nova</value>
+    <value>Přidat nový</value>
   </data>
   <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Adicionar novo plano de energia mesmo que o Vantage estiver habilitado.
-Esta opção destina-se apenas a dispositivos que não possuem vários planos de energia.</value>
+    <value>Aktivovat režim napájení, i když je povolený Vantage.
+Tato možnost je určena pouze pro zařízení, která nebyla dodána s více režimy napájení.</value>
   </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
-    <value>Sempre ativar os Planos de Energia do Windows</value>
+    <value>Vždy aktivovat Režim napájení windows</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>Carregar dispositivos USB mesmo quando o computador estiver desligado, em modo de suspensão ou hibernando.</value>
+    <value>Nabíjet zařízení USB, když je počitač vypnut, nebo v režimu spánku/hibernace.</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
-    <value>USB Sempre ativa</value>
+    <value>USB vždy zapnut</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-    <value>Carregar dispositivos USB mesmo quando o computador estiver desligado, em modo de suspensão ou hibernando.</value>
+    <value>Nabíjet zařízení USB, když je počitač vypnut, nebo v režimu spánku/hibernace.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
-    <value>USB Sempre ativa</value>
+    <value>USB vždy zapnut</value>
   </data>
   <data name="AppName" xml:space="preserve">
     <value>Lenovo Legion Toolkit</value>
   </data>
   <data name="Apply" xml:space="preserve">
-    <value>Aplicar</value>
+    <value>Použít</value>
   </data>
   <data name="ApplyAndClose" xml:space="preserve">
-    <value>Aplicar ao fechar</value>
+    <value>Použít a zavřít</value>
   </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
-    <value>Lenovo Legion Toolkit deve estar sendo executado para rodar tarefas automatizadas.</value>
+    <value>Lenovo Legion Toolkit musí být zapnut, aby fungovaly automatické akce.</value>
   </data>
   <data name="AutomationPage_ActionsEnabled_Title" xml:space="preserve">
-    <value>Habilitar</value>
+    <value>Povolit</value>
   </data>
   <data name="AutomationPage_Actions_Empty" xml:space="preserve">
-    <value>Sem ações definidas. Clique em "Adicionar nova" para criar uma ação.</value>
+    <value>Nejsou definovány žádné akce. Kliknutím na „Přidat novou“ vytvoříte novou akci.</value>
   </data>
   <data name="AutomationPage_Actions_Message" xml:space="preserve">
-    <value>Se habilitado, essas ações serão executadas automaticamente. Independente do estado, todas as ações serão validadas de cima para baixo.
-Somente ações que corresponder com o estado atual serão executadas.</value>
+    <value>Pokud je tato funkce povolena, akce se spustí automaticky. Kdykoli se stav změní, všechny akce budou vyhodnoceny shora dolů.
+Spustí se pouze akce, které odpovídají aktuálnímu stavu.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
-    <value>Ações</value>
+    <value>Akce</value>
   </data>
   <data name="AutomationPage_AddManualPipeline_Placeholder" xml:space="preserve">
-    <value>Nome...</value>
+    <value>Jméno...</value>
   </data>
   <data name="AutomationPage_AddManualPipeline_Title" xml:space="preserve">
-    <value>Adicionar nova</value>
+    <value>Přidat nový</value>
   </data>
   <data name="AutomationPage_QuickActions_Empty" xml:space="preserve">
-    <value>Sem ações definidas. Clique em "Adicionar nova" para criar uma ação.</value>
+    <value>Nejsou definovány žádné rychlé akce. Kliknutím na „Přidat novou“ vytvoř novou rychlou akci.</value>
   </data>
   <data name="AutomationPage_QuickActions_Message" xml:space="preserve">
-    <value>As ações rápidas estão disponíveis no menu do botão direito no ícone da bandeja.</value>
+    <value>Rychlé akce jsou dostupné v nabídce po kliknutí pravým tlačítkem na ikonu na hlavním panelu.</value>
   </data>
   <data name="AutomationPage_QuickActions_Title" xml:space="preserve">
-    <value>Ações Rápidas</value>
+    <value>Rychlé akce</value>
   </data>
   <data name="AutomationPage_RenamePipeline_Placeholder" xml:space="preserve">
-    <value>Nome...</value>
+    <value>Jméno...</value>
   </data>
   <data name="AutomationPage_RenamePipeline_Title" xml:space="preserve">
-    <value>Renomear</value>
+    <value>Přejmenovat</value>
   </data>
   <data name="AutomationPage_Reverted_Message" xml:space="preserve">
-    <value>Todas as ações foram descartadas!</value>
+    <value>Všechny změny vraceny!</value>
   </data>
   <data name="AutomationPage_Reverted_Title" xml:space="preserve">
-    <value>Reverter</value>
+    <value>Vráceno zpět</value>
   </data>
   <data name="AutomationPage_Saved_Message" xml:space="preserve">
-    <value>As alterações foram salvas com sucesso!</value>
+    <value>Změny byly úspěšně uloženy!</value>
   </data>
   <data name="AutomationPage_Saved_Title" xml:space="preserve">
-    <value>Salvo</value>
+    <value>Uloženo</value>
   </data>
   <data name="AutomationPage_Title" xml:space="preserve">
-    <value>Automação</value>
+    <value>Automatizace</value>
   </data>
   <data name="AutomationPipelineControl_AddStep" xml:space="preserve">
-    <value>Adicionar passo</value>
+    <value>Přidat krok</value>
   </data>
   <data name="AutomationPipelineControl_Configure" xml:space="preserve">
-    <value>Configurar</value>
+    <value>Nastavit</value>
   </data>
   <data name="AutomationPipelineControl_Exclusive" xml:space="preserve">
-    <value>Exclusivo</value>
+    <value>Exkluzivní</value>
   </data>
   <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
-    <value>Não executar ações futuras quando essa ação rodar.</value>
+    <value>Neprovádět další akce, když tato akce běží.</value>
   </data>
   <data name="AutomationPipelineControl_RunNow" xml:space="preserve">
-    <value>Executar agora</value>
+    <value>Spustit nyní</value>
   </data>
   <data name="AutomationPipelineControl_RunNow_Error_Message" xml:space="preserve">
-    <value>Concluído com erros.</value>
+    <value>Dokončeno s chybami.</value>
   </data>
   <data name="AutomationPipelineControl_RunNow_Error_Title" xml:space="preserve">
-    <value>Executa agora</value>
+    <value>Spustit nyní</value>
   </data>
   <data name="AutomationPipelineControl_RunNow_Success_Message" xml:space="preserve">
-    <value>Concluído com sucesso!</value>
+    <value>Úspěšně dokončeno!</value>
   </data>
   <data name="AutomationPipelineControl_RunNow_Success_Title" xml:space="preserve">
-    <value>Executar agora</value>
+    <value>Spustit nyní</value>
   </data>
   <data name="AutomationPipelineControl_Running" xml:space="preserve">
-    <value>Executando...</value>
+    <value>Spuštěn...</value>
   </data>
   <data name="AutomationPipelineControl_Step" xml:space="preserve">
-    <value>{0} Etapa</value>
+    <value>{0} krok</value>
   </data>
   <data name="AutomationPipelineControl_Step_Many" xml:space="preserve">
-    <value>{0} Etapa</value>
+    <value>{0} kroků</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_Apps" xml:space="preserve">
-    <value>Aplicativos</value>
+    <value>Aplikace</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_AtSunrise" xml:space="preserve">
-    <value>Ao nascer do sol</value>
+    <value>Při východu slunce</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_AtSunset" xml:space="preserve">
-    <value>Ao por do sol</value>
+    <value>Při západu slunce</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_AtTime" xml:space="preserve">
-    <value>As {0:D2}:{1:D2}</value>
+    <value>V {0:D2}:{1:D2}</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_PowerMode" xml:space="preserve">
-    <value>Plano de Energia</value>
+    <value>Režim výkonu</value>
   </data>
   <data name="AutomationPipelineControl_Unnamed" xml:space="preserve">
-    <value>Sem nome</value>
+    <value>Nepojmenovaný</value>
   </data>
   <data name="BalanceModeSettingsWindow_AIEngine_Message" xml:space="preserve">
-    <value>Detecta quando certos jogos estão sendo executados e configura automaticamente o desempenho da CPU e GPU. As temperaturas e os níveis de ruído das coolers podem aumentar.</value>
+    <value>Automaticky detekuje, kdy jsou spuštěny určité hry, a vyladí výkon CPU a GPU. Mohou se zvýšit teploty a hluk ventilátoru.</value>
   </data>
   <data name="BalanceModeSettingsWindow_AIEngine_Title" xml:space="preserve">
-    <value>Ativar mecanismo de IA</value>
+    <value>Povolit AI</value>
   </data>
   <data name="BalanceModeSettingsWindow_Title" xml:space="preserve">
-    <value>Configurações do modo equilibrado</value>
+    <value>Nastavení vyváženého módu</value>
   </data>
   <data name="BatteryAutomationStepControl_Message" xml:space="preserve">
-    <value>Definir o modo de carregamento da bateria.</value>
+    <value>Vyber, jak se bude baterie nabíjet.</value>
   </data>
   <data name="BatteryAutomationStepControl_Title" xml:space="preserve">
-    <value>Modo de bateria</value>
+    <value>Režim baterie</value>
   </data>
   <data name="BatteryModeControl_Message" xml:space="preserve">
-    <value>Definir o modo de carregamento da bateria.</value>
+    <value>Vyber, jak se bude baterie nabíjet.</value>
   </data>
   <data name="BatteryModeControl_Title" xml:space="preserve">
-    <value>Modo de bateria</value>
+    <value>Režim baterie</value>
   </data>
   <data name="BatteryPage_ACAdapterConnectedAndCharging" xml:space="preserve">
-    <value>Conectado, carregando...</value>
+    <value>Připojen, nabíjení...</value>
   </data>
   <data name="BatteryPage_ACAdapterConnectedNotCharging" xml:space="preserve">
-    <value>Conectado, não carregando</value>
+    <value>Připojen, nenabíjí</value>
   </data>
   <data name="BatteryPage_BatteryTemperature_Message" xml:space="preserve">
-    <value>Temperatura atual da batería.</value>
+    <value>Aktualní teplota baterie.</value>
   </data>
   <data name="BatteryPage_BatteryTemperature_Title" xml:space="preserve">
-    <value>Temperatura da bateria</value>
+    <value>Teplota baterie</value>
   </data>
   <data name="BatteryPage_CurrentCapacity_Message" xml:space="preserve">
-    <value>Capacidade de carga atual.</value>
+    <value>Aktuální kapacita baterie.</value>
   </data>
   <data name="BatteryPage_CurrentCapacity_Title" xml:space="preserve">
-    <value>Capacidade atual</value>
+    <value>Aktuální kapacita</value>
   </data>
   <data name="BatteryPage_CycleCount_Message" xml:space="preserve">
-    <value>Números de ciclos de carga/descarga.</value>
+    <value>Počet cyklů nabití/vybití.</value>
   </data>
   <data name="BatteryPage_CycleCount_Title" xml:space="preserve">
-    <value>Ciclos de carga</value>
+    <value>Počet cyklů</value>
   </data>
   <data name="BatteryPage_DesignCapacity_Message" xml:space="preserve">
-    <value>Capacidade nominal.</value>
+    <value>Konstrukční kapacita baterie.</value>
   </data>
   <data name="BatteryPage_DesignCapacity_Title" xml:space="preserve">
-    <value>Capacidade original</value>
+    <value>Konstrukční kapacita</value>
   </data>
   <data name="BatteryPage_DischargeRate_Message" xml:space="preserve">
-    <value>Taxa do carregamento (+) ou descarregamento (-) da bateria.</value>
+    <value>Rychlost nabíjení (+), nebo vybíjení (-) baterie.</value>
   </data>
   <data name="BatteryPage_DischargeRate_Title" xml:space="preserve">
-    <value>Taxa de descarregamento</value>
+    <value>Rychlost vybíjení</value>
   </data>
   <data name="BatteryPage_EstimatedBatteryLifeRemaining" xml:space="preserve">
-    <value>Tempo restante estimado: {0}</value>
+    <value>Odhadovaný zbývající čas: {0}</value>
   </data>
   <data name="BatteryPage_EstimatingBatteryLife" xml:space="preserve">
-    <value>Tempo restante...</value>
+    <value>Odhaduji čas...</value>
   </data>
   <data name="BatteryPage_FirstUseDate_Title" xml:space="preserve">
-    <value>Data do primeiro uso</value>
+    <value>Datum prvního použití</value>
   </data>
   <data name="BatteryPage_FirstUse_Message" xml:space="preserve">
-    <value>Quando a bateria foi utilizada pela primeira vez.</value>
+    <value>Kdy byla baterie použita poprvé.</value>
   </data>
   <data name="BatteryPage_FullChargeCapacity_Message" xml:space="preserve">
-    <value>Capacidade total de carga da bateria.</value>
+    <value>Kapacita baterie, když je plně nabitá.</value>
   </data>
   <data name="BatteryPage_FullChargeCapacity_Title" xml:space="preserve">
-    <value>Capacidade de carga total</value>
+    <value>Plně nabitá kapacita</value>
   </data>
   <data name="BatteryPage_LowWattageChargerConnected" xml:space="preserve">
-    <value>Carregador de baixo consumo conectado</value>
+    <value>Připojena nabíječka s nízkým výkonem</value>
   </data>
   <data name="BatteryPage_ManufactureDate_Message" xml:space="preserve">
-    <value>Data de fabricação da bateria.</value>
+    <value>Kdy byla baterie vyrobena.</value>
   </data>
   <data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
-    <value>Data de fabricação</value>
+    <value>Datum výroby</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-    <value>Tempo desde que o notebook foi desconectado do carregador.
-Este tempo pode não ser exato caso o equipamento for carregado em estado de suspensão ou desligado.</value>
+    <value>Čas od posledního připojení notebooku k nabíječce.
+Tento čas nemusí být přesný, pokud byl notebook nabíjen ve spánku nebo ve vypnutém stavu.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
-    <value>Em bateria desde</value>
+    <value>Na baterii od</value>
   </data>
   <data name="BatteryPage_Title" xml:space="preserve">
-    <value>Batería</value>
+    <value>Baterie</value>
   </data>
   <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
-    <value>Na bateria</value>
+    <value>Na baterii</value>
   </data>
   <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>Conectado</value>
+    <value>Připojen</value>
   </data>
   <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
-    <value>Planos de Energia</value>
+    <value>Plány napájení</value>
   </data>
   <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
-    <value>Mais informações em microsoft.com</value>
+    <value>Zjisti více na microsoft.com</value>
   </data>
   <data name="CPUBoostModesWindow_Title" xml:space="preserve">
-    <value>Modos de desempenho da CPU</value>
+    <value>Režimy zesílení CPU</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Cancelar</value>
+    <value>Zrušit</value>
   </data>
   <data name="Celsius" xml:space="preserve">
-    <value>ºC</value>
+    <value>°C</value>
   </data>
   <data name="Close" xml:space="preserve">
-    <value>Fechar</value>
+    <value>Zavřít</value>
   </data>
   <data name="ColorCardControl_Blue" xml:space="preserve">
-    <value>Azul</value>
+    <value>Modrá</value>
   </data>
   <data name="ColorCardControl_Green" xml:space="preserve">
-    <value>Verde</value>
+    <value>Zelená</value>
   </data>
   <data name="ColorCardControl_Red" xml:space="preserve">
-    <value>Vermelho</value>
+    <value>Červená</value>
   </data>
   <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
-    <value>Selecionar o modo de funcionamento da GPU, seguindo o uso e as condições de energia de seu equipamento.
-Uma reinicialização pode ser necessária.</value>
+    <value>Vyber provozní režim GPU na základě využití počítače a podmínek napájení.
+Přepínání režimů může vyžadovat restart.</value>
   </data>
   <data name="ComboBoxHybridModeControl_RestartRequired_Message" xml:space="preserve">
-    <value>Mudar o {0} requer uma reinicialização. Deseja reiniciar o computador agora?</value>
+    <value>Změna na {0} vyžaduje restart. Chceš restartovat teď?</value>
   </data>
   <data name="ComboBoxHybridModeControl_RestartRequired_Title" xml:space="preserve">
-    <value>Reinicialização necessária</value>
+    <value>Je vyžadován restart</value>
   </data>
   <data name="ComboBoxHybridModeControl_Title" xml:space="preserve">
-    <value>Modo de trabalho da GPU</value>
+    <value>Pracovní režim GPU</value>
   </data>
   <data name="ContextMenu_QuickActions" xml:space="preserve">
-    <value>Ações Rápidas</value>
+    <value>Rychlé akce</value>
   </data>
   <data name="Continue" xml:space="preserve">
-    <value>Avançar</value>
+    <value>Pokračovat</value>
   </data>
   <data name="CopyAll" xml:space="preserve">
-    <value>Copiar tudo</value>
+    <value>Kopírovat vše</value>
   </data>
   <data name="DashboardPage_Graphics_Title" xml:space="preserve">
-    <value>Gráficos</value>
+    <value>Grafika</value>
   </data>
   <data name="DashboardPage_Other_Title" xml:space="preserve">
-    <value>Outros</value>
+    <value>Jiné</value>
   </data>
   <data name="DashboardPage_Power_Title" xml:space="preserve">
-    <value>Energia</value>
+    <value>Napájení</value>
   </data>
   <data name="DashboardPage_Title" xml:space="preserve">
-    <value>Início</value>
+    <value>Domů</value>
   </data>
   <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
-    <value>Desativar a GPU dedicada se estiver ativa sem necessidade.
+    <value>Deaktivovat dedikované GPU, když je zbytečně aktivní.
 
-AVISO: Esta ação não será executada corretamente se o display interno estiver desligado ou o modo híbrido não estiver ativo.</value>
+VAROVÁNÍ: Tato akce neproběhne správně, pokud je displej notebooku vypnutý, nebo není aktivní hybridní režim.</value>
   </data>
   <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
-    <value>Desativar GPU</value>
+    <value>Deaktivovat GPU</value>
   </data>
   <data name="DelayAutomationStepControl_Message" xml:space="preserve">
-    <value>Adicionar atraso antes de executar esse passo.</value>
+    <value>Přidat zpoždění před spuštěním dalšího kroku.</value>
   </data>
   <data name="DelayAutomationStepControl_Title" xml:space="preserve">
-    <value>Atraso</value>
+    <value>Zpoždění</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Excluir</value>
+    <value>Smazat</value>
   </data>
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
-    <value>Versão da BIOS</value>
+    <value>BIOS verze</value>
   </data>
   <data name="DeviceInformationWindow_Copied_Message" xml:space="preserve">
-    <value>{0} copiado para a área de transferência.</value>
+    <value>"{0}" zkopírováno do schránky.</value>
   </data>
   <data name="DeviceInformationWindow_Copied_Title" xml:space="preserve">
-    <value>Copiado!</value>
+    <value>Zkopírováno!</value>
   </data>
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
-    <value>Dispositivo</value>
+    <value>Zařízení</value>
   </data>
   <data name="DeviceInformationWindow_InWarranty" xml:space="preserve">
-    <value>Em garantia</value>
+    <value>V záruce</value>
   </data>
   <data name="DeviceInformationWindow_LenovoSupport" xml:space="preserve">
-    <value>Suporte Lenovo</value>
+    <value>Lenovo Podpora</value>
   </data>
   <data name="DeviceInformationWindow_MachineType_Title" xml:space="preserve">
-    <value>Tipo de máquina</value>
+    <value>Typ zařízení</value>
   </data>
   <data name="DeviceInformationWindow_Manufacturer_Title" xml:space="preserve">
-    <value>Fabricante</value>
+    <value>Výrobce</value>
   </data>
   <data name="DeviceInformationWindow_Model_Title" xml:space="preserve">
-    <value>Modelo</value>
+    <value>Model</value>
   </data>
   <data name="DeviceInformationWindow_OutOfWarranty" xml:space="preserve">
-    <value>Fora da Garantia</value>
+    <value>Bez záruky</value>
   </data>
   <data name="DeviceInformationWindow_SerialNumber_Title" xml:space="preserve">
-    <value>Número de série</value>
+    <value>Sériové číslo</value>
   </data>
   <data name="DeviceInformationWindow_Title" xml:space="preserve">
-    <value>Sobre seu dispositivo</value>
+    <value>Informace o zařízení</value>
   </data>
   <data name="DeviceInformationWindow_WarrantyEndDate_Title" xml:space="preserve">
-    <value>Data de Término</value>
+    <value>Datum ukončení</value>
   </data>
   <data name="DeviceInformationWindow_WarrantyStartDate_Title" xml:space="preserve">
-    <value>Data de Início</value>
+    <value>Datum začátku</value>
   </data>
   <data name="DeviceInformationWindow_WarrantyStatus_Title" xml:space="preserve">
-    <value>Situação</value>
+    <value>Stav</value>
   </data>
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
-    <value>Garantia</value>
+    <value>Záruka</value>
   </data>
   <data name="DiscreteGPUControl_Active" xml:space="preserve">
-    <value>Ativa</value>
+    <value>Aktivní</value>
   </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
-    <value>Desativar</value>
+    <value>Deaktivovat</value>
   </data>
   <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-    <value>A GPU nVidia não pode ser desativada.
+    <value>nVidia GPU může být deaktivováno.
 
-Lembre-se, alguns programas podem apresentar problemas se você fizer isso.</value>
+Pamatuj, nějaké programy se mohou zhroutit, pokud to uděláš.</value>
   </data>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>A GPU nVidia não está ativa.</value>
+    <value>nVidia GPU není aktivní.</value>
   </data>
   <data name="DiscreteGPUControl_Inactive" xml:space="preserve">
-    <value>Inativa</value>
+    <value>Neaktivní</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
-    <value>Encerrar Aplicativos</value>
+    <value>Ukončit aplikace</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-    <value>Desativar a GPU dedicada se estiver ativa desnecessariamente.</value>
+    <value>Deaktivovat dedikované GPU, když je zbytečně aktivní.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
-    <value>Um monitor está conectado a GPU nVidia.</value>
+    <value>Monitor je připojen k nVidia GPU.</value>
   </data>
   <data name="DiscreteGPUControl_NoProcesses" xml:space="preserve">
-    <value>Nenhum processo</value>
+    <value>Žádné procesy</value>
   </data>
   <data name="DiscreteGPUControl_PerformanceState" xml:space="preserve">
-    <value>Estado do desempenho</value>
+    <value>Stav výkonu</value>
   </data>
   <data name="DiscreteGPUControl_PerformanceState_Unknown" xml:space="preserve">
-    <value>Desconhecido</value>
+    <value>Neznámý</value>
   </data>
   <data name="DiscreteGPUControl_Processes" xml:space="preserve">
-    <value>Processos</value>
+    <value>Procesy</value>
   </data>
   <data name="DiscreteGPUControl_RestartGPU" xml:space="preserve">
-    <value>Reiniciar GPU</value>
+    <value>Restartovat GPU</value>
   </data>
   <data name="DiscreteGPUControl_Title" xml:space="preserve">
-    <value>GPU dedicada</value>
+    <value>Dedikované GPU</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-    <value>Alterar o brilho da tela integrada.
-Os modos de energia alteram o brilho em alguns dispositivos. Certifique-se de colocar esta etapa por último, se algo não funcionar corretamente.
+    <value>Změnit jas displeje notebooku.
+Režimy napájení mění jas na některých zařízeních. Ujisti se, že tento krok dáš jako poslední, pokud něco nefunguje správně.
 
-AVISO: Esta ação não será executada corretamente se a tela integrada estiver desligada.</value>
+VAROVÁNÍ: Tato akce neproběhne správně, pokud je displej notebooku vypnutý.</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
-    <value>Brilho da tela</value>
+    <value>Jas displeje</value>
   </data>
   <data name="DonatePage_Message" xml:space="preserve">
-    <value>O desenvolvimento e a manutenção do Lenovo Legion Toolkit leva muito tempo. Se você gosta de usar este software, pode apoiá-lo no futuro doando uma quantia de sua escolha.
+    <value>Vývoj a údržba Lenovo Legion Toolkit zabere spoustu času. Pokud rád používáš tento software, můžeš podpořit jeho budoucnost darováním částky dle vlastního výběru.
 
-Clique no logotipo do PayPal abaixo ou digitalize o código QR para doar com o PayPal.
+Klikněte na logo PayPal níže nebo naskenujte QR kód a přispějte přes PayPal.
 
-Desde já, obrigado!</value>
+Díky předem!</value>
   </data>
   <data name="DonatePage_Title" xml:space="preserve">
-    <value>Doar</value>
+    <value>Přispět</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
-    <value>Verifique se a tela do notebook está ligada. O Lenovo Legion Toolkit não pode carregar taxas de atualização para uma tela que não está ligada.</value>
+    <value>Ujisti se, že je zapnutý displej notebooku. Lenovo Legion Toolkit nemůže načíst obnovovací frekvence pro displej, který není zapnutý.</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Title" xml:space="preserve">
-    <value>Taxas de atualizações não encontradas</value>
+    <value>Nebyly nalezeny žádné obnovovací frekvence</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_Title" xml:space="preserve">
-    <value>Taxas de atualizações excluídas</value>
+    <value>Vyloučit obnovovací frekvence</value>
   </data>
   <data name="Exit" xml:space="preserve">
-    <value>Sair</value>
+    <value>Konec</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
-    <value>Usa somente a GPU integrada quando em modo de bateria e ambas (integrada e dedicada) quando o carregador estiver conectado. Quando um carregador não padrão estiver conectado, o sistema será colocado em modo Hibrido.</value>
+    <value>Při napájení z baterie používejte pouze integrovaný GPU a při připojení napájecího adaptéru integrovaný i samostatný GPU. Když je připojen nestandardní adaptér, systém se přepne do režimu Hybrid-iGPU Only.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
-    <value>Modo Hibrido Automático</value>
+    <value>Hybrid-Auto mód</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Disclaimer" xml:space="preserve">
-    <value>Mudar de e para este modo requer reinicialização.</value>
+    <value>Přepnutí do a z tohoto režimu vyžaduje restart.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Message" xml:space="preserve">
-    <value>Usar somente a GPU dedicada. Este modo fornece o melhor desempenho gráfico, mas aumenta o consumo de energia.</value>
+    <value>Používat pouze dedikovaný GPU. Tento režim poskytuje nejlepší grafický výkon, ale zvyšuje spotřebu energie.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
-    <value>Modo dGPU</value>
+    <value>dGPU mód</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
-    <value>Tanto a GPU integrada quanto a dedicada estão habilitadas. O sistema alternará automaticamente entre eles com base em suas necessidades.</value>
+    <value>Integrovaný i dedikovaný GPU jsou povoleny. Systém mezi nimi bude automaticky přepínat podle svých potřeb.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
-    <value>Modo Hibrido</value>
+    <value>Hybridní mód</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Disclaimer" xml:space="preserve">
-    <value>Este modo somente entrará em vigor quando a GPU dedicada não estiver sendo executada.</value>
+    <value>Tento režim se projeví pouze tehdy, když dedikovaný GPU nefunguje.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Message" xml:space="preserve">
-    <value>Usar somente a GPU integrada. Este modo diminui o consumo de energia e os níveis de barulho dos coolers.</value>
+    <value>Používat pouze integrovaný GPU. Tento režim minimalizuje spotřebu energie a hluk.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Title" xml:space="preserve">
-    <value>Modo hibrido iGPU somente</value>
+    <value>Pouze Hybrid-iGPU mód</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Title" xml:space="preserve">
-    <value>Sobre o modo de funcionamento das GPU's</value>
+    <value>O pracovních režimech GPU</value>
   </data>
   <data name="Fahrenheit" xml:space="preserve">
     <value>°F</value>
@@ -567,10 +567,10 @@ Desde já, obrigado!</value>
     <value>CPU</value>
   </data>
   <data name="FanCurveControl_CPUSensor" xml:space="preserve">
-    <value>Sensor da CPU</value>
+    <value>CPU senzor</value>
   </data>
   <data name="FanCurveControl_FanSpeed" xml:space="preserve">
-    <value>Velocidade dos Coolers</value>
+    <value>Otáčky ventilátoru</value>
   </data>
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>GPU</value>
@@ -579,703 +579,703 @@ Desde já, obrigado!</value>
     <value>RPM</value>
   </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
-    <value>Ligar o notebook ao abrir a tampa da tela.</value>
+    <value>Při otevření víka zapnout notebook.</value>
   </data>
   <data name="FlipToStartAutomationStepControl_Title" xml:space="preserve">
-    <value>Abrir para iniciar</value>
+    <value>Zapnout otočením</value>
   </data>
   <data name="FlipToStartControl_Message" xml:space="preserve">
-    <value>Ligar o notebook ao abrir a tampa da tela.</value>
+    <value>Při otevření víka zapnout notebook.</value>
   </data>
   <data name="FlipToStartControl_Title" xml:space="preserve">
-    <value>Abrir para iniciar</value>
+    <value>Zapnout otočením</value>
   </data>
   <data name="FnLockAutomationStepControl_Message" xml:space="preserve">
-    <value>Usar as funções das teclas secundárias de F1 a F12 sem segurar o botão Fn do teclado.</value>
+    <value>Používat sekundární funkce kláves F1-F12 bez držení klávesy Fn.</value>
   </data>
   <data name="FnLockAutomationStepControl_Title" xml:space="preserve">
-    <value>Bloqueio da tecla Fn</value>
+    <value>Fn Lock</value>
   </data>
   <data name="FnLockControl_Message" xml:space="preserve">
-    <value>Usar as funções das teclas secundárias de F1 a F12 sem segurar o botão Fn do teclado.</value>
+    <value>Používat sekundární funkce kláves F1-F12 bez držení klávesy Fn.</value>
   </data>
   <data name="FnLockControl_Title" xml:space="preserve">
-    <value>Bloqueio da tecla Fn</value>
+    <value>Fn Lock</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>AVISO!
-Alguns notebooks podem aceitar limites de energia maiores do que indicado, mas tenha cuidado! Esta opção pode resultar em comportamentos imprevisíveis, então caso não tenha certeza do que está fazendo, deixe em 0.</value>
+    <value>VAROVÁNÍ!
+Některé notebooky mohou akceptovat vyšší limity výkonu, než uvádějí, ale buď opatrý. Tato možnost může vést k nepředvídatelnému chování, takže pokud si nejsi jist, co děláš, nech to na 0.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
-    <value>Deslocamento do Limite de Potência Máximo (Power)</value>
+    <value>Posun maximálního limitu výkonu</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
-    <value>Não mude as opções abaixo caso você não saiba o que está fazendo.</value>
+    <value>Neměň níže uvedené možnosti, pokud opravdu nevíš, co děláš.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_Title" xml:space="preserve">
-    <value>Avançado</value>
+    <value>Pokročilé</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_CrossLoading" xml:space="preserve">
-    <value>Power Limit de Longo Prazo (Cross Loading)</value>
+    <value>Dlouhodobý limit výkonu (křížové zatížení)</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_LongTermPL" xml:space="preserve">
-    <value>Power Limit de Longo Prazo</value>
+    <value>Dlouhodobý limit výkonu</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_ShortTermPL" xml:space="preserve">
-    <value>Power Limit de Curto Prazo</value>
+    <value>Krátkodobý limit výkonu</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_TempLimit" xml:space="preserve">
-    <value>Limite de temperatura da CPU</value>
+    <value>Teplotní limit CPU</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_Title" xml:space="preserve">
     <value>CPU</value>
   </data>
   <data name="GodModeSettingsWindow_Error_Apply_Title" xml:space="preserve">
-    <value>Não foi possível aplicar as configurações</value>
+    <value>Nastavení nelze použít</value>
   </data>
   <data name="GodModeSettingsWindow_Error_Load_Title" xml:space="preserve">
-    <value>Não foi possível carregar as configurações.</value>
+    <value>Nastavení se nepodařilo načíst.</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Curve_Message" xml:space="preserve">
-    <value>A velocidade dos coolers não é estritamente determinada por um sensor de temperatura. Ele aumentará ou diminuirá a velocidade pelo sensor mais alto entre a temperatura da CPU, GPU e dissipador de calor. Os valores exatos aparecerão quando você passar o mouse sobre cada etapa.</value>
+    <value>Otáčky ventilátoru nejsou striktně určeny jedním teplotním čidlem. Zvýší nebo sníží rychlost podle nejvyššího snímače mezi teplotou CPU, GPU a chladiče. Přesné hodnoty se zobrazí, když najedeš myší na každý krok.</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Curve_Title" xml:space="preserve">
-    <value>Curva dos Coolers</value>
+    <value>Křivka ventilátorů</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Max_Message" xml:space="preserve">
-    <value>AVISO!
-O uso prolongado dessa opção aumentará o desgaste e a longevidade.
-Sério, cuidado com essa opção!</value>
+    <value>VAROVÁNÍ!
+Při dlouhodobém používání této možnosti se ventilátory zhorší a zkrátí se jejich životnost.
+Vážně, buď opatrný s touto možností!</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Max_Title" xml:space="preserve">
-    <value>Velocidade máxima dos coolers</value>
+    <value>Maximální rychlost ventilátorů</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Title" xml:space="preserve">
-    <value>Coolers</value>
+    <value>Ventilátory</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_CTGP" xml:space="preserve">
-    <value>TGP Configurável</value>
+    <value>Nastavitelné TGP</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_DynamicBoost" xml:space="preserve">
-    <value>Boost Dinâmico</value>
+    <value>Dynamický Boost</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_TempLimit" xml:space="preserve">
-    <value>Temperatura limite da GPU</value>
+    <value>Teplotní limit GPU</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_Title" xml:space="preserve">
     <value>GPU</value>
   </data>
   <data name="GodModeSettingsWindow_Title" xml:space="preserve">
-    <value>Configurações do modo personalizado</value>
+    <value>Nastavení vlastního režimu</value>
   </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
-    <value>Este equipamento não é compatível com o Lenovo Legion Toolkit.</value>
+    <value>Toto zařízení není kompatibilní s Lenovo Legion Toolkit.</value>
   </data>
   <data name="IncompatibleDevice_Title" xml:space="preserve">
     <value>Lenovo Legion Toolkit</value>
   </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
-    <value>Nenhum teclado compatível encontrado</value>
+    <value>Nebyly nalezeny žádné kompatibilní klávesnice</value>
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
-    <value>Iluminação do teclado</value>
+    <value>Podsvícení klávesnice</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
-    <value>Sobre</value>
+    <value>O aplikaci</value>
   </data>
   <data name="MainWindow_NavigationItem_Actions" xml:space="preserve">
-    <value>Ações</value>
+    <value>Akce</value>
   </data>
   <data name="MainWindow_NavigationItem_Battery" xml:space="preserve">
-    <value>Batería</value>
+    <value>Baterie</value>
   </data>
   <data name="MainWindow_NavigationItem_Dashboard" xml:space="preserve">
-    <value>Dashboard</value>
+    <value>Přehled</value>
   </data>
   <data name="MainWindow_NavigationItem_Donate" xml:space="preserve">
-    <value>Doar</value>
+    <value>Přispět</value>
   </data>
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
-    <value>Teclado</value>
+    <value>Klávesnice</value>
   </data>
   <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-    <value>Pacotes</value>
+    <value>Balíčky</value>
   </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
-    <value>Configurações</value>
+    <value>Nastavení</value>
   </data>
   <data name="MainWindow_UpdateAvailable" xml:space="preserve">
-    <value>Atualização disponível!</value>
+    <value>Aktualizace k dispozici!</value>
   </data>
   <data name="MainWindow_UpdateAvailableWithVersion" xml:space="preserve">
-    <value>Atualização {0} disponível!</value>
+    <value>Aktualizace {0} je k dispozici!</value>
   </data>
   <data name="MoveDown" xml:space="preserve">
-    <value>Mover para baixo</value>
+    <value>Posunout dolů</value>
   </data>
   <data name="MoveUp" xml:space="preserve">
-    <value>Mover para cima</value>
+    <value>Posunout nahoru</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>Não</value>
+    <value>Ne</value>
   </data>
   <data name="Notification_ACAdapterConnected" xml:space="preserve">
-    <value>Carregador conectado</value>
+    <value>AC nabíječka připojena</value>
   </data>
   <data name="Notification_ACAdapterConnectedLowWattage" xml:space="preserve">
-    <value>Carregador conectado (Baixa potência)</value>
+    <value>AC nabíječka připojena (Nízký výkon)</value>
   </data>
   <data name="Notification_ACAdapterDisconnected" xml:space="preserve">
-    <value>Carregador desconectado</value>
+    <value>AC nabíječka odpojena</value>
   </data>
   <data name="Notification_CameraOff" xml:space="preserve">
-    <value>Câmera desligada</value>
+    <value>Kamera vypnutá</value>
   </data>
   <data name="Notification_CameraOn" xml:space="preserve">
-    <value>Câmera ligada</value>
+    <value>Kamera zapnutá</value>
   </data>
   <data name="Notification_CapsLockOff" xml:space="preserve">
-    <value>Caps Lock desligado</value>
+    <value>Caps Lock vypnut</value>
   </data>
   <data name="Notification_CapsLockOn" xml:space="preserve">
-    <value>Caps Lock ligado</value>
+    <value>Caps Lock zapnut</value>
   </data>
   <data name="Notification_FnLockOff" xml:space="preserve">
-    <value>Trava tecla Fn desligada</value>
+    <value>Fn Lock vypnut</value>
   </data>
   <data name="Notification_FnLockOn" xml:space="preserve">
-    <value>Trava tecla Fn ligada</value>
+    <value>Fn Lock zapnut</value>
   </data>
   <data name="Notification_MicrophoneOff" xml:space="preserve">
-    <value>Microfone desligado</value>
+    <value>Mikrofon vypnut</value>
   </data>
   <data name="Notification_MicrophoneOn" xml:space="preserve">
-    <value>Microfone ligado</value>
+    <value>Mikrofon zapnut</value>
   </data>
   <data name="Notification_NumLockOff" xml:space="preserve">
-    <value>Num Lock desligado</value>
+    <value>Num Lock vypnut</value>
   </data>
   <data name="Notification_NumLockOn" xml:space="preserve">
-    <value>Num Lock ligado</value>
+    <value>Num Lock zapnut</value>
   </data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
-    <value>Touchpad desligado</value>
+    <value>Touchpad vypnut</value>
   </data>
   <data name="Notification_TouchpadOn" xml:space="preserve">
-    <value>Touchpad ligado</value>
+    <value>Touchpad zapnut</value>
   </data>
   <data name="Notification_WhiteKeyboardBacklight" xml:space="preserve">
-    <value>Iluminação do teclado {0}</value>
+    <value>Podsvícení {0}</value>
   </data>
   <data name="NotificationsSettingsWindow_ACAdapter" xml:space="preserve">
-    <value>Carregador</value>
+    <value>AC nabíječka</value>
   </data>
   <data name="NotificationsSettingsWindow_Camera" xml:space="preserve">
-    <value>Câmera</value>
+    <value>Kamera</value>
   </data>
   <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
-    <value>Caps Lock e Num Lock</value>
+    <value>Caps Lock a Num Lock</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>Desativar as notificações para ações das teclas Fn como silenciar o microfone
-Ative esta opção se você tiver conflitos com aplicativos de tela inteira.</value>
+    <value>Zakázat upozornění na akce kláves Fn, jako je ztlumení mikrofonu
+Povol tuto možnost, pokud máš konflikty s aplikacemi na celou obrazovku.</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
-    <value>Não exibir notificações</value>
+    <value>Nezobrazovat notifikace</value>
   </data>
   <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
-    <value>Trava tecla Fn</value>
+    <value>Fn Lock</value>
   </data>
   <data name="NotificationsSettingsWindow_KeyboardBacklight" xml:space="preserve">
-    <value>Iluminação do Teclado</value>
+    <value>Podsvícení klávesnice</value>
   </data>
   <data name="NotificationsSettingsWindow_Microphone" xml:space="preserve">
-    <value>Microfone</value>
+    <value>Mikrofon</value>
   </data>
   <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
-    <value>Plano de Energia</value>
+    <value>Režim výkonu</value>
   </data>
   <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
-    <value>Taxa de atualização</value>
+    <value>Frekvence obnovení</value>
   </data>
   <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
-    <value>Notificações</value>
+    <value>Notifikace</value>
   </data>
   <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
-    <value>Travar touchpad</value>
+    <value>Zámek touchpadu</value>
   </data>
   <data name="OK" xml:space="preserve">
-    <value>Aceitar</value>
+    <value>OK</value>
   </data>
   <data name="Open" xml:space="preserve">
-    <value>Abrir</value>
+    <value>Otevřít</value>
   </data>
   <data name="OverDriveAutomationStepControl_Message" xml:space="preserve">
-    <value>Melhora o tempo de resposta da tela integrada.</value>
+    <value>Zlepšit dobu odezvy displeje notebooku.</value>
   </data>
   <data name="OverDriveAutomationStepControl_Title" xml:space="preserve">
     <value>Over Drive</value>
   </data>
   <data name="OverDriveControl_Message" xml:space="preserve">
-    <value>Melhora o tempo de resposta da tela integrada.</value>
+    <value>Zlepšit dobu odezvy displeje notebooku.</value>
   </data>
   <data name="OverDriveControl_Title" xml:space="preserve">
     <value>Over Drive</value>
   </data>
   <data name="PackageControl_DownloadComplete_Message" xml:space="preserve">
-    <value>{0} baixados!</value>
+    <value>{0} staženo!</value>
   </data>
   <data name="PackageControl_DownloadComplete_Title" xml:space="preserve">
-    <value>Download concluído</value>
+    <value>Stahování dokončeno</value>
   </data>
   <data name="PackageControl_GeneralError_Title" xml:space="preserve">
-    <value>Alguma coisa deu errado</value>
+    <value>Něco se pokazilo</value>
   </data>
   <data name="PackageControl_Http404Error_Message" xml:space="preserve">
-    <value>O servidor retornou o código de erro 404.</value>
+    <value>Server vrátil kód 404.</value>
   </data>
   <data name="PackageControl_Http404Error_Title" xml:space="preserve">
-    <value>Este arquivo parece estar corrompido</value>
+    <value>Zdá se, že soubor je pryč</value>
   </data>
   <data name="PackageControl_HttpGeneralError_Message" xml:space="preserve">
-    <value>Verifique se sua internet está conectada e funcionando.</value>
+    <value>Zkontroluj, zda je tvoje připojení k internetu v provozu.</value>
   </data>
   <data name="PackageControl_HttpGeneralError_Title" xml:space="preserve">
-    <value>Alguma coisa deu errado</value>
+    <value>Něco se pokazilo</value>
   </data>
   <data name="PackageControl_OldPackageWarning" xml:space="preserve">
-    <value>Este pacote tem mais de um ano.</value>
+    <value>Tento balíček je více než rok starý.</value>
   </data>
   <data name="PackageControl_Version" xml:space="preserve">
-    <value>Versão</value>
+    <value>Verze</value>
   </data>
   <data name="PackagesPage_Disclaimer_Message" xml:space="preserve">
-    <value>Abaixo está uma lista de pacotes de software marcados como compatíveis com seu notebook.
-Sempre certifique-se de estar instalando os pacotes corretos.</value>
+    <value>Níže je uveden seznam softwarových balíčků, které jsou označeny jako kompatibilní s tvým notebookem.
+Vždy se ujisti, že instaluješ správné balíčky.</value>
   </data>
   <data name="PackagesPage_Disclaimer_Title" xml:space="preserve">
-    <value>Importante</value>
+    <value>Důležité</value>
   </data>
   <data name="PackagesPage_DownloadFailed_Message" xml:space="preserve">
-    <value>Verifique se o Tipo de Máquina e o sistema operacional estão configurados corretamente.</value>
+    <value>Zkontroluj, zda je správně nastavený Typ a OS notebooku.</value>
   </data>
   <data name="PackagesPage_DownloadFailed_Title" xml:space="preserve">
-    <value>Alguma coisa deu errado</value>
+    <value>Něco se pokazilo</value>
   </data>
   <data name="PackagesPage_DownloadInProgress_Message" xml:space="preserve">
-    <value>Alterar a classificação, filtrar resultados, ocultar pacotes ou atualizar a lista interromperá o download. Deseja continuar?</value>
+    <value>Změna řazení, filtrování výsledků, skrytí balíčků, nebo obnovení seznamu zastaví stahování. Chceš pokračovat?</value>
   </data>
   <data name="PackagesPage_DownloadInProgress_Title" xml:space="preserve">
-    <value>Download em andamento</value>
+    <value>Probíhá stahování</value>
   </data>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
-    <value>Salvar em</value>
+    <value>Stáhnout do</value>
   </data>
   <data name="PackagesPage_Filter" xml:space="preserve">
-    <value>Filtro...</value>
+    <value>Filtr...</value>
   </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
-    <value>Tipo de máquina</value>
+    <value>Typ zařízení</value>
   </data>
   <data name="PackagesPage_OperatingSystem" xml:space="preserve">
-    <value>Sistema operacional</value>
+    <value>Operační systém</value>
   </data>
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
-    <value>Primário (Recomendado)</value>
+    <value>Primární (Doporučený)</value>
   </data>
   <data name="PackagesPage_PrimarySource_ToolTip" xml:space="preserve">
-    <value>O mesmo que Lenovo PC Support</value>
+    <value>Stejný jako Lenovo PC Podpora</value>
   </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
-    <value>Secundário</value>
+    <value>Sekundární</value>
   </data>
   <data name="PackagesPage_SecondarySource_ToolTip" xml:space="preserve">
-    <value>O mesmo que Lenovo DriverGrabber</value>
+    <value>Stejný jako Lenovo DriverGrabber</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
-    <value>Categoria</value>
+    <value>Kategorie</value>
   </data>
   <data name="PackagesPage_Sort_Date" xml:space="preserve">
-    <value>Data</value>
+    <value>Datum</value>
   </data>
   <data name="PackagesPage_Sort_Name" xml:space="preserve">
-    <value>Nome</value>
+    <value>Jméno</value>
   </data>
   <data name="PackagesPage_Source" xml:space="preserve">
-    <value>Origem</value>
+    <value>Zdroj</value>
   </data>
   <data name="PackagesPage_Title" xml:space="preserve">
-    <value>Downloads</value>
+    <value>Stažené</value>
   </data>
   <data name="Paste" xml:space="preserve">
-    <value>Colar</value>
+    <value>Vložit</value>
   </data>
   <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Aplicativos</value>
+    <value>Aplikace</value>
   </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-    <value>Selecione o modo de desempenho.</value>
+    <value>Vyber režim výkonu.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
-    <value>Plano de Energia</value>
+    <value>Režim výkonu</value>
   </data>
   <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>Não foi possível alterar o plano de energia</value>
+    <value>Režim výkonu se nepodařilo změnit</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
-    <value>Selecione o modo de desempenho.
-Você pode alternar entre os modos pressionando Fn+Q.</value>
+    <value>Vyber režim výkonu.
+Režim můžeš přepínat pomocí Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
-    <value>Configurações</value>
+    <value>Nastavení</value>
   </data>
   <data name="PowerModeControl_Title" xml:space="preserve">
-    <value>Plano de Energia</value>
+    <value>Režim výkonu</value>
   </data>
   <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>Plano de Energia</value>
+    <value>Režim výkonu</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Ativando esta opção quando o Lenovo Vantage está em execução e alterar os planos de energia do seu notebook podem resultar em um comportamento inesperado.</value>
+    <value>Povolení této možnosti, když je spuštěn Lenovo Vantage a mění plány napájení tvého notebooku, může vést k neočekávanému chování.</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
-    <value>Você tem certeza?</value>
+    <value>Jsi si jistý?</value>
   </data>
   <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
-    <value>Modo equilibrado</value>
+    <value>Vyvážený režim</value>
   </data>
   <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
-    <value>Modo personalizado</value>
+    <value>Vlastní režim</value>
   </data>
   <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
-    <value>Modo desempenho</value>
+    <value>Režim výkonu</value>
   </data>
   <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
-    <value>Modo silencioso</value>
+    <value>Tichý režim</value>
   </data>
   <data name="PowerPlansWindow_Title" xml:space="preserve">
-    <value>Planos de Energia</value>
+    <value>Plány napájení</value>
   </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
-    <value>Ajustar a predefinição da luz de fundo do teclado.</value>
+    <value>Upravit předvolbu podsvícení klávesnice.</value>
   </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
-    <value>Iluminação do teclado</value>
+    <value>Podsvícení klávesnice</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Preset1" xml:space="preserve">
-    <value>Predefinição 1</value>
+    <value>Předvolba 1</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Preset2" xml:space="preserve">
-    <value>Predefinição 2</value>
+    <value>Předvolba 2</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Preset3" xml:space="preserve">
-    <value>Predefinição 3</value>
+    <value>Předvolba 3</value>
   </data>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
-    <value>Desligado</value>
+    <value>Vypnut</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>A luz de fundo do teclado não pode ser controlada aqui quando o Vantage ou seus serviços estão em execução.</value>
+  <data name="RGBKeyboardBacklightControl_VantageEnabled_Message" xml:space="preserve">
+    <value>Zde nelze ovládat podsvícení klávesnice, když jse spuštěný Vantage nebo jeho služby.</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-    <value>O Lenovo Vantage parece estar ativo</value>
+  <data name="RGBKeyboardBacklightControl_VantageEnabled_Title" xml:space="preserve">
+    <value>Zdá se, že Lenovo Vantage je povolený</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Zone1" xml:space="preserve">
-    <value>Zona 1</value>
+    <value>Zóna 1</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Zone2" xml:space="preserve">
-    <value>Zona 2</value>
+    <value>Zóna 2</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Zone3" xml:space="preserve">
-    <value>Zona 3</value>
+    <value>Zóna 3</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Zone4" xml:space="preserve">
-    <value>Zona 4</value>
+    <value>Zóna 4</value>
   </data>
   <data name="RGBKeyboardBrightnessCardControl_Brightness" xml:space="preserve">
-    <value>Brilho</value>
+    <value>Jas</value>
   </data>
   <data name="RGBKeyboardEffectCardControl_Title" xml:space="preserve">
-    <value>Efeito</value>
+    <value>Efekt</value>
   </data>
   <data name="RGBKeyboardSpeedCardControl_Title" xml:space="preserve">
-    <value>Velocidade</value>
+    <value>Rychlost</value>
   </data>
   <data name="ReadmeWindow_Title" xml:space="preserve">
-    <value>Leia-me</value>
+    <value>Přečti mě</value>
   </data>
   <data name="Refresh" xml:space="preserve">
-    <value>Atualizar</value>
+    <value>Obnovit</value>
   </data>
   <data name="RefreshRateAutomationStepControl_Message" xml:space="preserve">
-    <value>Alterar a taxa de atualização da tela integrada.
+    <value>Změnit obnovovací frekvenci displeje notebooku.
 
-AVISO: Esta ação não será executada corretamente se a tela integrada estiver desligada.</value>
+VAROVÁNÍ: Tato akce neproběhne správně, pokud je interní displej vypnutý.</value>
   </data>
   <data name="RefreshRateAutomationStepControl_Title" xml:space="preserve">
-    <value>Taxa de atualização</value>
+    <value>Frekvence obnovení</value>
   </data>
   <data name="RefreshRateControl_Message" xml:space="preserve">
-    <value>Alterar a taxa de atualização da tela integrada.</value>
+    <value>Změnit obnovovací frekvenci displeje notebooku.</value>
   </data>
   <data name="RefreshRateControl_Title" xml:space="preserve">
-    <value>Taxa de atualização</value>
+    <value>Frekvence obnovení</value>
   </data>
   <data name="Rename" xml:space="preserve">
-    <value>Renomear</value>
+    <value>Přejmenovat</value>
   </data>
   <data name="RestartLater" xml:space="preserve">
-    <value>Desejo reiniciar mais tarde</value>
+    <value>Restartovat později</value>
   </data>
   <data name="RestartNow" xml:space="preserve">
-    <value>Reiniciar agora</value>
+    <value>Restartovat nyní</value>
   </data>
   <data name="Revert" xml:space="preserve">
-    <value>Desfazer</value>
+    <value>Vrátit zpět</value>
   </data>
   <data name="RunAutomationStepControl_ExeArguments" xml:space="preserve">
-    <value>Argumentos</value>
+    <value>Parametry</value>
   </data>
   <data name="RunAutomationStepControl_ExePath" xml:space="preserve">
-    <value>Caminho do executável</value>
+    <value>ExecutablePath</value>
   </data>
   <data name="RunAutomationStepControl_Message" xml:space="preserve">
-    <value>Execute um script ou um programa.
-Certifique-se de que seu script seja executado corretamente primeiro.</value>
+    <value>Spusť skript nebo program.
+Nejprve se ujisti, že tvůj skript běží správně.</value>
   </data>
   <data name="RunAutomationStepControl_Title" xml:space="preserve">
-    <value>Executar</value>
+    <value>Spustit</value>
   </data>
   <data name="Save" xml:space="preserve">
-    <value>Salvar</value>
+    <value>Uložit</value>
   </data>
   <data name="Saving" xml:space="preserve">
-    <value>Salvando...</value>
+    <value>Ukládání...</value>
   </data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
-    <value>Alterar o tema e as cores do aplicativo.</value>
+    <value>Změnit motiv a barvy aplikace.</value>
   </data>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
-    <value>Cor de destaque</value>
+    <value>Barva aplikace</value>
   </data>
   <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Não mude as opções abaixo caso você não saiba o que está fazendo.</value>
+    <value>Neměň níže uvedené možnosti, pokud opravdu nevíš, co děláš.</value>
   </data>
   <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Avançado</value>
+    <value>Pokročilé</value>
   </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
-    <value>Iniciar minizado na bandeja de notificações quando logar no Windows.</value>
+    <value>Zapnout minimalizované v liště, když se přihlásiš do windowsu.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
-    <value>Execução automática</value>
+    <value>Automatické spuštění</value>
   </data>
   <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>Modos de desempenho da CPU</value>
+    <value>Režimy zesílení CPU</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
-    <value>O Legion Zone pode não ter sido desabilitado corretamente</value>
+    <value>Legion Zone možná nebyla správně deaktivována</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
-    <value>Não foi possível desativar o Legion Zone</value>
+    <value>Legion Zone se nepodařilo deaktivovat</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
-    <value>Desativar o Legion Zone e seu serviço sem desinstalá-lo.
-A reinicialização é recomendada após alterar esta opção.</value>
+    <value>Zakázat Legion Zone a její službu, aniž bys ji odinstaloval.
+Po změně této možnosti se doporučuje restartovat.</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
-    <value>Desativar o Legion Zone</value>
+    <value>Zakázat Legion Zone</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Message" xml:space="preserve">
-    <value>O Legion Zone pode não ter sido desativado corretamente</value>
+    <value>Lenovo Hotkeys možná nebyla správně deaktivována</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
-    <value>Não foi possível desativar o Lenovo Hotkeys</value>
+    <value>Lenovo Hotkeys se nepodařilo deaktivovat</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
-    <value>Desativar o Lenovo Hotkeys e seu serviço sem desinstalá-lo.
-Se desativado, este aplicativo lidará com atalhos Fn
-A reinicialização é recomendada após alterar esta opção.</value>
+    <value>Zakázat Lenovo Hotkeys a jejich službu, aniž bys ji odinstaloval.
+Pokud je zakázáno, bude tato aplikace zpracovávat zkratky Fn
+Po změně této možnosti se doporučuje restartovat.</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
-    <value>Desativar o Lenovo Hotkeys</value>
+    <value>Zakázat Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>O Vantage pode não ter sido desativado corretamente</value>
+    <value>Vantage možná nebyla správně deaktivována</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Não foi possível desativar o Vantage</value>
+    <value>Vantage se nepodařilo zakázat</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>Desative o Lenovo Vantage e seu serviço sem desinstalá-lo.
-A reinicialização é recomendada após alterar esta opção.</value>
+    <value>Zakázat službu Lenovo Vantage a její službu, aniž bys ji odinstaloval.
+Po změně této možnosti se doporučuje restartovat.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
-    <value>Desativar o Lenovo Vantage</value>
+    <value>Zakázat Lenovo Vantage</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
-    <value>O Legion Zone pode não ter sido ativado corretamente</value>
+    <value>Legion Zone možná nebyla správně aktivována</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Title" xml:space="preserve">
-    <value>Não foi possível ativar o Legion Zone</value>
+    <value>Legion Zone se nepodařilo povolit</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Message" xml:space="preserve">
-    <value>O Lenovo Hotkeys pode não ter sido ativado corretamente</value>
+    <value>Lenovo Hotkeys možná nebyla správně aktivována</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
-    <value>Não foi possível ativar o Lenovo Hotkeys</value>
+    <value>Lenovo Hotkeys se nepodařilo aktivovat</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>O Vantage pode não ter sido ativado corretamente</value>
+    <value>Vantage možná nebyla správně aktivována</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Não foi possível ativar o Vantage</value>
+    <value>Vantage se nepodařilo povolit</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
-    <value>Você pode excluir taxas de atualização para tornar o atalho Fn+R mais útil.</value>
+    <value>Můžeš vyloučit obnovovací frekvence, aby byla zkratka Fn+R užitečnější.</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Title" xml:space="preserve">
-    <value>Taxas de atualizações excluídas</value>
+    <value>Vyloučit obnovovací frekvence</value>
   </data>
   <data name="SettingsPage_Language_Message" xml:space="preserve">
-    <value>Selecionar idioma.</value>
+    <value>Vybrat jazyk.</value>
   </data>
   <data name="SettingsPage_Language_Title" xml:space="preserve">
-    <value>Idioma</value>
+    <value>Jazyk</value>
   </data>
   <data name="SettingsPage_MinimizeOnClose_Message" xml:space="preserve">
-    <value>Sempre minimizar para a bandeja. Feche com o botão direito do mouse no ícone da bandeja.</value>
+    <value>Vždy minimalizovat na lištu. Zavřít kliknutím pravým tlačítkem na ikonu na hlavním panelu.</value>
   </data>
   <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
-    <value>Minimizar ao Fechar</value>
+    <value>Minimalizovat při zavření</value>
   </data>
   <data name="SettingsPage_Notifications_Message" xml:space="preserve">
-    <value>Configure como as notificações são exibidas.</value>
+    <value>Nastavit, které notifikace se objeví.</value>
   </data>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
-    <value>Notificações</value>
+    <value>Notifikace</value>
   </data>
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
-    <value>Planos de Energia</value>
+    <value>Plány napájení</value>
   </data>
   <data name="SettingsPage_Theme_Description" xml:space="preserve">
-    <value>Defina o tema claro, tema escuro ou siga as configurações do sistema.</value>
+    <value>Nastav světlý motiv, tmavý motiv, nebo řízení systémem.</value>
   </data>
   <data name="SettingsPage_Theme_Title" xml:space="preserve">
-    <value>Tema</value>
+    <value>Motiv</value>
   </data>
   <data name="SettingsPage_Title" xml:space="preserve">
-    <value>Configurações</value>
+    <value>Nastavení</value>
   </data>
   <data name="TimeWindow_Sunrise" xml:space="preserve">
-    <value>Nascer do Sol</value>
+    <value>Východ slunce</value>
   </data>
   <data name="TimeWindow_Sunset" xml:space="preserve">
-    <value>Nascer do Sol</value>
+    <value>Východ slunce</value>
   </data>
   <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Hora</value>
+    <value>Čas</value>
   </data>
   <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
-    <value>Hora</value>
+    <value>Čas</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
-    <value>Permite alternar entre GPUs integradas e dedicadas.
-Requer reinicialização.</value>
+    <value>Umožnit přepínání mezi integrovaným a dedikovaným GPU.
+Vyžaduje restart.</value>
   </data>
   <data name="ToggleHybridModeControl_RestartRequired_Message" xml:space="preserve">
-    <value>Mudar o modo hibrido requer uma reinicialização. Deseja reiniciar o computador agora?</value>
+    <value>Změna Hybridního módu vyžaduje restart. Chceš restartovat nyní?</value>
   </data>
   <data name="ToggleHybridModeControl_RestartRequired_Title" xml:space="preserve">
-    <value>Reinicialização necessária</value>
+    <value>Je vyžadován restart</value>
   </data>
   <data name="ToggleHybridModeControl_Title" xml:space="preserve">
-    <value>Modo Hibrido</value>
+    <value>Hybridní mód</value>
   </data>
   <data name="TouchpadLockAutomationStepControl_Message" xml:space="preserve">
-    <value>Desativar touchpad.</value>
+    <value>Deaktivovat touchpad.</value>
   </data>
   <data name="TouchpadLockAutomationStepControl_Title" xml:space="preserve">
-    <value>Travar touchpad</value>
+    <value>Zámek touchpadu</value>
   </data>
   <data name="TouchpadLockControl_Message" xml:space="preserve">
-    <value>Desativar touchpad.</value>
+    <value>Deaktivovat touchpad.</value>
   </data>
   <data name="TouchpadLockControl_Title" xml:space="preserve">
-    <value>Travar touchpad</value>
+    <value>Zámek touchpadu</value>
   </data>
   <data name="TryAgain" xml:space="preserve">
-    <value>Tente Novamente</value>
+    <value>Zkusit znovu</value>
   </data>
   <data name="UnexpectedException" xml:space="preserve">
-    <value>Ocorreu uma exceção inesperada:
+    <value>Došlo k neočekávané chybě:
 {0}
 
-Informe o problema em {1}.</value>
+Prosím, nahlaš problém na {1}.</value>
   </data>
   <data name="Unnamed" xml:space="preserve">
-    <value>Sem nome</value>
+    <value>Nepojmenovaný</value>
   </data>
   <data name="UnsupportedWindow_Disclaimer" xml:space="preserve">
-    <value>Você pode optar por continuar por sua conta e risco, mas lembre-se de que alguns recursos podem não estar disponíveis e/ou não funcionar corretamente.
+    <value>Můžeš se rozhodnout pokračovat na vlastní riziko, ale měj na paměti, že některé funkce nemusí být dostupné a/nebo nemusí fungovat správně.
 
-O registro será ativado automaticamente, se você optar por continuar.</value>
+Pokud se rozhodneš pokračovat, protokolování bude automaticky povoleno.</value>
   </data>
   <data name="UnsupportedWindow_Disclaimer_GitHub" xml:space="preserve">
-    <value>Confira a página do projeto no GitHub para obter mais informações.</value>
+    <value>Další informace najdeš na stránce projektu na GitHubu.</value>
   </data>
   <data name="UnsupportedWindow_Disclaimer_Logs" xml:space="preserve">
-    <value>Pasta de logs</value>
+    <value>Složka s logy</value>
   </data>
   <data name="UnsupportedWindow_MachineType" xml:space="preserve">
-    <value>Tipo de máquina</value>
+    <value>Typ zařízení</value>
   </data>
   <data name="UnsupportedWindow_Message" xml:space="preserve">
-    <value>O Lenovo Legion Toolkit não foi testado com seu dispositivo.</value>
+    <value>Lenovo Legion Toolkit nebyl testován na vašem zařízení.</value>
   </data>
   <data name="UnsupportedWindow_Model" xml:space="preserve">
-    <value>Modelo</value>
+    <value>Model</value>
   </data>
   <data name="UnsupportedWindow_Title" xml:space="preserve">
-    <value>Dispositivo não suportado</value>
+    <value>Nepodporované zařízení</value>
   </data>
   <data name="UnsupportedWindow_Vendor" xml:space="preserve">
-    <value>Fornecedor</value>
+    <value>Dodavatel</value>
   </data>
   <data name="Update" xml:space="preserve">
-    <value>Atualização</value>
+    <value>Aktualizovat</value>
   </data>
   <data name="UpdateWindow_Title" xml:space="preserve">
-    <value>Atualização Disponível</value>
+    <value>K dispozici je aktualizace</value>
   </data>
   <data name="UpdateWindow_WhatsNew" xml:space="preserve">
-    <value>O que há de novo?</value>
+    <value>Co je nového?</value>
   </data>
   <data name="WhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
-    <value>Ajustar a predefinição da luz de fundo do teclado.</value>
+    <value>Upravit jas podsvícení klávesnice.</value>
   </data>
   <data name="WhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
-    <value>Iluminação do teclado</value>
+    <value>Podsvícení klávesnice</value>
   </data>
   <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
-    <value>Você pode alterar os níveis de brilho com a tecla Fn+Espaço</value>
+    <value>Můžeš nastavit podsvícení pomocí Fn+Mezerníku</value>
   </data>
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
-    <value>Brilho</value>
+    <value>Jas</value>
   </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
-    <value>Habilitar ou desabilitar a tecla Windows.</value>
+    <value>Povolit nebo zakázat tlačitko Windows.</value>
   </data>
   <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
-    <value>Teclado Windows</value>
+    <value>Tlačítko Windows</value>
   </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
-    <value>Somente funciona no teclado padrão do Notebook.</value>
+    <value>Funguje pouze na klávesnici notebooku.</value>
   </data>
   <data name="WinKeyControl_Title" xml:space="preserve">
-    <value>Bloqueio da tecla Windows</value>
+    <value>Zámek tlačítka Windows</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Sim</value>
+    <value>Ano</value>
   </data>
 </root>

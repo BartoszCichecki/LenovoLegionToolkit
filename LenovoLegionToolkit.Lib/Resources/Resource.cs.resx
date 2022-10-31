@@ -59,123 +59,123 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AlwaysOnUSBState_Off" xml:space="preserve">
-    <value>Desligado</value>
+    <value>Vypnut</value>
   </data>
   <data name="AlwaysOnUSBState_OnAlways" xml:space="preserve">
-    <value>Sempre ligado</value>
+    <value>Zapnut, pořád</value>
   </data>
   <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
-    <value>Ligado, quando suspenso</value>
+    <value>Zapnut, když spí</value>
   </data>
   <data name="AutorunState_Disabled" xml:space="preserve">
-		<value>Desativado</value>
+		<value>Zakázán</value>
 	</data>
   <data name="AutorunState_Enabled" xml:space="preserve">
-		<value>Ativado</value>
+		<value>Povolen</value>
 	</data>
   <data name="AutorunState_EnabledDelayed" xml:space="preserve">
-		<value>Ativado com atraso</value>
+		<value>Povolen, opožděn</value>
 	</data>
   <data name="BatteryState_Conservation" xml:space="preserve">
-    <value>Conservação</value>
+    <value>Konzervativní</value>
   </data>
   <data name="BatteryState_Normal" xml:space="preserve">
-    <value>Normal</value>
+    <value>Normální</value>
   </data>
   <data name="BatteryState_RapidCharge" xml:space="preserve">
-    <value>Carregamento rápido</value>
+    <value>Rapidní nabíjení</value>
   </data>
   <data name="GPUController_PoweredOff" xml:space="preserve">
-    <value>Desligada</value>
+    <value>Vypnut</value>
   </data>
   <data name="GPUController_PoweredOn" xml:space="preserve">
-    <value>Ligada</value>
+    <value>Zapnut</value>
   </data>
   <data name="HybridModeState_Off" xml:space="preserve">
     <value>dGPU</value>
   </data>
   <data name="HybridModeState_On" xml:space="preserve">
-    <value>Híbrido</value>
+    <value>Hybrid</value>
   </data>
   <data name="HybridModeState_OnAuto" xml:space="preserve">
-    <value>Híbrido-automático</value>
+    <value>Hybrid-Auto</value>
   </data>
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
-    <value>Híbrido-iGPU</value>
+    <value>Hybrid-iGPU</value>
   </data>
   <data name="PowerModeState_Balance" xml:space="preserve">
-    <value>Equilibrado</value>
+    <value>Vyvážený</value>
   </data>
   <data name="PowerModeState_GodMode" xml:space="preserve">
-    <value>Personalizado</value>
+    <value>Vlastní</value>
   </data>
   <data name="PowerModeState_Performance" xml:space="preserve">
-    <value>Performance</value>
+    <value>Výkon</value>
   </data>
   <data name="PowerModeState_Quiet" xml:space="preserve">
-    <value>Silencioso</value>
+    <value>Tichý</value>
   </data>
   <data name="RBGKeyboardSpeed_Fast" xml:space="preserve">
-    <value>Rápido</value>
+    <value>Rychlý</value>
   </data>
   <data name="RBGKeyboardSpeed_Fastest" xml:space="preserve">
-    <value>Rapidíssimo</value>
+    <value>Nejrychlejší</value>
   </data>
   <data name="RBGKeyboardSpeed_Slow" xml:space="preserve">
-    <value>Lento</value>
+    <value>Pomalý</value>
   </data>
   <data name="RBGKeyboardSpeed_Slowest" xml:space="preserve">
-    <value>Lentíssimo</value>
+    <value>Nejpomalejší</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
-    <value>Desligado</value>
+    <value>Vypnut</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_One" xml:space="preserve">
-    <value>Predefinição 1</value>
+    <value>Předvolba 1</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Three" xml:space="preserve">
-    <value>Predefinição 3</value>
+    <value>Předvolba 3</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
-    <value>Predefinição 2</value>
+    <value>Předvolba 2</value>
   </data>
   <data name="RGBKeyboardBrightness_High" xml:space="preserve">
-    <value>Alta</value>
+    <value>Vysoký</value>
   </data>
   <data name="RGBKeyboardBrightness_Low" xml:space="preserve">
-    <value>Baixo</value>
+    <value>Nízký</value>
   </data>
   <data name="RGBKeyboardEffect_Breath" xml:space="preserve">
-    <value>Respiração</value>
+    <value>Dech</value>
   </data>
   <data name="RGBKeyboardEffect_Smooth" xml:space="preserve">
-    <value>Suave</value>
+    <value>Hladký</value>
   </data>
   <data name="RGBKeyboardEffect_Static" xml:space="preserve">
-    <value>Estático</value>
+    <value>Statický</value>
   </data>
   <data name="RGBKeyboardEffect_WaveLTR" xml:space="preserve">
-    <value>Onda para a esquerda</value>
+    <value>Vlna vlevo</value>
   </data>
   <data name="RGBKeyboardEffect_WaveRTL" xml:space="preserve">
-    <value>Onda para a direita</value>
+    <value>Vlna vpravo</value>
   </data>
   <data name="Theme_Dark" xml:space="preserve">
-    <value>Escuro</value>
+    <value>Tmavý</value>
   </data>
   <data name="Theme_Light" xml:space="preserve">
-    <value>Claro</value>
+    <value>Světlý</value>
   </data>
   <data name="Theme_System" xml:space="preserve">
-    <value>Sistema</value>
+    <value>Systém</value>
   </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
-    <value>Alta</value>
+    <value>Vysoký</value>
   </data>
   <data name="WhiteKeyboardBacklightState_Low" xml:space="preserve">
-    <value>Baixa</value>
+    <value>Nízký</value>
   </data>
   <data name="WhiteKeyboardBacklightState_Off" xml:space="preserve">
-    <value>Desligada</value>
+    <value>Vypnut</value>
   </data>
 </root>
