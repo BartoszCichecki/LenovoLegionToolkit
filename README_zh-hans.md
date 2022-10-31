@@ -76,6 +76,20 @@
 - 通过自动化实现插入/拔出充电器的自动操作。
 - 无需卸载即可禁用Lenovo Vantage、Legion Zone和Lenovo Hotkeys服务。
 
+##### 自定义模式
+
+以下版本的BIOS支持自定义模式：
+* GKCN49WW 和更高
+* H1CN49WW 和更高
+* HACN31WW 和更高
+* HHCN23WW 和更高
+* K1CN31WW 和更高
+* J2CN40WW 和更高
+* JUCN51WW 和更高
+* JYCN39WW 和更高
+
+并非所有设备都支持自定义模式的所有功能。
+
 ##### 强制休眠显卡
 
 有时独立显卡会一直保持活动状态。例如在你插上外接显示器并断开后，一些进程会继续使用独显上运行，导致续航骤减。
@@ -116,8 +130,10 @@
 * 荷兰语 - Melm
 * 罗马尼亚语 - [Mario Bălănică](https://github.com/mariobalanica)
 * 西班牙语 - M.A.G.
+* 葡萄牙语（巴西） - Vernon
 * 俄语 - [Edward Johan](https://github.com/younyokel)
 * 土耳其语 - Undervolt
+* 乌克兰语 -  Владислав «vaidee» Придатько
 * 越南语 - Not_Nhan
 
 ## FAQ
