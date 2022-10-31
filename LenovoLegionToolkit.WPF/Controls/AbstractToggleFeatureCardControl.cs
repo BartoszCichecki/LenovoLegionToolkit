@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
@@ -60,7 +61,13 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         private async void Toggle_Click(object sender, RoutedEventArgs e) => await OnStateChange(_toggle, _feature);
 
-        protected override async Task OnRefreshAsync() => _toggle.IsChecked = OnState.Equals(await _feature.GetStateAsync());
+        protected override async Task OnRefreshAsync()
+        {
+            if (!await _feature.IsSupportedAsync())
+                throw new InvalidOperationException("Unsupported");
+
+            _toggle.IsChecked = OnState.Equals(await _feature.GetStateAsync());
+        }
 
         protected override void OnFinishedLoading()
         {
