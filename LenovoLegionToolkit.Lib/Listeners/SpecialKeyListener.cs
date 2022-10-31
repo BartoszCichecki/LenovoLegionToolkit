@@ -33,7 +33,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Event received. [value={propertyValue}]");
 
-            var value = (SpecialKey)(object)propertyValue;
+            var value = (SpecialKey)propertyValue;
             return value;
         }
 
