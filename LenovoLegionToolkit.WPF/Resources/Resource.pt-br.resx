@@ -690,7 +690,7 @@ Sério, cuidado com essa opção!</value>
     <value>Batería</value>
   </data>
   <data name="MainWindow_NavigationItem_Dashboard" xml:space="preserve">
-    <value>Painel de controle</value>
+    <value>Dashboard</value>
   </data>
   <data name="MainWindow_NavigationItem_Donate" xml:space="preserve">
     <value>Doar</value>
