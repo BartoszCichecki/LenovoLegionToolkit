@@ -16,7 +16,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         private readonly Vantage _vantage;
 
-        private SafeFileHandle? DriverHandle => Devices.GetSpectrumRGBKeyboard();
+        private SafeFileHandle? DriverHandle => Devices.GetExtendedSpectrumRGBKeyboard() ?? Devices.GetSpectrumRGBKeyboard();
 
         public SpectrumKeyboardBacklightController(Vantage vantage)
         {
@@ -24,6 +24,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
         }
 
         public bool IsSupported() => DriverHandle is not null;
+
+        public bool IsExtendedSupported() => IsSupported() && DriverHandle == Devices.GetExtendedSpectrumRGBKeyboard();
 
         public async Task<int> GetBrightnessAsync()
         {
