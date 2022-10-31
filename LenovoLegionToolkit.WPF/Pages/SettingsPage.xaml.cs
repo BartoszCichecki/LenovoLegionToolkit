@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
@@ -18,10 +19,15 @@ namespace LenovoLegionToolkit.WPF.Pages
     public partial class SettingsPage
     {
         private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
+
         private readonly Vantage _vantage = IoCContainer.Resolve<Vantage>();
         private readonly LegionZone _legionZone = IoCContainer.Resolve<LegionZone>();
         private readonly FnKeys _fnKeys = IoCContainer.Resolve<FnKeys>();
+
+        private readonly PowerModeFeature _powerModeFeature = IoCContainer.Resolve<PowerModeFeature>();
+
         private readonly RGBKeyboardBacklightController _rgbKeyboardBacklightController = IoCContainer.Resolve<RGBKeyboardBacklightController>();
+
         private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
 
         private bool _isRefreshing;
@@ -79,6 +85,8 @@ namespace LenovoLegionToolkit.WPF.Pages
 
             _notificationsCard.Visibility = fnKeysStatus != SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
             _excludeRefreshRatesCard.Visibility = fnKeysStatus != SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
+
+            _powerPlansCard.Visibility = await _powerModeFeature.IsSupportedAsync() ? Visibility.Visible : Visibility.Collapsed;
 
             await loadingTask;
 
@@ -179,10 +187,13 @@ namespace LenovoLegionToolkit.WPF.Pages
 
                 try
                 {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Setting light control owner and restoring preset...");
+                    if (_rgbKeyboardBacklightController.IsSupported())
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Setting light control owner and restoring preset...");
 
-                    await _rgbKeyboardBacklightController.SetLightControlOwnerAsync(true, true);
+                        await _rgbKeyboardBacklightController.SetLightControlOwnerAsync(true, true);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -194,10 +205,13 @@ namespace LenovoLegionToolkit.WPF.Pages
             {
                 try
                 {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Setting light control owner...");
+                    if (_rgbKeyboardBacklightController.IsSupported())
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Setting light control owner...");
 
-                    await _rgbKeyboardBacklightController.SetLightControlOwnerAsync(false);
+                        await _rgbKeyboardBacklightController.SetLightControlOwnerAsync(false);
+                    }
                 }
                 catch (Exception ex)
                 {

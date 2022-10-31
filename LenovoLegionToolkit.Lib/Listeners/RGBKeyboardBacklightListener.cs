@@ -22,6 +22,14 @@ namespace LenovoLegionToolkit.Lib.Listeners
         {
             try
             {
+                if (!_controller.IsSupported())
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Not supported.");
+
+                    return;
+                }
+
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Taking ownership...");
 

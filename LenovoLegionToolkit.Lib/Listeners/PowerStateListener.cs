@@ -90,10 +90,13 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
             try
             {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Setting light control owner and restoring preset...");
+                if (_rgbController.IsSupported())
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Setting light control owner and restoring preset...");
 
-                await _rgbController.SetLightControlOwnerAsync(true, true).ConfigureAwait(false);
+                    await _rgbController.SetLightControlOwnerAsync(true, true).ConfigureAwait(false);
+                }
             }
             catch (Exception ex)
             {
