@@ -22,6 +22,8 @@ namespace LenovoLegionToolkit.Lib.Features
             _scopeAttribute = scopeAttribute;
         }
 
+        public Task<bool> IsSupportedAsync() => Task.FromResult(true);
+
         public Task<T[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<T>());
 
         public abstract Task<T> GetStateAsync();

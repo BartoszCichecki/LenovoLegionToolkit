@@ -15,6 +15,8 @@ namespace LenovoLegionToolkit.Lib.Features
             _igpuModeFeature = igpuModeFeature ?? throw new ArgumentNullException(nameof(igpuModeFeature));
         }
 
+        public Task<bool> IsSupportedAsync() => _gsyncFeature.IsSupportedAsync();
+
         public async Task<HybridModeState[]> GetAllStatesAsync()
         {
             var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);

@@ -97,6 +97,7 @@ The app allows to:
 Custom Mode is supported on following BIOS versions:
 * GKCN49WW and higher
 * H1CN49WW and higher
+* HACN31WW and higher
 * HHCN23WW and higher
 * K1CN31WW and higher
 * J2CN40WW and higher
@@ -148,7 +149,7 @@ Translations provided by:
 * Portuguese (Brasil) - Vernon
 * Russian - [Edward Johan](https://github.com/younyokel)
 * Turkish - Undervolt
-* Ukrainian -  Владислав «vaidee» Придатько
+* Ukrainian -  [Владислав «vaidee» Придатько](https://github.com/va1dee)
 * Vietnamese - Not_Nhan
 
 ## FAQ
