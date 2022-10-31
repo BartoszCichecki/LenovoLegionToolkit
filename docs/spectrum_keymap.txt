@@ -118,4 +118,4 @@ Fan_T1 -> 0x03EB
 Fan_T2 -> 0x03EC
 Fan_T3 -> 0x03ED
 Fan_T4 -> 0x03EE
-PanelLogo -> 0x05D
+PanelLogo -> 0x5DD

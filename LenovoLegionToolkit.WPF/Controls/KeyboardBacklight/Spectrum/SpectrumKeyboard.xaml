@@ -214,7 +214,7 @@
                     Width="52"
                     Height="32"
                     Margin="2"
-                    KeyCode="0x26" />
+                    KeyCode="0x38" />
             </StackPanel>
 
             <StackPanel Grid.Row="1" Orientation="Horizontal">

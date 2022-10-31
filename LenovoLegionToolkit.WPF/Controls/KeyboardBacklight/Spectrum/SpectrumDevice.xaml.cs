@@ -19,6 +19,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
         private void SpectrumDevice_Loaded(object sender, RoutedEventArgs args)
         {
             Buttons = this.GetChildrenOfType<SpectrumKeyboardButton>()
+                .Where(b => b.KeyCode > 0)
                 .Where(b => b.Visibility == Visibility.Visible)
                 .ToArray();
         }
