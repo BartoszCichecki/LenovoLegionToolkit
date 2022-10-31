@@ -102,6 +102,27 @@ namespace LenovoLegionToolkit.Lib.System
             return _rgbKeyboard;
         }
 
+        public static SafeFileHandle? GetExtendedSpectrumRGBKeyboard()
+        {
+            if (_spectrumRgbKeyboard is not null)
+                return _spectrumRgbKeyboard;
+
+            lock (Lock)
+            {
+                if (_spectrumRgbKeyboard is not null)
+                    return _spectrumRgbKeyboard;
+
+                const ushort vendorId = 0x048D;
+                const ushort productIdMasked = 0xC978;
+                const ushort productIdMask = 0xFFFF;
+                const ushort descriptorLength = 0x03C0;
+
+                _spectrumRgbKeyboard = FindHidDevice(vendorId, productIdMask, productIdMasked, descriptorLength);
+            }
+
+            return _spectrumRgbKeyboard;
+        }
+
         public static SafeFileHandle? GetSpectrumRGBKeyboard()
         {
             if (_spectrumRgbKeyboard is not null)
@@ -113,8 +134,8 @@ namespace LenovoLegionToolkit.Lib.System
                     return _spectrumRgbKeyboard;
 
                 const ushort vendorId = 0x048D;
-                const ushort productIdMasked = 0xC900;
-                const ushort productIdMask = 0xFF00;
+                const ushort productIdMasked = 0xC977;
+                const ushort productIdMask = 0xFFFF;
                 const ushort descriptorLength = 0x03C0;
 
                 _spectrumRgbKeyboard = FindHidDevice(vendorId, productIdMask, productIdMasked, descriptorLength);
