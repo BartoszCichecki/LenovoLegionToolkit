@@ -77,7 +77,7 @@
 		<value>Ativado, com atraso</value>
 	</data>
   <data name="BatteryState_Conservation" xml:space="preserve">
-    <value>Modo Conservador</value>
+    <value>Conservador</value>
   </data>
   <data name="BatteryState_Normal" xml:space="preserve">
     <value>Normal</value>
