@@ -80,7 +80,7 @@
     <value>Sobre</value>
   </data>
   <data name="AboutPage_TranslationCredit" xml:space="preserve">
-    <value>Tradução para português (Portugal) feita por dcsilva.</value>
+    <value>Tradução para português de Portugal feita por dcsilva.</value>
     <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
   </data>
   <data name="AboutPage_Version" xml:space="preserve">
@@ -93,10 +93,10 @@
     <value>Adicionar novo</value>
   </data>
   <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Ativar o controlo do modo de energia mesmo com o Vantage ligado. Esta opção foi desenhada para dispositivos que não vêm com vários modos de energia.</value>
+    <value>Ativar o controlo dos esquemas de energia mesmo com o Vantage ligado. Esta opção foi desenhada para dispositivos que não vêm com vários modos de energia.</value>
   </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
-    <value>Ativar sempre o modo de energia do Windows</value>
+    <value>Ativar sempre o esquema de energia do Windows</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
     <value>Carregar dispositivos USB, quando o computador está suspenso ou em modo de hibernação.</value>
@@ -221,7 +221,7 @@ Apenas as ações que corresponderem ao estado atual irão ser executadas.</valu
     <value>A {0:D2}:{1:D2}</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_PowerMode" xml:space="preserve">
-    <value>Modo de energia</value>
+    <value>Esquema de energia</value>
   </data>
   <data name="AutomationPipelineControl_Unnamed" xml:space="preserve">
     <value>Sem nome</value>
@@ -327,7 +327,7 @@ Este tempo pode não estar correto se o dispositivo foi carregado quando estava 
     <value>Conectado</value>
   </data>
   <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
-    <value>Modos de energia</value>
+    <value>Esquemas de energia</value>
   </data>
   <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
     <value>Aprende mais em microsoft.com</value>
@@ -690,7 +690,7 @@ A sério! Tem cuidado com esta opção!</value>
     <value>Bateria</value>
   </data>
   <data name="MainWindow_NavigationItem_Dashboard" xml:space="preserve">
-    <value>Painel de controlo</value>
+    <value>Dashboard</value>
   </data>
   <data name="MainWindow_NavigationItem_Donate" xml:space="preserve">
     <value>Doar</value>
@@ -793,7 +793,7 @@ Ativa esta opção se tiveres problemas de conflitos com apps em ecrã inteiro.<
     <value>Microfone</value>
   </data>
   <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
-    <value>Modo de energia</value>
+    <value>Esquema de energia</value>
   </data>
   <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
     <value>Taxa de atualização</value>
@@ -920,23 +920,23 @@ Confirma sempre que estás a instalar o pacotes corretos.</value>
     <value>Modo de energia</value>
   </data>
   <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>Não foi possível alterar o modo de energia</value>
+    <value>Não foi possível alterar o esquema de energia</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
-    <value>Seleciona o modo de energia.
+    <value>Seleciona o esquema de energia.
 Podes mudar com Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
     <value>Definições</value>
   </data>
   <data name="PowerModeControl_Title" xml:space="preserve">
-    <value>Modo de energia</value>
+    <value>Esquema de energia</value>
   </data>
   <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>Modo de energia</value>
+    <value>Esquema de energia</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Habilitar esta opção enquanto o Lenovo Vantage está a serr executado e mudar o modo de energia pode resultar num comportamento inesperado.</value>
+    <value>Habilitar esta opção enquanto o Lenovo Vantage está a ser executado e mudar o esquema de energia pode resultar num comportamento inesperado.</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Tens a certeza?</value>
@@ -954,7 +954,7 @@ Podes mudar com Fn+Q.</value>
     <value>Modo silencioso</value>
   </data>
   <data name="PowerPlansWindow_Title" xml:space="preserve">
-    <value>Planos de energia</value>
+    <value>Esquemas de energia</value>
   </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Ajustar o brilho da luz de fundo do teclado.</value>
@@ -1071,7 +1071,7 @@ Certifica-te que o script executa corretamente primeiro.</value>
     <value>Iniciar automaticamente</value>
   </data>
   <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>Modo de boost do CPU</value>
+    <value>Modos de boost do CPU</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
     <value>O Legion Zone pode não ter sido desabilitado corretamente</value>
@@ -1132,7 +1132,7 @@ Se desativado, esta app irá executar os atalhos Fn.
     <value>Não foi possível ativar o Vantage</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
-    <value>Podes excluir taxas de atualizada para tornar o atalho FN+R mais útil.</value>
+    <value>Podes excluir taxas de atualização para tornar o atalho Fn+R mais útil.</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Title" xml:space="preserve">
     <value>Excluir taxas de atualização</value>
@@ -1156,7 +1156,7 @@ Se desativado, esta app irá executar os atalhos Fn.
     <value>Notificações</value>
   </data>
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
-    <value>Modos de energia</value>
+    <value>Esquemas de energia</value>
   </data>
   <data name="SettingsPage_Theme_Description" xml:space="preserve">
     <value>Definir modo claro, escuro, ou seguir definições do sistema.</value>
@@ -1256,7 +1256,7 @@ Logs serão guardados automaticamente, se escolheres continuar.</value>
     <value>Luz do teclado</value>
   </data>
   <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
-    <value>Podes alterar o brilho com Fn+Space</value>
+    <value>Podes alterar a luminosidade com Fn+Space</value>
   </data>
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Luminosidade</value>
