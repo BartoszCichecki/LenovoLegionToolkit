@@ -149,7 +149,7 @@ Translations provided by:
 * Portuguese (Brasil) - Vernon
 * Russian - [Edward Johan](https://github.com/younyokel)
 * Turkish - Undervolt
-* Ukrainian -  Владислав «vaidee» Придатько
+* Ukrainian -  [Владислав «vaidee» Придатько](https://github.com/va1dee)
 * Vietnamese - Not_Nhan
 
 ## FAQ
