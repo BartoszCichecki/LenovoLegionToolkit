@@ -10,9 +10,16 @@ namespace LenovoLegionToolkit.Lib.Features
 
         public override async Task<bool> IsSupportedAsync()
         {
-            var outBuffer = await SendCodeAsync(DriverHandle(), ControlCode, 0x1).ConfigureAwait(false);
-            outBuffer >>= 1;
-            return outBuffer == 0x2;
+            try
+            {
+                var outBuffer = await SendCodeAsync(DriverHandle(), ControlCode, 0x1).ConfigureAwait(false);
+                outBuffer >>= 1;
+                return outBuffer == 0x2;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         protected override uint GetInBufferValue() => 0x22;
