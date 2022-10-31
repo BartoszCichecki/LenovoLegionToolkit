@@ -86,7 +86,7 @@
     <value>Ao ligar</value>
   </data>
   <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Quando o modo de energia é alterado</value>
+    <value>Quando o esquema de energia é alterado</value>
   </data>
   <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Quando a app está a rodar</value>
