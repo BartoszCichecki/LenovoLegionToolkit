@@ -64,7 +64,7 @@ namespace LenovoLegionToolkit.WPF.Controls
         protected override async Task OnRefreshAsync()
         {
             if (!await _feature.IsSupportedAsync())
-                throw new InvalidOperationException("Unsupported");
+                throw new NotSupportedException();
 
             _toggle.IsChecked = OnState.Equals(await _feature.GetStateAsync());
         }
