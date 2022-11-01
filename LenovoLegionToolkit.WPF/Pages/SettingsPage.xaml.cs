@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Automation;
+using LenovoLegionToolkit.Lib.Automation.Pipeline;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
@@ -23,11 +27,9 @@ namespace LenovoLegionToolkit.WPF.Pages
         private readonly Vantage _vantage = IoCContainer.Resolve<Vantage>();
         private readonly LegionZone _legionZone = IoCContainer.Resolve<LegionZone>();
         private readonly FnKeys _fnKeys = IoCContainer.Resolve<FnKeys>();
-
         private readonly PowerModeFeature _powerModeFeature = IoCContainer.Resolve<PowerModeFeature>();
-
         private readonly RGBKeyboardBacklightController _rgbKeyboardBacklightController = IoCContainer.Resolve<RGBKeyboardBacklightController>();
-
+        private readonly AutomationProcessor _automationProcessor = IoCContainer.Resolve<AutomationProcessor>();
         private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
 
         private bool _isRefreshing;
@@ -83,6 +85,12 @@ namespace LenovoLegionToolkit.WPF.Pages
             _fnKeysCard.Visibility = fnKeysStatus != SoftwareStatus.NotFound ? Visibility.Visible : Visibility.Collapsed;
             _fnKeysToggle.IsChecked = fnKeysStatus == SoftwareStatus.Disabled;
 
+            var pipelines = new List<AutomationPipeline?> { null };
+            pipelines.AddRange((await _automationProcessor.GetPipelinesAsync()).Where(p => p.Trigger is null));
+            var pipeline = pipelines.FirstOrDefault(p => p?.Id == _settings.Store.SmartKeyDoublePressActionId);
+            _smartKeyDoublePressActionComboBox.SetItems(pipelines, pipeline, ap => ap?.Name ?? "Do nothing");
+            _smartKeyDoublePressActionCard.Visibility = fnKeysStatus != SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
+
             _notificationsCard.Visibility = fnKeysStatus != SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
             _excludeRefreshRatesCard.Visibility = fnKeysStatus != SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
 
@@ -96,6 +104,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             _vantageToggle.Visibility = Visibility.Visible;
             _legionZoneToggle.Visibility = Visibility.Visible;
             _fnKeysToggle.Visibility = Visibility.Visible;
+            _smartKeyDoublePressActionComboBox.Visibility = Visibility.Visible;
 
             _isRefreshing = false;
         }
@@ -147,6 +156,18 @@ namespace LenovoLegionToolkit.WPF.Pages
                 return;
 
             Autorun.Set(state);
+        }
+
+        private void SmartKeyDoublePressActionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (_isRefreshing)
+                return;
+
+            if (!_smartKeyDoublePressActionComboBox.TryGetSelectedItem(out AutomationPipeline? pipeline))
+                return;
+
+            _settings.Store.SmartKeyDoublePressActionId = pipeline?.Id;
+            _settings.SynchronizeStore();
         }
 
         private void MinimizeOnCloseToggle_Click(object sender, RoutedEventArgs e)
@@ -310,6 +331,7 @@ namespace LenovoLegionToolkit.WPF.Pages
 
             _fnKeysToggle.IsEnabled = true;
 
+            _smartKeyDoublePressActionCard.Visibility = state.Value ? Visibility.Visible : Visibility.Collapsed;
             _notificationsCard.Visibility = state.Value ? Visibility.Visible : Visibility.Collapsed;
             _excludeRefreshRatesCard.Visibility = state.Value ? Visibility.Visible : Visibility.Collapsed;
         }

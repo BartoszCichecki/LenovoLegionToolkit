@@ -151,6 +151,15 @@ namespace LenovoLegionToolkit.Lib.Automation
             }
         }
 
+        public Task RunNowAsync(Guid pipelineId)
+        {
+            var pipeline = _pipelines.Where(p => p.Trigger is null).FirstOrDefault(p => p.Id == pipelineId);
+            if (pipeline is null)
+                return Task.CompletedTask;
+
+            return RunNowAsync(pipeline);
+        }
+
         private async Task RunAsync(IAutomationEvent automationEvent)
         {
             if (Log.Instance.IsTraceEnabled)
