@@ -38,8 +38,9 @@ namespace LenovoLegionToolkit.Lib.Settings
             catch
             {
                 Store = Default;
-                SynchronizeStore();
             }
+
+            SynchronizeStore();
         }
 
         public void SynchronizeStore()
