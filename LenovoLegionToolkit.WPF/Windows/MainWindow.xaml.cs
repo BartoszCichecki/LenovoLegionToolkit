@@ -144,7 +144,7 @@ namespace LenovoLegionToolkit.WPF.Windows
             systemEventInterceptor.OnDisplayDeviceArrival += (_, _) => Task.Run(IoCContainer.Resolve<IGPUModeFeature>().NotifyAsync);
             systemEventInterceptor.OnResumed += (_, _) => Task.Run(async () =>
             {
-                await Task.Delay(5_000).ConfigureAwait(false);
+                await Task.Delay(TimeSpan.FromSeconds(5)).ConfigureAwait(false);
                 await IoCContainer.Resolve<IGPUModeFeature>().NotifyAsync().ConfigureAwait(false);
             });
 
