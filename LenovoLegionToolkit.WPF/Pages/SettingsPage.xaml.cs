@@ -87,8 +87,13 @@ namespace LenovoLegionToolkit.WPF.Pages
 
             var pipelines = new List<AutomationPipeline?> { null };
             pipelines.AddRange((await _automationProcessor.GetPipelinesAsync()).Where(p => p.Trigger is null));
-            var pipeline = pipelines.FirstOrDefault(p => p?.Id == _settings.Store.SmartKeyDoublePressActionId);
-            _smartKeyDoublePressActionComboBox.SetItems(pipelines, pipeline, ap => ap?.Name ?? Resource.SettingsPage_SmartKeyAction_DoNothing);
+
+            var singlePressPipeline = pipelines.FirstOrDefault(p => p?.Id == _settings.Store.SmartKeySinglePressActionId);
+            _smartKeySinglePressActionComboBox.SetItems(pipelines, singlePressPipeline, ap => ap?.Name ?? "Show this app");
+            _smartKeySinglePressActionCard.Visibility = fnKeysStatus != SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
+
+            var doublePressPipeline = pipelines.FirstOrDefault(p => p?.Id == _settings.Store.SmartKeyDoublePressActionId);
+            _smartKeyDoublePressActionComboBox.SetItems(pipelines, doublePressPipeline, ap => ap?.Name ?? Resource.SettingsPage_SmartKeyDoublePressAction_DoNothing);
             _smartKeyDoublePressActionCard.Visibility = fnKeysStatus != SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
 
             _notificationsCard.Visibility = fnKeysStatus != SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
@@ -104,6 +109,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             _vantageToggle.Visibility = Visibility.Visible;
             _legionZoneToggle.Visibility = Visibility.Visible;
             _fnKeysToggle.Visibility = Visibility.Visible;
+            _smartKeySinglePressActionComboBox.Visibility = Visibility.Visible;
             _smartKeyDoublePressActionComboBox.Visibility = Visibility.Visible;
 
             _isRefreshing = false;
@@ -156,6 +162,18 @@ namespace LenovoLegionToolkit.WPF.Pages
                 return;
 
             Autorun.Set(state);
+        }
+
+        private void SmartKeySinglePressActionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (_isRefreshing)
+                return;
+
+            if (!_smartKeySinglePressActionComboBox.TryGetSelectedItem(out AutomationPipeline? pipeline))
+                return;
+
+            _settings.Store.SmartKeySinglePressActionId = pipeline?.Id;
+            _settings.SynchronizeStore();
         }
 
         private void SmartKeyDoublePressActionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -331,6 +349,7 @@ namespace LenovoLegionToolkit.WPF.Pages
 
             _fnKeysToggle.IsEnabled = true;
 
+            _smartKeySinglePressActionCard.Visibility = state.Value ? Visibility.Visible : Visibility.Collapsed;
             _smartKeyDoublePressActionCard.Visibility = state.Value ? Visibility.Visible : Visibility.Collapsed;
             _notificationsCard.Visibility = state.Value ? Visibility.Visible : Visibility.Collapsed;
             _excludeRefreshRatesCard.Visibility = state.Value ? Visibility.Visible : Visibility.Collapsed;
