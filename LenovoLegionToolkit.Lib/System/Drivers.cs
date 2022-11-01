@@ -5,7 +5,7 @@ using Windows.Win32.Storage.FileSystem;
 
 namespace LenovoLegionToolkit.Lib.System
 {
-    internal static class Drivers
+    public static class Drivers
     {
         public const uint IOCTL_ENERGY_BATTERY_INFORMATION = 0x83102138;
         public const uint IOCTL_ENERGY_SETTINGS = 0x831020E8;
