@@ -11,6 +11,8 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
 {
     public class AutomationPipeline
     {
+        public Guid Id { get; set; } = Guid.NewGuid();
+
         public string? Name { get; set; }
 
         public IAutomationPipelineTrigger? Trigger { get; set; }
@@ -70,6 +72,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline
 
         public AutomationPipeline DeepCopy() => new()
         {
+            Id = Id,
             Name = Name,
             Trigger = Trigger?.DeepCopy(),
             Steps = Steps.Select(s => s.DeepCopy()).ToList(),
