@@ -18,8 +18,11 @@ namespace LenovoLegionToolkit.WPF.Extensions
             return BitmapFrame.Create(uri);
         }
 
-        public static ImageSource? ApplicationIcon(string exePath)
+        public static ImageSource? ApplicationIcon(string? exePath)
         {
+            if (exePath is null)
+                return null;
+
             try
             {
                 var icon = Icon.ExtractAssociatedIcon(exePath);
