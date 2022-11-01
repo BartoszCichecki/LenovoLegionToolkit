@@ -86,7 +86,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             _fnKeysToggle.IsChecked = fnKeysStatus == SoftwareStatus.Disabled;
 
             var pipelines = new List<AutomationPipeline?> { null };
-            pipelines.AddRange((await _automationProcessor.GetPipelinesAsync()).Where(p => p.Trigger is null));
+            pipelines.AddRange((await _automationProcessor.GetPipelinesAsync()).Where(p => p.Trigger is null).OrderBy(p => p.Name));
 
             var singlePressPipeline = pipelines.FirstOrDefault(p => p?.Id == _settings.Store.SmartKeySinglePressActionId);
             _smartKeySinglePressActionComboBox.SetItems(pipelines, singlePressPipeline, ap => ap?.Name ?? Resource.SettingsPage_SmartKeySinglePressAction_ShowThisApp);

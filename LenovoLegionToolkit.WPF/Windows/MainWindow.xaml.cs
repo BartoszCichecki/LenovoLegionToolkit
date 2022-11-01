@@ -124,7 +124,15 @@ namespace LenovoLegionToolkit.WPF.Windows
                         if (Log.Instance.IsTraceEnabled)
                             Log.Instance.Trace($"Running action after double Fn+F9 press.");
 
-                        await _automationProcessor.RunNowAsync(id.Value);
+                        try
+                        {
+                            await _automationProcessor.RunNowAsync(id.Value);
+                        }
+                        catch (Exception ex)
+                        {
+                            if (Log.Instance.IsTraceEnabled)
+                                Log.Instance.Trace($"Running action after double Fn+F9 press failed.", ex);
+                        }
                     }
                 }
                 else
@@ -137,7 +145,15 @@ namespace LenovoLegionToolkit.WPF.Windows
                         if (Log.Instance.IsTraceEnabled)
                             Log.Instance.Trace($"Running action after single Fn+F9 press.");
 
-                        await _automationProcessor.RunNowAsync(id.Value);
+                        try
+                        {
+                            await _automationProcessor.RunNowAsync(id.Value);
+                        }
+                        catch (Exception ex)
+                        {
+                            if (Log.Instance.IsTraceEnabled)
+                                Log.Instance.Trace($"Running action after single Fn+F9 press failed.", ex);
+                        }
                     }
                     else
                     {
