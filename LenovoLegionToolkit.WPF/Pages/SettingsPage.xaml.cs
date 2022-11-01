@@ -89,7 +89,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             pipelines.AddRange((await _automationProcessor.GetPipelinesAsync()).Where(p => p.Trigger is null));
 
             var singlePressPipeline = pipelines.FirstOrDefault(p => p?.Id == _settings.Store.SmartKeySinglePressActionId);
-            _smartKeySinglePressActionComboBox.SetItems(pipelines, singlePressPipeline, ap => ap?.Name ?? "Show this app");
+            _smartKeySinglePressActionComboBox.SetItems(pipelines, singlePressPipeline, ap => ap?.Name ?? Resource.SettingsPage_SmartKeySinglePressAction_ShowThisApp);
             _smartKeySinglePressActionCard.Visibility = fnKeysStatus != SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
 
             var doublePressPipeline = pipelines.FirstOrDefault(p => p?.Id == _settings.Store.SmartKeyDoublePressActionId);

@@ -3338,6 +3338,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show this app.
+        /// </summary>
+        public static string SettingsPage_SmartKeySinglePressAction_ShowThisApp {
+            get {
+                return ResourceManager.GetString("SettingsPage_SmartKeySinglePressAction_ShowThisApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Smart Key Action.
         /// </summary>
         public static string SettingsPage_SmartKeySinglePressAction_Title {
