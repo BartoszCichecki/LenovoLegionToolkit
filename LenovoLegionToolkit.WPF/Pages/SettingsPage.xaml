@@ -114,7 +114,7 @@
 
         <wpfui:CardControl x:Name="_smartKeyDoublePressActionCard" Margin="0,0,0,8">
             <wpfui:CardControl.Header>
-                <controls:CardHeaderControl Title="Smart Key Action" Subtitle="Assign Quick Action to Fn+F9 double press." />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_SmartKeyAction_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_SmartKeyAction_Message}" />
             </wpfui:CardControl.Header>
             <ComboBox
                 x:Name="_smartKeyDoublePressActionComboBox"

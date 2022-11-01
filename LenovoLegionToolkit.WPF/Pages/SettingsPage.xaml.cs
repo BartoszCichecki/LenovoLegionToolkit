@@ -88,7 +88,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             var pipelines = new List<AutomationPipeline?> { null };
             pipelines.AddRange((await _automationProcessor.GetPipelinesAsync()).Where(p => p.Trigger is null));
             var pipeline = pipelines.FirstOrDefault(p => p?.Id == _settings.Store.SmartKeyDoublePressActionId);
-            _smartKeyDoublePressActionComboBox.SetItems(pipelines, pipeline, ap => ap?.Name ?? "Do nothing");
+            _smartKeyDoublePressActionComboBox.SetItems(pipelines, pipeline, ap => ap?.Name ?? Resource.SettingsPage_SmartKeyAction_DoNothing);
             _smartKeyDoublePressActionCard.Visibility = fnKeysStatus != SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
 
             _notificationsCard.Visibility = fnKeysStatus != SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
