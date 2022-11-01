@@ -79,16 +79,13 @@ namespace LenovoLegionToolkit.Lib.Automation.Listeners
                 {
                     processPath = Process.GetProcessById(e.processID).MainModule?.FileName;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Can't get process {e.processName} details.", ex);
+                        Log.Instance.Trace($"Can't get process {e.processName} details, fallback to ID only.");
                 }
 
-                if (string.IsNullOrWhiteSpace(processPath))
-                    return;
-
-                if (_ignoredPaths.Any(p => processPath.StartsWith(p, StringComparison.InvariantCultureIgnoreCase)))
+                if (processPath is not null && _ignoredPaths.Any(p => processPath.StartsWith(p, StringComparison.InvariantCultureIgnoreCase)))
                     return;
 
                 var processInfo = new ProcessInfo(Path.GetFileNameWithoutExtension(e.processName), processPath);
