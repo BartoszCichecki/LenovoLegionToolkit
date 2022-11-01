@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace LenovoLegionToolkit.Lib.Settings
 {
@@ -30,6 +31,8 @@ namespace LenovoLegionToolkit.Lib.Settings
             public TemperatureUnit TemperatureUnit { get; set; }
             public List<RefreshRate> ExcludedRefreshRates { get; set; } = new();
             public WarrantyInfo? WarrantyInfo { get; set; }
+            public Guid? SmartKeySinglePressActionId { get; set; }
+            public Guid? SmartKeyDoublePressActionId { get; set; }
         }
 
         protected override string FileName => "settings.json";
