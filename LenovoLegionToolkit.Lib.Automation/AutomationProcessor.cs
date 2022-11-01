@@ -151,13 +151,16 @@ namespace LenovoLegionToolkit.Lib.Automation
             }
         }
 
-        public Task RunNowAsync(Guid pipelineId)
+        public async Task RunNowAsync(Guid pipelineId)
         {
-            var pipeline = _pipelines.Where(p => p.Trigger is null).FirstOrDefault(p => p.Id == pipelineId);
-            if (pipeline is null)
-                return Task.CompletedTask;
+            using (await _runLock.LockAsync().ConfigureAwait(false))
+            {
+                var pipeline = _pipelines.Where(p => p.Trigger is null).FirstOrDefault(p => p.Id == pipelineId);
+                if (pipeline is null)
+                    return;
 
-            return RunNowAsync(pipeline);
+                await RunNowAsync(pipeline).ConfigureAwait(false);
+            }
         }
 
         private async Task RunAsync(IAutomationEvent automationEvent)
