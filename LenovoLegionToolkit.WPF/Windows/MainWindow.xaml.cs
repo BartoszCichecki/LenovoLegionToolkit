@@ -2,10 +2,12 @@
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Settings;
@@ -24,9 +26,12 @@ namespace LenovoLegionToolkit.WPF.Windows
 {
     public partial class MainWindow
     {
+        private readonly TimeSpan _fnF9DoublePressInterval = TimeSpan.FromMilliseconds(500);
+
         private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
         private readonly FnKeys _fnKeys = IoCContainer.Resolve<FnKeys>();
         private readonly SpecialKeyListener _specialKeyListener = IoCContainer.Resolve<SpecialKeyListener>();
+        private readonly AutomationProcessor _automationProcessor = IoCContainer.Resolve<AutomationProcessor>();
         private readonly UpdateChecker _updateChecker = IoCContainer.Resolve<UpdateChecker>();
 
         public bool SuppressClosingEventHandler { get; set; }
@@ -35,6 +40,9 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private SystemEventInterceptor? _systemEventInterceptor;
         private NotifyIcon? _notifyIcon;
+
+        private DateTime _lastFnF9Press = DateTime.MinValue;
+        private CancellationTokenSource? _fnF9DoublePressCancellationTokenSource;
 
         public MainWindow()
         {
@@ -97,10 +105,36 @@ namespace LenovoLegionToolkit.WPF.Windows
                 return;
             }
 
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Bringing to foreground after Fn+F9.");
+            _fnF9DoublePressCancellationTokenSource?.Cancel();
+            _fnF9DoublePressCancellationTokenSource = new CancellationTokenSource();
 
-            BringToForeground();
+            var token = _fnF9DoublePressCancellationTokenSource.Token;
+
+            _ = Task.Run(async () =>
+            {
+                var now = DateTime.UtcNow;
+                var diff = now - _lastFnF9Press;
+                _lastFnF9Press = now;
+
+                if (diff < _fnF9DoublePressInterval)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Running action after double Fn+F9 press.");
+
+                    var id = _settings.Store.SmartKeyDoublePressActionId;
+                    if (id.HasValue)
+                        await _automationProcessor.RunNowAsync(id.Value);
+                }
+                else
+                {
+                    await Task.Delay(_fnF9DoublePressInterval, token);
+
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Bringing to foreground after single Fn+F9 press.");
+
+                    Dispatcher.Invoke(BringToForeground);
+                }
+            }, token);
         });
 
         private void MainWindow_SourceInitialized(object? sender, EventArgs args)

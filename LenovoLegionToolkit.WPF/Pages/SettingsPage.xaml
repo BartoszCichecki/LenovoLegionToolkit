@@ -112,6 +112,18 @@
                 Visibility="Hidden" />
         </wpfui:CardControl>
 
+        <wpfui:CardControl x:Name="_smartKeyDoublePressActionCard" Margin="0,0,0,8">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="Smart Key Action" Subtitle="Assign Quick Action to Fn+F9 double press." />
+            </wpfui:CardControl.Header>
+            <ComboBox
+                x:Name="_smartKeyDoublePressActionComboBox"
+                MinWidth="160"
+                Margin="0,0,0,8"
+                SelectionChanged="SmartKeyDoublePressActionComboBox_SelectionChanged"
+                Visibility="Hidden" />
+        </wpfui:CardControl>
+
         <wpfui:CardAction
             x:Name="_notificationsCard"
             Margin="0,0,0,8"
