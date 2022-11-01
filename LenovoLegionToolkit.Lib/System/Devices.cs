@@ -10,7 +10,7 @@ using Windows.Win32.Storage.FileSystem;
 
 namespace LenovoLegionToolkit.Lib.System
 {
-    internal static class Devices
+    public static class Devices
     {
         private static readonly object Lock = new();
 
