@@ -3304,27 +3304,45 @@ namespace LenovoLegionToolkit.WPF.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Do nothing.
         /// </summary>
-        public static string SettingsPage_SmartKeyAction_DoNothing {
+        public static string SettingsPage_SmartKeyDoublePressAction_DoNothing {
             get {
-                return ResourceManager.GetString("SettingsPage_SmartKeyAction_DoNothing", resourceCulture);
+                return ResourceManager.GetString("SettingsPage_SmartKeyDoublePressAction_DoNothing", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Assign Quick Action to Fn+F9 double press..
         /// </summary>
-        public static string SettingsPage_SmartKeyAction_Message {
+        public static string SettingsPage_SmartKeyDoublePressAction_Message {
             get {
-                return ResourceManager.GetString("SettingsPage_SmartKeyAction_Message", resourceCulture);
+                return ResourceManager.GetString("SettingsPage_SmartKeyDoublePressAction_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Smart Key Secondary Action.
+        /// </summary>
+        public static string SettingsPage_SmartKeyDoublePressAction_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_SmartKeyDoublePressAction_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Assign Quick Action to Fn+F9 single press..
+        /// </summary>
+        public static string SettingsPage_SmartKeySinglePressAction_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_SmartKeySinglePressAction_Message", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Smart Key Action.
         /// </summary>
-        public static string SettingsPage_SmartKeyAction_Title {
+        public static string SettingsPage_SmartKeySinglePressAction_Title {
             get {
-                return ResourceManager.GetString("SettingsPage_SmartKeyAction_Title", resourceCulture);
+                return ResourceManager.GetString("SettingsPage_SmartKeySinglePressAction_Title", resourceCulture);
             }
         }
         

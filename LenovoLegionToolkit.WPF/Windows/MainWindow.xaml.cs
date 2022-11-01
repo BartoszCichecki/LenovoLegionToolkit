@@ -118,21 +118,34 @@ namespace LenovoLegionToolkit.WPF.Windows
 
                 if (diff < _fnF9DoublePressInterval)
                 {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Running action after double Fn+F9 press.");
-
                     var id = _settings.Store.SmartKeyDoublePressActionId;
                     if (id.HasValue)
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Running action after double Fn+F9 press.");
+
                         await _automationProcessor.RunNowAsync(id.Value);
+                    }
                 }
                 else
                 {
                     await Task.Delay(_fnF9DoublePressInterval, token);
 
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Bringing to foreground after single Fn+F9 press.");
+                    var id = _settings.Store.SmartKeySinglePressActionId;
+                    if (id.HasValue)
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Running action after single Fn+F9 press.");
 
-                    Dispatcher.Invoke(BringToForeground);
+                        await _automationProcessor.RunNowAsync(id.Value);
+                    }
+                    else
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Bringing to foreground after single Fn+F9 press.");
+
+                        Dispatcher.Invoke(BringToForeground);
+                    }
                 }
             }, token);
         });

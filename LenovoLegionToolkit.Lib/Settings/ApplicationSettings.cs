@@ -31,6 +31,7 @@ namespace LenovoLegionToolkit.Lib.Settings
             public TemperatureUnit TemperatureUnit { get; set; }
             public List<RefreshRate> ExcludedRefreshRates { get; set; } = new();
             public WarrantyInfo? WarrantyInfo { get; set; }
+            public Guid? SmartKeySinglePressActionId { get; set; }
             public Guid? SmartKeyDoublePressActionId { get; set; }
         }
 

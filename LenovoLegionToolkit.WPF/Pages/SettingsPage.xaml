@@ -112,9 +112,21 @@
                 Visibility="Hidden" />
         </wpfui:CardControl>
 
+        <wpfui:CardControl x:Name="_smartKeySinglePressActionCard" Margin="0,0,0,8">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_SmartKeySinglePressAction_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_SmartKeySinglePressAction_Message}" />
+            </wpfui:CardControl.Header>
+            <ComboBox
+                x:Name="_smartKeySinglePressActionComboBox"
+                MinWidth="160"
+                Margin="0,0,0,8"
+                SelectionChanged="SmartKeySinglePressActionComboBox_SelectionChanged"
+                Visibility="Hidden" />
+        </wpfui:CardControl>
+
         <wpfui:CardControl x:Name="_smartKeyDoublePressActionCard" Margin="0,0,0,8">
             <wpfui:CardControl.Header>
-                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_SmartKeyAction_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_SmartKeyAction_Message}" />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_SmartKeyDoublePressAction_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_SmartKeyDoublePressAction_Message}" />
             </wpfui:CardControl.Header>
             <ComboBox
                 x:Name="_smartKeyDoublePressActionComboBox"
