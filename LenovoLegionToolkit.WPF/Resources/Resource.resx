@@ -1170,6 +1170,9 @@ Restart is recommended after changing this option.</value>
   <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
     <value>Assign Quick Action to Fn+F9 single press.</value>
   </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_ShowThisApp" xml:space="preserve">
+    <value>Show this app</value>
+  </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
     <value>Smart Key Action</value>
   </data>
