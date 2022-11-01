@@ -187,7 +187,6 @@ namespace LenovoLegionToolkit.WPF
             unsupportedWindow.Show();
 
             var result = await unsupportedWindow.ShouldContinue;
-
             if (result)
             {
                 Log.Instance.IsTraceEnabled = true;
@@ -207,7 +206,6 @@ namespace LenovoLegionToolkit.WPF
         {
             _mutex = new Mutex(true, MUTEX_NAME, out bool isOwned);
             _eventWaitHandle = new EventWaitHandle(false, EventResetMode.AutoReset, EVENT_NAME);
-
 
             if (isOwned)
             {
