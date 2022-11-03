@@ -1155,6 +1155,24 @@
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Плани живлення</value>
   </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_DoNothing" xml:space="preserve">
+    <value>Нічого не робити</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
+    <value>Призначити швидкі дії на подвійне натискання Fn+F9.</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">
+    <value>Другорядна дія смартключа</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
+    <value>Призначити швидкі дії на натискання Fn+F9.</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_ShowThisApp" xml:space="preserve">
+    <value>Показати цей застосунок</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
+    <value>Дія смартключа</value>
+  </data>
   <data name="SettingsPage_Theme_Description" xml:space="preserve">
     <value>Встановить білу тему, темну тему або дотримуйтесь системних налаштувань.</value>
   </data>
