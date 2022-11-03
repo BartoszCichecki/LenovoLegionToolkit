@@ -2946,7 +2946,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ExecutablePath.
+        ///   Looks up a localized string similar to Executable Path.
         /// </summary>
         public static string RunAutomationStepControl_ExePath {
             get {
