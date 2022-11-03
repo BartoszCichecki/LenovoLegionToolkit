@@ -74,7 +74,7 @@
     <value>Sitio web del proyecto en GitHub</value>
   </data>
   <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
-    <value>Librerías de terceros usadas</value>
+    <value>Librerías de terceros</value>
   </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>Acerca de</value>
@@ -1158,6 +1158,24 @@ Se recomienda reiniciar después de cambiar esta opción.</value>
   </data>
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Planes de energía</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_DoNothing" xml:space="preserve">
+    <value>No hacer nada</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
+    <value>Asignar acción rápida al presionar Fn+F9 dos veces.</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">
+    <value>Acción secundaria de la llave inteligente</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
+    <value>Asignar acción rápida al presionar Fn+F9 una vez.</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_ShowThisApp" xml:space="preserve">
+    <value>Mostrar está aplicacion</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
+    <value>Acción de la llave inteligente</value>
   </data>
   <data name="SettingsPage_Theme_Description" xml:space="preserve">
     <value>Establecer un tema claro, un tema oscuro o seguir con la configuración del sistema.</value>
