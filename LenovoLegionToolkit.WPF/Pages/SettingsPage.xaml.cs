@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using Humanizer;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
@@ -60,7 +61,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             var language = await LocalizationHelper.GetLanguageAsync();
             if (languages.Length > 1)
             {
-                _langComboBox.SetItems(languages, language, cc => cc.NativeName);
+                _langComboBox.SetItems(languages, language, cc => cc.NativeName.Transform(cc, To.TitleCase));
                 _langComboBox.Visibility = Visibility.Visible;
             }
             else
