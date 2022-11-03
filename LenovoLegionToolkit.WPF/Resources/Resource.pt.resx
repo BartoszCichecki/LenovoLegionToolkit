@@ -74,7 +74,7 @@
     <value>Site do projeto no GitHub</value>
   </data>
   <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
-    <value>Biblioteca de terceiros</value>
+    <value>Bibliotecas de terceiros</value>
   </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>Sobre</value>
@@ -735,7 +735,7 @@ A sério! Tem cuidado com esta opção!</value>
     <value>Câmara ligada</value>
   </data>
   <data name="Notification_CapsLockOff" xml:space="preserve">
-    <value>Caso Lock ligado</value>
+    <value>Caps Lock desligado</value>
   </data>
   <data name="Notification_CapsLockOn" xml:space="preserve">
     <value>Caps Lock ligado</value>
@@ -1157,6 +1157,24 @@ Se desativado, esta app irá executar os atalhos Fn.
   </data>
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Esquemas de energia</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_DoNothing" xml:space="preserve">
+    <value>Não fazer nada</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
+    <value>Atribuir Ações Rápidas a dois cliques das teclas Fn+F9.</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">
+    <value>Ação secundária da Tecla Inteligente</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
+    <value>Atribuir Ações Rápidas a um clique das teclas Fn+F9.</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_ShowThisApp" xml:space="preserve">
+    <value>Mostrar esta aplicação</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
+    <value>Ação da Tecla Inteligente</value>
   </data>
   <data name="SettingsPage_Theme_Description" xml:space="preserve">
     <value>Definir modo claro, escuro, ou seguir definições do sistema.</value>
