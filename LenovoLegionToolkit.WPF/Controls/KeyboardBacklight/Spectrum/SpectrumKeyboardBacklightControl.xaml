@@ -25,7 +25,7 @@
 
         <StackPanel x:Name="_content">
 
-            <wpfui:CardControl Margin="0,0,0,24">
+            <wpfui:CardControl Margin="0,0,0,24" Icon="BrightnessHigh24">
                 <wpfui:CardControl.Header>
                     <controls:CardHeaderControl Title="Backlight" />
                 </wpfui:CardControl.Header>
@@ -140,14 +140,49 @@
 
             </Grid>
 
-            <spectrum:SpectrumDevice
-                x:Name="_device"
-                Margin="0,0,0,24"
-                HorizontalAlignment="Center">
-                <spectrum:SpectrumDevice.LayoutTransform>
-                    <ScaleTransform ScaleX="2" ScaleY="2" />
-                </spectrum:SpectrumDevice.LayoutTransform>
-            </spectrum:SpectrumDevice>
+            <Grid Margin="0,0,0,24">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <spectrum:SpectrumDevice
+                    x:Name="_device"
+                    Grid.Column="1"
+                    HorizontalAlignment="Center">
+                    <spectrum:SpectrumDevice.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2" />
+                    </spectrum:SpectrumDevice.LayoutTransform>
+                </spectrum:SpectrumDevice>
+
+                <StackPanel
+                    Grid.Column="2"
+                    HorizontalAlignment="Center"
+                    Orientation="Vertical">
+
+                    <wpfui:Button
+                        Margin="0,0,0,8"
+                        Click="SelectAll_Click"
+                        FontSize="20"
+                        Icon="SelectAllOn24"
+                        ToolTip="Select all zones" />
+                    <wpfui:Button
+                        Margin="0,0,0,8"
+                        FontSize="20"
+                        Icon="SelectAllOff24"
+                        ToolTip="Deselect all zones" Click="DeselectAll_Click" />
+                    <wpfui:Button
+                        Margin="0,0,0,8"
+                        Click="SwitchKeyboardLayout_Click"
+                        FontSize="20"
+                        Icon="ArrowRepeatAll24"
+                        ToolTip="Switch keyboard layout" />
+
+                </StackPanel>
+
+            </Grid>
 
             <wpfui:Button
                 Margin="0,0,0,8"
@@ -158,21 +193,21 @@
 
             <StackPanel Margin="0,0,0,8">
 
-                <wpfui:CardControl Margin="0,0,0,8">
+                <wpfui:CardControl Margin="0,0,0,8" Icon="Star24">
                     <wpfui:CardControl.Header>
                         <controls:CardHeaderControl Title="Effect 1" />
                     </wpfui:CardControl.Header>
                     <wpfui:CardControl.Content>
-                        <wpfui:Button Icon="Delete24" />
+                        <wpfui:Button Icon="Dismiss24" />
                     </wpfui:CardControl.Content>
                 </wpfui:CardControl>
 
-                <wpfui:CardControl Margin="0,0,0,8">
+                <wpfui:CardControl Margin="0,0,0,8" Icon="Star24">
                     <wpfui:CardControl.Header>
                         <controls:CardHeaderControl Title="Effect 2" />
                     </wpfui:CardControl.Header>
                     <wpfui:CardControl.Content>
-                        <wpfui:Button Icon="Delete24" />
+                        <wpfui:Button Icon="Dismiss24" />
                     </wpfui:CardControl.Content>
                 </wpfui:CardControl>
 

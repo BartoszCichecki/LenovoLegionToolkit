@@ -4,10 +4,13 @@ using System.Windows.Media;
 
 namespace LenovoLegionToolkit.WPF.Extensions
 {
-    public static class DependencyObjectExtensions
+    public static class UIElementExtensions
     {
-        public static IEnumerable<T> GetChildrenOfType<T>(this DependencyObject depObj) where T : DependencyObject
+        public static IEnumerable<T> GetVisibleChildrenOfType<T>(this UIElement depObj) where T : UIElement
         {
+            if (depObj.Visibility != Visibility.Visible)
+                yield break;
+
             for (var i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
             {
                 var child = VisualTreeHelper.GetChild(depObj, i);
@@ -16,9 +19,9 @@ namespace LenovoLegionToolkit.WPF.Extensions
                 {
                     yield return value;
                 }
-                else
+                else if (child is UIElement element)
                 {
-                    foreach (var sub in GetChildrenOfType<T>(child))
+                    foreach (var sub in GetVisibleChildrenOfType<T>(element))
                         yield return sub;
                 }
             }

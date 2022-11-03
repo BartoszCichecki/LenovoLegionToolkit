@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Threading;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
@@ -15,13 +17,15 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 {
     public partial class SpectrumKeyboardBacklightControl
     {
-        private readonly TimeSpan _refreshStateInterval = TimeSpan.FromMilliseconds(100);
+        private readonly TimeSpan _refreshStateInterval = TimeSpan.FromMilliseconds(50);
 
         private readonly SpectrumKeyboardBacklightController _controller = IoCContainer.Resolve<SpectrumKeyboardBacklightController>();
         private readonly SpecialKeyListener _listener = IoCContainer.Resolve<SpecialKeyListener>();
         private readonly Vantage _vantage = IoCContainer.Resolve<Vantage>();
+        private readonly SpectrumKeyboardSettings _settings = IoCContainer.Resolve<SpectrumKeyboardSettings>();
 
         private CancellationTokenSource? _refreshStateCancellationTokenSource;
+        private Task? _refreshStateTask;
 
         private RadioButton[] ProfileButtons => new[]
         {
@@ -39,24 +43,20 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
         {
             InitializeComponent();
 
+            _device.SetLayout(_settings.Store.KeyboardLayout);
+
             IsVisibleChanged += SpectrumKeyboardBacklightControl_IsVisibleChanged;
             SizeChanged += SpectrumKeyboardBacklightControl_SizeChanged;
 
             _listener.Changed += Listener_Changed;
         }
 
-        private void SpectrumKeyboardBacklightControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private async void SpectrumKeyboardBacklightControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (!IsVisible)
-            {
-                _refreshStateCancellationTokenSource?.Cancel();
-                return;
-            }
-
-            _refreshStateCancellationTokenSource?.Cancel();
-            _refreshStateCancellationTokenSource = new();
-
-            _ = RefreshStateAsync(_refreshStateCancellationTokenSource.Token);
+            if (IsVisible)
+                await StartAnimationAsync();
+            else
+                await StopAnimationAsync();
         }
 
         private void SpectrumKeyboardBacklightControl_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -65,7 +65,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
                 return;
 
             var target = 0.75 * ActualWidth / _device.ActualWidth;
-            var scale = Math.Clamp(target, 0.5, 1.5);
+            var scale = Math.Clamp(target, 0.5, 2);
 
             scaleTransform.ScaleX = scale;
             scaleTransform.ScaleY = scale;
@@ -121,8 +121,30 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 
         protected override void OnFinishedLoading() { }
 
+        private async Task StopAnimationAsync()
+        {
+            _refreshStateCancellationTokenSource?.Cancel();
+
+            if (_refreshStateTask is not null)
+                await _refreshStateTask;
+
+            _refreshStateTask = null;
+        }
+
+        private async Task StartAnimationAsync()
+        {
+            await StopAnimationAsync();
+
+            _refreshStateCancellationTokenSource?.Cancel();
+            _refreshStateCancellationTokenSource = new();
+
+            _refreshStateTask = RefreshStateAsync(_refreshStateCancellationTokenSource.Token);
+        }
+
         private async Task RefreshStateAsync(CancellationToken token)
         {
+            var buttons = _device.GetButtons();
+
             try
             {
                 while (true)
@@ -133,7 +155,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 
                     var state = await _controller.GetStateAsync();
 
-                    foreach (var button in _device.Buttons)
+                    foreach (var button in buttons)
                     {
                         if (!state.TryGetValue(button.KeyCode, out var rgb))
                         {
@@ -150,9 +172,9 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
                         button.Color = Color.FromRgb(rgb.R, rgb.G, rgb.B);
                     }
 
-                    if (Log.Instance.IsTraceEnabled && _device.Buttons.Length != state.Count)
+                    if (Log.Instance.IsTraceEnabled && buttons.Length != state.Count)
                     {
-                        var codes = state.Keys.Except(_device.Buttons.Select(b => b.KeyCode)).Select(kc => $"{kc:X}");
+                        var codes = state.Keys.Except(buttons.Select(b => b.KeyCode)).Select(kc => $"{kc:X}");
                         Log.Instance.Trace($"Some reported keycodes were not used: {string.Join(",", codes)}");
                     }
 
@@ -167,7 +189,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             }
             finally
             {
-                foreach (var button in _device.Buttons)
+                foreach (var button in buttons)
                     button._background.Background = null;
             }
 
@@ -202,6 +224,44 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 
             if (await _controller.GetProfileAsync() != profile)
                 await _controller.SetProfileAsync(profile);
+        }
+
+        private void SelectAll_Click(object sender, RoutedEventArgs e)
+        {
+            var buttons = _device.GetButtons();
+            foreach (var button in buttons)
+                button.IsChecked = true;
+        }
+
+        private void DeselectAll_Click(object sender, RoutedEventArgs e)
+        {
+            var buttons = _device.GetButtons();
+            foreach (var button in buttons)
+                button.IsChecked = false;
+        }
+
+        private async void SwitchKeyboardLayout_Click(object sender, RoutedEventArgs e)
+        {
+            await StopAnimationAsync();
+
+            var buttons = _device.GetButtons();
+            foreach (var button in buttons)
+                button.IsChecked = false;
+
+            var currentLayout = _settings.Store.KeyboardLayout;
+            var layout = currentLayout switch
+            {
+                KeyboardLayout.Ansi => KeyboardLayout.Iso,
+                KeyboardLayout.Iso => KeyboardLayout.Ansi,
+                _ => throw new ArgumentException(nameof(currentLayout))
+            };
+
+            _settings.Store.KeyboardLayout = layout;
+            _settings.SynchronizeStore();
+
+            _device.SetLayout(layout);
+
+            await StartAnimationAsync();
         }
     }
 }

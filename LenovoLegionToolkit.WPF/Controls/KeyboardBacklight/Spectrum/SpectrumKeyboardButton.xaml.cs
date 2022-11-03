@@ -20,6 +20,12 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             }
         }
 
+        public bool? IsChecked
+        {
+            get => _button.IsChecked;
+            set => _button.IsChecked = value;
+        }
+
         public SpectrumKeyboardButton()
         {
             InitializeComponent();
