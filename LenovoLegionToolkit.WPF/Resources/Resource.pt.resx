@@ -203,7 +203,7 @@ Apenas as ações que corresponderem ao estado atual irão ser executadas.</valu
     <value>Executando...</value>
   </data>
   <data name="AutomationPipelineControl_Step" xml:space="preserve">
-    <value>Passo {0}</value>
+    <value>{0} passo</value>
   </data>
   <data name="AutomationPipelineControl_Step_Many" xml:space="preserve">
     <value>{0} passos</value>
