@@ -236,7 +236,7 @@
     <value>Настройки режима баланса</value>
   </data>
   <data name="BatteryAutomationStepControl_Message" xml:space="preserve">
-    <value>Выберите способ зарядки батареи.</value>
+    <value>Выбрать способ зарядки батареи.</value>
   </data>
   <data name="BatteryAutomationStepControl_Title" xml:space="preserve">
     <value>Режим батареи</value>
