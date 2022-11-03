@@ -1037,7 +1037,7 @@ WARNING: This action will not run correctly, if internal display is off.</value>
     <value>Arguments</value>
   </data>
   <data name="RunAutomationStepControl_ExePath" xml:space="preserve">
-    <value>ExecutablePath</value>
+    <value>Executable Path</value>
   </data>
   <data name="RunAutomationStepControl_Message" xml:space="preserve">
     <value>Run a script or a program.

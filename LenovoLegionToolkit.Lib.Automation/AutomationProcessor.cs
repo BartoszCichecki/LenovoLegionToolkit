@@ -355,7 +355,6 @@ namespace LenovoLegionToolkit.Lib.Automation
 
             if (!IsEnabled)
             {
-
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Not enabled. Will not start listeners.");
                 return;

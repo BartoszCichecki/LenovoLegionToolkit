@@ -61,7 +61,10 @@ namespace LenovoLegionToolkit.Lib.Automation.Listeners
             await _instanceCreationListener.StopAsync().ConfigureAwait(false);
             await _instanceDeletionListener.StopAsync().ConfigureAwait(false);
 
-            _processCache.Clear();
+            lock (_lock)
+            {
+                _processCache.Clear();
+            }
         }
 
         private void InstanceCreationListener_Changed(object? sender, (ProcessEventInfoType type, int processID, string processName) e)
