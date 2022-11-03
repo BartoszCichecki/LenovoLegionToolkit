@@ -1158,6 +1158,24 @@
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Схемы питания</value>
   </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_DoNothing" xml:space="preserve">
+    <value>Ничего не делать</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
+    <value>Назначить быстрое действие на двойное нажатие Fn+F9.</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">
+    <value>Вторичное действие умной клавиши</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
+    <value>Назначить быстрое действие на одиночное нажатие Fn+F9.</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_ShowThisApp" xml:space="preserve">
+    <value>Отобразить это приложение</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
+    <value>Действие умной клавиши</value>
+  </data>
   <data name="SettingsPage_Theme_Description" xml:space="preserve">
     <value>Установить светлую тему, темную тему или следовать системным настройкам.</value>
   </data>
