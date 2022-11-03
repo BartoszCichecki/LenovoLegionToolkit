@@ -1034,7 +1034,7 @@
     <value>Аргументи</value>
   </data>
   <data name="RunAutomationStepControl_ExePath" xml:space="preserve">
-    <value>Шлях виконання</value>
+    <value>Виконавчий шлях</value>
   </data>
   <data name="RunAutomationStepControl_Message" xml:space="preserve">
     <value>Запустити скрипт або застосунок.
