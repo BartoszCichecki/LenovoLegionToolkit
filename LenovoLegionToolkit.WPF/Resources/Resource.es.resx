@@ -1037,7 +1037,7 @@ AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está
     <value>Argumentos</value>
   </data>
   <data name="RunAutomationStepControl_ExePath" xml:space="preserve">
-    <value>Ruta de ejecución</value>
+    <value>Ruta del ejecutable</value>
   </data>
   <data name="RunAutomationStepControl_Message" xml:space="preserve">
     <value>Ejecutar un script o un programa.
