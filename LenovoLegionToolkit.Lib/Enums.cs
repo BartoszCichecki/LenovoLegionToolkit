@@ -89,6 +89,12 @@ namespace LenovoLegionToolkit.Lib
         Auto
     }
 
+    public enum KeyboardLayout
+    {
+        Ansi,
+        Iso
+    }
+
     public enum KnownFolder
     {
         Contacts,
