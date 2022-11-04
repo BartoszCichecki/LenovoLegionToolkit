@@ -7,13 +7,14 @@ namespace System.Windows.Controls
     {
         public static void SetItems<T>(this ComboBox comboBox, IEnumerable<T> items, T selectedItem, Func<T, string>? displayValueConverter)
         {
-            var boxedItems = items.Select(v => new ComboBoxItem<T>(v, displayValueConverter));
+            var boxedItems = items.Select(v => new ComboBoxItem<T>(v, displayValueConverter)).ToArray();
             var selectedBoxedItem = boxedItems.FirstOrDefault(bv => EqualityComparer<T>.Default.Equals(bv.Value, selectedItem));
 
             comboBox.Items.Clear();
             comboBox.Items.AddRange(boxedItems);
             comboBox.SelectedValue = selectedBoxedItem;
         }
+
         public static void SelectItem<T>(this ComboBox comboBox, T item) where T : struct
         {
             var boxedItems = comboBox.Items.OfType<ComboBoxItem<T>>().Select(item => item.Value).ToArray();

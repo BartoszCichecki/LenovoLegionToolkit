@@ -151,6 +151,18 @@ namespace LenovoLegionToolkit.Lib.Automation
             }
         }
 
+        public async Task RunNowAsync(Guid pipelineId)
+        {
+            using (await _runLock.LockAsync().ConfigureAwait(false))
+            {
+                var pipeline = _pipelines.Where(p => p.Trigger is null).FirstOrDefault(p => p.Id == pipelineId);
+                if (pipeline is null)
+                    return;
+
+                await RunNowAsync(pipeline).ConfigureAwait(false);
+            }
+        }
+
         private async Task RunAsync(IAutomationEvent automationEvent)
         {
             if (Log.Instance.IsTraceEnabled)
@@ -343,7 +355,6 @@ namespace LenovoLegionToolkit.Lib.Automation
 
             if (!IsEnabled)
             {
-
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Not enabled. Will not start listeners.");
                 return;
