@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Threading;
 using LenovoLegionToolkit.Lib;
@@ -7,6 +8,7 @@ using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Windows.Utils;
 using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Utils
 {
@@ -133,11 +135,11 @@ namespace LenovoLegionToolkit.WPF.Utils
                 _ => throw new ArgumentException(nameof(notification.Type))
             };
 
-            Color? symbolColor = notification.Type switch
+            Action<SymbolIcon>? symbolTransform = notification.Type switch
             {
-                NotificationType.PowerModeQuiet => Color.FromRgb(53, 123, 242),
-                NotificationType.PowerModePerformance => Color.FromRgb(212, 51, 51),
-                NotificationType.PowerModeGodMode => Color.FromRgb(99, 52, 227),
+                NotificationType.PowerModeQuiet => si => si.Foreground = new SolidColorBrush(Color.FromRgb(53, 123, 242)),
+                NotificationType.PowerModePerformance => si => si.Foreground = new SolidColorBrush(Color.FromRgb(212, 51, 51)),
+                NotificationType.PowerModeGodMode => si => si.Foreground = new SolidColorBrush(Color.FromRgb(99, 52, 227)),
                 _ => null
             };
 
@@ -147,14 +149,17 @@ namespace LenovoLegionToolkit.WPF.Utils
                 _ => 1000,
             };
 
-            ShowNotification(symbol, overlaySymbol, symbolColor, text, closeAfter);
+            if (symbolTransform is null && overlaySymbol is not null)
+                symbolTransform = si => si.SetResourceReference(Control.ForegroundProperty, "TextFillColorTertiaryBrush");
+
+            ShowNotification(symbol, overlaySymbol, symbolTransform, text, closeAfter);
         });
 
-        private void ShowNotification(SymbolRegular symbol, SymbolRegular? overlaySymbol, Color? symbolColor, string text, int closeAfter)
+        private void ShowNotification(SymbolRegular symbol, SymbolRegular? overlaySymbol, Action<SymbolIcon>? symbolTransform, string text, int closeAfter)
         {
             _window?.Close();
 
-            var nw = new NotificationWindow(symbol, overlaySymbol, symbolColor, text) { Owner = Application.Current.MainWindow };
+            var nw = new NotificationWindow(symbol, overlaySymbol, symbolTransform, text) { Owner = Application.Current.MainWindow };
             nw.Show(closeAfter);
             _window = nw;
         }
