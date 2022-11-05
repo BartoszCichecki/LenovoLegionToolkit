@@ -1158,6 +1158,24 @@ A reinicialização é recomendada após alterar esta opção.</value>
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Planos de Energia</value>
   </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_DoNothing" xml:space="preserve">
+    <value>Não fazer nada</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
+    <value>Atribuir Função Rápida ao pressionar a tecla Fn+F9 duas vezes.</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">
+    <value>Função Secundária da Tecla de Acesso Rápido</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
+    <value>Atribuir Função Rápida ao pressionar a tecla Fn+F9 uma única vez.</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_ShowThisApp" xml:space="preserve">
+    <value>Exibir este aplicativo</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
+    <value>Ação da Tecla de Acesso Rápido</value>
+  </data>
   <data name="SettingsPage_Theme_Description" xml:space="preserve">
     <value>Defina o tema claro, tema escuro ou siga as configurações do sistema.</value>
   </data>
