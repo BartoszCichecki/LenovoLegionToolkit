@@ -67,6 +67,15 @@
   <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
     <value>Aan, wanneer in slaapstand</value>
   </data>
+  <data name="AutorunState_Disabled" xml:space="preserve">
+		<value>Uitgeschakeld</value>
+	</data>
+  <data name="AutorunState_Enabled" xml:space="preserve">
+		<value>Ingeschakeld</value>
+	</data>
+  <data name="AutorunState_EnabledDelayed" xml:space="preserve">
+		<value>Ingeschakeld, vertraagd</value>
+	</data>
   <data name="BatteryState_Conservation" xml:space="preserve">
     <value>Behoudmodus</value>
   </data>

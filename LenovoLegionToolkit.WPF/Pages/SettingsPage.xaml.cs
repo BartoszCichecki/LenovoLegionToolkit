@@ -57,7 +57,7 @@ namespace LenovoLegionToolkit.WPF.Pages
 
             var loadingTask = Task.Delay(250);
 
-            var languages = LocalizationHelper.Languages;
+            var languages = LocalizationHelper.Languages.OrderBy(ci => ci.Name, StringComparer.InvariantCultureIgnoreCase).ToArray();
             var language = await LocalizationHelper.GetLanguageAsync();
             if (languages.Length > 1)
             {
