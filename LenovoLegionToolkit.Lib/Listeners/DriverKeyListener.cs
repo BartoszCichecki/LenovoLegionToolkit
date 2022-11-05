@@ -87,19 +87,11 @@ namespace LenovoLegionToolkit.Lib.Listeners
                         PInvokeExtensions.ThrowIfWin32Error("DeviceIoControl, getValueResult");
 
                     var key = (DriverKey)value;
-                    if (Enum.IsDefined(key))
-                    {
-                        if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Event received. [key={key}]");
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Event received. [key={key}]");
 
-                        await OnChangedAsync(key).ConfigureAwait(false);
-                        Changed?.Invoke(this, key);
-                    }
-                    else
-                    {
-                        if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Unknown value received. [value={value}]");
-                    }
+                    await OnChangedAsync(key).ConfigureAwait(false);
+                    Changed?.Invoke(this, key);
 
                     resetEvent.Reset();
                 }
@@ -117,45 +109,44 @@ namespace LenovoLegionToolkit.Lib.Listeners
         {
             try
             {
-                switch (value)
+                if (value.HasFlag(DriverKey.Fn_F4))
                 {
-                    case DriverKey.Fn_F4:
-                        var enabled = Microphone.Toggle();
-                        if (enabled)
-                            MessagingCenter.Publish(new Notification(NotificationType.MicrophoneOn, NotificationDuration.Short));
-                        else
-                            MessagingCenter.Publish(new Notification(NotificationType.MicrophoneOff, NotificationDuration.Short));
-                        break;
+                    var enabled = Microphone.Toggle();
+                    MessagingCenter.Publish(enabled
+                        ? new Notification(NotificationType.MicrophoneOn, NotificationDuration.Short)
+                        : new Notification(NotificationType.MicrophoneOff, NotificationDuration.Short));
+                }
 
-                    case DriverKey.Fn_F10 or DriverKey.Fn_F10_2:
-                        if (!await _touchpadLockFeature.IsSupportedAsync().ConfigureAwait(false))
-                            break;
+                if (value.HasFlag(DriverKey.Fn_F8))
+                {
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = "cmd",
+                        Arguments = "/c \"start ms-settings:network-airplanemode\"",
+                        UseShellExecute = true,
+                        CreateNoWindow = true,
+                        WindowStyle = ProcessWindowStyle.Hidden,
+                    });
+                }
 
+                if (value.HasFlag(DriverKey.Fn_F10))
+                {
+                    if (await _touchpadLockFeature.IsSupportedAsync().ConfigureAwait(false))
+                    {
                         var status = await _touchpadLockFeature.GetStateAsync().ConfigureAwait(false);
-                        if (status == TouchpadLockState.Off)
-                            MessagingCenter.Publish(new Notification(NotificationType.TouchpadOn, NotificationDuration.Short));
-                        else
-                            MessagingCenter.Publish(new Notification(NotificationType.TouchpadOff, NotificationDuration.Short));
-                        break;
+                        MessagingCenter.Publish(status == TouchpadLockState.Off
+                            ? new Notification(NotificationType.TouchpadOn, NotificationDuration.Short)
+                            : new Notification(NotificationType.TouchpadOff, NotificationDuration.Short));
+                    }
+                }
 
-                    case DriverKey.Fn_F8 or DriverKey.Fn_F8_2:
-                        Process.Start(new ProcessStartInfo
-                        {
-                            FileName = "cmd",
-                            Arguments = "/c \"start ms-settings:network-airplanemode\"",
-                            UseShellExecute = true,
-                            CreateNoWindow = true,
-                            WindowStyle = ProcessWindowStyle.Hidden,
-                        });
-                        break;
-
-                    case DriverKey.Fn_Space:
-                        if (!await _whiteKeyboardBacklightFeature.IsSupportedAsync().ConfigureAwait(false))
-                            break;
-
+                if (value.HasFlag(DriverKey.Fn_Space))
+                {
+                    if (await _whiteKeyboardBacklightFeature.IsSupportedAsync().ConfigureAwait(false))
+                    {
                         var state = await _whiteKeyboardBacklightFeature.GetStateAsync().ConfigureAwait(false);
                         MessagingCenter.Publish(new Notification(NotificationType.WhiteKeyboardBacklight, NotificationDuration.Short, state.GetDisplayName()));
-                        break;
+                    }
                 }
             }
             catch (Exception ex)
