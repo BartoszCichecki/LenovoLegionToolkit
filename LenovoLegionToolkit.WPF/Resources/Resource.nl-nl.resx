@@ -718,6 +718,91 @@ Serieus, wees voorzichtig met deze optie!</value>
   <data name="No" xml:space="preserve">
     <value>Nee</value>
   </data>
+  <data name="Notification_ACAdapterConnected" xml:space="preserve">
+    <value>AC-adapter aangesloten</value>
+  </data>
+  <data name="Notification_ACAdapterConnectedLowWattage" xml:space="preserve">
+    <value>AC-adapter aangesloten (laag wattage)</value>
+  </data>
+  <data name="Notification_ACAdapterDisconnected" xml:space="preserve">
+    <value>AC-adapter losgekoppeld</value>
+  </data>
+  <data name="Notification_CameraOff" xml:space="preserve">
+    <value>Camera uit</value>
+  </data>
+  <data name="Notification_CameraOn" xml:space="preserve">
+    <value>Camera aan</value>
+  </data>
+  <data name="Notification_CapsLockOff" xml:space="preserve">
+    <value>Caps Lock uit</value>
+  </data>
+  <data name="Notification_CapsLockOn" xml:space="preserve">
+    <value>Caps Lock aan</value>
+  </data>
+  <data name="Notification_FnLockOff" xml:space="preserve">
+    <value>Fn Lock uit</value>
+  </data>
+  <data name="Notification_FnLockOn" xml:space="preserve">
+    <value>Fn Lock aan</value>
+  </data>
+  <data name="Notification_MicrophoneOff" xml:space="preserve">
+    <value>Microfoon uit</value>
+  </data>
+  <data name="Notification_MicrophoneOn" xml:space="preserve">
+    <value>Microfoon aan</value>
+  </data>
+  <data name="Notification_NumLockOff" xml:space="preserve">
+    <value>Num Lock uit</value>
+  </data>
+  <data name="Notification_NumLockOn" xml:space="preserve">
+    <value>Num Lock aan</value>
+  </data>
+  <data name="Notification_TouchpadOff" xml:space="preserve">
+    <value>Touchpad uit</value>
+  </data>
+  <data name="Notification_TouchpadOn" xml:space="preserve">
+    <value>Touchpad aan</value>
+  </data>
+  <data name="Notification_WhiteKeyboardBacklight" xml:space="preserve">
+    <value>Achtergrondverlichting {0}</value>
+  </data>
+  <data name="NotificationsSettingsWindow_ACAdapter" xml:space="preserve">
+    <value>AC Adapter</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Camera" xml:space="preserve">
+    <value>Camera</value>
+  </data>
+  <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
+    <value>Caps Lock en Num Lock</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
+    <value>Melding uitschakelen voor acties met Fn-toetsen, zoals microfoon dempen
+Schakel deze optie in als u conflicten hebt met toepassingen op volledig scherm.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
+    <value>Geen meldingen weergeven</value>
+  </data>
+  <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
+    <value>Fn Lock</value>
+  </data>
+  <data name="NotificationsSettingsWindow_KeyboardBacklight" xml:space="preserve">
+    <value>Toetsenbord Achtergrondverlichting</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Microphone" xml:space="preserve">
+    <value>Microfoon</value>
+  </data>
+  <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
+    <value>Energiemodus</value>
+  </data>
+  <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
+    <value>Verversingssnelheid</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
+    <value>Notificaties</value>
+  </data>
+  <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
+    <value>Touchpadvergrendeling</value>
+  </data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
@@ -965,6 +1050,9 @@ Zorg ervoor dat uw script eerst correct wordt uitgevoerd.</value>
   <data name="Save" xml:space="preserve">
     <value>Opslaan</value>
   </data>
+  <data name="Saving" xml:space="preserve">
+    <value>Opslaan...</value>
+  </data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
     <value>Pas het thema en de kleuren van de app aan</value>
   </data>
@@ -1026,13 +1114,6 @@ Opnieuw opstarten wordt aanbevolen na het wijzigen van deze optie.</value>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Lenovo Vantage uitschakelen</value>
   </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>Melding uitschakelen voor acties met Fn-toetsen, zoals microfoon dempen
-Schakel deze optie in als u conflicten hebt met toepassingen op volledig scherm.</value>
-  </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
-    <value>Geen meldingen weergeven</value>
-  </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone is mogelijk niet correct ingeschakeld</value>
   </data>
@@ -1069,8 +1150,32 @@ Schakel deze optie in als u conflicten hebt met toepassingen op volledig scherm.
   <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
     <value>Minimaliseer Bij Sluiten</value>
   </data>
+  <data name="SettingsPage_Notifications_Message" xml:space="preserve">
+    <value>Configureer welke notificaties getoond worden.</value>
+  </data>
+  <data name="SettingsPage_Notifications_Title" xml:space="preserve">
+    <value>Notificaties</value>
+  </data>
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Energieschema's</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_DoNothing" xml:space="preserve">
+    <value>Geen actie ondernemen</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
+    <value>Voeg Snelle Actie toe aan Fn+F9 dubbel drukken.</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">
+    <value>Smart Key Secundaire Actie</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
+    <value>Wijs Snelle actie toe aan Fn+F9 met één druk op de knop.</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_ShowThisApp" xml:space="preserve">
+    <value>Deze app weergeven</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
+    <value>Smart Key Actie</value>
   </data>
   <data name="SettingsPage_Theme_Description" xml:space="preserve">
     <value>Stel een licht thema, een donker thema in of volg de systeeminstellingen.</value>
