@@ -143,9 +143,11 @@ Special thanks to:
 
 Translations provided by:
 * Chinese - [凌卡Karl](https://github.com/KarlLee830), [DavidLogic](https://github.com/DavidLogic)
+* Czech - J0sef
 * Dutch - Melm
 * Romanian - [Mario Bălănică](https://github.com/mariobalanica)
 * Spanish - M.A.G.
+* Portugese - dvsilva
 * Portuguese (Brasil) - Vernon
 * Russian - [Edward Johan](https://github.com/younyokel)
 * Turkish - Undervolt
