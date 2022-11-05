@@ -152,7 +152,7 @@ Translations provided by:
 * Russian - [Edward Johan](https://github.com/younyokel)
 * Turkish - Undervolt
 * Ukrainian -  [Владислав «vaidee» Придатько](https://github.com/va1dee)
-* Vietnamese - Not_Nhan
+* Vietnamese - Not_Nhan, Kuri
 
 ## FAQ
 
