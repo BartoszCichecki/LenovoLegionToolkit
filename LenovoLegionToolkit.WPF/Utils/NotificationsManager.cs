@@ -167,7 +167,11 @@ namespace LenovoLegionToolkit.WPF.Utils
 
         private void ShowNotification(SymbolRegular symbol, SymbolRegular? overlaySymbol, Action<SymbolIcon>? symbolTransform, string text, int closeAfter)
         {
-            _window?.Close();
+            if (_window is not null)
+            {
+                _window.WindowStyle = WindowStyle.None;
+                _window.Close();
+            }
 
             var nw = new NotificationWindow(symbol, overlaySymbol, symbolTransform, text) { Owner = Application.Current.MainWindow };
             nw.Show(closeAfter);
