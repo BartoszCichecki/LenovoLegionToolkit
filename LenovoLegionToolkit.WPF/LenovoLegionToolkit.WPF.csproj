@@ -16,7 +16,6 @@
 		<PublishReadyToRun>false</PublishReadyToRun>
 		<PublishUrl>publish\</PublishUrl>
 		<IncludeAllContentForSelfExtract>false</IncludeAllContentForSelfExtract>
-		<SatelliteResourceLanguages>en;cs;zh;zh-hans;es;nl;nl-nl;pt;pt-br;ro;ru;ukr;tr;vi</SatelliteResourceLanguages>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 		<SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("yyyyMMddHHmmss"))</SourceRevisionId>
@@ -25,6 +24,7 @@
 		<ApplicationManifest>app.manifest</ApplicationManifest>
 		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
 		<NeutralLanguage>en</NeutralLanguage>
+		<SatelliteResourceLanguages>cs;en;es;nl;nl-nl;pt;pt-br;ro;ru;ukr;tr;vi;zh;zh-hans</SatelliteResourceLanguages>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 	  <DebugType>portable</DebugType>
