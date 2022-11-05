@@ -14,9 +14,8 @@ namespace LenovoLegionToolkit.WPF.Utils
         private static readonly string LanguagePath = Path.Combine(Folders.AppData, "lang");
 
         public static readonly CultureInfo[] Languages = {
-            new("en"),
             new("cs"),
-            new("zh-hans"),
+            new("en"),
             new("es"),
             new("nl-nl"),
             new("pt"),
@@ -26,6 +25,7 @@ namespace LenovoLegionToolkit.WPF.Utils
             new("tr"),
             new("ukr"),
             new("vi"),
+            new("zh-hans"),
         };
 
         public static async Task SetLanguageAsync()
