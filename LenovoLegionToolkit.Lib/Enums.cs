@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using LenovoLegionToolkit.Lib.Resources;
 
 namespace LenovoLegionToolkit.Lib
@@ -34,13 +35,12 @@ namespace LenovoLegionToolkit.Lib
         RapidCharge
     }
 
+    [Flags]
     public enum DriverKey
     {
+        Fn_F10 = 32,
         Fn_F4 = 256,
         Fn_F8 = 8192,
-        Fn_F8_2 = 8704,
-        Fn_F10 = 32,
-        Fn_F10_2 = 1056,
         Fn_Space = 4096,
     }
 

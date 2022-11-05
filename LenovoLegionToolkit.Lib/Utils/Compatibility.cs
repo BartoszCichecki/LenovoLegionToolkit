@@ -85,13 +85,14 @@ namespace LenovoLegionToolkit.Lib.Utils
                 if (Log.Instance.IsTraceEnabled)
                 {
                     Log.Instance.Trace($"Retrieved machine information:");
-                    Log.Instance.Trace($" * Vendor: {machineInformation.Vendor}");
-                    Log.Instance.Trace($" * Machine Type: {machineInformation.MachineType}");
-                    Log.Instance.Trace($" * Model: {machineInformation.Model}");
-                    Log.Instance.Trace($" * SupportsACDetection: {machineInformation.Properties.SupportsACDetection}");
-                    Log.Instance.Trace($" * SupportsGodMode: {machineInformation.Properties.SupportsGodMode}");
-                    Log.Instance.Trace($" * SupportsExtendedHybridMode: {machineInformation.Properties.SupportsExtendedHybridMode}");
-                    Log.Instance.Trace($" * SupportsIntelligentSubMode: {machineInformation.Properties.SupportsIntelligentSubMode}");
+                    Log.Instance.Trace($" * Vendor: '{machineInformation.Vendor}'");
+                    Log.Instance.Trace($" * Machine Type: '{machineInformation.MachineType}'");
+                    Log.Instance.Trace($" * Model: '{machineInformation.Model}'");
+                    Log.Instance.Trace($" * BIOS: '{machineInformation.BIOSVersion}'");
+                    Log.Instance.Trace($" * SupportsACDetection: '{machineInformation.Properties.SupportsACDetection}'");
+                    Log.Instance.Trace($" * SupportsGodMode: '{machineInformation.Properties.SupportsGodMode}'");
+                    Log.Instance.Trace($" * SupportsExtendedHybridMode: '{machineInformation.Properties.SupportsExtendedHybridMode}'");
+                    Log.Instance.Trace($" * SupportsIntelligentSubMode: '{machineInformation.Properties.SupportsIntelligentSubMode}'");
                 }
 
                 _machineInformation = machineInformation;
