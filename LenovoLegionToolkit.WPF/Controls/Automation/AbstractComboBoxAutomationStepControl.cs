@@ -54,18 +54,18 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation
             var items = await AutomationStep.GetAllStatesAsync();
             var selectedItem = AutomationStep.State;
 
-            static string displayName(T value)
-            {
-                if (value is IDisplayName dn)
-                    return dn.DisplayName;
-                if (value is Enum e)
-                    return e.GetDisplayName();
-                return value.ToString() ?? throw new InvalidOperationException("Unsupported type");
-            }
-
             _state = selectedItem;
-            _comboBox.SetItems(items, selectedItem, displayName);
+            _comboBox.SetItems(items, selectedItem, ComboBoxItemDisplayName);
             _comboBox.IsEnabled = items.Any();
+        }
+
+        protected virtual string ComboBoxItemDisplayName(T value)
+        {
+            if (value is IDisplayName dn)
+                return dn.DisplayName;
+            if (value is Enum e)
+                return e.GetDisplayName();
+            return value.ToString() ?? throw new InvalidOperationException("Unsupported type");
         }
     }
 }
