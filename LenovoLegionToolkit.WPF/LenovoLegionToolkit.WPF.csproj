@@ -37,6 +37,7 @@
 		<None Remove="Assets\paypal_button.png" />
 		<None Remove="Assets\paypal_qr.png" />
 		<None Remove="Assets\icon.ico" />
+		<None Remove="Assets\stripe_qr.png" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Autofac" Version="6.4.0" />
@@ -56,6 +57,7 @@
 		<Resource Include="Assets\icon.ico" />
 		<Resource Include="Assets\paypal_button.png" />
 		<Resource Include="Assets\paypal_qr.png" />
+		<Resource Include="Assets\stripe_qr.png" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Compile Update="Resources\Resource.Designer.cs">
