@@ -52,17 +52,6 @@ namespace LenovoLegionToolkit.Lib.Utils
             LogInternal(_logPath, message, ex, file, lineNumber, caller);
         }
 
-        public void Debug(string fileName,
-            FormattableString message,
-            Exception? ex = null,
-            [CallerFilePath] string? file = null,
-            [CallerLineNumber] int lineNumber = -1,
-            [CallerMemberName] string? caller = null)
-        {
-            var logPath = Path.Combine(_folderPath, $"{fileName}.txt");
-            LogInternal(logPath, message, ex, file, lineNumber, caller);
-        }
-
         private void LogInternal(string path,
             FormattableString message,
             Exception? ex,
@@ -78,6 +67,12 @@ namespace LenovoLegionToolkit.Lib.Utils
                 };
                 if (ex is not null)
                     lines.Add(Serialize(ex));
+
+#if DEBUG
+                foreach (var line in lines)
+                    Debug.WriteLine(line);
+#endif
+
                 File.AppendAllLines(path, lines);
             }
         }
