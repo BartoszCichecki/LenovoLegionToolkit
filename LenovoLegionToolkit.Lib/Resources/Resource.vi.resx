@@ -67,6 +67,15 @@
   <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
     <value>Bật, Chỉ khi Ngủ</value>
   </data>
+  <data name="AutorunState_Disabled" xml:space="preserve">
+		<value>Tắt</value>
+	</data>
+  <data name="AutorunState_Enabled" xml:space="preserve">
+		<value>Bật</value>
+	</data>
+  <data name="AutorunState_EnabledDelayed" xml:space="preserve">
+		<value>Bật với độ trễ</value>
+	</data>
   <data name="BatteryState_Conservation" xml:space="preserve">
     <value>Bảo vệ pin</value>
   </data>
