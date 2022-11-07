@@ -19,19 +19,19 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         private readonly ToggleSwitch _toggle = new();
 
-        public SymbolRegular Icon
+        protected SymbolRegular Icon
         {
             get => _cardControl.Icon;
             set => _cardControl.Icon = value;
         }
 
-        public string Title
+        protected string Title
         {
             get => _cardHeaderControl.Title;
             set => _cardHeaderControl.Title = value;
         }
 
-        public string Subtitle
+        protected string Subtitle
         {
             get => _cardHeaderControl.Subtitle;
             set => _cardHeaderControl.Subtitle = value;
@@ -41,7 +41,7 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         protected abstract T OffState { get; }
 
-        public AbstractToggleFeatureCardControl()
+        protected AbstractToggleFeatureCardControl()
         {
             InitializeComponent();
         }

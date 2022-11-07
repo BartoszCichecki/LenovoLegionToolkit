@@ -85,7 +85,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             }
         }
 
-        protected override FrameworkElement? GetAccessory(ComboBox comboBox)
+        protected override FrameworkElement GetAccessory(ComboBox comboBox)
         {
             _configButton.Click += ConfigButton_Click;
 
@@ -101,7 +101,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
         private void ConfigButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!_comboBox.TryGetSelectedItem(out PowerModeState state))
+            if (!TryGetSelectedItem(out var state))
                 return;
 
             if (state == PowerModeState.Balance)
