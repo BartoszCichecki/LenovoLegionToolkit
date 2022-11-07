@@ -131,13 +131,13 @@
     <value>关闭</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_One" xml:space="preserve">
-    <value>预设1</value>
+    <value>预设 1</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Three" xml:space="preserve">
-    <value>预设3</value>
+    <value>预设 3</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
-    <value>预设2</value>
+    <value>预设 2</value>
   </data>
   <data name="RGBKeyboardBrightness_High" xml:space="preserve">
     <value>高亮度</value>
