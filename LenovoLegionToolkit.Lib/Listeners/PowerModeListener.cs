@@ -40,8 +40,8 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         private async Task ChangeDependenciesAsync(PowerModeState value)
         {
-            await _aiModeController.StopAsync(value).ConfigureAwait(false);
-            await _aiModeController.StartAsync(value).ConfigureAwait(false);
+            await _aiModeController.StopAsync(value, false).ConfigureAwait(false);
+            await _aiModeController.StartAsync(value, false).ConfigureAwait(false);
 
             if (value == PowerModeState.GodMode)
                 await _godModeController.ApplyStateAsync().ConfigureAwait(false);
