@@ -49,7 +49,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             Subtitle = Resource.ComboBoxHybridModeControl_Message;
         }
 
-        protected override FrameworkElement? GetAccessory(ComboBox comboBox)
+        protected override FrameworkElement GetAccessory(ComboBox comboBox)
         {
             comboBox.MinWidth = 150;
 
