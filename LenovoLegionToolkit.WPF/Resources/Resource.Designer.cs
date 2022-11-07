@@ -1377,6 +1377,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Donate with.
+        /// </summary>
+        public static string DonatePage_DonateWith {
+            get {
+                return ResourceManager.GetString("DonatePage_DonateWith", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Development and maintenance of Lenovo Legion Toolkit takes a lot of time. If you like using this software you can support it&apos;s future by donating an amount of your choice.
         ///
         ///Click the PayPal logo below or scan the QR code to donate with PayPal.
