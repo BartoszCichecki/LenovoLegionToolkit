@@ -15,6 +15,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 {
     public class AIModeController
     {
+        private readonly TimeSpan _setInitialDelay = TimeSpan.FromSeconds(3);
         private readonly AsyncLock _startStopLock = new();
 
         private readonly HashSet<int> _runningProcessIds = new();
@@ -206,7 +207,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         {
             try
             {
-                await Task.Delay(3000, ct).ConfigureAwait(false);
+                await Task.Delay(_setInitialDelay, ct).ConfigureAwait(false);
 
                 var targetSubMode = 1;
 
