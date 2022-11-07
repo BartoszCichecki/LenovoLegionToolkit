@@ -67,6 +67,15 @@
   <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
     <value>仅在睡眠时</value>
   </data>
+  <data name="AutorunState_Disabled" xml:space="preserve">
+		<value>关闭</value>
+	</data>
+  <data name="AutorunState_Enabled" xml:space="preserve">
+		<value>开启</value>
+	</data>
+  <data name="AutorunState_EnabledDelayed" xml:space="preserve">
+		<value>延迟开启</value>
+	</data>
   <data name="BatteryState_Conservation" xml:space="preserve">
     <value>养护</value>
   </data>
@@ -159,14 +168,6 @@
   </data>
   <data name="Theme_System" xml:space="preserve">
     <value>跟随系统</value>
-  </data>
-  <data name="WarrantyChecker_InWarranty" xml:space="preserve">
-    <value>在保</value>
-    <comment>This needs to be translated only into Chinese.</comment>
-  </data>
-  <data name="WarrantyChecker_WarrantyExpired" xml:space="preserve">
-    <value>过保</value>
-    <comment>This needs to be translated only into Chinese.</comment>
   </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
     <value>高亮度</value>

@@ -16,7 +16,6 @@
 		<PublishReadyToRun>false</PublishReadyToRun>
 		<PublishUrl>publish\</PublishUrl>
 		<IncludeAllContentForSelfExtract>false</IncludeAllContentForSelfExtract>
-		<SatelliteResourceLanguages>en</SatelliteResourceLanguages>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 		<SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("yyyyMMddHHmmss"))</SourceRevisionId>
@@ -25,6 +24,7 @@
 		<ApplicationManifest>app.manifest</ApplicationManifest>
 		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
 		<NeutralLanguage>en</NeutralLanguage>
+		<SatelliteResourceLanguages>cs;en;es;nl;nl-nl;pt;pt-br;ro;ru;ukr;tr;vi;zh;zh-hans</SatelliteResourceLanguages>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 	  <DebugType>portable</DebugType>
@@ -40,6 +40,7 @@
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Autofac" Version="6.4.0" />
+		<PackageReference Include="Humanizer" Version="2.14.1" />
 		<PackageReference Include="Markdig" Version="0.30.4" />
 		<PackageReference Include="Markdig.Wpf" Version="0.5.0.1" />
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
@@ -67,12 +68,6 @@
 	  <EmbeddedResource Update="Resources\Resource.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>Resource.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
-	  <EmbeddedResource Update="Resources\Resource.zh-hans.resx">
-	    <DependentUpon>Resource.resx</DependentUpon>
-	  </EmbeddedResource>
-	  <EmbeddedResource Update="Resources\Resource.ro.resx">
-		<DependentUpon>Resource.resx</DependentUpon>
 	  </EmbeddedResource>
 	</ItemGroup>
 </Project>

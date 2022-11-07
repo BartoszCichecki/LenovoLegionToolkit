@@ -7,7 +7,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
 {
     public class WhiteKeyboardBacklightControl : AbstractComboBoxFeatureCardControl<WhiteKeyboardBacklightState>
     {
-        private readonly WhiteKeyboardBacklightListener _listener = IoCContainer.Resolve<WhiteKeyboardBacklightListener>();
+        private readonly DriverKeyListener _listener = IoCContainer.Resolve<DriverKeyListener>();
 
         public WhiteKeyboardBacklightControl()
         {
@@ -15,12 +15,15 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
             Title = Resource.WhiteKeyboardBacklightControl_Title;
             Subtitle = Resource.WhiteKeyboardBacklightControl_Message;
 
-            _listener.Changed += Listener_Changed;
+            _listener.Changed += ListenerChanged;
         }
 
-        private void Listener_Changed(object? sender, WhiteKeyboardBacklightChanged e) => Dispatcher.Invoke(async () =>
+        private void ListenerChanged(object? sender, DriverKey e) => Dispatcher.Invoke(async () =>
         {
             if (!IsLoaded || !IsVisible)
+                return;
+
+            if (e != DriverKey.Fn_Space)
                 return;
 
             await RefreshAsync();

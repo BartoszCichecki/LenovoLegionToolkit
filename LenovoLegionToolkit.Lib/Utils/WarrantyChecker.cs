@@ -4,7 +4,6 @@ using System.Net.Http;
 using System.Text.Json.Nodes;
 using System.Threading;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.Resources;
 using LenovoLegionToolkit.Lib.Settings;
 
 namespace LenovoLegionToolkit.Lib.Utils
@@ -81,16 +80,16 @@ namespace LenovoLegionToolkit.Lib.Utils
             if (dataNode is null)
                 return null;
 
-            var startDateString = dataNode?["warranty_start"]?.ToString();
-            var endDateString = dataNode?["warranty_end"]?.ToString();
+            var startDateString = dataNode["warranty_start"]?.ToString();
+            var endDateString = dataNode["warranty_end"]?.ToString();
 
             DateTime? startDate = startDateString is null ? null : DateTime.Parse(startDateString);
             DateTime? endDate = endDateString is null ? null : DateTime.Parse(endDateString);
 
-            var status = Resource.WarrantyChecker_InWarranty;
+            var status = "In Warranty";
             var now = DateTime.Now;
             if (now > endDate)
-                status = Resource.WarrantyChecker_WarrantyExpired;
+                status = "Out of Warranty";
 
             var link = new Uri($"https://newsupport.lenovo.com.cn/deviceGuarantee.html?fromsource=deviceGuarantee&selname={machineInformation.SerialNumber}");
 

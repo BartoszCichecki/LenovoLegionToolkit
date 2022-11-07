@@ -289,17 +289,17 @@ namespace LenovoLegionToolkit.Lib
 
     public struct Notification
     {
-        public NotificationIcon Icon { get; }
-
-        public string Text { get; }
+        public NotificationType Type { get; }
 
         public NotificationDuration Duration { get; }
 
-        public Notification(NotificationIcon icon, string text, NotificationDuration duration)
+        public object[] Args { get; }
+
+        public Notification(NotificationType type, NotificationDuration duration, params object[] args)
         {
-            Icon = icon;
-            Text = text;
+            Type = type;
             Duration = duration;
+            Args = args;
         }
     }
 
@@ -339,10 +339,10 @@ namespace LenovoLegionToolkit.Lib
 
         public string Name { get; }
 
-        public string ExecutablePath { get; }
+        public string? ExecutablePath { get; }
 
         [JsonConstructor]
-        public ProcessInfo(string name, string executablePath)
+        public ProcessInfo(string name, string? executablePath)
         {
             Name = name;
             ExecutablePath = executablePath;
@@ -353,12 +353,8 @@ namespace LenovoLegionToolkit.Lib
         public int CompareTo(object? obj)
         {
             var other = obj is null ? default : (ProcessInfo)obj;
-
-            var result = Name.CompareTo(other.Name);
-            if (result != 0)
-                return result;
-
-            return ExecutablePath.CompareTo(other.ExecutablePath);
+            var result = string.Compare(Name, other.Name, StringComparison.InvariantCultureIgnoreCase);
+            return result != 0 ? result : string.Compare(ExecutablePath, other.ExecutablePath, StringComparison.InvariantCultureIgnoreCase);
         }
 
         public override bool Equals(object? obj) => obj is ProcessInfo info && Name == info.Name && ExecutablePath == info.ExecutablePath;

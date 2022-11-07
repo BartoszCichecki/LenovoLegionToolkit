@@ -4,6 +4,7 @@ using System.Management;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
@@ -33,6 +34,18 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         protected override async Task OnChangedAsync(PowerModeState value)
         {
+            await ChangeDependenciesAsync(value).ConfigureAwait(false);
+            PublishNotification(value);
+        }
+
+        public async Task NotifyAsync(PowerModeState value)
+        {
+            await ChangeDependenciesAsync(value).ConfigureAwait(false);
+            RaiseChanged(value);
+        }
+
+        private async Task ChangeDependenciesAsync(PowerModeState value)
+        {
             await _aiModeController.StopAsync(value).ConfigureAwait(false);
             await _aiModeController.StartAsync(value).ConfigureAwait(false);
 
@@ -42,10 +55,23 @@ namespace LenovoLegionToolkit.Lib.Listeners
             await Power.ActivatePowerPlanAsync(value).ConfigureAwait(false);
         }
 
-        public async Task NotifyAsync(PowerModeState value)
+        private static void PublishNotification(PowerModeState value)
         {
-            await OnChangedAsync(value).ConfigureAwait(false);
-            RaiseChanged(value);
+            switch (value)
+            {
+                case PowerModeState.Quiet:
+                    MessagingCenter.Publish(new Notification(NotificationType.PowerModeQuiet, NotificationDuration.Short, value.GetDisplayName()));
+                    break;
+                case PowerModeState.Balance:
+                    MessagingCenter.Publish(new Notification(NotificationType.PowerModeBalance, NotificationDuration.Short, value.GetDisplayName()));
+                    break;
+                case PowerModeState.Performance:
+                    MessagingCenter.Publish(new Notification(NotificationType.PowerModePerformance, NotificationDuration.Short, value.GetDisplayName()));
+                    break;
+                case PowerModeState.GodMode:
+                    MessagingCenter.Publish(new Notification(NotificationType.PowerModeGodMode, NotificationDuration.Short, value.GetDisplayName()));
+                    break;
+            }
         }
 
         protected override async void Handler(PropertyDataCollection properties)

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps
@@ -20,6 +21,6 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
 
         public IAutomationStep DeepCopy() => new DelayAutomationStep(State);
 
-        public Task RunAsync() => Task.Delay(State.DelaySeconds * 1000);
+        public Task RunAsync() => Task.Delay(TimeSpan.FromSeconds(State.DelaySeconds));
     }
 }

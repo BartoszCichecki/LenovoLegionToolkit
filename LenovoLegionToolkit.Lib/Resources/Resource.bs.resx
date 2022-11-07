@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AlwaysOnUSBState_Off" xml:space="preserve">
+    <value>Isključeno</value>
+  </data>
+  <data name="AlwaysOnUSBState_OnAlways" xml:space="preserve">
+    <value>Upaljeno, uvijek</value>
+  </data>
+  <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
+    <value>Upaljeno, na spavanju</value>
+  </data>
+  <data name="BatteryState_Conservation" xml:space="preserve">
+    <value>Konzervacija</value>
+  </data>
+  <data name="BatteryState_Normal" xml:space="preserve">
+    <value>Normalno</value>
+  </data>
+  <data name="BatteryState_RapidCharge" xml:space="preserve">
+    <value>Brzo punjenje</value>
+  </data>
+  <data name="GPUController_PoweredOff" xml:space="preserve">
+    <value>Isključeno</value>
+  </data>
+  <data name="GPUController_PoweredOn" xml:space="preserve">
+    <value>Uključeno</value>
+  </data>
+  <data name="HybridModeState_Off" xml:space="preserve">
+    <value>Diskretna grafička</value>
+  </data>
+  <data name="HybridModeState_On" xml:space="preserve">
+    <value>Hibridni režim</value>
+  </data>
+  <data name="HybridModeState_OnAuto" xml:space="preserve">
+    <value>Hibridno-Auto</value>
+  </data>
+  <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
+    <value>Hibridno-iGPU</value>
+  </data>
+  <data name="PowerModeState_Balance" xml:space="preserve">
+    <value>Balansirano</value>
+  </data>
+  <data name="PowerModeState_GodMode" xml:space="preserve">
+    <value>Prilagođen</value>
+  </data>
+  <data name="PowerModeState_Performance" xml:space="preserve">
+    <value>Performanse</value>
+  </data>
+  <data name="PowerModeState_Quiet" xml:space="preserve">
+    <value>Tiho</value>
+  </data>
+  <data name="RBGKeyboardSpeed_Fast" xml:space="preserve">
+    <value>Brzo</value>
+  </data>
+  <data name="RBGKeyboardSpeed_Fastest" xml:space="preserve">
+    <value>Najbrže</value>
+  </data>
+  <data name="RBGKeyboardSpeed_Slow" xml:space="preserve">
+    <value>Sporo</value>
+  </data>
+  <data name="RBGKeyboardSpeed_Slowest" xml:space="preserve">
+    <value>Najsporije</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
+    <value>Ugašeno</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_One" xml:space="preserve">
+    <value>Šablon 1</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Three" xml:space="preserve">
+    <value>Šablon 3</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
+    <value>Šablon 2</value>
+  </data>
+  <data name="RGBKeyboardBrightness_High" xml:space="preserve">
+    <value>Visoko</value>
+  </data>
+  <data name="RGBKeyboardBrightness_Low" xml:space="preserve">
+    <value>Nisko</value>
+  </data>
+  <data name="RGBKeyboardEffect_Breath" xml:space="preserve">
+    <value>Disanje</value>
+  </data>
+  <data name="RGBKeyboardEffect_Smooth" xml:space="preserve">
+    <value>Glatko</value>
+  </data>
+  <data name="RGBKeyboardEffect_Static" xml:space="preserve">
+    <value>Statično</value>
+  </data>
+  <data name="RGBKeyboardEffect_WaveLTR" xml:space="preserve">
+    <value>Talas lijevo</value>
+  </data>
+  <data name="RGBKeyboardEffect_WaveRTL" xml:space="preserve">
+    <value>Talas desno</value>
+  </data>
+  <data name="Theme_Dark" xml:space="preserve">
+    <value>Tamna</value>
+  </data>
+  <data name="Theme_Light" xml:space="preserve">
+    <value>Svijetla</value>
+  </data>
+  <data name="Theme_System" xml:space="preserve">
+    <value>Sistemska</value>
+  </data>
+  <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
+    <value>Visoko</value>
+  </data>
+  <data name="WhiteKeyboardBacklightState_Low" xml:space="preserve">
+    <value>Nisko</value>
+  </data>
+  <data name="WhiteKeyboardBacklightState_Off" xml:space="preserve">
+    <value>Isključeno</value>
+  </data>
+</root>

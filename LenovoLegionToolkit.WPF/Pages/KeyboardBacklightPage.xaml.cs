@@ -21,13 +21,9 @@ namespace LenovoLegionToolkit.WPF.Pages
             if (rgbController.IsSupported())
                 return true;
 
-            var whiteBacklightFeature = IoCContainer.Resolve<WhiteKeyboardBacklightFeature>();
-            try
-            {
-                _ = await whiteBacklightFeature.GetStateAsync();
+            var whiteKeyboardBacklightFeature = IoCContainer.Resolve<WhiteKeyboardBacklightFeature>();
+            if (await whiteKeyboardBacklightFeature.IsSupportedAsync())
                 return true;
-            }
-            catch { }
 
             return false;
         }

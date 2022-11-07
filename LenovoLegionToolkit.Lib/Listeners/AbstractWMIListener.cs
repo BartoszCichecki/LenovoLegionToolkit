@@ -60,6 +60,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
                     Log.Instance.Trace($"Stopping... [listener={GetType().Name}]");
 
                 _disposable?.Dispose();
+                _disposable = null;
             }
             catch (Exception ex)
             {

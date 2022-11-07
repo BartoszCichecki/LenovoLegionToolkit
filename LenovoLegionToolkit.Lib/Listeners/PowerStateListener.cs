@@ -68,6 +68,19 @@ namespace LenovoLegionToolkit.Lib.Listeners
             }
 
             Changed?.Invoke(this, EventArgs.Empty);
+
+            switch (newState)
+            {
+                case PowerAdapterStatus.Connected:
+                    MessagingCenter.Publish(new Notification(NotificationType.ACAdapterConnected, NotificationDuration.Short));
+                    break;
+                case PowerAdapterStatus.ConnectedLowWattage:
+                    MessagingCenter.Publish(new Notification(NotificationType.ACAdapterConnectedLowWattage, NotificationDuration.Short));
+                    break;
+                case PowerAdapterStatus.Disconnected:
+                    MessagingCenter.Publish(new Notification(NotificationType.ACAdapterDisconnected, NotificationDuration.Short));
+                    break;
+            }
         }
 
         private async Task RestoreRGBKeyboardState(PowerModes mode)
@@ -77,10 +90,13 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
             try
             {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Setting light control owner and restoring preset...");
+                if (_rgbController.IsSupported())
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Setting light control owner and restoring preset...");
 
-                await _rgbController.SetLightControlOwnerAsync(true, true).ConfigureAwait(false);
+                    await _rgbController.SetLightControlOwnerAsync(true, true).ConfigureAwait(false);
+                }
             }
             catch (Exception ex)
             {

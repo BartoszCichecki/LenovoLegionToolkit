@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using LenovoLegionToolkit.Lib.Resources;
 
 namespace LenovoLegionToolkit.Lib
@@ -13,6 +14,16 @@ namespace LenovoLegionToolkit.Lib
         OnAlways
     }
 
+    public enum AutorunState
+    {
+        [Display(ResourceType = typeof(Resource), Name = "AutorunState_Enabled")]
+        Enabled,
+        [Display(ResourceType = typeof(Resource), Name = "AutorunState_EnabledDelayed")]
+        EnabledDelayed,
+        [Display(ResourceType = typeof(Resource), Name = "AutorunState_Disabled")]
+        Disabled
+    }
+
 
     public enum BatteryState
     {
@@ -24,11 +35,13 @@ namespace LenovoLegionToolkit.Lib
         RapidCharge
     }
 
+    [Flags]
     public enum DriverKey
     {
+        Fn_F10 = 32,
         Fn_F4 = 256,
         Fn_F8 = 8192,
-        Fn_F10 = 32
+        Fn_Space = 4096,
     }
 
     public enum FanTableType
@@ -86,21 +99,43 @@ namespace LenovoLegionToolkit.Lib
         SavedSearches
     }
 
+    public enum LightingChangeState
+    {
+        Panel = 0,
+        Ports = 1,
+    }
+
     public enum NotificationDuration
     {
         Short,
         Long
     }
 
-    public enum NotificationIcon
+    public enum NotificationType
     {
+        ACAdapterConnected,
+        ACAdapterConnectedLowWattage,
+        ACAdapterDisconnected,
+        CameraOn,
+        CameraOff,
+        CapsLockOn,
+        CapsLockOff,
+        FnLockOn,
+        FnLockOff,
         MicrophoneOff,
         MicrophoneOn,
+        NumLockOn,
+        NumLockOff,
+        PowerModeQuiet,
+        PowerModeBalance,
+        PowerModePerformance,
+        PowerModeGodMode,
         RefreshRate,
+        RGBKeyboardPreset,
+        RGBKeyboardPresetOff,
         TouchpadOn,
         TouchpadOff,
-        CameraOn,
-        CameraOff
+        WhiteKeyboardBacklight
     }
 
     public enum OS
@@ -203,7 +238,6 @@ namespace LenovoLegionToolkit.Lib
 
     public enum SpecialKey
     {
-        Unknown = 0,
         Fn_F9 = 1,
         Fn_LockOn = 2,
         Fn_LockOff = 3,
@@ -235,8 +269,6 @@ namespace LenovoLegionToolkit.Lib
         Off,
         On
     }
-
-    public enum WhiteKeyboardBacklightChanged { }
 
     public enum WhiteKeyboardBacklightState
     {

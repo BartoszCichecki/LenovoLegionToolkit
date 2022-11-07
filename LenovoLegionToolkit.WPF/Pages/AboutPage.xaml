@@ -1,4 +1,4 @@
-﻿<Page
+﻿<wpfui:UiPage
     x:Class="LenovoLegionToolkit.WPF.Pages.AboutPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -9,7 +9,7 @@
     Title="{x:Static resources:Resource.AboutPage_Title}"
     d:DesignHeight="450"
     d:DesignWidth="800"
-    Style="{StaticResource UiPageScrollable}"
+    Scrollable="True"
     mc:Ignorable="d">
 
     <StackPanel Margin="0,0,16,12">
@@ -70,10 +70,12 @@
                 <wpfui:Hyperlink Content="Autofac" NavigateUri="https://github.com/autofac/Autofac" />
                 <wpfui:Hyperlink Content="AsyncLock" NavigateUri="https://github.com/neosmart/AsyncLock" />
                 <wpfui:Hyperlink Content="ColorPicker" NavigateUri="https://github.com/PixiEditor/ColorPicker" />
+                <wpfui:Hyperlink Content="CsWin32" NavigateUri="https://github.com/microsoft/CsWin32" />
                 <wpfui:Hyperlink Content="Demystifier" NavigateUri="https://github.com/benaadams/Ben.Demystifier" />
-                <wpfui:Hyperlink Content="Markdig" NavigateUri="https://github.com/xoofx/markdig" />
+                <wpfui:Hyperlink Content="Humanizer" NavigateUri="https://github.com/benaadams/Ben.Demystifier" />
             </StackPanel>
             <StackPanel Grid.Column="1" Margin="0,0,32,0">
+                <wpfui:Hyperlink Content="Markdig" NavigateUri="https://github.com/Humanizr/Humanizer" />
                 <wpfui:Hyperlink Content="Markdig.Wpf" NavigateUri="https://github.com/Kryptos-FR/markdig.wpf" />
                 <wpfui:Hyperlink Content="NAudio.Wasapi" NavigateUri="https://github.com/naudio/NAudio" />
                 <wpfui:Hyperlink Content="Newtonsoft.Json" NavigateUri="https://github.com/JamesNK/Newtonsoft.Json" />
@@ -90,4 +92,4 @@
         </Grid>
 
     </StackPanel>
-</Page>
+</wpfui:UiPage>

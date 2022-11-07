@@ -2,6 +2,7 @@
 using System.Management;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners
@@ -17,10 +18,18 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         protected override RGBKeyboardBacklightChanged GetValue(PropertyDataCollection properties) => default;
 
-        protected async override Task OnChangedAsync(RGBKeyboardBacklightChanged value)
+        protected override async Task OnChangedAsync(RGBKeyboardBacklightChanged value)
         {
             try
             {
+                if (!_controller.IsSupported())
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Not supported.");
+
+                    return;
+                }
+
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Taking ownership...");
 
@@ -34,7 +43,12 @@ namespace LenovoLegionToolkit.Lib.Listeners
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Setting next preset set...");
 
-                await _controller.SetNextPresetAsync().ConfigureAwait(false);
+                var preset = await _controller.SetNextPresetAsync().ConfigureAwait(false);
+
+                if (preset == RGBKeyboardBacklightPreset.Off)
+                    MessagingCenter.Publish(new Notification(NotificationType.RGBKeyboardPresetOff, NotificationDuration.Short, preset.GetDisplayName()));
+                else
+                    MessagingCenter.Publish(new Notification(NotificationType.RGBKeyboardPreset, NotificationDuration.Short, preset.GetDisplayName()));
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Next preset set");

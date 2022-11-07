@@ -9,11 +9,6 @@ namespace LenovoLegionToolkit.Lib.Utils
     {
         private static readonly string _allowedVendor = "LENOVO";
 
-        private static readonly string[] _allowedModelLines = {
-            "Legion",
-            "Ideapad"
-        };
-
         private static readonly string[] _allowedModelsPrefix = {
             "17ACH",
             "17ARH",
@@ -32,11 +27,10 @@ namespace LenovoLegionToolkit.Lib.Utils
             "15IMH",
             "15ITH",
 
-            "R9000P",
-            "R7000P",
-            "Y9000K",
-            "Y9000P",
-            "Y9000X",
+            "R9000",
+            "R7000",
+            "Y9000",
+            "Y7000",
             
             // Limited compatibility
             "17IR",
@@ -45,7 +39,24 @@ namespace LenovoLegionToolkit.Lib.Utils
 
         private static MachineInformation? _machineInformation;
 
-        public static Task<bool> CheckBasicCompatibility() => WMI.Exists("root\\WMI", $"SELECT * FROM LENOVO_GAMEZONE_DATA");
+        public static Task<bool> CheckBasicCompatibilityAsync() => WMI.ExistsAsync("root\\WMI", $"SELECT * FROM LENOVO_GAMEZONE_DATA");
+
+        public static async Task<(bool isCompatible, MachineInformation machineInformation)> IsCompatibleAsync()
+        {
+            var mi = await GetMachineInformationAsync().ConfigureAwait(false);
+
+            if (!await CheckBasicCompatibilityAsync().ConfigureAwait(false))
+                return (false, mi);
+
+            if (!mi.Vendor.Equals(_allowedVendor, StringComparison.InvariantCultureIgnoreCase))
+                return (false, mi);
+
+            foreach (var allowedModel in _allowedModelsPrefix)
+                if (mi.Model.Contains(allowedModel, StringComparison.InvariantCultureIgnoreCase))
+                    return (true, mi);
+
+            return (false, mi);
+        }
 
         public static async Task<MachineInformation> GetMachineInformationAsync()
         {
@@ -74,13 +85,14 @@ namespace LenovoLegionToolkit.Lib.Utils
                 if (Log.Instance.IsTraceEnabled)
                 {
                     Log.Instance.Trace($"Retrieved machine information:");
-                    Log.Instance.Trace($" * Vendor: {machineInformation.Vendor}");
-                    Log.Instance.Trace($" * Machine Type: {machineInformation.MachineType}");
-                    Log.Instance.Trace($" * Model: {machineInformation.Model}");
-                    Log.Instance.Trace($" * SupportsACDetection: {machineInformation.Properties.SupportsACDetection}");
-                    Log.Instance.Trace($" * SupportsGodMode: {machineInformation.Properties.SupportsGodMode}");
-                    Log.Instance.Trace($" * SupportsExtendedHybridMode: {machineInformation.Properties.SupportsExtendedHybridMode}");
-                    Log.Instance.Trace($" * SupportsIntelligentSubMode: {machineInformation.Properties.SupportsIntelligentSubMode}");
+                    Log.Instance.Trace($" * Vendor: '{machineInformation.Vendor}'");
+                    Log.Instance.Trace($" * Machine Type: '{machineInformation.MachineType}'");
+                    Log.Instance.Trace($" * Model: '{machineInformation.Model}'");
+                    Log.Instance.Trace($" * BIOS: '{machineInformation.BIOSVersion}'");
+                    Log.Instance.Trace($" * SupportsACDetection: '{machineInformation.Properties.SupportsACDetection}'");
+                    Log.Instance.Trace($" * SupportsGodMode: '{machineInformation.Properties.SupportsGodMode}'");
+                    Log.Instance.Trace($" * SupportsExtendedHybridMode: '{machineInformation.Properties.SupportsExtendedHybridMode}'");
+                    Log.Instance.Trace($" * SupportsIntelligentSubMode: '{machineInformation.Properties.SupportsIntelligentSubMode}'");
                 }
 
                 _machineInformation = machineInformation;
@@ -89,30 +101,13 @@ namespace LenovoLegionToolkit.Lib.Utils
             return _machineInformation.Value;
         }
 
-        public static async Task<(bool isCompatible, MachineInformation machineInformation)> IsCompatibleAsync()
-        {
-            var mi = await GetMachineInformationAsync().ConfigureAwait(false);
-
-            if (!mi.Vendor.Equals(_allowedVendor, StringComparison.InvariantCultureIgnoreCase))
-                return (false, mi);
-
-            foreach (var allowedModel in _allowedModelLines)
-                if (mi.Model.Contains(allowedModel, StringComparison.InvariantCultureIgnoreCase))
-                    return (true, mi);
-
-            foreach (var allowedModel in _allowedModelsPrefix)
-                if (mi.Model.Contains(allowedModel, StringComparison.InvariantCultureIgnoreCase))
-                    return (true, mi);
-
-            return (false, mi);
-        }
-
         private static bool GetSupportsGodMode(string biosVersion)
         {
             (string, int)[] supportedBiosVersions =
             {
                 ("GKCN", 49),
                 ("H1CN", 49),
+                ("HACN", 31),
                 ("HHCN", 23),
                 ("K1CN", 31),
                 ("J2CN", 40),

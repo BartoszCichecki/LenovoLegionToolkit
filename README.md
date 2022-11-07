@@ -3,8 +3,26 @@
 # Lenovo Legion Toolkit
 
 [![Build](https://github.com/BartoszCichecki/LenovoLegionToolkit/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/BartoszCichecki/LenovoLegionToolkit/actions/workflows/build.yml)
-[![Crowdin](https://badges.crowdin.net/llt/localized.svg)](https://crowdin.com)
+[![Crowdin](https://badges.crowdin.net/llt/localized.svg)](https://crowdin.com/project/llt)
 [![Join Discord](https://img.shields.io/discord/761178912230473768?label=Legion%20Series%20Discord)](https://discord.com/invite/legionseries)
+
+---
+
+#### Other language versions of this README file:
+* [简体中文版简介](README_zh-hans.md)
+
+---
+
+![Ukrainian Flag](assets/ukraine_flag_bar.png)
+
+Support the Armed Forces of Ukraine and People Affected by Russia’s Aggression:
+
+* Humanitarian Aid: https://bank.gov.ua/en/about/humanitarian-aid-to-ukraine
+* Support Armed Forces of Ukraine: https://bank.gov.ua/en/about/support-the-armed-forces
+
+**Слава Україні!**
+
+![Ukrainian Flag](assets/ukraine_flag_bar.png)
 
 <br />
 
@@ -74,6 +92,20 @@ The app allows to:
 - Define Actions that will run when the laptop is i.e. connected to AC power.
 - Disable/enable Lenovo Vantage, Legion Zone and Lenovo Hotkeys service without uninstalling it.
 
+##### Custom Mode
+
+Custom Mode is supported on following BIOS versions:
+* GKCN49WW and higher
+* H1CN49WW and higher
+* HACN31WW and higher
+* HHCN23WW and higher
+* K1CN31WW and higher
+* J2CN40WW and higher
+* JUCN51WW and higher
+* JYCN39WW and higher
+
+Not all features of Custom Mode are supported by all devices.
+
 ##### Deactivate discrete GPU
 
 Sometimes discrete GPU stays active even when it should not. This can happen for example, if you work with an external screen and you disconnect it - some processes will keep running on discrete GPU keeping it alive and shortening battery life.
@@ -110,8 +142,17 @@ Special thanks to:
 * [SmokelessCPU](https://github.com/SmokelessCPU) for help with 4-zone RGB keyboard support
 
 Translations provided by:
-* Chinese - [凌卡Karl](https://github.com/KarlLee830)
+* Chinese - [凌卡Karl](https://github.com/KarlLee830), [DavidLogic](https://github.com/DavidLogic)
+* Czech - J0sef
+* Dutch - Melm
 * Romanian - [Mario Bălănică](https://github.com/mariobalanica)
+* Spanish - M.A.G.
+* Portugese - dvsilva
+* Portuguese (Brasil) - Vernon
+* Russian - [Edward Johan](https://github.com/younyokel)
+* Turkish - Undervolt
+* Ukrainian -  [Владислав «vaidee» Придатько](https://github.com/va1dee)
+* Vietnamese - Not_Nhan, Kuri
 
 ## FAQ
 
@@ -119,7 +160,7 @@ Translations provided by:
 
 LLT is started using Task Scheduler, so that it can launch with admin rights. Startup is delayed by 1 minutes (30 seconds in version 2.4.0 and up) to allow other components to start and be ready to use. If you don't see LLT in tray after a ~minute after seeing your desktop, create an issue.
 
-#### My motherboard was replaced and now LLT gives me incompatible massage. What do I do?
+#### My motherboard was replaced and now LLT gives me incompatible message. What do I do?
 
 Sometimes new motherboard does not contain correct model numbers and serial numbers. You should try [this tutorial](https://laptopwiki.eu/index.php/guides-and-tutorials/important-bios-related-guides/recover-original-model-sku-values/) to try and recover them. If that method does not succeed, you can workaround by going to `%LOCALAPPDATA%\LenovoLegionToolkit` and creating an `args.txt` file. Inside that file paste `--skip-compat-check`. This will disable all compatibility checks in LLT. Use this workaround only if correct model number, serial number etc. can't be restored.
 
@@ -143,11 +184,17 @@ Only options natively supported by hardware are available; adding support for cu
 
 If you have a 2022 Legion that does not support it make a ticket and we'll try to add suport for it. Older models will not be supported due to technical limitations.
 
+#### Why is my Fn lock is flipped?
+
+Some devices experience this issue and frankly, I have no idea why. It is known issue, but if you know how to solve it, check out the Contribution section.
+
+#### Why is switching to Performance mode seems buggy, when AI Engine is enabled?
+
+It seems that some BIOS versions indeed have a weird issue when using Fn+Q. Only hope is to wait for Lenovo to fix it.
 
 ## How to collect logs?
 
 In some cases it will be super useful if you can provide logs that this app can create. This helps with debugging and other issue solving.
-
 
 
 To collect logs:
@@ -161,7 +208,6 @@ To collect logs:
 7. You should see at least one file. Theses are the logs you should attach to the issue.
 
 
-
 On version 2.6.0 or higher, you can also enable logs in a quicker way:
 
 1. Make sure that Lenovo Legion Toolkit is not running (also gone from tray area).
@@ -172,11 +218,12 @@ On version 2.6.0 or higher, you can also enable logs in a quicker way:
 
 ## Contribution
 
-I appreciate any feedback that you have, so please do not hesitate to report issues. PRs are also welcome!
+I appreciate any feedback that you have, so please do not hesitate to report issues.
+Pull Requests are also welcome, but make sure to check out [CONTRIBUTING.md](CONTRIBUTING.md) first!
 
 #### Translation
 
-Lenovo Legion Toolkit is in the process of getting translations for more languages. For now please hold with creating PRs, because a process is being put in place for making the translation process more streamlined.
+Crowdin has been selected as the tool for handling translations. If you want to contribute, go to https://crowdin.com/project/llt and request access.
 
 #### Bugs
 

@@ -80,7 +80,8 @@
     <value>About</value>
   </data>
   <data name="AboutPage_TranslationCredit" xml:space="preserve">
-    <value>English translation by Bartosz Cichecki</value>
+    <value>Translations provided by community.</value>
+    <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
   </data>
   <data name="AboutPage_Version" xml:space="preserve">
     <value>Version</value>
@@ -182,12 +183,6 @@ Only actions that match current state will run.</value>
   </data>
   <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
     <value>Do not execute further actions when this action runs.</value>
-  </data>
-  <data name="AutomationPipelineControl_MoveDown" xml:space="preserve">
-    <value>Move down</value>
-  </data>
-  <data name="AutomationPipelineControl_MoveUp" xml:space="preserve">
-    <value>Move up</value>
   </data>
   <data name="AutomationPipelineControl_RunNow" xml:space="preserve">
     <value>Run now</value>
@@ -421,6 +416,9 @@ WARNING: This action will not run correctly, if internal display is off or Hybri
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
     <value>Device</value>
   </data>
+  <data name="DeviceInformationWindow_InWarranty" xml:space="preserve">
+    <value>In Warranty</value>
+  </data>
   <data name="DeviceInformationWindow_LenovoSupport" xml:space="preserve">
     <value>Lenovo Support</value>
   </data>
@@ -432,6 +430,9 @@ WARNING: This action will not run correctly, if internal display is off or Hybri
   </data>
   <data name="DeviceInformationWindow_Model_Title" xml:space="preserve">
     <value>Model</value>
+  </data>
+  <data name="DeviceInformationWindow_OutOfWarranty" xml:space="preserve">
+    <value>Out of Warranty</value>
   </data>
   <data name="DeviceInformationWindow_SerialNumber_Title" xml:space="preserve">
     <value>Serial number</value>
@@ -709,8 +710,99 @@ Seriously, be careful with this option!</value>
   <data name="MainWindow_UpdateAvailableWithVersion" xml:space="preserve">
     <value>Update {0} available!</value>
   </data>
+  <data name="MoveDown" xml:space="preserve">
+    <value>Move down</value>
+  </data>
+  <data name="MoveUp" xml:space="preserve">
+    <value>Move up</value>
+  </data>
   <data name="No" xml:space="preserve">
     <value>No</value>
+  </data>
+  <data name="Notification_ACAdapterConnected" xml:space="preserve">
+    <value>AC adapter connected</value>
+  </data>
+  <data name="Notification_ACAdapterConnectedLowWattage" xml:space="preserve">
+    <value>AC adapter connected (Low wattage)</value>
+  </data>
+  <data name="Notification_ACAdapterDisconnected" xml:space="preserve">
+    <value>AC adapter disconnected</value>
+  </data>
+  <data name="Notification_CameraOff" xml:space="preserve">
+    <value>Camera off</value>
+  </data>
+  <data name="Notification_CameraOn" xml:space="preserve">
+    <value>Camera on</value>
+  </data>
+  <data name="Notification_CapsLockOff" xml:space="preserve">
+    <value>Caps Lock off</value>
+  </data>
+  <data name="Notification_CapsLockOn" xml:space="preserve">
+    <value>Caps Lock on</value>
+  </data>
+  <data name="Notification_FnLockOff" xml:space="preserve">
+    <value>Fn Lock off</value>
+  </data>
+  <data name="Notification_FnLockOn" xml:space="preserve">
+    <value>Fn Lock on</value>
+  </data>
+  <data name="Notification_MicrophoneOff" xml:space="preserve">
+    <value>Microphone off</value>
+  </data>
+  <data name="Notification_MicrophoneOn" xml:space="preserve">
+    <value>Microphone on</value>
+  </data>
+  <data name="Notification_NumLockOff" xml:space="preserve">
+    <value>Num Lock off</value>
+  </data>
+  <data name="Notification_NumLockOn" xml:space="preserve">
+    <value>Num Lock on</value>
+  </data>
+  <data name="Notification_TouchpadOff" xml:space="preserve">
+    <value>Touchpad off</value>
+  </data>
+  <data name="Notification_TouchpadOn" xml:space="preserve">
+    <value>Touchpad on</value>
+  </data>
+  <data name="Notification_WhiteKeyboardBacklight" xml:space="preserve">
+    <value>Backlight {0}</value>
+  </data>
+  <data name="NotificationsSettingsWindow_ACAdapter" xml:space="preserve">
+    <value>AC Adapter</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Camera" xml:space="preserve">
+    <value>Camera</value>
+  </data>
+  <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
+    <value>Caps Lock and Num Lock</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
+    <value>Disables notification for Fn keys actions like microphone mute
+Enable this option if you have conflicts with full screen applications.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
+    <value>Don't show notifications</value>
+  </data>
+  <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
+    <value>Fn Lock</value>
+  </data>
+  <data name="NotificationsSettingsWindow_KeyboardBacklight" xml:space="preserve">
+    <value>Keyboard Backlight</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Microphone" xml:space="preserve">
+    <value>Microphone</value>
+  </data>
+  <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
+    <value>Power Mode</value>
+  </data>
+  <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
+    <value>Refresh Rate</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
+    <value>Touchpad Lock</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
@@ -935,6 +1027,9 @@ WARNING: This action will not run correctly, if internal display is off.</value>
   <data name="RefreshRateControl_Title" xml:space="preserve">
     <value>Refresh rate</value>
   </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Rename</value>
+  </data>
   <data name="RestartLater" xml:space="preserve">
     <value>I will restart later</value>
   </data>
@@ -948,7 +1043,7 @@ WARNING: This action will not run correctly, if internal display is off.</value>
     <value>Arguments</value>
   </data>
   <data name="RunAutomationStepControl_ExePath" xml:space="preserve">
-    <value>ExecutablePath</value>
+    <value>Executable Path</value>
   </data>
   <data name="RunAutomationStepControl_Message" xml:space="preserve">
     <value>Run a script or a program.
@@ -959,6 +1054,9 @@ Make sure that your script runs correctly first.</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="Saving" xml:space="preserve">
+    <value>Saving...</value>
   </data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
     <value>Change the accent color of the app.</value>
@@ -973,8 +1071,7 @@ Make sure that your script runs correctly first.</value>
     <value>Advanced</value>
   </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
-    <value>Start minimized to tray when you log in to Windows.
-Startup is delayed by 30 seconds for compatibility reasons.</value>
+    <value>Start minimized to tray when you log in to Windows.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Autorun</value>
@@ -1022,13 +1119,6 @@ Restart is recommended after changing this option.</value>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Disable Lenovo Vantage</value>
   </data>
-  <data name="SettingsPage_DontShowNotifications_Message" xml:space="preserve">
-    <value>Disables notification for Fn keys actions like microphone mute
-Enable this option if you have conflicts with full screen applications.</value>
-  </data>
-  <data name="SettingsPage_DontShowNotifications_Title" xml:space="preserve">
-    <value>Don't show notifications</value>
-  </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone may have not been enabled correctly</value>
   </data>
@@ -1065,8 +1155,32 @@ Enable this option if you have conflicts with full screen applications.</value>
   <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
     <value>Minimize on close</value>
   </data>
+  <data name="SettingsPage_Notifications_Message" xml:space="preserve">
+    <value>Configure which notifications are shown.</value>
+  </data>
+  <data name="SettingsPage_Notifications_Title" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Power plans</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_DoNothing" xml:space="preserve">
+    <value>Do nothing</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
+    <value>Assign Quick Action to Fn+F9 double press.</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">
+    <value>Smart Key Secondary Action</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
+    <value>Assign Quick Action to Fn+F9 single press.</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_ShowThisApp" xml:space="preserve">
+    <value>Show this app</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
+    <value>Smart Key Action</value>
   </data>
   <data name="SettingsPage_Theme_Description" xml:space="preserve">
     <value>Set light theme, dark theme or follow system settings.</value>

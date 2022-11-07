@@ -16,15 +16,17 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         private readonly FnKeys _fnKeys;
         private readonly TouchpadLockFeature _touchpadLockFeature;
+        private readonly WhiteKeyboardBacklightFeature _whiteKeyboardBacklightFeature;
 
         private CancellationTokenSource? _cancellationTokenSource;
         private Task? _listenTask;
         private bool _ignoreNext;
 
-        public DriverKeyListener(FnKeys fnKeys, TouchpadLockFeature touchpadLockFeature)
+        public DriverKeyListener(FnKeys fnKeys, TouchpadLockFeature touchpadLockFeature, WhiteKeyboardBacklightFeature whiteKeyboardBacklightFeature)
         {
             _fnKeys = fnKeys ?? throw new ArgumentNullException(nameof(fnKeys));
             _touchpadLockFeature = touchpadLockFeature ?? throw new ArgumentNullException(nameof(touchpadLockFeature));
+            _whiteKeyboardBacklightFeature = whiteKeyboardBacklightFeature ?? throw new ArgumentNullException(nameof(whiteKeyboardBacklightFeature));
         }
 
         public Task StartAsync()
@@ -85,19 +87,11 @@ namespace LenovoLegionToolkit.Lib.Listeners
                         PInvokeExtensions.ThrowIfWin32Error("DeviceIoControl, getValueResult");
 
                     var key = (DriverKey)value;
-                    if (Enum.IsDefined(key))
-                    {
-                        if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Event received. [key={key}]");
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Event received. [key={key}, value={value}]");
 
-                        await OnChangedAsync(key).ConfigureAwait(false);
-                        Changed?.Invoke(this, key);
-                    }
-                    else
-                    {
-                        if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Unknown value received. [value={value}]");
-                    }
+                    await OnChangedAsync(key).ConfigureAwait(false);
+                    Changed?.Invoke(this, key);
 
                     resetEvent.Reset();
                 }
@@ -115,42 +109,50 @@ namespace LenovoLegionToolkit.Lib.Listeners
         {
             try
             {
-                switch (value)
+                if (value.HasFlag(DriverKey.Fn_F4))
                 {
-                    case DriverKey.Fn_F4:
-                        var enabled = Microphone.Toggle();
+                    var enabled = Microphone.Toggle();
+                    MessagingCenter.Publish(enabled
+                        ? new Notification(NotificationType.MicrophoneOn, NotificationDuration.Short)
+                        : new Notification(NotificationType.MicrophoneOff, NotificationDuration.Short));
+                }
 
-                        if (enabled)
-                            MessagingCenter.Publish(new Notification(NotificationIcon.MicrophoneOn, "Microphone on", NotificationDuration.Short));
-                        else
-                            MessagingCenter.Publish(new Notification(NotificationIcon.MicrophoneOff, "Microphone off", NotificationDuration.Short));
+                if (value.HasFlag(DriverKey.Fn_F8))
+                {
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = "cmd",
+                        Arguments = "/c \"start ms-settings:network-airplanemode\"",
+                        UseShellExecute = true,
+                        CreateNoWindow = true,
+                        WindowStyle = ProcessWindowStyle.Hidden,
+                    });
+                }
 
-                        break;
-                    case DriverKey.Fn_F10:
+                if (value.HasFlag(DriverKey.Fn_F10))
+                {
+                    if (await _touchpadLockFeature.IsSupportedAsync().ConfigureAwait(false))
+                    {
                         var status = await _touchpadLockFeature.GetStateAsync().ConfigureAwait(false);
+                        MessagingCenter.Publish(status == TouchpadLockState.Off
+                            ? new Notification(NotificationType.TouchpadOn, NotificationDuration.Short)
+                            : new Notification(NotificationType.TouchpadOff, NotificationDuration.Short));
+                    }
+                }
 
-                        if (status == TouchpadLockState.Off)
-                            MessagingCenter.Publish(new Notification(NotificationIcon.TouchpadOn, "Touchpad on", NotificationDuration.Short));
-                        else
-                            MessagingCenter.Publish(new Notification(NotificationIcon.TouchpadOff, "Touchpad off", NotificationDuration.Short));
-
-                        break;
-                    case DriverKey.Fn_F8:
-                        Process.Start(new ProcessStartInfo
-                        {
-                            FileName = "cmd",
-                            Arguments = "/c \"start ms-settings:network-airplanemode\"",
-                            UseShellExecute = true,
-                            CreateNoWindow = true,
-                            WindowStyle = ProcessWindowStyle.Hidden,
-                        });
-                        break;
+                if (value.HasFlag(DriverKey.Fn_Space))
+                {
+                    if (await _whiteKeyboardBacklightFeature.IsSupportedAsync().ConfigureAwait(false))
+                    {
+                        var state = await _whiteKeyboardBacklightFeature.GetStateAsync().ConfigureAwait(false);
+                        MessagingCenter.Publish(new Notification(NotificationType.WhiteKeyboardBacklight, NotificationDuration.Short, state.GetDisplayName()));
+                    }
                 }
             }
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Unknown exception. [value={value}]", ex);
+                    Log.Instance.Trace($"Couldn't handle key press. [value={value}]", ex);
             }
         }
 

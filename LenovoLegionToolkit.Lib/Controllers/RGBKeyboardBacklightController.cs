@@ -168,7 +168,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
         }
 
-        public async Task SetNextPresetAsync()
+        public async Task<RGBKeyboardBacklightPreset> SetNextPresetAsync()
         {
             using (await _ioLock.LockAsync().ConfigureAwait(false))
             {
@@ -195,6 +195,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
                     str = Convert(state.Presets[newPreset]);
 
                 await SendToDevice(str).ConfigureAwait(false);
+
+                return newPreset;
             }
         }
 
@@ -262,9 +264,11 @@ namespace LenovoLegionToolkit.Lib.Controllers
             {
                 Header = new byte[] { 0xCC, 0x16 },
                 Unused = new byte[13],
-                Padding = 0x0,
-                Effect = 0x1,
-                Brightness = 0x1,
+                Padding = 0,
+                Effect = 0,
+                WaveLTR = 0,
+                WaveRTL = 0,
+                Brightness = 0,
                 Zone1Rgb = new byte[3],
                 Zone2Rgb = new byte[3],
                 Zone3Rgb = new byte[3],

@@ -22,6 +22,19 @@ namespace LenovoLegionToolkit.Lib.Features
             _scopeAttribute = scopeAttribute;
         }
 
+        public async Task<bool> IsSupportedAsync()
+        {
+            try
+            {
+                _ = await GetStateAsync().ConfigureAwait(false);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public Task<T[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<T>());
 
         public abstract Task<T> GetStateAsync();
@@ -129,7 +142,7 @@ namespace LenovoLegionToolkit.Lib.Features
                 }
 
                 var state = new TOKEN_PRIVILEGES { PrivilegeCount = 1 };
-                state.Privileges[0] = new LUID_AND_ATTRIBUTES()
+                state.Privileges._0 = new LUID_AND_ATTRIBUTES()
                 {
                     Luid = luid,
                     Attributes = enable ? TOKEN_PRIVILEGES_ATTRIBUTES.SE_PRIVILEGE_ENABLED : 0

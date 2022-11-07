@@ -62,7 +62,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             try
             {
                 _saveButton.IsEnabled = false;
-                _saveButton.Content = "Saving...";
+                _saveButton.Content = Resource.Saving;
 
                 var automaticPipelines = _automaticPipelinesStackPanel.Children.ToArray()
                     .OfType<AutomationPipelineControl>()
@@ -85,7 +85,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             }
             finally
             {
-                _saveButton.Content = "Save";
+                _saveButton.Content = Resource.Save;
                 _saveButton.IsEnabled = true;
             }
         }
@@ -104,7 +104,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             _loaderAutomatic.IsLoading = true;
             _loaderManual.IsLoading = true;
 
-            var loadingTask = Task.Delay(1000);
+            var loadingTask = Task.Delay(TimeSpan.FromSeconds(1));
 
             var pipelines = await _automationProcessor.GetPipelinesAsync();
 
@@ -171,25 +171,25 @@ namespace LenovoLegionToolkit.WPF.Pages
             var index = stackPanel.Children.IndexOf(control);
             var maxIndex = stackPanel.Children.Count - 1;
 
-            var moveUpMenuItem = new MenuItem { SymbolIcon = SymbolRegular.ArrowUp24, Header = "Move up" };
+            var moveUpMenuItem = new MenuItem { SymbolIcon = SymbolRegular.ArrowUp24, Header = Resource.MoveUp };
             if (index > 0)
                 moveUpMenuItem.Click += (s, e) => MovePipeline(control, stackPanel, index - 1);
             else
                 moveUpMenuItem.IsEnabled = false;
             menuItems.Add(moveUpMenuItem);
 
-            var moveDownMenuItem = new MenuItem { SymbolIcon = SymbolRegular.ArrowDown24, Header = "Move down" };
+            var moveDownMenuItem = new MenuItem { SymbolIcon = SymbolRegular.ArrowDown24, Header = Resource.MoveDown };
             if (index < maxIndex)
                 moveDownMenuItem.Click += (s, e) => MovePipeline(control, stackPanel, index + 1);
             else
                 moveDownMenuItem.IsEnabled = false;
             menuItems.Add(moveDownMenuItem);
 
-            var renameMenuItem = new MenuItem { SymbolIcon = SymbolRegular.Edit24, Header = "Rename" };
+            var renameMenuItem = new MenuItem { SymbolIcon = SymbolRegular.Edit24, Header = Resource.Rename };
             renameMenuItem.Click += async (s, e) => await RenamePipelineAsync(control);
             menuItems.Add(renameMenuItem);
 
-            var deleteMenuItem = new MenuItem { SymbolIcon = SymbolRegular.Delete24, Header = "Delete" };
+            var deleteMenuItem = new MenuItem { SymbolIcon = SymbolRegular.Delete24, Header = Resource.Delete };
             deleteMenuItem.Click += async (s, e) => await DeletePipelineAsync(control, stackPanel);
             menuItems.Add(deleteMenuItem);
 

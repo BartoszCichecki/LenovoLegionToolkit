@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
@@ -49,17 +50,24 @@ namespace LenovoLegionToolkit.WPF.Controls
         {
             _toggle.Click += Toggle_Click;
             _toggle.Visibility = Visibility.Hidden;
+            _toggle.Margin = new(8, 0, 0, 0);
 
             _cardHeaderControl.Accessory = _toggle;
             _cardControl.Header = _cardHeaderControl;
-            _cardControl.Margin = new(0, 0, 0, 16);
+            _cardControl.Margin = new(0, 0, 0, 8);
 
             Content = _cardControl;
         }
 
         private async void Toggle_Click(object sender, RoutedEventArgs e) => await OnStateChange(_toggle, _feature);
 
-        protected override async Task OnRefreshAsync() => _toggle.IsChecked = OnState.Equals(await _feature.GetStateAsync());
+        protected override async Task OnRefreshAsync()
+        {
+            if (!await _feature.IsSupportedAsync())
+                throw new NotSupportedException();
+
+            _toggle.IsChecked = OnState.Equals(await _feature.GetStateAsync());
+        }
 
         protected override void OnFinishedLoading()
         {

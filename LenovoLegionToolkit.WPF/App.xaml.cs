@@ -32,8 +32,8 @@ namespace LenovoLegionToolkit.WPF
 {
     public partial class App
     {
-        private const string MutexName = "LenovoLegionToolkit_Mutex_6efcc882-924c-4cbc-8fec-f45c25696f98";
-        private const string EventName = "LenovoLegionToolkit_Event_6efcc882-924c-4cbc-8fec-f45c25696f98";
+        private const string MUTEX_NAME = "LenovoLegionToolkit_Mutex_6efcc882-924c-4cbc-8fec-f45c25696f98";
+        private const string EVENT_NAME = "LenovoLegionToolkit_Event_6efcc882-924c-4cbc-8fec-f45c25696f98";
 
         private Mutex? _mutex;
         private EventWaitHandle? _eventWaitHandle;
@@ -44,12 +44,16 @@ namespace LenovoLegionToolkit.WPF
         {
             await LocalizationHelper.SetLanguageAsync();
 
-            await CheckBasicCompatibilityAsync();
-
             var args = e.Args.Concat(LoadExternalArgs()).ToArray();
 
             if (IsTraceEnabled(args))
                 Log.Instance.IsTraceEnabled = true;
+
+            if (!ShouldByPassCompatibilityCheck(args))
+            {
+                await CheckBasicCompatibilityAsync();
+                await CheckCompatibilityAsync();
+            }
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Starting... [version={Assembly.GetEntryAssembly()?.GetName().Version}, build={Assembly.GetEntryAssembly()?.GetBuildDateTime()?.ToString("yyyyMMddHHmmss") ?? ""}]");
@@ -65,75 +69,12 @@ namespace LenovoLegionToolkit.WPF
                 new IoCModule()
                 );
 
-            if (!ShouldByPassCompatibilityCheck(args))
-                await CheckCompatibilityAsync();
-
             if (ShouldForceDisableRGBKeyboardSupport(args))
                 IoCContainer.Resolve<RGBKeyboardBacklightController>().ForceDisable = true;
 
-            try
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Initializing automation processor...");
-
-                var automationProcessor = IoCContainer.Resolve<AutomationProcessor>();
-                await automationProcessor.InitializeAsync();
-                automationProcessor.RunOnStartup();
-            }
-            catch (Exception ex)
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't initialize automation processor.", ex);
-            }
-
-            try
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Ensuring AI Mode is set...");
-
-                await IoCContainer.Resolve<PowerModeFeature>().EnsureAIModeIsSetAsync();
-            }
-            catch (Exception ex)
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't set AI Mode.", ex);
-            }
-
-            try
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Ensuring correct power plan is set...");
-
-                await IoCContainer.Resolve<PowerModeFeature>().EnsureCorrectPowerPlanIsSetAsync();
-            }
-            catch (Exception ex)
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't ensure correct power plan.", ex);
-            }
-
-            try
-            {
-                var rgbKeyboardBacklightController = IoCContainer.Resolve<RGBKeyboardBacklightController>();
-
-                if (rgbKeyboardBacklightController.IsSupported())
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Setting light control owner and restoring preset...");
-
-                    await rgbKeyboardBacklightController.SetLightControlOwnerAsync(true, true);
-                }
-                else
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"RGB keyboard is not supported.");
-                }
-            }
-            catch (Exception ex)
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't set light control owner or current preset.", ex);
-            }
+            await InitAutomationProcessor();
+            await InitPowerModeFeature();
+            await InitRGBKeyboardController();
 
 #if !DEBUG
             Autorun.Validate();
@@ -151,6 +92,7 @@ namespace LenovoLegionToolkit.WPF
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Sending MainWindow to tray...");
+
                 mainWindow.WindowState = WindowState.Minimized;
                 mainWindow.Show();
                 mainWindow.SendToTray();
@@ -159,6 +101,7 @@ namespace LenovoLegionToolkit.WPF
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Showing MainWindow...");
+
                 mainWindow.Show();
             }
 
@@ -218,7 +161,7 @@ namespace LenovoLegionToolkit.WPF
 
         private async Task CheckBasicCompatibilityAsync()
         {
-            var isCompatible = await Compatibility.CheckBasicCompatibility();
+            var isCompatible = await Compatibility.CheckBasicCompatibilityAsync();
             if (isCompatible)
                 return;
 
@@ -244,7 +187,6 @@ namespace LenovoLegionToolkit.WPF
             unsupportedWindow.Show();
 
             var result = await unsupportedWindow.ShouldContinue;
-
             if (result)
             {
                 Log.Instance.IsTraceEnabled = true;
@@ -262,9 +204,8 @@ namespace LenovoLegionToolkit.WPF
 
         private void EnsureSingleInstance()
         {
-            _mutex = new Mutex(true, MutexName, out bool isOwned);
-            _eventWaitHandle = new EventWaitHandle(false, EventResetMode.AutoReset, EventName);
-
+            _mutex = new Mutex(true, MUTEX_NAME, out bool isOwned);
+            _eventWaitHandle = new EventWaitHandle(false, EventResetMode.AutoReset, EVENT_NAME);
 
             if (isOwned)
             {
@@ -281,6 +222,86 @@ namespace LenovoLegionToolkit.WPF
 
             _eventWaitHandle.Set();
             Shutdown();
+        }
+
+        private static async Task InitAutomationProcessor()
+        {
+            try
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Initializing automation processor...");
+
+                var automationProcessor = IoCContainer.Resolve<AutomationProcessor>();
+                await automationProcessor.InitializeAsync();
+                automationProcessor.RunOnStartup();
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't initialize automation processor.", ex);
+            }
+        }
+
+        private static async Task InitPowerModeFeature()
+        {
+            try
+            {
+                var feature = IoCContainer.Resolve<PowerModeFeature>();
+                if (await feature.IsSupportedAsync())
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Ensuring AI Mode is set...");
+
+                    await IoCContainer.Resolve<PowerModeFeature>().EnsureAIModeIsSetAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't set AI Mode.", ex);
+            }
+
+            try
+            {
+                var feature = IoCContainer.Resolve<PowerModeFeature>();
+                if (await feature.IsSupportedAsync())
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Ensuring correct power plan is set...");
+
+                    await IoCContainer.Resolve<PowerModeFeature>().EnsureCorrectPowerPlanIsSetAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't ensure correct power plan.", ex);
+            }
+        }
+
+        private static async Task InitRGBKeyboardController()
+        {
+            try
+            {
+                var controller = IoCContainer.Resolve<RGBKeyboardBacklightController>();
+                if (controller.IsSupported())
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Setting light control owner and restoring preset...");
+
+                    await controller.SetLightControlOwnerAsync(true, true);
+                }
+                else
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"RGB keyboard is not supported.");
+                }
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't set light control owner or current preset.", ex);
+            }
         }
 
         #region Arguments

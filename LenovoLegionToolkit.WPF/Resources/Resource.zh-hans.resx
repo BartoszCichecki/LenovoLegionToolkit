@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutPage_AppName" xml:space="preserve">
-    <value>联想拯救箱 | Lenovo Legion Toolkit</value>
+    <value>拯救者工具箱 Lenovo Legion Toolkit</value>
   </data>
   <data name="AboutPage_Build" xml:space="preserve">
     <value>Build</value>
@@ -80,7 +80,8 @@
     <value>关于</value>
   </data>
   <data name="AboutPage_TranslationCredit" xml:space="preserve">
-    <value>Translated by Karl Lee. 由凌卡Karl汉化。</value>
+    <value>Translated by Karl Lee. 由凌卡Karl汉化，开源社区校正。</value>
+    <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
   </data>
   <data name="AboutPage_Version" xml:space="preserve">
     <value>版本</value>
@@ -113,7 +114,7 @@
     <value>保持USB供电</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>联想拯救箱 | Lenovo Legion Toolkit</value>
+    <value>拯救者工具箱 Lenovo Legion Toolkit</value>
   </data>
   <data name="Apply" xml:space="preserve">
     <value>应用</value>
@@ -122,7 +123,7 @@
     <value>应用并关闭</value>
   </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
-    <value>只有联想拯救箱运行时自动化才可生效。</value>
+    <value>只有程序运行时自动化才可生效。</value>
   </data>
   <data name="AutomationPage_ActionsEnabled_Title" xml:space="preserve">
     <value>启用自动化</value>
@@ -185,12 +186,6 @@
   <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
     <value>勾选后，此条件将无法新建自动化。</value>
   </data>
-  <data name="AutomationPipelineControl_MoveDown" xml:space="preserve">
-    <value>上移</value>
-  </data>
-  <data name="AutomationPipelineControl_MoveUp" xml:space="preserve">
-    <value>下移</value>
-  </data>
   <data name="AutomationPipelineControl_RunNow" xml:space="preserve">
     <value>立刻运行</value>
   </data>
@@ -249,7 +244,7 @@
     <value>充电模式</value>
   </data>
   <data name="BatteryModeControl_Message" xml:space="preserve">
-    <value>选择电池充电模式。养护模式可充至75%~80%，快充可使用较大功率充电。</value>
+    <value>选择电池充电模式，养护模式将限制电池充电电量以提高寿命，快充模式将使用更高的功率充电。</value>
   </data>
   <data name="BatteryModeControl_Title" xml:space="preserve">
     <value>充电模式</value>
@@ -297,7 +292,7 @@
     <value>剩余时间...</value>
   </data>
   <data name="BatteryPage_FirstUseDate_Title" xml:space="preserve">
-    <value>电池第一次使用时间</value>
+    <value>电池首次使用时间</value>
   </data>
   <data name="BatteryPage_FirstUse_Message" xml:space="preserve">
     <value>代表电池被第一次使用的时间。</value>
@@ -423,8 +418,11 @@
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
     <value>设备信息</value>
   </data>
+  <data name="DeviceInformationWindow_InWarranty" xml:space="preserve">
+    <value>在保</value>
+  </data>
   <data name="DeviceInformationWindow_LenovoSupport" xml:space="preserve">
-    <value>打开联想服务</value>
+    <value>联想支持</value>
   </data>
   <data name="DeviceInformationWindow_MachineType_Title" xml:space="preserve">
     <value>产品类型</value>
@@ -434,6 +432,9 @@
   </data>
   <data name="DeviceInformationWindow_Model_Title" xml:space="preserve">
     <value>产品型号</value>
+  </data>
+  <data name="DeviceInformationWindow_OutOfWarranty" xml:space="preserve">
+    <value>过保</value>
   </data>
   <data name="DeviceInformationWindow_SerialNumber_Title" xml:space="preserve">
     <value>序列号</value>
@@ -554,7 +555,7 @@
     <value>这种模式只有在独显停用时才会生效。</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Message" xml:space="preserve">
-    <value>仅使用独显，将获得最长的续航与最小的风扇噪音。</value>
+    <value>仅使用核显，将获得最长的续航与最小的风扇噪音。</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Title" xml:space="preserve">
     <value>混合核显模式</value>
@@ -578,7 +579,7 @@
     <value>GPU</value>
   </data>
   <data name="FanCurveControl_RPM" xml:space="preserve">
-    <value>RPM</value>
+    <value>转/分钟 (RPM)</value>
   </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
     <value>打开盖子时将自动开启笔记本。</value>
@@ -593,15 +594,15 @@
     <value>开盖启动</value>
   </data>
   <data name="FnLockAutomationStepControl_Message" xml:space="preserve">
-    <value>开启后将无需按下Fn键即可触发功能。
-开启后需通过按下Fn键才可触发原F1至F12键。</value>
+    <value>开启后将无需按下Fn键即可触发功能，
+触发原F1至F12键需按下Fn键。</value>
   </data>
   <data name="FnLockAutomationStepControl_Title" xml:space="preserve">
     <value>锁定Fn键</value>
   </data>
   <data name="FnLockControl_Message" xml:space="preserve">
-    <value>开启后将无需按下Fn键即可触发功能
-开启后需通过按下Fn键才可触发原F1至F12键。</value>
+    <value>开启后将无需按下Fn键即可触发功能，
+触发原F1至F12键需按下Fn键。</value>
   </data>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>锁定Fn键</value>
@@ -703,7 +704,7 @@
     <value>键盘</value>
   </data>
   <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-    <value>软件下载</value>
+    <value>驱动下载</value>
   </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>设置</value>
@@ -714,8 +715,99 @@
   <data name="MainWindow_UpdateAvailableWithVersion" xml:space="preserve">
     <value>新版本！可升级至{0}！</value>
   </data>
+  <data name="MoveDown" xml:space="preserve">
+    <value>上移</value>
+  </data>
+  <data name="MoveUp" xml:space="preserve">
+    <value>下移</value>
+  </data>
   <data name="No" xml:space="preserve">
     <value>否</value>
+  </data>
+  <data name="Notification_ACAdapterConnected" xml:space="preserve">
+    <value>充电器已插入</value>
+  </data>
+  <data name="Notification_ACAdapterConnectedLowWattage" xml:space="preserve">
+    <value>充电器已插入（低功率）</value>
+  </data>
+  <data name="Notification_ACAdapterDisconnected" xml:space="preserve">
+    <value>充电器已拔出</value>
+  </data>
+  <data name="Notification_CameraOff" xml:space="preserve">
+    <value>摄像头已关闭</value>
+  </data>
+  <data name="Notification_CameraOn" xml:space="preserve">
+    <value>摄像头已开启</value>
+  </data>
+  <data name="Notification_CapsLockOff" xml:space="preserve">
+    <value>Caps Lock 关</value>
+  </data>
+  <data name="Notification_CapsLockOn" xml:space="preserve">
+    <value>Caps Lock 开</value>
+  </data>
+  <data name="Notification_FnLockOff" xml:space="preserve">
+    <value>锁定Fn键 关</value>
+  </data>
+  <data name="Notification_FnLockOn" xml:space="preserve">
+    <value>锁定Fn键 开</value>
+  </data>
+  <data name="Notification_MicrophoneOff" xml:space="preserve">
+    <value>麦克风已关闭</value>
+  </data>
+  <data name="Notification_MicrophoneOn" xml:space="preserve">
+    <value>麦克风已开启</value>
+  </data>
+  <data name="Notification_NumLockOff" xml:space="preserve">
+    <value>Num Lock 关</value>
+  </data>
+  <data name="Notification_NumLockOn" xml:space="preserve">
+    <value>Num Lock 开</value>
+  </data>
+  <data name="Notification_TouchpadOff" xml:space="preserve">
+    <value>触摸板已关闭</value>
+  </data>
+  <data name="Notification_TouchpadOn" xml:space="preserve">
+    <value>触摸板已开启</value>
+  </data>
+  <data name="Notification_WhiteKeyboardBacklight" xml:space="preserve">
+    <value>背光 {0}</value>
+  </data>
+  <data name="NotificationsSettingsWindow_ACAdapter" xml:space="preserve">
+    <value>充电器</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Camera" xml:space="preserve">
+    <value>摄像头</value>
+  </data>
+  <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
+    <value>Caps Lock 和 Num Lock</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
+    <value>禁用麦克风静音等Fn键操作的弹窗
+如果弹窗与全屏应用有冲突，请启用此选项。</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
+    <value>不要显示弹窗</value>
+  </data>
+  <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
+    <value>锁定Fn键</value>
+  </data>
+  <data name="NotificationsSettingsWindow_KeyboardBacklight" xml:space="preserve">
+    <value>键盘背光</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Microphone" xml:space="preserve">
+    <value>麦克风</value>
+  </data>
+  <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
+    <value>性能模式</value>
+  </data>
+  <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
+    <value>刷新率</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
+    <value>提示弹窗</value>
+  </data>
+  <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
+    <value>触摸板锁定</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>是</value>
@@ -790,7 +882,7 @@
     <value>搜索...</value>
   </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
-    <value>设备类型</value>
+    <value>设备型号</value>
   </data>
   <data name="PackagesPage_OperatingSystem" xml:space="preserve">
     <value>系统</value>
@@ -802,7 +894,7 @@
     <value>从联想服务网站获取</value>
   </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
-    <value>备用来源</value>
+    <value>备用来源（第三方）</value>
   </data>
   <data name="PackagesPage_SecondarySource_ToolTip" xml:space="preserve">
     <value>来自 Lenovo DriverGrabber</value>
@@ -936,6 +1028,9 @@
   <data name="RefreshRateControl_Title" xml:space="preserve">
     <value>刷新率</value>
   </data>
+  <data name="Rename" xml:space="preserve">
+    <value>重命名</value>
+  </data>
   <data name="RestartLater" xml:space="preserve">
     <value>稍后自行重启</value>
   </data>
@@ -961,6 +1056,9 @@
   <data name="Save" xml:space="preserve">
     <value>保存</value>
   </data>
+  <data name="Saving" xml:space="preserve">
+    <value>保存中...</value>
+  </data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
     <value>改变应用的主题色。</value>
   </data>
@@ -974,8 +1072,8 @@
     <value>高级设置</value>
   </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
-    <value>最小化启动至托盘
-因为兼容性需要延迟30秒后才会自启。</value>
+    <value>开启自启并最小化到托盘。
+如遇到无法控制等问题请选择【延迟启动】以等待联想服务完全加载。</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>开机启动</value>
@@ -1023,13 +1121,6 @@
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>禁用Lenovo Vantage</value>
   </data>
-  <data name="SettingsPage_DontShowNotifications_Message" xml:space="preserve">
-    <value>禁用麦克风静音等Fn键操作的弹窗
-如果弹窗与全屏应用有冲突，请启用此选项。</value>
-  </data>
-  <data name="SettingsPage_DontShowNotifications_Title" xml:space="preserve">
-    <value>不要显示弹窗</value>
-  </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone可能没有被正确启用。</value>
   </data>
@@ -1066,8 +1157,32 @@
   <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
     <value>关闭时最小化</value>
   </data>
+  <data name="SettingsPage_Notifications_Message" xml:space="preserve">
+    <value>选择显示哪些通知弹窗。</value>
+  </data>
+  <data name="SettingsPage_Notifications_Title" xml:space="preserve">
+    <value>提示弹窗</value>
+  </data>
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>性能计划</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_DoNothing" xml:space="preserve">
+    <value>无动作</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
+    <value>选择双击Fn + F9触发的快捷方式。</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">
+    <value>Smart Key第二快捷动作</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
+    <value>选择单击Fn + F9触发的快捷方式。</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_ShowThisApp" xml:space="preserve">
+    <value>显示本应用</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
+    <value>Smart Key快捷动作</value>
   </data>
   <data name="SettingsPage_Theme_Description" xml:space="preserve">
     <value>选择浅色或深色模式，亦或者跟随系统。</value>

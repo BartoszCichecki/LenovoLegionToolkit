@@ -88,6 +88,33 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Disabled.
+        /// </summary>
+        public static string AutorunState_Disabled {
+            get {
+                return ResourceManager.GetString("AutorunState_Disabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enabled.
+        /// </summary>
+        public static string AutorunState_Enabled {
+            get {
+                return ResourceManager.GetString("AutorunState_Enabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enabled, delayed.
+        /// </summary>
+        public static string AutorunState_EnabledDelayed {
+            get {
+                return ResourceManager.GetString("AutorunState_EnabledDelayed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Conservation.
         /// </summary>
         public static string BatteryState_Conservation {
@@ -363,24 +390,6 @@ namespace LenovoLegionToolkit.Lib.Resources {
         public static string Theme_System {
             get {
                 return ResourceManager.GetString("Theme_System", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to In warranty.
-        /// </summary>
-        public static string WarrantyChecker_InWarranty {
-            get {
-                return ResourceManager.GetString("WarrantyChecker_InWarranty", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Expired.
-        /// </summary>
-        public static string WarrantyChecker_WarrantyExpired {
-            get {
-                return ResourceManager.GetString("WarrantyChecker_WarrantyExpired", resourceCulture);
             }
         }
         
