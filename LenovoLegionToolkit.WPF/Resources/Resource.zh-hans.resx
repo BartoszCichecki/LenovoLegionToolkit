@@ -65,13 +65,13 @@
     <value>Build</value>
   </data>
   <data name="AboutPage_LatestReleaseOnGitHub" xml:space="preserve">
-    <value>在Github上查看最新版本</value>
+    <value>在 GitHub 上查看最新版本</value>
   </data>
   <data name="AboutPage_Links" xml:space="preserve">
     <value>项目链接</value>
   </data>
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
-    <value>在Github上查看项目主页</value>
+    <value>在 GitHub 上查看项目主页</value>
   </data>
   <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
     <value>第三方依赖库</value>
@@ -93,25 +93,25 @@
     <value>新建</value>
   </data>
   <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>当Vantage启用时仍然启用电源计划
+    <value>当 Lenovo Vantage 启用时仍然启用电源计划
 此选项仅适用于没有附带多种电源计划的设备。</value>
   </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
-    <value>始终启用Windows电源计划</value>
+    <value>始终启用 Windows 电源计划</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>在电脑关机、睡眠或休眠时USB保持供电。
-并不是全部的USB接口，一般是笔记本旁标有电池标志的USB接口。</value>
+    <value>在电脑关机、睡眠或休眠时保持 USB 接口供电。
+一般为笔记本侧面标有电池标志的 USB 接口受此项控制。</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
-    <value>保持USB供电</value>
+    <value>保持 USB 供电</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-    <value>在电脑关机、睡眠或休眠时USB保持供电。
-并不是全部的USB接口，一般是笔记本旁标有电池标志的USB接口。</value>
+    <value>在电脑关机、睡眠或休眠时保持 USB 接口供电。
+一般为笔记本侧面标有电池标志的 USB 接口受此项控制。</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
-    <value>保持USB供电</value>
+    <value>保持 USB 供电</value>
   </data>
   <data name="AppName" xml:space="preserve">
     <value>拯救者工具箱 Lenovo Legion Toolkit</value>
@@ -123,17 +123,16 @@
     <value>应用并关闭</value>
   </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
-    <value>只有程序运行时自动化才可生效。</value>
+    <value>只有在本程序运行时，自动化才可生效。</value>
   </data>
   <data name="AutomationPage_ActionsEnabled_Title" xml:space="preserve">
     <value>启用自动化</value>
   </data>
   <data name="AutomationPage_Actions_Empty" xml:space="preserve">
-    <value>没有自动化脚本，请点击“新建”来新建一个自动化。</value>
+    <value>当前没有自动化脚本，请点击 “新建” 来新建一项。</value>
   </data>
   <data name="AutomationPage_Actions_Message" xml:space="preserve">
-    <value>启用后自动化将会自动执行。当状态改变时将会从上到下检测自动化是否符合执行条件。
-只有自动化条件符合时才会执行。</value>
+    <value>启用自动化后，当计算机的状态发生改变时，工具箱将会从上到下检查各项任务是否符合条件，并执行相关任务。</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>自动化</value>
@@ -145,10 +144,10 @@
     <value>新建</value>
   </data>
   <data name="AutomationPage_QuickActions_Empty" xml:space="preserve">
-    <value>没有快捷方式，请点击“新建”来新建快捷方式。</value>
+    <value>没有快捷方式，请点击 “新建” 来新建快捷方式。</value>
   </data>
   <data name="AutomationPage_QuickActions_Message" xml:space="preserve">
-    <value>你可以右键软件托盘图标来激活快捷方式。</value>
+    <value>你可以在系统托盘中本应用的右键菜单里使用快捷方式。</value>
   </data>
   <data name="AutomationPage_QuickActions_Title" xml:space="preserve">
     <value>快捷方式</value>
@@ -184,7 +183,7 @@
     <value>独占此条件</value>
   </data>
   <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
-    <value>勾选后，此条件将无法新建自动化。</value>
+    <value>当触发此条件后，仅运行当前任务，不运行其它符合条件的任务</value>
   </data>
   <data name="AutomationPipelineControl_RunNow" xml:space="preserve">
     <value>立刻运行</value>
@@ -205,10 +204,10 @@
     <value>运行中...</value>
   </data>
   <data name="AutomationPipelineControl_Step" xml:space="preserve">
-    <value>共{0}个步骤</value>
+    <value>共 {0} 个步骤</value>
   </data>
   <data name="AutomationPipelineControl_Step_Many" xml:space="preserve">
-    <value>共{0}个步骤</value>
+    <value>共 {0} 个步骤</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_Apps" xml:space="preserve">
     <value>应用列表</value>
