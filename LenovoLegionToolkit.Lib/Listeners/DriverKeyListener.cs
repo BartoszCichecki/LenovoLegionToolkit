@@ -88,7 +88,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
                     var key = (DriverKey)value;
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Event received. [key={key}]");
+                        Log.Instance.Trace($"Event received. [key={key}, value={value}]");
 
                     await OnChangedAsync(key).ConfigureAwait(false);
                     Changed?.Invoke(this, key);
