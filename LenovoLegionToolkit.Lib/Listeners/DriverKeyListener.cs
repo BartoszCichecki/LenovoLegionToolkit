@@ -20,7 +20,6 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
         private CancellationTokenSource? _cancellationTokenSource;
         private Task? _listenTask;
-        private bool _ignoreNext;
 
         public DriverKeyListener(FnKeys fnKeys, TouchpadLockFeature touchpadLockFeature, WhiteKeyboardBacklightFeature whiteKeyboardBacklightFeature)
         {
@@ -40,16 +39,14 @@ namespace LenovoLegionToolkit.Lib.Listeners
             return Task.CompletedTask;
         }
 
-        public Task StopAsync()
+        public async Task StopAsync()
         {
             _cancellationTokenSource?.Cancel();
             _cancellationTokenSource = null;
+            if (_listenTask != null)
+                await _listenTask;
             _listenTask = null;
-
-            return Task.CompletedTask;
         }
-
-        public void IgnoreNext() => _ignoreNext = true;
 
         private async Task HandlerAsync(CancellationToken token)
         {
@@ -60,18 +57,13 @@ namespace LenovoLegionToolkit.Lib.Listeners
                 if (!setHandleResult)
                     PInvokeExtensions.ThrowIfWin32Error("DeviceIoControl, setHandleResult");
 
+                GetValue(out _); // Clear register
+
                 while (true)
                 {
                     WaitHandle.WaitAny(new[] { resetEvent, token.WaitHandle });
 
                     token.ThrowIfCancellationRequested();
-
-                    if (_ignoreNext)
-                    {
-                        _ignoreNext = false;
-                        resetEvent.Reset();
-                        continue;
-                    }
 
                     if (await _fnKeys.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
                     {
