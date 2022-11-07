@@ -229,8 +229,15 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
                 _startProcessListener = CreateStartProcessListener();
                 _stopProcessListener = CreateStopProcessListener();
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Initial sub mode set.");
             }
-            catch (TaskCanceledException) { }
+            catch (TaskCanceledException)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Initial sub mode set cancelled.");
+            }
         }
 
         private async Task SetIntelligentSubModeAsync(int subMode)
