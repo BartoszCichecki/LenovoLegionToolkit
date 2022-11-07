@@ -33,12 +33,6 @@
 	  <DebugType>embedded</DebugType>
 	</PropertyGroup>
 	<ItemGroup>
-		<None Remove="Assets\default_exe.png" />
-		<None Remove="Assets\paypal_button.png" />
-		<None Remove="Assets\paypal_qr.png" />
-		<None Remove="Assets\icon.ico" />
-	</ItemGroup>
-	<ItemGroup>
 		<PackageReference Include="Autofac" Version="6.4.0" />
 		<PackageReference Include="Humanizer" Version="2.14.1" />
 		<PackageReference Include="Markdig" Version="0.30.4" />
@@ -52,10 +46,20 @@
 		<ProjectReference Include="..\LenovoLegionToolkit.Lib.Automation\LenovoLegionToolkit.Lib.Automation.csproj" />
 	</ItemGroup>
 	<ItemGroup>
+		<None Remove="Assets\icon.ico" />
+		<None Remove="Assets\default_exe.png" />
+		<None Remove="Assets\Donate\paypal_logo.png" />
+		<None Remove="Assets\Donate\paypal_qr.png" />
+		<None Remove="Assets\Donate\stripe_logo.png" />
+		<None Remove="Assets\Donate\stripe_china_qr.png" />
+	</ItemGroup>
+	<ItemGroup>
 		<Resource Include="Assets\default_exe.png" />
 		<Resource Include="Assets\icon.ico" />
-		<Resource Include="Assets\paypal_button.png" />
-		<Resource Include="Assets\paypal_qr.png" />
+		<Resource Include="Assets\Donate\paypal_logo.png" />
+		<Resource Include="Assets\Donate\paypal_qr.png" />
+		<Resource Include="Assets\Donate\stripe_logo.png" />
+		<Resource Include="Assets\Donate\stripe_china_qr.png" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Compile Update="Resources\Resource.Designer.cs">
