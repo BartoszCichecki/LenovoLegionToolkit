@@ -25,11 +25,11 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             _listener.Changed += Listener_Changed;
         }
 
-        protected override Task OnStateChange(ToggleSwitch toggle, IFeature<TouchpadLockState> feature)
+        protected override async Task OnStateChange(ToggleSwitch toggle, IFeature<TouchpadLockState> feature)
         {
-            _listener.IgnoreNext();
-
-            return base.OnStateChange(toggle, feature);
+            await _listener.StopAsync();
+            await base.OnStateChange(toggle, feature);
+            await _listener.StartAsync();
         }
 
         private void Listener_Changed(object? sender, DriverKey e) => Dispatcher.Invoke(async () =>
