@@ -3311,15 +3311,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do nothing.
-        /// </summary>
-        public static string SettingsPage_SmartKeyDoublePressAction_DoNothing {
-            get {
-                return ResourceManager.GetString("SettingsPage_SmartKeyDoublePressAction_DoNothing", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Assign Quick Action to Fn+F9 double press..
         /// </summary>
         public static string SettingsPage_SmartKeyDoublePressAction_Message {
