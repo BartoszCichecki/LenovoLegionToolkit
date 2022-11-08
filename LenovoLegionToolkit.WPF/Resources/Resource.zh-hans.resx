@@ -507,10 +507,13 @@
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>显示器亮度</value>
   </data>
+  <data name="DonatePage_DonateWith" xml:space="preserve">
+		<value>点击以使用Stripe赞助（支持支付宝）</value>
+	</data>
   <data name="DonatePage_Message" xml:space="preserve">
     <value>开发与维护联想拯救箱需要大量时间。如果你喜欢这个软件，你可以通过赞助来支持软件的开发。
 
-点击下方的PayPal图标或扫描二维码使用PayPal赞助。
+点击下方的 Stripe 图标或扫描二维码使用Stripe赞助，支持支付宝与银联支付。
 
 万分感谢！</value>
   </data>
