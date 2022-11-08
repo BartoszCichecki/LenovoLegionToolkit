@@ -234,36 +234,99 @@ namespace LenovoLegionToolkit.Lib.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Fast.
         /// </summary>
-        public static string RBGKeyboardSpeed_Fast {
+        public static string RBGKeyboardBacklightSpeed_Fast {
             get {
-                return ResourceManager.GetString("RBGKeyboardSpeed_Fast", resourceCulture);
+                return ResourceManager.GetString("RBGKeyboardBacklightSpeed_Fast", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Fastest.
         /// </summary>
-        public static string RBGKeyboardSpeed_Fastest {
+        public static string RBGKeyboardBacklightSpeed_Fastest {
             get {
-                return ResourceManager.GetString("RBGKeyboardSpeed_Fastest", resourceCulture);
+                return ResourceManager.GetString("RBGKeyboardBacklightSpeed_Fastest", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Slow.
         /// </summary>
-        public static string RBGKeyboardSpeed_Slow {
+        public static string RBGKeyboardBacklightSpeed_Slow {
             get {
-                return ResourceManager.GetString("RBGKeyboardSpeed_Slow", resourceCulture);
+                return ResourceManager.GetString("RBGKeyboardBacklightSpeed_Slow", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Slowest.
         /// </summary>
-        public static string RBGKeyboardSpeed_Slowest {
+        public static string RBGKeyboardBacklightSpeed_Slowest {
             get {
-                return ResourceManager.GetString("RBGKeyboardSpeed_Slowest", resourceCulture);
+                return ResourceManager.GetString("RBGKeyboardBacklightSpeed_Slowest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to High.
+        /// </summary>
+        public static string RGBKeyboardBacklightBrightness_High {
+            get {
+                return ResourceManager.GetString("RGBKeyboardBacklightBrightness_High", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Low.
+        /// </summary>
+        public static string RGBKeyboardBacklightBrightness_Low {
+            get {
+                return ResourceManager.GetString("RGBKeyboardBacklightBrightness_Low", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Breath.
+        /// </summary>
+        public static string RGBKeyboardBacklightEffect_Breath {
+            get {
+                return ResourceManager.GetString("RGBKeyboardBacklightEffect_Breath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Smooth.
+        /// </summary>
+        public static string RGBKeyboardBacklightEffect_Smooth {
+            get {
+                return ResourceManager.GetString("RGBKeyboardBacklightEffect_Smooth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Static.
+        /// </summary>
+        public static string RGBKeyboardBacklightEffect_Static {
+            get {
+                return ResourceManager.GetString("RGBKeyboardBacklightEffect_Static", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wave Left.
+        /// </summary>
+        public static string RGBKeyboardBacklightEffect_WaveLTR {
+            get {
+                return ResourceManager.GetString("RGBKeyboardBacklightEffect_WaveLTR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wave Right.
+        /// </summary>
+        public static string RGBKeyboardBacklightEffect_WaveRTL {
+            get {
+                return ResourceManager.GetString("RGBKeyboardBacklightEffect_WaveRTL", resourceCulture);
             }
         }
         
@@ -300,69 +363,6 @@ namespace LenovoLegionToolkit.Lib.Resources {
         public static string RGBKeyboardBacklightPreset_Two {
             get {
                 return ResourceManager.GetString("RGBKeyboardBacklightPreset_Two", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to High.
-        /// </summary>
-        public static string RGBKeyboardBrightness_High {
-            get {
-                return ResourceManager.GetString("RGBKeyboardBrightness_High", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Low.
-        /// </summary>
-        public static string RGBKeyboardBrightness_Low {
-            get {
-                return ResourceManager.GetString("RGBKeyboardBrightness_Low", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Breath.
-        /// </summary>
-        public static string RGBKeyboardEffect_Breath {
-            get {
-                return ResourceManager.GetString("RGBKeyboardEffect_Breath", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Smooth.
-        /// </summary>
-        public static string RGBKeyboardEffect_Smooth {
-            get {
-                return ResourceManager.GetString("RGBKeyboardEffect_Smooth", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Static.
-        /// </summary>
-        public static string RGBKeyboardEffect_Static {
-            get {
-                return ResourceManager.GetString("RGBKeyboardEffect_Static", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Wave Left.
-        /// </summary>
-        public static string RGBKeyboardEffect_WaveLTR {
-            get {
-                return ResourceManager.GetString("RGBKeyboardEffect_WaveLTR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Wave Right.
-        /// </summary>
-        public static string RGBKeyboardEffect_WaveRTL {
-            get {
-                return ResourceManager.GetString("RGBKeyboardEffect_WaveRTL", resourceCulture);
             }
         }
         

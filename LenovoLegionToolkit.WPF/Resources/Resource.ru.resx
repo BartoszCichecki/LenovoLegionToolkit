@@ -992,13 +992,13 @@
   <data name="RGBKeyboardBacklightControl_Zone4" xml:space="preserve">
     <value>Зона 4</value>
   </data>
-  <data name="RGBKeyboardBrightnessCardControl_Brightness" xml:space="preserve">
+  <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
     <value>Яркость</value>
   </data>
-  <data name="RGBKeyboardEffectCardControl_Title" xml:space="preserve">
+  <data name="RGBKeyboardBacklightEffectCardControl_Title" xml:space="preserve">
     <value>Эффект</value>
   </data>
-  <data name="RGBKeyboardSpeedCardControl_Title" xml:space="preserve">
+  <data name="RGBKeyboardBacklightSpeedCardControl_Title" xml:space="preserve">
     <value>Скорость</value>
   </data>
   <data name="ReadmeWindow_Title" xml:space="preserve">

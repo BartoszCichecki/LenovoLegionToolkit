@@ -82,21 +82,21 @@
             Content="{x:Static resources:Resource.RGBKeyboardBacklightControl_Preset3}"
             Tag="{x:Static lib:RGBKeyboardBacklightPreset.Three}" />
 
-        <rgb:RGBKeyboardBrightnessCardControl
+        <rgb:RGBKeyboardBacklightBrightnessCardControl
             x:Name="_brightnessControl"
             Grid.Row="2"
             Grid.Column="0"
             Grid.ColumnSpan="4"
             Margin="0,0,8,0"
             OnChanged="CardControl_OnChanged" />
-        <rgb:RGBKeyboardEffectCardControl
+        <rgb:RGBKeyboardBacklightEffectCardControl
             x:Name="_effectControl"
             Grid.Row="3"
             Grid.Column="0"
             Grid.ColumnSpan="4"
             Margin="0,0,8,0"
             OnChanged="CardControl_OnChanged" />
-        <rgb:RGBKeyboardSpeedCardControl
+        <rgb:RGBKeyboardBacklightSpeedCardControl
             x:Name="_speedControl"
             Grid.Row="4"
             Grid.Column="0"

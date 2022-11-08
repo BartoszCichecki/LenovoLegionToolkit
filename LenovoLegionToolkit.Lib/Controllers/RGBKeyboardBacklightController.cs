@@ -293,55 +293,55 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
             switch (preset.Effect)
             {
-                case RGBKeyboardEffect.Static:
+                case RGBKeyboardBacklightEffect.Static:
                     result.Effect = 1;
                     break;
-                case RGBKeyboardEffect.Breath:
+                case RGBKeyboardBacklightEffect.Breath:
                     result.Effect = 3;
                     break;
-                case RGBKeyboardEffect.WaveRTL:
+                case RGBKeyboardBacklightEffect.WaveRTL:
                     result.Effect = 4;
                     result.WaveRTL = 1;
                     break;
-                case RGBKeyboardEffect.WaveLTR:
+                case RGBKeyboardBacklightEffect.WaveLTR:
                     result.Effect = 4;
                     result.WaveLTR = 1;
                     break;
-                case RGBKeyboardEffect.Smooth:
+                case RGBKeyboardBacklightEffect.Smooth:
                     result.Effect = 6;
                     break;
             }
 
             switch (preset.Brightness)
             {
-                case RGBKeyboardBrightness.Low:
+                case RGBKeyboardBacklightBrightness.Low:
                     result.Brightness = 1;
                     break;
-                case RGBKeyboardBrightness.High:
+                case RGBKeyboardBacklightBrightness.High:
                     result.Brightness = 2;
                     break;
             }
 
-            if (preset.Effect != RGBKeyboardEffect.Static)
+            if (preset.Effect != RGBKeyboardBacklightEffect.Static)
             {
                 switch (preset.Speed)
                 {
-                    case RBGKeyboardSpeed.Slowest:
+                    case RBGKeyboardBacklightSpeed.Slowest:
                         result.Speed = 1;
                         break;
-                    case RBGKeyboardSpeed.Slow:
+                    case RBGKeyboardBacklightSpeed.Slow:
                         result.Speed = 2;
                         break;
-                    case RBGKeyboardSpeed.Fast:
+                    case RBGKeyboardBacklightSpeed.Fast:
                         result.Speed = 3;
                         break;
-                    case RBGKeyboardSpeed.Fastest:
+                    case RBGKeyboardBacklightSpeed.Fastest:
                         result.Speed = 4;
                         break;
                 }
             }
 
-            if (preset.Effect == RGBKeyboardEffect.Static || preset.Effect == RGBKeyboardEffect.Breath)
+            if (preset.Effect == RGBKeyboardBacklightEffect.Static || preset.Effect == RGBKeyboardBacklightEffect.Breath)
             {
                 result.Zone1Rgb = new[] { preset.Zone1.R, preset.Zone1.G, preset.Zone1.B };
                 result.Zone2Rgb = new[] { preset.Zone2.R, preset.Zone2.G, preset.Zone2.B };

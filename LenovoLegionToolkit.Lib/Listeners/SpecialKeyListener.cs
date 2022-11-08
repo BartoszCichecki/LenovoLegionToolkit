@@ -203,7 +203,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
                     return;
                 }
 
-                MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightPreset, NotificationDuration.Short, value));
+                MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightPresetChanged, NotificationDuration.Short, value));
             }
             catch { }
         }

@@ -115,16 +115,16 @@
   <data name="PowerModeState_Quiet" xml:space="preserve">
     <value>Silencioso</value>
   </data>
-  <data name="RBGKeyboardSpeed_Fast" xml:space="preserve">
+  <data name="RBGKeyboardBacklightSpeed_Fast" xml:space="preserve">
     <value>Rápido</value>
   </data>
-  <data name="RBGKeyboardSpeed_Fastest" xml:space="preserve">
+  <data name="RBGKeyboardBacklightSpeed_Fastest" xml:space="preserve">
     <value>Super-rápido</value>
   </data>
-  <data name="RBGKeyboardSpeed_Slow" xml:space="preserve">
+  <data name="RBGKeyboardBacklightSpeed_Slow" xml:space="preserve">
     <value>Lento</value>
   </data>
-  <data name="RBGKeyboardSpeed_Slowest" xml:space="preserve">
+  <data name="RBGKeyboardBacklightSpeed_Slowest" xml:space="preserve">
     <value>Muito lenta</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
@@ -139,25 +139,25 @@
   <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
     <value>Predefinição 2</value>
   </data>
-  <data name="RGBKeyboardBrightness_High" xml:space="preserve">
+  <data name="RGBKeyboardBacklightBrightness_High" xml:space="preserve">
     <value>Alta</value>
   </data>
-  <data name="RGBKeyboardBrightness_Low" xml:space="preserve">
+  <data name="RGBKeyboardBacklightBrightness_Low" xml:space="preserve">
     <value>Baixa</value>
   </data>
-  <data name="RGBKeyboardEffect_Breath" xml:space="preserve">
+  <data name="RGBKeyboardBacklightEffect_Breath" xml:space="preserve">
     <value>Respiração</value>
   </data>
-  <data name="RGBKeyboardEffect_Smooth" xml:space="preserve">
+  <data name="RGBKeyboardBacklightEffect_Smooth" xml:space="preserve">
     <value>Suave</value>
   </data>
-  <data name="RGBKeyboardEffect_Static" xml:space="preserve">
+  <data name="RGBKeyboardBacklightEffect_Static" xml:space="preserve">
     <value>Estático</value>
   </data>
-  <data name="RGBKeyboardEffect_WaveLTR" xml:space="preserve">
+  <data name="RGBKeyboardBacklightEffect_WaveLTR" xml:space="preserve">
     <value>Onda (para esquerda)</value>
   </data>
-  <data name="RGBKeyboardEffect_WaveRTL" xml:space="preserve">
+  <data name="RGBKeyboardBacklightEffect_WaveRTL" xml:space="preserve">
     <value>Onda (para direita)</value>
   </data>
   <data name="Theme_Dark" xml:space="preserve">

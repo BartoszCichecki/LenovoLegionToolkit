@@ -137,14 +137,15 @@ namespace LenovoLegionToolkit.Lib
         PowerModePerformance,
         PowerModeGodMode,
         RefreshRate,
-        RGBKeyboardPreset,
-        RGBKeyboardPresetOff,
+        RGBKeyboardBacklightChanged,
+        RGBKeyboardBacklightOff,
         SpectrumBacklightOn,
         SpectrumBacklightOff,
-        SpectrumBacklightPreset,
+        SpectrumBacklightPresetChanged,
         TouchpadOn,
         TouchpadOff,
-        WhiteKeyboardBacklight
+        WhiteKeyboardBacklightOff,
+        WhiteKeyboardBacklightChanged
     }
 
     public enum OS
@@ -192,25 +193,25 @@ namespace LenovoLegionToolkit.Lib
 
     public enum RGBKeyboardBacklightChanged { }
 
-    public enum RGBKeyboardBrightness
+    public enum RGBKeyboardBacklightBrightness
     {
-        [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardBrightness_Low")]
+        [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardBacklightBrightness_Low")]
         Low,
-        [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardBrightness_High")]
+        [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardBacklightBrightness_High")]
         High
     }
 
-    public enum RGBKeyboardEffect
+    public enum RGBKeyboardBacklightEffect
     {
-        [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardEffect_Static")]
+        [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardBacklightEffect_Static")]
         Static,
-        [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardEffect_Breath")]
+        [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardBacklightEffect_Breath")]
         Breath,
-        [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardEffect_Smooth")]
+        [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardBacklightEffect_Smooth")]
         Smooth,
-        [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardEffect_WaveRTL")]
+        [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardBacklightEffect_WaveRTL")]
         WaveRTL,
-        [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardEffect_WaveLTR")]
+        [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardBacklightEffect_WaveLTR")]
         WaveLTR
     }
 
@@ -226,15 +227,15 @@ namespace LenovoLegionToolkit.Lib
         Three = 2
     }
 
-    public enum RBGKeyboardSpeed
+    public enum RBGKeyboardBacklightSpeed
     {
-        [Display(ResourceType = typeof(Resource), Name = "RBGKeyboardSpeed_Slowest")]
+        [Display(ResourceType = typeof(Resource), Name = "RBGKeyboardBacklightSpeed_Slowest")]
         Slowest,
-        [Display(ResourceType = typeof(Resource), Name = "RBGKeyboardSpeed_Slow")]
+        [Display(ResourceType = typeof(Resource), Name = "RBGKeyboardBacklightSpeed_Slow")]
         Slow,
-        [Display(ResourceType = typeof(Resource), Name = "RBGKeyboardSpeed_Fast")]
+        [Display(ResourceType = typeof(Resource), Name = "RBGKeyboardBacklightSpeed_Fast")]
         Fast,
-        [Display(ResourceType = typeof(Resource), Name = "RBGKeyboardSpeed_Fastest")]
+        [Display(ResourceType = typeof(Resource), Name = "RBGKeyboardBacklightSpeed_Fastest")]
         Fastest
     }
 
