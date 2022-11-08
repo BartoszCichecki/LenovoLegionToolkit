@@ -267,7 +267,7 @@ namespace LenovoLegionToolkit.Lib
         SpectrumPreset6 = 37
     }
 
-    public enum SpectrumKeyboardDirection
+    public enum SpectrumKeyboardBacklightDirection
     {
         None,
         Clockwise,
@@ -278,7 +278,7 @@ namespace LenovoLegionToolkit.Lib
         RightToLeft
     }
 
-    public enum SpectrumKeyboardEffectType
+    public enum SpectrumKeyboardBacklightEffectType
     {
         Always,
         RainbowScrew,
@@ -294,7 +294,7 @@ namespace LenovoLegionToolkit.Lib
         AudioRipple
     }
 
-    public enum SpectrumKeyboardProfile
+    public enum SpectrumKeyboardBacklightProfile
     {
         One,
         Two,
@@ -304,7 +304,7 @@ namespace LenovoLegionToolkit.Lib
         Six
     }
 
-    public enum SpectrumKeyboardSpeed
+    public enum SpectrumKeyboardBacklightSpeed
     {
         None,
         Speed1,
