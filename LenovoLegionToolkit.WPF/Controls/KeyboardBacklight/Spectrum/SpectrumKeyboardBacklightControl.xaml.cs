@@ -42,12 +42,16 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
         {
             InitializeComponent();
 
-            _device.SetLayout(_settings.Store.KeyboardLayout);
-
+            Loaded += SpectrumKeyboardBacklightControl_Loaded;
             IsVisibleChanged += SpectrumKeyboardBacklightControl_IsVisibleChanged;
             SizeChanged += SpectrumKeyboardBacklightControl_SizeChanged;
 
             _listener.Changed += Listener_Changed;
+        }
+
+        private void SpectrumKeyboardBacklightControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            _device.SetLayout(_settings.Store.KeyboardLayout, _controller.IsExtendedSupported());
         }
 
         private async void SpectrumKeyboardBacklightControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -142,7 +146,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 
         private async Task RefreshStateAsync(CancellationToken token)
         {
-            var buttons = _device.GetButtons();
+            var buttons = _device.GetVisibleButtons().ToArray();
 
             try
             {
@@ -227,14 +231,14 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 
         private void SelectAll_Click(object sender, RoutedEventArgs e)
         {
-            var buttons = _device.GetButtons();
+            var buttons = _device.GetVisibleButtons();
             foreach (var button in buttons)
                 button.IsChecked = true;
         }
 
         private void DeselectAll_Click(object sender, RoutedEventArgs e)
         {
-            var buttons = _device.GetButtons();
+            var buttons = _device.GetVisibleButtons();
             foreach (var button in buttons)
                 button.IsChecked = false;
         }
@@ -243,7 +247,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
         {
             await StopAnimationAsync();
 
-            var buttons = _device.GetButtons();
+            var buttons = _device.GetVisibleButtons();
             foreach (var button in buttons)
                 button.IsChecked = false;
 
@@ -258,7 +262,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             _settings.Store.KeyboardLayout = layout;
             _settings.SynchronizeStore();
 
-            _device.SetLayout(layout);
+            _device.SetLayout(layout, _controller.IsExtendedSupported());
 
             await StartAnimationAsync();
         }
