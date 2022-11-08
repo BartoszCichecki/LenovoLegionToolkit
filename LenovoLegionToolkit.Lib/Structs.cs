@@ -491,6 +491,53 @@ namespace LenovoLegionToolkit.Lib
         #endregion
     }
 
+    public struct SpectrumKeyboardBacklightEffect
+    {
+        public SpectrumKeyboardEffect Effect { get; }
+        public SpectrumKeyboardSpeed Speed { get; }
+        public SpectrumKeyboardDirection Direction { get; }
+        public RGBColor[] Colors { get; }
+        public ushort[] Keys { get; }
+
+        [JsonConstructor]
+        public SpectrumKeyboardBacklightEffect(
+            SpectrumKeyboardEffect effect,
+            SpectrumKeyboardSpeed speed,
+            SpectrumKeyboardDirection direction,
+            RGBColor[] colors,
+            ushort[] keys
+            )
+        {
+            Effect = effect;
+            Speed = speed;
+            Direction = direction;
+            Colors = colors;
+            Keys = keys;
+        }
+    }
+
+    public struct SpectrumKeyboardBacklightSettings
+    {
+        public SpectrumKeyboardBacklightEffect[] Effects { get; }
+
+        [JsonConstructor]
+        public SpectrumKeyboardBacklightSettings(params SpectrumKeyboardBacklightEffect[] effects)
+        {
+            Effects = effects;
+        }
+    }
+
+    public struct SpectrumKeyboardBacklightState
+    {
+        public Dictionary<SpectrumKeyboardProfile, SpectrumKeyboardBacklightSettings> Profiles { get; }
+
+        [JsonConstructor]
+        public SpectrumKeyboardBacklightState(Dictionary<SpectrumKeyboardProfile, SpectrumKeyboardBacklightSettings> profiles)
+        {
+            Profiles = profiles;
+        }
+    }
+
     public struct StepperValue
     {
         public int Value { get; }
