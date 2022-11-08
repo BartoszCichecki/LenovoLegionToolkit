@@ -3,21 +3,28 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
+using NeoSmart.AsyncLock;
 
 namespace LenovoLegionToolkit.Lib.Controllers
 {
     public class AIModeController
     {
+        private readonly TimeSpan _setInitialDelay = TimeSpan.FromSeconds(3);
+        private readonly AsyncLock _startStopLock = new();
+
         private readonly HashSet<int> _runningProcessIds = new();
         private readonly Dictionary<string, int> _subModeData = new();
 
         private readonly BalanceModeSettings _settings;
 
+        private CancellationTokenSource? _setInitialDelayedCancellationTokenSource;
+        private Task? _setInitialDelayedTask;
         private IDisposable? _startProcessListener;
         private IDisposable? _stopProcessListener;
 
@@ -38,64 +45,76 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         public async Task StartAsync(PowerModeState powerModeState)
         {
-            if (!await IsSupportedAsync())
+            using (await _startStopLock.LockAsync().ConfigureAwait(false))
             {
+                if (!await IsSupportedAsync().ConfigureAwait(false))
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Not supported.");
+
+                    return;
+                }
+
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Not supported.");
+                    Log.Instance.Trace($"Starting...");
 
-                return;
+                if (_startProcessListener is not null || _stopProcessListener is not null)
+                    await StopAsync(powerModeState).ConfigureAwait(false);
+
+                _setInitialDelayedCancellationTokenSource?.Cancel();
+                if (_setInitialDelayedTask is not null)
+                    await _setInitialDelayedTask.ConfigureAwait(false);
+
+                if (powerModeState != PowerModeState.Balance || !_settings.Store.AIModeEnabled)
+                    return;
+
+                await LoadSubModesAsync().ConfigureAwait(false);
+
+                _setInitialDelayedCancellationTokenSource = new CancellationTokenSource();
+                _setInitialDelayedTask = SetInitialIntelligentSubModeDelayedAsync(_setInitialDelayedCancellationTokenSource.Token);
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Started");
             }
-
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Starting...");
-
-            await StopAsync(powerModeState).ConfigureAwait(false);
-
-            if (powerModeState != PowerModeState.Balance || !_settings.Store.AIModeEnabled)
-                return;
-
-            await LoadSubModesAsync().ConfigureAwait(false);
-            await SetInitialIntelligentSubModeAsync().ConfigureAwait(false);
-
-            _startProcessListener = CreateStartProcessListener();
-            _stopProcessListener = CreateStopProcessListener();
-
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Started");
         }
 
         public async Task StopAsync(PowerModeState powerModeState)
         {
-            if (!await IsSupportedAsync())
+            using (await _startStopLock.LockAsync().ConfigureAwait(false))
             {
+                if (!await IsSupportedAsync().ConfigureAwait(false))
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Not supported.");
+
+                    return;
+                }
+
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Not supported.");
+                    Log.Instance.Trace($"Stopping...");
 
-                return;
-            }
+                _startProcessListener?.Dispose();
+                _stopProcessListener?.Dispose();
 
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Stopping...");
+                _runningProcessIds.Clear();
+                _subModeData.Clear();
 
-            _startProcessListener?.Dispose();
-            _stopProcessListener?.Dispose();
+                _setInitialDelayedCancellationTokenSource?.Cancel();
 
-            _runningProcessIds.Clear();
-            _subModeData.Clear();
+                if (_setInitialDelayedTask is not null)
+                    await _setInitialDelayedTask.ConfigureAwait(false);
 
-            if (powerModeState == PowerModeState.Balance)
-            {
-                await SetIntelligentSubModeAsync(0).ConfigureAwait(false);
-            }
-            else
-            {
-                var currentSubMode = await GetIntelligentSubModeAsync().ConfigureAwait(false);
-                if (currentSubMode > 0)
+                if (powerModeState == PowerModeState.Balance)
                     await SetIntelligentSubModeAsync(0).ConfigureAwait(false);
-            }
 
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Stopped");
+                _startProcessListener = null;
+                _stopProcessListener = null;
+                _setInitialDelayedCancellationTokenSource = null;
+                _setInitialDelayedTask = null;
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Stopped");
+            }
         }
 
         private async Task<bool> IsSupportedAsync()
@@ -184,25 +203,41 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
         }
 
-        private async Task SetInitialIntelligentSubModeAsync()
+        private async Task SetInitialIntelligentSubModeDelayedAsync(CancellationToken ct)
         {
-            var targetSubMode = 1;
-
-            foreach (var (processName, subMode) in _subModeData)
+            try
             {
-                var process = Process.GetProcessesByName(Path.GetFileNameWithoutExtension(processName)).FirstOrDefault();
-                if (process is null)
-                    continue;
+                await Task.Delay(_setInitialDelay, ct).ConfigureAwait(false);
+
+                var targetSubMode = 1;
+
+                foreach (var (processName, subMode) in _subModeData)
+                {
+                    var process = Process.GetProcessesByName(Path.GetFileNameWithoutExtension(processName)).FirstOrDefault();
+                    if (process is null)
+                        continue;
+
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Found running process {processName}. [processId={process.Id}, subMode={subMode}]");
+
+                    _runningProcessIds.Add(process.Id);
+                    targetSubMode = subMode;
+                    break;
+                }
+
+                await SetIntelligentSubModeAsync(targetSubMode).ConfigureAwait(false);
+
+                _startProcessListener = CreateStartProcessListener();
+                _stopProcessListener = CreateStopProcessListener();
 
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Found running process {processName}. [processId={process.Id}, subMode={subMode}]");
-
-                _runningProcessIds.Add(process.Id);
-                targetSubMode = subMode;
-                break;
+                    Log.Instance.Trace($"Initial sub mode set.");
             }
-
-            await SetIntelligentSubModeAsync(targetSubMode).ConfigureAwait(false);
+            catch (TaskCanceledException)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Initial sub mode set cancelled.");
+            }
         }
 
         private async Task SetIntelligentSubModeAsync(int subMode)

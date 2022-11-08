@@ -1158,10 +1158,7 @@ Se recomandă repornirea după modificarea acestei opțiuni.</value>
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Planuri de alimentare</value>
   </data>
-  <data name="SettingsPage_SmartKeyDoublePressAction_DoNothing" xml:space="preserve">
-    <value>Nicio acțiune</value>
-  </data>
-  <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
+	<data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>Setați o acțiune rapidă la dubla apăsare a tastelor Fn+F9.</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">

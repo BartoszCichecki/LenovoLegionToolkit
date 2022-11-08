@@ -1377,6 +1377,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Donate with.
+        /// </summary>
+        public static string DonatePage_DonateWith {
+            get {
+                return ResourceManager.GetString("DonatePage_DonateWith", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Development and maintenance of Lenovo Legion Toolkit takes a lot of time. If you like using this software you can support it&apos;s future by donating an amount of your choice.
         ///
         ///Click the PayPal logo below or scan the QR code to donate with PayPal.
@@ -2656,6 +2665,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Selected power mode may not work correctly without AC adapter connected..
+        /// </summary>
+        public static string PowerModeControl_Warning {
+            get {
+                return ResourceManager.GetString("PowerModeControl_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Power Mode.
         /// </summary>
         public static string PowerModeWindow_Title {
@@ -3298,15 +3316,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string SettingsPage_PowerPlans_Title {
             get {
                 return ResourceManager.GetString("SettingsPage_PowerPlans_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Do nothing.
-        /// </summary>
-        public static string SettingsPage_SmartKeyDoublePressAction_DoNothing {
-            get {
-                return ResourceManager.GetString("SettingsPage_SmartKeyDoublePressAction_DoNothing", resourceCulture);
             }
         }
         

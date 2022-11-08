@@ -59,10 +59,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Cuando el adaptador de corriente alterna está conectado</value>
+    <value>Cuando el adaptador de corriente alterna esté conectado</value>
   </data>
   <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Cuando el adaptador de corriente alterna está desconectado</value>
+    <value>Cuando el adaptador de corriente alterna esté desconectado</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancelar</value>
@@ -71,7 +71,7 @@
     <value>Terminar aplicaciones</value>
   </data>
   <data name="DeactivateGPUAutomationStepState_RestartGPU" xml:space="preserve">
-    <value>Reiniciar GPU</value>
+    <value>Reiniciar la GPU</value>
   </data>
   <data name="Delay_Second" xml:space="preserve">
     <value>{0} segundo</value>
