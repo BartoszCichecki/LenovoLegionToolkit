@@ -16,6 +16,7 @@
 
         <wpfui:CardControl
             x:Name="_vantageWarningCard"
+            Margin="0,0,0,16"
             Icon="Warning24"
             Visibility="Collapsed">
             <wpfui:CardControl.Header>
@@ -170,9 +171,10 @@
                         ToolTip="Select all zones" />
                     <wpfui:Button
                         Margin="0,0,0,8"
+                        Click="DeselectAll_Click"
                         FontSize="20"
                         Icon="SelectAllOff24"
-                        ToolTip="Deselect all zones" Click="DeselectAll_Click" />
+                        ToolTip="Deselect all zones" />
                     <wpfui:Button
                         Margin="0,0,0,8"
                         Click="SwitchKeyboardLayout_Click"
