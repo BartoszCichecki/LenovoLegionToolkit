@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
@@ -48,6 +49,18 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             if (IsLoaded && IsVisible)
                 await RefreshAsync();
         });
+
+        protected override async Task OnRefreshAsync()
+        {
+            await base.OnRefreshAsync();
+
+            if (await Power.IsPowerAdapterConnectedAsync() != PowerAdapterStatus.Connected
+                && TryGetSelectedItem(out var state)
+                && state is PowerModeState.Performance or PowerModeState.GodMode)
+                Warning = Resource.PowerModeControl_Warning;
+            else
+                Warning = string.Empty;
+        }
 
         protected override async Task OnStateChange(ComboBox comboBox, IFeature<PowerModeState> feature, PowerModeState? newValue, PowerModeState? oldValue)
         {
