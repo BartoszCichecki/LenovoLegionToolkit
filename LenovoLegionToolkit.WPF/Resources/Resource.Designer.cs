@@ -2647,7 +2647,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Selected power mode may not work correctly without proper AC adapter connected..
+        ///   Looks up a localized string similar to Selected power mode may not work correctly without AC adapter connected..
         /// </summary>
         public static string PowerModeControl_Warning {
             get {

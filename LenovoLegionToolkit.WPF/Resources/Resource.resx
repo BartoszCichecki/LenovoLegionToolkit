@@ -506,8 +506,8 @@ WARNING: This action will not run correctly, if internal display is off.</value>
     <value>Display brightness</value>
   </data>
   <data name="DonatePage_DonateWith" xml:space="preserve">
-		<value>Donate with</value>
-	</data>
+    <value>Donate with</value>
+  </data>
   <data name="DonatePage_Message" xml:space="preserve">
     <value>Development and maintenance of Lenovo Legion Toolkit takes a lot of time. If you like using this software you can support it's future by donating an amount of your choice.
 
@@ -936,8 +936,8 @@ You can switch mode with Fn+Q.</value>
     <value>Power Mode</value>
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
-		<value>Selected power mode may not work correctly without proper AC adapter connected.</value>
-	</data>
+    <value>Selected power mode may not work correctly without AC adapter connected.</value>
+  </data>
   <data name="PowerModeWindow_Title" xml:space="preserve">
     <value>Power Mode</value>
   </data>
