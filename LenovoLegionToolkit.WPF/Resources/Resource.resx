@@ -505,6 +505,9 @@ WARNING: This action will not run correctly, if internal display is off.</value>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>Display brightness</value>
   </data>
+  <data name="DonatePage_DonateWith" xml:space="preserve">
+    <value>Donate with</value>
+  </data>
   <data name="DonatePage_Message" xml:space="preserve">
     <value>Development and maintenance of Lenovo Legion Toolkit takes a lot of time. If you like using this software you can support it's future by donating an amount of your choice.
 
@@ -932,6 +935,9 @@ You can switch mode with Fn+Q.</value>
   <data name="PowerModeControl_Title" xml:space="preserve">
     <value>Power Mode</value>
   </data>
+  <data name="PowerModeControl_Warning" xml:space="preserve">
+    <value>Selected power mode may not work correctly without AC adapter connected.</value>
+  </data>
   <data name="PowerModeWindow_Title" xml:space="preserve">
     <value>Power Mode</value>
   </data>
@@ -1158,10 +1164,7 @@ Restart is recommended after changing this option.</value>
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Power plans</value>
   </data>
-  <data name="SettingsPage_SmartKeyDoublePressAction_DoNothing" xml:space="preserve">
-    <value>Do nothing</value>
-  </data>
-  <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
+	<data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>Assign Quick Action to Fn+F9 double press.</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">

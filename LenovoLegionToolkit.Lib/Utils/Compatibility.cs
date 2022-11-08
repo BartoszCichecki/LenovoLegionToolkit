@@ -34,7 +34,8 @@ namespace LenovoLegionToolkit.Lib.Utils
             
             // Limited compatibility
             "17IR",
-            "15IR"
+            "15IR",
+            "15ICH"
         };
 
         private static MachineInformation? _machineInformation;

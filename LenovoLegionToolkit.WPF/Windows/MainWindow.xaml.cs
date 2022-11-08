@@ -134,6 +134,13 @@ namespace LenovoLegionToolkit.WPF.Windows
                                 Log.Instance.Trace($"Running action after double Fn+F9 press failed.", ex);
                         }
                     }
+                    else
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Bringing to foreground after double Fn+F9 press.");
+
+                        Dispatcher.Invoke(BringToForeground);
+                    }
                 }
                 else
                 {
