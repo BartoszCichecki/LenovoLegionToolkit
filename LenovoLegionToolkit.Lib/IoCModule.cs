@@ -45,6 +45,9 @@ namespace LenovoLegionToolkit.Lib
             builder.Register<PowerModeListener>()
                 .OnActivating(e => e.Instance.StartAsync().AsValueTask())
                 .AutoActivate();
+            builder.Register<ThermalModeListener>()
+                .OnActivating(e => e.Instance.StartAsync().AsValueTask())
+                .AutoActivate();
             builder.Register<DisplayConfigurationListener>()
                 .OnActivating(e => e.Instance.StartAsync().AsValueTask())
                 .AutoActivate();

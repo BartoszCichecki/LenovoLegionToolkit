@@ -20,27 +20,33 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         private readonly CardHeaderControl _cardHeaderControl = new();
 
-        protected readonly ComboBox _comboBox = new();
+        private readonly ComboBox _comboBox = new();
 
-        public SymbolRegular Icon
+        protected SymbolRegular Icon
         {
             get => _cardControl.Icon;
             set => _cardControl.Icon = value;
         }
 
-        public string Title
+        protected string Title
         {
             get => _cardHeaderControl.Title;
             set => _cardHeaderControl.Title = value;
         }
 
-        public string Subtitle
+        protected string Subtitle
         {
             get => _cardHeaderControl.Subtitle;
             set => _cardHeaderControl.Subtitle = value;
         }
 
-        public AbstractComboBoxFeatureCardControl() => InitializeComponent();
+        protected string Warning
+        {
+            get => _cardHeaderControl.Warning;
+            set => _cardHeaderControl.Warning = value;
+        }
+
+        protected AbstractComboBoxFeatureCardControl() => InitializeComponent();
 
         private void InitializeComponent()
         {
@@ -61,7 +67,11 @@ namespace LenovoLegionToolkit.WPF.Controls
             await OnStateChange(_comboBox, _feature, e.GetNewValue<T>(), e.GetOldValue<T>());
         }
 
-        protected virtual FrameworkElement? GetAccessory(ComboBox comboBox) => comboBox;
+        protected bool TryGetSelectedItem(out T value) => _comboBox.TryGetSelectedItem(out value);
+
+        protected int ItemsCount => _comboBox.Items.Count;
+
+        protected virtual FrameworkElement GetAccessory(ComboBox comboBox) => comboBox;
 
         protected override async Task OnRefreshAsync()
         {
