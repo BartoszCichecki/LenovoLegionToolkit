@@ -278,7 +278,7 @@ namespace LenovoLegionToolkit.Lib
         RightToLeft
     }
 
-    public enum SpectrumKeyboardEffect
+    public enum SpectrumKeyboardEffectType
     {
         Always,
         RainbowScrew,
