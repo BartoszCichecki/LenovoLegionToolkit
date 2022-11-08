@@ -278,7 +278,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             };
         }
 
-        private LENOVO_RGB_KEYBOARD_STATE Convert(RGBKeyboardBacklightSettings preset)
+        private LENOVO_RGB_KEYBOARD_STATE Convert(RGBKeyboardBacklightBacklightPresetDescription preset)
         {
             var result = new LENOVO_RGB_KEYBOARD_STATE
             {

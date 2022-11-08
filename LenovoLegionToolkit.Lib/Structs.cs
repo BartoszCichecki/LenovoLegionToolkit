@@ -391,7 +391,7 @@ namespace LenovoLegionToolkit.Lib
         }
     }
 
-    public struct RGBKeyboardBacklightSettings
+    public struct RGBKeyboardBacklightBacklightPresetDescription
     {
         public RGBKeyboardEffect Effect { get; } = RGBKeyboardEffect.Static;
         public RBGKeyboardSpeed Speed { get; } = RBGKeyboardSpeed.Slowest;
@@ -402,7 +402,7 @@ namespace LenovoLegionToolkit.Lib
         public RGBColor Zone4 { get; } = new();
 
         [JsonConstructor]
-        public RGBKeyboardBacklightSettings(
+        public RGBKeyboardBacklightBacklightPresetDescription(
             RGBKeyboardEffect effect,
             RBGKeyboardSpeed speed,
             RGBKeyboardBrightness brightness,
@@ -424,7 +424,7 @@ namespace LenovoLegionToolkit.Lib
 
         public override bool Equals(object? obj)
         {
-            return obj is RGBKeyboardBacklightSettings settings &&
+            return obj is RGBKeyboardBacklightBacklightPresetDescription settings &&
                    Effect == settings.Effect &&
                    Speed == settings.Speed &&
                    Brightness == settings.Brightness &&
@@ -436,12 +436,12 @@ namespace LenovoLegionToolkit.Lib
 
         public override int GetHashCode() => HashCode.Combine(Effect, Speed, Brightness, Zone1, Zone2, Zone3, Zone4);
 
-        public static bool operator ==(RGBKeyboardBacklightSettings left, RGBKeyboardBacklightSettings right)
+        public static bool operator ==(RGBKeyboardBacklightBacklightPresetDescription left, RGBKeyboardBacklightBacklightPresetDescription right)
         {
             return left.Equals(right);
         }
 
-        public static bool operator !=(RGBKeyboardBacklightSettings left, RGBKeyboardBacklightSettings right)
+        public static bool operator !=(RGBKeyboardBacklightBacklightPresetDescription left, RGBKeyboardBacklightBacklightPresetDescription right)
         {
             return !(left == right);
         }
@@ -453,10 +453,10 @@ namespace LenovoLegionToolkit.Lib
     public struct RGBKeyboardBacklightState
     {
         public RGBKeyboardBacklightPreset SelectedPreset { get; }
-        public Dictionary<RGBKeyboardBacklightPreset, RGBKeyboardBacklightSettings> Presets { get; }
+        public Dictionary<RGBKeyboardBacklightPreset, RGBKeyboardBacklightBacklightPresetDescription> Presets { get; }
 
         [JsonConstructor]
-        public RGBKeyboardBacklightState(RGBKeyboardBacklightPreset selectedPreset, Dictionary<RGBKeyboardBacklightPreset, RGBKeyboardBacklightSettings> presets)
+        public RGBKeyboardBacklightState(RGBKeyboardBacklightPreset selectedPreset, Dictionary<RGBKeyboardBacklightPreset, RGBKeyboardBacklightBacklightPresetDescription> presets)
         {
             SelectedPreset = selectedPreset;
             Presets = presets;
@@ -491,19 +491,19 @@ namespace LenovoLegionToolkit.Lib
         #endregion
     }
 
-    public struct SpectrumKeyboardEffect
+    public struct SpectrumKeyboardBacklightEffect
     {
-        public SpectrumKeyboardEffectType Type { get; }
-        public SpectrumKeyboardSpeed Speed { get; }
-        public SpectrumKeyboardDirection Direction { get; }
+        public SpectrumKeyboardBacklightEffectType Type { get; }
+        public SpectrumKeyboardBacklightSpeed Speed { get; }
+        public SpectrumKeyboardBacklightDirection Direction { get; }
         public RGBColor[] Colors { get; }
         public ushort[] Keys { get; }
 
         [JsonConstructor]
-        public SpectrumKeyboardEffect(
-            SpectrumKeyboardEffectType type,
-            SpectrumKeyboardSpeed speed,
-            SpectrumKeyboardDirection direction,
+        public SpectrumKeyboardBacklightEffect(
+            SpectrumKeyboardBacklightEffectType type,
+            SpectrumKeyboardBacklightSpeed speed,
+            SpectrumKeyboardBacklightDirection direction,
             RGBColor[] colors,
             ushort[] keys
             )
@@ -516,23 +516,23 @@ namespace LenovoLegionToolkit.Lib
         }
     }
 
-    public struct SpectrumKeyboardProfileDescription
+    public struct SpectrumKeyboardBacklightProfileDescription
     {
-        public SpectrumKeyboardEffect[] Effects { get; }
+        public SpectrumKeyboardBacklightEffect[] Effects { get; }
 
         [JsonConstructor]
-        public SpectrumKeyboardProfileDescription(params SpectrumKeyboardEffect[] effects)
+        public SpectrumKeyboardBacklightProfileDescription(params SpectrumKeyboardBacklightEffect[] effects)
         {
             Effects = effects;
         }
     }
 
-    public struct SpectrumKeyboardState
+    public struct SpectrumKeyboardBacklightState
     {
-        public Dictionary<SpectrumKeyboardProfile, SpectrumKeyboardProfileDescription> Profiles { get; }
+        public Dictionary<SpectrumKeyboardBacklightProfile, SpectrumKeyboardBacklightProfileDescription> Profiles { get; }
 
         [JsonConstructor]
-        public SpectrumKeyboardState(Dictionary<SpectrumKeyboardProfile, SpectrumKeyboardProfileDescription> profiles)
+        public SpectrumKeyboardBacklightState(Dictionary<SpectrumKeyboardBacklightProfile, SpectrumKeyboardBacklightProfileDescription> profiles)
         {
             Profiles = profiles;
         }
