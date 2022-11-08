@@ -267,6 +267,51 @@ namespace LenovoLegionToolkit.Lib
         SpectrumPreset6 = 37
     }
 
+    public enum SpectrumKeyboardDirection
+    {
+        None,
+        Clockwise,
+        CounterClockwise,
+        BottomToTop,
+        TopToBottom,
+        LeftToRight,
+        RightToLeft
+    }
+
+    public enum SpectrumKeyboardEffect
+    {
+        Always,
+        RainbowScrew,
+        RainbowWave,
+        ColorChange,
+        ColorWave,
+        ColorPulse,
+        Smooth,
+        Rain,
+        Ripple,
+        Type,
+        AudioBounce,
+        AudioRipple
+    }
+
+    public enum SpectrumKeyboardProfile
+    {
+        One,
+        Two,
+        Three,
+        Four,
+        Five,
+        Six
+    }
+
+    public enum SpectrumKeyboardSpeed
+    {
+        None,
+        Speed1,
+        Speed2,
+        Speed3
+    }
+
     public enum Theme
     {
         [Display(ResourceType = typeof(Resource), Name = "Theme_System")]
