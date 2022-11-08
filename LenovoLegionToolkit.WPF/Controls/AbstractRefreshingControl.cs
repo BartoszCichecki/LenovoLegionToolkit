@@ -18,7 +18,7 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         public Task FinishedLoadingTask => _finishedLoadingTaskCompletionSource.Task;
 
-        public AbstractRefreshingControl()
+        protected AbstractRefreshingControl()
         {
             IsEnabled = false;
 
