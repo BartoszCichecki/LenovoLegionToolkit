@@ -6,6 +6,8 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
     {
         public ushort KeyCode { get; set; }
 
+        public bool IsExtended { get; set; }
+
         public Color? Color
         {
             get => (_background.Background as SolidColorBrush)?.Color;
