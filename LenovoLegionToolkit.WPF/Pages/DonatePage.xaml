@@ -78,8 +78,8 @@
                 BorderThickness="2"
                 CornerRadius="16"
                 Cursor="Hand"
-                MouseLeftButtonDown="StripeChinaDonateButton_Click"
-                MouseRightButtonDown="StripeChinaDonateButton_Click">
+                MouseLeftButtonDown="StripeCNYDonateButton_Click"
+                MouseRightButtonDown="StripeCNYDonateButton_Click">
                 <StackPanel Orientation="Vertical">
                     <Label
                         Margin="0,8,0,-4"
@@ -104,7 +104,7 @@
                 <Image
                     Margin="8"
                     RenderOptions.BitmapScalingMode="Fant"
-                    Source="../Assets/Donate/stripe_china_qr.png" />
+                    Source="../Assets/Donate/stripe_cny_qr.png" />
             </Border>
 
         </StackPanel>

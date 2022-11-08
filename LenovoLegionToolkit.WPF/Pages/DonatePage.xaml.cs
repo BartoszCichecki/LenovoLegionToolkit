@@ -29,9 +29,9 @@ namespace LenovoLegionToolkit.WPF.Pages
             e.Handled = true;
         }
 
-        private void StripeChinaDonateButton_Click(object sender, RoutedEventArgs e)
+        private void StripeCNYDonateButton_Click(object sender, RoutedEventArgs e)
         {
-            Constants.StripeChinaUri.Open();
+            Constants.StripeCNYUri.Open();
             e.Handled = true;
         }
     }

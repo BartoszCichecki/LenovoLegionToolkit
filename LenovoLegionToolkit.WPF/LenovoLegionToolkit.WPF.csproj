@@ -46,12 +46,12 @@
 		<ProjectReference Include="..\LenovoLegionToolkit.Lib.Automation\LenovoLegionToolkit.Lib.Automation.csproj" />
 	</ItemGroup>
 	<ItemGroup>
+		<None Remove="Assets\Donate\stripe_cny_qr.png" />
 		<None Remove="Assets\icon.ico" />
 		<None Remove="Assets\default_exe.png" />
 		<None Remove="Assets\Donate\paypal_logo.png" />
 		<None Remove="Assets\Donate\paypal_qr.png" />
 		<None Remove="Assets\Donate\stripe_logo.png" />
-		<None Remove="Assets\Donate\stripe_china_qr.png" />
 	</ItemGroup>
 	<ItemGroup>
 		<Resource Include="Assets\default_exe.png" />
@@ -59,7 +59,7 @@
 		<Resource Include="Assets\Donate\paypal_logo.png" />
 		<Resource Include="Assets\Donate\paypal_qr.png" />
 		<Resource Include="Assets\Donate\stripe_logo.png" />
-		<Resource Include="Assets\Donate\stripe_china_qr.png" />
+		<Resource Include="Assets\Donate\stripe_cny_qr.png" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Compile Update="Resources\Resource.Designer.cs">
