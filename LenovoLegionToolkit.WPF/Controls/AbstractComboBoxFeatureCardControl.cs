@@ -40,6 +40,12 @@ namespace LenovoLegionToolkit.WPF.Controls
             set => _cardHeaderControl.Subtitle = value;
         }
 
+        protected string Warning
+        {
+            get => _cardHeaderControl.Warning;
+            set => _cardHeaderControl.Warning = value;
+        }
+
         protected AbstractComboBoxFeatureCardControl() => InitializeComponent();
 
         private void InitializeComponent()

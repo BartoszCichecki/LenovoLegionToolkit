@@ -18,10 +18,19 @@ namespace LenovoLegionToolkit.WPF.Controls
         {
             FontSize = 12,
             Margin = new(0, 4, 0, 0),
-            Visibility = Visibility.Collapsed,
             TextWrapping = TextWrapping.Wrap,
             TextTrimming = TextTrimming.CharacterEllipsis,
         };
+
+        private readonly TextBlock _warningTextBlock = new()
+        {
+            FontSize = 12,
+            Margin = new(0, 4, 0, 0),
+            TextWrapping = TextWrapping.Wrap,
+            TextTrimming = TextTrimming.CharacterEllipsis,
+        };
+
+        private readonly StackPanel _stackPanel = new();
 
         private readonly Grid _grid = new()
         {
@@ -59,6 +68,16 @@ namespace LenovoLegionToolkit.WPF.Controls
             }
         }
 
+        public string Warning
+        {
+            get => _warningTextBlock.Text;
+            set
+            {
+                _warningTextBlock.Text = value;
+                RefreshLayout();
+            }
+        }
+
         public string? SubtitleToolTip
         {
             get => _subtitleTextBlock.ToolTip as string;
@@ -80,14 +99,16 @@ namespace LenovoLegionToolkit.WPF.Controls
 
                 _accessory = value;
 
-                if (_accessory is null)
-                    return;
+                if (_accessory is not null)
+                {
+                    Grid.SetColumn(_accessory, 1);
+                    Grid.SetRow(_accessory, 0);
+                    Grid.SetRowSpan(_accessory, 2);
 
-                Grid.SetColumn(_accessory, 1);
-                Grid.SetRow(_accessory, 0);
-                Grid.SetRowSpan(_accessory, 2);
+                    _grid.Children.Add(_accessory);
+                }
 
-                _grid.Children.Add(_accessory);
+                RefreshLayout();
             }
         }
 
@@ -96,13 +117,16 @@ namespace LenovoLegionToolkit.WPF.Controls
             base.OnInitialized(e);
 
             Grid.SetColumn(_titleTextBlock, 0);
-            Grid.SetColumn(_subtitleTextBlock, 0);
+            Grid.SetColumn(_stackPanel, 0);
 
             Grid.SetRow(_titleTextBlock, 0);
-            Grid.SetRow(_subtitleTextBlock, 1);
+            Grid.SetRow(_stackPanel, 1);
+
+            _stackPanel.Children.Add(_subtitleTextBlock);
+            _stackPanel.Children.Add(_warningTextBlock);
 
             _grid.Children.Add(_titleTextBlock);
-            _grid.Children.Add(_subtitleTextBlock);
+            _grid.Children.Add(_stackPanel);
 
             Content = _grid;
 
@@ -112,16 +136,13 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         private void RefreshLayout()
         {
-            if (string.IsNullOrWhiteSpace(Subtitle))
-            {
+            if (string.IsNullOrWhiteSpace(Subtitle) && string.IsNullOrWhiteSpace(Warning))
                 Grid.SetRowSpan(_titleTextBlock, 2);
-                _subtitleTextBlock.Visibility = Visibility.Collapsed;
-            }
             else
-            {
                 Grid.SetRowSpan(_titleTextBlock, 1);
-                _subtitleTextBlock.Visibility = Visibility.Visible;
-            }
+
+            _subtitleTextBlock.Visibility = string.IsNullOrWhiteSpace(Subtitle) ? Visibility.Collapsed : Visibility.Visible;
+            _warningTextBlock.Visibility = string.IsNullOrWhiteSpace(Warning) ? Visibility.Collapsed : Visibility.Visible;
         }
 
         private void UpdateTextStyle()
@@ -130,11 +151,13 @@ namespace LenovoLegionToolkit.WPF.Controls
             {
                 _titleTextBlock.SetResourceReference(ForegroundProperty, "TextFillColorPrimaryBrush");
                 _subtitleTextBlock.SetResourceReference(ForegroundProperty, "TextFillColorTertiaryBrush");
+                _warningTextBlock.SetResourceReference(ForegroundProperty, "SystemFillColorCautionBrush");
             }
             else
             {
                 _titleTextBlock.SetResourceReference(ForegroundProperty, "TextFillColorDisabledBrush");
                 _subtitleTextBlock.SetResourceReference(ForegroundProperty, "TextFillColorDisabledBrush");
+                _warningTextBlock.SetResourceReference(ForegroundProperty, "TextFillColorDisabledBrush");
             }
         }
     }
