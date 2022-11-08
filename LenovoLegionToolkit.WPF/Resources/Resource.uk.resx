@@ -1155,10 +1155,7 @@
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Плани живлення</value>
   </data>
-  <data name="SettingsPage_SmartKeyDoublePressAction_DoNothing" xml:space="preserve">
-    <value>Нічого не робити</value>
-  </data>
-  <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
+	<data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>Призначити швидкі дії на подвійне натискання Fn+F9.</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">
