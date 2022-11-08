@@ -43,7 +43,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             _settings = settings ?? throw new ArgumentNullException(nameof(settings));
         }
 
-        public async Task StartAsync(PowerModeState powerModeState, bool clear = true)
+        public async Task StartAsync(PowerModeState powerModeState)
         {
             using (await _startStopLock.LockAsync().ConfigureAwait(false))
             {
@@ -59,26 +59,26 @@ namespace LenovoLegionToolkit.Lib.Controllers
                     Log.Instance.Trace($"Starting...");
 
                 if (_startProcessListener is not null || _stopProcessListener is not null)
-                    await StopAsync(powerModeState, clear).ConfigureAwait(false);
+                    await StopAsync(powerModeState).ConfigureAwait(false);
+
+                _setInitialDelayedCancellationTokenSource?.Cancel();
+                if (_setInitialDelayedTask is not null)
+                    await _setInitialDelayedTask.ConfigureAwait(false);
 
                 if (powerModeState != PowerModeState.Balance || !_settings.Store.AIModeEnabled)
                     return;
 
                 await LoadSubModesAsync().ConfigureAwait(false);
 
-                _setInitialDelayedCancellationTokenSource?.Cancel();
                 _setInitialDelayedCancellationTokenSource = new CancellationTokenSource();
                 _setInitialDelayedTask = SetInitialIntelligentSubModeDelayedAsync(_setInitialDelayedCancellationTokenSource.Token);
-
-                _startProcessListener = CreateStartProcessListener();
-                _stopProcessListener = CreateStopProcessListener();
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Started");
             }
         }
 
-        public async Task StopAsync(PowerModeState powerModeState, bool clear = true)
+        public async Task StopAsync(PowerModeState powerModeState)
         {
             using (await _startStopLock.LockAsync().ConfigureAwait(false))
             {
@@ -104,7 +104,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 if (_setInitialDelayedTask is not null)
                     await _setInitialDelayedTask.ConfigureAwait(false);
 
-                if (clear)
+                if (powerModeState == PowerModeState.Balance)
                     await SetIntelligentSubModeAsync(0).ConfigureAwait(false);
 
                 _startProcessListener = null;
@@ -226,8 +226,18 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 }
 
                 await SetIntelligentSubModeAsync(targetSubMode).ConfigureAwait(false);
+
+                _startProcessListener = CreateStartProcessListener();
+                _stopProcessListener = CreateStopProcessListener();
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Initial sub mode set.");
             }
-            catch (TaskCanceledException) { }
+            catch (TaskCanceledException)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Initial sub mode set cancelled.");
+            }
         }
 
         private async Task SetIntelligentSubModeAsync(int subMode)
