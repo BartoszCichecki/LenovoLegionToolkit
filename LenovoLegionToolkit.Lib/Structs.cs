@@ -393,9 +393,9 @@ namespace LenovoLegionToolkit.Lib
 
     public struct RGBKeyboardBacklightBacklightPresetDescription
     {
-        public RGBKeyboardEffect Effect { get; } = RGBKeyboardEffect.Static;
-        public RBGKeyboardSpeed Speed { get; } = RBGKeyboardSpeed.Slowest;
-        public RGBKeyboardBrightness Brightness { get; } = RGBKeyboardBrightness.Low;
+        public RGBKeyboardBacklightEffect Effect { get; } = RGBKeyboardBacklightEffect.Static;
+        public RBGKeyboardBacklightSpeed Speed { get; } = RBGKeyboardBacklightSpeed.Slowest;
+        public RGBKeyboardBacklightBrightness Brightness { get; } = RGBKeyboardBacklightBrightness.Low;
         public RGBColor Zone1 { get; } = new();
         public RGBColor Zone2 { get; } = new();
         public RGBColor Zone3 { get; } = new();
@@ -403,9 +403,9 @@ namespace LenovoLegionToolkit.Lib
 
         [JsonConstructor]
         public RGBKeyboardBacklightBacklightPresetDescription(
-            RGBKeyboardEffect effect,
-            RBGKeyboardSpeed speed,
-            RGBKeyboardBrightness brightness,
+            RGBKeyboardBacklightEffect effect,
+            RBGKeyboardBacklightSpeed speed,
+            RGBKeyboardBacklightBrightness brightness,
             RGBColor zone1,
             RGBColor zone2,
             RGBColor zone3,

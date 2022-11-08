@@ -907,13 +907,13 @@ Fn+Q ile modu değiştirebilirsiniz.</value>
   <data name="RGBKeyboardBacklightControl_Zone4" xml:space="preserve">
     <value>Bölge 4</value>
   </data>
-  <data name="RGBKeyboardBrightnessCardControl_Brightness" xml:space="preserve">
+  <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
     <value>Parlaklık</value>
   </data>
-  <data name="RGBKeyboardEffectCardControl_Title" xml:space="preserve">
+  <data name="RGBKeyboardBacklightEffectCardControl_Title" xml:space="preserve">
     <value>Efekt</value>
   </data>
-  <data name="RGBKeyboardSpeedCardControl_Title" xml:space="preserve">
+  <data name="RGBKeyboardBacklightSpeedCardControl_Title" xml:space="preserve">
     <value>Hız</value>
   </data>
   <data name="ReadmeWindow_Title" xml:space="preserve">

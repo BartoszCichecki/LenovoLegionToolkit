@@ -46,9 +46,9 @@ namespace LenovoLegionToolkit.Lib.Listeners
                 var preset = await _controller.SetNextPresetAsync().ConfigureAwait(false);
 
                 if (preset == RGBKeyboardBacklightPreset.Off)
-                    MessagingCenter.Publish(new Notification(NotificationType.RGBKeyboardPresetOff, NotificationDuration.Short, preset.GetDisplayName()));
+                    MessagingCenter.Publish(new Notification(NotificationType.RGBKeyboardBacklightOff, NotificationDuration.Short, preset.GetDisplayName()));
                 else
-                    MessagingCenter.Publish(new Notification(NotificationType.RGBKeyboardPreset, NotificationDuration.Short, preset.GetDisplayName()));
+                    MessagingCenter.Publish(new Notification(NotificationType.RGBKeyboardBacklightChanged, NotificationDuration.Short, preset.GetDisplayName()));
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Next preset set");

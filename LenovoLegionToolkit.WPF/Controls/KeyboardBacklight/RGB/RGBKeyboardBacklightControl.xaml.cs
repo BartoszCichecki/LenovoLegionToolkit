@@ -152,13 +152,13 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.RGB
 
             var preset = state.Presets[state.SelectedPreset];
 
-            var speedEnabled = preset.Effect != RGBKeyboardEffect.Static;
-            var zonesEnabled = preset.Effect == RGBKeyboardEffect.Static || preset.Effect == RGBKeyboardEffect.Breath;
+            var speedEnabled = preset.Effect != RGBKeyboardBacklightEffect.Static;
+            var zonesEnabled = preset.Effect == RGBKeyboardBacklightEffect.Static || preset.Effect == RGBKeyboardBacklightEffect.Breath;
 
-            _brightnessControl.SetItems(Enum.GetValues<RGBKeyboardBrightness>(), preset.Brightness, v => v.GetDisplayName());
-            _effectControl.SetItems(Enum.GetValues<RGBKeyboardEffect>(), preset.Effect, v => v.GetDisplayName());
+            _brightnessControl.SetItems(Enum.GetValues<RGBKeyboardBacklightBrightness>(), preset.Brightness, v => v.GetDisplayName());
+            _effectControl.SetItems(Enum.GetValues<RGBKeyboardBacklightEffect>(), preset.Effect, v => v.GetDisplayName());
             if (speedEnabled)
-                _speedControl.SetItems(Enum.GetValues<RBGKeyboardSpeed>(), preset.Speed, v => v.GetDisplayName());
+                _speedControl.SetItems(Enum.GetValues<RBGKeyboardBacklightSpeed>(), preset.Speed, v => v.GetDisplayName());
 
             if (zonesEnabled)
             {

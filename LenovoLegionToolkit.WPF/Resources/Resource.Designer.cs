@@ -2856,6 +2856,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Brightness.
+        /// </summary>
+        public static string RGBKeyboardBacklightBrightnessCardControl_Brightness {
+            get {
+                return ResourceManager.GetString("RGBKeyboardBacklightBrightnessCardControl_Brightness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Preset 1.
         /// </summary>
         public static string RGBKeyboardBacklightControl_Preset1 {
@@ -2928,29 +2937,20 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Brightness.
-        /// </summary>
-        public static string RGBKeyboardBrightnessCardControl_Brightness {
-            get {
-                return ResourceManager.GetString("RGBKeyboardBrightnessCardControl_Brightness", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Effect.
         /// </summary>
-        public static string RGBKeyboardEffectCardControl_Title {
+        public static string RGBKeyboardBacklightEffectCardControl_Title {
             get {
-                return ResourceManager.GetString("RGBKeyboardEffectCardControl_Title", resourceCulture);
+                return ResourceManager.GetString("RGBKeyboardBacklightEffectCardControl_Title", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Speed.
         /// </summary>
-        public static string RGBKeyboardSpeedCardControl_Title {
+        public static string RGBKeyboardBacklightSpeedCardControl_Title {
             get {
-                return ResourceManager.GetString("RGBKeyboardSpeedCardControl_Title", resourceCulture);
+                return ResourceManager.GetString("RGBKeyboardBacklightSpeedCardControl_Title", resourceCulture);
             }
         }
         

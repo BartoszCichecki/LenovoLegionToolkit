@@ -992,13 +992,13 @@ Bạn có thể chuyển đổi giữa các Chế độ với Fn+Q.</value>
   <data name="RGBKeyboardBacklightControl_Zone4" xml:space="preserve">
     <value>Vùng 4</value>
   </data>
-  <data name="RGBKeyboardBrightnessCardControl_Brightness" xml:space="preserve">
+  <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
     <value>Độ sáng</value>
   </data>
-  <data name="RGBKeyboardEffectCardControl_Title" xml:space="preserve">
+  <data name="RGBKeyboardBacklightEffectCardControl_Title" xml:space="preserve">
     <value>Hiệu Ứng</value>
   </data>
-  <data name="RGBKeyboardSpeedCardControl_Title" xml:space="preserve">
+  <data name="RGBKeyboardBacklightSpeedCardControl_Title" xml:space="preserve">
     <value>Tốc độ</value>
   </data>
   <data name="ReadmeWindow_Title" xml:space="preserve">
