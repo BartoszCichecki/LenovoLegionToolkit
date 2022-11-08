@@ -1168,9 +1168,6 @@
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>性能计划</value>
   </data>
-  <data name="SettingsPage_SmartKeyDoublePressAction_DoNothing" xml:space="preserve">
-    <value>无动作</value>
-  </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>选择双击 Fn + F9 触发的快捷方式。</value>
   </data>
