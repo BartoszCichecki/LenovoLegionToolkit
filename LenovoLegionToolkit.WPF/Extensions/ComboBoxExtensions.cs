@@ -5,7 +5,7 @@ namespace System.Windows.Controls
 {
     public static class ComboBoxExtensions
     {
-        public static void SetItems<T>(this ComboBox comboBox, IEnumerable<T> items, T selectedItem, Func<T, string>? displayValueConverter)
+        public static void SetItems<T>(this ComboBox comboBox, IEnumerable<T> items, T selectedItem, Func<T, object>? displayValueConverter)
         {
             var boxedItems = items.Select(v => new ComboBoxItem<T>(v, displayValueConverter)).ToArray();
             var selectedBoxedItem = boxedItems.FirstOrDefault(bv => EqualityComparer<T>.Default.Equals(bv.Value, selectedItem));
@@ -75,9 +75,9 @@ namespace System.Windows.Controls
             public static bool operator !=(ComboBoxItem<T> left, ComboBoxItem<T> right) => !(left == right);
 
             public T Value { get; }
-            private readonly Func<T, string>? _displayString;
+            private readonly Func<T, object>? _displayString;
 
-            public ComboBoxItem(T value, Func<T, string>? displayString)
+            public ComboBoxItem(T value, Func<T, object>? displayString)
             {
                 Value = value;
                 _displayString = displayString;
@@ -87,7 +87,10 @@ namespace System.Windows.Controls
 
             public override int GetHashCode() => HashCode.Combine(Value);
 
-            public override string ToString() => _displayString?.Invoke(Value) ?? Value?.ToString() ?? "";
+            public override string ToString()
+            {
+                return _displayString?.Invoke(Value).ToString() ?? Value?.ToString() ?? "";
+            }
         }
     }
 }

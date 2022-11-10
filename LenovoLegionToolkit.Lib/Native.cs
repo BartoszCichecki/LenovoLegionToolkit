@@ -62,9 +62,10 @@ namespace LenovoLegionToolkit.Lib
         GetBrightness = 0xCD,
         Brightness = 0xCE,
         AuroraSendBitmap = 0xA1,
-        State = 0x03,
-        Unknown1 = 0xC6,
+        Unknown1 = 0x03,
         Unknown2 = 0x04,
+        Unknown3 = 0xC6,
+        Unknown4 = 0xD1
     }
 
     internal enum LENOVO_SPECTRUM_EFFECT_TYPE : byte
