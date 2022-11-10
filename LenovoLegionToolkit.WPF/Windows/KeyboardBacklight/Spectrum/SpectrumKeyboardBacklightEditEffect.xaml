@@ -1,0 +1,123 @@
+﻿<local:BaseWindow
+    x:Class="LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum.SpectrumKeyboardBacklightEditEffect"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
+    xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
+    xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Title="Edit effect"
+    Width="700"
+    Height="500"
+    MinWidth="600"
+    MinHeight="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <wpfui:TitleBar
+            x:Name="_titleBar"
+            Grid.Row="0"
+            CanMaximize="false"
+            ShowMaximize="false"
+            ShowMinimize="false"
+            UseSnapLayout="false" />
+
+        <Grid
+            Grid.Row="0"
+            Height="24"
+            Margin="12,8,12,8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock
+                x:Name="_title"
+                Grid.Column="0"
+                VerticalAlignment="Center"
+                FontSize="12"
+                IsHitTestVisible="False"
+                Text="Edit effect" />
+        </Grid>
+
+        <wpfui:DynamicScrollViewer Grid.Row="1" Margin="12,0,0,0">
+            <StackPanel Margin="0,0,16,0">
+
+                <wpfui:CardControl x:Name="_effectTypeCard" Margin="0,0,0,8">
+                    <wpfui:CardControl.Header>
+                        <controls:CardHeaderControl Title="Effect" />
+                    </wpfui:CardControl.Header>
+                    <ComboBox
+                        x:Name="_effectTypeComboBox"
+                        MinWidth="160"
+                        Margin="0,0,0,8"
+                        SelectionChanged="EffectsComboBox_SelectionChanged" />
+                </wpfui:CardControl>
+
+                <wpfui:CardControl x:Name="_directionCard" Margin="0,0,0,8">
+                    <wpfui:CardControl.Header>
+                        <controls:CardHeaderControl Title="Direction" />
+                    </wpfui:CardControl.Header>
+                    <ComboBox
+                        x:Name="_directionComboBox"
+                        MinWidth="160"
+                        Margin="0,0,0,8" />
+                </wpfui:CardControl>
+
+                <wpfui:CardControl x:Name="_clockwiseDirectionCard" Margin="0,0,0,8">
+                    <wpfui:CardControl.Header>
+                        <controls:CardHeaderControl Title="Direction" />
+                    </wpfui:CardControl.Header>
+                    <ComboBox
+                        x:Name="_clockwiseDirectionComboBox"
+                        MinWidth="160"
+                        Margin="0,0,0,8" />
+                </wpfui:CardControl>
+
+                <wpfui:CardControl x:Name="_speedCard" Margin="0,0,0,8">
+                    <wpfui:CardControl.Header>
+                        <controls:CardHeaderControl Title="Speed" />
+                    </wpfui:CardControl.Header>
+                    <ComboBox
+                        x:Name="_speedComboBox"
+                        MinWidth="160"
+                        Margin="0,0,0,8" />
+                </wpfui:CardControl>
+
+                <wpfui:CardControl x:Name="_singleColor" Margin="0,0,0,8">
+                    <wpfui:CardControl.Header>
+                        <controls:CardHeaderControl Title="Color" />
+                    </wpfui:CardControl.Header>
+                </wpfui:CardControl>
+
+                <wpfui:CardControl x:Name="_colors" Margin="0,0,0,8">
+                    <wpfui:CardControl.Header>
+                        <controls:CardHeaderControl Title="Colors" />
+                    </wpfui:CardControl.Header>
+                </wpfui:CardControl>
+
+            </StackPanel>
+        </wpfui:DynamicScrollViewer>
+
+        <StackPanel
+            Grid.Row="2"
+            Margin="12"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal">
+            <wpfui:Button
+                MinWidth="120"
+                Appearance="Primary"
+                Click="Apply_Click"
+                Content="{x:Static resources:Resource.Apply}" />
+            <wpfui:Button
+                MinWidth="120"
+                Margin="12,0,0,0"
+                Content="{x:Static resources:Resource.Cancel}" />
+        </StackPanel>
+
+    </Grid>
+</local:BaseWindow>

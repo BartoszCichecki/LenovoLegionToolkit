@@ -190,6 +190,7 @@
                 Margin="0,0,0,8"
                 HorizontalAlignment="Right"
                 Appearance="Primary"
+                Click="AddEffectButton_Click"
                 Content="Add effect"
                 Icon="Add24" />
 

@@ -7,10 +7,12 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum;
 
 namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 {
@@ -265,6 +267,30 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             _device.SetLayout(layout, _controller.IsExtendedSupported());
 
             await StartAnimationAsync();
+        }
+
+        private void AddEffectButton_Click(object sender, RoutedEventArgs e)
+        {
+            var buttons = _device.GetVisibleButtons().ToArray();
+            var checkedButtons = buttons.Where(b => b.IsChecked ?? false).ToArray();
+
+            if (checkedButtons.IsEmpty())
+            {
+                foreach (var button in buttons)
+                    button.IsChecked = true;
+
+                checkedButtons = buttons;
+            }
+
+            var keys = checkedButtons.Select(b => b.KeyCode).ToArray();
+
+            var window = new SpectrumKeyboardBacklightEditEffect(keys)
+            {
+                Owner = Window.GetWindow(this),
+                WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                ShowInTaskbar = false,
+            };
+            window.ShowDialog();
         }
     }
 }

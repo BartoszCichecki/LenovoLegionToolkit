@@ -367,6 +367,168 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bottom to Top.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightDirection_BottomToTop {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightDirection_BottomToTop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clockwise.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightDirection_Clockwise {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightDirection_Clockwise", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Counter Clockwise.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightDirection_CounterClockwise {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightDirection_CounterClockwise", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left to Right.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightDirection_LeftToRight {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightDirection_LeftToRight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right to Left.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightDirection_RightToLeft {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightDirection_RightToLeft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Top to Bottom.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightDirection_TopToBottom {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightDirection_TopToBottom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Always.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightEffectType_Always {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightEffectType_Always", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Audio Bounce.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightEffectType_AudioBounce {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightEffectType_AudioBounce", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Audio Ripple.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightEffectType_AudioRipple {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightEffectType_AudioRipple", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Color Change.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightEffectType_ColorChange {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightEffectType_ColorChange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Color Pulse.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightEffectType_ColorPulse {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightEffectType_ColorPulse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Color Wave.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightEffectType_ColorWave {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightEffectType_ColorWave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rain.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightEffectType_Rain {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightEffectType_Rain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rainbow Screw.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightEffectType_RainbowScrew {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightEffectType_RainbowScrew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rainbow Wave.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightEffectType_RainbowWave {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightEffectType_RainbowWave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ripple.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightEffectType_Ripple {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightEffectType_Ripple", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Smooth.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightEffectType_Smooth {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightEffectType_Smooth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightEffectType_Type {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightEffectType_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dark.
         /// </summary>
         public static string Theme_Dark {
