@@ -1861,6 +1861,44 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enable high dynamic range (HDR) on the built-in display.
+        ///
+        ///WARNING: This action will not run correctly if the internal display is off..
+        /// </summary>
+        public static string HDRAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("HDRAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HDR.
+        /// </summary>
+        public static string HDRAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("HDRAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable high dynamic range (HDR) on the built-in display..
+        /// </summary>
+        public static string HDRControl_Message {
+            get {
+                return ResourceManager.GetString("HDRControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HDR.
+        /// </summary>
+        public static string HDRControl_Title {
+            get {
+                return ResourceManager.GetString("HDRControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This device is not compatible with Lenovo Legion Toolkit..
         /// </summary>
         public static string IncompatibleDevice_Message {

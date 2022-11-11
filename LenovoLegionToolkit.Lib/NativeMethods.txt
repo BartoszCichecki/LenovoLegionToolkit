@@ -83,3 +83,9 @@ GetShellWindow
 GetWindowRect
 SetWindowsHookEx
 UnhookWindowsHookEx
+
+DisplayConfigGetDeviceInfo
+DisplayConfigSetDeviceInfo
+
+DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO
+DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE
