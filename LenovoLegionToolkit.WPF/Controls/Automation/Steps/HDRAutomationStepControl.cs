@@ -13,7 +13,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
 
         public HDRAutomationStepControl(IAutomationStep<HDRState> step) : base(step)
         {
-            Icon = SymbolRegular.Laptop24;
+            Icon = SymbolRegular.Hdr24;
             Title = Resource.HDRAutomationStepControl_Title;
             Subtitle = Resource.HDRAutomationStepControl_Message;
 
