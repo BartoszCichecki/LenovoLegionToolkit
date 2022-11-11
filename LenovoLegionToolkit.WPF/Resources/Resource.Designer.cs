@@ -1899,6 +1899,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to HDR usage is blocked by the Windows settings..
+        /// </summary>
+        public static string HDRControl_Warning {
+            get {
+                return ResourceManager.GetString("HDRControl_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This device is not compatible with Lenovo Legion Toolkit..
         /// </summary>
         public static string IncompatibleDevice_Message {
