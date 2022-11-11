@@ -92,6 +92,7 @@
                     <wpfui:CardControl.Header>
                         <controls:CardHeaderControl Title="Color" />
                     </wpfui:CardControl.Header>
+                    <controls:ColorPickerControl x:Name="_singleColorPicker" />
                 </wpfui:CardControl>
 
                 <wpfui:CardControl x:Name="_colors" Margin="0,0,0,8">

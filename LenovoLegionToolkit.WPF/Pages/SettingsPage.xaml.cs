@@ -15,6 +15,7 @@ using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Settings;
@@ -70,7 +71,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             }
 
             _themeComboBox.SetItems(Enum.GetValues<Theme>(), _settings.Store.Theme, t => t.GetDisplayName());
-            _accentColor.SetColor(_settings.Store.AccentColor ?? _themeManager.DefaultAccentColor);
+            _accentColorPicker.SelectedColor = (_settings.Store.AccentColor ?? _themeManager.DefaultAccentColor).ToColor();
             _autorunComboBox.SetItems(Enum.GetValues<AutorunState>(), Autorun.State, t => t.GetDisplayName());
             _minimizeOnCloseToggle.IsChecked = _settings.Store.MinimizeOnClose;
 
@@ -143,12 +144,12 @@ namespace LenovoLegionToolkit.WPF.Pages
             _themeManager.Apply();
         }
 
-        private void AccentColorControl_OnChanged(object sender, EventArgs e)
+        private void AccentColorPicker_Changed(object sender, EventArgs e)
         {
             if (_isRefreshing)
                 return;
 
-            _settings.Store.AccentColor = _accentColor.GetColor();
+            _settings.Store.AccentColor = _accentColorPicker.SelectedColor.ToRGBColor();
             _settings.SynchronizeStore();
 
             _themeManager.Apply();

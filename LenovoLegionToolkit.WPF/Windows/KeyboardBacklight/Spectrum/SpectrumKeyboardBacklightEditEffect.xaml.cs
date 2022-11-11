@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.WPF.Extensions;
 
 namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
 {
@@ -55,6 +57,9 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
                 _speedComboBox.TryGetSelectedItem(out SpectrumKeyboardBacklightSpeed speedTemp))
                 speed = speedTemp;
 
+            if (_singleColor.Visibility == Visibility.Visible)
+                colors = new[] { _singleColorPicker.SelectedColor.ToRGBColor() };
+
             var effect = new SpectrumKeyboardBacklightEffect(effectType,
                 speed,
                 direction,
@@ -94,6 +99,8 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
                 },
                 SpectrumKeyboardBacklightSpeed.Speed2,
                 e => (int)e);
+
+            _singleColorPicker.SelectedColor = Colors.White;
         }
 
         private void RefreshVisibility()

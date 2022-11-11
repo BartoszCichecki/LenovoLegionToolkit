@@ -48,13 +48,15 @@
                 Visibility="Hidden" />
         </wpfui:CardControl>
 
-        <controls:ColorCardControl
+        <wpfui:CardControl
             x:Name="_accentColor"
-            Title="{x:Static resources:Resource.SettingsPage_AccentColor_Title}"
             Margin="0,0,0,24"
-            Icon="Color24"
-            OnChanged="AccentColorControl_OnChanged"
-            Subtitle="{x:Static resources:Resource.SettingsPage_AccentColor_Description}" />
+            Icon="Color24">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_AccentColor_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_AccentColor_Description}" />
+            </wpfui:CardControl.Header>
+            <controls:ColorPickerControl x:Name="_accentColorPicker" ColorChangedDelayed="AccentColorPicker_Changed" />
+        </wpfui:CardControl>
 
         <wpfui:CardControl Margin="0,0,0,8">
             <wpfui:CardControl.Header>
