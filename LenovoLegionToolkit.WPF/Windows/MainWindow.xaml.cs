@@ -163,7 +163,7 @@ namespace LenovoLegionToolkit.WPF.Windows
                         {
                             await _automationProcessor.RunNowAsync(id.Value);
 
-                            MessagingCenter.Publish(new Notification(NotificationType.SmartKeyDoublePress, NotificationDuration.Short,
+                            MessagingCenter.Publish(new Notification(NotificationType.SmartKeySinglePress, NotificationDuration.Short,
                                 (await _automationProcessor.GetPipelinesAsync()).First(p => p.Id == id).Name ?? string.Empty));
                         }
                         catch (Exception ex)

@@ -2249,20 +2249,11 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Smart Key double press.
+        ///   Looks up a localized string similar to Smart Key.
         /// </summary>
-        public static string NotificationsSettingsWindow_SmartKeyDoublePress {
+        public static string NotificationsSettingsWindow_SmartKey {
             get {
-                return ResourceManager.GetString("NotificationsSettingsWindow_SmartKeyDoublePress", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Smart Key single press.
-        /// </summary>
-        public static string NotificationsSettingsWindow_SmartKeySinglePress {
-            get {
-                return ResourceManager.GetString("NotificationsSettingsWindow_SmartKeySinglePress", resourceCulture);
+                return ResourceManager.GetString("NotificationsSettingsWindow_SmartKey", resourceCulture);
             }
         }
         
