@@ -136,7 +136,7 @@
                         Click="RefreshRateToggle_Click" />
                 </wpfui:CardControl>
 
-                <wpfui:CardControl x:Name="_acAdapterCard" Margin="0,0,0,8">
+                <wpfui:CardControl x:Name="_acAdapterCard" Margin="0,0,0,24">
                     <wpfui:CardControl.Header>
                         <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_ACAdapter}" />
                     </wpfui:CardControl.Header>
@@ -146,6 +146,25 @@
                         Click="ACAdapterToggle_Click" />
                 </wpfui:CardControl>
 
+                <wpfui:CardControl x:Name="_smartKeySinglePressCard" Margin="0,0,0,8">
+                    <wpfui:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_SmartKeySinglePress}" />
+                    </wpfui:CardControl.Header>
+                    <wpfui:ToggleSwitch
+                        x:Name="_smartKeySinglePressToggle"
+                        Margin="0,0,0,8"
+                        Click="SmartKeySinglePressToggle_Click" />
+                </wpfui:CardControl>
+
+                <wpfui:CardControl x:Name="_smartKeyDoublePressCard" Margin="0,0,0,8">
+                    <wpfui:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_SmartKeyDoublePress}" />
+                    </wpfui:CardControl.Header>
+                    <wpfui:ToggleSwitch
+                        x:Name="_smartKeyDoublePressToggle"
+                        Margin="0,0,0,8"
+                        Click="SmartKeyDoublePressToggle_Click" />
+                </wpfui:CardControl>
             </StackPanel>
         </wpfui:DynamicScrollViewer>
 

@@ -17,6 +17,8 @@ namespace LenovoLegionToolkit.Lib.Settings
             public bool PowerMode { get; set; }
             public bool RefreshRate { get; set; } = true;
             public bool ACAdapter { get; set; }
+            public bool SmartKeySinglePress { get; set; }
+            public bool SmartKeyDoublePress { get; set; }
         }
 
         public class ApplicationSettingsStore

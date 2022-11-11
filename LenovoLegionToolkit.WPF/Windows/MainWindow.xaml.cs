@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
@@ -127,6 +128,9 @@ namespace LenovoLegionToolkit.WPF.Windows
                         try
                         {
                             await _automationProcessor.RunNowAsync(id.Value);
+
+                            MessagingCenter.Publish(new Notification(NotificationType.SmartKeyDoublePress, NotificationDuration.Short,
+                                (await _automationProcessor.GetPipelinesAsync()).First(p => p.Id == id).Name ?? string.Empty));
                         }
                         catch (Exception ex)
                         {
@@ -140,6 +144,9 @@ namespace LenovoLegionToolkit.WPF.Windows
                             Log.Instance.Trace($"Bringing to foreground after double Fn+F9 press.");
 
                         Dispatcher.Invoke(BringToForeground);
+
+                        MessagingCenter.Publish(new Notification(NotificationType.SmartKeyDoublePress, NotificationDuration.Short,
+                            Resource.SettingsPage_SmartKeySinglePressAction_ShowThisApp));
                     }
                 }
                 else
@@ -155,6 +162,9 @@ namespace LenovoLegionToolkit.WPF.Windows
                         try
                         {
                             await _automationProcessor.RunNowAsync(id.Value);
+
+                            MessagingCenter.Publish(new Notification(NotificationType.SmartKeyDoublePress, NotificationDuration.Short,
+                                (await _automationProcessor.GetPipelinesAsync()).First(p => p.Id == id).Name ?? string.Empty));
                         }
                         catch (Exception ex)
                         {
@@ -168,6 +178,9 @@ namespace LenovoLegionToolkit.WPF.Windows
                             Log.Instance.Trace($"Bringing to foreground after single Fn+F9 press.");
 
                         Dispatcher.Invoke(BringToForeground);
+
+                        MessagingCenter.Publish(new Notification(NotificationType.SmartKeySinglePress, NotificationDuration.Short,
+                            Resource.SettingsPage_SmartKeySinglePressAction_ShowThisApp));
                     }
                 }
             }, token);

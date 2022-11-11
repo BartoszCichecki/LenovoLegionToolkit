@@ -804,6 +804,12 @@ Activați această opțiune dacă aveți conflicte cu aplicațiile pe ecran comp
   <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
     <value>Blocare Touchpad</value>
   </data>
+  <data name="NotificationsSettingsWindow_SmartKeySinglePress" xml:space="preserve">
+    <value>Apăsare tastă inteligentă</value>
+  </data>
+  <data name="NotificationsSettingsWindow_SmartKeyDoublePress" xml:space="preserve">
+    <value>Dublă apăsare tastă inteligentă</value>
+  </data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
