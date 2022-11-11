@@ -1,0 +1,114 @@
+﻿<UserControl
+    x:Class="LenovoLegionToolkit.WPF.Controls.ColorPickerControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cp="clr-namespace:ColorPicker;assembly=ColorPicker"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <Grid>
+        <Button
+            x:Name="_button"
+            Width="38"
+            Height="38"
+            Click="Button_Click" />
+
+        <Popup
+            x:Name="_popup"
+            AllowsTransparency="True"
+            StaysOpen="False">
+            <Border CornerRadius="8">
+                <Border.Background>
+                    <SolidColorBrush Color="{DynamicResource ApplicationBackgroundColor}" />
+                </Border.Background>
+                <StackPanel>
+                    <cp:SquarePicker
+                        x:Name="_colorPicker"
+                        Width="200"
+                        Height="200"
+                        Margin="16"
+                        HorizontalAlignment="Center"
+                        ColorChanged="ColorPicker_ColorChanged"
+                        MouseDown="ColorPicker_MouseDown"
+                        MouseUp="ColorPicker_MouseUp" />
+
+                    <Grid Margin="0,0,0,16" HorizontalAlignment="Center">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="120" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Margin="0,0,16,8"
+                            VerticalContentAlignment="Center"
+                            Content="{x:Static resources:Resource.Color_Red}" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Margin="0,0,16,8"
+                            VerticalContentAlignment="Center"
+                            Content="{x:Static resources:Resource.Color_Green}" />
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Margin="0,0,16,8"
+                            VerticalContentAlignment="Center"
+                            Content="{x:Static resources:Resource.Color_Blue}" />
+
+                        <wpfui:NumberBox
+                            x:Name="_redNumberBox"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Margin="0,0,0,8"
+                            ClearButtonEnabled="False"
+                            IntegersOnly="True"
+                            Max="255"
+                            Min="0"
+                            Text="0"
+                            TextChanged="NumberBox_TextChanged" />
+                        <wpfui:NumberBox
+                            x:Name="_greenNumberBox"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="0,0,0,8"
+                            ClearButtonEnabled="False"
+                            IntegersOnly="True"
+                            Max="255"
+                            Min="0"
+                            Text="0"
+                            TextChanged="NumberBox_TextChanged" />
+                        <wpfui:NumberBox
+                            x:Name="_blueNumberBox"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Margin="0,0,0,8"
+                            ClearButtonEnabled="False"
+                            IntegersOnly="True"
+                            Max="255"
+                            Min="0"
+                            Text="0"
+                            TextChanged="NumberBox_TextChanged" />
+
+                    </Grid>
+
+                </StackPanel>
+            </Border>
+        </Popup>
+
+    </Grid>
+
+</UserControl>
