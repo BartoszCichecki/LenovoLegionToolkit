@@ -20,8 +20,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
             _powerModeCard,
             _refreshRateCard,
             _acAdapterCard,
-            _smartKeySinglePressCard,
-            _smartKeyDoublePressCard
+            _smartKeyCard
         };
 
         public NotificationsSettingsWindow()
@@ -44,8 +43,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
             _powerModeToggle.IsChecked = _settings.Store.Notifications.PowerMode;
             _refreshRateToggle.IsChecked = _settings.Store.Notifications.RefreshRate;
             _acAdapterToggle.IsChecked = _settings.Store.Notifications.ACAdapter;
-            _smartKeySinglePressToggle.IsChecked = _settings.Store.Notifications.SmartKeySinglePress;
-            _smartKeyDoublePressToggle.IsChecked = _settings.Store.Notifications.SmartKeyDoublePress;
+            _smartKeyToggle.IsChecked = _settings.Store.Notifications.SmartKey;
 
             RefreshCards();
         }
@@ -160,23 +158,13 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
             _settings.SynchronizeStore();
         }
 
-        private void SmartKeySinglePressToggle_Click(object sender, RoutedEventArgs e)
+        private void SmartKeyToggle_Click(object sender, RoutedEventArgs e)
         {
-            var state = _smartKeySinglePressToggle.IsChecked;
+            var state = _smartKeyToggle.IsChecked;
             if (state is null)
                 return;
 
-            _settings.Store.Notifications.SmartKeySinglePress = state.Value;
-            _settings.SynchronizeStore();
-        }
-
-        private void SmartKeyDoublePressToggle_Click(object sender, RoutedEventArgs e)
-        {
-            var state = _smartKeyDoublePressToggle.IsChecked;
-            if (state is null)
-                return;
-
-            _settings.Store.Notifications.SmartKeyDoublePress = state.Value;
+            _settings.Store.Notifications.SmartKey = state.Value;
             _settings.SynchronizeStore();
         }
     }

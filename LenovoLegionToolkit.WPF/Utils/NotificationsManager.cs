@@ -60,8 +60,8 @@ namespace LenovoLegionToolkit.WPF.Utils
                 NotificationType.TouchpadOn => _settings.Store.Notifications.TouchpadLock,
                 NotificationType.TouchpadOff => _settings.Store.Notifications.TouchpadLock,
                 NotificationType.WhiteKeyboardBacklight => _settings.Store.Notifications.KeyboardBacklight,
-                NotificationType.SmartKeySinglePress => _settings.Store.Notifications.SmartKeySinglePress,
-                NotificationType.SmartKeyDoublePress => _settings.Store.Notifications.SmartKeyDoublePress,
+                NotificationType.SmartKeySinglePress => _settings.Store.Notifications.SmartKey,
+                NotificationType.SmartKeyDoublePress => _settings.Store.Notifications.SmartKey,
                 _ => throw new ArgumentException(nameof(notification.Type))
             };
 
