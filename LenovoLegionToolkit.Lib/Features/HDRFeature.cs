@@ -68,5 +68,14 @@ namespace LenovoLegionToolkit.Lib.Features
 
             display.SetAdvancedColorState(state == HDRState.On);
         }
+
+        public async Task<bool> IsHDRBlockedAsync()
+        {
+            var display = await DisplayExtensions.GetBuiltInDisplayAsync().ConfigureAwait(false);
+            if (display is null)
+                throw new InvalidOperationException("Built in display not found");
+
+            return display.GetAdvancedColorInfo().AdvancedColorForceDisabled;
+        }
     }
 }
