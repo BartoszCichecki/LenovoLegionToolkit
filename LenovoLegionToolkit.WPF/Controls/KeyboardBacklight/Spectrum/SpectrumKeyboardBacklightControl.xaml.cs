@@ -284,7 +284,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 
             var keys = checkedButtons.Select(b => b.KeyCode).ToArray();
 
-            var window = new SpectrumKeyboardBacklightEditEffect(keys)
+            var window = new SpectrumKeyboardBacklightEditEffectWindow(keys)
             {
                 Owner = Window.GetWindow(this),
                 WindowStartupLocation = WindowStartupLocation.CenterOwner,

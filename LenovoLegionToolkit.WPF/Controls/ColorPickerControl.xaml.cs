@@ -10,23 +10,20 @@ namespace LenovoLegionToolkit.WPF.Controls
 {
     public partial class ColorPickerControl
     {
-        public class ColorChangedEventArgs : EventArgs
-        {
-            public Color Color { get; init; }
-        }
-
         public Color SelectedColor
         {
             get => _colorPicker.SelectedColor;
             set => _colorPicker.SelectedColor = value;
         }
 
-        public event EventHandler<ColorChangedEventArgs>? ColorChangedContinuous;
-        public event EventHandler<ColorChangedEventArgs>? ColorChangedDelayed;
+        public event EventHandler? ColorChangedContinuous;
+        public event EventHandler? ColorChangedDelayed;
 
         public ColorPickerControl()
         {
             InitializeComponent();
+
+            SelectedColor = Colors.White;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -38,7 +35,7 @@ namespace LenovoLegionToolkit.WPF.Controls
         private void ColorPicker_MouseUp(object sender, MouseButtonEventArgs e)
         {
             e.Handled = true;
-            ColorChangedDelayed?.Invoke(this, new ColorChangedEventArgs { Color = _colorPicker.SelectedColor });
+            ColorChangedDelayed?.Invoke(this, EventArgs.Empty);
         }
 
         private void ColorPicker_MouseDown(object sender, MouseButtonEventArgs e)
@@ -49,6 +46,8 @@ namespace LenovoLegionToolkit.WPF.Controls
         private void ColorPicker_ColorChanged(object sender, RoutedEventArgs e) => Update(sender);
 
         private void NumberBox_TextChanged(object sender, TextChangedEventArgs e) => Update(sender);
+
+        public void Open() => _popup.IsOpen = true;
 
         private void Update(object? sender)
         {
@@ -63,7 +62,7 @@ namespace LenovoLegionToolkit.WPF.Controls
                 _blueNumberBox.Text = color.B.ToString();
                 _button.Background = new SolidColorBrush(color);
 
-                ColorChangedContinuous?.Invoke(this, new ColorChangedEventArgs { Color = color });
+                ColorChangedContinuous?.Invoke(this, EventArgs.Empty);
             }
 
             if (sender is NumberBox)
@@ -78,7 +77,7 @@ namespace LenovoLegionToolkit.WPF.Controls
                 {
                     _colorPicker.SelectedColor = color;
 
-                    ColorChangedDelayed?.Invoke(this, new ColorChangedEventArgs { Color = color });
+                    ColorChangedDelayed?.Invoke(this, EventArgs.Empty);
                 }
             }
         }
