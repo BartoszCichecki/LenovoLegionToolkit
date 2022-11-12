@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Input;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Settings;
@@ -150,6 +151,9 @@ namespace LenovoLegionToolkit.WPF.Windows
             }
 
             var guids = isDoublePress ? _settings.Store.SmartKeyDoublePressActionList : _settings.Store.SmartKeySinglePressActionList;
+
+            if (guids.IsEmpty())
+                guids.Add(currentGuid.Value);
 
             int currentIndex = guids.IndexOf(currentGuid.Value);
             if (currentIndex < 0)
