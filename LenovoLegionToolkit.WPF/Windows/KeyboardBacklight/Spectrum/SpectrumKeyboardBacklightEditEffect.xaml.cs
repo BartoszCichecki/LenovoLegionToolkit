@@ -98,7 +98,7 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
                     SpectrumKeyboardBacklightSpeed.Speed3
                 },
                 SpectrumKeyboardBacklightSpeed.Speed2,
-                e => (int)e);
+                e => e.GetDisplayName());
 
             _singleColorPicker.SelectedColor = Colors.White;
         }

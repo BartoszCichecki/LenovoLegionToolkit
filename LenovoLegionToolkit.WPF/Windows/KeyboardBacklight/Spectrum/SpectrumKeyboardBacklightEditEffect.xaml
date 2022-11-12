@@ -7,9 +7,9 @@
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="Edit effect"
-    Width="700"
+    Width="400"
     Height="500"
-    MinWidth="600"
+    MinWidth="400"
     MinHeight="500">
     <Grid>
         <Grid.RowDefinitions>
@@ -99,6 +99,32 @@
                     <wpfui:CardControl.Header>
                         <controls:CardHeaderControl Title="Colors" />
                     </wpfui:CardControl.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Grid Margin="8,0,0,0">
+                            <controls:ColorPickerControl SelectedColor="Red" />
+                            <Border
+                                Width="20"
+                                Height="20"
+                                Background="{DynamicResource SolidBackgroundFillColorBaseBrush}"
+                                CornerRadius="10"
+                                Cursor="Hand">
+                                <Border.RenderTransform>
+                                    <TranslateTransform X="14" Y="-14" />
+                                </Border.RenderTransform>
+                                <wpfui:SymbolIcon
+                                    FontSize="11"
+                                    FontWeight="Medium"
+                                    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                    Symbol="Dismiss12" />
+                            </Border>
+                        </Grid>
+                        <wpfui:Button
+                            Width="38"
+                            Height="38"
+                            Margin="8,0,0,0"
+                            Appearance="Primary"
+                            Icon="Add24" />
+                    </StackPanel>
                 </wpfui:CardControl>
 
             </StackPanel>

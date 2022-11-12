@@ -326,8 +326,11 @@ namespace LenovoLegionToolkit.Lib
     public enum SpectrumKeyboardBacklightSpeed
     {
         None,
+        [Display(ResourceType = typeof(Resource), Name = "SpectrumKeyboardBacklightSpeed_Speed1")]
         Speed1,
+        [Display(ResourceType = typeof(Resource), Name = "SpectrumKeyboardBacklightSpeed_Speed2")]
         Speed2,
+        [Display(ResourceType = typeof(Resource), Name = "SpectrumKeyboardBacklightSpeed_Speed3")]
         Speed3
     }
 
