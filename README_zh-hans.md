@@ -185,7 +185,7 @@
 3. 拯救者工具箱将会启动并且可以在左上角能看到 `[LOGGING ENABLED]` ；
 4. 复现你遇到的问题；
 5. 关闭拯救者工具箱 （同样记得关掉后台）；
-6. 然后打开 `允许` （使用Win+R打开）然后输入 `"%LOCALAPPDATA%\LenovoLegionToolkit\log"` ；
+6. 然后打开 `运行` （使用Win+R打开）然后输入 `"%LOCALAPPDATA%\LenovoLegionToolkit\log"` ；
 7. 这里就是存放日志文件的地方了，提issue时记得一并提交。
 
 
