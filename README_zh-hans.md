@@ -8,7 +8,7 @@
 
 ---
 
-联想拯救者工具箱 Lenovo Legion Toolkit (LLT) 是为联想拯救者系列笔记本打造的轻量化工具箱。可实现原来联想软件如Lenovo Vantage、Legion Zone、联想电脑管家才可实现的功能。
+联想拯救者工具箱 Lenovo Legion Toolkit (LLT) 是为联想拯救者系列笔记本打造的轻量化工具箱。可实现原来联想软件如 Lenovo Vantage、Legion Zone、联想电脑管家才可实现的功能。
 
 **本软件仅适配拯救者系列及Ideapad Gaming系列，如果你是其他联想笔记本则这个软件不适合你，请不要提出兼容 Issue ，如果提出将被直接关闭不作受理。**
 
@@ -60,7 +60,7 @@
 
 这里是测试过支持的型号 [Compatibility.cs](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/LenovoLegionToolkit.Lib/Utils/Compatibility.cs).
 
-**拯救者系列与Ideapad Gaming系列之外的笔记本暂不考虑适配**
+**拯救者系列与 Ideapad Gaming 系列之外的笔记本暂不考虑适配**
 
 ## 功能介绍
 
