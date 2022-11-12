@@ -125,7 +125,7 @@
                         SymbolIcon="ArrowsBidirectional24" />
                 </ContextMenu>
             </wpfui:CardControl.ContextMenu>
-            <controls:ColorPickerControl x:Name="_zone1ColorPicker" ColorChangedDelayed="CardControl_Changed" />
+            <controls:ColorPickerControl x:Name="_zone1ColorPicker" ColorChangedDelayed="ColorCardControl_Changed" />
         </wpfui:CardControl>
 
         <wpfui:CardControl
@@ -145,7 +145,7 @@
                         SymbolIcon="ArrowsBidirectional24" />
                 </ContextMenu>
             </wpfui:CardControl.ContextMenu>
-            <controls:ColorPickerControl x:Name="_zone2ColorPicker" ColorChangedDelayed="CardControl_Changed" />
+            <controls:ColorPickerControl x:Name="_zone2ColorPicker" ColorChangedDelayed="ColorCardControl_Changed" />
         </wpfui:CardControl>
 
         <wpfui:CardControl
@@ -165,7 +165,7 @@
                         SymbolIcon="ArrowsBidirectional24" />
                 </ContextMenu>
             </wpfui:CardControl.ContextMenu>
-            <controls:ColorPickerControl x:Name="_zone3ColorPicker" ColorChangedDelayed="CardControl_Changed" />
+            <controls:ColorPickerControl x:Name="_zone3ColorPicker" ColorChangedDelayed="ColorCardControl_Changed" />
         </wpfui:CardControl>
 
         <wpfui:CardControl
@@ -185,7 +185,7 @@
                         SymbolIcon="ArrowsBidirectional24" />
                 </ContextMenu>
             </wpfui:CardControl.ContextMenu>
-            <controls:ColorPickerControl x:Name="_zone4ColorPicker" ColorChangedDelayed="CardControl_Changed" />
+            <controls:ColorPickerControl x:Name="_zone4ColorPicker" ColorChangedDelayed="ColorCardControl_Changed" />
         </wpfui:CardControl>
 
     </Grid>

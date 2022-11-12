@@ -66,6 +66,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.RGB
 
             await RefreshAsync();
         }
+
         private async void SynchroniseZonesMenuItem_Click(object sender, RoutedEventArgs e)
         {
             if (sender is not MenuItem { Parent: ContextMenu { PlacementTarget: CardControl { Content: ColorPickerControl pickerControl } } })
@@ -79,6 +80,12 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.RGB
         }
 
         private async void CardControl_Changed(object? sender, EventArgs e)
+        {
+            await SaveState();
+            await RefreshAsync();
+        }
+
+        private async void ColorCardControl_Changed(object? sender, ColorPickerControl.ColorChangedEventArgs e)
         {
             await SaveState();
             await RefreshAsync();
