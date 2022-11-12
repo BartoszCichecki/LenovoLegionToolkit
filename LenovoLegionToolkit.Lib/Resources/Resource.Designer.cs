@@ -529,6 +529,33 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Slow.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightSpeed_Speed1 {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightSpeed_Speed1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Medium.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightSpeed_Speed2 {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightSpeed_Speed2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fast.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightSpeed_Speed3 {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightSpeed_Speed3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dark.
         /// </summary>
         public static string Theme_Dark {

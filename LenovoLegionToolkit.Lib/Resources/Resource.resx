@@ -214,6 +214,15 @@
   <data name="SpectrumKeyboardBacklightEffectType_Type" xml:space="preserve">
 		<value>Type</value>
 	</data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed1" xml:space="preserve">
+		<value>Slow</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed2" xml:space="preserve">
+		<value>Medium</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed3" xml:space="preserve">
+		<value>Fast</value>
+	</data>
   <data name="Theme_Dark" xml:space="preserve">
     <value>Dark</value>
   </data>
