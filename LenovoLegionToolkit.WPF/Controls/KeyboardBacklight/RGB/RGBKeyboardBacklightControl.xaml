@@ -49,6 +49,7 @@
             x:Name="_offPresetButton"
             Grid.Row="1"
             Grid.Column="0"
+            Height="36"
             Margin="0,0,8,24"
             HorizontalAlignment="Stretch"
             Click="PresetButton_Click"
@@ -58,6 +59,7 @@
             x:Name="_preset1Button"
             Grid.Row="1"
             Grid.Column="1"
+            Height="36"
             Margin="0,0,8,24"
             HorizontalAlignment="Stretch"
             Click="PresetButton_Click"
@@ -67,6 +69,7 @@
             x:Name="_preset2Button"
             Grid.Row="1"
             Grid.Column="2"
+            Height="36"
             Margin="0,0,8,24"
             HorizontalAlignment="Stretch"
             Click="PresetButton_Click"
@@ -76,6 +79,7 @@
             x:Name="_preset3Button"
             Grid.Row="1"
             Grid.Column="3"
+            Height="36"
             Margin="0,0,8,24"
             HorizontalAlignment="Stretch"
             Click="PresetButton_Click"
@@ -88,97 +92,101 @@
             Grid.Column="0"
             Grid.ColumnSpan="4"
             Margin="0,0,8,0"
-            OnChanged="CardControl_OnChanged" />
+            OnChanged="CardControl_Changed" />
         <rgb:RGBKeyboardBacklightEffectCardControl
             x:Name="_effectControl"
             Grid.Row="3"
             Grid.Column="0"
             Grid.ColumnSpan="4"
             Margin="0,0,8,0"
-            OnChanged="CardControl_OnChanged" />
+            OnChanged="CardControl_Changed" />
         <rgb:RGBKeyboardBacklightSpeedCardControl
             x:Name="_speedControl"
             Grid.Row="4"
             Grid.Column="0"
             Grid.ColumnSpan="4"
             Margin="0,0,8,0"
-            OnChanged="CardControl_OnChanged" />
+            OnChanged="CardControl_Changed" />
 
-        <controls:ColorCardControl
+        <wpfui:CardControl
             x:Name="_zone1Control"
-            Title="{x:Static resources:Resource.RGBKeyboardBacklightControl_Zone1}"
             Grid.Row="5"
-            Grid.Column="0"
             Margin="0,0,8,8"
             VerticalAlignment="Top"
-            Icon="Color24"
-            OnChanged="CardControl_OnChanged">
-            <controls:ColorCardControl.ContextMenu>
+            Icon="Color24">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.RGBKeyboardBacklightControl_Zone1}" />
+            </wpfui:CardControl.Header>
+            <wpfui:CardControl.ContextMenu>
                 <ContextMenu>
                     <wpfui:MenuItem
                         Click="SynchroniseZonesMenuItem_Click"
                         Header="Synchronise zones"
                         SymbolIcon="ArrowsBidirectional24" />
                 </ContextMenu>
-            </controls:ColorCardControl.ContextMenu>
-        </controls:ColorCardControl>
+            </wpfui:CardControl.ContextMenu>
+            <controls:ColorPickerControl x:Name="_zone1ColorPicker" ColorChangedDelayed="CardControl_Changed" />
+        </wpfui:CardControl>
 
-        <controls:ColorCardControl
+        <wpfui:CardControl
             x:Name="_zone2Control"
-            Title="{x:Static resources:Resource.RGBKeyboardBacklightControl_Zone2}"
             Grid.Row="5"
-            Grid.Column="1"
             Margin="0,0,8,8"
             VerticalAlignment="Top"
-            Icon="Color24"
-            OnChanged="CardControl_OnChanged">
-            <controls:ColorCardControl.ContextMenu>
+            Icon="Color24">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.RGBKeyboardBacklightControl_Zone2}" />
+            </wpfui:CardControl.Header>
+            <wpfui:CardControl.ContextMenu>
                 <ContextMenu>
                     <wpfui:MenuItem
                         Click="SynchroniseZonesMenuItem_Click"
                         Header="Synchronise zones"
                         SymbolIcon="ArrowsBidirectional24" />
                 </ContextMenu>
-            </controls:ColorCardControl.ContextMenu>
-        </controls:ColorCardControl>
+            </wpfui:CardControl.ContextMenu>
+            <controls:ColorPickerControl x:Name="_zone2ColorPicker" ColorChangedDelayed="CardControl_Changed" />
+        </wpfui:CardControl>
 
-        <controls:ColorCardControl
+        <wpfui:CardControl
             x:Name="_zone3Control"
-            Title="{x:Static resources:Resource.RGBKeyboardBacklightControl_Zone3}"
             Grid.Row="5"
-            Grid.Column="2"
             Margin="0,0,8,8"
             VerticalAlignment="Top"
-            Icon="Color24"
-            OnChanged="CardControl_OnChanged">
-            <controls:ColorCardControl.ContextMenu>
+            Icon="Color24">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.RGBKeyboardBacklightControl_Zone3}" />
+            </wpfui:CardControl.Header>
+            <wpfui:CardControl.ContextMenu>
                 <ContextMenu>
                     <wpfui:MenuItem
                         Click="SynchroniseZonesMenuItem_Click"
                         Header="Synchronise zones"
                         SymbolIcon="ArrowsBidirectional24" />
                 </ContextMenu>
-            </controls:ColorCardControl.ContextMenu>
-        </controls:ColorCardControl>
+            </wpfui:CardControl.ContextMenu>
+            <controls:ColorPickerControl x:Name="_zone3ColorPicker" ColorChangedDelayed="CardControl_Changed" />
+        </wpfui:CardControl>
 
-        <controls:ColorCardControl
+        <wpfui:CardControl
             x:Name="_zone4Control"
-            Title="{x:Static resources:Resource.RGBKeyboardBacklightControl_Zone4}"
             Grid.Row="5"
-            Grid.Column="3"
             Margin="0,0,8,8"
             VerticalAlignment="Top"
-            Icon="Color24"
-            OnChanged="CardControl_OnChanged">
-            <controls:ColorCardControl.ContextMenu>
+            Icon="Color24">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.RGBKeyboardBacklightControl_Zone4}" />
+            </wpfui:CardControl.Header>
+            <wpfui:CardControl.ContextMenu>
                 <ContextMenu>
                     <wpfui:MenuItem
                         Click="SynchroniseZonesMenuItem_Click"
                         Header="Synchronise zones"
                         SymbolIcon="ArrowsBidirectional24" />
                 </ContextMenu>
-            </controls:ColorCardControl.ContextMenu>
-        </controls:ColorCardControl>
+            </wpfui:CardControl.ContextMenu>
+            <controls:ColorPickerControl x:Name="_zone4ColorPicker" ColorChangedDelayed="CardControl_Changed" />
+        </wpfui:CardControl>
 
     </Grid>
 
