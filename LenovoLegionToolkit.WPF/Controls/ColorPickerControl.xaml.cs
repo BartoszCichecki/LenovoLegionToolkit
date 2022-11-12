@@ -10,14 +10,19 @@ namespace LenovoLegionToolkit.WPF.Controls
 {
     public partial class ColorPickerControl
     {
+        public class ColorChangedEventArgs : EventArgs
+        {
+            public Color Color { get; init; }
+        }
+
         public Color SelectedColor
         {
             get => _colorPicker.SelectedColor;
             set => _colorPicker.SelectedColor = value;
         }
 
-        public event EventHandler<EventArgs>? ColorChangedContinuous;
-        public event EventHandler<EventArgs>? ColorChangedDelayed;
+        public event EventHandler<ColorChangedEventArgs>? ColorChangedContinuous;
+        public event EventHandler<ColorChangedEventArgs>? ColorChangedDelayed;
 
         public ColorPickerControl()
         {
@@ -33,7 +38,7 @@ namespace LenovoLegionToolkit.WPF.Controls
         private void ColorPicker_MouseUp(object sender, MouseButtonEventArgs e)
         {
             e.Handled = true;
-            ColorChangedDelayed?.Invoke(this, EventArgs.Empty);
+            ColorChangedDelayed?.Invoke(this, new ColorChangedEventArgs { Color = _colorPicker.SelectedColor });
         }
 
         private void ColorPicker_MouseDown(object sender, MouseButtonEventArgs e)
@@ -57,7 +62,8 @@ namespace LenovoLegionToolkit.WPF.Controls
                 _greenNumberBox.Text = color.G.ToString();
                 _blueNumberBox.Text = color.B.ToString();
                 _button.Background = new SolidColorBrush(color);
-                ColorChangedContinuous?.Invoke(this, EventArgs.Empty);
+
+                ColorChangedContinuous?.Invoke(this, new ColorChangedEventArgs { Color = color });
             }
 
             if (sender is NumberBox)
@@ -71,7 +77,8 @@ namespace LenovoLegionToolkit.WPF.Controls
                 if (Mouse.LeftButton != MouseButtonState.Pressed && Mouse.RightButton != MouseButtonState.Pressed)
                 {
                     _colorPicker.SelectedColor = color;
-                    ColorChangedDelayed?.Invoke(this, EventArgs.Empty);
+
+                    ColorChangedDelayed?.Invoke(this, new ColorChangedEventArgs { Color = color });
                 }
             }
         }

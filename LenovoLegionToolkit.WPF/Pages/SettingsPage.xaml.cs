@@ -15,6 +15,7 @@ using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Controls;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
@@ -144,7 +145,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             _themeManager.Apply();
         }
 
-        private void AccentColorPicker_Changed(object sender, EventArgs e)
+        private void AccentColorPicker_Changed(object sender, ColorPickerControl.ColorChangedEventArgs e)
         {
             if (_isRefreshing)
                 return;
