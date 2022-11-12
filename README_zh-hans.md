@@ -8,13 +8,13 @@
 
 ---
 
-联想拯救者工具箱 Lenovo Legion Toolkit (LLT) 是为联想拯救者系列笔记本打造的轻量化工具箱。可实现原来联想软件如Lenovo Vantage、Legion Zone、联想电脑管家才可实现的功能。
+联想拯救者工具箱 Lenovo Legion Toolkit (LLT) 是为联想拯救者系列笔记本打造的轻量化工具箱。可实现原来联想软件如 Lenovo Vantage、Legion Zone、联想电脑管家才可实现的功能。
 
-**本软件仅适配拯救者系列及Ideapad Gaming系列，如果你是其他联想笔记本则这个软件不适合你，请不要提出兼容issue，如果提出将被直接关闭不作受理。**
+**本软件仅适配拯救者系列及 Ideapad Gaming 系列，如果你是其他联想笔记本则这个软件不适合你，请不要提出兼容issue，如果提出将被直接关闭不作受理。**
 
-本软件不运行后台服务，使用较少的内存，几乎不使用CPU，并且不收集用户信息。本程序仅适用于Windows。
+本软件不运行后台服务，使用较少的内存，几乎不使用 CPU，并且不收集用户信息。本程序仅适用于 Windows 。
 
-**加入拯救者工具箱中文交流反馈QQ频道，第一时间推送正式版/测试版更新并附带国内高速下载链接，用中文反馈问题并与其他用户交流。https://pd.qq.com/s/jj0737**
+**加入拯救者工具箱中文交流反馈 QQ 频道，第一时间推送正式版/测试版更新并附带国内高速下载链接，用中文反馈问题并与其他用户交流。https://pd.qq.com/s/jj0737**
 
 加入 Legion Series Discord: https://discord.com/invite/legionseries!
 
@@ -60,7 +60,7 @@
 
 这里是测试过支持的型号 [Compatibility.cs](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/LenovoLegionToolkit.Lib/Utils/Compatibility.cs).
 
-**拯救者系列与Ideapad Gaming系列之外的笔记本暂不考虑适配**
+**拯救者系列与 Ideapad Gaming 系列之外的笔记本暂不考虑适配**
 
 ## 功能介绍
 
@@ -109,7 +109,7 @@
 
 但在一些笔记本上，Lenovo Vantage不会切换电源计划。如果你的电脑不会Lenovo Vantage自动切换电源计划，你可以在设置中设置不同性能模式对应的电源计划。这会使得拯救者工具箱总是切换Windows电源计划即使Lenovo Vantage在后台运行。
 
-##### CPU睿频模式
+##### CPU 睿频模式
 
 此选项可以修改Windows电源计划中隐藏的调度设置——CPU睿频模式。这些选项很难看懂，但你可以查看微软的文档了解详情。
 
@@ -146,7 +146,7 @@
 
 有时新主板内的机型和序列号信息出错，你可以尝试 [这篇教程](https://laptopwiki.eu/index.php/guides-and-tutorials/important-bios-related-guides/recover-original-model-sku-values/) 来恢复。如果这不起作用你可以尝试打开 `%LOCALAPPDATA%\LenovoLegionToolkit` 并创建一个名为 `args.txt` 的文件并打开文件后呼入 `--skip-compat-check` ，这会禁用拯救者工具箱的兼容性检查。我们建议你在无法正确恢复型号、序列号等信息的情况下再使用这个办法。
 
-#### 支持哪些RGB？
+#### 支持哪些 RGB？
 
 目前仅支持白色背光键盘与4分区RGB键盘。
 
@@ -158,7 +158,7 @@
 
 我想要支持Spectrum RGB键盘，但我目前手头没有支持这个的设备。欢迎提交PR！
 
-#### 能不能多整一些RGB效果？
+#### 能不能多整一些 RGB 效果？
 
 只有硬件支持的选项可用，不计划支持自定义效果。如果你想要自定义效果可以看看 [L5P-Keyboard-RGB](https://github.com/4JX/L5P-Keyboard-RGB) 或 [OpenRGB](https://openrgb.org/).
 
@@ -166,26 +166,26 @@
 
 如果你是2022款的拯救者不支持自定义风扇曲线请提交issue，我们会尝试适配。2022款之前的机型由于技术原因无法支持。
 
-#### 为什么我的锁定Fn键是反的？
+#### 为什么我的锁定 Fn 键是反的？
 
 一些设备确实有这个问题，坦率地讲，我也不知道。但如果你知道解决欢迎贡献代码！
 
-#### 为啥在启用Legion AI引擎后切换性能模式看起来似乎有些问题？
+#### 为啥在启用 Legion AI 引擎后切换性能模式看起来似乎有些问题？
 
 貌似有些BIOS版本在使用Fn+Q快捷键时有一个奇怪的问题，你可以试试更新BIOS，除此之外只能等联想修复它了。
 
-## 如何开启记录log
+## 如何开启记录 Log 日志
 
 在一些情况下如果你能提交应用记录的日志信息，将会对我调试和解决问题十分十分有用。
 
-记录log的步骤：
+记录 Log 日志的步骤：
 
 1. 确保拯救者工具箱已关闭（后台也记得关掉）；
-2. 打开 `运行` （使用Win+R打开）然后输入 `"%LOCALAPPDATA%\Programs\LenovoLegionToolkit\Lenovo Legion Toolkit.exe" --trace` 然后点击确定；
+2. 打开 `运行` （使用 Win + R 打开）然后输入 `"%LOCALAPPDATA%\Programs\LenovoLegionToolkit\Lenovo Legion Toolkit.exe" --trace` 然后点击确定；
 3. 拯救者工具箱将会启动并且可以在左上角能看到 `[LOGGING ENABLED]` ；
 4. 复现你遇到的问题；
 5. 关闭拯救者工具箱 （同样记得关掉后台）；
-6. 然后打开 `允许` （使用Win+R打开）然后输入 `"%LOCALAPPDATA%\LenovoLegionToolkit\log"` ；
+6. 然后打开 `运行` （使用 Win + R 打开）然后输入 `"%LOCALAPPDATA%\LenovoLegionToolkit\log"` ；
 7. 这里就是存放日志文件的地方了，提issue时记得一并提交。
 
 
@@ -221,7 +221,7 @@
 
 请确保在你提交的issue中包含以下信息：
 
-1. 完整的设备型号 (Legion Y9000X 2022款 IAH7)
+1. 完整的设备型号 (Legion Y9000X 2022 款 IAH7)
 2. 正常工作的功能
 3. 出错的功能
 4. 会导致崩溃闪退的功能
