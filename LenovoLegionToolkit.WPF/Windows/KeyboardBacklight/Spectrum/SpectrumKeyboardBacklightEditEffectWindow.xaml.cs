@@ -1,18 +1,18 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.WPF.Extensions;
 
 namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
 {
-    public partial class SpectrumKeyboardBacklightEditEffect
+    public partial class SpectrumKeyboardBacklightEditEffectWindow
     {
         private readonly ushort[] _keys;
 
-        public SpectrumKeyboardBacklightEditEffect(ushort[] keys)
+        public SpectrumKeyboardBacklightEditEffectWindow(ushort[] keys)
         {
             _keys = keys;
 
@@ -60,6 +60,9 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
             if (_singleColor.Visibility == Visibility.Visible)
                 colors = new[] { _singleColorPicker.SelectedColor.ToRGBColor() };
 
+            if (_multiColors.Visibility == Visibility.Visible)
+                colors = _multiColorPicker.SelectedColors.Select(c => c.ToRGBColor()).ToArray();
+
             var effect = new SpectrumKeyboardBacklightEffect(effectType,
                 speed,
                 direction,
@@ -99,8 +102,6 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
                 },
                 SpectrumKeyboardBacklightSpeed.Speed2,
                 e => e.GetDisplayName());
-
-            _singleColorPicker.SelectedColor = Colors.White;
         }
 
         private void RefreshVisibility()
@@ -141,7 +142,7 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
                 _ => Visibility.Collapsed
             };
 
-            _colors.Visibility = effect switch
+            _multiColors.Visibility = effect switch
             {
                 SpectrumKeyboardBacklightEffectType.ColorChange => Visibility.Visible,
                 SpectrumKeyboardBacklightEffectType.ColorPulse => Visibility.Visible,

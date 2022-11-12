@@ -85,12 +85,6 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.RGB
             await RefreshAsync();
         }
 
-        private async void ColorCardControl_Changed(object? sender, ColorPickerControl.ColorChangedEventArgs e)
-        {
-            await SaveState();
-            await RefreshAsync();
-        }
-
         protected override async Task OnRefreshAsync()
         {
             if (!_controller.IsSupported())
