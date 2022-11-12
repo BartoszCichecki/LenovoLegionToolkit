@@ -33,6 +33,8 @@ namespace LenovoLegionToolkit.Lib.Settings
             public WarrantyInfo? WarrantyInfo { get; set; }
             public Guid? SmartKeySinglePressActionId { get; set; }
             public Guid? SmartKeyDoublePressActionId { get; set; }
+            public List<Guid> SmartKeySinglePressActionList { get; set; } = new();
+            public List<Guid> SmartKeyDoublePressActionList { get; set; } = new();
         }
 
         protected override string FileName => "settings.json";
