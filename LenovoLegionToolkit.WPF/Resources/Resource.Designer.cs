@@ -3066,6 +3066,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Choose one or more quick actions to cycle through.
+        /// </summary>
+        public static string SelectSmartKeyPipelinesWindow_List_Description {
+            get {
+                return ResourceManager.GetString("SelectSmartKeyPipelinesWindow_List_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Quick Actions defined..
+        /// </summary>
+        public static string SelectSmartKeyPipelinesWindow_List_Empty {
+            get {
+                return ResourceManager.GetString("SelectSmartKeyPipelinesWindow_List_Empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change the accent color of the app..
         /// </summary>
         public static string SettingsPage_AccentColor_Description {

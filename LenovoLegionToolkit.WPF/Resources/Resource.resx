@@ -1199,6 +1199,12 @@ Restart is recommended after changing this option.</value>
   <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
     <value>Smart Key Action</value>
   </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Description" xml:space="preserve">
+    <value>Choose one or more quick actions to cycle through</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
+    <value>No Quick Actions defined.</value>
+  </data>
   <data name="SettingsPage_Theme_Description" xml:space="preserve">
     <value>Set light theme, dark theme or follow system settings.</value>
   </data>

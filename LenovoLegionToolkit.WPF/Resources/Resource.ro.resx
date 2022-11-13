@@ -1193,6 +1193,12 @@ Se recomandă repornirea după modificarea acestei opțiuni.</value>
   <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
     <value>Acțiune tastă inteligentă</value>
   </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Description" xml:space="preserve">
+    <value>Alegeți una sau mai multe acțiuni rapide de parcurs</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
+    <value>Nicio Acțiune Rapidă definită.</value>
+  </data>
   <data name="SettingsPage_Theme_Description" xml:space="preserve">
     <value>Setați tema luminoasă, întunecată sau urmărirea preferinței de sistem.</value>
   </data>
