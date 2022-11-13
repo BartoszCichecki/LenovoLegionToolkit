@@ -801,14 +801,14 @@ Enable this option if you have conflicts with full screen applications.</value>
   <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
     <value>Refresh Rate</value>
   </data>
+  <data name="NotificationsSettingsWindow_SmartKey" xml:space="preserve">
+    <value>Smart Key</value>
+  </data>
   <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
     <value>Notifications</value>
   </data>
   <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
     <value>Touchpad Lock</value>
-  </data>
-  <data name="NotificationsSettingsWindow_SmartKey" xml:space="preserve">
-    <value>Smart Key</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
@@ -1167,7 +1167,7 @@ Restart is recommended after changing this option.</value>
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Power plans</value>
   </data>
-	<data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
+  <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>Assign Quick Action to Fn+F9 double press.</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">

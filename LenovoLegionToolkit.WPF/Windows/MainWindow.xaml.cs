@@ -122,15 +122,17 @@ namespace LenovoLegionToolkit.WPF.Windows
                     var id = _settings.Store.SmartKeyDoublePressActionId;
                     if (id.HasValue)
                     {
-                        if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Running action after double Fn+F9 press.");
-
                         try
                         {
-                            await _automationProcessor.RunNowAsync(id.Value);
+                            var pipeline = (await _automationProcessor.GetPipelinesAsync()).FirstOrDefault(p => p.Id == id);
+                            if (pipeline != null)
+                            {
+                                if (Log.Instance.IsTraceEnabled)
+                                    Log.Instance.Trace($"Running action after double Fn+F9 press.");
 
-                            MessagingCenter.Publish(new Notification(NotificationType.SmartKeyDoublePress, NotificationDuration.Short,
-                                (await _automationProcessor.GetPipelinesAsync()).First(p => p.Id == id).Name ?? string.Empty));
+                                await _automationProcessor.RunNowAsync(pipeline.Id);
+                                MessagingCenter.Publish(new Notification(NotificationType.SmartKeyDoublePress, NotificationDuration.Short, pipeline.Name ?? string.Empty));
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -144,9 +146,6 @@ namespace LenovoLegionToolkit.WPF.Windows
                             Log.Instance.Trace($"Bringing to foreground after double Fn+F9 press.");
 
                         Dispatcher.Invoke(BringToForeground);
-
-                        MessagingCenter.Publish(new Notification(NotificationType.SmartKeyDoublePress, NotificationDuration.Short,
-                            Resource.SettingsPage_SmartKeySinglePressAction_ShowThisApp));
                     }
                 }
                 else
@@ -156,15 +155,17 @@ namespace LenovoLegionToolkit.WPF.Windows
                     var id = _settings.Store.SmartKeySinglePressActionId;
                     if (id.HasValue)
                     {
-                        if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Running action after single Fn+F9 press.");
-
                         try
                         {
-                            await _automationProcessor.RunNowAsync(id.Value);
+                            var pipeline = (await _automationProcessor.GetPipelinesAsync()).FirstOrDefault(p => p.Id == id);
+                            if (pipeline != null)
+                            {
+                                if (Log.Instance.IsTraceEnabled)
+                                    Log.Instance.Trace($"Running action after single Fn+F9 press.");
 
-                            MessagingCenter.Publish(new Notification(NotificationType.SmartKeySinglePress, NotificationDuration.Short,
-                                (await _automationProcessor.GetPipelinesAsync()).First(p => p.Id == id).Name ?? string.Empty));
+                                await _automationProcessor.RunNowAsync(pipeline.Id);
+                                MessagingCenter.Publish(new Notification(NotificationType.SmartKeyDoublePress, NotificationDuration.Short, pipeline.Name ?? string.Empty));
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -178,9 +179,6 @@ namespace LenovoLegionToolkit.WPF.Windows
                             Log.Instance.Trace($"Bringing to foreground after single Fn+F9 press.");
 
                         Dispatcher.Invoke(BringToForeground);
-
-                        MessagingCenter.Publish(new Notification(NotificationType.SmartKeySinglePress, NotificationDuration.Short,
-                            Resource.SettingsPage_SmartKeySinglePressAction_ShowThisApp));
                     }
                 }
             }, token);

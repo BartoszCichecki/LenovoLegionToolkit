@@ -86,6 +86,16 @@
                         Click="TouchpadLockToggle_Click" />
                 </wpfui:CardControl>
 
+                <wpfui:CardControl x:Name="_smartKeyCard" Margin="0,0,0,8">
+                    <wpfui:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_SmartKey}" />
+                    </wpfui:CardControl.Header>
+                    <wpfui:ToggleSwitch
+                        x:Name="_smartKeyToggle"
+                        Margin="0,0,0,8"
+                        Click="SmartKeyToggle_Click" />
+                </wpfui:CardControl>
+
                 <wpfui:CardControl x:Name="_keyboardBacklightCard" Margin="0,0,0,24">
                     <wpfui:CardControl.Header>
                         <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_KeyboardBacklight}" />
@@ -144,16 +154,6 @@
                         x:Name="_acAdapterToggle"
                         Margin="0,0,0,8"
                         Click="ACAdapterToggle_Click" />
-                </wpfui:CardControl>
-
-                <wpfui:CardControl x:Name="_smartKeyCard" Margin="0,0,0,8">
-                    <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_SmartKey}" />
-                    </wpfui:CardControl.Header>
-                    <wpfui:ToggleSwitch
-                        x:Name="_smartKeyToggle"
-                        Margin="0,0,0,8"
-                        Click="SmartKeyToggle_Click" />
                 </wpfui:CardControl>
             </StackPanel>
         </wpfui:DynamicScrollViewer>
