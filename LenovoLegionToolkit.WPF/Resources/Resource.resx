@@ -807,6 +807,9 @@ Enable this option if you have conflicts with full screen applications.</value>
   <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
     <value>Touchpad Lock</value>
   </data>
+  <data name="NotificationsSettingsWindow_SmartKey" xml:space="preserve">
+    <value>Smart Key</value>
+  </data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
