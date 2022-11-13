@@ -187,6 +187,9 @@
   <data name="SpectrumKeyboardBacklightEffectType_AudioRipple" xml:space="preserve">
 		<value>Audio Ripple</value>
 	</data>
+  <data name="SpectrumKeyboardBacklightEffectType_AuroraSync" xml:space="preserve">
+		<value>Aurora Sync</value>
+	</data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorChange" xml:space="preserve">
 		<value>Color Change</value>
 	</data>

@@ -20,9 +20,19 @@
 
         <Popup
             x:Name="_popup"
+            Width="250"
             AllowsTransparency="True"
-            StaysOpen="False">
-            <Border CornerRadius="8">
+            HorizontalOffset="-106"
+            Placement="Bottom"
+            StaysOpen="False"
+            VerticalOffset="4">
+            <Border
+                BorderThickness="1.5"
+                ClipToBounds="True"
+                CornerRadius="8">
+                <Border.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource KeyboardFocusBorderColor}" />
+                </Border.BorderBrush>
                 <Border.Background>
                     <SolidColorBrush Color="{DynamicResource ApplicationBackgroundColor}" />
                 </Border.Background>
@@ -104,6 +114,14 @@
                             TextChanged="NumberBox_TextChanged" />
 
                     </Grid>
+
+                    <wpfui:Button
+                        MinWidth="100"
+                        Margin="0,0,0,16"
+                        HorizontalAlignment="Center"
+                        Appearance="Primary"
+                        Click="OK_Click"
+                        Content="OK" />
 
                 </StackPanel>
             </Border>

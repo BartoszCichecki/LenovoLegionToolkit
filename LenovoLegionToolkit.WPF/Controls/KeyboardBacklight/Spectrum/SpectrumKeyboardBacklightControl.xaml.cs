@@ -197,7 +197,6 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
                 foreach (var button in buttons)
                     button._background.Background = null;
             }
-
         }
 
         private async Task RefreshBrightnessAsync()
@@ -213,6 +212,14 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
                 return;
 
             profileButton.IsChecked = true;
+
+            await RefreshProfileDescriptionAsync(profile);
+        }
+
+        private async Task RefreshProfileDescriptionAsync(int profile)
+        {
+            var (_, description) = await _controller.GetProfileDescriptionAsync(profile);
+            // TODO
         }
 
         private async void BrightnessSlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -228,7 +235,10 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
                 return;
 
             if (await _controller.GetProfileAsync() != profile)
+            {
                 await _controller.SetProfileAsync(profile);
+                await RefreshProfileDescriptionAsync(profile);
+            }
         }
 
         private void SelectAll_Click(object sender, RoutedEventArgs e)
@@ -282,13 +292,20 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
                 checkedButtons = buttons;
             }
 
-            var keys = checkedButtons.Select(b => b.KeyCode).ToArray();
+            var keyCodes = checkedButtons.Select(b => b.KeyCode).ToArray();
 
-            var window = new SpectrumKeyboardBacklightEditEffectWindow(keys)
+            var window = new SpectrumKeyboardBacklightEditEffectWindow(keyCodes)
             {
                 Owner = Window.GetWindow(this),
                 WindowStartupLocation = WindowStartupLocation.CenterOwner,
                 ShowInTaskbar = false,
+            };
+            window.Apply += async (s, e) =>
+            {
+                foreach (var button in buttons)
+                    button.IsChecked = false;
+
+                await _controller.SetProfileDescriptionAsync(6, new(new[] { e }));
             };
             window.ShowDialog();
         }

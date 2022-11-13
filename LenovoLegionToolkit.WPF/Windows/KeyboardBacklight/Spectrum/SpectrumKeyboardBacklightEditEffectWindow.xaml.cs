@@ -10,11 +10,13 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
 {
     public partial class SpectrumKeyboardBacklightEditEffectWindow
     {
-        private readonly ushort[] _keys;
+        private readonly ushort[] _keyCodes;
 
-        public SpectrumKeyboardBacklightEditEffectWindow(ushort[] keys)
+        public event EventHandler<SpectrumKeyboardBacklightEffect>? Apply;
+
+        public SpectrumKeyboardBacklightEditEffectWindow(ushort[] keyCodes)
         {
-            _keys = keys;
+            _keyCodes = keyCodes;
 
             InitializeComponent();
 
@@ -23,7 +25,7 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
             _titleBar.UseSnapLayout = false;
             _titleBar.CanMaximize = false;
 
-            _title.Text = $"Add effect to {keys.Length} keys";
+            _title.Text = $"Add effect to {keyCodes.Length} zones";
 
             SetInitialValues();
             RefreshVisibility();
@@ -63,12 +65,25 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
             if (_multiColors.Visibility == Visibility.Visible)
                 colors = _multiColorPicker.SelectedColors.Select(c => c.ToRGBColor()).ToArray();
 
+            var keys = effectType switch
+            {
+                SpectrumKeyboardBacklightEffectType.AudioBounce => SpectrumKeyboardBacklightKeys.AllKeys(),
+                SpectrumKeyboardBacklightEffectType.AudioRipple => SpectrumKeyboardBacklightKeys.AllKeys(),
+                SpectrumKeyboardBacklightEffectType.Ripple => SpectrumKeyboardBacklightKeys.AllKeys(),
+                _ => SpectrumKeyboardBacklightKeys.SomeKeys(_keyCodes)
+            };
+
             var effect = new SpectrumKeyboardBacklightEffect(effectType,
                 speed,
                 direction,
                 colors,
-                _keys);
+                keys);
+
+            Apply?.Invoke(this, effect);
+            Close();
         }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e) => Close();
 
         private void SetInitialValues()
         {

@@ -29,7 +29,5 @@ namespace LenovoLegionToolkit.WPF.Controls
         public MultiColorPickerItemControl() => InitializeComponent();
 
         private void Delete_Click(object sender, MouseButtonEventArgs e) => Delete?.Invoke(this, e);
-
-        public void Open() => _picker.Open();
     }
 }

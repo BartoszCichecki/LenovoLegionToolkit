@@ -41,7 +41,6 @@ namespace LenovoLegionToolkit.WPF.Controls
             var picker = CreateColorPicker();
             _buttons.Children.Add(picker);
             Update();
-            picker.Open();
         }
 
         private MultiColorPickerItemControl CreateColorPicker()

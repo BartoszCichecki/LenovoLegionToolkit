@@ -491,22 +491,34 @@ namespace LenovoLegionToolkit.Lib
         #endregion
     }
 
+    public struct SpectrumKeyboardBacklightKeys
+    {
+        public bool All { get; }
+        public ushort[] KeyCodes { get; }
+
+        private SpectrumKeyboardBacklightKeys(bool all, ushort[] keyCodes)
+        {
+            All = all;
+            KeyCodes = keyCodes;
+        }
+
+        public static SpectrumKeyboardBacklightKeys AllKeys() => new(true, Array.Empty<ushort>());
+        public static SpectrumKeyboardBacklightKeys SomeKeys(ushort[] keyCodes) => new(false, keyCodes);
+    }
+
     public struct SpectrumKeyboardBacklightEffect
     {
         public SpectrumKeyboardBacklightEffectType Type { get; }
         public SpectrumKeyboardBacklightSpeed Speed { get; }
         public SpectrumKeyboardBacklightDirection Direction { get; }
         public RGBColor[] Colors { get; }
-        public ushort[] Keys { get; }
+        public SpectrumKeyboardBacklightKeys Keys { get; }
 
-        [JsonConstructor]
-        public SpectrumKeyboardBacklightEffect(
-            SpectrumKeyboardBacklightEffectType type,
+        public SpectrumKeyboardBacklightEffect(SpectrumKeyboardBacklightEffectType type,
             SpectrumKeyboardBacklightSpeed speed,
             SpectrumKeyboardBacklightDirection direction,
             RGBColor[] colors,
-            ushort[] keys
-            )
+            SpectrumKeyboardBacklightKeys keys)
         {
             Type = type;
             Speed = speed;
@@ -520,21 +532,9 @@ namespace LenovoLegionToolkit.Lib
     {
         public SpectrumKeyboardBacklightEffect[] Effects { get; }
 
-        [JsonConstructor]
-        public SpectrumKeyboardBacklightProfileDescription(params SpectrumKeyboardBacklightEffect[] effects)
+        public SpectrumKeyboardBacklightProfileDescription(SpectrumKeyboardBacklightEffect[] effects)
         {
             Effects = effects;
-        }
-    }
-
-    public struct SpectrumKeyboardBacklightState
-    {
-        public Dictionary<SpectrumKeyboardBacklightProfile, SpectrumKeyboardBacklightProfileDescription> Profiles { get; }
-
-        [JsonConstructor]
-        public SpectrumKeyboardBacklightState(Dictionary<SpectrumKeyboardBacklightProfile, SpectrumKeyboardBacklightProfileDescription> profiles)
-        {
-            Profiles = profiles;
         }
     }
 

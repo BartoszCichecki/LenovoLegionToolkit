@@ -32,7 +32,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             ThrowIfHandleNull();
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            var input = new LENOVO_SPECTRUM_GET_BRIGHTNESS();
+            var input = new LENOVO_SPECTRUM_GET_BRIGHTNESS_REQUEST();
             SetAndGetFeature(input, out LENOVO_SPECTRUM_GET_BRIGTHNESS_RESPONSE output);
             return output.Brightness;
         }
@@ -42,7 +42,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             ThrowIfHandleNull();
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            var input = new LENOVO_SPECTRUM_SET_BRIGHTHNESS((byte)brightness);
+            var input = new LENOVO_SPECTRUM_SET_BRIGHTHNESS_REQUEST((byte)brightness);
             SetFeature(input);
         }
 
@@ -51,7 +51,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             ThrowIfHandleNull();
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            var input = new LENOVO_SPECTRUM_GET_PROFILE();
+            var input = new LENOVO_SPECTRUM_GET_PROFILE_REQUEST();
             SetAndGetFeature(input, out LENOVO_SPECTRUM_GET_PROFILE_RESPONSE output);
             return output.Profile;
         }
@@ -61,17 +61,29 @@ namespace LenovoLegionToolkit.Lib.Controllers
             ThrowIfHandleNull();
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            var input = new LENOVO_SPECTRUM_SET_PROFILE((byte)profile, true);
+            var input = new LENOVO_SPECTRUM_SET_PROFILE_REQUEST((byte)profile);
             SetFeature(input);
         }
 
-        public async Task SetProfileAsync(SpectrumKeyboardBacklightProfile profile, SpectrumKeyboardBacklightProfileDescription description)
+        public async Task SetProfileDescriptionAsync(int profile, SpectrumKeyboardBacklightProfileDescription description)
         {
             ThrowIfHandleNull();
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            var effects = Convert(profile, description);
+            var effects = Convert(profile, description).ToBytes();
             SetFeature(effects);
+        }
+
+        public async Task<(int, SpectrumKeyboardBacklightProfileDescription)> GetProfileDescriptionAsync(int profile)
+        {
+            ThrowIfHandleNull();
+            await ThrowIfVantageEnabled().ConfigureAwait(false);
+
+            var input = new LENOVO_SPECTRUM_GET_EFFECT_REQUEST((byte)profile);
+            SetAndGetFeature(input, out var buffer, 960);
+
+            var description = LENOVO_SPECTRUM_EFFECT_DESCRIPTION.FromBytes(buffer);
+            return Convert(description);
         }
 
         public async Task<Dictionary<ushort, RGBColor>> GetStateAsync()
@@ -79,7 +91,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             ThrowIfHandleNull();
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            GetFeature(out LENOVO_SPECTRUM_STATE state);
+            GetFeature(out LENOVO_SPECTRUM_STATE_RESPONSE state);
 
             var dict = new Dictionary<ushort, RGBColor>();
 
@@ -106,7 +118,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 throw new InvalidOperationException("Can't manage Spectrum keyboard with Vantage enabled.");
         }
 
-        private void SetAndGetFeature<TIn, TOut>(TIn input, out TOut output) where TIn : struct where TOut : struct
+        private void SetAndGetFeature<TIn, TOut>(TIn input, out TOut output) where TIn : notnull where TOut : struct
         {
             lock (IoLock)
             {
@@ -115,7 +127,16 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
         }
 
-        private unsafe void SetFeature<T>(T str) where T : struct
+        private void SetAndGetFeature<TIn>(TIn input, out byte[] output, int size) where TIn : notnull
+        {
+            lock (IoLock)
+            {
+                SetFeature(input);
+                GetFeature(out output, size);
+            }
+        }
+
+        private unsafe void SetFeature<T>(T str) where T : notnull
         {
             lock (IoLock)
             {
@@ -123,9 +144,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 try
                 {
                     int size;
-                    if (str is ICustomBytesSerializable bs)
+                    if (str is byte[] bytes)
                     {
-                        var bytes = bs.ToBytes();
                         size = bytes.Length;
                         ptr = Marshal.AllocHGlobal(size);
                         Marshal.Copy(bytes, 0, ptr, size);
@@ -172,11 +192,97 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
         }
 
-        private static LENOVO_SPECTRUM_SET_EFFECTS Convert(SpectrumKeyboardBacklightProfile profile, SpectrumKeyboardBacklightProfileDescription description)
+        private unsafe void GetFeature(out byte[] bytes, int size)
+        {
+            lock (IoLock)
+            {
+                var ptr = IntPtr.Zero;
+                try
+                {
+                    ptr = Marshal.AllocHGlobal(size);
+                    Marshal.Copy(new byte[] { 7 }, 0, ptr, 1);
+
+                    var result = PInvoke.HidD_GetFeature(DriverHandle, ptr.ToPointer(), (uint)size);
+                    if (!result)
+                        PInvokeExtensions.ThrowIfWin32Error("bytes");
+
+                    bytes = new byte[size];
+                    Marshal.Copy(ptr, bytes, 0, size);
+                }
+                finally
+                {
+                    Marshal.FreeHGlobal(ptr);
+                }
+            }
+        }
+
+        private static (int, SpectrumKeyboardBacklightProfileDescription) Convert(LENOVO_SPECTRUM_EFFECT_DESCRIPTION description)
+        {
+            var profile = description.Profile;
+            var effects = description.Effects.Select(Convert).ToArray();
+            return new(description.Profile, new(effects));
+        }
+
+        private static SpectrumKeyboardBacklightEffect Convert(LENOVO_SPECTRUM_EFFECT effect)
+        {
+            var effectType = effect.EffectHeader.EffectType switch
+            {
+                LENOVO_SPECTRUM_EFFECT_TYPE.Always => SpectrumKeyboardBacklightEffectType.Always,
+                LENOVO_SPECTRUM_EFFECT_TYPE.LegionAuraSync => SpectrumKeyboardBacklightEffectType.AuroraSync,
+                LENOVO_SPECTRUM_EFFECT_TYPE.AudioBounceLighting => SpectrumKeyboardBacklightEffectType.AudioBounce,
+                LENOVO_SPECTRUM_EFFECT_TYPE.AudioRippleLighting => SpectrumKeyboardBacklightEffectType.AudioRipple,
+                LENOVO_SPECTRUM_EFFECT_TYPE.ColorChange => SpectrumKeyboardBacklightEffectType.ColorChange,
+                LENOVO_SPECTRUM_EFFECT_TYPE.ColorPulse => SpectrumKeyboardBacklightEffectType.ColorPulse,
+                LENOVO_SPECTRUM_EFFECT_TYPE.ColorWave => SpectrumKeyboardBacklightEffectType.ColorWave,
+                LENOVO_SPECTRUM_EFFECT_TYPE.Rain => SpectrumKeyboardBacklightEffectType.Rain,
+                LENOVO_SPECTRUM_EFFECT_TYPE.ScrewRainbow => SpectrumKeyboardBacklightEffectType.RainbowScrew,
+                LENOVO_SPECTRUM_EFFECT_TYPE.RainbowWave => SpectrumKeyboardBacklightEffectType.RainbowWave,
+                LENOVO_SPECTRUM_EFFECT_TYPE.Ripple => SpectrumKeyboardBacklightEffectType.Ripple,
+                LENOVO_SPECTRUM_EFFECT_TYPE.Smooth => SpectrumKeyboardBacklightEffectType.Smooth,
+                LENOVO_SPECTRUM_EFFECT_TYPE.TypeLighting => SpectrumKeyboardBacklightEffectType.Type,
+                _ => throw new ArgumentException()
+            };
+
+            var speed = effect.EffectHeader.Speed switch
+            {
+                LENOVO_SPECTRUM_SPEED.Speed1 => SpectrumKeyboardBacklightSpeed.Speed1,
+                LENOVO_SPECTRUM_SPEED.Speed2 => SpectrumKeyboardBacklightSpeed.Speed2,
+                LENOVO_SPECTRUM_SPEED.Speed3 => SpectrumKeyboardBacklightSpeed.Speed3,
+                _ => SpectrumKeyboardBacklightSpeed.None
+            };
+
+            var direction = effect.EffectHeader.Direction switch
+            {
+                LENOVO_SPECTRUM_DIRECTION.LeftToRight => SpectrumKeyboardBacklightDirection.LeftToRight,
+                LENOVO_SPECTRUM_DIRECTION.RightToLeft => SpectrumKeyboardBacklightDirection.RightToLeft,
+                LENOVO_SPECTRUM_DIRECTION.BottomToTop => SpectrumKeyboardBacklightDirection.BottomToTop,
+                LENOVO_SPECTRUM_DIRECTION.TopToBottom => SpectrumKeyboardBacklightDirection.TopToBottom,
+                _ => SpectrumKeyboardBacklightDirection.None
+            };
+
+            direction = effect.EffectHeader.ClockwiseDirection switch
+            {
+                LENOVO_SPECTRUM_CLOCKWISE_DIRECTION.Clockwise => SpectrumKeyboardBacklightDirection.Clockwise,
+                LENOVO_SPECTRUM_CLOCKWISE_DIRECTION.CounterClockwise => SpectrumKeyboardBacklightDirection.CounterClockwise,
+                _ => direction
+            };
+
+            var colors = effect.Colors.Select(c => new RGBColor(c.R, c.G, c.B)).ToArray();
+
+            SpectrumKeyboardBacklightKeys keys;
+            if (effect.Keys.Length == 1 && effect.Keys[0] == 0x65)
+                keys = SpectrumKeyboardBacklightKeys.AllKeys();
+            else
+                keys = SpectrumKeyboardBacklightKeys.SomeKeys(effect.Keys);
+
+            return new(effectType, speed, direction, colors, keys);
+        }
+
+        private static LENOVO_SPECTRUM_EFFECT_DESCRIPTION Convert(int profile, SpectrumKeyboardBacklightProfileDescription description)
         {
             var header = new LENOVO_SPECTRUM_HEADER(LENOVO_SPECTRUM_OPERATION_TYPE.EffectChange, 0); // Size will be set on serialization
             var effects = description.Effects.Select((e, i) => Convert(i, e)).ToArray();
-            var result = new LENOVO_SPECTRUM_SET_EFFECTS(header, (byte)profile, effects);
+            var result = new LENOVO_SPECTRUM_EFFECT_DESCRIPTION(header, (byte)profile, effects);
             return result;
         }
 
@@ -185,6 +291,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             var effectType = effect.Type switch
             {
                 SpectrumKeyboardBacklightEffectType.Always => LENOVO_SPECTRUM_EFFECT_TYPE.Always,
+                SpectrumKeyboardBacklightEffectType.AuroraSync => LENOVO_SPECTRUM_EFFECT_TYPE.LegionAuraSync,
                 SpectrumKeyboardBacklightEffectType.AudioBounce => LENOVO_SPECTRUM_EFFECT_TYPE.AudioBounceLighting,
                 SpectrumKeyboardBacklightEffectType.AudioRipple => LENOVO_SPECTRUM_EFFECT_TYPE.AudioRippleLighting,
                 SpectrumKeyboardBacklightEffectType.ColorChange => LENOVO_SPECTRUM_EFFECT_TYPE.ColorChange,
@@ -243,7 +350,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
             var header = new LENOVO_SPECTRUM_EFFECT_HEADER(effectType, speed, direction, clockwiseDirection, colorMode);
             var colors = effect.Colors.Select(c => new LENOVO_SPECTRUM_COLOR(c.R, c.G, c.B)).ToArray();
-            var result = new LENOVO_SPECTRUM_EFFECT(header, index + 1, colors, effect.Keys);
+            var keys = effect.Keys.All ? new ushort[] { 0x65 } : effect.Keys.KeyCodes;
+            var result = new LENOVO_SPECTRUM_EFFECT(header, index + 1, colors, keys);
             return result;
         }
     }
