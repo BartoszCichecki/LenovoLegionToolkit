@@ -7,10 +7,10 @@
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:resources1="clr-namespace:LenovoLegionToolkit.Lib.Automation.Resources;assembly=LenovoLegionToolkit.Lib.Automation"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Width="350"
-    Height="400"
-    MinWidth="350"
-    MinHeight="400">
+    Width="400"
+    Height="500"
+    MinWidth="400"
+    MinHeight="500">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -44,49 +44,50 @@
                 IsHitTestVisible="False" />
         </Grid>
 
-        <wpfui:DynamicScrollViewer Grid.Row="1" Margin="12,0,0,0">
-            <StackPanel Margin="0,0,16,0">
-                <wpfui:CardControl Margin="0,0,0,24">
-                    <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_SmartKeySinglePressAction_ShowThisApp}" />
-                    </wpfui:CardControl.Header>
-                    <wpfui:ToggleSwitch 
-                        x:Name="_showThisAppToggle"
-                        Click="ShowThisAppToggle_Click"/>
-                </wpfui:CardControl>
+        <Grid Grid.Row="1" Margin="12,0,16,0">
 
-                <TextBlock
-                    Margin="0,0,0,8"
-                    Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                    Text="{x:Static resources:Resource.SelectSmartKeyPipelinesWindow_List_Description}"
-                    TextWrapping="Wrap" />
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-                <controls:LoadableControl
-                    x:Name="_loader"
-                    Grid.Row="1"
-                    IndicatorVerticalAlignment="Center"
-                    Margin="0,0,0,8">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
+            <wpfui:CardControl Grid.Row="0" Margin="0,0,0,24">
+                <wpfui:CardControl.Header>
+                    <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_SmartKeySinglePressAction_ShowThisApp}" />
+                </wpfui:CardControl.Header>
+                <wpfui:ToggleSwitch x:Name="_showThisAppToggle" Click="ShowThisAppToggle_Click" />
+            </wpfui:CardControl>
 
-                        <Border Grid.Row="0" CornerRadius="8">
-                            <Border.Background>
-                                <SolidColorBrush Color="{DynamicResource ControlFillColorDefault}" />
-                            </Border.Background>
+            <TextBlock
+                Grid.Row="1"
+                Margin="0,0,0,8"
+                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                Text="{x:Static resources:Resource.SelectSmartKeyPipelinesWindow_List_Description}"
+                TextWrapping="Wrap" />
 
-                            <ItemsControl
-                                x:Name="_list"
-                                Margin="8,8,16,0"
-                                HorizontalContentAlignment="Stretch"
-                                ScrollViewer.HorizontalScrollBarVisibility="Disabled" />
-                        </Border>
-                    </Grid>
-                </controls:LoadableControl>
-            </StackPanel>
-        </wpfui:DynamicScrollViewer>
+            <controls:LoadableControl
+                x:Name="_loader"
+                Grid.Row="2"
+                Margin="0,0,0,8"
+                IndicatorVerticalAlignment="Center">
+
+                <Border CornerRadius="8">
+                    <Border.Background>
+                        <SolidColorBrush Color="{DynamicResource ControlFillColorDefault}" />
+                    </Border.Background>
+
+                    <wpfui:DynamicScrollViewer>
+                        <ItemsControl
+                            x:Name="_list"
+                            Margin="8,8,16,0"
+                            HorizontalContentAlignment="Stretch" />
+                    </wpfui:DynamicScrollViewer>
+                </Border>
+
+            </controls:LoadableControl>
+        </Grid>
+
         <Grid Grid.Row="2" Margin="12">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
