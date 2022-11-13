@@ -804,6 +804,9 @@ Activați această opțiune dacă aveți conflicte cu aplicațiile pe ecran comp
   <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
     <value>Blocare Touchpad</value>
   </data>
+  <data name="NotificationsSettingsWindow_SmartKey" xml:space="preserve">
+    <value>Tastă inteligentă</value>
+  </data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
@@ -1021,6 +1024,23 @@ ATENȚIE: Această acțiune nu va rula corect dacă afișajul incorporat este op
   <data name="RefreshRateControl_Title" xml:space="preserve">
     <value>Rată de reîmprospătare</value>
   </data>
+  <data name="HDRAutomationStepControl_Message" xml:space="preserve">
+    <value>Activați intervalul dinamic ridicat (HDR) pe afișajul încorporat.
+
+ATENȚIE: Această acțiune nu va rula corect dacă afișajul incorporat este oprit.</value>
+  </data>
+  <data name="HDRAutomationStepControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Message" xml:space="preserve">
+    <value>Activați intervalul dinamic ridicat (HDR) pe afișajul încorporat.</value>
+  </data>
+  <data name="HDRControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Warning" xml:space="preserve">
+    <value>Utilizarea HDR este blocată de setările Windows.</value>
+  </data>
   <data name="Rename" xml:space="preserve">
     <value>Redenumiți</value>
   </data>
@@ -1167,11 +1187,17 @@ Se recomandă repornirea după modificarea acestei opțiuni.</value>
   <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
     <value>Setați o acțiune rapidă la apăsarea tastelor Fn+F9.</value>
   </data>
-  <data name="SettingsPage_SmartKeySinglePressAction_ShowThisApp" xml:space="preserve">
+  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
     <value>Arată această aplicație</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
     <value>Acțiune tastă inteligentă</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Description" xml:space="preserve">
+    <value>Alegeți una sau mai multe acțiuni rapide de parcurs</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
+    <value>Nicio Acțiune Rapidă definită.</value>
   </data>
   <data name="SettingsPage_Theme_Description" xml:space="preserve">
     <value>Setați tema luminoasă, întunecată sau urmărirea preferinței de sistem.</value>

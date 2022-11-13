@@ -36,6 +36,7 @@ namespace LenovoLegionToolkit.Lib
             builder.Register<OverDriveFeature>();
             builder.Register<PowerModeFeature>();
             builder.Register<RefreshRateFeature>();
+            builder.Register<HDRFeature>();
             builder.Register<TouchpadLockFeature>();
             builder.Register<WhiteKeyboardBacklightFeature>();
             builder.Register<WinKeyFeature>();

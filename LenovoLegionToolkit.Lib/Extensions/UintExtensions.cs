@@ -12,5 +12,7 @@ namespace LenovoLegionToolkit.Lib.Extensions
         }
 
         public static bool GetNthBit(this uint num, int n) => (num & (1 << n)) != 0;
+
+        public static uint SetNthBit(this uint num, int n, bool state) => state ? num | (1U << n) : num & ~(1U << n);
     }
 }

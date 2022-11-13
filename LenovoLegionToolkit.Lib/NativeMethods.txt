@@ -35,6 +35,9 @@ POWERBROADCAST_SETTING
 SERVICE_CHANGE_CONFIG
 SERVICE_NO_CHANGE
 
+DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO
+DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE
+
 CreateFile
 DeviceIoControl
 
@@ -84,3 +87,6 @@ GetShellWindow
 GetWindowRect
 SetWindowsHookEx
 UnhookWindowsHookEx
+
+DisplayConfigGetDeviceInfo
+DisplayConfigSetDeviceInfo

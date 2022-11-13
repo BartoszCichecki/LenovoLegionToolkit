@@ -54,6 +54,22 @@ namespace LenovoLegionToolkit.Lib
         }
     }
 
+    public struct DisplayAdvancedColorInfo
+    {
+        public bool AdvancedColorSupported { get; }
+        public bool AdvancedColorEnabled { get; }
+        public bool WideColorEnforced { get; }
+        public bool AdvancedColorForceDisabled { get; }
+
+        public DisplayAdvancedColorInfo(bool advancedColorSupported, bool advancedColorEnabled, bool wideColorEnforced, bool advancedColorForceDisabled)
+        {
+            AdvancedColorSupported = advancedColorSupported;
+            AdvancedColorEnabled = advancedColorEnabled;
+            WideColorEnforced = wideColorEnforced;
+            AdvancedColorForceDisabled = advancedColorForceDisabled;
+        }
+    }
+
     public struct FanTableData
     {
         public byte FanId { get; init; }
