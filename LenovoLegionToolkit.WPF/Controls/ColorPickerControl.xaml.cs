@@ -23,7 +23,7 @@ namespace LenovoLegionToolkit.WPF.Controls
         {
             InitializeComponent();
 
-            SelectedColor = Colors.White;
+            SelectedColor = Colors.Aqua;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -47,7 +47,7 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         private void NumberBox_TextChanged(object sender, TextChangedEventArgs e) => Update(sender);
 
-        public void Open() => _popup.IsOpen = true;
+        private void OK_Click(object sender, RoutedEventArgs e) => _popup.IsOpen = false;
 
         private void Update(object? sender)
         {

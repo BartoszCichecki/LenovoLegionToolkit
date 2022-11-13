@@ -310,17 +310,9 @@ namespace LenovoLegionToolkit.Lib
         [Display(ResourceType = typeof(Resource), Name = "SpectrumKeyboardBacklightEffectType_AudioBounce")]
         AudioBounce,
         [Display(ResourceType = typeof(Resource), Name = "SpectrumKeyboardBacklightEffectType_AudioRipple")]
-        AudioRipple
-    }
-
-    public enum SpectrumKeyboardBacklightProfile
-    {
-        One = 1,
-        Two = 2,
-        Three = 3,
-        Four = 4,
-        Five = 5,
-        Six = 6
+        AudioRipple,
+        [Display(ResourceType = typeof(Resource), Name = "SpectrumKeyboardBacklightEffectType_AuroraSync")]
+        AuroraSync
     }
 
     public enum SpectrumKeyboardBacklightSpeed

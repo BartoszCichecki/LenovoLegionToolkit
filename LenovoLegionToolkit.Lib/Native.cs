@@ -1,12 +1,9 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Runtime.InteropServices;
 
 namespace LenovoLegionToolkit.Lib
 {
-    internal interface ICustomBytesSerializable
-    {
-        byte[] ToBytes();
-    }
 
     #region Battery
 
@@ -55,17 +52,13 @@ namespace LenovoLegionToolkit.Lib
 
     internal enum LENOVO_SPECTRUM_OPERATION_TYPE : byte
     {
-        ProfileSet1 = 0xC8,
-        GetProfile = 0xCA,
+        ProfileChange = 0xC8,
+        Profile = 0xCA,
         EffectChange = 0xCB,
-        ProfileSet2 = 0xCC,
+        Effect = 0xCC,
         GetBrightness = 0xCD,
         Brightness = 0xCE,
         AuroraSendBitmap = 0xA1,
-        Unknown1 = 0x03,
-        Unknown2 = 0x04,
-        Unknown3 = 0xC6,
-        Unknown4 = 0xD1
     }
 
     internal enum LENOVO_SPECTRUM_EFFECT_TYPE : byte
@@ -82,7 +75,7 @@ namespace LenovoLegionToolkit.Lib
         AudioRippleLighting = 10,
         Always = 11,
         TypeLighting = 12,
-        LegionAuroraSync = 13,
+        LegionAuraSync = 13,
     }
 
     internal enum LENOVO_SPECTRUM_COLOR_MODE : byte
@@ -207,11 +200,11 @@ namespace LenovoLegionToolkit.Lib
     }
 
     [StructLayout(LayoutKind.Sequential, Size = 960)]
-    internal struct LENOVO_SPECTRUM_GET_BRIGHTNESS
+    internal struct LENOVO_SPECTRUM_GET_BRIGHTNESS_REQUEST
     {
         public LENOVO_SPECTRUM_HEADER Header;
 
-        public LENOVO_SPECTRUM_GET_BRIGHTNESS()
+        public LENOVO_SPECTRUM_GET_BRIGHTNESS_REQUEST()
         {
             Header = new LENOVO_SPECTRUM_HEADER(LENOVO_SPECTRUM_OPERATION_TYPE.GetBrightness, 0xC0);
         }
@@ -228,12 +221,12 @@ namespace LenovoLegionToolkit.Lib
     }
 
     [StructLayout(LayoutKind.Sequential, Size = 960)]
-    internal struct LENOVO_SPECTRUM_SET_BRIGHTHNESS
+    internal struct LENOVO_SPECTRUM_SET_BRIGHTHNESS_REQUEST
     {
         public LENOVO_SPECTRUM_HEADER Header;
         public byte Brightness;
 
-        public LENOVO_SPECTRUM_SET_BRIGHTHNESS(byte brightness)
+        public LENOVO_SPECTRUM_SET_BRIGHTHNESS_REQUEST(byte brightness)
         {
             Header = new(LENOVO_SPECTRUM_OPERATION_TYPE.Brightness, 0xC0);
             Brightness = brightness;
@@ -241,13 +234,13 @@ namespace LenovoLegionToolkit.Lib
     }
 
     [StructLayout(LayoutKind.Sequential, Size = 960)]
-    internal struct LENOVO_SPECTRUM_GET_PROFILE
+    internal struct LENOVO_SPECTRUM_GET_PROFILE_REQUEST
     {
         public LENOVO_SPECTRUM_HEADER Header;
 
-        public LENOVO_SPECTRUM_GET_PROFILE()
+        public LENOVO_SPECTRUM_GET_PROFILE_REQUEST()
         {
-            Header = new LENOVO_SPECTRUM_HEADER(LENOVO_SPECTRUM_OPERATION_TYPE.GetProfile, 0xC0);
+            Header = new LENOVO_SPECTRUM_HEADER(LENOVO_SPECTRUM_OPERATION_TYPE.Profile, 0xC0);
         }
     }
 
@@ -262,20 +255,33 @@ namespace LenovoLegionToolkit.Lib
     }
 
     [StructLayout(LayoutKind.Sequential, Size = 960)]
-    internal struct LENOVO_SPECTRUM_SET_PROFILE
+    internal struct LENOVO_SPECTRUM_SET_PROFILE_REQUEST
     {
         public LENOVO_SPECTRUM_HEADER Header;
         public byte Profile;
 
-        public LENOVO_SPECTRUM_SET_PROFILE(byte profile, bool first)
+        public LENOVO_SPECTRUM_SET_PROFILE_REQUEST(byte profile)
         {
-            Header = new(first ? LENOVO_SPECTRUM_OPERATION_TYPE.ProfileSet1 : LENOVO_SPECTRUM_OPERATION_TYPE.ProfileSet2, 0xC0);
+            Header = new(LENOVO_SPECTRUM_OPERATION_TYPE.ProfileChange, 0xC0);
+            Profile = profile;
+        }
+    }
+
+    [StructLayout(LayoutKind.Sequential, Size = 960)]
+    internal struct LENOVO_SPECTRUM_GET_EFFECT_REQUEST
+    {
+        public LENOVO_SPECTRUM_HEADER Header;
+        public byte Profile;
+
+        public LENOVO_SPECTRUM_GET_EFFECT_REQUEST(byte profile)
+        {
+            Header = new LENOVO_SPECTRUM_HEADER(LENOVO_SPECTRUM_OPERATION_TYPE.Effect, 0xC0);
             Profile = profile;
         }
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    internal struct LENOVO_SPECTRUM_SET_EFFECTS : ICustomBytesSerializable
+    internal struct LENOVO_SPECTRUM_EFFECT_DESCRIPTION
     {
         public LENOVO_SPECTRUM_HEADER Header;
         public byte Profile;
@@ -283,11 +289,79 @@ namespace LenovoLegionToolkit.Lib
         public byte Unknown2 = 1;
         public LENOVO_SPECTRUM_EFFECT[] Effects;
 
-        public LENOVO_SPECTRUM_SET_EFFECTS(LENOVO_SPECTRUM_HEADER header, byte profile, LENOVO_SPECTRUM_EFFECT[] effects)
+        public LENOVO_SPECTRUM_EFFECT_DESCRIPTION(LENOVO_SPECTRUM_HEADER header, byte profile, LENOVO_SPECTRUM_EFFECT[] effects)
         {
             Header = header;
             Profile = profile;
             Effects = effects;
+        }
+
+        public static LENOVO_SPECTRUM_EFFECT_DESCRIPTION FromBytes(byte[] bytes)
+        {
+            using var ms = new MemoryStream(bytes);
+            using var br = new BinaryReader(ms);
+
+            _ = br.ReadByte();
+            var type = (LENOVO_SPECTRUM_OPERATION_TYPE)br.ReadByte();
+            var size = br.ReadByte();
+            _ = br.ReadByte();
+
+            var header = new LENOVO_SPECTRUM_HEADER(type, size);
+
+            var profile = br.ReadByte();
+            _ = br.ReadByte();
+            _ = br.ReadByte();
+
+            var effects = new List<LENOVO_SPECTRUM_EFFECT>();
+
+            var lastEffectNo = 0;
+            while (true)
+            {
+                var effectNo = br.ReadByte();
+
+                if (effectNo < lastEffectNo)
+                    break;
+
+                lastEffectNo = effectNo;
+
+                _ = br.ReadByte();
+                _ = br.ReadByte();
+                var effectType = (LENOVO_SPECTRUM_EFFECT_TYPE)br.ReadByte();
+                _ = br.ReadByte();
+                var speed = (LENOVO_SPECTRUM_SPEED)br.ReadByte();
+                _ = br.ReadByte();
+                var clockwiseDirection = (LENOVO_SPECTRUM_CLOCKWISE_DIRECTION)br.ReadByte();
+                _ = br.ReadByte();
+                var direction = (LENOVO_SPECTRUM_DIRECTION)br.ReadByte();
+                _ = br.ReadByte();
+                var colorMode = (LENOVO_SPECTRUM_COLOR_MODE)br.ReadByte();
+                _ = br.ReadByte();
+                _ = br.ReadByte();
+
+                var effectHeader = new LENOVO_SPECTRUM_EFFECT_HEADER(effectType, speed, direction, clockwiseDirection, colorMode);
+                var colors = new List<LENOVO_SPECTRUM_COLOR>();
+                var keyCodes = new List<ushort>();
+
+                var noOfColors = br.ReadByte();
+                for (var i = 0; i < noOfColors; i++)
+                {
+                    var r = br.ReadByte();
+                    var g = br.ReadByte();
+                    var b = br.ReadByte();
+                    colors.Add(new(r, g, b));
+                }
+
+                var noOfKeys = br.ReadByte();
+                for (var i = 0; i < noOfKeys; i++)
+                {
+                    var key = br.ReadUInt16();
+                    keyCodes.Add(key);
+                }
+
+                effects.Add(new(effectHeader, effectNo, colors.ToArray(), keyCodes.ToArray()));
+            }
+
+            return new(header, profile, effects.ToArray());
         }
 
         public byte[] ToBytes()
@@ -346,7 +420,7 @@ namespace LenovoLegionToolkit.Lib
     }
 
     [StructLayout(LayoutKind.Sequential, Size = 960)]
-    internal struct LENOVO_SPECTRUM_STATE
+    internal struct LENOVO_SPECTRUM_STATE_RESPONSE
     {
         public byte ReportId;
         public LENOVO_SPECTRUM_OPERATION_TYPE Type;

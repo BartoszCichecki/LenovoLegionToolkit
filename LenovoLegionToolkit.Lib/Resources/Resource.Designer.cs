@@ -448,6 +448,15 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Aurora Sync.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightEffectType_AuroraSync {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightEffectType_AuroraSync", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Color Change.
         /// </summary>
         public static string SpectrumKeyboardBacklightEffectType_ColorChange {
