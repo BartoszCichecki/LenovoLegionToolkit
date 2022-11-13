@@ -135,7 +135,9 @@ namespace LenovoLegionToolkit.Lib
         RGBKeyboardPresetOff,
         TouchpadOn,
         TouchpadOff,
-        WhiteKeyboardBacklight
+        WhiteKeyboardBacklight,
+        SmartKeySinglePress,
+        SmartKeyDoublePress
     }
 
     public enum OS

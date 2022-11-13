@@ -60,6 +60,8 @@ namespace LenovoLegionToolkit.WPF.Utils
                 NotificationType.TouchpadOn => _settings.Store.Notifications.TouchpadLock,
                 NotificationType.TouchpadOff => _settings.Store.Notifications.TouchpadLock,
                 NotificationType.WhiteKeyboardBacklight => _settings.Store.Notifications.KeyboardBacklight,
+                NotificationType.SmartKeySinglePress => _settings.Store.Notifications.SmartKey,
+                NotificationType.SmartKeyDoublePress => _settings.Store.Notifications.SmartKey,
                 _ => throw new ArgumentException(nameof(notification.Type))
             };
 
@@ -91,6 +93,8 @@ namespace LenovoLegionToolkit.WPF.Utils
                 NotificationType.TouchpadOn => SymbolRegular.Tablet24,
                 NotificationType.TouchpadOff => SymbolRegular.Tablet24,
                 NotificationType.WhiteKeyboardBacklight => SymbolRegular.Lightbulb24,
+                NotificationType.SmartKeySinglePress => SymbolRegular.Star24,
+                NotificationType.SmartKeyDoublePress => SymbolRegular.StarEmphasis24,
                 _ => throw new ArgumentException(nameof(notification.Type))
             };
 
@@ -132,6 +136,8 @@ namespace LenovoLegionToolkit.WPF.Utils
                 NotificationType.TouchpadOn => Resource.Notification_TouchpadOn,
                 NotificationType.TouchpadOff => Resource.Notification_TouchpadOff,
                 NotificationType.WhiteKeyboardBacklight => string.Format(Resource.Notification_WhiteKeyboardBacklight, notification.Args),
+                NotificationType.SmartKeySinglePress => string.Format("{0}", notification.Args),
+                NotificationType.SmartKeyDoublePress => string.Format("{0}", notification.Args),
                 _ => throw new ArgumentException(nameof(notification.Type))
             };
 

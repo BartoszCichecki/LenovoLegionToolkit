@@ -2249,6 +2249,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Smart Key.
+        /// </summary>
+        public static string NotificationsSettingsWindow_SmartKey {
+            get {
+                return ResourceManager.GetString("NotificationsSettingsWindow_SmartKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Notifications.
         /// </summary>
         public static string NotificationsSettingsWindow_Title {
