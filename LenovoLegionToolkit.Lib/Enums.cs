@@ -294,4 +294,10 @@ namespace LenovoLegionToolkit.Lib
     }
 
     public enum WinKeyChanged { }
+
+    public enum HDRState
+    {
+        Off,
+        On
+    }
 }
