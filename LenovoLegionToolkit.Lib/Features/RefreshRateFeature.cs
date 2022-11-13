@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Utils;
 using WindowsDisplayAPI;
 
@@ -16,7 +16,7 @@ namespace LenovoLegionToolkit.Lib.Features
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting all refresh rates...");
 
-            var display = await GetBuiltInDisplayAsync().ConfigureAwait(false);
+            var display = await DisplayExtensions.GetBuiltInDisplayAsync().ConfigureAwait(false);
             if (display is null)
             {
                 if (Log.Instance.IsTraceEnabled)
@@ -68,7 +68,7 @@ namespace LenovoLegionToolkit.Lib.Features
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting current refresh rate...");
 
-            var display = await GetBuiltInDisplayAsync().ConfigureAwait(false);
+            var display = await DisplayExtensions.GetBuiltInDisplayAsync().ConfigureAwait(false);
             if (display is null)
             {
                 if (Log.Instance.IsTraceEnabled)
@@ -88,7 +88,7 @@ namespace LenovoLegionToolkit.Lib.Features
 
         public async Task SetStateAsync(RefreshRate state)
         {
-            var display = await GetBuiltInDisplayAsync().ConfigureAwait(false);
+            var display = await DisplayExtensions.GetBuiltInDisplayAsync().ConfigureAwait(false);
             if (display is null)
             {
                 if (Log.Instance.IsTraceEnabled)
@@ -123,41 +123,6 @@ namespace LenovoLegionToolkit.Lib.Features
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Could not find matching settings for frequency {state}");
             }
-        }
-
-        private static async Task<Display?> GetBuiltInDisplayAsync()
-        {
-            var displays = Display.GetDisplays();
-
-            if (Log.Instance.IsTraceEnabled)
-            {
-                Log.Instance.Trace($"Found displays:");
-                foreach (var display in displays)
-                    Log.Instance.Trace($" - {display}");
-            }
-
-            foreach (var display in Display.GetDisplays())
-                if (await IsInternalAsync(display).ConfigureAwait(false))
-                    return display;
-            return null;
-        }
-
-        private static async Task<bool> IsInternalAsync(Display display)
-        {
-            var instanceName = display.DevicePath
-                .Split("#")
-                .Skip(1)
-                .Take(2)
-                .Aggregate((s1, s2) => s1 + "\\" + s2);
-
-            var result = await WMI.ReadAsync("root\\WMI",
-                             $"SELECT * FROM WmiMonitorConnectionParams WHERE InstanceName LIKE '%{instanceName}%'",
-                             pdc => (uint)pdc["VideoOutputTechnology"].Value).ConfigureAwait(false);
-            var vot = result.FirstOrDefault();
-
-            const uint votInternal = 0x80000000;
-            const uint votDisplayPortEmbedded = 11;
-            return vot == votInternal || vot == votDisplayPortEmbedded;
         }
 
         private static bool Match(DisplayPossibleSetting dps, DisplaySetting ds)

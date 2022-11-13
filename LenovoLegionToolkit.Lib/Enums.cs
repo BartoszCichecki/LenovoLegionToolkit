@@ -135,7 +135,9 @@ namespace LenovoLegionToolkit.Lib
         RGBKeyboardPresetOff,
         TouchpadOn,
         TouchpadOff,
-        WhiteKeyboardBacklight
+        WhiteKeyboardBacklight,
+        SmartKeySinglePress,
+        SmartKeyDoublePress
     }
 
     public enum OS
@@ -292,4 +294,10 @@ namespace LenovoLegionToolkit.Lib
     }
 
     public enum WinKeyChanged { }
+
+    public enum HDRState
+    {
+        Off,
+        On
+    }
 }
