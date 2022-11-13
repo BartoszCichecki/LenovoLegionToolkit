@@ -156,11 +156,11 @@ namespace LenovoLegionToolkit.WPF.Windows
             if (guids.IsEmpty())
                 guids.Add(currentGuid.Value);
 
-            int currentIndex = guids.IndexOf(currentGuid.Value);
+            var currentIndex = guids.IndexOf(currentGuid.Value);
             if (currentIndex < 0)
                 currentIndex = 0;
 
-            int nextIndex = (currentIndex + 1) % guids.Count;
+            var nextIndex = (currentIndex + 1) % guids.Count;
 
             var id = guids[currentIndex];
 

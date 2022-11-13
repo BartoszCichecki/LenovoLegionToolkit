@@ -75,8 +75,8 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
 
             _showThisAppToggle.IsChecked = _settingsStoreGuid == null;
 
-            var pipelines = new List<AutomationPipeline>();
-            pipelines.AddRange((await _automationProcessor.GetPipelinesAsync()).Where(p => p.Trigger is null));
+            var allPipelines = await _automationProcessor.GetPipelinesAsync();
+            var pipelines = allPipelines.Where(p => p.Trigger is null).OrderBy(p => p.Name).ToArray();
 
             _list.Items.Clear();
 

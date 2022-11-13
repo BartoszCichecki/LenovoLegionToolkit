@@ -112,8 +112,8 @@
                 Visibility="Hidden" />
         </wpfui:CardControl>
 
-        <wpfui:CardAction 
-            x:Name="_smartKeySinglePressActionCard" 
+        <wpfui:CardAction
+            x:Name="_smartKeySinglePressActionCard"
             Margin="0,0,0,8"
             Click="SmartKeySinglePressActionCard_Click">
             <wpfui:CardAction.Content>
@@ -121,8 +121,8 @@
             </wpfui:CardAction.Content>
         </wpfui:CardAction>
 
-        <wpfui:CardAction 
-            x:Name="_smartKeyDoublePressActionCard" 
+        <wpfui:CardAction
+            x:Name="_smartKeyDoublePressActionCard"
             Margin="0,0,0,8"
             Click="SmartKeyDoublePressActionCard_Click">
             <wpfui:CardAction.Content>
