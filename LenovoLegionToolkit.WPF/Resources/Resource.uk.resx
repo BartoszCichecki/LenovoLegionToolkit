@@ -1164,7 +1164,7 @@
   <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
     <value>Призначити швидкі дії на натискання Fn+F9.</value>
   </data>
-  <data name="SettingsPage_SmartKeySinglePressAction_ShowThisApp" xml:space="preserve">
+  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
     <value>Показати цей застосунок</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">

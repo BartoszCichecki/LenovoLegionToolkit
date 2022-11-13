@@ -1078,6 +1078,15 @@ Make sure that your script runs correctly first.</value>
   <data name="Saving" xml:space="preserve">
     <value>Saving...</value>
   </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Description" xml:space="preserve">
+    <value>Choose one or more quick actions to cycle through</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
+    <value>No Quick Actions defined.</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
+    <value>Show this app</value>
+  </data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
     <value>Change the accent color of the app.</value>
   </data>
@@ -1193,17 +1202,8 @@ Restart is recommended after changing this option.</value>
   <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
     <value>Assign Quick Action to Fn+F9 single press.</value>
   </data>
-  <data name="SettingsPage_SmartKeySinglePressAction_ShowThisApp" xml:space="preserve">
-    <value>Show this app</value>
-  </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
     <value>Smart Key Action</value>
-  </data>
-  <data name="SelectSmartKeyPipelinesWindow_List_Description" xml:space="preserve">
-    <value>Choose one or more quick actions to cycle through</value>
-  </data>
-  <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
-    <value>No Quick Actions defined.</value>
   </data>
   <data name="SettingsPage_Theme_Description" xml:space="preserve">
     <value>Set light theme, dark theme or follow system settings.</value>

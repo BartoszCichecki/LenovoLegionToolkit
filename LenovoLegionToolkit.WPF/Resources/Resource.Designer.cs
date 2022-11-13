@@ -3084,6 +3084,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show this app.
+        /// </summary>
+        public static string SelectSmartKeyPipelinesWindow_ShowThisApp {
+            get {
+                return ResourceManager.GetString("SelectSmartKeyPipelinesWindow_ShowThisApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change the accent color of the app..
         /// </summary>
         public static string SettingsPage_AccentColor_Description {
@@ -3417,15 +3426,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string SettingsPage_SmartKeySinglePressAction_Message {
             get {
                 return ResourceManager.GetString("SettingsPage_SmartKeySinglePressAction_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show this app.
-        /// </summary>
-        public static string SettingsPage_SmartKeySinglePressAction_ShowThisApp {
-            get {
-                return ResourceManager.GetString("SettingsPage_SmartKeySinglePressAction_ShowThisApp", resourceCulture);
             }
         }
         
