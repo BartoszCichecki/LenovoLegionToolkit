@@ -1899,7 +1899,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to HDR usage is blocked by the Windows settings..
+        ///   Looks up a localized string similar to HDR usage is blocked by Windows settings..
         /// </summary>
         public static string HDRControl_Warning {
             get {

@@ -34,12 +34,12 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             {
                 var isHdrBlocked = await ((HDRFeature)Feature).IsHDRBlockedAsync();
 
-                IsEnabled = !isHdrBlocked;
+                IsToggleEnabled = !isHdrBlocked;
                 Warning = isHdrBlocked ? Resource.HDRControl_Warning : string.Empty;
             }
             catch
             {
-                IsEnabled = true;
+                IsToggleEnabled = true;
                 Warning = string.Empty;
             }
 

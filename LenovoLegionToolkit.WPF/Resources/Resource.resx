@@ -686,7 +686,7 @@ WARNING: This action will not run correctly if the internal display is off.</val
     <value>HDR</value>
   </data>
   <data name="HDRControl_Warning" xml:space="preserve">
-    <value>HDR usage is blocked by the Windows settings.</value>
+    <value>HDR usage is blocked by Windows settings.</value>
   </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>This device is not compatible with Lenovo Legion Toolkit.</value>

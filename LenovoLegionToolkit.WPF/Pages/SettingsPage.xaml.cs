@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,7 +7,6 @@ using System.Windows.Controls;
 using Humanizer;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
-using LenovoLegionToolkit.Lib.Automation.Pipeline;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
