@@ -1187,7 +1187,7 @@ Se recomandă repornirea după modificarea acestei opțiuni.</value>
   <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
     <value>Setați o acțiune rapidă la apăsarea tastelor Fn+F9.</value>
   </data>
-  <data name="SettingsPage_SmartKeySinglePressAction_ShowThisApp" xml:space="preserve">
+  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
     <value>Arată această aplicație</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">

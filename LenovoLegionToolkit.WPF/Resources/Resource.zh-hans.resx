@@ -1174,7 +1174,7 @@
   <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
     <value>选择单击 Fn + F9 触发的快捷方式。</value>
   </data>
-  <data name="SettingsPage_SmartKeySinglePressAction_ShowThisApp" xml:space="preserve">
+  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
     <value>显示本应用</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">

@@ -1167,7 +1167,7 @@ Se desativado, esta app irá executar os atalhos Fn.
   <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
     <value>Atribuir Ações Rápidas a um clique das teclas Fn+F9.</value>
   </data>
-  <data name="SettingsPage_SmartKeySinglePressAction_ShowThisApp" xml:space="preserve">
+  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
     <value>Mostrar esta aplicação</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">

@@ -54,7 +54,7 @@
 
             <wpfui:CardControl Grid.Row="0" Margin="0,0,0,24">
                 <wpfui:CardControl.Header>
-                    <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_SmartKeySinglePressAction_ShowThisApp}" />
+                    <controls:CardHeaderControl Title="{x:Static resources:Resource.SelectSmartKeyPipelinesWindow_ShowThisApp}" />
                 </wpfui:CardControl.Header>
                 <wpfui:ToggleSwitch x:Name="_showThisAppToggle" Click="ShowThisAppToggle_Click" />
             </wpfui:CardControl>
