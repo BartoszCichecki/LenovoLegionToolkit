@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
@@ -168,7 +169,17 @@ namespace LenovoLegionToolkit.WPF.Windows
 
             try
             {
-                await _automationProcessor.RunNowAsync(id);
+                var pipeline = (await _automationProcessor.GetPipelinesAsync()).FirstOrDefault(p => p.Id == id);
+                if (pipeline != null)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Running action {id} after {(isDoublePress ? "double" : "single")} Fn+F9 press.");
+
+                    await _automationProcessor.RunNowAsync(pipeline.Id);
+
+                    MessagingCenter.Publish(new Notification(isDoublePress ? NotificationType.SmartKeyDoublePress : NotificationType.SmartKeySinglePress,
+                        NotificationDuration.Short, pipeline.Name ?? string.Empty));
+                }
             }
             catch (Exception ex)
             {
