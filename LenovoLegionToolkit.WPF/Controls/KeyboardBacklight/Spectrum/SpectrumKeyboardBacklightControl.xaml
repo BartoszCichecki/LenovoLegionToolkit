@@ -194,27 +194,7 @@
                 Content="Add effect"
                 Icon="Add24" />
 
-            <StackPanel Margin="0,0,0,8">
-
-                <wpfui:CardControl Margin="0,0,0,8" Icon="Star24">
-                    <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="Effect 1" />
-                    </wpfui:CardControl.Header>
-                    <wpfui:CardControl.Content>
-                        <wpfui:Button Icon="Dismiss24" />
-                    </wpfui:CardControl.Content>
-                </wpfui:CardControl>
-
-                <wpfui:CardControl Margin="0,0,0,8" Icon="Star24">
-                    <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="Effect 2" />
-                    </wpfui:CardControl.Header>
-                    <wpfui:CardControl.Content>
-                        <wpfui:Button Icon="Dismiss24" />
-                    </wpfui:CardControl.Content>
-                </wpfui:CardControl>
-
-            </StackPanel>
+            <StackPanel x:Name="_effects" Margin="0,0,0,8" />
 
         </StackPanel>
 
