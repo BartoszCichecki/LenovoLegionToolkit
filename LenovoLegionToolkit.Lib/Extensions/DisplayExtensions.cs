@@ -1,12 +1,11 @@
-﻿using LenovoLegionToolkit.Lib.System;
-using LenovoLegionToolkit.Lib.Utils;
-using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
-using WindowsDisplayAPI;
+using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.Utils;
 using Windows.Win32;
 using Windows.Win32.Devices.Display;
+using WindowsDisplayAPI;
 
 namespace LenovoLegionToolkit.Lib.Extensions
 {
@@ -30,24 +29,6 @@ namespace LenovoLegionToolkit.Lib.Extensions
             return null;
         }
 
-        public static async Task<bool> IsInternalAsync(this Display display)
-        {
-            var instanceName = display.DevicePath
-                .Split("#")
-                .Skip(1)
-                .Take(2)
-                .Aggregate((s1, s2) => s1 + "\\" + s2);
-
-            var result = await WMI.ReadAsync("root\\WMI",
-                             $"SELECT * FROM WmiMonitorConnectionParams WHERE InstanceName LIKE '%{instanceName}%'",
-                             pdc => (uint)pdc["VideoOutputTechnology"].Value).ConfigureAwait(false);
-            var vot = result.FirstOrDefault();
-
-            const uint votInternal = 0x80000000;
-            const uint votDisplayPortEmbedded = 11;
-            return vot == votInternal || vot == votDisplayPortEmbedded;
-        }
-
         public static DisplayAdvancedColorInfo GetAdvancedColorInfo(this Display display)
         {
             var getAdvancedColorInfo = new DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO();
@@ -58,7 +39,7 @@ namespace LenovoLegionToolkit.Lib.Extensions
             getAdvancedColorInfo.header.id = display.ToPathDisplayTarget().TargetId;
 
             if (PInvoke.DisplayConfigGetDeviceInfo(ref getAdvancedColorInfo.header) != 0)
-                throw new Exception("Couldn't get display info!");
+                PInvokeExtensions.ThrowIfWin32Error("GetAdvancedColorInfo");
 
             return new(getAdvancedColorInfo.Anonymous.value.GetNthBit(0),
                 getAdvancedColorInfo.Anonymous.value.GetNthBit(1),
@@ -78,7 +59,25 @@ namespace LenovoLegionToolkit.Lib.Extensions
             setAdvancedColorState.Anonymous.value = setAdvancedColorState.Anonymous.value.SetNthBit(0, state);
 
             if (PInvoke.DisplayConfigSetDeviceInfo(setAdvancedColorState.header) != 0)
-                throw new Exception("Couldn't set display info!");
+                PInvokeExtensions.ThrowIfWin32Error("SetAdvancedColorState");
+        }
+
+        private static async Task<bool> IsInternalAsync(this Device display)
+        {
+            var instanceName = display.DevicePath
+                .Split("#")
+                .Skip(1)
+                .Take(2)
+                .Aggregate((s1, s2) => s1 + "\\" + s2);
+
+            var result = await WMI.ReadAsync("root\\WMI",
+                $"SELECT * FROM WmiMonitorConnectionParams WHERE InstanceName LIKE '%{instanceName}%'",
+                pdc => (uint)pdc["VideoOutputTechnology"].Value).ConfigureAwait(false);
+            var vot = result.FirstOrDefault();
+
+            const uint votInternal = 0x80000000;
+            const uint votDisplayPortEmbedded = 11;
+            return vot is votInternal or votDisplayPortEmbedded;
         }
     }
 }
