@@ -1024,6 +1024,23 @@ ATENȚIE: Această acțiune nu va rula corect dacă afișajul incorporat este op
   <data name="RefreshRateControl_Title" xml:space="preserve">
     <value>Rată de reîmprospătare</value>
   </data>
+  <data name="HDRAutomationStepControl_Message" xml:space="preserve">
+    <value>Activați intervalul dinamic ridicat (HDR) pe afișajul încorporat.
+
+ATENȚIE: Această acțiune nu va rula corect dacă afișajul incorporat este oprit.</value>
+  </data>
+  <data name="HDRAutomationStepControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Message" xml:space="preserve">
+    <value>Activați intervalul dinamic ridicat (HDR) pe afișajul încorporat.</value>
+  </data>
+  <data name="HDRControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Warning" xml:space="preserve">
+    <value>Utilizarea HDR este blocată de setările Windows.</value>
+  </data>
   <data name="Rename" xml:space="preserve">
     <value>Redenumiți</value>
   </data>

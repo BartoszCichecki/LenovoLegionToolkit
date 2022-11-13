@@ -37,6 +37,18 @@ namespace LenovoLegionToolkit.WPF.Controls
             set => _cardHeaderControl.Subtitle = value;
         }
 
+        protected string Warning
+        {
+            get => _cardHeaderControl.Warning;
+            set => _cardHeaderControl.Warning = value;
+        }
+
+        public bool IsToggleEnabled
+        {
+            get => _toggle.IsEnabled;
+            set => _toggle.IsEnabled = value;
+        }
+
         protected abstract T OnState { get; }
 
         protected abstract T OffState { get; }
