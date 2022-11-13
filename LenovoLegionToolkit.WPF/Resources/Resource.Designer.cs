@@ -1888,6 +1888,53 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enable high dynamic range (HDR) on the built-in display.
+        ///
+        ///WARNING: This action will not run correctly if the internal display is off..
+        /// </summary>
+        public static string HDRAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("HDRAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HDR.
+        /// </summary>
+        public static string HDRAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("HDRAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable high dynamic range (HDR) on the built-in display..
+        /// </summary>
+        public static string HDRControl_Message {
+            get {
+                return ResourceManager.GetString("HDRControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HDR.
+        /// </summary>
+        public static string HDRControl_Title {
+            get {
+                return ResourceManager.GetString("HDRControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HDR usage is blocked by Windows settings..
+        /// </summary>
+        public static string HDRControl_Warning {
+            get {
+                return ResourceManager.GetString("HDRControl_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This device is not compatible with Lenovo Legion Toolkit..
         /// </summary>
         public static string IncompatibleDevice_Message {
@@ -2290,6 +2337,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string NotificationsSettingsWindow_RefreshRate {
             get {
                 return ResourceManager.GetString("NotificationsSettingsWindow_RefreshRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Smart Key.
+        /// </summary>
+        public static string NotificationsSettingsWindow_SmartKey {
+            get {
+                return ResourceManager.GetString("NotificationsSettingsWindow_SmartKey", resourceCulture);
             }
         }
         
@@ -3037,6 +3093,33 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Choose one or more quick actions to cycle through.
+        /// </summary>
+        public static string SelectSmartKeyPipelinesWindow_List_Description {
+            get {
+                return ResourceManager.GetString("SelectSmartKeyPipelinesWindow_List_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Quick Actions defined..
+        /// </summary>
+        public static string SelectSmartKeyPipelinesWindow_List_Empty {
+            get {
+                return ResourceManager.GetString("SelectSmartKeyPipelinesWindow_List_Empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show this app.
+        /// </summary>
+        public static string SelectSmartKeyPipelinesWindow_ShowThisApp {
+            get {
+                return ResourceManager.GetString("SelectSmartKeyPipelinesWindow_ShowThisApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change the accent color of the app..
         /// </summary>
         public static string SettingsPage_AccentColor_Description {
@@ -3370,15 +3453,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string SettingsPage_SmartKeySinglePressAction_Message {
             get {
                 return ResourceManager.GetString("SettingsPage_SmartKeySinglePressAction_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show this app.
-        /// </summary>
-        public static string SettingsPage_SmartKeySinglePressAction_ShowThisApp {
-            get {
-                return ResourceManager.GetString("SettingsPage_SmartKeySinglePressAction_ShowThisApp", resourceCulture);
             }
         }
         

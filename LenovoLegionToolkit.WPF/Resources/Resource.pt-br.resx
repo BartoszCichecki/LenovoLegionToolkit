@@ -1167,7 +1167,7 @@ A reinicialização é recomendada após alterar esta opção.</value>
   <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
     <value>Atribuir Função Rápida ao pressionar a tecla Fn+F9 uma única vez.</value>
   </data>
-  <data name="SettingsPage_SmartKeySinglePressAction_ShowThisApp" xml:space="preserve">
+  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
     <value>Exibir este aplicativo</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
