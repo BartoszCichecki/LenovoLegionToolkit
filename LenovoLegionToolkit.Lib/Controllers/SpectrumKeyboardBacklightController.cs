@@ -63,6 +63,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
             var input = new LENOVO_SPECTRUM_SET_PROFILE_REQUEST((byte)profile);
             SetFeature(input);
+
+            await Task.Delay(TimeSpan.FromMilliseconds(250)); // Looks like keyboard needs some time
         }
 
         public async Task SetProfileDescriptionAsync(int profile, SpectrumKeyboardBacklightProfileDescription description)

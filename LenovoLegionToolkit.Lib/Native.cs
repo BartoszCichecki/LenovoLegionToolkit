@@ -314,7 +314,7 @@ namespace LenovoLegionToolkit.Lib
 
             var effects = new List<LENOVO_SPECTRUM_EFFECT>();
 
-            var lastEffectNo = 0;
+            var lastEffectNo = 1;
             while (true)
             {
                 var effectNo = br.ReadByte();

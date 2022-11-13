@@ -126,16 +126,6 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 
         protected override void OnFinishedLoading() { }
 
-        private async Task StopAnimationAsync()
-        {
-            _refreshStateCancellationTokenSource?.Cancel();
-
-            if (_refreshStateTask is not null)
-                await _refreshStateTask;
-
-            _refreshStateTask = null;
-        }
-
         private async Task StartAnimationAsync()
         {
             await StopAnimationAsync();
@@ -144,6 +134,16 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             _refreshStateCancellationTokenSource = new();
 
             _refreshStateTask = RefreshStateAsync(_refreshStateCancellationTokenSource.Token);
+        }
+
+        private async Task StopAnimationAsync()
+        {
+            _refreshStateCancellationTokenSource?.Cancel();
+
+            if (_refreshStateTask is not null)
+                await _refreshStateTask;
+
+            _refreshStateTask = null;
         }
 
         private async Task RefreshStateAsync(CancellationToken token)
@@ -213,13 +213,38 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 
             profileButton.IsChecked = true;
 
-            await RefreshProfileDescriptionAsync(profile);
+            await RefreshProfileDescriptionAsync();
         }
 
-        private async Task RefreshProfileDescriptionAsync(int profile)
+        private async Task RefreshProfileDescriptionAsync()
         {
+            _effects.Children.Clear();
+
+            var profile = await _controller.GetProfileAsync();
             var (_, description) = await _controller.GetProfileDescriptionAsync(profile);
-            // TODO
+
+            foreach (var effect in description.Effects)
+                AddEffect(effect);
+        }
+
+        private async Task ApplyProfileAsync()
+        {
+            var profile = await _controller.GetProfileAsync();
+            var effects = _effects.Children.OfType<SpectrumKeyboardEffectControl>().Select(c => c.Effect).ToArray();
+
+            await _controller.SetProfileDescriptionAsync(profile, new(effects));
+            await RefreshProfileDescriptionAsync();
+        }
+
+        private void AddEffect(SpectrumKeyboardBacklightEffect effect)
+        {
+            var control = new SpectrumKeyboardEffectControl(effect);
+            control.Delete += async (s, e) =>
+            {
+                _effects.Children.Remove(control);
+                await ApplyProfileAsync();
+            };
+            _effects.Children.Add(control);
         }
 
         private async void BrightnessSlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -237,7 +262,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             if (await _controller.GetProfileAsync() != profile)
             {
                 await _controller.SetProfileAsync(profile);
-                await RefreshProfileDescriptionAsync(profile);
+                await RefreshProfileDescriptionAsync();
             }
         }
 
@@ -305,7 +330,10 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
                 foreach (var button in buttons)
                     button.IsChecked = false;
 
-                await _controller.SetProfileDescriptionAsync(6, new(new[] { e }));
+                AddEffect(e);
+
+                await ApplyProfileAsync();
+                await RefreshProfileDescriptionAsync();
             };
             window.ShowDialog();
         }
