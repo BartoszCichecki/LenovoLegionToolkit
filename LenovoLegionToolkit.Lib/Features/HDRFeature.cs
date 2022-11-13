@@ -21,12 +21,21 @@ namespace LenovoLegionToolkit.Lib.Features
                 return false;
             }
 
-            bool isSupported = display.GetAdvancedColorInfo().AdvancedColorSupported;
+            var isSupported = display.GetAdvancedColorInfo().AdvancedColorSupported;
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"HDR support: {isSupported}");
 
             return isSupported;
+        }
+
+        public async Task<bool> IsHDRBlockedAsync()
+        {
+            var display = await DisplayExtensions.GetBuiltInDisplayAsync().ConfigureAwait(false);
+            if (display is null)
+                throw new InvalidOperationException("Built in display not found");
+
+            return display.GetAdvancedColorInfo().AdvancedColorForceDisabled;
         }
 
         public Task<HDRState[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<HDRState>());
@@ -67,15 +76,6 @@ namespace LenovoLegionToolkit.Lib.Features
                 Log.Instance.Trace($"Setting display HDR to {state}");
 
             display.SetAdvancedColorState(state == HDRState.On);
-        }
-
-        public async Task<bool> IsHDRBlockedAsync()
-        {
-            var display = await DisplayExtensions.GetBuiltInDisplayAsync().ConfigureAwait(false);
-            if (display is null)
-                throw new InvalidOperationException("Built in display not found");
-
-            return display.GetAdvancedColorInfo().AdvancedColorForceDisabled;
         }
     }
 }

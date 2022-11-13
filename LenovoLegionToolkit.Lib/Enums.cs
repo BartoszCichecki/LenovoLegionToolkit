@@ -70,6 +70,12 @@ namespace LenovoLegionToolkit.Lib
         Off
     }
 
+    public enum HDRState
+    {
+        Off,
+        On
+    }
+
     public enum HybridModeState
     {
         [Display(ResourceType = typeof(Resource), Name = "HybridModeState_On")]
@@ -294,10 +300,4 @@ namespace LenovoLegionToolkit.Lib
     }
 
     public enum WinKeyChanged { }
-
-    public enum HDRState
-    {
-        Off,
-        On
-    }
 }

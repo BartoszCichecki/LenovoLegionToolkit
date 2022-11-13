@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Windows;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
@@ -11,8 +12,6 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
     public class HDRControl : AbstractToggleFeatureCardControl<HDRState>
     {
         private readonly DisplayConfigurationListener _listener = IoCContainer.Resolve<DisplayConfigurationListener>();
-
-        private readonly HDRFeature _feature = IoCContainer.Resolve<HDRFeature>();
 
         protected override HDRState OnState => HDRState.On;
 
@@ -33,23 +32,24 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
             try
             {
-                bool isHdrBlocked = await _feature.IsHDRBlockedAsync();
+                var isHdrBlocked = await ((HDRFeature)Feature).IsHDRBlockedAsync();
 
-                IsToggleEnabled = !isHdrBlocked;
+                IsEnabled = !isHdrBlocked;
                 Warning = isHdrBlocked ? Resource.HDRControl_Warning : string.Empty;
             }
             catch
             {
-                return;
+                IsEnabled = true;
+                Warning = string.Empty;
             }
+
+            Visibility = Visibility.Visible;
         }
 
         private void Listener_Changed(object? sender, EventArgs e) => Dispatcher.Invoke(async () =>
         {
-            if (!IsLoaded || !IsVisible)
-                return;
-
-            await RefreshAsync();
+            if (IsLoaded)
+                await RefreshAsync();
         });
     }
 }
