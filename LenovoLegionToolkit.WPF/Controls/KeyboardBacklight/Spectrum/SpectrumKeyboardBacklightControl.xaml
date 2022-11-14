@@ -194,7 +194,9 @@
                 Content="Add effect"
                 Icon="Add24" />
 
-            <StackPanel x:Name="_effects" Margin="0,0,0,8" />
+            <controls:LoadableControl x:Name="_effectsLoader" Margin="0,8,0,0">
+                <StackPanel x:Name="_effects" Margin="0,0,0,8" />
+            </controls:LoadableControl>
 
         </StackPanel>
 

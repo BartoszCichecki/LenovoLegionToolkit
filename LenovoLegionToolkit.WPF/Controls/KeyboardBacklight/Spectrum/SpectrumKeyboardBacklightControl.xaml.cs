@@ -216,8 +216,17 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             await RefreshProfileDescriptionAsync();
         }
 
+        private void ShowProfileDescriptionLoader()
+        {
+            _effectsLoader.IsLoading = true;
+        }
+
         private async Task RefreshProfileDescriptionAsync()
         {
+            _effectsLoader.IsLoading = true;
+
+            var delay = Task.Delay(TimeSpan.FromMilliseconds(250));
+
             _effects.Children.Clear();
 
             var profile = await _controller.GetProfileAsync();
@@ -225,6 +234,10 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 
             foreach (var effect in description.Effects)
                 AddEffect(effect);
+
+            await delay;
+
+            _effectsLoader.IsLoading = false;
         }
 
         private async Task ApplyProfileAsync()
@@ -241,7 +254,10 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             var control = new SpectrumKeyboardEffectControl(effect);
             control.Delete += async (s, e) =>
             {
+                ShowProfileDescriptionLoader();
+
                 _effects.Children.Remove(control);
+
                 await ApplyProfileAsync();
             };
             _effects.Children.Add(control);
@@ -259,11 +275,21 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             if ((sender as RadioButton)?.Tag is not int profile)
                 return;
 
+            _brightnessSlider.IsEnabled = false;
+            foreach (var profileButton in ProfileButtons)
+                profileButton.IsEnabled = false;
+
             if (await _controller.GetProfileAsync() != profile)
             {
+                ShowProfileDescriptionLoader();
+
                 await _controller.SetProfileAsync(profile);
                 await RefreshProfileDescriptionAsync();
             }
+
+            foreach (var profileButton in ProfileButtons)
+                profileButton.IsEnabled = true;
+            _brightnessSlider.IsEnabled = true;
         }
 
         private void SelectAll_Click(object sender, RoutedEventArgs e)
@@ -327,6 +353,8 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             };
             window.Apply += async (s, e) =>
             {
+                ShowProfileDescriptionLoader();
+
                 foreach (var button in buttons)
                     button.IsChecked = false;
 
