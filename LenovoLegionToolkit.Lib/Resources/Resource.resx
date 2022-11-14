@@ -160,6 +160,18 @@
   <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
     <value>Preset 2</value>
   </data>
+  <data name="SpectrumKeyboardBacklightBrightness_High" xml:space="preserve">
+		<value>High</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightBrightness_Low" xml:space="preserve">
+		<value>Low</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightBrightness_Medium" xml:space="preserve">
+		<value>Medium</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightBrightness_Off" xml:space="preserve">
+		<value>Off</value>
+	</data>
   <data name="SpectrumKeyboardBacklightDirection_BottomToTop" xml:space="preserve">
 		<value>Bottom to Top</value>
 	</data>
