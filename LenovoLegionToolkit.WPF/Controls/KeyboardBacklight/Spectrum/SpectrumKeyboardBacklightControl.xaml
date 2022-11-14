@@ -149,18 +149,27 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <spectrum:SpectrumDevice
-                    x:Name="_device"
-                    Grid.Column="1"
-                    HorizontalAlignment="Center">
-                    <spectrum:SpectrumDevice.LayoutTransform>
-                        <ScaleTransform ScaleX="2" ScaleY="2" />
-                    </spectrum:SpectrumDevice.LayoutTransform>
-                </spectrum:SpectrumDevice>
+                <controls:SelectableControl Grid.Column="1" Selected="SelectableControl_Selected">
+                    <controls:SelectableControl.Stroke>
+                        <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
+                    </controls:SelectableControl.Stroke>
+                    <controls:SelectableControl.Fill>
+                        <SolidColorBrush Opacity="0.25" Color="{DynamicResource SystemAccentColorSecondary}" />
+                    </controls:SelectableControl.Fill>
+
+                    <spectrum:SpectrumDevice
+                        x:Name="_device"
+                        Padding="32"
+                        HorizontalAlignment="Center">
+                        <spectrum:SpectrumDevice.LayoutTransform>
+                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                        </spectrum:SpectrumDevice.LayoutTransform>
+                    </spectrum:SpectrumDevice>
+
+                </controls:SelectableControl>
 
                 <StackPanel
                     Grid.Column="2"
-                    Margin="16,0,0,0"
                     HorizontalAlignment="Left"
                     Orientation="Vertical">
 

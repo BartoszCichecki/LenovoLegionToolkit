@@ -133,6 +133,12 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             _brightnessSlider.IsEnabled = true;
         }
 
+        private void SelectableControl_Selected(object? sender, SelectableControl.SelectedEventArgs e)
+        {
+            foreach (var button in _device.GetVisibleButtons().Where(b => !(b.IsChecked ?? false)))
+                button.IsChecked = e.Intersects(button);
+        }
+
         private void SelectAll_Click(object sender, RoutedEventArgs e) => SelectAllButtons();
 
         private void DeselectAll_Click(object sender, RoutedEventArgs e) => DeselectAllButtons();
