@@ -675,6 +675,23 @@
   <data name="GodModeSettingsWindow_Title" xml:space="preserve">
     <value>自定义模式设置</value>
   </data>
+  <data name="HDRAutomationStepControl_Message" xml:space="preserve">
+    <value>为内置屏幕启用高动态范围显示（HDR）。
+
+警告：如内置屏幕关闭则本项无法正常运行。</value>
+  </data>
+  <data name="HDRAutomationStepControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Message" xml:space="preserve">
+    <value>为内置屏幕启用高动态范围显示（HDR）。</value>
+  </data>
+  <data name="HDRControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Warning" xml:space="preserve">
+    <value>Windows 设置已阻止启用 HDR。</value>
+  </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>此设备可能与联想拯救箱不兼容</value>
   </data>
@@ -804,6 +821,9 @@
   </data>
   <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
     <value>刷新率</value>
+  </data>
+  <data name="NotificationsSettingsWindow_SmartKey" xml:space="preserve">
+    <value>Smart Key</value>
   </data>
   <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
     <value>提示弹窗</value>
@@ -1064,6 +1084,15 @@
   <data name="Saving" xml:space="preserve">
     <value>保存中...</value>
   </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Description" xml:space="preserve">
+    <value>选择单个或多个快捷方式来循环执行。</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
+    <value>暂无快捷方式。</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
+    <value>显示本应用</value>
+  </data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
     <value>改变应用的主题色。</value>
   </data>
@@ -1179,9 +1208,6 @@
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
     <value>选择单击 Fn + F9 触发的快捷方式。</value>
-  </data>
-  <data name="SettingsPage_SmartKeySinglePressAction_ShowThisApp" xml:space="preserve">
-    <value>显示本应用</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
     <value>Smart Key 快捷动作</value>
