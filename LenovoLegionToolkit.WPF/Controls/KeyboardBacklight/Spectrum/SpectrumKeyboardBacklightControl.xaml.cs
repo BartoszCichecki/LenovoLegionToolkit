@@ -326,12 +326,12 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             var delay = Task.Delay(TimeSpan.FromMilliseconds(250));
 
             var profile = await _controller.GetProfileAsync();
-            var (_, description) = await _controller.GetProfileDescriptionAsync(profile);
+            var (_, effects) = await _controller.GetProfileDescriptionAsync(profile);
 
 
             DeleteAllEffects();
 
-            foreach (var effect in description.Effects)
+            foreach (var effect in effects)
             {
                 var control = CreateEffectControl(effect);
                 _effects.Children.Add(control);
@@ -347,7 +347,18 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             var profile = await _controller.GetProfileAsync();
             var effects = _effects.Children.OfType<SpectrumKeyboardEffectControl>().Select(c => c.Effect).ToArray();
 
-            await _controller.SetProfileDescriptionAsync(profile, new(effects));
+            try
+            {
+                await _controller.SetProfileDescriptionAsync(profile, effects);
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't apply profile.", ex);
+
+                await SnackbarHelper.ShowAsync("Couldn't apply profile", "Lighting profile couldn't be applied.", true);
+            }
+
             await RefreshProfileDescriptionAsync();
         }
 
