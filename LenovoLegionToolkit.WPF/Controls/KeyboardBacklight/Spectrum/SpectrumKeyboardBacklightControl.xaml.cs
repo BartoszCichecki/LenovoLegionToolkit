@@ -337,6 +337,8 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
                 _effects.Children.Add(control);
             }
 
+            _noEffectsText.Visibility = effects.IsEmpty() ? Visibility.Visible : Visibility.Collapsed;
+
             await delay;
 
             StopProfileDescriptionLoader();
