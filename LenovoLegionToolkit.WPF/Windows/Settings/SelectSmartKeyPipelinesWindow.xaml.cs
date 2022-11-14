@@ -18,7 +18,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
         private readonly AutomationProcessor _automationProcessor = IoCContainer.Resolve<AutomationProcessor>();
         private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
 
-        private bool _isDoublePress;
+        private readonly bool _isDoublePress;
 
         private Guid? _settingsStoreGuid
         {
