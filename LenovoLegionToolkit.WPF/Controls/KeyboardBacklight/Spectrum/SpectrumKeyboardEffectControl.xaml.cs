@@ -9,6 +9,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
     {
         public new SpectrumKeyboardBacklightEffect Effect { get; }
 
+        public event EventHandler? Click;
         public event EventHandler? Edit;
         public event EventHandler? Delete;
 
@@ -27,6 +28,8 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
                 subtitle += $"{effect.Keys.KeyCodes.Length} zones";
             _cardHeaderControl.Subtitle = subtitle;
         }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e) => Click?.Invoke(this, EventArgs.Empty);
 
         private void Edit_Click(object sender, RoutedEventArgs e) => Edit?.Invoke(this, EventArgs.Empty);
 
