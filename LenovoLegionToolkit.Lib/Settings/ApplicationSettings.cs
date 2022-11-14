@@ -22,8 +22,9 @@ namespace LenovoLegionToolkit.Lib.Settings
 
         public class ApplicationSettingsStore
         {
-            public Theme Theme { get; set; } = Theme.Dark;
+            public Theme Theme { get; set; }
             public RGBColor? AccentColor { get; set; }
+            public AccentColorSource AccentColorSource { get; set; }
             public Dictionary<PowerModeState, string> PowerPlans { get; set; } = new();
             public bool MinimizeOnClose { get; set; }
             public bool ActivatePowerProfilesWithVantageEnabled { get; set; }

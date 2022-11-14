@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Media;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 
@@ -11,12 +12,8 @@ namespace LenovoLegionToolkit.WPF.Utils
 {
     public class ThemeManager
     {
-        private const string RegistryHive = "HKEY_CURRENT_USER";
-        private const string RegistryPath = @"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize";
-        private const string RegistryKey = "AppsUseLightTheme";
-
         private readonly ApplicationSettings _settings;
-        private readonly IDisposable _themeListener;
+        private readonly SystemThemeListener _listener = IoCContainer.Resolve<SystemThemeListener>();
 
         public RGBColor DefaultAccentColor => new(255, 33, 33);
 
@@ -25,23 +22,30 @@ namespace LenovoLegionToolkit.WPF.Utils
             get
             {
                 var theme = _settings.Store.Theme;
-                var registryValue = Registry.Read(RegistryHive, RegistryPath, RegistryKey, 1);
+                var registryValue = SystemTheme.GetDarkMode();
 
                 return (theme, registryValue) switch
                 {
                     (Theme.Light, _) => false,
-                    (Theme.System, 1) => false,
+                    (Theme.System, false) => false,
                     _ => true,
                 };
             }
         }
+
+        public RGBColor AccentColor => _settings.Store.AccentColorSource switch
+        {
+            AccentColorSource.System => SystemTheme.GetThemeMatchedAccentColor(),
+            AccentColorSource.Custom => _settings.Store.AccentColor ?? DefaultAccentColor,
+            _ => DefaultAccentColor
+        };
 
         public event EventHandler? ThemeApplied;
 
         public ThemeManager(ApplicationSettings settings)
         {
             _settings = settings;
-            _themeListener = Registry.Listen(RegistryHive, RegistryPath, RegistryKey, () => Application.Current.Dispatcher.Invoke(Apply));
+            _listener.Changed += (object? s, EventArgs e) => Application.Current.Dispatcher.Invoke(Apply);
         }
 
         public void Apply()
@@ -60,8 +64,7 @@ namespace LenovoLegionToolkit.WPF.Utils
 
         private void SetColor()
         {
-            var accentColorRgb = _settings.Store.AccentColor ?? DefaultAccentColor;
-            var accentColor = Color.FromRgb(accentColorRgb.R, accentColorRgb.G, accentColorRgb.B);
+            var accentColor = Color.FromRgb(AccentColor.R, AccentColor.G, AccentColor.B);
             Wpf.Ui.Appearance.Accent.Apply(systemAccent: accentColor,
                 primaryAccent: accentColor,
                 secondaryAccent: accentColor,
