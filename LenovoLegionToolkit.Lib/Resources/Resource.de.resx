@@ -59,28 +59,37 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AlwaysOnUSBState_Off" xml:space="preserve">
-    <value>Off</value>
+    <value>Aus</value>
   </data>
   <data name="AlwaysOnUSBState_OnAlways" xml:space="preserve">
-    <value>On, always</value>
+    <value>An, immer</value>
   </data>
   <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
-    <value>On, when sleeping</value>
+    <value>An, wenn schlafend</value>
   </data>
+  <data name="AutorunState_Disabled" xml:space="preserve">
+		<value>Deaktiviert</value>
+	</data>
+  <data name="AutorunState_Enabled" xml:space="preserve">
+		<value>Aktiviert</value>
+	</data>
+  <data name="AutorunState_EnabledDelayed" xml:space="preserve">
+		<value>Aktiviert, verzögert</value>
+	</data>
   <data name="BatteryState_Conservation" xml:space="preserve">
-    <value>Conservation</value>
+    <value>Erhaltung</value>
   </data>
   <data name="BatteryState_Normal" xml:space="preserve">
     <value>Normal</value>
   </data>
   <data name="BatteryState_RapidCharge" xml:space="preserve">
-    <value>Rapid Charge</value>
+    <value>Schnellladen</value>
   </data>
   <data name="GPUController_PoweredOff" xml:space="preserve">
-    <value>Powered Off</value>
+    <value>Ausgeschaltet</value>
   </data>
   <data name="GPUController_PoweredOn" xml:space="preserve">
-    <value>Powered On</value>
+    <value>Eingeschaltet</value>
   </data>
   <data name="HybridModeState_Off" xml:space="preserve">
     <value>dGPU</value>
@@ -98,7 +107,7 @@
     <value>Balance</value>
   </data>
   <data name="PowerModeState_GodMode" xml:space="preserve">
-    <value>Custom</value>
+    <value>Benutzerdefiniert</value>
   </data>
   <data name="PowerModeState_Performance" xml:space="preserve">
     <value>Performance</value>
@@ -107,74 +116,66 @@
     <value>Quiet</value>
   </data>
   <data name="RBGKeyboardSpeed_Fast" xml:space="preserve">
-    <value>Fast</value>
+    <value>Schnell</value>
   </data>
   <data name="RBGKeyboardSpeed_Fastest" xml:space="preserve">
-    <value>Fastest</value>
+    <value>Am schnellsten</value>
   </data>
   <data name="RBGKeyboardSpeed_Slow" xml:space="preserve">
-    <value>Slow</value>
+    <value>Langsam</value>
   </data>
   <data name="RBGKeyboardSpeed_Slowest" xml:space="preserve">
-    <value>Slowest</value>
+    <value>Am langsamsten</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
-    <value>Off</value>
+    <value>Aus</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_One" xml:space="preserve">
-    <value>Preset 1</value>
+    <value>Voreinstellung 1</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Three" xml:space="preserve">
-    <value>Preset 3</value>
+    <value>Voreinstellung 3</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
-    <value>Preset 2</value>
+    <value>Voreinstellung 2</value>
   </data>
   <data name="RGBKeyboardBrightness_High" xml:space="preserve">
-    <value>High</value>
+    <value>Hoch</value>
   </data>
   <data name="RGBKeyboardBrightness_Low" xml:space="preserve">
-    <value>Low</value>
+    <value>Niedrig</value>
   </data>
   <data name="RGBKeyboardEffect_Breath" xml:space="preserve">
-    <value>Breath</value>
+    <value>Atmen</value>
   </data>
   <data name="RGBKeyboardEffect_Smooth" xml:space="preserve">
-    <value>Smooth</value>
+    <value>Sanft</value>
   </data>
   <data name="RGBKeyboardEffect_Static" xml:space="preserve">
-    <value>Static</value>
+    <value>Statisch</value>
   </data>
   <data name="RGBKeyboardEffect_WaveLTR" xml:space="preserve">
-    <value>Wave Left</value>
+    <value>Welle Links</value>
   </data>
   <data name="RGBKeyboardEffect_WaveRTL" xml:space="preserve">
-    <value>Wave Right</value>
+    <value>Welle Rechts</value>
   </data>
   <data name="Theme_Dark" xml:space="preserve">
-    <value>Dark</value>
+    <value>Dunkel</value>
   </data>
   <data name="Theme_Light" xml:space="preserve">
-    <value>Light</value>
+    <value>Hell</value>
   </data>
   <data name="Theme_System" xml:space="preserve">
     <value>System</value>
   </data>
-  <data name="WarrantyChecker_InWarranty" xml:space="preserve">
-    <value>In warranty</value>
-    <comment>This needs to be translated only into Chinese.</comment>
-  </data>
-  <data name="WarrantyChecker_WarrantyExpired" xml:space="preserve">
-    <value>Expired</value>
-    <comment>This needs to be translated only into Chinese.</comment>
-  </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
-    <value>High</value>
+    <value>Hoch</value>
   </data>
   <data name="WhiteKeyboardBacklightState_Low" xml:space="preserve">
-    <value>Low</value>
+    <value>Niedrig</value>
   </data>
   <data name="WhiteKeyboardBacklightState_Off" xml:space="preserve">
-    <value>Off</value>
+    <value>Aus</value>
   </data>
 </root>
