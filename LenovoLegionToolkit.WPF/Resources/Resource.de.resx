@@ -671,7 +671,7 @@ Ernsthaft, seien Sie vorsichtig mit dieser Option!</value>
     <value>Benutzerdefinierter Modus Einstellungen</value>
   </data>
   <data name="HDRAutomationStepControl_Message" xml:space="preserve">
-    <value>Aktiviere hohen Dynamikumfang (HDR) des eingebauten Displays.
+    <value>Aktiviere High Dynamic Range (HDR) des integrierten Displays.
 
 WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display ausgeschaltet ist.</value>
   </data>
