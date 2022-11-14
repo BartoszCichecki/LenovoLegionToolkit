@@ -58,9 +58,18 @@ This is a hobby project. I want to make it available on more devices, but it wil
 
 If you enjoy using the Lenovo Legion Toolkit, consider donating.
 
-<a href="https://www.paypal.com/donate/?hosted_button_id=22AZE2NBP3HTL"><img src="LenovoLegionToolkit.WPF/Assets/paypal_button.png" width="200" alt="PayPal Donate" /></a>
+[Donate with PayPal](https://www.paypal.com/donate/?hosted_button_id=22AZE2NBP3HTL)
 
-<img src="LenovoLegionToolkit.WPF/Assets/paypal_qr.png" width="200" alt="PayPal QR code" />
+<img src="LenovoLegionToolkit.WPF/Assets/Donate/paypal_qr.png" width="200" alt="PayPal QR code" />
+
+
+#### Donate from China
+
+If you live in China, you can also donate in Chinese Yuan using Stripe (supports UnionPay and AliPay):
+
+[Donate with Stripe](https://donate.stripe.com/14k8yM94I980f3q7ss)
+
+<img src="LenovoLegionToolkit.WPF/Assets/Donate/stripe_cny_qr.png" width="200" alt="Stripe (CNY) QR code" />
 
 ## Download
 
