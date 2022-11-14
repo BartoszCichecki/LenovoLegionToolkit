@@ -218,12 +218,18 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 
         private void ShowProfileDescriptionLoader()
         {
-            _effectsLoader.IsLoading = true;
+            if (!_effectsLoader.IsLoading)
+                _effectsLoader.IsLoading = true;
+        }
+
+        private void StopProfileDescriptionLoader()
+        {
+            _effectsLoader.IsLoading = false;
         }
 
         private async Task RefreshProfileDescriptionAsync()
         {
-            _effectsLoader.IsLoading = true;
+            ShowProfileDescriptionLoader();
 
             var delay = Task.Delay(TimeSpan.FromMilliseconds(250));
 
@@ -237,7 +243,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 
             await delay;
 
-            _effectsLoader.IsLoading = false;
+            StopProfileDescriptionLoader();
         }
 
         private async Task ApplyProfileAsync()
