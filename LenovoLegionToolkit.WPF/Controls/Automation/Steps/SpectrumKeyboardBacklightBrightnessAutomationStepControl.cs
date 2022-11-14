@@ -1,4 +1,5 @@
 ﻿using LenovoLegionToolkit.Lib.Automation.Steps;
+using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
@@ -8,10 +9,15 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
         public SpectrumKeyboardBacklightBrightnessAutomationStepControl(IAutomationStep<int> step) : base(step)
         {
             Icon = SymbolRegular.BrightnessHigh24;
-            Title = "Keyboard backlight brightness";
-            Subtitle = "Adjust keyboard backlight brightness.";
+            Title = Resource.SpectrumKeyboardBacklightBrightnessAutomationStepControl_Title;
+            Subtitle = Resource.SpectrumKeyboardBacklightBrightnessAutomationStepControl_Message;
         }
 
-        protected override string ComboBoxItemDisplayName(int value) => value == 0 ? "Off" : base.ComboBoxItemDisplayName(value);
+        protected override string ComboBoxItemDisplayName(int value)
+        {
+            return value == 0
+                ? Resource.SpectrumKeyboardBacklightBrightnessAutomationStepControl_Off
+                : base.ComboBoxItemDisplayName(value);
+        }
     }
 }
