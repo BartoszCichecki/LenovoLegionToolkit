@@ -34,6 +34,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 return Devices.GetRGBKeyboard();
             }
         }
+
         public bool ForceDisable { get; set; }
 
         public RGBKeyboardBacklightController(RGBKeyboardSettings settings, Vantage vantage)
