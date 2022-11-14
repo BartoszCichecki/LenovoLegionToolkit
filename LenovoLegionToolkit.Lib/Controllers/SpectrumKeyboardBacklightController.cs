@@ -78,16 +78,17 @@ namespace LenovoLegionToolkit.Lib.Controllers
             await Task.Delay(TimeSpan.FromMilliseconds(250)); // Looks like keyboard needs some time
         }
 
-        public async Task SetProfileDescriptionAsync(int profile, SpectrumKeyboardBacklightProfileDescription description)
+        public async Task SetProfileDescriptionAsync(int profile, SpectrumKeyboardBacklightEffect[] effects)
         {
             ThrowIfHandleNull();
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            var effects = Convert(profile, description).ToBytes();
-            SetFeature(effects);
+            effects = Compress(effects);
+            var bytes = Convert(profile, effects).ToBytes();
+            SetFeature(bytes);
         }
 
-        public async Task<(int, SpectrumKeyboardBacklightProfileDescription)> GetProfileDescriptionAsync(int profile)
+        public async Task<(int, SpectrumKeyboardBacklightEffect[])> GetProfileDescriptionAsync(int profile)
         {
             ThrowIfHandleNull();
             await ThrowIfVantageEnabled().ConfigureAwait(false);
@@ -229,11 +230,42 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
         }
 
-        private static (int, SpectrumKeyboardBacklightProfileDescription) Convert(LENOVO_SPECTRUM_EFFECT_DESCRIPTION description)
+        private static SpectrumKeyboardBacklightEffect[] Compress(SpectrumKeyboardBacklightEffect[] effects)
+        {
+            if (effects.Any(e => e.Keys.All))
+                return new[] { effects.Last(e => e.Keys.All) };
+
+            var usedKeyCodes = new HashSet<ushort>();
+            var newEffects = new List<SpectrumKeyboardBacklightEffect>();
+
+            foreach (var effect in effects.Reverse())
+            {
+                var newKeyCodes = effect.Keys.KeyCodes.Except(usedKeyCodes).ToArray();
+
+                foreach (var keyCode in newKeyCodes)
+                    usedKeyCodes.Add(keyCode);
+
+                if (newKeyCodes.IsEmpty())
+                    continue;
+
+                var newEffect = new SpectrumKeyboardBacklightEffect(effect.Type,
+                    effect.Speed,
+                    effect.Direction,
+                    effect.ClockwiseDirection,
+                    effect.Colors,
+                    SpectrumKeyboardBacklightKeys.SomeKeys(newKeyCodes));
+
+                newEffects.Add(newEffect);
+            }
+
+            return newEffects.ToArray();
+        }
+
+        private static (int, SpectrumKeyboardBacklightEffect[]) Convert(LENOVO_SPECTRUM_EFFECT_DESCRIPTION description)
         {
             var profile = description.Profile;
             var effects = description.Effects.Select(Convert).ToArray();
-            return new(description.Profile, new(effects));
+            return (profile, effects);
         }
 
         private static SpectrumKeyboardBacklightEffect Convert(LENOVO_SPECTRUM_EFFECT effect)
@@ -291,11 +323,11 @@ namespace LenovoLegionToolkit.Lib.Controllers
             return new(effectType, speed, direction, clockwiseDirection, colors, keys);
         }
 
-        private static LENOVO_SPECTRUM_EFFECT_DESCRIPTION Convert(int profile, SpectrumKeyboardBacklightProfileDescription description)
+        private static LENOVO_SPECTRUM_EFFECT_DESCRIPTION Convert(int profile, SpectrumKeyboardBacklightEffect[] effects)
         {
             var header = new LENOVO_SPECTRUM_HEADER(LENOVO_SPECTRUM_OPERATION_TYPE.EffectChange, 0); // Size will be set on serialization
-            var effects = description.Effects.Select((e, i) => Convert(i, e)).ToArray();
-            var result = new LENOVO_SPECTRUM_EFFECT_DESCRIPTION(header, (byte)profile, effects);
+            var str = effects.Select((e, i) => Convert(i, e)).ToArray();
+            var result = new LENOVO_SPECTRUM_EFFECT_DESCRIPTION(header, (byte)profile, str);
             return result;
         }
 

@@ -547,16 +547,6 @@ namespace LenovoLegionToolkit.Lib
         }
     }
 
-    public struct SpectrumKeyboardBacklightProfileDescription
-    {
-        public SpectrumKeyboardBacklightEffect[] Effects { get; }
-
-        public SpectrumKeyboardBacklightProfileDescription(SpectrumKeyboardBacklightEffect[] effects)
-        {
-            Effects = effects;
-        }
-    }
-
     public struct StepperValue
     {
         public int Value { get; }
