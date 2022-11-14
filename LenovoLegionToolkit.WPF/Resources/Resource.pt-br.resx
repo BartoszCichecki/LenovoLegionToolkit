@@ -505,6 +505,9 @@ AVISO: Esta ação não será executada corretamente se a tela integrada estiver
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>Brilho da tela</value>
   </data>
+  <data name="DonatePage_DonateWith" xml:space="preserve">
+    <value>Doar com</value>
+  </data>
   <data name="DonatePage_Message" xml:space="preserve">
     <value>O desenvolvimento e a manutenção do Lenovo Legion Toolkit leva muito tempo. Se você gosta de usar este software, pode apoiá-lo no futuro doando uma quantia de sua escolha.
 
@@ -668,6 +671,23 @@ Sério, cuidado com essa opção!</value>
   <data name="GodModeSettingsWindow_Title" xml:space="preserve">
     <value>Configurações do modo personalizado</value>
   </data>
+  <data name="HDRAutomationStepControl_Message" xml:space="preserve">
+    <value>Ative a alta faixa dinâmica (HDR) na tela integrada.
+
+AVISO: Esta ação não será executada corretamente se o display interno estiver desligado.</value>
+  </data>
+  <data name="HDRAutomationStepControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Message" xml:space="preserve">
+    <value>Ativar a alta faixa dinâmica (HDR) na tela integrada.</value>
+  </data>
+  <data name="HDRControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Warning" xml:space="preserve">
+    <value>O uso do HDR é bloqueado pelas configurações do Windows.</value>
+  </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Este equipamento não é compatível com o Lenovo Legion Toolkit.</value>
   </data>
@@ -797,6 +817,9 @@ Ative esta opção se você tiver conflitos com aplicativos de tela inteira.</va
   </data>
   <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
     <value>Taxa de atualização</value>
+  </data>
+  <data name="NotificationsSettingsWindow_SmartKey" xml:space="preserve">
+    <value>Acesso Rápido</value>
   </data>
   <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
     <value>Notificações</value>
@@ -932,6 +955,9 @@ Você pode alternar entre os modos pressionando Fn+Q.</value>
   <data name="PowerModeControl_Title" xml:space="preserve">
     <value>Plano de Energia</value>
   </data>
+  <data name="PowerModeControl_Warning" xml:space="preserve">
+    <value>O modo de energia selecionado pode não funcionar corretamente sem o carregador conectado.</value>
+  </data>
   <data name="PowerModeWindow_Title" xml:space="preserve">
     <value>Plano de Energia</value>
   </data>
@@ -1025,7 +1051,7 @@ AVISO: Esta ação não será executada corretamente se a tela integrada estiver
     <value>Renomear</value>
   </data>
   <data name="RestartLater" xml:space="preserve">
-    <value>Desejo reiniciar mais tarde</value>
+    <value>Reiniciar mais tarde</value>
   </data>
   <data name="RestartNow" xml:space="preserve">
     <value>Reiniciar agora</value>
@@ -1051,6 +1077,15 @@ Certifique-se de que seu script seja executado corretamente primeiro.</value>
   </data>
   <data name="Saving" xml:space="preserve">
     <value>Salvando...</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Description" xml:space="preserve">
+    <value>Escolha uma ou mais ações rápidas para percorrer</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
+    <value>Sem Ações Rápidas definidas.</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
+    <value>Exibir este aplicativo</value>
   </data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
     <value>Alterar o tema e as cores do aplicativo.</value>
@@ -1158,9 +1193,6 @@ A reinicialização é recomendada após alterar esta opção.</value>
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Planos de Energia</value>
   </data>
-  <data name="SettingsPage_SmartKeyDoublePressAction_DoNothing" xml:space="preserve">
-    <value>Não fazer nada</value>
-  </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>Atribuir Função Rápida ao pressionar a tecla Fn+F9 duas vezes.</value>
   </data>
@@ -1169,9 +1201,6 @@ A reinicialização é recomendada após alterar esta opção.</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
     <value>Atribuir Função Rápida ao pressionar a tecla Fn+F9 uma única vez.</value>
-  </data>
-  <data name="SettingsPage_SmartKeySinglePressAction_ShowThisApp" xml:space="preserve">
-    <value>Exibir este aplicativo</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
     <value>Ação da Tecla de Acesso Rápido</value>
