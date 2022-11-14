@@ -160,7 +160,8 @@
 
                 <StackPanel
                     Grid.Column="2"
-                    HorizontalAlignment="Center"
+                    Margin="16,0,0,0"
+                    HorizontalAlignment="Left"
                     Orientation="Vertical">
 
                     <wpfui:Button

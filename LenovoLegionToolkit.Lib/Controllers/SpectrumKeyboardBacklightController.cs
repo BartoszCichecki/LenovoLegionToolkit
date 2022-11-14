@@ -262,11 +262,11 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 _ => SpectrumKeyboardBacklightDirection.None
             };
 
-            direction = effect.EffectHeader.ClockwiseDirection switch
+            var clockwiseDirection = effect.EffectHeader.ClockwiseDirection switch
             {
-                LENOVO_SPECTRUM_CLOCKWISE_DIRECTION.Clockwise => SpectrumKeyboardBacklightDirection.Clockwise,
-                LENOVO_SPECTRUM_CLOCKWISE_DIRECTION.CounterClockwise => SpectrumKeyboardBacklightDirection.CounterClockwise,
-                _ => direction
+                LENOVO_SPECTRUM_CLOCKWISE_DIRECTION.Clockwise => SpectrumKeyboardBacklightClockwiseDirection.Clockwise,
+                LENOVO_SPECTRUM_CLOCKWISE_DIRECTION.CounterClockwise => SpectrumKeyboardBacklightClockwiseDirection.CounterClockwise,
+                _ => SpectrumKeyboardBacklightClockwiseDirection.None
             };
 
             var colors = effect.Colors.Select(c => new RGBColor(c.R, c.G, c.B)).ToArray();
@@ -277,7 +277,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             else
                 keys = SpectrumKeyboardBacklightKeys.SomeKeys(effect.Keys);
 
-            return new(effectType, speed, direction, colors, keys);
+            return new(effectType, speed, direction, clockwiseDirection, colors, keys);
         }
 
         private static LENOVO_SPECTRUM_EFFECT_DESCRIPTION Convert(int profile, SpectrumKeyboardBacklightProfileDescription description)
@@ -325,10 +325,10 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 _ => LENOVO_SPECTRUM_DIRECTION.None
             };
 
-            var clockwiseDirection = effect.Direction switch
+            var clockwiseDirection = effect.ClockwiseDirection switch
             {
-                SpectrumKeyboardBacklightDirection.Clockwise => LENOVO_SPECTRUM_CLOCKWISE_DIRECTION.Clockwise,
-                SpectrumKeyboardBacklightDirection.CounterClockwise => LENOVO_SPECTRUM_CLOCKWISE_DIRECTION.CounterClockwise,
+                SpectrumKeyboardBacklightClockwiseDirection.Clockwise => LENOVO_SPECTRUM_CLOCKWISE_DIRECTION.Clockwise,
+                SpectrumKeyboardBacklightClockwiseDirection.CounterClockwise => LENOVO_SPECTRUM_CLOCKWISE_DIRECTION.CounterClockwise,
                 _ => LENOVO_SPECTRUM_CLOCKWISE_DIRECTION.None
             };
 

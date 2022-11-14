@@ -276,13 +276,18 @@ namespace LenovoLegionToolkit.Lib
         SpectrumPreset6 = 37
     }
 
-    public enum SpectrumKeyboardBacklightDirection
+    public enum SpectrumKeyboardBacklightClockwiseDirection
     {
         None,
         [Display(ResourceType = typeof(Resource), Name = "SpectrumKeyboardBacklightDirection_Clockwise")]
         Clockwise,
         [Display(ResourceType = typeof(Resource), Name = "SpectrumKeyboardBacklightDirection_CounterClockwise")]
-        CounterClockwise,
+        CounterClockwise
+    }
+
+    public enum SpectrumKeyboardBacklightDirection
+    {
+        None,
         [Display(ResourceType = typeof(Resource), Name = "SpectrumKeyboardBacklightDirection_BottomToTop")]
         BottomToTop,
         [Display(ResourceType = typeof(Resource), Name = "SpectrumKeyboardBacklightDirection_TopToBottom")]

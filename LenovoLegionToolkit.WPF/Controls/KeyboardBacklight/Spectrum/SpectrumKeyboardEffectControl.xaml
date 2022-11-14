@@ -14,9 +14,13 @@
         <wpfui:CardControl.Header>
             <controls:CardHeaderControl x:Name="_cardHeaderControl" />
         </wpfui:CardControl.Header>
-        <wpfui:CardControl.Content>
-            <wpfui:Button Click="Delete_Click" Icon="Dismiss24" />
-        </wpfui:CardControl.Content>
+        <StackPanel Orientation="Horizontal">
+            <wpfui:Button Click="Edit_Click" Icon="Edit24" />
+            <wpfui:Button
+                Margin="8,0,0,0"
+                Click="Delete_Click"
+                Icon="Dismiss24" />
+        </StackPanel>
     </wpfui:CardControl>
 
 </UserControl>

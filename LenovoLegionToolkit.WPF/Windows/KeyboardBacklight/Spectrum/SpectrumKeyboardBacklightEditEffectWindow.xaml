@@ -7,9 +7,9 @@
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="Edit effect"
-    Width="400"
+    Width="500"
     Height="500"
-    MinWidth="400"
+    MinWidth="500"
     MinHeight="500">
     <Grid>
         <Grid.RowDefinitions>
@@ -49,7 +49,7 @@
 
                 <wpfui:CardControl x:Name="_effectTypeCard" Margin="0,0,0,8">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="Effect" />
+                        <controls:CardHeaderControl x:Name="_effectTypeCardHeader" Title="Effect" />
                     </wpfui:CardControl.Header>
                     <ComboBox
                         x:Name="_effectTypeComboBox"
@@ -117,7 +117,7 @@
                 Content="{x:Static resources:Resource.Apply}" />
             <wpfui:Button
                 MinWidth="120"
-                Margin="12,0,0,0"
+                Margin="8,0,0,0"
                 Click="Cancel_Click"
                 Content="{x:Static resources:Resource.Cancel}" />
         </StackPanel>
