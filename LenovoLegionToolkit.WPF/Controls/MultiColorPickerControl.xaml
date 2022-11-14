@@ -14,11 +14,11 @@
 
         <wpfui:Button
             x:Name="_addButton"
-            Click="AddButton_Click"
             Width="38"
             Height="38"
             Margin="8,0,0,0"
             Appearance="Primary"
+            Click="AddButton_Click"
             Icon="Add24" />
 
     </StackPanel>

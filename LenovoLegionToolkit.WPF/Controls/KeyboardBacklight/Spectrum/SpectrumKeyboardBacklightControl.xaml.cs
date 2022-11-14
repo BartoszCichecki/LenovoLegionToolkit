@@ -328,7 +328,6 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             var profile = await _controller.GetProfileAsync();
             var (_, effects) = await _controller.GetProfileDescriptionAsync(profile);
 
-
             DeleteAllEffects();
 
             foreach (var effect in effects)
