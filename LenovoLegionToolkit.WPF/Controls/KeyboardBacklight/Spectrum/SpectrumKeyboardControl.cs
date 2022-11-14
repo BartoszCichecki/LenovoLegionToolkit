@@ -4,19 +4,19 @@ using LenovoLegionToolkit.Lib;
 
 namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 {
-    public class SpectrumKeyboard : UserControl
+    public class SpectrumKeyboardControl : UserControl
     {
-        private SpectrumKeyboardANSI _ansi = new()
+        private SpectrumKeyboardANSIControl _ansi = new()
         {
             Visibility = Visibility.Collapsed
         };
 
-        private SpectrumKeyboardISO _iso = new()
+        private SpectrumKeyboardISOControl _iso = new()
         {
             Visibility = Visibility.Collapsed
         };
 
-        public SpectrumKeyboard()
+        public SpectrumKeyboardControl()
         {
             var stackPanel = new StackPanel();
             stackPanel.Children.Add(_ansi);

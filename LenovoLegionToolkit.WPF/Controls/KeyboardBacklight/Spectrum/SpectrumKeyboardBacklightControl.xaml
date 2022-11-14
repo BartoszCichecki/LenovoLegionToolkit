@@ -157,14 +157,14 @@
                         <SolidColorBrush Opacity="0.25" Color="{DynamicResource SystemAccentColorSecondary}" />
                     </controls:SelectableControl.Fill>
 
-                    <spectrum:SpectrumDevice
+                    <spectrum:SpectrumDeviceControl
                         x:Name="_device"
                         Padding="32"
                         HorizontalAlignment="Center">
-                        <spectrum:SpectrumDevice.LayoutTransform>
+                        <spectrum:SpectrumDeviceControl.LayoutTransform>
                             <ScaleTransform ScaleX="1" ScaleY="1" />
-                        </spectrum:SpectrumDevice.LayoutTransform>
-                    </spectrum:SpectrumDevice>
+                        </spectrum:SpectrumDeviceControl.LayoutTransform>
+                    </spectrum:SpectrumDeviceControl>
 
                 </controls:SelectableControl>
 
@@ -196,16 +196,35 @@
 
             </Grid>
 
-            <wpfui:Button
-                Margin="0,0,0,8"
-                HorizontalAlignment="Right"
-                Appearance="Primary"
-                Click="AddEffectButton_Click"
-                Content="Add effect"
-                Icon="Add24" />
+            <Grid Margin="0,0,0,8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
 
-            <controls:LoadableControl x:Name="_effectsLoader" Margin="0,8,0,0">
-                <StackPanel x:Name="_effects" Margin="0,0,0,8" />
+                <TextBlock
+                    Grid.Column="0"
+                    FontSize="20"
+                    FontWeight="Medium"
+                    Text="Effects" />
+
+                <wpfui:Button
+                    Grid.Column="1"
+                    Appearance="Primary"
+                    Click="AddEffectButton_Click"
+                    Content="Add effect"
+                    Icon="Add24" />
+
+            </Grid>
+
+            <controls:LoadableControl x:Name="_effectsLoader" Margin="0,8,0,16">
+                <StackPanel>
+                    <TextBlock
+                        x:Name="_noEffectsText"
+                        Margin="0,8,0,32"
+                        Text="No effects added." />
+                    <StackPanel x:Name="_effects" />
+                </StackPanel>
             </controls:LoadableControl>
 
         </StackPanel>
