@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Edit effect"
+    Title="{x:Static resources:Resource.SpectrumKeyboardBacklightEditEffectWindow_Title_Edit}"
     Width="500"
     Height="500"
     MinWidth="500"
@@ -41,7 +41,7 @@
                 VerticalAlignment="Center"
                 FontSize="12"
                 IsHitTestVisible="False"
-                Text="Edit effect" />
+                Text="{x:Static resources:Resource.SpectrumKeyboardBacklightEditEffectWindow_Title_Edit}" />
         </Grid>
 
         <wpfui:DynamicScrollViewer Grid.Row="1" Margin="12,0,0,0">
@@ -49,7 +49,7 @@
 
                 <wpfui:CardControl x:Name="_effectTypeCard" Margin="0,0,0,8">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl x:Name="_effectTypeCardHeader" Title="Effect" />
+                        <controls:CardHeaderControl x:Name="_effectTypeCardHeader" Title="{x:Static resources:Resource.SpectrumKeyboardBacklightEditEffectWindow_Effect_Title}" />
                     </wpfui:CardControl.Header>
                     <ComboBox
                         x:Name="_effectTypeComboBox"
@@ -60,7 +60,7 @@
 
                 <wpfui:CardControl x:Name="_directionCard" Margin="0,0,0,8">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="Direction" />
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.SpectrumKeyboardBacklightEditEffectWindow_Direction_Title}" />
                     </wpfui:CardControl.Header>
                     <ComboBox
                         x:Name="_directionComboBox"
@@ -70,7 +70,7 @@
 
                 <wpfui:CardControl x:Name="_clockwiseDirectionCard" Margin="0,0,0,8">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="Direction" />
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.SpectrumKeyboardBacklightEditEffectWindow_ClockwiseDirection_Title}" />
                     </wpfui:CardControl.Header>
                     <ComboBox
                         x:Name="_clockwiseDirectionComboBox"
@@ -80,7 +80,7 @@
 
                 <wpfui:CardControl x:Name="_speedCard" Margin="0,0,0,8">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="Speed" />
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.SpectrumKeyboardBacklightEditEffectWindow_Speed_Title}" />
                     </wpfui:CardControl.Header>
                     <ComboBox
                         x:Name="_speedComboBox"
@@ -90,14 +90,14 @@
 
                 <wpfui:CardControl x:Name="_singleColor" Margin="0,0,0,8">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="Color" />
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.SpectrumKeyboardBacklightEditEffectWindow_Color_Title}" />
                     </wpfui:CardControl.Header>
                     <controls:ColorPickerControl x:Name="_singleColorPicker" />
                 </wpfui:CardControl>
 
                 <wpfui:CardControl x:Name="_multiColors" Margin="0,0,0,8">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="Colors" />
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.SpectrumKeyboardBacklightEditEffectWindow_Colors_Title}" />
                     </wpfui:CardControl.Header>
                     <controls:MultiColorPickerControl x:Name="_multiColorPicker" />
                 </wpfui:CardControl>

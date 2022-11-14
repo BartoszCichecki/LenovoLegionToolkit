@@ -2,6 +2,7 @@
 using System.Windows;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.WPF.Resources;
 
 namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 {
@@ -23,9 +24,9 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 
             var subtitle = string.Empty;
             if (effect.Keys.All)
-                subtitle += "All keys";
+                subtitle += Resource.SpectrumKeyboardEffectControl_Description_AllZones;
             else
-                subtitle += $"{effect.Keys.KeyCodes.Length} zones";
+                subtitle += string.Format(Resource.SpectrumKeyboardEffectControl_Description_Zones, effect.Keys.KeyCodes.Length);
             _cardHeaderControl.Subtitle = subtitle;
         }
 

@@ -28,7 +28,7 @@
 
             <wpfui:CardControl Margin="0,0,0,24" Icon="BrightnessHigh24">
                 <wpfui:CardControl.Header>
-                    <controls:CardHeaderControl Title="Backlight" />
+                    <controls:CardHeaderControl Title="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_Brightness_Title}" />
                 </wpfui:CardControl.Header>
                 <wpfui:CardControl.Content>
                     <Slider
@@ -178,19 +178,19 @@
                         Click="SelectAll_Click"
                         FontSize="20"
                         Icon="SelectAllOn24"
-                        ToolTip="Select all zones" />
+                        ToolTip="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_SelectAll_ToolTip}" />
                     <wpfui:Button
                         Margin="0,0,0,8"
                         Click="DeselectAll_Click"
                         FontSize="20"
                         Icon="SelectAllOff24"
-                        ToolTip="Deselect all zones" />
+                        ToolTip="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_DeselectAll_ToolTip}" />
                     <wpfui:Button
                         Margin="0,0,0,8"
                         Click="SwitchKeyboardLayout_Click"
                         FontSize="20"
                         Icon="ArrowRepeatAll24"
-                        ToolTip="Switch keyboard layout" />
+                        ToolTip="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_SwitchKeyboardLayout_ToolTip}" />
 
                 </StackPanel>
 
@@ -206,13 +206,13 @@
                     Grid.Column="0"
                     FontSize="20"
                     FontWeight="Medium"
-                    Text="Effects" />
+                    Text="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_Effects}" />
 
                 <wpfui:Button
                     Grid.Column="1"
                     Appearance="Primary"
                     Click="AddEffectButton_Click"
-                    Content="Add effect"
+                    Content="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_AddEffect}"
                     Icon="Add24" />
 
             </Grid>
@@ -222,7 +222,7 @@
                     <TextBlock
                         x:Name="_noEffectsText"
                         Margin="0,8,0,32"
-                        Text="No effects added." />
+                        Text="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_NoEffects_Text}" />
                     <StackPanel x:Name="_effects" />
                 </StackPanel>
             </controls:LoadableControl>

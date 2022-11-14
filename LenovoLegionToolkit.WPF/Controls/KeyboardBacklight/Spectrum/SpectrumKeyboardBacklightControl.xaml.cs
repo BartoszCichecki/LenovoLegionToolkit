@@ -12,6 +12,7 @@ using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum;
 
@@ -376,7 +377,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Couldn't apply profile.", ex);
 
-                await SnackbarHelper.ShowAsync("Couldn't apply profile", "Lighting profile couldn't be applied.", true);
+                await SnackbarHelper.ShowAsync(Resource.SpectrumKeyboardBacklightControl_ApplyProfileError_Title, Resource.SpectrumKeyboardBacklightControl_ApplyProfileError_Title_Message, true);
             }
 
             await RefreshProfileDescriptionAsync();
@@ -423,7 +424,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
         {
             if (effectControl.Effect.Type == SpectrumKeyboardBacklightEffectType.AuroraSync)
             {
-                SnackbarHelper.Show("Aurora Sync is not supported", "Aurora Sync effect is not currently supported.", true);
+                SnackbarHelper.Show(Resource.SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Title, Resource.SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Message, true);
                 return;
             }
 
