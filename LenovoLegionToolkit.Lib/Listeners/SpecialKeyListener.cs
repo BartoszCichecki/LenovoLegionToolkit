@@ -183,10 +183,21 @@ namespace LenovoLegionToolkit.Lib.Listeners
                     return;
                 }
 
-                if (value == 0)
-                    MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightOff, NotificationDuration.Short));
-                else
-                    MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightOn, NotificationDuration.Short, value));
+                switch (value)
+                {
+                    case 0:
+                        MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightOff, NotificationDuration.Short, SpectrumKeyboardBacklightBrightness.Off));
+                        break;
+                    case 1:
+                        MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightChanged, NotificationDuration.Short, SpectrumKeyboardBacklightBrightness.Low));
+                        break;
+                    case 2:
+                        MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightChanged, NotificationDuration.Short, SpectrumKeyboardBacklightBrightness.Medium));
+                        break;
+                    case 3:
+                        MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightChanged, NotificationDuration.Short, SpectrumKeyboardBacklightBrightness.High));
+                        break;
+                }
             }
             catch { }
         }
