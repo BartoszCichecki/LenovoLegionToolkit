@@ -61,6 +61,33 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Custom.
+        /// </summary>
+        public static string AccentColorSource_Custom {
+            get {
+                return ResourceManager.GetString("AccentColorSource_Custom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LLT.
+        /// </summary>
+        public static string AccentColorSource_LLT {
+            get {
+                return ResourceManager.GetString("AccentColorSource_LLT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System.
+        /// </summary>
+        public static string AccentColorSource_System {
+            get {
+                return ResourceManager.GetString("AccentColorSource_System", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Off.
         /// </summary>
         public static string AlwaysOnUSBState_Off {
