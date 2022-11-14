@@ -1435,6 +1435,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Make sure that laptop display is on. Lenovo Legion Toolkit can&apos;t load refresh rates for a display that is not on..
         /// </summary>
         public static string ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message {
@@ -3489,6 +3498,204 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string SettingsPage_Title {
             get {
                 return ResourceManager.GetString("SettingsPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add effect.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightControl_AddEffect {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightControl_AddEffect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Couldn&apos;t apply profile.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightControl_ApplyProfileError_Title {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightControl_ApplyProfileError_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lighting profile couldn&apos;t be applied..
+        /// </summary>
+        public static string SpectrumKeyboardBacklightControl_ApplyProfileError_Title_Message {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightControl_ApplyProfileError_Title_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Aurora Sync effect is not currently supported..
+        /// </summary>
+        public static string SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Message {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Aurora Sync is not supported.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Title {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brightness.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightControl_Brightness_Title {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightControl_Brightness_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deselect all zones.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightControl_DeselectAll_ToolTip {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightControl_DeselectAll_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Effects.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightControl_Effects {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightControl_Effects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No effects added..
+        /// </summary>
+        public static string SpectrumKeyboardBacklightControl_NoEffects_Text {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightControl_NoEffects_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select all zones.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightControl_SelectAll_ToolTip {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightControl_SelectAll_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Switch keyboard layout.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightControl_SwitchKeyboardLayout_ToolTip {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightControl_SwitchKeyboardLayout_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Direction.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightEditEffectWindow_ClockwiseDirection_Title {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightEditEffectWindow_ClockwiseDirection_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Color.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightEditEffectWindow_Color_Title {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightEditEffectWindow_Color_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Colors.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightEditEffectWindow_Colors_Title {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightEditEffectWindow_Colors_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Direction.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightEditEffectWindow_Direction_Title {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightEditEffectWindow_Direction_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Effect.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightEditEffectWindow_Effect_Title {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightEditEffectWindow_Effect_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This effect will be applied to the whole keyboard and will replace all other effects..
+        /// </summary>
+        public static string SpectrumKeyboardBacklightEditEffectWindow_Effect_Warning {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightEditEffectWindow_Effect_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Speed.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightEditEffectWindow_Speed_Title {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightEditEffectWindow_Speed_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add effect.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightEditEffectWindow_Title_Add {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightEditEffectWindow_Title_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit effect.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightEditEffectWindow_Title_Edit {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightEditEffectWindow_Title_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All keys.
+        /// </summary>
+        public static string SpectrumKeyboardEffectControl_Description_AllZones {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardEffectControl_Description_AllZones", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} zones.
+        /// </summary>
+        public static string SpectrumKeyboardEffectControl_Description_Zones {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardEffectControl_Description_Zones", resourceCulture);
             }
         }
         

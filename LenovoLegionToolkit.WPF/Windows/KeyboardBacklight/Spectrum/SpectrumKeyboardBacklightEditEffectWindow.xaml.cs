@@ -6,6 +6,7 @@ using System.Windows.Media;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.WPF.Extensions;
+using LenovoLegionToolkit.WPF.Resources;
 
 namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
 {
@@ -23,7 +24,7 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
 
             ResizeMode = ResizeMode.CanMinimize;
 
-            _title.Text = "Add effect";
+            _title.Text = Resource.SpectrumKeyboardBacklightEditEffectWindow_Title_Add;
 
             _titleBar.UseSnapLayout = false;
             _titleBar.CanMaximize = false;
@@ -40,7 +41,7 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
 
             ResizeMode = ResizeMode.CanMinimize;
 
-            _title.Text = "Edit effect";
+            _title.Text = Resource.SpectrumKeyboardBacklightEditEffectWindow_Title_Add;
 
             _titleBar.UseSnapLayout = false;
             _titleBar.CanMaximize = false;
@@ -162,7 +163,7 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
                 return;
 
             if (IsWholeKeyboardEffect(effect))
-                _effectTypeCardHeader.Warning = "This effect will be applied to the whole keyboard and will replace all other effects.";
+                _effectTypeCardHeader.Warning = Resource.SpectrumKeyboardBacklightEditEffectWindow_Effect_Warning;
             else
                 _effectTypeCardHeader.Warning = string.Empty;
 
@@ -212,7 +213,7 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
             };
         }
 
-        private bool IsWholeKeyboardEffect(SpectrumKeyboardBacklightEffectType effectType) => effectType switch
+        private static bool IsWholeKeyboardEffect(SpectrumKeyboardBacklightEffectType effectType) => effectType switch
         {
             SpectrumKeyboardBacklightEffectType.AudioBounce => true,
             SpectrumKeyboardBacklightEffectType.AudioRipple => true,

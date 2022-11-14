@@ -5,6 +5,7 @@
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     d:DesignHeight="450"
     d:DesignWidth="800"
@@ -21,12 +22,12 @@
             <wpfui:Button
                 Click="Edit_Click"
                 Icon="Edit24"
-                ToolTip="Edit" />
+                ToolTip="{x:Static resources:Resource.Edit}" />
             <wpfui:Button
                 Margin="8,0,0,0"
                 Click="Delete_Click"
                 Icon="Dismiss24"
-                ToolTip="Delete" />
+                ToolTip="{x:Static resources:Resource.Delete}" />
         </StackPanel>
     </wpfui:CardControl>
 
