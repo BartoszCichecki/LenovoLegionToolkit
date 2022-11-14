@@ -505,6 +505,9 @@ ATENȚIE: Această acțiune nu va rula corect dacă afișajul intern este oprit.
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>Luminozitate afișaj</value>
   </data>
+  <data name="DonatePage_DonateWith" xml:space="preserve">
+    <value>Donați cu</value>
+  </data>
   <data name="DonatePage_Message" xml:space="preserve">
     <value>Dezvoltarea și întreținerea Lenovo Legion Toolkit necesită mult timp. Dacă vă place acest software, îi puteți sprijini viitorul donând o sumă la alegere.
 
@@ -668,6 +671,23 @@ Serios, aveți grijă cu această opțiune!</value>
   <data name="GodModeSettingsWindow_Title" xml:space="preserve">
     <value>Setări mod Personalizat</value>
   </data>
+  <data name="HDRAutomationStepControl_Message" xml:space="preserve">
+    <value>Activați intervalul dinamic ridicat (HDR) pe afișajul încorporat.
+
+ATENȚIE: Această acțiune nu va rula corect dacă afișajul incorporat este oprit.</value>
+  </data>
+  <data name="HDRAutomationStepControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Message" xml:space="preserve">
+    <value>Activați intervalul dinamic ridicat (HDR) pe afișajul încorporat.</value>
+  </data>
+  <data name="HDRControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Warning" xml:space="preserve">
+    <value>Utilizarea HDR este blocată de setările Windows.</value>
+  </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Acest dispozitiv nu este compatibil cu Lenovo Legion Toolkit.</value>
   </data>
@@ -797,6 +817,9 @@ Activați această opțiune dacă aveți conflicte cu aplicațiile pe ecran comp
   </data>
   <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
     <value>Rată de reîmprospătare</value>
+  </data>
+  <data name="NotificationsSettingsWindow_SmartKey" xml:space="preserve">
+    <value>Tastă inteligentă</value>
   </data>
   <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
     <value>Notificări</value>
@@ -932,6 +955,9 @@ Puteți schimba modul apăsând Fn+Q.</value>
   <data name="PowerModeControl_Title" xml:space="preserve">
     <value>Mod putere</value>
   </data>
+  <data name="PowerModeControl_Warning" xml:space="preserve">
+    <value>Este posibil ca modul de putere selectat să nu funcționeze corect fără alimentator.</value>
+  </data>
   <data name="PowerModeWindow_Title" xml:space="preserve">
     <value>Mod putere</value>
   </data>
@@ -1052,6 +1078,15 @@ Asigurați-vă mai întâi că scriptul rulează corect.</value>
   <data name="Saving" xml:space="preserve">
     <value>Se salvează...</value>
   </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Description" xml:space="preserve">
+    <value>Alegeți una sau mai multe acțiuni rapide de parcurs</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
+    <value>Nicio Acțiune Rapidă definită.</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
+    <value>Arată această aplicație</value>
+  </data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
     <value>Schimbați culoarea de accent a aplicației.</value>
   </data>
@@ -1158,9 +1193,6 @@ Se recomandă repornirea după modificarea acestei opțiuni.</value>
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Planuri de alimentare</value>
   </data>
-  <data name="SettingsPage_SmartKeyDoublePressAction_DoNothing" xml:space="preserve">
-    <value>Nicio acțiune</value>
-  </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>Setați o acțiune rapidă la dubla apăsare a tastelor Fn+F9.</value>
   </data>
@@ -1169,9 +1201,6 @@ Se recomandă repornirea după modificarea acestei opțiuni.</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
     <value>Setați o acțiune rapidă la apăsarea tastelor Fn+F9.</value>
-  </data>
-  <data name="SettingsPage_SmartKeySinglePressAction_ShowThisApp" xml:space="preserve">
-    <value>Arată această aplicație</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
     <value>Acțiune tastă inteligentă</value>
