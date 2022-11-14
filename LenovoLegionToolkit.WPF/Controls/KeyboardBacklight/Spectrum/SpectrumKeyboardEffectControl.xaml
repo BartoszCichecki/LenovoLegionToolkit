@@ -10,16 +10,23 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
 
-    <wpfui:CardControl Margin="0,0,0,8" Icon="Star24">
+    <wpfui:CardControl
+        Margin="0,0,0,8"
+        Click="ButtonBase_OnClick"
+        Icon="Star24">
         <wpfui:CardControl.Header>
             <controls:CardHeaderControl x:Name="_cardHeaderControl" />
         </wpfui:CardControl.Header>
         <StackPanel Orientation="Horizontal">
-            <wpfui:Button Click="Edit_Click" Icon="Edit24" />
+            <wpfui:Button
+                Click="Edit_Click"
+                Icon="Edit24"
+                ToolTip="Edit" />
             <wpfui:Button
                 Margin="8,0,0,0"
                 Click="Delete_Click"
-                Icon="Dismiss24" />
+                Icon="Dismiss24"
+                ToolTip="Delete" />
         </StackPanel>
     </wpfui:CardControl>
 

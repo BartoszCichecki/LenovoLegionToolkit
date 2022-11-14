@@ -206,6 +206,25 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 
         protected override void OnFinishedLoading() { }
 
+        private void SelectButtons(SpectrumKeyboardBacklightKeys keys)
+        {
+            if (keys.All)
+            {
+                SelectAllButtons();
+                return;
+            }
+
+            DeselectAllButtons();
+
+            foreach (var button in _device.GetVisibleButtons())
+            {
+                if (!keys.KeyCodes.Contains(button.KeyCode))
+                    continue;
+
+                button.IsChecked = true;
+            }
+        }
+
         private void SelectAllButtons()
         {
             foreach (var button in _device.GetVisibleButtons())
@@ -378,6 +397,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
         private SpectrumKeyboardEffectControl CreateEffectControl(SpectrumKeyboardBacklightEffect effect)
         {
             var control = new SpectrumKeyboardEffectControl(effect);
+            control.Click += (s, e) => SelectButtons(effect.Keys);
             control.Edit += (s, e) => EditEffect(control);
             control.Delete += async (s, e) => await DeleteEffectAsync(control);
             return control;
@@ -422,6 +442,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             ShowProfileDescriptionLoader();
 
             var control = new SpectrumKeyboardEffectControl(effect);
+            control.Click += (s, e) => SelectButtons(effect.Keys);
             control.Edit += (s, e) => EditEffect(control);
             control.Delete += async (s, e) => await DeleteEffectAsync(control);
 
