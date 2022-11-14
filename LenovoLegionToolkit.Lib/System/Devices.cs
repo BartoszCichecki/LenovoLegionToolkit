@@ -16,6 +16,7 @@ namespace LenovoLegionToolkit.Lib.System
 
         private static SafeFileHandle? _battery;
         private static SafeFileHandle? _rgbKeyboard;
+        private static SafeFileHandle? _extendedSpectrumRgbKeyboard;
         private static SafeFileHandle? _spectrumRgbKeyboard;
 
         public static unsafe SafeFileHandle GetBattery()
@@ -104,23 +105,23 @@ namespace LenovoLegionToolkit.Lib.System
 
         public static SafeFileHandle? GetExtendedSpectrumRGBKeyboard()
         {
-            if (_spectrumRgbKeyboard is not null)
-                return _spectrumRgbKeyboard;
+            if (_extendedSpectrumRgbKeyboard is not null)
+                return _extendedSpectrumRgbKeyboard;
 
             lock (Lock)
             {
-                if (_spectrumRgbKeyboard is not null)
-                    return _spectrumRgbKeyboard;
+                if (_extendedSpectrumRgbKeyboard is not null)
+                    return _extendedSpectrumRgbKeyboard;
 
                 const ushort vendorId = 0x048D;
                 const ushort productIdMasked = 0xC978;
                 const ushort productIdMask = 0xFFFF;
                 const ushort descriptorLength = 0x03C0;
 
-                _spectrumRgbKeyboard = FindHidDevice(vendorId, productIdMask, productIdMasked, descriptorLength);
+                _extendedSpectrumRgbKeyboard = FindHidDevice(vendorId, productIdMask, productIdMasked, descriptorLength);
             }
 
-            return _spectrumRgbKeyboard;
+            return _extendedSpectrumRgbKeyboard;
         }
 
         public static SafeFileHandle? GetSpectrumRGBKeyboard()
