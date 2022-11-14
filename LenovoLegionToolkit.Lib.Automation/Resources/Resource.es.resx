@@ -80,10 +80,11 @@
     <value>{0} segundos</value>
   </data>
   <data name="LowWattageACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Al conectar el adaptador de corriente alterna a baja potencia</value>
+    <value>Al conectar el adaptador de corriente alterna de bajo consumo
+</value>
   </data>
   <data name="OnStartupAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Al arrancar</value>
+    <value>Al iniciar</value>
   </data>
   <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Al cambiar el modo de alimentación</value>
