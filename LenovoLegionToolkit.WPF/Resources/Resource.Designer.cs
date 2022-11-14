@@ -3502,6 +3502,33 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adjust keyboard backlight brightness..
+        /// </summary>
+        public static string SpectrumKeyboardBacklightBrightnessAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightBrightnessAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Off.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightBrightnessAutomationStepControl_Off {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightBrightnessAutomationStepControl_Off", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keyboard backlight brightness.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightBrightnessAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightBrightnessAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add effect.
         /// </summary>
         public static string SpectrumKeyboardBacklightControl_AddEffect {
@@ -3678,6 +3705,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string SpectrumKeyboardBacklightEditEffectWindow_Title_Edit {
             get {
                 return ResourceManager.GetString("SpectrumKeyboardBacklightEditEffectWindow_Title_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adjust keyboard backlight profile..
+        /// </summary>
+        public static string SpectrumKeyboardBacklightProfileAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightProfileAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keyboard backlight profile.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightProfileAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightProfileAutomationStepControl_Title", resourceCulture);
             }
         }
         
