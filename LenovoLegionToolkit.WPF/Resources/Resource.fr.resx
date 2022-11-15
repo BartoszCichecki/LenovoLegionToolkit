@@ -354,6 +354,15 @@ Cette donnée peut être imprécise si l'appareil a été chargé en veille ou �
   <data name="ColorCardControl_Red" xml:space="preserve">
     <value>Rouge</value>
   </data>
+  <data name="Color_Blue" xml:space="preserve">
+    <value>Bleu</value>
+  </data>
+  <data name="Color_Green" xml:space="preserve">
+    <value>Vert</value>
+  </data>
+  <data name="Color_Red" xml:space="preserve">
+    <value>Rouge</value>
+  </data>
   <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
     <value>Sélectionnez le mode de fonctionnement du GPU en fonction de l'utilisation et des conditions d'alimentation de votre ordinateur.
 Le changement de mode peut nécessiter un redémarrage.</value>
@@ -518,6 +527,9 @@ Merci par avance !</value>
   </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Faire un don</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Modifier</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>Assurez-vous que l'écran intégré est actif. Lenovo Legion Toolkit ne peut charger les taux de rafraîchissement d'un écran éteint.</value>
@@ -700,6 +712,12 @@ AVERTISSEMENT : Cette action ne fonctionnera pas correctement si l'affichage int
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Rétroéclairage du clavier</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>Le rétroéclairage du clavier ne peut pas être contrôlé par ici quand Vantage ou ses services sont en exécution.</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
+    <value>Lenovo Vantage semble être activé</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>À propos</value>
@@ -989,6 +1007,9 @@ Vous pouvez changer de mode avec Fn+Q.</value>
   <data name="RGBKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
     <value>Rétroéclairage du clavier</value>
   </data>
+  <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
+    <value>Luminosité</value>
+  </data>
   <data name="RGBKeyboardBacklightControl_Preset1" xml:space="preserve">
     <value>Préréglage 1</value>
   </data>
@@ -1000,12 +1021,6 @@ Vous pouvez changer de mode avec Fn+Q.</value>
   </data>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>Éteint</value>
-  </data>
-  <data name="RGBKeyboardBacklightControl_VantageEnabled_Message" xml:space="preserve">
-    <value>Le rétroéclairage du clavier ne peut pas être contrôlé par ici quand Vantage ou ses services sont en exécution.</value>
-  </data>
-  <data name="RGBKeyboardBacklightControl_VantageEnabled_Title" xml:space="preserve">
-    <value>Lenovo Vantage semble être activé</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Zone1" xml:space="preserve">
     <value>Zone 1</value>
@@ -1019,13 +1034,10 @@ Vous pouvez changer de mode avec Fn+Q.</value>
   <data name="RGBKeyboardBacklightControl_Zone4" xml:space="preserve">
     <value>Zone 4</value>
   </data>
-  <data name="RGBKeyboardBrightnessCardControl_Brightness" xml:space="preserve">
-    <value>Luminosité</value>
-  </data>
-  <data name="RGBKeyboardEffectCardControl_Title" xml:space="preserve">
+  <data name="RGBKeyboardBacklightEffectCardControl_Title" xml:space="preserve">
     <value>Effet</value>
   </data>
-  <data name="RGBKeyboardSpeedCardControl_Title" xml:space="preserve">
+  <data name="RGBKeyboardBacklightSpeedCardControl_Title" xml:space="preserve">
     <value>Vitesse</value>
   </data>
   <data name="ReadmeWindow_Title" xml:space="preserve">
@@ -1214,6 +1226,87 @@ Un redémarrage est recommandé après avoir modifié cette option.</value>
   </data>
   <data name="SettingsPage_Title" xml:space="preserve">
     <value>Paramètres</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Message" xml:space="preserve">
+    <value>Ajustez la luminosité du rétroéclairage du clavier.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Off" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Title" xml:space="preserve">
+    <value>Luminosité du rétroéclairage du clavier</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_AddEffect" xml:space="preserve">
+    <value>Ajouter un effet</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
+    <value>Impossible d'appliquer le profil</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title_Message" xml:space="preserve">
+    <value>Le profil d'éclairage n'a pas pu être appliqué.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Message" xml:space="preserve">
+    <value>Effet Aurora Sync non pris en charge actuellement.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Title" xml:space="preserve">
+    <value>Aurora Sync non supporté</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
+    <value>Luminosité</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_DeselectAll_ToolTip" xml:space="preserve">
+    <value>Désélectionner toutes les zones</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
+    <value>Effets</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
+    <value>Aucun effet ajouté.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
+    <value>Sélectionner toutes les zones</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_SwitchKeyboardLayout_ToolTip" xml:space="preserve">
+    <value>Changer disposition du clavier</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_ClockwiseDirection_Title" xml:space="preserve">
+    <value>Direction</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Color_Title" xml:space="preserve">
+    <value>Couleur </value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Colors_Title" xml:space="preserve">
+    <value>Couleurs</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Direction_Title" xml:space="preserve">
+    <value>Direction</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Title" xml:space="preserve">
+    <value>Effet</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Warning" xml:space="preserve">
+    <value>Cet effet sera appliqué à l'ensemble du clavier et remplacera tous les autres effets.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Speed_Title" xml:space="preserve">
+    <value>Vitesse</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Add" xml:space="preserve">
+    <value>Ajouter un effet</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Edit" xml:space="preserve">
+    <value>Modifier l'effet</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Message" xml:space="preserve">
+    <value>Ajustez le profil du rétroéclairage du clavier.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Title" xml:space="preserve">
+    <value>Profil du rétro-éclairage du clavier</value>
+  </data>
+  <data name="SpectrumKeyboardEffectControl_Description_AllZones" xml:space="preserve">
+    <value>Toutes les touches</value>
+  </data>
+  <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
+    <value>{0} zones</value>
   </data>
   <data name="TimeWindow_Sunrise" xml:space="preserve">
     <value>Lever du soleil</value>
