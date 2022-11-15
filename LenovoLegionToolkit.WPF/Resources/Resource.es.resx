@@ -1,45 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"/>
-              <xsd:attribute name="name" type="xsd:string"/>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -100,13 +100,13 @@ Esta opción está pensada sólo para dispositivos que no vienen con múltiples 
     <value>Activar siempre el plan de energía de Windows</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>Cargar dispositivos USB, cuando el equipo esté apagado o en modo de suspensión o hibernación.</value>
+    <value>Cargar dispositivos USB, cuando el equipo esté apagado o en modo de suspensión/ hibernación.</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>USB siempre encendido</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-    <value>Cargar dispositivos USB, cuando el equipo esté apagado o en modo de suspensión o hibernación.</value>
+    <value>Cargar dispositivos USB, cuando el equipo esté apagado o en modo de suspensión/ hibernación.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>USB siempre encendido</value>
@@ -245,7 +245,7 @@ Sólo se ejecutarán las acciones que coincidan con el estado actual.</value>
     <value>Elegir como se carga la batería.</value>
   </data>
   <data name="BatteryModeControl_Title" xml:space="preserve">
-    <value>Modo batería</value>
+    <value>Modo de batería</value>
   </data>
   <data name="BatteryPage_ACAdapterConnectedAndCharging" xml:space="preserve">
     <value>Conectada, cargando...</value>
@@ -272,7 +272,7 @@ Sólo se ejecutarán las acciones que coincidan con el estado actual.</value>
     <value>Contador de ciclos</value>
   </data>
   <data name="BatteryPage_DesignCapacity_Message" xml:space="preserve">
-    <value>Capacidad de la batería según diseño.</value>
+    <value>Capacidad de la batería según el diseño.</value>
   </data>
   <data name="BatteryPage_DesignCapacity_Title" xml:space="preserve">
     <value>Capacidad del diseño</value>
@@ -505,6 +505,9 @@ AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>Brillo de pantalla</value>
   </data>
+  <data name="DonatePage_DonateWith" xml:space="preserve">
+    <value>Donar con</value>
+  </data>
   <data name="DonatePage_Message" xml:space="preserve">
     <value>El desarrollo y mantenimiento de Lenovo Legion Toolkit lleva mucho tiempo. Si le gusta este programa, puede apoyar su futuro, donando la cantidad que desee.
 
@@ -522,7 +525,7 @@ Haga clic en el logotipo de PayPal que aparece a continuación o escanee el cód
     <value>No se han encontrado tasas de refresco</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_Title" xml:space="preserve">
-    <value>Excluir las tarifas de refresco</value>
+    <value>Excluir tasas de refresco</value>
   </data>
   <data name="Exit" xml:space="preserve">
     <value>Salir</value>
@@ -573,7 +576,7 @@ Haga clic en el logotipo de PayPal que aparece a continuación o escanee el cód
     <value>Velocidad del ventilador</value>
   </data>
   <data name="FanCurveControl_GPU" xml:space="preserve">
-    <value>Unidad de procesamiento gráfico</value>
+    <value>GPU</value>
   </data>
   <data name="FanCurveControl_RPM" xml:space="preserve">
     <value>Revoluciones por minuto</value>
@@ -582,19 +585,19 @@ Haga clic en el logotipo de PayPal que aparece a continuación o escanee el cód
     <value>Encender el portátil al abrir la tapa.</value>
   </data>
   <data name="FlipToStartAutomationStepControl_Title" xml:space="preserve">
-    <value>Voltear al inicio</value>
+    <value>Voltear para iniciar</value>
   </data>
   <data name="FlipToStartControl_Message" xml:space="preserve">
     <value>Encender el portátil al abrir la tapa.</value>
   </data>
   <data name="FlipToStartControl_Title" xml:space="preserve">
-    <value>Voltear al inicio</value>
+    <value>Voltear para iniciar</value>
   </data>
   <data name="FnLockAutomationStepControl_Message" xml:space="preserve">
     <value>Utilizar las funciones secundarias de las teclas F1-F12 sin pulsar la tecla Fn.</value>
   </data>
   <data name="FnLockAutomationStepControl_Title" xml:space="preserve">
-    <value>Bloqueo Fn</value>
+    <value>Bloqueo de la tecla Fn</value>
   </data>
   <data name="FnLockControl_Message" xml:space="preserve">
     <value>Utilizar las funciones secundarias de las teclas F1-F12 sin pulsar la tecla Fn.</value>
@@ -657,7 +660,7 @@ En serio, ¡tenga cuidado con esta opción!</value>
     <value>Potencia gráfica total configurable</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_DynamicBoost" xml:space="preserve">
-    <value>Mejora dinámica</value>
+    <value>Dynamic Boost</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_TempLimit" xml:space="preserve">
     <value>Límite de temperatura de la GPU</value>
@@ -667,6 +670,23 @@ En serio, ¡tenga cuidado con esta opción!</value>
   </data>
   <data name="GodModeSettingsWindow_Title" xml:space="preserve">
     <value>Ajustes del modo personalizado</value>
+  </data>
+  <data name="HDRAutomationStepControl_Message" xml:space="preserve">
+    <value>Activar el rango dinámico alto (HDR) en la pantalla interna.
+
+AVISO: Esta acción no se ejecutará correctamente si la pantalla interna está apagada.</value>
+  </data>
+  <data name="HDRAutomationStepControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Message" xml:space="preserve">
+    <value>Activar el rango dinámico alto (HDR) en la pantalla interna.</value>
+  </data>
+  <data name="HDRControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Warning" xml:space="preserve">
+    <value>El uso del HDR está bloqueado por la configuración de Windows.</value>
   </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Este dispositivo no es compatible con Lenovo Legion Toolkit.</value>
@@ -759,10 +779,10 @@ En serio, ¡tenga cuidado con esta opción!</value>
     <value>Bloqueo numérico activado</value>
   </data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
-    <value>Teclado táctil apagado</value>
+    <value>Táctil apagado</value>
   </data>
   <data name="Notification_TouchpadOn" xml:space="preserve">
-    <value>Teclado táctil encendido</value>
+    <value>Táctil encendido</value>
   </data>
   <data name="Notification_WhiteKeyboardBacklight" xml:space="preserve">
     <value>Retroiluminación {0}</value>
@@ -798,6 +818,9 @@ Activar esta opción si tiene conflictos con las aplicaciones en pantalla comple
   <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
     <value>Tasa de refresco</value>
   </data>
+  <data name="NotificationsSettingsWindow_SmartKey" xml:space="preserve">
+    <value>Tecla inteligente</value>
+  </data>
   <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
     <value>Notificaciones</value>
   </data>
@@ -814,13 +837,13 @@ Activar esta opción si tiene conflictos con las aplicaciones en pantalla comple
     <value>Mejorar el tiempo de respuesta de la pantalla integrada.</value>
   </data>
   <data name="OverDriveAutomationStepControl_Title" xml:space="preserve">
-    <value>A toda velocidad</value>
+    <value>OverDrive</value>
   </data>
   <data name="OverDriveControl_Message" xml:space="preserve">
     <value>Mejorar el tiempo de respuesta de la pantalla integrada.</value>
   </data>
   <data name="OverDriveControl_Title" xml:space="preserve">
-    <value>A toda velocidad</value>
+    <value>OverDrive</value>
   </data>
   <data name="PackageControl_DownloadComplete_Message" xml:space="preserve">
     <value>{0} descargado(s)</value>
@@ -932,6 +955,9 @@ Puede cambiar de modo con Fn+Q.</value>
   <data name="PowerModeControl_Title" xml:space="preserve">
     <value>Modo de alimentación</value>
   </data>
+  <data name="PowerModeControl_Warning" xml:space="preserve">
+    <value>El modo de alimentación seleccionado puede no funcionar correctamente sin el adaptador de corriente alterna conectado.</value>
+  </data>
   <data name="PowerModeWindow_Title" xml:space="preserve">
     <value>Modo de alimentación</value>
   </data>
@@ -948,10 +974,10 @@ Puede cambiar de modo con Fn+Q.</value>
     <value>Modo personalizado</value>
   </data>
   <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
-    <value>Modo de rendiemiento</value>
+    <value>Modo rendimiento</value>
   </data>
   <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
-    <value>Modo tranquilo</value>
+    <value>Modo Silencioso</value>
   </data>
   <data name="PowerPlansWindow_Title" xml:space="preserve">
     <value>Planes de energía</value>
@@ -1051,6 +1077,18 @@ Asegúrese primero de que su script se ejecuta correctamente.</value>
   </data>
   <data name="Saving" xml:space="preserve">
     <value>Guardando...</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Description" xml:space="preserve">
+    <value>Elija una o varias acciones rápidas para desplazarse por ellas.</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
+    <value>Ninguna acción rápida definida.</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
+    <value>Mostrar está aplicacion</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
+    <value>Mostrar está aplicacion</value>
   </data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
     <value>Cambiar el color característico de la aplicación.</value>
@@ -1159,20 +1197,17 @@ Se recomienda reiniciar después de cambiar esta opción.</value>
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Planes de energía</value>
   </data>
-	<data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
+  <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>Asignar acción rápida al presionar Fn+F9 dos veces.</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">
-    <value>Acción secundaria de la llave inteligente</value>
+    <value>Acción secundaria de la tecla inteligente</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
     <value>Asignar acción rápida al presionar Fn+F9 una vez.</value>
   </data>
-  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
-    <value>Mostrar está aplicacion</value>
-  </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
-    <value>Acción de la llave inteligente</value>
+    <value>Acción de la tecla inteligente</value>
   </data>
   <data name="SettingsPage_Theme_Description" xml:space="preserve">
     <value>Establecer un tema claro, un tema oscuro o seguir con la configuración del sistema.</value>
@@ -1209,16 +1244,16 @@ Requiere un reinicio.</value>
     <value>Modo híbrido</value>
   </data>
   <data name="TouchpadLockAutomationStepControl_Message" xml:space="preserve">
-    <value>Desactivar el teclado táctil.</value>
+    <value>Desactivar táctil.</value>
   </data>
   <data name="TouchpadLockAutomationStepControl_Title" xml:space="preserve">
     <value>Bloqueo del teclado táctil</value>
   </data>
   <data name="TouchpadLockControl_Message" xml:space="preserve">
-    <value>Desactivar el teclado táctil.</value>
+    <value>Desactivar táctil.</value>
   </data>
   <data name="TouchpadLockControl_Title" xml:space="preserve">
-    <value>Bloqueo del teclado táctil</value>
+    <value>Bloqueo táctil</value>
   </data>
   <data name="TryAgain" xml:space="preserve">
     <value>Intentar de nuevo</value>

@@ -59,123 +59,123 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AlwaysOnUSBState_Off" xml:space="preserve">
-    <value>Aus</value>
+    <value>Ανενεργό</value>
   </data>
   <data name="AlwaysOnUSBState_OnAlways" xml:space="preserve">
-    <value>An, immer</value>
+    <value>Πάντα ενεργό</value>
   </data>
   <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
-    <value>An, wenn schlafend</value>
+    <value>Ενεργό όταν είναι σε αδράνεια</value>
   </data>
   <data name="AutorunState_Disabled" xml:space="preserve">
-		<value>Deaktiviert</value>
+		<value>Ανενεργό</value>
 	</data>
   <data name="AutorunState_Enabled" xml:space="preserve">
-		<value>Aktiviert</value>
+		<value>Ενεργό</value>
 	</data>
   <data name="AutorunState_EnabledDelayed" xml:space="preserve">
-		<value>Aktiviert, verzögert</value>
+		<value>Ενεργό, με καθυστέρηση</value>
 	</data>
   <data name="BatteryState_Conservation" xml:space="preserve">
-    <value>Erhaltung</value>
+    <value>Διατήρηση</value>
   </data>
   <data name="BatteryState_Normal" xml:space="preserve">
-    <value>Normal</value>
+    <value>Κανονική</value>
   </data>
   <data name="BatteryState_RapidCharge" xml:space="preserve">
-    <value>Schnellladen</value>
+    <value>Ταχεία Φόρτιση</value>
   </data>
   <data name="GPUController_PoweredOff" xml:space="preserve">
-    <value>Ausgeschaltet</value>
+    <value>Απενεργοποίηση</value>
   </data>
   <data name="GPUController_PoweredOn" xml:space="preserve">
-    <value>Eingeschaltet</value>
+    <value>Ενεργοποίηση</value>
   </data>
   <data name="HybridModeState_Off" xml:space="preserve">
     <value>dGPU</value>
   </data>
   <data name="HybridModeState_On" xml:space="preserve">
-    <value>Hybrid</value>
+    <value>Υβριδική</value>
   </data>
   <data name="HybridModeState_OnAuto" xml:space="preserve">
-    <value>Hybrid-Auto</value>
+    <value>Υβριδική-Αυτόματο</value>
   </data>
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
-    <value>Hybrid-iGPU</value>
+    <value>Υβριδική-iGPU</value>
   </data>
   <data name="PowerModeState_Balance" xml:space="preserve">
-    <value>Balance</value>
+    <value>Ισορροπημένη</value>
   </data>
   <data name="PowerModeState_GodMode" xml:space="preserve">
-    <value>Benutzerdefiniert</value>
+    <value>Προσαρμοσμένη</value>
   </data>
   <data name="PowerModeState_Performance" xml:space="preserve">
-    <value>Performance</value>
+    <value>Υψηλή απόδοση</value>
   </data>
   <data name="PowerModeState_Quiet" xml:space="preserve">
-    <value>Quiet</value>
+    <value>Ήρεμη</value>
   </data>
   <data name="RBGKeyboardSpeed_Fast" xml:space="preserve">
-    <value>Schnell</value>
+    <value>Γρήγορο</value>
   </data>
   <data name="RBGKeyboardSpeed_Fastest" xml:space="preserve">
-    <value>Am schnellsten</value>
+    <value>Πολύ γρήγορο</value>
   </data>
   <data name="RBGKeyboardSpeed_Slow" xml:space="preserve">
-    <value>Langsam</value>
+    <value>Αργό</value>
   </data>
   <data name="RBGKeyboardSpeed_Slowest" xml:space="preserve">
-    <value>Am langsamsten</value>
+    <value>Πολύ αργό</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
-    <value>Aus</value>
+    <value>Ανενεργό</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_One" xml:space="preserve">
-    <value>Voreinstellung 1</value>
+    <value>Προεπιλογή 1</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Three" xml:space="preserve">
-    <value>Voreinstellung 3</value>
+    <value>Προεπιλογή 3</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
-    <value>Voreinstellung 2</value>
+    <value>Προεπιλογή 2</value>
   </data>
   <data name="RGBKeyboardBrightness_High" xml:space="preserve">
-    <value>Hoch</value>
+    <value>Υψηλή</value>
   </data>
   <data name="RGBKeyboardBrightness_Low" xml:space="preserve">
-    <value>Niedrig</value>
+    <value>Χαμηλή</value>
   </data>
   <data name="RGBKeyboardEffect_Breath" xml:space="preserve">
-    <value>Atmen</value>
+    <value>Αναπνοή</value>
   </data>
   <data name="RGBKeyboardEffect_Smooth" xml:space="preserve">
-    <value>Sanft</value>
+    <value>Ομαλή</value>
   </data>
   <data name="RGBKeyboardEffect_Static" xml:space="preserve">
-    <value>Statisch</value>
+    <value>Στατική</value>
   </data>
   <data name="RGBKeyboardEffect_WaveLTR" xml:space="preserve">
-    <value>Welle Links</value>
+    <value>Κύμα Αριστερά</value>
   </data>
   <data name="RGBKeyboardEffect_WaveRTL" xml:space="preserve">
-    <value>Welle Rechts</value>
+    <value>Κύμα Δεξιά</value>
   </data>
   <data name="Theme_Dark" xml:space="preserve">
-    <value>Dunkel</value>
+    <value>Σκοτεινό</value>
   </data>
   <data name="Theme_Light" xml:space="preserve">
-    <value>Hell</value>
+    <value>Φωτεινό</value>
   </data>
   <data name="Theme_System" xml:space="preserve">
-    <value>System</value>
+    <value>Συστήματος</value>
   </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
-    <value>Hoch</value>
+    <value>Υψηλό</value>
   </data>
   <data name="WhiteKeyboardBacklightState_Low" xml:space="preserve">
-    <value>Niedrig</value>
+    <value>Χαμηλό</value>
   </data>
   <data name="WhiteKeyboardBacklightState_Off" xml:space="preserve">
-    <value>Aus</value>
+    <value>Ανενεργό</value>
   </data>
 </root>
