@@ -70,15 +70,6 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LLT.
-        /// </summary>
-        public static string AccentColorSource_LLT {
-            get {
-                return ResourceManager.GetString("AccentColorSource_LLT", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to System.
         /// </summary>
         public static string AccentColorSource_System {
