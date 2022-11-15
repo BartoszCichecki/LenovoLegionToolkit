@@ -538,30 +538,23 @@ namespace LenovoLegionToolkit.Lib
         public SpectrumKeyboardBacklightEffectType Type { get; }
         public SpectrumKeyboardBacklightSpeed Speed { get; }
         public SpectrumKeyboardBacklightDirection Direction { get; }
+        public SpectrumKeyboardBacklightClockwiseDirection ClockwiseDirection { get; }
         public RGBColor[] Colors { get; }
         public SpectrumKeyboardBacklightKeys Keys { get; }
 
         public SpectrumKeyboardBacklightEffect(SpectrumKeyboardBacklightEffectType type,
             SpectrumKeyboardBacklightSpeed speed,
             SpectrumKeyboardBacklightDirection direction,
+            SpectrumKeyboardBacklightClockwiseDirection clockwiseDirection,
             RGBColor[] colors,
             SpectrumKeyboardBacklightKeys keys)
         {
             Type = type;
             Speed = speed;
             Direction = direction;
+            ClockwiseDirection = clockwiseDirection;
             Colors = colors;
             Keys = keys;
-        }
-    }
-
-    public struct SpectrumKeyboardBacklightProfileDescription
-    {
-        public SpectrumKeyboardBacklightEffect[] Effects { get; }
-
-        public SpectrumKeyboardBacklightProfileDescription(SpectrumKeyboardBacklightEffect[] effects)
-        {
-            Effects = effects;
         }
     }
 

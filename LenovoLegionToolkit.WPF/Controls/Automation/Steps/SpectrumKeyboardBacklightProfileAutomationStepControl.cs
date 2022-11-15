@@ -1,4 +1,5 @@
 ﻿using LenovoLegionToolkit.Lib.Automation.Steps;
+using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
@@ -8,8 +9,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps
         public SpectrumKeyboardBacklightProfileAutomationStepControl(IAutomationStep<int> step) : base(step)
         {
             Icon = SymbolRegular.BrightnessHigh24;
-            Title = "Keyboard backlight profile";
-            Subtitle = "Adjust keyboard backlight profile.";
+            Title = Resource.SpectrumKeyboardBacklightProfileAutomationStepControl_Title;
+            Subtitle = Resource.SpectrumKeyboardBacklightProfileAutomationStepControl_Message;
         }
     }
 }

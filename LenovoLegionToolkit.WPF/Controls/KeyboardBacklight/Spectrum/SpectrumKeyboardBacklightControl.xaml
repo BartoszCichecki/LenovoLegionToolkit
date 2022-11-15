@@ -28,7 +28,7 @@
 
             <wpfui:CardControl Margin="0,0,0,24" Icon="BrightnessHigh24">
                 <wpfui:CardControl.Header>
-                    <controls:CardHeaderControl Title="Backlight" />
+                    <controls:CardHeaderControl Title="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_Brightness_Title}" />
                 </wpfui:CardControl.Header>
                 <wpfui:CardControl.Content>
                     <Slider
@@ -149,18 +149,28 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <spectrum:SpectrumDevice
-                    x:Name="_device"
-                    Grid.Column="1"
-                    HorizontalAlignment="Center">
-                    <spectrum:SpectrumDevice.LayoutTransform>
-                        <ScaleTransform ScaleX="2" ScaleY="2" />
-                    </spectrum:SpectrumDevice.LayoutTransform>
-                </spectrum:SpectrumDevice>
+                <controls:SelectableControl Grid.Column="1" Selected="SelectableControl_Selected">
+                    <controls:SelectableControl.Stroke>
+                        <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
+                    </controls:SelectableControl.Stroke>
+                    <controls:SelectableControl.Fill>
+                        <SolidColorBrush Opacity="0.25" Color="{DynamicResource SystemAccentColorSecondary}" />
+                    </controls:SelectableControl.Fill>
+
+                    <spectrum:SpectrumDeviceControl
+                        x:Name="_device"
+                        Padding="32"
+                        HorizontalAlignment="Center">
+                        <spectrum:SpectrumDeviceControl.LayoutTransform>
+                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                        </spectrum:SpectrumDeviceControl.LayoutTransform>
+                    </spectrum:SpectrumDeviceControl>
+
+                </controls:SelectableControl>
 
                 <StackPanel
                     Grid.Column="2"
-                    HorizontalAlignment="Center"
+                    HorizontalAlignment="Left"
                     Orientation="Vertical">
 
                     <wpfui:Button
@@ -168,34 +178,53 @@
                         Click="SelectAll_Click"
                         FontSize="20"
                         Icon="SelectAllOn24"
-                        ToolTip="Select all zones" />
+                        ToolTip="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_SelectAll_ToolTip}" />
                     <wpfui:Button
                         Margin="0,0,0,8"
                         Click="DeselectAll_Click"
                         FontSize="20"
                         Icon="SelectAllOff24"
-                        ToolTip="Deselect all zones" />
+                        ToolTip="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_DeselectAll_ToolTip}" />
                     <wpfui:Button
                         Margin="0,0,0,8"
                         Click="SwitchKeyboardLayout_Click"
                         FontSize="20"
                         Icon="ArrowRepeatAll24"
-                        ToolTip="Switch keyboard layout" />
+                        ToolTip="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_SwitchKeyboardLayout_ToolTip}" />
 
                 </StackPanel>
 
             </Grid>
 
-            <wpfui:Button
-                Margin="0,0,0,8"
-                HorizontalAlignment="Right"
-                Appearance="Primary"
-                Click="AddEffectButton_Click"
-                Content="Add effect"
-                Icon="Add24" />
+            <Grid Margin="0,0,0,8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
 
-            <controls:LoadableControl x:Name="_effectsLoader" Margin="0,8,0,0">
-                <StackPanel x:Name="_effects" Margin="0,0,0,8" />
+                <TextBlock
+                    Grid.Column="0"
+                    FontSize="20"
+                    FontWeight="Medium"
+                    Text="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_Effects}" />
+
+                <wpfui:Button
+                    Grid.Column="1"
+                    Appearance="Primary"
+                    Click="AddEffectButton_Click"
+                    Content="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_AddEffect}"
+                    Icon="Add24" />
+
+            </Grid>
+
+            <controls:LoadableControl x:Name="_effectsLoader" Margin="0,8,0,16">
+                <StackPanel>
+                    <TextBlock
+                        x:Name="_noEffectsText"
+                        Margin="0,8,0,32"
+                        Text="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_NoEffects_Text}" />
+                    <StackPanel x:Name="_effects" />
+                </StackPanel>
             </controls:LoadableControl>
 
         </StackPanel>

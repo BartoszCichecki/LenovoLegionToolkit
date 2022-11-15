@@ -147,7 +147,7 @@ namespace LenovoLegionToolkit.Lib
         RGBKeyboardBacklightOff,
         SmartKeyDoublePress,
         SmartKeySinglePress,
-        SpectrumBacklightOn,
+        SpectrumBacklightChanged,
         SpectrumBacklightOff,
         SpectrumBacklightPresetChanged,
         TouchpadOn,
@@ -276,13 +276,30 @@ namespace LenovoLegionToolkit.Lib
         SpectrumPreset6 = 37
     }
 
-    public enum SpectrumKeyboardBacklightDirection
+    public enum SpectrumKeyboardBacklightBrightness
+    {
+        [Display(ResourceType = typeof(Resource), Name = "SpectrumKeyboardBacklightBrightness_Off")]
+        Off,
+        [Display(ResourceType = typeof(Resource), Name = "SpectrumKeyboardBacklightBrightness_Low")]
+        Low,
+        [Display(ResourceType = typeof(Resource), Name = "SpectrumKeyboardBacklightBrightness_Medium")]
+        Medium,
+        [Display(ResourceType = typeof(Resource), Name = "SpectrumKeyboardBacklightBrightness_High")]
+        High
+    }
+
+    public enum SpectrumKeyboardBacklightClockwiseDirection
     {
         None,
         [Display(ResourceType = typeof(Resource), Name = "SpectrumKeyboardBacklightDirection_Clockwise")]
         Clockwise,
         [Display(ResourceType = typeof(Resource), Name = "SpectrumKeyboardBacklightDirection_CounterClockwise")]
-        CounterClockwise,
+        CounterClockwise
+    }
+
+    public enum SpectrumKeyboardBacklightDirection
+    {
+        None,
         [Display(ResourceType = typeof(Resource), Name = "SpectrumKeyboardBacklightDirection_BottomToTop")]
         BottomToTop,
         [Display(ResourceType = typeof(Resource), Name = "SpectrumKeyboardBacklightDirection_TopToBottom")]

@@ -6,9 +6,9 @@ using LenovoLegionToolkit.WPF.Extensions;
 
 namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 {
-    public partial class SpectrumDevice
+    public partial class SpectrumDeviceControl
     {
-        public SpectrumDevice()
+        public SpectrumDeviceControl()
         {
             InitializeComponent();
         }
@@ -21,10 +21,10 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
                 button.Visibility = isExtended ? Visibility.Visible : Visibility.Hidden;
         }
 
-        public IEnumerable<SpectrumKeyboardButton> GetVisibleButtons() =>
+        public IEnumerable<SpectrumKeyboardButtonControl> GetVisibleButtons() =>
             GetButtons().Where(b => b.Visibility == Visibility.Visible);
 
-        private IEnumerable<SpectrumKeyboardButton> GetButtons() =>
-            this.GetVisibleChildrenOfType<SpectrumKeyboardButton>().Where(b => b.KeyCode > 0);
+        private IEnumerable<SpectrumKeyboardButtonControl> GetButtons() =>
+            this.GetVisibleChildrenOfType<SpectrumKeyboardButtonControl>().Where(b => b.KeyCode > 0);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 {
-    public partial class SpectrumKeyboardButton
+    public partial class SpectrumKeyboardButtonControl
     {
         public ushort KeyCode { get; set; }
 
@@ -28,7 +28,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             set => _button.IsChecked = value;
         }
 
-        public SpectrumKeyboardButton()
+        public SpectrumKeyboardButtonControl()
         {
             InitializeComponent();
         }

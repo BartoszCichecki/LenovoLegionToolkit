@@ -5,6 +5,11 @@ namespace System.Windows.Controls
 {
     public static class ComboBoxExtensions
     {
+        public static IEnumerable<T> GetItems<T>(this ComboBox comboBox)
+        {
+            return comboBox.Items.OfType<ComboBoxItem<T>>().Select(item => item.Value);
+        }
+
         public static void SetItems<T>(this ComboBox comboBox, IEnumerable<T> items, T selectedItem, Func<T, object>? displayValueConverter)
         {
             var boxedItems = items.Select(v => new ComboBoxItem<T>(v, displayValueConverter)).ToArray();

@@ -12,6 +12,8 @@ using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Resources;
+using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum;
 
 namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
@@ -70,7 +72,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
                 return;
 
             var target = 0.75 * ActualWidth / _device.ActualWidth;
-            var scale = Math.Clamp(target, 0.5, 2);
+            var scale = Math.Clamp(target, 0.5, 1.5);
 
             scaleTransform.ScaleX = scale;
             scaleTransform.ScaleY = scale;
@@ -103,6 +105,85 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             }
         });
 
+        private async void BrightnessSlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            var value = (int)_brightnessSlider.Value;
+            if (await _controller.GetBrightnessAsync() != value)
+                await _controller.SetBrightnessAsync(value);
+        }
+
+        private async void ProfileButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            if ((sender as RadioButton)?.Tag is not int profile)
+                return;
+
+            _brightnessSlider.IsEnabled = false;
+            foreach (var profileButton in ProfileButtons)
+                profileButton.IsEnabled = false;
+
+            if (await _controller.GetProfileAsync() != profile)
+            {
+                ShowProfileDescriptionLoader();
+
+                await _controller.SetProfileAsync(profile);
+                await RefreshProfileDescriptionAsync();
+            }
+
+            foreach (var profileButton in ProfileButtons)
+                profileButton.IsEnabled = true;
+            _brightnessSlider.IsEnabled = true;
+        }
+
+        private void SelectableControl_Selected(object? sender, SelectableControl.SelectedEventArgs e)
+        {
+            foreach (var button in _device.GetVisibleButtons().Where(b => !(b.IsChecked ?? false)))
+                button.IsChecked = e.Intersects(button);
+        }
+
+        private void SelectAll_Click(object sender, RoutedEventArgs e) => SelectAllButtons();
+
+        private void DeselectAll_Click(object sender, RoutedEventArgs e) => DeselectAllButtons();
+
+        private async void SwitchKeyboardLayout_Click(object sender, RoutedEventArgs e)
+        {
+            await StopAnimationAsync();
+
+            var buttons = _device.GetVisibleButtons();
+            foreach (var button in buttons)
+                button.IsChecked = false;
+
+            var currentLayout = _settings.Store.KeyboardLayout;
+            var layout = currentLayout switch
+            {
+                KeyboardLayout.Ansi => KeyboardLayout.Iso,
+                KeyboardLayout.Iso => KeyboardLayout.Ansi,
+                _ => throw new ArgumentException(nameof(currentLayout))
+            };
+
+            _settings.Store.KeyboardLayout = layout;
+            _settings.SynchronizeStore();
+
+            _device.SetLayout(layout, _controller.IsExtendedSupported());
+
+            await StartAnimationAsync();
+        }
+
+        private void AddEffectButton_Click(object sender, RoutedEventArgs e)
+        {
+            var buttons = _device.GetVisibleButtons().ToArray();
+            var checkedButtons = buttons.Where(b => b.IsChecked ?? false).ToArray();
+
+            if (checkedButtons.IsEmpty())
+            {
+                SelectAllButtons();
+                checkedButtons = buttons;
+            }
+
+            var keyCodes = checkedButtons.Select(b => b.KeyCode).ToArray();
+
+            CreateEffect(keyCodes);
+        }
+
         protected override async Task OnRefreshAsync()
         {
             if (!_controller.IsSupported())
@@ -125,6 +206,37 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
         }
 
         protected override void OnFinishedLoading() { }
+
+        private void SelectButtons(SpectrumKeyboardBacklightKeys keys)
+        {
+            if (keys.All)
+            {
+                SelectAllButtons();
+                return;
+            }
+
+            DeselectAllButtons();
+
+            foreach (var button in _device.GetVisibleButtons())
+            {
+                if (!keys.KeyCodes.Contains(button.KeyCode))
+                    continue;
+
+                button.IsChecked = true;
+            }
+        }
+
+        private void SelectAllButtons()
+        {
+            foreach (var button in _device.GetVisibleButtons())
+                button.IsChecked = true;
+        }
+
+        private void DeselectAllButtons()
+        {
+            foreach (var button in _device.GetVisibleButtons())
+                button.IsChecked = false;
+        }
 
         private async Task StartAnimationAsync()
         {
@@ -233,13 +345,18 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 
             var delay = Task.Delay(TimeSpan.FromMilliseconds(250));
 
-            _effects.Children.Clear();
-
             var profile = await _controller.GetProfileAsync();
-            var (_, description) = await _controller.GetProfileDescriptionAsync(profile);
+            var (_, effects) = await _controller.GetProfileDescriptionAsync(profile);
 
-            foreach (var effect in description.Effects)
-                AddEffect(effect);
+            DeleteAllEffects();
+
+            foreach (var effect in effects)
+            {
+                var control = CreateEffectControl(effect);
+                _effects.Children.Add(control);
+            }
+
+            _noEffectsText.Visibility = effects.IsEmpty() ? Visibility.Visible : Visibility.Collapsed;
 
             await delay;
 
@@ -251,125 +368,108 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             var profile = await _controller.GetProfileAsync();
             var effects = _effects.Children.OfType<SpectrumKeyboardEffectControl>().Select(c => c.Effect).ToArray();
 
-            await _controller.SetProfileDescriptionAsync(profile, new(effects));
+            try
+            {
+                await _controller.SetProfileDescriptionAsync(profile, effects);
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't apply profile.", ex);
+
+                await SnackbarHelper.ShowAsync(Resource.SpectrumKeyboardBacklightControl_ApplyProfileError_Title, Resource.SpectrumKeyboardBacklightControl_ApplyProfileError_Title_Message, true);
+            }
+
             await RefreshProfileDescriptionAsync();
         }
 
-        private void AddEffect(SpectrumKeyboardBacklightEffect effect)
+        private void CreateEffect(ushort[] keyCodes)
         {
-            var control = new SpectrumKeyboardEffectControl(effect);
-            control.Delete += async (s, e) =>
-            {
-                ShowProfileDescriptionLoader();
-
-                _effects.Children.Remove(control);
-
-                await ApplyProfileAsync();
-            };
-            _effects.Children.Add(control);
-        }
-
-        private async void BrightnessSlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            var value = (int)_brightnessSlider.Value;
-            if (await _controller.GetBrightnessAsync() != value)
-                await _controller.SetBrightnessAsync(value);
-        }
-
-        private async void ProfileButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            if ((sender as RadioButton)?.Tag is not int profile)
-                return;
-
-            _brightnessSlider.IsEnabled = false;
-            foreach (var profileButton in ProfileButtons)
-                profileButton.IsEnabled = false;
-
-            if (await _controller.GetProfileAsync() != profile)
-            {
-                ShowProfileDescriptionLoader();
-
-                await _controller.SetProfileAsync(profile);
-                await RefreshProfileDescriptionAsync();
-            }
-
-            foreach (var profileButton in ProfileButtons)
-                profileButton.IsEnabled = true;
-            _brightnessSlider.IsEnabled = true;
-        }
-
-        private void SelectAll_Click(object sender, RoutedEventArgs e)
-        {
-            var buttons = _device.GetVisibleButtons();
-            foreach (var button in buttons)
-                button.IsChecked = true;
-        }
-
-        private void DeselectAll_Click(object sender, RoutedEventArgs e)
-        {
-            var buttons = _device.GetVisibleButtons();
-            foreach (var button in buttons)
-                button.IsChecked = false;
-        }
-
-        private async void SwitchKeyboardLayout_Click(object sender, RoutedEventArgs e)
-        {
-            await StopAnimationAsync();
-
-            var buttons = _device.GetVisibleButtons();
-            foreach (var button in buttons)
-                button.IsChecked = false;
-
-            var currentLayout = _settings.Store.KeyboardLayout;
-            var layout = currentLayout switch
-            {
-                KeyboardLayout.Ansi => KeyboardLayout.Iso,
-                KeyboardLayout.Iso => KeyboardLayout.Ansi,
-                _ => throw new ArgumentException(nameof(currentLayout))
-            };
-
-            _settings.Store.KeyboardLayout = layout;
-            _settings.SynchronizeStore();
-
-            _device.SetLayout(layout, _controller.IsExtendedSupported());
-
-            await StartAnimationAsync();
-        }
-
-        private void AddEffectButton_Click(object sender, RoutedEventArgs e)
-        {
-            var buttons = _device.GetVisibleButtons().ToArray();
-            var checkedButtons = buttons.Where(b => b.IsChecked ?? false).ToArray();
-
-            if (checkedButtons.IsEmpty())
-            {
-                foreach (var button in buttons)
-                    button.IsChecked = true;
-
-                checkedButtons = buttons;
-            }
-
-            var keyCodes = checkedButtons.Select(b => b.KeyCode).ToArray();
-
             var window = new SpectrumKeyboardBacklightEditEffectWindow(keyCodes)
             {
                 Owner = Window.GetWindow(this),
                 WindowStartupLocation = WindowStartupLocation.CenterOwner,
                 ShowInTaskbar = false,
             };
-            window.Apply += async (s, e) =>
-            {
-                ShowProfileDescriptionLoader();
-
-                foreach (var button in buttons)
-                    button.IsChecked = false;
-
-                AddEffect(e);
-
-                await ApplyProfileAsync();
-                await RefreshProfileDescriptionAsync();
-            };
+            window.Apply += async (s, e) => await AddEffect(e);
             window.ShowDialog();
         }
+
+        private SpectrumKeyboardEffectControl CreateEffectControl(SpectrumKeyboardBacklightEffect effect)
+        {
+            var control = new SpectrumKeyboardEffectControl(effect);
+            control.Click += (s, e) => SelectButtons(effect.Keys);
+            control.Edit += (s, e) => EditEffect(control);
+            control.Delete += async (s, e) => await DeleteEffectAsync(control);
+            return control;
+        }
+
+        private async Task AddEffect(SpectrumKeyboardBacklightEffect effect)
+        {
+            ShowProfileDescriptionLoader();
+            DeselectAllButtons();
+
+            if (effect.Keys.All)
+                DeleteAllEffects();
+            else if (_effects.Children.OfType<SpectrumKeyboardEffectControl>().Any(c => c.Effect.Keys.All))
+                DeleteAllEffects();
+
+            var control = CreateEffectControl(effect);
+            _effects.Children.Add(control);
+
+            await ApplyProfileAsync();
+        }
+
+        private void EditEffect(SpectrumKeyboardEffectControl effectControl)
+        {
+            if (effectControl.Effect.Type == SpectrumKeyboardBacklightEffectType.AuroraSync)
+            {
+                SnackbarHelper.Show(Resource.SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Title, Resource.SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Message, true);
+                return;
+            }
+
+            var window = new SpectrumKeyboardBacklightEditEffectWindow(effectControl.Effect)
+            {
+                Owner = Window.GetWindow(this),
+                WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                ShowInTaskbar = false,
+            };
+            window.Apply += async (s, e) => await ReplaceEffectAsync(effectControl, e);
+            window.ShowDialog();
+        }
+
+        private async Task ReplaceEffectAsync(SpectrumKeyboardEffectControl effectControl, SpectrumKeyboardBacklightEffect effect)
+        {
+            ShowProfileDescriptionLoader();
+
+            var control = new SpectrumKeyboardEffectControl(effect);
+            control.Click += (s, e) => SelectButtons(effect.Keys);
+            control.Edit += (s, e) => EditEffect(control);
+            control.Delete += async (s, e) => await DeleteEffectAsync(control);
+
+            var index = _effects.Children.IndexOf(effectControl);
+            if (index < 0)
+            {
+                _effects.Children.Add(control);
+            }
+            else
+            {
+                _effects.Children.RemoveAt(index);
+                _effects.Children.Insert(index, control);
+            }
+
+            await ApplyProfileAsync();
+        }
+
+        private async Task DeleteEffectAsync(SpectrumKeyboardEffectControl effectControl)
+        {
+            ShowProfileDescriptionLoader();
+
+            _effects.Children.Remove(effectControl);
+
+            await ApplyProfileAsync();
+        }
+
+        private void DeleteAllEffects() => _effects.Children.Clear();
     }
 }

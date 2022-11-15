@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum.SpectrumKeyboardANSI"
+    x:Class="LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum.SpectrumKeyboardISOControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum"
@@ -25,82 +25,82 @@
             Grid.Row="0"
             Grid.Column="0"
             Orientation="Horizontal">
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Width="28"
                 Height="24"
                 Margin="2"
                 KeyCode="0x01" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Width="28"
                 Height="24"
                 Margin="2"
                 KeyCode="0x02" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Width="28"
                 Height="24"
                 Margin="2"
                 KeyCode="0x03" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Width="28"
                 Height="24"
                 Margin="2"
                 KeyCode="0x04" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Width="28"
                 Height="24"
                 Margin="2"
                 KeyCode="0x05" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Width="28"
                 Height="24"
                 Margin="2"
                 KeyCode="0x06" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Width="28"
                 Height="24"
                 Margin="2"
                 KeyCode="0x07" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Width="28"
                 Height="24"
                 Margin="2"
                 KeyCode="0x08" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Width="28"
                 Height="24"
                 Margin="2"
                 KeyCode="0x09" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Width="28"
                 Height="24"
                 Margin="2"
                 KeyCode="0x0A" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Width="28"
                 Height="24"
                 Margin="2"
                 KeyCode="0x0B" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Width="28"
                 Height="24"
                 Margin="2"
                 KeyCode="0x0C" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Width="28"
                 Height="24"
                 Margin="2"
                 KeyCode="0x0D" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Width="28"
                 Height="24"
                 Margin="2"
                 KeyCode="0x0E" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Width="28"
                 Height="24"
                 Margin="2"
                 KeyCode="0x0F" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Width="32"
                 Height="24"
                 Margin="2"
@@ -111,22 +111,22 @@
             Grid.Row="0"
             Grid.Column="1"
             Orientation="Horizontal">
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Width="32"
                 Height="24"
                 Margin="2"
                 KeyCode="0x11" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Width="32"
                 Height="24"
                 Margin="2"
                 KeyCode="0x12" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Width="32"
                 Height="24"
                 Margin="2"
                 KeyCode="0x13" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Width="32"
                 Height="24"
                 Margin="2"
@@ -141,356 +141,389 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <StackPanel Grid.Row="0" Orientation="Horizontal">
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="24"
                     Height="32"
                     Margin="2"
                     KeyCode="0x16" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x17" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x18" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x19" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x1A" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x1B" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x1C" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x1D" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x1E" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x1F" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x20" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x21" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x22" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="52"
                     Height="32"
                     Margin="2"
                     KeyCode="0x38" />
             </StackPanel>
 
-            <StackPanel Grid.Row="1" Orientation="Horizontal">
-                <controls:SpectrumKeyboardButton
-                    Width="44"
+            <Grid Row="1">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Orientation="Horizontal">
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="44"
+                        Height="32"
+                        Margin="2"
+                        KeyCode="0x40" />
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="32"
+                        Height="32"
+                        Margin="2"
+                        KeyCode="0x42" />
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="32"
+                        Height="32"
+                        Margin="2"
+                        KeyCode="0x43" />
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="32"
+                        Height="32"
+                        Margin="2"
+                        KeyCode="0x44" />
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="32"
+                        Height="32"
+                        Margin="2"
+                        KeyCode="0x45" />
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="32"
+                        Height="32"
+                        Margin="2"
+                        KeyCode="0x46" />
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="32"
+                        Height="32"
+                        Margin="2"
+                        KeyCode="0x47" />
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="32"
+                        Height="32"
+                        Margin="2"
+                        KeyCode="0x48" />
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="32"
+                        Height="32"
+                        Margin="2"
+                        KeyCode="0x49" />
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="32"
+                        Height="32"
+                        Margin="2"
+                        KeyCode="0x4A" />
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="32"
+                        Height="32"
+                        Margin="2"
+                        KeyCode="0x4B" />
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="32"
+                        Height="32"
+                        Margin="2"
+                        KeyCode="0x4C" />
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="36"
+                        Height="32"
+                        Margin="2"
+                        KeyCode="0x4D" />
+                </StackPanel>
+
+                <StackPanel
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Orientation="Horizontal">
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="56"
+                        Height="32"
+                        Margin="2"
+                        KeyCode="0x55" />
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="32"
+                        Height="32"
+                        Margin="2"
+                        KeyCode="0x6D" />
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="32"
+                        Height="32"
+                        Margin="2"
+                        KeyCode="0x6E" />
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="32"
+                        Height="32"
+                        Margin="2"
+                        KeyCode="0x58" />
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="32"
+                        Height="32"
+                        Margin="2"
+                        KeyCode="0x59" />
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="32"
+                        Height="32"
+                        Margin="2"
+                        KeyCode="0x5A" />
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="32"
+                        Height="32"
+                        Margin="2"
+                        KeyCode="0x71" />
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="32"
+                        Height="32"
+                        Margin="2"
+                        KeyCode="0x72" />
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="32"
+                        Height="32"
+                        Margin="2"
+                        KeyCode="0x5B" />
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="32"
+                        Height="32"
+                        Margin="2"
+                        KeyCode="0x5C" />
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="32"
+                        Height="32"
+                        Margin="2"
+                        KeyCode="0x5D" />
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="32"
+                        Height="32"
+                        Margin="2"
+                        KeyCode="0x5F" />
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="24"
+                        Height="32"
+                        Margin="2"
+                        KeyCode="0xA8" />
+                </StackPanel>
+
+                <StackPanel
+                    Grid.Row="0"
+                    Grid.RowSpan="2"
+                    Grid.Column="1"
+                    Orientation="Horizontal">
+
+                    <controls:SpectrumKeyboardButtonControl
+                        Width="28"
+                        Height="68"
+                        Margin="2"
+                        KeyCode="0x77" />
+
+                </StackPanel>
+
+            </Grid>
+
+            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                <controls:SpectrumKeyboardButtonControl
+                    Width="38"
                     Height="32"
                     Margin="2"
-                    KeyCode="0x40" />
-                <controls:SpectrumKeyboardButton
-                    Width="32"
-                    Height="32"
-                    Margin="2"
-                    KeyCode="0x42" />
-                <controls:SpectrumKeyboardButton
-                    Width="32"
-                    Height="32"
-                    Margin="2"
-                    KeyCode="0x43" />
-                <controls:SpectrumKeyboardButton
-                    Width="32"
-                    Height="32"
-                    Margin="2"
-                    KeyCode="0x44" />
-                <controls:SpectrumKeyboardButton
-                    Width="32"
-                    Height="32"
-                    Margin="2"
-                    KeyCode="0x45" />
-                <controls:SpectrumKeyboardButton
-                    Width="32"
-                    Height="32"
-                    Margin="2"
-                    KeyCode="0x46" />
-                <controls:SpectrumKeyboardButton
-                    Width="32"
-                    Height="32"
-                    Margin="2"
-                    KeyCode="0x47" />
-                <controls:SpectrumKeyboardButton
-                    Width="32"
-                    Height="32"
-                    Margin="2"
-                    KeyCode="0x48" />
-                <controls:SpectrumKeyboardButton
-                    Width="32"
-                    Height="32"
-                    Margin="2"
-                    KeyCode="0x49" />
-                <controls:SpectrumKeyboardButton
-                    Width="32"
-                    Height="32"
-                    Margin="2"
-                    KeyCode="0x4A" />
-                <controls:SpectrumKeyboardButton
-                    Width="32"
-                    Height="32"
-                    Margin="2"
-                    KeyCode="0x4B" />
-                <controls:SpectrumKeyboardButton
-                    Width="32"
-                    Height="32"
-                    Margin="2"
-                    KeyCode="0x4C" />
-                <controls:SpectrumKeyboardButton
-                    Width="32"
-                    Height="32"
-                    Margin="2"
-                    KeyCode="0x4D" />
-                <controls:SpectrumKeyboardButton
+                    KeyCode="0x6A" />
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x4E" />
-            </StackPanel>
-
-            <StackPanel Grid.Row="2" Orientation="Horizontal">
-                <controls:SpectrumKeyboardButton
-                    Width="56"
-                    Height="32"
-                    Margin="2"
-                    KeyCode="0x55" />
-                <controls:SpectrumKeyboardButton
-                    Width="32"
-                    Height="32"
-                    Margin="2"
-                    KeyCode="0x6D" />
-                <controls:SpectrumKeyboardButton
-                    Width="32"
-                    Height="32"
-                    Margin="2"
-                    KeyCode="0x6E" />
-                <controls:SpectrumKeyboardButton
-                    Width="32"
-                    Height="32"
-                    Margin="2"
-                    KeyCode="0x58" />
-                <controls:SpectrumKeyboardButton
-                    Width="32"
-                    Height="32"
-                    Margin="2"
-                    KeyCode="0x59" />
-                <controls:SpectrumKeyboardButton
-                    Width="32"
-                    Height="32"
-                    Margin="2"
-                    KeyCode="0x5A" />
-                <controls:SpectrumKeyboardButton
-                    Width="32"
-                    Height="32"
-                    Margin="2"
-                    KeyCode="0x71" />
-                <controls:SpectrumKeyboardButton
-                    Width="32"
-                    Height="32"
-                    Margin="2"
-                    KeyCode="0x72" />
-                <controls:SpectrumKeyboardButton
-                    Width="32"
-                    Height="32"
-                    Margin="2"
-                    KeyCode="0x5B" />
-                <controls:SpectrumKeyboardButton
-                    Width="32"
-                    Height="32"
-                    Margin="2"
-                    KeyCode="0x5C" />
-                <controls:SpectrumKeyboardButton
-                    Width="32"
-                    Height="32"
-                    Margin="2"
-                    KeyCode="0x5D" />
-                <controls:SpectrumKeyboardButton
-                    Width="32"
-                    Height="32"
-                    Margin="2"
-                    KeyCode="0x5F" />
-                <controls:SpectrumKeyboardButton
-                    Width="56"
-                    Height="32"
-                    Margin="2"
-                    KeyCode="0x77" />
-            </StackPanel>
-
-            <StackPanel Grid.Row="3" Orientation="Horizontal">
-                <controls:SpectrumKeyboardButton
-                    Width="74"
-                    Height="32"
-                    Margin="2"
-                    KeyCode="0x6A" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x82" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x83" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x6F" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x70" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x87" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x88" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x73" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x74" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x75" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x76" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="74"
                     Height="32"
                     Margin="2"
                     KeyCode="0x8D" />
             </StackPanel>
 
-            <StackPanel Grid.Row="4" Orientation="Horizontal">
-                <controls:SpectrumKeyboardButton
+            <StackPanel Grid.Row="3" Orientation="Horizontal">
+                <controls:SpectrumKeyboardButtonControl
                     Width="38"
                     Height="32"
                     Margin="2"
                     KeyCode="0x7F" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x80" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x96" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x97" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="176"
                     Height="32"
                     Margin="2"
                     KeyCode="0x98" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x9A" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x9B" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     Visibility="Hidden" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x9D" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     Visibility="Hidden" />
             </StackPanel>
 
-            <StackPanel Grid.Row="5" Orientation="Horizontal">
-                <controls:SpectrumKeyboardButton
+            <StackPanel Grid.Row="4" Orientation="Horizontal">
+                <controls:SpectrumKeyboardButtonControl
                     Width="398"
                     Height="32"
                     Margin="2"
                     Visibility="Hidden" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x9C" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
                     KeyCode="0x9F" />
-                <controls:SpectrumKeyboardButton
+                <controls:SpectrumKeyboardButtonControl
                     Width="32"
                     Height="32"
                     Margin="2"
@@ -516,94 +549,94 @@
                 <ColumnDefinition Width="36" />
             </Grid.ColumnDefinitions>
 
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Grid.Row="0"
                 Grid.Column="0"
                 Margin="2"
                 KeyCode="0x26" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Grid.Row="0"
                 Grid.Column="1"
                 Margin="2"
                 KeyCode="0x27" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Grid.Row="0"
                 Grid.Column="2"
                 Margin="2"
                 KeyCode="0x28" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Grid.Row="0"
                 Grid.Column="3"
                 Margin="2"
                 KeyCode="0x29" />
 
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Grid.Row="1"
                 Grid.Column="0"
                 Margin="2"
                 KeyCode="0x4F" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Grid.Row="1"
                 Grid.Column="1"
                 Margin="2"
                 KeyCode="0x50" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Grid.Row="1"
                 Grid.Column="2"
                 Margin="2"
                 KeyCode="0x51" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Grid.Row="1"
                 Grid.RowSpan="2"
                 Grid.Column="3"
                 Margin="2"
                 KeyCode="0x68" />
 
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Grid.Row="2"
                 Grid.Column="0"
                 Margin="2"
                 KeyCode="0x79" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Grid.Row="2"
                 Grid.Column="1"
                 Margin="2"
                 KeyCode="0x7B" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Grid.Row="2"
                 Grid.Column="2"
                 Margin="2"
                 KeyCode="0x7C" />
 
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Grid.Row="3"
                 Grid.Column="0"
                 Margin="2"
                 KeyCode="0x8E" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Grid.Row="3"
                 Grid.Column="1"
                 Margin="2"
                 KeyCode="0x90" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Grid.Row="3"
                 Grid.Column="2"
                 Margin="2"
                 KeyCode="0x92" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Grid.Row="3"
                 Grid.RowSpan="2"
                 Grid.Column="3"
                 Margin="2"
                 KeyCode="0xA7" />
 
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Grid.Row="4"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
                 Margin="2"
                 KeyCode="0xA3" />
-            <controls:SpectrumKeyboardButton
+            <controls:SpectrumKeyboardButtonControl
                 Grid.Row="4"
                 Grid.Column="2"
                 Margin="2"

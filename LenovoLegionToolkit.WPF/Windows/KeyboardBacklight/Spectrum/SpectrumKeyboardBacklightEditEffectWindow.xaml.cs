@@ -2,9 +2,11 @@
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.WPF.Extensions;
+using LenovoLegionToolkit.WPF.Resources;
 
 namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
 {
@@ -22,24 +24,40 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
 
             ResizeMode = ResizeMode.CanMinimize;
 
+            _title.Text = Resource.SpectrumKeyboardBacklightEditEffectWindow_Title_Add;
+
             _titleBar.UseSnapLayout = false;
             _titleBar.CanMaximize = false;
-
-            _title.Text = $"Add effect to {keyCodes.Length} zones";
 
             SetInitialValues();
             RefreshVisibility();
         }
 
-        private void EffectsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public SpectrumKeyboardBacklightEditEffectWindow(SpectrumKeyboardBacklightEffect effect)
         {
+            _keyCodes = effect.Keys.KeyCodes;
+
+            InitializeComponent();
+
+            ResizeMode = ResizeMode.CanMinimize;
+
+            _title.Text = Resource.SpectrumKeyboardBacklightEditEffectWindow_Title_Add;
+
+            _titleBar.UseSnapLayout = false;
+            _titleBar.CanMaximize = false;
+
+            SetInitialValues();
+            Update(effect);
             RefreshVisibility();
         }
+
+        private void EffectsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) => RefreshVisibility();
 
         private void Apply_Click(object sender, RoutedEventArgs e)
         {
             var effectType = SpectrumKeyboardBacklightEffectType.Always;
             var direction = SpectrumKeyboardBacklightDirection.None;
+            var clockwiseDirection = SpectrumKeyboardBacklightClockwiseDirection.None;
             var speed = SpectrumKeyboardBacklightSpeed.None;
             var colors = Array.Empty<RGBColor>();
 
@@ -52,8 +70,8 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
                 direction = directionTemp;
 
             if (_clockwiseDirectionCard.Visibility == Visibility.Visible &&
-                _clockwiseDirectionComboBox.TryGetSelectedItem(out SpectrumKeyboardBacklightDirection clockwiseDirectionTemp))
-                direction = clockwiseDirectionTemp;
+                _clockwiseDirectionComboBox.TryGetSelectedItem(out SpectrumKeyboardBacklightClockwiseDirection clockwiseDirectionTemp))
+                clockwiseDirection = clockwiseDirectionTemp;
 
             if (_speedCard.Visibility == Visibility.Visible &&
                 _speedComboBox.TryGetSelectedItem(out SpectrumKeyboardBacklightSpeed speedTemp))
@@ -65,17 +83,14 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
             if (_multiColors.Visibility == Visibility.Visible)
                 colors = _multiColorPicker.SelectedColors.Select(c => c.ToRGBColor()).ToArray();
 
-            var keys = effectType switch
-            {
-                SpectrumKeyboardBacklightEffectType.AudioBounce => SpectrumKeyboardBacklightKeys.AllKeys(),
-                SpectrumKeyboardBacklightEffectType.AudioRipple => SpectrumKeyboardBacklightKeys.AllKeys(),
-                SpectrumKeyboardBacklightEffectType.Ripple => SpectrumKeyboardBacklightKeys.AllKeys(),
-                _ => SpectrumKeyboardBacklightKeys.SomeKeys(_keyCodes)
-            };
+            var keys = IsWholeKeyboardEffect(effectType)
+                ? SpectrumKeyboardBacklightKeys.AllKeys()
+                : SpectrumKeyboardBacklightKeys.SomeKeys(_keyCodes);
 
             var effect = new SpectrumKeyboardBacklightEffect(effectType,
                 speed,
                 direction,
+                clockwiseDirection,
                 colors,
                 keys);
 
@@ -103,10 +118,10 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
 
             _clockwiseDirectionComboBox.SetItems(new[]
                 {
-                    SpectrumKeyboardBacklightDirection.Clockwise,
-                    SpectrumKeyboardBacklightDirection.CounterClockwise
+                    SpectrumKeyboardBacklightClockwiseDirection.Clockwise,
+                    SpectrumKeyboardBacklightClockwiseDirection.CounterClockwise
                 },
-                SpectrumKeyboardBacklightDirection.Clockwise,
+                SpectrumKeyboardBacklightClockwiseDirection.Clockwise,
                 e => e.GetDisplayName());
 
             _speedComboBox.SetItems(new[]
@@ -119,10 +134,38 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
                 e => e.GetDisplayName());
         }
 
+        private void Update(SpectrumKeyboardBacklightEffect effect)
+        {
+            if (_effectTypeComboBox.GetItems<SpectrumKeyboardBacklightEffectType>().Contains(effect.Type))
+                _effectTypeComboBox.SelectItem(effect.Type);
+
+            if (_directionComboBox.GetItems<SpectrumKeyboardBacklightDirection>().Contains(effect.Direction))
+                _directionComboBox.SelectItem(effect.Direction);
+
+            if (_clockwiseDirectionComboBox.GetItems<SpectrumKeyboardBacklightClockwiseDirection>()
+                .Contains(effect.ClockwiseDirection))
+                _clockwiseDirectionComboBox.SelectItem(effect.ClockwiseDirection);
+
+            if (_speedComboBox.GetItems<SpectrumKeyboardBacklightSpeed>().Contains(effect.Speed))
+                _speedComboBox.SelectItem(effect.Speed);
+
+            var colors = effect.Colors.Select(c => Color.FromRgb(c.R, c.G, c.B)).ToArray();
+            if (colors.Any())
+            {
+                _singleColorPicker.SelectedColor = colors.First();
+                _multiColorPicker.SelectedColors = colors;
+            }
+        }
+
         private void RefreshVisibility()
         {
             if (!_effectTypeComboBox.TryGetSelectedItem(out SpectrumKeyboardBacklightEffectType effect))
                 return;
+
+            if (IsWholeKeyboardEffect(effect))
+                _effectTypeCardHeader.Warning = Resource.SpectrumKeyboardBacklightEditEffectWindow_Effect_Warning;
+            else
+                _effectTypeCardHeader.Warning = string.Empty;
 
             _directionCard.Visibility = effect switch
             {
@@ -169,5 +212,14 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
                 _ => Visibility.Collapsed
             };
         }
+
+        private static bool IsWholeKeyboardEffect(SpectrumKeyboardBacklightEffectType effectType) => effectType switch
+        {
+            SpectrumKeyboardBacklightEffectType.AudioBounce => true,
+            SpectrumKeyboardBacklightEffectType.AudioRipple => true,
+            SpectrumKeyboardBacklightEffectType.Ripple => true,
+            SpectrumKeyboardBacklightEffectType.Type => true,
+            _ => false
+        };
     }
 }

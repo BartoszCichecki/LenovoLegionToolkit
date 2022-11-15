@@ -394,6 +394,42 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to High.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightBrightness_High {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightBrightness_High", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Low.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightBrightness_Low {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightBrightness_Low", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Medium.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightBrightness_Medium {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightBrightness_Medium", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Off.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightBrightness_Off {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightBrightness_Off", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bottom to Top.
         /// </summary>
         public static string SpectrumKeyboardBacklightDirection_BottomToTop {
