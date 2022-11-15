@@ -1,45 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -354,6 +354,15 @@
   <data name="ColorCardControl_Red" xml:space="preserve">
     <value>红色 (R)</value>
   </data>
+  <data name="Color_Blue" xml:space="preserve">
+    <value>蓝色 (B)</value>
+  </data>
+  <data name="Color_Green" xml:space="preserve">
+    <value>绿色 (G)</value>
+  </data>
+  <data name="Color_Red" xml:space="preserve">
+    <value>红色 (R)</value>
+  </data>
   <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
     <value>根据你的使用场景选择显卡工作模式。
 混合模式与独显模式互相切换后需要重启生效。</value>
@@ -519,6 +528,9 @@
   </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>赞助</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>编辑</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>请确保笔记本屏幕已打开，否则本软件无法获取刷新率信息。</value>
@@ -703,6 +715,12 @@
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>键盘背光</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>由于Vantage或其服务正在运行导致冲突，无法在此控制键盘背光。</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
+    <value>Lenovo Vantage似乎已启用。</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>关于</value>
@@ -1009,12 +1027,6 @@
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>关闭</value>
   </data>
-  <data name="RGBKeyboardBacklightControl_VantageEnabled_Message" xml:space="preserve">
-    <value>由于 Lenovo Vantage 或其服务正在运行导致冲突，无法在此控制键盘背光。</value>
-  </data>
-  <data name="RGBKeyboardBacklightControl_VantageEnabled_Title" xml:space="preserve">
-    <value>Lenovo Vantage 似乎已启用。</value>
-  </data>
   <data name="RGBKeyboardBacklightControl_Zone1" xml:space="preserve">
     <value>区域 1</value>
   </data>
@@ -1135,9 +1147,9 @@
     <value>无法禁用 Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
-    <value>禁用 Lenovo Hotkeys，而不卸载。
+    <value>禁用 Lenovo Hotkeys，并且无需卸载。
 禁用后本应用将接管 Fn 快捷功能。
-修改此项后推荐重启电脑。</value>
+修改此项后建议重启电脑。</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>禁用 Lenovo Hotkeys</value>
@@ -1220,6 +1232,87 @@
   </data>
   <data name="SettingsPage_Title" xml:space="preserve">
     <value>设置</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Message" xml:space="preserve">
+    <value>调节键盘背光亮度</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Off" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Title" xml:space="preserve">
+    <value>键盘背光亮度调节</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_AddEffect" xml:space="preserve">
+    <value>新增灯效主题</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
+    <value>无法应用此主题</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title_Message" xml:space="preserve">
+    <value>无法应用灯效主题。</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Message" xml:space="preserve">
+    <value>屏光同步主题暂时不支持。</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Title" xml:space="preserve">
+    <value>屏光同步暂时不支持。</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
+    <value>亮度</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_DeselectAll_ToolTip" xml:space="preserve">
+    <value>取消全选所有灯区</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
+    <value>效果</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
+    <value>没有灯效主题。</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
+    <value>全选所有灯区</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_SwitchKeyboardLayout_ToolTip" xml:space="preserve">
+    <value>切换键盘布局</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_ClockwiseDirection_Title" xml:space="preserve">
+    <value>方向</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Color_Title" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Colors_Title" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Direction_Title" xml:space="preserve">
+    <value>方向</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Title" xml:space="preserve">
+    <value>方向动效</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Warning" xml:space="preserve">
+    <value>此动效将被应用至整个键盘并替换其他动效。</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Speed_Title" xml:space="preserve">
+    <value>速度</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Add" xml:space="preserve">
+    <value>新增灯效主题</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Edit" xml:space="preserve">
+    <value>编辑灯效主题</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Message" xml:space="preserve">
+    <value>切换键盘背光主题。</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Title" xml:space="preserve">
+    <value>键盘背光主题</value>
+  </data>
+  <data name="SpectrumKeyboardEffectControl_Description_AllZones" xml:space="preserve">
+    <value>全部键区</value>
+  </data>
+  <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
+    <value>{0} 键区</value>
   </data>
   <data name="TimeWindow_Sunrise" xml:space="preserve">
     <value>日出</value>
