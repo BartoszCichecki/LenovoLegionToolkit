@@ -219,7 +219,7 @@
     <value>日落时</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_AtTime" xml:space="preserve">
-    <value>将在{0:D2}:{1:D2}运行</value>
+    <value>将在 {0:D2}:{1:D2} 运行</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_PowerMode" xml:space="preserve">
     <value>性能模式</value>
@@ -228,10 +228,10 @@
     <value>未命名</value>
   </data>
   <data name="BalanceModeSettingsWindow_AIEngine_Message" xml:space="preserve">
-    <value>启用LegionAI引擎以自动检测游戏玩法并调整CPU/GPU性能。可能会增加机身温度和风扇噪音。</value>
+    <value>启用 Legion AI 引擎以自动检测游戏并调整 CPU/GPU 性能。可能会增加机身温度和风扇噪音。</value>
   </data>
   <data name="BalanceModeSettingsWindow_AIEngine_Title" xml:space="preserve">
-    <value>启用Legion AI 引擎</value>
+    <value>启用 Legion AI 引擎</value>
   </data>
   <data name="BalanceModeSettingsWindow_Title" xml:space="preserve">
     <value>均衡模式设置</value>
@@ -312,8 +312,8 @@
     <value>生产日期</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-    <value>笔记本充电器拔下后到现在的时间。
-当笔记本在关机或休眠时充电可能会导致此时间不准确。</value>
+    <value>笔记本上次充电距离现在的时间。
+如果在关机或休眠时充电，可能会导致此时间不准确。</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
     <value>电池使用时间</value>
@@ -334,7 +334,7 @@
     <value>访问 microsoft.com 以了解更多</value>
   </data>
   <data name="CPUBoostModesWindow_Title" xml:space="preserve">
-    <value>CPU睿频模式</value>
+    <value>处理器性能提升（睿频）模式</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>取消</value>
@@ -355,8 +355,8 @@
     <value>红色 (R)</value>
   </data>
   <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
-    <value>根据你的使用场景所需的性能与续航选择显卡工作模式。
-切换至独显直连模式或从独显直连模式切换到混合模式需要重启。</value>
+    <value>根据你的使用场景选择显卡工作模式。
+混合模式与独显模式互相切换后需要重启生效。</value>
   </data>
   <data name="ComboBoxHybridModeControl_RestartRequired_Message" xml:space="preserve">
     <value>切换至 {0} 需要重启，现在重启吗？</value>
@@ -389,12 +389,12 @@
     <value>主页</value>
   </data>
   <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
-    <value>在不需要显卡时关闭显卡
+    <value>在不需要时休眠独立显卡。
 
 警告：在非混合模式或笔记本内置屏幕关闭的情况下此功能将不起作用。</value>
   </data>
   <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
-    <value>独立显卡</value>
+    <value>休眠独立显卡</value>
   </data>
   <data name="DelayAutomationStepControl_Message" xml:space="preserve">
     <value>运行下一步前的延迟。</value>
@@ -406,7 +406,7 @@
     <value>删除</value>
   </data>
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
-    <value>BIOS版本</value>
+    <value>BIOS 版本</value>
   </data>
   <data name="DeviceInformationWindow_Copied_Message" xml:space="preserve">
     <value>"{0}" 已复制到剪切板。</value>
@@ -421,16 +421,16 @@
     <value>在保</value>
   </data>
   <data name="DeviceInformationWindow_LenovoSupport" xml:space="preserve">
-    <value>联想支持</value>
+    <value>点击访问联想服务网站查看详细保修信息</value>
   </data>
   <data name="DeviceInformationWindow_MachineType_Title" xml:space="preserve">
-    <value>产品类型</value>
+    <value>设备代号</value>
   </data>
   <data name="DeviceInformationWindow_Manufacturer_Title" xml:space="preserve">
     <value>制造商</value>
   </data>
   <data name="DeviceInformationWindow_Model_Title" xml:space="preserve">
-    <value>产品型号</value>
+    <value>设备型号</value>
   </data>
   <data name="DeviceInformationWindow_OutOfWarranty" xml:space="preserve">
     <value>过保</value>
@@ -474,11 +474,11 @@
     <value>关闭占用应用</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-    <value>在不需要时通过关闭占用应用或重启显卡强制休眠显卡，减少发热与风扇噪音。
-可能会导致应用崩溃，请尽量手动关闭将鼠标放到右侧问号图标处看到的使用显卡的程序。</value>
+    <value>在不需要时强制休眠显卡，可能会导致应用崩溃。
+请尽可能通过手动关闭占用进程来解除独立显卡占用。</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
-    <value>一个显示器已连接到英伟达显卡</value>
+    <value>有显示器正在使用此显卡。</value>
   </data>
   <data name="DiscreteGPUControl_NoProcesses" xml:space="preserve">
     <value>无进程</value>
@@ -500,9 +500,9 @@
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
     <value>更改内置屏幕亮度。
-性能模式会更改屏幕亮度，如果无法正常生效请确保把这步放到最后。
+在部分设备上，切换性能模式后屏幕亮度也会变化，因此请确保把这一步放到最后，否则可能无法正常执行。
 
-警告：当内置显示器关闭时此步将不起作用。</value>
+警告：当内置显示器关闭时此操作将不起作用。</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>显示器亮度</value>
@@ -521,7 +521,7 @@
     <value>赞助</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
-    <value>请确保笔记本屏幕已打开，联想拯救箱无法加载关闭的屏幕的刷新率。</value>
+    <value>请确保笔记本屏幕已打开，否则本软件无法获取刷新率信息。</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Title" xml:space="preserve">
     <value>未发现可调节刷新率</value>
@@ -533,7 +533,7 @@
     <value>退出</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
-    <value>使用电池时只使用核显，连接充电器时同时使用核显与独显。当连接非标准充电器器时，系统会切换到混合核显模式。</value>
+    <value>使用电池时只使用核显，连接充电器时同时使用核显与独显。当连接非标准充电器时，系统会切换到混合核显模式。</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
     <value>混合自动模式</value>
@@ -572,7 +572,7 @@
     <value>CPU</value>
   </data>
   <data name="FanCurveControl_CPUSensor" xml:space="preserve">
-    <value>CPU传感器</value>
+    <value>CPU 传感器</value>
   </data>
   <data name="FanCurveControl_FanSpeed" xml:space="preserve">
     <value>风扇转速</value>
@@ -596,18 +596,18 @@
     <value>开盖启动</value>
   </data>
   <data name="FnLockAutomationStepControl_Message" xml:space="preserve">
-    <value>开启后将无需按下Fn键即可触发功能，
-触发原F1至F12键需按下Fn键。</value>
+    <value>开启后将无需按下 Fn 键即可触发功能，
+触发原 F1 至 F12 键需按下 Fn 键。</value>
   </data>
   <data name="FnLockAutomationStepControl_Title" xml:space="preserve">
-    <value>锁定Fn键</value>
+    <value>锁定 Fn 键</value>
   </data>
   <data name="FnLockControl_Message" xml:space="preserve">
-    <value>开启后将无需按下Fn键即可触发功能，
-触发原F1至F12键需按下Fn键。</value>
+    <value>开启后将无需按下 Fn 键即可触发功能，
+触发原 F1 至 F12 键需按下Fn键。</value>
   </data>
   <data name="FnLockControl_Title" xml:space="preserve">
-    <value>锁定Fn键</value>
+    <value>锁定 Fn 键</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
     <value>警告！
@@ -632,7 +632,7 @@
     <value>短时睿频功耗限制 (PL2)</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_TempLimit" xml:space="preserve">
-    <value>CPU温度限制</value>
+    <value>CPU 温度限制</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_Title" xml:space="preserve">
     <value>CPU</value>
@@ -644,7 +644,7 @@
     <value>无法加载设置</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Curve_Message" xml:space="preserve">
-    <value>风扇速度不是仅仅由一个温度传感器决定的。它将根据CPU、GPU和散热器温度之间的最高值决定转速。把鼠标悬停在滑块上时，可以看到准确的数值。</value>
+    <value>风扇速度不是仅仅由一个温度传感器决定的。它将根据 CPU、GPU 和散热器温度之间的最高值决定转速。把鼠标悬停在滑块上时，可以看到准确的数值。</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Curve_Title" xml:space="preserve">
     <value>风扇曲线</value>
@@ -696,7 +696,7 @@
     <value>此设备可能与联想拯救箱不兼容</value>
   </data>
   <data name="IncompatibleDevice_Title" xml:space="preserve">
-    <value>联想拯救箱 Lenovo Legion Toolkit</value>
+    <value>拯救者工具箱 Lenovo Legion Toolkit</value>
   </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
     <value>未发现兼容的键盘</value>
@@ -732,7 +732,7 @@
     <value>新版本可用！</value>
   </data>
   <data name="MainWindow_UpdateAvailableWithVersion" xml:space="preserve">
-    <value>新版本！可升级至{0}！</value>
+    <value>发现新版本 {0}！</value>
   </data>
   <data name="MoveDown" xml:space="preserve">
     <value>上移</value>
@@ -765,10 +765,10 @@
     <value>Caps Lock 开</value>
   </data>
   <data name="Notification_FnLockOff" xml:space="preserve">
-    <value>锁定Fn键 关</value>
+    <value>锁定 Fn 键 关</value>
   </data>
   <data name="Notification_FnLockOn" xml:space="preserve">
-    <value>锁定Fn键 开</value>
+    <value>锁定 Fn 键 开</value>
   </data>
   <data name="Notification_MicrophoneOff" xml:space="preserve">
     <value>麦克风已关闭</value>
@@ -801,7 +801,7 @@
     <value>Caps Lock 和 Num Lock</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>禁用麦克风静音等Fn键操作的弹窗
+    <value>禁用麦克风静音等 Fn 键操作的弹窗
 如果弹窗与全屏应用有冲突，请启用此选项。</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
@@ -851,7 +851,7 @@
     <value>OverDrive</value>
   </data>
   <data name="PackageControl_DownloadComplete_Message" xml:space="preserve">
-    <value>已下载{0}！</value>
+    <value>已下载 {0}</value>
   </data>
   <data name="PackageControl_DownloadComplete_Title" xml:space="preserve">
     <value>下载完成</value>
@@ -860,10 +860,10 @@
     <value>什么地方出错了(っ °Д °;)っ</value>
   </data>
   <data name="PackageControl_Http404Error_Message" xml:space="preserve">
-    <value>服务器返回404</value>
+    <value>服务器返回 404</value>
   </data>
   <data name="PackageControl_Http404Error_Title" xml:space="preserve">
-    <value>文件看起来没了</value>
+    <value>似乎未找到文件</value>
   </data>
   <data name="PackageControl_HttpGeneralError_Message" xml:space="preserve">
     <value>请确保你的网络正常</value>
@@ -872,7 +872,7 @@
     <value>什么地方出错了(っ °Д °;)っ</value>
   </data>
   <data name="PackageControl_OldPackageWarning" xml:space="preserve">
-    <value>这个包已经是一年多前的了</value>
+    <value>此驱动包的发布日期距今已超过一年</value>
   </data>
   <data name="PackageControl_Version" xml:space="preserve">
     <value>版本</value>
@@ -880,7 +880,7 @@
   <data name="PackagesPage_Disclaimer_Message" xml:space="preserve">
     <value>下面是根据你的电脑型号获取的软件列表，
 请确保你安装的软件对应型号与版本正确。
-同时下列软件来自于联想国际服务网站，软件和驱动不一定适用于在中国大陆销售的机型。</value>
+注：下列软件与驱动来自联想国际站点，不一定适用于在中国大陆销售的机型。</value>
   </data>
   <data name="PackagesPage_Disclaimer_Title" xml:space="preserve">
     <value>重要提醒</value>
@@ -904,7 +904,7 @@
     <value>搜索...</value>
   </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
-    <value>设备型号</value>
+    <value>设备代号</value>
   </data>
   <data name="PackagesPage_OperatingSystem" xml:space="preserve">
     <value>系统</value>
@@ -995,34 +995,34 @@
     <value>键盘背光</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Preset1" xml:space="preserve">
-    <value>预设1</value>
+    <value>预设 1</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Preset2" xml:space="preserve">
-    <value>预设2</value>
+    <value>预设 2</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Preset3" xml:space="preserve">
-    <value>预设3</value>
+    <value>预设 3</value>
   </data>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>关闭</value>
   </data>
   <data name="RGBKeyboardBacklightControl_VantageEnabled_Message" xml:space="preserve">
-    <value>由于Vantage或其服务正在运行导致冲突，无法在此控制键盘背光。</value>
+    <value>由于 Lenovo Vantage 或其服务正在运行导致冲突，无法在此控制键盘背光。</value>
   </data>
   <data name="RGBKeyboardBacklightControl_VantageEnabled_Title" xml:space="preserve">
-    <value>Lenovo Vantage似乎已启用。</value>
+    <value>Lenovo Vantage 似乎已启用。</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Zone1" xml:space="preserve">
-    <value>区域1</value>
+    <value>区域 1</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Zone2" xml:space="preserve">
-    <value>区域2</value>
+    <value>区域 2</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Zone3" xml:space="preserve">
-    <value>区域3</value>
+    <value>区域 3</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Zone4" xml:space="preserve">
-    <value>区域4</value>
+    <value>区域 4</value>
   </data>
   <data name="RGBKeyboardBrightnessCardControl_Brightness" xml:space="preserve">
     <value>亮度</value>
@@ -1073,7 +1073,7 @@
   </data>
   <data name="RunAutomationStepControl_Message" xml:space="preserve">
     <value>运行脚本或应用
-确保你的脚本运行正常</value>
+请确保你的脚本能正常运行。</value>
   </data>
   <data name="RunAutomationStepControl_Title" xml:space="preserve">
     <value>运行</value>
@@ -1100,7 +1100,7 @@
     <value>主题色</value>
   </data>
   <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>不要修改下面的选项，除非你准确的知道你在做什么。</value>
+    <value>不要修改下面的选项，除非你准确地知道你在做什么。</value>
   </data>
   <data name="SettingsPage_Advanced_Title" xml:space="preserve">
     <value>高级设置</value>
@@ -1113,53 +1113,53 @@
     <value>开机启动</value>
   </data>
   <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>CPU睿频模式</value>
+    <value>处理器性能提升（睿频）模式</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
-    <value>Legion Zone可能没有被正确禁用。</value>
+    <value>Legion Zone 可能没有被正确禁用。</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
-    <value>无法禁用Legion Zone</value>
+    <value>无法禁用 Legion Zone</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
-    <value>禁用Legion Zone服务而无需卸载。
-推荐修改此项后重启电脑。</value>
+    <value>禁用 Legion Zone 服务，而不卸载。
+修改此项后推荐重启电脑。</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
-    <value>禁用Legion Zone</value>
+    <value>禁用 Legion Zone</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Message" xml:space="preserve">
-    <value>Lenovo Hotkeys可能没有被正确禁用。</value>
+    <value>Lenovo Hotkeys 可能没有被正确禁用。</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
-    <value>无法禁用Lenovo Hotkeys</value>
+    <value>无法禁用 Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
-    <value>禁用Lenovo Hotkeys而无需卸载。
-禁用后本应用将接管Fn快捷键。
-推荐修改此项后重启电脑。</value>
+    <value>禁用 Lenovo Hotkeys，而不卸载。
+禁用后本应用将接管 Fn 快捷功能。
+修改此项后推荐重启电脑。</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
-    <value>禁用Lenovo Hotkeys</value>
+    <value>禁用 Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage可能没有被正确禁用。</value>
+    <value>Lenovo Vantage 可能没有被正确禁用。</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>无法禁用Vantage</value>
+    <value>无法禁用 Lenovo Vantage</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>禁用Lenovo Vantage而无需卸载。
-推荐修改此项后重启电脑。</value>
+    <value>禁用 Lenovo Vantage，而不卸载。
+修改此项后推荐重启电脑。</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
-    <value>禁用Lenovo Vantage</value>
+    <value>禁用 Lenovo Vantage</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
-    <value>Legion Zone可能没有被正确启用。</value>
+    <value>Legion Zone 可能没有被正确启用。</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Title" xml:space="preserve">
-    <value>无法启用Legion Zone</value>
+    <value>无法启用 Legion Zone</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Message" xml:space="preserve">
     <value>Lenovo Hotkeys 可能没有被正确启用。</value>
@@ -1324,7 +1324,7 @@
     <value>Win 键开关</value>
   </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
-    <value>仅在内置键盘上生效。开启后Win键按下不再有反应。</value>
+    <value>仅在内置键盘上生效。开启后 Win 键按下不再有反应。</value>
   </data>
   <data name="WinKeyControl_Title" xml:space="preserve">
     <value>禁用 Win 键</value>
