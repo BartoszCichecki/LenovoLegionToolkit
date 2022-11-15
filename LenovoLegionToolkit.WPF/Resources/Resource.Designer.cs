@@ -3248,7 +3248,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to Disable Lenovo Hotkeys and it&apos;s service without uninstalling it.
-        ///If disabled, this app will handle Fn shortcuts
+        ///If disabled, this app will handle Fn shortcuts.
         ///Restart is recommended after changing this option..
         /// </summary>
         public static string SettingsPage_DisableLenovoHotkeys_Message {
