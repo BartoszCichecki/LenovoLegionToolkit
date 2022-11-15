@@ -441,6 +441,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
         private async Task ReplaceEffectAsync(SpectrumKeyboardEffectControl effectControl, SpectrumKeyboardBacklightEffect effect)
         {
             ShowProfileDescriptionLoader();
+            DeselectAllButtons();
 
             var control = new SpectrumKeyboardEffectControl(effect);
             control.Click += (s, e) => SelectButtons(effect.Keys);
