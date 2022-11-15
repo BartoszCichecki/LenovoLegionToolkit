@@ -30,10 +30,22 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             _cardHeaderControl.Subtitle = subtitle;
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e) => Click?.Invoke(this, EventArgs.Empty);
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            Click?.Invoke(this, EventArgs.Empty);
+            e.Handled = true;
+        }
 
-        private void Edit_Click(object sender, RoutedEventArgs e) => Edit?.Invoke(this, EventArgs.Empty);
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            Edit?.Invoke(this, EventArgs.Empty);
+            e.Handled = true;
+        }
 
-        private void Delete_Click(object sender, RoutedEventArgs e) => Delete?.Invoke(this, EventArgs.Empty);
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            Delete?.Invoke(this, EventArgs.Empty);
+            e.Handled = true;
+        }
     }
 }

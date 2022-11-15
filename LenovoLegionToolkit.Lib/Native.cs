@@ -53,6 +53,7 @@ namespace LenovoLegionToolkit.Lib
     internal enum LENOVO_SPECTRUM_OPERATION_TYPE : byte
     {
         ProfileChange = 0xC8,
+        ProfileDefault = 0xC9,
         Profile = 0xCA,
         EffectChange = 0xCB,
         Effect = 0xCC,
@@ -263,6 +264,19 @@ namespace LenovoLegionToolkit.Lib
         public LENOVO_SPECTRUM_SET_PROFILE_REQUEST(byte profile)
         {
             Header = new(LENOVO_SPECTRUM_OPERATION_TYPE.ProfileChange, 0xC0);
+            Profile = profile;
+        }
+    }
+
+    [StructLayout(LayoutKind.Sequential, Size = 960)]
+    internal struct LENOVO_SPECTRUM_SET_PROFILE_DEFAULT_REQUEST
+    {
+        public LENOVO_SPECTRUM_HEADER Header;
+        public byte Profile;
+
+        public LENOVO_SPECTRUM_SET_PROFILE_DEFAULT_REQUEST(byte profile)
+        {
+            Header = new(LENOVO_SPECTRUM_OPERATION_TYPE.ProfileDefault, 0xC0);
             Profile = profile;
         }
     }
