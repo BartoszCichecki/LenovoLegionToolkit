@@ -700,6 +700,12 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Iluminação do teclado</value>
   </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>A luz de fundo do teclado não pode ser controlada aqui quando o Vantage ou seus serviços estão em execução.</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
+    <value>O Lenovo Vantage parece estar ativo</value>
+  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Sobre</value>
   </data>
@@ -988,6 +994,9 @@ Você pode alternar entre os modos pressionando Fn+Q.</value>
   <data name="RGBKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
     <value>Iluminação do teclado</value>
   </data>
+  <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
+    <value>Brilho</value>
+  </data>
   <data name="RGBKeyboardBacklightControl_Preset1" xml:space="preserve">
     <value>Predefinição 1</value>
   </data>
@@ -1000,12 +1009,6 @@ Você pode alternar entre os modos pressionando Fn+Q.</value>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>Desligado</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>A luz de fundo do teclado não pode ser controlada aqui quando o Vantage ou seus serviços estão em execução.</value>
-  </data>
-  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-    <value>O Lenovo Vantage parece estar ativo</value>
-  </data>
   <data name="RGBKeyboardBacklightControl_Zone1" xml:space="preserve">
     <value>Zona 1</value>
   </data>
@@ -1017,9 +1020,6 @@ Você pode alternar entre os modos pressionando Fn+Q.</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Zone4" xml:space="preserve">
     <value>Zona 4</value>
-  </data>
-  <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
-    <value>Brilho</value>
   </data>
   <data name="RGBKeyboardBacklightEffectCardControl_Title" xml:space="preserve">
     <value>Efeito</value>
@@ -1083,9 +1083,6 @@ Certifique-se de que seu script seja executado corretamente primeiro.</value>
   </data>
   <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
     <value>Sem Ações Rápidas definidas.</value>
-  </data>
-  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
-    <value>Exibir este aplicativo</value>
   </data>
   <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
     <value>Exibir este aplicativo</value>
