@@ -13,3 +13,6 @@ rmdir /s /q LenovoLegionToolkit.Lib.Automation\obj
 
 rmdir /s /q LenovoLegionToolkit.WPF\bin
 rmdir /s /q LenovoLegionToolkit.WPF\obj
+
+rmdir /s /q LenovoLegionToolkit.SpectrumTester\bin
+rmdir /s /q LenovoLegionToolkit.SpectrumTester\obj

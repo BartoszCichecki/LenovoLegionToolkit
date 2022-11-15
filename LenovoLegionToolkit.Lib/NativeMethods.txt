@@ -50,6 +50,7 @@ SetupDiGetDeviceInterfaceDetail
 
 HidD_FreePreparsedData
 HidD_GetAttributes
+HidD_GetFeature
 HidD_GetHidGuid
 HidD_GetPreparsedData
 HidD_SetFeature

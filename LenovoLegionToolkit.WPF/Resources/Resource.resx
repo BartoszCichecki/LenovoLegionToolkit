@@ -353,6 +353,15 @@ This time might not be accurate if laptop was charged when sleeping or off.</val
   <data name="ColorCardControl_Red" xml:space="preserve">
     <value>Red</value>
   </data>
+  <data name="Color_Blue" xml:space="preserve">
+		<value>Blue</value>
+	</data>
+  <data name="Color_Green" xml:space="preserve">
+		<value>Green</value>
+	</data>
+  <data name="Color_Red" xml:space="preserve">
+		<value>Red</value>
+	</data>
   <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
     <value>Select GPU operating mode based on your computer's usage and power conditions.
 Switching modes may require restart.</value>
@@ -518,6 +527,9 @@ Thanks in advance!</value>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Donate</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+		<value>Edit</value>
+	</data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>Make sure that laptop display is on. Lenovo Legion Toolkit can't load refresh rates for a display that is not on.</value>
   </data>
@@ -699,6 +711,12 @@ WARNING: This action will not run correctly if the internal display is off.</val
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Keyboard Backlight</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>Keyboard backlight cannot be controlled in here when Vantage or it's services are running.</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
+    <value>Lenovo Vantage seems to be enabled</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>About</value>
@@ -988,6 +1006,9 @@ You can switch mode with Fn+Q.</value>
   <data name="RGBKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
     <value>Keyboard backlight</value>
   </data>
+  <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
+    <value>Brightness</value>
+  </data>
   <data name="RGBKeyboardBacklightControl_Preset1" xml:space="preserve">
     <value>Preset 1</value>
   </data>
@@ -999,12 +1020,6 @@ You can switch mode with Fn+Q.</value>
   </data>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>Off</value>
-  </data>
-  <data name="RGBKeyboardBacklightControl_VantageEnabled_Message" xml:space="preserve">
-    <value>Keyboard backlight cannot be controlled in here when Vantage or it's services are running.</value>
-  </data>
-  <data name="RGBKeyboardBacklightControl_VantageEnabled_Title" xml:space="preserve">
-    <value>Lenovo Vantage seems to be enabled</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Zone1" xml:space="preserve">
     <value>Zone 1</value>
@@ -1018,13 +1033,10 @@ You can switch mode with Fn+Q.</value>
   <data name="RGBKeyboardBacklightControl_Zone4" xml:space="preserve">
     <value>Zone 4</value>
   </data>
-  <data name="RGBKeyboardBrightnessCardControl_Brightness" xml:space="preserve">
-    <value>Brightness</value>
-  </data>
-  <data name="RGBKeyboardEffectCardControl_Title" xml:space="preserve">
+  <data name="RGBKeyboardBacklightEffectCardControl_Title" xml:space="preserve">
     <value>Effect</value>
   </data>
-  <data name="RGBKeyboardSpeedCardControl_Title" xml:space="preserve">
+  <data name="RGBKeyboardBacklightSpeedCardControl_Title" xml:space="preserve">
     <value>Speed</value>
   </data>
   <data name="ReadmeWindow_Title" xml:space="preserve">
@@ -1214,6 +1226,72 @@ Restart is recommended after changing this option.</value>
   <data name="SettingsPage_Title" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_AddEffect" xml:space="preserve">
+		<value>Add effect</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
+		<value>Couldn't apply profile</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title_Message" xml:space="preserve">
+		<value>Lighting profile couldn't be applied.</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Message" xml:space="preserve">
+		<value>Aurora Sync effect is not currently supported.</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Title" xml:space="preserve">
+		<value>Aurora Sync is not supported</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
+    <value>Brightness</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_DeselectAll_ToolTip" xml:space="preserve">
+		<value>Deselect all zones</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
+		<value>Effects</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
+		<value>No effects added.</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
+		<value>Select all zones</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightControl_SwitchKeyboardLayout_ToolTip" xml:space="preserve">
+		<value>Switch keyboard layout</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_ClockwiseDirection_Title" xml:space="preserve">
+		<value>Direction</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Color_Title" xml:space="preserve">
+		<value>Color</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Colors_Title" xml:space="preserve">
+		<value>Colors</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Direction_Title" xml:space="preserve">
+		<value>Direction</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Title" xml:space="preserve">
+		<value>Effect</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Warning" xml:space="preserve">
+		<value>This effect will be applied to the whole keyboard and will replace all other effects.</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Speed_Title" xml:space="preserve">
+		<value>Speed</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Add" xml:space="preserve">
+		<value>Add effect</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Edit" xml:space="preserve">
+		<value>Edit effect</value>
+	</data>
+  <data name="SpectrumKeyboardEffectControl_Description_AllZones" xml:space="preserve">
+		<value>All keys</value>
+	</data>
+  <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
+		<value>{0} zones</value>
+	</data>
   <data name="TimeWindow_Sunrise" xml:space="preserve">
     <value>Sunrise</value>
   </data>
@@ -1325,4 +1403,19 @@ Logging will be enabled automatically, if you choose to continue.</value>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
+	<data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Title" xml:space="preserve">
+		<value>Keyboard backlight brightness</value>
+	</data>
+	<data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Message" xml:space="preserve">
+		<value>Adjust keyboard backlight brightness.</value>
+	</data>
+	<data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Off" xml:space="preserve">
+		<value>Off</value>
+	</data>
+	<data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Title" xml:space="preserve">
+		<value>Keyboard backlight profile</value>
+	</data>
+	<data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Message" xml:space="preserve">
+		<value>Adjust keyboard backlight profile.</value>
+	</data>
 </root>

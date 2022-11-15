@@ -7,16 +7,19 @@ using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.WPF.Extensions;
 using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
+using MenuItem = System.Windows.Controls.MenuItem;
 
-namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
+namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.RGB
 {
     public partial class RGBKeyboardBacklightControl
     {
         private Button[] PresetButtons => new[] { _offPresetButton, _preset1Button, _preset2Button, _preset3Button };
 
-        private ColorCardControl[] Zones => new[] { _zone1Control, _zone2Control, _zone3Control, _zone4Control };
+        private ColorPickerControl[] Zones => new[] { _zone1ColorPicker, _zone2ColorPicker, _zone3ColorPicker, _zone4ColorPicker };
 
         private readonly RGBKeyboardBacklightController _controller = IoCContainer.Resolve<RGBKeyboardBacklightController>();
         private readonly RGBKeyboardBacklightListener _listener = IoCContainer.Resolve<RGBKeyboardBacklightListener>();
@@ -63,19 +66,20 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
 
             await RefreshAsync();
         }
+
         private async void SynchroniseZonesMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is not MenuItem menuItem || menuItem.Parent is not ContextMenu menu || menu.PlacementTarget is not ColorCardControl control)
+            if (sender is not MenuItem { Parent: ContextMenu { PlacementTarget: CardControl { Content: ColorPickerControl pickerControl } } })
                 return;
 
             foreach (var zone in Zones)
-                zone.SetColor(control.GetColor());
+                zone.SelectedColor = pickerControl.SelectedColor;
 
             await SaveState();
             await RefreshAsync();
         }
 
-        private async void CardControl_OnChanged(object? sender, EventArgs e)
+        private async void CardControl_Changed(object? sender, EventArgs e)
         {
             await SaveState();
             await RefreshAsync();
@@ -99,10 +103,10 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
                 _brightnessControl.IsEnabled = false;
                 _effectControl.IsEnabled = false;
 
-                _zone1Control.Clear();
-                _zone2Control.Clear();
-                _zone3Control.Clear();
-                _zone4Control.Clear();
+                _zone1ColorPicker.Visibility = Visibility.Hidden;
+                _zone2ColorPicker.Visibility = Visibility.Hidden;
+                _zone3ColorPicker.Visibility = Visibility.Hidden;
+                _zone4ColorPicker.Visibility = Visibility.Hidden;
 
                 _speedControl.IsEnabled = false;
                 _zone1Control.IsEnabled = false;
@@ -137,10 +141,10 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
                 _speedControl.IsEnabled = false;
                 _brightnessControl.IsEnabled = false;
 
-                _zone1Control.Clear();
-                _zone2Control.Clear();
-                _zone3Control.Clear();
-                _zone4Control.Clear();
+                _zone1ColorPicker.Visibility = Visibility.Hidden;
+                _zone2ColorPicker.Visibility = Visibility.Hidden;
+                _zone3ColorPicker.Visibility = Visibility.Hidden;
+                _zone4ColorPicker.Visibility = Visibility.Hidden;
 
                 _zone1Control.IsEnabled = false;
                 _zone2Control.IsEnabled = false;
@@ -152,27 +156,32 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
 
             var preset = state.Presets[state.SelectedPreset];
 
-            var speedEnabled = preset.Effect != RGBKeyboardEffect.Static;
-            var zonesEnabled = preset.Effect == RGBKeyboardEffect.Static || preset.Effect == RGBKeyboardEffect.Breath;
+            var speedEnabled = preset.Effect != RGBKeyboardBacklightEffect.Static;
+            var zonesEnabled = preset.Effect == RGBKeyboardBacklightEffect.Static || preset.Effect == RGBKeyboardBacklightEffect.Breath;
 
-            _brightnessControl.SetItems(Enum.GetValues<RGBKeyboardBrightness>(), preset.Brightness, v => v.GetDisplayName());
-            _effectControl.SetItems(Enum.GetValues<RGBKeyboardEffect>(), preset.Effect, v => v.GetDisplayName());
+            _brightnessControl.SetItems(Enum.GetValues<RGBKeyboardBacklightBrightness>(), preset.Brightness, v => v.GetDisplayName());
+            _effectControl.SetItems(Enum.GetValues<RGBKeyboardBacklightEffect>(), preset.Effect, v => v.GetDisplayName());
             if (speedEnabled)
-                _speedControl.SetItems(Enum.GetValues<RBGKeyboardSpeed>(), preset.Speed, v => v.GetDisplayName());
+                _speedControl.SetItems(Enum.GetValues<RBGKeyboardBacklightSpeed>(), preset.Speed, v => v.GetDisplayName());
 
             if (zonesEnabled)
             {
-                _zone1Control.SetColor(preset.Zone1);
-                _zone2Control.SetColor(preset.Zone2);
-                _zone3Control.SetColor(preset.Zone3);
-                _zone4Control.SetColor(preset.Zone4);
+                _zone1ColorPicker.SelectedColor = preset.Zone1.ToColor();
+                _zone2ColorPicker.SelectedColor = preset.Zone2.ToColor();
+                _zone3ColorPicker.SelectedColor = preset.Zone3.ToColor();
+                _zone4ColorPicker.SelectedColor = preset.Zone4.ToColor();
+
+                _zone1ColorPicker.Visibility = Visibility.Visible;
+                _zone2ColorPicker.Visibility = Visibility.Visible;
+                _zone3ColorPicker.Visibility = Visibility.Visible;
+                _zone4ColorPicker.Visibility = Visibility.Visible;
             }
             else
             {
-                _zone1Control.Clear();
-                _zone2Control.Clear();
-                _zone3Control.Clear();
-                _zone4Control.Clear();
+                _zone1ColorPicker.Visibility = Visibility.Hidden;
+                _zone2ColorPicker.Visibility = Visibility.Hidden;
+                _zone3ColorPicker.Visibility = Visibility.Hidden;
+                _zone4ColorPicker.Visibility = Visibility.Hidden;
             }
 
             _brightnessControl.IsEnabled = true;
@@ -200,10 +209,10 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight
             presets[selectedPreset] = new(_effectControl.SelectedItem,
                                           _speedControl.SelectedItem,
                                           _brightnessControl.SelectedItem,
-                                          _zone1Control.GetColor(),
-                                          _zone2Control.GetColor(),
-                                          _zone3Control.GetColor(),
-                                          _zone4Control.GetColor());
+                                          _zone1ColorPicker.SelectedColor.ToRGBColor(),
+                                          _zone2ColorPicker.SelectedColor.ToRGBColor(),
+                                          _zone3ColorPicker.SelectedColor.ToRGBColor(),
+                                          _zone4ColorPicker.SelectedColor.ToRGBColor());
 
             await _controller.SetStateAsync(new(selectedPreset, presets));
         }

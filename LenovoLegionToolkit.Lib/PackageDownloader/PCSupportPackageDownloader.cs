@@ -21,7 +21,7 @@ namespace LenovoLegionToolkit.Lib.PackageDownloader
                 OS.Windows10 => "Windows 10",
                 OS.Windows8 => "Windows 8",
                 OS.Windows7 => "Windows 7",
-                _ => throw new InvalidOperationException("Invalid os"),
+                _ => throw new InvalidOperationException(nameof(os)),
             };
 
             using var httpClient = new HttpClient();

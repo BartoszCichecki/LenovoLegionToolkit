@@ -71,13 +71,16 @@ namespace LenovoLegionToolkit.Lib.Automation.Listeners
         {
             lock (_lock)
             {
-                if (string.IsNullOrWhiteSpace(e.processName) || _ignoredNames.Contains(e.processName, StringComparer.InvariantCultureIgnoreCase))
+                if (string.IsNullOrWhiteSpace(e.processName))
                     return;
 
                 if (e.processID < 0)
                     return;
 
-                var processPath = "";
+                if (_ignoredNames.Contains(e.processName, StringComparer.InvariantCultureIgnoreCase))
+                    return;
+
+                string? processPath = null;
                 try
                 {
                     processPath = Process.GetProcessById(e.processID).MainModule?.FileName;
@@ -104,10 +107,13 @@ namespace LenovoLegionToolkit.Lib.Automation.Listeners
             {
                 CleanUpCacheIfNecessary();
 
-                if (string.IsNullOrWhiteSpace(e.processName) || _ignoredNames.Contains(e.processName, StringComparer.InvariantCultureIgnoreCase))
+                if (string.IsNullOrWhiteSpace(e.processName))
                     return;
 
                 if (e.processID < 0)
+                    return;
+
+                if (_ignoredNames.Contains(e.processName, StringComparer.InvariantCultureIgnoreCase))
                     return;
 
                 if (!_processCache.TryGetValue(e.processID, out var processInfo))
@@ -121,7 +127,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Listeners
 
         private void CleanUpCacheIfNecessary()
         {
-            if (_processCache.Count < 100)
+            if (_processCache.Count < 250)
                 return;
 
             if (Log.Instance.IsTraceEnabled)

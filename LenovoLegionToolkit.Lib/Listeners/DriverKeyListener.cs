@@ -137,7 +137,9 @@ namespace LenovoLegionToolkit.Lib.Listeners
                     if (await _whiteKeyboardBacklightFeature.IsSupportedAsync().ConfigureAwait(false))
                     {
                         var state = await _whiteKeyboardBacklightFeature.GetStateAsync().ConfigureAwait(false);
-                        MessagingCenter.Publish(new Notification(NotificationType.WhiteKeyboardBacklight, NotificationDuration.Short, state.GetDisplayName()));
+                        MessagingCenter.Publish(state == WhiteKeyboardBacklightState.Off
+                            ? new Notification(NotificationType.WhiteKeyboardBacklightOff, NotificationDuration.Short, state.GetDisplayName())
+                            : new Notification(NotificationType.WhiteKeyboardBacklightChanged, NotificationDuration.Short, state.GetDisplayName()));
                     }
                 }
             }

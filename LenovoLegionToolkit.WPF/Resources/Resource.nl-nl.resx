@@ -974,11 +974,11 @@ U kunt van modus wisselen met Fn+Q.</value>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>Uit</value>
   </data>
-  <data name="RGBKeyboardBacklightControl_VantageEnabled_Message" xml:space="preserve">
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>De achtergrondverlichting van het toetsenbord kan hier niet worden geregeld wanneer Vantage of zijn services actief zijn.
 </value>
   </data>
-  <data name="RGBKeyboardBacklightControl_VantageEnabled_Title" xml:space="preserve">
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage lijkt te zijn ingeschakeld</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Zone1" xml:space="preserve">
@@ -993,13 +993,13 @@ U kunt van modus wisselen met Fn+Q.</value>
   <data name="RGBKeyboardBacklightControl_Zone4" xml:space="preserve">
     <value>Zone 4</value>
   </data>
-  <data name="RGBKeyboardBrightnessCardControl_Brightness" xml:space="preserve">
+  <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
     <value>Helderheid</value>
   </data>
-  <data name="RGBKeyboardEffectCardControl_Title" xml:space="preserve">
+  <data name="RGBKeyboardBacklightEffectCardControl_Title" xml:space="preserve">
     <value>Effect</value>
   </data>
-  <data name="RGBKeyboardSpeedCardControl_Title" xml:space="preserve">
+  <data name="RGBKeyboardBacklightSpeedCardControl_Title" xml:space="preserve">
     <value>Snelheid</value>
   </data>
   <data name="ReadmeWindow_Title" xml:space="preserve">

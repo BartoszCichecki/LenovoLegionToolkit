@@ -1,0 +1,234 @@
+﻿<controls:AbstractRefreshingControl
+    x:Class="LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum.SpectrumKeyboardBacklightControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
+    xmlns:spectrum="clr-namespace:LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+    xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <StackPanel Margin="0,0,8,0">
+
+        <wpfui:CardControl
+            x:Name="_vantageWarningCard"
+            Margin="0,0,0,16"
+            Icon="Warning24"
+            Visibility="Collapsed">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.Keyboard_VantageEnabledWarning_Title}" Subtitle="{x:Static resources:Resource.Keyboard_VantageEnabledWarning_Message}" />
+            </wpfui:CardControl.Header>
+        </wpfui:CardControl>
+
+        <StackPanel x:Name="_content">
+
+            <wpfui:CardControl Margin="0,0,0,24" Icon="BrightnessHigh24">
+                <wpfui:CardControl.Header>
+                    <controls:CardHeaderControl Title="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_Brightness_Title}" />
+                </wpfui:CardControl.Header>
+                <wpfui:CardControl.Content>
+                    <Slider
+                        x:Name="_brightnessSlider"
+                        Width="200"
+                        IsSnapToTickEnabled="True"
+                        Maximum="9"
+                        Minimum="0"
+                        TickFrequency="1"
+                        TickPlacement="BottomRight"
+                        ValueChanged="BrightnessSlider_OnValueChanged" />
+                </wpfui:CardControl.Content>
+            </wpfui:CardControl>
+
+            <Grid
+                Height="36"
+                Margin="0,0,0,48"
+                HorizontalAlignment="Stretch">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="8" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="8" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="8" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="8" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="8" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.Resources>
+                    <Style BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="RadioButton" />
+                </Grid.Resources>
+
+                <RadioButton
+                    x:Name="_profileButton1"
+                    Grid.Column="0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Click="ProfileButton_OnClick"
+                    Content="1"
+                    GroupName="profile">
+                    <RadioButton.Tag>
+                        <system:Int32>1</system:Int32>
+                    </RadioButton.Tag>
+                </RadioButton>
+                <RadioButton
+                    x:Name="_profileButton2"
+                    Grid.Column="2"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Click="ProfileButton_OnClick"
+                    Content="2"
+                    GroupName="profile">
+                    <RadioButton.Tag>
+                        <system:Int32>2</system:Int32>
+                    </RadioButton.Tag>
+                </RadioButton>
+                <RadioButton
+                    x:Name="_profileButton3"
+                    Grid.Column="4"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Click="ProfileButton_OnClick"
+                    Content="3"
+                    GroupName="profile">
+                    <RadioButton.Tag>
+                        <system:Int32>3</system:Int32>
+                    </RadioButton.Tag>
+                </RadioButton>
+                <RadioButton
+                    x:Name="_profileButton4"
+                    Grid.Column="6"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Click="ProfileButton_OnClick"
+                    Content="4"
+                    GroupName="profile">
+                    <RadioButton.Tag>
+                        <system:Int32>4</system:Int32>
+                    </RadioButton.Tag>
+                </RadioButton>
+                <RadioButton
+                    x:Name="_profileButton5"
+                    Grid.Column="8"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Click="ProfileButton_OnClick"
+                    Content="5"
+                    GroupName="profile">
+                    <RadioButton.Tag>
+                        <system:Int32>5</system:Int32>
+                    </RadioButton.Tag>
+                </RadioButton>
+                <RadioButton
+                    x:Name="_profileButton6"
+                    Grid.Column="10"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Click="ProfileButton_OnClick"
+                    Content="6"
+                    GroupName="profile">
+                    <RadioButton.Tag>
+                        <system:Int32>6</system:Int32>
+                    </RadioButton.Tag>
+                </RadioButton>
+
+            </Grid>
+
+            <Grid Margin="0,0,0,24">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <controls:SelectableControl Grid.Column="1" Selected="SelectableControl_Selected">
+                    <controls:SelectableControl.Stroke>
+                        <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
+                    </controls:SelectableControl.Stroke>
+                    <controls:SelectableControl.Fill>
+                        <SolidColorBrush Opacity="0.25" Color="{DynamicResource SystemAccentColorSecondary}" />
+                    </controls:SelectableControl.Fill>
+
+                    <spectrum:SpectrumDeviceControl
+                        x:Name="_device"
+                        Padding="32"
+                        HorizontalAlignment="Center">
+                        <spectrum:SpectrumDeviceControl.LayoutTransform>
+                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                        </spectrum:SpectrumDeviceControl.LayoutTransform>
+                    </spectrum:SpectrumDeviceControl>
+
+                </controls:SelectableControl>
+
+                <StackPanel
+                    Grid.Column="2"
+                    HorizontalAlignment="Left"
+                    Orientation="Vertical">
+
+                    <wpfui:Button
+                        Margin="0,0,0,8"
+                        Click="SelectAll_Click"
+                        FontSize="20"
+                        Icon="SelectAllOn24"
+                        ToolTip="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_SelectAll_ToolTip}" />
+                    <wpfui:Button
+                        Margin="0,0,0,8"
+                        Click="DeselectAll_Click"
+                        FontSize="20"
+                        Icon="SelectAllOff24"
+                        ToolTip="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_DeselectAll_ToolTip}" />
+                    <wpfui:Button
+                        Margin="0,0,0,8"
+                        Click="SwitchKeyboardLayout_Click"
+                        FontSize="20"
+                        Icon="ArrowRepeatAll24"
+                        ToolTip="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_SwitchKeyboardLayout_ToolTip}" />
+
+                </StackPanel>
+
+            </Grid>
+
+            <Grid Margin="0,0,0,8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    Grid.Column="0"
+                    FontSize="20"
+                    FontWeight="Medium"
+                    Text="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_Effects}" />
+
+                <wpfui:Button
+                    Grid.Column="1"
+                    Appearance="Primary"
+                    Click="AddEffectButton_Click"
+                    Content="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_AddEffect}"
+                    Icon="Add24" />
+
+            </Grid>
+
+            <controls:LoadableControl x:Name="_effectsLoader" Margin="0,8,0,16">
+                <StackPanel>
+                    <TextBlock
+                        x:Name="_noEffectsText"
+                        Margin="0,8,0,32"
+                        Text="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_NoEffects_Text}" />
+                    <StackPanel x:Name="_effects" />
+                </StackPanel>
+            </controls:LoadableControl>
+
+        </StackPanel>
+
+    </StackPanel>
+
+</controls:AbstractRefreshingControl>
