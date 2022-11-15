@@ -506,8 +506,8 @@ WARNING: This action will not run correctly, if internal display is off.</value>
     <value>Display brightness</value>
   </data>
   <data name="DonatePage_DonateWith" xml:space="preserve">
-		<value>Donate with</value>
-	</data>
+    <value>Donate with</value>
+  </data>
   <data name="DonatePage_Message" xml:space="preserve">
     <value>Development and maintenance of Lenovo Legion Toolkit takes a lot of time. If you like using this software you can support it's future by donating an amount of your choice.
 
@@ -671,6 +671,23 @@ Seriously, be careful with this option!</value>
   <data name="GodModeSettingsWindow_Title" xml:space="preserve">
     <value>Custom Mode Settings</value>
   </data>
+  <data name="HDRAutomationStepControl_Message" xml:space="preserve">
+    <value>Enable high dynamic range (HDR) on the built-in display.
+
+WARNING: This action will not run correctly if the internal display is off.</value>
+  </data>
+  <data name="HDRAutomationStepControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Message" xml:space="preserve">
+    <value>Enable high dynamic range (HDR) on the built-in display.</value>
+  </data>
+  <data name="HDRControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Warning" xml:space="preserve">
+    <value>HDR usage is blocked by Windows settings.</value>
+  </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>This device is not compatible with Lenovo Legion Toolkit.</value>
   </data>
@@ -800,6 +817,9 @@ Enable this option if you have conflicts with full screen applications.</value>
   </data>
   <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
     <value>Refresh Rate</value>
+  </data>
+  <data name="NotificationsSettingsWindow_SmartKey" xml:space="preserve">
+    <value>Smart Key</value>
   </data>
   <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
     <value>Notifications</value>
@@ -935,6 +955,9 @@ You can switch mode with Fn+Q.</value>
   <data name="PowerModeControl_Title" xml:space="preserve">
     <value>Power Mode</value>
   </data>
+  <data name="PowerModeControl_Warning" xml:space="preserve">
+    <value>Selected power mode may not work correctly without AC adapter connected.</value>
+  </data>
   <data name="PowerModeWindow_Title" xml:space="preserve">
     <value>Power Mode</value>
   </data>
@@ -1055,6 +1078,15 @@ Make sure that your script runs correctly first.</value>
   <data name="Saving" xml:space="preserve">
     <value>Saving...</value>
   </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Description" xml:space="preserve">
+    <value>Choose one or more quick actions to cycle through</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
+    <value>No Quick Actions defined.</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
+    <value>Show this app</value>
+  </data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
     <value>Change the accent color of the app.</value>
   </data>
@@ -1161,9 +1193,6 @@ Restart is recommended after changing this option.</value>
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Power plans</value>
   </data>
-  <data name="SettingsPage_SmartKeyDoublePressAction_DoNothing" xml:space="preserve">
-    <value>Do nothing</value>
-  </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>Assign Quick Action to Fn+F9 double press.</value>
   </data>
@@ -1172,9 +1201,6 @@ Restart is recommended after changing this option.</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
     <value>Assign Quick Action to Fn+F9 single press.</value>
-  </data>
-  <data name="SettingsPage_SmartKeySinglePressAction_ShowThisApp" xml:space="preserve">
-    <value>Show this app</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
     <value>Smart Key Action</value>
