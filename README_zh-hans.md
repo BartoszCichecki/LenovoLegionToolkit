@@ -23,7 +23,7 @@
 
 # 目录
   - [免责声明](#免责声明)
-  - [捐赠](#捐赠)
+  - [赞助](#赞助)
   - [下载](#下载)
   - [兼容性](#兼容性)
   - [功能介绍](#功能介绍)
@@ -38,13 +38,22 @@
 
 这是我的业余时间做的项目，我想让它适配更多的设备，但需要一些时间，所以请耐心等待并仔细阅读此自述文件。
 
-## 捐赠
+## 赞助
 
-如果你觉得拯救者工具箱不错的话，可以考虑一下赞助。
+开发不易，如果你觉得拯救者工具箱不错的话，可以考虑赞助以支持开发。
 
-<a href="https://www.paypal.com/donate/?hosted_button_id=22AZE2NBP3HTL"><img src="LenovoLegionToolkit.WPF/Assets/paypal_button.png" width="200" alt="PayPal Donate" /></a>
+[使用PayPal赞助](https://www.paypal.com/donate/?hosted_button_id=22AZE2NBP3HTL)
 
-<img src="LenovoLegionToolkit.WPF/Assets/paypal_qr.png" width="200" alt="PayPal QR code" />
+<img src="LenovoLegionToolkit.WPF/Assets/Donate/paypal_qr.png" width="200" alt="PayPal QR code" />
+
+
+#### 中国用户赞助
+
+如果你居住在中国，可以使用Stripe来赞助。（支持支付宝与银联）
+
+[使用Stripe赞助](https://donate.stripe.com/14k8yM94I980f3q7ss)
+
+<img src="LenovoLegionToolkit.WPF/Assets/Donate/stripe_cny_qr.png" width="200" alt="Stripe (CNY) QR code" />
 
 ## 下载
 
