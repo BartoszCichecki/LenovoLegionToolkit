@@ -102,7 +102,21 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
 
         private void SetInitialValues()
         {
-            _effectTypeComboBox.SetItems(Enum.GetValues<SpectrumKeyboardBacklightEffectType>(),
+            _effectTypeComboBox.SetItems(new[]
+                {
+                    SpectrumKeyboardBacklightEffectType.Always,
+                    SpectrumKeyboardBacklightEffectType.RainbowScrew,
+                    SpectrumKeyboardBacklightEffectType.RainbowWave,
+                    SpectrumKeyboardBacklightEffectType.ColorChange,
+                    SpectrumKeyboardBacklightEffectType.ColorWave,
+                    SpectrumKeyboardBacklightEffectType.ColorPulse,
+                    SpectrumKeyboardBacklightEffectType.Smooth,
+                    SpectrumKeyboardBacklightEffectType.Rain,
+                    SpectrumKeyboardBacklightEffectType.Ripple,
+                    SpectrumKeyboardBacklightEffectType.Type,
+                    SpectrumKeyboardBacklightEffectType.AudioBounce,
+                    SpectrumKeyboardBacklightEffectType.AudioRipple
+                },
                 SpectrumKeyboardBacklightEffectType.Always,
                 e => e.GetDisplayName());
 
