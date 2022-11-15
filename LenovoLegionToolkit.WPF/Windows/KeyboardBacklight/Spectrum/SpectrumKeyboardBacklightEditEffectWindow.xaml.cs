@@ -33,9 +33,9 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
             RefreshVisibility();
         }
 
-        public SpectrumKeyboardBacklightEditEffectWindow(SpectrumKeyboardBacklightEffect effect)
+        public SpectrumKeyboardBacklightEditEffectWindow(SpectrumKeyboardBacklightEffect effect, ushort[] keyCodes)
         {
-            _keyCodes = effect.Keys.KeyCodes;
+            _keyCodes = effect.Keys.All ? keyCodes : effect.Keys.KeyCodes;
 
             InitializeComponent();
 
