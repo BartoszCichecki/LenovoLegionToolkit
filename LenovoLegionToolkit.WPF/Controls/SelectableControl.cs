@@ -11,9 +11,9 @@ namespace LenovoLegionToolkit.WPF.Controls
     {
         public class SelectedEventArgs : EventArgs
         {
-            public Func<FrameworkElement, bool> Intersects { get; }
+            public Func<FrameworkElement, bool> ContainsCenter { get; }
 
-            public SelectedEventArgs(Func<FrameworkElement, bool> intersects) => Intersects = intersects;
+            public SelectedEventArgs(Func<FrameworkElement, bool> containsCenter) => ContainsCenter = containsCenter;
         }
 
         private Grid _grid = new()
@@ -130,14 +130,18 @@ namespace LenovoLegionToolkit.WPF.Controls
 
             var rectangle = new Rect(minX, minY, maxX - minX, maxY - minY);
 
-            bool Intersects(FrameworkElement element)
+            bool ContainsCenter(FrameworkElement element)
             {
                 var elementRect = element.TransformToVisual(_grid)
                     .TransformBounds(new Rect(0, 0, element.ActualWidth, element.ActualHeight));
-                return rectangle.IntersectsWith(elementRect);
+
+                var elementCenterX = elementRect.X + elementRect.Width / 2;
+                var elementCenterY = elementRect.Y + elementRect.Height / 2;
+
+                return rectangle.Contains(elementCenterX, elementCenterY);
             }
 
-            Selected?.Invoke(this, new SelectedEventArgs(Intersects));
+            Selected?.Invoke(this, new SelectedEventArgs(ContainsCenter));
         }
     }
 }

@@ -190,7 +190,7 @@ No. Check out [OpenRGB](https://openrgb.org/) project.
 
 #### Will Legion Spectrum RGB keyboards be supported?
 
-Probably. I would like to add support to Spectrum RGB, but I currently don't have a device that supports it. PRs are welcome.
+Support is coming soon.
 
 #### Can I have more RGB effects?
 

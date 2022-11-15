@@ -14,7 +14,9 @@ Console.WriteLine(@"How to use:
 When ready, press any key to continue...");
 Console.ReadLine();
 
-var device = Devices.GetExtendedSpectrumRGBKeyboard() ?? Devices.GetSpectrumRGBKeyboard();
+var extHandle = Devices.GetExtendedSpectrumRGBKeyboard();
+var handle = Devices.GetSpectrumRGBKeyboard();
+var device = extHandle ?? handle;
 
 Console.WriteLine("Finding Spectrum keyboard...");
 
@@ -25,7 +27,7 @@ if (device is null)
     return;
 }
 
-Console.WriteLine("Spectrum keyboard found, reading white key keycodes...");
+Console.WriteLine($"Spectrum keyboard found, reading white key keycodes... [ext={extHandle is not null}]");
 Console.WriteLine();
 
 for (var i = 0; i < 10; i++)

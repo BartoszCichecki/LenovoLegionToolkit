@@ -149,28 +149,34 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <controls:SelectableControl Grid.Column="1" Selected="SelectableControl_Selected">
-                    <controls:SelectableControl.Stroke>
-                        <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
-                    </controls:SelectableControl.Stroke>
-                    <controls:SelectableControl.Fill>
-                        <SolidColorBrush Opacity="0.25" Color="{DynamicResource SystemAccentColorSecondary}" />
-                    </controls:SelectableControl.Fill>
+                <Border
+                    Grid.Column="1"
+                    BorderBrush="{DynamicResource ControlElevationBorderBrush}"
+                    BorderThickness="2"
+                    CornerRadius="8">
 
-                    <spectrum:SpectrumDeviceControl
-                        x:Name="_device"
-                        Padding="32"
-                        HorizontalAlignment="Center">
-                        <spectrum:SpectrumDeviceControl.LayoutTransform>
-                            <ScaleTransform ScaleX="1" ScaleY="1" />
-                        </spectrum:SpectrumDeviceControl.LayoutTransform>
-                    </spectrum:SpectrumDeviceControl>
+                    <controls:SelectableControl Selected="SelectableControl_Selected">
+                        <controls:SelectableControl.Stroke>
+                            <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
+                        </controls:SelectableControl.Stroke>
+                        <controls:SelectableControl.Fill>
+                            <SolidColorBrush Opacity="0.25" Color="{DynamicResource SystemAccentColorSecondary}" />
+                        </controls:SelectableControl.Fill>
 
-                </controls:SelectableControl>
+                        <spectrum:SpectrumDeviceControl
+                            x:Name="_device"
+                            Padding="32"
+                            HorizontalAlignment="Center">
+                            <spectrum:SpectrumDeviceControl.LayoutTransform>
+                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                            </spectrum:SpectrumDeviceControl.LayoutTransform>
+                        </spectrum:SpectrumDeviceControl>
+                    </controls:SelectableControl>
+                </Border>
 
                 <StackPanel
                     Grid.Column="2"
-                    HorizontalAlignment="Left"
+                    HorizontalAlignment="Center"
                     Orientation="Vertical">
 
                     <wpfui:Button
@@ -200,6 +206,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
                 <TextBlock
@@ -214,6 +221,14 @@
                     Click="AddEffectButton_Click"
                     Content="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_AddEffect}"
                     Icon="Add24" />
+
+                <wpfui:Button
+                    Grid.Column="2"
+                    Margin="8,0,0,0"
+                    Appearance="Secondary"
+                    Click="ResetToDefaultButton_Click"
+                    Icon="ArrowClockwise24"
+                    ToolTip="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip}" />
 
             </Grid>
 
