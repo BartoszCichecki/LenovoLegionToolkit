@@ -155,7 +155,7 @@ Translations provided by:
 * Chinese - [凌卡Karl](https://github.com/KarlLee830), [DavidLogic](https://github.com/DavidLogic)
 * Czech - J0sef
 * Dutch - Melm
-* French - EliotAku, jojo2massol, Rigbone, ZeroDegree
+* French - EliotAku, [Georges de Massol](https://github.com/jojo2massol), Rigbone, ZeroDegree
 * German - Sko-Inductor, Running_Dead89
 * Greek - GreatApo
 * Italian - Lampadina17
