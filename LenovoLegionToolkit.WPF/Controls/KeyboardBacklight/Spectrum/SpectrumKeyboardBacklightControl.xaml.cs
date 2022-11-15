@@ -137,7 +137,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
         private void SelectableControl_Selected(object? sender, SelectableControl.SelectedEventArgs e)
         {
             foreach (var button in _device.GetVisibleButtons().Where(b => !(b.IsChecked ?? false)))
-                button.IsChecked = e.Intersects(button);
+                button.IsChecked = e.ContainsCenter(button);
         }
 
         private void SelectAll_Click(object sender, RoutedEventArgs e) => SelectAllButtons();
