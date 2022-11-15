@@ -348,8 +348,6 @@ namespace LenovoLegionToolkit.Lib
     {
         [Display(ResourceType = typeof(Resource), Name = "AccentColorSource_System")]
         System,
-        [Display(ResourceType = typeof(Resource), Name = "AccentColorSource_LLT")]
-        LLT,
         [Display(ResourceType = typeof(Resource), Name = "AccentColorSource_Custom")]
         Custom
     }
