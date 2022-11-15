@@ -35,6 +35,7 @@ namespace LenovoLegionToolkit.Lib
             builder.Register<OverDriveFeature>();
             builder.Register<PowerModeFeature>();
             builder.Register<RefreshRateFeature>();
+            builder.Register<HDRFeature>();
             builder.Register<TouchpadLockFeature>();
             builder.Register<WhiteKeyboardBacklightFeature>();
             builder.Register<WinKeyFeature>();
@@ -43,6 +44,9 @@ namespace LenovoLegionToolkit.Lib
                 .OnActivating(e => e.Instance.StartAsync().AsValueTask())
                 .AutoActivate();
             builder.Register<PowerModeListener>()
+                .OnActivating(e => e.Instance.StartAsync().AsValueTask())
+                .AutoActivate();
+            builder.Register<ThermalModeListener>()
                 .OnActivating(e => e.Instance.StartAsync().AsValueTask())
                 .AutoActivate();
             builder.Register<DisplayConfigurationListener>()

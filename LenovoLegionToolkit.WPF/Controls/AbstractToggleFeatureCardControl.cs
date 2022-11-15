@@ -11,7 +11,7 @@ namespace LenovoLegionToolkit.WPF.Controls
 {
     public abstract class AbstractToggleFeatureCardControl<T> : AbstractRefreshingControl where T : struct
     {
-        private readonly IFeature<T> _feature = IoCContainer.Resolve<IFeature<T>>();
+        protected readonly IFeature<T> Feature = IoCContainer.Resolve<IFeature<T>>();
 
         private readonly CardControl _cardControl = new();
 
@@ -19,29 +19,41 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         private readonly ToggleSwitch _toggle = new();
 
-        public SymbolRegular Icon
+        protected SymbolRegular Icon
         {
             get => _cardControl.Icon;
             set => _cardControl.Icon = value;
         }
 
-        public string Title
+        protected string Title
         {
             get => _cardHeaderControl.Title;
             set => _cardHeaderControl.Title = value;
         }
 
-        public string Subtitle
+        protected string Subtitle
         {
             get => _cardHeaderControl.Subtitle;
             set => _cardHeaderControl.Subtitle = value;
+        }
+
+        protected string Warning
+        {
+            get => _cardHeaderControl.Warning;
+            set => _cardHeaderControl.Warning = value;
+        }
+
+        public bool IsToggleEnabled
+        {
+            get => _toggle.IsEnabled;
+            set => _toggle.IsEnabled = value;
         }
 
         protected abstract T OnState { get; }
 
         protected abstract T OffState { get; }
 
-        public AbstractToggleFeatureCardControl()
+        protected AbstractToggleFeatureCardControl()
         {
             InitializeComponent();
         }
@@ -59,14 +71,14 @@ namespace LenovoLegionToolkit.WPF.Controls
             Content = _cardControl;
         }
 
-        private async void Toggle_Click(object sender, RoutedEventArgs e) => await OnStateChange(_toggle, _feature);
+        private async void Toggle_Click(object sender, RoutedEventArgs e) => await OnStateChange(_toggle, Feature);
 
         protected override async Task OnRefreshAsync()
         {
-            if (!await _feature.IsSupportedAsync())
+            if (!await Feature.IsSupportedAsync())
                 throw new NotSupportedException();
 
-            _toggle.IsChecked = OnState.Equals(await _feature.GetStateAsync());
+            _toggle.IsChecked = OnState.Equals(await Feature.GetStateAsync());
         }
 
         protected override void OnFinishedLoading()

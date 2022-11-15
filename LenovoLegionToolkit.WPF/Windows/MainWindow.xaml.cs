@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ using System.Windows;
 using System.Windows.Input;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Settings;
@@ -118,53 +120,80 @@ namespace LenovoLegionToolkit.WPF.Windows
 
                 if (diff < _fnF9DoublePressInterval)
                 {
-                    var id = _settings.Store.SmartKeyDoublePressActionId;
-                    if (id.HasValue)
-                    {
-                        if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Running action after double Fn+F9 press.");
-
-                        try
-                        {
-                            await _automationProcessor.RunNowAsync(id.Value);
-                        }
-                        catch (Exception ex)
-                        {
-                            if (Log.Instance.IsTraceEnabled)
-                                Log.Instance.Trace($"Running action after double Fn+F9 press failed.", ex);
-                        }
-                    }
+                    await ProcessSpecialKey(isDoublePress: true);
                 }
                 else
                 {
                     await Task.Delay(_fnF9DoublePressInterval, token);
 
-                    var id = _settings.Store.SmartKeySinglePressActionId;
-                    if (id.HasValue)
-                    {
-                        if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Running action after single Fn+F9 press.");
-
-                        try
-                        {
-                            await _automationProcessor.RunNowAsync(id.Value);
-                        }
-                        catch (Exception ex)
-                        {
-                            if (Log.Instance.IsTraceEnabled)
-                                Log.Instance.Trace($"Running action after single Fn+F9 press failed.", ex);
-                        }
-                    }
-                    else
-                    {
-                        if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Bringing to foreground after single Fn+F9 press.");
-
-                        Dispatcher.Invoke(BringToForeground);
-                    }
+                    await ProcessSpecialKey(isDoublePress: false);
                 }
             }, token);
         });
+
+        private async Task ProcessSpecialKey(bool isDoublePress)
+        {
+            var currentGuid = isDoublePress ? _settings.Store.SmartKeyDoublePressActionId : _settings.Store.SmartKeySinglePressActionId;
+
+            // When currentGuid == null -> Show app (keeps the old behaviour)
+            //                  == Guid.Empty -> Smart key is disabled
+            //                  == pipeline guid -> Try to locate it in the list and process
+
+            if (currentGuid == Guid.Empty)
+                return;
+
+            if (currentGuid == null)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Bringing to foreground after {(isDoublePress ? "double" : "single")} Fn+F9 press.");
+
+                Dispatcher.Invoke(BringToForeground);
+                return;
+            }
+
+            var guids = isDoublePress ? _settings.Store.SmartKeyDoublePressActionList : _settings.Store.SmartKeySinglePressActionList;
+
+            if (guids.IsEmpty())
+                guids.Add(currentGuid.Value);
+
+            var currentIndex = guids.IndexOf(currentGuid.Value);
+            if (currentIndex < 0)
+                currentIndex = 0;
+
+            var nextIndex = (currentIndex + 1) % guids.Count;
+
+            var id = guids[currentIndex];
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Running action {id} after {(isDoublePress ? "double" : "single")} Fn+F9 press.");
+
+            try
+            {
+                var pipeline = (await _automationProcessor.GetPipelinesAsync()).FirstOrDefault(p => p.Id == id);
+                if (pipeline != null)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Running action {id} after {(isDoublePress ? "double" : "single")} Fn+F9 press.");
+
+                    await _automationProcessor.RunNowAsync(pipeline.Id);
+
+                    MessagingCenter.Publish(new Notification(isDoublePress ? NotificationType.SmartKeyDoublePress : NotificationType.SmartKeySinglePress,
+                        NotificationDuration.Short, pipeline.Name ?? string.Empty));
+                }
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Running action {id} after {(isDoublePress ? "double" : "single")} Fn+F9 press failed.", ex);
+            }
+
+            if (isDoublePress)
+                _settings.Store.SmartKeyDoublePressActionId = guids[nextIndex];
+            else
+                _settings.Store.SmartKeySinglePressActionId = guids[nextIndex];
+
+            _settings.SynchronizeStore();
+        }
 
         private void MainWindow_SourceInitialized(object? sender, EventArgs args)
         {

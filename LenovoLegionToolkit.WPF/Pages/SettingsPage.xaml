@@ -112,29 +112,23 @@
                 Visibility="Hidden" />
         </wpfui:CardControl>
 
-        <wpfui:CardControl x:Name="_smartKeySinglePressActionCard" Margin="0,0,0,8">
-            <wpfui:CardControl.Header>
+        <wpfui:CardAction
+            x:Name="_smartKeySinglePressActionCard"
+            Margin="0,0,0,8"
+            Click="SmartKeySinglePressActionCard_Click">
+            <wpfui:CardAction.Content>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_SmartKeySinglePressAction_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_SmartKeySinglePressAction_Message}" />
-            </wpfui:CardControl.Header>
-            <ComboBox
-                x:Name="_smartKeySinglePressActionComboBox"
-                MinWidth="160"
-                Margin="0,0,0,8"
-                SelectionChanged="SmartKeySinglePressActionComboBox_SelectionChanged"
-                Visibility="Hidden" />
-        </wpfui:CardControl>
+            </wpfui:CardAction.Content>
+        </wpfui:CardAction>
 
-        <wpfui:CardControl x:Name="_smartKeyDoublePressActionCard" Margin="0,0,0,8">
-            <wpfui:CardControl.Header>
+        <wpfui:CardAction
+            x:Name="_smartKeyDoublePressActionCard"
+            Margin="0,0,0,8"
+            Click="SmartKeyDoublePressActionCard_Click">
+            <wpfui:CardAction.Content>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_SmartKeyDoublePressAction_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_SmartKeyDoublePressAction_Message}" />
-            </wpfui:CardControl.Header>
-            <ComboBox
-                x:Name="_smartKeyDoublePressActionComboBox"
-                MinWidth="160"
-                Margin="0,0,0,8"
-                SelectionChanged="SmartKeyDoublePressActionComboBox_SelectionChanged"
-                Visibility="Hidden" />
-        </wpfui:CardControl>
+            </wpfui:CardAction.Content>
+        </wpfui:CardAction>
 
         <wpfui:CardAction
             x:Name="_notificationsCard"
