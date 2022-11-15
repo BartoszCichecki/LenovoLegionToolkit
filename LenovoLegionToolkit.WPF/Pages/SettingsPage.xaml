@@ -32,6 +32,7 @@
                 x:Name="_langComboBox"
                 MinWidth="160"
                 Margin="0,0,0,8"
+                MaxDropDownHeight="Auto"
                 SelectionChanged="LangComboBox_SelectionChanged"
                 Visibility="Hidden" />
         </wpfui:CardControl>
