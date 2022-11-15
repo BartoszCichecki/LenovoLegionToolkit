@@ -206,6 +206,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
                 <TextBlock
@@ -220,6 +221,14 @@
                     Click="AddEffectButton_Click"
                     Content="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_AddEffect}"
                     Icon="Add24" />
+
+                <wpfui:Button
+                    Grid.Column="2"
+                    Margin="8,0,0,0"
+                    Appearance="Secondary"
+                    Click="ResetToDefaultButton_Click"
+                    Icon="ArrowClockwise24"
+                    ToolTip="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip}" />
 
             </Grid>
 

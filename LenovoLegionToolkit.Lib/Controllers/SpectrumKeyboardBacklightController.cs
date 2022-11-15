@@ -78,6 +78,15 @@ namespace LenovoLegionToolkit.Lib.Controllers
             await Task.Delay(TimeSpan.FromMilliseconds(250)); // Looks like keyboard needs some time
         }
 
+        public async Task SetProfileDefaultAsync(int profile)
+        {
+            ThrowIfHandleNull();
+            await ThrowIfVantageEnabled().ConfigureAwait(false);
+
+            var input = new LENOVO_SPECTRUM_SET_PROFILE_DEFAULT_REQUEST((byte)profile);
+            SetFeature(input);
+        }
+
         public async Task SetProfileDescriptionAsync(int profile, SpectrumKeyboardBacklightEffect[] effects)
         {
             ThrowIfHandleNull();

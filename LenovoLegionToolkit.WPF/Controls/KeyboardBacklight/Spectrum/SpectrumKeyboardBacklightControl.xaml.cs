@@ -184,6 +184,8 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             CreateEffect(keyCodes);
         }
 
+        private async void ResetToDefaultButton_Click(object sender, RoutedEventArgs e) => await ResetToDefaultAsync();
+
         protected override async Task OnRefreshAsync()
         {
             if (!_controller.IsSupported())
@@ -194,6 +196,8 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             {
                 _vantageWarningCard.Visibility = Visibility.Visible;
                 _content.IsEnabled = false;
+                _noEffectsText.Visibility = Visibility.Collapsed;
+                StopProfileDescriptionLoader();
 
                 return;
             }
@@ -383,6 +387,17 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             await RefreshProfileDescriptionAsync();
         }
 
+        private async Task ResetToDefaultAsync()
+        {
+            ShowProfileDescriptionLoader();
+            DeselectAllButtons();
+
+            var profile = await _controller.GetProfileAsync();
+            await _controller.SetProfileDefaultAsync(profile);
+
+            await RefreshProfileDescriptionAsync();
+        }
+
         private void CreateEffect(ushort[] keyCodes)
         {
             var window = new SpectrumKeyboardBacklightEditEffectWindow(keyCodes)
@@ -428,7 +443,8 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
                 return;
             }
 
-            var window = new SpectrumKeyboardBacklightEditEffectWindow(effectControl.Effect)
+            var keyCodes = _device.GetVisibleButtons().Select(b => b.KeyCode).ToArray();
+            var window = new SpectrumKeyboardBacklightEditEffectWindow(effectControl.Effect, keyCodes)
             {
                 Owner = Window.GetWindow(this),
                 WindowStartupLocation = WindowStartupLocation.CenterOwner,
