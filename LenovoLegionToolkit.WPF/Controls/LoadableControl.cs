@@ -9,6 +9,7 @@ namespace LenovoLegionToolkit.WPF.Controls
     public class LoadableControl : UserControl
     {
         private readonly ContentPresenter _contentPresenter = new();
+
         private readonly ProgressRing _progressRing = new()
         {
             IsIndeterminate = true,

@@ -72,6 +72,9 @@ namespace LenovoLegionToolkit.WPF
             if (ShouldForceDisableRGBKeyboardSupport(args))
                 IoCContainer.Resolve<RGBKeyboardBacklightController>().ForceDisable = true;
 
+            if (ShouldForceDisableSpectrumKeyboardSupport(args))
+                IoCContainer.Resolve<SpectrumKeyboardBacklightController>().ForceDisable = true;
+
             await InitAutomationProcessor();
             await InitPowerModeFeature();
             await InitRGBKeyboardController();
@@ -324,6 +327,15 @@ namespace LenovoLegionToolkit.WPF
         private static bool ShouldForceDisableRGBKeyboardSupport(IEnumerable<string> args)
         {
             var result = args.Contains("--force-disable-rgbkb");
+            if (result)
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Argument present");
+            return result;
+        }
+
+        private static bool ShouldForceDisableSpectrumKeyboardSupport(IEnumerable<string> args)
+        {
+            var result = args.Contains("--force-disable-spectrumkb");
             if (result)
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Argument present");

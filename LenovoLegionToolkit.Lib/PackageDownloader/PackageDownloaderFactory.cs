@@ -23,7 +23,7 @@ namespace LenovoLegionToolkit.Lib.PackageDownloader
         {
             Type.PCSupport => _pcSupportPackageDownloader,
             Type.Commercial => _commercialPackageDownloader,
-            _ => throw new InvalidOperationException("Invalid type"),
+            _ => throw new InvalidOperationException(nameof(type)),
         };
     }
 }

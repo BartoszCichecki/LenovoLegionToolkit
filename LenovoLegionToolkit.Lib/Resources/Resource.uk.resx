@@ -115,16 +115,16 @@
   <data name="PowerModeState_Quiet" xml:space="preserve">
     <value>Тихий</value>
   </data>
-  <data name="RBGKeyboardSpeed_Fast" xml:space="preserve">
+  <data name="RBGKeyboardBacklightSpeed_Fast" xml:space="preserve">
     <value>Швидка</value>
   </data>
-  <data name="RBGKeyboardSpeed_Fastest" xml:space="preserve">
+  <data name="RBGKeyboardBacklightSpeed_Fastest" xml:space="preserve">
     <value>Найшвидша</value>
   </data>
-  <data name="RBGKeyboardSpeed_Slow" xml:space="preserve">
+  <data name="RBGKeyboardBacklightSpeed_Slow" xml:space="preserve">
     <value>Повільна</value>
   </data>
-  <data name="RBGKeyboardSpeed_Slowest" xml:space="preserve">
+  <data name="RBGKeyboardBacklightSpeed_Slowest" xml:space="preserve">
     <value>Найповільніша</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
@@ -139,25 +139,25 @@
   <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
     <value>Шаблон 2</value>
   </data>
-  <data name="RGBKeyboardBrightness_High" xml:space="preserve">
+  <data name="RGBKeyboardBacklightBrightness_High" xml:space="preserve">
     <value>Висока</value>
   </data>
-  <data name="RGBKeyboardBrightness_Low" xml:space="preserve">
+  <data name="RGBKeyboardBacklightBrightness_Low" xml:space="preserve">
     <value>Низька</value>
   </data>
-  <data name="RGBKeyboardEffect_Breath" xml:space="preserve">
+  <data name="RGBKeyboardBacklightEffect_Breath" xml:space="preserve">
     <value>Дихання</value>
   </data>
-  <data name="RGBKeyboardEffect_Smooth" xml:space="preserve">
+  <data name="RGBKeyboardBacklightEffect_Smooth" xml:space="preserve">
     <value>Плавний</value>
   </data>
-  <data name="RGBKeyboardEffect_Static" xml:space="preserve">
+  <data name="RGBKeyboardBacklightEffect_Static" xml:space="preserve">
     <value>Статичний</value>
   </data>
-  <data name="RGBKeyboardEffect_WaveLTR" xml:space="preserve">
+  <data name="RGBKeyboardBacklightEffect_WaveLTR" xml:space="preserve">
     <value>Хвиля Ліворуч</value>
   </data>
-  <data name="RGBKeyboardEffect_WaveRTL" xml:space="preserve">
+  <data name="RGBKeyboardBacklightEffect_WaveRTL" xml:space="preserve">
     <value>Хвиля Праворуч</value>
   </data>
   <data name="Theme_Dark" xml:space="preserve">
