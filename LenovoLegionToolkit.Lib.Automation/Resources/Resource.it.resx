@@ -59,42 +59,42 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Quando o carregador for conectado</value>
+    <value>Quando l'alimentatore è collegato</value>
   </data>
   <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Quando o carregardor for desconectado</value>
+    <value>Quando l'alimentatore è scollegato</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Cancelar</value>
+    <value>Annulla</value>
   </data>
   <data name="DeactivateGPUAutomationStepState_KillApps" xml:space="preserve">
-    <value>Fechar todas aplicações</value>
+    <value>Chiudi applicazioni</value>
   </data>
   <data name="DeactivateGPUAutomationStepState_RestartGPU" xml:space="preserve">
-    <value>Reiniciar GPU</value>
+    <value>Riavvia GPU</value>
   </data>
   <data name="Delay_Second" xml:space="preserve">
-    <value>{0} segundo</value>
+    <value>{0} secondo</value>
   </data>
   <data name="Delay_Second_Many" xml:space="preserve">
-    <value>{0} segundos</value>
+    <value>{0} secondi</value>
   </data>
   <data name="LowWattageACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Quando um carregador de baixa potência for conectado</value>
+    <value>Quando è collegato un alimentatore di bassa potenza</value>
   </data>
   <data name="OnStartupAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Ao iniciar</value>
+    <value>All'avvio</value>
   </data>
   <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Quando o plano de energia for mudado</value>
+    <value>Quando si cambia la modalità di alimentazione</value>
   </data>
   <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Quando um programa estiver sendo executado</value>
+    <value>Quando l'app è in esecuzione</value>
   </data>
   <data name="ProcessesStopRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Quando um programa for fechado</value>
+    <value>Quando l'app si chiude</value>
   </data>
   <data name="TimeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Em um horário específico</value>
+    <value>All'ora specificata</value>
   </data>
 </root>

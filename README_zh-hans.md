@@ -18,12 +18,12 @@
 
 加入 Legion Series Discord: https://discord.com/invite/legionseries!
 
-<img src="assets/screenshot.png" width="700" alt="PayPal QR code" />
+<img src="assets/screenshot_zh_hans.png" width="700" alt="PayPal QR code" />
 
 
 # 目录
   - [免责声明](#免责声明)
-  - [捐赠](#捐赠)
+  - [赞助](#赞助)
   - [下载](#下载)
   - [兼容性](#兼容性)
   - [功能介绍](#功能介绍)
@@ -38,13 +38,22 @@
 
 这是我的业余时间做的项目，我想让它适配更多的设备，但需要一些时间，所以请耐心等待并仔细阅读此自述文件。
 
-## 捐赠
+## 赞助
 
-如果你觉得拯救者工具箱不错的话，可以考虑一下赞助。
+开发不易，如果你觉得拯救者工具箱不错的话，可以考虑赞助以支持开发。
 
-<a href="https://www.paypal.com/donate/?hosted_button_id=22AZE2NBP3HTL"><img src="LenovoLegionToolkit.WPF/Assets/paypal_button.png" width="200" alt="PayPal Donate" /></a>
+[使用PayPal赞助](https://www.paypal.com/donate/?hosted_button_id=22AZE2NBP3HTL)
 
-<img src="LenovoLegionToolkit.WPF/Assets/paypal_qr.png" width="200" alt="PayPal QR code" />
+<img src="LenovoLegionToolkit.WPF/Assets/Donate/paypal_qr.png" width="200" alt="PayPal QR code" />
+
+
+#### 中国用户赞助
+
+如果你居住在中国，可以使用Stripe来赞助。（支持支付宝与银联）
+
+[使用Stripe赞助](https://donate.stripe.com/14k8yM94I980f3q7ss)
+
+<img src="LenovoLegionToolkit.WPF/Assets/Donate/stripe_cny_qr.png" width="200" alt="Stripe (CNY) QR code" />
 
 ## 下载
 
@@ -52,9 +61,9 @@
 
 ## 兼容性
 
-拯救者工具箱兼容大部分 2020、2021 和 2022 款运行 Windows 10和 11 的拯救者与 Ideapad Gaming 系列笔记本。
+拯救者工具箱兼容大部分 2020、2021 和 2022 款运行 Windows 10 和 11 的拯救者与 Ideapad Gaming 系列笔记本。
 
-建议在使用拯救者工具箱时禁用或卸载 Vantage、Hotkeys和Legion Zone 与联想电脑管家。当联想软件运行时可能会与拯救者工具箱产生冲突。
+建议在使用拯救者工具箱时禁用或卸载 Vantage、Hotkeys 和 Legion Zone 与联想电脑管家。当联想软件运行时可能会与拯救者工具箱产生冲突。
 
 如果你在启动时看到不兼容弹窗，你可以查看底部的*贡献*部分，查看你能否帮助我适配你的机型。谨记我没有那么多的笔记本型号，所以一些功能我无法适配。
 
@@ -67,12 +76,12 @@
 拯救者工具箱可以做到：
 
 - 改变诸如性能模式、充电模式等只有通过 Lenovo Vantage、联想电脑管家才能更改的设置。
-- 使用仅在 Legion Zone 中可用的自定义模式，包括2022款的调节风扇曲线和功耗控制。
+- 使用仅在 Legion Zone 中可用的自定义模式，包括 2022 款的调节风扇曲线和功耗控制。
 - 支持调节四分区 RGB 键盘和白色背光的键盘。
 - 改变显示器刷新率（仅内置显示器）。
 - 强制休眠独立显卡（仅限英伟达显卡）。
 - 查看电池统计数据。
-- 下载、更新驱动。。
+- 下载、更新驱动。
 - 通过自动化实现插入/拔出充电器的自动操作。
 - 无需卸载即可禁用 Lenovo Vantage、Legion Zone 和 Lenovo Hotkeys 服务。
 
