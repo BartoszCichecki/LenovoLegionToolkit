@@ -115,17 +115,38 @@
   <data name="PowerModeState_Quiet" xml:space="preserve">
     <value>Quiet</value>
   </data>
-  <data name="RBGKeyboardSpeed_Fast" xml:space="preserve">
+  <data name="RBGKeyboardBacklightSpeed_Fast" xml:space="preserve">
     <value>Schnell</value>
   </data>
-  <data name="RBGKeyboardSpeed_Fastest" xml:space="preserve">
+  <data name="RBGKeyboardBacklightSpeed_Fastest" xml:space="preserve">
     <value>Am schnellsten</value>
   </data>
-  <data name="RBGKeyboardSpeed_Slow" xml:space="preserve">
+  <data name="RBGKeyboardBacklightSpeed_Slow" xml:space="preserve">
     <value>Langsam</value>
   </data>
-  <data name="RBGKeyboardSpeed_Slowest" xml:space="preserve">
+  <data name="RBGKeyboardBacklightSpeed_Slowest" xml:space="preserve">
     <value>Am langsamsten</value>
+  </data>
+  <data name="RGBKeyboardBacklightBrightness_High" xml:space="preserve">
+    <value>Hoch</value>
+  </data>
+  <data name="RGBKeyboardBacklightBrightness_Low" xml:space="preserve">
+    <value>Niedrig</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_Breath" xml:space="preserve">
+    <value>Atmen</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_Smooth" xml:space="preserve">
+    <value>Sanft</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_Static" xml:space="preserve">
+    <value>Statisch</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_WaveLTR" xml:space="preserve">
+    <value>Welle links</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_WaveRTL" xml:space="preserve">
+    <value>Welle rechts</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
     <value>Aus</value>
@@ -139,27 +160,84 @@
   <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
     <value>Voreinstellung 2</value>
   </data>
-  <data name="RGBKeyboardBrightness_High" xml:space="preserve">
-    <value>Hoch</value>
-  </data>
-  <data name="RGBKeyboardBrightness_Low" xml:space="preserve">
-    <value>Niedrig</value>
-  </data>
-  <data name="RGBKeyboardEffect_Breath" xml:space="preserve">
-    <value>Atmen</value>
-  </data>
-  <data name="RGBKeyboardEffect_Smooth" xml:space="preserve">
-    <value>Sanft</value>
-  </data>
-  <data name="RGBKeyboardEffect_Static" xml:space="preserve">
-    <value>Statisch</value>
-  </data>
-  <data name="RGBKeyboardEffect_WaveLTR" xml:space="preserve">
-    <value>Welle Links</value>
-  </data>
-  <data name="RGBKeyboardEffect_WaveRTL" xml:space="preserve">
-    <value>Welle Rechts</value>
-  </data>
+  <data name="SpectrumKeyboardBacklightBrightness_High" xml:space="preserve">
+		<value>Hoch</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightBrightness_Low" xml:space="preserve">
+		<value>Niedrig</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightBrightness_Medium" xml:space="preserve">
+		<value>Mittel</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightBrightness_Off" xml:space="preserve">
+		<value>Aus</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightDirection_BottomToTop" xml:space="preserve">
+		<value>Von unten nach oben</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightDirection_Clockwise" xml:space="preserve">
+		<value>Im Uhrzeigersinn</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightDirection_CounterClockwise" xml:space="preserve">
+		<value>Gegen den Uhrzeigersinn</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightDirection_LeftToRight" xml:space="preserve">
+		<value>Von links nach rechts</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightDirection_RightToLeft" xml:space="preserve">
+		<value>Von rechts nach links</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightDirection_TopToBottom" xml:space="preserve">
+		<value>Von oben nach unten</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightEffectType_Always" xml:space="preserve">
+		<value>Immer</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightEffectType_AudioBounce" xml:space="preserve">
+		<value>Audio Bounce</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightEffectType_AudioRipple" xml:space="preserve">
+		<value>Audio Ripple</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightEffectType_AuroraSync" xml:space="preserve">
+		<value>Aurora Sync</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightEffectType_ColorChange" xml:space="preserve">
+		<value>Farbwechsel</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightEffectType_ColorPulse" xml:space="preserve">
+		<value>Farbimpuls</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightEffectType_ColorWave" xml:space="preserve">
+		<value>Farbwelle</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightEffectType_Rain" xml:space="preserve">
+		<value>Regen</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightEffectType_RainbowScrew" xml:space="preserve">
+		<value>Rainbow Screw</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightEffectType_RainbowWave" xml:space="preserve">
+		<value>Regenbogenwelle</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightEffectType_Ripple" xml:space="preserve">
+		<value>Ripple</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightEffectType_Smooth" xml:space="preserve">
+		<value>Sanft</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightEffectType_Type" xml:space="preserve">
+		<value>Typ</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed1" xml:space="preserve">
+		<value>Langsam</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed2" xml:space="preserve">
+		<value>Mittel</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed3" xml:space="preserve">
+		<value>Schnell</value>
+	</data>
   <data name="Theme_Dark" xml:space="preserve">
     <value>Dunkel</value>
   </data>

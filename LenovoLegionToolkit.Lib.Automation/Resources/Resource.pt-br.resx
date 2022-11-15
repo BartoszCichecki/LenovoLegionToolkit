@@ -62,7 +62,7 @@
     <value>Quando o carregador for conectado</value>
   </data>
   <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Quando o carregardor for desconectado</value>
+    <value>Quando o carregador for desconectado</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancelar</value>
