@@ -18,7 +18,7 @@
 
 加入 Legion Series Discord: https://discord.com/invite/legionseries!
 
-<img src="assets/screenshot.png" width="700" alt="PayPal QR code" />
+<img src="assets/screenshot_zh_hans.png" width="700" alt="PayPal QR code" />
 
 
 # 目录
