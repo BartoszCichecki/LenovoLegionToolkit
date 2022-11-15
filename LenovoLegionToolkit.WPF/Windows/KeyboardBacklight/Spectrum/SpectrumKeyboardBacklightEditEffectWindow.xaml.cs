@@ -232,7 +232,6 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
             SpectrumKeyboardBacklightEffectType.AudioBounce => true,
             SpectrumKeyboardBacklightEffectType.AudioRipple => true,
             SpectrumKeyboardBacklightEffectType.Ripple => true,
-            SpectrumKeyboardBacklightEffectType.Type => true,
             _ => false
         };
     }
