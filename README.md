@@ -148,12 +148,17 @@ Special thanks to:
 
 * [ViRb3](https://github.com/ViRb3), for creating [Lenovo Controller](https://github.com/ViRb3/LenovoController), which was used as a base for this tool
 * [falahati](https://github.com/falahati), for creating [NvAPIWrapper](https://github.com/falahati/NvAPIWrapper) and [WindowsDisplayAPI](https://github.com/falahati/WindowsDisplayAPI)
-* [SmokelessCPU](https://github.com/SmokelessCPU) for help with 4-zone RGB keyboard support
+* [SmokelessCPU](https://github.com/SmokelessCPU), for help with 4-zone RGB and Sprectrum keyboard support
+* [Mario Bălănică](https://github.com/mariobalanica), for all contributions
 
 Translations provided by:
 * Chinese - [凌卡Karl](https://github.com/KarlLee830), [DavidLogic](https://github.com/DavidLogic)
 * Czech - J0sef
 * Dutch - Melm
+* French - EliotAku, jojo2massol, Rigbone, ZeroDegree
+* German - Sko-Inductor, Running_Dead89
+* Greek - GreatApo
+* Italian - Lampadina17
 * Romanian - [Mario Bălănică](https://github.com/mariobalanica)
 * Spanish - M.A.G.
 * Portugese - dvsilva
@@ -162,6 +167,8 @@ Translations provided by:
 * Turkish - Undervolt
 * Ukrainian -  [Владислав «vaidee» Придатько](https://github.com/va1dee)
 * Vietnamese - Not_Nhan, Kuri
+
+Many thanks to everyone else, who monitors and corrects translations!
 
 ## FAQ
 
