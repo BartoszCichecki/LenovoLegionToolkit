@@ -796,6 +796,15 @@ AVISO: Esta acción no se ejecutará correctamente si la pantalla interna está 
   <data name="Notification_NumLockOn" xml:space="preserve">
     <value>Bloqueo numérico activado</value>
   </data>
+  <data name="Notification_SpectrumKeyboardBacklight_Backlight" xml:space="preserve">
+		<value>Retroiluminación {0}</value>
+	</data>
+  <data name="Notification_SpectrumKeyboardBacklight_Brightness" xml:space="preserve">
+		<value>Brillo {0}</value>
+	</data>
+  <data name="Notification_SpectrumKeyboardBacklight_Profile" xml:space="preserve">
+		<value>Perfil {0}</value>
+	</data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
     <value>Táctil apagado</value>
   </data>
@@ -1263,6 +1272,9 @@ Se recomienda reiniciar después de cambiar esta opción.</value>
   <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
     <value>Ningún efecto añadido.</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip" xml:space="preserve">
+		<value>Restablecer los valores predefinidos</value>
+	</data>
   <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
     <value>Seleccionar todas las zonas</value>
   </data>
