@@ -115,18 +115,6 @@
   <data name="PowerModeState_Quiet" xml:space="preserve">
     <value>Silenzioso</value>
   </data>
-  <data name="RBGKeyboardSpeed_Fast" xml:space="preserve">
-    <value>Veloce</value>
-  </data>
-  <data name="RBGKeyboardSpeed_Fastest" xml:space="preserve">
-    <value>Velocissimo</value>
-  </data>
-  <data name="RBGKeyboardSpeed_Slow" xml:space="preserve">
-    <value>Lento</value>
-  </data>
-  <data name="RBGKeyboardSpeed_Slowest" xml:space="preserve">
-    <value>Lentissimo</value>
-  </data>
   <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
     <value>Spento</value>
   </data>
@@ -138,27 +126,6 @@
   </data>
   <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
     <value>Tema 2</value>
-  </data>
-  <data name="RGBKeyboardBrightness_High" xml:space="preserve">
-    <value>Alta</value>
-  </data>
-  <data name="RGBKeyboardBrightness_Low" xml:space="preserve">
-    <value>Bassa</value>
-  </data>
-  <data name="RGBKeyboardEffect_Breath" xml:space="preserve">
-    <value>Respiro</value>
-  </data>
-  <data name="RGBKeyboardEffect_Smooth" xml:space="preserve">
-    <value>Morbido</value>
-  </data>
-  <data name="RGBKeyboardEffect_Static" xml:space="preserve">
-    <value>Statico</value>
-  </data>
-  <data name="RGBKeyboardEffect_WaveLTR" xml:space="preserve">
-    <value>Onda (Sinistra)</value>
-  </data>
-  <data name="RGBKeyboardEffect_WaveRTL" xml:space="preserve">
-    <value>Onda (Destra)</value>
   </data>
   <data name="Theme_Dark" xml:space="preserve">
     <value>Scuro</value>
