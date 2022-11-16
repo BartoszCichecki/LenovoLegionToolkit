@@ -65,7 +65,9 @@ Console.ReadLine();
 Console.WriteLine($"Reading white key keycodes... [ext={extHandle is not null}]");
 Console.WriteLine();
 
-for (var i = 0; i < 10; i++)
+const int Iterations = 5;
+
+for (var i = 0; i < Iterations; i++)
 {
     GetFeature(device, out LENOVO_SPECTRUM_STATE state);
 
@@ -79,11 +81,11 @@ for (var i = 0; i < 10; i++)
 
     if (keys.SelectMany(k => k).IsEmpty())
     {
-        Console.WriteLine($"[{i + 1}/10] No keys found");
+        Console.WriteLine($"[{i + 1}/{Iterations}] No keys found");
         continue;
     }
 
-    Console.WriteLine($"[{i + 1}/10] Keys with color found:");
+    Console.WriteLine($"[{i + 1}/{Iterations}] Keys with color found:");
 
     foreach (var line in keys)
         Console.WriteLine("    " + string.Join(", ", line));
