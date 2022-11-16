@@ -353,15 +353,6 @@
   <data name="ColorCardControl_Red" xml:space="preserve">
     <value>Κόκκινο</value>
   </data>
-  <data name="Color_Blue" xml:space="preserve">
-    <value>Blue</value>
-  </data>
-  <data name="Color_Green" xml:space="preserve">
-    <value>Green</value>
-  </data>
-  <data name="Color_Red" xml:space="preserve">
-    <value>Red</value>
-  </data>
   <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
     <value>Επιλέξτε τον τρόπο λειτουργίας την GPU με βάση τη χρήση και τις συνθήκες ισχύος του υπολογιστή σας.
 Η εναλλαγή λειτουργιών ενδέχεται να απαιτεί επανεκκίνηση.</value>
@@ -527,9 +518,6 @@
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Δωρεά</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Edit</value>
-  </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>Βεβαιωθείτε ότι η οθόνη του υπολογιστή είναι ενεργοποιημένη. Το Lenovo Legion Toolkit δεν μπορεί να του φορτώσει ρυθμούς ανανέωσης αν η οθόνη είναι απενεργοποιημένη.</value>
   </data>
@@ -683,23 +671,6 @@
   <data name="GodModeSettingsWindow_Title" xml:space="preserve">
     <value>Ρυθμίσεις Προσαρμοσμένης Λειτουργίας</value>
   </data>
-  <data name="HDRAutomationStepControl_Message" xml:space="preserve">
-    <value>Enable high dynamic range (HDR) on the built-in display.
-
-WARNING: This action will not run correctly if the internal display is off.</value>
-  </data>
-  <data name="HDRAutomationStepControl_Title" xml:space="preserve">
-    <value>HDR</value>
-  </data>
-  <data name="HDRControl_Message" xml:space="preserve">
-    <value>Enable high dynamic range (HDR) on the built-in display.</value>
-  </data>
-  <data name="HDRControl_Title" xml:space="preserve">
-    <value>HDR</value>
-  </data>
-  <data name="HDRControl_Warning" xml:space="preserve">
-    <value>HDR usage is blocked by Windows settings.</value>
-  </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Αυτή η συσκευή δεν είναι συμβατή με το Lenovo Legion Toolkit.</value>
   </data>
@@ -711,12 +682,6 @@ WARNING: This action will not run correctly if the internal display is off.</val
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Φωτισμός Πληκτρολογίου</value>
-  </data>
-  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Keyboard backlight cannot be controlled in here when Vantage or it's services are running.</value>
-  </data>
-  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-    <value>Lenovo Vantage seems to be enabled</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Σχετικά με</value>
@@ -1006,9 +971,6 @@ WARNING: This action will not run correctly if the internal display is off.</val
   <data name="RGBKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
     <value>Φωτισμός πληκτρολογίου</value>
   </data>
-  <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
-    <value>Brightness</value>
-  </data>
   <data name="RGBKeyboardBacklightControl_Preset1" xml:space="preserve">
     <value>Προεπιλογή 1</value>
   </data>
@@ -1032,12 +994,6 @@ WARNING: This action will not run correctly if the internal display is off.</val
   </data>
   <data name="RGBKeyboardBacklightControl_Zone4" xml:space="preserve">
     <value>Ζώνη 4</value>
-  </data>
-  <data name="RGBKeyboardBacklightEffectCardControl_Title" xml:space="preserve">
-    <value>Effect</value>
-  </data>
-  <data name="RGBKeyboardBacklightSpeedCardControl_Title" xml:space="preserve">
-    <value>Speed</value>
   </data>
   <data name="ReadmeWindow_Title" xml:space="preserve">
     <value>Readme</value>
@@ -1090,15 +1046,6 @@ WARNING: This action will not run correctly if the internal display is off.</val
   <data name="Saving" xml:space="preserve">
     <value>Αποθήκευση...</value>
   </data>
-  <data name="SelectSmartKeyPipelinesWindow_List_Description" xml:space="preserve">
-    <value>Choose one or more quick actions to cycle through</value>
-  </data>
-  <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
-    <value>No Quick Actions defined.</value>
-  </data>
-  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
-    <value>Show this app</value>
-  </data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
     <value>Αλλάξτε το χρώμα έμφασης της εφαρμογής.</value>
   </data>
@@ -1138,11 +1085,6 @@ WARNING: This action will not run correctly if the internal display is off.</val
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Δεν ήταν δυνατή η απενεργοποίηση των πλήκτρων πρόσβασης της Lenovo</value>
-  </data>
-  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
-    <value>Disable Lenovo Hotkeys and it's service without uninstalling it.
-If disabled, this app will handle Fn shortcuts.
-Restart is recommended after changing this option.</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Απενεργοποίηση των πλήκτρων πρόσβασης της Lenovo</value>
@@ -1225,87 +1167,6 @@ Restart is recommended after changing this option.</value>
   </data>
   <data name="SettingsPage_Title" xml:space="preserve">
     <value>Ρυθμίσεις</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Message" xml:space="preserve">
-    <value>Adjust keyboard backlight brightness.</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Off" xml:space="preserve">
-    <value>Off</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Title" xml:space="preserve">
-    <value>Keyboard backlight brightness</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightControl_AddEffect" xml:space="preserve">
-    <value>Add effect</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
-    <value>Couldn't apply profile</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title_Message" xml:space="preserve">
-    <value>Lighting profile couldn't be applied.</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Message" xml:space="preserve">
-    <value>Aurora Sync effect is not currently supported.</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Title" xml:space="preserve">
-    <value>Aurora Sync is not supported</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
-    <value>Brightness</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightControl_DeselectAll_ToolTip" xml:space="preserve">
-    <value>Deselect all zones</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
-    <value>Effects</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
-    <value>No effects added.</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
-    <value>Select all zones</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightControl_SwitchKeyboardLayout_ToolTip" xml:space="preserve">
-    <value>Switch keyboard layout</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightEditEffectWindow_ClockwiseDirection_Title" xml:space="preserve">
-    <value>Direction</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightEditEffectWindow_Color_Title" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightEditEffectWindow_Colors_Title" xml:space="preserve">
-    <value>Colors</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightEditEffectWindow_Direction_Title" xml:space="preserve">
-    <value>Direction</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Title" xml:space="preserve">
-    <value>Effect</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Warning" xml:space="preserve">
-    <value>This effect will be applied to the whole keyboard and will replace all other effects.</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightEditEffectWindow_Speed_Title" xml:space="preserve">
-    <value>Speed</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Add" xml:space="preserve">
-    <value>Add effect</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Edit" xml:space="preserve">
-    <value>Edit effect</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Message" xml:space="preserve">
-    <value>Adjust keyboard backlight profile.</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Title" xml:space="preserve">
-    <value>Keyboard backlight profile</value>
-  </data>
-  <data name="SpectrumKeyboardEffectControl_Description_AllZones" xml:space="preserve">
-    <value>All keys</value>
-  </data>
-  <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
-    <value>{0} zones</value>
   </data>
   <data name="TimeWindow_Sunrise" xml:space="preserve">
     <value>Ανατολή ηλίου</value>
