@@ -353,6 +353,15 @@ Este tempo pode não estar correto se o dispositivo foi carregado quando estava 
   <data name="ColorCardControl_Red" xml:space="preserve">
     <value>Vermelho</value>
   </data>
+  <data name="Color_Blue" xml:space="preserve">
+    <value>Azul</value>
+  </data>
+  <data name="Color_Green" xml:space="preserve">
+    <value>Verde</value>
+  </data>
+  <data name="Color_Red" xml:space="preserve">
+    <value>Vermelho</value>
+  </data>
   <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
     <value>Seleciona o modo de funcionamento da GPU baseado na utilização do computador e condições de energia.
 Poderá ser necessário reiniciar para mudar de modo.</value>
@@ -505,6 +514,9 @@ ATENÇÃO: Está ação não irá funcionar corretamente se o ecrã interno esti
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>Brilho do ecrã</value>
   </data>
+  <data name="DonatePage_DonateWith" xml:space="preserve">
+    <value>Doar através de</value>
+  </data>
   <data name="DonatePage_Message" xml:space="preserve">
     <value>O desenvolvimento e manutenção do Lenovo Legion Toolkit demora bastante tempo. Se gostas deste software podes suportar o seu futuro ao doar uma quantia da tua escolha.
 
@@ -514,6 +526,9 @@ Obrigado desde já!</value>
   </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Doar</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Editar</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>Certifica-te de que o ecrã do portátil está ligado. O Lenovo Legion Toolkit não consegue carregar taxas de atualização de um ecrã que não está ligado.</value>
@@ -668,6 +683,23 @@ A sério! Tem cuidado com esta opção!</value>
   <data name="GodModeSettingsWindow_Title" xml:space="preserve">
     <value>Definições do modo customizado</value>
   </data>
+  <data name="HDRAutomationStepControl_Message" xml:space="preserve">
+    <value>Ativar HDR no ecrã interno.
+
+ATENÇÃO: Está ação não irá executar corretamente se o ecrã interno estiver desligado.</value>
+  </data>
+  <data name="HDRAutomationStepControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Message" xml:space="preserve">
+    <value>Ativar HDR no ecrã interno.</value>
+  </data>
+  <data name="HDRControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Warning" xml:space="preserve">
+    <value>A utilização de HDR está bloqueada pelas definições do Windows.</value>
+  </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Este dispositivo não é compatível com o Lenovo Legion Toolkit.</value>
   </data>
@@ -679,6 +711,12 @@ A sério! Tem cuidado com esta opção!</value>
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Luz do teclado</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>Não podes controlar a luz do teclado aqui enquanto os serviços do Vantage estão ativos.</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
+    <value>O Lenovo Vantage parece estar ativo</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Sobre</value>
@@ -797,6 +835,9 @@ Ativa esta opção se tiveres problemas de conflitos com apps em ecrã inteiro.<
   </data>
   <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
     <value>Taxa de atualização</value>
+  </data>
+  <data name="NotificationsSettingsWindow_SmartKey" xml:space="preserve">
+    <value>Tecla Inteligente</value>
   </data>
   <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
     <value>Notificações</value>
@@ -932,6 +973,9 @@ Podes mudar com Fn+Q.</value>
   <data name="PowerModeControl_Title" xml:space="preserve">
     <value>Esquema de energia</value>
   </data>
+  <data name="PowerModeControl_Warning" xml:space="preserve">
+    <value>O esquema de energia selecionado pode não funcionar corretamente sem o carregador conectado.</value>
+  </data>
   <data name="PowerModeWindow_Title" xml:space="preserve">
     <value>Esquema de energia</value>
   </data>
@@ -962,6 +1006,9 @@ Podes mudar com Fn+Q.</value>
   <data name="RGBKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
     <value>Luz do teclado</value>
   </data>
+  <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
+    <value>Luminosidade</value>
+  </data>
   <data name="RGBKeyboardBacklightControl_Preset1" xml:space="preserve">
     <value>Predefinição 1</value>
   </data>
@@ -974,12 +1021,6 @@ Podes mudar com Fn+Q.</value>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>Desligado</value>
   </data>
-  <data name="RGBKeyboardBacklightControl_VantageEnabled_Message" xml:space="preserve">
-    <value>Não podes controlar a luz do teclado aqui enquanto os serviços do Vantage estão ativos.</value>
-  </data>
-  <data name="RGBKeyboardBacklightControl_VantageEnabled_Title" xml:space="preserve">
-    <value>O Lenovo Vantage parece estar ativo</value>
-  </data>
   <data name="RGBKeyboardBacklightControl_Zone1" xml:space="preserve">
     <value>Zona 1</value>
   </data>
@@ -991,9 +1032,6 @@ Podes mudar com Fn+Q.</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Zone4" xml:space="preserve">
     <value>Zona 4</value>
-  </data>
-  <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
-    <value>Luminosidade</value>
   </data>
   <data name="RGBKeyboardBacklightEffectCardControl_Title" xml:space="preserve">
     <value>Efeito</value>
@@ -1051,6 +1089,15 @@ Certifica-te que o script executa corretamente primeiro.</value>
   </data>
   <data name="Saving" xml:space="preserve">
     <value>A guardar...</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Description" xml:space="preserve">
+    <value>Escolhe uma ou mais ações rápidas para percorrer</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
+    <value>Sem Ações Rápidas definidas.</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
+    <value>Mostrar esta aplicação</value>
   </data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
     <value>Alterar a cor de destaque da app.</value>
@@ -1158,7 +1205,7 @@ Se desativado, esta app irá executar os atalhos Fn.
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Esquemas de energia</value>
   </data>
-	<data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
+  <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>Atribuir Ações Rápidas a dois cliques das teclas Fn+F9.</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">
@@ -1166,9 +1213,6 @@ Se desativado, esta app irá executar os atalhos Fn.
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
     <value>Atribuir Ações Rápidas a um clique das teclas Fn+F9.</value>
-  </data>
-  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
-    <value>Mostrar esta aplicação</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
     <value>Ação da Tecla Inteligente</value>
@@ -1181,6 +1225,87 @@ Se desativado, esta app irá executar os atalhos Fn.
   </data>
   <data name="SettingsPage_Title" xml:space="preserve">
     <value>Definições</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Message" xml:space="preserve">
+    <value>Ajustar o brilho da luz de fundo do teclado.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Off" xml:space="preserve">
+    <value>Desligado</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Title" xml:space="preserve">
+    <value>Brilho da luz de fundo do teclado</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_AddEffect" xml:space="preserve">
+    <value>Adicionar efeito</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
+    <value>Não foi possível aplicar o perfil</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title_Message" xml:space="preserve">
+    <value>Não foi possível aplicar o perfil de iluminação.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Message" xml:space="preserve">
+    <value>O efeito Aurora Sync não é suportado de momento.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Title" xml:space="preserve">
+    <value>O efeito Aurora Sync não é suportado</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
+    <value>Luminosidade</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_DeselectAll_ToolTip" xml:space="preserve">
+    <value>Desselecionar todas as zonas</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
+    <value>Efeitos</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
+    <value>Nenhum efeito adicionado.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
+    <value>Selecionar todas as zonas</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_SwitchKeyboardLayout_ToolTip" xml:space="preserve">
+    <value>Alterar esquema de teclado</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_ClockwiseDirection_Title" xml:space="preserve">
+    <value>Direção</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Color_Title" xml:space="preserve">
+    <value>Cor</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Colors_Title" xml:space="preserve">
+    <value>Cores</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Direction_Title" xml:space="preserve">
+    <value>Direção</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Title" xml:space="preserve">
+    <value>Efeito</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Warning" xml:space="preserve">
+    <value>Este efeito será aplicado a todo o teclado e substituirá todos os outros efeitos.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Speed_Title" xml:space="preserve">
+    <value>Velocidade</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Add" xml:space="preserve">
+    <value>Adicionar efeito</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Edit" xml:space="preserve">
+    <value>Editar efeito</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Message" xml:space="preserve">
+    <value>Ajustar o perfil da luminosidade da luz de fundo do teclado.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Title" xml:space="preserve">
+    <value>Perfil da luminosidade da luz de fundo do teclado</value>
+  </data>
+  <data name="SpectrumKeyboardEffectControl_Description_AllZones" xml:space="preserve">
+    <value>Todas as teclas</value>
+  </data>
+  <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
+    <value>{0} zonas</value>
   </data>
   <data name="TimeWindow_Sunrise" xml:space="preserve">
     <value>Nascer do Sol</value>
