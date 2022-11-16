@@ -247,6 +247,12 @@
   <data name="Theme_System" xml:space="preserve">
     <value>Sistem</value>
   </data>
+  <data name="AccentColorSource_System" xml:space="preserve">
+    <value>Sistem</value>
+  </data>
+  <data name="AccentColorSource_Custom" xml:space="preserve">
+    <value>Personalizat</value>
+  </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
     <value>Ridicată</value>
   </data>
