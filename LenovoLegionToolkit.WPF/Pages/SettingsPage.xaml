@@ -58,8 +58,8 @@
             </wpfui:CardControl.Header>
             <StackPanel Orientation="Horizontal">
                 <controls:ColorPickerControl x:Name="_accentColorPicker" ColorChangedDelayed="AccentColorPicker_Changed" />
-                <ComboBox 
-                    x:Name="_accentColorSourceComboBox" 
+                <ComboBox
+                    x:Name="_accentColorSourceComboBox"
                     MinWidth="160"
                     Margin="8,0,0,0"
                     SelectionChanged="AccentColorSourceComboBox_SelectionChanged" />
