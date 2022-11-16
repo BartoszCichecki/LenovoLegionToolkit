@@ -242,7 +242,7 @@
     <value>Режим батареи</value>
   </data>
   <data name="BatteryModeControl_Message" xml:space="preserve">
-    <value>Выберите способ зарядки батареи.</value>
+    <value>Выбрать способ зарядки батареи.</value>
   </data>
   <data name="BatteryModeControl_Title" xml:space="preserve">
     <value>Режим батареи</value>
@@ -500,10 +500,13 @@
     <value>Изменить яркость встроенного дисплея.
 На некоторых устройствах режимы питания изменяют яркость. Убедитесь, что этот шаг последний, если что-то работает не так, как нужно.
 
-ВНИМАНИЕ: Это действие не будет выполнено правильно, если внутренний дисплей выключен.</value>
+ВНИМАНИЕ: Это действие не будет выполняться корректно, если внутренний дисплей выключен.</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>Яркость дисплея</value>
+  </data>
+  <data name="DonatePage_DonateWith" xml:space="preserve">
+    <value>Сделать пожертвование с</value>
   </data>
   <data name="DonatePage_Message" xml:space="preserve">
     <value>На разработку и обслуживание Lenovo Legion Toolkit уходит много времени. Если вам нравится пользоваться этим программным обеспечением, вы можете поддержать его будущее, пожертвовав любую сумму денег.
@@ -668,6 +671,23 @@
   <data name="GodModeSettingsWindow_Title" xml:space="preserve">
     <value>Настройки пользовательского режима</value>
   </data>
+  <data name="HDRAutomationStepControl_Message" xml:space="preserve">
+    <value>Включить High Dynamic Range (HDR) на встроенном дисплее.
+
+ВНИМАНИЕ: Это действие не будет выполняться корректно, если внутренний дисплей выключен.</value>
+  </data>
+  <data name="HDRAutomationStepControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Message" xml:space="preserve">
+    <value>Включить High Dynamic Range (HDR) на встроенном дисплее.</value>
+  </data>
+  <data name="HDRControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Warning" xml:space="preserve">
+    <value>Использование HDR блокируется настройками Windows.</value>
+  </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Это устройство не совместимо с Lenovo Legion Toolkit.</value>
   </data>
@@ -679,6 +699,12 @@
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Подсветка клавиатуры</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>Подсветкой клавиатуры нельзя управлять здесь, когда работает Vantage или его службы.</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
+    <value>Похоже, что Lenovo Vantage включен</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>О ПО</value>
@@ -699,7 +725,7 @@
     <value>Клавиатура</value>
   </data>
   <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-    <value>Пакеты ПО</value>
+    <value>Пакеты</value>
   </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Настройки</value>
@@ -797,6 +823,9 @@
   </data>
   <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
     <value>Частота обновления</value>
+  </data>
+  <data name="NotificationsSettingsWindow_SmartKey" xml:space="preserve">
+    <value>Умная клавиша</value>
   </data>
   <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
     <value>Уведомления</value>
@@ -932,6 +961,9 @@
   <data name="PowerModeControl_Title" xml:space="preserve">
     <value>Режим питания</value>
   </data>
+  <data name="PowerModeControl_Warning" xml:space="preserve">
+    <value>Выбранный режим питания может работать некорректно, если блок питания не подключен.</value>
+  </data>
   <data name="PowerModeWindow_Title" xml:space="preserve">
     <value>Режим питания</value>
   </data>
@@ -962,6 +994,9 @@
   <data name="RGBKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
     <value>Подсветка клавиатуры</value>
   </data>
+  <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
+    <value>Яркость</value>
+  </data>
   <data name="RGBKeyboardBacklightControl_Preset1" xml:space="preserve">
     <value>Пресет 1</value>
   </data>
@@ -974,12 +1009,6 @@
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>Откл.</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Подсветкой клавиатуры нельзя управлять здесь, когда работает Vantage или его службы.</value>
-  </data>
-  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-    <value>Похоже, что Lenovo Vantage включен</value>
-  </data>
   <data name="RGBKeyboardBacklightControl_Zone1" xml:space="preserve">
     <value>Зона 1</value>
   </data>
@@ -991,9 +1020,6 @@
   </data>
   <data name="RGBKeyboardBacklightControl_Zone4" xml:space="preserve">
     <value>Зона 4</value>
-  </data>
-  <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
-    <value>Яркость</value>
   </data>
   <data name="RGBKeyboardBacklightEffectCardControl_Title" xml:space="preserve">
     <value>Эффект</value>
@@ -1052,6 +1078,15 @@
   <data name="Saving" xml:space="preserve">
     <value>Сохранение...</value>
   </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Description" xml:space="preserve">
+    <value>Выбрать одно или несколько быстрых действий для последовательного выполнения</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
+    <value>Умная клавиша не определена.</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
+    <value>Отобразить это приложение</value>
+  </data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
     <value>Изменить контрастный цвет приложения.</value>
   </data>
@@ -1091,11 +1126,6 @@
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Не удалось отключить Lenovo Hotkeys</value>
-  </data>
-  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
-    <value>Отключить Lenovo Hotkeys и его службы, не удаляя его.
-Если отключить, данное приложение будет управлять сочетаниями клавиш Fn
-После изменения этого параметра рекомендуется перезагрузка.</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Отключить Lenovo Hotkeys</value>
@@ -1158,7 +1188,7 @@
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Схемы питания</value>
   </data>
-	<data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
+  <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>Назначить быстрое действие на двойное нажатие Fn+F9.</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">
@@ -1166,9 +1196,6 @@
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
     <value>Назначить быстрое действие на одиночное нажатие Fn+F9.</value>
-  </data>
-  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
-    <value>Отобразить это приложение</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
     <value>Действие умной клавиши</value>

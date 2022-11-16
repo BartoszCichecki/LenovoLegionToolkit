@@ -62,7 +62,7 @@
     <value>Lenovo Legion Toolkit</value>
   </data>
   <data name="AboutPage_Build" xml:space="preserve">
-    <value>Build</value>
+    <value>Verzija</value>
   </data>
   <data name="AboutPage_LatestReleaseOnGitHub" xml:space="preserve">
     <value>Najnovije izdanje na GitHub-u</value>
@@ -80,7 +80,8 @@
     <value>O programu</value>
   </data>
   <data name="AboutPage_TranslationCredit" xml:space="preserve">
-    <value>Engleski prevod omogućio Bartosz Cichecki</value>
+    <value>Prevode je obezbedila zajednica.</value>
+    <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
   </data>
   <data name="AboutPage_Version" xml:space="preserve">
     <value>Verzija</value>
@@ -90,25 +91,6 @@
   </data>
   <data name="AddNew" xml:space="preserve">
     <value>Dodaj novu</value>
-  </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Activate Power Plan even when Vantage is enabled.
-This option is intended only for devices that didn't come with multiple power plans.</value>
-  </data>
-  <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
-    <value>Always activate Windows Power Plan</value>
-  </data>
-  <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>Charge USB devices, when the computer is off or in sleep or hibernation mode.</value>
-  </data>
-  <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
-    <value>Always on USB</value>
-  </data>
-  <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-    <value>Charge USB devices, when the computer is off or in sleep or hibernation mode.</value>
-  </data>
-  <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
-    <value>Always on USB</value>
   </data>
   <data name="AppName" xml:space="preserve">
     <value>Lenovo Legion Toolkit</value>
@@ -127,10 +109,6 @@ This option is intended only for devices that didn't come with multiple power pl
   </data>
   <data name="AutomationPage_Actions_Empty" xml:space="preserve">
     <value>Nema definisanih akcija. Kliknite na "Dodaj novu" da bi kreirali novu akciju.</value>
-  </data>
-  <data name="AutomationPage_Actions_Message" xml:space="preserve">
-    <value>If enabled these action will run automatically. Whenever state changes, all actions will be evaluated from top to bottom.
-Only actions that match current state will run.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>Akcije</value>
@@ -183,12 +161,6 @@ Only actions that match current state will run.</value>
   <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
     <value>Nemoj izvršavati dalje radnje kada se ova akcija pokrene.</value>
   </data>
-  <data name="MoveDown" xml:space="preserve">
-    <value>Pomjeri dolje</value>
-  </data>
-  <data name="MoveUp" xml:space="preserve">
-    <value>Pomjeri gore</value>
-  </data>
   <data name="AutomationPipelineControl_RunNow" xml:space="preserve">
     <value>Pokreni sad</value>
   </data>
@@ -213,32 +185,14 @@ Only actions that match current state will run.</value>
   <data name="AutomationPipelineControl_Step_Many" xml:space="preserve">
     <value>{0} koraka</value>
   </data>
-  <data name="AutomationPipelineControl_SubtitlePart_Apps" xml:space="preserve">
-    <value>Apps</value>
-  </data>
   <data name="AutomationPipelineControl_SubtitlePart_AtSunrise" xml:space="preserve">
     <value>Sa izlaskom sunca</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_AtSunset" xml:space="preserve">
     <value>Sa zalaskom sunca</value>
   </data>
-  <data name="AutomationPipelineControl_SubtitlePart_AtTime" xml:space="preserve">
-    <value>At {0:D2}:{1:D2}</value>
-  </data>
   <data name="AutomationPipelineControl_SubtitlePart_PowerMode" xml:space="preserve">
     <value>Režim rada</value>
-  </data>
-  <data name="AutomationPipelineControl_Unnamed" xml:space="preserve">
-    <value>Unnamed</value>
-  </data>
-  <data name="BalanceModeSettingsWindow_AIEngine_Message" xml:space="preserve">
-    <value>Automatically detects when certain games are running and tweaks CPU and GPU performance. Temperatures and fan noise might increase.</value>
-  </data>
-  <data name="BalanceModeSettingsWindow_AIEngine_Title" xml:space="preserve">
-    <value>Enable AI Engine</value>
-  </data>
-  <data name="BalanceModeSettingsWindow_Title" xml:space="preserve">
-    <value>Balance Mode Settings</value>
   </data>
   <data name="BatteryAutomationStepControl_Message" xml:space="preserve">
     <value>Odaberite način punjenja baterije.</value>
@@ -331,14 +285,8 @@ Ovo vrijeme možda neće biti tačno ako je laptop bio napunjen dok je spavao il
   <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
     <value>Priključeno</value>
   </data>
-  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
-    <value>Power plans</value>
-  </data>
   <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
     <value>Saznajte više na microsoft.com</value>
-  </data>
-  <data name="CPUBoostModesWindow_Title" xml:space="preserve">
-    <value>CPU Boost Modes</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Otkaži</value>
@@ -358,18 +306,11 @@ Ovo vrijeme možda neće biti tačno ako je laptop bio napunjen dok je spavao il
   <data name="ColorCardControl_Red" xml:space="preserve">
     <value>Crvena</value>
   </data>
-  <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
-    <value>Select GPU operating mode based on your computer's usage and power conditions.
-Switching modes may require restart.</value>
-  </data>
   <data name="ComboBoxHybridModeControl_RestartRequired_Message" xml:space="preserve">
     <value>Promjena na {0} zahtijeva ponovno pokretanje. Da li želite restartovati sada?</value>
   </data>
   <data name="ComboBoxHybridModeControl_RestartRequired_Title" xml:space="preserve">
     <value>Potrebno ponovno pokretanje</value>
-  </data>
-  <data name="ComboBoxHybridModeControl_Title" xml:space="preserve">
-    <value>GPU Working Mode</value>
   </data>
   <data name="ContextMenu_QuickActions" xml:space="preserve">
     <value>Brze akcije</value>
@@ -380,31 +321,8 @@ Switching modes may require restart.</value>
   <data name="CopyAll" xml:space="preserve">
     <value>Kopiraj sve</value>
   </data>
-  <data name="DashboardPage_Graphics_Title" xml:space="preserve">
-    <value>Graphics</value>
-  </data>
   <data name="DashboardPage_Other_Title" xml:space="preserve">
     <value>Ostalo</value>
-  </data>
-  <data name="DashboardPage_Power_Title" xml:space="preserve">
-    <value>Power</value>
-  </data>
-  <data name="DashboardPage_Title" xml:space="preserve">
-    <value>Home</value>
-  </data>
-  <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
-    <value>Disable discrete GPU if it is active unnecessarily.
-
-WARNING: This action will not run correctly, if internal display is off or Hybrid mode is not active.</value>
-  </data>
-  <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
-    <value>Deactivate GPU</value>
-  </data>
-  <data name="DelayAutomationStepControl_Message" xml:space="preserve">
-    <value>Add delay before running next step.</value>
-  </data>
-  <data name="DelayAutomationStepControl_Title" xml:space="preserve">
-    <value>Delay</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Obriši</value>
@@ -457,31 +375,14 @@ WARNING: This action will not run correctly, if internal display is off or Hybri
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Deaktiviraj</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-    <value>nVidia GPU can be disabled.
-
-Remember, that some programs might crash if you do it.</value>
-  </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>nVidia GPU is not active.</value>
-  </data>
   <data name="DiscreteGPUControl_Inactive" xml:space="preserve">
     <value>Neaktivna</value>
-  </data>
-  <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
-    <value>Kill apps</value>
-  </data>
-  <data name="DiscreteGPUControl_Message" xml:space="preserve">
-    <value>Disable discrete GPU if it is active unnecessarily.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>Monitor je spojen na nVidia grafičku.</value>
   </data>
   <data name="DiscreteGPUControl_NoProcesses" xml:space="preserve">
     <value>Nema procesa</value>
-  </data>
-  <data name="DiscreteGPUControl_PerformanceState" xml:space="preserve">
-    <value>Performance state</value>
   </data>
   <data name="DiscreteGPUControl_PerformanceState_Unknown" xml:space="preserve">
     <value>Nepoznato</value>
@@ -495,51 +396,14 @@ Remember, that some programs might crash if you do it.</value>
   <data name="DiscreteGPUControl_Title" xml:space="preserve">
     <value>Diskretna grafička</value>
   </data>
-  <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-    <value>Change display brightness of the built-in display.
-Power modes change brightness on some devices. Make sure to put this step last, if something doesn't work just right.
-
-WARNING: This action will not run correctly, if internal display is off.</value>
-  </data>
-  <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
-    <value>Display brightness</value>
-  </data>
-  <data name="DonatePage_Message" xml:space="preserve">
-    <value>Development and maintenance of Lenovo Legion Toolkit takes a lot of time. If you like using this software you can support it's future by donating an amount of your choice.
-
-Click the PayPal logo below or scan the QR code to donate with PayPal.
-
-Thanks in advance!</value>
-  </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Doniraj</value>
-  </data>
-  <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
-    <value>Make sure that laptop display is on. Lenovo Legion Toolkit can't load refresh rates for a display that is not on.</value>
-  </data>
-  <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Title" xml:space="preserve">
-    <value>No Refresh Rates found</value>
-  </data>
-  <data name="ExcludeRefreshRatesWindow_Title" xml:space="preserve">
-    <value>Exclude Refresh Rates</value>
   </data>
   <data name="Exit" xml:space="preserve">
     <value>Izađi</value>
   </data>
-  <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
-    <value>Use only integrated GPU when on battery and both integrated and discrete GPU when AC adapter is connected. When a non-standard adapter is connected, system switches to Hybrid-iGPU Only Mode.</value>
-  </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
     <value>Hibridno-Auto režim</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_DGPU_Disclaimer" xml:space="preserve">
-    <value>Switching to and from this mode requires restart.</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_DGPU_Message" xml:space="preserve">
-    <value>Use only discrete GPU. This mode provides best graphics performance, but increases power consumption.</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
-    <value>dGPU Mode</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
     <value>Integrisana i diskretna grafička su omogućene. Sistem će automatski prebacivati između njih na osnovnu svojih potreba.</value>
@@ -547,87 +411,11 @@ Thanks in advance!</value>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Hibridni režim</value>
   </data>
-  <data name="ExtendedHybridModeInfoWindow_IGPU_Disclaimer" xml:space="preserve">
-    <value>This mode only takes effect when discrete GPU is not working.</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_IGPU_Message" xml:space="preserve">
-    <value>Only use integrated GPU. This mode minimizes power consumption and noise.</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_IGPU_Title" xml:space="preserve">
-    <value>Hybrid-iGPU Only Mode</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_Title" xml:space="preserve">
-    <value>About GPU Working Modes</value>
-  </data>
   <data name="Fahrenheit" xml:space="preserve">
     <value>°F</value>
   </data>
-  <data name="FanCurveControl_CPU" xml:space="preserve">
-    <value>CPU</value>
-  </data>
-  <data name="FanCurveControl_CPUSensor" xml:space="preserve">
-    <value>CPU Sensor</value>
-  </data>
-  <data name="FanCurveControl_FanSpeed" xml:space="preserve">
-    <value>Fan Speed</value>
-  </data>
-  <data name="FanCurveControl_GPU" xml:space="preserve">
-    <value>GPU</value>
-  </data>
-  <data name="FanCurveControl_RPM" xml:space="preserve">
-    <value>RPM</value>
-  </data>
-  <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
-    <value>Turn on the laptop when you open the lid.</value>
-  </data>
-  <data name="FlipToStartAutomationStepControl_Title" xml:space="preserve">
-    <value>Flip To Start</value>
-  </data>
-  <data name="FlipToStartControl_Message" xml:space="preserve">
-    <value>Turn on the laptop when you open the lid.</value>
-  </data>
-  <data name="FlipToStartControl_Title" xml:space="preserve">
-    <value>Flip To Start</value>
-  </data>
-  <data name="FnLockAutomationStepControl_Message" xml:space="preserve">
-    <value>Use secondary functions of F1-F12 keys without holding Fn key.</value>
-  </data>
-  <data name="FnLockAutomationStepControl_Title" xml:space="preserve">
-    <value>Fn Lock</value>
-  </data>
-  <data name="FnLockControl_Message" xml:space="preserve">
-    <value>Use secondary functions of F1-F12 keys without holding Fn key.</value>
-  </data>
-  <data name="FnLockControl_Title" xml:space="preserve">
-    <value>Fn Lock</value>
-  </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>WARNING!
-Some laptops may accept higher power limits than they indicate, but be careful. This option may result in unpredictable behavior, so if you are not sure what are you doing, leave this at 0.</value>
-  </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
-    <value>Maximum Power Limit offset</value>
-  </data>
-  <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
-    <value>Do not change options below unless you really know what you are doing.</value>
-  </data>
   <data name="GodModeSettingsWindow_Advanced_Title" xml:space="preserve">
     <value>Napredno</value>
-  </data>
-  <data name="GodModeSettingsWindow_CPU_CrossLoading" xml:space="preserve">
-    <value>Long Term Power Limit (Cross Loading)</value>
-  </data>
-  <data name="GodModeSettingsWindow_CPU_LongTermPL" xml:space="preserve">
-    <value>Long Term Power Limit</value>
-  </data>
-  <data name="GodModeSettingsWindow_CPU_ShortTermPL" xml:space="preserve">
-    <value>Short Term Power Limit</value>
-  </data>
-  <data name="GodModeSettingsWindow_CPU_TempLimit" xml:space="preserve">
-    <value>CPU Temperature Limit</value>
-  </data>
-  <data name="GodModeSettingsWindow_CPU_Title" xml:space="preserve">
-    <value>CPU</value>
   </data>
   <data name="GodModeSettingsWindow_Error_Apply_Title" xml:space="preserve">
     <value>Nije moguće primijeniti postavke</value>
@@ -635,37 +423,11 @@ Some laptops may accept higher power limits than they indicate, but be careful. 
   <data name="GodModeSettingsWindow_Error_Load_Title" xml:space="preserve">
     <value>Nije moguće učitati postavku.</value>
   </data>
-  <data name="GodModeSettingsWindow_Fans_Curve_Message" xml:space="preserve">
-    <value>Fan speed is not strictly determined by one temperature sensor. It will raise or lower speed per the highest sensor between CPU, GPU and Heatsink temperature. Exact values will appear when you hover mouse over each step.</value>
-  </data>
-  <data name="GodModeSettingsWindow_Fans_Curve_Title" xml:space="preserve">
-    <value>Fan curve</value>
-  </data>
-  <data name="GodModeSettingsWindow_Fans_Max_Message" xml:space="preserve">
-    <value>WARNING!
-Prolonged usage of this option will degrade fans decreasing their longevity.
-Seriously, be careful with this option!</value>
-  </data>
   <data name="GodModeSettingsWindow_Fans_Max_Title" xml:space="preserve">
     <value>Maksimalna brzina ventilatora</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Title" xml:space="preserve">
     <value>Ventilatori</value>
-  </data>
-  <data name="GodModeSettingsWindow_GPU_CTGP" xml:space="preserve">
-    <value>Configurable TGP</value>
-  </data>
-  <data name="GodModeSettingsWindow_GPU_DynamicBoost" xml:space="preserve">
-    <value>Dynamic Boost</value>
-  </data>
-  <data name="GodModeSettingsWindow_GPU_TempLimit" xml:space="preserve">
-    <value>GPU Temperature Limit</value>
-  </data>
-  <data name="GodModeSettingsWindow_GPU_Title" xml:space="preserve">
-    <value>GPU</value>
-  </data>
-  <data name="GodModeSettingsWindow_Title" xml:space="preserve">
-    <value>Custom Mode Settings</value>
   </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Ovaj uređaj nije kompatibilan sa Lenovo Legion Toolkit.</value>
@@ -709,26 +471,27 @@ Seriously, be careful with this option!</value>
   <data name="MainWindow_UpdateAvailableWithVersion" xml:space="preserve">
     <value>Ažuriranje na {0} je dostupno!</value>
   </data>
+  <data name="MoveDown" xml:space="preserve">
+    <value>Pomjeri dolje</value>
+  </data>
+  <data name="MoveUp" xml:space="preserve">
+    <value>Pomjeri gore</value>
+  </data>
   <data name="No" xml:space="preserve">
     <value>Ne</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
+    <value>Onemogućuje notifikacije za Fn kratice kao što je utišavanje mikrofona
+Omogućite ovu opciju ukoliko imate konflikata sa aplikacijama u fullscreenu.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
+    <value>Ne prikazuj obavještenja</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="Open" xml:space="preserve">
     <value>Otvori</value>
-  </data>
-  <data name="OverDriveAutomationStepControl_Message" xml:space="preserve">
-    <value>Improve response time of the built-in display.</value>
-  </data>
-  <data name="OverDriveAutomationStepControl_Title" xml:space="preserve">
-    <value>Over Drive</value>
-  </data>
-  <data name="OverDriveControl_Message" xml:space="preserve">
-    <value>Improve response time of the built-in display.</value>
-  </data>
-  <data name="OverDriveControl_Title" xml:space="preserve">
-    <value>Over Drive</value>
   </data>
   <data name="PackageControl_DownloadComplete_Message" xml:space="preserve">
     <value>{0} preuzeto!</value>
@@ -821,18 +584,11 @@ Uvijek provjerite da li instalirate ispravne pakete.</value>
   <data name="PickProcessesWindow_Title" xml:space="preserve">
     <value>Aplikacije</value>
   </data>
-  <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-    <value>Select performance mode.</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Režim rada</value>
   </data>
   <data name="PowerModeControl_ChangeError" xml:space="preserve">
     <value>Nije moguće promijeniti režim rada</value>
-  </data>
-  <data name="PowerModeControl_Message" xml:space="preserve">
-    <value>Select performance mode.
-You can switch mode with Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
     <value>Postavke</value>
@@ -843,26 +599,8 @@ You can switch mode with Fn+Q.</value>
   <data name="PowerModeWindow_Title" xml:space="preserve">
     <value>Režim rada</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Enabling this option when Lenovo Vantage is running and it changes power plans on your laptop might result in unexpected behavior.</value>
-  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Da li ste sigurni?</value>
-  </data>
-  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
-    <value>Balance mode</value>
-  </data>
-  <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
-    <value>Custom mode</value>
-  </data>
-  <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
-    <value>Performance mode</value>
-  </data>
-  <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
-    <value>Quiet mode</value>
-  </data>
-  <data name="PowerPlansWindow_Title" xml:space="preserve">
-    <value>Power Plans</value>
   </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Prilagodite pozadinsko osvjetljenje tastature.</value>
@@ -870,23 +608,20 @@ You can switch mode with Fn+Q.</value>
   <data name="RGBKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
     <value>Pozadinsko osvjetljenje tastature</value>
   </data>
+  <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
+    <value>Svjetlost</value>
+  </data>
   <data name="RGBKeyboardBacklightControl_Preset1" xml:space="preserve">
-    <value>Preset 1</value>
+    <value>Šablon 1</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Preset2" xml:space="preserve">
-    <value>Preset 2</value>
+    <value>Šablon 2</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Preset3" xml:space="preserve">
-    <value>Preset 3</value>
+    <value>Šablon 3</value>
   </data>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>Ugašeno</value>
-  </data>
-  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Keyboard backlight cannot be controlled in here when Vantage or it's services are running.</value>
-  </data>
-  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-    <value>Lenovo Vantage seems to be enabled</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Zone1" xml:space="preserve">
     <value>Zona 1</value>
@@ -900,34 +635,17 @@ You can switch mode with Fn+Q.</value>
   <data name="RGBKeyboardBacklightControl_Zone4" xml:space="preserve">
     <value>Zona 4</value>
   </data>
-  <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
-    <value>Svjetlost</value>
-  </data>
   <data name="RGBKeyboardBacklightEffectCardControl_Title" xml:space="preserve">
     <value>Efekat</value>
   </data>
   <data name="RGBKeyboardBacklightSpeedCardControl_Title" xml:space="preserve">
     <value>Brzina</value>
   </data>
-  <data name="ReadmeWindow_Title" xml:space="preserve">
-    <value>Readme</value>
-  </data>
   <data name="Refresh" xml:space="preserve">
     <value>Osvježi</value>
   </data>
-  <data name="RefreshRateAutomationStepControl_Message" xml:space="preserve">
-    <value>Change refresh rate of the built-in display.
-
-WARNING: This action will not run correctly, if internal display is off.</value>
-  </data>
-  <data name="RefreshRateAutomationStepControl_Title" xml:space="preserve">
-    <value>Refresh rate</value>
-  </data>
-  <data name="RefreshRateControl_Message" xml:space="preserve">
-    <value>Change refresh rate of the built-in display.</value>
-  </data>
-  <data name="RefreshRateControl_Title" xml:space="preserve">
-    <value>Refresh rate</value>
+  <data name="Rename" xml:space="preserve">
+    <value>Preimenuj</value>
   </data>
   <data name="RestartLater" xml:space="preserve">
     <value>Ponovo ću pokrenut kasnije</value>
@@ -943,10 +661,6 @@ WARNING: This action will not run correctly, if internal display is off.</value>
   </data>
   <data name="RunAutomationStepControl_ExePath" xml:space="preserve">
     <value>ExecutablePath</value>
-  </data>
-  <data name="RunAutomationStepControl_Message" xml:space="preserve">
-    <value>Run a script or a program.
-Make sure that your script runs correctly first.</value>
   </data>
   <data name="RunAutomationStepControl_Title" xml:space="preserve">
     <value>Pokreni</value>
@@ -970,12 +684,6 @@ Make sure that your script runs correctly first.</value>
     <value>Start minimized to tray when you log in to Windows.
 Startup is delayed by 30 seconds for compatibility reasons.</value>
   </data>
-  <data name="SettingsPage_Autorun_Title" xml:space="preserve">
-    <value>Autorun</value>
-  </data>
-  <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>CPU Boost Modes</value>
-  </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone možda nije ispravno onemogućeno</value>
   </data>
@@ -995,11 +703,6 @@ Restart je preporučen nakon promijene ove opcije.</value>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Nije moguće onemogućiti Lenovo Hotkeys</value>
   </data>
-  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
-    <value>Onemogući Lenovo Hotkeys i njene servise bez deinstalacije.
-Onemogućavanjem, ova aplikacija rukuje Fn prečicama
-Restart je preporučen nakon promijene ove opcije.</value>
-  </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Onemogući Lenovo Hotkeys</value>
   </data>
@@ -1015,13 +718,6 @@ Restart je preporučen nakon promijene ove opcije.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Onemogući Lenovo Vantage</value>
-  </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>Onemogućuje notifikacije za Fn kratice kao što je utišavanje mikrofona
-Omogućite ovu opciju ukoliko imate konflikata sa aplikacijama u fullscreenu.</value>
-  </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
-    <value>Ne prikazuj obavještenja</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone možda nije ispravno omogućeno</value>
@@ -1041,20 +737,11 @@ Omogućite ovu opciju ukoliko imate konflikata sa aplikacijama u fullscreenu.</v
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
     <value>Nije moguće omogućiti Vantage</value>
   </data>
-  <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
-    <value>You can exclude refresh rates, to make Fn+R shortcut more useful.</value>
-  </data>
-  <data name="SettingsPage_ExcludeRefreshRates_Title" xml:space="preserve">
-    <value>Exclude Refresh Rates</value>
-  </data>
   <data name="SettingsPage_Language_Message" xml:space="preserve">
     <value>Izaberi jezik.</value>
   </data>
   <data name="SettingsPage_Language_Title" xml:space="preserve">
     <value>Jezik</value>
-  </data>
-  <data name="SettingsPage_MinimizeOnClose_Message" xml:space="preserve">
-    <value>Always minimize to tray. Close with right click on tray icon.</value>
   </data>
   <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
     <value>Minimiziraj pri zatvaranju</value>
@@ -1117,9 +804,6 @@ Zahtijeva ponovno pokretanje.</value>
 
 Molimo prijavite problem na {1}.</value>
   </data>
-  <data name="Unnamed" xml:space="preserve">
-    <value>Unnamed</value>
-  </data>
   <data name="UnsupportedWindow_Disclaimer" xml:space="preserve">
     <value>Možete izabrati da nastavite na svoju odgovornost, ali imajte na umu da neke od funkcija neće biti dostupne i/ili neće ispravno raditi.
 
@@ -1127,9 +811,6 @@ Logiranje će biti automatski omogućeno, ukoliko izaberete da nastavite.</value
   </data>
   <data name="UnsupportedWindow_Disclaimer_GitHub" xml:space="preserve">
     <value>Provjerite stranicu našeg projekta na GitHub-u za više informacija.</value>
-  </data>
-  <data name="UnsupportedWindow_Disclaimer_Logs" xml:space="preserve">
-    <value>Logs folder</value>
   </data>
   <data name="UnsupportedWindow_MachineType" xml:space="preserve">
     <value>Tip uređaja</value>

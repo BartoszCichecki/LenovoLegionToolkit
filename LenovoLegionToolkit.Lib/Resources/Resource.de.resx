@@ -194,10 +194,10 @@
 		<value>Immer</value>
 	</data>
   <data name="SpectrumKeyboardBacklightEffectType_AudioBounce" xml:space="preserve">
-		<value>Audio Bounce</value>
+		<value>Audio-Spektrum</value>
 	</data>
   <data name="SpectrumKeyboardBacklightEffectType_AudioRipple" xml:space="preserve">
-		<value>Audio Ripple</value>
+		<value>Audio-Wellen</value>
 	</data>
   <data name="SpectrumKeyboardBacklightEffectType_AuroraSync" xml:space="preserve">
 		<value>Aurora Sync</value>
@@ -215,19 +215,19 @@
 		<value>Regen</value>
 	</data>
   <data name="SpectrumKeyboardBacklightEffectType_RainbowScrew" xml:space="preserve">
-		<value>Rainbow Screw</value>
+		<value>Regenbogen-Schraube</value>
 	</data>
   <data name="SpectrumKeyboardBacklightEffectType_RainbowWave" xml:space="preserve">
 		<value>Regenbogenwelle</value>
 	</data>
   <data name="SpectrumKeyboardBacklightEffectType_Ripple" xml:space="preserve">
-		<value>Ripple</value>
+		<value>Kräuseln</value>
 	</data>
   <data name="SpectrumKeyboardBacklightEffectType_Smooth" xml:space="preserve">
 		<value>Sanft</value>
 	</data>
   <data name="SpectrumKeyboardBacklightEffectType_Type" xml:space="preserve">
-		<value>Typ</value>
+		<value>Tippen</value>
 	</data>
   <data name="SpectrumKeyboardBacklightSpeed_Speed1" xml:space="preserve">
 		<value>Langsam</value>
