@@ -118,18 +118,6 @@
   <data name="RBGKeyboardBacklightSpeed_Slowest" xml:space="preserve">
     <value>Najsporije</value>
   </data>
-  <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
-    <value>Ugašeno</value>
-  </data>
-  <data name="RGBKeyboardBacklightPreset_One" xml:space="preserve">
-    <value>Šablon 1</value>
-  </data>
-  <data name="RGBKeyboardBacklightPreset_Three" xml:space="preserve">
-    <value>Šablon 3</value>
-  </data>
-  <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
-    <value>Šablon 2</value>
-  </data>
   <data name="RGBKeyboardBacklightBrightness_High" xml:space="preserve">
     <value>Visoko</value>
   </data>
@@ -150,6 +138,18 @@
   </data>
   <data name="RGBKeyboardBacklightEffect_WaveRTL" xml:space="preserve">
     <value>Talas desno</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
+    <value>Ugašeno</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_One" xml:space="preserve">
+    <value>Šablon 1</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Three" xml:space="preserve">
+    <value>Šablon 3</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
+    <value>Šablon 2</value>
   </data>
   <data name="Theme_Dark" xml:space="preserve">
     <value>Tamna</value>
