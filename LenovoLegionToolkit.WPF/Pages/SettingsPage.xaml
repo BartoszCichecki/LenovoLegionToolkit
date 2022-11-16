@@ -56,7 +56,14 @@
             <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_AccentColor_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_AccentColor_Description}" />
             </wpfui:CardControl.Header>
-            <controls:ColorPickerControl x:Name="_accentColorPicker" ColorChangedDelayed="AccentColorPicker_Changed" />
+            <StackPanel Orientation="Horizontal">
+                <controls:ColorPickerControl x:Name="_accentColorPicker" ColorChangedDelayed="AccentColorPicker_Changed" />
+                <ComboBox 
+                    x:Name="_accentColorSourceComboBox" 
+                    MinWidth="160"
+                    Margin="8,0,0,0"
+                    SelectionChanged="AccentColorSourceComboBox_SelectionChanged" />
+            </StackPanel>
         </wpfui:CardControl>
 
         <wpfui:CardControl Margin="0,0,0,8">

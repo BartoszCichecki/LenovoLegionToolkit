@@ -361,6 +361,14 @@ namespace LenovoLegionToolkit.Lib
         Dark
     }
 
+    public enum AccentColorSource
+    {
+        [Display(ResourceType = typeof(Resource), Name = "AccentColorSource_System")]
+        System,
+        [Display(ResourceType = typeof(Resource), Name = "AccentColorSource_Custom")]
+        Custom
+    }
+
     public enum TemperatureUnit
     {
         C,
