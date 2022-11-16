@@ -115,18 +115,6 @@
   <data name="PowerModeState_Quiet" xml:space="preserve">
     <value>Ήρεμη</value>
   </data>
-  <data name="RBGKeyboardSpeed_Fast" xml:space="preserve">
-    <value>Γρήγορο</value>
-  </data>
-  <data name="RBGKeyboardSpeed_Fastest" xml:space="preserve">
-    <value>Πολύ γρήγορο</value>
-  </data>
-  <data name="RBGKeyboardSpeed_Slow" xml:space="preserve">
-    <value>Αργό</value>
-  </data>
-  <data name="RBGKeyboardSpeed_Slowest" xml:space="preserve">
-    <value>Πολύ αργό</value>
-  </data>
   <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
     <value>Ανενεργό</value>
   </data>
@@ -138,27 +126,6 @@
   </data>
   <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
     <value>Προεπιλογή 2</value>
-  </data>
-  <data name="RGBKeyboardBrightness_High" xml:space="preserve">
-    <value>Υψηλή</value>
-  </data>
-  <data name="RGBKeyboardBrightness_Low" xml:space="preserve">
-    <value>Χαμηλή</value>
-  </data>
-  <data name="RGBKeyboardEffect_Breath" xml:space="preserve">
-    <value>Αναπνοή</value>
-  </data>
-  <data name="RGBKeyboardEffect_Smooth" xml:space="preserve">
-    <value>Ομαλή</value>
-  </data>
-  <data name="RGBKeyboardEffect_Static" xml:space="preserve">
-    <value>Στατική</value>
-  </data>
-  <data name="RGBKeyboardEffect_WaveLTR" xml:space="preserve">
-    <value>Κύμα Αριστερά</value>
-  </data>
-  <data name="RGBKeyboardEffect_WaveRTL" xml:space="preserve">
-    <value>Κύμα Δεξιά</value>
   </data>
   <data name="Theme_Dark" xml:space="preserve">
     <value>Σκοτεινό</value>
