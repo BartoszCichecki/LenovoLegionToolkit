@@ -118,18 +118,6 @@
   <data name="RBGKeyboardBacklightSpeed_Slowest" xml:space="preserve">
     <value>En yavaş</value>
   </data>
-  <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
-    <value>Kapalı</value>
-  </data>
-  <data name="RGBKeyboardBacklightPreset_One" xml:space="preserve">
-    <value>1. Hazır Ayar</value>
-  </data>
-  <data name="RGBKeyboardBacklightPreset_Three" xml:space="preserve">
-    <value>3. Hazır Ayar</value>
-  </data>
-  <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
-    <value>2. Hazır Ayar</value>
-  </data>
   <data name="RGBKeyboardBacklightBrightness_High" xml:space="preserve">
     <value>Yüksek</value>
   </data>
@@ -150,6 +138,18 @@
   </data>
   <data name="RGBKeyboardBacklightEffect_WaveRTL" xml:space="preserve">
     <value>Sağdan Dalga</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
+    <value>Kapalı</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_One" xml:space="preserve">
+    <value>1. Hazır Ayar</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Three" xml:space="preserve">
+    <value>3. Hazır Ayar</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
+    <value>2. Hazır Ayar</value>
   </data>
   <data name="Theme_Dark" xml:space="preserve">
     <value>Koyu</value>
