@@ -353,6 +353,15 @@ Tento čas nemusí být přesný, pokud byl notebook nabíjen ve spánku nebo ve
   <data name="ColorCardControl_Red" xml:space="preserve">
     <value>Červená</value>
   </data>
+  <data name="Color_Blue" xml:space="preserve">
+    <value>Modrá</value>
+  </data>
+  <data name="Color_Green" xml:space="preserve">
+    <value>Zelená</value>
+  </data>
+  <data name="Color_Red" xml:space="preserve">
+    <value>Červená</value>
+  </data>
   <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
     <value>Vyber provozní režim GPU na základě využití počítače a podmínek napájení.
 Přepínání režimů může vyžadovat restart.</value>
@@ -505,6 +514,9 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je displej notebooku vypnutý
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>Jas displeje</value>
   </data>
+  <data name="DonatePage_DonateWith" xml:space="preserve">
+    <value>Přispět pomocí</value>
+  </data>
   <data name="DonatePage_Message" xml:space="preserve">
     <value>Vývoj a údržba Lenovo Legion Toolkit zabere spoustu času. Pokud rád používáš tento software, můžeš podpořit jeho budoucnost darováním částky dle vlastního výběru.
 
@@ -514,6 +526,9 @@ Díky předem!</value>
   </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Přispět</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Editovat</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>Ujisti se, že je zapnutý displej notebooku. Lenovo Legion Toolkit nemůže načíst obnovovací frekvence pro displej, který není zapnutý.</value>
@@ -668,6 +683,23 @@ Vážně, buď opatrný s touto možností!</value>
   <data name="GodModeSettingsWindow_Title" xml:space="preserve">
     <value>Nastavení vlastního režimu</value>
   </data>
+  <data name="HDRAutomationStepControl_Message" xml:space="preserve">
+    <value>Povolit vysoký dynamický rozsah (HDR) na displeji notebooku.
+
+VAROVÁNÍ: Tato akce neproběhne správně, pokud je interní displej vypnutý.</value>
+  </data>
+  <data name="HDRAutomationStepControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Message" xml:space="preserve">
+    <value>Povolit vysoký dynamický rozsah (HDR) na displeji notebooku.</value>
+  </data>
+  <data name="HDRControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Warning" xml:space="preserve">
+    <value>Použití HDR je blokované v nastavení systému Windows.</value>
+  </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Toto zařízení není kompatibilní s Lenovo Legion Toolkit.</value>
   </data>
@@ -679,6 +711,12 @@ Vážně, buď opatrný s touto možností!</value>
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Podsvícení klávesnice</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>Zde nelze ovládat podsvícení klávesnice, když je spuštěný Vantage nebo jeho služby.</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
+    <value>Zdá se, že Lenovo Vantage je povolený</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>O aplikaci</value>
@@ -758,6 +796,15 @@ Vážně, buď opatrný s touto možností!</value>
   <data name="Notification_NumLockOn" xml:space="preserve">
     <value>Num Lock zapnut</value>
   </data>
+  <data name="Notification_SpectrumKeyboardBacklight_Backlight" xml:space="preserve">
+		<value>Podsvícení {0}</value>
+	</data>
+  <data name="Notification_SpectrumKeyboardBacklight_Brightness" xml:space="preserve">
+		<value>Jas {0}</value>
+	</data>
+  <data name="Notification_SpectrumKeyboardBacklight_Profile" xml:space="preserve">
+		<value>Profil {0}</value>
+	</data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
     <value>Touchpad vypnut</value>
   </data>
@@ -797,6 +844,9 @@ Povol tuto možnost, pokud máš konflikty s aplikacemi na celou obrazovku.</val
   </data>
   <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
     <value>Frekvence obnovení</value>
+  </data>
+  <data name="NotificationsSettingsWindow_SmartKey" xml:space="preserve">
+    <value>Chytré tlačitko</value>
   </data>
   <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
     <value>Notifikace</value>
@@ -932,6 +982,9 @@ Režim můžeš přepínat pomocí Fn+Q.</value>
   <data name="PowerModeControl_Title" xml:space="preserve">
     <value>Režim výkonu</value>
   </data>
+  <data name="PowerModeControl_Warning" xml:space="preserve">
+    <value>Vybraný režim výkonu nemusí fungovat správně bez připojené nabíječky.</value>
+  </data>
   <data name="PowerModeWindow_Title" xml:space="preserve">
     <value>Režim výkonu</value>
   </data>
@@ -962,6 +1015,9 @@ Režim můžeš přepínat pomocí Fn+Q.</value>
   <data name="RGBKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
     <value>Podsvícení klávesnice</value>
   </data>
+  <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
+    <value>Jas</value>
+  </data>
   <data name="RGBKeyboardBacklightControl_Preset1" xml:space="preserve">
     <value>Předvolba 1</value>
   </data>
@@ -974,12 +1030,6 @@ Režim můžeš přepínat pomocí Fn+Q.</value>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>Vypnut</value>
   </data>
-  <data name="RGBKeyboardBacklightControl_VantageEnabled_Message" xml:space="preserve">
-    <value>Zde nelze ovládat podsvícení klávesnice, když jse spuštěný Vantage nebo jeho služby.</value>
-  </data>
-  <data name="RGBKeyboardBacklightControl_VantageEnabled_Title" xml:space="preserve">
-    <value>Zdá se, že Lenovo Vantage je povolený</value>
-  </data>
   <data name="RGBKeyboardBacklightControl_Zone1" xml:space="preserve">
     <value>Zóna 1</value>
   </data>
@@ -991,9 +1041,6 @@ Režim můžeš přepínat pomocí Fn+Q.</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Zone4" xml:space="preserve">
     <value>Zóna 4</value>
-  </data>
-  <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
-    <value>Jas</value>
   </data>
   <data name="RGBKeyboardBacklightEffectCardControl_Title" xml:space="preserve">
     <value>Efekt</value>
@@ -1037,7 +1084,7 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je interní displej vypnutý.
     <value>Parametry</value>
   </data>
   <data name="RunAutomationStepControl_ExePath" xml:space="preserve">
-    <value>ExecutablePath</value>
+    <value>Executable Path</value>
   </data>
   <data name="RunAutomationStepControl_Message" xml:space="preserve">
     <value>Spusť skript nebo program.
@@ -1051,6 +1098,15 @@ Nejprve se ujisti, že tvůj skript běží správně.</value>
   </data>
   <data name="Saving" xml:space="preserve">
     <value>Ukládání...</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Description" xml:space="preserve">
+    <value>Zvol jednu nebo více rychlých akcí, které chceš procházet</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
+    <value>Nejsou nastavené žádné rychlé akce.</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
+    <value>Ukázat aplikaci</value>
   </data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
     <value>Změnit motiv a barvy aplikace.</value>
@@ -1158,7 +1214,7 @@ Po změně této možnosti se doporučuje restartovat.</value>
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Plány napájení</value>
   </data>
-	<data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
+  <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>Přiřadit rychlou akci při dvojitým stisku Fn+F9.</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">
@@ -1166,9 +1222,6 @@ Po změně této možnosti se doporučuje restartovat.</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
     <value>Přiřadit rychlou akci při stisku Fn+F9.</value>
-  </data>
-  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
-    <value>Ukázat aplikaci</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
     <value>Akce chytrého tlačítka</value>
@@ -1181,6 +1234,90 @@ Po změně této možnosti se doporučuje restartovat.</value>
   </data>
   <data name="SettingsPage_Title" xml:space="preserve">
     <value>Nastavení</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Message" xml:space="preserve">
+    <value>Upravit jas podsvícení klávesnice.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Off" xml:space="preserve">
+    <value>Vypnut</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Title" xml:space="preserve">
+    <value>Jas podsvícení klávesnice</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_AddEffect" xml:space="preserve">
+    <value>Přidat efekt</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
+    <value>Použití profilu se nezdařilo</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title_Message" xml:space="preserve">
+    <value>Profil osvětlení nelze použít.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Message" xml:space="preserve">
+    <value>Efekt synchronizace Aurora není podporovaný.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Title" xml:space="preserve">
+    <value>Synchronizace Aurora není podporována</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
+    <value>Jas</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_DeselectAll_ToolTip" xml:space="preserve">
+    <value>Odznačit všechny zóny</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
+    <value>Efekty</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
+    <value>Žádné efekty přidány.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip" xml:space="preserve">
+		<value>Obnovit výchozí</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
+    <value>Označit všechny zóny</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_SwitchKeyboardLayout_ToolTip" xml:space="preserve">
+    <value>Přepnout rozložení klávesnice</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_ClockwiseDirection_Title" xml:space="preserve">
+    <value>Směr</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Color_Title" xml:space="preserve">
+    <value>Barva</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Colors_Title" xml:space="preserve">
+    <value>Barvy</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Direction_Title" xml:space="preserve">
+    <value>Směr</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Title" xml:space="preserve">
+    <value>Efekt</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Warning" xml:space="preserve">
+    <value>Tento efekt se aplikuje na celou klávesnici a nahradí všechny ostatní.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Speed_Title" xml:space="preserve">
+    <value>Rychlost</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Add" xml:space="preserve">
+    <value>Přidat efekt</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Edit" xml:space="preserve">
+    <value>Upravit efekt</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Message" xml:space="preserve">
+    <value>Upravit profil podsvícení klávesnice.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Title" xml:space="preserve">
+    <value>Profil podsvícení klávesnice</value>
+  </data>
+  <data name="SpectrumKeyboardEffectControl_Description_AllZones" xml:space="preserve">
+    <value>Všechny tlačítka</value>
+  </data>
+  <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
+    <value>{0} zón</value>
   </data>
   <data name="TimeWindow_Sunrise" xml:space="preserve">
     <value>Východ slunce</value>
