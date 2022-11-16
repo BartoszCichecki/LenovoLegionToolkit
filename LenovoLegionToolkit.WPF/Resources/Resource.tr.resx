@@ -680,6 +680,12 @@ Cidden, bu seçeneğe dikkat edin!</value>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Klavye Işığı</value>
   </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>Vantage veya servisleri çalışırken klavye arka ışığı burada kontrol edilemez.</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
+    <value>Lenovo Vantage açık görünüyor</value>
+  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Hakkında</value>
   </data>
@@ -718,6 +724,13 @@ Cidden, bu seçeneğe dikkat edin!</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>Hayır</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
+    <value>Mikrofonun sesini kapatma gibi Fn tuşları eylemleri için ekran bildirimini devre dışı bırakır
+Tam ekran uygulamalarda rahatsız oluyorsanız bu seçeneği etkinleştirin.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
+    <value>Bildirimleri gösterme</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>Tamam</value>
@@ -877,6 +890,9 @@ Fn+Q ile modu değiştirebilirsiniz.</value>
   <data name="RGBKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
     <value>Klavye ışığı</value>
   </data>
+  <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
+    <value>Parlaklık</value>
+  </data>
   <data name="RGBKeyboardBacklightControl_Preset1" xml:space="preserve">
     <value>Ön ayar 1</value>
   </data>
@@ -889,12 +905,6 @@ Fn+Q ile modu değiştirebilirsiniz.</value>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>Kapalı</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Vantage veya servisleri çalışırken klavye arka ışığı burada kontrol edilemez.</value>
-  </data>
-  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-    <value>Lenovo Vantage açık görünüyor</value>
-  </data>
   <data name="RGBKeyboardBacklightControl_Zone1" xml:space="preserve">
     <value>Bölge 1</value>
   </data>
@@ -906,9 +916,6 @@ Fn+Q ile modu değiştirebilirsiniz.</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Zone4" xml:space="preserve">
     <value>Bölge 4</value>
-  </data>
-  <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
-    <value>Parlaklık</value>
   </data>
   <data name="RGBKeyboardBacklightEffectCardControl_Title" xml:space="preserve">
     <value>Efekt</value>
@@ -1004,11 +1011,6 @@ Bu seçeneği değiştirdikten sonra yeniden başlatma önerilir.</value>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Lenovo Hotkeys devre dışı bırakılamadı</value>
   </data>
-  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
-    <value>Lenovo Hotkeys ve hizmetini kaldırmadan devre dışı bırakın.
-Devre dışı bırakılırsa, bu uygulama Fn kısayollarını idare edecektir
-Bu seçeneği değiştirdikten sonra yeniden başlatma önerilir.</value>
-  </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Lenovo Hotkeys'i Devre Dışı Bırak</value>
   </data>
@@ -1024,13 +1026,6 @@ Bu seçeneği değiştirdikten sonra yeniden başlatma önerilir.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Lenovo Vantage'ı devre dışı bırakın</value>
-  </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>Mikrofonun sesini kapatma gibi Fn tuşları eylemleri için ekran bildirimini devre dışı bırakır
-Tam ekran uygulamalarda rahatsız oluyorsanız bu seçeneği etkinleştirin.</value>
-  </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
-    <value>Bildirimleri gösterme</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone doğru bir şekilde etkinleştirilmemiş olabilir</value>
