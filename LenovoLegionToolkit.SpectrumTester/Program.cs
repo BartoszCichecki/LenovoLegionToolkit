@@ -5,11 +5,8 @@ using Windows.Win32;
 
 
 Console.WriteLine(@"How to use:
-  1. Open Vantage
-  2. Select the key that you want to find keycode for
-  3. Set the key to plain white (Hex: #FFFFFF, RGB: 255,255,255)
-  4. Make sure all other keys don't have any effect set (are off)
-  5. Set the keyboard brightness to maximum
+  1. Make sure Vantage and LLT is closed.
+  2. Set the keyboard brightness to maximum.
 
 When ready, press any key to continue...");
 Console.ReadLine();
@@ -27,7 +24,45 @@ if (device is null)
     return;
 }
 
-Console.WriteLine($"Spectrum keyboard found, reading white key keycodes... [ext={extHandle is not null}]");
+
+Console.WriteLine("Spectrum keyboard found");
+
+Console.WriteLine();
+Console.WriteLine($"Reading response for 0xC6...");
+
+SetFeature(device, new LENOVO_SPECTRUM_UNKNOWN1_REQUEST());
+GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE res1);
+
+var res1Output = res1.Bytes.Take(128).Split(16);
+foreach (var i in res1Output)
+    Console.WriteLine(string.Join(" ", i.Select(i => $"{i:X2}")));
+
+
+Console.WriteLine();
+Console.WriteLine("Reading response for 0x04...");
+
+SetFeature(device, new LENOVO_SPECTRUM_UNKNOWN2_REQUEST());
+GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE res2);
+
+var res2Output = res2.Bytes.Take(128).Split(16);
+foreach (var i in res2Output)
+    Console.WriteLine(string.Join(" ", i.Select(i => $"{i:X2}")));
+
+Console.WriteLine();
+
+Console.WriteLine(@"Reading config complete.
+
+How to find a keycode for a specific key:
+  1. Open Vantage
+  2. Select the key that you want to find keycode for
+  3. Set the key to plain white (Hex: #FFFFFF, RGB: 255,255,255)
+  4. Make sure all other keys don't have any effect set (are off)
+  5. Set the keyboard brightness to maximum
+
+When ready, press any key to continue...");
+Console.ReadLine();
+
+Console.WriteLine($"Reading white key keycodes... [ext={extHandle is not null}]");
 Console.WriteLine();
 
 for (var i = 0; i < 10; i++)
@@ -63,6 +98,35 @@ Console.ReadLine();
 
 bool HasColor(LENOVO_SPECTRUM_COLOR rgbColor) => rgbColor.Red == 255 && rgbColor.Green == 255 && rgbColor.Blue == 255;
 
+unsafe void SetFeature<T>(SafeHandle handle, T str) where T : notnull
+{
+    var ptr = IntPtr.Zero;
+    try
+    {
+        int size;
+        if (str is byte[] bytes)
+        {
+            size = bytes.Length;
+            ptr = Marshal.AllocHGlobal(size);
+            Marshal.Copy(bytes, 0, ptr, size);
+        }
+        else
+        {
+            size = Marshal.SizeOf<T>();
+            ptr = Marshal.AllocHGlobal(size);
+            Marshal.StructureToPtr(str, ptr, false);
+        }
+
+        var result = PInvoke.HidD_SetFeature(handle, ptr.ToPointer(), (uint)size);
+        if (!result)
+            PInvokeExtensions.ThrowIfWin32Error(typeof(T).Name);
+    }
+    finally
+    {
+        Marshal.FreeHGlobal(ptr);
+    }
+}
+
 unsafe void GetFeature<T>(SafeHandle handle, out T str) where T : struct
 {
     var ptr = IntPtr.Zero;
@@ -87,6 +151,50 @@ unsafe void GetFeature<T>(SafeHandle handle, out T str) where T : struct
 #endregion
 
 #region Structs
+
+[StructLayout(LayoutKind.Sequential)]
+internal struct LENOVO_SPECTRUM_HEADER
+{
+    public byte Head = 7;
+    public LENOVO_SPECTRUM_OPERATION_TYPE Type;
+    public byte Size;
+    public byte Tail = 3;
+
+    public LENOVO_SPECTRUM_HEADER(LENOVO_SPECTRUM_OPERATION_TYPE type, int size)
+    {
+        Type = type;
+        Size = (byte)(size % 256);
+    }
+}
+
+[StructLayout(LayoutKind.Sequential, Size = 960)]
+internal struct LENOVO_SPECTRUM_UNKNOWN1_REQUEST
+{
+    public LENOVO_SPECTRUM_HEADER Header;
+
+    public LENOVO_SPECTRUM_UNKNOWN1_REQUEST()
+    {
+        Header = new LENOVO_SPECTRUM_HEADER(LENOVO_SPECTRUM_OPERATION_TYPE.Unknown1, 0xC0);
+    }
+}
+
+[StructLayout(LayoutKind.Sequential, Size = 960)]
+internal struct LENOVO_SPECTRUM_UNKNOWN2_REQUEST
+{
+    public LENOVO_SPECTRUM_HEADER Header;
+
+    public LENOVO_SPECTRUM_UNKNOWN2_REQUEST()
+    {
+        Header = new LENOVO_SPECTRUM_HEADER(LENOVO_SPECTRUM_OPERATION_TYPE.Unknown2, 0xC0);
+    }
+}
+
+[StructLayout(LayoutKind.Sequential, Size = 960)]
+internal struct LENOVO_SPECTRUM_GENERIC_RESPONSE
+{
+    [MarshalAs(UnmanagedType.ByValArray, SizeConst = 960)]
+    public byte[] Bytes;
+}
 
 internal enum LENOVO_SPECTRUM_OPERATION_TYPE : byte
 {
