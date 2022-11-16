@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Resources;
+using LenovoLegionToolkit.WPF.Windows.Utils;
 
 namespace LenovoLegionToolkit.WPF.Utils
 {
@@ -13,10 +14,12 @@ namespace LenovoLegionToolkit.WPF.Utils
     {
         private static readonly string LanguagePath = Path.Combine(Folders.AppData, "lang");
 
+        public static readonly CultureInfo DefaultLanguage = new("en");
+
         public static readonly CultureInfo[] Languages = {
+            DefaultLanguage,
             new("cs"),
             new("de"),
-            new("en"),
             new("el"),
             new("es"),
             new("fr"),
@@ -32,37 +35,58 @@ namespace LenovoLegionToolkit.WPF.Utils
             new("zh-hans"),
         };
 
-        public static async Task SetLanguageAsync()
+        public static async Task SetLanguageAsync(bool interactive = false)
         {
-            var cultureInfo = await GetLanguageAsync();
+            CultureInfo? cultureInfo = null;
+
+            if (interactive && await GetLanguageFromFile() is null)
+            {
+                var window = new LanguageSelectorWindow(Languages, DefaultLanguage);
+                window.Show();
+                cultureInfo = await window.ShouldContinue;
+                if (cultureInfo is not null)
+                    await SaveLanguageToFileAsync(cultureInfo);
+            }
+
+            cultureInfo ??= await GetLanguageAsync();
+
             SetLanguageInternal(cultureInfo);
         }
 
         public static async Task SetLanguageAsync(CultureInfo cultureInfo)
         {
-            await File.WriteAllTextAsync(LanguagePath, cultureInfo.Name);
+            await SaveLanguageToFileAsync(cultureInfo);
             SetLanguageInternal(cultureInfo);
         }
 
         public static async Task<CultureInfo> GetLanguageAsync()
         {
-            var defaultCulture = new CultureInfo("en");
-            CultureInfo? cultureInfo = null;
+            var cultureInfo = await GetLanguageFromFile();
+            if (cultureInfo is null)
+            {
+                cultureInfo = DefaultLanguage;
+                await SaveLanguageToFileAsync(cultureInfo);
+            }
+            return cultureInfo;
+        }
 
+        private static async Task<CultureInfo?> GetLanguageFromFile()
+        {
             try
             {
                 var name = await File.ReadAllTextAsync(LanguagePath);
-                cultureInfo = new CultureInfo(name);
+                var cultureInfo = new CultureInfo(name);
                 if (!Languages.Contains(cultureInfo))
                     throw new InvalidOperationException("Unknown language.");
+                return cultureInfo;
             }
             catch
             {
-                await File.WriteAllTextAsync(LanguagePath, defaultCulture.Name);
+                return null;
             }
-
-            return cultureInfo ?? defaultCulture;
         }
+
+        private static Task SaveLanguageToFileAsync(CultureInfo cultureInfo) => File.WriteAllTextAsync(LanguagePath, cultureInfo.Name);
 
         private static void SetLanguageInternal(CultureInfo cultureInfo)
         {
