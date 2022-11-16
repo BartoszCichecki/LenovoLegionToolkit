@@ -28,14 +28,14 @@ namespace LenovoLegionToolkit.Lib.System
 
         public static RGBColor GetUxThemeImmersiveColor(string name)
         {
-            uint colorType = GetImmersiveColorTypeFromName("Immersive" + name);
+            var colorType = GetImmersiveColorTypeFromName("Immersive" + name);
 
             if (colorType == 0xFFFFFFFF)
                 throw new Win32Exception($"Couldn't get color \"{name}\"");
 
-            uint activeColorSet = GetImmersiveUserColorSetPreference(false, false);
+            var activeColorSet = GetImmersiveUserColorSetPreference(false, false);
 
-            uint nativeColor = GetImmersiveColorFromColorSetEx(activeColorSet, colorType, false, 0);
+            var nativeColor = GetImmersiveColorFromColorSetEx(activeColorSet, colorType, false, 0);
 
             return new((byte)((0x000000FF & nativeColor) >> 0),
                 (byte)((0x0000FF00 & nativeColor) >> 8),
