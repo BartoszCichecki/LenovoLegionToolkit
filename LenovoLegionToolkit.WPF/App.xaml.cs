@@ -42,7 +42,7 @@ namespace LenovoLegionToolkit.WPF
 
         private async void Application_Startup(object sender, StartupEventArgs e)
         {
-            await LocalizationHelper.SetLanguageAsync();
+            await LocalizationHelper.SetLanguageAsync(true);
 
             var args = e.Args.Concat(LoadExternalArgs()).ToArray();
 
