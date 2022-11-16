@@ -405,6 +405,17 @@ namespace LenovoLegionToolkit.Lib
             G = g;
             B = b;
         }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is RGBColor color && R == color.R && G == color.G && B == color.B;
+        }
+
+        public override int GetHashCode() => (R, G, B).GetHashCode();
+
+        public static bool operator ==(RGBColor left, RGBColor right) => left.Equals(right);
+
+        public static bool operator !=(RGBColor left, RGBColor right) => !left.Equals(right);
     }
 
     public struct RGBKeyboardBacklightBacklightPresetDescription
