@@ -800,6 +800,15 @@
   <data name="Notification_NumLockOn" xml:space="preserve">
     <value>Num Lock 开</value>
   </data>
+  <data name="Notification_SpectrumKeyboardBacklight_Backlight" xml:space="preserve">
+		<value>背光 {0}</value>
+	</data>
+  <data name="Notification_SpectrumKeyboardBacklight_Brightness" xml:space="preserve">
+		<value>键盘背光亮度 {0}</value>
+	</data>
+  <data name="Notification_SpectrumKeyboardBacklight_Profile" xml:space="preserve">
+		<value>灯效主题 {0}</value>
+	</data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
     <value>触摸板已关闭</value>
   </data>
@@ -1269,6 +1278,9 @@
   <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
     <value>没有灯效主题。</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip" xml:space="preserve">
+		<value>重置为默认配置</value>
+	</data>
   <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
     <value>全选所有灯区</value>
   </data>
