@@ -352,6 +352,15 @@ l'orario indicato potrebbe non essere corretto se il laptop è stato caricato me
   <data name="ColorCardControl_Red" xml:space="preserve">
     <value>Rosso</value>
   </data>
+  <data name="Color_Blue" xml:space="preserve">
+    <value>Blu</value>
+  </data>
+  <data name="Color_Green" xml:space="preserve">
+    <value>Verde</value>
+  </data>
+  <data name="Color_Red" xml:space="preserve">
+    <value>Rosso</value>
+  </data>
   <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
     <value>Seleziona automaticamente la modalità energetica della GPU in base all'utilizzo e alle condizioni energetiche.
 Cambiare questa impostazione richiede il riavvio.</value>
@@ -514,6 +523,9 @@ Clicca il logo PayPal qui sotto oppure scansiona il QR code per donare con PayPa
   </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Donazioni</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Modifica</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>Assicurati che il display del laptop sia acceso. Lenovo Legion Toolkit non può caricare le frequenze di aggiornamento per un display non acceso.</value>
@@ -695,6 +707,12 @@ ATTENZIONE: questa azione non verrà eseguita correttamente se il display intern
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Retroilluminazione tastiera</value>
   </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>La retroilluminazione della tastiera non può essere controllata qua mentre Vantage o i suoi servizi sono in esecuzione.</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
+    <value>Lenovo Vantage sembra essere abilitato</value>
+  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Informazioni su</value>
   </data>
@@ -773,6 +791,12 @@ ATTENZIONE: questa azione non verrà eseguita correttamente se il display intern
   <data name="Notification_NumLockOn" xml:space="preserve">
     <value>Num Lock on</value>
   </data>
+  <data name="Notification_SpectrumKeyboardBacklight_Backlight" xml:space="preserve">
+		<value>Retroilluminazione {0}</value>
+	</data>
+  <data name="Notification_SpectrumKeyboardBacklight_Brightness" xml:space="preserve">
+		<value>Luminosità {0}</value>
+	</data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
     <value>Touchpad off</value>
   </data>
@@ -983,6 +1007,9 @@ Puoi anche usare la scorciatoia Fn+Q.</value>
   <data name="RGBKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
     <value>Retroilluminazione tastiera</value>
   </data>
+  <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
+    <value>Luminosità</value>
+  </data>
   <data name="RGBKeyboardBacklightControl_Preset1" xml:space="preserve">
     <value>Tema 1</value>
   </data>
@@ -994,12 +1021,6 @@ Puoi anche usare la scorciatoia Fn+Q.</value>
   </data>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>Spenta</value>
-  </data>
-  <data name="RGBKeyboardBacklightControl_VantageEnabled_Message" xml:space="preserve">
-    <value>La retroilluminazione della tastiera non può essere controllata qui mentre Vantage o i suoi servizi sono in esecuzione.</value>
-  </data>
-  <data name="RGBKeyboardBacklightControl_VantageEnabled_Title" xml:space="preserve">
-    <value>Lenovo Vantage sembra essere abilitato</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Zone1" xml:space="preserve">
     <value>Zona 1</value>
@@ -1013,13 +1034,10 @@ Puoi anche usare la scorciatoia Fn+Q.</value>
   <data name="RGBKeyboardBacklightControl_Zone4" xml:space="preserve">
     <value>Zona 4</value>
   </data>
-  <data name="RGBKeyboardBrightnessCardControl_Brightness" xml:space="preserve">
-    <value>Luminosità</value>
-  </data>
-  <data name="RGBKeyboardEffectCardControl_Title" xml:space="preserve">
+  <data name="RGBKeyboardBacklightEffectCardControl_Title" xml:space="preserve">
     <value>Effetto</value>
   </data>
-  <data name="RGBKeyboardSpeedCardControl_Title" xml:space="preserve">
+  <data name="RGBKeyboardBacklightSpeedCardControl_Title" xml:space="preserve">
     <value>Velocità</value>
   </data>
   <data name="ReadmeWindow_Title" xml:space="preserve">
@@ -1208,6 +1226,21 @@ Il riavvio è consigliabile dopo aver cambiato questa impostazione.</value>
   </data>
   <data name="SettingsPage_Title" xml:space="preserve">
     <value>Impostazioni</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Message" xml:space="preserve">
+    <value>Regola la luminosità della tastiera.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Off" xml:space="preserve">
+    <value>Spento</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Title" xml:space="preserve">
+    <value>Luminosità retroilluminazione tastiera</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_AddEffect" xml:space="preserve">
+    <value>Aggiungi effetto</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
+    <value>Impossibile applicare il profilo</value>
   </data>
   <data name="TimeWindow_Sunrise" xml:space="preserve">
     <value>Alba</value>
