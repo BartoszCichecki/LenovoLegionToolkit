@@ -247,6 +247,12 @@
   <data name="Theme_System" xml:space="preserve">
     <value>Sistema</value>
   </data>
+  <data name="AccentColorSource_System" xml:space="preserve">
+    <value>Sistema</value>
+  </data>
+  <data name="AccentColorSource_Custom" xml:space="preserve">
+    <value>Personalizado</value>
+  </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
     <value>Alto</value>
   </data>
