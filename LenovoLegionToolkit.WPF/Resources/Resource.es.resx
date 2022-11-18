@@ -852,7 +852,7 @@ Activar esta opción si tiene conflictos con las aplicaciones en pantalla comple
     <value>Notificaciones</value>
   </data>
   <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
-    <value>Bloqueo de teclado táctil </value>
+    <value>Bloqueo táctil</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>Aceptar</value>

@@ -796,6 +796,15 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
   <data name="Notification_NumLockOn" xml:space="preserve">
     <value>Num Lock ligado</value>
   </data>
+  <data name="Notification_SpectrumKeyboardBacklight_Backlight" xml:space="preserve">
+		<value>Iluminação do teclado {0}</value>
+	</data>
+  <data name="Notification_SpectrumKeyboardBacklight_Brightness" xml:space="preserve">
+		<value>Brilho {0}</value>
+	</data>
+  <data name="Notification_SpectrumKeyboardBacklight_Profile" xml:space="preserve">
+		<value>Perfil {0}</value>
+	</data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
     <value>Touchpad desligado</value>
   </data>
@@ -1262,6 +1271,9 @@ A reinicialização é recomendada após alterar esta opção.</value>
   <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
     <value>Nenhum efeito adicionado.</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip" xml:space="preserve">
+		<value>Redefinir para o padrão</value>
+	</data>
   <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
     <value>Selecionar todas zonas</value>
   </data>
