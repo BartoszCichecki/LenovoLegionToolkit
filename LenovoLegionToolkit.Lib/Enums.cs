@@ -24,7 +24,6 @@ namespace LenovoLegionToolkit.Lib
         Disabled
     }
 
-
     public enum BatteryState
     {
         [Display(ResourceType = typeof(Resource), Name = "BatteryState_Conservation")]

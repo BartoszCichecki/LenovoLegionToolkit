@@ -46,16 +46,10 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
         {
             InitializeComponent();
 
-            Loaded += SpectrumKeyboardBacklightControl_Loaded;
             IsVisibleChanged += SpectrumKeyboardBacklightControl_IsVisibleChanged;
             SizeChanged += SpectrumKeyboardBacklightControl_SizeChanged;
 
             _listener.Changed += Listener_Changed;
-        }
-
-        private void SpectrumKeyboardBacklightControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            _device.SetLayout(_settings.Store.KeyboardLayout, _controller.IsExtended);
         }
 
         private async void SpectrumKeyboardBacklightControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -203,6 +197,15 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             }
 
             _vantageWarningCard.Visibility = Visibility.Collapsed;
+
+            if (!_settings.Store.KeyboardLayout.HasValue)
+            {
+                _settings.Store.KeyboardLayout = _controller.GetKeyboardLayout();
+                _settings.SynchronizeStore();
+            }
+
+            _device.SetLayout(_settings.Store.KeyboardLayout.Value, _controller.IsExtended);
+
             _content.IsEnabled = true;
 
             await RefreshBrightnessAsync();

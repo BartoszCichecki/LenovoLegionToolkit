@@ -4,7 +4,7 @@
     {
         public class SpectrumKeyboardSettingsStore
         {
-            public KeyboardLayout KeyboardLayout { get; set; } = KeyboardLayout.Ansi;
+            public KeyboardLayout? KeyboardLayout { get; set; }
         }
 
         protected override string FileName => "spectrum_keyboard.json";
