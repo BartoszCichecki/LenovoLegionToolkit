@@ -353,6 +353,15 @@
   <data name="ColorCardControl_Red" xml:space="preserve">
     <value>Красный</value>
   </data>
+  <data name="Color_Blue" xml:space="preserve">
+    <value>Синий</value>
+  </data>
+  <data name="Color_Green" xml:space="preserve">
+    <value>Зеленый</value>
+  </data>
+  <data name="Color_Red" xml:space="preserve">
+    <value>Красный</value>
+  </data>
   <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
     <value>Выберите режим работы видеокарты в зависимости от особенностей использования компьютера и условий питания.
 Для переключения режимов может потребоваться перезагрузка.</value>
@@ -517,6 +526,9 @@
   </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Сделать пожертвование</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редактировать</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>Убедитесь, что дисплей ноутбука включен. Lenovo Legion Toolkit не может загрузить частоты обновления для не включенного дисплея.</value>
@@ -784,6 +796,15 @@
   <data name="Notification_NumLockOn" xml:space="preserve">
     <value>Num Lock включен</value>
   </data>
+  <data name="Notification_SpectrumKeyboardBacklight_Backlight" xml:space="preserve">
+		<value>Подсветка {0}</value>
+	</data>
+  <data name="Notification_SpectrumKeyboardBacklight_Brightness" xml:space="preserve">
+		<value>Яркость {0}</value>
+	</data>
+  <data name="Notification_SpectrumKeyboardBacklight_Profile" xml:space="preserve">
+		<value>Профиль {0}</value>
+	</data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
     <value>Сенсорная панель отключена</value>
   </data>
@@ -1127,6 +1148,11 @@
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Не удалось отключить Lenovo Hotkeys</value>
   </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
+    <value>Отключить Lenovo Hotkeys и его сервис без удаления.
+Если опция отключена, Lenovo Hotkeys будет обслуживать горячие клавиши Fn.
+После изменения этого параметра рекомендуется перезагрузка.</value>
+  </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Отключить Lenovo Hotkeys</value>
   </data>
@@ -1208,6 +1234,90 @@
   </data>
   <data name="SettingsPage_Title" xml:space="preserve">
     <value>Настройки</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Message" xml:space="preserve">
+    <value>Настроить яркость подсветки клавиатуры.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Off" xml:space="preserve">
+    <value>Откл.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Title" xml:space="preserve">
+    <value>Яркость подсветки клавиатуры</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_AddEffect" xml:space="preserve">
+    <value>Добавить эффект</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
+    <value>Не удалось применить профиль</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title_Message" xml:space="preserve">
+    <value>Не удалось применить профиль подсветки.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Message" xml:space="preserve">
+    <value>Эффект Aurora Sync в настоящее время не поддерживается.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Title" xml:space="preserve">
+    <value>Aurora Sync не поддерживается</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
+    <value>Яркость</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_DeselectAll_ToolTip" xml:space="preserve">
+    <value>Снять выделение всех зон</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
+    <value>Эффекты</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
+    <value>Эффекты не добавлены.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip" xml:space="preserve">
+		<value>Сбросить по умолчанию</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
+    <value>Выделить все зоны</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_SwitchKeyboardLayout_ToolTip" xml:space="preserve">
+    <value>Переключить раскладку клавиатуры</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_ClockwiseDirection_Title" xml:space="preserve">
+    <value>Направление</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Color_Title" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Colors_Title" xml:space="preserve">
+    <value>Цвета</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Direction_Title" xml:space="preserve">
+    <value>Направление</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Title" xml:space="preserve">
+    <value>Эффект</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Warning" xml:space="preserve">
+    <value>Этот эффект будет применен ко всей клавиатуре и заменит все иные эффекты.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Speed_Title" xml:space="preserve">
+    <value>Скорость</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Add" xml:space="preserve">
+    <value>Добавить эффект</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Edit" xml:space="preserve">
+    <value>Изменить эффект</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Message" xml:space="preserve">
+    <value>Настроить профиль подсветки клавиатуры.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Title" xml:space="preserve">
+    <value>Профиль подсветки клавиатуры</value>
+  </data>
+  <data name="SpectrumKeyboardEffectControl_Description_AllZones" xml:space="preserve">
+    <value>Все клавиши</value>
+  </data>
+  <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
+    <value>{0} зон(ы)</value>
   </data>
   <data name="TimeWindow_Sunrise" xml:space="preserve">
     <value>Рассвет</value>
