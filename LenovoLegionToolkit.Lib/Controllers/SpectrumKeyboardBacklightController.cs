@@ -75,6 +75,12 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         public bool IsSupported() => DriverHandle is not null;
 
+        public KeyboardLayout GetKeyboardLayout()
+        {
+            var keys = ReadAllKeyCodes();
+            return keys.Contains(0xA8) ? KeyboardLayout.Iso : KeyboardLayout.Ansi;
+        }
+
         public async Task<int> GetBrightnessAsync()
         {
             ThrowIfHandleNull();
@@ -200,6 +206,37 @@ namespace LenovoLegionToolkit.Lib.Controllers
             var vantageStatus = await _vantage.GetStatusAsync().ConfigureAwait(false);
             if (vantageStatus == SoftwareStatus.Enabled)
                 throw new InvalidOperationException("Can't manage Spectrum keyboard with Vantage enabled.");
+        }
+
+        private HashSet<ushort> ReadAllKeyCodes()
+        {
+            try
+            {
+                if (DriverHandle is null)
+                    return new HashSet<ushort>();
+
+                var set = new HashSet<ushort>();
+
+                SetAndGetFeature(DriverHandle, new LENOVO_SPECTRUM_GET_KEYCOUNT_REQUEST(), out LENOVO_SPECTRUM_GET_KEYCOUNT_RESPONSE keyCountResponse);
+
+                for (var i = 0; i < keyCountResponse.Indexes; i++)
+                {
+                    SetAndGetFeature(DriverHandle, new LENOVO_SPECTRUM_GET_KEYPAGE_REQUEST((byte)i), out LENOVO_SPECTRUM_GET_KEYPAGE_RESPONSE keyPageResponse);
+
+                    var keys = keyPageResponse.Items.Take(keyCountResponse.KeysPerIndex)
+                        .Where(k => k.Key > 0)
+                        .Select(k => k.Key);
+
+                    foreach (var key in keys)
+                        set.Add(key);
+                }
+
+                return set;
+            }
+            catch
+            {
+                return new HashSet<ushort>();
+            }
         }
 
         private void SetAndGetFeature<TIn, TOut>(SafeFileHandle handle, TIn input, out TOut output) where TIn : notnull where TOut : struct

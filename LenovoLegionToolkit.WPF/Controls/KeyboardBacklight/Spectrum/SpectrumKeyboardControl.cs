@@ -6,10 +6,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 {
     public class SpectrumKeyboardControl : UserControl
     {
-        private SpectrumKeyboardANSIControl _ansi = new()
-        {
-            Visibility = Visibility.Collapsed
-        };
+        private SpectrumKeyboardANSIControl _ansi = new();
 
         private SpectrumKeyboardISOControl _iso = new()
         {

@@ -54,6 +54,7 @@ namespace LenovoLegionToolkit.Lib
     {
         Compatibility = 0xD1,
         KeyCount = 0xC4,
+        KeyPage = 0xC5,
         ProfileChange = 0xC8,
         ProfileDefault = 0xC9,
         Profile = 0xCA,
@@ -132,6 +133,13 @@ namespace LenovoLegionToolkit.Lib
     {
         public ushort Key;
         public LENOVO_SPECTRUM_COLOR Color;
+    }
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    internal struct LENOVO_SPECTRUM_KEYPAGE_ITEM
+    {
+        public byte Index;
+        public ushort Key;
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -252,6 +260,33 @@ namespace LenovoLegionToolkit.Lib
     }
 
     [StructLayout(LayoutKind.Sequential, Size = 960)]
+    internal struct LENOVO_SPECTRUM_GET_KEYPAGE_REQUEST
+    {
+        public LENOVO_SPECTRUM_HEADER Header;
+        public byte Parameter = 7;
+        public byte Index;
+
+        public LENOVO_SPECTRUM_GET_KEYPAGE_REQUEST(byte index)
+        {
+            Header = new LENOVO_SPECTRUM_HEADER(LENOVO_SPECTRUM_OPERATION_TYPE.KeyPage, 0xC0);
+            Index = index;
+        }
+    }
+
+    [StructLayout(LayoutKind.Sequential, Size = 960)]
+    internal struct LENOVO_SPECTRUM_GET_KEYPAGE_RESPONSE
+    {
+        public byte ReportId;
+        public LENOVO_SPECTRUM_OPERATION_TYPE Type;
+        public byte Length;
+        public byte Unknown1;
+        public byte Parameter;
+        public byte Index;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+        public LENOVO_SPECTRUM_KEYPAGE_ITEM[] Items;
+    }
+
+    [StructLayout(LayoutKind.Sequential, Size = 960)]
     internal struct LENOVO_SPECTRUM_GET_BRIGHTNESS_REQUEST
     {
         public LENOVO_SPECTRUM_HEADER Header;
@@ -345,7 +380,6 @@ namespace LenovoLegionToolkit.Lib
         }
     }
 
-    [StructLayout(LayoutKind.Sequential)]
     internal struct LENOVO_SPECTRUM_EFFECT_DESCRIPTION
     {
         public LENOVO_SPECTRUM_HEADER Header;
