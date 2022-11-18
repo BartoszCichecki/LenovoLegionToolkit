@@ -16,7 +16,6 @@ namespace LenovoLegionToolkit.Lib.System
 
         private static SafeFileHandle? _battery;
         private static SafeFileHandle? _rgbKeyboard;
-        private static SafeFileHandle? _extendedSpectrumRgbKeyboard;
         private static SafeFileHandle? _spectrumRgbKeyboard;
 
         public static unsafe SafeFileHandle GetBattery()
