@@ -62,7 +62,7 @@
     <value>Lenovo Legion Toolkit</value>
   </data>
   <data name="AboutPage_Build" xml:space="preserve">
-    <value>Bâtir</value>
+    <value>Build</value>
   </data>
   <data name="AboutPage_LatestReleaseOnGitHub" xml:space="preserve">
     <value>La dernière version sur GitHub</value>
@@ -103,13 +103,13 @@ Cette option est destinée uniquement aux appareils qui ne sont pas livrés avec
     <value>Charger périphériques USB, lorsque l'appareil est éteint ou mise en veille ou mise en veille prolongée.</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
-    <value>Toujours sur l'USB</value>
+    <value>Always on USB</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
     <value>Charger périphériques USB, lorsque l'appareil est éteint ou mise en veille ou mise en veille prolongée.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
-    <value>Toujours sur l'USB</value>
+    <value>Always on USB</value>
   </data>
   <data name="AppName" xml:space="preserve">
     <value>Lenovo Legion Toolkit</value>
@@ -267,7 +267,7 @@ La température et le bruit des ventilateurs peuvent augmenter.</value>
     <value>Capacité actuelle</value>
   </data>
   <data name="BatteryPage_CycleCount_Message" xml:space="preserve">
-    <value>Comptage de cycle de charge/décharge.</value>
+    <value>Nombre des cycles de charge/décharge.</value>
   </data>
   <data name="BatteryPage_CycleCount_Title" xml:space="preserve">
     <value>Comptage de cycles</value>
@@ -282,7 +282,7 @@ La température et le bruit des ventilateurs peuvent augmenter.</value>
     <value>Vitesse à laquelle la batterie est chargée (+), ou déchargée (-).</value>
   </data>
   <data name="BatteryPage_DischargeRate_Title" xml:space="preserve">
-    <value>Vitesse de décharge</value>
+    <value>Vitesse de charge/décharge</value>
   </data>
   <data name="BatteryPage_EstimatedBatteryLifeRemaining" xml:space="preserve">
     <value>Temps restant estimé : {0}</value>
@@ -594,13 +594,13 @@ Merci par avance !</value>
     <value>Démarrer le PC portable quand vous soulevez l'écran.</value>
   </data>
   <data name="FlipToStartAutomationStepControl_Title" xml:space="preserve">
-    <value>Ouvrir pour démarrer</value>
+    <value>Démarrer à l'ouverture</value>
   </data>
   <data name="FlipToStartControl_Message" xml:space="preserve">
     <value>Démarrer le PC portable quand vous soulevez l'écran.</value>
   </data>
   <data name="FlipToStartControl_Title" xml:space="preserve">
-    <value>Ouvrir pour démarrer</value>
+    <value>Démarrer à l'ouverture</value>
   </data>
   <data name="FnLockAutomationStepControl_Message" xml:space="preserve">
     <value>Utiliser les fonctions secondaires des touches F1-F12 sans maintenir la touche Fn.</value>
