@@ -113,7 +113,7 @@
     <value>Rendimiento</value>
   </data>
   <data name="PowerModeState_Quiet" xml:space="preserve">
-    <value>Tranquilo</value>
+    <value>Silencioso</value>
   </data>
   <data name="RBGKeyboardBacklightSpeed_Fast" xml:space="preserve">
     <value>Rápido</value>
@@ -134,7 +134,7 @@
     <value>Bajo</value>
   </data>
   <data name="RGBKeyboardBacklightEffect_Breath" xml:space="preserve">
-    <value>Continuo</value>
+    <value>Respiración</value>
   </data>
   <data name="RGBKeyboardBacklightEffect_Smooth" xml:space="preserve">
     <value>Suave</value>
@@ -143,7 +143,7 @@
     <value>Estático</value>
   </data>
   <data name="RGBKeyboardBacklightEffect_WaveLTR" xml:space="preserve">
-    <value>A la izquierda</value>
+    <value>Ola (desde la izquierda)</value>
   </data>
   <data name="RGBKeyboardBacklightEffect_WaveRTL" xml:space="preserve">
     <value>A la derecha</value>
@@ -200,16 +200,16 @@
 		<value>Oscilación de audio</value>
 	</data>
   <data name="SpectrumKeyboardBacklightEffectType_AuroraSync" xml:space="preserve">
-		<value>Sincronización Aurora</value>
+		<value>Aurora Sync</value>
 	</data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorChange" xml:space="preserve">
-		<value>Cambiar de color</value>
+		<value>Cambio de color</value>
 	</data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorPulse" xml:space="preserve">
 		<value>Emisión de color</value>
 	</data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorWave" xml:space="preserve">
-		<value>Onda de color</value>
+		<value>Ola de Color</value>
 	</data>
   <data name="SpectrumKeyboardBacklightEffectType_Rain" xml:space="preserve">
 		<value>Lluvia</value>
