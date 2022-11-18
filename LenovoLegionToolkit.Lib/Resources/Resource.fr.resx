@@ -254,12 +254,12 @@
     <value>Personnalisé</value>
   </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
-    <value>Élevée</value>
+    <value>Élevé</value>
   </data>
   <data name="WhiteKeyboardBacklightState_Low" xml:space="preserve">
     <value>Faible</value>
   </data>
   <data name="WhiteKeyboardBacklightState_Off" xml:space="preserve">
-    <value>Off</value>
+    <value>Éteint</value>
   </data>
 </root>
