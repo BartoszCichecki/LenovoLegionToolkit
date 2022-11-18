@@ -26,28 +26,54 @@ if (device is null)
 
 
 Console.WriteLine("Spectrum keyboard found");
-
 Console.WriteLine();
-Console.WriteLine($"Reading response for 0xC6...");
 
-SetFeature(device, new LENOVO_SPECTRUM_UNKNOWN1_REQUEST());
-GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE res1);
-
-var res1Output = res1.Bytes.Take(128).Split(16);
-foreach (var i in res1Output)
-    Console.WriteLine(string.Join(" ", i.Select(i => $"{i:X2}")));
-
-
+Console.WriteLine("Reading response for 0xD1...");
+SetFeature(device, new LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE.UnknownD1, 0, 0));
+GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE resD1);
+Print(resD1.Bytes);
 Console.WriteLine();
+
+Console.WriteLine("Reading response for 0xC6...");
+SetFeature(device, new LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE.UnknownC6, 0, 0));
+GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE resC6);
+Print(resC6.Bytes);
+Console.WriteLine();
+
 Console.WriteLine("Reading response for 0x04...");
+SetFeature(device, new LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE.Unknown04, 0, 0));
+GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE res04);
+Print(res04.Bytes);
+Console.WriteLine();
 
-SetFeature(device, new LENOVO_SPECTRUM_UNKNOWN2_REQUEST());
-GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE res2);
+Console.WriteLine("Reading response for 0xC7...");
+SetFeature(device, new LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE.UnknownC7, 0, 0));
+GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE resC7);
+Print(resC7.Bytes);
+Console.WriteLine();
 
-var res2Output = res2.Bytes.Take(128).Split(16);
-foreach (var i in res2Output)
-    Console.WriteLine(string.Join(" ", i.Select(i => $"{i:X2}")));
+Console.WriteLine("Reading response for 0xC4 7...");
+SetFeature(device, new LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE.UnknownC4, 7, 0));
+GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE resC47);
+Print(resC47.Bytes);
+Console.WriteLine();
 
+Console.WriteLine("Reading response for 0xC4 8...");
+SetFeature(device, new LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE.UnknownC4, 8, 0));
+GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE resC48);
+Print(resC48.Bytes);
+Console.WriteLine();
+
+for (var i = 0; i < 10; i++)
+{
+    Console.WriteLine($"Reading response for 0xC5 {i}...");
+    SetFeature(device, new LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE.UnknownC5, 7, (byte)i));
+    GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE resC5);
+    Print(resC5.Bytes);
+    Console.WriteLine();
+}
+
+Console.WriteLine(resD1.Bytes[4] == 0 ? "Keyboard is RGB." : "Keyboard is white only.");
 Console.WriteLine();
 
 Console.WriteLine(@"Reading config complete.
@@ -97,6 +123,13 @@ Console.WriteLine("Press any key to exit...");
 Console.ReadLine();
 
 #region Methods
+
+void Print(byte[] bytes)
+{
+    var length = bytes[2] + 4;
+    foreach (var i in bytes.Take(length).Split(16))
+        Console.WriteLine(string.Join(" ", i.Select(i => $"{i:X2}")));
+}
 
 bool HasColor(LENOVO_SPECTRUM_COLOR rgbColor) => rgbColor.Red == 255 && rgbColor.Green == 255 && rgbColor.Blue == 255;
 
@@ -170,24 +203,17 @@ internal struct LENOVO_SPECTRUM_HEADER
 }
 
 [StructLayout(LayoutKind.Sequential, Size = 960)]
-internal struct LENOVO_SPECTRUM_UNKNOWN1_REQUEST
+internal struct LENOVO_SPECTRUM_GENERIC_REQUEST
 {
     public LENOVO_SPECTRUM_HEADER Header;
+    public byte Value;
+    public byte Value2;
 
-    public LENOVO_SPECTRUM_UNKNOWN1_REQUEST()
+    public LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE operation, byte value, byte value2)
     {
-        Header = new LENOVO_SPECTRUM_HEADER(LENOVO_SPECTRUM_OPERATION_TYPE.Unknown1, 0xC0);
-    }
-}
-
-[StructLayout(LayoutKind.Sequential, Size = 960)]
-internal struct LENOVO_SPECTRUM_UNKNOWN2_REQUEST
-{
-    public LENOVO_SPECTRUM_HEADER Header;
-
-    public LENOVO_SPECTRUM_UNKNOWN2_REQUEST()
-    {
-        Header = new LENOVO_SPECTRUM_HEADER(LENOVO_SPECTRUM_OPERATION_TYPE.Unknown2, 0xC0);
+        Header = new LENOVO_SPECTRUM_HEADER(operation, 0xC0);
+        Value = value;
+        Value2 = value2;
     }
 }
 
@@ -208,8 +234,12 @@ internal enum LENOVO_SPECTRUM_OPERATION_TYPE : byte
     Brightness = 0xCE,
     AuroraSendBitmap = 0xA1,
     State = 0x03,
-    Unknown1 = 0xC6,
-    Unknown2 = 0x04,
+    Unknown04 = 0x04,
+    UnknownC4 = 0xC4,
+    UnknownC5 = 0xC5,
+    UnknownC6 = 0xC6,
+    UnknownC7 = 0xC7,
+    UnknownD1 = 0xD1,
 }
 
 [StructLayout(LayoutKind.Sequential)]
