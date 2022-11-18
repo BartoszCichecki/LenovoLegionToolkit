@@ -52,6 +52,8 @@ namespace LenovoLegionToolkit.Lib
 
     internal enum LENOVO_SPECTRUM_OPERATION_TYPE : byte
     {
+        Compatibility = 0xD1,
+        KeyCount = 0xC4,
         ProfileChange = 0xC8,
         ProfileDefault = 0xC9,
         Profile = 0xCA,
@@ -201,6 +203,55 @@ namespace LenovoLegionToolkit.Lib
     }
 
     [StructLayout(LayoutKind.Sequential, Size = 960)]
+    internal struct LENOVO_SPECTRUM_GET_COMPATIBILITY_REQUEST
+    {
+        public LENOVO_SPECTRUM_HEADER Header;
+
+        public LENOVO_SPECTRUM_GET_COMPATIBILITY_REQUEST()
+        {
+            Header = new LENOVO_SPECTRUM_HEADER(LENOVO_SPECTRUM_OPERATION_TYPE.Compatibility, 0xC0);
+        }
+    }
+
+    [StructLayout(LayoutKind.Sequential, Size = 960)]
+    internal struct LENOVO_SPECTRUM_GET_COMPATIBILITY_RESPONSE
+    {
+        public byte ReportId;
+        public LENOVO_SPECTRUM_OPERATION_TYPE Type;
+        public byte Length;
+        public byte Unknown1;
+        public byte Compatibility;
+
+        public bool IsCompatible => Compatibility == 0;
+    }
+
+    [StructLayout(LayoutKind.Sequential, Size = 960)]
+    internal struct LENOVO_SPECTRUM_GET_KEYCOUNT_REQUEST
+    {
+        public LENOVO_SPECTRUM_HEADER Header;
+        public byte Parameter = 7;
+
+        public LENOVO_SPECTRUM_GET_KEYCOUNT_REQUEST()
+        {
+            Header = new LENOVO_SPECTRUM_HEADER(LENOVO_SPECTRUM_OPERATION_TYPE.KeyCount, 0xC0);
+        }
+    }
+
+    [StructLayout(LayoutKind.Sequential, Size = 960)]
+    internal struct LENOVO_SPECTRUM_GET_KEYCOUNT_RESPONSE
+    {
+        public byte ReportId;
+        public LENOVO_SPECTRUM_OPERATION_TYPE Type;
+        public byte Length;
+        public byte Unknown1;
+        public byte Parameter;
+        public byte Indexes;
+        public byte KeysPerIndex;
+
+        public bool IsExtended => Indexes == 0x09 && KeysPerIndex == 0x16;
+    }
+
+    [StructLayout(LayoutKind.Sequential, Size = 960)]
     internal struct LENOVO_SPECTRUM_GET_BRIGHTNESS_REQUEST
     {
         public LENOVO_SPECTRUM_HEADER Header;
@@ -216,8 +267,8 @@ namespace LenovoLegionToolkit.Lib
     {
         public byte ReportId;
         public LENOVO_SPECTRUM_OPERATION_TYPE Type;
-        public byte Unknown2;
-        public byte Unknown3;
+        public byte Length;
+        public byte Unknown1;
         public byte Brightness;
     }
 
@@ -250,8 +301,8 @@ namespace LenovoLegionToolkit.Lib
     {
         public byte ReportId;
         public LENOVO_SPECTRUM_OPERATION_TYPE Type;
-        public byte Unknown2;
-        public byte Unknown3;
+        public byte Length;
+        public byte Unknown1;
         public byte Profile;
     }
 
@@ -438,11 +489,10 @@ namespace LenovoLegionToolkit.Lib
     {
         public byte ReportId;
         public LENOVO_SPECTRUM_OPERATION_TYPE Type;
-        public byte Unknown2;
-        public byte Unknown3;
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 191)]
+        public byte Length;
+        public byte Unknown1;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 190)]
         public LENOVO_SPECTRUM_KEY_STATE[] Data;
-        public byte Unknown4;
     }
 
     #endregion

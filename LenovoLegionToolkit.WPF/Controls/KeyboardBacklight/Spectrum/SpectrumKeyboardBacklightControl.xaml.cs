@@ -55,7 +55,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 
         private void SpectrumKeyboardBacklightControl_Loaded(object sender, RoutedEventArgs e)
         {
-            _device.SetLayout(_settings.Store.KeyboardLayout, _controller.IsExtendedSupported());
+            _device.SetLayout(_settings.Store.KeyboardLayout, _controller.IsExtended);
         }
 
         private async void SpectrumKeyboardBacklightControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -163,7 +163,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             _settings.Store.KeyboardLayout = layout;
             _settings.SynchronizeStore();
 
-            _device.SetLayout(layout, _controller.IsExtendedSupported());
+            _device.SetLayout(layout, _controller.IsExtended);
 
             await StartAnimationAsync();
         }
