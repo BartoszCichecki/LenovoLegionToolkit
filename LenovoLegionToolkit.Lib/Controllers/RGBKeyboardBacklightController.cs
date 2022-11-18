@@ -24,6 +24,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         private readonly Vantage _vantage;
 
+        private SafeFileHandle? _driverHandle;
+
         private SafeFileHandle? DriverHandle
         {
             get
@@ -31,7 +33,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 if (ForceDisable)
                     return null;
 
-                return Devices.GetRGBKeyboard();
+                _driverHandle ??= Devices.GetRGBKeyboard();
+                return _driverHandle;
             }
         }
 
