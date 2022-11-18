@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System;
@@ -16,38 +17,74 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         private readonly Vantage _vantage;
 
-        private SafeFileHandle? _driverHandle;
+        private readonly Lazy<SafeFileHandle?> _driverHandle;
+        private readonly Lazy<bool> _isExtended;
 
-        private SafeFileHandle? DriverHandle
-        {
-            get
-            {
-                if (ForceDisable)
-                    return null;
+        private SafeFileHandle? DriverHandle => _driverHandle.Value;
 
-                _driverHandle ??= Devices.GetExtendedSpectrumRGBKeyboard() ?? Devices.GetSpectrumRGBKeyboard();
-                return _driverHandle;
-            }
-        }
+        public bool IsExtended => _isExtended.Value;
 
         public bool ForceDisable { get; set; }
 
         public SpectrumKeyboardBacklightController(Vantage vantage)
         {
             _vantage = vantage ?? throw new ArgumentNullException(nameof(vantage));
+
+            _driverHandle = new(HandleValueFactory, LazyThreadSafetyMode.ExecutionAndPublication);
+            _isExtended = new(IsExtendedValueFactory, LazyThreadSafetyMode.ExecutionAndPublication);
+        }
+
+        private SafeFileHandle? HandleValueFactory()
+        {
+            try
+            {
+                if (ForceDisable)
+                    return null;
+
+                var handle = Devices.GetSpectrumRGBKeyboard();
+                if (handle is null)
+                    return null;
+
+                SetAndGetFeature(handle, new LENOVO_SPECTRUM_GET_COMPATIBILITY_REQUEST(), out LENOVO_SPECTRUM_GET_COMPATIBILITY_RESPONSE res);
+                if (!res.IsCompatible)
+                    return null;
+
+                return handle;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        private bool IsExtendedValueFactory()
+        {
+            try
+            {
+                if (DriverHandle is null)
+                    return false;
+
+                SetAndGetFeature(DriverHandle, new LENOVO_SPECTRUM_GET_KEYCOUNT_REQUEST(), out LENOVO_SPECTRUM_GET_KEYCOUNT_RESPONSE res);
+                return res.IsExtended;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public bool IsSupported() => DriverHandle is not null;
-
-        public bool IsExtendedSupported() => IsSupported() && DriverHandle == Devices.GetExtendedSpectrumRGBKeyboard();
 
         public async Task<int> GetBrightnessAsync()
         {
             ThrowIfHandleNull();
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
+            if (DriverHandle is null)
+                throw new InvalidOperationException(nameof(DriverHandle));
+
             var input = new LENOVO_SPECTRUM_GET_BRIGHTNESS_REQUEST();
-            SetAndGetFeature(input, out LENOVO_SPECTRUM_GET_BRIGTHNESS_RESPONSE output);
+            SetAndGetFeature(DriverHandle, input, out LENOVO_SPECTRUM_GET_BRIGTHNESS_RESPONSE output);
             return output.Brightness;
         }
 
@@ -56,8 +93,11 @@ namespace LenovoLegionToolkit.Lib.Controllers
             ThrowIfHandleNull();
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
+            if (DriverHandle is null)
+                throw new InvalidOperationException(nameof(DriverHandle));
+
             var input = new LENOVO_SPECTRUM_SET_BRIGHTHNESS_REQUEST((byte)brightness);
-            SetFeature(input);
+            SetFeature(DriverHandle, input);
         }
 
         public async Task<int> GetProfileAsync()
@@ -65,8 +105,11 @@ namespace LenovoLegionToolkit.Lib.Controllers
             ThrowIfHandleNull();
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
+            if (DriverHandle is null)
+                throw new InvalidOperationException(nameof(DriverHandle));
+
             var input = new LENOVO_SPECTRUM_GET_PROFILE_REQUEST();
-            SetAndGetFeature(input, out LENOVO_SPECTRUM_GET_PROFILE_RESPONSE output);
+            SetAndGetFeature(DriverHandle, input, out LENOVO_SPECTRUM_GET_PROFILE_RESPONSE output);
             return output.Profile;
         }
 
@@ -75,8 +118,11 @@ namespace LenovoLegionToolkit.Lib.Controllers
             ThrowIfHandleNull();
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
+            if (DriverHandle is null)
+                throw new InvalidOperationException(nameof(DriverHandle));
+
             var input = new LENOVO_SPECTRUM_SET_PROFILE_REQUEST((byte)profile);
-            SetFeature(input);
+            SetFeature(DriverHandle, input);
 
             await Task.Delay(TimeSpan.FromMilliseconds(250)); // Looks like keyboard needs some time
         }
@@ -86,8 +132,11 @@ namespace LenovoLegionToolkit.Lib.Controllers
             ThrowIfHandleNull();
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
+            if (DriverHandle is null)
+                throw new InvalidOperationException(nameof(DriverHandle));
+
             var input = new LENOVO_SPECTRUM_SET_PROFILE_DEFAULT_REQUEST((byte)profile);
-            SetFeature(input);
+            SetFeature(DriverHandle, input);
         }
 
         public async Task SetProfileDescriptionAsync(int profile, SpectrumKeyboardBacklightEffect[] effects)
@@ -95,9 +144,12 @@ namespace LenovoLegionToolkit.Lib.Controllers
             ThrowIfHandleNull();
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
+            if (DriverHandle is null)
+                throw new InvalidOperationException(nameof(DriverHandle));
+
             effects = Compress(effects);
             var bytes = Convert(profile, effects).ToBytes();
-            SetFeature(bytes);
+            SetFeature(DriverHandle, bytes);
         }
 
         public async Task<(int, SpectrumKeyboardBacklightEffect[])> GetProfileDescriptionAsync(int profile)
@@ -105,8 +157,11 @@ namespace LenovoLegionToolkit.Lib.Controllers
             ThrowIfHandleNull();
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
+            if (DriverHandle is null)
+                throw new InvalidOperationException(nameof(DriverHandle));
+
             var input = new LENOVO_SPECTRUM_GET_EFFECT_REQUEST((byte)profile);
-            SetAndGetFeature(input, out var buffer, 960);
+            SetAndGetFeature(DriverHandle, input, out var buffer, 960);
 
             var description = LENOVO_SPECTRUM_EFFECT_DESCRIPTION.FromBytes(buffer);
             return Convert(description);
@@ -117,7 +172,10 @@ namespace LenovoLegionToolkit.Lib.Controllers
             ThrowIfHandleNull();
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            GetFeature(out LENOVO_SPECTRUM_STATE_RESPONSE state);
+            if (DriverHandle is null)
+                throw new InvalidOperationException(nameof(DriverHandle));
+
+            GetFeature(DriverHandle, out LENOVO_SPECTRUM_STATE_RESPONSE state);
 
             var dict = new Dictionary<ushort, RGBColor>();
 
@@ -144,25 +202,25 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 throw new InvalidOperationException("Can't manage Spectrum keyboard with Vantage enabled.");
         }
 
-        private void SetAndGetFeature<TIn, TOut>(TIn input, out TOut output) where TIn : notnull where TOut : struct
+        private void SetAndGetFeature<TIn, TOut>(SafeFileHandle handle, TIn input, out TOut output) where TIn : notnull where TOut : struct
         {
             lock (IoLock)
             {
-                SetFeature(input);
-                GetFeature(out output);
+                SetFeature(handle, input);
+                GetFeature(handle, out output);
             }
         }
 
-        private void SetAndGetFeature<TIn>(TIn input, out byte[] output, int size) where TIn : notnull
+        private void SetAndGetFeature<TIn>(SafeFileHandle handle, TIn input, out byte[] output, int size) where TIn : notnull
         {
             lock (IoLock)
             {
-                SetFeature(input);
-                GetFeature(out output, size);
+                SetFeature(handle, input);
+                GetFeature(handle, out output, size);
             }
         }
 
-        private unsafe void SetFeature<T>(T str) where T : notnull
+        private unsafe void SetFeature<T>(SafeFileHandle handle, T str) where T : notnull
         {
             lock (IoLock)
             {
@@ -183,7 +241,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                         Marshal.StructureToPtr(str, ptr, false);
                     }
 
-                    var result = PInvoke.HidD_SetFeature(DriverHandle, ptr.ToPointer(), (uint)size);
+                    var result = PInvoke.HidD_SetFeature(handle, ptr.ToPointer(), (uint)size);
                     if (!result)
                         PInvokeExtensions.ThrowIfWin32Error(typeof(T).Name);
                 }
@@ -194,7 +252,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
         }
 
-        private unsafe void GetFeature<T>(out T str) where T : struct
+        private unsafe void GetFeature<T>(SafeFileHandle handle, out T str) where T : struct
         {
             lock (IoLock)
             {
@@ -205,7 +263,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                     ptr = Marshal.AllocHGlobal(size);
                     Marshal.Copy(new byte[] { 7 }, 0, ptr, 1);
 
-                    var result = PInvoke.HidD_GetFeature(DriverHandle, ptr.ToPointer(), (uint)size);
+                    var result = PInvoke.HidD_GetFeature(handle, ptr.ToPointer(), (uint)size);
                     if (!result)
                         PInvokeExtensions.ThrowIfWin32Error(typeof(T).Name);
 
@@ -218,7 +276,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
         }
 
-        private unsafe void GetFeature(out byte[] bytes, int size)
+        private unsafe void GetFeature(SafeFileHandle handle, out byte[] bytes, int size)
         {
             lock (IoLock)
             {
@@ -228,7 +286,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                     ptr = Marshal.AllocHGlobal(size);
                     Marshal.Copy(new byte[] { 7 }, 0, ptr, 1);
 
-                    var result = PInvoke.HidD_GetFeature(DriverHandle, ptr.ToPointer(), (uint)size);
+                    var result = PInvoke.HidD_GetFeature(handle, ptr.ToPointer(), (uint)size);
                     if (!result)
                         PInvokeExtensions.ThrowIfWin32Error("bytes");
 
