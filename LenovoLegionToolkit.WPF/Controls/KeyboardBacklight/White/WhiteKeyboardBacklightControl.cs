@@ -23,10 +23,8 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.White
             if (!IsLoaded || !IsVisible)
                 return;
 
-            if (e != DriverKey.Fn_Space)
-                return;
-
-            await RefreshAsync();
+            if (e.HasFlag(DriverKey.Fn_Space))
+                await RefreshAsync();
         });
     }
 }
