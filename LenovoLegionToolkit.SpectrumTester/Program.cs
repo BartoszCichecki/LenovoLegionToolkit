@@ -9,7 +9,7 @@ Console.WriteLine(@"How to use:
   2. Set the keyboard brightness to maximum.
 
 When ready, press any key to continue...");
-Console.ReadLine();
+Console.ReadKey();
 
 var device = Devices.GetSpectrumRGBKeyboard();
 
@@ -18,7 +18,7 @@ Console.WriteLine("Finding Spectrum keyboard...");
 if (device is null)
 {
     Console.WriteLine("Spectrum not supported");
-    Console.ReadLine();
+    Console.ReadKey();
     return;
 }
 
@@ -85,7 +85,7 @@ How to find a keycode for a specific key:
   5. Set the keyboard brightness to maximum
 
 When ready, press any key to continue...");
-Console.ReadLine();
+Console.ReadKey();
 
 Console.WriteLine("Reading white key keycodes...]");
 Console.WriteLine();
