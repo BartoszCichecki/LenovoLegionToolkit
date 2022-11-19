@@ -384,6 +384,9 @@ Switching modes may require restart.</value>
   <data name="CopyAll" xml:space="preserve">
     <value>Copy all</value>
   </data>
+  <data name="DashboardPage_Display_Title" xml:space="preserve">
+		<value>Display</value>
+	</data>
   <data name="DashboardPage_Graphics_Title" xml:space="preserve">
     <value>Graphics</value>
   </data>
