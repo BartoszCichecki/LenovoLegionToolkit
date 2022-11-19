@@ -2847,6 +2847,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Default.
+        /// </summary>
+        public static string PowerPlansWindow_DefaultPowerPlan {
+            get {
+                return ResourceManager.GetString("PowerPlansWindow_DefaultPowerPlan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Performance mode.
         /// </summary>
         public static string PowerPlansWindow_PerformanceMode {

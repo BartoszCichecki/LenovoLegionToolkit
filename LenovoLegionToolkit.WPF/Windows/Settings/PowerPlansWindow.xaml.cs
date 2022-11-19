@@ -14,7 +14,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
 {
     public partial class PowerPlansWindow
     {
-        private static readonly object DEFAULT_VALUE = new string("(Default)");
+        private static readonly object DefaultValue = Resource.PowerPlansWindow_DefaultPowerPlan;
 
         private readonly PowerModeFeature _powerModeFeature = IoCContainer.Resolve<PowerModeFeature>();
         private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
@@ -70,9 +70,9 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
             var selectedValue = powerPlans.FirstOrDefault(pp => pp.InstanceID == settingsPowerPlanInstanceID);
 
             comboBox.Items.Clear();
-            comboBox.Items.Add(DEFAULT_VALUE);
+            comboBox.Items.Add(DefaultValue);
             comboBox.Items.AddRange(powerPlans);
-            comboBox.SelectedValue = selectedValue.Equals(default(PowerPlan)) ? DEFAULT_VALUE : selectedValue;
+            comboBox.SelectedValue = selectedValue.Equals(default(PowerPlan)) ? DefaultValue : selectedValue;
         }
 
         private async Task PowerPlanChangedAsync(object value, PowerModeState powerModeState)
