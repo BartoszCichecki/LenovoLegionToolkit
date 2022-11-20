@@ -108,6 +108,8 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 
         private async void ProfileButton_OnClick(object sender, RoutedEventArgs e)
         {
+            await StopAnimationAsync();
+
             if ((sender as RadioButton)?.Tag is not int profile)
                 return;
 
@@ -126,6 +128,9 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             foreach (var profileButton in ProfileButtons)
                 profileButton.IsEnabled = true;
             _brightnessSlider.IsEnabled = true;
+
+            if (IsVisible)
+                await StartAnimationAsync();
         }
 
         private void SelectableControl_Selected(object? sender, SelectableControl.SelectedEventArgs e)
@@ -159,7 +164,8 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 
             _device.SetLayout(layout, _controller.IsExtended);
 
-            await StartAnimationAsync();
+            if (IsVisible)
+                await StartAnimationAsync();
         }
 
         private void AddEffectButton_Click(object sender, RoutedEventArgs e)
@@ -276,8 +282,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
                     token.ThrowIfCancellationRequested();
 
                     var delay = Task.Delay(_refreshStateInterval, token);
-
-                    var state = await _controller.GetStateAsync();
+                    var state = await Task.Run(_controller.GetStateAsync, token);
 
                     foreach (var button in buttons)
                     {
@@ -440,12 +445,6 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 
         private void EditEffect(SpectrumKeyboardEffectControl effectControl)
         {
-            if (effectControl.Effect.Type == SpectrumKeyboardBacklightEffectType.AuroraSync)
-            {
-                SnackbarHelper.Show(Resource.SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Title, Resource.SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Message, true);
-                return;
-            }
-
             var keyCodes = _device.GetVisibleButtons().Select(b => b.KeyCode).ToArray();
             var window = new SpectrumKeyboardBacklightEditEffectWindow(effectControl.Effect, keyCodes)
             {

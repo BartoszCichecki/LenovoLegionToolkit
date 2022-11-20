@@ -3601,24 +3601,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aurora Sync effect is not currently supported..
-        /// </summary>
-        public static string SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Message {
-            get {
-                return ResourceManager.GetString("SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Aurora Sync is not supported.
-        /// </summary>
-        public static string SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Title {
-            get {
-                return ResourceManager.GetString("SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Brightness.
         /// </summary>
         public static string SpectrumKeyboardBacklightControl_Brightness_Title {

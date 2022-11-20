@@ -115,7 +115,8 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
                     SpectrumKeyboardBacklightEffectType.Ripple,
                     SpectrumKeyboardBacklightEffectType.Type,
                     SpectrumKeyboardBacklightEffectType.AudioBounce,
-                    SpectrumKeyboardBacklightEffectType.AudioRipple
+                    SpectrumKeyboardBacklightEffectType.AudioRipple,
+                    SpectrumKeyboardBacklightEffectType.AuroraSync
                 },
                 SpectrumKeyboardBacklightEffectType.Always,
                 e => e.GetDisplayName());
@@ -176,10 +177,9 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
             if (!_effectTypeComboBox.TryGetSelectedItem(out SpectrumKeyboardBacklightEffectType effect))
                 return;
 
-            if (IsWholeKeyboardEffect(effect))
-                _effectTypeCardHeader.Warning = Resource.SpectrumKeyboardBacklightEditEffectWindow_Effect_Warning;
-            else
-                _effectTypeCardHeader.Warning = string.Empty;
+            _effectTypeCardHeader.Warning = IsWholeKeyboardEffect(effect)
+                ? Resource.SpectrumKeyboardBacklightEditEffectWindow_Effect_Warning
+                : string.Empty;
 
             _directionCard.Visibility = effect switch
             {
@@ -232,6 +232,7 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
             SpectrumKeyboardBacklightEffectType.AudioBounce => true,
             SpectrumKeyboardBacklightEffectType.AudioRipple => true,
             SpectrumKeyboardBacklightEffectType.Ripple => true,
+            SpectrumKeyboardBacklightEffectType.AuroraSync => true,
             _ => false
         };
     }
