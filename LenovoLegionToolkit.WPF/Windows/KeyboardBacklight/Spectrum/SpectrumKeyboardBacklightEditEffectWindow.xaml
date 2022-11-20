@@ -55,6 +55,7 @@
                         x:Name="_effectTypeComboBox"
                         MinWidth="160"
                         Margin="0,0,0,8"
+                        MaxDropDownHeight="Auto"
                         SelectionChanged="EffectsComboBox_SelectionChanged" />
                 </wpfui:CardControl>
 
@@ -65,7 +66,8 @@
                     <ComboBox
                         x:Name="_directionComboBox"
                         MinWidth="160"
-                        Margin="0,0,0,8" />
+                        Margin="0,0,0,8"
+                        MaxDropDownHeight="Auto" />
                 </wpfui:CardControl>
 
                 <wpfui:CardControl x:Name="_clockwiseDirectionCard" Margin="0,0,0,8">
@@ -75,7 +77,8 @@
                     <ComboBox
                         x:Name="_clockwiseDirectionComboBox"
                         MinWidth="160"
-                        Margin="0,0,0,8" />
+                        Margin="0,0,0,8"
+                        MaxDropDownHeight="Auto" />
                 </wpfui:CardControl>
 
                 <wpfui:CardControl x:Name="_speedCard" Margin="0,0,0,8">
@@ -85,7 +88,8 @@
                     <ComboBox
                         x:Name="_speedComboBox"
                         MinWidth="160"
-                        Margin="0,0,0,8" />
+                        Margin="0,0,0,8"
+                        MaxDropDownHeight="Auto" />
                 </wpfui:CardControl>
 
                 <wpfui:CardControl x:Name="_singleColor" Margin="0,0,0,8">
