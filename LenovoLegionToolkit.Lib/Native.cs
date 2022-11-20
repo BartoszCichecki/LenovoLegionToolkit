@@ -132,7 +132,7 @@ namespace LenovoLegionToolkit.Lib
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     internal struct LENOVO_SPECTRUM_KEY_STATE
     {
-        public ushort Key;
+        public ushort KeyCode;
         public LENOVO_SPECTRUM_COLOR Color;
     }
 
@@ -140,7 +140,7 @@ namespace LenovoLegionToolkit.Lib
     internal struct LENOVO_SPECTRUM_KEYPAGE_ITEM
     {
         public byte Index;
-        public ushort Key;
+        public ushort KeyCode;
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -198,16 +198,16 @@ namespace LenovoLegionToolkit.Lib
         public byte NumberOfColors;
         public LENOVO_SPECTRUM_COLOR[] Colors;
         public byte NumberOfKeys;
-        public ushort[] Keys;
+        public ushort[] KeyCodes;
 
-        public LENOVO_SPECTRUM_EFFECT(LENOVO_SPECTRUM_EFFECT_HEADER effectHeader, int effectNo, LENOVO_SPECTRUM_COLOR[] colors, ushort[] keys)
+        public LENOVO_SPECTRUM_EFFECT(LENOVO_SPECTRUM_EFFECT_HEADER effectHeader, int effectNo, LENOVO_SPECTRUM_COLOR[] colors, ushort[] keyCodes)
         {
             EffectHeader = effectHeader;
             EffectNo = (byte)effectNo;
             NumberOfColors = (byte)colors.Length;
             Colors = colors;
-            NumberOfKeys = (byte)keys.Length;
-            Keys = keys;
+            NumberOfKeys = (byte)keyCodes.Length;
+            KeyCodes = keyCodes;
         }
     }
 
@@ -467,8 +467,8 @@ namespace LenovoLegionToolkit.Lib
                 var noOfKeys = br.ReadByte();
                 for (var i = 0; i < noOfKeys; i++)
                 {
-                    var key = br.ReadUInt16();
-                    keyCodes.Add(key);
+                    var keyCode = br.ReadUInt16();
+                    keyCodes.Add(keyCode);
                 }
 
                 effects.Add(new(effectHeader, effectNo, colors.ToArray(), keyCodes.ToArray()));
@@ -518,9 +518,9 @@ namespace LenovoLegionToolkit.Lib
                 }
 
                 bf.Write(effect.NumberOfKeys);
-                foreach (var key in effect.Keys)
+                foreach (var keyCode in effect.KeyCodes)
                 {
-                    bf.Write(key);
+                    bf.Write(keyCode);
                 }
             }
 

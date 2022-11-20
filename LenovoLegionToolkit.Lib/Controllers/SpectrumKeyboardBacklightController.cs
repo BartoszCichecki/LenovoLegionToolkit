@@ -262,10 +262,10 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
             var dict = new Dictionary<ushort, RGBColor>();
 
-            foreach (var key in state.Data.Where(k => k.Key > 0))
+            foreach (var key in state.Data.Where(k => k.KeyCode > 0))
             {
                 var rgb = new RGBColor(key.Color.R, key.Color.G, key.Color.B);
-                dict.TryAdd(key.Key, rgb);
+                dict.TryAdd(key.KeyCode, rgb);
             }
 
             return dict;
@@ -294,7 +294,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 for (var i = 0; i < keyCountResponse.Indexes; i++)
                 {
                     SetAndGetFeature(DriverHandle, new LENOVO_SPECTRUM_GET_KEYPAGE_REQUEST((byte)i), out LENOVO_SPECTRUM_GET_KEYPAGE_RESPONSE keyPageResponse);
-                    keyMap[i] = keyPageResponse.Items.Take(keyCountResponse.KeysPerIndex).Select(k => k.Key).ToArray();
+                    keyMap[i] = keyPageResponse.Items.Take(keyCountResponse.KeysPerIndex).Select(k => k.KeyCode).ToArray();
                 }
 
                 return keyMap;
@@ -541,10 +541,10 @@ namespace LenovoLegionToolkit.Lib.Controllers
             var colors = effect.Colors.Select(c => new RGBColor(c.R, c.G, c.B)).ToArray();
 
             SpectrumKeyboardBacklightKeys keys;
-            if (effect.Keys.Length == 1 && effect.Keys[0] == 0x65)
+            if (effect.KeyCodes.Length == 1 && effect.KeyCodes[0] == 0x65)
                 keys = SpectrumKeyboardBacklightKeys.AllKeys();
             else
-                keys = SpectrumKeyboardBacklightKeys.SomeKeys(effect.Keys);
+                keys = SpectrumKeyboardBacklightKeys.SomeKeys(effect.KeyCodes);
 
             return new(effectType, speed, direction, clockwiseDirection, colors, keys);
         }
