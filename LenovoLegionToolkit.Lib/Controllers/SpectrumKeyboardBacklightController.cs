@@ -20,6 +20,20 @@ namespace LenovoLegionToolkit.Lib.Controllers
             RGBColor[][] CaptureScreen(int width, int height, CancellationToken token);
         }
 
+        private struct KeyMap
+        {
+            public static readonly KeyMap Empty = new KeyMap(Array.Empty<ushort[]>(), Array.Empty<ushort>());
+
+            public readonly ushort[][] KeyCodes;
+            public readonly ushort[] AdditionalKeyCodes;
+
+            public KeyMap(ushort[][] keyCodes, ushort[] additionalKeyCodes)
+            {
+                KeyCodes = keyCodes;
+                AdditionalKeyCodes = additionalKeyCodes;
+            }
+        }
+
         private static readonly object IoLock = new();
 
         private readonly SpecialKeyListener _listener;
@@ -271,30 +285,53 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 throw new InvalidOperationException("Can't manage Spectrum keyboard with Vantage enabled.");
         }
 
-        private HashSet<ushort> ReadAllKeyCodes() => GetKeyMap().SelectMany(k => k).Where(k => k > 0).ToHashSet();
+        private HashSet<ushort> ReadAllKeyCodes()
+        {
+            var keyMap = GetKeyMap();
+            return keyMap.KeyCodes.SelectMany(k => k)
+                .Union(keyMap.AdditionalKeyCodes)
+                .Where(k => k > 0)
+                .ToHashSet();
+        }
 
-        private ushort[][] GetKeyMap()
+        private KeyMap GetKeyMap()
         {
             try
             {
                 if (DriverHandle is null)
-                    return Array.Empty<ushort[]>();
+                    return KeyMap.Empty;
 
-                SetAndGetFeature(DriverHandle, new LENOVO_SPECTRUM_GET_KEYCOUNT_REQUEST(), out LENOVO_SPECTRUM_GET_KEYCOUNT_RESPONSE keyCountResponse);
+                SetAndGetFeature(DriverHandle,
+                    new LENOVO_SPECTRUM_GET_KEYCOUNT_REQUEST(),
+                    out LENOVO_SPECTRUM_GET_KEYCOUNT_RESPONSE keyCountResponse);
 
-                var keyMap = new ushort[keyCountResponse.Indexes][];
+                var keyCodes = new ushort[keyCountResponse.Indexes][];
 
                 for (var i = 0; i < keyCountResponse.Indexes; i++)
                 {
-                    SetAndGetFeature(DriverHandle, new LENOVO_SPECTRUM_GET_KEYPAGE_REQUEST((byte)i), out LENOVO_SPECTRUM_GET_KEYPAGE_RESPONSE keyPageResponse);
-                    keyMap[i] = keyPageResponse.Items.Take(keyCountResponse.KeysPerIndex).Select(k => k.KeyCode).ToArray();
+                    SetAndGetFeature(DriverHandle,
+                        new LENOVO_SPECTRUM_GET_KEYPAGE_REQUEST((byte)i),
+                        out LENOVO_SPECTRUM_GET_KEYPAGE_RESPONSE keyPageResponse);
+
+                    keyCodes[i] = keyPageResponse.Items.Take(keyCountResponse.KeysPerIndex)
+                        .Select(k => k.KeyCode)
+                        .ToArray();
                 }
 
-                return keyMap;
+                SetAndGetFeature(DriverHandle,
+                    new LENOVO_SPECTRUM_GET_KEYPAGE_REQUEST(0, true),
+                    out LENOVO_SPECTRUM_GET_KEYPAGE_RESPONSE secondaryKeyPageResponse);
+
+                var additionalKeyCodes = secondaryKeyPageResponse.Items.Take(keyCountResponse.KeysPerIndex)
+                    .Select(k => k.KeyCode)
+                    .Where(k => k > 0)
+                    .ToArray();
+
+                return new(keyCodes, additionalKeyCodes);
             }
             catch
             {
-                return Array.Empty<ushort[]>();
+                return KeyMap.Empty;
             }
         }
 
@@ -308,8 +345,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
                     throw new InvalidOperationException(nameof(DriverHandle));
 
                 var keyMap = GetKeyMap();
-                var width = keyMap[0].Length;
-                var height = keyMap.Length;
+                var width = keyMap.KeyCodes[0].Length;
+                var height = keyMap.KeyCodes.Length;
 
                 SetFeature(DriverHandle, new LENOVO_SPECTRUM_AURORA_STARTSTOP_REQUEST(true, (byte)profile));
 
@@ -327,12 +364,22 @@ namespace LenovoLegionToolkit.Lib.Controllers
                     {
                         for (var x = 0; x < width; x++)
                         {
-                            var keyCode = keyMap[y][x];
+                            var keyCode = keyMap.KeyCodes[y][x];
                             if (keyCode < 1)
                                 continue;
+
                             var color = bitmap[y][x];
                             items.Add(new(keyCode, new(color.R, color.G, color.B)));
                         }
+                    }
+
+                    if (keyMap.AdditionalKeyCodes.Length > 0)
+                    {
+                        var colors = bitmap.SelectMany(c => c).ToArray();
+                        var r = (byte)colors.Average(c => c.R);
+                        var g = (byte)colors.Average(c => c.G);
+                        var b = (byte)colors.Average(c => c.B);
+                        items.AddRange(keyMap.AdditionalKeyCodes.Select(k => new LENOVO_SEPCTRUM_AURORA_ITEM(k, new(r, g, b))));
                     }
 
                     token.ThrowIfCancellationRequested();
