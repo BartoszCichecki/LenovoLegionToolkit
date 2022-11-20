@@ -1253,12 +1253,6 @@ Se recomandă repornirea după modificarea acestei opțiuni.</value>
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title_Message" xml:space="preserve">
     <value>Profilul de iluminare nu s-a putut aplica.</value>
   </data>
-  <data name="SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Message" xml:space="preserve">
-    <value>Efectul Aurora Sync nu este suportat momentan.</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Title" xml:space="preserve">
-    <value>Aurora Sync nu este suportat</value>
-  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Luminozitate</value>
   </data>
