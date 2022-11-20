@@ -64,12 +64,18 @@ Console.WriteLine();
 
 for (var i = 0; i < 10; i++)
 {
-    Console.WriteLine($"Reading response for 0xC5 {i}...");
+    Console.WriteLine($"Reading response for 0xC5 7 {i}...");
     SetFeature(device, new LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE.UnknownC5, 7, (byte)i));
-    GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE resC5);
-    Print(resC5.Bytes);
+    GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE resC57);
+    Print(resC57.Bytes);
     Console.WriteLine();
 }
+
+Console.WriteLine($"Reading response for 0xC5 8...");
+SetFeature(device, new LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE.UnknownC5, 8, 0));
+GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE resC58);
+Print(resC58.Bytes);
+Console.WriteLine();
 
 Console.WriteLine(resD1.Bytes[4] == 0 ? "Keyboard is RGB." : "Keyboard is white only.");
 Console.WriteLine(resC47.Bytes[5] == 0x9 && resC47.Bytes[6] == 0x16 ? "Keyboard is extended." : "Keyboard is is not extended.");
@@ -87,7 +93,7 @@ How to find a keycode for a specific key:
 When ready, press any key to continue...");
 Console.ReadKey();
 
-Console.WriteLine("Reading white key keycodes...]");
+Console.WriteLine("Reading white key keycodes...");
 Console.WriteLine();
 
 const int Iterations = 5;

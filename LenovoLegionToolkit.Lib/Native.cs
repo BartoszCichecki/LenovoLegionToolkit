@@ -277,12 +277,13 @@ namespace LenovoLegionToolkit.Lib
     internal struct LENOVO_SPECTRUM_GET_KEYPAGE_REQUEST
     {
         public LENOVO_SPECTRUM_HEADER Header;
-        public byte Parameter = 7;
+        public byte Parameter;
         public byte Index;
 
-        public LENOVO_SPECTRUM_GET_KEYPAGE_REQUEST(byte index)
+        public LENOVO_SPECTRUM_GET_KEYPAGE_REQUEST(byte index, bool secondary = false)
         {
             Header = new LENOVO_SPECTRUM_HEADER(LENOVO_SPECTRUM_OPERATION_TYPE.KeyPage, 0xC0);
+            Parameter = secondary ? (byte)8 : (byte)7;
             Index = index;
         }
     }
