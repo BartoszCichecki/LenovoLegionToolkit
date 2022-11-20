@@ -269,6 +269,33 @@ namespace LenovoLegionToolkit.WPF.Pages
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Couldn't set light control owner or current preset.", ex);
                 }
+
+                try
+                {
+                    var controller = IoCContainer.Resolve<SpectrumKeyboardBacklightController>();
+                    if (controller.IsSupported())
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Starting Aurora if needed...");
+
+                        var result = await controller.StartAuroraIfNeededAsync();
+                        if (result)
+                        {
+                            if (Log.Instance.IsTraceEnabled)
+                                Log.Instance.Trace($"Aurora started.");
+                        }
+                        else
+                        {
+                            if (Log.Instance.IsTraceEnabled)
+                                Log.Instance.Trace($"Aurora not needed.");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Couldn't start Aurora if needed.", ex);
+                }
             }
             else
             {
@@ -286,6 +313,23 @@ namespace LenovoLegionToolkit.WPF.Pages
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Couldn't set light control owner.", ex);
+                }
+
+                try
+                {
+                    if (IoCContainer.TryResolve<SpectrumKeyboardBacklightController>() is { } spectrumKeyboardBacklightController)
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Making sure Aurora is stopped...");
+
+                        if (spectrumKeyboardBacklightController.IsSupported())
+                            await spectrumKeyboardBacklightController.StopAuroraIfNeededAsync();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Couldn't stop Aurora.", ex);
                 }
 
                 try
