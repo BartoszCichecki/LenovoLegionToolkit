@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32.SafeHandles;
@@ -21,8 +22,9 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         private static readonly object IoLock = new();
 
-        private readonly IScreenCapture _screenCapture;
+        private readonly SpecialKeyListener _listener;
         private readonly Vantage _vantage;
+        private readonly IScreenCapture _screenCapture;
 
         private readonly Lazy<SafeFileHandle?> _driverHandle;
         private readonly Lazy<bool> _isExtended;
@@ -36,13 +38,16 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         public bool ForceDisable { get; set; }
 
-        public SpectrumKeyboardBacklightController(IScreenCapture screenCapture, Vantage vantage)
+        public SpectrumKeyboardBacklightController(SpecialKeyListener listener, Vantage vantage, IScreenCapture screenCapture)
         {
-            _screenCapture = screenCapture ?? throw new ArgumentNullException(nameof(screenCapture));
+            _listener = listener ?? throw new ArgumentNullException(nameof(listener));
             _vantage = vantage ?? throw new ArgumentNullException(nameof(vantage));
+            _screenCapture = screenCapture ?? throw new ArgumentNullException(nameof(screenCapture));
 
             _driverHandle = new(HandleValueFactory, LazyThreadSafetyMode.ExecutionAndPublication);
             _isExtended = new(IsExtendedValueFactory, LazyThreadSafetyMode.ExecutionAndPublication);
+
+            _listener.Changed += Listener_Changed;
         }
 
         private SafeFileHandle? HandleValueFactory()
@@ -81,6 +86,29 @@ namespace LenovoLegionToolkit.Lib.Controllers
             catch
             {
                 return false;
+            }
+        }
+
+        private async void Listener_Changed(object? sender, SpecialKey e)
+        {
+            if (!IsSupported() || await _vantage.GetStatusAsync() == SoftwareStatus.Enabled)
+                return;
+
+            switch (e)
+            {
+                case SpecialKey.SpectrumPreset1
+                    or SpecialKey.SpectrumPreset2
+                    or SpecialKey.SpectrumPreset3
+                    or SpecialKey.SpectrumPreset4
+                    or SpecialKey.SpectrumPreset5
+                    or SpecialKey.SpectrumPreset6:
+                    {
+                        if (_auroraRefreshTask is null)
+                            await StartAuroraIfNeededAsync().ConfigureAwait(false);
+                        else
+                            await StopAuroraIfNeededAsync().ConfigureAwait(false);
+                        break;
+                    }
             }
         }
 
@@ -211,6 +239,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             _auroraRefreshCancellationTokenSource?.Cancel();
             if (_auroraRefreshTask is not null)
                 await _auroraRefreshTask.ConfigureAwait(false);
+            _auroraRefreshTask = null;
         }
 
         public async Task<Dictionary<ushort, RGBColor>> GetStateAsync()
@@ -315,7 +344,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
             finally
             {
-                SetFeature(DriverHandle, new LENOVO_SPECTRUM_AURORA_STARTSTOP_REQUEST(false, (byte)profile));
+                var currentProfile = await GetProfileAsync();
+                SetFeature(DriverHandle, new LENOVO_SPECTRUM_AURORA_STARTSTOP_REQUEST(false, (byte)currentProfile));
             }
         }
 
