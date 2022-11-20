@@ -165,7 +165,13 @@ namespace LenovoLegionToolkit.Lib.Controllers
             var input = new LENOVO_SPECTRUM_SET_PROFILE_REQUEST((byte)profile);
             SetFeature(DriverHandle, input);
 
-            await Task.Delay(TimeSpan.FromMilliseconds(100)); // Looks like keyboard needs some time
+            // Looks like keyboard needs some time sometimes
+            int currentProfile;
+            do
+            {
+                await Task.Delay(TimeSpan.FromMilliseconds(10));
+                currentProfile = await GetProfileAsync().ConfigureAwait(false);
+            } while (currentProfile != profile);
 
             await StartAuroraIfNeededAsync(profile).ConfigureAwait(false);
         }
@@ -191,6 +197,9 @@ namespace LenovoLegionToolkit.Lib.Controllers
             effects = Compress(effects);
             var bytes = Convert(profile, effects).ToBytes();
             SetFeature(DriverHandle, bytes);
+
+            await StopAuroraIfNeededAsync().ConfigureAwait(false);
+            await StartAuroraIfNeededAsync(profile).ConfigureAwait(false);
         }
 
         public async Task<(int, SpectrumKeyboardBacklightEffect[])> GetProfileDescriptionAsync(int profile)
