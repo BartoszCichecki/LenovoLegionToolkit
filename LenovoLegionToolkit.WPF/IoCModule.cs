@@ -9,7 +9,7 @@ namespace LenovoLegionToolkit.WPF
         protected override void Load(ContainerBuilder builder)
         {
             builder.Register<ThemeManager>();
-
+            builder.Register<SpectrumScreenCapture>();
             builder.Register<NotificationsManager>().AutoActivate();
         }
     }

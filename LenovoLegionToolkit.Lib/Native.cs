@@ -62,6 +62,7 @@ namespace LenovoLegionToolkit.Lib
         Effect = 0xCC,
         GetBrightness = 0xCD,
         Brightness = 0xCE,
+        AuroraStartStop = 0xD0,
         AuroraSendBitmap = 0xA1,
     }
 
@@ -207,6 +208,19 @@ namespace LenovoLegionToolkit.Lib
             Colors = colors;
             NumberOfKeys = (byte)keys.Length;
             Keys = keys;
+        }
+    }
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    internal struct LENOVO_SEPCTRUM_AURORA_ITEM
+    {
+        public ushort KeyCode;
+        public LENOVO_SPECTRUM_COLOR Color;
+
+        public LENOVO_SEPCTRUM_AURORA_ITEM(ushort keyCode, LENOVO_SPECTRUM_COLOR color)
+        {
+            KeyCode = keyCode;
+            Color = color;
         }
     }
 
@@ -513,6 +527,54 @@ namespace LenovoLegionToolkit.Lib
             var position = ms.Position;
             bf.Seek(2, SeekOrigin.Begin);
             bf.Write((byte)(position % 255));
+
+            return ms.ToArray();
+        }
+    }
+
+    [StructLayout(LayoutKind.Sequential, Size = 960)]
+    internal struct LENOVO_SPECTRUM_AURORA_STARTSTOP_REQUEST
+    {
+        public LENOVO_SPECTRUM_HEADER Header;
+        public byte StartStop;
+        public byte Profile;
+
+        public LENOVO_SPECTRUM_AURORA_STARTSTOP_REQUEST(bool start, byte profile)
+        {
+            Header = new LENOVO_SPECTRUM_HEADER(LENOVO_SPECTRUM_OPERATION_TYPE.AuroraStartStop, 0xC0);
+            StartStop = start ? (byte)1 : (byte)2;
+            Profile = profile;
+        }
+    }
+
+    internal struct LENOVO_SPECTRUM_AURORA_SEND_BITMAP_REQUEST
+    {
+        public LENOVO_SPECTRUM_HEADER Header;
+        public LENOVO_SEPCTRUM_AURORA_ITEM[] Items;
+
+        public LENOVO_SPECTRUM_AURORA_SEND_BITMAP_REQUEST(LENOVO_SEPCTRUM_AURORA_ITEM[] items)
+        {
+            Header = new LENOVO_SPECTRUM_HEADER(LENOVO_SPECTRUM_OPERATION_TYPE.AuroraSendBitmap, 0xC0);
+            Items = items;
+        }
+
+        public byte[] ToBytes()
+        {
+            using var ms = new MemoryStream(new byte[960]);
+            using var bf = new BinaryWriter(ms);
+
+            bf.Write(Header.Head);
+            bf.Write((byte)Header.Type);
+            bf.Write(Header.Size);
+            bf.Write(Header.Tail);
+
+            foreach (var item in Items)
+            {
+                bf.Write(item.KeyCode);
+                bf.Write(item.Color.R);
+                bf.Write(item.Color.G);
+                bf.Write(item.Color.B);
+            }
 
             return ms.ToArray();
         }

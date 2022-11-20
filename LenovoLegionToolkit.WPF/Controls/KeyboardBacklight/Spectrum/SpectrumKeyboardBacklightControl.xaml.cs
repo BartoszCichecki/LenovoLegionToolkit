@@ -276,8 +276,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
                     token.ThrowIfCancellationRequested();
 
                     var delay = Task.Delay(_refreshStateInterval, token);
-
-                    var state = await _controller.GetStateAsync();
+                    var state = await Task.Run(_controller.GetStateAsync, token);
 
                     foreach (var button in buttons)
                     {
