@@ -1244,12 +1244,6 @@ Se desativado, esta app irá executar os atalhos Fn.
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title_Message" xml:space="preserve">
     <value>Não foi possível aplicar o perfil de iluminação.</value>
   </data>
-  <data name="SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Message" xml:space="preserve">
-    <value>O efeito Aurora Sync não é suportado de momento.</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Title" xml:space="preserve">
-    <value>O efeito Aurora Sync não é suportado</value>
-  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Luminosidade</value>
   </data>
