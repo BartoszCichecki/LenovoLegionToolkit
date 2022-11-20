@@ -367,10 +367,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
                 var control = GenerateStepControl(step);
                 var menuItem = new MenuItem { SymbolIcon = control.Icon, Header = control.Title };
-                if (ShouldAllow(step))
-                    menuItem.Click += async (s, e) => await AddStepAsync(control);
-                else
-                    menuItem.IsEnabled = false;
+                menuItem.Click += async (s, e) => await AddStepAsync(control);
                 menuItems.Add(menuItem);
             }
 
@@ -472,9 +469,6 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
 
         private async Task AddStepAsync(AbstractAutomationStepControl control)
         {
-            if (!ShouldAllow(control.AutomationStep))
-                return;
-
             _stepsStackPanel.Children.Add(control);
             _cardHeaderControl.Subtitle = GenerateSubtitle();
             _cardHeaderControl.SubtitleToolTip = _cardHeaderControl.Subtitle;
@@ -491,14 +485,6 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
             _addStepButton.ContextMenu = await CreateAddStepContextMenuAsync();
 
             OnChanged?.Invoke(this, EventArgs.Empty);
-        }
-
-        private bool ShouldAllow(IAutomationStep step)
-        {
-            if (step is PowerModeAutomationStep && AutomationPipeline.Trigger is IPowerModeAutomationPipelineTrigger)
-                return false;
-
-            return true;
         }
     }
 }
