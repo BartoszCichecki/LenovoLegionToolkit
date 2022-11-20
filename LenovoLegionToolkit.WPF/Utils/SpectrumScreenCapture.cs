@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using System.Drawing.Imaging;
+using System.Threading;
 using System.Windows.Forms;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
@@ -11,7 +12,7 @@ namespace LenovoLegionToolkit.WPF.Utils
         private const PixelFormat PIXEL_FORMAT = PixelFormat.Format16bppRgb555;
         private const int CUT_OFF = 32;
 
-        public RGBColor[][] CaptureScreen(int width, int height)
+        public RGBColor[][] CaptureScreen(int width, int height, CancellationToken token)
         {
             var screen = Screen.PrimaryScreen.Bounds;
 
@@ -22,10 +23,14 @@ namespace LenovoLegionToolkit.WPF.Utils
                 using (var graphics = Graphics.FromImage(image))
                     graphics.CopyFromScreen(screen.Left, screen.Top, 0, 0, screen.Size);
 
+                token.ThrowIfCancellationRequested();
+
                 using var targetGraphics = Graphics.FromImage(targetImage);
                 targetGraphics.Clear(Color.Black);
                 targetGraphics.DrawImage(image, new Rectangle(0, 0, width, height));
             }
+
+            token.ThrowIfCancellationRequested();
 
             var colors = new RGBColor[height][];
             for (var y = 0; y < height; y++)
@@ -39,6 +44,8 @@ namespace LenovoLegionToolkit.WPF.Utils
                         colors[y][x] = new RGBColor(0, 0, 0);
                     else
                         colors[y][x] = new RGBColor(pixel.R, pixel.G, pixel.B);
+
+                    token.ThrowIfCancellationRequested();
                 }
             }
 

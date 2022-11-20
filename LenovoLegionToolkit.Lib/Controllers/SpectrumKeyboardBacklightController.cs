@@ -17,7 +17,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
     {
         public interface IScreenCapture
         {
-            RGBColor[][] CaptureScreen(int width, int height);
+            RGBColor[][] CaptureScreen(int width, int height, CancellationToken token);
         }
 
         private static readonly object IoLock = new();
@@ -324,7 +324,9 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 {
                     var delay = Task.Delay(100, token);
 
-                    var bitmap = _screenCapture.CaptureScreen(width, height);
+                    var bitmap = _screenCapture.CaptureScreen(width, height, token);
+
+                    token.ThrowIfCancellationRequested();
 
                     var items = new List<LENOVO_SEPCTRUM_AURORA_ITEM>();
 
@@ -339,6 +341,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
                             items.Add(new(keyCode, new(color.R, color.G, color.B)));
                         }
                     }
+
+                    token.ThrowIfCancellationRequested();
 
                     SetFeature(DriverHandle, new LENOVO_SPECTRUM_AURORA_SEND_BITMAP_REQUEST(items.ToArray()).ToBytes());
 
