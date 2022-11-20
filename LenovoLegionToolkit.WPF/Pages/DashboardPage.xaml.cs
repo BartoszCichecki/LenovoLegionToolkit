@@ -5,45 +5,36 @@ namespace LenovoLegionToolkit.WPF.Pages
 {
     public partial class DashboardPage
     {
-        private const int WIDTH_BREAKPOINT = 1000;
-
-        private readonly StackPanel[] _collapsedPanels;
-
-        private readonly StackPanel[][] _expandedPanels;
-
-        public DashboardPage()
+        private StackPanel[] CollapsedPanels => new[]
         {
-            InitializeComponent();
+            _powerStackPanel,
+            _graphicsStackPanel,
+            _displayStackPanel,
+            _otherStackPanel
+        };
 
-            _collapsedPanels = new[]
+        private StackPanel[][] ExpandedPanels => new[]
+        {
+            new[]
             {
                 _powerStackPanel,
-                _graphicsStackPanel,
+                _graphicsStackPanel
+            },
+            new []
+            {
                 _displayStackPanel,
                 _otherStackPanel
-            };
+            }
+        };
 
-            _expandedPanels = new[]
-            {
-                new[]
-                {
-                    _powerStackPanel,
-                    _graphicsStackPanel
-                },
-                new []
-                {
-                    _displayStackPanel,
-                    _otherStackPanel
-                }
-            };
-        }
+        public DashboardPage() => InitializeComponent();
 
         private void DashboardPage_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             if (!e.WidthChanged)
                 return;
 
-            if (e.NewSize.Width > WIDTH_BREAKPOINT)
+            if (e.NewSize.Width > 1000)
                 Expand();
             else
                 Collapse();
@@ -51,10 +42,10 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private void Expand()
         {
-            for (var row = 0; row < _expandedPanels.Length; row++)
-                for (var column = 0; column < _expandedPanels[row].Length; column++)
+            for (var row = 0; row < ExpandedPanels.Length; row++)
+                for (var column = 0; column < ExpandedPanels[row].Length; column++)
                 {
-                    var panel = _expandedPanels[row][column];
+                    var panel = ExpandedPanels[row][column];
                     Grid.SetRow(panel, row);
                     Grid.SetColumn(panel, column);
                 }
@@ -64,9 +55,9 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private void Collapse()
         {
-            for (var row = 0; row < _collapsedPanels.Length; row++)
+            for (var row = 0; row < CollapsedPanels.Length; row++)
             {
-                var panel = _collapsedPanels[row];
+                var panel = CollapsedPanels[row];
                 Grid.SetRow(panel, row);
                 Grid.SetColumn(panel, 0);
             }
