@@ -1253,12 +1253,6 @@ A reinicialização é recomendada após alterar esta opção.</value>
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title_Message" xml:space="preserve">
     <value>O perfil de iluminação não pode ser aplicado.</value>
   </data>
-  <data name="SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Message" xml:space="preserve">
-    <value>Os efeitos do Aurora Sync não são suportados.</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Title" xml:space="preserve">
-    <value>O Aurora Sync não é suportado</value>
-  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Brilho</value>
   </data>
