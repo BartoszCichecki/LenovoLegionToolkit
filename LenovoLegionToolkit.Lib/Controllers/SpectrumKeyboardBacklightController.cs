@@ -103,10 +103,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                     or SpecialKey.SpectrumPreset5
                     or SpecialKey.SpectrumPreset6:
                     {
-                        if (_auroraRefreshTask is null)
-                            await StartAuroraIfNeededAsync().ConfigureAwait(false);
-                        else
-                            await StopAuroraIfNeededAsync().ConfigureAwait(false);
+                        await StartAuroraIfNeededAsync().ConfigureAwait(false);
                         break;
                     }
             }
@@ -162,16 +159,12 @@ namespace LenovoLegionToolkit.Lib.Controllers
             if (DriverHandle is null)
                 throw new InvalidOperationException(nameof(DriverHandle));
 
+            await StopAuroraIfNeededAsync().ConfigureAwait(false);
+
             var input = new LENOVO_SPECTRUM_SET_PROFILE_REQUEST((byte)profile);
             SetFeature(DriverHandle, input);
 
-            // Looks like keyboard needs some time sometimes
-            int currentProfile;
-            do
-            {
-                await Task.Delay(TimeSpan.FromMilliseconds(10));
-                currentProfile = await GetProfileAsync().ConfigureAwait(false);
-            } while (currentProfile != profile);
+            await Task.Delay(TimeSpan.FromMilliseconds(100)).ConfigureAwait(false);
 
             await StartAuroraIfNeededAsync(profile).ConfigureAwait(false);
         }
@@ -198,7 +191,6 @@ namespace LenovoLegionToolkit.Lib.Controllers
             var bytes = Convert(profile, effects).ToBytes();
             SetFeature(DriverHandle, bytes);
 
-            await StopAuroraIfNeededAsync().ConfigureAwait(false);
             await StartAuroraIfNeededAsync(profile).ConfigureAwait(false);
         }
 
@@ -232,7 +224,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 return false;
 
             _auroraRefreshCancellationTokenSource = new();
-            _auroraRefreshTask = Task.Run(() => AuroraRefreshAsync(profile.Value, _auroraRefreshCancellationTokenSource.Token));
+            var token = _auroraRefreshCancellationTokenSource.Token;
+            _auroraRefreshTask = Task.Run(() => AuroraRefreshAsync(profile.Value, token), token);
 
             return true;
 
@@ -305,15 +298,15 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
         }
 
-        private async void AuroraRefreshAsync(int profile, CancellationToken token)
+        private async Task AuroraRefreshAsync(int profile, CancellationToken token)
         {
-            await ThrowIfVantageEnabled().ConfigureAwait(false);
-
-            if (DriverHandle is null)
-                throw new InvalidOperationException(nameof(DriverHandle));
-
             try
             {
+                await ThrowIfVantageEnabled().ConfigureAwait(false);
+
+                if (DriverHandle is null)
+                    throw new InvalidOperationException(nameof(DriverHandle));
+
                 var keyMap = GetKeyMap();
                 var width = keyMap[0].Length;
                 var height = keyMap.Length;
@@ -348,6 +341,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
                     await delay;
                 }
+
+                bool complete = true;
             }
             catch (TaskCanceledException) { }
             catch (Exception ex)
