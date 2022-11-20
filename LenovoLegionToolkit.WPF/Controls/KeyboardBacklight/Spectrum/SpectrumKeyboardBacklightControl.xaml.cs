@@ -445,12 +445,6 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 
         private void EditEffect(SpectrumKeyboardEffectControl effectControl)
         {
-            if (effectControl.Effect.Type == SpectrumKeyboardBacklightEffectType.AuroraSync)
-            {
-                SnackbarHelper.Show(Resource.SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Title, Resource.SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Message, true);
-                return;
-            }
-
             var keyCodes = _device.GetVisibleButtons().Select(b => b.KeyCode).ToArray();
             var window = new SpectrumKeyboardBacklightEditEffectWindow(effectControl.Effect, keyCodes)
             {
