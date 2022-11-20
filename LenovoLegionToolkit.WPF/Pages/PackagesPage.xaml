@@ -93,7 +93,8 @@
                             x:Name="_osComboBox"
                             Grid.Row="1"
                             Grid.Column="1"
-                            Margin="8,8,0,0" />
+                            Margin="8,8,0,0"
+                            MaxDropDownHeight="Auto" />
                         <Grid
                             Grid.Row="2"
                             Grid.Column="1"
@@ -211,6 +212,7 @@
                             <ComboBox
                                 x:Name="_sortingComboBox"
                                 Grid.Column="2"
+                                MaxDropDownHeight="Auto"
                                 SelectedIndex="2"
                                 SelectionChanged="SortingComboBox_SelectionChanged">
                                 <ComboBoxItem Content="{x:Static resources:Resource.PackagesPage_Sort_Name}" />

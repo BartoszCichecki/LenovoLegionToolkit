@@ -45,6 +45,7 @@
                 x:Name="_themeComboBox"
                 MinWidth="160"
                 Margin="0,0,0,8"
+                MaxDropDownHeight="Auto"
                 SelectionChanged="ThemeComboBox_SelectionChanged"
                 Visibility="Hidden" />
         </wpfui:CardControl>
@@ -62,6 +63,7 @@
                     x:Name="_accentColorSourceComboBox"
                     MinWidth="160"
                     Margin="8,0,0,0"
+                    MaxDropDownHeight="Auto"
                     SelectionChanged="AccentColorSourceComboBox_SelectionChanged" />
             </StackPanel>
         </wpfui:CardControl>
@@ -74,6 +76,7 @@
                 x:Name="_autorunComboBox"
                 MinWidth="160"
                 Margin="0,0,0,8"
+                MaxDropDownHeight="Auto"
                 SelectionChanged="AutorunComboBox_SelectionChanged"
                 Visibility="Hidden" />
         </wpfui:CardControl>

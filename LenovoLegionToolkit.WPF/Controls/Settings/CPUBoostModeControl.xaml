@@ -38,11 +38,13 @@
                 x:Name="_comboBoxAC"
                 Grid.Row="0"
                 Grid.Column="1"
+                MaxDropDownHeight="Auto"
                 SelectionChanged="ComboBoxAC_SelectionChanged" />
             <ComboBox
                 x:Name="_comboBoxDC"
                 Grid.Row="1"
                 Grid.Column="1"
+                MaxDropDownHeight="Auto"
                 SelectionChanged="ComboBoxDC_SelectionChanged" />
         </Grid>
     </wpfui:CardExpander>

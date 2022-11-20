@@ -61,6 +61,7 @@
                             x:Name="_quietModeComboBox"
                             Width="200"
                             Margin="0,0,0,8"
+                            MaxDropDownHeight="Auto"
                             SelectionChanged="QuietModeComboBox_SelectionChanged" />
                     </wpfui:CardControl>
 
@@ -72,6 +73,7 @@
                             x:Name="_balanceModeComboBox"
                             Width="200"
                             Margin="0,0,0,8"
+                            MaxDropDownHeight="Auto"
                             SelectionChanged="BalanceModeComboBox_SelectionChanged" />
                     </wpfui:CardControl>
 
@@ -83,6 +85,7 @@
                             x:Name="_performanceModeComboBox"
                             Width="200"
                             Margin="0,0,0,8"
+                            MaxDropDownHeight="Auto"
                             SelectionChanged="PerformanceModeComboBox_SelectionChanged" />
                     </wpfui:CardControl>
 
@@ -94,6 +97,7 @@
                             x:Name="_godModeComboBox"
                             Width="200"
                             Margin="0,0,0,8"
+                            MaxDropDownHeight="Auto"
                             SelectionChanged="GodModeComboBox_SelectionChanged" />
                     </wpfui:CardControl>
 
