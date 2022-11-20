@@ -385,8 +385,11 @@
   <data name="CopyAll" xml:space="preserve">
     <value>复制全部</value>
   </data>
+  <data name="DashboardPage_Display_Title" xml:space="preserve">
+		<value>显示</value>
+	</data>
   <data name="DashboardPage_Graphics_Title" xml:space="preserve">
-    <value>显示</value>
+    <value>图形</value>
   </data>
   <data name="DashboardPage_Other_Title" xml:space="preserve">
     <value>其他</value>
@@ -1006,6 +1009,9 @@
   <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
     <value>自定义模式</value>
   </data>
+  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
+		<value>默认</value>
+	</data>
   <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
     <value>野兽模式</value>
   </data>
