@@ -341,19 +341,20 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
                     await delay;
                 }
-
-                bool complete = true;
             }
             catch (TaskCanceledException) { }
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Unexpected exception in while sending bitmap.", ex);
+                    Log.Instance.Trace($"Unexpected exception while refreshing Aurora.", ex);
             }
             finally
             {
-                var currentProfile = await GetProfileAsync();
-                SetFeature(DriverHandle, new LENOVO_SPECTRUM_AURORA_STARTSTOP_REQUEST(false, (byte)currentProfile));
+                if (DriverHandle is not null)
+                {
+                    var currentProfile = await GetProfileAsync();
+                    SetFeature(DriverHandle, new LENOVO_SPECTRUM_AURORA_STARTSTOP_REQUEST(false, (byte)currentProfile));
+                }
             }
         }
 
