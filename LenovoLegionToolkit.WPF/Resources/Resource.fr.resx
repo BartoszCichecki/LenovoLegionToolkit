@@ -1264,9 +1264,6 @@ Il est recommandé de redémarrer l'ordinateur après avoir modifié cette optio
   <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
     <value>Sélectionner toutes les zones</value>
   </data>
-  <data name="SpectrumKeyboardBacklightControl_SwitchKeyboardLayout_ToolTip" xml:space="preserve">
-    <value>Changer disposition du clavier</value>
-  </data>
   <data name="SpectrumKeyboardBacklightEditEffectWindow_ClockwiseDirection_Title" xml:space="preserve">
     <value>Direction</value>
   </data>
