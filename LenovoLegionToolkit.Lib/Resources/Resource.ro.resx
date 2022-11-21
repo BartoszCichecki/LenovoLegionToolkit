@@ -265,25 +265,25 @@
   <data name="NotificationPosition_BottomRight" xml:space="preserve">
     <value>Dreapta jos</value>
   </data>
-  <data name="NotificationPosition_BottomMiddle" xml:space="preserve">
+  <data name="NotificationPosition_BottomCenter" xml:space="preserve">
     <value>Mijloc jos</value>
   </data>
   <data name="NotificationPosition_BottomLeft" xml:space="preserve">
     <value>Stânga jos</value>
   </data>
-  <data name="NotificationPosition_MiddleLeft" xml:space="preserve">
+  <data name="NotificationPosition_CenterLeft" xml:space="preserve">
     <value>Stânga mijloc</value>
   </data>
   <data name="NotificationPosition_TopLeft" xml:space="preserve">
     <value>Stânga sus</value>
   </data>
-  <data name="NotificationPosition_TopMiddle" xml:space="preserve">
+  <data name="NotificationPosition_TopCenter" xml:space="preserve">
     <value>Mijloc sus</value>
   </data>
   <data name="NotificationPosition_TopRight" xml:space="preserve">
     <value>Dreapta sus</value>
   </data>
-  <data name="NotificationPosition_MiddleRight" xml:space="preserve">
+  <data name="NotificationPosition_CenterRight" xml:space="preserve">
     <value>Dreapta mijloc</value>
   </data>
   <data name="NotificationPosition_Center" xml:space="preserve">

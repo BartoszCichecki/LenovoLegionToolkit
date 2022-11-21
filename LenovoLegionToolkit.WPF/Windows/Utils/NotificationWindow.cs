@@ -88,7 +88,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
                     Left = desktopWorkingArea.Right - Width - margin;
                     Top = desktopWorkingArea.Bottom - Height - margin;
                     break;
-                case NotificationPosition.BottomMiddle:
+                case NotificationPosition.BottomCenter:
                     Left = (desktopWorkingArea.Right - Width) / 2;
                     Top = desktopWorkingArea.Bottom - Height - margin;
                     break;
@@ -96,7 +96,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
                     Left = desktopWorkingArea.Left + margin;
                     Top = desktopWorkingArea.Bottom - Height - margin;
                     break;
-                case NotificationPosition.MiddleLeft:
+                case NotificationPosition.CenterLeft:
                     Left = desktopWorkingArea.Left + margin;
                     Top = (desktopWorkingArea.Bottom - Height) / 2;
                     break;
@@ -104,7 +104,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
                     Left = desktopWorkingArea.Left + margin;
                     Top = desktopWorkingArea.Top + margin;
                     break;
-                case NotificationPosition.TopMiddle:
+                case NotificationPosition.TopCenter:
                     Left = (desktopWorkingArea.Right - Width) / 2;
                     Top = desktopWorkingArea.Top + margin;
                     break;
@@ -112,7 +112,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
                     Left = desktopWorkingArea.Right - Width - margin;
                     Top = desktopWorkingArea.Top + margin;
                     break;
-                case NotificationPosition.MiddleRight:
+                case NotificationPosition.CenterRight:
                     Left = desktopWorkingArea.Right - Width - margin;
                     Top = (desktopWorkingArea.Bottom - Height) / 2;
                     break;
