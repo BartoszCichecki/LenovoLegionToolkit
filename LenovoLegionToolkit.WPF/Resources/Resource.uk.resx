@@ -793,6 +793,15 @@
   <data name="Notification_NumLockOn" xml:space="preserve">
     <value>Num Lock увімкнено</value>
   </data>
+  <data name="Notification_SpectrumKeyboardBacklight_Backlight" xml:space="preserve">
+		<value>Підсвітка {0}</value>
+	</data>
+  <data name="Notification_SpectrumKeyboardBacklight_Brightness" xml:space="preserve">
+		<value>Яскравість {0}</value>
+	</data>
+  <data name="Notification_SpectrumKeyboardBacklight_Profile" xml:space="preserve">
+		<value>Профіль {0}</value>
+	</data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
     <value>Тачпад вимкнений</value>
   </data>
@@ -988,6 +997,9 @@
   <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
     <value>Користувальницький режим</value>
   </data>
+  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
+		<value>За замовчуванням</value>
+	</data>
   <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
     <value>Режим продуктивності</value>
   </data>
@@ -1253,6 +1265,9 @@
   <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
     <value>Жодного ефекту не додано.</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip" xml:space="preserve">
+		<value>Скинути</value>
+	</data>
   <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
     <value>Обрати усі зони</value>
   </data>
