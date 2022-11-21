@@ -214,6 +214,87 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bottom left.
+        /// </summary>
+        public static string NotificationPosition_BottomLeft {
+            get {
+                return ResourceManager.GetString("NotificationPosition_BottomLeft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bottom middle.
+        /// </summary>
+        public static string NotificationPosition_BottomMiddle {
+            get {
+                return ResourceManager.GetString("NotificationPosition_BottomMiddle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bottom right.
+        /// </summary>
+        public static string NotificationPosition_BottomRight {
+            get {
+                return ResourceManager.GetString("NotificationPosition_BottomRight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Center.
+        /// </summary>
+        public static string NotificationPosition_Center {
+            get {
+                return ResourceManager.GetString("NotificationPosition_Center", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Middle left.
+        /// </summary>
+        public static string NotificationPosition_MiddleLeft {
+            get {
+                return ResourceManager.GetString("NotificationPosition_MiddleLeft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Middle right.
+        /// </summary>
+        public static string NotificationPosition_MiddleRight {
+            get {
+                return ResourceManager.GetString("NotificationPosition_MiddleRight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Top left.
+        /// </summary>
+        public static string NotificationPosition_TopLeft {
+            get {
+                return ResourceManager.GetString("NotificationPosition_TopLeft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Top middle.
+        /// </summary>
+        public static string NotificationPosition_TopMiddle {
+            get {
+                return ResourceManager.GetString("NotificationPosition_TopMiddle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Top right.
+        /// </summary>
+        public static string NotificationPosition_TopRight {
+            get {
+                return ResourceManager.GetString("NotificationPosition_TopRight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Balance.
         /// </summary>
         public static string PowerModeState_Balance {

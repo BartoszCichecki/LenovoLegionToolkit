@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
+using LenovoLegionToolkit.Lib;
 
 namespace LenovoLegionToolkit.WPF.Windows.Utils
 {
@@ -39,11 +40,11 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
             VerticalContentAlignment = VerticalAlignment.Center,
         };
 
-        public NotificationWindow(SymbolRegular symbol, SymbolRegular? overlaySymbol, Action<SymbolIcon>? symbolTransform, string text)
+        public NotificationWindow(SymbolRegular symbol, SymbolRegular? overlaySymbol, Action<SymbolIcon>? symbolTransform, string text, NotificationPosition position)
         {
             InitializeStyle();
             InitializeContent(symbol, overlaySymbol, symbolTransform, text);
-            InitializePosition();
+            InitializePosition(position);
 
             MouseDown += (s, e) => Close();
         }
@@ -70,7 +71,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
             _textBlock.Foreground = (SolidColorBrush)FindResource("TextFillColorPrimaryBrush");
         }
 
-        private void InitializePosition()
+        private void InitializePosition(NotificationPosition position)
         {
             _mainGrid.Measure(new Size(double.PositiveInfinity, 80));
 
@@ -78,8 +79,48 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
             Height = MinHeight = _mainGrid.DesiredSize.Height;
 
             var desktopWorkingArea = SystemParameters.WorkArea;
-            Left = desktopWorkingArea.Right - Width - 16;
-            Top = desktopWorkingArea.Bottom - Height - 16;
+
+            const int margin = 16;
+
+            switch (position)
+            {
+                case NotificationPosition.BottomRight:
+                    Left = desktopWorkingArea.Right - Width - margin;
+                    Top = desktopWorkingArea.Bottom - Height - margin;
+                    break;
+                case NotificationPosition.BottomMiddle:
+                    Left = (desktopWorkingArea.Right - Width) / 2;
+                    Top = desktopWorkingArea.Bottom - Height - margin;
+                    break;
+                case NotificationPosition.BottomLeft:
+                    Left = desktopWorkingArea.Left + margin;
+                    Top = desktopWorkingArea.Bottom - Height - margin;
+                    break;
+                case NotificationPosition.MiddleLeft:
+                    Left = desktopWorkingArea.Left + margin;
+                    Top = (desktopWorkingArea.Bottom - Height) / 2;
+                    break;
+                case NotificationPosition.TopLeft:
+                    Left = desktopWorkingArea.Left + margin;
+                    Top = desktopWorkingArea.Top + margin;
+                    break;
+                case NotificationPosition.TopMiddle:
+                    Left = (desktopWorkingArea.Right - Width) / 2;
+                    Top = desktopWorkingArea.Top + margin;
+                    break;
+                case NotificationPosition.TopRight:
+                    Left = desktopWorkingArea.Right - Width - margin;
+                    Top = desktopWorkingArea.Top + margin;
+                    break;
+                case NotificationPosition.MiddleRight:
+                    Left = desktopWorkingArea.Right - Width - margin;
+                    Top = (desktopWorkingArea.Bottom - Height) / 2;
+                    break;
+                case NotificationPosition.Center:
+                    Left = (desktopWorkingArea.Right - Width) / 2;
+                    Top = (desktopWorkingArea.Bottom - Height) / 2;
+                    break;
+            }
         }
 
         private void InitializeContent(SymbolRegular symbol, SymbolRegular? overlaySymbol, Action<SymbolIcon>? symbolTransform, string text)

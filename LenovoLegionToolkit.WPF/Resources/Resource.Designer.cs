@@ -2359,6 +2359,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Position.
+        /// </summary>
+        public static string NotificationsSettingsWindow_NotificationPosition_Title {
+            get {
+                return ResourceManager.GetString("NotificationsSettingsWindow_NotificationPosition_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Power Mode.
         /// </summary>
         public static string NotificationsSettingsWindow_PowerMode {
