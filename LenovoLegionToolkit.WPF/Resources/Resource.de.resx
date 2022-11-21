@@ -795,6 +795,15 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
   <data name="Notification_NumLockOn" xml:space="preserve">
     <value>Num Lock an</value>
   </data>
+  <data name="Notification_SpectrumKeyboardBacklight_Backlight" xml:space="preserve">
+		<value>Hintergrundbeleuchtung {0}</value>
+	</data>
+  <data name="Notification_SpectrumKeyboardBacklight_Brightness" xml:space="preserve">
+		<value>Helligkeit {0}</value>
+	</data>
+  <data name="Notification_SpectrumKeyboardBacklight_Profile" xml:space="preserve">
+		<value>Profil {0}</value>
+	</data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
     <value>Touchpad aus</value>
   </data>
@@ -990,6 +999,9 @@ Sie können den Modus mit Fn+Q wechseln.</value>
   <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
     <value>Benutzerdefinierter Modus</value>
   </data>
+  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
+		<value>Standard</value>
+	</data>
   <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
     <value>Leistungsmodus</value>
   </data>
@@ -1243,12 +1255,6 @@ Nach dem Ändern dieser Option wird ein Neustart empfohlen.</value>
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title_Message" xml:space="preserve">
     <value>Das Beleuchtungsprofil konnte nicht angewendet werden.</value>
   </data>
-  <data name="SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Message" xml:space="preserve">
-    <value>Der Aurora Sync-Effekt wird derzeit nicht unterstützt.</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Title" xml:space="preserve">
-    <value>Aurora Sync wird nicht unterstützt</value>
-  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Helligkeit</value>
   </data>
@@ -1261,6 +1267,9 @@ Nach dem Ändern dieser Option wird ein Neustart empfohlen.</value>
   <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
     <value>Keine Effekte hinzugefügt.</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip" xml:space="preserve">
+		<value>Auf Standardwerte zurücksetzen</value>
+	</data>
   <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
     <value>Alle Bereiche auswählen</value>
   </data>

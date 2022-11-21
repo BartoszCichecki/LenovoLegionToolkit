@@ -58,6 +58,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccentColorSource_Custom" xml:space="preserve">
+    <value>自定义</value>
+  </data>
+  <data name="AccentColorSource_System" xml:space="preserve">
+    <value>跟随系统</value>
+  </data>
   <data name="AlwaysOnUSBState_Off" xml:space="preserve">
     <value>关闭</value>
   </data>
@@ -68,14 +74,14 @@
     <value>仅在睡眠时</value>
   </data>
   <data name="AutorunState_Disabled" xml:space="preserve">
-		<value>关闭</value>
-	</data>
+    <value>关闭</value>
+  </data>
   <data name="AutorunState_Enabled" xml:space="preserve">
-		<value>开启</value>
-	</data>
+    <value>开启</value>
+  </data>
   <data name="AutorunState_EnabledDelayed" xml:space="preserve">
-		<value>延迟开启</value>
-	</data>
+    <value>延迟开启</value>
+  </data>
   <data name="BatteryState_Conservation" xml:space="preserve">
     <value>养护</value>
   </data>
@@ -161,83 +167,83 @@
     <value>预设 2</value>
   </data>
   <data name="SpectrumKeyboardBacklightBrightness_High" xml:space="preserve">
-		<value>高</value>
-	</data>
+    <value>高</value>
+  </data>
   <data name="SpectrumKeyboardBacklightBrightness_Low" xml:space="preserve">
-		<value>低</value>
-	</data>
+    <value>低</value>
+  </data>
   <data name="SpectrumKeyboardBacklightBrightness_Medium" xml:space="preserve">
-		<value>中</value>
-	</data>
+    <value>中</value>
+  </data>
   <data name="SpectrumKeyboardBacklightBrightness_Off" xml:space="preserve">
-		<value>关</value>
-	</data>
+    <value>关</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_BottomToTop" xml:space="preserve">
-		<value>从下到上</value>
-	</data>
+    <value>从下到上</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_Clockwise" xml:space="preserve">
-		<value>顺时针</value>
-	</data>
+    <value>顺时针</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_CounterClockwise" xml:space="preserve">
-		<value>逆时针</value>
-	</data>
+    <value>逆时针</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_LeftToRight" xml:space="preserve">
-		<value>从左到右</value>
-	</data>
+    <value>从左到右</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_RightToLeft" xml:space="preserve">
-		<value>从右到左</value>
-	</data>
+    <value>从右到左</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_TopToBottom" xml:space="preserve">
-		<value>从上到下</value>
-	</data>
+    <value>从上到下</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Always" xml:space="preserve">
-		<value>照明</value>
-	</data>
+    <value>照明</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_AudioBounce" xml:space="preserve">
-		<value>音律跳动</value>
-	</data>
+    <value>音律跳动</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_AudioRipple" xml:space="preserve">
-		<value>音律涟漪</value>
-	</data>
+    <value>音律涟漪</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_AuroraSync" xml:space="preserve">
-		<value>屏光同步</value>
-	</data>
+    <value>屏光同步</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorChange" xml:space="preserve">
-		<value>光谱循环</value>
-	</data>
+    <value>光谱循环</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorPulse" xml:space="preserve">
-		<value>色彩脉冲</value>
-	</data>
+    <value>色彩脉冲</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorWave" xml:space="preserve">
-		<value>波浪</value>
-	</data>
+    <value>波浪</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Rain" xml:space="preserve">
-		<value>雨滴</value>
-	</data>
+    <value>雨滴</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_RainbowScrew" xml:space="preserve">
-		<value>螺旋彩虹</value>
-	</data>
+    <value>螺旋彩虹</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_RainbowWave" xml:space="preserve">
-		<value>彩虹波</value>
-	</data>
+    <value>彩虹波</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Ripple" xml:space="preserve">
-		<value>涟漪</value>
-	</data>
+    <value>涟漪</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Smooth" xml:space="preserve">
-		<value>晴朗</value>
-	</data>
+    <value>晴朗</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Type" xml:space="preserve">
-		<value>键入</value>
-	</data>
+    <value>键入</value>
+  </data>
   <data name="SpectrumKeyboardBacklightSpeed_Speed1" xml:space="preserve">
-		<value>慢</value>
-	</data>
+    <value>慢</value>
+  </data>
   <data name="SpectrumKeyboardBacklightSpeed_Speed2" xml:space="preserve">
-		<value>中</value>
-	</data>
+    <value>中</value>
+  </data>
   <data name="SpectrumKeyboardBacklightSpeed_Speed3" xml:space="preserve">
-		<value>快</value>
-	</data>
+    <value>快</value>
+  </data>
   <data name="Theme_Dark" xml:space="preserve">
     <value>深色模式</value>
   </data>
@@ -246,12 +252,6 @@
   </data>
   <data name="Theme_System" xml:space="preserve">
     <value>跟随系统</value>
-  </data>
-  <data name="AccentColorSource_System" xml:space="preserve">
-    <value>跟随系统</value>
-  </data>
-  <data name="AccentColorSource_Custom" xml:space="preserve">
-    <value>自定义</value>
   </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
     <value>高亮度</value>
