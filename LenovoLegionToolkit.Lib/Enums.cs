@@ -155,6 +155,28 @@ namespace LenovoLegionToolkit.Lib
         WhiteKeyboardBacklightOff
     }
 
+    public enum NotificationPosition
+    {
+        [Display(ResourceType = typeof(Resource), Name = "NotificationPosition_BottomRight")]
+        BottomRight,
+        [Display(ResourceType = typeof(Resource), Name = "NotificationPosition_BottomMiddle")]
+        BottomMiddle,
+        [Display(ResourceType = typeof(Resource), Name = "NotificationPosition_BottomLeft")]
+        BottomLeft,
+        [Display(ResourceType = typeof(Resource), Name = "NotificationPosition_MiddleLeft")]
+        MiddleLeft,
+        [Display(ResourceType = typeof(Resource), Name = "NotificationPosition_TopLeft")]
+        TopLeft,
+        [Display(ResourceType = typeof(Resource), Name = "NotificationPosition_TopMiddle")]
+        TopMiddle,
+        [Display(ResourceType = typeof(Resource), Name = "NotificationPosition_TopRight")]
+        TopRight,
+        [Display(ResourceType = typeof(Resource), Name = "NotificationPosition_MiddleRight")]
+        MiddleRight,
+        [Display(ResourceType = typeof(Resource), Name = "NotificationPosition_Center")]
+        Center
+    }
+
     public enum OS
     {
         [Display(Name = "Windows 11")]

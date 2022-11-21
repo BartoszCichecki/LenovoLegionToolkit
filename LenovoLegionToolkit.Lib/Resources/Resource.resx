@@ -262,4 +262,31 @@
   <data name="WhiteKeyboardBacklightState_Off" xml:space="preserve">
     <value>Off</value>
   </data>
+  <data name="NotificationPosition_BottomRight" xml:space="preserve">
+    <value>Bottom right</value>
+  </data>
+  <data name="NotificationPosition_BottomMiddle" xml:space="preserve">
+    <value>Bottom middle</value>
+  </data>
+  <data name="NotificationPosition_BottomLeft" xml:space="preserve">
+    <value>Bottom left</value>
+  </data>
+  <data name="NotificationPosition_MiddleLeft" xml:space="preserve">
+    <value>Middle left</value>
+  </data>
+  <data name="NotificationPosition_TopLeft" xml:space="preserve">
+    <value>Top left</value>
+  </data>
+  <data name="NotificationPosition_TopMiddle" xml:space="preserve">
+    <value>Top middle</value>
+  </data>
+  <data name="NotificationPosition_TopRight" xml:space="preserve">
+    <value>Top right</value>
+  </data>
+  <data name="NotificationPosition_MiddleRight" xml:space="preserve">
+    <value>Middle right</value>
+  </data>
+  <data name="NotificationPosition_Center" xml:space="preserve">
+    <value>Center</value>
+  </data>
 </root>
