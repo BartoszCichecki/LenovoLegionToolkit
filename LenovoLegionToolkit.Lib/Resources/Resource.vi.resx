@@ -58,6 +58,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccentColorSource_Custom" xml:space="preserve">
+    <value>Tùy Chỉnh</value>
+  </data>
+  <data name="AccentColorSource_System" xml:space="preserve">
+    <value>Hệ thống</value>
+  </data>
   <data name="AlwaysOnUSBState_Off" xml:space="preserve">
     <value>Tắt</value>
   </data>
@@ -68,14 +74,14 @@
     <value>Bật, Chỉ khi Ngủ</value>
   </data>
   <data name="AutorunState_Disabled" xml:space="preserve">
-		<value>Tắt</value>
-	</data>
+    <value>Tắt</value>
+  </data>
   <data name="AutorunState_Enabled" xml:space="preserve">
-		<value>Bật</value>
-	</data>
+    <value>Bật</value>
+  </data>
   <data name="AutorunState_EnabledDelayed" xml:space="preserve">
-		<value>Bật với độ trễ</value>
-	</data>
+    <value>Bật với độ trễ</value>
+  </data>
   <data name="BatteryState_Conservation" xml:space="preserve">
     <value>Bảo vệ pin</value>
   </data>
@@ -161,83 +167,83 @@
     <value>Thiết lập 2</value>
   </data>
   <data name="SpectrumKeyboardBacklightBrightness_High" xml:space="preserve">
-		<value>Cao</value>
-	</data>
+    <value>Cao</value>
+  </data>
   <data name="SpectrumKeyboardBacklightBrightness_Low" xml:space="preserve">
-		<value>Thấp</value>
-	</data>
+    <value>Thấp</value>
+  </data>
   <data name="SpectrumKeyboardBacklightBrightness_Medium" xml:space="preserve">
-		<value>Trung bình</value>
-	</data>
+    <value>Trung bình</value>
+  </data>
   <data name="SpectrumKeyboardBacklightBrightness_Off" xml:space="preserve">
-		<value>Tắt</value>
-	</data>
+    <value>Tắt</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_BottomToTop" xml:space="preserve">
-		<value>Từ dưới lên trên</value>
-	</data>
+    <value>Từ dưới lên trên</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_Clockwise" xml:space="preserve">
-		<value>Xuôi chiều kim đồng hồ</value>
-	</data>
+    <value>Xuôi chiều kim đồng hồ</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_CounterClockwise" xml:space="preserve">
-		<value>Ngược chiều kim đồng hồ</value>
-	</data>
+    <value>Ngược chiều kim đồng hồ</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_LeftToRight" xml:space="preserve">
-		<value>Trái sang phải</value>
-	</data>
+    <value>Trái sang phải</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_RightToLeft" xml:space="preserve">
-		<value>Phải sang trái</value>
-	</data>
+    <value>Phải sang trái</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_TopToBottom" xml:space="preserve">
-		<value>Từ trên xuống dưới</value>
-	</data>
+    <value>Từ trên xuống dưới</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Always" xml:space="preserve">
-		<value>Luôn luôn</value>
-	</data>
+    <value>Luôn luôn</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_AudioBounce" xml:space="preserve">
-		<value>Audio Bounce</value>
-	</data>
+    <value>Audio Bounce</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_AudioRipple" xml:space="preserve">
-		<value>Audio Ripple</value>
-	</data>
+    <value>Audio Ripple</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_AuroraSync" xml:space="preserve">
-		<value>Aurora Sync</value>
-	</data>
+    <value>Aurora Sync</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorChange" xml:space="preserve">
-		<value>Đổi màu</value>
-	</data>
+    <value>Đổi màu</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorPulse" xml:space="preserve">
-		<value>Nhịp điệu</value>
-	</data>
+    <value>Nhịp điệu</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorWave" xml:space="preserve">
-		<value>Sóng 7 màu</value>
-	</data>
+    <value>Sóng 7 màu</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Rain" xml:space="preserve">
-		<value>Mưa</value>
-	</data>
+    <value>Mưa</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_RainbowScrew" xml:space="preserve">
-		<value>Xoáy cầu vồng</value>
-	</data>
+    <value>Xoáy cầu vồng</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_RainbowWave" xml:space="preserve">
-		<value>Sóng cầu vồng</value>
-	</data>
+    <value>Sóng cầu vồng</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Ripple" xml:space="preserve">
-		<value>Gợn sóng</value>
-	</data>
+    <value>Gợn sóng</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Smooth" xml:space="preserve">
-		<value>Mượt</value>
-	</data>
+    <value>Mượt</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Type" xml:space="preserve">
-		<value>Gõ</value>
-	</data>
+    <value>Gõ</value>
+  </data>
   <data name="SpectrumKeyboardBacklightSpeed_Speed1" xml:space="preserve">
-		<value>Chậm</value>
-	</data>
+    <value>Chậm</value>
+  </data>
   <data name="SpectrumKeyboardBacklightSpeed_Speed2" xml:space="preserve">
-		<value>Trung bình</value>
-	</data>
+    <value>Trung bình</value>
+  </data>
   <data name="SpectrumKeyboardBacklightSpeed_Speed3" xml:space="preserve">
-		<value>Nhanh</value>
-	</data>
+    <value>Nhanh</value>
+  </data>
   <data name="Theme_Dark" xml:space="preserve">
     <value>Tối</value>
   </data>
@@ -246,12 +252,6 @@
   </data>
   <data name="Theme_System" xml:space="preserve">
     <value>Hệ thống</value>
-  </data>
-  <data name="AccentColorSource_System" xml:space="preserve">
-    <value>Hệ thống</value>
-  </data>
-  <data name="AccentColorSource_Custom" xml:space="preserve">
-    <value>Tùy Chỉnh</value>
   </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
     <value>Cao</value>

@@ -1000,6 +1000,9 @@ Režim můžeš přepínat pomocí Fn+Q.</value>
   <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
     <value>Vlastní režim</value>
   </data>
+  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
+		<value>Výchozí</value>
+	</data>
   <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
     <value>Režim výkonu</value>
   </data>
@@ -1252,12 +1255,6 @@ Po změně této možnosti se doporučuje restartovat.</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title_Message" xml:space="preserve">
     <value>Profil osvětlení nelze použít.</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Message" xml:space="preserve">
-    <value>Efekt synchronizace Aurora není podporovaný.</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Title" xml:space="preserve">
-    <value>Synchronizace Aurora není podporována</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Jas</value>

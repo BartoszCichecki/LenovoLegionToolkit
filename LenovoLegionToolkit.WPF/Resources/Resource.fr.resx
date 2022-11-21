@@ -363,6 +363,10 @@ Cette donnée peut être imprécise si l'appareil a été chargé en veille ou �
   <data name="Color_Red" xml:space="preserve">
     <value>Rouge</value>
   </data>
+  <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
+    <value>Sélectionne le mode de fonctionnement du GPU en fonction de l'utilisation et des conditions d'alimentation de votre ordinateur.
+Le changement de mode peut nécessiter un redémarrage.</value>
+  </data>
   <data name="ComboBoxHybridModeControl_RestartRequired_Message" xml:space="preserve">
     <value>Changer pour {0} nécessite un redémarrage. Voulez-vous redémarrer maintenant ?</value>
   </data>
@@ -405,7 +409,7 @@ ATTENTION : Cette action ne fonctionnera pas correctement, si l'écran intégré
     <value>Ajoutez un délai avant d'exécuter l'étape suivante.</value>
   </data>
   <data name="DelayAutomationStepControl_Title" xml:space="preserve">
-    <value>Retard</value>
+    <value>Délai</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Effacer</value>
@@ -997,6 +1001,9 @@ Vous pouvez changer de mode avec Fn+Q.</value>
   <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
     <value>Mode personnalisé</value>
   </data>
+  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
+		<value>Par défaut</value>
+	</data>
   <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
     <value>Mode performance</value>
   </data>
@@ -1159,6 +1166,10 @@ Il est recommandé de redémarrer l'ordinateur après avoir modifié cette optio
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
     <value>Impossible de désactiver Vantage</value>
   </data>
+  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
+    <value>Désactive Lenovo Vantage et ses services sans les désinstaller.
+Un redémarrage est recommandé après avoir modifié cette option.</value>
+  </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Désactiver Lenovo Vantage</value>
   </data>
@@ -1246,12 +1257,6 @@ Il est recommandé de redémarrer l'ordinateur après avoir modifié cette optio
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title_Message" xml:space="preserve">
     <value>Le profil d'éclairage n'a pas pu être appliqué.</value>
   </data>
-  <data name="SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Message" xml:space="preserve">
-    <value>Effet Aurora Sync non pris en charge actuellement.</value>
-  </data>
-  <data name="SpectrumKeyboardBacklightControl_AuroraSyncNotSupported_Title" xml:space="preserve">
-    <value>Aurora Sync non supporté</value>
-  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Luminosité</value>
   </data>
@@ -1271,7 +1276,7 @@ Il est recommandé de redémarrer l'ordinateur après avoir modifié cette optio
     <value>Sélectionner toutes les zones</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_SwitchKeyboardLayout_ToolTip" xml:space="preserve">
-    <value>Changer disposition du clavier</value>
+    <value>Changer la disposition du clavier</value>
   </data>
   <data name="SpectrumKeyboardBacklightEditEffectWindow_ClockwiseDirection_Title" xml:space="preserve">
     <value>Direction</value>
