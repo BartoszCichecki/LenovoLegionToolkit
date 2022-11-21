@@ -152,7 +152,7 @@ Special thanks to:
 * [Mario Bălănică](https://github.com/mariobalanica), for all contributions
 
 Translations provided by:
-* Chinese - [凌卡Karl](https://github.com/KarlLee830), [DavidLogic](https://github.com/DavidLogic)
+* Chinese - [凌卡Karl](https://github.com/KarlLee830)
 * Czech - J0sef
 * Dutch - Melm
 * French - EliotAku, [Georges de Massol](https://github.com/jojo2massol), Rigbone, ZeroDegree

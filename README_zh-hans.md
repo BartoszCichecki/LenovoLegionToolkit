@@ -57,7 +57,7 @@
 
 ## 下载
 
-你可以在这里下载最新版本：[Latest release](https://github.com/BartoszCichecki/LenovoLegionToolkit/releases/latest).
+你可以在这里下载最新版本：[发行版页面 Releases page](https://github.com/BartoszCichecki/LenovoLegionToolkit/releases/latest)或通过 winget 来安装：`winget install BartoszCichecki.LenovoLegionToolkit`。
 
 ## 兼容性
 
@@ -133,12 +133,19 @@
 * [ViRb3](https://github.com/ViRb3) 创建了 [Lenovo Controller](https://github.com/ViRb3/LenovoController)，这是拯救者工具箱的基础。
 * [falahati](https://github.com/falahati) 创建了 [NvAPIWrapper](https://github.com/falahati/NvAPIWrapper) 和 [WindowsDisplayAPI](https://github.com/falahati/WindowsDisplayAPI)
 * [SmokelessCPU](https://github.com/SmokelessCPU) 帮助我适配了四分区 RGB 键盘背光。
+* [Mario Bălănică](https://github.com/mariobalanica) 的所有贡献。
 
 翻译贡献者：
-* 中文 - [凌卡Karl](https://github.com/KarlLee830), [DavidLogic](https://github.com/DavidLogic)
+* 中文 - [凌卡Karl](https://github.com/KarlLee830)
+* 捷克语 - J0sef
 * 荷兰语 - Melm
+* 法语 - EliotAku, [Georges de Massol](https://github.com/jojo2massol), Rigbone, ZeroDegree
+* 德语 - Sko-Inductor, Running_Dead89
+* 希腊语 - GreatApo
+* 意大利语 - Lampadina17
 * 罗马尼亚语 - [Mario Bălănică](https://github.com/mariobalanica)
 * 西班牙语 - M.A.G.
+* 葡萄牙语 - dvsilva
 * 葡萄牙语（巴西） - Vernon
 * 俄语 - [Edward Johan](https://github.com/younyokel)
 * 土耳其语 - Undervolt
@@ -165,7 +172,7 @@
 
 #### 会支持 Legion Spectrum RGB Keyboard 吗？
 
-我想要支持 Spectrum RGB 键盘，但我目前手头没有支持这个的设备。欢迎提交 PR！
+Spectrum RGB 马上就会支持了！
 
 #### 能不能多整一些 RGB 效果？
 
