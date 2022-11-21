@@ -29,6 +29,7 @@ namespace LenovoLegionToolkit.Lib.Settings
             public bool MinimizeOnClose { get; set; }
             public bool ActivatePowerProfilesWithVantageEnabled { get; set; }
             public bool DontShowNotifications { get; set; }
+            public NotificationPosition NotificationPosition { get; set; }
             public Notifications Notifications { get; set; } = new();
             public TemperatureUnit TemperatureUnit { get; set; }
             public List<RefreshRate> ExcludedRefreshRates { get; set; } = new();

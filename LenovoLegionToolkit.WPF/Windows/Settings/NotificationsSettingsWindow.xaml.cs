@@ -1,5 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Settings;
 using Wpf.Ui.Controls;
 
@@ -11,6 +14,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
 
         private CardControl[] Cards => new[]
         {
+            _notificationPositionCard,
             _capsNumLockCard,
             _fnLockCard,
             _touchpadLockCard,
@@ -33,6 +37,8 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
             _titleBar.CanMaximize = false;
 
             _dontShowNotificationsToggle.IsChecked = _settings.Store.DontShowNotifications;
+
+            _notificationPositionComboBox.SetItems(Enum.GetValues<NotificationPosition>(), _settings.Store.NotificationPosition, v => v.GetDisplayName());
 
             _capsNumLockToggle.IsChecked = _settings.Store.Notifications.CapsNumLock;
             _fnLockToggle.IsChecked = _settings.Store.Notifications.FnLock;
@@ -66,6 +72,15 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
             _settings.SynchronizeStore();
 
             RefreshCards();
+        }
+
+        private void NotificationPositionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (!_notificationPositionComboBox.TryGetSelectedItem(out NotificationPosition state))
+                return;
+
+            _settings.Store.NotificationPosition = state;
+            _settings.SynchronizeStore();
         }
 
         private void CapsNumLockToggle_Click(object sender, RoutedEventArgs e)
