@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using LenovoLegionToolkit.Lib;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
-using LenovoLegionToolkit.Lib;
 
 namespace LenovoLegionToolkit.WPF.Windows.Utils
 {
