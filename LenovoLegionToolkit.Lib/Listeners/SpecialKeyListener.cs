@@ -12,7 +12,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
 {
     public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
     {
-        private readonly ThrottleFirstDispatcher _refreshRateDispatcher = new(TimeSpan.FromSeconds(1.5));
+        private readonly ThrottleFirstDispatcher _refreshRateDispatcher = new(TimeSpan.FromSeconds(2), "refreshRate");
 
         private readonly ApplicationSettings _settings;
         private readonly FnKeys _fnKeys;
@@ -40,9 +40,9 @@ namespace LenovoLegionToolkit.Lib.Listeners
         protected override Task OnChangedAsync(SpecialKey value) => value switch
         {
             SpecialKey.CameraOn or SpecialKey.CameraOff => NotifyCameraState(value),
-            SpecialKey.Fn_LockOn or SpecialKey.Fn_LockOff => NotifyFnLockState(value),
-            SpecialKey.Fn_R or SpecialKey.Fn_R_2 => ToggleRefreshRateAsync(),
-            SpecialKey.Fn_PrtSc => OpenSnippingTool(),
+            SpecialKey.FnLockOn or SpecialKey.FnLockOff => NotifyFnLockState(value),
+            SpecialKey.FnR or SpecialKey.FnR2 => ToggleRefreshRateAsync(),
+            SpecialKey.FnPrtSc => OpenSnippingTool(),
             SpecialKey.SpectrumBacklightOff => NotifySpectrumBacklight(0),
             SpecialKey.SpectrumBacklight1 => NotifySpectrumBacklight(1),
             SpecialKey.SpectrumBacklight2 => NotifySpectrumBacklight(2),
@@ -89,10 +89,10 @@ namespace LenovoLegionToolkit.Lib.Listeners
                     return;
                 }
 
-                if (value == SpecialKey.Fn_LockOn)
+                if (value == SpecialKey.FnLockOn)
                     MessagingCenter.Publish(new Notification(NotificationType.FnLockOn, NotificationDuration.Short));
 
-                if (value == SpecialKey.Fn_LockOff)
+                if (value == SpecialKey.FnLockOff)
                     MessagingCenter.Publish(new Notification(NotificationType.FnLockOff, NotificationDuration.Short));
             }
             catch { }

@@ -255,14 +255,14 @@ namespace LenovoLegionToolkit.Lib
 
     public enum SpecialKey
     {
-        Fn_F9 = 1,
-        Fn_LockOn = 2,
-        Fn_LockOff = 3,
-        Fn_PrtSc = 4,
+        FnF9 = 1,
+        FnLockOn = 2,
+        FnLockOff = 3,
+        FnPrtSc = 4,
         CameraOn = 12,
         CameraOff = 13,
-        Fn_R = 16,
-        Fn_R_2 = 0x0041002A,
+        FnR = 16,
+        FnR2 = 0x0041002A,
         SpectrumBacklightOff = 24,
         SpectrumBacklight1 = 25,
         SpectrumBacklight2 = 26,
