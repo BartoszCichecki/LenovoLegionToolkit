@@ -109,11 +109,11 @@
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
     <value>Hybrid-iGPU</value>
   </data>
+  <data name="NotificationPosition_BottomCenter" xml:space="preserve">
+    <value>Bottom center</value>
+  </data>
   <data name="NotificationPosition_BottomLeft" xml:space="preserve">
     <value>Bottom left</value>
-  </data>
-  <data name="NotificationPosition_BottomMiddle" xml:space="preserve">
-    <value>Bottom center</value>
   </data>
   <data name="NotificationPosition_BottomRight" xml:space="preserve">
     <value>Bottom right</value>
@@ -127,11 +127,11 @@
   <data name="NotificationPosition_CenterRight" xml:space="preserve">
     <value>Center right</value>
   </data>
+  <data name="NotificationPosition_TopCenter" xml:space="preserve">
+    <value>Top center</value>
+  </data>
   <data name="NotificationPosition_TopLeft" xml:space="preserve">
     <value>Top left</value>
-  </data>
-  <data name="NotificationPosition_TopMiddle" xml:space="preserve">
-    <value>Top center</value>
   </data>
   <data name="NotificationPosition_TopRight" xml:space="preserve">
     <value>Top right</value>

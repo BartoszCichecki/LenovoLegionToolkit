@@ -214,20 +214,20 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bottom center.
+        /// </summary>
+        public static string NotificationPosition_BottomCenter {
+            get {
+                return ResourceManager.GetString("NotificationPosition_BottomCenter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bottom left.
         /// </summary>
         public static string NotificationPosition_BottomLeft {
             get {
                 return ResourceManager.GetString("NotificationPosition_BottomLeft", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Bottom center.
-        /// </summary>
-        public static string NotificationPosition_BottomMiddle {
-            get {
-                return ResourceManager.GetString("NotificationPosition_BottomMiddle", resourceCulture);
             }
         }
         
@@ -268,20 +268,20 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Top center.
+        /// </summary>
+        public static string NotificationPosition_TopCenter {
+            get {
+                return ResourceManager.GetString("NotificationPosition_TopCenter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Top left.
         /// </summary>
         public static string NotificationPosition_TopLeft {
             get {
                 return ResourceManager.GetString("NotificationPosition_TopLeft", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Top center.
-        /// </summary>
-        public static string NotificationPosition_TopMiddle {
-            get {
-                return ResourceManager.GetString("NotificationPosition_TopMiddle", resourceCulture);
             }
         }
         
