@@ -58,6 +58,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccentColorSource_Custom" xml:space="preserve">
+    <value>Personalizat</value>
+  </data>
+  <data name="AccentColorSource_System" xml:space="preserve">
+    <value>Sistem</value>
+  </data>
   <data name="AlwaysOnUSBState_Off" xml:space="preserve">
     <value>Dezactivat</value>
   </data>
@@ -68,14 +74,14 @@
     <value>Activat, doar in mod repaus</value>
   </data>
   <data name="AutorunState_Disabled" xml:space="preserve">
-		<value>Dezactivat</value>
-	</data>
+    <value>Dezactivat</value>
+  </data>
   <data name="AutorunState_Enabled" xml:space="preserve">
-		<value>Activat</value>
-	</data>
+    <value>Activat</value>
+  </data>
   <data name="AutorunState_EnabledDelayed" xml:space="preserve">
-		<value>Activat, cu întârziere</value>
-	</data>
+    <value>Activat, cu întârziere</value>
+  </data>
   <data name="BatteryState_Conservation" xml:space="preserve">
     <value>Conservare</value>
   </data>
@@ -161,83 +167,83 @@
     <value>Profil 2</value>
   </data>
   <data name="SpectrumKeyboardBacklightBrightness_High" xml:space="preserve">
-		<value>Ridicată</value>
-	</data>
+    <value>Ridicată</value>
+  </data>
   <data name="SpectrumKeyboardBacklightBrightness_Low" xml:space="preserve">
-		<value>Scăzută</value>
-	</data>
+    <value>Scăzută</value>
+  </data>
   <data name="SpectrumKeyboardBacklightBrightness_Medium" xml:space="preserve">
-		<value>Mediu</value>
-	</data>
+    <value>Mediu</value>
+  </data>
   <data name="SpectrumKeyboardBacklightBrightness_Off" xml:space="preserve">
-		<value>Oprit</value>
-	</data>
+    <value>Oprit</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_BottomToTop" xml:space="preserve">
-		<value>De jos în sus</value>
-	</data>
+    <value>De jos în sus</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_Clockwise" xml:space="preserve">
-		<value>În sensul acelor de ceas</value>
-	</data>
+    <value>În sensul acelor de ceas</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_CounterClockwise" xml:space="preserve">
-		<value>În sens invers acelor de ceas</value>
-	</data>
+    <value>În sens invers acelor de ceas</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_LeftToRight" xml:space="preserve">
-		<value>De la stânga la dreapta</value>
-	</data>
+    <value>De la stânga la dreapta</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_RightToLeft" xml:space="preserve">
-		<value>De la dreapta la stânga</value>
-	</data>
+    <value>De la dreapta la stânga</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_TopToBottom" xml:space="preserve">
-		<value>De sus în jos</value>
-	</data>
+    <value>De sus în jos</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Always" xml:space="preserve">
-		<value>Întotdeauna</value>
-	</data>
+    <value>Întotdeauna</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_AudioBounce" xml:space="preserve">
-		<value>Audio Bounce</value>
-	</data>
+    <value>Audio Bounce</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_AudioRipple" xml:space="preserve">
-		<value>Audio Ripple</value>
-	</data>
+    <value>Audio Ripple</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_AuroraSync" xml:space="preserve">
-		<value>Aurora Sync</value>
-	</data>
+    <value>Aurora Sync</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorChange" xml:space="preserve">
-		<value>Schimbare culoare</value>
-	</data>
+    <value>Schimbare culoare</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorPulse" xml:space="preserve">
-		<value>Puls de culoare</value>
-	</data>
+    <value>Puls de culoare</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorWave" xml:space="preserve">
-		<value>Val de culoare</value>
-	</data>
+    <value>Val de culoare</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Rain" xml:space="preserve">
-		<value>Ploaie</value>
-	</data>
+    <value>Ploaie</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_RainbowScrew" xml:space="preserve">
-		<value>Curcubeu în spirală</value>
-	</data>
+    <value>Curcubeu în spirală</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_RainbowWave" xml:space="preserve">
-		<value>Curcubeu în valuri</value>
-	</data>
+    <value>Curcubeu în valuri</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Ripple" xml:space="preserve">
-		<value>Ripple</value>
-	</data>
+    <value>Ripple</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Smooth" xml:space="preserve">
-		<value>Tranziție lină culori</value>
-	</data>
+    <value>Tranziție lină culori</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Type" xml:space="preserve">
-		<value>Tip</value>
-	</data>
+    <value>Tip</value>
+  </data>
   <data name="SpectrumKeyboardBacklightSpeed_Speed1" xml:space="preserve">
-		<value>Lent</value>
-	</data>
+    <value>Lent</value>
+  </data>
   <data name="SpectrumKeyboardBacklightSpeed_Speed2" xml:space="preserve">
-		<value>Mediu</value>
-	</data>
+    <value>Mediu</value>
+  </data>
   <data name="SpectrumKeyboardBacklightSpeed_Speed3" xml:space="preserve">
-		<value>Rapid</value>
-	</data>
+    <value>Rapid</value>
+  </data>
   <data name="Theme_Dark" xml:space="preserve">
     <value>Întunecat</value>
   </data>
@@ -246,12 +252,6 @@
   </data>
   <data name="Theme_System" xml:space="preserve">
     <value>Sistem</value>
-  </data>
-  <data name="AccentColorSource_System" xml:space="preserve">
-    <value>Sistem</value>
-  </data>
-  <data name="AccentColorSource_Custom" xml:space="preserve">
-    <value>Personalizat</value>
   </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
     <value>Ridicată</value>
