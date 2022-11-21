@@ -231,21 +231,7 @@ namespace LenovoLegionToolkit.WPF.Windows
                 }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
-        public void BringToForeground()
-        {
-            ShowInTaskbar = true;
-
-            if (WindowState == WindowState.Minimized || Visibility == Visibility.Hidden)
-            {
-                Show();
-                WindowState = WindowState.Normal;
-            }
-
-            Activate();
-            Topmost = true;
-            Topmost = false;
-            Focus();
-        }
+        public void BringToForeground() => WindowExtensions.BringToForeground(this);
 
         public void SendToTray()
         {

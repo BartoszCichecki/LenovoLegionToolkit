@@ -19,14 +19,13 @@ using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows;
 using LenovoLegionToolkit.WPF.Windows.Utils;
 using WinFormsApp = System.Windows.Forms.Application;
 using WinFormsHighDpiMode = System.Windows.Forms.HighDpiMode;
-
-#pragma warning disable IDE0052 // Remove unread private members
 
 namespace LenovoLegionToolkit.WPF
 {
@@ -35,13 +34,15 @@ namespace LenovoLegionToolkit.WPF
         private const string MUTEX_NAME = "LenovoLegionToolkit_Mutex_6efcc882-924c-4cbc-8fec-f45c25696f98";
         private const string EVENT_NAME = "LenovoLegionToolkit_Event_6efcc882-924c-4cbc-8fec-f45c25696f98";
 
-        private Mutex? _mutex;
-        private EventWaitHandle? _eventWaitHandle;
+        private Mutex? _singleInstanceMutex;
+        private EventWaitHandle? _singleInstanceWaitHandle;
 
         public new static App Current => (App)Application.Current;
 
         private async void Application_Startup(object sender, StartupEventArgs e)
         {
+            EnsureSingleInstance();
+
             await LocalizationHelper.SetLanguageAsync(true);
 
             var args = e.Args.Concat(LoadExternalArgs()).ToArray();
@@ -60,8 +61,6 @@ namespace LenovoLegionToolkit.WPF
 
             WinFormsApp.SetHighDpiMode(WinFormsHighDpiMode.PerMonitorV2);
             RenderOptions.ProcessRenderMode = RenderMode.SoftwareOnly;
-
-            EnsureSingleInstance();
 
             IoCContainer.Initialize(
                 new Lib.IoCModule(),
@@ -111,6 +110,11 @@ namespace LenovoLegionToolkit.WPF
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Start up complete");
+        }
+
+        private void Application_Exit(object sender, ExitEventArgs e)
+        {
+            _singleInstanceMutex?.Close();
         }
 
         public void RestartMainWindow()
@@ -218,24 +222,48 @@ namespace LenovoLegionToolkit.WPF
 
         private void EnsureSingleInstance()
         {
-            _mutex = new Mutex(true, MUTEX_NAME, out bool isOwned);
-            _eventWaitHandle = new EventWaitHandle(false, EventResetMode.AutoReset, EVENT_NAME);
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Checking for other instances...");
 
-            if (isOwned)
+            _singleInstanceMutex = new Mutex(true, MUTEX_NAME, out var isOwned);
+            _singleInstanceWaitHandle = new EventWaitHandle(false, EventResetMode.AutoReset, EVENT_NAME);
+
+            if (!isOwned)
             {
-                new Thread(() =>
-                {
-                    while (_eventWaitHandle.WaitOne())
-                        Current.Dispatcher.BeginInvoke((() => ((MainWindow)Current.MainWindow).BringToForeground()));
-                })
-                {
-                    IsBackground = true
-                }.Start();
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Another instance running, closing...");
+
+                _singleInstanceWaitHandle.Set();
+                Shutdown();
                 return;
             }
 
-            _eventWaitHandle.Set();
-            Shutdown();
+            new Thread(() =>
+            {
+                while (_singleInstanceWaitHandle.WaitOne())
+                {
+                    Current.Dispatcher.BeginInvoke(async () =>
+                    {
+                        if (Current.MainWindow is { } window)
+                        {
+                            if (Log.Instance.IsTraceEnabled)
+                                Log.Instance.Trace($"Another instance started, bringing this one to front instead...");
+
+                            window.BringToForeground();
+                        }
+                        else
+                        {
+                            if (Log.Instance.IsTraceEnabled)
+                                Log.Instance.Trace($"!!! PANIC !!! This instance is missing main window. Shutting down.");
+
+                            await ShutdownAsync();
+                        }
+                    });
+                }
+            })
+            {
+                IsBackground = true
+            }.Start();
         }
 
         private static async Task InitAutomationProcessor()
@@ -360,9 +388,7 @@ namespace LenovoLegionToolkit.WPF
             try
             {
                 var argsFile = Path.Combine(Folders.AppData, "args.txt");
-                if (!File.Exists(argsFile))
-                    return Array.Empty<string>();
-                return File.ReadAllLines(argsFile);
+                return !File.Exists(argsFile) ? Array.Empty<string>() : File.ReadAllLines(argsFile);
             }
             catch
             {
@@ -373,63 +399,52 @@ namespace LenovoLegionToolkit.WPF
         private static bool ShouldForceDisableRGBKeyboardSupport(IEnumerable<string> args)
         {
             var result = args.Contains("--force-disable-rgbkb");
-            if (result)
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Argument present");
+            if (result && Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Argument present");
             return result;
         }
 
         private static bool ShouldForceDisableSpectrumKeyboardSupport(IEnumerable<string> args)
         {
             var result = args.Contains("--force-disable-spectrumkb");
-            if (result)
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Argument present");
+            if (result && Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Argument present");
             return result;
         }
 
         private static bool ShouldByPassCompatibilityCheck(IEnumerable<string> args)
         {
             var result = args.Contains("--skip-compat-check");
-            if (result)
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Argument present");
+            if (result && Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Argument present");
             return result;
         }
 
         private static bool ShouldStartMinimized(IEnumerable<string> args)
         {
             var result = args.Contains("--minimized");
-            if (result)
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Argument present");
+            if (result && Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Argument present");
             return result;
         }
 
         private static bool IsTraceEnabled(IEnumerable<string> args)
         {
             var result = args.Contains("--trace");
-            if (result)
+            if (result && Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Argument present");
+
+            if (!result && Keyboard.IsKeyDown(Key.LeftShift) && Keyboard.IsKeyDown(Key.LeftCtrl))
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Argument present");
-            }
+                    Log.Instance.Trace($"LeftShift+LeftCtrl down.");
 
-            if (!result)
-            {
-                if (Keyboard.IsKeyDown(Key.LeftShift) && Keyboard.IsKeyDown(Key.LeftCtrl))
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"LeftShift+LeftCtrl down.");
-
-                    result = true;
-                }
+                result = true;
             }
 
             return result;
         }
 
         #endregion
-
     }
 }
