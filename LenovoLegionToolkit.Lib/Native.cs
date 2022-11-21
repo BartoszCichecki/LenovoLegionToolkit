@@ -212,12 +212,12 @@ namespace LenovoLegionToolkit.Lib
     }
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    internal struct LENOVO_SEPCTRUM_AURORA_ITEM
+    internal struct LENOVO_SPECTRUM_AURORA_ITEM
     {
         public ushort KeyCode;
         public LENOVO_SPECTRUM_COLOR Color;
 
-        public LENOVO_SEPCTRUM_AURORA_ITEM(ushort keyCode, LENOVO_SPECTRUM_COLOR color)
+        public LENOVO_SPECTRUM_AURORA_ITEM(ushort keyCode, LENOVO_SPECTRUM_COLOR color)
         {
             KeyCode = keyCode;
             Color = color;
@@ -551,9 +551,9 @@ namespace LenovoLegionToolkit.Lib
     internal struct LENOVO_SPECTRUM_AURORA_SEND_BITMAP_REQUEST
     {
         public LENOVO_SPECTRUM_HEADER Header;
-        public LENOVO_SEPCTRUM_AURORA_ITEM[] Items;
+        public LENOVO_SPECTRUM_AURORA_ITEM[] Items;
 
-        public LENOVO_SPECTRUM_AURORA_SEND_BITMAP_REQUEST(LENOVO_SEPCTRUM_AURORA_ITEM[] items)
+        public LENOVO_SPECTRUM_AURORA_SEND_BITMAP_REQUEST(LENOVO_SPECTRUM_AURORA_ITEM[] items)
         {
             Header = new LENOVO_SPECTRUM_HEADER(LENOVO_SPECTRUM_OPERATION_TYPE.AuroraSendBitmap, 0xC0);
             Items = items;
