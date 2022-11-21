@@ -58,6 +58,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccentColorSource_Custom" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="AccentColorSource_System" xml:space="preserve">
+    <value>System</value>
+  </data>
   <data name="AlwaysOnUSBState_Off" xml:space="preserve">
     <value>Off</value>
   </data>
@@ -68,14 +74,14 @@
     <value>On, when sleeping</value>
   </data>
   <data name="AutorunState_Disabled" xml:space="preserve">
-		<value>Disabled</value>
-	</data>
+    <value>Disabled</value>
+  </data>
   <data name="AutorunState_Enabled" xml:space="preserve">
-		<value>Enabled</value>
-	</data>
+    <value>Enabled</value>
+  </data>
   <data name="AutorunState_EnabledDelayed" xml:space="preserve">
-		<value>Enabled, delayed</value>
-	</data>
+    <value>Enabled, delayed</value>
+  </data>
   <data name="BatteryState_Conservation" xml:space="preserve">
     <value>Conservation</value>
   </data>
@@ -102,6 +108,33 @@
   </data>
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
     <value>Hybrid-iGPU</value>
+  </data>
+  <data name="NotificationPosition_BottomLeft" xml:space="preserve">
+    <value>Bottom left</value>
+  </data>
+  <data name="NotificationPosition_BottomMiddle" xml:space="preserve">
+    <value>Bottom center</value>
+  </data>
+  <data name="NotificationPosition_BottomRight" xml:space="preserve">
+    <value>Bottom right</value>
+  </data>
+  <data name="NotificationPosition_Center" xml:space="preserve">
+    <value>Center</value>
+  </data>
+  <data name="NotificationPosition_CenterLeft" xml:space="preserve">
+    <value>Center left</value>
+  </data>
+  <data name="NotificationPosition_CenterRight" xml:space="preserve">
+    <value>Center right</value>
+  </data>
+  <data name="NotificationPosition_TopLeft" xml:space="preserve">
+    <value>Top left</value>
+  </data>
+  <data name="NotificationPosition_TopMiddle" xml:space="preserve">
+    <value>Top center</value>
+  </data>
+  <data name="NotificationPosition_TopRight" xml:space="preserve">
+    <value>Top right</value>
   </data>
   <data name="PowerModeState_Balance" xml:space="preserve">
     <value>Balance</value>
@@ -161,83 +194,83 @@
     <value>Preset 2</value>
   </data>
   <data name="SpectrumKeyboardBacklightBrightness_High" xml:space="preserve">
-		<value>High</value>
-	</data>
+    <value>High</value>
+  </data>
   <data name="SpectrumKeyboardBacklightBrightness_Low" xml:space="preserve">
-		<value>Low</value>
-	</data>
+    <value>Low</value>
+  </data>
   <data name="SpectrumKeyboardBacklightBrightness_Medium" xml:space="preserve">
-		<value>Medium</value>
-	</data>
+    <value>Medium</value>
+  </data>
   <data name="SpectrumKeyboardBacklightBrightness_Off" xml:space="preserve">
-		<value>Off</value>
-	</data>
+    <value>Off</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_BottomToTop" xml:space="preserve">
-		<value>Bottom to Top</value>
-	</data>
+    <value>Bottom to Top</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_Clockwise" xml:space="preserve">
-		<value>Clockwise</value>
-	</data>
+    <value>Clockwise</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_CounterClockwise" xml:space="preserve">
-		<value>Counter Clockwise</value>
-	</data>
+    <value>Counter Clockwise</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_LeftToRight" xml:space="preserve">
-		<value>Left to Right</value>
-	</data>
+    <value>Left to Right</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_RightToLeft" xml:space="preserve">
-		<value>Right to Left</value>
-	</data>
+    <value>Right to Left</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_TopToBottom" xml:space="preserve">
-		<value>Top to Bottom</value>
-	</data>
+    <value>Top to Bottom</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Always" xml:space="preserve">
-		<value>Always</value>
-	</data>
+    <value>Always</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_AudioBounce" xml:space="preserve">
-		<value>Audio Bounce</value>
-	</data>
+    <value>Audio Bounce</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_AudioRipple" xml:space="preserve">
-		<value>Audio Ripple</value>
-	</data>
+    <value>Audio Ripple</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_AuroraSync" xml:space="preserve">
-		<value>Aurora Sync</value>
-	</data>
+    <value>Aurora Sync</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorChange" xml:space="preserve">
-		<value>Color Change</value>
-	</data>
+    <value>Color Change</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorPulse" xml:space="preserve">
-		<value>Color Pulse</value>
-	</data>
+    <value>Color Pulse</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorWave" xml:space="preserve">
-		<value>Color Wave</value>
-	</data>
+    <value>Color Wave</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Rain" xml:space="preserve">
-		<value>Rain</value>
-	</data>
+    <value>Rain</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_RainbowScrew" xml:space="preserve">
-		<value>Rainbow Screw</value>
-	</data>
+    <value>Rainbow Screw</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_RainbowWave" xml:space="preserve">
-		<value>Rainbow Wave</value>
-	</data>
+    <value>Rainbow Wave</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Ripple" xml:space="preserve">
-		<value>Ripple</value>
-	</data>
+    <value>Ripple</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Smooth" xml:space="preserve">
-		<value>Smooth</value>
-	</data>
+    <value>Smooth</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Type" xml:space="preserve">
-		<value>Type</value>
-	</data>
+    <value>Type</value>
+  </data>
   <data name="SpectrumKeyboardBacklightSpeed_Speed1" xml:space="preserve">
-		<value>Slow</value>
-	</data>
+    <value>Slow</value>
+  </data>
   <data name="SpectrumKeyboardBacklightSpeed_Speed2" xml:space="preserve">
-		<value>Medium</value>
-	</data>
+    <value>Medium</value>
+  </data>
   <data name="SpectrumKeyboardBacklightSpeed_Speed3" xml:space="preserve">
-		<value>Fast</value>
-	</data>
+    <value>Fast</value>
+  </data>
   <data name="Theme_Dark" xml:space="preserve">
     <value>Dark</value>
   </data>
@@ -247,12 +280,6 @@
   <data name="Theme_System" xml:space="preserve">
     <value>System</value>
   </data>
-  <data name="AccentColorSource_System" xml:space="preserve">
-    <value>System</value>
-  </data>
-  <data name="AccentColorSource_Custom" xml:space="preserve">
-    <value>Custom</value>
-  </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
     <value>High</value>
   </data>
@@ -261,32 +288,5 @@
   </data>
   <data name="WhiteKeyboardBacklightState_Off" xml:space="preserve">
     <value>Off</value>
-  </data>
-  <data name="NotificationPosition_BottomRight" xml:space="preserve">
-    <value>Bottom right</value>
-  </data>
-  <data name="NotificationPosition_BottomMiddle" xml:space="preserve">
-    <value>Bottom middle</value>
-  </data>
-  <data name="NotificationPosition_BottomLeft" xml:space="preserve">
-    <value>Bottom left</value>
-  </data>
-  <data name="NotificationPosition_MiddleLeft" xml:space="preserve">
-    <value>Middle left</value>
-  </data>
-  <data name="NotificationPosition_TopLeft" xml:space="preserve">
-    <value>Top left</value>
-  </data>
-  <data name="NotificationPosition_TopMiddle" xml:space="preserve">
-    <value>Top middle</value>
-  </data>
-  <data name="NotificationPosition_TopRight" xml:space="preserve">
-    <value>Top right</value>
-  </data>
-  <data name="NotificationPosition_MiddleRight" xml:space="preserve">
-    <value>Middle right</value>
-  </data>
-  <data name="NotificationPosition_Center" xml:space="preserve">
-    <value>Center</value>
   </data>
 </root>

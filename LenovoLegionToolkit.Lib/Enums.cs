@@ -160,19 +160,19 @@ namespace LenovoLegionToolkit.Lib
         [Display(ResourceType = typeof(Resource), Name = "NotificationPosition_BottomRight")]
         BottomRight,
         [Display(ResourceType = typeof(Resource), Name = "NotificationPosition_BottomMiddle")]
-        BottomMiddle,
+        BottomCenter,
         [Display(ResourceType = typeof(Resource), Name = "NotificationPosition_BottomLeft")]
         BottomLeft,
-        [Display(ResourceType = typeof(Resource), Name = "NotificationPosition_MiddleLeft")]
-        MiddleLeft,
+        [Display(ResourceType = typeof(Resource), Name = "NotificationPosition_CenterLeft")]
+        CenterLeft,
         [Display(ResourceType = typeof(Resource), Name = "NotificationPosition_TopLeft")]
         TopLeft,
         [Display(ResourceType = typeof(Resource), Name = "NotificationPosition_TopMiddle")]
-        TopMiddle,
+        TopCenter,
         [Display(ResourceType = typeof(Resource), Name = "NotificationPosition_TopRight")]
         TopRight,
-        [Display(ResourceType = typeof(Resource), Name = "NotificationPosition_MiddleRight")]
-        MiddleRight,
+        [Display(ResourceType = typeof(Resource), Name = "NotificationPosition_CenterRight")]
+        CenterRight,
         [Display(ResourceType = typeof(Resource), Name = "NotificationPosition_Center")]
         Center
     }

@@ -223,7 +223,7 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bottom middle.
+        ///   Looks up a localized string similar to Bottom center.
         /// </summary>
         public static string NotificationPosition_BottomMiddle {
             get {
@@ -250,20 +250,20 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Middle left.
+        ///   Looks up a localized string similar to Center left.
         /// </summary>
-        public static string NotificationPosition_MiddleLeft {
+        public static string NotificationPosition_CenterLeft {
             get {
-                return ResourceManager.GetString("NotificationPosition_MiddleLeft", resourceCulture);
+                return ResourceManager.GetString("NotificationPosition_CenterLeft", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Middle right.
+        ///   Looks up a localized string similar to Center right.
         /// </summary>
-        public static string NotificationPosition_MiddleRight {
+        public static string NotificationPosition_CenterRight {
             get {
-                return ResourceManager.GetString("NotificationPosition_MiddleRight", resourceCulture);
+                return ResourceManager.GetString("NotificationPosition_CenterRight", resourceCulture);
             }
         }
         
@@ -277,7 +277,7 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Top middle.
+        ///   Looks up a localized string similar to Top center.
         /// </summary>
         public static string NotificationPosition_TopMiddle {
             get {
