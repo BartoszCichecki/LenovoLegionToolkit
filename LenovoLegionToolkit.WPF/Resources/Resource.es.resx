@@ -1000,6 +1000,9 @@ Puede cambiar de modo con Fn+Q.</value>
   <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
     <value>Modo personalizado</value>
   </data>
+  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
+		<value>Predefinido</value>
+	</data>
   <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
     <value>Modo rendimiento</value>
   </data>
