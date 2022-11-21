@@ -68,14 +68,14 @@
     <value>Acceso, anche in sospensione</value>
   </data>
   <data name="AutorunState_Disabled" xml:space="preserve">
-		<value>Disattivato</value>
-	</data>
+    <value>Disattivato</value>
+  </data>
   <data name="AutorunState_Enabled" xml:space="preserve">
-		<value>Attivato</value>
-	</data>
+    <value>Attivato</value>
+  </data>
   <data name="AutorunState_EnabledDelayed" xml:space="preserve">
-		<value>Abilitato, con ritardo</value>
-	</data>
+    <value>Abilitato, con ritardo</value>
+  </data>
   <data name="BatteryState_Conservation" xml:space="preserve">
     <value>Conservazione</value>
   </data>
