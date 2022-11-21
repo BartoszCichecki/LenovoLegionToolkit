@@ -1336,8 +1336,8 @@
     <value>时间</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
-    <value>允许在集成和独立显卡之间切换。
-切换后需要重启。</value>
+    <value>混合模式允许在核显与独显之间切换。
+关闭后即为独显直连模式，两者之间切换需要重启生效。</value>
   </data>
   <data name="ToggleHybridModeControl_RestartRequired_Message" xml:space="preserve">
     <value>更改混合模式需要重新启动。你想现在重启吗？</value>
