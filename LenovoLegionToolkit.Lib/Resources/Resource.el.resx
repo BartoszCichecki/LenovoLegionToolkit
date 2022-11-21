@@ -68,14 +68,14 @@
     <value>Ενεργό όταν είναι σε αδράνεια</value>
   </data>
   <data name="AutorunState_Disabled" xml:space="preserve">
-		<value>Ανενεργό</value>
-	</data>
+    <value>Ανενεργό</value>
+  </data>
   <data name="AutorunState_Enabled" xml:space="preserve">
-		<value>Ενεργό</value>
-	</data>
+    <value>Ενεργό</value>
+  </data>
   <data name="AutorunState_EnabledDelayed" xml:space="preserve">
-		<value>Ενεργό, με καθυστέρηση</value>
-	</data>
+    <value>Ενεργό, με καθυστέρηση</value>
+  </data>
   <data name="BatteryState_Conservation" xml:space="preserve">
     <value>Διατήρηση</value>
   </data>
