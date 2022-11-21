@@ -58,6 +58,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccentColorSource_Custom" xml:space="preserve">
+    <value>Benutzerdefiniert</value>
+  </data>
+  <data name="AccentColorSource_System" xml:space="preserve">
+    <value>System</value>
+  </data>
   <data name="AlwaysOnUSBState_Off" xml:space="preserve">
     <value>Aus</value>
   </data>
@@ -68,14 +74,14 @@
     <value>An, wenn schlafend</value>
   </data>
   <data name="AutorunState_Disabled" xml:space="preserve">
-		<value>Deaktiviert</value>
-	</data>
+    <value>Deaktiviert</value>
+  </data>
   <data name="AutorunState_Enabled" xml:space="preserve">
-		<value>Aktiviert</value>
-	</data>
+    <value>Aktiviert</value>
+  </data>
   <data name="AutorunState_EnabledDelayed" xml:space="preserve">
-		<value>Aktiviert, verzögert</value>
-	</data>
+    <value>Aktiviert, verzögert</value>
+  </data>
   <data name="BatteryState_Conservation" xml:space="preserve">
     <value>Erhaltung</value>
   </data>
@@ -161,83 +167,83 @@
     <value>Voreinstellung 2</value>
   </data>
   <data name="SpectrumKeyboardBacklightBrightness_High" xml:space="preserve">
-		<value>Hoch</value>
-	</data>
+    <value>Hoch</value>
+  </data>
   <data name="SpectrumKeyboardBacklightBrightness_Low" xml:space="preserve">
-		<value>Niedrig</value>
-	</data>
+    <value>Niedrig</value>
+  </data>
   <data name="SpectrumKeyboardBacklightBrightness_Medium" xml:space="preserve">
-		<value>Mittel</value>
-	</data>
+    <value>Mittel</value>
+  </data>
   <data name="SpectrumKeyboardBacklightBrightness_Off" xml:space="preserve">
-		<value>Aus</value>
-	</data>
+    <value>Aus</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_BottomToTop" xml:space="preserve">
-		<value>Von unten nach oben</value>
-	</data>
+    <value>Von unten nach oben</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_Clockwise" xml:space="preserve">
-		<value>Im Uhrzeigersinn</value>
-	</data>
+    <value>Im Uhrzeigersinn</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_CounterClockwise" xml:space="preserve">
-		<value>Gegen den Uhrzeigersinn</value>
-	</data>
+    <value>Gegen den Uhrzeigersinn</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_LeftToRight" xml:space="preserve">
-		<value>Von links nach rechts</value>
-	</data>
+    <value>Von links nach rechts</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_RightToLeft" xml:space="preserve">
-		<value>Von rechts nach links</value>
-	</data>
+    <value>Von rechts nach links</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_TopToBottom" xml:space="preserve">
-		<value>Von oben nach unten</value>
-	</data>
+    <value>Von oben nach unten</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Always" xml:space="preserve">
-		<value>Immer</value>
-	</data>
+    <value>Immer</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_AudioBounce" xml:space="preserve">
-		<value>Audio-Spektrum</value>
-	</data>
+    <value>Audio-Spektrum</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_AudioRipple" xml:space="preserve">
-		<value>Audio-Wellen</value>
-	</data>
+    <value>Audio-Wellen</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_AuroraSync" xml:space="preserve">
-		<value>Aurora Sync</value>
-	</data>
+    <value>Aurora Sync</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorChange" xml:space="preserve">
-		<value>Farbwechsel</value>
-	</data>
+    <value>Farbwechsel</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorPulse" xml:space="preserve">
-		<value>Farbimpuls</value>
-	</data>
+    <value>Farbimpuls</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorWave" xml:space="preserve">
-		<value>Farbwelle</value>
-	</data>
+    <value>Farbwelle</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Rain" xml:space="preserve">
-		<value>Regen</value>
-	</data>
+    <value>Regen</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_RainbowScrew" xml:space="preserve">
-		<value>Regenbogen-Schraube</value>
-	</data>
+    <value>Regenbogen-Schraube</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_RainbowWave" xml:space="preserve">
-		<value>Regenbogenwelle</value>
-	</data>
+    <value>Regenbogenwelle</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Ripple" xml:space="preserve">
-		<value>Kräuseln</value>
-	</data>
+    <value>Kräuseln</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Smooth" xml:space="preserve">
-		<value>Sanft</value>
-	</data>
+    <value>Sanft</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Type" xml:space="preserve">
-		<value>Tippen</value>
-	</data>
+    <value>Tippen</value>
+  </data>
   <data name="SpectrumKeyboardBacklightSpeed_Speed1" xml:space="preserve">
-		<value>Langsam</value>
-	</data>
+    <value>Langsam</value>
+  </data>
   <data name="SpectrumKeyboardBacklightSpeed_Speed2" xml:space="preserve">
-		<value>Mittel</value>
-	</data>
+    <value>Mittel</value>
+  </data>
   <data name="SpectrumKeyboardBacklightSpeed_Speed3" xml:space="preserve">
-		<value>Schnell</value>
-	</data>
+    <value>Schnell</value>
+  </data>
   <data name="Theme_Dark" xml:space="preserve">
     <value>Dunkel</value>
   </data>
@@ -246,12 +252,6 @@
   </data>
   <data name="Theme_System" xml:space="preserve">
     <value>System</value>
-  </data>
-  <data name="AccentColorSource_System" xml:space="preserve">
-    <value>System</value>
-  </data>
-  <data name="AccentColorSource_Custom" xml:space="preserve">
-    <value>Benutzerdefiniert</value>
   </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
     <value>Hoch</value>
