@@ -46,7 +46,7 @@
         <wpfui:DynamicScrollViewer Grid.Row="1" Margin="12,0,0,0">
             <StackPanel Margin="0,0,16,0">
 
-                <wpfui:CardControl Margin="0,0,0,24">
+                <wpfui:CardControl Margin="0,0,0,8">
                     <wpfui:CardControl.Header>
                         <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_DontShowNotifications_Title}" Subtitle="{x:Static resources:Resource.NotificationsSettingsWindow_DontShowNotifications_Message}" />
                     </wpfui:CardControl.Header>
@@ -54,6 +54,18 @@
                         x:Name="_dontShowNotificationsToggle"
                         Margin="0,0,0,8"
                         Click="DontShowNotificationsToggle_Click" />
+                </wpfui:CardControl>
+
+                <wpfui:CardControl x:Name="_notificationPositionCard" Margin="0,0,0,24">
+                    <wpfui:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_NotificationPosition_Title}" />
+                    </wpfui:CardControl.Header>
+                    <ComboBox
+                            x:Name="_notificationPositionComboBox"
+                            MinWidth="200"
+                            Margin="0,0,0,8"
+                            MaxDropDownHeight="Auto"
+                            SelectionChanged="NotificationPositionComboBox_SelectionChanged" />
                 </wpfui:CardControl>
 
                 <wpfui:CardControl x:Name="_capsNumLockCard" Margin="0,0,0,8">

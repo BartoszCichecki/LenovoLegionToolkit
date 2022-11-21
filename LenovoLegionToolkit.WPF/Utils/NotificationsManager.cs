@@ -183,7 +183,7 @@ namespace LenovoLegionToolkit.WPF.Utils
                 _window.Close();
             }
 
-            var nw = new NotificationWindow(symbol, overlaySymbol, symbolTransform, text) { Owner = Application.Current.MainWindow };
+            var nw = new NotificationWindow(symbol, overlaySymbol, symbolTransform, text, _settings.Store.NotificationPosition) { Owner = Application.Current.MainWindow };
             nw.Show(closeAfter);
             _window = nw;
         }
