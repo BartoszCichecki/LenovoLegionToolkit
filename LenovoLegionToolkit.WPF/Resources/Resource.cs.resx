@@ -1000,6 +1000,9 @@ Režim můžeš přepínat pomocí Fn+Q.</value>
   <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
     <value>Vlastní režim</value>
   </data>
+  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
+		<value>Výchozí</value>
+	</data>
   <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
     <value>Režim výkonu</value>
   </data>
