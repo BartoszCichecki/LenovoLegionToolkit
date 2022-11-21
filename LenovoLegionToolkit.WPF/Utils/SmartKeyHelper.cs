@@ -37,7 +37,7 @@ namespace LenovoLegionToolkit.WPF.Utils
 
         private async void SpecialKeyListener_Changed(object? sender, SpecialKey e)
         {
-            if (e != SpecialKey.Fn_F9)
+            if (e != SpecialKey.FnF9)
                 return;
 
             if (await _fnKeys.GetStatusAsync() == SoftwareStatus.Enabled)

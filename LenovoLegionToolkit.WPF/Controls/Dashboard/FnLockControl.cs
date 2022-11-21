@@ -27,7 +27,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             if (!IsLoaded || !IsVisible)
                 return;
 
-            if (e is SpecialKey.Fn_LockOn or SpecialKey.Fn_LockOff)
+            if (e is SpecialKey.FnLockOn or SpecialKey.FnLockOff)
                 await RefreshAsync();
         });
     }

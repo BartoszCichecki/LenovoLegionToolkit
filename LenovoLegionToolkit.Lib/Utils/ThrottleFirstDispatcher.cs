@@ -8,12 +8,14 @@ namespace LenovoLegionToolkit.Lib.Utils
         private readonly object _lock = new();
 
         private readonly TimeSpan _interval;
+        private readonly string? _tag;
 
         private DateTime _lastEvent = DateTime.MinValue;
 
-        public ThrottleFirstDispatcher(TimeSpan interval)
+        public ThrottleFirstDispatcher(TimeSpan interval, string? tag = null)
         {
             _interval = interval;
+            _tag = tag;
         }
 
         public Task DispatchAsync(Func<Task> task)
@@ -25,10 +27,18 @@ namespace LenovoLegionToolkit.Lib.Utils
                 _lastEvent = now;
 
                 if (diff < _interval)
-                    return Task.CompletedTask;
-            }
+                {
+                    if (_tag is not null && Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Throttling... [tag={_tag}, diff={diff.TotalMilliseconds}ms]");
 
-            return task();
+                    return Task.CompletedTask;
+                }
+
+                if (_tag is not null && Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Allowing... [tag={_tag}, diff={diff.TotalMilliseconds}ms]");
+
+                return task();
+            }
         }
     }
 }
