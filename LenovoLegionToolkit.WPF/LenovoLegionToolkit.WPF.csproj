@@ -33,7 +33,7 @@
 	  <DebugType>embedded</DebugType>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Autofac" Version="6.4.0" />
+		<PackageReference Include="Autofac" Version="6.5.0" />
 		<PackageReference Include="Humanizer" Version="2.14.1" />
 		<PackageReference Include="Markdig" Version="0.30.4" />
 		<PackageReference Include="Markdig.Wpf" Version="0.5.0.1" />
