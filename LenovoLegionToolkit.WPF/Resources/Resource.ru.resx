@@ -1000,6 +1000,9 @@
   <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
     <value>Пользовательский режим</value>
   </data>
+  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
+		<value>По умолчанию</value>
+	</data>
   <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
     <value>Режим макс. производительности</value>
   </data>
