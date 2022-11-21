@@ -394,9 +394,12 @@ namespace LenovoLegionToolkit.Lib
 
     public struct RGBColor
     {
-        public byte R { get; } = 255;
-        public byte G { get; } = 255;
-        public byte B { get; } = 255;
+        public static readonly RGBColor Black = new(0, 0, 0);
+        public static readonly RGBColor White = new(255, 255, 255);
+
+        public byte R { get; }
+        public byte G { get; }
+        public byte B { get; }
 
         [JsonConstructor]
         public RGBColor(byte r, byte g, byte b)
@@ -423,10 +426,10 @@ namespace LenovoLegionToolkit.Lib
         public RGBKeyboardBacklightEffect Effect { get; } = RGBKeyboardBacklightEffect.Static;
         public RBGKeyboardBacklightSpeed Speed { get; } = RBGKeyboardBacklightSpeed.Slowest;
         public RGBKeyboardBacklightBrightness Brightness { get; } = RGBKeyboardBacklightBrightness.Low;
-        public RGBColor Zone1 { get; } = new();
-        public RGBColor Zone2 { get; } = new();
-        public RGBColor Zone3 { get; } = new();
-        public RGBColor Zone4 { get; } = new();
+        public RGBColor Zone1 { get; } = RGBColor.White;
+        public RGBColor Zone2 { get; } = RGBColor.White;
+        public RGBColor Zone3 { get; } = RGBColor.White;
+        public RGBColor Zone4 { get; } = RGBColor.White;
 
         [JsonConstructor]
         public RGBKeyboardBacklightBacklightPresetDescription(

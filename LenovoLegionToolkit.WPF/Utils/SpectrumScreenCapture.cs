@@ -9,10 +9,9 @@ namespace LenovoLegionToolkit.WPF.Utils
 {
     public class SpectrumScreenCapture : SpectrumKeyboardBacklightController.IScreenCapture
     {
-        private const PixelFormat PIXEL_FORMAT = PixelFormat.Format16bppRgb555;
-        private const int CUT_OFF = 32;
+        private const PixelFormat PIXEL_FORMAT = PixelFormat.Format32bppRgb;
 
-        public RGBColor[][] CaptureScreen(int width, int height, CancellationToken token)
+        public void CaptureScreen(ref RGBColor[,] buffer, int width, int height, CancellationToken token)
         {
             var screen = Screen.PrimaryScreen.Bounds;
 
@@ -26,30 +25,21 @@ namespace LenovoLegionToolkit.WPF.Utils
                 token.ThrowIfCancellationRequested();
 
                 using var targetGraphics = Graphics.FromImage(targetImage);
-                targetGraphics.Clear(Color.Black);
                 targetGraphics.DrawImage(image, new Rectangle(0, 0, width, height));
             }
 
             token.ThrowIfCancellationRequested();
 
-            var colors = new RGBColor[height][];
-            for (var y = 0; y < height; y++)
+            for (var x = 0; x < width; x++)
             {
-                colors[y] = new RGBColor[width];
-                for (var x = 0; x < width; x++)
+                for (var y = 0; y < height; y++)
                 {
                     var pixel = targetImage.GetPixel(x, y);
-
-                    if (pixel.R < CUT_OFF && pixel.G < CUT_OFF && pixel.B < CUT_OFF)
-                        colors[y][x] = new RGBColor(0, 0, 0);
-                    else
-                        colors[y][x] = new RGBColor(pixel.R, pixel.G, pixel.B);
+                    buffer[x, y] = new RGBColor(pixel.R, pixel.G, pixel.B);
 
                     token.ThrowIfCancellationRequested();
                 }
             }
-
-            return colors;
         }
     }
 }
