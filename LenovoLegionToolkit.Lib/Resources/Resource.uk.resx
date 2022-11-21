@@ -58,6 +58,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccentColorSource_Custom" xml:space="preserve">
+    <value>Користувальницький</value>
+  </data>
+  <data name="AccentColorSource_System" xml:space="preserve">
+    <value>Системний</value>
+  </data>
   <data name="AlwaysOnUSBState_Off" xml:space="preserve">
     <value>Вимкнено</value>
   </data>
@@ -68,14 +74,14 @@
     <value>Увімкнено під час сну</value>
   </data>
   <data name="AutorunState_Disabled" xml:space="preserve">
-		<value>Вимкнено</value>
-	</data>
+    <value>Вимкнено</value>
+  </data>
   <data name="AutorunState_Enabled" xml:space="preserve">
-		<value>Увімкнено</value>
-	</data>
+    <value>Увімкнено</value>
+  </data>
   <data name="AutorunState_EnabledDelayed" xml:space="preserve">
-		<value>Увімкнено із затримкою</value>
-	</data>
+    <value>Увімкнено із затримкою</value>
+  </data>
   <data name="BatteryState_Conservation" xml:space="preserve">
     <value>Консервація</value>
   </data>
@@ -161,83 +167,83 @@
     <value>Шаблон 2</value>
   </data>
   <data name="SpectrumKeyboardBacklightBrightness_High" xml:space="preserve">
-		<value>Висока</value>
-	</data>
+    <value>Висока</value>
+  </data>
   <data name="SpectrumKeyboardBacklightBrightness_Low" xml:space="preserve">
-		<value>Низька</value>
-	</data>
+    <value>Низька</value>
+  </data>
   <data name="SpectrumKeyboardBacklightBrightness_Medium" xml:space="preserve">
-		<value>Середня</value>
-	</data>
+    <value>Середня</value>
+  </data>
   <data name="SpectrumKeyboardBacklightBrightness_Off" xml:space="preserve">
-		<value>Вимкнена</value>
-	</data>
+    <value>Вимкнена</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_BottomToTop" xml:space="preserve">
-		<value>Знизу вгору</value>
-	</data>
+    <value>Знизу вгору</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_Clockwise" xml:space="preserve">
-		<value>За годинниковою стрілкою</value>
-	</data>
+    <value>За годинниковою стрілкою</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_CounterClockwise" xml:space="preserve">
-		<value>Проти годинникової стрілки</value>
-	</data>
+    <value>Проти годинникової стрілки</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_LeftToRight" xml:space="preserve">
-		<value>Зліва направо</value>
-	</data>
+    <value>Зліва направо</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_RightToLeft" xml:space="preserve">
-		<value>Справа наліво</value>
-	</data>
+    <value>Справа наліво</value>
+  </data>
   <data name="SpectrumKeyboardBacklightDirection_TopToBottom" xml:space="preserve">
-		<value>Згори вниз</value>
-	</data>
+    <value>Згори вниз</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Always" xml:space="preserve">
-		<value>Постійно</value>
-	</data>
+    <value>Постійно</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_AudioBounce" xml:space="preserve">
-		<value>Звуковий відскок</value>
-	</data>
+    <value>Звуковий відскок</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_AudioRipple" xml:space="preserve">
-		<value>Звукова пульсація</value>
-	</data>
+    <value>Звукова пульсація</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_AuroraSync" xml:space="preserve">
-		<value>Aurora Sync</value>
-	</data>
+    <value>Aurora Sync</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorChange" xml:space="preserve">
-		<value>Зміна кольору</value>
-	</data>
+    <value>Зміна кольору</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorPulse" xml:space="preserve">
-		<value>Пульсація кольору</value>
-	</data>
+    <value>Пульсація кольору</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorWave" xml:space="preserve">
-		<value>Колірні хвилі</value>
-	</data>
+    <value>Колірні хвилі</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Rain" xml:space="preserve">
-		<value>Дощ</value>
-	</data>
+    <value>Дощ</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_RainbowScrew" xml:space="preserve">
-		<value>Райдужний гвинт</value>
-	</data>
+    <value>Райдужний гвинт</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_RainbowWave" xml:space="preserve">
-		<value>Райдужні хвилі</value>
-	</data>
+    <value>Райдужні хвилі</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Ripple" xml:space="preserve">
-		<value>Пульсація</value>
-	</data>
+    <value>Пульсація</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Smooth" xml:space="preserve">
-		<value>Плавна</value>
-	</data>
+    <value>Плавна</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Type" xml:space="preserve">
-		<value>Тип</value>
-	</data>
+    <value>Тип</value>
+  </data>
   <data name="SpectrumKeyboardBacklightSpeed_Speed1" xml:space="preserve">
-		<value>Повільна</value>
-	</data>
+    <value>Повільна</value>
+  </data>
   <data name="SpectrumKeyboardBacklightSpeed_Speed2" xml:space="preserve">
-		<value>Середня</value>
-	</data>
+    <value>Середня</value>
+  </data>
   <data name="SpectrumKeyboardBacklightSpeed_Speed3" xml:space="preserve">
-		<value>Швидка</value>
-	</data>
+    <value>Швидка</value>
+  </data>
   <data name="Theme_Dark" xml:space="preserve">
     <value>Темна</value>
   </data>
