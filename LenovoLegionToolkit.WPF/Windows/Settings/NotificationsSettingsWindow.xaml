@@ -61,11 +61,11 @@
                         <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_NotificationPosition_Title}" />
                     </wpfui:CardControl.Header>
                     <ComboBox
-                            x:Name="_notificationPositionComboBox"
-                            MinWidth="200"
-                            Margin="0,0,0,8"
-                            MaxDropDownHeight="Auto"
-                            SelectionChanged="NotificationPositionComboBox_SelectionChanged" />
+                        x:Name="_notificationPositionComboBox"
+                        MinWidth="200"
+                        Margin="0,0,0,8"
+                        MaxDropDownHeight="Auto"
+                        SelectionChanged="NotificationPositionComboBox_SelectionChanged" />
                 </wpfui:CardControl>
 
                 <wpfui:CardControl x:Name="_capsNumLockCard" Margin="0,0,0,8">
