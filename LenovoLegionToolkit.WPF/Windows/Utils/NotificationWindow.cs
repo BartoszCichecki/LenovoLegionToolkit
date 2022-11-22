@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.WPF.Utils;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 
@@ -78,7 +79,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
             Width = MinWidth = Math.Max(_mainGrid.DesiredSize.Width, 300);
             Height = MinHeight = _mainGrid.DesiredSize.Height;
 
-            var desktopWorkingArea = SystemParameters.WorkArea;
+            var desktopWorkingArea = DisplayHelper.GetRealWorkArea();
 
             const int margin = 16;
 
