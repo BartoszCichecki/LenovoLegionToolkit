@@ -130,21 +130,9 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <Style TargetType="{x:Type wpfui:DynamicScrollBar}">
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Margin" Value="0" />
-        <Setter Property="Padding" Value="0" />
-        <Setter Property="SnapsToDevicePixels" Value="True" />
-        <Setter Property="OverridesDefaultStyle" Value="True" />
+    <Style TargetType="{x:Type wpfui:DynamicScrollBar}" BasedOn="{StaticResource UiDynamicScrollBar}">
         <Style.Triggers>
-            <Trigger Property="Orientation" Value="Horizontal">
-                <Setter Property="Width" Value="Auto" />
-                <Setter Property="Height" Value="14" />
-                <Setter Property="Template" Value="{StaticResource DynamicHorizontalScrollBar}" />
-            </Trigger>
             <Trigger Property="Orientation" Value="Vertical">
-                <Setter Property="Width" Value="14" />
-                <Setter Property="Height" Value="Auto" />
                 <Setter Property="Template" Value="{StaticResource DynamicVerticalScrollBar}" />
             </Trigger>
         </Style.Triggers>
