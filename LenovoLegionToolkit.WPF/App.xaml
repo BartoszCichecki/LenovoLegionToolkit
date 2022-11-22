@@ -13,6 +13,7 @@
                 <wpfui:ControlsDictionary />
                 <wpfui:ThemesDictionary Theme="Dark" />
                 <ResourceDictionary Source="pack://application:,,,/ColorPicker;component/Styles/DefaultColorPickerStyle.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Styles/DynamicScrollBar.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
