@@ -18,14 +18,14 @@ namespace LenovoLegionToolkit.Lib.System
         private static SafeFileHandle? _rgbKeyboard;
         private static SafeFileHandle? _spectrumRgbKeyboard;
 
-        public static unsafe SafeFileHandle GetBattery()
+        public static unsafe SafeFileHandle GetBattery(bool forceRefresh = false)
         {
-            if (_battery is not null)
+            if (_battery is not null && !forceRefresh)
                 return _battery;
 
             lock (Lock)
             {
-                if (_battery is not null)
+                if (_battery is not null && !forceRefresh)
                     return _battery;
 
                 var devClassBatteryGuid = PInvoke.GUID_DEVCLASS_BATTERY;
@@ -81,14 +81,14 @@ namespace LenovoLegionToolkit.Lib.System
             return _battery;
         }
 
-        public static SafeFileHandle? GetRGBKeyboard()
+        public static SafeFileHandle? GetRGBKeyboard(bool forceRefresh = false)
         {
-            if (_rgbKeyboard is not null)
+            if (_rgbKeyboard is not null && !forceRefresh)
                 return _rgbKeyboard;
 
             lock (Lock)
             {
-                if (_rgbKeyboard is not null)
+                if (_rgbKeyboard is not null && !forceRefresh)
                     return _rgbKeyboard;
 
                 const ushort vendorId = 0x048D;
@@ -102,14 +102,14 @@ namespace LenovoLegionToolkit.Lib.System
             return _rgbKeyboard;
         }
 
-        public static SafeFileHandle? GetSpectrumRGBKeyboard()
+        public static SafeFileHandle? GetSpectrumRGBKeyboard(bool forceRefresh = false)
         {
-            if (_spectrumRgbKeyboard is not null)
+            if (_spectrumRgbKeyboard is not null && !forceRefresh)
                 return _spectrumRgbKeyboard;
 
             lock (Lock)
             {
-                if (_spectrumRgbKeyboard is not null)
+                if (_spectrumRgbKeyboard is not null && !forceRefresh)
                     return _spectrumRgbKeyboard;
 
                 const ushort vendorId = 0x048D;
