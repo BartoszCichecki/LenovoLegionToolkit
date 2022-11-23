@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Threading;
 using System.Windows.Forms;
@@ -25,6 +26,7 @@ namespace LenovoLegionToolkit.WPF.Utils
                 token.ThrowIfCancellationRequested();
 
                 using var targetGraphics = Graphics.FromImage(targetImage);
+                targetGraphics.InterpolationMode = InterpolationMode.Bicubic;
                 targetGraphics.DrawImage(image, new Rectangle(0, 0, width, height));
             }
 
