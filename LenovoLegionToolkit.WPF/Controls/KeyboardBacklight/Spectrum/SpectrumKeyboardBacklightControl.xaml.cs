@@ -162,7 +162,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             _settings.Store.KeyboardLayout = layout;
             _settings.SynchronizeStore();
 
-            _device.SetLayout(layout, _controller.IsExtended);
+            _device.SetLayout(layout, _controller.IsExtended());
 
             if (IsVisible)
                 await StartAnimationAsync();
@@ -210,7 +210,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
                 _settings.SynchronizeStore();
             }
 
-            _device.SetLayout(_settings.Store.KeyboardLayout.Value, _controller.IsExtended);
+            _device.SetLayout(_settings.Store.KeyboardLayout.Value, _controller.IsExtended());
 
             _content.IsEnabled = true;
 
