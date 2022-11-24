@@ -10,16 +10,10 @@ namespace LenovoLegionToolkit.Lib.PackageDownloader
 {
     public class CommercialPackageDownloader : AbstractPackageDownloader
     {
-        private struct PackageDefinition
+        private readonly struct PackageDefinition
         {
-            public string Location { get; }
-            public string Category { get; }
-
-            public PackageDefinition(string location, string category)
-            {
-                Location = location;
-                Category = category;
-            }
+            public string Location { get; init; }
+            public string Category { get; init; }
         }
 
         private readonly string _catalogBaseUrl = "https://download.lenovo.com/catalog/";
@@ -79,7 +73,7 @@ namespace LenovoLegionToolkit.Lib.PackageDownloader
                 if (string.IsNullOrWhiteSpace(pLocation) || string.IsNullOrWhiteSpace(pCategory))
                     continue;
 
-                packageDefinitions.Add(new(pLocation, pCategory));
+                packageDefinitions.Add(new() { Location = pLocation, Category = pCategory });
             }
 
             return packageDefinitions;

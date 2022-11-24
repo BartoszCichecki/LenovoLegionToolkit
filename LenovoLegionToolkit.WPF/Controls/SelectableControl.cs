@@ -16,16 +16,16 @@ namespace LenovoLegionToolkit.WPF.Controls
             public SelectedEventArgs(Func<FrameworkElement, bool> containsCenter) => ContainsCenter = containsCenter;
         }
 
-        private Grid _grid = new()
+        private readonly Grid _grid = new()
         {
             Background = new SolidColorBrush(Colors.Transparent)
         };
 
         private readonly ContentPresenter _contentPresenter = new();
 
-        private Canvas _canvas = new();
+        private readonly Canvas _canvas = new();
 
-        private Rectangle _selection = new()
+        private readonly Rectangle _selection = new()
         {
             StrokeThickness = 2,
             Visibility = Visibility.Collapsed

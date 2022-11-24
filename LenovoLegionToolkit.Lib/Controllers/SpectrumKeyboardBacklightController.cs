@@ -733,7 +733,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 LENOVO_SPECTRUM_EFFECT_TYPE.Ripple => SpectrumKeyboardBacklightEffectType.Ripple,
                 LENOVO_SPECTRUM_EFFECT_TYPE.Smooth => SpectrumKeyboardBacklightEffectType.Smooth,
                 LENOVO_SPECTRUM_EFFECT_TYPE.TypeLighting => SpectrumKeyboardBacklightEffectType.Type,
-                _ => throw new ArgumentException()
+                _ => throw new ArgumentException(nameof(effect.EffectHeader.EffectType))
             };
 
             var speed = effect.EffectHeader.Speed switch
@@ -796,7 +796,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 SpectrumKeyboardBacklightEffectType.Ripple => LENOVO_SPECTRUM_EFFECT_TYPE.Ripple,
                 SpectrumKeyboardBacklightEffectType.Smooth => LENOVO_SPECTRUM_EFFECT_TYPE.Smooth,
                 SpectrumKeyboardBacklightEffectType.Type => LENOVO_SPECTRUM_EFFECT_TYPE.TypeLighting,
-                _ => throw new ArgumentException()
+                _ => throw new ArgumentException(nameof(effect.Type))
             };
 
             var speed = effect.Speed switch
