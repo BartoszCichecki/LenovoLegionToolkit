@@ -97,8 +97,16 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 if (handle is null)
                     return false;
 
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Checking if keyboard is extended...");
+
                 SetAndGetFeature(handle, new LENOVO_SPECTRUM_GET_KEYCOUNT_REQUEST(), out LENOVO_SPECTRUM_GET_KEYCOUNT_RESPONSE res);
-                return res.IsExtended;
+                var result = res.IsExtended;
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Is keyboard extended {result}.");
+
+                return result;
             }
             catch
             {
@@ -108,8 +116,16 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         public async Task<KeyboardLayout> GetKeyboardLayoutAsync()
         {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Checking keyboard layout...");
+
             var keys = await ReadAllKeyCodesAsync().ConfigureAwait(false);
-            return keys.Contains(0xA8) ? KeyboardLayout.Iso : KeyboardLayout.Ansi;
+            var layout = keys.Contains(0xA8) ? KeyboardLayout.Iso : KeyboardLayout.Ansi;
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Keyboard layout is {layout}.");
+
+            return layout;
         }
 
         public async Task<int> GetBrightnessAsync()
@@ -120,9 +136,17 @@ namespace LenovoLegionToolkit.Lib.Controllers
             if (handle is null)
                 throw new InvalidOperationException(nameof(handle));
 
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Getting keyboard brightness...");
+
             var input = new LENOVO_SPECTRUM_GET_BRIGHTNESS_REQUEST();
             SetAndGetFeature(handle, input, out LENOVO_SPECTRUM_GET_BRIGTHNESS_RESPONSE output);
-            return output.Brightness;
+            var result = output.Brightness;
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Keyboard brightness is {result}.");
+
+            return result;
         }
 
         public async Task SetBrightnessAsync(int brightness)
@@ -133,8 +157,14 @@ namespace LenovoLegionToolkit.Lib.Controllers
             if (handle is null)
                 throw new InvalidOperationException(nameof(handle));
 
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Setting keyboard brightness to: {brightness}.");
+
             var input = new LENOVO_SPECTRUM_SET_BRIGHTHNESS_REQUEST((byte)brightness);
             SetFeature(handle, input);
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Keyboard brightness set.");
         }
 
         public async Task<int> GetProfileAsync()
@@ -145,9 +175,17 @@ namespace LenovoLegionToolkit.Lib.Controllers
             if (handle is null)
                 throw new InvalidOperationException(nameof(handle));
 
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Getting keyboard profile...");
+
             var input = new LENOVO_SPECTRUM_GET_PROFILE_REQUEST();
             SetAndGetFeature(handle, input, out LENOVO_SPECTRUM_GET_PROFILE_RESPONSE output);
-            return output.Profile;
+            var result = output.Profile;
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Keyboard profile is {result}.");
+
+            return result;
         }
 
         public async Task SetProfileAsync(int profile)
@@ -160,10 +198,16 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
             await StopAuroraIfNeededAsync().ConfigureAwait(false);
 
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Setting keyboard profile to {profile}...");
+
             var input = new LENOVO_SPECTRUM_SET_PROFILE_REQUEST((byte)profile);
             SetFeature(handle, input);
 
             await Task.Delay(TimeSpan.FromMilliseconds(100)).ConfigureAwait(false);
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Keyboard profile set to {profile}.");
 
             await StartAuroraIfNeededAsync(profile).ConfigureAwait(false);
         }
@@ -175,6 +219,12 @@ namespace LenovoLegionToolkit.Lib.Controllers
             var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
             if (handle is null)
                 throw new InvalidOperationException(nameof(handle));
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Setting keyboard profile {profile} to default...");
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Keyboard profile {profile} set to default.");
 
             var input = new LENOVO_SPECTRUM_SET_PROFILE_DEFAULT_REQUEST((byte)profile);
             SetFeature(handle, input);
@@ -188,14 +238,20 @@ namespace LenovoLegionToolkit.Lib.Controllers
             if (handle is null)
                 throw new InvalidOperationException(nameof(handle));
 
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Setting {effects.Length} effect to keyboard profile {profile}...");
+
             effects = Compress(effects);
             var bytes = Convert(profile, effects).ToBytes();
             SetFeature(handle, bytes);
 
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Set {effects.Length} effect to keyboard profile {profile}.");
+
             await StartAuroraIfNeededAsync(profile).ConfigureAwait(false);
         }
 
-        public async Task<(int, SpectrumKeyboardBacklightEffect[])> GetProfileDescriptionAsync(int profile)
+        public async Task<(int Profile, SpectrumKeyboardBacklightEffect[] Effects)> GetProfileDescriptionAsync(int profile)
         {
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
@@ -203,11 +259,19 @@ namespace LenovoLegionToolkit.Lib.Controllers
             if (handle is null)
                 throw new InvalidOperationException(nameof(handle));
 
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Getting effects for keyboard profile {profile}...");
+
             var input = new LENOVO_SPECTRUM_GET_EFFECT_REQUEST((byte)profile);
             SetAndGetFeature(handle, input, out var buffer, 960);
 
             var description = LENOVO_SPECTRUM_EFFECT_DESCRIPTION.FromBytes(buffer);
-            return Convert(description);
+            var result = Convert(description);
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Retrieved {result.Effects.Length} effects for keyboard profile {profile}...");
+
+            return result;
         }
 
         public async Task<bool> StartAuroraIfNeededAsync(int? profile = null)
@@ -216,28 +280,44 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
             await StopAuroraIfNeededAsync().ConfigureAwait(false);
 
-            profile ??= await GetProfileAsync().ConfigureAwait(false);
-            var (_, description) = await GetProfileDescriptionAsync(profile.Value).ConfigureAwait(false);
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Starting Aurora... [profile={profile}]");
 
-            if (!description.Any(e => e.Type == SpectrumKeyboardBacklightEffectType.AuroraSync))
+            profile ??= await GetProfileAsync().ConfigureAwait(false);
+            var (_, effects) = await GetProfileDescriptionAsync(profile.Value).ConfigureAwait(false);
+
+            if (!effects.Any(e => e.Type == SpectrumKeyboardBacklightEffectType.AuroraSync))
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Aurora not needed. [profile={profile}]");
+
                 return false;
+            }
 
             _auroraRefreshCancellationTokenSource = new();
             var token = _auroraRefreshCancellationTokenSource.Token;
             _auroraRefreshTask = Task.Run(() => AuroraRefreshAsync(profile.Value, token), token);
 
-            return true;
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Aurora started. [profile={profile}]");
 
+            return true;
         }
 
         public async Task StopAuroraIfNeededAsync()
         {
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Stopping Aurora...");
+
             _auroraRefreshCancellationTokenSource?.Cancel();
             if (_auroraRefreshTask is not null)
                 await _auroraRefreshTask.ConfigureAwait(false);
             _auroraRefreshTask = null;
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Aurora stopped.");
         }
 
         public async Task<Dictionary<ushort, RGBColor>> GetStateAsync()
@@ -337,6 +417,9 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 if (handle is null)
                     throw new InvalidOperationException(nameof(handle));
 
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Aurora refresh starting...");
+
                 var keyMap = await GetKeyMapAsync().ConfigureAwait(false);
                 var width = keyMap.Width;
                 var height = keyMap.Height;
@@ -408,6 +491,9 @@ namespace LenovoLegionToolkit.Lib.Controllers
                     var currentProfile = await GetProfileAsync();
                     SetFeature(handle, new LENOVO_SPECTRUM_AURORA_STARTSTOP_REQUEST(false, (byte)currentProfile));
                 }
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Aurora refresh stopped.");
             }
         }
 
@@ -469,7 +555,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
             catch
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Keyboard not ready!");
+                    Log.Instance.Trace($"Keyboard not ready.");
+
                 return false;
             }
         }
@@ -603,7 +690,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             return newEffects.ToArray();
         }
 
-        private static (int, SpectrumKeyboardBacklightEffect[]) Convert(LENOVO_SPECTRUM_EFFECT_DESCRIPTION description)
+        private static (int Profile, SpectrumKeyboardBacklightEffect[] Effects) Convert(LENOVO_SPECTRUM_EFFECT_DESCRIPTION description)
         {
             var profile = description.Profile;
             var effects = description.Effects.Select(Convert).ToArray();
