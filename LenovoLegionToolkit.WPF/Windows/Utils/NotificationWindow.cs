@@ -6,12 +6,13 @@ using System.Windows.Media;
 using LenovoLegionToolkit.Lib;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
+using Screen = System.Windows.Forms.Screen;
 
 namespace LenovoLegionToolkit.WPF.Windows.Utils
 {
     public class NotificationWindow : UiWindow
     {
-        public readonly Grid _mainGrid = new()
+        private readonly Grid _mainGrid = new()
         {
             ColumnDefinitions =
             {
@@ -21,19 +22,19 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
             Margin = new(16, 16, 32, 16),
         };
 
-        public readonly SymbolIcon _symbolIcon = new()
+        private readonly SymbolIcon _symbolIcon = new()
         {
             FontSize = 32,
             Margin = new(0, 0, 16, 0),
         };
 
-        public readonly SymbolIcon _overlaySymbolIcon = new()
+        private readonly SymbolIcon _overlaySymbolIcon = new()
         {
             FontSize = 32,
             Margin = new(0, 0, 16, 0),
         };
 
-        public readonly Label _textBlock = new()
+        private readonly Label _textBlock = new()
         {
             FontSize = 16,
             FontWeight = FontWeights.Medium,
@@ -44,9 +45,9 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
         {
             InitializeStyle();
             InitializeContent(symbol, overlaySymbol, symbolTransform, text);
-            InitializePosition(position);
 
-            MouseDown += (s, e) => Close();
+            SourceInitialized += (_, _) => InitializePosition(position, GetRealDesktopWorkingArea());
+            MouseDown += (_, _) => Close();
         }
 
         public void Show(int closeAfter)
@@ -56,6 +57,14 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
             {
                 Close();
             }, TaskScheduler.FromCurrentSynchronizationContext());
+        }
+
+        private Rect GetRealDesktopWorkingArea()
+        {
+            var wa = Screen.FromHandle(HwndSource.Handle).WorkingArea;
+            var scale = HwndSource.CompositionTarget?.TransformToDevice.M11 ?? 1;
+            var multiplier = 96 / (96 * scale);
+            return new Rect(wa.X, wa.Y, wa.Width * multiplier, wa.Height * multiplier);
         }
 
         private void InitializeStyle()
@@ -71,14 +80,12 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
             _textBlock.Foreground = (SolidColorBrush)FindResource("TextFillColorPrimaryBrush");
         }
 
-        private void InitializePosition(NotificationPosition position)
+        private void InitializePosition(NotificationPosition position, Rect desktopWorkingArea)
         {
             _mainGrid.Measure(new Size(double.PositiveInfinity, 80));
 
             Width = MinWidth = Math.Max(_mainGrid.DesiredSize.Width, 300);
             Height = MinHeight = _mainGrid.DesiredSize.Height;
-
-            var desktopWorkingArea = SystemParameters.WorkArea;
 
             const int margin = 16;
 

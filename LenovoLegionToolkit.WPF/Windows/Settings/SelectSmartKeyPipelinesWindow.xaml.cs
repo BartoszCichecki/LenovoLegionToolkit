@@ -20,7 +20,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
 
         private readonly bool _isDoublePress;
 
-        private Guid? _settingsStoreGuid
+        private Guid? SettingsStoreGuid
         {
             get => _isDoublePress ? _settings.Store.SmartKeyDoublePressActionId : _settings.Store.SmartKeySinglePressActionId;
             set
@@ -32,7 +32,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
             }
         }
 
-        private List<Guid> _settingsStoreList
+        private List<Guid> SettingsStoreList
         {
             get => _isDoublePress ? _settings.Store.SmartKeyDoublePressActionList : _settings.Store.SmartKeySinglePressActionList;
             set
@@ -73,7 +73,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
         {
             _loader.IsLoading = true;
 
-            _showThisAppToggle.IsChecked = _settingsStoreGuid == null;
+            _showThisAppToggle.IsChecked = SettingsStoreGuid == null;
 
             var allPipelines = await _automationProcessor.GetPipelinesAsync();
             var pipelines = allPipelines.Where(p => p.Trigger is null).OrderBy(p => p.Name).ToArray();
@@ -87,7 +87,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
             {
                 var item = new ListItem(pipeline)
                 {
-                    IsChecked = _settingsStoreList.Exists(x => x == pipeline.Id) || pipeline.Id == _settingsStoreGuid
+                    IsChecked = SettingsStoreList.Exists(x => x == pipeline.Id) || pipeline.Id == SettingsStoreGuid
                 };
                 _list.Items.Add(item);
             }
@@ -108,14 +108,14 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
                 .Select(li => li.Pipeline.Id)
                 .ToArray();
 
-            _settingsStoreList.Clear();
+            SettingsStoreList.Clear();
 
             if (_showThisAppToggle.IsChecked ?? false)
-                _settingsStoreGuid = null;
+                SettingsStoreGuid = null;
             else
             {
-                _settingsStoreList.AddRange(selectedPipelines);
-                _settingsStoreGuid = _settingsStoreList.Any() ? _settingsStoreList.First() : Guid.Empty;
+                SettingsStoreList.AddRange(selectedPipelines);
+                SettingsStoreGuid = SettingsStoreList.Any() ? SettingsStoreList.First() : Guid.Empty;
             }
 
             _settings.SynchronizeStore();

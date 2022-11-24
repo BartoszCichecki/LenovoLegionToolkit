@@ -6,7 +6,6 @@ using System.Windows;
 using System.Windows.Controls;
 using Humanizer;
 using LenovoLegionToolkit.Lib;
-using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
@@ -29,7 +28,6 @@ namespace LenovoLegionToolkit.WPF.Pages
         private readonly FnKeys _fnKeys = IoCContainer.Resolve<FnKeys>();
         private readonly PowerModeFeature _powerModeFeature = IoCContainer.Resolve<PowerModeFeature>();
         private readonly RGBKeyboardBacklightController _rgbKeyboardBacklightController = IoCContainer.Resolve<RGBKeyboardBacklightController>();
-        private readonly AutomationProcessor _automationProcessor = IoCContainer.Resolve<AutomationProcessor>();
         private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
 
         private bool _isRefreshing;

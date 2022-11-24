@@ -10,7 +10,7 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Controllers
 {
-    public struct GodModeState
+    public readonly struct GodModeState
     {
         public StepperValue? CPULongTermPowerLimit { get; init; }
         public StepperValue? CPUShortTermPowerLimit { get; init; }
