@@ -511,8 +511,14 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
                     SafeFileHandle? newDeviceHandle = null;
 
-                    for (var i = 0; i < 3; i++)
+                    const int retries = 3;
+                    const int delay = 50;
+
+                    for (var i = 0; i < retries; i++)
                     {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Refreshing handle... [retry={i + 1}]");
+
                         var tempDeviceHandle = Devices.GetSpectrumRGBKeyboard(true);
                         if (tempDeviceHandle is not null && IsReady(tempDeviceHandle))
                         {
@@ -520,18 +526,31 @@ namespace LenovoLegionToolkit.Lib.Controllers
                             break;
                         }
 
-                        await Task.Delay(50).ConfigureAwait(false);
+                        await Task.Delay(delay).ConfigureAwait(false);
                     }
 
                     if (newDeviceHandle is null)
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Handle couldn't be refreshed.");
+
                         return null;
+                    }
 
                     SetAndGetFeature(newDeviceHandle,
                         new LENOVO_SPECTRUM_GET_COMPATIBILITY_REQUEST(),
                         out LENOVO_SPECTRUM_GET_COMPATIBILITY_RESPONSE res);
 
                     if (!res.IsCompatible)
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Handle not compatible.");
+
                         return null;
+                    }
+
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Handle refreshed.");
 
                     _deviceHandle = newDeviceHandle;
                     return newDeviceHandle;
