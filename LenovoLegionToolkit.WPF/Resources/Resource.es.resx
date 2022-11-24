@@ -805,6 +805,9 @@ AVISO: Esta acción no se ejecutará correctamente si la pantalla interna está 
   <data name="Notification_SpectrumKeyboardBacklight_Profile" xml:space="preserve">
 		<value>Perfil {0}</value>
 	</data>
+  <data name="Notification_TouchpadOff" xml:space="preserve">
+    <value>Panel táctil apagado</value>
+  </data>
   <data name="Notification_WhiteKeyboardBacklight" xml:space="preserve">
     <value>Retroiluminación {0}</value>
   </data>
@@ -1336,8 +1339,17 @@ Requiere un reinicio.</value>
   <data name="ToggleHybridModeControl_Title" xml:space="preserve">
     <value>Modo híbrido</value>
   </data>
+  <data name="TouchpadLockAutomationStepControl_Message" xml:space="preserve">
+    <value>Desactivar el panel táctil.</value>
+  </data>
   <data name="TouchpadLockAutomationStepControl_Title" xml:space="preserve">
-    <value>Bloqueo del teclado táctil</value>
+    <value>Bloqueo del panel táctil</value>
+  </data>
+  <data name="TouchpadLockControl_Message" xml:space="preserve">
+    <value>Desactivar el panel táctil.</value>
+  </data>
+  <data name="TouchpadLockControl_Title" xml:space="preserve">
+    <value>Bloqueo del panel táctil</value>
   </data>
   <data name="TryAgain" xml:space="preserve">
     <value>Intentar de nuevo</value>
