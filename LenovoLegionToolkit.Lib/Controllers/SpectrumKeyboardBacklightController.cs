@@ -9,6 +9,7 @@ using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32.SafeHandles;
+using NeoSmart.AsyncLock;
 using Windows.Win32;
 
 namespace LenovoLegionToolkit.Lib.Controllers
@@ -20,7 +21,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             void CaptureScreen(ref RGBColor[,] buffer, int width, int height, CancellationToken token);
         }
 
-        private struct KeyMap
+        private readonly struct KeyMap
         {
             public static readonly KeyMap Empty = new(0, 0, new ushort[0, 0], Array.Empty<ushort>());
 
@@ -38,6 +39,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
         }
 
+        private static readonly AsyncLock GetDeviceHandleLock = new();
         private static readonly object IoLock = new();
 
         private readonly TimeSpan _auroraRefreshInterval = TimeSpan.FromMilliseconds(60);
@@ -46,15 +48,10 @@ namespace LenovoLegionToolkit.Lib.Controllers
         private readonly Vantage _vantage;
         private readonly IScreenCapture _screenCapture;
 
-        private readonly Lazy<SafeFileHandle?> _driverHandle;
-        private readonly Lazy<bool> _isExtended;
+        private SafeFileHandle? _deviceHandle;
 
         private CancellationTokenSource? _auroraRefreshCancellationTokenSource;
         private Task? _auroraRefreshTask;
-
-        private SafeFileHandle? DriverHandle => _driverHandle.Value;
-
-        public bool IsExtended => _isExtended.Value;
 
         public bool ForceDisable { get; set; }
 
@@ -64,54 +61,15 @@ namespace LenovoLegionToolkit.Lib.Controllers
             _vantage = vantage ?? throw new ArgumentNullException(nameof(vantage));
             _screenCapture = screenCapture ?? throw new ArgumentNullException(nameof(screenCapture));
 
-            _driverHandle = new(HandleValueFactory, LazyThreadSafetyMode.ExecutionAndPublication);
-            _isExtended = new(IsExtendedValueFactory, LazyThreadSafetyMode.ExecutionAndPublication);
-
             _listener.Changed += Listener_Changed;
-        }
-
-        private SafeFileHandle? HandleValueFactory()
-        {
-            try
-            {
-                if (ForceDisable)
-                    return null;
-
-                var handle = Devices.GetSpectrumRGBKeyboard();
-                if (handle is null)
-                    return null;
-
-                SetAndGetFeature(handle, new LENOVO_SPECTRUM_GET_COMPATIBILITY_REQUEST(), out LENOVO_SPECTRUM_GET_COMPATIBILITY_RESPONSE res);
-                if (!res.IsCompatible)
-                    return null;
-
-                return handle;
-            }
-            catch
-            {
-                return null;
-            }
-        }
-
-        private bool IsExtendedValueFactory()
-        {
-            try
-            {
-                if (DriverHandle is null)
-                    return false;
-
-                SetAndGetFeature(DriverHandle, new LENOVO_SPECTRUM_GET_KEYCOUNT_REQUEST(), out LENOVO_SPECTRUM_GET_KEYCOUNT_RESPONSE res);
-                return res.IsExtended;
-            }
-            catch
-            {
-                return false;
-            }
         }
 
         private async void Listener_Changed(object? sender, SpecialKey e)
         {
-            if (!IsSupported() || await _vantage.GetStatusAsync() == SoftwareStatus.Enabled)
+            if (!await IsSupportedAsync().ConfigureAwait(false))
+                return;
+
+            if (await _vantage.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
                 return;
 
             switch (e)
@@ -129,62 +87,127 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
         }
 
-        public bool IsSupported() => DriverHandle is not null;
+        public async Task<bool> IsSupportedAsync() => await GetDeviceHandleAsync().ConfigureAwait(false) is not null;
 
-        public KeyboardLayout GetKeyboardLayout()
+        public async Task<bool> IsExtendedAsync()
         {
-            var keys = ReadAllKeyCodes();
-            return keys.Contains(0xA8) ? KeyboardLayout.Iso : KeyboardLayout.Ansi;
+            try
+            {
+                var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
+                if (handle is null)
+                    return false;
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Checking if keyboard is extended...");
+
+                SetAndGetFeature(handle, new LENOVO_SPECTRUM_GET_KEYCOUNT_REQUEST(), out LENOVO_SPECTRUM_GET_KEYCOUNT_RESPONSE res);
+                var result = res.IsExtended;
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Is keyboard extended {result}.");
+
+                return result;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<KeyboardLayout> GetKeyboardLayoutAsync()
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Checking keyboard layout...");
+
+            var keys = await ReadAllKeyCodesAsync().ConfigureAwait(false);
+            var layout = keys.Contains(0xA8) ? KeyboardLayout.Iso : KeyboardLayout.Ansi;
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Keyboard layout is {layout}.");
+
+            return layout;
         }
 
         public async Task<int> GetBrightnessAsync()
         {
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            if (DriverHandle is null)
-                throw new InvalidOperationException(nameof(DriverHandle));
+            var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
+            if (handle is null)
+                throw new InvalidOperationException(nameof(handle));
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Getting keyboard brightness...");
 
             var input = new LENOVO_SPECTRUM_GET_BRIGHTNESS_REQUEST();
-            SetAndGetFeature(DriverHandle, input, out LENOVO_SPECTRUM_GET_BRIGTHNESS_RESPONSE output);
-            return output.Brightness;
+            SetAndGetFeature(handle, input, out LENOVO_SPECTRUM_GET_BRIGTHNESS_RESPONSE output);
+            var result = output.Brightness;
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Keyboard brightness is {result}.");
+
+            return result;
         }
 
         public async Task SetBrightnessAsync(int brightness)
         {
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            if (DriverHandle is null)
-                throw new InvalidOperationException(nameof(DriverHandle));
+            var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
+            if (handle is null)
+                throw new InvalidOperationException(nameof(handle));
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Setting keyboard brightness to: {brightness}.");
 
             var input = new LENOVO_SPECTRUM_SET_BRIGHTHNESS_REQUEST((byte)brightness);
-            SetFeature(DriverHandle, input);
+            SetFeature(handle, input);
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Keyboard brightness set.");
         }
 
         public async Task<int> GetProfileAsync()
         {
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            if (DriverHandle is null)
-                throw new InvalidOperationException(nameof(DriverHandle));
+            var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
+            if (handle is null)
+                throw new InvalidOperationException(nameof(handle));
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Getting keyboard profile...");
 
             var input = new LENOVO_SPECTRUM_GET_PROFILE_REQUEST();
-            SetAndGetFeature(DriverHandle, input, out LENOVO_SPECTRUM_GET_PROFILE_RESPONSE output);
-            return output.Profile;
+            SetAndGetFeature(handle, input, out LENOVO_SPECTRUM_GET_PROFILE_RESPONSE output);
+            var result = output.Profile;
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Keyboard profile is {result}.");
+
+            return result;
         }
 
         public async Task SetProfileAsync(int profile)
         {
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            if (DriverHandle is null)
-                throw new InvalidOperationException(nameof(DriverHandle));
+            var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
+            if (handle is null)
+                throw new InvalidOperationException(nameof(handle));
 
             await StopAuroraIfNeededAsync().ConfigureAwait(false);
 
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Setting keyboard profile to {profile}...");
+
             var input = new LENOVO_SPECTRUM_SET_PROFILE_REQUEST((byte)profile);
-            SetFeature(DriverHandle, input);
+            SetFeature(handle, input);
 
             await Task.Delay(TimeSpan.FromMilliseconds(100)).ConfigureAwait(false);
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Keyboard profile set to {profile}.");
 
             await StartAuroraIfNeededAsync(profile).ConfigureAwait(false);
         }
@@ -193,85 +216,119 @@ namespace LenovoLegionToolkit.Lib.Controllers
         {
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            if (DriverHandle is null)
-                throw new InvalidOperationException(nameof(DriverHandle));
+            var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
+            if (handle is null)
+                throw new InvalidOperationException(nameof(handle));
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Setting keyboard profile {profile} to default...");
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Keyboard profile {profile} set to default.");
 
             var input = new LENOVO_SPECTRUM_SET_PROFILE_DEFAULT_REQUEST((byte)profile);
-            SetFeature(DriverHandle, input);
+            SetFeature(handle, input);
         }
 
         public async Task SetProfileDescriptionAsync(int profile, SpectrumKeyboardBacklightEffect[] effects)
         {
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            if (DriverHandle is null)
-                throw new InvalidOperationException(nameof(DriverHandle));
+            var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
+            if (handle is null)
+                throw new InvalidOperationException(nameof(handle));
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Setting {effects.Length} effect to keyboard profile {profile}...");
 
             effects = Compress(effects);
             var bytes = Convert(profile, effects).ToBytes();
-            SetFeature(DriverHandle, bytes);
+            SetFeature(handle, bytes);
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Set {effects.Length} effect to keyboard profile {profile}.");
 
             await StartAuroraIfNeededAsync(profile).ConfigureAwait(false);
         }
 
-        public async Task<(int, SpectrumKeyboardBacklightEffect[])> GetProfileDescriptionAsync(int profile)
+        public async Task<(int Profile, SpectrumKeyboardBacklightEffect[] Effects)> GetProfileDescriptionAsync(int profile)
         {
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            if (DriverHandle is null)
-                throw new InvalidOperationException(nameof(DriverHandle));
+            var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
+            if (handle is null)
+                throw new InvalidOperationException(nameof(handle));
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Getting effects for keyboard profile {profile}...");
 
             var input = new LENOVO_SPECTRUM_GET_EFFECT_REQUEST((byte)profile);
-            SetAndGetFeature(DriverHandle, input, out var buffer, 960);
+            SetAndGetFeature(handle, input, out var buffer, 960);
 
             var description = LENOVO_SPECTRUM_EFFECT_DESCRIPTION.FromBytes(buffer);
-            return Convert(description);
+            var result = Convert(description);
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Retrieved {result.Effects.Length} effects for keyboard profile {profile}...");
+
+            return result;
         }
 
         public async Task<bool> StartAuroraIfNeededAsync(int? profile = null)
         {
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            if (DriverHandle is null)
-                throw new InvalidOperationException(nameof(DriverHandle));
-
             await StopAuroraIfNeededAsync().ConfigureAwait(false);
 
-            profile ??= await GetProfileAsync().ConfigureAwait(false);
-            var (_, description) = await GetProfileDescriptionAsync(profile.Value).ConfigureAwait(false);
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Starting Aurora... [profile={profile}]");
 
-            if (!description.Any(e => e.Type == SpectrumKeyboardBacklightEffectType.AuroraSync))
+            profile ??= await GetProfileAsync().ConfigureAwait(false);
+            var (_, effects) = await GetProfileDescriptionAsync(profile.Value).ConfigureAwait(false);
+
+            if (!effects.Any(e => e.Type == SpectrumKeyboardBacklightEffectType.AuroraSync))
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Aurora not needed. [profile={profile}]");
+
                 return false;
+            }
 
             _auroraRefreshCancellationTokenSource = new();
             var token = _auroraRefreshCancellationTokenSource.Token;
             _auroraRefreshTask = Task.Run(() => AuroraRefreshAsync(profile.Value, token), token);
 
-            return true;
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Aurora started. [profile={profile}]");
 
+            return true;
         }
 
         public async Task StopAuroraIfNeededAsync()
         {
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            if (DriverHandle is null)
-                throw new InvalidOperationException(nameof(DriverHandle));
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Stopping Aurora...");
 
             _auroraRefreshCancellationTokenSource?.Cancel();
             if (_auroraRefreshTask is not null)
                 await _auroraRefreshTask.ConfigureAwait(false);
             _auroraRefreshTask = null;
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Aurora stopped.");
         }
 
         public async Task<Dictionary<ushort, RGBColor>> GetStateAsync()
         {
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            if (DriverHandle is null)
-                throw new InvalidOperationException(nameof(DriverHandle));
+            var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
+            if (handle is null)
+                throw new InvalidOperationException(nameof(handle));
 
-            GetFeature(DriverHandle, out LENOVO_SPECTRUM_STATE_RESPONSE state);
+            GetFeature(handle, out LENOVO_SPECTRUM_STATE_RESPONSE state);
 
             var dict = new Dictionary<ushort, RGBColor>();
 
@@ -291,9 +348,9 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 throw new InvalidOperationException("Can't manage Spectrum keyboard with Vantage enabled.");
         }
 
-        private HashSet<ushort> ReadAllKeyCodes()
+        private async Task<HashSet<ushort>> ReadAllKeyCodesAsync()
         {
-            var keyMap = GetKeyMap();
+            var keyMap = await GetKeyMapAsync().ConfigureAwait(false);
             var keyCodes = new HashSet<ushort>(keyMap.Width * keyMap.Height);
 
             foreach (var keyCode in keyMap.KeyCodes)
@@ -307,14 +364,15 @@ namespace LenovoLegionToolkit.Lib.Controllers
             return keyCodes;
         }
 
-        private KeyMap GetKeyMap()
+        private async Task<KeyMap> GetKeyMapAsync()
         {
             try
             {
-                if (DriverHandle is null)
+                var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
+                if (handle is null)
                     return KeyMap.Empty;
 
-                SetAndGetFeature(DriverHandle,
+                SetAndGetFeature(handle,
                     new LENOVO_SPECTRUM_GET_KEYCOUNT_REQUEST(),
                     out LENOVO_SPECTRUM_GET_KEYCOUNT_RESPONSE keyCountResponse);
 
@@ -326,7 +384,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
                 for (var y = 0; y < height; y++)
                 {
-                    SetAndGetFeature(DriverHandle,
+                    SetAndGetFeature(handle,
                         new LENOVO_SPECTRUM_GET_KEYPAGE_REQUEST((byte)y),
                         out LENOVO_SPECTRUM_GET_KEYPAGE_RESPONSE keyPageResponse);
 
@@ -334,7 +392,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                         keyCodes[x, y] = keyPageResponse.Items[x].KeyCode;
                 }
 
-                SetAndGetFeature(DriverHandle,
+                SetAndGetFeature(handle,
                     new LENOVO_SPECTRUM_GET_KEYPAGE_REQUEST(0, true),
                     out LENOVO_SPECTRUM_GET_KEYPAGE_RESPONSE secondaryKeyPageResponse);
 
@@ -355,15 +413,19 @@ namespace LenovoLegionToolkit.Lib.Controllers
             {
                 await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-                if (DriverHandle is null)
-                    throw new InvalidOperationException(nameof(DriverHandle));
+                var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
+                if (handle is null)
+                    throw new InvalidOperationException(nameof(handle));
 
-                var keyMap = GetKeyMap();
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Aurora refresh starting...");
+
+                var keyMap = await GetKeyMapAsync().ConfigureAwait(false);
                 var width = keyMap.Width;
                 var height = keyMap.Height;
                 var colorBuffer = new RGBColor[width, height];
 
-                SetFeature(DriverHandle, new LENOVO_SPECTRUM_AURORA_STARTSTOP_REQUEST(true, (byte)profile));
+                SetFeature(handle, new LENOVO_SPECTRUM_AURORA_STARTSTOP_REQUEST(true, (byte)profile));
 
                 while (!token.IsCancellationRequested)
                 {
@@ -410,9 +472,9 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
                     token.ThrowIfCancellationRequested();
 
-                    SetFeature(DriverHandle, new LENOVO_SPECTRUM_AURORA_SEND_BITMAP_REQUEST(items.ToArray()).ToBytes());
+                    SetFeature(handle, new LENOVO_SPECTRUM_AURORA_SEND_BITMAP_REQUEST(items.ToArray()).ToBytes());
 
-                    await delay;
+                    await delay.ConfigureAwait(false);
                 }
             }
             catch (TaskCanceledException) { }
@@ -423,11 +485,79 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
             finally
             {
-                if (DriverHandle is not null)
+                var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
+                if (handle is not null)
                 {
                     var currentProfile = await GetProfileAsync();
-                    SetFeature(DriverHandle, new LENOVO_SPECTRUM_AURORA_STARTSTOP_REQUEST(false, (byte)currentProfile));
+                    SetFeature(handle, new LENOVO_SPECTRUM_AURORA_STARTSTOP_REQUEST(false, (byte)currentProfile));
                 }
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Aurora refresh stopped.");
+            }
+        }
+
+        private async Task<SafeFileHandle?> GetDeviceHandleAsync()
+        {
+            if (ForceDisable)
+                return null;
+
+            try
+            {
+                using (await GetDeviceHandleLock.LockAsync())
+                {
+                    if (_deviceHandle is not null && IsReady(_deviceHandle))
+                        return _deviceHandle;
+
+                    SafeFileHandle? newDeviceHandle = null;
+
+                    for (var i = 0; i < 3; i++)
+                    {
+                        var tempDeviceHandle = Devices.GetSpectrumRGBKeyboard(true);
+                        if (tempDeviceHandle is not null && IsReady(tempDeviceHandle))
+                        {
+                            newDeviceHandle = tempDeviceHandle;
+                            break;
+                        }
+
+                        await Task.Delay(50).ConfigureAwait(false);
+                    }
+
+                    if (newDeviceHandle is null)
+                        return null;
+
+                    SetAndGetFeature(newDeviceHandle,
+                        new LENOVO_SPECTRUM_GET_COMPATIBILITY_REQUEST(),
+                        out LENOVO_SPECTRUM_GET_COMPATIBILITY_RESPONSE res);
+
+                    if (!res.IsCompatible)
+                        return null;
+
+                    _deviceHandle = newDeviceHandle;
+                    return newDeviceHandle;
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        private bool IsReady(SafeFileHandle handle)
+        {
+            try
+            {
+                var b = new byte[960];
+                b[0] = 7;
+                SetFeature(handle, b);
+                return true;
+            }
+            catch
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Keyboard not ready.");
+
+                return false;
             }
         }
 
@@ -560,7 +690,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             return newEffects.ToArray();
         }
 
-        private static (int, SpectrumKeyboardBacklightEffect[]) Convert(LENOVO_SPECTRUM_EFFECT_DESCRIPTION description)
+        private static (int Profile, SpectrumKeyboardBacklightEffect[] Effects) Convert(LENOVO_SPECTRUM_EFFECT_DESCRIPTION description)
         {
             var profile = description.Profile;
             var effects = description.Effects.Select(Convert).ToArray();
