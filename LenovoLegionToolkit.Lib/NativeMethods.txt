@@ -90,3 +90,7 @@ UnhookWindowsHookEx
 
 DisplayConfigGetDeviceInfo
 DisplayConfigSetDeviceInfo
+
+MonitorFromPoint
+GetMonitorInfoW
+GetDpiForMonitor
