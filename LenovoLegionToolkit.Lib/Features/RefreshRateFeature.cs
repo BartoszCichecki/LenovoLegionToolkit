@@ -33,16 +33,8 @@ namespace LenovoLegionToolkit.Lib.Features
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Current built in display settings: {currentSettings}");
 
-            var possibleSettings = display.GetPossibleSettings();
-
-            if (Log.Instance.IsTraceEnabled)
-            {
-                Log.Instance.Trace($"Found possible settings:");
-                foreach (var possibleSetting in possibleSettings)
-                    Log.Instance.Trace($" - {possibleSetting}");
-            }
-
-            var result = possibleSettings.Where(dps => Match(dps, currentSettings))
+            var result = display.GetPossibleSettings()
+                .Where(dps => Match(dps, currentSettings))
                 .Select(dps => dps.Frequency)
                 .Distinct()
                 .OrderBy(freq => freq)

@@ -47,7 +47,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Event received. [e.Mode={e.Mode}, newState={newState}]");
 
-            await RestoreRGBKeyboardState(e.Mode).ConfigureAwait(false);
+            await RestoreRGBKeyboardStateAsync(e.Mode).ConfigureAwait(false);
 
             if (newState == _lastState)
             {
@@ -66,8 +66,37 @@ namespace LenovoLegionToolkit.Lib.Listeners
 
                 return;
             }
-
             Changed?.Invoke(this, EventArgs.Empty);
+
+            Notify(e.Mode, newState);
+        }
+
+        private async Task RestoreRGBKeyboardStateAsync(PowerModes mode)
+        {
+            if (mode != PowerModes.Resume)
+                return;
+
+            try
+            {
+                if (await _rgbController.IsSupportedAsync().ConfigureAwait(false))
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Setting light control owner and restoring preset...");
+
+                    await _rgbController.SetLightControlOwnerAsync(true, true).ConfigureAwait(false);
+                }
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Couldn't set light control owner or current preset.", ex);
+            }
+        }
+
+        private static void Notify(PowerModes mode, PowerAdapterStatus newState)
+        {
+            if (mode == PowerModes.Suspend)
+                return;
 
             switch (newState)
             {
@@ -80,28 +109,6 @@ namespace LenovoLegionToolkit.Lib.Listeners
                 case PowerAdapterStatus.Disconnected:
                     MessagingCenter.Publish(new Notification(NotificationType.ACAdapterDisconnected, NotificationDuration.Short));
                     break;
-            }
-        }
-
-        private async Task RestoreRGBKeyboardState(PowerModes mode)
-        {
-            if (mode != PowerModes.Resume)
-                return;
-
-            try
-            {
-                if (_rgbController.IsSupported())
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Setting light control owner and restoring preset...");
-
-                    await _rgbController.SetLightControlOwnerAsync(true, true).ConfigureAwait(false);
-                }
-            }
-            catch (Exception ex)
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't set light control owner or current preset.", ex);
             }
         }
     }

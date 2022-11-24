@@ -18,11 +18,11 @@ namespace LenovoLegionToolkit.WPF.Pages
         public static async Task<bool> IsSupportedAsync()
         {
             var spectrumController = IoCContainer.Resolve<SpectrumKeyboardBacklightController>();
-            if (spectrumController.IsSupported())
+            if (await spectrumController.IsSupportedAsync())
                 return true;
 
             var rgbController = IoCContainer.Resolve<RGBKeyboardBacklightController>();
-            if (rgbController.IsSupported())
+            if (await rgbController.IsSupportedAsync())
                 return true;
 
             var whiteKeyboardBacklightFeature = IoCContainer.Resolve<WhiteKeyboardBacklightFeature>();
