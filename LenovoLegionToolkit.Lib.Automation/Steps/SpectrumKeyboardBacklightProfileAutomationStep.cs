@@ -30,6 +30,6 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
             await _controller.SetProfileAsync(State).ConfigureAwait(false);
         }
 
-        public IAutomationStep DeepCopy() => new SpectrumKeyboardBacklightBrightnessAutomationStep(State);
+        public IAutomationStep DeepCopy() => new SpectrumKeyboardBacklightProfileAutomationStep(State);
     }
 }
