@@ -830,6 +830,9 @@ Ative esta opção se você tiver conflitos com aplicativos de tela inteira.</va
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Não exibir notificações</value>
   </data>
+  <data name="NotificationsSettingsWindow_NotificationPosition_Title" xml:space="preserve">
+    <value>Posição</value>
+  </data>
   <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
     <value>Trava tecla Fn</value>
   </data>

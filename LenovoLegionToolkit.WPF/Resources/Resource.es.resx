@@ -806,10 +806,10 @@ AVISO: Esta acción no se ejecutará correctamente si la pantalla interna está 
 		<value>Perfil {0}</value>
 	</data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
-    <value>Táctil apagado</value>
+    <value>Panel táctil apagado</value>
   </data>
   <data name="Notification_TouchpadOn" xml:space="preserve">
-    <value>Táctil encendido</value>
+    <value>Panel táctil encendido</value>
   </data>
   <data name="Notification_WhiteKeyboardBacklight" xml:space="preserve">
     <value>Retroiluminación {0}</value>
@@ -829,6 +829,9 @@ Activar esta opción si tiene conflictos con las aplicaciones en pantalla comple
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>No mostrar notificaciones</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationPosition_Title" xml:space="preserve">
+    <value>Posición </value>
   </data>
   <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
     <value>Bloqueo de tecla Fn</value>
@@ -852,7 +855,7 @@ Activar esta opción si tiene conflictos con las aplicaciones en pantalla comple
     <value>Notificaciones</value>
   </data>
   <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
-    <value>Bloqueo táctil</value>
+    <value>Bloqueo del panel táctil</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>Aceptar</value>
@@ -1343,16 +1346,16 @@ Requiere un reinicio.</value>
     <value>Modo híbrido</value>
   </data>
   <data name="TouchpadLockAutomationStepControl_Message" xml:space="preserve">
-    <value>Desactivar táctil.</value>
+    <value>Desactivar el panel táctil.</value>
   </data>
   <data name="TouchpadLockAutomationStepControl_Title" xml:space="preserve">
-    <value>Bloqueo del teclado táctil</value>
+    <value>Bloqueo del panel táctil</value>
   </data>
   <data name="TouchpadLockControl_Message" xml:space="preserve">
-    <value>Desactivar táctil.</value>
+    <value>Desactivar el panel táctil.</value>
   </data>
   <data name="TouchpadLockControl_Title" xml:space="preserve">
-    <value>Bloqueo táctil</value>
+    <value>Bloqueo del panel táctil</value>
   </data>
   <data name="TryAgain" xml:space="preserve">
     <value>Intentar de nuevo</value>
