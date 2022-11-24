@@ -17,11 +17,11 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
 
         public Task<int[]> GetAllStatesAsync() => Task.FromResult(_allStates);
 
-        public Task<bool> IsSupportedAsync() => Task.FromResult(_controller.IsSupported());
+        public Task<bool> IsSupportedAsync() => _controller.IsSupportedAsync();
 
         public async Task RunAsync()
         {
-            if (!_controller.IsSupported())
+            if (!await _controller.IsSupportedAsync().ConfigureAwait(false))
                 return;
 
             if (!_allStates.Contains(State))

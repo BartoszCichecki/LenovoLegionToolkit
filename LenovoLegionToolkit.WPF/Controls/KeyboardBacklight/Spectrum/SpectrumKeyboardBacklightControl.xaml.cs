@@ -77,7 +77,10 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             if (!IsLoaded || !IsVisible)
                 return;
 
-            if (!_controller.IsSupported() || await _vantage.GetStatusAsync() == SoftwareStatus.Enabled)
+            if (!await _controller.IsSupportedAsync().ConfigureAwait(false))
+                return;
+
+            if (await _vantage.GetStatusAsync() == SoftwareStatus.Enabled)
                 return;
 
             switch (e)
@@ -162,7 +165,9 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
             _settings.Store.KeyboardLayout = layout;
             _settings.SynchronizeStore();
 
-            _device.SetLayout(layout, _controller.IsExtended());
+            var isExtended = await _controller.IsExtendedAsync();
+
+            _device.SetLayout(layout, isExtended);
 
             if (IsVisible)
                 await StartAnimationAsync();
@@ -188,7 +193,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 
         protected override async Task OnRefreshAsync()
         {
-            if (!_controller.IsSupported())
+            if (!await _controller.IsSupportedAsync())
                 throw new InvalidOperationException("Spectrum Keyboard does not seem to be supported");
 
             var vantageStatus = await _vantage.GetStatusAsync();
@@ -206,11 +211,14 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 
             if (!_settings.Store.KeyboardLayout.HasValue)
             {
-                _settings.Store.KeyboardLayout = _controller.GetKeyboardLayout();
+                _settings.Store.KeyboardLayout = await _controller.GetKeyboardLayoutAsync();
                 _settings.SynchronizeStore();
             }
 
-            _device.SetLayout(_settings.Store.KeyboardLayout.Value, _controller.IsExtended());
+            var layout = _settings.Store.KeyboardLayout.Value;
+            var isExtended = await _controller.IsExtendedAsync();
+
+            _device.SetLayout(layout, isExtended);
 
             _content.IsEnabled = true;
 
@@ -299,12 +307,6 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
                         }
 
                         button.Color = Color.FromRgb(rgb.R, rgb.G, rgb.B);
-                    }
-
-                    if (Log.Instance.IsTraceEnabled && buttons.Length != state.Count)
-                    {
-                        var codes = state.Keys.Except(buttons.Select(b => b.KeyCode)).Select(kc => $"{kc:X}");
-                        Log.Instance.Trace($"Some reported keycodes were not used: {string.Join(",", codes)}");
                     }
 
                     await delay;

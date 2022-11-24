@@ -9,6 +9,7 @@ using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32.SafeHandles;
+using NeoSmart.AsyncLock;
 using Windows.Win32;
 
 namespace LenovoLegionToolkit.Lib.Controllers
@@ -38,6 +39,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
         }
 
+        private static readonly AsyncLock GetDeviceHandleLock = new();
         private static readonly object IoLock = new();
 
         private readonly TimeSpan _auroraRefreshInterval = TimeSpan.FromMilliseconds(60);
@@ -64,7 +66,10 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         private async void Listener_Changed(object? sender, SpecialKey e)
         {
-            if (!IsSupported() || await _vantage.GetStatusAsync() == SoftwareStatus.Enabled)
+            if (!await IsSupportedAsync().ConfigureAwait(false))
+                return;
+
+            if (await _vantage.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
                 return;
 
             switch (e)
@@ -82,13 +87,13 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
         }
 
-        public bool IsSupported() => GetDeviceHandle() is not null;
+        public async Task<bool> IsSupportedAsync() => await GetDeviceHandleAsync().ConfigureAwait(false) is not null;
 
-        public bool IsExtended()
+        public async Task<bool> IsExtendedAsync()
         {
             try
             {
-                var handle = GetDeviceHandle();
+                var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
                 if (handle is null)
                     return false;
 
@@ -101,9 +106,9 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
         }
 
-        public KeyboardLayout GetKeyboardLayout()
+        public async Task<KeyboardLayout> GetKeyboardLayoutAsync()
         {
-            var keys = ReadAllKeyCodes();
+            var keys = await ReadAllKeyCodesAsync().ConfigureAwait(false);
             return keys.Contains(0xA8) ? KeyboardLayout.Iso : KeyboardLayout.Ansi;
         }
 
@@ -111,7 +116,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         {
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            var handle = GetDeviceHandle();
+            var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
             if (handle is null)
                 throw new InvalidOperationException(nameof(handle));
 
@@ -124,7 +129,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         {
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            var handle = GetDeviceHandle();
+            var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
             if (handle is null)
                 throw new InvalidOperationException(nameof(handle));
 
@@ -136,7 +141,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         {
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            var handle = GetDeviceHandle();
+            var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
             if (handle is null)
                 throw new InvalidOperationException(nameof(handle));
 
@@ -149,7 +154,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         {
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            var handle = GetDeviceHandle();
+            var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
             if (handle is null)
                 throw new InvalidOperationException(nameof(handle));
 
@@ -167,7 +172,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         {
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            var handle = GetDeviceHandle();
+            var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
             if (handle is null)
                 throw new InvalidOperationException(nameof(handle));
 
@@ -179,7 +184,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         {
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            var handle = GetDeviceHandle();
+            var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
             if (handle is null)
                 throw new InvalidOperationException(nameof(handle));
 
@@ -194,7 +199,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         {
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            var handle = GetDeviceHandle();
+            var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
             if (handle is null)
                 throw new InvalidOperationException(nameof(handle));
 
@@ -239,7 +244,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         {
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            var handle = GetDeviceHandle();
+            var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
             if (handle is null)
                 throw new InvalidOperationException(nameof(handle));
 
@@ -263,9 +268,9 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 throw new InvalidOperationException("Can't manage Spectrum keyboard with Vantage enabled.");
         }
 
-        private HashSet<ushort> ReadAllKeyCodes()
+        private async Task<HashSet<ushort>> ReadAllKeyCodesAsync()
         {
-            var keyMap = GetKeyMap();
+            var keyMap = await GetKeyMapAsync().ConfigureAwait(false);
             var keyCodes = new HashSet<ushort>(keyMap.Width * keyMap.Height);
 
             foreach (var keyCode in keyMap.KeyCodes)
@@ -279,49 +284,46 @@ namespace LenovoLegionToolkit.Lib.Controllers
             return keyCodes;
         }
 
-        private KeyMap GetKeyMap()
+        private async Task<KeyMap> GetKeyMapAsync()
         {
-            lock (IoLock)
+            try
             {
-                try
+                var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
+                if (handle is null)
+                    return KeyMap.Empty;
+
+                SetAndGetFeature(handle,
+                    new LENOVO_SPECTRUM_GET_KEYCOUNT_REQUEST(),
+                    out LENOVO_SPECTRUM_GET_KEYCOUNT_RESPONSE keyCountResponse);
+
+                var width = keyCountResponse.KeysPerIndex;
+                var height = keyCountResponse.Indexes;
+
+                var keyCodes = new ushort[width, height];
+                var additionalKeyCodes = new ushort[width];
+
+                for (var y = 0; y < height; y++)
                 {
-                    var handle = GetDeviceHandle();
-                    if (handle is null)
-                        return KeyMap.Empty;
-
                     SetAndGetFeature(handle,
-                        new LENOVO_SPECTRUM_GET_KEYCOUNT_REQUEST(),
-                        out LENOVO_SPECTRUM_GET_KEYCOUNT_RESPONSE keyCountResponse);
-
-                    var width = keyCountResponse.KeysPerIndex;
-                    var height = keyCountResponse.Indexes;
-
-                    var keyCodes = new ushort[width, height];
-                    var additionalKeyCodes = new ushort[width];
-
-                    for (var y = 0; y < height; y++)
-                    {
-                        SetAndGetFeature(handle,
-                            new LENOVO_SPECTRUM_GET_KEYPAGE_REQUEST((byte)y),
-                            out LENOVO_SPECTRUM_GET_KEYPAGE_RESPONSE keyPageResponse);
-
-                        for (var x = 0; x < width; x++)
-                            keyCodes[x, y] = keyPageResponse.Items[x].KeyCode;
-                    }
-
-                    SetAndGetFeature(handle,
-                        new LENOVO_SPECTRUM_GET_KEYPAGE_REQUEST(0, true),
-                        out LENOVO_SPECTRUM_GET_KEYPAGE_RESPONSE secondaryKeyPageResponse);
+                        new LENOVO_SPECTRUM_GET_KEYPAGE_REQUEST((byte)y),
+                        out LENOVO_SPECTRUM_GET_KEYPAGE_RESPONSE keyPageResponse);
 
                     for (var x = 0; x < width; x++)
-                        additionalKeyCodes[x] = secondaryKeyPageResponse.Items[x].KeyCode;
+                        keyCodes[x, y] = keyPageResponse.Items[x].KeyCode;
+                }
 
-                    return new(width, height, keyCodes, additionalKeyCodes);
-                }
-                catch
-                {
-                    return KeyMap.Empty;
-                }
+                SetAndGetFeature(handle,
+                    new LENOVO_SPECTRUM_GET_KEYPAGE_REQUEST(0, true),
+                    out LENOVO_SPECTRUM_GET_KEYPAGE_RESPONSE secondaryKeyPageResponse);
+
+                for (var x = 0; x < width; x++)
+                    additionalKeyCodes[x] = secondaryKeyPageResponse.Items[x].KeyCode;
+
+                return new(width, height, keyCodes, additionalKeyCodes);
+            }
+            catch
+            {
+                return KeyMap.Empty;
             }
         }
 
@@ -331,11 +333,11 @@ namespace LenovoLegionToolkit.Lib.Controllers
             {
                 await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-                var handle = GetDeviceHandle();
+                var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
                 if (handle is null)
                     throw new InvalidOperationException(nameof(handle));
 
-                var keyMap = GetKeyMap();
+                var keyMap = await GetKeyMapAsync().ConfigureAwait(false);
                 var width = keyMap.Width;
                 var height = keyMap.Height;
                 var colorBuffer = new RGBColor[width, height];
@@ -389,7 +391,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
                     SetFeature(handle, new LENOVO_SPECTRUM_AURORA_SEND_BITMAP_REQUEST(items.ToArray()).ToBytes());
 
-                    await delay;
+                    await delay.ConfigureAwait(false);
                 }
             }
             catch (TaskCanceledException) { }
@@ -400,7 +402,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
             finally
             {
-                var handle = GetDeviceHandle();
+                var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
                 if (handle is not null)
                 {
                     var currentProfile = await GetProfileAsync();
@@ -409,31 +411,44 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
         }
 
-        private SafeFileHandle? GetDeviceHandle()
+        private async Task<SafeFileHandle?> GetDeviceHandleAsync()
         {
+            if (ForceDisable)
+                return null;
+
             try
             {
-                lock (IoLock)
+                using (await GetDeviceHandleLock.LockAsync())
                 {
-                    if (ForceDisable)
-                        return null;
-
                     if (_deviceHandle is not null && IsReady(_deviceHandle))
                         return _deviceHandle;
 
-                    var handle = Devices.GetSpectrumRGBKeyboard(true);
-                    if (handle is null || !IsReady(handle))
+                    SafeFileHandle? newDeviceHandle = null;
+
+                    for (var i = 0; i < 3; i++)
+                    {
+                        var tempDeviceHandle = Devices.GetSpectrumRGBKeyboard(true);
+                        if (tempDeviceHandle is not null && IsReady(tempDeviceHandle))
+                        {
+                            newDeviceHandle = tempDeviceHandle;
+                            break;
+                        }
+
+                        await Task.Delay(50).ConfigureAwait(false);
+                    }
+
+                    if (newDeviceHandle is null)
                         return null;
 
-                    SetAndGetFeature(handle,
+                    SetAndGetFeature(newDeviceHandle,
                         new LENOVO_SPECTRUM_GET_COMPATIBILITY_REQUEST(),
                         out LENOVO_SPECTRUM_GET_COMPATIBILITY_RESPONSE res);
 
                     if (!res.IsCompatible)
                         return null;
 
-                    _deviceHandle = handle;
-                    return handle;
+                    _deviceHandle = newDeviceHandle;
+                    return newDeviceHandle;
                 }
             }
             catch

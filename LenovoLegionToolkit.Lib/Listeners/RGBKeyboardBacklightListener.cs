@@ -22,7 +22,7 @@ namespace LenovoLegionToolkit.Lib.Listeners
         {
             try
             {
-                if (!_controller.IsSupported())
+                if (!await _controller.IsSupportedAsync().ConfigureAwait(false))
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Not supported.");

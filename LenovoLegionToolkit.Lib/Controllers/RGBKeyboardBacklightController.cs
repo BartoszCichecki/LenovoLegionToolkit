@@ -46,12 +46,12 @@ namespace LenovoLegionToolkit.Lib.Controllers
             _vantage = vantage ?? throw new ArgumentNullException(nameof(vantage));
         }
 
-        public bool IsSupported()
+        public Task<bool> IsSupportedAsync()
         {
 #if MOCK_RGB
-            return true;
+            return Task.FromResult(true);
 #else
-            return DeviceHandle is not null;
+            return Task.FromResult(DeviceHandle is not null);
 #endif
         }
 
