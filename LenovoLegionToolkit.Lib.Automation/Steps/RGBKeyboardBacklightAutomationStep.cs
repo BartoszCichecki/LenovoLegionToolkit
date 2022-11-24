@@ -14,11 +14,11 @@ namespace LenovoLegionToolkit.Lib.Automation.Steps
 
         public Task<RGBKeyboardBacklightPreset[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<RGBKeyboardBacklightPreset>());
 
-        public Task<bool> IsSupportedAsync() => Task.FromResult(_controller.IsSupported());
+        public Task<bool> IsSupportedAsync() => _controller.IsSupportedAsync();
 
         public async Task RunAsync()
         {
-            if (!_controller.IsSupported())
+            if (!await _controller.IsSupportedAsync())
                 return;
 
             await _controller.SetLightControlOwnerAsync(true).ConfigureAwait(false);
