@@ -109,6 +109,33 @@
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
     <value>混合核显模式</value>
   </data>
+  <data name="NotificationPosition_BottomCenter" xml:space="preserve">
+    <value>底部居中</value>
+  </data>
+  <data name="NotificationPosition_BottomLeft" xml:space="preserve">
+    <value>左下角</value>
+  </data>
+  <data name="NotificationPosition_BottomRight" xml:space="preserve">
+    <value>右下角</value>
+  </data>
+  <data name="NotificationPosition_Center" xml:space="preserve">
+    <value>居中</value>
+  </data>
+  <data name="NotificationPosition_CenterLeft" xml:space="preserve">
+    <value>中间左侧</value>
+  </data>
+  <data name="NotificationPosition_CenterRight" xml:space="preserve">
+    <value>中间右侧</value>
+  </data>
+  <data name="NotificationPosition_TopCenter" xml:space="preserve">
+    <value>顶部居中</value>
+  </data>
+  <data name="NotificationPosition_TopLeft" xml:space="preserve">
+    <value>左上角</value>
+  </data>
+  <data name="NotificationPosition_TopRight" xml:space="preserve">
+    <value>右上角</value>
+  </data>
   <data name="PowerModeState_Balance" xml:space="preserve">
     <value>均衡模式</value>
   </data>
