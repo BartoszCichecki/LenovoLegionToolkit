@@ -61,13 +61,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Packages
             if (_package.Readme is null)
                 return;
 
-            var updateWindow = new ReadmeWindow(_package.Readme)
-            {
-                Owner = Window.GetWindow(this),
-                WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                ShowInTaskbar = false,
-            };
-            updateWindow.ShowDialog();
+            var window = new ReadmeWindow(_package.Readme) { Owner = Window.GetWindow(this) };
+            window.ShowDialog();
         }
 
         private async void DownloadButton_Click(object sender, RoutedEventArgs e)

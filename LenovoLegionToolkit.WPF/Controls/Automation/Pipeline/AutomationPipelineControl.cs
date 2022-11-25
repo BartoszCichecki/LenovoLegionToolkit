@@ -254,12 +254,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 };
                 button.Click += (s, e) =>
                 {
-                    var window = new PowerModeWindow(pmt.PowerModeState)
-                    {
-                        Owner = Window.GetWindow(this),
-                        WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                        ShowInTaskbar = false,
-                    };
+                    var window = new PowerModeWindow(pmt.PowerModeState) { Owner = Window.GetWindow(this) };
                     window.OnSave += (s, e) =>
                     {
                         AutomationPipeline.Trigger = pmt.DeepCopy(e);
@@ -283,12 +278,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 };
                 button.Click += (s, e) =>
                 {
-                    var window = new PickProcessesWindow(pt.Processes)
-                    {
-                        Owner = Window.GetWindow(this),
-                        WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                        ShowInTaskbar = false,
-                    };
+                    var window = new PickProcessesWindow(pt.Processes) { Owner = Window.GetWindow(this) };
                     window.OnSave += (s, e) =>
                     {
                         AutomationPipeline.Trigger = pt.DeepCopy(e);
@@ -313,12 +303,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline
                 };
                 button.Click += (s, e) =>
                 {
-                    var window = new TimeWindow(tt.IsSunrise, tt.IsSunset, tt.Time)
-                    {
-                        Owner = Window.GetWindow(this),
-                        WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                        ShowInTaskbar = false,
-                    };
+                    var window = new TimeWindow(tt.IsSunrise, tt.IsSunset, tt.Time) { Owner = Window.GetWindow(this) };
                     window.OnSave += (s, e) =>
                     {
                         AutomationPipeline.Trigger = tt.DeepCopy(e.Item1, e.Item2, e.Item3);

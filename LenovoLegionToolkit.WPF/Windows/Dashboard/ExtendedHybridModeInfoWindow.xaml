@@ -8,7 +8,10 @@
     Title="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_Title}"
     MinWidth="550"
     MaxWidth="550"
-    SizeToContent="Height">
+    ResizeMode="CanMinimize"
+    ShowInTaskbar="False"
+    SizeToContent="Height"
+    WindowStartupLocation="CenterOwner">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

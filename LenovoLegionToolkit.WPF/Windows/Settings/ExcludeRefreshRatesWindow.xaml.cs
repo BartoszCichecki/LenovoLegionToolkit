@@ -16,18 +16,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
         private readonly RefreshRateFeature _feature = IoCContainer.Resolve<RefreshRateFeature>();
         private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
 
-        public ExcludeRefreshRatesWindow()
-        {
-            InitializeComponent();
-
-            ResizeMode = ResizeMode.CanMinimize;
-
-            _titleBar.UseSnapLayout = false;
-            _titleBar.CanMaximize = false;
-
-            Loaded += PickProcessesWindow_Loaded;
-            IsVisibleChanged += PickProcessesWindow_IsVisibleChanged;
-        }
+        public ExcludeRefreshRatesWindow() => InitializeComponent();
 
         private async void PickProcessesWindow_Loaded(object sender, RoutedEventArgs e) => await RefreshAsync();
 

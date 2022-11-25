@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
@@ -181,27 +180,17 @@ namespace LenovoLegionToolkit.WPF.Windows
 
         private void DeviceInfoIndicator_Click(object sender, RoutedEventArgs e)
         {
-            var deviceInformationWindow = new DeviceInformationWindow
-            {
-                Owner = this,
-                WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                ShowInTaskbar = false,
-            };
-            deviceInformationWindow.ShowDialog();
+            var window = new DeviceInformationWindow { Owner = this };
+            window.ShowDialog();
         }
 
         private void UpdateIndicator_Click(object sender, RoutedEventArgs e)
         {
-            var updateWindow = new UpdateWindow
-            {
-                Owner = this,
-                WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                ShowInTaskbar = false,
-            };
-            updateWindow.ShowDialog();
+            var window = new UpdateWindow { Owner = this };
+            window.ShowDialog();
         }
 
-        private void NotifyIcon_LeftClick([NotNull] NotifyIcon sender, RoutedEventArgs e) => BringToForeground();
+        private void NotifyIcon_LeftClick(NotifyIcon sender, RoutedEventArgs e) => BringToForeground();
 
         private void LoadDeviceInfo()
         {

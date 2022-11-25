@@ -19,18 +19,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
         private readonly PowerModeFeature _powerModeFeature = IoCContainer.Resolve<PowerModeFeature>();
         private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
 
-        public PowerPlansWindow()
-        {
-            InitializeComponent();
-
-            ResizeMode = ResizeMode.CanMinimize;
-
-            _titleBar.UseSnapLayout = false;
-            _titleBar.CanMaximize = false;
-
-            Loaded += PowerPlansWindow_Loaded;
-            IsVisibleChanged += PowerPlansWindow_IsVisibleChanged;
-        }
+        public PowerPlansWindow() => InitializeComponent();
 
         private async void PowerPlansWindow_Loaded(object sender, RoutedEventArgs e) => await RefreshAsync();
 

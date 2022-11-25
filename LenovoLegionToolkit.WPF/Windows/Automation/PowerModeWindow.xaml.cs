@@ -21,14 +21,6 @@ namespace LenovoLegionToolkit.WPF.Windows.Automation
             _powerModeState = powerModeState;
 
             InitializeComponent();
-
-            ResizeMode = ResizeMode.CanMinimize;
-
-            _titleBar.UseSnapLayout = false;
-            _titleBar.CanMaximize = false;
-
-            Loaded += PowerModeWindow_Loaded;
-            IsVisibleChanged += PowerModeWindow_IsVisibleChanged;
         }
 
         private async void PowerModeWindow_Loaded(object sender, RoutedEventArgs e) => await RefreshAsync();

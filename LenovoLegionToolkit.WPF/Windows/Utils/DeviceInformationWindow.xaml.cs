@@ -14,12 +14,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
     {
         private readonly WarrantyChecker _warrantyChecker = IoCContainer.Resolve<WarrantyChecker>();
 
-        public DeviceInformationWindow()
-        {
-            InitializeComponent();
-
-            Loaded += DeviceInformationWindow_Loaded;
-        }
+        public DeviceInformationWindow() => InitializeComponent();
 
         private async void DeviceInformationWindow_Loaded(object sender, RoutedEventArgs e) => await RefreshAsync();
 

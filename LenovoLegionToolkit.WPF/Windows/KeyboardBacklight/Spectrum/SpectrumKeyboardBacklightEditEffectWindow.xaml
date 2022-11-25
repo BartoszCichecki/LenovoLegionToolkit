@@ -10,7 +10,10 @@
     Width="500"
     Height="500"
     MinWidth="500"
-    MinHeight="500">
+    MinHeight="500"
+    ResizeMode="CanMinimize"
+    ShowInTaskbar="False"
+    WindowStartupLocation="CenterOwner">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

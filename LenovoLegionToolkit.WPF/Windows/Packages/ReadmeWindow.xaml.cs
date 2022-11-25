@@ -8,11 +8,6 @@ namespace LenovoLegionToolkit.WPF.Windows.Packages
         {
             InitializeComponent();
 
-            ResizeMode = ResizeMode.CanMinimize;
-
-            _titleBar.UseSnapLayout = false;
-            _titleBar.CanMaximize = false;
-
             _content.Text = readme;
         }
 

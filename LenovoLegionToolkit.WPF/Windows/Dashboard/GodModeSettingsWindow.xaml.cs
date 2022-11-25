@@ -18,18 +18,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard
 
         private bool _isRefreshing;
 
-        public GodModeSettingsWindow()
-        {
-            InitializeComponent();
-
-            ResizeMode = ResizeMode.CanMinimize;
-
-            _titleBar.UseSnapLayout = false;
-            _titleBar.CanMaximize = false;
-
-            Loaded += GodModeSettingsWindow_Loaded;
-            IsVisibleChanged += GodModeSettingsWindow_IsVisibleChanged;
-        }
+        public GodModeSettingsWindow() => InitializeComponent();
 
         private async void GodModeSettingsWindow_Loaded(object sender, RoutedEventArgs e) => await RefreshAsync();
 

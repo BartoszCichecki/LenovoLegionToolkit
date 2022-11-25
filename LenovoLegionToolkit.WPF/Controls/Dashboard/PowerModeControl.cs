@@ -119,23 +119,13 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
             if (state == PowerModeState.Balance)
             {
-                var window = new BalanceModeSettingsWindow
-                {
-                    Owner = Window.GetWindow(this),
-                    WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                    ShowInTaskbar = false,
-                };
+                var window = new BalanceModeSettingsWindow { Owner = Window.GetWindow(this) };
                 window.ShowDialog();
             }
 
             if (state == PowerModeState.GodMode)
             {
-                var window = new GodModeSettingsWindow
-                {
-                    Owner = Window.GetWindow(this),
-                    WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                    ShowInTaskbar = false,
-                };
+                var window = new GodModeSettingsWindow { Owner = Window.GetWindow(this) };
                 window.ShowDialog();
             }
         }

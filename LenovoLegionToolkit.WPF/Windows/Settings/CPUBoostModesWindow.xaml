@@ -7,9 +7,15 @@
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="{x:Static resources:Resource.CPUBoostModesWindow_Title}"
+    Width="500"
+    Height="600"
     MinWidth="500"
-    MaxWidth="500"
-    SizeToContent="Height">
+    MinHeight="600"
+    IsVisibleChanged="CPUBoostModesWindow_IsVisibleChanged"
+    Loaded="CPUBoostModesWindow_Loaded"
+    ResizeMode="CanMinimize"
+    ShowInTaskbar="False"
+    WindowStartupLocation="CenterOwner">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
