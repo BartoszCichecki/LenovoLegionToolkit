@@ -4,7 +4,7 @@
     xmlns:controls="clr-namespace:Wpf.Ui.Controls;assembly=Wpf.Ui"
     xmlns:navigation="clr-namespace:Wpf.Ui.Controls.Navigation;assembly=Wpf.Ui">
 
-    <!-- 
+    <!--
         NavigationStoreItem that can accomodate slightly longer text.
         Delete me when fixed in upstream Wpf.Ui
     -->
@@ -93,16 +93,14 @@
                                     x:Name="ContentGrid"
                                     Grid.Row="1"
                                     Margin="0,2,0,0">
-                                    <ContentPresenter
-                                        x:Name="ElementContentPresenter"
-                                        HorizontalAlignment="Center" >
+                                    <ContentPresenter x:Name="ElementContentPresenter" HorizontalAlignment="Center">
                                         <ContentPresenter.Content>
-                                            <TextBlock 
-                                                Text="{TemplateBinding Content}"
-                                                TextWrapping="Wrap"
-                                                TextAlignment="Center"
+                                            <TextBlock
                                                 FontSize="10"
-                                                Foreground="{TemplateBinding Foreground}"/>
+                                                Foreground="{TemplateBinding Foreground}"
+                                                Text="{TemplateBinding Content}"
+                                                TextAlignment="Center"
+                                                TextWrapping="Wrap" />
                                         </ContentPresenter.Content>
                                     </ContentPresenter>
                                 </Grid>

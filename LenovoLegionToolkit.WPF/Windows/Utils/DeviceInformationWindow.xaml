@@ -8,6 +8,8 @@
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="{x:Static resources:Resource.DeviceInformationWindow_Title}"
     Width="500"
+    ExtendsContentIntoTitleBar="True"
+    ResizeMode="CanMinimize"
     SizeToContent="Height">
 
     <Grid>
@@ -17,7 +19,6 @@
         </Grid.RowDefinitions>
 
         <wpfui:TitleBar
-            x:Name="_titleBar"
             Grid.Row="0"
             CanMaximize="false"
             ShowMaximize="false"

@@ -5,12 +5,10 @@
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:lib="clr-namespace:LenovoLegionToolkit.Lib;assembly=LenovoLegionToolkit.Lib"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:rgb="clr-namespace:LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.RGB"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
-    d:DesignWidth="800"
-    mc:Ignorable="d">
+    d:DesignWidth="800">
 
     <Grid>
         <Grid.ColumnDefinitions>

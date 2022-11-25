@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml">
 
-    <!-- 
+    <!--
         Always visible scrollbar when mouse is over DynamicScrollViewer
     -->
     <ControlTemplate x:Key="DynamicVerticalScrollBar" TargetType="{x:Type wpfui:DynamicScrollBar}">
@@ -130,7 +130,7 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <Style TargetType="{x:Type wpfui:DynamicScrollBar}" BasedOn="{StaticResource UiDynamicScrollBar}">
+    <Style BasedOn="{StaticResource UiDynamicScrollBar}" TargetType="{x:Type wpfui:DynamicScrollBar}">
         <Style.Triggers>
             <Trigger Property="Orientation" Value="Vertical">
                 <Setter Property="Template" Value="{StaticResource DynamicVerticalScrollBar}" />

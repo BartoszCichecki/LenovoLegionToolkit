@@ -18,11 +18,6 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
         {
             InitializeComponent();
 
-            ResizeMode = ResizeMode.NoResize;
-
-            _titleBar.UseSnapLayout = false;
-            _titleBar.CanMaximize = false;
-
             Loaded += DeviceInformationWindow_Loaded;
         }
 
