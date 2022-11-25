@@ -64,9 +64,6 @@
   <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Όταν ο φορτιστής είναι αποσυνδεδεμένος</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Ακύρωση</value>
-  </data>
   <data name="DeactivateGPUAutomationStepState_KillApps" xml:space="preserve">
     <value>Τερματισμός εφαρμογών</value>
   </data>
