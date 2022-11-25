@@ -5,11 +5,15 @@
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:markdig="clr-namespace:Markdig.Wpf;assembly=Markdig.Wpf"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
-    xmlns:resources1="clr-namespace:LenovoLegionToolkit.Lib.Automation.Resources;assembly=LenovoLegionToolkit.Lib.Automation"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="{x:Static resources:Resource.UpdateWindow_Title}"
-    Width="800"
-    Height="500">
+    MinWidth="800"
+    MinHeight="600"
+    MaxWidth="800"
+    MaxHeight="600"
+    ExtendsContentIntoTitleBar="True"
+    ResizeMode="NoResize">
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -17,7 +21,6 @@
         </Grid.RowDefinitions>
 
         <wpfui:TitleBar
-            x:Name="_titleBar"
             Grid.Row="0"
             CanMaximize="false"
             ShowMaximize="false"
@@ -90,7 +93,7 @@
                     Margin="0,0,0,16"
                     HorizontalAlignment="Center"
                     Click="CancelDownloadButton_Click"
-                    Content="{x:Static resources1:Resource.Cancel}"
+                    Content="{x:Static resources:Resource.Cancel}"
                     IsEnabled="False"
                     Visibility="Collapsed" />
             </Grid>
