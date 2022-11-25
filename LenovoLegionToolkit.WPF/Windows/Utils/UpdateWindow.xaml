@@ -11,8 +11,12 @@
     MinHeight="600"
     MaxWidth="800"
     MaxHeight="600"
+    Closing="UpdateWindow_Closing"
     ExtendsContentIntoTitleBar="True"
-    ResizeMode="NoResize">
+    Loaded="UpdateWindow_Loaded"
+    ResizeMode="NoResize"
+    ShowInTaskbar="False"
+    WindowStartupLocation="CenterOwner">
 
     <Grid>
         <Grid.RowDefinitions>

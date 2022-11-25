@@ -9,7 +9,12 @@
     Title="{x:Static resources:Resource.PowerPlansWindow_Title}"
     MinWidth="500"
     MaxWidth="500"
-    SizeToContent="Height">
+    IsVisibleChanged="PowerPlansWindow_IsVisibleChanged"
+    Loaded="PowerPlansWindow_Loaded"
+    ResizeMode="CanMinimize"
+    ShowInTaskbar="False"
+    SizeToContent="Height"
+    WindowStartupLocation="CenterOwner">
 
     <Grid>
         <Grid.RowDefinitions>

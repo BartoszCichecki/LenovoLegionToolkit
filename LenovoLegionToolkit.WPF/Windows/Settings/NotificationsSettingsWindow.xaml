@@ -7,9 +7,13 @@
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="{x:Static resources:Resource.NotificationsSettingsWindow_Title}"
+    Height="600"
     MinWidth="500"
+    MinHeight="300"
     MaxWidth="500"
-    SizeToContent="Height">
+    ResizeMode="CanMinimize"
+    ShowInTaskbar="False"
+    WindowStartupLocation="CenterOwner">
 
     <Grid>
         <Grid.RowDefinitions>

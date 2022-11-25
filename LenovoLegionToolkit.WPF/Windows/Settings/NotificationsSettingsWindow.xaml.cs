@@ -31,11 +31,6 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
         {
             InitializeComponent();
 
-            ResizeMode = ResizeMode.CanMinimize;
-
-            _titleBar.UseSnapLayout = false;
-            _titleBar.CanMaximize = false;
-
             _dontShowNotificationsToggle.IsChecked = _settings.Store.DontShowNotifications;
 
             _notificationPositionComboBox.SetItems(Enum.GetValues<NotificationPosition>(), _settings.Store.NotificationPosition, v => v.GetDisplayName());

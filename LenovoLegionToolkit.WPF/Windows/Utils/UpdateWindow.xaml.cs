@@ -16,13 +16,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
 
         private CancellationTokenSource? _downloadCancellationTokenSource;
 
-        public UpdateWindow()
-        {
-            InitializeComponent();
-
-            Loaded += UpdateWindow_Loaded;
-            Closing += UpdateWindow_Closing;
-        }
+        public UpdateWindow() => InitializeComponent();
 
         private async void UpdateWindow_Loaded(object sender, RoutedEventArgs e)
         {

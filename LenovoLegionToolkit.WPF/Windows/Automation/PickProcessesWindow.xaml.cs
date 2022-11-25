@@ -27,14 +27,6 @@ namespace LenovoLegionToolkit.WPF.Windows.Automation
 
             InitializeComponent();
 
-            ResizeMode = ResizeMode.CanMinimize;
-
-            _titleBar.UseSnapLayout = false;
-            _titleBar.CanMaximize = false;
-
-            Loaded += PickProcessesWindow_Loaded;
-            IsVisibleChanged += PickProcessesWindow_IsVisibleChanged;
-
             var copyCommand = new RoutedCommand();
             copyCommand.InputGestures.Add(new KeyGesture(Key.C, ModifierKeys.Control));
             CommandBindings.Add(new CommandBinding(copyCommand, CopyShortcut));

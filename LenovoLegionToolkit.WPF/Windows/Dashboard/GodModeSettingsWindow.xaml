@@ -10,7 +10,12 @@
     Width="700"
     Height="700"
     MinWidth="600"
-    MinHeight="400">
+    MinHeight="400"
+    IsVisibleChanged="GodModeSettingsWindow_IsVisibleChanged"
+    Loaded="GodModeSettingsWindow_Loaded"
+    ResizeMode="CanMinimize"
+    ShowInTaskbar="False"
+    WindowStartupLocation="CenterOwner">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

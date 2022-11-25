@@ -5,13 +5,17 @@
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
-    xmlns:resources1="clr-namespace:LenovoLegionToolkit.Lib.Automation.Resources;assembly=LenovoLegionToolkit.Lib.Automation"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="{x:Static resources:Resource.PowerModeWindow_Title}"
     MinWidth="400"
     MinHeight="300"
     MaxWidth="400"
-    SizeToContent="Height">
+    IsVisibleChanged="PowerModeWindow_IsVisibleChanged"
+    Loaded="PowerModeWindow_Loaded"
+    ResizeMode="NoResize"
+    ShowInTaskbar="False"
+    SizeToContent="Height"
+    WindowStartupLocation="CenterOwner">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -80,7 +84,7 @@
                         MinWidth="100"
                         Margin="8,0,0,0"
                         Click="CancelButton_Click"
-                        Content="{x:Static resources1:Resource.Cancel}" />
+                        Content="{x:Static resources:Resource.Cancel}" />
 
                 </Grid>
 

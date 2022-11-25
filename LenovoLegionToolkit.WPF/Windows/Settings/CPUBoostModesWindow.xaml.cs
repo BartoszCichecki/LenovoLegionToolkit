@@ -10,18 +10,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
     {
         private readonly CPUBoostModeController _cpuBoostController = IoCContainer.Resolve<CPUBoostModeController>();
 
-        public CPUBoostModesWindow()
-        {
-            InitializeComponent();
-
-            ResizeMode = ResizeMode.CanMinimize;
-
-            _titleBar.UseSnapLayout = false;
-            _titleBar.CanMaximize = false;
-
-            Loaded += CPUBoostModesWindow_Loaded;
-            IsVisibleChanged += CPUBoostModesWindow_IsVisibleChanged;
-        }
+        public CPUBoostModesWindow() => InitializeComponent();
 
         private async void CPUBoostModesWindow_Loaded(object sender, RoutedEventArgs e) => await RefreshAsync();
 

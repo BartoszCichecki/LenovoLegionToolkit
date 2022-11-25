@@ -22,12 +22,7 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
 
             InitializeComponent();
 
-            ResizeMode = ResizeMode.CanMinimize;
-
             _title.Text = Resource.SpectrumKeyboardBacklightEditEffectWindow_Title_Add;
-
-            _titleBar.UseSnapLayout = false;
-            _titleBar.CanMaximize = false;
 
             SetInitialValues();
             RefreshVisibility();

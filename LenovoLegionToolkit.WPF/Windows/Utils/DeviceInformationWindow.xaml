@@ -9,8 +9,11 @@
     Title="{x:Static resources:Resource.DeviceInformationWindow_Title}"
     Width="500"
     ExtendsContentIntoTitleBar="True"
+    Loaded="DeviceInformationWindow_Loaded"
     ResizeMode="CanMinimize"
-    SizeToContent="Height">
+    ShowInTaskbar="False"
+    SizeToContent="Height"
+    WindowStartupLocation="CenterScreen">
 
     <Grid>
         <Grid.RowDefinitions>

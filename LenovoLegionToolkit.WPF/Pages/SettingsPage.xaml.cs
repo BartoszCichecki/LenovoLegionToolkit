@@ -193,12 +193,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             if (_isRefreshing)
                 return;
 
-            var window = new SelectSmartKeyPipelinesWindow
-            {
-                Owner = Window.GetWindow(this),
-                WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                ShowInTaskbar = false,
-            };
+            var window = new SelectSmartKeyPipelinesWindow { Owner = Window.GetWindow(this) };
             window.ShowDialog();
         }
 
@@ -207,12 +202,7 @@ namespace LenovoLegionToolkit.WPF.Pages
             if (_isRefreshing)
                 return;
 
-            var window = new SelectSmartKeyPipelinesWindow(isDoublePress: true)
-            {
-                Owner = Window.GetWindow(this),
-                WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                ShowInTaskbar = false,
-            };
+            var window = new SelectSmartKeyPipelinesWindow(isDoublePress: true) { Owner = Window.GetWindow(this) };
             window.ShowDialog();
         }
 
@@ -429,45 +419,37 @@ namespace LenovoLegionToolkit.WPF.Pages
 
         private void NotificationsCard_Click(object sender, RoutedEventArgs e)
         {
-            var window = new NotificationsSettingsWindow
-            {
-                Owner = Window.GetWindow(this),
-                WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                ShowInTaskbar = false,
-            };
+            if (_isRefreshing)
+                return;
+
+            var window = new NotificationsSettingsWindow { Owner = Window.GetWindow(this) };
             window.ShowDialog();
         }
 
         private void ExcludeRefreshRates_Click(object sender, RoutedEventArgs e)
         {
-            var window = new ExcludeRefreshRatesWindow
-            {
-                Owner = Window.GetWindow(this),
-                WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                ShowInTaskbar = false,
-            };
+            if (_isRefreshing)
+                return;
+
+            var window = new ExcludeRefreshRatesWindow { Owner = Window.GetWindow(this) };
             window.ShowDialog();
         }
 
         private void PowerPlans_Click(object sender, RoutedEventArgs e)
         {
-            var window = new PowerPlansWindow
-            {
-                Owner = Window.GetWindow(this),
-                WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                ShowInTaskbar = false,
-            };
+            if (_isRefreshing)
+                return;
+
+            var window = new PowerPlansWindow { Owner = Window.GetWindow(this) };
             window.ShowDialog();
         }
 
         private void CPUBoostModes_Click(object sender, RoutedEventArgs e)
         {
-            var window = new CPUBoostModesWindow
-            {
-                Owner = Window.GetWindow(this),
-                WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                ShowInTaskbar = false,
-            };
+            if (_isRefreshing)
+                return;
+
+            var window = new CPUBoostModesWindow { Owner = Window.GetWindow(this) };
             window.ShowDialog();
         }
     }

@@ -410,12 +410,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
 
         private void CreateEffect(ushort[] keyCodes)
         {
-            var window = new SpectrumKeyboardBacklightEditEffectWindow(keyCodes)
-            {
-                Owner = Window.GetWindow(this),
-                WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                ShowInTaskbar = false,
-            };
+            var window = new SpectrumKeyboardBacklightEditEffectWindow(keyCodes) { Owner = Window.GetWindow(this) };
             window.Apply += async (s, e) => await AddEffect(e);
             window.ShowDialog();
         }
@@ -448,12 +443,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum
         private void EditEffect(SpectrumKeyboardEffectControl effectControl)
         {
             var keyCodes = _device.GetVisibleButtons().Select(b => b.KeyCode).ToArray();
-            var window = new SpectrumKeyboardBacklightEditEffectWindow(effectControl.Effect, keyCodes)
-            {
-                Owner = Window.GetWindow(this),
-                WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                ShowInTaskbar = false,
-            };
+            var window = new SpectrumKeyboardBacklightEditEffectWindow(effectControl.Effect, keyCodes) { Owner = Window.GetWindow(this) };
             window.Apply += async (s, e) => await ReplaceEffectAsync(effectControl, e);
             window.ShowDialog();
         }

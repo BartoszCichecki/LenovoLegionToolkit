@@ -93,12 +93,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
 
         private void InfoButton_Click(object sender, RoutedEventArgs e)
         {
-            var window = new ExtendedHybridModeInfoWindow
-            {
-                Owner = Window.GetWindow(this),
-                WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                ShowInTaskbar = false,
-            };
+            var window = new ExtendedHybridModeInfoWindow { Owner = Window.GetWindow(this) };
             window.ShowDialog();
         }
     }

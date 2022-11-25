@@ -3,10 +3,8 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
-    xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
-    d:DesignWidth="800">
+    xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml">
     <wpfui:CardControl Margin="0,0,0,8" Icon="DeveloperBoard24">
         <wpfui:CardControl.Header>
             <controls:CardHeaderControl Title="{x:Static resources:Resource.DiscreteGPUControl_Title}" Subtitle="{x:Static resources:Resource.DiscreteGPUControl_Message}" />
