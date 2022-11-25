@@ -20,7 +20,6 @@
         </Grid.RowDefinitions>
 
         <wpfui:TitleBar
-            x:Name="_titleBar"
             Grid.Row="0"
             CanMaximize="false"
             ShowMaximize="false"
@@ -37,7 +36,6 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock
-                x:Name="_title"
                 Grid.Column="0"
                 VerticalAlignment="Center"
                 FontSize="12"
@@ -45,10 +43,7 @@
                 Text="{x:Static resources:Resource.TimeWindow_TimeWindow_Title}" />
         </Grid>
 
-        <Grid
-            x:Name="_loader"
-            Grid.Row="1"
-            Margin="12,0,12,12">
+        <Grid Grid.Row="1" Margin="12,0,12,12">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
@@ -113,7 +108,6 @@
                 </Grid.ColumnDefinitions>
 
                 <wpfui:Button
-                    x:Name="_saveButton"
                     Grid.Column="1"
                     MinWidth="100"
                     Appearance="Primary"
@@ -121,7 +115,6 @@
                     Content="{x:Static resources:Resource.Save}" />
 
                 <wpfui:Button
-                    x:Name="_cancelButton"
                     Grid.Column="2"
                     MinWidth="100"
                     Margin="8,0,0,0"

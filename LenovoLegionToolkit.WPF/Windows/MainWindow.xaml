@@ -18,7 +18,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <wpfui:TitleBar x:Name="_titleBar" Grid.Row="0" />
+        <wpfui:TitleBar Grid.Row="0" />
 
         <Grid Grid.Row="0" Margin="12,6,150,4">
             <Grid.ColumnDefinitions>

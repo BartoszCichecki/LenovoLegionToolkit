@@ -21,7 +21,6 @@
 
 
         <wpfui:TitleBar
-            x:Name="_titleBar"
             Grid.Row="0"
             CanMaximize="false"
             ShowMaximize="false"
@@ -38,7 +37,6 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock
-                x:Name="_title"
                 Grid.Column="0"
                 VerticalAlignment="Center"
                 FontSize="12"

@@ -60,19 +60,6 @@ namespace System.Windows.Controls
             return item.Value;
         }
 
-        public static bool TryGetOldValue<T>(this SelectionChangedEventArgs args, out T? value)
-        {
-            var newValue = args.RemovedItems.Cast<ComboBoxItem<T>>().FirstOrDefault();
-            if (newValue is null)
-            {
-                value = default;
-                return false;
-            }
-
-            value = newValue.Value;
-            return true;
-        }
-
         private class ComboBoxItem<T>
         {
             public static bool operator ==(ComboBoxItem<T> left, ComboBoxItem<T> right) => left.Equals(right);
