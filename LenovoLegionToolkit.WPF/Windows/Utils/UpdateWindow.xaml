@@ -41,7 +41,6 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock
-                x:Name="_title"
                 Grid.Column="0"
                 VerticalAlignment="Center"
                 FontSize="12"

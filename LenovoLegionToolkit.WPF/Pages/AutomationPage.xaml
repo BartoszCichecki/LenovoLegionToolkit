@@ -104,7 +104,6 @@
 
                         <StackPanel Margin="0,8,0,0" HorizontalAlignment="Right">
                             <wpfui:Button
-                                x:Name="_newManualPipelineButton"
                                 MinWidth="120"
                                 Appearance="Primary"
                                 Click="NewManualPipelineButton_Click"

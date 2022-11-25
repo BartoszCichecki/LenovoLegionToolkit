@@ -27,19 +27,6 @@ namespace LenovoLegionToolkit.Lib.System
             }
         }
 
-        public static bool IsGPUActive(PhysicalGPU gpu)
-        {
-            try
-            {
-                _ = gpu.PerformanceStatesInfo;
-                return true;
-            }
-            catch (NVIDIAApiException)
-            {
-                return false;
-            }
-        }
-
         public static bool IsDisplayConnected(PhysicalGPU gpu)
         {
             try
@@ -61,18 +48,6 @@ namespace LenovoLegionToolkit.Lib.System
             catch (NVIDIAApiException)
             {
                 return null;
-            }
-        }
-
-        public static string[] GetActiveApps(PhysicalGPU gpu)
-        {
-            try
-            {
-                return gpu.GetActiveApplications().Select(p => p.ProcessName).ToArray();
-            }
-            catch (NVIDIAApiException)
-            {
-                return Array.Empty<string>();
             }
         }
 

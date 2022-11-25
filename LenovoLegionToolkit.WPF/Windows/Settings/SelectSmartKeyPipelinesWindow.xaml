@@ -24,7 +24,6 @@
         </Grid.RowDefinitions>
 
         <wpfui:TitleBar
-            x:Name="_titleBar"
             Grid.Row="0"
             CanMaximize="false"
             ShowMaximize="false"
@@ -100,7 +99,6 @@
             </Grid.ColumnDefinitions>
 
             <wpfui:Button
-                x:Name="_saveButton"
                 Grid.Column="1"
                 MinWidth="100"
                 Appearance="Primary"
@@ -108,7 +106,6 @@
                 Content="{x:Static resources:Resource.Save}" />
 
             <wpfui:Button
-                x:Name="_cancelButton"
                 Grid.Column="2"
                 MinWidth="100"
                 Margin="8,0,0,0"

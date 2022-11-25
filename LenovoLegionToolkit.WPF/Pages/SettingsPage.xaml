@@ -45,10 +45,7 @@
                 Visibility="Hidden" />
         </wpfui:CardControl>
 
-        <wpfui:CardControl
-            x:Name="_accentColor"
-            Margin="0,0,0,24"
-            Icon="Color24">
+        <wpfui:CardControl Margin="0,0,0,24" Icon="Color24">
             <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_AccentColor_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_AccentColor_Description}" />
             </wpfui:CardControl.Header>
