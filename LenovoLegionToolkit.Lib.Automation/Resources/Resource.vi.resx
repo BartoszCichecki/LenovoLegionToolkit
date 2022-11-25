@@ -64,9 +64,6 @@
   <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Khi ngắt kết nối nguồn điện</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Hủy</value>
-  </data>
   <data name="DeactivateGPUAutomationStepState_KillApps" xml:space="preserve">
     <value>Tắt app dùng GPU rời</value>
   </data>
