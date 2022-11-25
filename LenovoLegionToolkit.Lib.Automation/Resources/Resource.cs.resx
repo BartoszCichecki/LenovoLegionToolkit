@@ -64,9 +64,6 @@
   <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Když je AC nabíječka odpojena</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Zrušit</value>
-  </data>
   <data name="DeactivateGPUAutomationStepState_KillApps" xml:space="preserve">
     <value>Ukončit aplikace</value>
   </data>
