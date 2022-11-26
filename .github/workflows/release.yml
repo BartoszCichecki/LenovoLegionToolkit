@@ -21,11 +21,11 @@ jobs:
     - name: Build
       run: .\make.bat ${{ github.ref_name }}
     - name: Release
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v0.1.13
       with:
         draft: true
-        files: build_installer\LenovoLegionToolkitSetup.exe
+        files: build_installer/LenovoLegionToolkitSetup.exe
     - uses: actions/upload-artifact@v3
       with:
         name: installer
-        path: build_installer\LenovoLegionToolkitSetup.exe
+        path: build_installer/LenovoLegionToolkitSetup.exe
