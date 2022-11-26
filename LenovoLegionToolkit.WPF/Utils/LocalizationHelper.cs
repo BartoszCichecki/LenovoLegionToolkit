@@ -18,7 +18,7 @@ namespace LenovoLegionToolkit.WPF.Utils
 
         public static readonly CultureInfo[] Languages = {
             DefaultLanguage,
-            new("ar"),
+            //new("ar"),
             new("cs"),
             new("de"),
             new("el"),
