@@ -73,6 +73,13 @@ namespace LenovoLegionToolkit.WPF.Controls
 
         protected virtual FrameworkElement GetAccessory(ComboBox comboBox) => comboBox;
 
+        protected virtual string ComboBoxItemDisplayName(T value) => value switch
+        {
+            IDisplayName dn => dn.DisplayName,
+            Enum e => e.GetDisplayName(),
+            _ => value.ToString() ?? throw new InvalidOperationException("Unsupported type")
+        };
+
         protected override async Task OnRefreshAsync()
         {
             if (!await _feature.IsSupportedAsync())
@@ -81,14 +88,7 @@ namespace LenovoLegionToolkit.WPF.Controls
             var items = await _feature.GetAllStatesAsync();
             var selectedItem = await _feature.GetStateAsync();
 
-            static string DisplayName(T value) => value switch
-            {
-                IDisplayName dn => dn.DisplayName,
-                Enum e => e.GetDisplayName(),
-                _ => value.ToString() ?? throw new InvalidOperationException("Unsupported type")
-            };
-
-            _comboBox.SetItems(items, selectedItem, DisplayName);
+            _comboBox.SetItems(items, selectedItem, ComboBoxItemDisplayName);
             _comboBox.IsEnabled = items.Any();
         }
 

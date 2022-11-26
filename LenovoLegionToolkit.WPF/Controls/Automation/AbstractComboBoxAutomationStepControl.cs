@@ -47,7 +47,12 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation
             return step;
         }
 
-        protected override void OnFinishedLoading() => _comboBox.Visibility = Visibility.Visible;
+        protected virtual string ComboBoxItemDisplayName(T value) => value switch
+        {
+            IDisplayName dn => dn.DisplayName,
+            Enum e => e.GetDisplayName(),
+            _ => value.ToString() ?? throw new InvalidOperationException("Unsupported type")
+        };
 
         protected override async Task RefreshAsync()
         {
@@ -59,13 +64,6 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation
             _comboBox.IsEnabled = items.Any();
         }
 
-        protected virtual string ComboBoxItemDisplayName(T value)
-        {
-            if (value is IDisplayName dn)
-                return dn.DisplayName;
-            if (value is Enum e)
-                return e.GetDisplayName();
-            return value.ToString() ?? throw new InvalidOperationException("Unsupported type");
-        }
+        protected override void OnFinishedLoading() => _comboBox.Visibility = Visibility.Visible;
     }
 }
