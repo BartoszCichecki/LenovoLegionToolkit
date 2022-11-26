@@ -64,9 +64,6 @@
   <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>AC güç adaptörü çıkarılınca</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>İptal</value>
-  </data>
   <data name="DeactivateGPUAutomationStepState_KillApps" xml:space="preserve">
     <value>Uygulamaları Kapat</value>
   </data>

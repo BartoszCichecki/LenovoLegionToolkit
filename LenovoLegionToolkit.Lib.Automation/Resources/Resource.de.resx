@@ -64,9 +64,6 @@
   <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Wenn Netzteil nicht angeschlossen ist</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Abbrechen</value>
-  </data>
   <data name="DeactivateGPUAutomationStepState_KillApps" xml:space="preserve">
     <value>Anwendungen schließen</value>
   </data>

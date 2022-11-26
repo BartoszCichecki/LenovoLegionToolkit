@@ -58,4 +58,82 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AlwaysOnUSBState_Off" xml:space="preserve">
+    <value>مغلق</value>
+  </data>
+  <data name="AlwaysOnUSBState_OnAlways" xml:space="preserve">
+    <value>يعمل دائما</value>
+  </data>
+  <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
+    <value>يعمل أثناء النوم فقط</value>
+  </data>
+  <data name="BatteryState_Conservation" xml:space="preserve">
+    <value>حفظ البطارية</value>
+  </data>
+  <data name="BatteryState_Normal" xml:space="preserve">
+    <value>طبيعى</value>
+  </data>
+  <data name="BatteryState_RapidCharge" xml:space="preserve">
+    <value>الشحن السريع</value>
+  </data>
+  <data name="GPUController_PoweredOff" xml:space="preserve">
+    <value>مغلق</value>
+  </data>
+  <data name="GPUController_PoweredOn" xml:space="preserve">
+    <value>يعمل</value>
+  </data>
+  <data name="HybridModeState_Off" xml:space="preserve">
+    <value>كرت الشاشة الخارجى</value>
+  </data>
+  <data name="HybridModeState_On" xml:space="preserve">
+    <value>الوضع الهجين</value>
+  </data>
+  <data name="HybridModeState_OnAuto" xml:space="preserve">
+    <value>الوضع الهيجن التلقائى</value>
+  </data>
+  <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
+    <value>الوضع الهجين للكرت الداخلى</value>
+  </data>
+  <data name="PowerModeState_Balance" xml:space="preserve">
+    <value>متزن</value>
+  </data>
+  <data name="PowerModeState_GodMode" xml:space="preserve">
+    <value>مخصص</value>
+  </data>
+  <data name="PowerModeState_Performance" xml:space="preserve">
+    <value>الأداء</value>
+  </data>
+  <data name="PowerModeState_Quiet" xml:space="preserve">
+    <value>هادء</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
+    <value>مغلق</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_One" xml:space="preserve">
+    <value>الوضع 1</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Three" xml:space="preserve">
+    <value>الوضع 2</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
+    <value>الوضع 3</value>
+  </data>
+  <data name="Theme_Dark" xml:space="preserve">
+    <value>داكن</value>
+  </data>
+  <data name="Theme_Light" xml:space="preserve">
+    <value>فاتح</value>
+  </data>
+  <data name="Theme_System" xml:space="preserve">
+    <value>النظام</value>
+  </data>
+  <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
+    <value>مرتفع</value>
+  </data>
+  <data name="WhiteKeyboardBacklightState_Low" xml:space="preserve">
+    <value>منخفض</value>
+  </data>
+  <data name="WhiteKeyboardBacklightState_Off" xml:space="preserve">
+    <value>مغلق</value>
+  </data>
 </root>
