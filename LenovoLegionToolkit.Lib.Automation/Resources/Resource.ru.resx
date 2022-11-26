@@ -64,9 +64,6 @@
   <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Когда блок питания отключен</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Отмена</value>
-  </data>
   <data name="DeactivateGPUAutomationStepState_KillApps" xml:space="preserve">
     <value>Завершить процессы</value>
   </data>

@@ -64,9 +64,6 @@
   <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Lorsque le chargeur est déconnecté</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Annuler</value>
-  </data>
   <data name="DeactivateGPUAutomationStepState_KillApps" xml:space="preserve">
     <value>Tuer les applications</value>
   </data>

@@ -64,9 +64,6 @@
   <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Când alimentatorul este deconectat</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Anulare</value>
-  </data>
   <data name="DeactivateGPUAutomationStepState_KillApps" xml:space="preserve">
     <value>Închidere aplicații</value>
   </data>

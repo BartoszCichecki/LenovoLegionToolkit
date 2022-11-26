@@ -64,9 +64,6 @@
   <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Kad je punjač isključen</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Otkaži</value>
-  </data>
   <data name="DeactivateGPUAutomationStepState_KillApps" xml:space="preserve">
     <value>Ugasi aplikacije</value>
   </data>
