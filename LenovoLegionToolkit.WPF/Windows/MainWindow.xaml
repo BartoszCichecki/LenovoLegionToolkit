@@ -33,12 +33,12 @@
             <TextBlock
                 x:Name="_title"
                 Grid.Column="0"
+                HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 FlowDirection="LeftToRight"
                 FontSize="12"
                 IsHitTestVisible="False"
-                Text="{x:Static resources:Resource.AppName}"
-                TextAlignment="{x:Static utils:LocalizationHelper.TextAlignment}" />
+                Text="{x:Static resources:Resource.AppName}" />
 
             <wpfui:Badge
                 x:Name="_openLogIndicator"

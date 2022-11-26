@@ -78,7 +78,7 @@
                             <Label
                                 Width="50"
                                 Margin="8,0,0,0"
-                                HorizontalContentAlignment="{x:Static utils:LocalizationHelper.ReverseHorizontalAlignment}"
+                                HorizontalContentAlignment="Right"
                                 Content="{Binding ElementName=_cpuLongTermPowerLimitSlider, Path=Value}"
                                 ContentStringFormat="{}{0} W"
                                 FlowDirection="LeftToRight" />
@@ -99,7 +99,7 @@
                             <Label
                                 Width="50"
                                 Margin="8,0,0,0"
-                                HorizontalContentAlignment="{x:Static utils:LocalizationHelper.ReverseHorizontalAlignment}"
+                                HorizontalContentAlignment="Right"
                                 Content="{Binding ElementName=_cpuShortTermPowerLimitSlider, Path=Value}"
                                 ContentStringFormat="{}{0} W"
                                 FlowDirection="LeftToRight" />
@@ -119,7 +119,7 @@
                             <Label
                                 Width="50"
                                 Margin="8,0,0,0"
-                                HorizontalContentAlignment="{x:Static utils:LocalizationHelper.ReverseHorizontalAlignment}"
+                                HorizontalContentAlignment="Right"
                                 Content="{Binding ElementName=_cpuCrossLoadingLimitSlider, Path=Value}"
                                 ContentStringFormat="{}{0} W"
                                 FlowDirection="LeftToRight" />
@@ -139,7 +139,7 @@
                             <Label
                                 Width="50"
                                 Margin="8,0,0,0"
-                                HorizontalContentAlignment="{x:Static utils:LocalizationHelper.ReverseHorizontalAlignment}"
+                                HorizontalContentAlignment="Right"
                                 Content="{Binding ElementName=_cpuTemperatureLimitSlider, Path=Value}"
                                 ContentStringFormat="{}{0} °C"
                                 FlowDirection="LeftToRight" />
@@ -165,7 +165,7 @@
                             <Label
                                 Width="50"
                                 Margin="8,0,0,0"
-                                HorizontalContentAlignment="{x:Static utils:LocalizationHelper.ReverseHorizontalAlignment}"
+                                HorizontalContentAlignment="Right"
                                 Content="{Binding ElementName=_gpuPowerBoostSlider, Path=Value}"
                                 ContentStringFormat="{}{0} W"
                                 FlowDirection="LeftToRight" />
@@ -184,7 +184,7 @@
                             <Label
                                 Width="50"
                                 Margin="8,0,0,0"
-                                HorizontalContentAlignment="{x:Static utils:LocalizationHelper.ReverseHorizontalAlignment}"
+                                HorizontalContentAlignment="Right"
                                 Content="{Binding ElementName=_gpuConfigurableTGPSlider, Path=Value}"
                                 ContentStringFormat="{}{0} W"
                                 FlowDirection="LeftToRight" />
@@ -204,7 +204,7 @@
                             <Label
                                 Width="50"
                                 Margin="8,0,0,0"
-                                HorizontalContentAlignment="{x:Static utils:LocalizationHelper.ReverseHorizontalAlignment}"
+                                HorizontalContentAlignment="Right"
                                 Content="{Binding ElementName=_gpuTemperatureLimitSlider, Path=Value}"
                                 ContentStringFormat="{}{0} °C"
                                 FlowDirection="LeftToRight" />
