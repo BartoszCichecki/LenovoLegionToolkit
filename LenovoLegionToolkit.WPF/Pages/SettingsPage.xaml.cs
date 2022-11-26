@@ -66,7 +66,9 @@ namespace LenovoLegionToolkit.WPF.Pages
             var language = await LocalizationHelper.GetLanguageAsync();
             if (languages.Length > 1)
             {
-                _langComboBox.SetItems(languages, language, cc => cc.NativeName.Transform(cc, To.TitleCase));
+                _langComboBox.SetItems(languages,
+                    language,
+                    cc => LocalizationHelper.ForceLeftToRight(cc.NativeName.Transform(cc, To.TitleCase)));
                 _langComboBox.Visibility = Visibility.Visible;
             }
             else

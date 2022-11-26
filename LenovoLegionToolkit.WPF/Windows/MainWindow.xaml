@@ -34,9 +34,11 @@
                 x:Name="_title"
                 Grid.Column="0"
                 VerticalAlignment="Center"
+                FlowDirection="LeftToRight"
                 FontSize="12"
                 IsHitTestVisible="False"
-                Text="{x:Static resources:Resource.AppName}" />
+                Text="{x:Static resources:Resource.AppName}"
+                TextAlignment="{x:Static utils:LocalizationHelper.TextAlignment}" />
 
             <wpfui:Badge
                 x:Name="_openLogIndicator"

@@ -19,7 +19,7 @@ namespace LenovoLegionToolkit.WPF.Utils
 
         public static readonly CultureInfo[] Languages = {
             DefaultLanguage,
-            //new("ar"),
+            new("ar"),
             new("cs"),
             new("de"),
             new("el"),
@@ -37,22 +37,32 @@ namespace LenovoLegionToolkit.WPF.Utils
             new("zh-hans"),
         };
 
-        public static FlowDirection Direction
-        {
-            get
-            {
-                if (Resource.Culture is null)
-                    return FlowDirection.LeftToRight;
+        public static FlowDirection Direction => Resource.Culture?.TextInfo.IsRightToLeft ?? false
+            ? FlowDirection.RightToLeft
+            : FlowDirection.LeftToRight;
 
-                return Resource.Culture.TextInfo.IsRightToLeft
-                    ? FlowDirection.RightToLeft
-                    : FlowDirection.LeftToRight;
-            }
-        }
+        public static TextAlignment TextAlignment => Resource.Culture?.TextInfo.IsRightToLeft ?? false
+            ? TextAlignment.Right
+            : TextAlignment.Left;
 
-        public static HorizontalAlignment ReverseHorizontalAlignment => Resource.Culture.TextInfo.IsRightToLeft
+        public static TextAlignment ReverseTextAlignment => Resource.Culture?.TextInfo.IsRightToLeft ?? false
+            ? TextAlignment.Left
+            : TextAlignment.Right;
+
+        public static HorizontalAlignment HorizontalAlignment => Resource.Culture?.TextInfo.IsRightToLeft ?? false
+            ? HorizontalAlignment.Right
+            : HorizontalAlignment.Left;
+
+        public static HorizontalAlignment ReverseHorizontalAlignment => Resource.Culture?.TextInfo.IsRightToLeft ?? false
             ? HorizontalAlignment.Left
             : HorizontalAlignment.Right;
+
+        public static string ForceLeftToRight(string str)
+        {
+            if (Resource.Culture?.TextInfo.IsRightToLeft ?? false)
+                return "\u200e" + str + "\u200e";
+            return str;
+        }
 
         public static async Task SetLanguageAsync(bool interactive = false)
         {

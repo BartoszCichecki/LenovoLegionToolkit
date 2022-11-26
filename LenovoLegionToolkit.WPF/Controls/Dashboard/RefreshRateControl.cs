@@ -4,6 +4,7 @@ using System.Windows;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.WPF.Resources;
+using LenovoLegionToolkit.WPF.Utils;
 using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard
@@ -26,6 +27,12 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard
             await base.OnRefreshAsync();
 
             Visibility = ItemsCount < 2 ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+        protected override string ComboBoxItemDisplayName(RefreshRate value)
+        {
+            var str = base.ComboBoxItemDisplayName(value);
+            return LocalizationHelper.ForceLeftToRight(str);
         }
 
         private void Listener_Changed(object? sender, EventArgs e) => Dispatcher.Invoke(async () =>
