@@ -37,9 +37,18 @@ namespace LenovoLegionToolkit.WPF.Utils
             new("zh-hans"),
         };
 
-        public static FlowDirection Direction => Resource.Culture.TextInfo.IsRightToLeft
-            ? FlowDirection.RightToLeft
-            : FlowDirection.LeftToRight;
+        public static FlowDirection Direction
+        {
+            get
+            {
+                if (Resource.Culture is null)
+                    return FlowDirection.LeftToRight;
+
+                return Resource.Culture.TextInfo.IsRightToLeft
+                    ? FlowDirection.RightToLeft
+                    : FlowDirection.LeftToRight;
+            }
+        }
 
         public static HorizontalAlignment ReverseHorizontalAlignment => Resource.Culture.TextInfo.IsRightToLeft
             ? HorizontalAlignment.Left
