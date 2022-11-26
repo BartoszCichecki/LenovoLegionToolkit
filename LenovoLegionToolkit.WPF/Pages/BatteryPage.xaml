@@ -29,7 +29,7 @@
                 <TextBlock
                     x:Name="_percentRemaining"
                     Margin="0,0,0,4"
-                    HorizontalAlignment="{x:Static utils:LocalizationHelper.ReverseHorizontalAlignment}"
+                    HorizontalAlignment="Left"
                     FlowDirection="LeftToRight"
                     FontSize="32"
                     FontWeight="Medium" />
