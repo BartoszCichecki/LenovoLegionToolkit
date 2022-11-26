@@ -93,7 +93,7 @@ The app allows to:
 
 - Change settings like power mode, battery charging mode, etc. that are available only through Vantage.
 - Access to Custom Mode available only in Legion Zone, including Fan Control on 2022 models.
-- 4-zone RGB and White backlight keyboards support.
+- Spectrum RGB and White backlight keyboards support.
 - Change display refresh rate (built-in display only).
 - Deactivate discrete GPU (nVidia only).
 - View battery statistics.
@@ -182,15 +182,11 @@ Sometimes new motherboard does not contain correct model numbers and serial numb
 
 #### Which RGB types are supported?
 
-Currently only white-backlight and 4-zone RGB keyboards are supported.
+Currently only white-backlight, 4-zone RGB and Spectrum RGB keyboards are supported.
 
 #### Will iCue RGB keyboards be supported?
 
 No. Check out [OpenRGB](https://openrgb.org/) project.
-
-#### Will Legion Spectrum RGB keyboards be supported?
-
-Support is coming soon.
 
 #### Can I have more RGB effects?
 
