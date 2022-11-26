@@ -6,12 +6,14 @@
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:pages="clr-namespace:LenovoLegionToolkit.WPF.Pages"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
+    xmlns:utils="clr-namespace:LenovoLegionToolkit.WPF.Utils"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="{x:Static resources:Resource.AppName}"
     Width="1150"
     Height="750"
     MinWidth="650"
-    MinHeight="600">
+    MinHeight="600"
+    FlowDirection="{x:Static utils:FlowDirectionExtensions.Direction}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
