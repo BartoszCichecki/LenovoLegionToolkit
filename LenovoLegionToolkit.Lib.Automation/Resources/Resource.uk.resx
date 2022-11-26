@@ -64,9 +64,6 @@
   <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Коли блок живлення від'єднаний</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Скасувати</value>
-  </data>
   <data name="DeactivateGPUAutomationStepState_KillApps" xml:space="preserve">
     <value>Примусово закрити застосунки</value>
   </data>

@@ -58,4 +58,581 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutPage_AppName" xml:space="preserve">
+    <value>Lenovo Legion Toolkit</value>
+  </data>
+  <data name="AboutPage_Build" xml:space="preserve">
+    <value>نسخة</value>
+  </data>
+  <data name="AboutPage_LatestReleaseOnGitHub" xml:space="preserve">
+    <value>أخر إصدار على GitHub</value>
+  </data>
+  <data name="AboutPage_Links" xml:space="preserve">
+    <value>الروابط</value>
+  </data>
+  <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
+    <value>موقع المشروع على GitHub</value>
+  </data>
+  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
+    <value>مكتبات الطرف الثالث</value>
+  </data>
+  <data name="AboutPage_Title" xml:space="preserve">
+    <value>حول البرنامج</value>
+  </data>
+  <data name="AboutPage_TranslationCredit" xml:space="preserve">
+    <value>الترجمة متوفرة بواسطة المجتمع.</value>
+    <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
+  </data>
+  <data name="AboutPage_Version" xml:space="preserve">
+    <value>الإصدار</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>إضافة</value>
+  </data>
+  <data name="AddNew" xml:space="preserve">
+    <value>أضف جديد</value>
+  </data>
+  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
+    <value>تشغيل وضع الطاقة حتى لو كان Vantage يعمل بالفعل.
+هذا الخيار موجه فقط للأجهزة التى لا تأتى مع اوضاع طاقة متعددة.</value>
+  </data>
+  <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
+    <value>تشغيل وضع الطاقة الخاص بالويندوز</value>
+  </data>
+  <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
+    <value>شحن الاجهزة عبر ال USB, حتى لو كان الحاسب مغلق او فى وضع النوم او السبات.</value>
+  </data>
+  <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
+    <value>ال USB يعمل دائما</value>
+  </data>
+  <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
+    <value>شحن الاجهزة عبر ال USB, حتى لو كان الحاسب مغلق او فى وضع النوم او السبات.</value>
+  </data>
+  <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
+    <value>ال USB يعمل دائما</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Lenovo Legion Toolkit</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>تطبيق</value>
+  </data>
+  <data name="ApplyAndClose" xml:space="preserve">
+    <value>تطبيق وإغلاق</value>
+  </data>
+  <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
+    <value>البرنامج يجب انا يكون مفتوحا حتى يعمل الأجراءات التلقائية.</value>
+  </data>
+  <data name="AutomationPage_ActionsEnabled_Title" xml:space="preserve">
+    <value>تفعيل</value>
+  </data>
+  <data name="AutomationPage_Actions_Empty" xml:space="preserve">
+    <value>لا يوجد أجراءات معرفة. اضعط على "اضافة جديد" لأنشاء أجراءات جديدة.</value>
+  </data>
+  <data name="AutomationPage_Actions_Message" xml:space="preserve">
+    <value>ان كانت مفعلة, هذه الأجراءات سوف تعمل تلقائيا. كلما تغيرت الحالة سوفت يقيم كل الأجراءات ابتداء من اعلى لأسفل. الأجراءات التى تطابق الحالة الحالية سوف تنفذ.</value>
+  </data>
+  <data name="AutomationPage_Actions_Title" xml:space="preserve">
+    <value>الأجراءات</value>
+  </data>
+  <data name="AutomationPage_AddManualPipeline_Placeholder" xml:space="preserve">
+    <value>الاسم...</value>
+  </data>
+  <data name="AutomationPage_AddManualPipeline_Title" xml:space="preserve">
+    <value>أضف جديد</value>
+  </data>
+  <data name="AutomationPage_QuickActions_Empty" xml:space="preserve">
+    <value>لا يوجد أجراءات سريعة معرفة. اضعط على "اضافة جديد" لأنشاء أجراءات سريعة جديدة.</value>
+  </data>
+  <data name="AutomationPage_QuickActions_Message" xml:space="preserve">
+    <value>الأجراءات السريعة متوفرة فى قائمة التطبيق فى ال tray.</value>
+  </data>
+  <data name="AutomationPage_QuickActions_Title" xml:space="preserve">
+    <value>الأجراءات السريعة</value>
+  </data>
+  <data name="AutomationPage_RenamePipeline_Placeholder" xml:space="preserve">
+    <value>الاسم...</value>
+  </data>
+  <data name="AutomationPage_RenamePipeline_Title" xml:space="preserve">
+    <value>إعادة تسمية</value>
+  </data>
+  <data name="AutomationPage_Reverted_Message" xml:space="preserve">
+    <value>تم إرجاع كل التغيرات!</value>
+  </data>
+  <data name="AutomationPage_Reverted_Title" xml:space="preserve">
+    <value>تم الإرجاع</value>
+  </data>
+  <data name="AutomationPage_Saved_Message" xml:space="preserve">
+    <value>تم حفظ التغيرات بنجاح!</value>
+  </data>
+  <data name="AutomationPage_Saved_Title" xml:space="preserve">
+    <value>تم الحفظ</value>
+  </data>
+  <data name="AutomationPage_Title" xml:space="preserve">
+    <value>التشغيل التلقائي</value>
+  </data>
+  <data name="AutomationPipelineControl_AddStep" xml:space="preserve">
+    <value>إضافة خطوة</value>
+  </data>
+  <data name="AutomationPipelineControl_Configure" xml:space="preserve">
+    <value>ضبط</value>
+  </data>
+  <data name="AutomationPipelineControl_Exclusive" xml:space="preserve">
+    <value>استثنائى</value>
+  </data>
+  <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
+    <value>لا تنفذ مزيد من الأجراءات عندما يعمل هذا الاجراء.</value>
+  </data>
+  <data name="AutomationPipelineControl_RunNow" xml:space="preserve">
+    <value>نفذ الأن</value>
+  </data>
+  <data name="AutomationPipelineControl_RunNow_Error_Message" xml:space="preserve">
+    <value>تمت العملية بمشاكل.</value>
+  </data>
+  <data name="AutomationPipelineControl_RunNow_Error_Title" xml:space="preserve">
+    <value>نفذ الأن</value>
+  </data>
+  <data name="AutomationPipelineControl_RunNow_Success_Message" xml:space="preserve">
+    <value>تمت العملية بنجاح!</value>
+  </data>
+  <data name="AutomationPipelineControl_RunNow_Success_Title" xml:space="preserve">
+    <value>نفذ الأن</value>
+  </data>
+  <data name="AutomationPipelineControl_Running" xml:space="preserve">
+    <value>يعمل الان...</value>
+  </data>
+  <data name="AutomationPipelineControl_Step" xml:space="preserve">
+    <value>{0} خطوة</value>
+  </data>
+  <data name="AutomationPipelineControl_Step_Many" xml:space="preserve">
+    <value>{0} خطوات</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_Apps" xml:space="preserve">
+    <value>التطبيقات</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_AtSunrise" xml:space="preserve">
+    <value>عند الشروق</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_AtSunset" xml:space="preserve">
+    <value>عند الغروب</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_AtTime" xml:space="preserve">
+    <value>عند {0:D2}:{1:D2}</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_PowerMode" xml:space="preserve">
+    <value>وضع الطاقة</value>
+  </data>
+  <data name="AutomationPipelineControl_Unnamed" xml:space="preserve">
+    <value>غير مسمى</value>
+  </data>
+  <data name="BalanceModeSettingsWindow_AIEngine_Message" xml:space="preserve">
+    <value>يتم تلقائيا اكتشاف بعض الألعاب عندما تعمل و يقوم بتعديل أداء كرت الشاشة و المعالج. الحرارة و صوت المروحة ممكن أن تزيد.</value>
+  </data>
+  <data name="BalanceModeSettingsWindow_AIEngine_Title" xml:space="preserve">
+    <value>تشغيل محرك الذكاء الاصطناعى</value>
+  </data>
+  <data name="BalanceModeSettingsWindow_Title" xml:space="preserve">
+    <value>أعدادات الوضع المتزن</value>
+  </data>
+  <data name="BatteryAutomationStepControl_Message" xml:space="preserve">
+    <value>اختار كيف تشحن البطارية.</value>
+  </data>
+  <data name="BatteryAutomationStepControl_Title" xml:space="preserve">
+    <value>وضع البطارية</value>
+  </data>
+  <data name="BatteryModeControl_Message" xml:space="preserve">
+    <value>اختار كيف تشحن البطارية.</value>
+  </data>
+  <data name="BatteryModeControl_Title" xml:space="preserve">
+    <value>وضع البطارية</value>
+  </data>
+  <data name="BatteryPage_ACAdapterConnectedAndCharging" xml:space="preserve">
+    <value>تمام التوصيل, جارى الشحن...</value>
+  </data>
+  <data name="BatteryPage_ACAdapterConnectedNotCharging" xml:space="preserve">
+    <value>تم التوصيل، ولكن لا يتم الشحن</value>
+  </data>
+  <data name="BatteryPage_BatteryTemperature_Message" xml:space="preserve">
+    <value>الحرارة الحالية للبطارية.</value>
+  </data>
+  <data name="BatteryPage_BatteryTemperature_Title" xml:space="preserve">
+    <value>درجة حرارة البطارية</value>
+  </data>
+  <data name="BatteryPage_CurrentCapacity_Message" xml:space="preserve">
+    <value>السعة الحالية للبطارية.</value>
+  </data>
+  <data name="BatteryPage_CurrentCapacity_Title" xml:space="preserve">
+    <value>السعة الحالية</value>
+  </data>
+  <data name="BatteryPage_CycleCount_Message" xml:space="preserve">
+    <value>عدد دورات الشحن/التفريغ.</value>
+  </data>
+  <data name="BatteryPage_CycleCount_Title" xml:space="preserve">
+    <value>عدد الدورات</value>
+  </data>
+  <data name="BatteryPage_DesignCapacity_Message" xml:space="preserve">
+    <value>سعة للبطارية عند التصميم.</value>
+  </data>
+  <data name="BatteryPage_DesignCapacity_Title" xml:space="preserve">
+    <value>سعة التصميم</value>
+  </data>
+  <data name="BatteryPage_DischargeRate_Message" xml:space="preserve">
+    <value>السرعة التى يتم شحن(+) او تفريغ(-) البطارية بها.</value>
+  </data>
+  <data name="BatteryPage_DischargeRate_Title" xml:space="preserve">
+    <value>سرعة التفريغ</value>
+  </data>
+  <data name="BatteryPage_EstimatedBatteryLifeRemaining" xml:space="preserve">
+    <value>الوقت المتبقي المقدر: {0}</value>
+  </data>
+  <data name="BatteryPage_EstimatingBatteryLife" xml:space="preserve">
+    <value>الوقت المتبقى...</value>
+  </data>
+  <data name="BatteryPage_FirstUseDate_Title" xml:space="preserve">
+    <value>تاريخ الاستخدام الاول</value>
+  </data>
+  <data name="BatteryPage_FirstUse_Message" xml:space="preserve">
+    <value>متى تم استخدام البطارية لأول مرة.</value>
+  </data>
+  <data name="BatteryPage_FullChargeCapacity_Message" xml:space="preserve">
+    <value>سعة البطارية عند الشحن الكامل.</value>
+  </data>
+  <data name="BatteryPage_FullChargeCapacity_Title" xml:space="preserve">
+    <value>سعة الشحن الكامل</value>
+  </data>
+  <data name="BatteryPage_LowWattageChargerConnected" xml:space="preserve">
+    <value>تم توصيل شاحن منخفض القوة</value>
+  </data>
+  <data name="BatteryPage_ManufactureDate_Message" xml:space="preserve">
+    <value>متى تم صناعة البطارية.</value>
+  </data>
+  <data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
+    <value>تاريخ التنصيع</value>
+  </data>
+  <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
+    <value>الوقت منذ توصيل كابل الشحن لأخر مرة.
+هذا الوقت يمكن ان يكون غير دقيق لو الحاسب تم شحنه و هو فى وضع النوم او مغلق.</value>
+  </data>
+  <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
+    <value>يتم استخدام البطارية منذ</value>
+  </data>
+  <data name="BatteryPage_Title" xml:space="preserve">
+    <value>البطارية</value>
+  </data>
+  <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
+    <value>على البطارية</value>
+  </data>
+  <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
+    <value>متصل بالشاحن</value>
+  </data>
+  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
+    <value>اوضاع الطاقة</value>
+  </data>
+  <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
+    <value>اعرف المزيد على microsoft.com</value>
+  </data>
+  <data name="CPUBoostModesWindow_Title" xml:space="preserve">
+    <value>أوضاع تعزيز المعالج</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>الغاء</value>
+  </data>
+  <data name="Celsius" xml:space="preserve">
+    <value>°C</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>إغلاق</value>
+  </data>
+  <data name="ColorCardControl_Blue" xml:space="preserve">
+    <value>أزرق</value>
+  </data>
+  <data name="ColorCardControl_Green" xml:space="preserve">
+    <value>أخضر</value>
+  </data>
+  <data name="ColorCardControl_Red" xml:space="preserve">
+    <value>أحمر</value>
+  </data>
+  <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
+    <value>اختار وضع تشغيل كارت الشاشة بناء على استخدامك للحاسب و حالة الطاقة المتوفرة.
+التبديل بين الأوضاع يحتاج الى أعادة تشغيل للحاسب.</value>
+  </data>
+  <data name="ComboBoxHybridModeControl_RestartRequired_Message" xml:space="preserve">
+    <value>التبديل الى {0} يحتاج الى أعادة تشغيل. هل تريد أعادة التشغيل الأن؟</value>
+  </data>
+  <data name="ComboBoxHybridModeControl_RestartRequired_Title" xml:space="preserve">
+    <value>إعادة التشغيل مطلوب</value>
+  </data>
+  <data name="ComboBoxHybridModeControl_Title" xml:space="preserve">
+    <value>وضع عمل كرت الشاشة</value>
+  </data>
+  <data name="ContextMenu_QuickActions" xml:space="preserve">
+    <value>الأجراءات السريعة</value>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>اكمل</value>
+  </data>
+  <data name="CopyAll" xml:space="preserve">
+    <value>نسخ الكل</value>
+  </data>
+  <data name="DashboardPage_Graphics_Title" xml:space="preserve">
+    <value>الجرافيك</value>
+  </data>
+  <data name="DashboardPage_Other_Title" xml:space="preserve">
+    <value>أخرى</value>
+  </data>
+  <data name="DashboardPage_Power_Title" xml:space="preserve">
+    <value>الطاقة</value>
+  </data>
+  <data name="DashboardPage_Title" xml:space="preserve">
+    <value>المنزل</value>
+  </data>
+  <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
+    <value>اغلق كرت الشاشة ان كان يعمل بدون الحاجة اليه.
+
+تحذير: هذا الأجراء لن يعمل بشكل صحيح لو كانت شاشة الحاهز لا تعمل او الوضع الهجين لا يعمل.</value>
+  </data>
+  <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
+    <value>اغلق كرت الشاشة</value>
+  </data>
+  <data name="DelayAutomationStepControl_Message" xml:space="preserve">
+    <value>اضافة مهلة قبل تشغيل الخطوة القادمة.</value>
+  </data>
+  <data name="DelayAutomationStepControl_Title" xml:space="preserve">
+    <value>تأخير</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>مسح</value>
+  </data>
+  <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
+    <value>اصدار ال BIOS</value>
+  </data>
+  <data name="DeviceInformationWindow_Copied_Message" xml:space="preserve">
+    <value>"{0}" تم نسخهم.</value>
+  </data>
+  <data name="DeviceInformationWindow_Copied_Title" xml:space="preserve">
+    <value>تم النسخ!</value>
+  </data>
+  <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
+    <value>الجهاز</value>
+  </data>
+  <data name="DeviceInformationWindow_InWarranty" xml:space="preserve">
+    <value>ضمن الضمان</value>
+  </data>
+  <data name="DeviceInformationWindow_LenovoSupport" xml:space="preserve">
+    <value>خدمة Lenovo</value>
+  </data>
+  <data name="DeviceInformationWindow_MachineType_Title" xml:space="preserve">
+    <value>نوع الجهاز</value>
+  </data>
+  <data name="DeviceInformationWindow_Manufacturer_Title" xml:space="preserve">
+    <value>الشركة المصنعة</value>
+  </data>
+  <data name="DeviceInformationWindow_Model_Title" xml:space="preserve">
+    <value>الطراز</value>
+  </data>
+  <data name="DeviceInformationWindow_OutOfWarranty" xml:space="preserve">
+    <value>خارج الضمان</value>
+  </data>
+  <data name="DeviceInformationWindow_SerialNumber_Title" xml:space="preserve">
+    <value>الرقم المسلسل</value>
+  </data>
+  <data name="DeviceInformationWindow_Title" xml:space="preserve">
+    <value>حول الجهاز</value>
+  </data>
+  <data name="DeviceInformationWindow_WarrantyEndDate_Title" xml:space="preserve">
+    <value>تاريخ الانتهاء</value>
+  </data>
+  <data name="DeviceInformationWindow_WarrantyStartDate_Title" xml:space="preserve">
+    <value>تاريخ البدء</value>
+  </data>
+  <data name="DeviceInformationWindow_WarrantyStatus_Title" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
+    <value>الضمان</value>
+  </data>
+  <data name="DiscreteGPUControl_Active" xml:space="preserve">
+    <value>مفعل</value>
+  </data>
+  <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
+    <value>غير مفعل</value>
+  </data>
+  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
+    <value>بطاقة نفيديا يكمن أن تغلق.
+تذكر أن بعد البرامج ممكن أن تتوقف عن العمل لو قمت بهذا.</value>
+  </data>
+  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
+    <value>بطاقة نفيديا لا تعمل.</value>
+  </data>
+  <data name="DiscreteGPUControl_Inactive" xml:space="preserve">
+    <value>غير مفعل</value>
+  </data>
+  <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
+    <value>قتل التطبيقات</value>
+  </data>
+  <data name="DiscreteGPUControl_Message" xml:space="preserve">
+    <value>أغلاق بطاقة الشاشة الخارجية لو كانت تعمل دون الحاجة أليها.</value>
+  </data>
+  <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
+    <value>يوجد شاشة خارجية متصلة ببطاقة نفيديا.</value>
+  </data>
+  <data name="DiscreteGPUControl_NoProcesses" xml:space="preserve">
+    <value>لا يوجد عمليات</value>
+  </data>
+  <data name="DiscreteGPUControl_PerformanceState" xml:space="preserve">
+    <value>حالة الأداء</value>
+  </data>
+  <data name="DiscreteGPUControl_PerformanceState_Unknown" xml:space="preserve">
+    <value>مجهول</value>
+  </data>
+  <data name="DiscreteGPUControl_Processes" xml:space="preserve">
+    <value>العمليات</value>
+  </data>
+  <data name="DiscreteGPUControl_RestartGPU" xml:space="preserve">
+    <value>أعادة تشغيل كرت الشاشة</value>
+  </data>
+  <data name="DiscreteGPUControl_Title" xml:space="preserve">
+    <value>كرت الشاشة الخارجى</value>
+  </data>
+  <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
+    <value>تغيير سطوع الخاصة بشاشة اللاب توب.
+أوضاع الطاقة يكمن أن تغير سطوع في بعض الأجهزة. ضع فى الاعتبار انه يجب أن تجعل هذه الخطوة أخر خطوة لو حدثت أي مشكلة.</value>
+  </data>
+  <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
+    <value>سطوع الشاشة</value>
+  </data>
+  <data name="DonatePage_Message" xml:space="preserve">
+    <value>العمل على Lenovo Legion Toolkit يحتاج الكثير من الوقت و المجهود. لو اعجبك البرنامج يمكن انت تدعمه من خلال التبرع بمبلغ من اختيارك.
+
+اضغط على رمز الباي بال فى الأسفل او امسح كود ال QR للتبرع بالباي بال. 
+
+وشكرا على دعمكم!</value>
+  </data>
+  <data name="DonatePage_Title" xml:space="preserve">
+    <value>دعم المشروع</value>
+  </data>
+  <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
+    <value>ضع فى الاعتبار انه يجب اتكون الشاشة قيد العمل حتى يستطيع البرنامج قراءة ال refresh rate.</value>
+  </data>
+  <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Title" xml:space="preserve">
+    <value>لا يوجد Refresh Rates</value>
+  </data>
+  <data name="ExcludeRefreshRatesWindow_Title" xml:space="preserve">
+    <value>استبعاد Refresh Rates</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
+    <value>استخدم كرت الشاشة الداخلى فقط عند استخدام البطارية و استخدم كرت الشاشة الداخلى و الخارجى عندما يكون كابل الطاقة متصل. عندما استخدام كابل طاقة غير قياسى, النظام يستخدم Hybrid-iGPU فقط.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
+    <value>وضع ال Hybrid-Auto</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_DGPU_Disclaimer" xml:space="preserve">
+    <value>التبديل من و إلى هذا الوضع يحتاج الى أعادة تشغيل.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_DGPU_Message" xml:space="preserve">
+    <value>استخدم بطاقة الشاشة الخارجية فقط. هذا الوضع يوفر افضل اداء للجرافيك و لكن يزيد استهلاك الكهرباء.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
+    <value>وضع كرت الشاشة الخارجى</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
+    <value>بطاقتي الشاشة الداخلية و الخارجية قيد العمل. سوف يقوم النظام بالتبديل بينها على حسب حاجته.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
+    <value>الوضع الهجين</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_IGPU_Disclaimer" xml:space="preserve">
+    <value>هذا الوضع يعمل فقط عندما تكون بطاقة الشاشة الخارجية لا تعمل.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_IGPU_Message" xml:space="preserve">
+    <value>استخدم بطاقة الشاشة الداخلية فقط. هذا الوضع يخفض استهلاك الطاقة و الضوضاء.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_IGPU_Title" xml:space="preserve">
+    <value>وضع ال Hybrid-iGPU فقط</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Title" xml:space="preserve">
+    <value>حول أوضاع عمل بطاقة الشاشة</value>
+  </data>
+  <data name="Fahrenheit" xml:space="preserve">
+    <value>°F</value>
+  </data>
+  <data name="FanCurveControl_CPU" xml:space="preserve">
+    <value>المعالج</value>
+  </data>
+  <data name="FanCurveControl_CPUSensor" xml:space="preserve">
+    <value>حساس المعالج</value>
+  </data>
+  <data name="FanCurveControl_FanSpeed" xml:space="preserve">
+    <value>سرعة المروحة</value>
+  </data>
+  <data name="FanCurveControl_GPU" xml:space="preserve">
+    <value>كرت الشاشة</value>
+  </data>
+  <data name="FanCurveControl_RPM" xml:space="preserve">
+    <value>لفة فى الدقيقة</value>
+  </data>
+  <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
+    <value>تشغيل اللاب توب عند رفع الشاشة.</value>
+  </data>
+  <data name="FlipToStartAutomationStepControl_Title" xml:space="preserve">
+    <value>ارفع للتشغيل</value>
+  </data>
+  <data name="FlipToStartControl_Message" xml:space="preserve">
+    <value>تشغيل اللاب توب عندما ترفع الشاشة.</value>
+  </data>
+  <data name="FlipToStartControl_Title" xml:space="preserve">
+    <value>ارفع للتشغيل</value>
+  </data>
+  <data name="FnLockAutomationStepControl_Message" xml:space="preserve">
+    <value>استخدم الوظيفة الثانية لمفاتيح الF1-F12 دون الحاجة للضغط على زرار ال Fn.</value>
+  </data>
+  <data name="FnLockAutomationStepControl_Title" xml:space="preserve">
+    <value>Fn قفل ال</value>
+  </data>
+  <data name="FnLockControl_Message" xml:space="preserve">
+    <value>استخدم الوظيفة الثانية لمفاتيح الF1-F12 دون الحاجة للضغط على زرار ال Fn.</value>
+  </data>
+  <data name="FnLockControl_Title" xml:space="preserve">
+    <value>Fn قفل ال</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
+    <value>تحذير! 
+بعض الأجهزة تقبل حدود طاقه اعلي من المعلن, كن حذرا. هذا الخِيار قد يؤديا لي نتائج غير متوقعه, لذا إن كنت غير متيقِّن ماذا تفعل, اتركها بقيمه 0.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
+    <value>اقصي حد للطاقه متغير</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
+    <value>لا تغير الخيارات في الأسفل إلا إذا كنت تعلم ماذا تفعل.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_Title" xml:space="preserve">
+    <value>إعدادات متقدمة</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_CrossLoading" xml:space="preserve">
+    <value>حدا لطاقه لفتره طويله</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL" xml:space="preserve">
+    <value>حد الطاقة على الأمد الطويل</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL" xml:space="preserve">
+    <value>حدا لطاقه لفتره قصيره</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_TempLimit" xml:space="preserve">
+    <value>حد حرارة المعالج</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_Title" xml:space="preserve">
+    <value>المعالج</value>
+  </data>
+  <data name="GodModeSettingsWindow_Error_Apply_Title" xml:space="preserve">
+    <value>تعذّر تعيين الإعدادات</value>
+  </data>
+  <data name="GodModeSettingsWindow_Error_Load_Title" xml:space="preserve">
+    <value>تعذر الحصول على الحالة.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Fans_Curve_Message" xml:space="preserve">
+    <value>سرعه المروحه ليست محدده عن طريق مستشعر حراره واحد. سوف ترفع او تخفض سرعه المروحه علي حسب اعلي حراره للمستشعر بين المعالج و كرت الشاشه و مشتت الحراره. القيم تحديدا سوف تظهر في حال الوقوف علي كل نقطه.</value>
+  </data>
 </root>

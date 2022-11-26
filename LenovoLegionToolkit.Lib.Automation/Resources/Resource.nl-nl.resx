@@ -64,9 +64,6 @@
   <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Wanneer de oplader is losgekoppeld</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Annuleren</value>
-  </data>
   <data name="DeactivateGPUAutomationStepState_KillApps" xml:space="preserve">
     <value>Apps stoppen</value>
   </data>
