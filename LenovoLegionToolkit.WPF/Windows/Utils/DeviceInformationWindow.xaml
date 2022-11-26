@@ -6,6 +6,7 @@
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:utils="clr-namespace:LenovoLegionToolkit.WPF.Utils"
     Title="{x:Static resources:Resource.DeviceInformationWindow_Title}"
     Width="500"
     ExtendsContentIntoTitleBar="True"
@@ -13,6 +14,7 @@
     ResizeMode="CanMinimize"
     ShowInTaskbar="False"
     SizeToContent="Height"
+    FlowDirection="{x:Static utils:FlowDirectionExtensions.Direction}"
     WindowStartupLocation="CenterScreen">
 
     <Grid>
