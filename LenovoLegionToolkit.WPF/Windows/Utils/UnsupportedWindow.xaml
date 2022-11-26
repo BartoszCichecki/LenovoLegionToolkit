@@ -12,7 +12,7 @@
     MaxHeight="420"
     Closed="Window_Closed"
     ExtendsContentIntoTitleBar="True"
-    FlowDirection="{x:Static utils:FlowDirectionExtensions.Direction}"
+    FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
     Loaded="Window_Loaded"
     ResizeMode="NoResize"
     Topmost="True"

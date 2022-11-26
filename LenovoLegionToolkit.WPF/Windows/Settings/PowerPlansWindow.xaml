@@ -10,7 +10,7 @@
     Title="{x:Static resources:Resource.PowerPlansWindow_Title}"
     MinWidth="500"
     MaxWidth="500"
-    FlowDirection="{x:Static utils:FlowDirectionExtensions.Direction}"
+    FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
     IsVisibleChanged="PowerPlansWindow_IsVisibleChanged"
     Loaded="PowerPlansWindow_Loaded"
     ResizeMode="CanMinimize"

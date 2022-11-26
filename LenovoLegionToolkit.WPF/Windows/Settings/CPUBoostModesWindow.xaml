@@ -12,7 +12,7 @@
     Height="600"
     MinWidth="500"
     MinHeight="600"
-    FlowDirection="{x:Static utils:FlowDirectionExtensions.Direction}"
+    FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
     IsVisibleChanged="CPUBoostModesWindow_IsVisibleChanged"
     Loaded="CPUBoostModesWindow_Loaded"
     ResizeMode="CanMinimize"

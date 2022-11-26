@@ -14,7 +14,7 @@
     ResizeMode="CanMinimize"
     ShowInTaskbar="False"
     SizeToContent="Height"
-    FlowDirection="{x:Static utils:FlowDirectionExtensions.Direction}"
+    FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
     WindowStartupLocation="CenterScreen">
 
     <Grid>

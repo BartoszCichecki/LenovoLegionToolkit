@@ -9,7 +9,7 @@
     Title="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_Title}"
     MinWidth="550"
     MaxWidth="550"
-    FlowDirection="{x:Static utils:FlowDirectionExtensions.Direction}"
+    FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
     ResizeMode="CanMinimize"
     ShowInTaskbar="False"
     SizeToContent="Height"

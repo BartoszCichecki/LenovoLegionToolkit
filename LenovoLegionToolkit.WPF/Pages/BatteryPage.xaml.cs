@@ -96,7 +96,7 @@ namespace LenovoLegionToolkit.WPF.Pages
                 _ => SymbolRegular.Battery024,
             };
 
-            _precentRemaining.Text = $"{batteryInfo.BatteryPercentage}%";
+            _percentRemaining.Text = $"{batteryInfo.BatteryPercentage}%";
             _status.Text = GetStatusText(batteryInfo);
             _lowWattageCharger.Visibility = powerAdapterStatus == PowerAdapterStatus.ConnectedLowWattage ? Visibility.Visible : Visibility.Hidden;
 

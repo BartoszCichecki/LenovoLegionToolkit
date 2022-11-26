@@ -7,7 +7,7 @@
     xmlns:utils="clr-namespace:LenovoLegionToolkit.WPF.Utils"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="{x:Static resources:Resource.BatteryPage_Title}"
-    FlowDirection="{x:Static utils:FlowDirectionExtensions.Direction}"
+    FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
     Scrollable="True">
 
     <StackPanel Margin="0,0,16,12">
@@ -27,10 +27,12 @@
                 VerticalAlignment="Center"
                 Orientation="Vertical">
                 <TextBlock
-                    x:Name="_precentRemaining"
+                    x:Name="_percentRemaining"
                     Margin="0,0,0,4"
+                    FlowDirection="LeftToRight"
                     FontSize="32"
-                    FontWeight="Medium" />
+                    FontWeight="Medium"
+                    TextAlignment="{x:Static utils:LocalizationHelper.TextAlignment}" />
                 <TextBlock
                     x:Name="_status"
                     Margin="0,0,0,2"
@@ -52,25 +54,37 @@
             <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_BatteryTemperature_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_BatteryTemperature_Message}" />
             </wpfui:CardControl.Header>
-            <TextBlock x:Name="_batteryTemperatureText" FontSize="14" />
+            <TextBlock
+                x:Name="_batteryTemperatureText"
+                FlowDirection="LeftToRight"
+                FontSize="14" />
         </wpfui:CardControl>
 
         <wpfui:CardControl Margin="0,0,0,8">
             <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_DischargeRate_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_DischargeRate_Message}" />
             </wpfui:CardControl.Header>
-            <TextBlock x:Name="_batteryDischargeRateText" FontSize="14" />
+            <TextBlock
+                x:Name="_batteryDischargeRateText"
+                FlowDirection="LeftToRight"
+                FontSize="14" />
         </wpfui:CardControl>
 
         <wpfui:CardControl Margin="0,0,0,8">
             <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_CurrentCapacity_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_CurrentCapacity_Message}" />
             </wpfui:CardControl.Header>
-            <TextBlock x:Name="_batteryCapacityText" FontSize="14" />
+            <TextBlock
+                x:Name="_batteryCapacityText"
+                FlowDirection="LeftToRight"
+                FontSize="14" />
         </wpfui:CardControl>
 
         <wpfui:CardControl Margin="0,0,0,8">
-            <TextBlock x:Name="_batteryFullChargeCapacityText" FontSize="14" />
+            <TextBlock
+                x:Name="_batteryFullChargeCapacityText"
+                FlowDirection="LeftToRight"
+                FontSize="14" />
             <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_FullChargeCapacity_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_FullChargeCapacity_Message}" />
             </wpfui:CardControl.Header>
@@ -80,35 +94,50 @@
             <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_DesignCapacity_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_DesignCapacity_Message}" />
             </wpfui:CardControl.Header>
-            <TextBlock x:Name="_batteryDesignCapacityText" FontSize="14" />
+            <TextBlock
+                x:Name="_batteryDesignCapacityText"
+                FlowDirection="LeftToRight"
+                FontSize="14" />
         </wpfui:CardControl>
 
         <wpfui:CardControl Margin="0,0,0,8">
             <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_OnBatterySince_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_OnBatterySince_Message}" />
             </wpfui:CardControl.Header>
-            <TextBlock x:Name="_onBatterySinceText" FontSize="14" />
+            <TextBlock
+                x:Name="_onBatterySinceText"
+                FlowDirection="LeftToRight"
+                FontSize="14" />
         </wpfui:CardControl>
 
         <wpfui:CardControl Margin="0,0,0,8">
             <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_CycleCount_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_CycleCount_Message}" />
             </wpfui:CardControl.Header>
-            <TextBlock x:Name="_batteryCycleCountText" FontSize="14" />
+            <TextBlock
+                x:Name="_batteryCycleCountText"
+                FlowDirection="LeftToRight"
+                FontSize="14" />
         </wpfui:CardControl>
 
         <wpfui:CardControl x:Name="_batteryManufactureDateCardControl" Margin="0,0,0,8">
             <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_ManufactureDate_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_ManufactureDate_Message}" />
             </wpfui:CardControl.Header>
-            <TextBlock x:Name="_batteryManufactureDateText" FontSize="14" />
+            <TextBlock
+                x:Name="_batteryManufactureDateText"
+                FlowDirection="LeftToRight"
+                FontSize="14" />
         </wpfui:CardControl>
 
         <wpfui:CardControl x:Name="_batteryFirstUseDateCardControl" Margin="0,0,0,8">
             <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_FirstUseDate_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_FirstUse_Message}" />
             </wpfui:CardControl.Header>
-            <TextBlock x:Name="_batteryFirstUseDateText" FontSize="14" />
+            <TextBlock
+                x:Name="_batteryFirstUseDateText"
+                FlowDirection="LeftToRight"
+                FontSize="14" />
         </wpfui:CardControl>
 
     </StackPanel>

@@ -11,7 +11,7 @@
     MinWidth="400"
     MinHeight="300"
     MaxWidth="400"
-    FlowDirection="{x:Static utils:FlowDirectionExtensions.Direction}"
+    FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
     IsVisibleChanged="PowerModeWindow_IsVisibleChanged"
     Loaded="PowerModeWindow_Loaded"
     ResizeMode="NoResize"
