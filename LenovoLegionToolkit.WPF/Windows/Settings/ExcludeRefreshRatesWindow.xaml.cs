@@ -104,7 +104,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Settings
             private readonly TextBlock _nameTextBox = new()
             {
                 FlowDirection = FlowDirection.LeftToRight,
-                TextAlignment = TextAlignment.Left,
+                HorizontalAlignment = LocalizationHelper.ReverseHorizontalAlignment,
                 VerticalAlignment = VerticalAlignment.Center,
             };
 

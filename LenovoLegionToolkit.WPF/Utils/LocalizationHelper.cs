@@ -41,10 +41,6 @@ namespace LenovoLegionToolkit.WPF.Utils
             ? FlowDirection.RightToLeft
             : FlowDirection.LeftToRight;
 
-        public static TextAlignment TextAlignment => Resource.Culture.TextInfo.IsRightToLeft
-            ? TextAlignment.Right
-            : TextAlignment.Left;
-
         public static HorizontalAlignment ReverseHorizontalAlignment => Resource.Culture.TextInfo.IsRightToLeft
             ? HorizontalAlignment.Left
             : HorizontalAlignment.Right;
