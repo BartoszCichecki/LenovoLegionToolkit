@@ -11,7 +11,7 @@
     MaxHeight="220"
     Closed="LanguageSelectorWindow_OnClosed"
     ExtendsContentIntoTitleBar="True"
-    FlowDirection="{x:Static utils:FlowDirectionExtensions.Direction}"
+    FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
     ResizeMode="NoResize"
     Topmost="True"
     WindowStartupLocation="CenterScreen">

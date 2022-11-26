@@ -11,7 +11,7 @@
     Height="500"
     MinWidth="400"
     MinHeight="500"
-    FlowDirection="{x:Static utils:FlowDirectionExtensions.Direction}"
+    FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
     IsVisibleChanged="SelectSmartKeyPipelinesWindow_IsVisibleChanged"
     Loaded="SelectSmartKeyPipelinesWindow_Loaded"
     ResizeMode="CanMinimize"

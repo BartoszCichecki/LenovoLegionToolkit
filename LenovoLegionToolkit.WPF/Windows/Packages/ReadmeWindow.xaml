@@ -9,7 +9,7 @@
     Title="{x:Static resources:Resource.ReadmeWindow_Title}"
     MinWidth="800"
     MinHeight="500"
-    FlowDirection="{x:Static utils:FlowDirectionExtensions.Direction}"
+    FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
     ResizeMode="CanMinimize"
     ShowInTaskbar="False"
     WindowStartupLocation="CenterOwner">

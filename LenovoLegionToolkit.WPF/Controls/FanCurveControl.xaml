@@ -2,7 +2,8 @@
     x:Class="LenovoLegionToolkit.WPF.Controls.FanCurveControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources">
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
+    FlowDirection="LeftToRight">
     <Grid Margin="0,8,0,8">
 
         <Grid.ColumnDefinitions>

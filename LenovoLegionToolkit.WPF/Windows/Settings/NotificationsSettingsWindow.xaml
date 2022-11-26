@@ -12,7 +12,7 @@
     MinWidth="500"
     MinHeight="300"
     MaxWidth="500"
-    FlowDirection="{x:Static utils:FlowDirectionExtensions.Direction}"
+    FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
     ResizeMode="CanMinimize"
     ShowInTaskbar="False"
     WindowStartupLocation="CenterOwner">

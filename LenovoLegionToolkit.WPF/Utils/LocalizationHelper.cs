@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Windows.Utils;
@@ -35,6 +36,18 @@ namespace LenovoLegionToolkit.WPF.Utils
             new("vi"),
             new("zh-hans"),
         };
+
+        public static FlowDirection Direction => Resource.Culture.TextInfo.IsRightToLeft
+            ? FlowDirection.RightToLeft
+            : FlowDirection.LeftToRight;
+
+        public static TextAlignment TextAlignment => Resource.Culture.TextInfo.IsRightToLeft
+            ? TextAlignment.Right
+            : TextAlignment.Left;
+
+        public static HorizontalAlignment ReverseHorizontalAlignment => Resource.Culture.TextInfo.IsRightToLeft
+            ? HorizontalAlignment.Left
+            : HorizontalAlignment.Right;
 
         public static async Task SetLanguageAsync(bool interactive = false)
         {

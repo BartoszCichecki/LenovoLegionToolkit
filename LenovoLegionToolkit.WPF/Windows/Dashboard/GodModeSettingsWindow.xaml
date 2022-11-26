@@ -12,7 +12,7 @@
     Height="700"
     MinWidth="600"
     MinHeight="400"
-    FlowDirection="{x:Static utils:FlowDirectionExtensions.Direction}"
+    FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
     IsVisibleChanged="GodModeSettingsWindow_IsVisibleChanged"
     Loaded="GodModeSettingsWindow_Loaded"
     ResizeMode="CanMinimize"
@@ -78,9 +78,10 @@
                             <Label
                                 Width="50"
                                 Margin="8,0,0,0"
-                                HorizontalContentAlignment="Right"
+                                HorizontalContentAlignment="{x:Static utils:LocalizationHelper.ReverseHorizontalAlignment}"
                                 Content="{Binding ElementName=_cpuLongTermPowerLimitSlider, Path=Value}"
-                                ContentStringFormat="{}{0}W" />
+                                ContentStringFormat="{}{0}W"
+                                FlowDirection="LeftToRight" />
                         </StackPanel>
                     </wpfui:CardControl>
 
@@ -98,9 +99,10 @@
                             <Label
                                 Width="50"
                                 Margin="8,0,0,0"
-                                HorizontalContentAlignment="Right"
+                                HorizontalContentAlignment="{x:Static utils:LocalizationHelper.ReverseHorizontalAlignment}"
                                 Content="{Binding ElementName=_cpuShortTermPowerLimitSlider, Path=Value}"
-                                ContentStringFormat="{}{0}W" />
+                                ContentStringFormat="{}{0}W"
+                                FlowDirection="LeftToRight" />
                         </StackPanel>
                     </wpfui:CardControl>
 
@@ -117,9 +119,10 @@
                             <Label
                                 Width="50"
                                 Margin="8,0,0,0"
-                                HorizontalContentAlignment="Right"
+                                HorizontalContentAlignment="{x:Static utils:LocalizationHelper.ReverseHorizontalAlignment}"
                                 Content="{Binding ElementName=_cpuCrossLoadingLimitSlider, Path=Value}"
-                                ContentStringFormat="{}{0}W" />
+                                ContentStringFormat="{}{0}W"
+                                FlowDirection="LeftToRight" />
                         </StackPanel>
                     </wpfui:CardControl>
 
@@ -136,9 +139,10 @@
                             <Label
                                 Width="50"
                                 Margin="8,0,0,0"
-                                HorizontalContentAlignment="Right"
+                                HorizontalContentAlignment="{x:Static utils:LocalizationHelper.ReverseHorizontalAlignment}"
                                 Content="{Binding ElementName=_cpuTemperatureLimitSlider, Path=Value}"
-                                ContentStringFormat="{}{0}°C" />
+                                ContentStringFormat="{}{0}°C"
+                                FlowDirection="LeftToRight" />
                         </StackPanel>
                     </wpfui:CardControl>
 
@@ -161,9 +165,10 @@
                             <Label
                                 Width="50"
                                 Margin="8,0,0,0"
-                                HorizontalContentAlignment="Right"
+                                HorizontalContentAlignment="{x:Static utils:LocalizationHelper.ReverseHorizontalAlignment}"
                                 Content="{Binding ElementName=_gpuPowerBoostSlider, Path=Value}"
-                                ContentStringFormat="{}{0}W" />
+                                ContentStringFormat="{}{0}W"
+                                FlowDirection="LeftToRight" />
                         </StackPanel>
                     </wpfui:CardControl>
 
@@ -179,9 +184,10 @@
                             <Label
                                 Width="50"
                                 Margin="8,0,0,0"
-                                HorizontalContentAlignment="Right"
+                                HorizontalContentAlignment="{x:Static utils:LocalizationHelper.ReverseHorizontalAlignment}"
                                 Content="{Binding ElementName=_gpuConfigurableTGPSlider, Path=Value}"
-                                ContentStringFormat="{}{0}W" />
+                                ContentStringFormat="{}{0}W"
+                                FlowDirection="LeftToRight" />
                         </StackPanel>
                     </wpfui:CardControl>
 
@@ -198,9 +204,10 @@
                             <Label
                                 Width="50"
                                 Margin="8,0,0,0"
-                                HorizontalContentAlignment="Right"
+                                HorizontalContentAlignment="{x:Static utils:LocalizationHelper.ReverseHorizontalAlignment}"
                                 Content="{Binding ElementName=_gpuTemperatureLimitSlider, Path=Value}"
-                                ContentStringFormat="{}{0}°C" />
+                                ContentStringFormat="{}{0}°C"
+                                FlowDirection="LeftToRight" />
                         </StackPanel>
                     </wpfui:CardControl>
 
@@ -247,7 +254,6 @@
                         <wpfui:NumberBox
                             x:Name="_maxValueOffsetNumberBox"
                             Width="120"
-                            HorizontalContentAlignment="Right"
                             ClearButtonEnabled="False"
                             IntegersOnly="True"
                             Max="100"

@@ -9,7 +9,7 @@
     Title="{x:Static resources:Resource.TimeWindow_TimeWindow_Title}"
     MinWidth="400"
     MaxWidth="400"
-    FlowDirection="{x:Static utils:FlowDirectionExtensions.Direction}"
+    FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
     ResizeMode="NoResize"
     ShowInTaskbar="False"
     SizeToContent="Height"
