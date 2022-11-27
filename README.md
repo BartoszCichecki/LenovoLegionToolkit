@@ -73,7 +73,7 @@ If you live in China, you can also donate in Chinese Yuan using Stripe (supports
 
 ## Download
 
-You can download the installer from the [Releases page](https://github.com/BartoszCichecki/LenovoLegionToolkit/releases/latest) or with winget: `winget install BartoszCichecki.LenovoLegionToolkit`.
+You can download the installer from the [Releases page](https://github.com/BartoszCichecki/LenovoLegionToolkit/releases/latest).
 
 ## Compatibility
 
