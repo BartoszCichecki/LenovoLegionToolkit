@@ -276,9 +276,6 @@ Diese Option ist nur für Geräte gedacht, die nicht mit mehreren Energiesparpl�
   <data name="BatteryPage_DesignCapacity_Title" xml:space="preserve">
     <value>Vorgesehene Kapazität</value>
   </data>
-  <data name="BatteryPage_DischargeRate_Message" xml:space="preserve">
-    <value>Geschwindigkeit, mit der die Batterie geladen (+) bzw. entladen (-) wird.</value>
-  </data>
   <data name="BatteryPage_DischargeRate_Title" xml:space="preserve">
     <value>Entladungsrate</value>
   </data>
