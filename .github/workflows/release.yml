@@ -26,6 +26,7 @@ jobs:
       with:
         draft: true
         files: build_installer/LenovoLegionToolkitSetup.exe
+        fail_on_unmatched_files: true
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
