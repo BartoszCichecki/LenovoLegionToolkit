@@ -277,7 +277,7 @@ Diese Option ist nur für Geräte gedacht, die nicht mit mehreren Energiesparpl�
     <value>Vorgesehene Kapazität</value>
   </data>
   <data name="BatteryPage_DischargeRate_Message" xml:space="preserve">
-    <value>Geschwindigkeit, mit der die Batterie geladen (+) bzw. entladen (-) wird.</value>
+    <value>Geschwindigkeit, mit welcher der Akku geladen (+) bzw. entladen (-) wird.</value>
   </data>
   <data name="BatteryPage_DischargeRate_Title" xml:space="preserve">
     <value>Entladungsrate</value>
@@ -341,7 +341,7 @@ Diese Zeit ist möglicherweise nicht genau, wenn der Laptop im Schlaf oder im au
     <value>°C</value>
   </data>
   <data name="Close" xml:space="preserve">
-    <value>Schließen</value>
+    <value>Beenden</value>
   </data>
   <data name="ColorCardControl_Blue" xml:space="preserve">
     <value>Blau</value>

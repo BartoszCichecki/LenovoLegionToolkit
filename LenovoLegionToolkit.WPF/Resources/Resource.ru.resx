@@ -1395,7 +1395,7 @@
     <value>Поставщик</value>
   </data>
   <data name="Update" xml:space="preserve">
-    <value>Обновление</value>
+    <value>Обновить</value>
   </data>
   <data name="UpdateWindow_Title" xml:space="preserve">
     <value>Доступно обновление</value>
