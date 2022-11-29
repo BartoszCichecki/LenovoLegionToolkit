@@ -37,6 +37,14 @@ body:
       placeholder: e.g. Legion 5 Pro 16ACH6
     validations:
       required: true
+  - type: input
+    id: bios
+    attributes:
+      label: BIOS version
+      description: Which BIOS version do you have?
+      placeholder: e.g. GKCN57WW
+    validations:
+      required: true
   - type: textarea
     id: what-was-test
     attributes:
