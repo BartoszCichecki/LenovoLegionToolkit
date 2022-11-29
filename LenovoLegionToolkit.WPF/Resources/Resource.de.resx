@@ -337,9 +337,6 @@ Diese Zeit ist möglicherweise nicht genau, wenn der Laptop im Schlaf oder im au
   <data name="Celsius" xml:space="preserve">
     <value>°C</value>
   </data>
-  <data name="Close" xml:space="preserve">
-    <value>Schließen</value>
-  </data>
   <data name="ColorCardControl_Blue" xml:space="preserve">
     <value>Blau</value>
   </data>
