@@ -97,7 +97,7 @@ public static class Power
                 Log.Instance.Trace($" - {powerPlan.Name} [guid={powerPlan.Guid}, isActive={powerPlan.IsActive}]");
         }
 
-        var powerPlanToActivate = powerPlans.FirstOrDefault(pp => pp.InstanceID.Contains(powerPlanId));
+        var powerPlanToActivate = powerPlans.FirstOrDefault(pp => pp.InstanceId.Contains(powerPlanId));
         if (powerPlanToActivate.Equals(default(PowerPlan)))
         {
             if (Log.Instance.IsTraceEnabled)
