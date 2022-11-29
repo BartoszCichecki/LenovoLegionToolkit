@@ -23,7 +23,7 @@ public partial class PowerPlansWindow
 
     private async void PowerPlansWindow_Loaded(object sender, RoutedEventArgs e) => await RefreshAsync();
 
-    private async void PowerPlansWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+    private async void PowerPlansWindow_IsVisibleChanged(object _1, DependencyPropertyChangedEventArgs _2)
     {
         if (IsLoaded && IsVisible)
             await RefreshAsync();
