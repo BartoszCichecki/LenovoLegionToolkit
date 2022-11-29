@@ -8,215 +8,214 @@ using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
-namespace LenovoLegionToolkit.Lib.Listeners
+namespace LenovoLegionToolkit.Lib.Listeners;
+
+public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
 {
-    public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
+    private readonly ThrottleFirstDispatcher _refreshRateDispatcher = new(TimeSpan.FromSeconds(2), "refreshRate");
+
+    private readonly ApplicationSettings _settings;
+    private readonly FnKeys _fnKeys;
+    private readonly RefreshRateFeature _refreshRateFeature;
+
+    public SpecialKeyListener(ApplicationSettings settings, FnKeys fnKeys, RefreshRateFeature feature) : base("ROOT\\WMI", "LENOVO_UTILITY_EVENT")
     {
-        private readonly ThrottleFirstDispatcher _refreshRateDispatcher = new(TimeSpan.FromSeconds(2), "refreshRate");
+        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
+        _fnKeys = fnKeys ?? throw new ArgumentNullException(nameof(fnKeys));
+        _refreshRateFeature = feature ?? throw new ArgumentNullException(nameof(feature));
+    }
 
-        private readonly ApplicationSettings _settings;
-        private readonly FnKeys _fnKeys;
-        private readonly RefreshRateFeature _refreshRateFeature;
+    protected override SpecialKey GetValue(PropertyDataCollection properties)
+    {
+        var property = properties["PressTypeDataVal"];
+        var propertyValue = Convert.ToInt32(property.Value);
 
-        public SpecialKeyListener(ApplicationSettings settings, FnKeys fnKeys, RefreshRateFeature feature) : base("ROOT\\WMI", "LENOVO_UTILITY_EVENT")
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Event received. [value={propertyValue}]");
+
+        var value = (SpecialKey)propertyValue;
+        return value;
+    }
+
+    protected override Task OnChangedAsync(SpecialKey value) => value switch
+    {
+        SpecialKey.CameraOn or SpecialKey.CameraOff => NotifyCameraState(value),
+        SpecialKey.FnLockOn or SpecialKey.FnLockOff => NotifyFnLockState(value),
+        SpecialKey.FnR or SpecialKey.FnR2 => ToggleRefreshRateAsync(),
+        SpecialKey.FnPrtSc => OpenSnippingTool(),
+        SpecialKey.SpectrumBacklightOff => NotifySpectrumBacklight(0),
+        SpecialKey.SpectrumBacklight1 => NotifySpectrumBacklight(1),
+        SpecialKey.SpectrumBacklight2 => NotifySpectrumBacklight(2),
+        SpecialKey.SpectrumBacklight3 => NotifySpectrumBacklight(3),
+        SpecialKey.SpectrumPreset1 => NotifySpectrumPreset(1),
+        SpecialKey.SpectrumPreset2 => NotifySpectrumPreset(2),
+        SpecialKey.SpectrumPreset3 => NotifySpectrumPreset(3),
+        SpecialKey.SpectrumPreset4 => NotifySpectrumPreset(4),
+        SpecialKey.SpectrumPreset5 => NotifySpectrumPreset(5),
+        SpecialKey.SpectrumPreset6 => NotifySpectrumPreset(6),
+        _ => Task.CompletedTask
+    };
+
+    private async Task NotifyCameraState(SpecialKey value)
+    {
+        try
         {
-            _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-            _fnKeys = fnKeys ?? throw new ArgumentNullException(nameof(fnKeys));
-            _refreshRateFeature = feature ?? throw new ArgumentNullException(nameof(feature));
+            if (await _fnKeys.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Ignoring, FnKeys are enabled.");
+
+                return;
+            }
+
+            if (value == SpecialKey.CameraOn)
+                MessagingCenter.Publish(new Notification(NotificationType.CameraOn, NotificationDuration.Short));
+
+            if (value == SpecialKey.CameraOff)
+                MessagingCenter.Publish(new Notification(NotificationType.CameraOff, NotificationDuration.Short));
         }
+        catch { }
+    }
 
-        protected override SpecialKey GetValue(PropertyDataCollection properties)
+    private async Task NotifyFnLockState(SpecialKey value)
+    {
+        try
         {
-            var property = properties["PressTypeDataVal"];
-            var propertyValue = Convert.ToInt32(property.Value);
+            if (await _fnKeys.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Ignoring, FnKeys are enabled.");
+
+                return;
+            }
+
+            if (value == SpecialKey.FnLockOn)
+                MessagingCenter.Publish(new Notification(NotificationType.FnLockOn, NotificationDuration.Short));
+
+            if (value == SpecialKey.FnLockOff)
+                MessagingCenter.Publish(new Notification(NotificationType.FnLockOff, NotificationDuration.Short));
+        }
+        catch { }
+    }
+
+    private Task ToggleRefreshRateAsync() => _refreshRateDispatcher.DispatchAsync(async () =>
+    {
+        try
+        {
+            if (await _fnKeys.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Ignoring, FnKeys are enabled.");
+
+                return;
+            }
+
+            if (!await _refreshRateFeature.IsSupportedAsync().ConfigureAwait(false))
+                return;
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Event received. [value={propertyValue}]");
+                Log.Instance.Trace($"Switch refresh rate after Fn+R...");
 
-            var value = (SpecialKey)propertyValue;
-            return value;
-        }
+            var all = await _refreshRateFeature.GetAllStatesAsync().ConfigureAwait(false);
+            var current = await _refreshRateFeature.GetStateAsync().ConfigureAwait(false);
 
-        protected override Task OnChangedAsync(SpecialKey value) => value switch
-        {
-            SpecialKey.CameraOn or SpecialKey.CameraOff => NotifyCameraState(value),
-            SpecialKey.FnLockOn or SpecialKey.FnLockOff => NotifyFnLockState(value),
-            SpecialKey.FnR or SpecialKey.FnR2 => ToggleRefreshRateAsync(),
-            SpecialKey.FnPrtSc => OpenSnippingTool(),
-            SpecialKey.SpectrumBacklightOff => NotifySpectrumBacklight(0),
-            SpecialKey.SpectrumBacklight1 => NotifySpectrumBacklight(1),
-            SpecialKey.SpectrumBacklight2 => NotifySpectrumBacklight(2),
-            SpecialKey.SpectrumBacklight3 => NotifySpectrumBacklight(3),
-            SpecialKey.SpectrumPreset1 => NotifySpectrumPreset(1),
-            SpecialKey.SpectrumPreset2 => NotifySpectrumPreset(2),
-            SpecialKey.SpectrumPreset3 => NotifySpectrumPreset(3),
-            SpecialKey.SpectrumPreset4 => NotifySpectrumPreset(4),
-            SpecialKey.SpectrumPreset5 => NotifySpectrumPreset(5),
-            SpecialKey.SpectrumPreset6 => NotifySpectrumPreset(6),
-            _ => Task.CompletedTask
-        };
+            all = all.Except(_settings.Store.ExcludedRefreshRates).ToArray();
 
-        private async Task NotifyCameraState(SpecialKey value)
-        {
-            try
+            if (all.Length < 2)
             {
-                if (await _fnKeys.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Ignoring, FnKeys are enabled.");
-
-                    return;
-                }
-
-                if (value == SpecialKey.CameraOn)
-                    MessagingCenter.Publish(new Notification(NotificationType.CameraOn, NotificationDuration.Short));
-
-                if (value == SpecialKey.CameraOff)
-                    MessagingCenter.Publish(new Notification(NotificationType.CameraOff, NotificationDuration.Short));
-            }
-            catch { }
-        }
-
-        private async Task NotifyFnLockState(SpecialKey value)
-        {
-            try
-            {
-                if (await _fnKeys.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Ignoring, FnKeys are enabled.");
-
-                    return;
-                }
-
-                if (value == SpecialKey.FnLockOn)
-                    MessagingCenter.Publish(new Notification(NotificationType.FnLockOn, NotificationDuration.Short));
-
-                if (value == SpecialKey.FnLockOff)
-                    MessagingCenter.Publish(new Notification(NotificationType.FnLockOff, NotificationDuration.Short));
-            }
-            catch { }
-        }
-
-        private Task ToggleRefreshRateAsync() => _refreshRateDispatcher.DispatchAsync(async () =>
-        {
-            try
-            {
-                if (await _fnKeys.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Ignoring, FnKeys are enabled.");
-
-                    return;
-                }
-
-                if (!await _refreshRateFeature.IsSupportedAsync().ConfigureAwait(false))
-                    return;
-
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Switch refresh rate after Fn+R...");
+                    Log.Instance.Trace($"Can't switch refresh rate after Fn+R. [all={all?.Length}]");
 
-                var all = await _refreshRateFeature.GetAllStatesAsync().ConfigureAwait(false);
-                var current = await _refreshRateFeature.GetStateAsync().ConfigureAwait(false);
+                return;
+            }
 
-                all = all.Except(_settings.Store.ExcludedRefreshRates).ToArray();
+            var currentIndex = Array.IndexOf(all, current);
+            var newIndex = currentIndex + 1;
+            if (newIndex >= all.Length)
+                newIndex = 0;
 
-                if (all.Length < 2)
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Can't switch refresh rate after Fn+R. [all={all?.Length}]");
+            var next = all[newIndex];
 
-                    return;
-                }
+            await _refreshRateFeature.SetStateAsync(next).ConfigureAwait(false);
 
-                var currentIndex = Array.IndexOf(all, current);
-                var newIndex = currentIndex + 1;
-                if (newIndex >= all.Length)
-                    newIndex = 0;
+            _ = Task.Delay(TimeSpan.FromSeconds(2)).ContinueWith(_ =>
+            {
+                MessagingCenter.Publish(new Notification(NotificationType.RefreshRate, NotificationDuration.Long, next.DisplayName));
+            });
 
-                var next = all[newIndex];
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Switched refresh rate after Fn+R to {next}.");
+        }
+        catch
+        {
+        }
+    });
 
-                await _refreshRateFeature.SetStateAsync(next).ConfigureAwait(false);
-
-                _ = Task.Delay(TimeSpan.FromSeconds(2)).ContinueWith(_ =>
-                {
-                    MessagingCenter.Publish(new Notification(NotificationType.RefreshRate, NotificationDuration.Long, next.DisplayName));
-                });
-
+    private async Task OpenSnippingTool()
+    {
+        try
+        {
+            if (await _fnKeys.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+            {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Switched refresh rate after Fn+R to {next}.");
-            }
-            catch
-            {
-            }
-        });
+                    Log.Instance.Trace($"Ignoring, FnKeys are enabled.");
 
-        private async Task OpenSnippingTool()
+                return;
+            }
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Starting snipping tool..");
+
+            Process.Start("snippingtool");
+        }
+        catch { }
+    }
+
+    private async Task NotifySpectrumBacklight(int value)
+    {
+        try
         {
-            try
+            if (await _fnKeys.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
             {
-                if (await _fnKeys.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Ignoring, FnKeys are enabled.");
-
-                    return;
-                }
-
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Starting snipping tool..");
+                    Log.Instance.Trace($"Ignoring, FnKeys are enabled.");
 
-                Process.Start("snippingtool");
+                return;
             }
-            catch { }
-        }
 
-        private async Task NotifySpectrumBacklight(int value)
-        {
-            try
+            switch (value)
             {
-                if (await _fnKeys.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Ignoring, FnKeys are enabled.");
-
-                    return;
-                }
-
-                switch (value)
-                {
-                    case 0:
-                        MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightOff, NotificationDuration.Short, SpectrumKeyboardBacklightBrightness.Off));
-                        break;
-                    case 1:
-                        MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightChanged, NotificationDuration.Short, SpectrumKeyboardBacklightBrightness.Low));
-                        break;
-                    case 2:
-                        MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightChanged, NotificationDuration.Short, SpectrumKeyboardBacklightBrightness.Medium));
-                        break;
-                    case 3:
-                        MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightChanged, NotificationDuration.Short, SpectrumKeyboardBacklightBrightness.High));
-                        break;
-                }
+                case 0:
+                    MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightOff, NotificationDuration.Short, SpectrumKeyboardBacklightBrightness.Off));
+                    break;
+                case 1:
+                    MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightChanged, NotificationDuration.Short, SpectrumKeyboardBacklightBrightness.Low));
+                    break;
+                case 2:
+                    MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightChanged, NotificationDuration.Short, SpectrumKeyboardBacklightBrightness.Medium));
+                    break;
+                case 3:
+                    MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightChanged, NotificationDuration.Short, SpectrumKeyboardBacklightBrightness.High));
+                    break;
             }
-            catch { }
         }
+        catch { }
+    }
 
-        private async Task NotifySpectrumPreset(int value)
+    private async Task NotifySpectrumPreset(int value)
+    {
+        try
         {
-            try
+            if (await _fnKeys.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
             {
-                if (await _fnKeys.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Ignoring, FnKeys are enabled.");
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Ignoring, FnKeys are enabled.");
 
-                    return;
-                }
-
-                MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightPresetChanged, NotificationDuration.Short, value));
+                return;
             }
-            catch { }
+
+            MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightPresetChanged, NotificationDuration.Short, value));
         }
+        catch { }
     }
 }

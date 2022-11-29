@@ -1,44 +1,43 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace LenovoLegionToolkit.Lib.Utils
+namespace LenovoLegionToolkit.Lib.Utils;
+
+public class ThrottleFirstDispatcher
 {
-    public class ThrottleFirstDispatcher
+    private readonly object _lock = new();
+
+    private readonly TimeSpan _interval;
+    private readonly string? _tag;
+
+    private DateTime _lastEvent = DateTime.MinValue;
+
+    public ThrottleFirstDispatcher(TimeSpan interval, string? tag = null)
     {
-        private readonly object _lock = new();
+        _interval = interval;
+        _tag = tag;
+    }
 
-        private readonly TimeSpan _interval;
-        private readonly string? _tag;
-
-        private DateTime _lastEvent = DateTime.MinValue;
-
-        public ThrottleFirstDispatcher(TimeSpan interval, string? tag = null)
+    public Task DispatchAsync(Func<Task> task)
+    {
+        lock (_lock)
         {
-            _interval = interval;
-            _tag = tag;
-        }
+            var now = DateTime.UtcNow;
+            var diff = now - _lastEvent;
+            _lastEvent = now;
 
-        public Task DispatchAsync(Func<Task> task)
-        {
-            lock (_lock)
+            if (diff < _interval)
             {
-                var now = DateTime.UtcNow;
-                var diff = now - _lastEvent;
-                _lastEvent = now;
-
-                if (diff < _interval)
-                {
-                    if (_tag is not null && Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Throttling... [tag={_tag}, diff={diff.TotalMilliseconds}ms]");
-
-                    return Task.CompletedTask;
-                }
-
                 if (_tag is not null && Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Allowing... [tag={_tag}, diff={diff.TotalMilliseconds}ms]");
+                    Log.Instance.Trace($"Throttling... [tag={_tag}, diff={diff.TotalMilliseconds}ms]");
 
-                return task();
+                return Task.CompletedTask;
             }
+
+            if (_tag is not null && Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Allowing... [tag={_tag}, diff={diff.TotalMilliseconds}ms]");
+
+            return task();
         }
     }
 }

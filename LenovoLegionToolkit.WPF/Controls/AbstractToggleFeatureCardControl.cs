@@ -7,97 +7,96 @@ using LenovoLegionToolkit.WPF.Extensions;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 
-namespace LenovoLegionToolkit.WPF.Controls
+namespace LenovoLegionToolkit.WPF.Controls;
+
+public abstract class AbstractToggleFeatureCardControl<T> : AbstractRefreshingControl where T : struct
 {
-    public abstract class AbstractToggleFeatureCardControl<T> : AbstractRefreshingControl where T : struct
+    protected readonly IFeature<T> Feature = IoCContainer.Resolve<IFeature<T>>();
+
+    private readonly CardControl _cardControl = new();
+
+    private readonly CardHeaderControl _cardHeaderControl = new();
+
+    private readonly ToggleSwitch _toggle = new();
+
+    protected SymbolRegular Icon
     {
-        protected readonly IFeature<T> Feature = IoCContainer.Resolve<IFeature<T>>();
+        get => _cardControl.Icon;
+        set => _cardControl.Icon = value;
+    }
 
-        private readonly CardControl _cardControl = new();
+    protected string Title
+    {
+        get => _cardHeaderControl.Title;
+        set => _cardHeaderControl.Title = value;
+    }
 
-        private readonly CardHeaderControl _cardHeaderControl = new();
+    protected string Subtitle
+    {
+        get => _cardHeaderControl.Subtitle;
+        set => _cardHeaderControl.Subtitle = value;
+    }
 
-        private readonly ToggleSwitch _toggle = new();
+    protected string Warning
+    {
+        get => _cardHeaderControl.Warning;
+        set => _cardHeaderControl.Warning = value;
+    }
 
-        protected SymbolRegular Icon
-        {
-            get => _cardControl.Icon;
-            set => _cardControl.Icon = value;
-        }
+    public bool IsToggleEnabled
+    {
+        get => _toggle.IsEnabled;
+        set => _toggle.IsEnabled = value;
+    }
 
-        protected string Title
-        {
-            get => _cardHeaderControl.Title;
-            set => _cardHeaderControl.Title = value;
-        }
+    protected abstract T OnState { get; }
 
-        protected string Subtitle
-        {
-            get => _cardHeaderControl.Subtitle;
-            set => _cardHeaderControl.Subtitle = value;
-        }
+    protected abstract T OffState { get; }
 
-        protected string Warning
-        {
-            get => _cardHeaderControl.Warning;
-            set => _cardHeaderControl.Warning = value;
-        }
+    protected AbstractToggleFeatureCardControl()
+    {
+        InitializeComponent();
+    }
 
-        public bool IsToggleEnabled
-        {
-            get => _toggle.IsEnabled;
-            set => _toggle.IsEnabled = value;
-        }
+    private void InitializeComponent()
+    {
+        _toggle.Click += Toggle_Click;
+        _toggle.Visibility = Visibility.Hidden;
+        _toggle.Margin = new(8, 0, 0, 0);
 
-        protected abstract T OnState { get; }
+        _cardHeaderControl.Accessory = _toggle;
+        _cardControl.Header = _cardHeaderControl;
+        _cardControl.Margin = new(0, 0, 0, 8);
 
-        protected abstract T OffState { get; }
+        Content = _cardControl;
+    }
 
-        protected AbstractToggleFeatureCardControl()
-        {
-            InitializeComponent();
-        }
+    private async void Toggle_Click(object sender, RoutedEventArgs e) => await OnStateChange(_toggle, Feature);
 
-        private void InitializeComponent()
-        {
-            _toggle.Click += Toggle_Click;
-            _toggle.Visibility = Visibility.Hidden;
-            _toggle.Margin = new(8, 0, 0, 0);
+    protected override async Task OnRefreshAsync()
+    {
+        if (!await Feature.IsSupportedAsync())
+            throw new NotSupportedException();
 
-            _cardHeaderControl.Accessory = _toggle;
-            _cardControl.Header = _cardHeaderControl;
-            _cardControl.Margin = new(0, 0, 0, 8);
+        _toggle.IsChecked = OnState.Equals(await Feature.GetStateAsync());
+    }
 
-            Content = _cardControl;
-        }
+    protected override void OnFinishedLoading()
+    {
+        _toggle.Visibility = Visibility.Visible;
 
-        private async void Toggle_Click(object sender, RoutedEventArgs e) => await OnStateChange(_toggle, Feature);
+        MessagingCenter.Subscribe<T>(this, () => Dispatcher.InvokeTask(RefreshAsync));
+    }
 
-        protected override async Task OnRefreshAsync()
-        {
-            if (!await Feature.IsSupportedAsync())
-                throw new NotSupportedException();
+    protected virtual async Task OnStateChange(ToggleSwitch toggle, IFeature<T> feature)
+    {
+        if (IsRefreshing || toggle.IsChecked is null)
+            return;
 
-            _toggle.IsChecked = OnState.Equals(await Feature.GetStateAsync());
-        }
+        var state = toggle.IsChecked.Value ? OnState : OffState;
+        if (state.Equals(await feature.GetStateAsync()))
+            return;
 
-        protected override void OnFinishedLoading()
-        {
-            _toggle.Visibility = Visibility.Visible;
-
-            MessagingCenter.Subscribe<T>(this, () => Dispatcher.InvokeTask(RefreshAsync));
-        }
-
-        protected virtual async Task OnStateChange(ToggleSwitch toggle, IFeature<T> feature)
-        {
-            if (IsRefreshing || toggle.IsChecked is null)
-                return;
-
-            var state = toggle.IsChecked.Value ? OnState : OffState;
-            if (state.Equals(await feature.GetStateAsync()))
-                return;
-
-            await feature.SetStateAsync(state);
-        }
+        await feature.SetStateAsync(state);
     }
 }

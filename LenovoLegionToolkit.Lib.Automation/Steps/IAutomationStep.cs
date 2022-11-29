@@ -1,20 +1,19 @@
 ﻿using System.Threading.Tasks;
 
-namespace LenovoLegionToolkit.Lib.Automation.Steps
+namespace LenovoLegionToolkit.Lib.Automation.Steps;
+
+public interface IAutomationStep
 {
-    public interface IAutomationStep
-    {
-        Task<bool> IsSupportedAsync();
+    Task<bool> IsSupportedAsync();
 
-        Task RunAsync();
+    Task RunAsync();
 
-        IAutomationStep DeepCopy();
-    }
+    IAutomationStep DeepCopy();
+}
 
-    public interface IAutomationStep<T> : IAutomationStep where T : struct
-    {
-        T State { get; }
+public interface IAutomationStep<T> : IAutomationStep where T : struct
+{
+    T State { get; }
 
-        Task<T[]> GetAllStatesAsync();
-    }
+    Task<T[]> GetAllStatesAsync();
 }

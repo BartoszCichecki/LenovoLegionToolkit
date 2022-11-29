@@ -1,7 +1,6 @@
-﻿namespace LenovoLegionToolkit.Lib.Features
+﻿namespace LenovoLegionToolkit.Lib.Features;
+
+public class WinKeyFeature : AbstractLenovoGamezoneWmiFeature<WinKeyState>
 {
-    public class WinKeyFeature : AbstractLenovoGamezoneWmiFeature<WinKeyState>
-    {
-        public WinKeyFeature() : base("WinKeyStatus", 0, "IsSupportDisableWinKey") { }
-    }
+    public WinKeyFeature() : base("WinKeyStatus", 0, "IsSupportDisableWinKey") { }
 }

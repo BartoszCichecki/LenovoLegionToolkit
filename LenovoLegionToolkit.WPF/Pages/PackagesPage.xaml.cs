@@ -22,306 +22,305 @@ using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 using MenuItem = Wpf.Ui.Controls.MenuItem;
 
-namespace LenovoLegionToolkit.WPF.Pages
+namespace LenovoLegionToolkit.WPF.Pages;
+
+public partial class PackagesPage : Page, IProgress<float>
 {
-    public partial class PackagesPage : Page, IProgress<float>
+    private readonly PackageDownloaderSettings _packageDownloaderSettings = IoCContainer.Resolve<PackageDownloaderSettings>();
+    private readonly PackageDownloaderFactory _packageDownloaderFactory = IoCContainer.Resolve<PackageDownloaderFactory>();
+
+    private IPackageDownloader? _packageDownloader;
+
+    private CancellationTokenSource? _getPackagesTokenSource;
+
+    private CancellationTokenSource? _filterDebounceCancellationTokenSource;
+
+    private List<Package>? _packages;
+
+    public PackagesPage()
     {
-        private readonly PackageDownloaderSettings _packageDownloaderSettings = IoCContainer.Resolve<PackageDownloaderSettings>();
-        private readonly PackageDownloaderFactory _packageDownloaderFactory = IoCContainer.Resolve<PackageDownloaderFactory>();
+        Initialized += PackagesPage_Initialized;
 
-        private IPackageDownloader? _packageDownloader;
+        InitializeComponent();
+    }
 
-        private CancellationTokenSource? _getPackagesTokenSource;
+    private async void PackagesPage_Initialized(object? sender, EventArgs e)
+    {
+        _machineTypeTextBox.Text = (await Compatibility.GetMachineInformationAsync()).MachineType;
+        _osComboBox.SetItems(Enum.GetValues<OS>(), OSExtensions.GetCurrent(), os => os.GetDisplayName());
+        _downloadToText.PlaceholderText = _downloadToText.Text = KnownFolders.GetPath(KnownFolder.Downloads);
 
-        private CancellationTokenSource? _filterDebounceCancellationTokenSource;
+        _downloadPackagesButton.IsEnabled = true;
+        _cancelDownloadPackagesButton.IsEnabled = true;
 
-        private List<Package>? _packages;
+        _sourcePrimaryRadio.Tag = PackageDownloaderFactory.Type.PCSupport;
+        _sourceSecondaryRadio.Tag = PackageDownloaderFactory.Type.Commercial;
+    }
 
-        public PackagesPage()
+    public void Report(float value) => Dispatcher.Invoke(() =>
+    {
+        _loader.IsIndeterminate = !(value > 0);
+        _loader.Progress = value;
+    });
+
+    private void OpenDownloadToButton_Click(object sender, RoutedEventArgs e)
+    {
+        try
         {
-            Initialized += PackagesPage_Initialized;
-
-            InitializeComponent();
+            Process.Start("explorer.exe", GetDownloadLocation());
         }
+        catch { }
+    }
 
-        private async void PackagesPage_Initialized(object? sender, EventArgs e)
+    private void DownloadToButton_Click(object sender, RoutedEventArgs e)
+    {
+        using var ofd = new FolderBrowserDialog
         {
-            _machineTypeTextBox.Text = (await Compatibility.GetMachineInformationAsync()).MachineType;
-            _osComboBox.SetItems(Enum.GetValues<OS>(), OSExtensions.GetCurrent(), os => os.GetDisplayName());
-            _downloadToText.PlaceholderText = _downloadToText.Text = KnownFolders.GetPath(KnownFolder.Downloads);
+            InitialDirectory = _downloadToText.Text,
+        };
+        if (ofd.ShowDialog() != DialogResult.OK)
+            return;
 
-            _downloadPackagesButton.IsEnabled = true;
-            _cancelDownloadPackagesButton.IsEnabled = true;
+        _downloadToText.Text = ofd.SelectedPath;
+    }
 
-            _sourcePrimaryRadio.Tag = PackageDownloaderFactory.Type.PCSupport;
-            _sourceSecondaryRadio.Tag = PackageDownloaderFactory.Type.Commercial;
-        }
+    private async void DownloadPackagesButton_Click(object sender, RoutedEventArgs e)
+    {
+        if (!await ShouldInterruptDownloadsIfRunning())
+            return;
 
-        public void Report(float value) => Dispatcher.Invoke(() =>
+        var errored = false;
+        try
         {
-            _loader.IsIndeterminate = !(value > 0);
-            _loader.Progress = value;
-        });
+            _downloadPackagesButton.Visibility = Visibility.Collapsed;
+            _cancelDownloadPackagesButton.Visibility = Visibility.Visible;
+            _loader.Visibility = Visibility.Visible;
+            _loader.IsLoading = true;
+            _packages = null;
 
-        private void OpenDownloadToButton_Click(object sender, RoutedEventArgs e)
-        {
-            try
+            _packagesStackPanel.Children.Clear();
+            _scrollViewer.ScrollToHome();
+
+            _filterTextBox.Text = string.Empty;
+            _sortingComboBox.SelectedIndex = 2;
+
+            var machineType = _machineTypeTextBox.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(machineType) || machineType.Length != 4 || !_osComboBox.TryGetSelectedItem(out OS os))
             {
-                Process.Start("explorer.exe", GetDownloadLocation());
+                await SnackbarHelper.ShowAsync(Resource.PackagesPage_DownloadFailed_Title, Resource.PackagesPage_DownloadFailed_Message);
+                return;
             }
-            catch { }
-        }
 
-        private void DownloadToButton_Click(object sender, RoutedEventArgs e)
-        {
-            using var ofd = new FolderBrowserDialog
-            {
-                InitialDirectory = _downloadToText.Text,
-            };
-            if (ofd.ShowDialog() != DialogResult.OK)
-                return;
+            _getPackagesTokenSource?.Cancel();
+            _getPackagesTokenSource = new CancellationTokenSource();
 
-            _downloadToText.Text = ofd.SelectedPath;
-        }
+            var token = _getPackagesTokenSource.Token;
 
-        private async void DownloadPackagesButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (!await ShouldInterruptDownloadsIfRunning())
-                return;
-
-            var errored = false;
-            try
-            {
-                _downloadPackagesButton.Visibility = Visibility.Collapsed;
-                _cancelDownloadPackagesButton.Visibility = Visibility.Visible;
-                _loader.Visibility = Visibility.Visible;
-                _loader.IsLoading = true;
-                _packages = null;
-
-                _packagesStackPanel.Children.Clear();
-                _scrollViewer.ScrollToHome();
-
-                _filterTextBox.Text = string.Empty;
-                _sortingComboBox.SelectedIndex = 2;
-
-                var machineType = _machineTypeTextBox.Text.Trim();
-
-                if (string.IsNullOrWhiteSpace(machineType) || machineType.Length != 4 || !_osComboBox.TryGetSelectedItem(out OS os))
-                {
-                    await SnackbarHelper.ShowAsync(Resource.PackagesPage_DownloadFailed_Title, Resource.PackagesPage_DownloadFailed_Message);
-                    return;
-                }
-
-                _getPackagesTokenSource?.Cancel();
-                _getPackagesTokenSource = new CancellationTokenSource();
-
-                var token = _getPackagesTokenSource.Token;
-
-                var packageDownloaderType = new[] {
+            var packageDownloaderType = new[] {
                     _sourcePrimaryRadio,
                     _sourceSecondaryRadio,
                 }.Where(r => r.IsChecked == true)
-                 .Select(r => (PackageDownloaderFactory.Type)r.Tag)
-                 .First();
+                .Select(r => (PackageDownloaderFactory.Type)r.Tag)
+                .First();
 
-                _packageDownloader = _packageDownloaderFactory.GetInstance(packageDownloaderType);
-                var packages = await _packageDownloader.GetPackagesAsync(machineType, os, this, token);
+            _packageDownloader = _packageDownloaderFactory.GetInstance(packageDownloaderType);
+            var packages = await _packageDownloader.GetPackagesAsync(machineType, os, this, token);
 
-                _packages = packages;
+            _packages = packages;
 
-                Reload();
-            }
-            catch (TaskCanceledException)
-            {
-                errored = true;
-            }
-            catch (HttpRequestException ex)
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Error occured when downloading packages.", ex);
-
-                SnackbarHelper.Show("Something went wrong", "Check if your internet connection is up and running.", true);
-
-                errored = true;
-            }
-            catch (Exception ex)
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Error occured when downloading packages.", ex);
-
-                SnackbarHelper.Show("Something went wrong", ex.Message, true);
-
-                errored = true;
-            }
-            finally
-            {
-                _downloadPackagesButton.Visibility = Visibility.Visible;
-                _cancelDownloadPackagesButton.Visibility = Visibility.Collapsed;
-                _loader.IsLoading = false;
-                _loader.Progress = 0;
-                _loader.IsIndeterminate = true;
-
-                if (errored)
-                {
-                    _packagesStackPanel.Children.Clear();
-                    _loader.Visibility = Visibility.Collapsed;
-                    _loader.IsLoading = true;
-                }
-            }
+            Reload();
         }
-
-        private void CancelDownloadPackagesButton_Click(object sender, RoutedEventArgs e) => _getPackagesTokenSource?.Cancel();
-
-        private async void FilterTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        catch (TaskCanceledException)
         {
-            if (!await ShouldInterruptDownloadsIfRunning())
-                return;
+            errored = true;
+        }
+        catch (HttpRequestException ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Error occured when downloading packages.", ex);
 
-            try
+            SnackbarHelper.Show("Something went wrong", "Check if your internet connection is up and running.", true);
+
+            errored = true;
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Error occured when downloading packages.", ex);
+
+            SnackbarHelper.Show("Something went wrong", ex.Message, true);
+
+            errored = true;
+        }
+        finally
+        {
+            _downloadPackagesButton.Visibility = Visibility.Visible;
+            _cancelDownloadPackagesButton.Visibility = Visibility.Collapsed;
+            _loader.IsLoading = false;
+            _loader.Progress = 0;
+            _loader.IsIndeterminate = true;
+
+            if (errored)
             {
-                if (_packages is null)
-                    return;
-
-                _filterDebounceCancellationTokenSource?.Cancel();
-                _filterDebounceCancellationTokenSource = new();
-
-                await Task.Delay(500, _filterDebounceCancellationTokenSource.Token);
-
                 _packagesStackPanel.Children.Clear();
-                _scrollViewer.ScrollToHome();
-
-                Reload();
+                _loader.Visibility = Visibility.Collapsed;
+                _loader.IsLoading = true;
             }
-            catch (TaskCanceledException) { }
         }
+    }
 
-        private async void SortingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    private void CancelDownloadPackagesButton_Click(object sender, RoutedEventArgs e) => _getPackagesTokenSource?.Cancel();
+
+    private async void FilterTextBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (!await ShouldInterruptDownloadsIfRunning())
+            return;
+
+        try
         {
-            if (!await ShouldInterruptDownloadsIfRunning())
-                return;
-
             if (_packages is null)
                 return;
+
+            _filterDebounceCancellationTokenSource?.Cancel();
+            _filterDebounceCancellationTokenSource = new();
+
+            await Task.Delay(500, _filterDebounceCancellationTokenSource.Token);
 
             _packagesStackPanel.Children.Clear();
             _scrollViewer.ScrollToHome();
 
             Reload();
         }
+        catch (TaskCanceledException) { }
+    }
 
-        private string GetDownloadLocation()
+    private async void SortingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (!await ShouldInterruptDownloadsIfRunning())
+            return;
+
+        if (_packages is null)
+            return;
+
+        _packagesStackPanel.Children.Clear();
+        _scrollViewer.ScrollToHome();
+
+        Reload();
+    }
+
+    private string GetDownloadLocation()
+    {
+        var location = _downloadToText.Text.Trim();
+        if (!Directory.Exists(location))
+            return KnownFolders.GetPath(KnownFolder.Downloads);
+        return location;
+    }
+
+    private ContextMenu? GetContextMenu(Package package, IEnumerable<Package> packages)
+    {
+        if (_packageDownloaderSettings.Store.HiddenPackages.Contains(package.Id))
+            return null;
+
+        var hideMenuItem = new MenuItem
         {
-            var location = _downloadToText.Text.Trim();
-            if (!Directory.Exists(location))
-                return KnownFolders.GetPath(KnownFolder.Downloads);
-            return location;
+            SymbolIcon = SymbolRegular.EyeOff24,
+            Header = "Hide",
+        };
+        hideMenuItem.Click += (s, e) =>
+        {
+            _packageDownloaderSettings.Store.HiddenPackages.Add(package.Id);
+            _packageDownloaderSettings.SynchronizeStore();
+
+            Reload();
+        };
+
+        var hideAllMenuItem = new MenuItem
+        {
+            SymbolIcon = SymbolRegular.EyeOff24,
+            Header = "Hide all",
+        };
+        hideAllMenuItem.Click += (s, e) =>
+        {
+            foreach (var id in packages.Select(p => p.Id))
+                _packageDownloaderSettings.Store.HiddenPackages.Add(id);
+            _packageDownloaderSettings.SynchronizeStore();
+
+            Reload();
+        };
+
+        var cm = new ContextMenu();
+        cm.Items.Add(hideMenuItem);
+        cm.Items.Add(hideAllMenuItem);
+        return cm;
+    }
+
+    private async Task<bool> ShouldInterruptDownloadsIfRunning()
+    {
+        if (_packagesStackPanel?.Children is null)
+            return true;
+
+        if (_packagesStackPanel.Children.ToArray().OfType<PackageControl>().Where(pc => pc.IsDownloading).IsEmpty())
+            return true;
+
+        return await MessageBoxHelper.ShowAsync(this, Resource.PackagesPage_DownloadInProgress_Title, Resource.PackagesPage_DownloadInProgress_Message);
+    }
+
+    private void Reload()
+    {
+        if (_packageDownloader is null)
+            return;
+
+        _packagesStackPanel.Children.Clear();
+
+        if (_packages is null || !_packages.Any())
+            return;
+
+        var packages = SortAndFilter(_packages);
+
+        foreach (var package in packages)
+        {
+            var control = new PackageControl(_packageDownloader, package, GetDownloadLocation)
+            {
+                ContextMenu = GetContextMenu(package, packages)
+            };
+            _packagesStackPanel.Children.Add(control);
         }
 
-        private ContextMenu? GetContextMenu(Package package, IEnumerable<Package> packages)
+        if (_packageDownloaderSettings.Store.HiddenPackages.Any())
         {
-            if (_packageDownloaderSettings.Store.HiddenPackages.Contains(package.Id))
-                return null;
-
-            var hideMenuItem = new MenuItem
+            var clearHidden = new Hyperlink
             {
-                SymbolIcon = SymbolRegular.EyeOff24,
-                Header = "Hide",
+                Icon = SymbolRegular.Eye24,
+                Content = "Show hidden downloads",
+                HorizontalAlignment = System.Windows.HorizontalAlignment.Right,
             };
-            hideMenuItem.Click += (s, e) =>
+            clearHidden.Click += (s, e) =>
             {
-                _packageDownloaderSettings.Store.HiddenPackages.Add(package.Id);
+                _packageDownloaderSettings.Store.HiddenPackages.Clear();
                 _packageDownloaderSettings.SynchronizeStore();
 
                 Reload();
             };
-
-            var hideAllMenuItem = new MenuItem
-            {
-                SymbolIcon = SymbolRegular.EyeOff24,
-                Header = "Hide all",
-            };
-            hideAllMenuItem.Click += (s, e) =>
-            {
-                foreach (var id in packages.Select(p => p.Id))
-                    _packageDownloaderSettings.Store.HiddenPackages.Add(id);
-                _packageDownloaderSettings.SynchronizeStore();
-
-                Reload();
-            };
-
-            var cm = new ContextMenu();
-            cm.Items.Add(hideMenuItem);
-            cm.Items.Add(hideAllMenuItem);
-            return cm;
+            _packagesStackPanel.Children.Add(clearHidden);
         }
+    }
 
-        private async Task<bool> ShouldInterruptDownloadsIfRunning()
+    private List<Package> SortAndFilter(List<Package> packages)
+    {
+        var result = _sortingComboBox.SelectedIndex switch
         {
-            if (_packagesStackPanel?.Children is null)
-                return true;
+            0 => packages.OrderBy(p => p.Title),
+            1 => packages.OrderBy(p => p.Category),
+            2 => packages.OrderByDescending(p => p.ReleaseDate),
+            _ => packages.AsEnumerable(),
+        };
 
-            if (_packagesStackPanel.Children.ToArray().OfType<PackageControl>().Where(pc => pc.IsDownloading).IsEmpty())
-                return true;
+        result = result.Where(p => !_packageDownloaderSettings.Store.HiddenPackages.Contains(p.Id));
 
-            return await MessageBoxHelper.ShowAsync(this, Resource.PackagesPage_DownloadInProgress_Title, Resource.PackagesPage_DownloadInProgress_Message);
-        }
+        if (!string.IsNullOrWhiteSpace(_filterTextBox.Text))
+            result = result.Where(p => p.Index.Contains(_filterTextBox.Text, StringComparison.InvariantCultureIgnoreCase));
 
-        private void Reload()
-        {
-            if (_packageDownloader is null)
-                return;
-
-            _packagesStackPanel.Children.Clear();
-
-            if (_packages is null || !_packages.Any())
-                return;
-
-            var packages = SortAndFilter(_packages);
-
-            foreach (var package in packages)
-            {
-                var control = new PackageControl(_packageDownloader, package, GetDownloadLocation)
-                {
-                    ContextMenu = GetContextMenu(package, packages)
-                };
-                _packagesStackPanel.Children.Add(control);
-            }
-
-            if (_packageDownloaderSettings.Store.HiddenPackages.Any())
-            {
-                var clearHidden = new Hyperlink
-                {
-                    Icon = SymbolRegular.Eye24,
-                    Content = "Show hidden downloads",
-                    HorizontalAlignment = System.Windows.HorizontalAlignment.Right,
-                };
-                clearHidden.Click += (s, e) =>
-                {
-                    _packageDownloaderSettings.Store.HiddenPackages.Clear();
-                    _packageDownloaderSettings.SynchronizeStore();
-
-                    Reload();
-                };
-                _packagesStackPanel.Children.Add(clearHidden);
-            }
-        }
-
-        private List<Package> SortAndFilter(List<Package> packages)
-        {
-            var result = _sortingComboBox.SelectedIndex switch
-            {
-                0 => packages.OrderBy(p => p.Title),
-                1 => packages.OrderBy(p => p.Category),
-                2 => packages.OrderByDescending(p => p.ReleaseDate),
-                _ => packages.AsEnumerable(),
-            };
-
-            result = result.Where(p => !_packageDownloaderSettings.Store.HiddenPackages.Contains(p.Id));
-
-            if (!string.IsNullOrWhiteSpace(_filterTextBox.Text))
-                result = result.Where(p => p.Index.Contains(_filterTextBox.Text, StringComparison.InvariantCultureIgnoreCase));
-
-            return result.ToList();
-        }
+        return result.ToList();
     }
 }

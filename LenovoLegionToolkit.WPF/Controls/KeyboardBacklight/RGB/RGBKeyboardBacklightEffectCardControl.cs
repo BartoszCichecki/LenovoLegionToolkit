@@ -2,14 +2,13 @@
 using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Common;
 
-namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.RGB
+namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.RGB;
+
+public class RGBKeyboardBacklightEffectCardControl : AbstractComboBoxRGBKeyboardCardControl<RGBKeyboardBacklightEffect>
 {
-    public class RGBKeyboardBacklightEffectCardControl : AbstractComboBoxRGBKeyboardCardControl<RGBKeyboardBacklightEffect>
+    public RGBKeyboardBacklightEffectCardControl()
     {
-        public RGBKeyboardBacklightEffectCardControl()
-        {
-            Icon = SymbolRegular.Keyboard24;
-            Title = Resource.RGBKeyboardBacklightEffectCardControl_Title;
-        }
+        Icon = SymbolRegular.Keyboard24;
+        Title = Resource.RGBKeyboardBacklightEffectCardControl_Title;
     }
 }

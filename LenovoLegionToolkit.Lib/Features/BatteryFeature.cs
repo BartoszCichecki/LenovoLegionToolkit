@@ -3,59 +3,58 @@ using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System;
 
-namespace LenovoLegionToolkit.Lib.Features
+namespace LenovoLegionToolkit.Lib.Features;
+
+public class BatteryFeature : AbstractDriverFeature<BatteryState>
 {
-    public class BatteryFeature : AbstractDriverFeature<BatteryState>
+    public BatteryFeature() : base(Drivers.GetEnergy, Drivers.IOCTL_ENERGY_BATTERY_CHARGE_MODE) { }
+
+    protected override uint GetInBufferValue() => 0xFF;
+
+    protected override Task<uint[]> ToInternalAsync(BatteryState state)
     {
-        public BatteryFeature() : base(Drivers.GetEnergy, Drivers.IOCTL_ENERGY_BATTERY_CHARGE_MODE) { }
-
-        protected override uint GetInBufferValue() => 0xFF;
-
-        protected override Task<uint[]> ToInternalAsync(BatteryState state)
+        uint[] result;
+        switch (state)
         {
-            uint[] result;
-            switch (state)
-            {
-                case BatteryState.Conservation:
-                    if (LastState == BatteryState.RapidCharge)
-                        result = new uint[] { 0x8, 0x3 };
-                    else
-                        result = new uint[] { 0x3 };
-                    break;
-                case BatteryState.Normal:
-                    if (LastState == BatteryState.Conservation)
-                        result = new uint[] { 0x5 };
-                    else
-                        result = new uint[] { 0x8 };
-                    break;
-                case BatteryState.RapidCharge:
-                    if (LastState == BatteryState.Conservation)
-                        result = new uint[] { 0x5, 0x7 };
-                    else
-                        result = new uint[] { 0x7 };
-                    break;
-                default:
-                    throw new InvalidOperationException("Invalid state.");
-            }
-            return Task.FromResult(result);
+            case BatteryState.Conservation:
+                if (LastState == BatteryState.RapidCharge)
+                    result = new uint[] { 0x8, 0x3 };
+                else
+                    result = new uint[] { 0x3 };
+                break;
+            case BatteryState.Normal:
+                if (LastState == BatteryState.Conservation)
+                    result = new uint[] { 0x5 };
+                else
+                    result = new uint[] { 0x8 };
+                break;
+            case BatteryState.RapidCharge:
+                if (LastState == BatteryState.Conservation)
+                    result = new uint[] { 0x5, 0x7 };
+                else
+                    result = new uint[] { 0x7 };
+                break;
+            default:
+                throw new InvalidOperationException("Invalid state.");
+        }
+        return Task.FromResult(result);
+    }
+
+    protected override Task<BatteryState> FromInternalAsync(uint state)
+    {
+        state = state.ReverseEndianness();
+
+        if (state.GetNthBit(17)) // is charging?
+        {
+            if (state.GetNthBit(26))
+                return Task.FromResult(BatteryState.RapidCharge);
+
+            return Task.FromResult(BatteryState.Normal);
         }
 
-        protected override Task<BatteryState> FromInternalAsync(uint state)
-        {
-            state = state.ReverseEndianness();
+        if (state.GetNthBit(29))
+            return Task.FromResult(BatteryState.Conservation);
 
-            if (state.GetNthBit(17)) // is charging?
-            {
-                if (state.GetNthBit(26))
-                    return Task.FromResult(BatteryState.RapidCharge);
-
-                return Task.FromResult(BatteryState.Normal);
-            }
-
-            if (state.GetNthBit(29))
-                return Task.FromResult(BatteryState.Conservation);
-
-            throw new InvalidOperationException($"Unknown battery state: {state} [bits={Convert.ToString(state, 2)}]");
-        }
+        throw new InvalidOperationException($"Unknown battery state: {state} [bits={Convert.ToString(state, 2)}]");
     }
 }

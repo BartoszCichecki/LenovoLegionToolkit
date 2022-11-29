@@ -1,43 +1,42 @@
 ﻿using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
+namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
+
+public interface IAutomationPipelineTrigger
 {
-    public interface IAutomationPipelineTrigger
-    {
-        [JsonIgnore]
-        string DisplayName { get; }
+    [JsonIgnore]
+    string DisplayName { get; }
 
-        Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent);
+    Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent);
 
-        IAutomationPipelineTrigger DeepCopy();
-    }
+    IAutomationPipelineTrigger DeepCopy();
+}
 
-    public interface IDisallowDuplicatesAutomationPipelineTrigger { }
+public interface IDisallowDuplicatesAutomationPipelineTrigger { }
 
-    public interface IOnStartupAutomationPipelineTrigger { }
+public interface IOnStartupAutomationPipelineTrigger { }
 
-    public interface IPowerStateAutomationPipelineTrigger { }
+public interface IPowerStateAutomationPipelineTrigger { }
 
-    public interface IPowerModeAutomationPipelineTrigger
-    {
-        PowerModeState PowerModeState { get; }
+public interface IPowerModeAutomationPipelineTrigger
+{
+    PowerModeState PowerModeState { get; }
 
-        IAutomationPipelineTrigger DeepCopy(PowerModeState powerModeState);
-    }
+    IAutomationPipelineTrigger DeepCopy(PowerModeState powerModeState);
+}
 
-    public interface IProcessesAutomationPipelineTrigger
-    {
-        ProcessInfo[] Processes { get; }
+public interface IProcessesAutomationPipelineTrigger
+{
+    ProcessInfo[] Processes { get; }
 
-        IAutomationPipelineTrigger DeepCopy(ProcessInfo[] processes);
-    }
+    IAutomationPipelineTrigger DeepCopy(ProcessInfo[] processes);
+}
 
-    public interface ITimeAutomationPipelineTrigger
-    {
-        bool IsSunrise { get; }
-        bool IsSunset { get; }
-        Time? Time { get; }
-        IAutomationPipelineTrigger DeepCopy(bool isSunrise, bool isSunset, Time? time);
-    }
+public interface ITimeAutomationPipelineTrigger
+{
+    bool IsSunrise { get; }
+    bool IsSunset { get; }
+    Time? Time { get; }
+    IAutomationPipelineTrigger DeepCopy(bool isSunrise, bool isSunset, Time? time);
 }

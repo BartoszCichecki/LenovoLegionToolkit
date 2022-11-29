@@ -10,109 +10,108 @@ using LenovoLegionToolkit.WPF.Extensions;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 
-namespace LenovoLegionToolkit.WPF.Controls
+namespace LenovoLegionToolkit.WPF.Controls;
+
+public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshingControl where T : struct
 {
-    public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshingControl where T : struct
+    private readonly IFeature<T> _feature = IoCContainer.Resolve<IFeature<T>>();
+
+    private readonly CardControl _cardControl = new();
+
+    private readonly CardHeaderControl _cardHeaderControl = new();
+
+    private readonly ComboBox _comboBox = new();
+
+    protected SymbolRegular Icon
     {
-        private readonly IFeature<T> _feature = IoCContainer.Resolve<IFeature<T>>();
+        get => _cardControl.Icon;
+        set => _cardControl.Icon = value;
+    }
 
-        private readonly CardControl _cardControl = new();
+    protected string Title
+    {
+        get => _cardHeaderControl.Title;
+        set => _cardHeaderControl.Title = value;
+    }
 
-        private readonly CardHeaderControl _cardHeaderControl = new();
+    protected string Subtitle
+    {
+        get => _cardHeaderControl.Subtitle;
+        set => _cardHeaderControl.Subtitle = value;
+    }
 
-        private readonly ComboBox _comboBox = new();
+    protected string Warning
+    {
+        get => _cardHeaderControl.Warning;
+        set => _cardHeaderControl.Warning = value;
+    }
 
-        protected SymbolRegular Icon
-        {
-            get => _cardControl.Icon;
-            set => _cardControl.Icon = value;
-        }
+    protected AbstractComboBoxFeatureCardControl() => InitializeComponent();
 
-        protected string Title
-        {
-            get => _cardHeaderControl.Title;
-            set => _cardHeaderControl.Title = value;
-        }
+    private void InitializeComponent()
+    {
+        _comboBox.SelectionChanged += ComboBox_SelectionChanged;
+        _comboBox.MinWidth = 165;
+        _comboBox.Visibility = Visibility.Hidden;
+        _comboBox.Margin = new(8, 0, 0, 0);
 
-        protected string Subtitle
-        {
-            get => _cardHeaderControl.Subtitle;
-            set => _cardHeaderControl.Subtitle = value;
-        }
+        _cardHeaderControl.Accessory = GetAccessory(_comboBox);
+        _cardControl.Header = _cardHeaderControl;
+        _cardControl.Margin = new(0, 0, 0, 8);
 
-        protected string Warning
-        {
-            get => _cardHeaderControl.Warning;
-            set => _cardHeaderControl.Warning = value;
-        }
+        Content = _cardControl;
+    }
 
-        protected AbstractComboBoxFeatureCardControl() => InitializeComponent();
+    private async void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        await OnStateChange(_comboBox, _feature, e.GetNewValue<T>(), e.GetOldValue<T>());
+    }
 
-        private void InitializeComponent()
-        {
-            _comboBox.SelectionChanged += ComboBox_SelectionChanged;
-            _comboBox.MinWidth = 165;
-            _comboBox.Visibility = Visibility.Hidden;
-            _comboBox.Margin = new(8, 0, 0, 0);
+    protected bool TryGetSelectedItem(out T value) => _comboBox.TryGetSelectedItem(out value);
 
-            _cardHeaderControl.Accessory = GetAccessory(_comboBox);
-            _cardControl.Header = _cardHeaderControl;
-            _cardControl.Margin = new(0, 0, 0, 8);
+    protected int ItemsCount => _comboBox.Items.Count;
 
-            Content = _cardControl;
-        }
+    protected virtual FrameworkElement GetAccessory(ComboBox comboBox) => comboBox;
 
-        private async void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            await OnStateChange(_comboBox, _feature, e.GetNewValue<T>(), e.GetOldValue<T>());
-        }
+    protected virtual string ComboBoxItemDisplayName(T value) => value switch
+    {
+        IDisplayName dn => dn.DisplayName,
+        Enum e => e.GetDisplayName(),
+        _ => value.ToString() ?? throw new InvalidOperationException("Unsupported type")
+    };
 
-        protected bool TryGetSelectedItem(out T value) => _comboBox.TryGetSelectedItem(out value);
+    protected override async Task OnRefreshAsync()
+    {
+        if (!await _feature.IsSupportedAsync())
+            throw new NotSupportedException();
 
-        protected int ItemsCount => _comboBox.Items.Count;
+        var items = await _feature.GetAllStatesAsync();
+        var selectedItem = await _feature.GetStateAsync();
 
-        protected virtual FrameworkElement GetAccessory(ComboBox comboBox) => comboBox;
+        _comboBox.SetItems(items, selectedItem, ComboBoxItemDisplayName);
+        _comboBox.IsEnabled = items.Any();
+    }
 
-        protected virtual string ComboBoxItemDisplayName(T value) => value switch
-        {
-            IDisplayName dn => dn.DisplayName,
-            Enum e => e.GetDisplayName(),
-            _ => value.ToString() ?? throw new InvalidOperationException("Unsupported type")
-        };
+    protected override void OnFinishedLoading()
+    {
+        _comboBox.Visibility = Visibility.Visible;
 
-        protected override async Task OnRefreshAsync()
-        {
-            if (!await _feature.IsSupportedAsync())
-                throw new NotSupportedException();
+        MessagingCenter.Subscribe<T>(this, () => Dispatcher.InvokeTask(RefreshAsync));
+    }
 
-            var items = await _feature.GetAllStatesAsync();
-            var selectedItem = await _feature.GetStateAsync();
+    protected virtual async Task OnStateChange(ComboBox comboBox, IFeature<T> feature, T? newValue, T? oldValue)
+    {
+        if (IsRefreshing)
+            return;
 
-            _comboBox.SetItems(items, selectedItem, ComboBoxItemDisplayName);
-            _comboBox.IsEnabled = items.Any();
-        }
+        if (!comboBox.TryGetSelectedItem(out T selectedState))
+            return;
 
-        protected override void OnFinishedLoading()
-        {
-            _comboBox.Visibility = Visibility.Visible;
+        var currentState = await feature.GetStateAsync();
 
-            MessagingCenter.Subscribe<T>(this, () => Dispatcher.InvokeTask(RefreshAsync));
-        }
+        if (selectedState.Equals(currentState))
+            return;
 
-        protected virtual async Task OnStateChange(ComboBox comboBox, IFeature<T> feature, T? newValue, T? oldValue)
-        {
-            if (IsRefreshing)
-                return;
-
-            if (!comboBox.TryGetSelectedItem(out T selectedState))
-                return;
-
-            var currentState = await feature.GetStateAsync();
-
-            if (selectedState.Equals(currentState))
-                return;
-
-            await feature.SetStateAsync(selectedState);
-        }
+        await feature.SetStateAsync(selectedState);
     }
 }

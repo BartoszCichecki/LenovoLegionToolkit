@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace LenovoLegionToolkit.WPF.Extensions
+namespace LenovoLegionToolkit.WPF.Extensions;
+
+public static class UriExtensions
 {
-    public static class UriExtensions
+    public static void Open(this Uri uri)
     {
-        public static void Open(this Uri uri)
-        {
-            Process.Start(new ProcessStartInfo(uri.AbsoluteUri) { UseShellExecute = true });
-        }
+        Process.Start(new ProcessStartInfo(uri.AbsoluteUri) { UseShellExecute = true });
     }
 }

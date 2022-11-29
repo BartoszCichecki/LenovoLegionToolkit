@@ -8,227 +8,226 @@ using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
 
-namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum
+namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum;
+
+public partial class SpectrumKeyboardBacklightEditEffectWindow
 {
-    public partial class SpectrumKeyboardBacklightEditEffectWindow
+    private readonly ushort[] _keyCodes;
+
+    public event EventHandler<SpectrumKeyboardBacklightEffect>? Apply;
+
+    public SpectrumKeyboardBacklightEditEffectWindow(ushort[] keyCodes)
     {
-        private readonly ushort[] _keyCodes;
+        _keyCodes = keyCodes;
 
-        public event EventHandler<SpectrumKeyboardBacklightEffect>? Apply;
+        InitializeComponent();
 
-        public SpectrumKeyboardBacklightEditEffectWindow(ushort[] keyCodes)
-        {
-            _keyCodes = keyCodes;
+        _title.Text = Resource.SpectrumKeyboardBacklightEditEffectWindow_Title_Add;
 
-            InitializeComponent();
+        SetInitialValues();
+        RefreshVisibility();
+    }
 
-            _title.Text = Resource.SpectrumKeyboardBacklightEditEffectWindow_Title_Add;
+    public SpectrumKeyboardBacklightEditEffectWindow(SpectrumKeyboardBacklightEffect effect, ushort[] keyCodes)
+    {
+        _keyCodes = effect.Keys.All ? keyCodes : effect.Keys.KeyCodes;
 
-            SetInitialValues();
-            RefreshVisibility();
-        }
+        InitializeComponent();
 
-        public SpectrumKeyboardBacklightEditEffectWindow(SpectrumKeyboardBacklightEffect effect, ushort[] keyCodes)
-        {
-            _keyCodes = effect.Keys.All ? keyCodes : effect.Keys.KeyCodes;
+        ResizeMode = ResizeMode.CanMinimize;
 
-            InitializeComponent();
+        _title.Text = Resource.SpectrumKeyboardBacklightEditEffectWindow_Title_Add;
 
-            ResizeMode = ResizeMode.CanMinimize;
+        _titleBar.UseSnapLayout = false;
+        _titleBar.CanMaximize = false;
 
-            _title.Text = Resource.SpectrumKeyboardBacklightEditEffectWindow_Title_Add;
+        SetInitialValues();
+        Update(effect);
+        RefreshVisibility();
+    }
 
-            _titleBar.UseSnapLayout = false;
-            _titleBar.CanMaximize = false;
+    private void EffectsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) => RefreshVisibility();
 
-            SetInitialValues();
-            Update(effect);
-            RefreshVisibility();
-        }
+    private void Apply_Click(object sender, RoutedEventArgs e)
+    {
+        var effectType = SpectrumKeyboardBacklightEffectType.Always;
+        var direction = SpectrumKeyboardBacklightDirection.None;
+        var clockwiseDirection = SpectrumKeyboardBacklightClockwiseDirection.None;
+        var speed = SpectrumKeyboardBacklightSpeed.None;
+        var colors = Array.Empty<RGBColor>();
 
-        private void EffectsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) => RefreshVisibility();
+        if (_effectTypeCard.Visibility == Visibility.Visible &&
+            _effectTypeComboBox.TryGetSelectedItem(out SpectrumKeyboardBacklightEffectType effectTypeTemp))
+            effectType = effectTypeTemp;
 
-        private void Apply_Click(object sender, RoutedEventArgs e)
-        {
-            var effectType = SpectrumKeyboardBacklightEffectType.Always;
-            var direction = SpectrumKeyboardBacklightDirection.None;
-            var clockwiseDirection = SpectrumKeyboardBacklightClockwiseDirection.None;
-            var speed = SpectrumKeyboardBacklightSpeed.None;
-            var colors = Array.Empty<RGBColor>();
+        if (_directionCard.Visibility == Visibility.Visible &&
+            _directionComboBox.TryGetSelectedItem(out SpectrumKeyboardBacklightDirection directionTemp))
+            direction = directionTemp;
 
-            if (_effectTypeCard.Visibility == Visibility.Visible &&
-                _effectTypeComboBox.TryGetSelectedItem(out SpectrumKeyboardBacklightEffectType effectTypeTemp))
-                effectType = effectTypeTemp;
+        if (_clockwiseDirectionCard.Visibility == Visibility.Visible &&
+            _clockwiseDirectionComboBox.TryGetSelectedItem(out SpectrumKeyboardBacklightClockwiseDirection clockwiseDirectionTemp))
+            clockwiseDirection = clockwiseDirectionTemp;
 
-            if (_directionCard.Visibility == Visibility.Visible &&
-                _directionComboBox.TryGetSelectedItem(out SpectrumKeyboardBacklightDirection directionTemp))
-                direction = directionTemp;
+        if (_speedCard.Visibility == Visibility.Visible &&
+            _speedComboBox.TryGetSelectedItem(out SpectrumKeyboardBacklightSpeed speedTemp))
+            speed = speedTemp;
 
-            if (_clockwiseDirectionCard.Visibility == Visibility.Visible &&
-                _clockwiseDirectionComboBox.TryGetSelectedItem(out SpectrumKeyboardBacklightClockwiseDirection clockwiseDirectionTemp))
-                clockwiseDirection = clockwiseDirectionTemp;
+        if (_singleColor.Visibility == Visibility.Visible)
+            colors = new[] { _singleColorPicker.SelectedColor.ToRGBColor() };
 
-            if (_speedCard.Visibility == Visibility.Visible &&
-                _speedComboBox.TryGetSelectedItem(out SpectrumKeyboardBacklightSpeed speedTemp))
-                speed = speedTemp;
+        if (_multiColors.Visibility == Visibility.Visible)
+            colors = _multiColorPicker.SelectedColors.Select(c => c.ToRGBColor()).ToArray();
 
-            if (_singleColor.Visibility == Visibility.Visible)
-                colors = new[] { _singleColorPicker.SelectedColor.ToRGBColor() };
+        var keys = IsWholeKeyboardEffect(effectType)
+            ? SpectrumKeyboardBacklightKeys.AllKeys()
+            : SpectrumKeyboardBacklightKeys.SomeKeys(_keyCodes);
 
-            if (_multiColors.Visibility == Visibility.Visible)
-                colors = _multiColorPicker.SelectedColors.Select(c => c.ToRGBColor()).ToArray();
+        var effect = new SpectrumKeyboardBacklightEffect(effectType,
+            speed,
+            direction,
+            clockwiseDirection,
+            colors,
+            keys);
 
-            var keys = IsWholeKeyboardEffect(effectType)
-                ? SpectrumKeyboardBacklightKeys.AllKeys()
-                : SpectrumKeyboardBacklightKeys.SomeKeys(_keyCodes);
+        Apply?.Invoke(this, effect);
+        Close();
+    }
 
-            var effect = new SpectrumKeyboardBacklightEffect(effectType,
-                speed,
-                direction,
-                clockwiseDirection,
-                colors,
-                keys);
+    private void Cancel_Click(object sender, RoutedEventArgs e) => Close();
 
-            Apply?.Invoke(this, effect);
-            Close();
-        }
-
-        private void Cancel_Click(object sender, RoutedEventArgs e) => Close();
-
-        private void SetInitialValues()
-        {
-            _effectTypeComboBox.SetItems(new[]
-                {
-                    SpectrumKeyboardBacklightEffectType.Always,
-                    SpectrumKeyboardBacklightEffectType.RainbowScrew,
-                    SpectrumKeyboardBacklightEffectType.RainbowWave,
-                    SpectrumKeyboardBacklightEffectType.ColorChange,
-                    SpectrumKeyboardBacklightEffectType.ColorWave,
-                    SpectrumKeyboardBacklightEffectType.ColorPulse,
-                    SpectrumKeyboardBacklightEffectType.Smooth,
-                    SpectrumKeyboardBacklightEffectType.Rain,
-                    SpectrumKeyboardBacklightEffectType.Ripple,
-                    SpectrumKeyboardBacklightEffectType.Type,
-                    SpectrumKeyboardBacklightEffectType.AudioBounce,
-                    SpectrumKeyboardBacklightEffectType.AudioRipple,
-                    SpectrumKeyboardBacklightEffectType.AuroraSync
-                },
+    private void SetInitialValues()
+    {
+        _effectTypeComboBox.SetItems(new[]
+            {
                 SpectrumKeyboardBacklightEffectType.Always,
-                e => e.GetDisplayName());
+                SpectrumKeyboardBacklightEffectType.RainbowScrew,
+                SpectrumKeyboardBacklightEffectType.RainbowWave,
+                SpectrumKeyboardBacklightEffectType.ColorChange,
+                SpectrumKeyboardBacklightEffectType.ColorWave,
+                SpectrumKeyboardBacklightEffectType.ColorPulse,
+                SpectrumKeyboardBacklightEffectType.Smooth,
+                SpectrumKeyboardBacklightEffectType.Rain,
+                SpectrumKeyboardBacklightEffectType.Ripple,
+                SpectrumKeyboardBacklightEffectType.Type,
+                SpectrumKeyboardBacklightEffectType.AudioBounce,
+                SpectrumKeyboardBacklightEffectType.AudioRipple,
+                SpectrumKeyboardBacklightEffectType.AuroraSync
+            },
+            SpectrumKeyboardBacklightEffectType.Always,
+            e => e.GetDisplayName());
 
-            _directionComboBox.SetItems(new[]
-                {
-                    SpectrumKeyboardBacklightDirection.BottomToTop,
-                    SpectrumKeyboardBacklightDirection.TopToBottom,
-                    SpectrumKeyboardBacklightDirection.LeftToRight,
-                    SpectrumKeyboardBacklightDirection.RightToLeft
-                },
+        _directionComboBox.SetItems(new[]
+            {
                 SpectrumKeyboardBacklightDirection.BottomToTop,
-                e => e.GetDisplayName());
+                SpectrumKeyboardBacklightDirection.TopToBottom,
+                SpectrumKeyboardBacklightDirection.LeftToRight,
+                SpectrumKeyboardBacklightDirection.RightToLeft
+            },
+            SpectrumKeyboardBacklightDirection.BottomToTop,
+            e => e.GetDisplayName());
 
-            _clockwiseDirectionComboBox.SetItems(new[]
-                {
-                    SpectrumKeyboardBacklightClockwiseDirection.Clockwise,
-                    SpectrumKeyboardBacklightClockwiseDirection.CounterClockwise
-                },
+        _clockwiseDirectionComboBox.SetItems(new[]
+            {
                 SpectrumKeyboardBacklightClockwiseDirection.Clockwise,
-                e => e.GetDisplayName());
+                SpectrumKeyboardBacklightClockwiseDirection.CounterClockwise
+            },
+            SpectrumKeyboardBacklightClockwiseDirection.Clockwise,
+            e => e.GetDisplayName());
 
-            _speedComboBox.SetItems(new[]
-                {
-                    SpectrumKeyboardBacklightSpeed.Speed1,
-                    SpectrumKeyboardBacklightSpeed.Speed2,
-                    SpectrumKeyboardBacklightSpeed.Speed3
-                },
+        _speedComboBox.SetItems(new[]
+            {
+                SpectrumKeyboardBacklightSpeed.Speed1,
                 SpectrumKeyboardBacklightSpeed.Speed2,
-                e => e.GetDisplayName());
-        }
+                SpectrumKeyboardBacklightSpeed.Speed3
+            },
+            SpectrumKeyboardBacklightSpeed.Speed2,
+            e => e.GetDisplayName());
+    }
 
-        private void Update(SpectrumKeyboardBacklightEffect effect)
+    private void Update(SpectrumKeyboardBacklightEffect effect)
+    {
+        if (_effectTypeComboBox.GetItems<SpectrumKeyboardBacklightEffectType>().Contains(effect.Type))
+            _effectTypeComboBox.SelectItem(effect.Type);
+
+        if (_directionComboBox.GetItems<SpectrumKeyboardBacklightDirection>().Contains(effect.Direction))
+            _directionComboBox.SelectItem(effect.Direction);
+
+        if (_clockwiseDirectionComboBox.GetItems<SpectrumKeyboardBacklightClockwiseDirection>()
+            .Contains(effect.ClockwiseDirection))
+            _clockwiseDirectionComboBox.SelectItem(effect.ClockwiseDirection);
+
+        if (_speedComboBox.GetItems<SpectrumKeyboardBacklightSpeed>().Contains(effect.Speed))
+            _speedComboBox.SelectItem(effect.Speed);
+
+        var colors = effect.Colors.Select(c => Color.FromRgb(c.R, c.G, c.B)).ToArray();
+        if (colors.Any())
         {
-            if (_effectTypeComboBox.GetItems<SpectrumKeyboardBacklightEffectType>().Contains(effect.Type))
-                _effectTypeComboBox.SelectItem(effect.Type);
-
-            if (_directionComboBox.GetItems<SpectrumKeyboardBacklightDirection>().Contains(effect.Direction))
-                _directionComboBox.SelectItem(effect.Direction);
-
-            if (_clockwiseDirectionComboBox.GetItems<SpectrumKeyboardBacklightClockwiseDirection>()
-                .Contains(effect.ClockwiseDirection))
-                _clockwiseDirectionComboBox.SelectItem(effect.ClockwiseDirection);
-
-            if (_speedComboBox.GetItems<SpectrumKeyboardBacklightSpeed>().Contains(effect.Speed))
-                _speedComboBox.SelectItem(effect.Speed);
-
-            var colors = effect.Colors.Select(c => Color.FromRgb(c.R, c.G, c.B)).ToArray();
-            if (colors.Any())
-            {
-                _singleColorPicker.SelectedColor = colors.First();
-                _multiColorPicker.SelectedColors = colors;
-            }
+            _singleColorPicker.SelectedColor = colors.First();
+            _multiColorPicker.SelectedColors = colors;
         }
+    }
 
-        private void RefreshVisibility()
+    private void RefreshVisibility()
+    {
+        if (!_effectTypeComboBox.TryGetSelectedItem(out SpectrumKeyboardBacklightEffectType effect))
+            return;
+
+        _effectTypeCardHeader.Warning = IsWholeKeyboardEffect(effect)
+            ? Resource.SpectrumKeyboardBacklightEditEffectWindow_Effect_Warning
+            : string.Empty;
+
+        _directionCard.Visibility = effect switch
         {
-            if (!_effectTypeComboBox.TryGetSelectedItem(out SpectrumKeyboardBacklightEffectType effect))
-                return;
+            SpectrumKeyboardBacklightEffectType.ColorWave => Visibility.Visible,
+            SpectrumKeyboardBacklightEffectType.RainbowWave => Visibility.Visible,
+            _ => Visibility.Collapsed
+        };
 
-            _effectTypeCardHeader.Warning = IsWholeKeyboardEffect(effect)
-                ? Resource.SpectrumKeyboardBacklightEditEffectWindow_Effect_Warning
-                : string.Empty;
-
-            _directionCard.Visibility = effect switch
-            {
-                SpectrumKeyboardBacklightEffectType.ColorWave => Visibility.Visible,
-                SpectrumKeyboardBacklightEffectType.RainbowWave => Visibility.Visible,
-                _ => Visibility.Collapsed
-            };
-
-            _clockwiseDirectionCard.Visibility = effect switch
-            {
-                SpectrumKeyboardBacklightEffectType.RainbowScrew => Visibility.Visible,
-                _ => Visibility.Collapsed
-            };
-
-            _speedCard.Visibility = effect switch
-            {
-                SpectrumKeyboardBacklightEffectType.ColorChange => Visibility.Visible,
-                SpectrumKeyboardBacklightEffectType.ColorPulse => Visibility.Visible,
-                SpectrumKeyboardBacklightEffectType.ColorWave => Visibility.Visible,
-                SpectrumKeyboardBacklightEffectType.Rain => Visibility.Visible,
-                SpectrumKeyboardBacklightEffectType.RainbowScrew => Visibility.Visible,
-                SpectrumKeyboardBacklightEffectType.RainbowWave => Visibility.Visible,
-                SpectrumKeyboardBacklightEffectType.Ripple => Visibility.Visible,
-                SpectrumKeyboardBacklightEffectType.Smooth => Visibility.Visible,
-                SpectrumKeyboardBacklightEffectType.Type => Visibility.Visible,
-                _ => Visibility.Collapsed
-            };
-
-            _singleColor.Visibility = effect switch
-            {
-                SpectrumKeyboardBacklightEffectType.Always => Visibility.Visible,
-                _ => Visibility.Collapsed
-            };
-
-            _multiColors.Visibility = effect switch
-            {
-                SpectrumKeyboardBacklightEffectType.ColorChange => Visibility.Visible,
-                SpectrumKeyboardBacklightEffectType.ColorPulse => Visibility.Visible,
-                SpectrumKeyboardBacklightEffectType.ColorWave => Visibility.Visible,
-                SpectrumKeyboardBacklightEffectType.Rain => Visibility.Visible,
-                SpectrumKeyboardBacklightEffectType.Ripple => Visibility.Visible,
-                SpectrumKeyboardBacklightEffectType.Smooth => Visibility.Visible,
-                SpectrumKeyboardBacklightEffectType.Type => Visibility.Visible,
-                _ => Visibility.Collapsed
-            };
-        }
-
-        private static bool IsWholeKeyboardEffect(SpectrumKeyboardBacklightEffectType effectType) => effectType switch
+        _clockwiseDirectionCard.Visibility = effect switch
         {
-            SpectrumKeyboardBacklightEffectType.AudioBounce => true,
-            SpectrumKeyboardBacklightEffectType.AudioRipple => true,
-            SpectrumKeyboardBacklightEffectType.Ripple => true,
-            SpectrumKeyboardBacklightEffectType.AuroraSync => true,
-            _ => false
+            SpectrumKeyboardBacklightEffectType.RainbowScrew => Visibility.Visible,
+            _ => Visibility.Collapsed
+        };
+
+        _speedCard.Visibility = effect switch
+        {
+            SpectrumKeyboardBacklightEffectType.ColorChange => Visibility.Visible,
+            SpectrumKeyboardBacklightEffectType.ColorPulse => Visibility.Visible,
+            SpectrumKeyboardBacklightEffectType.ColorWave => Visibility.Visible,
+            SpectrumKeyboardBacklightEffectType.Rain => Visibility.Visible,
+            SpectrumKeyboardBacklightEffectType.RainbowScrew => Visibility.Visible,
+            SpectrumKeyboardBacklightEffectType.RainbowWave => Visibility.Visible,
+            SpectrumKeyboardBacklightEffectType.Ripple => Visibility.Visible,
+            SpectrumKeyboardBacklightEffectType.Smooth => Visibility.Visible,
+            SpectrumKeyboardBacklightEffectType.Type => Visibility.Visible,
+            _ => Visibility.Collapsed
+        };
+
+        _singleColor.Visibility = effect switch
+        {
+            SpectrumKeyboardBacklightEffectType.Always => Visibility.Visible,
+            _ => Visibility.Collapsed
+        };
+
+        _multiColors.Visibility = effect switch
+        {
+            SpectrumKeyboardBacklightEffectType.ColorChange => Visibility.Visible,
+            SpectrumKeyboardBacklightEffectType.ColorPulse => Visibility.Visible,
+            SpectrumKeyboardBacklightEffectType.ColorWave => Visibility.Visible,
+            SpectrumKeyboardBacklightEffectType.Rain => Visibility.Visible,
+            SpectrumKeyboardBacklightEffectType.Ripple => Visibility.Visible,
+            SpectrumKeyboardBacklightEffectType.Smooth => Visibility.Visible,
+            SpectrumKeyboardBacklightEffectType.Type => Visibility.Visible,
+            _ => Visibility.Collapsed
         };
     }
+
+    private static bool IsWholeKeyboardEffect(SpectrumKeyboardBacklightEffectType effectType) => effectType switch
+    {
+        SpectrumKeyboardBacklightEffectType.AudioBounce => true,
+        SpectrumKeyboardBacklightEffectType.AudioRipple => true,
+        SpectrumKeyboardBacklightEffectType.Ripple => true,
+        SpectrumKeyboardBacklightEffectType.AuroraSync => true,
+        _ => false
+    };
 }
