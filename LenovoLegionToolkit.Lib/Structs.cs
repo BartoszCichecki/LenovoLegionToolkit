@@ -9,7 +9,7 @@ using Octokit;
 
 namespace LenovoLegionToolkit.Lib;
 
-public struct BatteryInformation
+public readonly struct BatteryInformation
 {
     public bool IsCharging { get; init; }
     public int BatteryPercentage { get; init; }
@@ -26,7 +26,7 @@ public struct BatteryInformation
     public DateTime? FirstUseDate { get; init; }
 }
 
-public struct CPUBoostMode
+public readonly struct CPUBoostMode
 {
     public int Value { get; }
     public string Name { get; }
@@ -38,7 +38,7 @@ public struct CPUBoostMode
     }
 }
 
-public struct CPUBoostModeSettings
+public readonly struct CPUBoostModeSettings
 {
     public PowerPlan PowerPlan { get; }
     public List<CPUBoostMode> CPUBoostModes { get; }
@@ -54,7 +54,7 @@ public struct CPUBoostModeSettings
     }
 }
 
-public struct DisplayAdvancedColorInfo
+public readonly struct DisplayAdvancedColorInfo
 {
     public bool AdvancedColorSupported { get; }
     public bool AdvancedColorEnabled { get; }
@@ -70,7 +70,7 @@ public struct DisplayAdvancedColorInfo
     }
 }
 
-public struct FanTableData
+public readonly struct FanTableData
 {
     public byte FanId { get; init; }
     public byte SensorId { get; init; }
@@ -86,21 +86,21 @@ public struct FanTableData
     };
 }
 
-public struct FanTable
+public readonly struct FanTable
 {
-    public byte FSTM { get; set; }
-    public byte FSID { get; set; }
-    public uint FSTL { get; set; }
-    public ushort FSS0 { get; set; }
-    public ushort FSS1 { get; set; }
-    public ushort FSS2 { get; set; }
-    public ushort FSS3 { get; set; }
-    public ushort FSS4 { get; set; }
-    public ushort FSS5 { get; set; }
-    public ushort FSS6 { get; set; }
-    public ushort FSS7 { get; set; }
-    public ushort FSS8 { get; set; }
-    public ushort FSS9 { get; set; }
+    private byte FSTM { get; }
+    private byte FSID { get; }
+    private uint FSTL { get; }
+    private ushort FSS0 { get; }
+    private ushort FSS1 { get; }
+    private ushort FSS2 { get; }
+    private ushort FSS3 { get; }
+    private ushort FSS4 { get; }
+    private ushort FSS5 { get; }
+    private ushort FSS6 { get; }
+    private ushort FSS7 { get; }
+    private ushort FSS8 { get; }
+    private ushort FSS9 { get; }
 
     public FanTable(ushort[] fanTable)
     {
@@ -147,7 +147,7 @@ public struct FanTable
     }
 }
 
-public struct FanTableInfo
+public readonly struct FanTableInfo
 {
     public FanTableData[] Data { get; }
     public FanTable Table { get; }
@@ -159,7 +159,7 @@ public struct FanTableInfo
     }
 }
 
-public struct HardwareId
+public readonly struct HardwareId
 {
     public string Vendor { get; private init; }
     public string Device { get; private init; }
@@ -253,9 +253,9 @@ public struct HardwareId
     public override int GetHashCode() => HashCode.Combine(Vendor, Device, SubSystem);
 }
 
-public struct MachineInformation
+public readonly struct MachineInformation
 {
-    public struct CompatibilityProperties
+    public readonly struct CompatibilityProperties
     {
         public bool SupportsGodMode { get; init; }
         public bool SupportsACDetection { get; init; }
@@ -303,7 +303,7 @@ public struct Package
     }
 }
 
-public struct Notification
+public readonly struct Notification
 {
     public NotificationType Type { get; }
 
@@ -319,16 +319,16 @@ public struct Notification
     }
 }
 
-public struct PowerPlan
+public readonly struct PowerPlan
 {
-    public string InstanceID { get; }
+    public string InstanceId { get; }
     public string Name { get; }
     public bool IsActive { get; }
-    public string Guid => InstanceID.Split("\\").Last().Replace("{", "").Replace("}", "");
+    public string Guid => InstanceId.Split("\\").Last().Replace("{", "").Replace("}", "");
 
-    public PowerPlan(string instanceID, string name, bool isActive)
+    public PowerPlan(string instanceId, string name, bool isActive)
     {
-        InstanceID = instanceID;
+        InstanceId = instanceId;
         Name = name;
         IsActive = isActive;
     }
@@ -336,7 +336,7 @@ public struct PowerPlan
     public override string ToString() => Name;
 }
 
-public struct ProcessEventInfo
+public readonly struct ProcessEventInfo
 {
     public ProcessEventInfoType Type { get; }
 
@@ -349,7 +349,7 @@ public struct ProcessEventInfo
     }
 }
 
-public struct ProcessInfo : IComparable
+public readonly struct ProcessInfo : IComparable
 {
     public static ProcessInfo FromPath(string path) => new(Path.GetFileNameWithoutExtension(path), path);
 
@@ -392,7 +392,7 @@ public struct ProcessInfo : IComparable
     #endregion
 }
 
-public struct RGBColor
+public readonly struct RGBColor
 {
     public static readonly RGBColor Black = new(0, 0, 0);
     public static readonly RGBColor White = new(255, 255, 255);
@@ -421,7 +421,7 @@ public struct RGBColor
     public static bool operator !=(RGBColor left, RGBColor right) => !left.Equals(right);
 }
 
-public struct RGBKeyboardBacklightBacklightPresetDescription
+public readonly struct RGBKeyboardBacklightBacklightPresetDescription
 {
     public RGBKeyboardBacklightEffect Effect { get; } = RGBKeyboardBacklightEffect.Static;
     public RBGKeyboardBacklightSpeed Speed { get; } = RBGKeyboardBacklightSpeed.Slowest;
@@ -480,7 +480,7 @@ public struct RGBKeyboardBacklightBacklightPresetDescription
 
 }
 
-public struct RGBKeyboardBacklightState
+public readonly struct RGBKeyboardBacklightState
 {
     public RGBKeyboardBacklightPreset SelectedPreset { get; }
     public Dictionary<RGBKeyboardBacklightPreset, RGBKeyboardBacklightBacklightPresetDescription> Presets { get; }
@@ -493,7 +493,7 @@ public struct RGBKeyboardBacklightState
     }
 }
 
-public struct RefreshRate : IDisplayName, IEquatable<RefreshRate>
+public readonly struct RefreshRate : IDisplayName, IEquatable<RefreshRate>
 {
     public int Frequency { get; }
 
@@ -521,7 +521,7 @@ public struct RefreshRate : IDisplayName, IEquatable<RefreshRate>
     #endregion
 }
 
-public struct SpectrumKeyboardBacklightKeys
+public readonly struct SpectrumKeyboardBacklightKeys
 {
     public bool All { get; }
     public ushort[] KeyCodes { get; }
@@ -536,7 +536,7 @@ public struct SpectrumKeyboardBacklightKeys
     public static SpectrumKeyboardBacklightKeys SomeKeys(ushort[] keyCodes) => new(false, keyCodes);
 }
 
-public struct SpectrumKeyboardBacklightEffect
+public readonly struct SpectrumKeyboardBacklightEffect
 {
     public SpectrumKeyboardBacklightEffectType Type { get; }
     public SpectrumKeyboardBacklightSpeed Speed { get; }
@@ -561,7 +561,7 @@ public struct SpectrumKeyboardBacklightEffect
     }
 }
 
-public struct StepperValue
+public readonly struct StepperValue
 {
     public int Value { get; }
     public int Min { get; }
@@ -579,7 +579,7 @@ public struct StepperValue
     public StepperValue WithValue(int value) => new(value, Min, Max, Step);
 }
 
-public struct Time
+public readonly struct Time
 {
     public int Hour { get; init; }
     public int Minute { get; init; }
@@ -597,7 +597,7 @@ public struct Time
     #endregion
 }
 
-public struct Update
+public readonly struct Update
 {
     public Version Version { get; }
     public string Title { get; }
@@ -615,22 +615,10 @@ public struct Update
     }
 }
 
-public struct WarrantyInfo
+public readonly struct WarrantyInfo
 {
     public string? Status { get; init; }
     public DateTime? Start { get; init; }
     public DateTime? End { get; init; }
     public Uri? Link { get; init; }
-}
-
-public struct WindowSize
-{
-    public double Width { get; set; }
-    public double Height { get; set; }
-
-    public WindowSize(double width, double height)
-    {
-        Width = width;
-        Height = height;
-    }
 }

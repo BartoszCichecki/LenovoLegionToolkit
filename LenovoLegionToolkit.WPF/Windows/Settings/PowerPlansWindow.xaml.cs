@@ -56,7 +56,7 @@ public partial class PowerPlansWindow
     private void Refresh(ComboBox comboBox, IEnumerable<PowerPlan> powerPlans, PowerModeState powerModeState)
     {
         var settingsPowerPlanInstanceID = _settings.Store.PowerPlans.GetValueOrDefault(powerModeState);
-        var selectedValue = powerPlans.FirstOrDefault(pp => pp.InstanceID == settingsPowerPlanInstanceID);
+        var selectedValue = powerPlans.FirstOrDefault(pp => pp.InstanceId == settingsPowerPlanInstanceID);
 
         comboBox.Items.Clear();
         comboBox.Items.Add(DefaultValue);
@@ -67,7 +67,7 @@ public partial class PowerPlansWindow
     private async Task PowerPlanChangedAsync(object value, PowerModeState powerModeState)
     {
         if (value is PowerPlan powerPlan)
-            _settings.Store.PowerPlans[powerModeState] = powerPlan.InstanceID;
+            _settings.Store.PowerPlans[powerModeState] = powerPlan.InstanceId;
         if (value is string)
             _settings.Store.PowerPlans.Remove(powerModeState);
         _settings.SynchronizeStore();

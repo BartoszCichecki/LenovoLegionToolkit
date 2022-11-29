@@ -64,7 +64,7 @@ public static class SystemTheme
     [DllImport("uxtheme.dll", EntryPoint = "#95")]
     private static extern uint GetImmersiveColorFromColorSetEx(uint immersiveColorSet, uint immersiveColorType, bool ignoreHighContrast, uint highContrastCacheMode);
 
-    [DllImport("uxtheme.dll", EntryPoint = "#96", CharSet = CharSet.Auto)]
+    [DllImport("uxtheme.dll", EntryPoint = "#96", CharSet = CharSet.Unicode)]
     private static extern uint GetImmersiveColorTypeFromName(string name);
 
     [DllImport("uxtheme.dll", EntryPoint = "#98")]

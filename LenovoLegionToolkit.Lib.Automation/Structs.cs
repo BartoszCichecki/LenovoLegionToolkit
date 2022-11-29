@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation;
 
-public struct Delay : IDisplayName
+public readonly struct Delay : IDisplayName
 {
     public int DelaySeconds { get; }
 
