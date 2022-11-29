@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace LenovoLegionToolkit.Lib.Listeners
+namespace LenovoLegionToolkit.Lib.Listeners;
+
+public interface IListener<T>
 {
-    public interface IListener<T>
-    {
-        event EventHandler<T>? Changed;
+    event EventHandler<T>? Changed;
 
-        Task StartAsync();
+    Task StartAsync();
 
-        Task StopAsync();
-    }
+    Task StopAsync();
+}
 
-    public interface INotifyingListener<T> : IListener<T>
-    {
-        Task NotifyAsync(T value);
-    }
+public interface INotifyingListener<T> : IListener<T>
+{
+    Task NotifyAsync(T value);
 }

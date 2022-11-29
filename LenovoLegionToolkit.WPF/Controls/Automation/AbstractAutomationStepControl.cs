@@ -7,108 +7,107 @@ using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
 
-namespace LenovoLegionToolkit.WPF.Controls.Automation
+namespace LenovoLegionToolkit.WPF.Controls.Automation;
+
+public abstract class AbstractAutomationStepControl<T> : AbstractAutomationStepControl where T : IAutomationStep
 {
-    public abstract class AbstractAutomationStepControl<T> : AbstractAutomationStepControl where T : IAutomationStep
-    {
-        public new T AutomationStep => (T)base.AutomationStep;
+    public new T AutomationStep => (T)base.AutomationStep;
 
-        protected AbstractAutomationStepControl(T automationStep) : base(automationStep) { }
+    protected AbstractAutomationStepControl(T automationStep) : base(automationStep) { }
+}
+
+public abstract class AbstractAutomationStepControl : UserControl
+{
+    public IAutomationStep AutomationStep { get; }
+
+    private readonly CardControl _cardControl = new()
+    {
+        Margin = new(0, 0, 0, 8),
+    };
+
+    private readonly CardHeaderControl _cardHeaderControl = new();
+
+    private readonly StackPanel _stackPanel = new()
+    {
+        Orientation = Orientation.Horizontal,
+    };
+
+    private readonly Button _deleteButton = new()
+    {
+        Icon = SymbolRegular.Dismiss24,
+        MinWidth = 34,
+        Height = 34,
+        Margin = new(8, 0, 0, 0),
+    };
+
+    public SymbolRegular Icon
+    {
+        get => _cardControl.Icon;
+        set => _cardControl.Icon = value;
     }
 
-    public abstract class AbstractAutomationStepControl : UserControl
+    public string Title
     {
-        public IAutomationStep AutomationStep { get; }
+        get => _cardHeaderControl.Title;
+        set => _cardHeaderControl.Title = value;
+    }
 
-        private readonly CardControl _cardControl = new()
-        {
-            Margin = new(0, 0, 0, 8),
-        };
+    public string Subtitle
+    {
+        get => _cardHeaderControl.Subtitle;
+        set => _cardHeaderControl.Subtitle = value;
+    }
 
-        private readonly CardHeaderControl _cardHeaderControl = new();
+    public event EventHandler? Changed;
+    public event EventHandler? Delete;
 
-        private readonly StackPanel _stackPanel = new()
-        {
-            Orientation = Orientation.Horizontal,
-        };
+    protected AbstractAutomationStepControl(IAutomationStep automationStep)
+    {
+        AutomationStep = automationStep;
 
-        private readonly Button _deleteButton = new()
-        {
-            Icon = SymbolRegular.Dismiss24,
-            MinWidth = 34,
-            Height = 34,
-            Margin = new(8, 0, 0, 0),
-        };
+        InitializeComponent();
 
-        public SymbolRegular Icon
-        {
-            get => _cardControl.Icon;
-            set => _cardControl.Icon = value;
-        }
+        Loaded += RefreshingControl_Loaded;
+        IsVisibleChanged += RefreshingControl_IsVisibleChanged;
+    }
 
-        public string Title
-        {
-            get => _cardHeaderControl.Title;
-            set => _cardHeaderControl.Title = value;
-        }
+    private void InitializeComponent()
+    {
+        _deleteButton.Click += (s, e) => Delete?.Invoke(this, EventArgs.Empty);
 
-        public string Subtitle
-        {
-            get => _cardHeaderControl.Subtitle;
-            set => _cardHeaderControl.Subtitle = value;
-        }
+        var control = GetCustomControl();
+        if (control is not null)
+            _stackPanel.Children.Add(control);
+        _stackPanel.Children.Add(_deleteButton);
 
-        public event EventHandler? Changed;
-        public event EventHandler? Delete;
+        _cardHeaderControl.Accessory = _stackPanel;
+        _cardControl.Header = _cardHeaderControl;
 
-        protected AbstractAutomationStepControl(IAutomationStep automationStep)
-        {
-            AutomationStep = automationStep;
+        Content = _cardControl;
+    }
 
-            InitializeComponent();
+    private async void RefreshingControl_Loaded(object sender, RoutedEventArgs e)
+    {
+        var loadingTask = Task.Delay(250);
+        await RefreshAsync();
+        await loadingTask;
 
-            Loaded += RefreshingControl_Loaded;
-            IsVisibleChanged += RefreshingControl_IsVisibleChanged;
-        }
+        OnFinishedLoading();
+    }
 
-        private void InitializeComponent()
-        {
-            _deleteButton.Click += (s, e) => Delete?.Invoke(this, EventArgs.Empty);
-
-            var control = GetCustomControl();
-            if (control is not null)
-                _stackPanel.Children.Add(control);
-            _stackPanel.Children.Add(_deleteButton);
-
-            _cardHeaderControl.Accessory = _stackPanel;
-            _cardControl.Header = _cardHeaderControl;
-
-            Content = _cardControl;
-        }
-
-        private async void RefreshingControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            var loadingTask = Task.Delay(250);
+    private async void RefreshingControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+    {
+        if (IsLoaded && IsVisible)
             await RefreshAsync();
-            await loadingTask;
-
-            OnFinishedLoading();
-        }
-
-        private async void RefreshingControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (IsLoaded && IsVisible)
-                await RefreshAsync();
-        }
-
-        public abstract IAutomationStep CreateAutomationStep();
-
-        protected abstract UIElement? GetCustomControl();
-
-        protected abstract void OnFinishedLoading();
-
-        protected abstract Task RefreshAsync();
-
-        protected void RaiseChanged() => Changed?.Invoke(this, EventArgs.Empty);
     }
+
+    public abstract IAutomationStep CreateAutomationStep();
+
+    protected abstract UIElement? GetCustomControl();
+
+    protected abstract void OnFinishedLoading();
+
+    protected abstract Task RefreshAsync();
+
+    protected void RaiseChanged() => Changed?.Invoke(this, EventArgs.Empty);
 }

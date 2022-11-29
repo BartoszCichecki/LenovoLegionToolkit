@@ -3,39 +3,38 @@ using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32;
 
-namespace LenovoLegionToolkit.Lib.Listeners
+namespace LenovoLegionToolkit.Lib.Listeners;
+
+public class DisplayConfigurationListener : IListener<EventArgs>
 {
-    public class DisplayConfigurationListener : IListener<EventArgs>
+    private bool _started;
+
+    public event EventHandler<EventArgs>? Changed;
+
+    public Task StartAsync()
     {
-        private bool _started;
-
-        public event EventHandler<EventArgs>? Changed;
-
-        public Task StartAsync()
-        {
-            if (_started)
-                return Task.CompletedTask;
-
-            SystemEvents.DisplaySettingsChanged += SystemEvents_DisplaySettingsChanged;
-            _started = true;
-
+        if (_started)
             return Task.CompletedTask;
-        }
 
-        public Task StopAsync()
-        {
-            SystemEvents.DisplaySettingsChanged -= SystemEvents_DisplaySettingsChanged;
-            _started = false;
+        SystemEvents.DisplaySettingsChanged += SystemEvents_DisplaySettingsChanged;
+        _started = true;
 
-            return Task.CompletedTask;
-        }
+        return Task.CompletedTask;
+    }
 
-        private void SystemEvents_DisplaySettingsChanged(object? sender, EventArgs e)
-        {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Event received.");
+    public Task StopAsync()
+    {
+        SystemEvents.DisplaySettingsChanged -= SystemEvents_DisplaySettingsChanged;
+        _started = false;
 
-            Changed?.Invoke(this, EventArgs.Empty);
-        }
+        return Task.CompletedTask;
+    }
+
+    private void SystemEvents_DisplaySettingsChanged(object? sender, EventArgs e)
+    {
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Event received.");
+
+        Changed?.Invoke(this, EventArgs.Empty);
     }
 }

@@ -3,43 +3,42 @@ using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
 
-namespace LenovoLegionToolkit.WPF.Controls.Settings
+namespace LenovoLegionToolkit.WPF.Controls.Settings;
+
+public partial class CPUBoostModeControl
 {
-    public partial class CPUBoostModeControl
+    private readonly CPUBoostModeSettings setting;
+
+    private readonly CPUBoostModeController _cpuBoostController = IoCContainer.Resolve<CPUBoostModeController>();
+
+    public CPUBoostModeControl(CPUBoostModeSettings setting)
     {
-        private readonly CPUBoostModeSettings setting;
+        this.setting = setting;
 
-        private readonly CPUBoostModeController _cpuBoostController = IoCContainer.Resolve<CPUBoostModeController>();
+        InitializeComponent();
 
-        public CPUBoostModeControl(CPUBoostModeSettings setting)
-        {
-            this.setting = setting;
+        _headerControl.Title = setting.PowerPlan.Name;
 
-            InitializeComponent();
+        var selectedItem = setting.CPUBoostModes.First(cbm => cbm.Value == setting.ACSettingValue);
+        _comboBoxAC.SetItems(setting.CPUBoostModes, selectedItem, s => s.Name);
 
-            _headerControl.Title = setting.PowerPlan.Name;
+        selectedItem = setting.CPUBoostModes.First(cbm => cbm.Value == setting.DCSettingValue);
+        _comboBoxDC.SetItems(setting.CPUBoostModes, selectedItem, s => s.Name);
+    }
 
-            var selectedItem = setting.CPUBoostModes.First(cbm => cbm.Value == setting.ACSettingValue);
-            _comboBoxAC.SetItems(setting.CPUBoostModes, selectedItem, s => s.Name);
+    private async void ComboBoxAC_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (!_comboBoxAC.TryGetSelectedItem(out CPUBoostMode cpuBoostMode))
+            return;
 
-            selectedItem = setting.CPUBoostModes.First(cbm => cbm.Value == setting.DCSettingValue);
-            _comboBoxDC.SetItems(setting.CPUBoostModes, selectedItem, s => s.Name);
-        }
+        await _cpuBoostController.SetSettingAsync(setting.PowerPlan, cpuBoostMode, true);
+    }
 
-        private async void ComboBoxAC_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (!_comboBoxAC.TryGetSelectedItem(out CPUBoostMode cpuBoostMode))
-                return;
+    private async void ComboBoxDC_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (!_comboBoxDC.TryGetSelectedItem(out CPUBoostMode cpuBoostMode))
+            return;
 
-            await _cpuBoostController.SetSettingAsync(setting.PowerPlan, cpuBoostMode, true);
-        }
-
-        private async void ComboBoxDC_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (!_comboBoxDC.TryGetSelectedItem(out CPUBoostMode cpuBoostMode))
-                return;
-
-            await _cpuBoostController.SetSettingAsync(setting.PowerPlan, cpuBoostMode, false);
-        }
+        await _cpuBoostController.SetSettingAsync(setting.PowerPlan, cpuBoostMode, false);
     }
 }

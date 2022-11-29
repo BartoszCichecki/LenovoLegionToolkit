@@ -5,111 +5,110 @@ using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32;
 
-namespace LenovoLegionToolkit.Lib.Listeners
+namespace LenovoLegionToolkit.Lib.Listeners;
+
+public class PowerStateListener : IListener<EventArgs>
 {
-    public class PowerStateListener : IListener<EventArgs>
+    private readonly RGBKeyboardBacklightController _rgbController;
+
+    private bool _started;
+    private PowerAdapterStatus? _lastState;
+
+    public event EventHandler<EventArgs>? Changed;
+
+    public PowerStateListener(RGBKeyboardBacklightController rgbController)
     {
-        private readonly RGBKeyboardBacklightController _rgbController;
+        _rgbController = rgbController ?? throw new ArgumentNullException(nameof(rgbController));
+    }
 
-        private bool _started;
-        private PowerAdapterStatus? _lastState;
+    public async Task StartAsync()
+    {
+        if (_started)
+            return;
 
-        public event EventHandler<EventArgs>? Changed;
+        _lastState = await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false);
 
-        public PowerStateListener(RGBKeyboardBacklightController rgbController)
+        SystemEvents.PowerModeChanged += SystemEvents_PowerModeChanged;
+        _started = true;
+    }
+
+    public Task StopAsync()
+    {
+        SystemEvents.PowerModeChanged -= SystemEvents_PowerModeChanged;
+        _started = false;
+
+        return Task.CompletedTask;
+    }
+
+    private async void SystemEvents_PowerModeChanged(object sender, PowerModeChangedEventArgs e)
+    {
+        var newState = await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false);
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Event received. [e.Mode={e.Mode}, newState={newState}]");
+
+        await RestoreRGBKeyboardStateAsync(e.Mode).ConfigureAwait(false);
+
+        if (newState == _lastState)
         {
-            _rgbController = rgbController ?? throw new ArgumentNullException(nameof(rgbController));
-        }
-
-        public async Task StartAsync()
-        {
-            if (_started)
-                return;
-
-            _lastState = await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false);
-
-            SystemEvents.PowerModeChanged += SystemEvents_PowerModeChanged;
-            _started = true;
-        }
-
-        public Task StopAsync()
-        {
-            SystemEvents.PowerModeChanged -= SystemEvents_PowerModeChanged;
-            _started = false;
-
-            return Task.CompletedTask;
-        }
-
-        private async void SystemEvents_PowerModeChanged(object sender, PowerModeChangedEventArgs e)
-        {
-            var newState = await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false);
-
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Event received. [e.Mode={e.Mode}, newState={newState}]");
+                Log.Instance.Trace($"Event skipped. [newState={newState}, lastState={_lastState}]");
 
-            await RestoreRGBKeyboardStateAsync(e.Mode).ConfigureAwait(false);
-
-            if (newState == _lastState)
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Event skipped. [newState={newState}, lastState={_lastState}]");
-
-                return;
-            }
-
-            _lastState = newState;
-
-            if (e.Mode == PowerModes.Suspend)
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Event skipped. [e.Mode={e.Mode}]");
-
-                return;
-            }
-            Changed?.Invoke(this, EventArgs.Empty);
-
-            Notify(e.Mode, newState);
+            return;
         }
 
-        private async Task RestoreRGBKeyboardStateAsync(PowerModes mode)
+        _lastState = newState;
+
+        if (e.Mode == PowerModes.Suspend)
         {
-            if (mode != PowerModes.Resume)
-                return;
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Event skipped. [e.Mode={e.Mode}]");
 
-            try
-            {
-                if (await _rgbController.IsSupportedAsync().ConfigureAwait(false))
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Setting light control owner and restoring preset...");
+            return;
+        }
+        Changed?.Invoke(this, EventArgs.Empty);
 
-                    await _rgbController.SetLightControlOwnerAsync(true, true).ConfigureAwait(false);
-                }
-            }
-            catch (Exception ex)
+        Notify(e.Mode, newState);
+    }
+
+    private async Task RestoreRGBKeyboardStateAsync(PowerModes mode)
+    {
+        if (mode != PowerModes.Resume)
+            return;
+
+        try
+        {
+            if (await _rgbController.IsSupportedAsync().ConfigureAwait(false))
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't set light control owner or current preset.", ex);
+                    Log.Instance.Trace($"Setting light control owner and restoring preset...");
+
+                await _rgbController.SetLightControlOwnerAsync(true, true).ConfigureAwait(false);
             }
         }
-
-        private static void Notify(PowerModes mode, PowerAdapterStatus newState)
+        catch (Exception ex)
         {
-            if (mode == PowerModes.Suspend)
-                return;
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Couldn't set light control owner or current preset.", ex);
+        }
+    }
 
-            switch (newState)
-            {
-                case PowerAdapterStatus.Connected:
-                    MessagingCenter.Publish(new Notification(NotificationType.ACAdapterConnected, NotificationDuration.Short));
-                    break;
-                case PowerAdapterStatus.ConnectedLowWattage:
-                    MessagingCenter.Publish(new Notification(NotificationType.ACAdapterConnectedLowWattage, NotificationDuration.Short));
-                    break;
-                case PowerAdapterStatus.Disconnected:
-                    MessagingCenter.Publish(new Notification(NotificationType.ACAdapterDisconnected, NotificationDuration.Short));
-                    break;
-            }
+    private static void Notify(PowerModes mode, PowerAdapterStatus newState)
+    {
+        if (mode == PowerModes.Suspend)
+            return;
+
+        switch (newState)
+        {
+            case PowerAdapterStatus.Connected:
+                MessagingCenter.Publish(new Notification(NotificationType.ACAdapterConnected, NotificationDuration.Short));
+                break;
+            case PowerAdapterStatus.ConnectedLowWattage:
+                MessagingCenter.Publish(new Notification(NotificationType.ACAdapterConnectedLowWattage, NotificationDuration.Short));
+                break;
+            case PowerAdapterStatus.Disconnected:
+                MessagingCenter.Publish(new Notification(NotificationType.ACAdapterDisconnected, NotificationDuration.Short));
+                break;
         }
     }
 }

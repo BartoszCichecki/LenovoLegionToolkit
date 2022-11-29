@@ -1,7 +1,6 @@
-﻿namespace LenovoLegionToolkit.Lib.Features
+﻿namespace LenovoLegionToolkit.Lib.Features;
+
+public class OverDriveFeature : AbstractLenovoGamezoneWmiFeature<OverDriveState>
 {
-    public class OverDriveFeature : AbstractLenovoGamezoneWmiFeature<OverDriveState>
-    {
-        public OverDriveFeature() : base("ODStatus", 0, "IsSupportOD") { }
-    }
+    public OverDriveFeature() : base("ODStatus", 0, "IsSupportOD") { }
 }

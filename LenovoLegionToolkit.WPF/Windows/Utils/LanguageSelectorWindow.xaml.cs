@@ -7,30 +7,29 @@ using System.Windows;
 using System.Windows.Controls;
 using Humanizer;
 
-namespace LenovoLegionToolkit.WPF.Windows.Utils
+namespace LenovoLegionToolkit.WPF.Windows.Utils;
+
+public partial class LanguageSelectorWindow
 {
-    public partial class LanguageSelectorWindow
+    private readonly TaskCompletionSource<CultureInfo?> _taskCompletionSource = new();
+
+    public Task<CultureInfo?> ShouldContinue => _taskCompletionSource.Task;
+
+    public LanguageSelectorWindow(IEnumerable<CultureInfo> languages, CultureInfo defaultLanguage)
     {
-        private readonly TaskCompletionSource<CultureInfo?> _taskCompletionSource = new();
+        InitializeComponent();
 
-        public Task<CultureInfo?> ShouldContinue => _taskCompletionSource.Task;
+        _languageComboBox.SetItems(languages.OrderBy(ci => ci.Name, StringComparer.InvariantCultureIgnoreCase),
+            defaultLanguage,
+            cc => cc.NativeName.Transform(cc, To.TitleCase));
+    }
 
-        public LanguageSelectorWindow(IEnumerable<CultureInfo> languages, CultureInfo defaultLanguage)
-        {
-            InitializeComponent();
+    private void LanguageSelectorWindow_OnClosed(object? sender, EventArgs e) => _taskCompletionSource.TrySetResult(null);
 
-            _languageComboBox.SetItems(languages.OrderBy(ci => ci.Name, StringComparer.InvariantCultureIgnoreCase),
-                defaultLanguage,
-                cc => cc.NativeName.Transform(cc, To.TitleCase));
-        }
-
-        private void LanguageSelectorWindow_OnClosed(object? sender, EventArgs e) => _taskCompletionSource.TrySetResult(null);
-
-        private void OK_Click(object sender, RoutedEventArgs e)
-        {
-            _languageComboBox.TryGetSelectedItem(out CultureInfo? cultureInfo);
-            _taskCompletionSource.TrySetResult(cultureInfo);
-            Close();
-        }
+    private void OK_Click(object sender, RoutedEventArgs e)
+    {
+        _languageComboBox.TryGetSelectedItem(out CultureInfo? cultureInfo);
+        _taskCompletionSource.TrySetResult(cultureInfo);
+        Close();
     }
 }

@@ -1,12 +1,11 @@
 ﻿using System;
 
-namespace LenovoLegionToolkit.Lib.Extensions
+namespace LenovoLegionToolkit.Lib.Extensions;
+
+internal class MathExtensions
 {
-    internal class MathExtensions
+    public static int RoundNearest(int value, int factor)
     {
-        public static int RoundNearest(int value, int factor)
-        {
-            return (int)Math.Round(value / (double)factor, MidpointRounding.AwayFromZero) * factor;
-        }
+        return (int)Math.Round(value / (double)factor, MidpointRounding.AwayFromZero) * factor;
     }
 }

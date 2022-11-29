@@ -1,16 +1,14 @@
 ﻿using LenovoLegionToolkit.Lib.Automation.Resources;
 using Newtonsoft.Json;
 
-namespace LenovoLegionToolkit.Lib.Automation
+namespace LenovoLegionToolkit.Lib.Automation;
+
+public struct Delay : IDisplayName
 {
-    public struct Delay : IDisplayName
-    {
-        public int DelaySeconds { get; }
+    public int DelaySeconds { get; }
 
-        [JsonConstructor]
-        public Delay(int delaySeconds) => DelaySeconds = delaySeconds;
+    [JsonConstructor]
+    public Delay(int delaySeconds) => DelaySeconds = delaySeconds;
 
-        public string DisplayName => string.Format(DelaySeconds == 1 ? Resource.Delay_Second : Resource.Delay_Second_Many, DelaySeconds);
-    }
-
+    public string DisplayName => string.Format(DelaySeconds == 1 ? Resource.Delay_Second : Resource.Delay_Second_Many, DelaySeconds);
 }

@@ -2,42 +2,40 @@
 using System.Diagnostics.Eventing.Reader;
 using System.Threading.Tasks;
 
-namespace LenovoLegionToolkit.Lib.Listeners
+namespace LenovoLegionToolkit.Lib.Listeners;
+
+public abstract class AbstractEventLogListener : IListener<EventArgs>
 {
+    private readonly EventLogWatcher _watcher;
 
-    public abstract class AbstractEventLogListener : IListener<EventArgs>
+    public AbstractEventLogListener(string path, string query)
     {
-        private readonly EventLogWatcher _watcher;
+        var eventLogQuery = new EventLogQuery(path, PathType.LogName, query);
+        _watcher = new EventLogWatcher(eventLogQuery);
+        _watcher.EventRecordWritten += Watcher_EventRecordWritten;
+    }
 
-        public AbstractEventLogListener(string path, string query)
-        {
-            var eventLogQuery = new EventLogQuery(path, PathType.LogName, query);
-            _watcher = new EventLogWatcher(eventLogQuery);
-            _watcher.EventRecordWritten += Watcher_EventRecordWritten;
-        }
+    public event EventHandler<EventArgs>? Changed;
 
-        public event EventHandler<EventArgs>? Changed;
+    public Task StartAsync()
+    {
+        if (!_watcher.Enabled)
+            _watcher.Enabled = true;
 
-        public Task StartAsync()
-        {
-            if (!_watcher.Enabled)
-                _watcher.Enabled = true;
+        return Task.CompletedTask;
+    }
 
-            return Task.CompletedTask;
-        }
+    public Task StopAsync()
+    {
+        _watcher.Enabled = false;
+        return Task.CompletedTask;
+    }
 
-        public Task StopAsync()
-        {
-            _watcher.Enabled = false;
-            return Task.CompletedTask;
-        }
+    protected abstract Task OnChangedAsync();
 
-        protected abstract Task OnChangedAsync();
-
-        private async void Watcher_EventRecordWritten(object? sender, EventRecordWrittenEventArgs e)
-        {
-            await OnChangedAsync().ConfigureAwait(false);
-            Changed?.Invoke(this, EventArgs.Empty);
-        }
+    private async void Watcher_EventRecordWritten(object? sender, EventRecordWrittenEventArgs e)
+    {
+        await OnChangedAsync().ConfigureAwait(false);
+        Changed?.Invoke(this, EventArgs.Empty);
     }
 }

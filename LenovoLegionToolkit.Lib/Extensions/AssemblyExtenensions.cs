@@ -2,28 +2,27 @@
 using System.Globalization;
 using System.Reflection;
 
-namespace LenovoLegionToolkit.Lib.Extensions
+namespace LenovoLegionToolkit.Lib.Extensions;
+
+public static class AssemblyExtenensions
 {
-    public static class AssemblyExtenensions
+    public static DateTime? GetBuildDateTime(this Assembly assembly)
     {
-        public static DateTime? GetBuildDateTime(this Assembly assembly)
+        const string BuildVersionMetadataPrefix = "+build";
+
+        var attribute = assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>();
+        if (attribute?.InformationalVersion != null)
         {
-            const string BuildVersionMetadataPrefix = "+build";
-
-            var attribute = assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>();
-            if (attribute?.InformationalVersion != null)
+            var value = attribute.InformationalVersion;
+            var index = value.IndexOf(BuildVersionMetadataPrefix);
+            if (index > 0)
             {
-                var value = attribute.InformationalVersion;
-                var index = value.IndexOf(BuildVersionMetadataPrefix);
-                if (index > 0)
-                {
-                    value = value[(index + BuildVersionMetadataPrefix.Length)..];
-                    if (DateTime.TryParseExact(value, "yyyyMMddHHmmss", CultureInfo.InvariantCulture, DateTimeStyles.None, out var result))
-                        return result;
-                }
+                value = value[(index + BuildVersionMetadataPrefix.Length)..];
+                if (DateTime.TryParseExact(value, "yyyyMMddHHmmss", CultureInfo.InvariantCulture, DateTimeStyles.None, out var result))
+                    return result;
             }
-
-            return null;
         }
+
+        return null;
     }
 }

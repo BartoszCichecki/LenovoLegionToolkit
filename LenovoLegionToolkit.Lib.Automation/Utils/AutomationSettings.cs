@@ -4,39 +4,38 @@ using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 using LenovoLegionToolkit.Lib.Automation.Steps;
 using LenovoLegionToolkit.Lib.Settings;
 
-namespace LenovoLegionToolkit.Lib.Automation.Utils
+namespace LenovoLegionToolkit.Lib.Automation.Utils;
+
+public class AutomationSettings : AbstractSettings<AutomationSettings.AutomationSettingsStore>
 {
-    public class AutomationSettings : AbstractSettings<AutomationSettings.AutomationSettingsStore>
+    public class AutomationSettingsStore
     {
-        public class AutomationSettingsStore
-        {
-            public bool IsEnabled { get; set; }
+        public bool IsEnabled { get; set; }
 
-            public List<AutomationPipeline> Pipelines { get; set; } = new();
-        }
-
-        protected override string FileName => "automation.json";
-
-        public override AutomationSettingsStore Default => new()
-        {
-            Pipelines =
-            {
-                new AutomationPipeline
-                {
-                    Trigger = new ACAdapterConnectedAutomationPipelineTrigger(),
-                    Steps = { new PowerModeAutomationStep(PowerModeState.Balance) },
-                },
-                new AutomationPipeline
-                {
-                    Trigger = new ACAdapterDisconnectedAutomationPipelineTrigger(),
-                    Steps = { new PowerModeAutomationStep(PowerModeState.Quiet) },
-                },
-                new AutomationPipeline
-                {
-                    Name = "Deactivate GPU",
-                    Steps = { new DeactivateGPUAutomationStep(DeactivateGPUAutomationStepState.KillApps) },
-                },
-            },
-        };
+        public List<AutomationPipeline> Pipelines { get; set; } = new();
     }
+
+    protected override string FileName => "automation.json";
+
+    public override AutomationSettingsStore Default => new()
+    {
+        Pipelines =
+        {
+            new AutomationPipeline
+            {
+                Trigger = new ACAdapterConnectedAutomationPipelineTrigger(),
+                Steps = { new PowerModeAutomationStep(PowerModeState.Balance) },
+            },
+            new AutomationPipeline
+            {
+                Trigger = new ACAdapterDisconnectedAutomationPipelineTrigger(),
+                Steps = { new PowerModeAutomationStep(PowerModeState.Quiet) },
+            },
+            new AutomationPipeline
+            {
+                Name = "Deactivate GPU",
+                Steps = { new DeactivateGPUAutomationStep(DeactivateGPUAutomationStepState.KillApps) },
+            },
+        },
+    };
 }

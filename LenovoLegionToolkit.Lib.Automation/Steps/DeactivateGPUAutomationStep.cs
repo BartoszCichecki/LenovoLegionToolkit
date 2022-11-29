@@ -2,39 +2,38 @@
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
 
-namespace LenovoLegionToolkit.Lib.Automation.Steps
+namespace LenovoLegionToolkit.Lib.Automation.Steps;
+
+public class DeactivateGPUAutomationStep : IAutomationStep<DeactivateGPUAutomationStepState>
 {
-    public class DeactivateGPUAutomationStep : IAutomationStep<DeactivateGPUAutomationStepState>
+    private readonly GPUController _controller = IoCContainer.Resolve<GPUController>();
+
+    public DeactivateGPUAutomationStepState State { get; }
+
+    public DeactivateGPUAutomationStep(DeactivateGPUAutomationStepState state) => State = state;
+
+    public Task<DeactivateGPUAutomationStepState[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<DeactivateGPUAutomationStepState>());
+
+    public Task<bool> IsSupportedAsync() => Task.FromResult(_controller.IsSupported());
+
+    public async Task RunAsync()
     {
-        private readonly GPUController _controller = IoCContainer.Resolve<GPUController>();
+        if (!_controller.IsSupported())
+            return;
 
-        public DeactivateGPUAutomationStepState State { get; }
+        if (!await _controller.CanBeDeactivatedAsync().ConfigureAwait(false))
+            return;
 
-        public DeactivateGPUAutomationStep(DeactivateGPUAutomationStepState state) => State = state;
-
-        public Task<DeactivateGPUAutomationStepState[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<DeactivateGPUAutomationStepState>());
-
-        public Task<bool> IsSupportedAsync() => Task.FromResult(_controller.IsSupported());
-
-        public async Task RunAsync()
+        switch (State)
         {
-            if (!_controller.IsSupported())
-                return;
-
-            if (!await _controller.CanBeDeactivatedAsync().ConfigureAwait(false))
-                return;
-
-            switch (State)
-            {
-                case DeactivateGPUAutomationStepState.KillApps:
-                    await _controller.KillGPUProcessesAsync().ConfigureAwait(false);
-                    break;
-                case DeactivateGPUAutomationStepState.RestartGPU:
-                    await _controller.DeactivateGPUAsync().ConfigureAwait(false);
-                    break;
-            }
+            case DeactivateGPUAutomationStepState.KillApps:
+                await _controller.KillGPUProcessesAsync().ConfigureAwait(false);
+                break;
+            case DeactivateGPUAutomationStepState.RestartGPU:
+                await _controller.DeactivateGPUAsync().ConfigureAwait(false);
+                break;
         }
-
-        IAutomationStep IAutomationStep.DeepCopy() => new DeactivateGPUAutomationStep(State);
     }
+
+    IAutomationStep IAutomationStep.DeepCopy() => new DeactivateGPUAutomationStep(State);
 }

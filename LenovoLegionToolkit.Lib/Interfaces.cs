@@ -1,7 +1,6 @@
-﻿namespace LenovoLegionToolkit.Lib
+﻿namespace LenovoLegionToolkit.Lib;
+
+public interface IDisplayName
 {
-    public interface IDisplayName
-    {
-        string DisplayName { get; }
-    }
+    string DisplayName { get; }
 }
