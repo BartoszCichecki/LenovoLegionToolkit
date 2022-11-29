@@ -1394,6 +1394,9 @@
   <data name="UnsupportedWindow_Vendor" xml:space="preserve">
     <value>Поставщик</value>
   </data>
+  <data name="Update" xml:space="preserve">
+    <value>Обновить</value>
+  </data>
   <data name="UpdateWindow_Title" xml:space="preserve">
     <value>Доступно обновление</value>
   </data>
