@@ -8,6 +8,7 @@ using LenovoLegionToolkit.Lib;
 using Windows.Win32;
 using Windows.Win32.Graphics.Gdi;
 using Windows.Win32.UI.HiDpi;
+using Wpf.Ui.Appearance;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 using Point = System.Drawing.Point;
@@ -87,7 +88,9 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils
         {
             WindowStartupLocation = WindowStartupLocation.Manual;
             ResizeMode = ResizeMode.NoResize;
+            WindowBackdropType = BackgroundType.None;
 
+            Focusable = false;
             Topmost = true;
             ExtendsContentIntoTitleBar = true;
             ShowInTaskbar = false;
