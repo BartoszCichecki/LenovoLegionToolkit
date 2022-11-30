@@ -115,6 +115,15 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to When display setting is changed.
+        /// </summary>
+        public static string DisplayChangeAutomationPipelineTrigger_DisplayName {
+            get {
+                return ResourceManager.GetString("DisplayChangeAutomationPipelineTrigger_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to When low wattage AC power adapter is connected.
         /// </summary>
         public static string LowWattageACAdapterConnectedAutomationPipelineTrigger_DisplayName {

@@ -13,6 +13,8 @@ public interface IAutomationPipelineTrigger
     IAutomationPipelineTrigger DeepCopy();
 }
 
+public interface IDisplayChangeAutomationPipelineTrigger { }
+
 public interface IDisallowDuplicatesAutomationPipelineTrigger { }
 
 public interface IOnStartupAutomationPipelineTrigger { }

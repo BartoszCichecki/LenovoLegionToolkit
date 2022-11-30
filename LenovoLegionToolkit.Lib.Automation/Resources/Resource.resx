@@ -76,6 +76,9 @@
   <data name="Delay_Second_Many" xml:space="preserve">
     <value>{0} seconds</value>
   </data>
+  <data name="DisplayChangeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>When display setting is changed</value>
+  </data>
   <data name="LowWattageACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>When low wattage AC power adapter is connected</value>
   </data>

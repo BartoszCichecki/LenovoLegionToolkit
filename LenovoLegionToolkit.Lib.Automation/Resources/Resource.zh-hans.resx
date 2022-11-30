@@ -76,6 +76,9 @@
   <data name="Delay_Second_Many" xml:space="preserve">
     <value>{0} 秒</value>
   </data>
+  <data name="DisplayChangeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>当显示设置改变时</value>
+  </data>
   <data name="LowWattageACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>当低功率充电器插入时</value>
   </data>
