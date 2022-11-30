@@ -70,6 +70,22 @@ public readonly struct DisplayAdvancedColorInfo
     }
 }
 
+public struct DisplaScaleInfo
+{
+    public uint mininum { get; set; }
+    public uint maximum { get; set; }
+    public uint current { get; set; }
+    public uint recommended { get; set; }
+
+    public DisplaScaleInfo(uint mininum, uint maximum, uint current, uint recommended)
+    {
+        this.mininum = mininum;
+        this.maximum = maximum;
+        this.current = current;
+        this.recommended = recommended;
+    }
+}
+
 public readonly struct FanTableData
 {
     public byte FanId { get; init; }
@@ -491,6 +507,34 @@ public readonly struct RGBKeyboardBacklightState
         SelectedPreset = selectedPreset;
         Presets = presets;
     }
+}
+
+public struct ScreenDPI : IDisplayName, IEquatable<ScreenDPI>
+{
+    public int DPI { get; }
+
+    [JsonIgnore]
+    public string DisplayName => $"{DPI}%";
+
+    [JsonConstructor]
+    public ScreenDPI(int dpi)
+    {
+        DPI = dpi;
+    }
+
+    #region Equality
+
+    public override bool Equals(object? obj) => obj is ScreenDPI rate && Equals(rate);
+
+    public bool Equals(ScreenDPI other) => DPI == other.DPI;
+
+    public override int GetHashCode() => HashCode.Combine(DPI);
+
+    public static bool operator ==(ScreenDPI left, ScreenDPI right) => left.Equals(right);
+
+    public static bool operator !=(ScreenDPI left, ScreenDPI right) => !(left == right);
+
+    #endregion
 }
 
 public readonly struct RefreshRate : IDisplayName, IEquatable<RefreshRate>

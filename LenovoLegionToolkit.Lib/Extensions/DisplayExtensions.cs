@@ -62,6 +62,30 @@ public static class DisplayExtensions
             PInvokeExtensions.ThrowIfWin32Error("SetAdvancedColorState");
     }
 
+    public static string GetTargetDeviceName(this Display display)
+    {
+        var deviceName = new DISPLAYCONFIG_TARGET_DEVICE_NAME();
+        deviceName.header.type = DISPLAYCONFIG_DEVICE_INFO_TYPE.DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_NAME;
+        deviceName.header.size = (uint)Marshal.SizeOf(typeof(DISPLAYCONFIG_TARGET_DEVICE_NAME));
+        deviceName.header.adapterId.HighPart = display.Adapter.ToPathDisplayAdapter().AdapterId.HighPart;
+        deviceName.header.adapterId.LowPart = display.Adapter.ToPathDisplayAdapter().AdapterId.LowPart;
+        deviceName.header.id = display.ToPathDisplayTarget().TargetId;
+
+        if (PInvoke.DisplayConfigGetDeviceInfo(ref deviceName.header) != 0)
+            PInvokeExtensions.ThrowIfWin32Error("GetTargetDeviceName");
+        return deviceName.monitorFriendlyDeviceName.ToString();
+    }
+
+    public static unsafe DisplaScaleInfo GetDisplaScaleInfo(this Display display)
+    {
+        var dpiInfo = new DisplaScaleInfo();
+        dpiInfo.mininum = 100;
+        dpiInfo.maximum = (uint)display.ToPathDisplaySource().MaximumDPIScale;
+        dpiInfo.current = (uint)display.ToPathDisplaySource().CurrentDPIScale;
+        dpiInfo.recommended = (uint)display.ToPathDisplaySource().RecommendedDPIScale;
+        return dpiInfo;
+    }
+
     private static async Task<bool> IsInternalAsync(this Device display)
     {
         var instanceName = display.DevicePath

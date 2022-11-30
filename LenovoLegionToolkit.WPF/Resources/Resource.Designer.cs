@@ -3147,6 +3147,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Currently, only Huawei tablet screen scaling is set, and it will be configured separately according to screen rules..
+        /// </summary>
+        public static string ScreenDPIAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("ScreenDPIAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screen DPI.
+        /// </summary>
+        public static string ScreenDPIAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("ScreenDPIAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose one or more quick actions to cycle through.
         /// </summary>
         public static string SelectSmartKeyPipelinesWindow_List_Description {
