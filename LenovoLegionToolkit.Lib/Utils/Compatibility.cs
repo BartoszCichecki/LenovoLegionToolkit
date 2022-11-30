@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 
 namespace LenovoLegionToolkit.Lib.Utils;
@@ -63,7 +64,7 @@ public static class Compatibility
     {
         if (!_machineInformation.HasValue)
         {
-            var (vendor, machineType, model, serialNumber) = await GetModelDataAsync().ConfigureAwait(false);
+            var (vendor, machineType, model, serialNumber) = await GetModelCacheDataAsync().ConfigureAwait(false);
             var biosVersion = await GetBIOSVersionAsync().ConfigureAwait(false);
 
             var machineInformation = new MachineInformation
@@ -202,5 +203,21 @@ public static class Compatibility
         }
 
         return false;
+    }
+
+    private static async Task<(string, string, string, string)> GetModelCacheDataAsync()
+    {
+        var (vendor, machineType, model, serialNumber) = await GetModelDataAsync().ConfigureAwait(false);
+        ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
+        //read cache info from setting.json
+        if (_settings?.Store?.DeviceInfo != null)
+        {
+            var deviceInfo = _settings.Store.DeviceInfo;
+            vendor = deviceInfo.Vendor ?? vendor;
+            machineType = deviceInfo.MachineType ?? machineType;
+            model = deviceInfo.Model ?? model;
+            serialNumber = deviceInfo.SerialNumber ?? serialNumber;
+        }
+        return (vendor, machineType, model, serialNumber);
     }
 }

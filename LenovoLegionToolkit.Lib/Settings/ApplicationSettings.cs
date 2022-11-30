@@ -20,6 +20,14 @@ public class ApplicationSettings : AbstractSettings<ApplicationSettings.Applicat
         public bool SmartKey { get; set; }
     }
 
+    public class DeviceInfo
+    {
+        public string? Vendor { get; set; }
+        public string? MachineType { get; set; }
+        public string? Model { get; set; }
+        public string? SerialNumber { get; set; }
+    }
+
     public class ApplicationSettingsStore
     {
         public Theme Theme { get; set; }
@@ -31,6 +39,7 @@ public class ApplicationSettings : AbstractSettings<ApplicationSettings.Applicat
         public bool DontShowNotifications { get; set; }
         public NotificationPosition NotificationPosition { get; set; }
         public Notifications Notifications { get; set; } = new();
+        public DeviceInfo DeviceInfo { get; set; } = new();
         public TemperatureUnit TemperatureUnit { get; set; }
         public List<RefreshRate> ExcludedRefreshRates { get; set; } = new();
         public WarrantyInfo? WarrantyInfo { get; set; }
