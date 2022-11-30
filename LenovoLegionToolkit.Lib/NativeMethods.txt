@@ -86,6 +86,7 @@ GetDesktopWindow
 GetShellWindow
 GetWindowRect
 SetWindowsHookEx
+GetWindowThreadProcessId
 UnhookWindowsHookEx
 
 DisplayConfigGetDeviceInfo
