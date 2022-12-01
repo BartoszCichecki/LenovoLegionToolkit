@@ -36,7 +36,6 @@ public partial class NotificationsSettingsWindow
         _notificationPositionComboBox.SetItems(Enum.GetValues<NotificationPosition>(), _settings.Store.NotificationPosition, v => v.GetDisplayName());
 
         _capsNumLockToggle.IsChecked = _settings.Store.Notifications.CapsNumLock;
-        _SetScreenDPIToggle.IsChecked = _settings.Store.Notifications.SetScreenDPI;
         _fnLockToggle.IsChecked = _settings.Store.Notifications.FnLock;
         _touchpadLockToggle.IsChecked = _settings.Store.Notifications.TouchpadLock;
         _keyboardBacklightToggle.IsChecked = _settings.Store.Notifications.KeyboardBacklight;
@@ -86,16 +85,6 @@ public partial class NotificationsSettingsWindow
             return;
 
         _settings.Store.Notifications.CapsNumLock = state.Value;
-        _settings.SynchronizeStore();
-    }
-
-    private void SetScreenDPI_Click(object sender, RoutedEventArgs e)
-    {
-        var state = _SetScreenDPIToggle.IsChecked;
-        if (state is null)
-            return;
-
-        _settings.Store.Notifications.SetScreenDPI = state.Value;
         _settings.SynchronizeStore();
     }
 

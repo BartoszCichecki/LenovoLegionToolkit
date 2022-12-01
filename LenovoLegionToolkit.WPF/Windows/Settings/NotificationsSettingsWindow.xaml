@@ -82,17 +82,6 @@
                         Click="CapsNumLockToggle_Click" />
                 </wpfui:CardControl>
 
-
-                <wpfui:CardControl x:Name="_SetScreenDPI" Margin="0,0,0,8">
-                    <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="设置屏幕DPI" />
-                    </wpfui:CardControl.Header>
-                    <wpfui:ToggleSwitch
-                        x:Name="_SetScreenDPIToggle"
-                        Margin="0,0,0,8"
-                        Click="SetScreenDPI_Click" />
-                </wpfui:CardControl>
-
                 <wpfui:CardControl x:Name="_fnLockCard" Margin="0,0,0,8">
                     <wpfui:CardControl.Header>
                         <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_FnLock}" />

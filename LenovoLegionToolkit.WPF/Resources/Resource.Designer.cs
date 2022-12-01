@@ -3147,7 +3147,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Currently, only Huawei tablet screen scaling is set, and it will be configured separately according to screen rules..
+        ///   Looks up a localized string similar to Set display scaling, only build-in display can be set..
         /// </summary>
         public static string ScreenDPIAutomationStepControl_Message {
             get {

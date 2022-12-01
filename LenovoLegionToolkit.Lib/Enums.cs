@@ -144,7 +144,6 @@ public enum NotificationType
     RefreshRate,
     RGBKeyboardBacklightChanged,
     RGBKeyboardBacklightOff,
-    ScreenDPISet,
     SmartKeyDoublePress,
     SmartKeySinglePress,
     SpectrumBacklightChanged,

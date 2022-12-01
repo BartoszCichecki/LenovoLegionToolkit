@@ -1437,10 +1437,4 @@
   <data name="Yes" xml:space="preserve">
     <value>是</value>
   </data>
-  <data name="ScreenDPIAutomationStepControl_Message" xml:space="preserve">
-    <value>目前只设置华为平板屏幕缩放，之后会考虑按照屏幕的规则单独配置。</value>
-  </data>
-  <data name="ScreenDPIAutomationStepControl_Title" xml:space="preserve">
-    <value>屏幕缩放</value>
-  </data>
 </root>
