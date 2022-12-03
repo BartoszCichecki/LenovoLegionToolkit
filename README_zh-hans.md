@@ -69,9 +69,9 @@
 
 **拯救者系列与 Ideapad Gaming 系列之外的笔记本暂不考虑适配**
 
-### Lenovo's software
+### 联想软件兼容
 
-总的来说，建议在使用LLT时禁用或卸载Lenovo Vantage、Hotkeys和Legion Zone。当LLT与其他联想应用程序一起工作时，可能会导致部分功能冲突或可能无法正常工作。
+总的来说，建议在使用 LLT 时禁用或卸载 Lenovo Vantage、Hotkeys 和 Legion Zone。当 LLT 与其他联想应用程序一起工作时，可能会导致部分功能冲突或可能无法正常工作。
 
 ## 功能介绍
 
@@ -171,10 +171,6 @@
 #### 支持 iCue RGB 键盘吗？
 
 不支持，我推荐你看看 [OpenRGB](https://openrgb.org/) 这个项目。
-
-#### 会支持 Legion Spectrum RGB Keyboard 吗？
-
-Spectrum RGB 马上就会支持了！
 
 #### 能不能多整一些 RGB 效果？
 
