@@ -10,7 +10,7 @@
 
 联想拯救者工具箱 Lenovo Legion Toolkit (LLT) 是为联想拯救者系列笔记本打造的轻量化工具箱。可实现原来联想软件如 Lenovo Vantage、Legion Zone、联想电脑管家才可实现的功能。
 
-**本软件仅适配拯救者系列及 Ideapad Gaming 系列，如果你是其他联想笔记本则这个软件不适合你，请不要提出兼容 Issue ，如果提出将被直接关闭不作受理。**
+**本软件仅适配拯救者系列，如果你不是拯救者系列笔记本则这个软件不适合你，请不要提出兼容 Issue ，如果提出将被直接关闭不作受理。**
 
 本软件不运行后台服务，使用较少的内存，几乎不使用 CPU ，并且不收集用户信息。本程序仅适用于 Windows 。
 
@@ -57,19 +57,21 @@
 
 ## 下载
 
-你可以在这里下载最新版本：[发行版页面 Releases page](https://github.com/BartoszCichecki/LenovoLegionToolkit/releases/latest)或通过 winget 来安装：`winget install BartoszCichecki.LenovoLegionToolkit`。
+你可以在这里下载最新版本：[发行版页面 Releases page](https://github.com/BartoszCichecki/LenovoLegionToolkit/releases/latest)。
 
 ## 兼容性
 
-拯救者工具箱兼容大部分 2020、2021 和 2022 款运行 Windows 10 和 11 的拯救者与 Ideapad Gaming 系列笔记本。
+拯救者工具箱适配 2020 款及其之后的拯救者机型。
 
-建议在使用拯救者工具箱时禁用或卸载 Vantage、Hotkeys 和 Legion Zone 与联想电脑管家。当联想软件运行时可能会与拯救者工具箱产生冲突。
+一些功能在 2020 款之前发布的机型和 Ideapad Gaming 3 笔记本可以正常工作（或者说大部分工作），但可能会遇到一些小问题。这里是测试过支持的型号列表 [Compatibility.cs](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/LenovoLegionToolkit.Lib/Utils/Compatibility.cs)。
 
 如果你在启动时看到不兼容弹窗，你可以查看底部的*贡献*部分，查看你能否帮助我适配你的机型。谨记我没有那么多的笔记本型号，所以一些功能我无法适配。
 
-这里是测试过支持的型号 [Compatibility.cs](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/LenovoLegionToolkit.Lib/Utils/Compatibility.cs).
-
 **拯救者系列与 Ideapad Gaming 系列之外的笔记本暂不考虑适配**
+
+### Lenovo's software
+
+总的来说，建议在使用LLT时禁用或卸载Lenovo Vantage、Hotkeys和Legion Zone。当LLT与其他联想应用程序一起工作时，可能会导致部分功能冲突或可能无法正常工作。
 
 ## 功能介绍
 
@@ -77,7 +79,7 @@
 
 - 改变诸如性能模式、充电模式等只有通过 Lenovo Vantage、联想电脑管家才能更改的设置。
 - 使用仅在 Legion Zone 中可用的自定义模式，包括 2022 款的调节风扇曲线和功耗控制。
-- 支持调节四分区 RGB 键盘和白色背光的键盘。
+- 支持调节 Spectrum RGB 键盘和白色背光的键盘。
 - 改变显示器刷新率（仅内置显示器）。
 - 强制休眠独立显卡（仅限英伟达显卡）。
 - 查看电池统计数据。
@@ -164,7 +166,7 @@
 
 #### 支持哪些RGB？
 
-目前仅支持白色背光键盘与四分区 RGB 键盘。
+目前仅支持白色背光键盘与四分区 RGB 与 Spectrum RGB 键盘。
 
 #### 支持 iCue RGB 键盘吗？
 
