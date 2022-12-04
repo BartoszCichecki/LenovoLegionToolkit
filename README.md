@@ -26,9 +26,9 @@ Support the Armed Forces of Ukraine and People Affected by Russia’s Aggression
 
 <br />
 
-Lenovo Legion Toolkit (LLT) is a utility created for Lenovo Legion laptops, that allows changing a couple of features that are only available in Lenovo Vantage or Legion Zone.
+Lenovo Legion Toolkit (LLT) is a utility created for Lenovo Legion series laptops, that allows changing a couple of features that are only available in Lenovo Vantage or Legion Zone.
 
-**If your laptop is not part of Legion or Ideapad Gaming lines, this software is not for you. Please do NOT open compatibility requests for other devices. Issues will be closed and not looked at!**
+**If your laptop is not part of Legion series, this software is not for you. Please do NOT open compatibility requests for other devices. Issues will be closed and not looked at!**
 
 It runs no background services, uses less memory, uses virtually no CPU, and contains no telemetry. Just like Lenovo Vantage, this application is Windows only.
 
@@ -77,15 +77,17 @@ You can download the installer from the [Releases page](https://github.com/Barto
 
 ## Compatibility
 
-Lenovo Legion Toolkit is compatible with a lot of Lenovo Legion and Ideapad Gaming laptops from 2020, 2021 and 2022 running Windows 10 and 11.
+Lenovo Legion Toolkit is made for Lenovo Legion laptops released in 2020 or later.
 
-Overall the recommendation is to disable or uninstall Vantage, Hotkeys and Legion Zone while using LLT. There are some functions that cause conflicts or may not work properly when LLT is working along side other Lenovo apps.
+Some features work (or mostly work) on  models released before 2020 and on Ideapad Gaming 3 laptops, but you may experience some smaller issues. The list of models on which LLT was tested and is working can be found here: [Compatibility.cs](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/LenovoLegionToolkit.Lib/Utils/Compatibility.cs).
 
 If you are getting an incompatible message on startup, you can check the *Contribution* section down at the bottom, to see how can you help. Keep in mind, that not always I can make all options compatible with all hardware since I do not have access to it.
 
-The list of supported models can be found here: [Compatibility.cs](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/LenovoLegionToolkit.Lib/Utils/Compatibility.cs).
+**Support for other laptop that are not part of Legion series is not planned.**
 
-**Support for other laptop that are not part of Legion or Ideapad Gaming lines is not planned.**
+### Lenovo's software
+
+Overall the recommendation is to disable or uninstall Vantage, Hotkeys and Legion Zone while using LLT. There are some functions that cause conflicts or may not work properly when LLT is working along side other Lenovo apps.
 
 ## Features
 
