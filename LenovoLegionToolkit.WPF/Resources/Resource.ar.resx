@@ -826,9 +826,6 @@
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>لا تظهر أي إشعارات</value>
   </data>
-  <data name="NotificationsSettingsWindow_NotificationPosition_Title" xml:space="preserve">
-    <value>الموضع</value>
-  </data>
   <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
     <value>مفاتيح Fn</value>
   </data>
@@ -837,6 +834,9 @@
   </data>
   <data name="NotificationsSettingsWindow_Microphone" xml:space="preserve">
     <value>الميكروفون</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationPosition_Title" xml:space="preserve">
+    <value>الموضع</value>
   </data>
   <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
     <value>وضع الطاقة</value>
