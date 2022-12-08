@@ -830,9 +830,6 @@ Activar esta opción si tiene conflictos con las aplicaciones en pantalla comple
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>No mostrar notificaciones</value>
   </data>
-  <data name="NotificationsSettingsWindow_NotificationPosition_Title" xml:space="preserve">
-    <value>Posición </value>
-  </data>
   <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
     <value>Bloqueo de tecla Fn</value>
   </data>
@@ -841,6 +838,9 @@ Activar esta opción si tiene conflictos con las aplicaciones en pantalla comple
   </data>
   <data name="NotificationsSettingsWindow_Microphone" xml:space="preserve">
     <value>Micrófono </value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationPosition_Title" xml:space="preserve">
+    <value>Posición </value>
   </data>
   <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
     <value>Modo de alimentación </value>
