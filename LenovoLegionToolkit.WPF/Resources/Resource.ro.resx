@@ -830,9 +830,6 @@ Activați această opțiune dacă aveți conflicte cu aplicațiile pe ecran comp
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Nu afișa notificări</value>
   </data>
-  <data name="NotificationsSettingsWindow_NotificationPosition_Title" xml:space="preserve">
-    <value>Poziție</value>
-  </data>
   <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
     <value>Blocare Fn</value>
   </data>
@@ -841,6 +838,9 @@ Activați această opțiune dacă aveți conflicte cu aplicațiile pe ecran comp
   </data>
   <data name="NotificationsSettingsWindow_Microphone" xml:space="preserve">
     <value>Microfon</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationPosition_Title" xml:space="preserve">
+    <value>Poziție</value>
   </data>
   <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
     <value>Mod putere</value>
