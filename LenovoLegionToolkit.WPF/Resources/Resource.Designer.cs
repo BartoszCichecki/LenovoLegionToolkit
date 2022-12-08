@@ -1444,6 +1444,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Uncheck refresh rates that you do not want to use when Fn+R shortcut is used..
+        /// </summary>
+        public static string ExcludeRefreshRatesWindow_Description {
+            get {
+                return ResourceManager.GetString("ExcludeRefreshRatesWindow_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Make sure that laptop display is on. Lenovo Legion Toolkit can&apos;t load refresh rates for a display that is not on..
         /// </summary>
         public static string ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message {

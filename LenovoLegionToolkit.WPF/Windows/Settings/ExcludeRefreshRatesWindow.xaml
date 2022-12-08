@@ -58,11 +58,21 @@
             IndicatorVerticalAlignment="Center">
             <Grid>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <Border Grid.Row="0" CornerRadius="8">
+                <wpfui:CardControl
+                    Grid.Row="0"
+                    Margin="0,8,0,8"
+                    Icon="Info24">
+                    <wpfui:CardControl.Header>
+                        <TextBlock Text="{x:Static resources:Resource.ExcludeRefreshRatesWindow_Description}" TextWrapping="Wrap" />
+                    </wpfui:CardControl.Header>
+                </wpfui:CardControl>
+
+                <Border Grid.Row="1" CornerRadius="8">
                     <Border.Background>
                         <SolidColorBrush Color="{DynamicResource ControlFillColorDefault}" />
                     </Border.Background>
@@ -75,7 +85,7 @@
                     </wpfui:DynamicScrollViewer>
                 </Border>
 
-                <Grid Grid.Row="1" Margin="0,8,0,0">
+                <Grid Grid.Row="2" Margin="0,8,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
