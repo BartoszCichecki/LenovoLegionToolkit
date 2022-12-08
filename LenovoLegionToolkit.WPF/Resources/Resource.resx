@@ -530,6 +530,9 @@ Thanks in advance!</value>
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
+		<value>Uncheck refresh rates that you do not want to use when Fn+R shortcut is used.</value>
+	</data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>Make sure that laptop display is on. Lenovo Legion Toolkit can't load refresh rates for a display that is not on.</value>
   </data>
@@ -830,9 +833,6 @@ Enable this option if you have conflicts with full screen applications.</value>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Don't show notifications</value>
   </data>
-  <data name="NotificationsSettingsWindow_NotificationPosition_Title" xml:space="preserve">
-    <value>Position</value>
-  </data>
   <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
     <value>Fn Lock</value>
   </data>
@@ -841,6 +841,9 @@ Enable this option if you have conflicts with full screen applications.</value>
   </data>
   <data name="NotificationsSettingsWindow_Microphone" xml:space="preserve">
     <value>Microphone</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationPosition_Title" xml:space="preserve">
+    <value>Position</value>
   </data>
   <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
     <value>Power Mode</value>
