@@ -830,9 +830,6 @@ Povol tuto možnost, pokud máš konflikty s aplikacemi na celou obrazovku.</val
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Nezobrazovat notifikace</value>
   </data>
-  <data name="NotificationsSettingsWindow_NotificationPosition_Title" xml:space="preserve">
-    <value>Pozice</value>
-  </data>
   <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
     <value>Fn Lock</value>
   </data>
@@ -841,6 +838,9 @@ Povol tuto možnost, pokud máš konflikty s aplikacemi na celou obrazovku.</val
   </data>
   <data name="NotificationsSettingsWindow_Microphone" xml:space="preserve">
     <value>Mikrofon</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationPosition_Title" xml:space="preserve">
+    <value>Pozice</value>
   </data>
   <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
     <value>Režim výkonu</value>
