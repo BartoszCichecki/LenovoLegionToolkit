@@ -279,6 +279,7 @@ public partial class AutomationPage
         triggers.AddRange(new IAutomationPipelineTrigger[]
         {
             new ACAdapterDisconnectedAutomationPipelineTrigger(),
+            new DisplayChangeAutomationPipelineTrigger(),
             new ExternalDisplayConnectedAutomationPipelineTrigger(),
             new ExternalDisplayDisconnectedAutomationPipelineTrigger(),
             new PowerModeAutomationPipelineTrigger(PowerModeState.Balance),
