@@ -5,6 +5,8 @@ public interface IAutomationEvent { }
 public struct StartupAutomationEvent : IAutomationEvent { }
 
 public struct DisplayChangedAutomationEvent : IAutomationEvent { }
+public struct ExternalDisplayConnectedAutomationEvent : IAutomationEvent { }
+public struct ExternalDisplayDisconnectedAutomationEvent : IAutomationEvent { }
 
 public struct PowerStateAutomationEvent : IAutomationEvent { }
 

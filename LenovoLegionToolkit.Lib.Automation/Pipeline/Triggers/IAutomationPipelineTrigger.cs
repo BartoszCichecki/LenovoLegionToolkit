@@ -15,6 +15,10 @@ public interface IAutomationPipelineTrigger
 
 public interface IDisplayChangeAutomationPipelineTrigger { }
 
+public interface IExternalDisplayConnectedAutomationPipelineTrigger { }
+
+public interface IExternalDisplayDisconnectedAutomationPipelineTrigger { }
+
 public interface IDisallowDuplicatesAutomationPipelineTrigger { }
 
 public interface IOnStartupAutomationPipelineTrigger { }

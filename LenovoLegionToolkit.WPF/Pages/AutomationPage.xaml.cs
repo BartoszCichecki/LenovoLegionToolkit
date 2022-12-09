@@ -280,6 +280,8 @@ public partial class AutomationPage
         {
             new ACAdapterDisconnectedAutomationPipelineTrigger(),
             new DisplayChangeAutomationPipelineTrigger(),
+            new ExternalDisplayConnectedAutomationPipelineTrigger(),
+            new ExternalDisplayDisconnectedAutomationPipelineTrigger(),
             new PowerModeAutomationPipelineTrigger(PowerModeState.Balance),
             new ProcessesAreRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()),
             new ProcessesStopRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()),

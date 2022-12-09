@@ -53,6 +53,9 @@ public class IoCModule : Module
         builder.Register<DisplayConfigurationListener>()
             .OnActivating(e => e.Instance.StartAsync().AsValueTask())
             .AutoActivate();
+        builder.Register<ExternalDisplayListener>()
+            .OnActivating(e => e.Instance.StartAsync().AsValueTask())
+            .AutoActivate();
         builder.Register<DriverKeyListener>()
             .OnActivating(e => e.Instance.StartAsync().AsValueTask())
             .AutoActivate();

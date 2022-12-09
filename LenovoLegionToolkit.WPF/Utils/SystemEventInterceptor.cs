@@ -129,6 +129,25 @@ internal unsafe class SystemEventInterceptor : NativeWindow
                     }
                 }
             }
+
+            if (m.WParam == (IntPtr)PInvoke.DBT_DEVICEARRIVAL)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"WParam : DBT_DEVICEARRIVAL.");
+                if (ValidateDeviceBroadcastClass(m.LParam, PInvoke.GUID_DISPLAY_DEVICE_ARRIVAL))
+                {
+                    MessagingCenter.Publish(new DeviceBroadcast(PInvoke.DBT_DEVICEARRIVAL, PInvoke.GUID_DISPLAY_DEVICE_ARRIVAL));
+                }
+            }
+            if (m.WParam == (IntPtr)PInvoke.DBT_DEVICEREMOVECOMPLETE)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"WParam : DBT_DEVICEREMOVECOMPLETE.");
+                if (ValidateDeviceBroadcastClass(m.LParam, PInvoke.GUID_DISPLAY_DEVICE_ARRIVAL)) 
+                {
+                    MessagingCenter.Publish(new DeviceBroadcast(PInvoke.DBT_DEVICEREMOVECOMPLETE, PInvoke.GUID_DISPLAY_DEVICE_ARRIVAL));
+                }
+            }
         }
 
         base.WndProc(ref m);
@@ -154,5 +173,22 @@ internal unsafe class SystemEventInterceptor : NativeWindow
         }
 
         return PInvoke.CallNextHookEx(HHOOK.Null, nCode, wParam, lParam);
+    }
+
+    private bool ValidateDeviceBroadcastClass(IntPtr lParam, Guid classguid) 
+    {
+        if (lParam != IntPtr.Zero)
+        {
+            var devBroadcastHdr = Marshal.PtrToStructure<DEV_BROADCAST_HDR>(lParam);
+            if (devBroadcastHdr.dbch_devicetype == DEV_BROADCAST_HDR_DEVICE_TYPE.DBT_DEVTYP_DEVICEINTERFACE)
+            {
+                var devBroadcastDeviceInterface = Marshal.PtrToStructure<DEV_BROADCAST_DEVICEINTERFACE_W>(lParam);
+                if (devBroadcastDeviceInterface.dbcc_classguid == classguid)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
