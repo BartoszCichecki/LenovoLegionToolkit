@@ -319,6 +319,18 @@ public readonly struct Notification
     }
 }
 
+public readonly struct DeviceBroadcast
+{
+    public uint Type { get; }
+    public Guid Class { get; }
+
+    public DeviceBroadcast(uint type, Guid guid)
+    {
+        Type = type;
+        Class = guid;
+    }
+}
+
 public readonly struct PowerPlan
 {
     public string InstanceId { get; }

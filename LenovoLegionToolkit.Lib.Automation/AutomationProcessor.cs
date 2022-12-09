@@ -16,6 +16,7 @@ namespace LenovoLegionToolkit.Lib.Automation;
 public class AutomationProcessor
 {
     private readonly AutomationSettings _settings;
+    private readonly ExternalDisplayListener _externalDisplayListener;
     private readonly PowerStateListener _powerStateListener;
     private readonly PowerModeListener _powerModeListener;
     private readonly ProcessAutomationListener _processListener;
@@ -32,12 +33,14 @@ public class AutomationProcessor
     public event EventHandler<List<AutomationPipeline>>? PipelinesChanged;
 
     public AutomationProcessor(AutomationSettings settings,
+        ExternalDisplayListener externalDisplayListener,
         PowerStateListener powerStateListener,
         PowerModeListener powerModeListener,
         ProcessAutomationListener processListener,
         TimeAutomationListener timeListener)
     {
         _settings = settings ?? throw new ArgumentNullException(nameof(settings));
+        _externalDisplayListener = externalDisplayListener ?? throw new ArgumentNullException(nameof(externalDisplayListener));
         _powerStateListener = powerStateListener ?? throw new ArgumentNullException(nameof(powerStateListener));
         _powerModeListener = powerModeListener ?? throw new ArgumentNullException(nameof(powerModeListener));
         _processListener = processListener ?? throw new ArgumentNullException(nameof(processListener));
@@ -50,6 +53,8 @@ public class AutomationProcessor
     {
         using (await _ioLock.LockAsync().ConfigureAwait(false))
         {
+            _externalDisplayListener.OnConnected += ExternalDisplayListener_OnConnected;
+            _externalDisplayListener.OnDisconnected += ExternalDisplayListener_OnDisconnected;
             _powerStateListener.Changed += PowerStateListener_Changed;
             _powerModeListener.Changed += PowerModeListenerOnChanged;
             _processListener.Changed += ProcessListener_Changed;
@@ -234,6 +239,18 @@ public class AutomationProcessor
 
     #region Listeners
 
+    private async void ExternalDisplayListener_OnConnected(object? sender, EventArgs _)
+    {
+        var e = new ExternalDisplayConnectedAutomationEvent();
+        await ProcessEvent(e).ConfigureAwait(false);
+    }
+
+    private async void ExternalDisplayListener_OnDisconnected(object? sender, EventArgs _)
+    {
+        var e = new ExternalDisplayDisconnectedAutomationEvent();
+        await ProcessEvent(e).ConfigureAwait(false);
+    }
+
     private async void PowerStateListener_Changed(object? sender, EventArgs _)
     {
         var e = new PowerStateAutomationEvent();
@@ -261,6 +278,44 @@ public class AutomationProcessor
     #endregion
 
     #region Event processing
+
+    private async Task ProcessEvent(ExternalDisplayConnectedAutomationEvent e)
+    {
+        var potentialMatch = _pipelines.Select(p => p.Trigger)
+            .Where(t => t is not null)
+            .Where(t => t is IExternalDisplayConnectedAutomationPipelineTrigger)
+            .Select(async t => await t!.IsSatisfiedAsync(e).ConfigureAwait(false))
+            .Select(t => t.Result)
+            .Where(t => t)
+            .Any();
+
+        if (!potentialMatch)
+            return;
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Processing external display connected event.");
+
+        await RunAsync(e).ConfigureAwait(false);
+    }
+
+    private async Task ProcessEvent(ExternalDisplayDisconnectedAutomationEvent e)
+    {
+        var potentialMatch = _pipelines.Select(p => p.Trigger)
+            .Where(t => t is not null)
+            .Where(t => t is IExternalDisplayDisconnectedAutomationPipelineTrigger)
+            .Select(async t => await t!.IsSatisfiedAsync(e).ConfigureAwait(false))
+            .Select(t => t.Result)
+            .Where(t => t)
+            .Any();
+
+        if (!potentialMatch)
+            return;
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Processing external display disconnected event.");
+
+        await RunAsync(e).ConfigureAwait(false);
+    }
 
     private async Task ProcessEvent(PowerStateAutomationEvent e)
     {
