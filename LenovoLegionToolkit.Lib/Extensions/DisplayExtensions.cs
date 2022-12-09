@@ -62,6 +62,16 @@ public static class DisplayExtensions
             PInvokeExtensions.ThrowIfWin32Error("SetAdvancedColorState");
     }
 
+    public static unsafe DisplaScaleInfo GetDisplaScaleInfo(this Display display)
+    {
+        var dpiInfo = new DisplaScaleInfo();
+        dpiInfo.mininum = 100;
+        dpiInfo.maximum = (uint)display.ToPathDisplaySource().MaximumDPIScale;
+        dpiInfo.current = (uint)display.ToPathDisplaySource().CurrentDPIScale;
+        dpiInfo.recommended = (uint)display.ToPathDisplaySource().RecommendedDPIScale;
+        return dpiInfo;
+    }
+
     private static async Task<bool> IsInternalAsync(this Device display)
     {
         var instanceName = display.DevicePath

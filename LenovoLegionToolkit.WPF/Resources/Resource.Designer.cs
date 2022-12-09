@@ -3156,6 +3156,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Set display scaling, only build-in display can be set..
+        /// </summary>
+        public static string ScreenDPIAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("ScreenDPIAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screen Scale.
+        /// </summary>
+        public static string ScreenDPIAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("ScreenDPIAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose one or more quick actions to cycle through.
         /// </summary>
         public static string SelectSmartKeyPipelinesWindow_List_Description {
