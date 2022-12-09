@@ -92,13 +92,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Aggiungi Evento</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Utilizza le configurazioni energetiche di windows anche quando Vantage è in esecuzione.
-Questa opzione è serve solo ai dispositivi che non possiedono modalità energetiche alternative.</value>
-  </data>
-  <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
-    <value>Utilizza le configurazioni energetiche di Windows</value>
-  </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
     <value>Alimenta i dispositivi connessi alle porte USB, quando il computer è spento, in standby o in ibernazione.</value>
   </data>
@@ -324,9 +317,6 @@ l'orario indicato potrebbe non essere corretto se il laptop è stato caricato me
   </data>
   <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
     <value>Alimentato</value>
-  </data>
-  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
-    <value>Opzioni energetiche</value>
   </data>
   <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
     <value>Ulteriori informazioni su microsoft.com</value>
@@ -958,9 +948,6 @@ Assicurati sempre di installare i pacchetti corretti.</value>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>Cambia la modalità energetica.</value>
   </data>
-  <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
-    <value>Modalità energetiche</value>
-  </data>
   <data name="PowerModeControl_ChangeError" xml:space="preserve">
     <value>Impossibile cambiare modalità energetica</value>
   </data>
@@ -971,14 +958,8 @@ Puoi anche usare la scorciatoia Fn+Q.</value>
   <data name="PowerModeControl_Settings" xml:space="preserve">
     <value>Opzioni</value>
   </data>
-  <data name="PowerModeControl_Title" xml:space="preserve">
-    <value>Modalità energetiche</value>
-  </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>La modalità di alimentazione selezionata potrebbe non funzionare correttamente senza un alimentatore collegato.</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>Modalità energetiche</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>L'abilitazione di questa opzione quando Lenovo Vantage è in esecuzione e cambia i piani di alimentazione sul laptop potrebbe causare un comportamento imprevisto.</value>
@@ -997,9 +978,6 @@ Puoi anche usare la scorciatoia Fn+Q.</value>
   </data>
   <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
     <value>Silenziosa</value>
-  </data>
-  <data name="PowerPlansWindow_Title" xml:space="preserve">
-    <value>Opzioni energetiche</value>
   </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Modifica retroilluminazione tastiera.</value>
@@ -1202,9 +1180,6 @@ Il riavvio è consigliabile dopo aver cambiato questa impostazione.</value>
   </data>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>Notifiche</value>
-  </data>
-  <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
-    <value>Opzioni energetiche</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>Assegna azione rapida a Fn+F9 doppia pressione.</value>
