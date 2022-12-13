@@ -531,6 +531,9 @@ Merci par avance !</value>
   <data name="Edit" xml:space="preserve">
     <value>Modifier</value>
   </data>
+  <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
+		<value>Décochez les taux de rafraîchissement que vous ne souhaitez pas utiliser lorsque le raccourci Fn+R est utilisé.</value>
+	</data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>Assurez-vous que l'écran intégré est actif. Lenovo Legion Toolkit ne peut charger les taux de rafraîchissement d'un écran éteint.</value>
   </data>
