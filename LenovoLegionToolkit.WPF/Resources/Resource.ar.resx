@@ -526,6 +526,9 @@
   <data name="Edit" xml:space="preserve">
     <value>تحرير</value>
   </data>
+  <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
+		<value>قم بإلغاء تحديد معدلات التحديث التي لا تريد استخدامها عند استخدام اختصار Fn + R.</value>
+	</data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>ضع فى الاعتبار انه يجب اتكون الشاشة قيد العمل حتى يستطيع البرنامج قراءة ال refresh rate.</value>
   </data>
