@@ -58,6 +58,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccentColorSource_Custom" xml:space="preserve">
+    <value>Personalizzato</value>
+  </data>
+  <data name="AccentColorSource_System" xml:space="preserve">
+    <value>Sistema</value>
+  </data>
   <data name="AlwaysOnUSBState_Off" xml:space="preserve">
     <value>Non attivo</value>
   </data>
@@ -103,6 +109,33 @@
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
     <value>Hybrid-iGPU</value>
   </data>
+  <data name="NotificationPosition_BottomCenter" xml:space="preserve">
+    <value>In basso al centro</value>
+  </data>
+  <data name="NotificationPosition_BottomLeft" xml:space="preserve">
+    <value>In basso a sinistra</value>
+  </data>
+  <data name="NotificationPosition_BottomRight" xml:space="preserve">
+    <value>In basso a destra</value>
+  </data>
+  <data name="NotificationPosition_Center" xml:space="preserve">
+    <value>Centro</value>
+  </data>
+  <data name="NotificationPosition_CenterLeft" xml:space="preserve">
+    <value>Centro sinistra</value>
+  </data>
+  <data name="NotificationPosition_CenterRight" xml:space="preserve">
+    <value>Centro destra</value>
+  </data>
+  <data name="NotificationPosition_TopCenter" xml:space="preserve">
+    <value>In alto al centro</value>
+  </data>
+  <data name="NotificationPosition_TopLeft" xml:space="preserve">
+    <value>In alto a sinistra</value>
+  </data>
+  <data name="NotificationPosition_TopRight" xml:space="preserve">
+    <value>In alto a destra</value>
+  </data>
   <data name="PowerModeState_Balance" xml:space="preserve">
     <value>Bilanciato</value>
   </data>
@@ -115,6 +148,39 @@
   <data name="PowerModeState_Quiet" xml:space="preserve">
     <value>Silenzioso</value>
   </data>
+  <data name="RBGKeyboardBacklightSpeed_Fast" xml:space="preserve">
+    <value>Veloce</value>
+  </data>
+  <data name="RBGKeyboardBacklightSpeed_Fastest" xml:space="preserve">
+    <value>Velocissimo</value>
+  </data>
+  <data name="RBGKeyboardBacklightSpeed_Slow" xml:space="preserve">
+    <value>Lento</value>
+  </data>
+  <data name="RBGKeyboardBacklightSpeed_Slowest" xml:space="preserve">
+    <value>Lentissimo</value>
+  </data>
+  <data name="RGBKeyboardBacklightBrightness_High" xml:space="preserve">
+    <value>Alto</value>
+  </data>
+  <data name="RGBKeyboardBacklightBrightness_Low" xml:space="preserve">
+    <value>Basso</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_Breath" xml:space="preserve">
+    <value>Respiro</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_Smooth" xml:space="preserve">
+    <value>Morbido</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_Static" xml:space="preserve">
+    <value>Statico</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_WaveLTR" xml:space="preserve">
+    <value>Onda (Sinistra)</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_WaveRTL" xml:space="preserve">
+    <value>Onda (Destra)</value>
+  </data>
   <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
     <value>Spento</value>
   </data>
@@ -126,6 +192,54 @@
   </data>
   <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
     <value>Tema 2</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightness_High" xml:space="preserve">
+    <value>Alto</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightness_Low" xml:space="preserve">
+    <value>Basso</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightness_Medium" xml:space="preserve">
+    <value>Medio</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightness_Off" xml:space="preserve">
+    <value>Spento</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_BottomToTop" xml:space="preserve">
+    <value>Dal basso verso l'alto</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_Clockwise" xml:space="preserve">
+    <value>Senso orario</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_CounterClockwise" xml:space="preserve">
+    <value>Senso anti-orario</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_LeftToRight" xml:space="preserve">
+    <value>Da sinistra a destra</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_RightToLeft" xml:space="preserve">
+    <value>Da destra a sinistra</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_TopToBottom" xml:space="preserve">
+    <value>Dall'alto verso il basso</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Always" xml:space="preserve">
+    <value>Sempre</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Rain" xml:space="preserve">
+    <value>Pioggia</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Smooth" xml:space="preserve">
+    <value>Morbido</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed1" xml:space="preserve">
+    <value>Lento</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed2" xml:space="preserve">
+    <value>Medio</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed3" xml:space="preserve">
+    <value>Veloce</value>
   </data>
   <data name="Theme_Dark" xml:space="preserve">
     <value>Scuro</value>
