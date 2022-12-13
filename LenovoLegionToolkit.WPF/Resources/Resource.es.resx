@@ -530,6 +530,9 @@ Haga clic en el logotipo de PayPal que aparece a continuación o escanee el cód
   <data name="Edit" xml:space="preserve">
     <value>Editar</value>
   </data>
+  <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
+		<value>Desmarcar las tasas de actualización que no desea utilizar cuando use las teclas Fn+R.</value>
+	</data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>Asegúrese de que la pantalla del portátil está encendida. Lenovo Legion Toolkit no puede cargar las tasas de refresco de una pantalla que no está encendida.</value>
   </data>
@@ -830,9 +833,6 @@ Activar esta opción si tiene conflictos con las aplicaciones en pantalla comple
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>No mostrar notificaciones</value>
   </data>
-  <data name="NotificationsSettingsWindow_NotificationPosition_Title" xml:space="preserve">
-    <value>Posición </value>
-  </data>
   <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
     <value>Bloqueo de tecla Fn</value>
   </data>
@@ -841,6 +841,9 @@ Activar esta opción si tiene conflictos con las aplicaciones en pantalla comple
   </data>
   <data name="NotificationsSettingsWindow_Microphone" xml:space="preserve">
     <value>Micrófono </value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationPosition_Title" xml:space="preserve">
+    <value>Posición </value>
   </data>
   <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
     <value>Modo de alimentación </value>

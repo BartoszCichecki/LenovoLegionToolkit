@@ -531,6 +531,9 @@ Merci par avance !</value>
   <data name="Edit" xml:space="preserve">
     <value>Modifier</value>
   </data>
+  <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
+		<value>Décochez les taux de rafraîchissement que vous ne souhaitez pas utiliser lorsque le raccourci Fn+R est utilisé.</value>
+	</data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>Assurez-vous que l'écran intégré est actif. Lenovo Legion Toolkit ne peut charger les taux de rafraîchissement d'un écran éteint.</value>
   </data>
@@ -831,9 +834,6 @@ Activez cette option si vous avez des conflits avec les applications en plein é
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Ne pas afficher les notifications</value>
   </data>
-  <data name="NotificationsSettingsWindow_NotificationPosition_Title" xml:space="preserve">
-    <value>Position</value>
-  </data>
   <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
     <value>Verrouillage de Fn</value>
   </data>
@@ -842,6 +842,9 @@ Activez cette option si vous avez des conflits avec les applications en plein é
   </data>
   <data name="NotificationsSettingsWindow_Microphone" xml:space="preserve">
     <value>Microphone</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationPosition_Title" xml:space="preserve">
+    <value>Position</value>
   </data>
   <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
     <value>Mode d'alimentation</value>

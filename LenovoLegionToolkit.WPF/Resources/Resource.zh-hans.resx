@@ -532,6 +532,9 @@
   <data name="Edit" xml:space="preserve">
     <value>编辑</value>
   </data>
+  <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
+		<value>取消选择某个刷新率你在使用 Fn + R 快捷键时不想使用的刷新率。</value>
+	</data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>请确保笔记本屏幕已打开，否则本软件无法获取刷新率信息。</value>
   </data>
@@ -834,9 +837,6 @@
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>不要显示弹窗</value>
   </data>
-  <data name="NotificationsSettingsWindow_NotificationPosition_Title" xml:space="preserve">
-    <value>位置</value>
-  </data>
   <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
     <value>锁定Fn键</value>
   </data>
@@ -845,6 +845,9 @@
   </data>
   <data name="NotificationsSettingsWindow_Microphone" xml:space="preserve">
     <value>麦克风</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationPosition_Title" xml:space="preserve">
+    <value>位置</value>
   </data>
   <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
     <value>性能模式</value>
