@@ -92,6 +92,13 @@
   <data name="AddNew" xml:space="preserve">
     <value>Aggiungi Evento</value>
   </data>
+  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
+    <value>Utilizza i piani energetici di windows anche quando Vantage è in esecuzione.
+Questa opzione è serve solo ai dispositivi che non possiedono modalità energetiche alternative.</value>
+  </data>
+  <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
+    <value>Utilizza i piani energetici di Windows</value>
+  </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
     <value>Alimenta i dispositivi connessi alle porte USB, quando il computer è spento, in standby o in ibernazione.</value>
   </data>
@@ -318,6 +325,9 @@ l'orario indicato potrebbe non essere corretto se il laptop è stato caricato me
   <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
     <value>Alimentato</value>
   </data>
+  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
+    <value>Piani energetici</value>
+  </data>
   <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
     <value>Ulteriori informazioni su microsoft.com</value>
   </data>
@@ -517,6 +527,9 @@ Clicca il logo PayPal qui sotto oppure scansiona il QR code per donare con PayPa
   <data name="Edit" xml:space="preserve">
     <value>Modifica</value>
   </data>
+  <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
+		<value>Deseleziona le frequenze di aggiornamento che non desideri utilizzare quando viene utilizzata la scorciatoia Fn+R.</value>
+	</data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>Assicurati che il display del laptop sia acceso. Lenovo Legion Toolkit non può caricare le frequenze di aggiornamento per un display non acceso.</value>
   </data>
@@ -787,6 +800,9 @@ ATTENZIONE: questa azione non verrà eseguita correttamente se il display intern
   <data name="Notification_SpectrumKeyboardBacklight_Brightness" xml:space="preserve">
 		<value>Luminosità {0}</value>
 	</data>
+  <data name="Notification_SpectrumKeyboardBacklight_Profile" xml:space="preserve">
+		<value>Profilo {0}</value>
+	</data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
     <value>Touchpad off</value>
   </data>
@@ -820,6 +836,9 @@ Abilita questa opzione in caso di conflitti con le applicazioni a schermo intero
   </data>
   <data name="NotificationsSettingsWindow_Microphone" xml:space="preserve">
     <value>Microfono</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationPosition_Title" xml:space="preserve">
+    <value>Posizione</value>
   </data>
   <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
     <value>Modalità di alimentazione</value>
@@ -948,6 +967,9 @@ Assicurati sempre di installare i pacchetti corretti.</value>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>Cambia la modalità energetica.</value>
   </data>
+  <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
+    <value>Modalità energetica</value>
+  </data>
   <data name="PowerModeControl_ChangeError" xml:space="preserve">
     <value>Impossibile cambiare modalità energetica</value>
   </data>
@@ -958,8 +980,14 @@ Puoi anche usare la scorciatoia Fn+Q.</value>
   <data name="PowerModeControl_Settings" xml:space="preserve">
     <value>Opzioni</value>
   </data>
+  <data name="PowerModeControl_Title" xml:space="preserve">
+    <value>Modalità energetica</value>
+  </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>La modalità di alimentazione selezionata potrebbe non funzionare correttamente senza un alimentatore collegato.</value>
+  </data>
+  <data name="PowerModeWindow_Title" xml:space="preserve">
+    <value>Modalità energetica</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>L'abilitazione di questa opzione quando Lenovo Vantage è in esecuzione e cambia i piani di alimentazione sul laptop potrebbe causare un comportamento imprevisto.</value>
@@ -973,11 +1001,17 @@ Puoi anche usare la scorciatoia Fn+Q.</value>
   <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
     <value>Personalizzata</value>
   </data>
+  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
+		<value>Predefinito</value>
+	</data>
   <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
     <value>Prestazioni</value>
   </data>
   <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
     <value>Silenziosa</value>
+  </data>
+  <data name="PowerPlansWindow_Title" xml:space="preserve">
+    <value>Piani energetici</value>
   </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Modifica retroilluminazione tastiera.</value>
@@ -1181,6 +1215,9 @@ Il riavvio è consigliabile dopo aver cambiato questa impostazione.</value>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>Notifiche</value>
   </data>
+  <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
+    <value>Piani energetici</value>
+  </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>Assegna azione rapida a Fn+F9 doppia pressione.</value>
   </data>
@@ -1216,6 +1253,69 @@ Il riavvio è consigliabile dopo aver cambiato questa impostazione.</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
     <value>Impossibile applicare il profilo</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title_Message" xml:space="preserve">
+    <value>Impossibile applicare il profilo di illuminazione.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
+    <value>Luminosità</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_DeselectAll_ToolTip" xml:space="preserve">
+    <value>Deseleziona tutte le zone</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
+    <value>Effetti</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
+    <value>Nessun effetto impostato.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip" xml:space="preserve">
+		<value>Reimposta a predefinito</value>
+	</data>
+  <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
+    <value>Deseleziona tutte le zone</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_SwitchKeyboardLayout_ToolTip" xml:space="preserve">
+    <value>Cambia layout della tastiera</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_ClockwiseDirection_Title" xml:space="preserve">
+    <value>Direzione</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Color_Title" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Colors_Title" xml:space="preserve">
+    <value>Colori</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Direction_Title" xml:space="preserve">
+    <value>Direzione</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Title" xml:space="preserve">
+    <value>Effetto</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Warning" xml:space="preserve">
+    <value>Questo effetto verrà applicato all'intera tastiera e sostituirà tutti gli altri effetti.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Speed_Title" xml:space="preserve">
+    <value>Velocità</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Add" xml:space="preserve">
+    <value>Aggiungi effetto</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Edit" xml:space="preserve">
+    <value>Modifica effetto</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Message" xml:space="preserve">
+    <value>Modifica profilo retroilluminazione tastiera.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Title" xml:space="preserve">
+    <value>Profilo retroilluminazione tastiera</value>
+  </data>
+  <data name="SpectrumKeyboardEffectControl_Description_AllZones" xml:space="preserve">
+    <value>Tutti i tasti</value>
+  </data>
+  <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
+    <value>{0} zone</value>
   </data>
   <data name="TimeWindow_Sunrise" xml:space="preserve">
     <value>Alba</value>
