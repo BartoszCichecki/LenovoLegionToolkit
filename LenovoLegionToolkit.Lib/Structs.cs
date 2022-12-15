@@ -88,19 +88,25 @@ public readonly struct FanTableData
 
 public readonly struct FanTable
 {
-    private byte FSTM { get; }
-    private byte FSID { get; }
-    private uint FSTL { get; }
-    private ushort FSS0 { get; }
-    private ushort FSS1 { get; }
-    private ushort FSS2 { get; }
-    private ushort FSS3 { get; }
-    private ushort FSS4 { get; }
-    private ushort FSS5 { get; }
-    private ushort FSS6 { get; }
-    private ushort FSS7 { get; }
-    private ushort FSS8 { get; }
-    private ushort FSS9 { get; }
+    // ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
+    // ReSharper disable MemberCanBePrivate.Global
+
+    public byte FSTM { get; init; }
+    public byte FSID { get; init; }
+    public uint FSTL { get; init; }
+    public ushort FSS0 { get; init; }
+    public ushort FSS1 { get; init; }
+    public ushort FSS2 { get; init; }
+    public ushort FSS3 { get; init; }
+    public ushort FSS4 { get; init; }
+    public ushort FSS5 { get; init; }
+    public ushort FSS6 { get; init; }
+    public ushort FSS7 { get; init; }
+    public ushort FSS8 { get; init; }
+    public ushort FSS9 { get; init; }
+
+    // ReSharper restore AutoPropertyCanBeMadeGetOnly.Global
+    // ReSharper restore MemberCanBePrivate.Global
 
     public FanTable(ushort[] fanTable)
     {
@@ -126,6 +132,8 @@ public readonly struct FanTable
     }
 
     public ushort[] GetTable() => new[] { FSS0, FSS1, FSS2, FSS3, FSS4, FSS5, FSS6, FSS7, FSS8, FSS9 };
+
+    public bool IsValid() => GetTable().All(t => t > 0);
 
     public byte[] GetBytes()
     {
