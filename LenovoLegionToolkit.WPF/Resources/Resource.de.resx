@@ -1076,6 +1076,9 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
   <data name="Rename" xml:space="preserve">
     <value>Umbenennen</value>
   </data>
+  <data name="RestartLater" xml:space="preserve">
+    <value>Später neu starten</value>
+  </data>
   <data name="RestartNow" xml:space="preserve">
     <value>Jetzt neu starten</value>
   </data>
