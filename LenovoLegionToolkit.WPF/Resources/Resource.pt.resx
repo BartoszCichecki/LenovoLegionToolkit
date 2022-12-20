@@ -746,7 +746,7 @@ ATENÇÃO: Está ação não irá executar corretamente se o ecrã interno estiv
     <value>Atualização disponível!</value>
   </data>
   <data name="MainWindow_UpdateAvailableWithVersion" xml:space="preserve">
-    <value>{0} atualizaões disponíveis!</value>
+    <value>Atualização {0} disponível!</value>
   </data>
   <data name="MoveDown" xml:space="preserve">
     <value>Mover para baixo</value>
