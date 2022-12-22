@@ -529,6 +529,9 @@ Vielen Dank im Voraus!</value>
   <data name="Edit" xml:space="preserve">
     <value>Bearbeiten</value>
   </data>
+  <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
+		<value>Deaktivieren Sie die Aktualisierungsraten, die Sie nicht verwenden möchten, wenn die Tastenkombination Fn+R verwendet wird.</value>
+	</data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>Stellen Sie sicher, dass der Laptop-Bildschirm eingeschaltet ist. Das Lenovo Legion Toolkit kann keine Bildwiederholraten für ein nicht eingeschaltetes Display laden.</value>
   </data>
@@ -1077,7 +1080,7 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
     <value>Umbenennen</value>
   </data>
   <data name="RestartLater" xml:space="preserve">
-    <value>Ich werde später neu starten</value>
+    <value>Später neu starten</value>
   </data>
   <data name="RestartNow" xml:space="preserve">
     <value>Jetzt neu starten</value>
