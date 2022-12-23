@@ -43,6 +43,8 @@ public partial class PackageControl : IProgress<float>
 
         _readmeButton.Visibility = string.IsNullOrWhiteSpace(package.Readme) ? Visibility.Collapsed : Visibility.Visible;
 
+        _isUpdateTextBlock.Visibility = package.IsUpdate ? Visibility.Visible : Visibility.Collapsed;
+
         var showWarning = package.ReleaseDate < DateTime.UtcNow.AddYears(-1);
         _warningTextBlock.Visibility = showWarning ? Visibility.Visible : Visibility.Collapsed;
     }

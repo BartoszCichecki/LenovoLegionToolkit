@@ -15,4 +15,15 @@ public static class Folders
             return folderPath;
         }
     }
+
+    public static string Temp
+    {
+        get
+        {
+            var appData = Path.GetTempPath();
+            var folderPath = Path.Combine(appData, "LenovoLegionToolkit");
+            Directory.CreateDirectory(folderPath);
+            return folderPath;
+        }
+    }
 }

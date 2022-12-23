@@ -899,6 +899,9 @@ Enable this option if you have conflicts with full screen applications.</value>
   <data name="PackageControl_HttpGeneralError_Title" xml:space="preserve">
     <value>Something went wrong</value>
   </data>
+  <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
+		<value>This package is newer than installed on your system.</value>
+	</data>
   <data name="PackageControl_OldPackageWarning" xml:space="preserve">
     <value>This package is more than a year old.</value>
   </data>

@@ -80,10 +80,10 @@ public class SpectrumKeyboardBacklightController
                 or SpecialKey.SpectrumPreset4
                 or SpecialKey.SpectrumPreset5
                 or SpecialKey.SpectrumPreset6:
-            {
-                await StartAuroraIfNeededAsync().ConfigureAwait(false);
-                break;
-            }
+                {
+                    await StartAuroraIfNeededAsync().ConfigureAwait(false);
+                    break;
+                }
         }
     }
 

@@ -20,12 +20,12 @@ public abstract class AbstractPackageDownloader : IPackageDownloader
 
         var tempPath = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
 
-        using (var fileStream = File.OpenWrite(tempPath))
+        await using (var fileStream = File.OpenWrite(tempPath))
             await httpClient.DownloadAsync(package.FileLocation, fileStream, progress, token).ConfigureAwait(false);
 
         var sha256 = await httpClient.GetStringAsync($"{package.FileLocation}.sha256", token).ConfigureAwait(false);
 
-        using (var fileStream = File.OpenRead(tempPath))
+        await using (var fileStream = File.OpenRead(tempPath))
         {
             using var managedSha256 = SHA256.Create();
             var fileSha256Bytes = await managedSha256.ComputeHashAsync(fileStream, token).ConfigureAwait(false);

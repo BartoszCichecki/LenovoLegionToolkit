@@ -2539,6 +2539,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This package is newer than installed on your system..
+        /// </summary>
+        public static string PackageControl_IsUpdateInfo {
+            get {
+                return ResourceManager.GetString("PackageControl_IsUpdateInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This package is more than a year old..
         /// </summary>
         public static string PackageControl_OldPackageWarning {

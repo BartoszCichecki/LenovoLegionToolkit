@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
+using LenovoLegionToolkit.Lib.PackageDownloader.Detectors;
 
 namespace LenovoLegionToolkit.Lib.PackageDownloader;
 
@@ -17,6 +18,8 @@ public class CommercialPackageDownloader : AbstractPackageDownloader
     }
 
     private readonly string _catalogBaseUrl = "https://download.lenovo.com/catalog/";
+
+    private readonly CommercialPackageUpdateDetector _updateDetector = new();
 
     public override async Task<List<Package>> GetPackagesAsync(string machineType, OS os, IProgress<float>? progress = null, CancellationToken token = default)
     {
@@ -86,6 +89,8 @@ public class CommercialPackageDownloader : AbstractPackageDownloader
 
         var packageString = await httpClient.GetStringAsync(location, token).ConfigureAwait(false);
 
+        //File.WriteAllText($"D:\\LLT_temp\\updates\\{Path.GetFileName(location)}", packageString);
+
         var document = new XmlDocument();
         document.LoadXml(packageString);
 
@@ -100,6 +105,7 @@ public class CommercialPackageDownloader : AbstractPackageDownloader
         var readmeName = document.SelectSingleNode("/Package/Files/Readme/File/Name")?.InnerText;
         var readme = await GetReadmeAsync(httpClient, $"{baseLocation}/{readmeName}", token).ConfigureAwait(false);
         var fileLocation = $"{baseLocation}/{fileName}";
+        var isUpdate = await _updateDetector.DetectAsync(httpClient, document, baseLocation, token).ConfigureAwait(false);
 
         return new()
         {
@@ -113,6 +119,7 @@ public class CommercialPackageDownloader : AbstractPackageDownloader
             ReleaseDate = releaseDate,
             Readme = readme,
             FileLocation = fileLocation,
+            IsUpdate = isUpdate
         };
     }
 }

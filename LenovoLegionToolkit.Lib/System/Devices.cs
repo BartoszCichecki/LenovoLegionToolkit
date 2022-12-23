@@ -148,8 +148,7 @@ public static class Devices
                 PInvokeExtensions.ThrowIfWin32Error("SetupDiEnumDeviceInfo");
             }
 
-            var deviceInterfaceData = new SP_DEVICE_INTERFACE_DATA
-                { cbSize = (uint)Marshal.SizeOf<SP_DEVICE_INTERFACE_DATA>() };
+            var deviceInterfaceData = new SP_DEVICE_INTERFACE_DATA { cbSize = (uint)Marshal.SizeOf<SP_DEVICE_INTERFACE_DATA>() };
 
             var result2 = PInvoke.SetupDiEnumDeviceInterfaces(deviceHandle, null, devClassHidGuid, currentIndex,
                 ref deviceInterfaceData);

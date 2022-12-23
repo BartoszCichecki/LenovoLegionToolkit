@@ -40,6 +40,19 @@ public static class Registry
         return watcher;
     }
 
+    public static bool Exists(string hive, string path)
+    {
+        try
+        {
+            var value = Microsoft.Win32.Registry.GetValue(@$"{hive}\{path}", null, null);
+            return value is not null;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
     public static T Read<T>(string hive, string path, string key, T defaultValue)
     {
         var result = Microsoft.Win32.Registry.GetValue(@$"{hive}\{path}", key, defaultValue);

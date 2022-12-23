@@ -15,6 +15,7 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -75,8 +76,18 @@
                 </TextBlock>
 
                 <TextBlock
-                    x:Name="_warningTextBlock"
+                    x:Name="_isUpdateTextBlock"
                     Grid.Row="5"
+                    Grid.Column="0"
+                    Margin="0,4,0,0"
+                    Foreground="{DynamicResource SystemFillColorSuccessBrush}"
+                    Text="{x:Static resources:Resource.PackageControl_IsUpdateInfo}"
+                    TextTrimming="CharacterEllipsis"
+                    Visibility="Collapsed" />
+
+                <TextBlock
+                    x:Name="_warningTextBlock"
+                    Grid.Row="6"
                     Grid.Column="0"
                     Margin="0,4,0,0"
                     Foreground="{DynamicResource SystemFillColorCautionBrush}"
@@ -109,7 +120,7 @@
                 <StackPanel
                     x:Name="_downloadingStackPanel"
                     Grid.Row="0"
-                    Grid.RowSpan="6"
+                    Grid.RowSpan="7"
                     Grid.Column="1"
                     HorizontalAlignment="Right"
                     Orientation="Horizontal"

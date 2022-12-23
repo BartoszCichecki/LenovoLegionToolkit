@@ -93,10 +93,7 @@ public class CPUBoostModeController
 
     private async Task<CPUBoostModeSettings> GetCPUBoostSettingsAsync(PowerPlan powerPlan, List<CPUBoostMode> cpuBoostModes)
     {
-        var output = await CMD.RunAsync("powercfg", $"/QUERY {powerPlan.Guid} {ProcessorPowerManagementSubgroupGUID} {PowerSettingGUID}").ConfigureAwait(false);
-        var outputLines = output
-            .Split(Environment.NewLine)
-            .Select(s => s.Trim());
+        var (_, output) = await CMD.RunAsync("powercfg", $"/QUERY {powerPlan.Guid} {ProcessorPowerManagementSubgroupGUID} {PowerSettingGUID}").ConfigureAwait(false);
 
         var matches = Regex.Matches(output, "0[xX][0-9a-fA-F]+");
 

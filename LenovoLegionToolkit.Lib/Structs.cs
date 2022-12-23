@@ -292,6 +292,7 @@ public struct Package
     public DateTime ReleaseDate { get; init; }
     public string? Readme { get; init; }
     public string FileLocation { get; init; }
+    public bool IsUpdate { get; init; }
 
     private string? _index;
 

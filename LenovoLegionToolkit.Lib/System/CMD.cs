@@ -6,7 +6,7 @@ namespace LenovoLegionToolkit.Lib.System;
 
 public static class CMD
 {
-    public static async Task<string> RunAsync(string file, string arguments, bool waitForExit = true)
+    public static async Task<(int, string)> RunAsync(string file, string arguments, bool waitForExit = true)
     {
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Running... [file={file}, argument={arguments}]");
@@ -17,7 +17,8 @@ public static class CMD
         cmd.StartInfo.RedirectStandardOutput = true;
         cmd.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
         cmd.StartInfo.FileName = file;
-        cmd.StartInfo.Arguments = arguments;
+        if (!string.IsNullOrWhiteSpace(arguments))
+            cmd.StartInfo.Arguments = arguments;
         cmd.Start();
 
         if (!waitForExit)
@@ -25,14 +26,17 @@ public static class CMD
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Ran [file={file}, argument={arguments}, waitForExit={waitForExit}]");
 
-            return string.Empty;
+            return (-1, string.Empty);
         }
 
+        await cmd.WaitForExitAsync().ConfigureAwait(false);
+
+        var exitCode = cmd.ExitCode;
         var output = await cmd.StandardOutput.ReadToEndAsync().ConfigureAwait(false);
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Ran [file={file}, argument={arguments}, waitForExit={waitForExit}, output={output}]");
+            Log.Instance.Trace($"Ran [file={file}, argument={arguments}, waitForExit={waitForExit}, exitCode={exitCode} output={output}]");
 
-        return output;
+        return (exitCode, output);
     }
 }
