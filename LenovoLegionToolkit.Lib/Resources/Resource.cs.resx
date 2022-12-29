@@ -70,9 +70,6 @@
   <data name="AlwaysOnUSBState_OnAlways" xml:space="preserve">
     <value>Vždy zapnut</value>
   </data>
-  <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
-    <value>Zapnut, i když spí</value>
-  </data>
   <data name="AutorunState_Disabled" xml:space="preserve">
     <value>Zakázán</value>
   </data>
