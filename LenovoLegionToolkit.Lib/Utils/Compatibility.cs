@@ -113,7 +113,8 @@ public static class Compatibility
             ("K1CN", 31),
             ("J2CN", 40),
             ("JUCN", 51),
-            ("JYCN", 39)
+            ("JYCN", 39),
+            ("KFCN", 32)
         };
 
         foreach (var (biosPrefix, minimumVersion) in supportedBiosVersions)
