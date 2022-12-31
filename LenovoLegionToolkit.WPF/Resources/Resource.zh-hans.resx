@@ -804,14 +804,14 @@
     <value>Num Lock 开</value>
   </data>
   <data name="Notification_SpectrumKeyboardBacklight_Backlight" xml:space="preserve">
-		<value>背光 {0}</value>
-	</data>
+    <value>背光 {0}</value>
+  </data>
   <data name="Notification_SpectrumKeyboardBacklight_Brightness" xml:space="preserve">
-		<value>键盘背光亮度 {0}</value>
-	</data>
+    <value>键盘背光亮度 {0}</value>
+  </data>
   <data name="Notification_SpectrumKeyboardBacklight_Profile" xml:space="preserve">
-		<value>灯效主题 {0}</value>
-	</data>
+    <value>灯效主题 {0}</value>
+  </data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
     <value>触摸板已关闭</value>
   </data>
@@ -1013,8 +1013,8 @@
     <value>自定义模式</value>
   </data>
   <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
-		<value>默认</value>
-	</data>
+    <value>默认</value>
+  </data>
   <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
     <value>野兽模式</value>
   </data>
@@ -1266,9 +1266,6 @@
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
     <value>无法应用此主题</value>
   </data>
-  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
-    <value>无法应用灯效主题。</value>
-  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>亮度</value>
   </data>
@@ -1282,8 +1279,8 @@
     <value>没有灯效主题。</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip" xml:space="preserve">
-		<value>重置为默认配置</value>
-	</data>
+    <value>重置为默认配置</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
     <value>全选所有灯区</value>
   </data>
