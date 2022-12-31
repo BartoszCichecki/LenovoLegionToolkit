@@ -796,14 +796,14 @@
     <value>مفاتيح ألأرقام مفتوحة</value>
   </data>
   <data name="Notification_SpectrumKeyboardBacklight_Backlight" xml:space="preserve">
-		<value>الإضاءة الخلفية {0}</value>
-	</data>
+    <value>الإضاءة الخلفية {0}</value>
+  </data>
   <data name="Notification_SpectrumKeyboardBacklight_Brightness" xml:space="preserve">
-		<value>الإضاءة {0}</value>
-	</data>
+    <value>الإضاءة {0}</value>
+  </data>
   <data name="Notification_SpectrumKeyboardBacklight_Profile" xml:space="preserve">
-		<value>الملف الشخصي {0}</value>
-	</data>
+    <value>الملف الشخصي {0}</value>
+  </data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
     <value>لوحة اللمس مُقفلة</value>
   </data>
@@ -1003,8 +1003,8 @@
     <value>وضع مخصص</value>
   </data>
   <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
-		<value>الافتراضي</value>
-	</data>
+    <value>الافتراضي</value>
+  </data>
   <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
     <value>وضع الأداء</value>
   </data>
@@ -1243,9 +1243,6 @@
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
     <value>تعذر إضافة الملف الشخصي</value>
   </data>
-  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
-    <value>لا يمكن تطبيق الملف الشخصي المضيء.</value>
-  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>السطوع</value>
   </data>
@@ -1259,8 +1256,8 @@
     <value>لا مؤثرات إضاءة تم أضافتها.</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip" xml:space="preserve">
-		<value>إعادة الضبط إلى الوضع الإفتراضي</value>
-	</data>
+    <value>إعادة الضبط إلى الوضع الإفتراضي</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
     <value>قم بإلغاء تحديد جميع مناطق الإضاءة</value>
   </data>
