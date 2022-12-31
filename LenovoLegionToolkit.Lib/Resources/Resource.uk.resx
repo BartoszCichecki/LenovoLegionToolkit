@@ -109,6 +109,33 @@
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
     <value>Гібридний-іГП</value>
   </data>
+  <data name="NotificationPosition_BottomCenter" xml:space="preserve">
+    <value>Внизу по центру</value>
+  </data>
+  <data name="NotificationPosition_BottomLeft" xml:space="preserve">
+    <value>Внизу зліва</value>
+  </data>
+  <data name="NotificationPosition_BottomRight" xml:space="preserve">
+    <value>Внизу справа</value>
+  </data>
+  <data name="NotificationPosition_Center" xml:space="preserve">
+    <value>Центр</value>
+  </data>
+  <data name="NotificationPosition_CenterLeft" xml:space="preserve">
+    <value>По центру ліворуч</value>
+  </data>
+  <data name="NotificationPosition_CenterRight" xml:space="preserve">
+    <value>По центру праворуч</value>
+  </data>
+  <data name="NotificationPosition_TopCenter" xml:space="preserve">
+    <value>Вгорі по центру</value>
+  </data>
+  <data name="NotificationPosition_TopLeft" xml:space="preserve">
+    <value>Вгорі зліва</value>
+  </data>
+  <data name="NotificationPosition_TopRight" xml:space="preserve">
+    <value>Вгорі справа</value>
+  </data>
   <data name="PowerModeState_Balance" xml:space="preserve">
     <value>Збалансований</value>
   </data>
