@@ -800,14 +800,14 @@
     <value>Num Lock включен</value>
   </data>
   <data name="Notification_SpectrumKeyboardBacklight_Backlight" xml:space="preserve">
-		<value>Подсветка {0}</value>
-	</data>
+    <value>Подсветка {0}</value>
+  </data>
   <data name="Notification_SpectrumKeyboardBacklight_Brightness" xml:space="preserve">
-		<value>Яркость {0}</value>
-	</data>
+    <value>Яркость {0}</value>
+  </data>
   <data name="Notification_SpectrumKeyboardBacklight_Profile" xml:space="preserve">
-		<value>Профиль {0}</value>
-	</data>
+    <value>Профиль {0}</value>
+  </data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
     <value>Сенсорная панель отключена</value>
   </data>
@@ -1007,8 +1007,8 @@
     <value>Пользовательский режим</value>
   </data>
   <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
-		<value>По умолчанию</value>
-	</data>
+    <value>По умолчанию</value>
+  </data>
   <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
     <value>Режим макс. производительности</value>
   </data>
@@ -1259,9 +1259,6 @@
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
     <value>Не удалось применить профиль</value>
   </data>
-  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
-    <value>Не удалось применить профиль подсветки.</value>
-  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Яркость</value>
   </data>
@@ -1275,8 +1272,8 @@
     <value>Эффекты не добавлены.</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip" xml:space="preserve">
-		<value>Сбросить по умолчанию</value>
-	</data>
+    <value>Сбросить по умолчанию</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
     <value>Выделить все зоны</value>
   </data>
