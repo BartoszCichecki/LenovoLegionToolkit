@@ -795,14 +795,14 @@ ATTENZIONE: questa azione non verrà eseguita correttamente se il display intern
     <value>Num Lock on</value>
   </data>
   <data name="Notification_SpectrumKeyboardBacklight_Backlight" xml:space="preserve">
-		<value>Retroilluminazione {0}</value>
-	</data>
+    <value>Retroilluminazione {0}</value>
+  </data>
   <data name="Notification_SpectrumKeyboardBacklight_Brightness" xml:space="preserve">
-		<value>Luminosità {0}</value>
-	</data>
+    <value>Luminosità {0}</value>
+  </data>
   <data name="Notification_SpectrumKeyboardBacklight_Profile" xml:space="preserve">
-		<value>Profilo {0}</value>
-	</data>
+    <value>Profilo {0}</value>
+  </data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
     <value>Touchpad off</value>
   </data>
@@ -1002,8 +1002,8 @@ Puoi anche usare la scorciatoia Fn+Q.</value>
     <value>Personalizzata</value>
   </data>
   <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
-		<value>Predefinito</value>
-	</data>
+    <value>Predefinito</value>
+  </data>
   <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
     <value>Prestazioni</value>
   </data>
@@ -1254,9 +1254,6 @@ Il riavvio è consigliabile dopo aver cambiato questa impostazione.</value>
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
     <value>Impossibile applicare il profilo</value>
   </data>
-  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
-    <value>Impossibile applicare il profilo di illuminazione.</value>
-  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Luminosità</value>
   </data>
@@ -1270,8 +1267,8 @@ Il riavvio è consigliabile dopo aver cambiato questa impostazione.</value>
     <value>Nessun effetto impostato.</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip" xml:space="preserve">
-		<value>Reimposta a predefinito</value>
-	</data>
+    <value>Reimposta a predefinito</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
     <value>Deseleziona tutte le zone</value>
   </data>
