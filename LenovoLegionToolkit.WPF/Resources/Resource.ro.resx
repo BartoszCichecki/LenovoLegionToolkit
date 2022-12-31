@@ -800,14 +800,14 @@ ATENȚIE: Această acțiune nu va rula corect dacă afișajul incorporat este op
     <value>Num Lock activat</value>
   </data>
   <data name="Notification_SpectrumKeyboardBacklight_Backlight" xml:space="preserve">
-		<value>Iluminare {0}</value>
-	</data>
+    <value>Iluminare {0}</value>
+  </data>
   <data name="Notification_SpectrumKeyboardBacklight_Brightness" xml:space="preserve">
-		<value>Luminozitate {0}</value>
-	</data>
+    <value>Luminozitate {0}</value>
+  </data>
   <data name="Notification_SpectrumKeyboardBacklight_Profile" xml:space="preserve">
-		<value>Profil {0}</value>
-	</data>
+    <value>Profil {0}</value>
+  </data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
     <value>Touchpad oprit</value>
   </data>
@@ -1007,8 +1007,8 @@ Puteți schimba modul apăsând Fn+Q.</value>
     <value>Mod Personalizat</value>
   </data>
   <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
-		<value>Implicit</value>
-	</data>
+    <value>Implicit</value>
+  </data>
   <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
     <value>Mod Performant</value>
   </data>
@@ -1259,9 +1259,6 @@ Se recomandă repornirea după modificarea acestei opțiuni.</value>
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
     <value>Nu s-a putut aplica profilul</value>
   </data>
-  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
-    <value>Profilul de iluminare nu s-a putut aplica.</value>
-  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Luminozitate</value>
   </data>
@@ -1275,8 +1272,8 @@ Se recomandă repornirea după modificarea acestei opțiuni.</value>
     <value>Niciun efect adăugat.</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip" xml:space="preserve">
-		<value>Resetare la valorile implicite</value>
-	</data>
+    <value>Resetare la valorile implicite</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
     <value>Selectați toate zonele</value>
   </data>
