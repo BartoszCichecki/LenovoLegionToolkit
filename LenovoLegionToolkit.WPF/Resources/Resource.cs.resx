@@ -530,6 +530,9 @@ Díky předem!</value>
   <data name="Edit" xml:space="preserve">
     <value>Editovat</value>
   </data>
+  <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
+		<value>Zruš zaškrtnutí obnovovacích frekvencí, které nechceš používat při použití zkratky Fn+R.</value>
+	</data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>Ujisti se, že je zapnutý displej notebooku. Lenovo Legion Toolkit nemůže načíst obnovovací frekvence pro displej, který není zapnutý.</value>
   </data>
