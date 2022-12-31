@@ -797,14 +797,14 @@
     <value>Num Lock увімкнено</value>
   </data>
   <data name="Notification_SpectrumKeyboardBacklight_Backlight" xml:space="preserve">
-		<value>Підсвітка {0}</value>
-	</data>
+    <value>Підсвітка {0}</value>
+  </data>
   <data name="Notification_SpectrumKeyboardBacklight_Brightness" xml:space="preserve">
-		<value>Яскравість {0}</value>
-	</data>
+    <value>Яскравість {0}</value>
+  </data>
   <data name="Notification_SpectrumKeyboardBacklight_Profile" xml:space="preserve">
-		<value>Профіль {0}</value>
-	</data>
+    <value>Профіль {0}</value>
+  </data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
     <value>Тачпад вимкнений</value>
   </data>
@@ -1004,8 +1004,8 @@
     <value>Користувальницький режим</value>
   </data>
   <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
-		<value>За замовчуванням</value>
-	</data>
+    <value>За замовчуванням</value>
+  </data>
   <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
     <value>Режим продуктивності</value>
   </data>
@@ -1256,9 +1256,6 @@
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
     <value>Не вдалося зберегти профіль</value>
   </data>
-  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
-    <value>Профіль підсвітки не було застосовано.</value>
-  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Яскравість</value>
   </data>
@@ -1272,8 +1269,8 @@
     <value>Жодного ефекту не додано.</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip" xml:space="preserve">
-		<value>Скинути</value>
-	</data>
+    <value>Скинути</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
     <value>Обрати усі зони</value>
   </data>
