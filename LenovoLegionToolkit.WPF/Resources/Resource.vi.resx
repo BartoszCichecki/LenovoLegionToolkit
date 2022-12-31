@@ -800,14 +800,14 @@ CẢNH BÁO: Hành động sẽ không chạy nếu màn hình laptop tắt.</va
     <value>Numlock bật</value>
   </data>
   <data name="Notification_SpectrumKeyboardBacklight_Backlight" xml:space="preserve">
-		<value>Đèn nền bàn phím {0}</value>
-	</data>
+    <value>Đèn nền bàn phím {0}</value>
+  </data>
   <data name="Notification_SpectrumKeyboardBacklight_Brightness" xml:space="preserve">
-		<value>Độ sáng {0}</value>
-	</data>
+    <value>Độ sáng {0}</value>
+  </data>
   <data name="Notification_SpectrumKeyboardBacklight_Profile" xml:space="preserve">
-		<value>Cấu hình {0}</value>
-	</data>
+    <value>Cấu hình {0}</value>
+  </data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
     <value>Touchpad tắt</value>
   </data>
@@ -1007,8 +1007,8 @@ Bạn có thể chuyển đổi giữa các Chế độ với Fn+Q.</value>
     <value>Tùy Chỉnh</value>
   </data>
   <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
-		<value>Mặc định</value>
-	</data>
+    <value>Mặc định</value>
+  </data>
   <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
     <value>Hiệu Suất</value>
   </data>
@@ -1259,9 +1259,6 @@ Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
     <value>Không thể áp dụng cấu hình</value>
   </data>
-  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
-    <value>Cấu hình đèn nền không thể được áp dụng.</value>
-  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Độ sáng</value>
   </data>
@@ -1275,8 +1272,8 @@ Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
     <value>Không có hiệu ứng nào được thêm.</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip" xml:space="preserve">
-		<value>Khôi phục về mặc định</value>
-	</data>
+    <value>Khôi phục về mặc định</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
     <value>Chọn tất cả các vùng</value>
   </data>
