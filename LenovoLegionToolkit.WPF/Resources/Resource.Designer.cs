@@ -1489,6 +1489,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Export.
+        /// </summary>
+        public static string Export {
+            get {
+                return ResourceManager.GetString("Export", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Use only integrated GPU when on battery and both integrated and discrete GPU when AC adapter is connected. When a non-standard adapter is connected, system switches to Hybrid-iGPU Only Mode..
         /// </summary>
         public static string ExtendedHybridModeInfoWindow_Auto_Message {
@@ -1949,6 +1958,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string HDRControl_Warning {
             get {
                 return ResourceManager.GetString("HDRControl_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Import.
+        /// </summary>
+        public static string Import {
+            get {
+                return ResourceManager.GetString("Import", resourceCulture);
             }
         }
         
@@ -3592,20 +3610,20 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lighting profile couldn&apos;t be applied..
+        /// </summary>
+        public static string SpectrumKeyboardBacklightControl_ApplyProfileError_Message {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightControl_ApplyProfileError_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Couldn&apos;t apply profile.
         /// </summary>
         public static string SpectrumKeyboardBacklightControl_ApplyProfileError_Title {
             get {
                 return ResourceManager.GetString("SpectrumKeyboardBacklightControl_ApplyProfileError_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Lighting profile couldn&apos;t be applied..
-        /// </summary>
-        public static string SpectrumKeyboardBacklightControl_ApplyProfileError_Title_Message {
-            get {
-                return ResourceManager.GetString("SpectrumKeyboardBacklightControl_ApplyProfileError_Title_Message", resourceCulture);
             }
         }
         
@@ -3633,6 +3651,42 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string SpectrumKeyboardBacklightControl_Effects {
             get {
                 return ResourceManager.GetString("SpectrumKeyboardBacklightControl_Effects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profile couldn&apos;t be exported.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightControl_ExportProfileError_Message {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightControl_ExportProfileError_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Couldn&apos;t export profile.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightControl_ExportProfileError_Title {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightControl_ExportProfileError_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profile couldn&apos;t be imported.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightControl_ImportProfileError_Message {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightControl_ImportProfileError_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Couldn&apos;t import profile.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightControl_ImportProfileError_Title {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightControl_ImportProfileError_Title", resourceCulture);
             }
         }
         

@@ -15,6 +15,7 @@ using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum;
+using Microsoft.Win32;
 
 namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum;
 
@@ -171,6 +172,64 @@ public partial class SpectrumKeyboardBacklightControl
 
         if (IsVisible)
             await StartAnimationAsync();
+    }
+
+    private async void ExportButton_Click(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            var sfd = new SaveFileDialog
+            {
+                Title = Resource.Export,
+                InitialDirectory = "::{20D04FE0-3AEA-1069-A2D8-08002B30309D}",
+                Filter = "Json Files (.json)|*.json",
+            };
+
+            var result = sfd.ShowDialog();
+
+            if (!result.HasValue || !result.Value)
+                return;
+
+            var profile = await _controller.GetProfileAsync();
+            await _controller.ExportProfileDescriptionAsync(profile, sfd.FileName);
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Couldn't export profile.", ex);
+
+            await SnackbarHelper.ShowAsync(Resource.SpectrumKeyboardBacklightControl_ExportProfileError_Title, Resource.SpectrumKeyboardBacklightControl_ExportProfileError_Message, true);
+        }
+    }
+
+    private async void ImportButton_Click(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            var ofd = new OpenFileDialog
+            {
+                Title = Resource.Import,
+                InitialDirectory = "::{20D04FE0-3AEA-1069-A2D8-08002B30309D}",
+                Filter = "Json Files (.json)|*.json",
+                CheckFileExists = true,
+            };
+            var result = ofd.ShowDialog();
+
+            if (!result.HasValue || !result.Value)
+                return;
+
+            var profile = await _controller.GetProfileAsync();
+            await _controller.ImportProfileDescription(profile, ofd.FileName);
+
+            await RefreshProfileDescriptionAsync();
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Couldn't import profile.", ex);
+
+            await SnackbarHelper.ShowAsync(Resource.SpectrumKeyboardBacklightControl_ImportProfileError_Title, Resource.SpectrumKeyboardBacklightControl_ImportProfileError_Message, true);
+        }
     }
 
     private void AddEffectButton_Click(object sender, RoutedEventArgs e)
@@ -391,7 +450,7 @@ public partial class SpectrumKeyboardBacklightControl
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Couldn't apply profile.", ex);
 
-            await SnackbarHelper.ShowAsync(Resource.SpectrumKeyboardBacklightControl_ApplyProfileError_Title, Resource.SpectrumKeyboardBacklightControl_ApplyProfileError_Title_Message, true);
+            await SnackbarHelper.ShowAsync(Resource.SpectrumKeyboardBacklightControl_ApplyProfileError_Title, Resource.SpectrumKeyboardBacklightControl_ApplyProfileError_Message, true);
         }
 
         await RefreshProfileDescriptionAsync();

@@ -534,6 +534,7 @@ public readonly struct SpectrumKeyboardBacklightKeys
     public bool All { get; }
     public ushort[] KeyCodes { get; }
 
+    [JsonConstructor]
     private SpectrumKeyboardBacklightKeys(bool all, ushort[] keyCodes)
     {
         All = all;
