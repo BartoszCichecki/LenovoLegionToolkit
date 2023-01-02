@@ -547,6 +547,9 @@
   <data name="Exit" xml:space="preserve">
     <value>退出</value>
   </data>
+  <data name="Export" xml:space="preserve">
+    <value>导出</value>
+  </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
     <value>使用电池时只使用核显，连接充电器时同时使用核显与独显。当连接非标准充电器时，系统会切换到混合核显模式。</value>
   </data>
@@ -706,6 +709,9 @@
   </data>
   <data name="HDRControl_Warning" xml:space="preserve">
     <value>Windows 设置已阻止启用 HDR。</value>
+  </data>
+  <data name="Import">
+    <value>导入</value>
   </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>此设备可能与联想拯救箱不兼容</value>
@@ -1266,6 +1272,9 @@
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
     <value>无法应用此主题</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
+    <value>无法应用灯效主题。</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>亮度</value>
   </data>
@@ -1274,6 +1283,18 @@
   </data>
   <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
     <value>效果</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Message" xml:space="preserve">
+  	<value>无法导出配置文件</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Title" xml:space="preserve">
+  	<value>无法导出配置文件</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Message" xml:space="preserve">
+    <value>无法导入配置文件</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Title" xml:space="preserve">
+  	<value>无法导入配置文件</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
     <value>没有灯效主题。</value>
