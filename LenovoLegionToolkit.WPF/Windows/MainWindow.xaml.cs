@@ -16,8 +16,6 @@ using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Utils;
 using Wpf.Ui.Controls;
 
-#pragma warning disable IDE0052 // Remove unread private members
-
 namespace LenovoLegionToolkit.WPF.Windows;
 
 public partial class MainWindow
@@ -30,7 +28,6 @@ public partial class MainWindow
     public Snackbar Snackbar => _snackbar;
 
     private SystemEventInterceptor? _systemEventInterceptor;
-    private NotifyIcon? _notifyIcon;
 
     public MainWindow()
     {
@@ -59,29 +56,16 @@ public partial class MainWindow
 
     private void InitializeTray()
     {
-        _notifyIcon?.Unregister();
-
         ContextMenuHelper.Instance.BringToForeground = BringToForeground;
         ContextMenuHelper.Instance.Close = App.Current.ShutdownAsync;
 
-        var notifyIcon = new NotifyIcon
-        {
-            TooltipText = Resource.AboutPage_AppName,
-            Icon = ImageSourceExtensions.ApplicationIcon(),
-            FocusOnLeftClick = false,
-            MenuOnRightClick = true,
-            Menu = ContextMenuHelper.Instance.ContextMenu,
-        };
-        notifyIcon.LeftClick += NotifyIcon_LeftClick;
-        notifyIcon.Register();
-
-        _notifyIcon = notifyIcon;
+        _trayIcon.TrayLeftMouseUp += (s, e) => BringToForeground();
+        _trayIcon.ContextMenu = ContextMenuHelper.Instance.ContextMenu;
     }
 
     private void MainWindow_SourceInitialized(object? sender, EventArgs args)
     {
         var systemEventInterceptor = new SystemEventInterceptor(this);
-        systemEventInterceptor.OnTaskbarCreated += (_, _) => InitializeTray();
         systemEventInterceptor.OnDisplayDeviceArrival += (_, _) => Task.Run(IoCContainer.Resolve<IGPUModeFeature>().NotifyAsync);
         systemEventInterceptor.OnResumed += (_, _) => Task.Run(async () =>
         {
@@ -130,8 +114,6 @@ public partial class MainWindow
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Closing...");
-
-            _notifyIcon?.Unregister();
 
             await App.Current.ShutdownAsync();
         }

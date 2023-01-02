@@ -38,7 +38,10 @@ public class ContextMenuHelper
 
     private ContextMenuHelper()
     {
-        ContextMenu = new ContextMenu();
+        ContextMenu = new ContextMenu
+        {
+            FontSize = 14
+        };
 
         var openMenuItem = new MenuItem { Header = Resource.Open, Tag = StaticTag };
         openMenuItem.Click += (s, e) => BringToForeground?.Invoke();

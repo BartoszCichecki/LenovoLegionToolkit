@@ -73,10 +73,8 @@ OpenProcessToken
 
 CM_Get_DevNode_Status
 
-ChangeWindowMessageFilter
 RegisterDeviceNotification
 RegisterPowerSettingNotification
-RegisterWindowMessage
 UnregisterDeviceNotification
 UnregisterPowerSettingNotification
 

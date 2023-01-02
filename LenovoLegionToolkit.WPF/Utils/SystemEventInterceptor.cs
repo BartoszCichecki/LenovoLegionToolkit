@@ -20,13 +20,11 @@ internal unsafe class SystemEventInterceptor : NativeWindow
 {
     private readonly SafeHandle _safeHandle;
 
-    private readonly uint _taskbarCreatedMessageId;
     private readonly void* _displayArrivalHandle;
     private readonly SafeHandle _powerNotificationHandle;
     private readonly HOOKPROC _kbProc;
     private readonly HHOOK _kbHook;
 
-    public event EventHandler? OnTaskbarCreated;
     public event EventHandler? OnDisplayDeviceArrival;
     public event EventHandler? OnResumed;
 
@@ -38,7 +36,6 @@ internal unsafe class SystemEventInterceptor : NativeWindow
         _kbProc = LowLevelKeyboardProc;
         _kbHook = PInvoke.SetWindowsHookEx(WINDOWS_HOOK_ID.WH_KEYBOARD_LL, _kbProc, HINSTANCE.Null, 0);
 
-        _taskbarCreatedMessageId = RegisterTaskbarCreatedMessage();
         _displayArrivalHandle = RegisterDisplayArrival(_safeHandle);
 
         _powerNotificationHandle = PInvoke.RegisterPowerSettingNotification(_safeHandle, PInvoke.GUID_MONITOR_POWER_ON, 0);
@@ -58,13 +55,6 @@ internal unsafe class SystemEventInterceptor : NativeWindow
         _powerNotificationHandle.DangerousRelease();
 
         ReleaseHandle();
-    }
-
-    private static uint RegisterTaskbarCreatedMessage()
-    {
-        var message = PInvoke.RegisterWindowMessage("TaskbarCreated");
-        PInvoke.ChangeWindowMessageFilter(message, CHANGE_WINDOW_MESSAGE_FILTER_FLAGS.MSGFLT_ADD);
-        return message;
     }
 
     private static void* RegisterDisplayArrival(SafeHandle handle)
@@ -88,14 +78,6 @@ internal unsafe class SystemEventInterceptor : NativeWindow
 
     protected override void WndProc(ref Message m)
     {
-        if (m.Msg == _taskbarCreatedMessageId)
-        {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"TaskbarCreated received.");
-
-            OnTaskbarCreated?.Invoke(this, EventArgs.Empty);
-        }
-
         if (m.Msg == PInvoke.WM_POWERBROADCAST)
         {
             if (m.WParam == (IntPtr)PInvoke.PBT_POWERSETTINGCHANGE)
