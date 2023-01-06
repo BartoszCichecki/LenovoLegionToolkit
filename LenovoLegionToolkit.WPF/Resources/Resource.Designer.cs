@@ -2115,6 +2115,42 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mute all available microphones..
+        /// </summary>
+        public static string MicrophoneMuteAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("MicrophoneMuteAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Microphone Mute.
+        /// </summary>
+        public static string MicrophoneMuteAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("MicrophoneMuteAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mute all available microphones..
+        /// </summary>
+        public static string MicrophoneMuteControl_Message {
+            get {
+                return ResourceManager.GetString("MicrophoneMuteControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Microphone Mute.
+        /// </summary>
+        public static string MicrophoneMuteControl_Title {
+            get {
+                return ResourceManager.GetString("MicrophoneMuteControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Move down.
         /// </summary>
         public static string MoveDown {
