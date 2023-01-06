@@ -15,6 +15,8 @@ public interface IAutomationPipelineTrigger
 
 public interface IDisallowDuplicatesAutomationPipelineTrigger { }
 
+public interface INativeWindowsMessagePipelineTrigger { }
+
 public interface IOnStartupAutomationPipelineTrigger { }
 
 public interface IPowerStateAutomationPipelineTrigger { }

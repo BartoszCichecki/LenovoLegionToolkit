@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using LenovoLegionToolkit.Lib;
-using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
@@ -27,16 +26,12 @@ public partial class MainWindow
 
     public Snackbar Snackbar => _snackbar;
 
-    private SystemEventInterceptor? _systemEventInterceptor;
-
     public MainWindow()
     {
         InitializeComponent();
 
-        SourceInitialized += MainWindow_SourceInitialized;
         Loaded += MainWindow_Loaded;
         Closing += MainWindow_Closing;
-        Closed += MainWindow_Closed;
         IsVisibleChanged += MainWindow_IsVisibleChanged;
         StateChanged += MainWindow_StateChanged;
 
@@ -61,19 +56,6 @@ public partial class MainWindow
 
         _trayIcon.TrayLeftMouseUp += (s, e) => BringToForeground();
         _trayIcon.ContextMenu = ContextMenuHelper.Instance.ContextMenu;
-    }
-
-    private void MainWindow_SourceInitialized(object? sender, EventArgs args)
-    {
-        var systemEventInterceptor = new SystemEventInterceptor(this);
-        systemEventInterceptor.OnDisplayDeviceArrival += (_, _) => Task.Run(IoCContainer.Resolve<IGPUModeFeature>().NotifyAsync);
-        systemEventInterceptor.OnResumed += (_, _) => Task.Run(async () =>
-        {
-            await Task.Delay(TimeSpan.FromSeconds(5)).ConfigureAwait(false);
-            await IoCContainer.Resolve<IGPUModeFeature>().NotifyAsync().ConfigureAwait(false);
-        });
-
-        _systemEventInterceptor = systemEventInterceptor;
     }
 
     private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -117,11 +99,6 @@ public partial class MainWindow
 
             await App.Current.ShutdownAsync();
         }
-    }
-
-    private void MainWindow_Closed(object? sender, EventArgs e)
-    {
-        _systemEventInterceptor = null;
     }
 
     private void MainWindow_StateChanged(object? sender, EventArgs e)

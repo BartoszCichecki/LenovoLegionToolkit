@@ -28,9 +28,6 @@ public class TimeAutomationPipelineTrigger : IAutomationPipelineTrigger, ITimeAu
 
     public async Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent)
     {
-        if (automationEvent is StartupAutomationEvent)
-            return false;
-
         if (automationEvent is not TimeAutomationEvent timeAutomationEvent)
             return false;
 

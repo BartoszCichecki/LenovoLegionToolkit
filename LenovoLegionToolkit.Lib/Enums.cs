@@ -122,6 +122,13 @@ public enum MicrophoneMuteState
     On
 }
 
+public enum NativeWindowsMessage
+{
+    MonitorConnected,
+    MonitorDisconnected,
+    OnDisplayDeviceArrival
+}
+
 public enum NotificationDuration
 {
     Short,

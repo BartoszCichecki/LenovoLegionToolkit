@@ -162,6 +162,16 @@ public partial class App
         }
         catch { }
 
+        try
+        {
+            if (IoCContainer.TryResolve<NativeWindowsMessageListener>() is { } windowsMessageListener)
+            {
+                await windowsMessageListener.StopAsync();
+            }
+        }
+        catch { }
+
+
         Shutdown();
     }
 

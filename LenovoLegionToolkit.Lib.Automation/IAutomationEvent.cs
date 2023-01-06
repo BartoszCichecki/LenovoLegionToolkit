@@ -2,6 +2,11 @@
 
 public interface IAutomationEvent { }
 
+public readonly struct NativeWindowsMessageEvent : IAutomationEvent
+{
+    public NativeWindowsMessage Message { get; init; }
+}
+
 public struct StartupAutomationEvent : IAutomationEvent { }
 
 public struct PowerStateAutomationEvent : IAutomationEvent { }

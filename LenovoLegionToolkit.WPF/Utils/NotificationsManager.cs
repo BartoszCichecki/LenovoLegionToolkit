@@ -177,13 +177,18 @@ public class NotificationsManager
 
     private void ShowNotification(SymbolRegular symbol, SymbolRegular? overlaySymbol, Action<SymbolIcon>? symbolTransform, string text, int closeAfter)
     {
+        var mainWindow = Application.Current.MainWindow;
+
+        if (mainWindow is null)
+            return;
+
         if (_window is not null)
         {
             _window.WindowStyle = WindowStyle.None;
             _window.Close();
         }
 
-        var nw = new NotificationWindow(symbol, overlaySymbol, symbolTransform, text, _settings.Store.NotificationPosition) { Owner = Application.Current.MainWindow };
+        var nw = new NotificationWindow(symbol, overlaySymbol, symbolTransform, text, _settings.Store.NotificationPosition) { Owner = mainWindow };
         nw.Show(closeAfter);
         _window = nw;
     }

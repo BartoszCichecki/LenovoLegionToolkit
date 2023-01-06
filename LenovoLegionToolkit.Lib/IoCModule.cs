@@ -44,6 +44,9 @@ public class IoCModule : Module
         builder.Register<WhiteKeyboardBacklightFeature>();
         builder.Register<WinKeyFeature>();
 
+        builder.Register<NativeWindowsMessageListener>()
+            .OnActivating(e => e.Instance.StartAsync().AsValueTask())
+            .AutoActivate();
         builder.Register<PowerStateListener>()
             .OnActivating(e => e.Instance.StartAsync().AsValueTask())
             .AutoActivate();

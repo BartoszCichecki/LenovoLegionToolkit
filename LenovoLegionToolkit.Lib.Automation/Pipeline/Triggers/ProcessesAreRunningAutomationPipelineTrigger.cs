@@ -19,9 +19,6 @@ public class ProcessesAreRunningAutomationPipelineTrigger : IAutomationPipelineT
 
     public Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent)
     {
-        if (automationEvent is StartupAutomationEvent)
-            return Task.FromResult(false);
-
         if (automationEvent is not ProcessAutomationEvent { ProcessEventInfo.Type: ProcessEventInfoType.Started } pae)
             return Task.FromResult(false);
 
