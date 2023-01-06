@@ -601,6 +601,9 @@
   <data name="Exit" xml:space="preserve">
     <value>Вийти</value>
   </data>
+  <data name="Export" xml:space="preserve">
+    <value>Експорт</value>
+  </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
     <value>Використовувати тільки інтегрований ГП коли живиться з батареї, та обидва, інтегрований та дискретний ГП, коли адаптер живлення під'єднано.</value>
   </data>
@@ -758,6 +761,9 @@
   </data>
   <data name="HDRControl_Warning" xml:space="preserve">
     <value>Використання HDR заблоковано налаштуваннями Windows.</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Імпорт</value>
   </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Цей пристрій не сумісний з Lenovo Legion Toolkit.</value>
@@ -1315,6 +1321,9 @@
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
     <value>Не вдалося зберегти профіль</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
+    <value>Профіль підсвітки не було застосовано.</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Яскравість</value>
   </data>
@@ -1323,6 +1332,18 @@
   </data>
   <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
     <value>Ефекти</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Message" xml:space="preserve">
+    <value>Профіль не може бути експортований</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Title" xml:space="preserve">
+    <value>Не вдалося експортувати профіль</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Message" xml:space="preserve">
+    <value>Профіль не може бути імпортований</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Title" xml:space="preserve">
+    <value>Не вдалося імпортувати профіль</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
     <value>Жодного ефекту не додано.</value>
@@ -1485,5 +1506,17 @@
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Так</value>
+  </data>
+  <data name="MicrophoneMuteControl_Title" xml:space="preserve">
+    <value>Вимкнути мікрофон</value>
+  </data>
+  <data name="MicrophoneMuteControl_Message" xml:space="preserve">
+    <value>Вимкнути усі доступні мікрофони.</value>
+  </data>
+  <data name="MicrophoneMuteAutomationStepControl_Title" xml:space="preserve">
+    <value>Вимкнути мікрофон</value>
+  </data>
+  <data name="MicrophoneMuteAutomationStepControl_Message" xml:space="preserve">
+    <value>Вимкнути усі доступні мікрофони.</value>
   </data>
 </root>
