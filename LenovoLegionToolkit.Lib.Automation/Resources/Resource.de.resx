@@ -85,9 +85,6 @@
   <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Wenn Energiemodus geändert wird</value>
   </data>
-  <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Wenn Anwendung ausgeführt wird</value>
-  </data>
   <data name="ProcessesStopRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Wenn Anwendung geschlossen wird</value>
   </data>
