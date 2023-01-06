@@ -1550,4 +1550,7 @@ WARNING: This action will not run correctly, if internal display is off.</value>
 
 WARNING: This action will not run correctly, if internal display is off.</value>
   </data>
+  <data name="DashboardPage_Display_Title" xml:space="preserve">
+	  <value>Display</value>
+  </data>
 </root>

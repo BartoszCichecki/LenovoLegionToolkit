@@ -19,6 +19,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <StackPanel
@@ -48,57 +49,45 @@
                 FontWeight="Medium"
                 Text="{x:Static resources:Resource.DashboardPage_Graphics_Title}" />
             <controls:HybridModeControl />
+            <controls:DiscreteGPUControl />
+
+        </StackPanel>
+
+        <StackPanel
+            x:Name="_displayStackPanel"
+            Grid.Row="1"
+            Grid.Column="0"
+            Margin="0,0,16,0">
+
+            <TextBlock
+                Margin="0,16,0,24"
+                FontSize="24"
+                FontWeight="Medium"
+                Text="{x:Static resources:Resource.DashboardPage_Display_Title}" />
             <controls:ResolutionControl />
             <controls:RefreshRateControl />
             <controls:DpiScaleControl />
             <controls:HDRControl />
-            <controls:DiscreteGPUControl />
+            <controls:OverDriveControl />
 
         </StackPanel>
 
         <StackPanel
             x:Name="_otherStackPanel"
             Grid.Row="1"
-            Grid.Column="0"
-            Grid.ColumnSpan="2">
+            Grid.Column="1"
+            Margin="0,0,16,0">
 
             <TextBlock
                 Margin="0,16,0,24"
                 FontSize="24"
                 FontWeight="Medium"
                 Text="{x:Static resources:Resource.DashboardPage_Other_Title}" />
-
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition x:Name="_otherInnerColumn1" Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-
-                <StackPanel
-                    x:Name="_otherInnerLeftStackPanel"
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Margin="0,0,16,0">
-                    <controls:TouchpadLockControl />
-                    <controls:FnLockControl />
-                    <controls:WinKeyControl />
-                </StackPanel>
-
-                <StackPanel
-                    x:Name="_otherInnerRightStackPanel"
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Margin="0,0,16,0">
-                    <controls:FlipToStartControl />
-                    <controls:OverDriveControl />
-                    <controls:MicrophoneMuteControl />
-                </StackPanel>
-
-            </Grid>
+            <controls:MicrophoneMuteControl />
+            <controls:FlipToStartControl />
+            <controls:TouchpadLockControl />
+            <controls:FnLockControl />
+            <controls:WinKeyControl />
 
         </StackPanel>
 

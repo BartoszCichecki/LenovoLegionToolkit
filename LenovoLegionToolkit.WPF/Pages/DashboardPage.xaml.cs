@@ -26,7 +26,6 @@ public partial class DashboardPage
     private void Expand()
     {
         _column1.Width = new(1, GridUnitType.Star);
-        _otherInnerColumn1.Width = new(1, GridUnitType.Star);
 
         Grid.SetRow(_powerStackPanel, 0);
         Grid.SetColumn(_powerStackPanel, 0);
@@ -34,20 +33,16 @@ public partial class DashboardPage
         Grid.SetRow(_graphicsStackPanel, 0);
         Grid.SetColumn(_graphicsStackPanel, 1);
 
+        Grid.SetRow(_displayStackPanel, 1);
+        Grid.SetColumn(_displayStackPanel, 0);
+
         Grid.SetRow(_otherStackPanel, 1);
-        Grid.SetColumn(_otherStackPanel, 0);
-
-        Grid.SetRow(_otherInnerLeftStackPanel, 0);
-        Grid.SetColumn(_otherInnerLeftStackPanel, 0);
-
-        Grid.SetRow(_otherInnerRightStackPanel, 0);
-        Grid.SetColumn(_otherInnerRightStackPanel, 1);
+        Grid.SetColumn(_otherStackPanel, 1);
     }
 
     private void Collapse()
     {
         _column1.Width = new(0, GridUnitType.Pixel);
-        _otherInnerColumn1.Width = new(0, GridUnitType.Pixel);
 
         Grid.SetRow(_powerStackPanel, 0);
         Grid.SetColumn(_powerStackPanel, 0);
@@ -55,13 +50,10 @@ public partial class DashboardPage
         Grid.SetRow(_graphicsStackPanel, 1);
         Grid.SetColumn(_graphicsStackPanel, 0);
 
-        Grid.SetRow(_otherStackPanel, 2);
+        Grid.SetRow(_displayStackPanel, 2);
+        Grid.SetColumn(_displayStackPanel, 0);
+
+        Grid.SetRow(_otherStackPanel, 3);
         Grid.SetColumn(_otherStackPanel, 0);
-
-        Grid.SetRow(_otherInnerLeftStackPanel, 0);
-        Grid.SetColumn(_otherInnerLeftStackPanel, 0);
-
-        Grid.SetRow(_otherInnerRightStackPanel, 1);
-        Grid.SetColumn(_otherInnerRightStackPanel, 0);
     }
 }
