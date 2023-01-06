@@ -604,6 +604,9 @@ Haga clic en el logotipo de PayPal que aparece a continuación o escanee el cód
   <data name="Exit" xml:space="preserve">
     <value>Salir</value>
   </data>
+  <data name="Export" xml:space="preserve">
+    <value>Exportar</value>
+  </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
     <value>Utilizar sólo la GPU integrada si está en modo batería, y la GPU integrada y la externa, si el adaptador de CA está conectado. Si se conecta un adaptador que no es estándar, el sistema cambiará sólo al modo híbrido-iGPU.</value>
   </data>
@@ -761,6 +764,9 @@ AVISO: Esta acción no se ejecutará correctamente si la pantalla interna está 
   </data>
   <data name="HDRControl_Warning" xml:space="preserve">
     <value>El uso del HDR está bloqueado por la configuración de Windows.</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Importar</value>
   </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Este dispositivo no es compatible con Lenovo Legion Toolkit.</value>
@@ -1319,6 +1325,9 @@ Se recomienda reiniciar después de cambiar esta opción.</value>
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
     <value>No se ha podido aplicar el perfil</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
+    <value>No se ha podido aplicar el perfil de iluminación.</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Brillo</value>
   </data>
@@ -1327,6 +1336,18 @@ Se recomienda reiniciar después de cambiar esta opción.</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
     <value>Efectos</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Message" xml:space="preserve">
+    <value>Perfil no puede ser importado</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Title" xml:space="preserve">
+    <value>No se pudo exportar el perfil</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Message" xml:space="preserve">
+    <value>Perfil no se puede importar</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Title" xml:space="preserve">
+    <value>No se pudo importar el perfil</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
     <value>Ningún efecto añadido.</value>
@@ -1489,5 +1510,48 @@ El registro de sucesos se activará automáticamente, si decide continuar.</valu
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Si</value>
+  </data>
+  <data name="MicrophoneMuteControl_Title" xml:space="preserve">
+    <value>Micrófono en silencio</value>
+  </data>
+  <data name="MicrophoneMuteControl_Message" xml:space="preserve">
+    <value>Silenciar todos los micrófonos disponibles.</value>
+  </data>
+  <data name="MicrophoneMuteAutomationStepControl_Title" xml:space="preserve">
+    <value>Micrófono en silencio</value>
+  </data>
+  <data name="MicrophoneMuteAutomationStepControl_Message" xml:space="preserve">
+    <value>Silenciar todos los micrófonos disponibles.</value>
+  </data>
+  <data name="ResolutionControl_Title" xml:space="preserve">
+	  <value>Resolución</value>
+  </data>
+  <data name="ResolutionControl_Message" xml:space="preserve">
+	  <value>Cambiar resolución de la pantalla integrada.</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
+	  <value>Resolución</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
+	  <value>Cambiar la resolución de la pantalla integrada.
+
+AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está apagada.</value>
+  </data>
+  <data name="DpiScaleControl_Title" xml:space="preserve">
+	  <value>Puntos por pulgada (DPI)</value>
+  </data>
+  <data name="DpiScaleControl_Message" xml:space="preserve">
+	  <value>Cambiar la resolución de la pantalla integrada.</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
+	  <value>Puntos por pulgada (DPI)</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
+	  <value>Cambiar la resolución de la pantalla integrada.
+
+AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está apagada.</value>
+  </data>
+  <data name="DashboardPage_Display_Title" xml:space="preserve">
+	  <value>Pantalla</value>
   </data>
 </root>
