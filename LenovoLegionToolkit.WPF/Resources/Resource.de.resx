@@ -603,6 +603,9 @@ Vielen Dank im Voraus!</value>
   <data name="Exit" xml:space="preserve">
     <value>Beenden</value>
   </data>
+  <data name="Export" xml:space="preserve">
+    <value>Exportieren</value>
+  </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
     <value>Verwende im Akkubetrieb nur die integrierte GPU und bei angeschlossenem Netzteil sowohl die integrierte als auch die diskrete GPU. Wenn ein Nicht-Standard-Adapter angeschlossen ist, schaltet das System in den Modus "Nur Hybrid-iGPU".</value>
   </data>
@@ -760,6 +763,9 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
   </data>
   <data name="HDRControl_Warning" xml:space="preserve">
     <value>Die Verwendung von HDR wird durch die Windows-Einstellungen blockiert.</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Importieren</value>
   </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Dieses Gerät ist nicht mit dem Lenovo Legion Toolkit kompatibel.</value>
@@ -1317,6 +1323,9 @@ Nach dem Ändern dieser Option wird ein Neustart empfohlen.</value>
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
     <value>Konnte Profil nicht anwenden</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
+    <value>Das Beleuchtungsprofil konnte nicht angewendet werden.</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Helligkeit</value>
   </data>
@@ -1325,6 +1334,18 @@ Nach dem Ändern dieser Option wird ein Neustart empfohlen.</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
     <value>Effekte</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Message" xml:space="preserve">
+    <value>Profil konnte nicht exportiert werden</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Title" xml:space="preserve">
+    <value>Konnte Profil nicht exportieren</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Message" xml:space="preserve">
+    <value>Profil konnte nicht importiert werden</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Title" xml:space="preserve">
+    <value>Konnte Profil nicht importieren</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
     <value>Keine Effekte hinzugefügt.</value>
@@ -1487,5 +1508,17 @@ Die Protokollierung wird automatisch aktiviert, wenn Sie fortfahren möchten.</v
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Ja</value>
+  </data>
+  <data name="MicrophoneMuteControl_Title" xml:space="preserve">
+    <value>Mikrofon-Stummschaltung</value>
+  </data>
+  <data name="MicrophoneMuteControl_Message" xml:space="preserve">
+    <value>Alle verfügbaren Mikrofone stumm schalten.</value>
+  </data>
+  <data name="MicrophoneMuteAutomationStepControl_Title" xml:space="preserve">
+    <value>Mikrofon-Stummschaltung</value>
+  </data>
+  <data name="MicrophoneMuteAutomationStepControl_Message" xml:space="preserve">
+    <value>Alle verfügbaren Mikrofone stumm schalten.</value>
   </data>
 </root>
