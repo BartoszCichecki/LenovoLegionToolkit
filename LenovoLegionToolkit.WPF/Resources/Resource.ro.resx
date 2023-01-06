@@ -604,6 +604,9 @@ Mulțumesc anticipat!</value>
   <data name="Exit" xml:space="preserve">
     <value>Ieșire</value>
   </data>
+  <data name="Export" xml:space="preserve">
+    <value>Exportare</value>
+  </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
     <value>Utilizează doar GPU-ul integrat pe baterie și ambele când alimentatorul este conectat. Când este conectat un alimentator non-standard, sistemul comută la modul Hibrid-iGPU.</value>
   </data>
@@ -761,6 +764,9 @@ ATENȚIE: Această acțiune nu va rula corect dacă afișajul incorporat este op
   </data>
   <data name="HDRControl_Warning" xml:space="preserve">
     <value>Utilizarea HDR este blocată de setările Windows.</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Importare</value>
   </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Acest dispozitiv nu este compatibil cu Lenovo Legion Toolkit.</value>
@@ -1318,6 +1324,9 @@ Se recomandă repornirea după modificarea acestei opțiuni.</value>
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
     <value>Nu s-a putut aplica profilul</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
+    <value>Profilul de iluminare nu s-a putut aplica.</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Luminozitate</value>
   </data>
@@ -1326,6 +1335,18 @@ Se recomandă repornirea după modificarea acestei opțiuni.</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
     <value>Efecte</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Message" xml:space="preserve">
+    <value>Profilul nu a putut fi exportat</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Title" xml:space="preserve">
+    <value>Nu s-a putut exporta profilul</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Message" xml:space="preserve">
+    <value>Profilul nu a putut fi importat</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Title" xml:space="preserve">
+    <value>Nu s-a putut importa profilul</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
     <value>Niciun efect adăugat.</value>
