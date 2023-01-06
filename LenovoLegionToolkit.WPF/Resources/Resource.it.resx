@@ -1313,6 +1313,9 @@ Il riavvio è consigliabile dopo aver cambiato questa impostazione.</value>
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
     <value>Impossibile applicare il profilo</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
+    <value>Impossibile applicare il profilo di illuminazione.</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Luminosità</value>
   </data>
@@ -1483,5 +1486,11 @@ Il logging verrà abilitato automaticamente, se scegli di continuare.</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Si</value>
+  </data>
+  <data name="MicrophoneMuteControl_Title" xml:space="preserve">
+    <value>Microfono muto</value>
+  </data>
+  <data name="MicrophoneMuteAutomationStepControl_Title" xml:space="preserve">
+    <value>Microfono muto</value>
   </data>
 </root>
