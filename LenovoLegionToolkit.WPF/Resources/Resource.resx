@@ -1522,4 +1522,18 @@ Logging will be enabled automatically, if you choose to continue.</value>
   <data name="MicrophoneMuteAutomationStepControl_Message" xml:space="preserve">
     <value>Mute all available microphones.</value>
   </data>
+  <data name="ResolutionControl_Title" xml:space="preserve">
+	  <value>Resolution</value>
+  </data>
+  <data name="ResolutionControl_Message" xml:space="preserve">
+	  <value>Change resolution of the built-in display.</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
+	  <value>Resolution</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
+	  <value>Change resolution of the built-in display.
+
+WARNING: This action will not run correctly, if internal display is off.</value>
+  </data>
 </root>

@@ -37,6 +37,7 @@ public class IoCModule : Module
         builder.Register<OverDriveFeature>();
         builder.Register<PowerModeFeature>();
         builder.Register<RefreshRateFeature>();
+        builder.Register<ResolutionFeature>();
         builder.Register<HDRFeature>();
         builder.Register<TouchpadLockFeature>();
         builder.Register<WhiteKeyboardBacklightFeature>();

@@ -91,7 +91,7 @@ public class NotificationsManager
             NotificationType.PowerModeBalance => SymbolRegular.Gauge24,
             NotificationType.PowerModePerformance => SymbolRegular.Gauge24,
             NotificationType.PowerModeGodMode => SymbolRegular.Gauge24,
-            NotificationType.RefreshRate => SymbolRegular.Desktop24,
+            NotificationType.RefreshRate => SymbolRegular.DesktopPulse24,
             NotificationType.RGBKeyboardBacklightOff => SymbolRegular.Lightbulb24,
             NotificationType.RGBKeyboardBacklightChanged => SymbolRegular.Lightbulb24,
             NotificationType.SmartKeyDoublePress => SymbolRegular.StarEmphasis24,

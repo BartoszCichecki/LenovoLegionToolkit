@@ -3011,6 +3011,44 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change resolution of the built-in display.
+        ///
+        ///WARNING: This action will not run correctly, if internal display is off..
+        /// </summary>
+        public static string ResolutionAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("ResolutionAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resolution.
+        /// </summary>
+        public static string ResolutionAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("ResolutionAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change resolution of the built-in display..
+        /// </summary>
+        public static string ResolutionControl_Message {
+            get {
+                return ResourceManager.GetString("ResolutionControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resolution.
+        /// </summary>
+        public static string ResolutionControl_Title {
+            get {
+                return ResourceManager.GetString("ResolutionControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to I will restart later.
         /// </summary>
         public static string RestartLater {

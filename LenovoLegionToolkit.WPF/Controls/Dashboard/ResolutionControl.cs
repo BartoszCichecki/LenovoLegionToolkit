@@ -9,15 +9,15 @@ using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard;
 
-public class RefreshRateControl : AbstractComboBoxFeatureCardControl<RefreshRate>
+public class ResolutionControl : AbstractComboBoxFeatureCardControl<Resolution>
 {
     private readonly DisplayConfigurationListener _listener = IoCContainer.Resolve<DisplayConfigurationListener>();
 
-    public RefreshRateControl()
+    public ResolutionControl()
     {
-        Icon = SymbolRegular.DesktopPulse24;
-        Title = Resource.RefreshRateControl_Title;
-        Subtitle = Resource.RefreshRateControl_Message;
+        Icon = SymbolRegular.ScaleFill24;
+        Title = Resource.ResolutionControl_Title;
+        Subtitle = Resource.ResolutionControl_Message;
 
         _listener.Changed += Listener_Changed;
     }
@@ -29,7 +29,7 @@ public class RefreshRateControl : AbstractComboBoxFeatureCardControl<RefreshRate
         Visibility = ItemsCount < 2 ? Visibility.Collapsed : Visibility.Visible;
     }
 
-    protected override string ComboBoxItemDisplayName(RefreshRate value)
+    protected override string ComboBoxItemDisplayName(Resolution value)
     {
         var str = base.ComboBoxItemDisplayName(value);
         return LocalizationHelper.ForceLeftToRight(str);
