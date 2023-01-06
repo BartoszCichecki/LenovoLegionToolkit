@@ -28,6 +28,7 @@ public class IoCModule : Module
 
         builder.Register<AlwaysOnUSBFeature>();
         builder.Register<BatteryFeature>();
+        builder.Register<DpiScaleFeature>();
         builder.Register<FlipToStartFeature>();
         builder.Register<FnLockFeature>();
         builder.Register<HybridModeFeature>();

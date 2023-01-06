@@ -1536,4 +1536,18 @@ Logging will be enabled automatically, if you choose to continue.</value>
 
 WARNING: This action will not run correctly, if internal display is off.</value>
   </data>
+  <data name="DpiScaleControl_Title" xml:space="preserve">
+	  <value>DPI</value>
+  </data>
+  <data name="DpiScaleControl_Message" xml:space="preserve">
+	  <value>Change scale of the built-in display.</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
+	  <value>DPI</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
+	  <value>Change scaling of the built-in display.
+
+WARNING: This action will not run correctly, if internal display is off.</value>
+  </data>
 </root>

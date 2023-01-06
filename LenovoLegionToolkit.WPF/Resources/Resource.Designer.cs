@@ -1435,6 +1435,44 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change scaling of the built-in display.
+        ///
+        ///WARNING: This action will not run correctly, if internal display is off..
+        /// </summary>
+        public static string DpiScaleAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("DpiScaleAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DPI.
+        /// </summary>
+        public static string DpiScaleAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("DpiScaleAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change scale of the built-in display..
+        /// </summary>
+        public static string DpiScaleControl_Message {
+            get {
+                return ResourceManager.GetString("DpiScaleControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DPI.
+        /// </summary>
+        public static string DpiScaleControl_Title {
+            get {
+                return ResourceManager.GetString("DpiScaleControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit.
         /// </summary>
         public static string Edit {

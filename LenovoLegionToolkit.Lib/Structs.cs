@@ -502,6 +502,34 @@ public readonly struct RGBKeyboardBacklightState
     }
 }
 
+public readonly struct DpiScale : IDisplayName, IEquatable<DpiScale>
+{
+    public int Scale { get; }
+
+    [JsonIgnore]
+    public string DisplayName => $"{Scale}%";
+
+    [JsonConstructor]
+    public DpiScale(int scale)
+    {
+        Scale = scale;
+    }
+
+    #region Equality
+
+    public override bool Equals(object? obj) => obj is DpiScale rate && Equals(rate);
+
+    public bool Equals(DpiScale other) => Scale == other.Scale;
+
+    public override int GetHashCode() => HashCode.Combine(Scale);
+
+    public static bool operator ==(DpiScale left, DpiScale right) => left.Equals(right);
+
+    public static bool operator !=(DpiScale left, DpiScale right) => !(left == right);
+
+    #endregion
+}
+
 public readonly struct RefreshRate : IDisplayName, IEquatable<RefreshRate>
 {
     public int Frequency { get; }

@@ -50,6 +50,7 @@
             <controls:HybridModeControl />
             <controls:ResolutionControl />
             <controls:RefreshRateControl />
+            <controls:DpiScaleControl />
             <controls:HDRControl />
             <controls:DiscreteGPUControl />
 
