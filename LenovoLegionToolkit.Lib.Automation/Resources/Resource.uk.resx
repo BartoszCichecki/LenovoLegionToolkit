@@ -85,9 +85,6 @@
   <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Коли режим потужності змінений</value>
   </data>
-  <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Коли застосунок запущений</value>
-  </data>
   <data name="ProcessesStopRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Коли застосунок закрито</value>
   </data>
