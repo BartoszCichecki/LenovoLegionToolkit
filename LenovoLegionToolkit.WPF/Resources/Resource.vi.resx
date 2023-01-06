@@ -604,6 +604,9 @@ Xin chân thành cảm ơn!</value>
   <data name="Exit" xml:space="preserve">
     <value>Thoát</value>
   </data>
+  <data name="Export" xml:space="preserve">
+    <value>Xuất ra</value>
+  </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
     <value>Chỉ sử dụng GPU tích hợp khi chạy trên nguồn pin và dùng cả hai GPU khi được nối với nguồn điện. Khi sử dụng sạc công suất thấp, hệ thống sẽ đổi sang Hybrid- chỉ GPU tích hợp.</value>
   </data>
@@ -761,6 +764,9 @@ CẢNH BÁO: Hành động sẽ không chạy nếu màn hình laptop tắt.</va
   </data>
   <data name="HDRControl_Warning" xml:space="preserve">
     <value>HDR không thể bật do cài đặt trong Windows.</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Nhập vào</value>
   </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Thiết bị này không tương thích với Lenovo Legion Toolkit.</value>
@@ -1318,6 +1324,9 @@ Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
     <value>Không thể áp dụng cấu hình</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
+    <value>Cấu hình đèn nền không thể được áp dụng.</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Độ sáng</value>
   </data>
@@ -1326,6 +1335,12 @@ Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
     <value>Hiệu ứng</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Message" xml:space="preserve">
+    <value>Không thể xuất profile</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Title" xml:space="preserve">
+    <value>Không thể xuất profile</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
     <value>Không có hiệu ứng nào được thêm.</value>
