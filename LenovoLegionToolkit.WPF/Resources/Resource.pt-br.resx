@@ -604,6 +604,9 @@ Desde já, obrigado!</value>
   <data name="Exit" xml:space="preserve">
     <value>Sair</value>
   </data>
+  <data name="Export" xml:space="preserve">
+    <value>Exportar</value>
+  </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
     <value>Usa somente a GPU integrada quando em modo de bateria e ambas (integrada e dedicada) quando o carregador estiver conectado. Quando um carregador não padrão estiver conectado, o sistema será colocado em modo Hibrido.</value>
   </data>
@@ -761,6 +764,9 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
   </data>
   <data name="HDRControl_Warning" xml:space="preserve">
     <value>O uso do HDR é bloqueado pelas configurações do Windows.</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Importar</value>
   </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Este equipamento não é compatível com o Lenovo Legion Toolkit.</value>
@@ -1318,6 +1324,9 @@ A reinicialização é recomendada após alterar esta opção.</value>
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
     <value>Não foi possível aplicar o perfil</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
+    <value>O perfil de iluminação não pode ser aplicado.</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Brilho</value>
   </data>
@@ -1326,6 +1335,18 @@ A reinicialização é recomendada após alterar esta opção.</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
     <value>Efeitos</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Message" xml:space="preserve">
+    <value>O perfil não pode ser exportado</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Title" xml:space="preserve">
+    <value>Não foi possível exportar o perfil</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Message" xml:space="preserve">
+    <value>O perfil não pode ser importado</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Title" xml:space="preserve">
+    <value>Não foi possível importar o perfil</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
     <value>Nenhum efeito adicionado.</value>
@@ -1488,5 +1509,48 @@ O registro será ativado automaticamente, se você optar por continuar.</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Sim</value>
+  </data>
+  <data name="MicrophoneMuteControl_Title" xml:space="preserve">
+    <value>Microfone desligado</value>
+  </data>
+  <data name="MicrophoneMuteControl_Message" xml:space="preserve">
+    <value>Desligar todos os microfones disponíveis.</value>
+  </data>
+  <data name="MicrophoneMuteAutomationStepControl_Title" xml:space="preserve">
+    <value>Desligar microfone</value>
+  </data>
+  <data name="MicrophoneMuteAutomationStepControl_Message" xml:space="preserve">
+    <value>Desligar todos os microfones disponíveis.</value>
+  </data>
+  <data name="ResolutionControl_Title" xml:space="preserve">
+	  <value>Resolução</value>
+  </data>
+  <data name="ResolutionControl_Message" xml:space="preserve">
+	  <value>Alterar a taxa de atualização da tela integrada.</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
+	  <value>Resolução</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
+	  <value>Alterar a taxa de atualização da tela integrada.
+
+AVISO: Esta ação não será executada corretamente se a tela integrada estiver desligada.</value>
+  </data>
+  <data name="DpiScaleControl_Title" xml:space="preserve">
+	  <value>DPI</value>
+  </data>
+  <data name="DpiScaleControl_Message" xml:space="preserve">
+	  <value>Alterar a escala de resolução da tela integrada.</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
+	  <value>DPI</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
+	  <value>Alterar a taxa de atualização da tela integrada.
+
+AVISO: Esta ação não será executada corretamente se a tela integrada estiver desligada.</value>
+  </data>
+  <data name="DashboardPage_Display_Title" xml:space="preserve">
+	  <value>Tela</value>
   </data>
 </root>
