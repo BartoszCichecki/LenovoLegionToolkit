@@ -589,6 +589,9 @@ Obrigado desde já!</value>
   <data name="Edit" xml:space="preserve">
     <value>Editar</value>
   </data>
+  <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
+    <value>Desmarca as taxas de atualização que não quiseres usar quando o atalho Fn+R é usado.</value>
+  </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>Certifica-te de que o ecrã do portátil está ligado. O Lenovo Legion Toolkit não consegue carregar taxas de atualização de um ecrã que não está ligado.</value>
   </data>
@@ -600,6 +603,9 @@ Obrigado desde já!</value>
   </data>
   <data name="Exit" xml:space="preserve">
     <value>Sair</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Exportar</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
     <value>Usa apenas a GPU integrada quando em bateria e ambas quando o carregador está ligado. Quando um carregador não standard está ligado, o sistema muda para modo Híbrido-iGPU Apenas.</value>
@@ -758,6 +764,9 @@ ATENÇÃO: Está ação não irá executar corretamente se o ecrã interno estiv
   </data>
   <data name="HDRControl_Warning" xml:space="preserve">
     <value>A utilização de HDR está bloqueada pelas definições do Windows.</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Importar</value>
   </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Este dispositivo não é compatível com o Lenovo Legion Toolkit.</value>
@@ -1062,6 +1071,9 @@ Podes mudar com Fn+Q.</value>
   <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
     <value>Modo customizado</value>
   </data>
+  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
+    <value>Padrão</value>
+  </data>
   <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
     <value>Modo de desempenho</value>
   </data>
@@ -1312,6 +1324,9 @@ Se desativado, esta app irá executar os atalhos Fn.
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
     <value>Não foi possível aplicar o perfil</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
+    <value>Não foi possível aplicar o perfil de iluminação.</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Luminosidade</value>
   </data>
@@ -1320,6 +1335,18 @@ Se desativado, esta app irá executar os atalhos Fn.
   </data>
   <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
     <value>Efeitos</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Message" xml:space="preserve">
+    <value>Não foi possível exportar o perfil</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Title" xml:space="preserve">
+    <value>Não foi possível exportar o perfil</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Message" xml:space="preserve">
+    <value>Não foi possível importar o perfil</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Title" xml:space="preserve">
+    <value>Não foi possível importar o perfil</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
     <value>Nenhum efeito adicionado.</value>
@@ -1480,5 +1507,17 @@ Logs serão guardados automaticamente, se escolheres continuar.</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Sim</value>
+  </data>
+  <data name="MicrophoneMuteControl_Title" xml:space="preserve">
+    <value>Microfone sem som</value>
+  </data>
+  <data name="MicrophoneMuteControl_Message" xml:space="preserve">
+    <value>Tirar o som de todos os microfones disponíveis.</value>
+  </data>
+  <data name="MicrophoneMuteAutomationStepControl_Title" xml:space="preserve">
+    <value>Microfone sem som</value>
+  </data>
+  <data name="MicrophoneMuteAutomationStepControl_Message" xml:space="preserve">
+    <value>Tirar o som de todos os microfones disponíveis.</value>
   </data>
 </root>
