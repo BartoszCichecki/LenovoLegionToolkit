@@ -1004,14 +1004,8 @@ Asegúrese de instalar siempre los paquetes correctos.</value>
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Primario (recomendado)</value>
   </data>
-  <data name="PackagesPage_PrimarySource_ToolTip" xml:space="preserve">
-    <value>Igual que el soporte PC de Lenovo</value>
-  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Secundario</value>
-  </data>
-  <data name="PackagesPage_SecondarySource_ToolTip" xml:space="preserve">
-    <value>Igual que Lenovo DriverGrabber</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Categoría</value>
