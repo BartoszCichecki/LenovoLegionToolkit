@@ -170,88 +170,9 @@ public readonly struct FanTableInfo
 
 public readonly struct HardwareId
 {
-    public string Vendor { get; private init; }
-    public string Device { get; private init; }
-    public string SubSystem { get; private init; }
-
-    public static HardwareId FromDGPUHWId(string? gpuHwId)
-    {
-        try
-        {
-            if (gpuHwId is null)
-                return default;
-
-            string? vendor = null;
-            string? device = null;
-            string? subsystem = null;
-
-            foreach (var subPath in gpuHwId.Split("&"))
-            {
-                var subSubPaths = subPath.Split("_");
-                var type = subSubPaths[0];
-                var value = subSubPaths[1].ToUpperInvariant();
-
-                if (type.Equals("pciven", StringComparison.InvariantCultureIgnoreCase))
-                    vendor = value;
-                if (type.Equals("dev", StringComparison.InvariantCultureIgnoreCase))
-                    device = value;
-                if (type.Equals("subsys", StringComparison.InvariantCultureIgnoreCase))
-                    subsystem = value;
-            }
-
-            if (vendor is null || device is null || subsystem is null)
-                return default;
-
-            return new HardwareId { Vendor = vendor, Device = device, SubSystem = subsystem };
-        }
-        catch
-        {
-            return default;
-        }
-    }
-
-    public static HardwareId FromDevicePath(string devicePath)
-    {
-        try
-        {
-            var path = devicePath;
-            path = path[(path.LastIndexOf("\\", StringComparison.InvariantCultureIgnoreCase) + 1)..];
-            path = path[..path.LastIndexOf("#", StringComparison.InvariantCultureIgnoreCase)];
-            path = path[..path.LastIndexOf("#", StringComparison.InvariantCultureIgnoreCase)];
-            path = path.Replace("#", "");
-
-            string? vendor = null;
-            string? device = null;
-            string? subsystem = null;
-
-            foreach (var subPath in path.Split("&"))
-            {
-                var subSubPaths = subPath.Split("_");
-
-                if (subSubPaths.Length != 2)
-                    continue;
-
-                var type = subSubPaths[0];
-                var value = subSubPaths[1].ToUpperInvariant();
-
-                if (type.Equals("pciven", StringComparison.InvariantCultureIgnoreCase))
-                    vendor = value;
-                if (type.Equals("dev", StringComparison.InvariantCultureIgnoreCase))
-                    device = value;
-                if (type.Equals("subsys", StringComparison.InvariantCultureIgnoreCase))
-                    subsystem = value;
-            }
-
-            if (vendor is null || device is null || subsystem is null)
-                return default;
-
-            return new HardwareId { Vendor = vendor, Device = device, SubSystem = subsystem };
-        }
-        catch
-        {
-            return default;
-        }
-    }
+    public string Vendor { get; init; }
+    public string Device { get; init; }
+    public string SubSystem { get; init; }
 
     public static bool operator ==(HardwareId left, HardwareId right) => left.Equals(right);
 

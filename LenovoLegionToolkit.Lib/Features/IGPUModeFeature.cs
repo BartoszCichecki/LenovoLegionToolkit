@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System;
@@ -51,7 +52,7 @@ public class IGPUModeFeature : AbstractLenovoGamezoneWmiFeature<IGPUModeState>
                 pdc =>
                 {
                     var id = pdc["Data"].Value.ToString();
-                    return HardwareId.FromDGPUHWId(id);
+                    return HardwareIdFromDGPUHWId(id);
                 }).ConfigureAwait(false);
         }
         catch (Exception)
@@ -114,7 +115,7 @@ public class IGPUModeFeature : AbstractLenovoGamezoneWmiFeature<IGPUModeState>
             if (!devicePath.Contains(guidDisplayDeviceArrival.ToString()))
                 continue;
 
-            if (dgpuHardwareId != HardwareId.FromDevicePath(devicePath))
+            if (dgpuHardwareId != HardwareIdFromDevicePath(devicePath))
                 continue;
 
             if (PInvoke.CM_Get_DevNode_Status(out var status, out _, deviceInfoData.DevInst, 0) != 0)
@@ -127,5 +128,48 @@ public class IGPUModeFeature : AbstractLenovoGamezoneWmiFeature<IGPUModeState>
         }
 
         return false;
+    }
+
+    private static HardwareId HardwareIdFromDGPUHWId(string? gpuHwId)
+    {
+        try
+        {
+            if (gpuHwId is null)
+                return default;
+
+            var matches = new Regex("PCIVEN_([0-9A-F]{4})|DEV_([0-9A-F]{4})|SUBSYS_([0-9A-F]*)").Matches(gpuHwId);
+            if (matches.Count != 3)
+                return default;
+
+            var vendor = matches[0].Groups[1].Value;
+            var device = matches[1].Groups[2].Value;
+            var subsystem = matches[2].Groups[3].Value;
+
+            return new HardwareId { Vendor = vendor, Device = device, SubSystem = subsystem };
+        }
+        catch
+        {
+            return default;
+        }
+    }
+
+    private static HardwareId HardwareIdFromDevicePath(string devicePath)
+    {
+        try
+        {
+            var matches = new Regex("pci#ven_([0-9A-Fa-f]{4})|dev_([0-9A-Fa-f]{4})|subsys_([0-9A-Fa-f]{4})").Matches(devicePath);
+            if (matches.Count != 3)
+                return default;
+
+            var vendor = matches[0].Groups[1].Value;
+            var device = matches[1].Groups[2].Value;
+            var subsystem = matches[2].Groups[3].Value;
+
+            return new HardwareId { Vendor = vendor, Device = device, SubSystem = subsystem };
+        }
+        catch
+        {
+            return default;
+        }
     }
 }
