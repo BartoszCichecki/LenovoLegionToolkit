@@ -998,14 +998,8 @@ Vždy se ujisti, že instaluješ správné balíčky.</value>
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Primární (Doporučený)</value>
   </data>
-  <data name="PackagesPage_PrimarySource_ToolTip" xml:space="preserve">
-    <value>Stejný jako Lenovo PC Podpora</value>
-  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Sekundární</value>
-  </data>
-  <data name="PackagesPage_SecondarySource_ToolTip" xml:space="preserve">
-    <value>Stejný jako Lenovo DriverGrabber</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Kategorie</value>
