@@ -53,8 +53,8 @@ public partial class PackagesPage : Page, IProgress<float>
         _downloadPackagesButton.IsEnabled = true;
         _cancelDownloadPackagesButton.IsEnabled = true;
 
-        _sourcePrimaryRadio.Tag = PackageDownloaderFactory.Type.PCSupport;
-        _sourceSecondaryRadio.Tag = PackageDownloaderFactory.Type.Commercial;
+        _sourcePrimaryRadio.Tag = PackageDownloaderFactory.Type.Commercial;
+        _sourceSecondaryRadio.Tag = PackageDownloaderFactory.Type.PCSupport;
     }
 
     public void Report(float value) => Dispatcher.Invoke(() =>

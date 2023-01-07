@@ -2758,7 +2758,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Same as Lenovo PC Support.
+        ///   Looks up a localized string similar to Same as Lenovo Vantage.
         /// </summary>
         public static string PackagesPage_PrimarySource_ToolTip {
             get {
@@ -2776,7 +2776,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Same as Lenovo DriverGrabber.
+        ///   Looks up a localized string similar to Same as Lenovo PC Support webpage.
         /// </summary>
         public static string PackagesPage_SecondarySource_ToolTip {
             get {
