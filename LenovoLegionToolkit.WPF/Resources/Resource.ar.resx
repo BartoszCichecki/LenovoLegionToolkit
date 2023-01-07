@@ -474,12 +474,6 @@
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>اصدار ال BIOS</value>
   </data>
-  <data name="DeviceInformationWindow_Copied_Message" xml:space="preserve">
-    <value>"{0}" تم نسخهم.</value>
-  </data>
-  <data name="DeviceInformationWindow_Copied_Title" xml:space="preserve">
-    <value>تم النسخ!</value>
-  </data>
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
     <value>الجهاز</value>
   </data>
