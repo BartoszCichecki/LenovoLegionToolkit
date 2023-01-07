@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -10,6 +11,8 @@ using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32.SafeHandles;
 using NeoSmart.AsyncLock;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Windows.Win32;
 
 namespace LenovoLegionToolkit.Lib.Controllers;
@@ -53,6 +56,8 @@ public class SpectrumKeyboardBacklightController
     private CancellationTokenSource? _auroraRefreshCancellationTokenSource;
     private Task? _auroraRefreshTask;
 
+    private readonly JsonSerializerSettings _jsonSerializerSettings;
+
     public bool ForceDisable { get; set; }
 
     public SpectrumKeyboardBacklightController(SpecialKeyListener listener, Vantage vantage, IScreenCapture screenCapture)
@@ -60,6 +65,17 @@ public class SpectrumKeyboardBacklightController
         _listener = listener ?? throw new ArgumentNullException(nameof(listener));
         _vantage = vantage ?? throw new ArgumentNullException(nameof(vantage));
         _screenCapture = screenCapture ?? throw new ArgumentNullException(nameof(screenCapture));
+
+        _jsonSerializerSettings = new()
+        {
+            Formatting = Formatting.Indented,
+            TypeNameHandling = TypeNameHandling.Auto,
+            ObjectCreationHandling = ObjectCreationHandling.Replace,
+            Converters =
+            {
+                new StringEnumConverter(),
+            }
+        };
 
         _listener.Changed += Listener_Changed;
     }
@@ -272,6 +288,24 @@ public class SpectrumKeyboardBacklightController
             Log.Instance.Trace($"Retrieved {result.Effects.Length} effects for keyboard profile {profile}...");
 
         return result;
+    }
+
+    public async Task ImportProfileDescription(int profile, string jsonPath)
+    {
+        var json = await File.ReadAllTextAsync(jsonPath).ConfigureAwait(false);
+        var effects = JsonConvert.DeserializeObject<SpectrumKeyboardBacklightEffect[]>(json);
+
+        if (effects is null)
+            throw new InvalidOperationException("Couldn't deserialize effects");
+
+        await SetProfileDescriptionAsync(profile, effects).ConfigureAwait(false);
+    }
+
+    public async Task ExportProfileDescriptionAsync(int profile, string jsonPath)
+    {
+        var (_, effects) = await GetProfileDescriptionAsync(profile).ConfigureAwait(false);
+        var json = JsonConvert.SerializeObject(effects, _jsonSerializerSettings);
+        await File.WriteAllTextAsync(jsonPath, json).ConfigureAwait(false);
     }
 
     public async Task<bool> StartAuroraIfNeededAsync(int? profile = null)

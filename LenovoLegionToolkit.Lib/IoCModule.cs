@@ -28,19 +28,25 @@ public class IoCModule : Module
 
         builder.Register<AlwaysOnUSBFeature>();
         builder.Register<BatteryFeature>();
+        builder.Register<DpiScaleFeature>();
         builder.Register<FlipToStartFeature>();
         builder.Register<FnLockFeature>();
         builder.Register<HybridModeFeature>();
         builder.Register<GSyncFeature>();
         builder.Register<IGPUModeFeature>();
+        builder.Register<MicrophoneMuteFeature>();
         builder.Register<OverDriveFeature>();
         builder.Register<PowerModeFeature>();
         builder.Register<RefreshRateFeature>();
+        builder.Register<ResolutionFeature>();
         builder.Register<HDRFeature>();
         builder.Register<TouchpadLockFeature>();
         builder.Register<WhiteKeyboardBacklightFeature>();
         builder.Register<WinKeyFeature>();
 
+        builder.Register<NativeWindowsMessageListener>()
+            .OnActivating(e => e.Instance.StartAsync().AsValueTask())
+            .AutoActivate();
         builder.Register<PowerStateListener>()
             .OnActivating(e => e.Instance.StartAsync().AsValueTask())
             .AutoActivate();

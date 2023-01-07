@@ -61,6 +61,9 @@
   <data name="AccentColorSource_Custom" xml:space="preserve">
     <value>Personalizado</value>
   </data>
+  <data name="AccentColorSource_System" xml:space="preserve">
+    <value>Sistema</value>
+  </data>
   <data name="AlwaysOnUSBState_Off" xml:space="preserve">
     <value>Desligado</value>
   </data>

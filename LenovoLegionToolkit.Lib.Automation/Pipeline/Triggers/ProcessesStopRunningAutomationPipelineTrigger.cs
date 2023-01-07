@@ -20,9 +20,6 @@ public class ProcessesStopRunningAutomationPipelineTrigger : IAutomationPipeline
 
     public Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent)
     {
-        if (automationEvent is StartupAutomationEvent)
-            return Task.FromResult(false);
-
         if (automationEvent is not ProcessAutomationEvent { ProcessEventInfo.Type: ProcessEventInfoType.Stopped } pae)
             return Task.FromResult(false);
 

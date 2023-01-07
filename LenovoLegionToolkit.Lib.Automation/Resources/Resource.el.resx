@@ -85,9 +85,6 @@
   <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Όταν αλλάξει η κατάσταση τροφοδοσίας</value>
   </data>
-  <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Όταν η εφαρμογή εκτελείται</value>
-  </data>
   <data name="ProcessesStopRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Όταν η εφαρμογή κλείνει</value>
   </data>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32;
@@ -9,6 +10,7 @@ namespace LenovoLegionToolkit.Lib.Listeners;
 
 public class PowerStateListener : IListener<EventArgs>
 {
+    private readonly IGPUModeFeature _igpuModeFeature;
     private readonly RGBKeyboardBacklightController _rgbController;
 
     private bool _started;
@@ -16,8 +18,9 @@ public class PowerStateListener : IListener<EventArgs>
 
     public event EventHandler<EventArgs>? Changed;
 
-    public PowerStateListener(RGBKeyboardBacklightController rgbController)
+    public PowerStateListener(IGPUModeFeature igpuModeFeature, RGBKeyboardBacklightController rgbController)
     {
+        _igpuModeFeature = igpuModeFeature ?? throw new ArgumentNullException(nameof(igpuModeFeature));
         _rgbController = rgbController ?? throw new ArgumentNullException(nameof(rgbController));
     }
 
@@ -47,7 +50,19 @@ public class PowerStateListener : IListener<EventArgs>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Event received. [e.Mode={e.Mode}, newState={newState}]");
 
-        await RestoreRGBKeyboardStateAsync(e.Mode).ConfigureAwait(false);
+        if (e.Mode is PowerModes.Resume)
+        {
+            _ = Task.Run(async () =>
+            {
+                await Task.Delay(TimeSpan.FromSeconds(5)).ConfigureAwait(false);
+                await _igpuModeFeature.NotifyAsync().ConfigureAwait(false);
+            });
+        }
+
+        if (e.Mode is PowerModes.Resume or PowerModes.StatusChange)
+        {
+            await RestoreRGBKeyboardStateAsync(e.Mode).ConfigureAwait(false);
+        }
 
         if (newState == _lastState)
         {
@@ -59,13 +74,14 @@ public class PowerStateListener : IListener<EventArgs>
 
         _lastState = newState;
 
-        if (e.Mode == PowerModes.Suspend)
+        if (e.Mode is PowerModes.Suspend)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Event skipped. [e.Mode={e.Mode}]");
 
             return;
         }
+
         Changed?.Invoke(this, EventArgs.Empty);
 
         Notify(e.Mode, newState);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -502,6 +503,34 @@ public readonly struct RGBKeyboardBacklightState
     }
 }
 
+public readonly struct DpiScale : IDisplayName, IEquatable<DpiScale>
+{
+    public int Scale { get; }
+
+    [JsonIgnore]
+    public string DisplayName => $"{Scale}%";
+
+    [JsonConstructor]
+    public DpiScale(int scale)
+    {
+        Scale = scale;
+    }
+
+    #region Equality
+
+    public override bool Equals(object? obj) => obj is DpiScale rate && Equals(rate);
+
+    public bool Equals(DpiScale other) => Scale == other.Scale;
+
+    public override int GetHashCode() => HashCode.Combine(Scale);
+
+    public static bool operator ==(DpiScale left, DpiScale right) => left.Equals(right);
+
+    public static bool operator !=(DpiScale left, DpiScale right) => !(left == right);
+
+    #endregion
+}
+
 public readonly struct RefreshRate : IDisplayName, IEquatable<RefreshRate>
 {
     public int Frequency { get; }
@@ -530,11 +559,63 @@ public readonly struct RefreshRate : IDisplayName, IEquatable<RefreshRate>
     #endregion
 }
 
+public readonly struct Resolution : IDisplayName, IEquatable<Resolution>, IComparable<Resolution>
+{
+    public int Width { get; }
+    public int Height { get; }
+
+    [JsonIgnore]
+    public string DisplayName => $"{Width} × {Height}";
+
+    [JsonConstructor]
+    public Resolution(int width, int height)
+    {
+        Width = width;
+        Height = height;
+    }
+
+    public Resolution(Size size) : this(size.Width, size.Height) { }
+
+    public override string ToString() => $"{Width}x{Height}";
+
+    public int CompareTo(Resolution other)
+    {
+        var widthComparison = Width.CompareTo(other.Width);
+        return widthComparison != 0
+            ? widthComparison
+            : Height.CompareTo(other.Height);
+    }
+
+    #region Conversion
+
+    public static explicit operator Resolution(Size value) => new(value);
+
+    public static implicit operator Size(Resolution data) => new(data.Width, data.Height);
+
+    #endregion
+
+    #region Equality
+
+    public override bool Equals(object? obj) => obj is Resolution other && Equals(other);
+
+    public bool Equals(Resolution other) => Width == other.Width && Height == other.Height;
+
+    public override int GetHashCode() => HashCode.Combine(Width, Height);
+
+    public static bool operator ==(Resolution left, Resolution right) => left.Equals(right);
+
+    public static bool operator !=(Resolution left, Resolution right) => !(left == right);
+
+    #endregion
+
+}
+
 public readonly struct SpectrumKeyboardBacklightKeys
 {
     public bool All { get; }
     public ushort[] KeyCodes { get; }
 
+    [JsonConstructor]
     private SpectrumKeyboardBacklightKeys(bool all, ushort[] keyCodes)
     {
         All = all;

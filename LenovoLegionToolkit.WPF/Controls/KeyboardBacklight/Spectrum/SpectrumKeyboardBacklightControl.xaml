@@ -202,6 +202,8 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
                 <TextBlock
@@ -212,18 +214,35 @@
 
                 <wpfui:Button
                     Grid.Column="1"
-                    Appearance="Primary"
-                    Click="AddEffectButton_Click"
-                    Content="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_AddEffect}"
-                    Icon="Add24" />
-
-                <wpfui:Button
-                    Grid.Column="2"
                     Margin="8,0,0,0"
                     Appearance="Secondary"
                     Click="ResetToDefaultButton_Click"
                     Icon="ArrowClockwise24"
                     ToolTip="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip}" />
+
+                <wpfui:Button
+                    Grid.Column="2"
+                    Margin="8,0,0,0"
+                    Appearance="Secondary"
+                    Click="ExportButton_Click"
+                    Icon="ArrowExportLtr24"
+                    ToolTip="{x:Static resources:Resource.Export}" />
+
+                <wpfui:Button
+                    Grid.Column="3"
+                    Margin="8,0,0,0"
+                    Appearance="Secondary"
+                    Click="ImportButton_Click"
+                    Icon="ArrowImport24"
+                    ToolTip="{x:Static resources:Resource.Import}" />
+
+                <wpfui:Button
+                    Grid.Column="4"
+                    Margin="8,0,0,0"
+                    Appearance="Primary"
+                    Click="AddEffectButton_Click"
+                    Content="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_AddEffect}"
+                    Icon="Add24" />
 
             </Grid>
 

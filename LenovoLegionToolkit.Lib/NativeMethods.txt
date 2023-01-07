@@ -1,6 +1,5 @@
 ﻿WM_DEVICECHANGE
 WM_KEYUP
-WM_POWERBROADCAST
 
 HC_ACTION
 
@@ -20,17 +19,16 @@ DIGCF_PROFILE
 
 GUID_DEVCLASS_BATTERY
 GUID_DISPLAY_DEVICE_ARRIVAL
-GUID_MONITOR_POWER_ON
+GUID_DEVINTERFACE_MONITOR
+
+DBT_DEVICEARRIVAL
+DBT_DEVICEREMOVECOMPLETE
 
 IOCTL_BATTERY_QUERY_INFORMATION
 IOCTL_BATTERY_QUERY_STATUS
 IOCTL_BATTERY_QUERY_TAG
 
-PBT_POWERSETTINGCHANGE
-
 SC_MANAGER_ALL_ACCESS
-
-POWERBROADCAST_SETTING
 
 SERVICE_CHANGE_CONFIG
 SERVICE_NO_CHANGE
@@ -56,12 +54,16 @@ HidD_GetPreparsedData
 HidD_SetFeature
 HidP_GetCaps
 
+CM_Get_DevNode_Status
+
 ChangeServiceConfig
 CloseServiceHandle
 OpenSCManager
 OpenService
 
 SHGetKnownFolderPath
+
+GetKeyState
 
 GetFirmwareEnvironmentVariableEx
 SetFirmwareEnvironmentVariableEx
@@ -71,14 +73,8 @@ GetCurrentProcess
 LookupPrivilegeValue
 OpenProcessToken
 
-CM_Get_DevNode_Status
-
-ChangeWindowMessageFilter
 RegisterDeviceNotification
-RegisterPowerSettingNotification
-RegisterWindowMessage
 UnregisterDeviceNotification
-UnregisterPowerSettingNotification
 
 CallNextHookEx
 GetForegroundWindow

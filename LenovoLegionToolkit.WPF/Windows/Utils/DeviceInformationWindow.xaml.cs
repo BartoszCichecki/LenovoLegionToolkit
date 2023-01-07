@@ -86,7 +86,7 @@ public partial class DeviceInformationWindow
         try
         {
             Clipboard.SetText(str);
-            await _snackBar.ShowAsync(Resource.DeviceInformationWindow_Copied_Title, string.Format(Resource.DeviceInformationWindow_Copied_Message, str));
+            await _snackBar.ShowAsync(Resource.CopiedToClipboard_Title, string.Format(Resource.CopiedToClipboard_Message_WithParam, str));
         }
         catch (Exception ex)
         {

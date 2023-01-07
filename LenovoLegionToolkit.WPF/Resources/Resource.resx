@@ -1,5 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
@@ -416,10 +475,13 @@ WARNING: This action will not run correctly, if internal display is off or Hybri
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>BIOS version</value>
   </data>
-  <data name="DeviceInformationWindow_Copied_Message" xml:space="preserve">
+  <data name="CopiedToClipboard_Message" xml:space="preserve">
+    <value>Text copied to clipboard.</value>
+  </data>
+  <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
     <value>"{0}" copied to clipboard.</value>
   </data>
-  <data name="DeviceInformationWindow_Copied_Title" xml:space="preserve">
+  <data name="CopiedToClipboard_Title" xml:space="preserve">
     <value>Copied!</value>
   </data>
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
@@ -531,8 +593,8 @@ Thanks in advance!</value>
     <value>Edit</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
-		<value>Uncheck refresh rates that you do not want to use when Fn+R shortcut is used.</value>
-	</data>
+    <value>Uncheck refresh rates that you do not want to use when Fn+R shortcut is used.</value>
+  </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>Make sure that laptop display is on. Lenovo Legion Toolkit can't load refresh rates for a display that is not on.</value>
   </data>
@@ -544,6 +606,9 @@ Thanks in advance!</value>
   </data>
   <data name="Exit" xml:space="preserve">
     <value>Exit</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Export</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
     <value>Use only integrated GPU when on battery and both integrated and discrete GPU when AC adapter is connected. When a non-standard adapter is connected, system switches to Hybrid-iGPU Only Mode.</value>
@@ -703,6 +768,9 @@ WARNING: This action will not run correctly if the internal display is off.</val
   <data name="HDRControl_Warning" xml:space="preserve">
     <value>HDR usage is blocked by Windows settings.</value>
   </data>
+  <data name="Import" xml:space="preserve">
+    <value>Import</value>
+  </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>This device is not compatible with Lenovo Legion Toolkit.</value>
   </data>
@@ -800,14 +868,14 @@ WARNING: This action will not run correctly if the internal display is off.</val
     <value>Num Lock on</value>
   </data>
   <data name="Notification_SpectrumKeyboardBacklight_Backlight" xml:space="preserve">
-		<value>Backlight {0}</value>
-	</data>
+    <value>Backlight {0}</value>
+  </data>
   <data name="Notification_SpectrumKeyboardBacklight_Brightness" xml:space="preserve">
-		<value>Brightness {0}</value>
-	</data>
+    <value>Brightness {0}</value>
+  </data>
   <data name="Notification_SpectrumKeyboardBacklight_Profile" xml:space="preserve">
-		<value>Profile {0}</value>
-	</data>
+    <value>Profile {0}</value>
+  </data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
     <value>Touchpad off</value>
   </data>
@@ -943,13 +1011,13 @@ Always make sure that you are installing correct packages.</value>
     <value>Primary (Recommended)</value>
   </data>
   <data name="PackagesPage_PrimarySource_ToolTip" xml:space="preserve">
-    <value>Same as Lenovo PC Support</value>
+    <value>Same as Lenovo Vantage</value>
   </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Secondary</value>
   </data>
   <data name="PackagesPage_SecondarySource_ToolTip" xml:space="preserve">
-    <value>Same as Lenovo DriverGrabber</value>
+    <value>Same as Lenovo PC Support webpage</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Category</value>
@@ -1010,8 +1078,8 @@ You can switch mode with Fn+Q.</value>
     <value>Custom mode</value>
   </data>
   <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
-		<value>Default</value>
-	</data>
+    <value>Default</value>
+  </data>
   <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
     <value>Performance mode</value>
   </data>
@@ -1262,7 +1330,7 @@ Restart is recommended after changing this option.</value>
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
     <value>Couldn't apply profile</value>
   </data>
-  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title_Message" xml:space="preserve">
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
     <value>Lighting profile couldn't be applied.</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
@@ -1274,12 +1342,24 @@ Restart is recommended after changing this option.</value>
   <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
     <value>Effects</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Message" xml:space="preserve">
+    <value>Profile couldn't be exported</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Title" xml:space="preserve">
+    <value>Couldn't export profile</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Message" xml:space="preserve">
+    <value>Profile couldn't be imported</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Title" xml:space="preserve">
+    <value>Couldn't import profile</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
     <value>No effects added.</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip" xml:space="preserve">
-		<value>Reset to default</value>
-	</data>
+    <value>Reset to default</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
     <value>Select all zones</value>
   </data>
@@ -1435,5 +1515,48 @@ Logging will be enabled automatically, if you choose to continue.</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
+  </data>
+  <data name="MicrophoneMuteControl_Title" xml:space="preserve">
+    <value>Microphone Mute</value>
+  </data>
+  <data name="MicrophoneMuteControl_Message" xml:space="preserve">
+    <value>Mute all available microphones.</value>
+  </data>
+  <data name="MicrophoneMuteAutomationStepControl_Title" xml:space="preserve">
+    <value>Microphone Mute</value>
+  </data>
+  <data name="MicrophoneMuteAutomationStepControl_Message" xml:space="preserve">
+    <value>Mute all available microphones.</value>
+  </data>
+  <data name="ResolutionControl_Title" xml:space="preserve">
+	  <value>Resolution</value>
+  </data>
+  <data name="ResolutionControl_Message" xml:space="preserve">
+	  <value>Change resolution of the built-in display.</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
+	  <value>Resolution</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
+	  <value>Change resolution of the built-in display.
+
+WARNING: This action will not run correctly, if internal display is off.</value>
+  </data>
+  <data name="DpiScaleControl_Title" xml:space="preserve">
+	  <value>DPI</value>
+  </data>
+  <data name="DpiScaleControl_Message" xml:space="preserve">
+	  <value>Change scale of the built-in display.</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
+	  <value>DPI</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
+	  <value>Change scaling of the built-in display.
+
+WARNING: This action will not run correctly, if internal display is off.</value>
+  </data>
+  <data name="DashboardPage_Display_Title" xml:space="preserve">
+	  <value>Display</value>
   </data>
 </root>

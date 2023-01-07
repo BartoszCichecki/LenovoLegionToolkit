@@ -16,6 +16,7 @@ namespace LenovoLegionToolkit.Lib.Automation;
 public class AutomationProcessor
 {
     private readonly AutomationSettings _settings;
+    private readonly NativeWindowsMessageListener _nativeWindowsMessageListener;
     private readonly PowerStateListener _powerStateListener;
     private readonly PowerModeListener _powerModeListener;
     private readonly ProcessAutomationListener _processListener;
@@ -32,12 +33,14 @@ public class AutomationProcessor
     public event EventHandler<List<AutomationPipeline>>? PipelinesChanged;
 
     public AutomationProcessor(AutomationSettings settings,
+        NativeWindowsMessageListener nativeWindowsMessageListener,
         PowerStateListener powerStateListener,
         PowerModeListener powerModeListener,
         ProcessAutomationListener processListener,
         TimeAutomationListener timeListener)
     {
         _settings = settings ?? throw new ArgumentNullException(nameof(settings));
+        _nativeWindowsMessageListener = nativeWindowsMessageListener ?? throw new ArgumentNullException(nameof(nativeWindowsMessageListener));
         _powerStateListener = powerStateListener ?? throw new ArgumentNullException(nameof(powerStateListener));
         _powerModeListener = powerModeListener ?? throw new ArgumentNullException(nameof(powerModeListener));
         _processListener = processListener ?? throw new ArgumentNullException(nameof(processListener));
@@ -50,6 +53,7 @@ public class AutomationProcessor
     {
         using (await _ioLock.LockAsync().ConfigureAwait(false))
         {
+            _nativeWindowsMessageListener.Changed += NativeWindowsMessageListener_Changed;
             _powerStateListener.Changed += PowerStateListener_Changed;
             _powerModeListener.Changed += PowerModeListenerOnChanged;
             _processListener.Changed += ProcessListener_Changed;
@@ -234,6 +238,12 @@ public class AutomationProcessor
 
     #region Listeners
 
+    private async void NativeWindowsMessageListener_Changed(object? sender, NativeWindowsMessage message)
+    {
+        var e = new NativeWindowsMessageEvent { Message = message };
+        await ProcessEvent(e).ConfigureAwait(false);
+    }
+
     private async void PowerStateListener_Changed(object? sender, EventArgs _)
     {
         var e = new PowerStateAutomationEvent();
@@ -261,6 +271,25 @@ public class AutomationProcessor
     #endregion
 
     #region Event processing
+
+    private async Task ProcessEvent(NativeWindowsMessageEvent e)
+    {
+        var potentialMatch = _pipelines.Select(p => p.Trigger)
+            .Where(t => t is not null)
+            .Where(t => t is INativeWindowsMessagePipelineTrigger)
+            .Select(async t => await t!.IsSatisfiedAsync(e).ConfigureAwait(false))
+            .Select(t => t.Result)
+            .Where(t => t)
+            .Any();
+
+        if (!potentialMatch)
+            return;
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Processing power state event.");
+
+        await RunAsync(e).ConfigureAwait(false);
+    }
 
     private async Task ProcessEvent(PowerStateAutomationEvent e)
     {

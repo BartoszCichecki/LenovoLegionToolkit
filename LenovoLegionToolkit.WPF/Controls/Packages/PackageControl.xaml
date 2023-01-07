@@ -38,7 +38,8 @@
                     Grid.Row="1"
                     Grid.Column="0"
                     Margin="0,4,0,8"
-                    FontWeight="Medium">
+                    FontWeight="Medium"
+                    MouseRightButtonUp="CopyToClipboard_MouseRightButtonUp">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource TextFillColorTertiary}" />
                     </TextBlock.Foreground>
@@ -50,6 +51,7 @@
                     Grid.Column="0"
                     FontSize="14"
                     FontWeight="Medium"
+                    MouseRightButtonUp="CopyToClipboard_MouseRightButtonUp"
                     TextTrimming="CharacterEllipsis" />
 
                 <TextBlock
@@ -58,6 +60,7 @@
                     Grid.Column="0"
                     Margin="0,8,0,8"
                     FontSize="13"
+                    MouseRightButtonUp="CopyToClipboard_MouseRightButtonUp"
                     TextWrapping="Wrap">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource TextFillColorSecondary}" />
@@ -69,6 +72,7 @@
                     Grid.Row="4"
                     Grid.Column="0"
                     Margin="0,4,0,0"
+                    MouseRightButtonUp="CopyToClipboard_MouseRightButtonUp"
                     TextTrimming="CharacterEllipsis">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource TextFillColorTertiary}" />

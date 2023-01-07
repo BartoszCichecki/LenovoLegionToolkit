@@ -85,9 +85,6 @@
   <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Quando si cambia la modalità di alimentazione</value>
   </data>
-  <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Quando l'app è in esecuzione</value>
-  </data>
   <data name="ProcessesStopRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Quando l'app si chiude</value>
   </data>

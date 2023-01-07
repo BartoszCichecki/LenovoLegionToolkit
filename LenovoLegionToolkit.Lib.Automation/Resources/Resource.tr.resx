@@ -85,9 +85,6 @@
   <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Performans modu değiştiğinde</value>
   </data>
-  <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Uygulama çalıştığında</value>
-  </data>
   <data name="ProcessesStopRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Uygulama kapandığında</value>
   </data>

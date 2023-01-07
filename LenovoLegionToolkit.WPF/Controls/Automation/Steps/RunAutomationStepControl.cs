@@ -55,7 +55,7 @@ public class RunAutomationStepControl : AbstractAutomationStepControl<RunAutomat
         };
         _scriptArguments.TextChanged += (s, e) =>
         {
-            if (_scriptArguments.Text != AutomationStep.ScriptPath)
+            if (_scriptArguments.Text != AutomationStep.ScriptArguments)
                 RaiseChanged();
         };
 

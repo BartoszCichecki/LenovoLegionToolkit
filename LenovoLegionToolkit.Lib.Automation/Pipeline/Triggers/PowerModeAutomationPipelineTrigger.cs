@@ -19,9 +19,6 @@ public class PowerModeAutomationPipelineTrigger : IAutomationPipelineTrigger, IP
 
     public Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent)
     {
-        if (automationEvent is StartupAutomationEvent)
-            return Task.FromResult(false);
-
         if (automationEvent is not PowerModeAutomationEvent pmae)
             return Task.FromResult(false);
 

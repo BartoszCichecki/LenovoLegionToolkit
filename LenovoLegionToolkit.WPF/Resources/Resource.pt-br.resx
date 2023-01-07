@@ -1,5 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
@@ -416,10 +475,10 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>Versão da BIOS</value>
   </data>
-  <data name="DeviceInformationWindow_Copied_Message" xml:space="preserve">
+  <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
     <value>{0} copiado para a área de transferência.</value>
   </data>
-  <data name="DeviceInformationWindow_Copied_Title" xml:space="preserve">
+  <data name="CopiedToClipboard_Title" xml:space="preserve">
     <value>Copiado!</value>
   </data>
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
@@ -531,8 +590,8 @@ Desde já, obrigado!</value>
     <value>Editar</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
-		<value>Desmarque as atualizações de tela que você não deseja utilizar ao pressionar o atalho Fn+R.</value>
-	</data>
+    <value>Desmarque as atualizações de tela que você não deseja utilizar ao pressionar o atalho Fn+R.</value>
+  </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>Verifique se a tela do notebook está ligada. O Lenovo Legion Toolkit não pode carregar taxas de atualização para uma tela que não está ligada.</value>
   </data>
@@ -544,6 +603,9 @@ Desde já, obrigado!</value>
   </data>
   <data name="Exit" xml:space="preserve">
     <value>Sair</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Exportar</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
     <value>Usa somente a GPU integrada quando em modo de bateria e ambas (integrada e dedicada) quando o carregador estiver conectado. Quando um carregador não padrão estiver conectado, o sistema será colocado em modo Hibrido.</value>
@@ -703,6 +765,9 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
   <data name="HDRControl_Warning" xml:space="preserve">
     <value>O uso do HDR é bloqueado pelas configurações do Windows.</value>
   </data>
+  <data name="Import" xml:space="preserve">
+    <value>Importar</value>
+  </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Este equipamento não é compatível com o Lenovo Legion Toolkit.</value>
   </data>
@@ -800,14 +865,14 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
     <value>Num Lock ligado</value>
   </data>
   <data name="Notification_SpectrumKeyboardBacklight_Backlight" xml:space="preserve">
-		<value>Iluminação do teclado {0}</value>
-	</data>
+    <value>Iluminação do teclado {0}</value>
+  </data>
   <data name="Notification_SpectrumKeyboardBacklight_Brightness" xml:space="preserve">
-		<value>Brilho {0}</value>
-	</data>
+    <value>Brilho {0}</value>
+  </data>
   <data name="Notification_SpectrumKeyboardBacklight_Profile" xml:space="preserve">
-		<value>Perfil {0}</value>
-	</data>
+    <value>Perfil {0}</value>
+  </data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
     <value>Touchpad desligado</value>
   </data>
@@ -1007,8 +1072,8 @@ Você pode alternar entre os modos pressionando Fn+Q.</value>
     <value>Modo personalizado</value>
   </data>
   <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
-		<value>Padrão </value>
-	</data>
+    <value>Padrão </value>
+  </data>
   <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
     <value>Modo desempenho</value>
   </data>
@@ -1259,7 +1324,7 @@ A reinicialização é recomendada após alterar esta opção.</value>
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
     <value>Não foi possível aplicar o perfil</value>
   </data>
-  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title_Message" xml:space="preserve">
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
     <value>O perfil de iluminação não pode ser aplicado.</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
@@ -1271,12 +1336,24 @@ A reinicialização é recomendada após alterar esta opção.</value>
   <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
     <value>Efeitos</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Message" xml:space="preserve">
+    <value>O perfil não pode ser exportado</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Title" xml:space="preserve">
+    <value>Não foi possível exportar o perfil</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Message" xml:space="preserve">
+    <value>O perfil não pode ser importado</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Title" xml:space="preserve">
+    <value>Não foi possível importar o perfil</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
     <value>Nenhum efeito adicionado.</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip" xml:space="preserve">
-		<value>Redefinir para o padrão</value>
-	</data>
+    <value>Redefinir para o padrão</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
     <value>Selecionar todas zonas</value>
   </data>
@@ -1432,5 +1509,48 @@ O registro será ativado automaticamente, se você optar por continuar.</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Sim</value>
+  </data>
+  <data name="MicrophoneMuteControl_Title" xml:space="preserve">
+    <value>Microfone desligado</value>
+  </data>
+  <data name="MicrophoneMuteControl_Message" xml:space="preserve">
+    <value>Desligar todos os microfones disponíveis.</value>
+  </data>
+  <data name="MicrophoneMuteAutomationStepControl_Title" xml:space="preserve">
+    <value>Desligar microfone</value>
+  </data>
+  <data name="MicrophoneMuteAutomationStepControl_Message" xml:space="preserve">
+    <value>Desligar todos os microfones disponíveis.</value>
+  </data>
+  <data name="ResolutionControl_Title" xml:space="preserve">
+	  <value>Resolução</value>
+  </data>
+  <data name="ResolutionControl_Message" xml:space="preserve">
+	  <value>Alterar a taxa de atualização da tela integrada.</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
+	  <value>Resolução</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
+	  <value>Alterar a taxa de atualização da tela integrada.
+
+AVISO: Esta ação não será executada corretamente se a tela integrada estiver desligada.</value>
+  </data>
+  <data name="DpiScaleControl_Title" xml:space="preserve">
+	  <value>DPI</value>
+  </data>
+  <data name="DpiScaleControl_Message" xml:space="preserve">
+	  <value>Alterar a escala de resolução da tela integrada.</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
+	  <value>DPI</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
+	  <value>Alterar a taxa de atualização da tela integrada.
+
+AVISO: Esta ação não será executada corretamente se a tela integrada estiver desligada.</value>
+  </data>
+  <data name="DashboardPage_Display_Title" xml:space="preserve">
+	  <value>Tela</value>
   </data>
 </root>

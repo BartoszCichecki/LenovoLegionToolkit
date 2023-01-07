@@ -86,7 +86,7 @@
     <value>When power mode is changed</value>
   </data>
   <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>When app is running</value>
+    <value>When app starts</value>
   </data>
   <data name="ProcessesStopRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>When app closes</value>
@@ -94,4 +94,10 @@
   <data name="TimeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>At specified time</value>
   </data>
+	<data name="ExternalDisplayConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>When external display is connected</value>
+	</data>
+	<data name="ExternalDisplayDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>When external display is disconnected</value>
+	</data>
 </root>

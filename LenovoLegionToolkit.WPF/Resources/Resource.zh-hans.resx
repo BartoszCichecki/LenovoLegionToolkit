@@ -1,5 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
@@ -417,10 +476,10 @@
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>BIOS 版本</value>
   </data>
-  <data name="DeviceInformationWindow_Copied_Message" xml:space="preserve">
+  <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
     <value>"{0}" 已复制到剪切板。</value>
   </data>
-  <data name="DeviceInformationWindow_Copied_Title" xml:space="preserve">
+  <data name="CopiedToClipboard_Title" xml:space="preserve">
     <value>已复制！</value>
   </data>
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
@@ -533,8 +592,8 @@
     <value>编辑</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
-		<value>取消选择某个刷新率你在使用 Fn + R 快捷键时不想使用的刷新率。</value>
-	</data>
+    <value>取消选择某个刷新率你在使用 Fn + R 快捷键时不想使用的刷新率。</value>
+  </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>请确保笔记本屏幕已打开，否则本软件无法获取刷新率信息。</value>
   </data>
@@ -546,6 +605,9 @@
   </data>
   <data name="Exit" xml:space="preserve">
     <value>退出</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>导出</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
     <value>使用电池时只使用核显，连接充电器时同时使用核显与独显。当连接非标准充电器时，系统会切换到混合核显模式。</value>
@@ -707,6 +769,9 @@
   <data name="HDRControl_Warning" xml:space="preserve">
     <value>Windows 设置已阻止启用 HDR。</value>
   </data>
+  <data name="Import" xml:space="preserve">
+    <value>导入</value>
+  </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>此设备可能与联想拯救箱不兼容</value>
   </data>
@@ -804,14 +869,14 @@
     <value>Num Lock 开</value>
   </data>
   <data name="Notification_SpectrumKeyboardBacklight_Backlight" xml:space="preserve">
-		<value>背光 {0}</value>
-	</data>
+    <value>背光 {0}</value>
+  </data>
   <data name="Notification_SpectrumKeyboardBacklight_Brightness" xml:space="preserve">
-		<value>键盘背光亮度 {0}</value>
-	</data>
+    <value>键盘背光亮度 {0}</value>
+  </data>
   <data name="Notification_SpectrumKeyboardBacklight_Profile" xml:space="preserve">
-		<value>灯效主题 {0}</value>
-	</data>
+    <value>灯效主题 {0}</value>
+  </data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
     <value>触摸板已关闭</value>
   </data>
@@ -1013,8 +1078,8 @@
     <value>自定义模式</value>
   </data>
   <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
-		<value>默认</value>
-	</data>
+    <value>默认</value>
+  </data>
   <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
     <value>野兽模式</value>
   </data>
@@ -1266,7 +1331,7 @@
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
     <value>无法应用此主题</value>
   </data>
-  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title_Message" xml:space="preserve">
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
     <value>无法应用灯效主题。</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
@@ -1278,12 +1343,24 @@
   <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
     <value>效果</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Message" xml:space="preserve">
+    <value>无法导出配置文件</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Title" xml:space="preserve">
+    <value>无法导出配置文件</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Message" xml:space="preserve">
+    <value>无法导入配置文件</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Title" xml:space="preserve">
+    <value>无法导入配置文件</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
     <value>没有灯效主题。</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip" xml:space="preserve">
-		<value>重置为默认配置</value>
-	</data>
+    <value>重置为默认配置</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
     <value>全选所有灯区</value>
   </data>

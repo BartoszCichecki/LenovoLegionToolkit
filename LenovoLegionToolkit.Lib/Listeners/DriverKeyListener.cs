@@ -15,15 +15,17 @@ public class DriverKeyListener : IListener<DriverKey>
     public event EventHandler<DriverKey>? Changed;
 
     private readonly FnKeys _fnKeys;
+    private readonly MicrophoneMuteFeature _microphoneMuteFeature;
     private readonly TouchpadLockFeature _touchpadLockFeature;
     private readonly WhiteKeyboardBacklightFeature _whiteKeyboardBacklightFeature;
 
     private CancellationTokenSource? _cancellationTokenSource;
     private Task? _listenTask;
 
-    public DriverKeyListener(FnKeys fnKeys, TouchpadLockFeature touchpadLockFeature, WhiteKeyboardBacklightFeature whiteKeyboardBacklightFeature)
+    public DriverKeyListener(FnKeys fnKeys, MicrophoneMuteFeature microphoneMuteFeature, TouchpadLockFeature touchpadLockFeature, WhiteKeyboardBacklightFeature whiteKeyboardBacklightFeature)
     {
         _fnKeys = fnKeys ?? throw new ArgumentNullException(nameof(fnKeys));
+        _microphoneMuteFeature = microphoneMuteFeature ?? throw new ArgumentNullException(nameof(microphoneMuteFeature));
         _touchpadLockFeature = touchpadLockFeature ?? throw new ArgumentNullException(nameof(touchpadLockFeature));
         _whiteKeyboardBacklightFeature = whiteKeyboardBacklightFeature ?? throw new ArgumentNullException(nameof(whiteKeyboardBacklightFeature));
     }
@@ -103,10 +105,20 @@ public class DriverKeyListener : IListener<DriverKey>
         {
             if (value.HasFlag(DriverKey.Fn_F4))
             {
-                var enabled = Microphone.Toggle();
-                MessagingCenter.Publish(enabled
-                    ? new Notification(NotificationType.MicrophoneOn, NotificationDuration.Short)
-                    : new Notification(NotificationType.MicrophoneOff, NotificationDuration.Short));
+                if (await _microphoneMuteFeature.IsSupportedAsync().ConfigureAwait(false))
+                {
+                    switch (await _microphoneMuteFeature.GetStateAsync().ConfigureAwait(false))
+                    {
+                        case MicrophoneMuteState.On:
+                            await _microphoneMuteFeature.SetStateAsync(MicrophoneMuteState.Off).ConfigureAwait(false);
+                            MessagingCenter.Publish(new Notification(NotificationType.MicrophoneOff, NotificationDuration.Short));
+                            break;
+                        case MicrophoneMuteState.Off:
+                            await _microphoneMuteFeature.SetStateAsync(MicrophoneMuteState.On).ConfigureAwait(false);
+                            MessagingCenter.Publish(new Notification(NotificationType.MicrophoneOn, NotificationDuration.Short));
+                            break;
+                    }
+                }
             }
 
             if (value.HasFlag(DriverKey.Fn_F8))
