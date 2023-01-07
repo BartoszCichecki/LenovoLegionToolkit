@@ -870,14 +870,8 @@ Daima doğru paketleri kurduğunuzdan emin olun.</value>
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Birincil (Önerilen)</value>
   </data>
-  <data name="PackagesPage_PrimarySource_ToolTip" xml:space="preserve">
-    <value>Lenovo PC Desteği ile aynı</value>
-  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>İkincil</value>
-  </data>
-  <data name="PackagesPage_SecondarySource_ToolTip" xml:space="preserve">
-    <value>Lenovo Sürücü İndiricisi ile aynı</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Kategori</value>
