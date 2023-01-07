@@ -994,14 +994,8 @@ Zorg er altijd voor dat u de juiste pakketten installeert.</value>
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Primair (aanbevolen)</value>
   </data>
-  <data name="PackagesPage_PrimarySource_ToolTip" xml:space="preserve">
-    <value>Hetzelfde als Lenovo pc-ondersteuning</value>
-  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Secundair</value>
-  </data>
-  <data name="PackagesPage_SecondarySource_ToolTip" xml:space="preserve">
-    <value>Hetzelfde als Lenovo DriverGrabber</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Categorie</value>
