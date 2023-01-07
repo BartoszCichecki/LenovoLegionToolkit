@@ -994,14 +994,8 @@
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>أولي أو أساسي (يوصى به)</value>
   </data>
-  <data name="PackagesPage_PrimarySource_ToolTip" xml:space="preserve">
-    <value>يبدو انه يدعم الكمبيوتر المحمول من نوع Lenovo</value>
-  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>ثانوي</value>
-  </data>
-  <data name="PackagesPage_SecondarySource_ToolTip" xml:space="preserve">
-    <value>يبدو كانه Lenovo DriverGrabber</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>الفئة-التصنيف</value>
