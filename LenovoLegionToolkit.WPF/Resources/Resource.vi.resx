@@ -1004,14 +1004,8 @@ Luôn kiểm tra rằng bạn cài đặt đúng gói cài đặt mong muốn.</
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Chính (Khuyên Dùng)</value>
   </data>
-  <data name="PackagesPage_PrimarySource_ToolTip" xml:space="preserve">
-    <value>Tương tự như trên Lenovo PC Support</value>
-  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Phụ</value>
-  </data>
-  <data name="PackagesPage_SecondarySource_ToolTip" xml:space="preserve">
-    <value>Tương tự như Lenovo DriverGrabber</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Danh mục</value>
