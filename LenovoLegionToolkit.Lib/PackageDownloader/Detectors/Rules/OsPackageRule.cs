@@ -32,10 +32,10 @@ internal readonly struct OsPackageRule : IPackageRule
 
         switch (currentOs)
         {
-            case OS.Windows11 when Os.Equals("win11", StringComparison.InvariantCultureIgnoreCase):
-            case OS.Windows10 when Os.Equals("win10", StringComparison.InvariantCultureIgnoreCase):
-            case OS.Windows8 when Os.Equals("win8", StringComparison.InvariantCultureIgnoreCase):
-            case OS.Windows7 when Os.Equals("win7", StringComparison.InvariantCultureIgnoreCase):
+            case OS.Windows11 when Os.StartsWith("win11", StringComparison.InvariantCultureIgnoreCase):
+            case OS.Windows10 when Os.StartsWith("win10", StringComparison.InvariantCultureIgnoreCase):
+            case OS.Windows8 when Os.StartsWith("win8", StringComparison.InvariantCultureIgnoreCase):
+            case OS.Windows7 when Os.StartsWith("win7", StringComparison.InvariantCultureIgnoreCase):
                 result = true;
                 break;
         }
