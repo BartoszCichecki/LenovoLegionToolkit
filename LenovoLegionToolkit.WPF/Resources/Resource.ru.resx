@@ -475,12 +475,6 @@
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>Версия BIOS</value>
   </data>
-  <data name="DeviceInformationWindow_Copied_Message" xml:space="preserve">
-    <value>"{0}" скопировано в буфер обмена.</value>
-  </data>
-  <data name="DeviceInformationWindow_Copied_Title" xml:space="preserve">
-    <value>Скопировано!</value>
-  </data>
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
     <value>Устройство</value>
   </data>
