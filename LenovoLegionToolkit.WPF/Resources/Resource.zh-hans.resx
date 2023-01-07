@@ -1517,4 +1517,47 @@
   <data name="Yes" xml:space="preserve">
     <value>是</value>
   </data>
+  <data name="MicrophoneMuteControl_Title" xml:space="preserve">
+    <value>静音麦克风</value>
+  </data>
+  <data name="MicrophoneMuteControl_Message" xml:space="preserve">
+    <value>静音所有可用的麦克风。</value>
+  </data>
+  <data name="MicrophoneMuteAutomationStepControl_Title" xml:space="preserve">
+    <value>静音麦克风</value>
+  </data>
+  <data name="MicrophoneMuteAutomationStepControl_Message" xml:space="preserve">
+    <value>静音所有可用的麦克风。</value>
+  </data>
+  <data name="ResolutionControl_Title" xml:space="preserve">
+	  <value>分辨率</value>
+  </data>
+  <data name="ResolutionControl_Message" xml:space="preserve">
+	  <value>切换内置屏幕分辨率。</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
+	  <value>分辨率</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
+	  <value>切换内置屏幕分辨率。
+
+警告！当内置屏幕关闭时此选项无法生效。</value>
+  </data>
+  <data name="DpiScaleControl_Title" xml:space="preserve">
+	  <value>DPI</value>
+  </data>
+  <data name="DpiScaleControl_Message" xml:space="preserve">
+	  <value>切换内置屏幕缩放。</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
+	  <value>DPI</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
+	  <value>切换内置屏幕缩放。
+
+警告！当内置屏幕关闭时此选项无法生效。</value>
+  </data>
+  <data name="DashboardPage_Display_Title" xml:space="preserve">
+	  <value>显示</value>
+  </data>
 </root>
