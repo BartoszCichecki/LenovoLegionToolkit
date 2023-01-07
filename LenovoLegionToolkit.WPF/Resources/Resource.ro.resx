@@ -475,12 +475,6 @@ ATENȚIE: Această acțiune nu va rula corect dacă afișajul intern este oprit 
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>Versiune BIOS</value>
   </data>
-  <data name="DeviceInformationWindow_Copied_Message" xml:space="preserve">
-    <value>"{0}" copiat în clipboard.</value>
-  </data>
-  <data name="DeviceInformationWindow_Copied_Title" xml:space="preserve">
-    <value>Copiat!</value>
-  </data>
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
     <value>Dispozitiv</value>
   </data>
