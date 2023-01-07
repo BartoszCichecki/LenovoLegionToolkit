@@ -58,7 +58,7 @@ public partial class PackageControl : IProgress<float>
         _downloadProgressLabel.Content = $"{value * 100:0}%";
     });
 
-    private async void CopyToClipboard_MouseUp(object sender, MouseButtonEventArgs e)
+    private async void CopyToClipboard_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
     {
         e.Handled = true;
 
