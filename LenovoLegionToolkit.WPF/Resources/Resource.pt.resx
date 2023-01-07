@@ -475,12 +475,6 @@ ATENÇÃO: Esta ação não irá correr corretamente se o ecrã interno estiver 
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>Versão da BIOS</value>
   </data>
-  <data name="DeviceInformationWindow_Copied_Message" xml:space="preserve">
-    <value>{0} copiado para a área de transferência.</value>
-  </data>
-  <data name="DeviceInformationWindow_Copied_Title" xml:space="preserve">
-    <value>Copiado!</value>
-  </data>
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
     <value>Dispositivo</value>
   </data>
