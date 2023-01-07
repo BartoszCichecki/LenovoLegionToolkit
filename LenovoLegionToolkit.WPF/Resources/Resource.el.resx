@@ -466,12 +466,6 @@
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>Έκδοση BIOS</value>
   </data>
-  <data name="DeviceInformationWindow_Copied_Message" xml:space="preserve">
-    <value>Το "{0}" αντιγράφηκε στο πρόχειρο.</value>
-  </data>
-  <data name="DeviceInformationWindow_Copied_Title" xml:space="preserve">
-    <value>Αντιγράφηκε!</value>
-  </data>
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
     <value>Συσκευή</value>
   </data>
