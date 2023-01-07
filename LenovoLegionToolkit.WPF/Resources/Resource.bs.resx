@@ -613,14 +613,8 @@ Uvijek provjerite da li instalirate ispravne pakete.</value>
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Primarno (preporučeno)</value>
   </data>
-  <data name="PackagesPage_PrimarySource_ToolTip" xml:space="preserve">
-    <value>Isto kao Lenovo PC Support</value>
-  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Sekundarno</value>
-  </data>
-  <data name="PackagesPage_SecondarySource_ToolTip" xml:space="preserve">
-    <value>Isto kao Lenovo DriverGrabber</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Kategorija</value>
