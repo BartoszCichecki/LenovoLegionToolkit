@@ -4,6 +4,8 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.PackageDownloader;
 using LenovoLegionToolkit.Lib.Utils;
@@ -56,6 +58,27 @@ public partial class PackageControl : IProgress<float>
         _downloadProgressLabel.Content = $"{value * 100:0}%";
     });
 
+    private async void CopyToClipboard_MouseUp(object sender, MouseButtonEventArgs e)
+    {
+        e.Handled = true;
+
+        if (sender is not TextBlock tb)
+            return;
+
+        var str = tb.Text;
+
+        try
+        {
+            Clipboard.SetText(str);
+            await SnackbarHelper.ShowAsync(Resource.CopiedToClipboard_Title, string.Format(Resource.CopiedToClipboard_Message_WithParam, str));
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Couldn't copy to clipboard", ex);
+        }
+    }
+
     private void ReadmeButton_Click(object sender, RoutedEventArgs e)
     {
         if (_package.Readme is null)
@@ -91,21 +114,21 @@ public partial class PackageControl : IProgress<float>
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Not found 404.", ex);
 
-            SnackbarHelper.Show(Resource.PackageControl_Http404Error_Title, Resource.PackageControl_Http404Error_Message, true);
+            await SnackbarHelper.ShowAsync(Resource.PackageControl_Http404Error_Title, Resource.PackageControl_Http404Error_Message, true);
         }
         catch (HttpRequestException ex)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Error occured when downloading package file.", ex);
 
-            SnackbarHelper.Show(Resource.PackageControl_HttpGeneralError_Title, Resource.PackageControl_HttpGeneralError_Message, true);
+            await SnackbarHelper.ShowAsync(Resource.PackageControl_HttpGeneralError_Title, Resource.PackageControl_HttpGeneralError_Message, true);
         }
         catch (Exception ex)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Error occured when downloading package file.", ex);
 
-            SnackbarHelper.Show(Resource.PackageControl_GeneralError_Title, ex.Message, true);
+            await SnackbarHelper.ShowAsync(Resource.PackageControl_GeneralError_Title, ex.Message, true);
         }
         finally
         {

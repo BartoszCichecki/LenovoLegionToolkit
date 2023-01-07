@@ -476,10 +476,10 @@
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>BIOS 版本</value>
   </data>
-  <data name="DeviceInformationWindow_Copied_Message" xml:space="preserve">
+  <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
     <value>"{0}" 已复制到剪切板。</value>
   </data>
-  <data name="DeviceInformationWindow_Copied_Title" xml:space="preserve">
+  <data name="CopiedToClipboard_Title" xml:space="preserve">
     <value>已复制！</value>
   </data>
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">

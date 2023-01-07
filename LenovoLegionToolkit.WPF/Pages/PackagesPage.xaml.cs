@@ -140,7 +140,7 @@ public partial class PackagesPage : Page, IProgress<float>
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Error occured when downloading packages.", ex);
 
-            SnackbarHelper.Show("Something went wrong", "Check if your internet connection is up and running.", true);
+            await SnackbarHelper.ShowAsync("Something went wrong", "Check if your internet connection is up and running.", true);
 
             errored = true;
         }
@@ -149,7 +149,7 @@ public partial class PackagesPage : Page, IProgress<float>
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Error occured when downloading packages.", ex);
 
-            SnackbarHelper.Show("Something went wrong", ex.Message, true);
+            await SnackbarHelper.ShowAsync("Something went wrong", ex.Message, true);
 
             errored = true;
         }

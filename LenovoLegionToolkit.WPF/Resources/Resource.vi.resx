@@ -475,10 +475,10 @@ CẢNH BÁO: Hành động sẽ không chạy đúng nếu màn hình laptop kh�
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>Phiên bản BIOS</value>
   </data>
-  <data name="DeviceInformationWindow_Copied_Message" xml:space="preserve">
+  <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
     <value>"{0}" sao chép vào clipboard.</value>
   </data>
-  <data name="DeviceInformationWindow_Copied_Title" xml:space="preserve">
+  <data name="CopiedToClipboard_Title" xml:space="preserve">
     <value>Đã sao chép!</value>
   </data>
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">

@@ -475,10 +475,10 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je displej notebooku vypnutý
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>BIOS verze</value>
   </data>
-  <data name="DeviceInformationWindow_Copied_Message" xml:space="preserve">
+  <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
     <value>"{0}" zkopírováno do schránky.</value>
   </data>
-  <data name="DeviceInformationWindow_Copied_Title" xml:space="preserve">
+  <data name="CopiedToClipboard_Title" xml:space="preserve">
     <value>Zkopírováno!</value>
   </data>
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">

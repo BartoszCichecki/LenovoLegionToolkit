@@ -476,10 +476,10 @@ ATTENTION : Cette action ne fonctionnera pas correctement, si l'écran intégré
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>Version du BIOS</value>
   </data>
-  <data name="DeviceInformationWindow_Copied_Message" xml:space="preserve">
+  <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
     <value>"{0}" copié dans le presse-papiers.</value>
   </data>
-  <data name="DeviceInformationWindow_Copied_Title" xml:space="preserve">
+  <data name="CopiedToClipboard_Title" xml:space="preserve">
     <value>Copié!</value>
   </data>
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">

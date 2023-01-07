@@ -311,7 +311,7 @@ Táto možnosť je určená pre zariadenia, ktoré nemajú viacero napájacích 
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>Verzia BIOSu</value>
   </data>
-  <data name="DeviceInformationWindow_Copied_Title" xml:space="preserve">
+  <data name="CopiedToClipboard_Title" xml:space="preserve">
     <value>Skopírované!</value>
   </data>
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">

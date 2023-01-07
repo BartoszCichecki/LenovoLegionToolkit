@@ -466,10 +466,10 @@ UYARI: Dahili ekran kapalıysa veya Hibrit modu etkin değilse bu eylem düzgün
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>BIOS sürümü</value>
   </data>
-  <data name="DeviceInformationWindow_Copied_Message" xml:space="preserve">
+  <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
     <value>"{0}" panoya kopyalandı.</value>
   </data>
-  <data name="DeviceInformationWindow_Copied_Title" xml:space="preserve">
+  <data name="CopiedToClipboard_Title" xml:space="preserve">
     <value>Kopyalandı!</value>
   </data>
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
