@@ -475,12 +475,6 @@ AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>Versión de BIOS</value>
   </data>
-  <data name="DeviceInformationWindow_Copied_Message" xml:space="preserve">
-    <value>"{0}" copiado(s) en el portapapeles.</value>
-  </data>
-  <data name="DeviceInformationWindow_Copied_Title" xml:space="preserve">
-    <value>¡Copiado(s)!</value>
-  </data>
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
     <value>Dispositivo</value>
   </data>
