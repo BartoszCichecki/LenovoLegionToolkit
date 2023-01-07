@@ -1128,11 +1128,6 @@ Podes mudar com Fn+Q.</value>
   <data name="Refresh" xml:space="preserve">
     <value>Atualizar</value>
   </data>
-  <data name="RefreshRateAutomationStepControl_Message" xml:space="preserve">
-    <value>Altera a taxa de atualização do ecrã interno.
-
-ATENÇÃO: Está ação não irá executar corretamente se o ecrã interno estiver desligado.</value>
-  </data>
   <data name="RefreshRateAutomationStepControl_Title" xml:space="preserve">
     <value>Taxa de atualização</value>
   </data>
