@@ -131,12 +131,14 @@
                                 Content="{x:Static resources:Resource.PackagesPage_PrimarySource}"
                                 GroupName="source"
                                 IsChecked="True"
-                                ToolTip="{x:Static resources:Resource.PackagesPage_PrimarySource_ToolTip}" />
+                                ToolTip="{x:Static resources:Resource.PackagesPage_PrimarySource_ToolTip}"
+                                ToolTipService.InitialShowDelay="0" />
                             <RadioButton
                                 x:Name="_sourceSecondaryRadio"
                                 Content="{x:Static resources:Resource.PackagesPage_SecondarySource}"
                                 GroupName="source"
-                                ToolTip="{x:Static resources:Resource.PackagesPage_SecondarySource_ToolTip}" />
+                                ToolTip="{x:Static resources:Resource.PackagesPage_SecondarySource_ToolTip}"
+                                ToolTipService.InitialShowDelay="0" />
 
                         </StackPanel>
 
