@@ -86,10 +86,19 @@
   <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Al cambiar el modo de alimentación</value>
   </data>
+  <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Al iniciarse la aplicación</value>
+  </data>
   <data name="ProcessesStopRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Al cerrar la aplicación</value>
   </data>
   <data name="TimeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>A la hora indicada</value>
   </data>
+  <data name="ExternalDisplayConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Cuando se conecta una pantalla externa</value>
+	</data>
+  <data name="ExternalDisplayDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Cuando se desconecta una pantalla externa</value>
+	</data>
 </root>

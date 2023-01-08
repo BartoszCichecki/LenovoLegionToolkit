@@ -85,10 +85,19 @@
   <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Když je změněn režim výkonu</value>
   </data>
+  <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Při spuštění aplikace</value>
+  </data>
   <data name="ProcessesStopRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Když se aplikace ukončí</value>
   </data>
   <data name="TimeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>V zadaný čas</value>
   </data>
+  <data name="ExternalDisplayConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Při připojení externího monitoru</value>
+	</data>
+  <data name="ExternalDisplayDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Při odpojení externího monitoru</value>
+	</data>
 </root>

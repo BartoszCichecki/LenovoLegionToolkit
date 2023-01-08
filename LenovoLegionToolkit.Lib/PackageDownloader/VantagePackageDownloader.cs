@@ -9,7 +9,7 @@ using LenovoLegionToolkit.Lib.PackageDownloader.Detectors;
 
 namespace LenovoLegionToolkit.Lib.PackageDownloader;
 
-public class CommercialPackageDownloader : AbstractPackageDownloader
+public class VantagePackageDownloader : AbstractPackageDownloader
 {
     private readonly struct PackageDefinition
     {
