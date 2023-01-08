@@ -54,7 +54,13 @@ public partial class ExcludeRefreshRatesWindow
         }
 
         _list.Items.Clear();
-        foreach (var refreshRate in refreshRates.OrderBy(rr => rr.Frequency))
+
+        var items = refreshRates
+            .Union(excluded)
+            .Distinct()
+            .OrderBy(rr => rr.Frequency);
+
+        foreach (var refreshRate in items)
         {
             var item = new ListItem(refreshRate)
             {
@@ -72,8 +78,7 @@ public partial class ExcludeRefreshRatesWindow
     {
         var excludedRefreshRates = _list.Items.OfType<ListItem>()
             .Where(li => !li.IsChecked)
-            .Select(li => li.RefreshRate)
-            .ToArray();
+            .Select(li => li.RefreshRate);
 
         _settings.Store.ExcludedRefreshRates.Clear();
         _settings.Store.ExcludedRefreshRates.AddRange(excludedRefreshRates);

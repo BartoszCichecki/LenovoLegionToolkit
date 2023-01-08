@@ -15,7 +15,7 @@ public class RefreshRateControl : AbstractComboBoxFeatureCardControl<RefreshRate
 
     public RefreshRateControl()
     {
-        Icon = SymbolRegular.Laptop24;
+        Icon = SymbolRegular.DesktopPulse24;
         Title = Resource.RefreshRateControl_Title;
         Subtitle = Resource.RefreshRateControl_Message;
 

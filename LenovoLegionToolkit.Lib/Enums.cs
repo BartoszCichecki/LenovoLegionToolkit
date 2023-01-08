@@ -116,6 +116,19 @@ public enum LightingChangeState
     Ports = 1,
 }
 
+public enum MicrophoneMuteState
+{
+    Off,
+    On
+}
+
+public enum NativeWindowsMessage
+{
+    MonitorConnected,
+    MonitorDisconnected,
+    OnDisplayDeviceArrival
+}
+
 public enum NotificationDuration
 {
     Short,

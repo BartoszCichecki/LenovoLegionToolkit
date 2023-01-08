@@ -14,7 +14,7 @@ public class RefreshRateAutomationStepControl : AbstractComboBoxAutomationStepCa
 
     public RefreshRateAutomationStepControl(IAutomationStep<RefreshRate> step) : base(step)
     {
-        Icon = SymbolRegular.Laptop24;
+        Icon = SymbolRegular.DesktopPulse24;
         Title = Resource.RefreshRateAutomationStepControl_Title;
         Subtitle = Resource.RefreshRateAutomationStepControl_Message;
 

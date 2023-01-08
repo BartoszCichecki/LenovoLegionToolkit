@@ -238,7 +238,8 @@ public class GodModeController
 
                 try
                 {
-                    await SetFanTable(fanTable.Value).ConfigureAwait(false);
+                    var table = fanTable.Value.IsValid() ? fanTable.Value : GetDefaultFanTable();
+                    await SetFanTable(table).ConfigureAwait(false);
                 }
                 catch (Exception ex)
                 {
@@ -257,6 +258,8 @@ public class GodModeController
             return null;
 
         var fanTable = _settings.Store.FanTable ?? GetDefaultFanTable();
+        if (!fanTable.IsValid())
+            fanTable = GetDefaultFanTable();
         return new FanTableInfo(fanTableData, fanTable);
     }
 

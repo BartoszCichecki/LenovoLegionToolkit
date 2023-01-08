@@ -187,17 +187,17 @@ public abstract class SoftwareDisabler
     protected virtual bool AreProcessesRunning()
     {
         foreach (var process in Process.GetProcesses())
-        foreach (var processName in ProcessNames)
-        {
-            try
+            foreach (var processName in ProcessNames)
             {
-                if (process.ProcessName.StartsWith(processName, StringComparison.InvariantCultureIgnoreCase))
-                    return true;
+                try
+                {
+                    if (process.ProcessName.StartsWith(processName, StringComparison.InvariantCultureIgnoreCase))
+                        return true;
+                }
+                catch
+                {
+                }
             }
-            catch
-            {
-            }
-        }
 
         return false;
     }
@@ -205,21 +205,21 @@ public abstract class SoftwareDisabler
     protected virtual async Task KillProcessesAsync()
     {
         foreach (var process in Process.GetProcesses())
-        foreach (var processName in ProcessNames)
-        {
-            try
+            foreach (var processName in ProcessNames)
             {
-                if (process.ProcessName.StartsWith(processName, StringComparison.InvariantCultureIgnoreCase))
+                try
                 {
-                    process.Kill();
-                    await process.WaitForExitAsync().ConfigureAwait(false);
+                    if (process.ProcessName.StartsWith(processName, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        process.Kill();
+                        await process.WaitForExitAsync().ConfigureAwait(false);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Couldn't kill process.", ex);
                 }
             }
-            catch (Exception ex)
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't kill process.", ex);
-            }
-        }
     }
 }

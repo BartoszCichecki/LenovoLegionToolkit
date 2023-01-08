@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -88,19 +89,25 @@ public readonly struct FanTableData
 
 public readonly struct FanTable
 {
-    private byte FSTM { get; }
-    private byte FSID { get; }
-    private uint FSTL { get; }
-    private ushort FSS0 { get; }
-    private ushort FSS1 { get; }
-    private ushort FSS2 { get; }
-    private ushort FSS3 { get; }
-    private ushort FSS4 { get; }
-    private ushort FSS5 { get; }
-    private ushort FSS6 { get; }
-    private ushort FSS7 { get; }
-    private ushort FSS8 { get; }
-    private ushort FSS9 { get; }
+    // ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
+    // ReSharper disable MemberCanBePrivate.Global
+
+    public byte FSTM { get; init; }
+    public byte FSID { get; init; }
+    public uint FSTL { get; init; }
+    public ushort FSS0 { get; init; }
+    public ushort FSS1 { get; init; }
+    public ushort FSS2 { get; init; }
+    public ushort FSS3 { get; init; }
+    public ushort FSS4 { get; init; }
+    public ushort FSS5 { get; init; }
+    public ushort FSS6 { get; init; }
+    public ushort FSS7 { get; init; }
+    public ushort FSS8 { get; init; }
+    public ushort FSS9 { get; init; }
+
+    // ReSharper restore AutoPropertyCanBeMadeGetOnly.Global
+    // ReSharper restore MemberCanBePrivate.Global
 
     public FanTable(ushort[] fanTable)
     {
@@ -126,6 +133,8 @@ public readonly struct FanTable
     }
 
     public ushort[] GetTable() => new[] { FSS0, FSS1, FSS2, FSS3, FSS4, FSS5, FSS6, FSS7, FSS8, FSS9 };
+
+    public bool IsValid() => GetTable().All(t => t > 0);
 
     public byte[] GetBytes()
     {
@@ -493,6 +502,34 @@ public readonly struct RGBKeyboardBacklightState
     }
 }
 
+public readonly struct DpiScale : IDisplayName, IEquatable<DpiScale>
+{
+    public int Scale { get; }
+
+    [JsonIgnore]
+    public string DisplayName => $"{Scale}%";
+
+    [JsonConstructor]
+    public DpiScale(int scale)
+    {
+        Scale = scale;
+    }
+
+    #region Equality
+
+    public override bool Equals(object? obj) => obj is DpiScale rate && Equals(rate);
+
+    public bool Equals(DpiScale other) => Scale == other.Scale;
+
+    public override int GetHashCode() => HashCode.Combine(Scale);
+
+    public static bool operator ==(DpiScale left, DpiScale right) => left.Equals(right);
+
+    public static bool operator !=(DpiScale left, DpiScale right) => !(left == right);
+
+    #endregion
+}
+
 public readonly struct RefreshRate : IDisplayName, IEquatable<RefreshRate>
 {
     public int Frequency { get; }
@@ -521,11 +558,63 @@ public readonly struct RefreshRate : IDisplayName, IEquatable<RefreshRate>
     #endregion
 }
 
+public readonly struct Resolution : IDisplayName, IEquatable<Resolution>, IComparable<Resolution>
+{
+    public int Width { get; }
+    public int Height { get; }
+
+    [JsonIgnore]
+    public string DisplayName => $"{Width} × {Height}";
+
+    [JsonConstructor]
+    public Resolution(int width, int height)
+    {
+        Width = width;
+        Height = height;
+    }
+
+    public Resolution(Size size) : this(size.Width, size.Height) { }
+
+    public override string ToString() => $"{Width}x{Height}";
+
+    public int CompareTo(Resolution other)
+    {
+        var widthComparison = Width.CompareTo(other.Width);
+        return widthComparison != 0
+            ? widthComparison
+            : Height.CompareTo(other.Height);
+    }
+
+    #region Conversion
+
+    public static explicit operator Resolution(Size value) => new(value);
+
+    public static implicit operator Size(Resolution data) => new(data.Width, data.Height);
+
+    #endregion
+
+    #region Equality
+
+    public override bool Equals(object? obj) => obj is Resolution other && Equals(other);
+
+    public bool Equals(Resolution other) => Width == other.Width && Height == other.Height;
+
+    public override int GetHashCode() => HashCode.Combine(Width, Height);
+
+    public static bool operator ==(Resolution left, Resolution right) => left.Equals(right);
+
+    public static bool operator !=(Resolution left, Resolution right) => !(left == right);
+
+    #endregion
+
+}
+
 public readonly struct SpectrumKeyboardBacklightKeys
 {
     public bool All { get; }
     public ushort[] KeyCodes { get; }
 
+    [JsonConstructor]
     private SpectrumKeyboardBacklightKeys(bool all, ushort[] keyCodes)
     {
         All = all;

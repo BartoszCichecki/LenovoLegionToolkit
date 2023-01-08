@@ -118,23 +118,31 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
 
             var all = await _refreshRateFeature.GetAllStatesAsync().ConfigureAwait(false);
             var current = await _refreshRateFeature.GetStateAsync().ConfigureAwait(false);
+            var excluded = _settings.Store.ExcludedRefreshRates;
 
-            all = all.Except(_settings.Store.ExcludedRefreshRates).ToArray();
+            var filtered = all.Except(excluded).ToArray();
 
-            if (all.Length < 2)
+            if (Log.Instance.IsTraceEnabled)
+            {
+                Log.Instance.Trace($"Refresh rates: [all={string.Join(",", all.Select(r => r.Frequency))}]");
+                Log.Instance.Trace($" - All: {string.Join(",", all.Select(r => r.Frequency))}");
+                Log.Instance.Trace($" - Excluded: {string.Join(",", excluded.Select(r => r.Frequency))}");
+                Log.Instance.Trace($" - Filtered: {string.Join(",", filtered.Select(r => r.Frequency))}");
+            }
+
+            if (filtered.Length < 2)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Can't switch refresh rate after Fn+R. [all={all?.Length}]");
-
+                    Log.Instance.Trace($"Can't switch refresh rate after Fn+R when there is less than one available.");
                 return;
             }
 
-            var currentIndex = Array.IndexOf(all, current);
+            var currentIndex = Array.IndexOf(filtered, current);
             var newIndex = currentIndex + 1;
-            if (newIndex >= all.Length)
+            if (newIndex >= filtered.Length)
                 newIndex = 0;
 
-            var next = all[newIndex];
+            var next = filtered[newIndex];
 
             await _refreshRateFeature.SetStateAsync(next).ConfigureAwait(false);
 
@@ -146,8 +154,10 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Switched refresh rate after Fn+R to {next}.");
         }
-        catch
+        catch (Exception ex)
         {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Failed to switch refresh rate after Fn+R.", ex);
         }
     });
 

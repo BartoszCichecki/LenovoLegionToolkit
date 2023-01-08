@@ -18,6 +18,7 @@ using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
@@ -161,6 +162,16 @@ public partial class App
             }
         }
         catch { }
+
+        try
+        {
+            if (IoCContainer.TryResolve<NativeWindowsMessageListener>() is { } windowsMessageListener)
+            {
+                await windowsMessageListener.StopAsync();
+            }
+        }
+        catch { }
+
 
         Shutdown();
     }
