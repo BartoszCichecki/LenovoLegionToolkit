@@ -475,6 +475,9 @@ ATENÇÃO: Esta ação não irá correr corretamente se o ecrã interno estiver 
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>Versão da BIOS</value>
   </data>
+  <data name="CopiedToClipboard_Message" xml:space="preserve">
+    <value>Texto copiado para a área de transferência.</value>
+  </data>
   <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
     <value>{0} copiado para a área de transferência.</value>
   </data>
@@ -1519,5 +1522,36 @@ Logs serão guardados automaticamente, se escolheres continuar.</value>
   </data>
   <data name="MicrophoneMuteAutomationStepControl_Message" xml:space="preserve">
     <value>Tirar o som de todos os microfones disponíveis.</value>
+  </data>
+  <data name="ResolutionControl_Title" xml:space="preserve">
+	  <value>Resolução</value>
+  </data>
+  <data name="ResolutionControl_Message" xml:space="preserve">
+	  <value>Alterar resolução do ecrã interno.</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
+	  <value>Resolução</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
+	  <value>Alterar resolução do ecrã interno.
+
+ATENÇÃO: Esta ação não irá executar corretamente se o ecrã interno estiver desligado.</value>
+  </data>
+  <data name="DpiScaleControl_Title" xml:space="preserve">
+	  <value>DPI</value>
+  </data>
+  <data name="DpiScaleControl_Message" xml:space="preserve">
+	  <value>Alterar escala do ecrã interno.</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
+	  <value>DPI</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
+	  <value>Alterar escala do ecrã interno.
+
+ATENÇÃO: Esta ação não irá executar corretamente se o ecrã interno estiver desligado.</value>
+  </data>
+  <data name="DashboardPage_Display_Title" xml:space="preserve">
+	  <value>Ecrã</value>
   </data>
 </root>
