@@ -93,7 +93,7 @@ public class IoCModule : Module
         builder.Register<WarrantyChecker>();
 
         builder.Register<PCSupportPackageDownloader>();
-        builder.Register<CommercialPackageDownloader>();
+        builder.Register<VantagePackageDownloader>();
         builder.Register<PackageDownloaderFactory>();
 
         builder.Register<SunriseSunset>();

@@ -7,22 +7,22 @@ public class PackageDownloaderFactory
     public enum Type
     {
         PCSupport,
-        Commercial,
+        Vantage,
     }
 
     private readonly PCSupportPackageDownloader _pcSupportPackageDownloader;
-    private readonly CommercialPackageDownloader _commercialPackageDownloader;
+    private readonly VantagePackageDownloader _vantagePackageDownloader;
 
-    public PackageDownloaderFactory(PCSupportPackageDownloader pcSupportPackageDownloader, CommercialPackageDownloader commercialPackageDownloader)
+    public PackageDownloaderFactory(PCSupportPackageDownloader pcSupportPackageDownloader, VantagePackageDownloader vantagePackageDownloader)
     {
         _pcSupportPackageDownloader = pcSupportPackageDownloader ?? throw new ArgumentNullException(nameof(pcSupportPackageDownloader));
-        _commercialPackageDownloader = commercialPackageDownloader ?? throw new ArgumentNullException(nameof(commercialPackageDownloader));
+        _vantagePackageDownloader = vantagePackageDownloader ?? throw new ArgumentNullException(nameof(vantagePackageDownloader));
     }
 
     public IPackageDownloader GetInstance(Type type) => type switch
     {
         Type.PCSupport => _pcSupportPackageDownloader,
-        Type.Commercial => _commercialPackageDownloader,
+        Type.Vantage => _vantagePackageDownloader,
         _ => throw new InvalidOperationException(nameof(type)),
     };
 }

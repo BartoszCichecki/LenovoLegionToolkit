@@ -8,7 +8,7 @@ using System.Xml;
 
 namespace LenovoLegionToolkit.Lib.PackageDownloader;
 
-public class CommercialPackageDownloader : AbstractPackageDownloader
+public class VantagePackageDownloader : AbstractPackageDownloader
 {
     private readonly struct PackageDefinition
     {
