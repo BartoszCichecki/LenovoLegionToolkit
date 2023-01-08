@@ -974,6 +974,33 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Text copied to clipboard..
+        /// </summary>
+        public static string CopiedToClipboard_Message {
+            get {
+                return ResourceManager.GetString("CopiedToClipboard_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;{0}&quot; copied to clipboard..
+        /// </summary>
+        public static string CopiedToClipboard_Message_WithParam {
+            get {
+                return ResourceManager.GetString("CopiedToClipboard_Message_WithParam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copied!.
+        /// </summary>
+        public static string CopiedToClipboard_Title {
+            get {
+                return ResourceManager.GetString("CopiedToClipboard_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Copy all.
         /// </summary>
         public static string CopyAll {
@@ -1125,24 +1152,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string DeviceInformationWindow_BiosVersion_Title {
             get {
                 return ResourceManager.GetString("DeviceInformationWindow_BiosVersion_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &quot;{0}&quot; copied to clipboard..
-        /// </summary>
-        public static string DeviceInformationWindow_Copied_Message {
-            get {
-                return ResourceManager.GetString("DeviceInformationWindow_Copied_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Copied!.
-        /// </summary>
-        public static string DeviceInformationWindow_Copied_Title {
-            get {
-                return ResourceManager.GetString("DeviceInformationWindow_Copied_Title", resourceCulture);
             }
         }
         
@@ -2758,7 +2767,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Same as Lenovo PC Support.
+        ///   Looks up a localized string similar to Same as Lenovo Vantage.
         /// </summary>
         public static string PackagesPage_PrimarySource_ToolTip {
             get {
@@ -2776,7 +2785,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Same as Lenovo DriverGrabber.
+        ///   Looks up a localized string similar to Same as Lenovo PC Support webpage.
         /// </summary>
         public static string PackagesPage_SecondarySource_ToolTip {
             get {

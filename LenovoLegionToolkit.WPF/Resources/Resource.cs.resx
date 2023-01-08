@@ -475,6 +475,12 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je displej notebooku vypnutý
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>BIOS verze</value>
   </data>
+  <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
+    <value>"{0}" zkopírováno do schránky.</value>
+  </data>
+  <data name="CopiedToClipboard_Title" xml:space="preserve">
+    <value>Zkopírováno!</value>
+  </data>
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
     <value>Zařízení</value>
   </data>
@@ -992,8 +998,14 @@ Vždy se ujisti, že instaluješ správné balíčky.</value>
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Primární (Doporučený)</value>
   </data>
+  <data name="PackagesPage_PrimarySource_ToolTip" xml:space="preserve">
+    <value>Stejný jako Lenovo PC Podpora</value>
+  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Sekundární</value>
+  </data>
+  <data name="PackagesPage_SecondarySource_ToolTip" xml:space="preserve">
+    <value>Stejný jako Lenovo DriverGrabber</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Kategorie</value>

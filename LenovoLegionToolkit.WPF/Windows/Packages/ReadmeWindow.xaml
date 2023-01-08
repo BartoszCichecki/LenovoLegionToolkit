@@ -55,15 +55,30 @@
                     <TextBlock x:Name="_content" TextWrapping="Wrap" />
                 </ScrollViewer>
 
-                <wpfui:Button
-                    Grid.Row="1"
-                    Height="32"
-                    MinWidth="150"
-                    Margin="0,16,0,16"
-                    HorizontalAlignment="Center"
-                    Appearance="Primary"
-                    Click="CloseButton_Click"
-                    Content="{x:Static resources:Resource.Close}" />
+                <Grid Grid.Row="1" Margin="0,16,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <wpfui:Button
+                        Grid.Column="0"
+                        Click="CopyButton_Click"
+                        FontSize="18"
+                        Icon="Copy24"
+                        ToolTip="{x:Static resources:Resource.CopyAll}" />
+
+                    <wpfui:Button
+                        Grid.Column="2"
+                        MinWidth="150"
+                        HorizontalAlignment="Center"
+                        Appearance="Primary"
+                        Click="CloseButton_Click"
+                        Content="{x:Static resources:Resource.Close}" />
+
+                </Grid>
+
             </Grid>
         </Grid>
     </Grid>

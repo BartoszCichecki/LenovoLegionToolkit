@@ -53,8 +53,8 @@ public partial class PackagesPage : Page, IProgress<float>
         _downloadPackagesButton.IsEnabled = true;
         _cancelDownloadPackagesButton.IsEnabled = true;
 
-        _sourcePrimaryRadio.Tag = PackageDownloaderFactory.Type.PCSupport;
-        _sourceSecondaryRadio.Tag = PackageDownloaderFactory.Type.Commercial;
+        _sourcePrimaryRadio.Tag = PackageDownloaderFactory.Type.Commercial;
+        _sourceSecondaryRadio.Tag = PackageDownloaderFactory.Type.PCSupport;
     }
 
     public void Report(float value) => Dispatcher.Invoke(() =>
@@ -140,7 +140,7 @@ public partial class PackagesPage : Page, IProgress<float>
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Error occured when downloading packages.", ex);
 
-            SnackbarHelper.Show("Something went wrong", "Check if your internet connection is up and running.", true);
+            await SnackbarHelper.ShowAsync("Something went wrong", "Check if your internet connection is up and running.", true);
 
             errored = true;
         }
@@ -149,7 +149,7 @@ public partial class PackagesPage : Page, IProgress<float>
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Error occured when downloading packages.", ex);
 
-            SnackbarHelper.Show("Something went wrong", ex.Message, true);
+            await SnackbarHelper.ShowAsync("Something went wrong", ex.Message, true);
 
             errored = true;
         }
