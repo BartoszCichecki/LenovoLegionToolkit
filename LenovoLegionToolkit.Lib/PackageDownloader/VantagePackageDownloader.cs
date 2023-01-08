@@ -36,7 +36,7 @@ public class VantagePackageDownloader : AbstractPackageDownloader
 
         var packageDefinitions = await GetPackageDefinitionsAsync(httpClient, $"{_catalogBaseUrl}/{machineType}_{osString}.xml", token).ConfigureAwait(false);
 
-        var updateDetector = new CommercialPackageUpdateDetector();
+        var updateDetector = new VantagePackageUpdateDetector();
         await updateDetector.BuildDriverInfoCache().ConfigureAwait(false);
 
         var count = 0;
@@ -83,7 +83,7 @@ public class VantagePackageDownloader : AbstractPackageDownloader
         return packageDefinitions;
     }
 
-    private async Task<Package> GetPackage(HttpClient httpClient, CommercialPackageUpdateDetector updateDetector, PackageDefinition packageDefinition, CancellationToken token)
+    private async Task<Package> GetPackage(HttpClient httpClient, VantagePackageUpdateDetector updateDetector, PackageDefinition packageDefinition, CancellationToken token)
     {
         var location = packageDefinition.Location;
         var baseLocation = location.Remove(location.LastIndexOf("/"));

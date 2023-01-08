@@ -12,7 +12,7 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.PackageDownloader.Detectors;
 
-internal class CommercialPackageUpdateDetector
+internal class VantagePackageUpdateDetector
 {
     private List<DriverInfo> _driverInfoCache = new();
 
