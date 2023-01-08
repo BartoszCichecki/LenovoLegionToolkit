@@ -111,6 +111,7 @@ public static class Compatibility
             ("HACN", 31),
             ("HHCN", 23),
             ("K1CN", 31),
+            ("K9CN", 34),
             ("J2CN", 40),
             ("JUCN", 51),
             ("JYCN", 39),
