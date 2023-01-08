@@ -111,11 +111,11 @@ public class DriverKeyListener : IListener<DriverKey>
                     {
                         case MicrophoneMuteState.On:
                             await _microphoneMuteFeature.SetStateAsync(MicrophoneMuteState.Off).ConfigureAwait(false);
-                            MessagingCenter.Publish(new Notification(NotificationType.MicrophoneOff, NotificationDuration.Short));
+                            MessagingCenter.Publish(new Notification(NotificationType.MicrophoneOn, NotificationDuration.Short));
                             break;
                         case MicrophoneMuteState.Off:
                             await _microphoneMuteFeature.SetStateAsync(MicrophoneMuteState.On).ConfigureAwait(false);
-                            MessagingCenter.Publish(new Notification(NotificationType.MicrophoneOn, NotificationDuration.Short));
+                            MessagingCenter.Publish(new Notification(NotificationType.MicrophoneOff, NotificationDuration.Short));
                             break;
                     }
                 }
