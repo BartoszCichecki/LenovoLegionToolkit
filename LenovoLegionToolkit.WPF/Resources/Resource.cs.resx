@@ -475,6 +475,9 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je displej notebooku vypnutý
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>BIOS verze</value>
   </data>
+  <data name="CopiedToClipboard_Message" xml:space="preserve">
+    <value>Text zkopírován do schránky.</value>
+  </data>
   <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
     <value>"{0}" zkopírováno do schránky.</value>
   </data>
@@ -603,6 +606,9 @@ Díky předem!</value>
   </data>
   <data name="Exit" xml:space="preserve">
     <value>Konec</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Exportovat</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
     <value>Při napájení z baterie používejte pouze integrovaný GPU a při připojení napájecího adaptéru integrovaný i samostatný GPU. Když je připojen nestandardní adaptér, systém se přepne do režimu Hybrid-iGPU Only.</value>
@@ -761,6 +767,9 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je interní displej vypnutý.
   </data>
   <data name="HDRControl_Warning" xml:space="preserve">
     <value>Použití HDR je blokované v nastavení systému Windows.</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Importovat</value>
   </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Toto zařízení není kompatibilní s Lenovo Legion Toolkit.</value>
@@ -999,13 +1008,13 @@ Vždy se ujisti, že instaluješ správné balíčky.</value>
     <value>Primární (Doporučený)</value>
   </data>
   <data name="PackagesPage_PrimarySource_ToolTip" xml:space="preserve">
-    <value>Stejný jako Lenovo PC Podpora</value>
+    <value>Stejný jako od Lenovo Vantage</value>
   </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Sekundární</value>
   </data>
   <data name="PackagesPage_SecondarySource_ToolTip" xml:space="preserve">
-    <value>Stejný jako Lenovo DriverGrabber</value>
+    <value>Stejný jako od stránky podpory Lenovo</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Kategorie</value>
@@ -1318,6 +1327,9 @@ Po změně této možnosti se doporučuje restartovat.</value>
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
     <value>Použití profilu se nezdařilo</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
+    <value>Profil osvětlení nelze použít.</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Jas</value>
   </data>
@@ -1326,6 +1338,18 @@ Po změně této možnosti se doporučuje restartovat.</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
     <value>Efekty</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Message" xml:space="preserve">
+    <value>Profil se nepodařilo exportovat</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Title" xml:space="preserve">
+    <value>Nelze exportovat profil</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Message" xml:space="preserve">
+    <value>Profil se nepodařilo importovat</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Title" xml:space="preserve">
+    <value>Nelze importovat profil</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
     <value>Žádné efekty přidány.</value>
@@ -1488,5 +1512,48 @@ Pokud se rozhodneš pokračovat, protokolování bude automaticky povoleno.</val
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Ano</value>
+  </data>
+  <data name="MicrophoneMuteControl_Title" xml:space="preserve">
+    <value>Vypnutí mikrofonu</value>
+  </data>
+  <data name="MicrophoneMuteControl_Message" xml:space="preserve">
+    <value>Vypnout všechny dostupné mikrofony.</value>
+  </data>
+  <data name="MicrophoneMuteAutomationStepControl_Title" xml:space="preserve">
+    <value>Vypnutí mikrofonu</value>
+  </data>
+  <data name="MicrophoneMuteAutomationStepControl_Message" xml:space="preserve">
+    <value>Vypnout všechny dostupné mikrofony.</value>
+  </data>
+  <data name="ResolutionControl_Title" xml:space="preserve">
+	  <value>Rozlišení</value>
+  </data>
+  <data name="ResolutionControl_Message" xml:space="preserve">
+	  <value>Změnit rozlišení displeje notebooku.</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
+	  <value>Rozlišení</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
+	  <value>Změnit rozlišení displeje notebooku.
+
+VAROVÁNÍ: Tato akce neproběhne správně, pokud je interní displej vypnutý.</value>
+  </data>
+  <data name="DpiScaleControl_Title" xml:space="preserve">
+	  <value>DPI</value>
+  </data>
+  <data name="DpiScaleControl_Message" xml:space="preserve">
+	  <value>Změnit měřítko displeje notebooku.</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
+	  <value>DPI</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
+	  <value>Změnit měřítko displeje notebooku.
+
+VAROVÁNÍ: Tato akce neproběhne správně, pokud je interní displej vypnutý.</value>
+  </data>
+  <data name="DashboardPage_Display_Title" xml:space="preserve">
+	  <value>Displej</value>
   </data>
 </root>

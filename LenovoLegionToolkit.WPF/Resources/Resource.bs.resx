@@ -389,12 +389,6 @@ Ovo vrijeme možda neće biti tačno ako je laptop bio napunjen dok je spavao il
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>Verzija BIOS-a</value>
   </data>
-  <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
-    <value>"{0}" kopirano u međuspremnik.</value>
-  </data>
-  <data name="CopiedToClipboard_Title" xml:space="preserve">
-    <value>Kopirano!</value>
-  </data>
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
     <value>Uređaj</value>
   </data>
@@ -613,14 +607,8 @@ Uvijek provjerite da li instalirate ispravne pakete.</value>
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Primarno (preporučeno)</value>
   </data>
-  <data name="PackagesPage_PrimarySource_ToolTip" xml:space="preserve">
-    <value>Isto kao Lenovo PC Support</value>
-  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Sekundarno</value>
-  </data>
-  <data name="PackagesPage_SecondarySource_ToolTip" xml:space="preserve">
-    <value>Isto kao Lenovo DriverGrabber</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Kategorija</value>

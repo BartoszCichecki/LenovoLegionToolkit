@@ -1315,6 +1315,9 @@ Opnieuw opstarten wordt aanbevolen na het wijzigen van deze optie.</value>
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
     <value>Kan profiel niet toepassen</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
+    <value>Verlichtingsprofiel kan niet worden toegepast.</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Helderheid</value>
   </data>
