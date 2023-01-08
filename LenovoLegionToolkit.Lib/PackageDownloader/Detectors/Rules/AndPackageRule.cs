@@ -7,15 +7,29 @@ namespace LenovoLegionToolkit.Lib.PackageDownloader.Detectors.Rules;
 
 internal readonly struct AndPackageRule : IPackageRule
 {
-    public IEnumerable<IPackageRule> Rules { get; }
+    private IEnumerable<IPackageRule> Rules { get; init; }
 
-    public AndPackageRule(IEnumerable<IPackageRule> rules) => Rules = rules;
+    public static bool TryCreate(IEnumerable<IPackageRule> rules, out AndPackageRule value)
+    {
+        value = new AndPackageRule { Rules = rules };
+        return true;
+    }
 
-    public async Task<bool> ValidateAsync(HttpClient httpClient, CancellationToken token)
+    public Task<bool> CheckDependenciesSatisfiedAsync(List<DriverInfo> driverInfoCache, HttpClient httpClient, CancellationToken token)
+    {
+        return CheckRulesAsync(driverInfoCache, httpClient, token);
+    }
+
+    public Task<bool> DetectInstallNeededAsync(List<DriverInfo> driverInfoCache, HttpClient httpClient, CancellationToken token)
+    {
+        return CheckRulesAsync(driverInfoCache, httpClient, token);
+    }
+
+    private async Task<bool> CheckRulesAsync(List<DriverInfo> driverInfoCache, HttpClient httpClient, CancellationToken token)
     {
         foreach (var rule in Rules)
         {
-            if (!await rule.ValidateAsync(httpClient, token).ConfigureAwait(false))
+            if (!await rule.DetectInstallNeededAsync(driverInfoCache, httpClient, token).ConfigureAwait(false))
                 return false;
         }
 

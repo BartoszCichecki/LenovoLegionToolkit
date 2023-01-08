@@ -40,11 +40,52 @@ public static class Registry
         return watcher;
     }
 
-    public static bool Exists(string hive, string path)
+    public static bool KeyExists(string hive, string path, string key)
     {
         try
         {
-            var value = Microsoft.Win32.Registry.GetValue(@$"{hive}\{path}", null, null);
+            var value = Microsoft.Win32.Registry.GetValue(@$"{hive}\{path}", key, null);
+            return value is not null;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    public static bool KeyExists(string hive, string path)
+    {
+
+        try
+        {
+            RegistryKey registryKey;
+            switch (hive)
+            {
+                case "HKLM":
+                case "HKEY_LOCAL_MACHINE":
+                    registryKey = Microsoft.Win32.Registry.LocalMachine;
+                    break;
+                case "HKCU":
+                case "HKEY_CURRENT_USER":
+                    registryKey = Microsoft.Win32.Registry.CurrentUser;
+                    break;
+                case "HKU":
+                case "HKEY_USERS":
+                    registryKey = Microsoft.Win32.Registry.Users;
+                    break;
+                case "HKCR":
+                case "HKEY_CLASSES_ROOT ":
+                    registryKey = Microsoft.Win32.Registry.ClassesRoot;
+                    break;
+                case "HKCC":
+                case "HKEY_CURRENT_CONFIG  ":
+                    registryKey = Microsoft.Win32.Registry.CurrentConfig;
+                    break;
+                default:
+                    throw new ArgumentException(nameof(hive));
+            }
+
+            var value = registryKey.OpenSubKey(path);
             return value is not null;
         }
         catch

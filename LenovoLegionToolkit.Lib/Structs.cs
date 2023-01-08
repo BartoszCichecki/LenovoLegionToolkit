@@ -71,6 +71,13 @@ public readonly struct DisplayAdvancedColorInfo
     }
 }
 
+public readonly struct DriverInfo
+{
+    public string HardwareId { get; init; }
+    public Version? Version { get; init; }
+    public DateTime? Date { get; init; }
+}
+
 public readonly struct FanTableData
 {
     public byte FanId { get; init; }

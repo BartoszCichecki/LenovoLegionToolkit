@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -9,36 +11,46 @@ namespace LenovoLegionToolkit.Lib.PackageDownloader.Detectors.Rules;
 
 internal readonly struct OsPackageRule : IPackageRule
 {
-    private string Os { get; init; }
+    private string[] Oses { get; init; }
 
     public static bool TryCreate(XmlNode? node, out OsPackageRule value)
     {
-        var os = node?.SelectSingleNode("OS")?.InnerText;
+        var oses = node?.SelectNodes("OS")?
+            .OfType<XmlNode>()
+            .Select(n => n.InnerText)
+            .ToArray() ?? Array.Empty<string>();
 
-        if (os is null)
+        if (oses.IsEmpty())
         {
             value = default;
             return false;
         }
 
-        value = new OsPackageRule { Os = os };
+        value = new OsPackageRule { Oses = oses };
         return true;
     }
 
-    public Task<bool> ValidateAsync(HttpClient _1, CancellationToken _2)
+    public Task<bool> CheckDependenciesSatisfiedAsync(List<DriverInfo> _1, HttpClient _2, CancellationToken _3) => OsVersionMatch();
+
+    public Task<bool> DetectInstallNeededAsync(List<DriverInfo> _1, HttpClient _2, CancellationToken _3) => OsVersionMatch();
+
+    private Task<bool> OsVersionMatch()
     {
-        var result = false;
         var currentOs = OSExtensions.GetCurrent();
 
-        switch (currentOs)
+        var result = Oses.Any(os =>
         {
-            case OS.Windows11 when Os.StartsWith("win11", StringComparison.InvariantCultureIgnoreCase):
-            case OS.Windows10 when Os.StartsWith("win10", StringComparison.InvariantCultureIgnoreCase):
-            case OS.Windows8 when Os.StartsWith("win8", StringComparison.InvariantCultureIgnoreCase):
-            case OS.Windows7 when Os.StartsWith("win7", StringComparison.InvariantCultureIgnoreCase):
-                result = true;
-                break;
-        }
+            switch (currentOs)
+            {
+                case OS.Windows11 when os.StartsWith("win11", StringComparison.InvariantCultureIgnoreCase):
+                case OS.Windows10 when os.StartsWith("win10", StringComparison.InvariantCultureIgnoreCase):
+                case OS.Windows8 when os.StartsWith("win8", StringComparison.InvariantCultureIgnoreCase):
+                case OS.Windows7 when os.StartsWith("win7", StringComparison.InvariantCultureIgnoreCase):
+                    return true;
+                default:
+                    return false;
+            }
+        });
 
         return Task.FromResult(result);
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -13,7 +14,7 @@ namespace LenovoLegionToolkit.Lib.PackageDownloader.Detectors.Rules;
 
 internal readonly struct ExternalDetectionRule : IPackageRule
 {
-    private const string TEMP_FOLDER_SUB_FOLDER = "ext_package_detection";
+    private const string TEMP_FOLDER_SUB_FOLDER = "external_package_detection";
 
     private int[] ReturnCodes { get; init; }
     private string Command { get; init; }
@@ -52,7 +53,11 @@ internal readonly struct ExternalDetectionRule : IPackageRule
         return true;
     }
 
-    public async Task<bool> ValidateAsync(HttpClient httpClient, CancellationToken token)
+    public Task<bool> CheckDependenciesSatisfiedAsync(List<DriverInfo> _, HttpClient httpClient, CancellationToken token) => CheckExternalDependency(httpClient, token);
+
+    public Task<bool> DetectInstallNeededAsync(List<DriverInfo> _, HttpClient httpClient, CancellationToken token) => CheckExternalDependency(httpClient, token);
+
+    private async Task<bool> CheckExternalDependency(HttpClient httpClient, CancellationToken token)
     {
         var packagePath = Path.Combine(Folders.Temp, TEMP_FOLDER_SUB_FOLDER, PackageName);
         var filePath = Path.Combine(packagePath, FileName);
@@ -79,6 +84,7 @@ internal readonly struct ExternalDetectionRule : IPackageRule
             executable = Path.Combine(packagePath, executable);
 
         var (exitCode, _) = await CMD.RunAsync(executable, arguments).ConfigureAwait(false);
-        return ReturnCodes.Contains(exitCode);
+        var result = ReturnCodes.Contains(exitCode);
+        return result;
     }
 }

@@ -1,44 +1,73 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.PackageDownloader.Detectors.Rules;
 
 internal readonly struct BiosPackageRule : IPackageRule
 {
-    private string Level { get; init; }
+    private static readonly Regex _prefixRegex = new("^[A-Z0-9]{4}");
+    private static readonly Regex _versionRegex = new("[0-9]{2}");
+
+    private string[] Levels { get; init; }
 
     public static bool TryCreate(XmlNode? node, out BiosPackageRule value)
     {
-        var level = node?.SelectSingleNode("Level")?.InnerText;
+        var levels = node?.SelectNodes("Level")?
+            .OfType<XmlNode>()
+            .Select(n => n.InnerText)
+            .ToArray() ?? Array.Empty<string>();
 
-        if (level is null)
+        if (levels.IsEmpty())
         {
             value = default;
             return false;
         }
 
-        value = new BiosPackageRule { Level = level };
+        value = new BiosPackageRule { Levels = levels };
         return true;
     }
 
-    public async Task<bool> ValidateAsync(HttpClient _1, CancellationToken _2)
+    public async Task<bool> CheckDependenciesSatisfiedAsync(List<DriverInfo> driverInfoCache, HttpClient httpClient, CancellationToken token)
     {
         var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
         var currentBios = mi.BIOSVersion;
 
-        if (!currentBios.Take(4).SequenceEqual(Level.Take(4)))
-            return false;
+        var currentBiosPrefix = _prefixRegex.Match(currentBios).Value;
+        var currentBiosVersion = int.Parse(_versionRegex.Match(currentBios).Value);
 
-        if (!int.TryParse(currentBios.Skip(4).Take(2).ToArray(), out var currentBiosVersion))
-            return false;
+        var result = Levels.Any(level =>
+        {
+            var levelPrefix = _prefixRegex.Match(level).Value;
+            var levelVersion = int.Parse(_versionRegex.Match(level).Value);
+            return levelPrefix == currentBiosPrefix && levelVersion == currentBiosVersion;
+        });
 
-        if (!int.TryParse(Level.Skip(4).Take(2).ToArray(), out var levelVersion))
-            return false;
+        return result;
+    }
 
-        return levelVersion > currentBiosVersion;
+    public async Task<bool> DetectInstallNeededAsync(List<DriverInfo> _1, HttpClient _2, CancellationToken _3)
+    {
+        var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
+        var currentBios = mi.BIOSVersion;
+
+        var currentBiosPrefix = _prefixRegex.Match(currentBios).Value;
+        var currentBiosVersion = int.Parse(_versionRegex.Match(currentBios).Value);
+
+        var result = Levels.All(level =>
+        {
+            var levelPrefix = _prefixRegex.Match(level).Value;
+            var levelVersion = int.Parse(_versionRegex.Match(level).Value);
+            return levelPrefix == currentBiosPrefix && levelVersion > currentBiosVersion;
+        });
+
+        return result;
     }
 }

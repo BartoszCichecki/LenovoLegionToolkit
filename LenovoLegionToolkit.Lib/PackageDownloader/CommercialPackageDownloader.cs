@@ -19,12 +19,8 @@ public class CommercialPackageDownloader : AbstractPackageDownloader
 
     private readonly string _catalogBaseUrl = "https://download.lenovo.com/catalog/";
 
-    private readonly CommercialPackageUpdateDetector _updateDetector = new();
-
     public override async Task<List<Package>> GetPackagesAsync(string machineType, OS os, IProgress<float>? progress = null, CancellationToken token = default)
     {
-        using var httpClient = new HttpClient();
-
         progress?.Report(0);
 
         var osString = os switch
@@ -36,7 +32,12 @@ public class CommercialPackageDownloader : AbstractPackageDownloader
             _ => throw new ArgumentOutOfRangeException(nameof(os), os, null)
         };
 
+        using var httpClient = new HttpClient();
+
         var packageDefinitions = await GetPackageDefinitionsAsync(httpClient, $"{_catalogBaseUrl}/{machineType}_{osString}.xml", token).ConfigureAwait(false);
+
+        var updateDetector = new CommercialPackageUpdateDetector();
+        await updateDetector.BuildDriverInfoCache().ConfigureAwait(false);
 
         var count = 0;
         var totalCount = packageDefinitions.Count;
@@ -44,7 +45,7 @@ public class CommercialPackageDownloader : AbstractPackageDownloader
         var packages = new List<Package>();
         foreach (var packageDefinition in packageDefinitions)
         {
-            var package = await GetPackage(httpClient, packageDefinition, token).ConfigureAwait(false);
+            var package = await GetPackage(httpClient, updateDetector, packageDefinition, token).ConfigureAwait(false);
             packages.Add(package);
 
             count++;
@@ -82,7 +83,7 @@ public class CommercialPackageDownloader : AbstractPackageDownloader
         return packageDefinitions;
     }
 
-    private async Task<Package> GetPackage(HttpClient httpClient, PackageDefinition packageDefinition, CancellationToken token)
+    private async Task<Package> GetPackage(HttpClient httpClient, CommercialPackageUpdateDetector updateDetector, PackageDefinition packageDefinition, CancellationToken token)
     {
         var location = packageDefinition.Location;
         var baseLocation = location.Remove(location.LastIndexOf("/"));
@@ -105,7 +106,7 @@ public class CommercialPackageDownloader : AbstractPackageDownloader
         var readmeName = document.SelectSingleNode("/Package/Files/Readme/File/Name")?.InnerText;
         var readme = await GetReadmeAsync(httpClient, $"{baseLocation}/{readmeName}", token).ConfigureAwait(false);
         var fileLocation = $"{baseLocation}/{fileName}";
-        var isUpdate = await _updateDetector.DetectAsync(httpClient, document, baseLocation, token).ConfigureAwait(false);
+        var isUpdate = await updateDetector.DetectAsync(httpClient, document, baseLocation, token).ConfigureAwait(false);
 
         return new()
         {

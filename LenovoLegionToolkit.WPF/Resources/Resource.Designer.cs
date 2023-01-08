@@ -2649,7 +2649,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This package is newer than installed on your system..
+        ///   Looks up a localized string similar to Update available!.
         /// </summary>
         public static string PackageControl_IsUpdateInfo {
             get {

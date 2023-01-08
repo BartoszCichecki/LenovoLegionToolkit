@@ -1,17 +1,25 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace LenovoLegionToolkit.Lib.PackageDownloader.Detectors.Rules;
 
-internal readonly struct OrPackageRule : IPackageRule
+internal readonly struct NotPackageRule : IPackageRule
 {
-    private IEnumerable<IPackageRule> Rules { get; init; }
+    private IPackageRule Rule { get; init; }
 
-    public static bool TryCreate(IEnumerable<IPackageRule> rules, out OrPackageRule value)
+    public static bool TryCreate(IEnumerable<IPackageRule> rules, out NotPackageRule value)
     {
-        value = new OrPackageRule { Rules = rules };
+        var rule = rules.FirstOrDefault();
+        if (rule is null)
+        {
+            value = default;
+            return false;
+        }
+
+        value = new NotPackageRule { Rule = rule };
         return true;
     }
 
@@ -27,12 +35,7 @@ internal readonly struct OrPackageRule : IPackageRule
 
     private async Task<bool> CheckRulesAsync(List<DriverInfo> driverInfoCache, HttpClient httpClient, CancellationToken token)
     {
-        foreach (var rule in Rules)
-        {
-            if (await rule.DetectInstallNeededAsync(driverInfoCache, httpClient, token).ConfigureAwait(false))
-                return true;
-        }
-
-        return false;
+        var result = !await Rule.DetectInstallNeededAsync(driverInfoCache, httpClient, token).ConfigureAwait(false);
+        return result;
     }
 }

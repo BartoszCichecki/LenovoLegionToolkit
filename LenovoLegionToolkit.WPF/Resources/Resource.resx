@@ -968,8 +968,8 @@ Enable this option if you have conflicts with full screen applications.</value>
     <value>Something went wrong</value>
   </data>
   <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
-		<value>This package is newer than installed on your system.</value>
-	</data>
+    <value>Update available!</value>
+  </data>
   <data name="PackageControl_OldPackageWarning" xml:space="preserve">
     <value>This package is more than a year old.</value>
   </data>

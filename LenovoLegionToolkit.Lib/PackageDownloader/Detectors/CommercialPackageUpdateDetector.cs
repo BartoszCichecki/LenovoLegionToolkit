@@ -1,41 +1,86 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Management;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
 using LenovoLegionToolkit.Lib.PackageDownloader.Detectors.Rules;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.PackageDownloader.Detectors;
 
 internal class CommercialPackageUpdateDetector
 {
+    private List<DriverInfo> _driverInfoCache = new();
+
+    public async Task BuildDriverInfoCache()
+    {
+        var driverInfo = await WMI.ReadAsync("root\\CIMV2",
+            $"SELECT * FROM Win32_PnPSignedDriver",
+            pdc =>
+            {
+                var hardwareId = pdc["HardWareId"].Value as string ?? string.Empty;
+                var driverVersionString = pdc["DriverVersion"].Value as string;
+                var driverDateString = pdc["DriverDate"].Value as string;
+
+                Version? driverVersion = null;
+                if (Version.TryParse(driverVersionString, out var v))
+                    driverVersion = v;
+
+                DateTime? driverDate = null;
+                if (driverDateString is not null)
+                    driverDate = ManagementDateTimeConverter.ToDateTime(driverDateString);
+
+                return new DriverInfo
+                {
+                    HardwareId = hardwareId,
+                    Version = driverVersion,
+                    Date = driverDate
+                };
+            });
+
+        _driverInfoCache.Clear();
+        _driverInfoCache.AddRange(driverInfo);
+    }
+
     public async Task<bool> DetectAsync(HttpClient httpClient, XmlDocument document, string baseLocation, CancellationToken token)
     {
-        var detectInstallNode = document.SelectSingleNode("/Package/DetectInstall");
-        if (detectInstallNode?.HasChildNodes ?? false)
-        {
-            var rules = CreateRules(detectInstallNode, document, baseLocation).FirstOrDefault();
-            if (rules is null)
-                return false;
+        var dependenciesSatisfied = await CheckDependenciesSatisfiedAsync(httpClient, document, baseLocation, token).ConfigureAwait(false);
+        if (!dependenciesSatisfied)
+            return false;
 
-            var result = await rules.ValidateAsync(httpClient, token).ConfigureAwait(false);
-            return result;
-        }
+        return await DetectInstallAsync(httpClient, document, baseLocation, token);
+    }
 
-        var dependenciesNode = document.SelectSingleNode("/Package/Dependencies");
-        if (dependenciesNode?.HasChildNodes ?? false)
-        {
-            var rules = CreateRules(dependenciesNode, document, baseLocation).FirstOrDefault();
-            if (rules is null)
-                return false;
+    private async Task<bool> CheckDependenciesSatisfiedAsync(HttpClient httpClient, XmlDocument document, string baseLocation, CancellationToken token)
+    {
+        var node = document.SelectSingleNode("/Package/Dependencies");
+        if (node is null || !node.HasChildNodes)
+            return false;
 
-            var result = await rules.ValidateAsync(httpClient, token).ConfigureAwait(false);
-            return result;
-        }
+        var rules = CreateRules(node, document, baseLocation).FirstOrDefault();
+        if (rules is null)
+            return false;
 
-        return false;
+        var result = await rules.DetectInstallNeededAsync(_driverInfoCache, httpClient, token).ConfigureAwait(false);
+        return result;
+    }
+
+    private async Task<bool> DetectInstallAsync(HttpClient httpClient, XmlDocument document, string baseLocation, CancellationToken token)
+    {
+        var node = document.SelectSingleNode("/Package/DetectInstall");
+        if (node is null || !node.HasChildNodes)
+            return true;
+
+        var rules = CreateRules(node, document, baseLocation).FirstOrDefault();
+        if (rules is null)
+            return false;
+
+        var result = await rules.DetectInstallNeededAsync(_driverInfoCache, httpClient, token).ConfigureAwait(false);
+        return result;
     }
 
     private static IEnumerable<IPackageRule> CreateRules(XmlNode? node, XmlDocument document, string baseLocation)
@@ -53,17 +98,40 @@ internal class CommercialPackageUpdateDetector
             {
                 case "Or":
                     {
-                        yield return new OrPackageRule(CreateRules(childNode, document, baseLocation));
+                        var rules = CreateRules(childNode, document, baseLocation);
+                        if (OrPackageRule.TryCreate(rules, out var value))
+                            yield return value;
                         break;
                     }
                 case "And":
                     {
-                        yield return new AndPackageRule(CreateRules(childNode, document, baseLocation));
+                        var rules = CreateRules(childNode, document, baseLocation);
+                        if (AndPackageRule.TryCreate(rules, out var value))
+                            yield return value;
+                        break;
+                    }
+                case "Not":
+                    {
+                        var rules = CreateRules(childNode, document, baseLocation);
+                        if (NotPackageRule.TryCreate(rules, out var value))
+                            yield return value;
                         break;
                     }
                 case "_OS":
                     {
                         if (OsPackageRule.TryCreate(childNode, out var value))
+                            yield return value;
+                        break;
+                    }
+                case "_WindowsBuildVersion":
+                    {
+                        if (WindowsBuildVersionPackageRule.TryCreate(childNode, out var value))
+                            yield return value;
+                        break;
+                    }
+                case "_CPUAddressWidth":
+                    {
+                        if (CpuAddressWidthPackageRule.TryCreate(childNode, out var value))
                             yield return value;
                         break;
                     }
@@ -76,6 +144,12 @@ internal class CommercialPackageUpdateDetector
                 case "_Driver":
                     {
                         if (DriverPackageRule.TryCreate(childNode, out var value))
+                            yield return value;
+                        break;
+                    }
+                case "_PnPID":
+                    {
+                        if (PnPIdPackageRule.TryCreate(childNode, out var value))
                             yield return value;
                         break;
                     }

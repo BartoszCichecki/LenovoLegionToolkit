@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -25,7 +26,11 @@ internal readonly struct RegistryKeyPackageRule : IPackageRule
         return true;
     }
 
-    public Task<bool> ValidateAsync(HttpClient _1, CancellationToken _2)
+    public Task<bool> CheckDependenciesSatisfiedAsync(List<DriverInfo> _1, HttpClient _2, CancellationToken _3) => KeyExists();
+
+    public Task<bool> DetectInstallNeededAsync(List<DriverInfo> _1, HttpClient _2, CancellationToken _3) => KeyExists();
+
+    private Task<bool> KeyExists()
     {
         var hive = Key.Split('\\').FirstOrDefault();
         var path = string.Join('\\', Key.Split('\\').Skip(1));
@@ -33,7 +38,7 @@ internal readonly struct RegistryKeyPackageRule : IPackageRule
         if (hive is null || string.IsNullOrEmpty(path))
             return Task.FromResult(false);
 
-        var result = Registry.Exists(hive, path);
+        var result = Registry.KeyExists(hive, path);
         return Task.FromResult(result);
     }
 }
