@@ -1319,6 +1319,9 @@ Un redémarrage est recommandé après avoir modifié cette option.</value>
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
     <value>Impossible d'appliquer le profil</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
+    <value>Le profil d'éclairage n'a pas pu être appliqué.</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Luminosité</value>
   </data>
