@@ -5,18 +5,18 @@ using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard;
 
-public class MicrophoneMuteControl : AbstractToggleFeatureCardControl<MicrophoneMuteState>
+public class MicrophoneControl : AbstractToggleFeatureCardControl<MicrophoneState>
 {
     private readonly DriverKeyListener _listener = IoCContainer.Resolve<DriverKeyListener>();
 
-    protected override MicrophoneMuteState OnState => MicrophoneMuteState.On;
-    protected override MicrophoneMuteState OffState => MicrophoneMuteState.Off;
+    protected override MicrophoneState OnState => MicrophoneState.On;
+    protected override MicrophoneState OffState => MicrophoneState.Off;
 
-    public MicrophoneMuteControl()
+    public MicrophoneControl()
     {
-        Icon = SymbolRegular.MicOff24;
-        Title = Resource.MicrophoneMuteControl_Title;
-        Subtitle = Resource.MicrophoneMuteControl_Message;
+        Icon = SymbolRegular.Mic24;
+        Title = Resource.MicrophoneControl_Title;
+        Subtitle = Resource.MicrophoneControl_Message;
 
         _listener.Changed += Listener_Changed;
     }

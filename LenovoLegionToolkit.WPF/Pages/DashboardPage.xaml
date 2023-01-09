@@ -83,7 +83,7 @@
                 FontSize="24"
                 FontWeight="Medium"
                 Text="{x:Static resources:Resource.DashboardPage_Other_Title}" />
-            <controls:MicrophoneMuteControl />
+            <controls:MicrophoneControl />
             <controls:FlipToStartControl />
             <controls:TouchpadLockControl />
             <controls:FnLockControl />
