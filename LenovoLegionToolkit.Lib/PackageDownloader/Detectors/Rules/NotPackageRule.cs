@@ -23,17 +23,13 @@ internal readonly struct NotPackageRule : IPackageRule
         return true;
     }
 
-    public Task<bool> CheckDependenciesSatisfiedAsync(List<DriverInfo> driverInfoCache, HttpClient httpClient, CancellationToken token)
+    public async Task<bool> CheckDependenciesSatisfiedAsync(List<DriverInfo> driverInfoCache, HttpClient httpClient, CancellationToken token)
     {
-        return CheckRulesAsync(driverInfoCache, httpClient, token);
+        var result = !await Rule.CheckDependenciesSatisfiedAsync(driverInfoCache, httpClient, token).ConfigureAwait(false);
+        return result;
     }
 
-    public Task<bool> DetectInstallNeededAsync(List<DriverInfo> driverInfoCache, HttpClient httpClient, CancellationToken token)
-    {
-        return CheckRulesAsync(driverInfoCache, httpClient, token);
-    }
-
-    private async Task<bool> CheckRulesAsync(List<DriverInfo> driverInfoCache, HttpClient httpClient, CancellationToken token)
+    public async Task<bool> DetectInstallNeededAsync(List<DriverInfo> driverInfoCache, HttpClient httpClient, CancellationToken token)
     {
         var result = !await Rule.DetectInstallNeededAsync(driverInfoCache, httpClient, token).ConfigureAwait(false);
         return result;

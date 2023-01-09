@@ -65,7 +65,7 @@ internal class VantagePackageUpdateDetector
         if (rules is null)
             return false;
 
-        var result = await rules.DetectInstallNeededAsync(_driverInfoCache, httpClient, token).ConfigureAwait(false);
+        var result = await rules.CheckDependenciesSatisfiedAsync(_driverInfoCache, httpClient, token).ConfigureAwait(false);
         return result;
     }
 

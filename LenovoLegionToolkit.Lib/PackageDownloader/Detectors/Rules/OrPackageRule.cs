@@ -15,17 +15,18 @@ internal readonly struct OrPackageRule : IPackageRule
         return true;
     }
 
-    public Task<bool> CheckDependenciesSatisfiedAsync(List<DriverInfo> driverInfoCache, HttpClient httpClient, CancellationToken token)
+    public async Task<bool> CheckDependenciesSatisfiedAsync(List<DriverInfo> driverInfoCache, HttpClient httpClient, CancellationToken token)
     {
-        return CheckRulesAsync(driverInfoCache, httpClient, token);
+        foreach (var rule in Rules)
+        {
+            if (await rule.CheckDependenciesSatisfiedAsync(driverInfoCache, httpClient, token).ConfigureAwait(false))
+                return true;
+        }
+
+        return false;
     }
 
-    public Task<bool> DetectInstallNeededAsync(List<DriverInfo> driverInfoCache, HttpClient httpClient, CancellationToken token)
-    {
-        return CheckRulesAsync(driverInfoCache, httpClient, token);
-    }
-
-    private async Task<bool> CheckRulesAsync(List<DriverInfo> driverInfoCache, HttpClient httpClient, CancellationToken token)
+    public async Task<bool> DetectInstallNeededAsync(List<DriverInfo> driverInfoCache, HttpClient httpClient, CancellationToken token)
     {
         foreach (var rule in Rules)
         {
