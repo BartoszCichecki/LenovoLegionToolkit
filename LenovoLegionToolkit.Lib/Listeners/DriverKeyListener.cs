@@ -15,17 +15,17 @@ public class DriverKeyListener : IListener<DriverKey>
     public event EventHandler<DriverKey>? Changed;
 
     private readonly FnKeys _fnKeys;
-    private readonly MicrophoneMuteFeature _microphoneMuteFeature;
+    private readonly MicrophoneFeature _microphoneFeature;
     private readonly TouchpadLockFeature _touchpadLockFeature;
     private readonly WhiteKeyboardBacklightFeature _whiteKeyboardBacklightFeature;
 
     private CancellationTokenSource? _cancellationTokenSource;
     private Task? _listenTask;
 
-    public DriverKeyListener(FnKeys fnKeys, MicrophoneMuteFeature microphoneMuteFeature, TouchpadLockFeature touchpadLockFeature, WhiteKeyboardBacklightFeature whiteKeyboardBacklightFeature)
+    public DriverKeyListener(FnKeys fnKeys, MicrophoneFeature microphoneFeature, TouchpadLockFeature touchpadLockFeature, WhiteKeyboardBacklightFeature whiteKeyboardBacklightFeature)
     {
         _fnKeys = fnKeys ?? throw new ArgumentNullException(nameof(fnKeys));
-        _microphoneMuteFeature = microphoneMuteFeature ?? throw new ArgumentNullException(nameof(microphoneMuteFeature));
+        _microphoneFeature = microphoneFeature ?? throw new ArgumentNullException(nameof(microphoneFeature));
         _touchpadLockFeature = touchpadLockFeature ?? throw new ArgumentNullException(nameof(touchpadLockFeature));
         _whiteKeyboardBacklightFeature = whiteKeyboardBacklightFeature ?? throw new ArgumentNullException(nameof(whiteKeyboardBacklightFeature));
     }
@@ -105,17 +105,17 @@ public class DriverKeyListener : IListener<DriverKey>
         {
             if (value.HasFlag(DriverKey.Fn_F4))
             {
-                if (await _microphoneMuteFeature.IsSupportedAsync().ConfigureAwait(false))
+                if (await _microphoneFeature.IsSupportedAsync().ConfigureAwait(false))
                 {
-                    switch (await _microphoneMuteFeature.GetStateAsync().ConfigureAwait(false))
+                    switch (await _microphoneFeature.GetStateAsync().ConfigureAwait(false))
                     {
-                        case MicrophoneMuteState.On:
-                            await _microphoneMuteFeature.SetStateAsync(MicrophoneMuteState.Off).ConfigureAwait(false);
-                            MessagingCenter.Publish(new Notification(NotificationType.MicrophoneOn, NotificationDuration.Short));
-                            break;
-                        case MicrophoneMuteState.Off:
-                            await _microphoneMuteFeature.SetStateAsync(MicrophoneMuteState.On).ConfigureAwait(false);
+                        case MicrophoneState.On:
+                            await _microphoneFeature.SetStateAsync(MicrophoneState.Off).ConfigureAwait(false);
                             MessagingCenter.Publish(new Notification(NotificationType.MicrophoneOff, NotificationDuration.Short));
+                            break;
+                        case MicrophoneState.Off:
+                            await _microphoneFeature.SetStateAsync(MicrophoneState.On).ConfigureAwait(false);
+                            MessagingCenter.Publish(new Notification(NotificationType.MicrophoneOn, NotificationDuration.Short));
                             break;
                     }
                 }

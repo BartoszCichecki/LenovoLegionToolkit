@@ -34,7 +34,7 @@ public class IoCModule : Module
         builder.Register<HybridModeFeature>();
         builder.Register<GSyncFeature>();
         builder.Register<IGPUModeFeature>();
-        builder.Register<MicrophoneMuteFeature>();
+        builder.Register<MicrophoneFeature>();
         builder.Register<OverDriveFeature>();
         builder.Register<PowerModeFeature>();
         builder.Register<RefreshRateFeature>();
