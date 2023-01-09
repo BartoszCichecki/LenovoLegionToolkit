@@ -45,7 +45,7 @@ internal readonly struct CpuAddressWidthPackageRule : IPackageRule
 
         var addressWidth = addressWidths.FirstOrDefault();
 
-        var result = AddressWidth <= addressWidth;
+        var result = AddressWidth == addressWidth;
         return result;
     }
 }

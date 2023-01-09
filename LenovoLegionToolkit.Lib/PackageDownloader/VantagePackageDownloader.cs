@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
 using LenovoLegionToolkit.Lib.PackageDownloader.Detectors;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.PackageDownloader;
 
@@ -90,8 +91,6 @@ public class VantagePackageDownloader : AbstractPackageDownloader
 
         var packageString = await httpClient.GetStringAsync(location, token).ConfigureAwait(false);
 
-        //File.WriteAllText($"D:\\LLT_temp\\updates\\{Path.GetFileName(location)}", packageString);
-
         var document = new XmlDocument();
         document.LoadXml(packageString);
 
@@ -106,7 +105,17 @@ public class VantagePackageDownloader : AbstractPackageDownloader
         var readmeName = document.SelectSingleNode("/Package/Files/Readme/File/Name")?.InnerText;
         var readme = await GetReadmeAsync(httpClient, $"{baseLocation}/{readmeName}", token).ConfigureAwait(false);
         var fileLocation = $"{baseLocation}/{fileName}";
-        var isUpdate = await updateDetector.DetectAsync(httpClient, document, baseLocation, token).ConfigureAwait(false);
+
+        var isUpdate = false;
+        try
+        {
+            isUpdate = await updateDetector.DetectAsync(httpClient, document, baseLocation, token).ConfigureAwait(false);
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Couldn't detect update for package {id}. [title={title}, location={location}]", ex);
+        }
 
         return new()
         {
