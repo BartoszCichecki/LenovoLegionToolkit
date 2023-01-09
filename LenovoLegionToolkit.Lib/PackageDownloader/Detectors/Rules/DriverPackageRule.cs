@@ -42,11 +42,25 @@ internal readonly struct DriverPackageRule : IPackageRule
         return true;
     }
 
-    public Task<bool> CheckDependenciesSatisfiedAsync(List<DriverInfo> driverInfoCache, HttpClient _1, CancellationToken _2) => DetectVersionAsync(driverInfoCache);
+    public Task<bool> CheckDependenciesSatisfiedAsync(List<DriverInfo> driverInfoCache, HttpClient _1, CancellationToken _2)
+    {
+        var driverInfo = FindMatchingDriverInfo(HardwareIds, driverInfoCache);
 
-    public Task<bool> DetectInstallNeededAsync(List<DriverInfo> driverInfoCache, HttpClient _1, CancellationToken _2) => DetectVersionAsync(driverInfoCache);
+        if (string.IsNullOrEmpty(driverInfo.HardwareId))
+            return Task.FromResult(false);
 
-    private Task<bool> DetectVersionAsync(IEnumerable<DriverInfo> driverInfoCache)
+        var result = true;
+
+        if (Version is not null && driverInfo.Version is not null)
+            result &= Version <= driverInfo.Version;
+
+        if (Date is not null && driverInfo.Date is not null)
+            result &= Date <= driverInfo.Date;
+
+        return Task.FromResult(result);
+    }
+
+    public Task<bool> DetectInstallNeededAsync(List<DriverInfo> driverInfoCache, HttpClient _1, CancellationToken _2)
     {
         var driverInfo = FindMatchingDriverInfo(HardwareIds, driverInfoCache);
 

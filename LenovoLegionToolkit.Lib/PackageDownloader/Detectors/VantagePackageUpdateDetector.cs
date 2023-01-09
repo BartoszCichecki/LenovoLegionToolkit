@@ -61,11 +61,11 @@ internal class VantagePackageUpdateDetector
         if (node is null || !node.HasChildNodes)
             return false;
 
-        var rules = CreateRules(node, document, baseLocation).FirstOrDefault();
-        if (rules is null)
+        var rules = CreateRules(node, document, baseLocation);
+        if (!AndPackageRule.TryCreate(rules, out var rule))
             return false;
 
-        var result = await rules.CheckDependenciesSatisfiedAsync(_driverInfoCache, httpClient, token).ConfigureAwait(false);
+        var result = await rule.CheckDependenciesSatisfiedAsync(_driverInfoCache, httpClient, token).ConfigureAwait(false);
         return result;
     }
 
@@ -75,11 +75,11 @@ internal class VantagePackageUpdateDetector
         if (node is null || !node.HasChildNodes)
             return true;
 
-        var rules = CreateRules(node, document, baseLocation).FirstOrDefault();
-        if (rules is null)
+        var rules = CreateRules(node, document, baseLocation);
+        if (!AndPackageRule.TryCreate(rules, out var rule))
             return false;
 
-        var result = await rules.DetectInstallNeededAsync(_driverInfoCache, httpClient, token).ConfigureAwait(false);
+        var result = await rule.DetectInstallNeededAsync(_driverInfoCache, httpClient, token).ConfigureAwait(false);
         return result;
     }
 

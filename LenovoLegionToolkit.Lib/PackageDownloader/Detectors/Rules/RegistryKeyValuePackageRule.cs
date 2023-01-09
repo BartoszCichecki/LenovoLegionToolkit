@@ -38,11 +38,28 @@ internal readonly struct RegistryKeyValuePackageRule : IPackageRule
         return true;
     }
 
-    public Task<bool> CheckDependenciesSatisfiedAsync(List<DriverInfo> _1, HttpClient _2, CancellationToken _3) => CheckRegistryKeyValueAsync();
+    public Task<bool> CheckDependenciesSatisfiedAsync(List<DriverInfo> _1, HttpClient _2, CancellationToken _3)
+    {
+        var hive = Key.Split('\\').FirstOrDefault();
+        var path = string.Join('\\', Key.Split('\\').Skip(1));
 
-    public Task<bool> DetectInstallNeededAsync(List<DriverInfo> _1, HttpClient _2, CancellationToken _3) => CheckRegistryKeyValueAsync();
+        if (hive is null || string.IsNullOrEmpty(path))
+            return Task.FromResult(false);
 
-    private Task<bool> CheckRegistryKeyValueAsync()
+        var keyExists = Registry.KeyExists(hive, path, KeyName);
+        if (!keyExists)
+            return Task.FromResult(true);
+
+        var versionString = Registry.Read(hive, path, KeyName, string.Empty);
+
+        if (!Version.TryParse(versionString, out var version))
+            return Task.FromResult(false);
+
+        var result = Version <= version;
+        return Task.FromResult(result);
+    }
+
+    public Task<bool> DetectInstallNeededAsync(List<DriverInfo> _1, HttpClient _2, CancellationToken _3)
     {
         var hive = Key.Split('\\').FirstOrDefault();
         var path = string.Join('\\', Key.Split('\\').Skip(1));
@@ -61,7 +78,6 @@ internal readonly struct RegistryKeyValuePackageRule : IPackageRule
 
         var result = Version > version;
         return Task.FromResult(result);
-
     }
 
     private static string RemoveNonVersionCharacters(string? versionString)
