@@ -60,6 +60,12 @@ public partial class App
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Starting... [version={Assembly.GetEntryAssembly()?.GetName().Version}, build={Assembly.GetEntryAssembly()?.GetBuildDateTime()?.ToString("yyyyMMddHHmmss") ?? ""}]");
 
+        var f = new SingleStepWhiteKeyboardBacklightFeature();
+        var result = await f.IsSupportedAsync();
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"RESULT={result}");
+
         WinFormsApp.SetHighDpiMode(WinFormsHighDpiMode.PerMonitorV2);
         RenderOptions.ProcessRenderMode = RenderMode.SoftwareOnly;
 
