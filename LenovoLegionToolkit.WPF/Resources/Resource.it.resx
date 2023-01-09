@@ -1475,10 +1475,4 @@ Il logging verrà abilitato automaticamente, se scegli di continuare.</value>
   <data name="Yes" xml:space="preserve">
     <value>Si</value>
   </data>
-  <data name="MicrophoneMuteControl_Title" xml:space="preserve">
-    <value>Microfono muto</value>
-  </data>
-  <data name="MicrophoneMuteAutomationStepControl_Title" xml:space="preserve">
-    <value>Microfono muto</value>
-  </data>
 </root>
