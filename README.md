@@ -160,7 +160,7 @@ Translations provided by:
 * French - EliotAku, [Georges de Massol](https://github.com/jojo2massol), Rigbone, ZeroDegree
 * German - Sko-Inductor, Running_Dead89
 * Greek - GreatApo
-* Italian - Lampadina17
+* Italian - [Lampadina17](https://github.com/Lampadina17)
 * Romanian - [Mario Bălănică](https://github.com/mariobalanica)
 * Spanish - M.A.G.
 * Portugese - dvsilva
