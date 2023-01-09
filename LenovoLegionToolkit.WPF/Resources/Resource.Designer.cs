@@ -2171,7 +2171,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mute all available microphones..
+        ///   Looks up a localized string similar to When off, microphones will be muted..
         /// </summary>
         public static string MicrophoneAutomationStepControl_Message {
             get {
@@ -2189,7 +2189,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mute all available microphones..
+        ///   Looks up a localized string similar to When off, microphones will be muted..
         /// </summary>
         public static string MicrophoneControl_Message {
             get {

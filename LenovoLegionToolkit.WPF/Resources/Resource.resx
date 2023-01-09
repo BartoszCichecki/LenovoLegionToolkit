@@ -1517,13 +1517,13 @@ Logging will be enabled automatically, if you choose to continue.</value>
     <value>Microphone</value>
   </data>
   <data name="MicrophoneControl_Message" xml:space="preserve">
-    <value>Mute all available microphones.</value>
+    <value>When off, microphones will be muted.</value>
   </data>
   <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
     <value>Microphone</value>
   </data>
   <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
-    <value>Mute all available microphones.</value>
+    <value>When off, microphones will be muted.</value>
   </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
 	  <value>Resolution</value>

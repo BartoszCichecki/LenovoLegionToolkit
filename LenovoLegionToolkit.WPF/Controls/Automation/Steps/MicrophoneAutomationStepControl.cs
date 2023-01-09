@@ -5,12 +5,12 @@ using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps;
 
-public class MicrophoneMuteAutomationStepControl : AbstractComboBoxAutomationStepCardControl<MicrophoneState>
+public class MicrophoneAutomationStepControl : AbstractComboBoxAutomationStepCardControl<MicrophoneState>
 {
-    public MicrophoneMuteAutomationStepControl(IAutomationStep<MicrophoneState> step) : base(step)
+    public MicrophoneAutomationStepControl(IAutomationStep<MicrophoneState> step) : base(step)
     {
-        Icon = SymbolRegular.MicOff24;
-        Title = Resource.MicrophoneMuteAutomationStepControl_Title;
-        Subtitle = Resource.MicrophoneMuteAutomationStepControl_Message;
+        Icon = SymbolRegular.Mic24;
+        Title = Resource.MicrophoneAutomationStepControl_Title;
+        Subtitle = Resource.MicrophoneAutomationStepControl_Message;
     }
 }
