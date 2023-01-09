@@ -1513,18 +1513,6 @@ Pokud se rozhodneš pokračovat, protokolování bude automaticky povoleno.</val
   <data name="Yes" xml:space="preserve">
     <value>Ano</value>
   </data>
-  <data name="MicrophoneControl_Title" xml:space="preserve">
-    <value>Vypnutí mikrofonu</value>
-  </data>
-  <data name="MicrophoneControl_Message" xml:space="preserve">
-    <value>Vypnout všechny dostupné mikrofony.</value>
-  </data>
-  <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
-    <value>Vypnutí mikrofonu</value>
-  </data>
-  <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
-    <value>Vypnout všechny dostupné mikrofony.</value>
-  </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
 	  <value>Rozlišení</value>
   </data>

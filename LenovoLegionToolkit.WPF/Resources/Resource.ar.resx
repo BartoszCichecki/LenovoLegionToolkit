@@ -474,6 +474,12 @@
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>اصدار ال BIOS</value>
   </data>
+  <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
+    <value>"{0}" تم نسخهم.</value>
+  </data>
+  <data name="CopiedToClipboard_Title" xml:space="preserve">
+    <value>تم النسخ!</value>
+  </data>
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
     <value>الجهاز</value>
   </data>
@@ -988,8 +994,14 @@
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>أولي أو أساسي (يوصى به)</value>
   </data>
+  <data name="PackagesPage_PrimarySource_ToolTip" xml:space="preserve">
+    <value>يبدو انه يدعم الكمبيوتر المحمول من نوع Lenovo</value>
+  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>ثانوي</value>
+  </data>
+  <data name="PackagesPage_SecondarySource_ToolTip" xml:space="preserve">
+    <value>يبدو كانه Lenovo PC Support</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>الفئة-التصنيف</value>
@@ -1289,6 +1301,9 @@
   </data>
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
     <value>تعذر إضافة الملف الشخصي</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
+    <value>لا يمكن تطبيق الملف الشخصي المضيء.</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>السطوع</value>

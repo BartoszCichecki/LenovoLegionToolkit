@@ -1510,18 +1510,6 @@
   <data name="Yes" xml:space="preserve">
     <value>Да</value>
   </data>
-  <data name="MicrophoneControl_Title" xml:space="preserve">
-    <value>Отключение микрофона</value>
-  </data>
-  <data name="MicrophoneControl_Message" xml:space="preserve">
-    <value>Отключить все доступные микрофоны.</value>
-  </data>
-  <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
-    <value>Отключить микрофон</value>
-  </data>
-  <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
-    <value>Отключить все доступные микрофоны.</value>
-  </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
 	  <value>Разрешение</value>
   </data>

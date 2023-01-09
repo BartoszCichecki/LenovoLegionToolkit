@@ -1514,18 +1514,6 @@ El registro de sucesos se activará automáticamente, si decide continuar.</valu
   <data name="Yes" xml:space="preserve">
     <value>Si</value>
   </data>
-  <data name="MicrophoneControl_Title" xml:space="preserve">
-    <value>Micrófono en silencio</value>
-  </data>
-  <data name="MicrophoneControl_Message" xml:space="preserve">
-    <value>Silenciar todos los micrófonos disponibles.</value>
-  </data>
-  <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
-    <value>Micrófono en silencio</value>
-  </data>
-  <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
-    <value>Silenciar todos los micrófonos disponibles.</value>
-  </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
 	  <value>Resolución</value>
   </data>
