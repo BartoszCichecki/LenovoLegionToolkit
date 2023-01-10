@@ -1482,5 +1482,9 @@ Il logging verrà abilitato automaticamente, se scegli di continuare.</value>
     <value>Si</value>
   </data>
   <data name="MicrophoneControl_Title" xml:space="preserve">
+    <value>Microfono</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
+    <value>Microfono</value>
   </data>
 </root>
