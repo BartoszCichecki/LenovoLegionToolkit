@@ -190,6 +190,12 @@ public enum NotificationPosition
     Center
 }
 
+public enum OneLevelWhiteKeyboardBacklightState
+{
+    Off,
+    On
+}
+
 public enum OS
 {
     [Display(Name = "Windows 11")]

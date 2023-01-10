@@ -29,6 +29,10 @@ public partial class KeyboardBacklightPage
         if (await whiteKeyboardBacklightFeature.IsSupportedAsync())
             return true;
 
+        var oneLevelWhiteKeyboardBacklightFeature = IoCContainer.Resolve<OneLevelWhiteKeyboardBacklightFeature>();
+        if (await oneLevelWhiteKeyboardBacklightFeature.IsSupportedAsync())
+            return true;
+
         return false;
     }
 
@@ -38,13 +42,15 @@ public partial class KeyboardBacklightPage
             _spectrumKeyboardBacklightControl.FinishedLoadingTask,
             _rgbKeyboardBacklightControl.FinishedLoadingTask,
             _whiteKeyboardBacklightControl.FinishedLoadingTask,
+            _oneLevelWhiteKeyboardBacklightControl.FinishedLoadingTask,
             Task.Delay(1000)
         );
 
         var spectrum = _spectrumKeyboardBacklightControl.Visibility == Visibility.Visible;
         var rgb = _rgbKeyboardBacklightControl.Visibility == Visibility.Visible;
         var white = _whiteKeyboardBacklightControl.Visibility == Visibility.Visible;
-        _noKeyboardsText.Visibility = spectrum || rgb || white ? Visibility.Collapsed : Visibility.Visible;
+        var oneLevelWhite = _oneLevelWhiteKeyboardBacklightControl.Visibility == Visibility.Visible;
+        _noKeyboardsText.Visibility = spectrum || rgb || white || oneLevelWhite ? Visibility.Collapsed : Visibility.Visible;
 
         _loader.IsLoading = false;
     }
