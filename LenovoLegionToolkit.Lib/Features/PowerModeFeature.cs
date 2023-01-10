@@ -11,12 +11,14 @@ namespace LenovoLegionToolkit.Lib.Features;
 public class PowerModeFeature : AbstractLenovoGamezoneWmiFeature<PowerModeState>
 {
     private readonly AIModeController _aiModeController;
+    private readonly GodModeController _godModeController;
     private readonly PowerModeListener _listener;
 
-    public PowerModeFeature(AIModeController aiModeController, PowerModeListener listener)
+    public PowerModeFeature(AIModeController aiModeController, GodModeController godModeController, PowerModeListener listener)
         : base("SmartFanMode", 1, "IsSupportSmartFan")
     {
         _aiModeController = aiModeController ?? throw new ArgumentNullException(nameof(aiModeController));
+        _godModeController = godModeController ?? throw new ArgumentNullException(nameof(godModeController));
         _listener = listener ?? throw new ArgumentNullException(nameof(listener));
     }
 
@@ -47,6 +49,9 @@ public class PowerModeFeature : AbstractLenovoGamezoneWmiFeature<PowerModeState>
         await base.SetStateAsync(state).ConfigureAwait(false);
 
         await _listener.NotifyAsync(state).ConfigureAwait(false);
+
+        if (state == PowerModeState.GodMode)
+            await _godModeController.ApplyStateAsync().ConfigureAwait(false);
     }
 
     public async Task EnsureCorrectPowerPlanIsSetAsync()

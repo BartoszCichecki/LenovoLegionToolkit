@@ -92,6 +92,11 @@ public readonly struct FanTableData
         (0, 0) => FanTableType.CPUSensor,
         _ => FanTableType.Unknown
     };
+
+    public override string ToString()
+    {
+        return $"{nameof(FanId)}: {FanId}, {nameof(SensorId)}: {SensorId}, {nameof(FanSpeeds)}: [{string.Join(",", FanSpeeds)}], {nameof(Temps)}: [{string.Join(",", Temps)}], {nameof(Type)}: {Type}";
+    }
 }
 
 public readonly struct FanTable
@@ -161,6 +166,11 @@ public readonly struct FanTable
         ms.Write(BitConverter.GetBytes(FSS9));
         return ms.ToArray();
     }
+
+    public override string ToString()
+    {
+        return $"{nameof(FSTM)}: {FSTM}, {nameof(FSID)}: {FSID}, {nameof(FSTL)}: {FSTL}, {nameof(FSS0)}: {FSS0}, {nameof(FSS1)}: {FSS1}, {nameof(FSS2)}: {FSS2}, {nameof(FSS3)}: {FSS3}, {nameof(FSS4)}: {FSS4}, {nameof(FSS5)}: {FSS5}, {nameof(FSS6)}: {FSS6}, {nameof(FSS7)}: {FSS7}, {nameof(FSS8)}: {FSS8}, {nameof(FSS9)}: {FSS9}";
+    }
 }
 
 public readonly struct FanTableInfo
@@ -172,6 +182,30 @@ public readonly struct FanTableInfo
     {
         Data = data;
         Table = table;
+    }
+
+    public override string ToString()
+    {
+        return $"{nameof(Data)}: [{string.Join(",", Data)}], {nameof(Table)}: {Table}";
+    }
+}
+
+public readonly struct GodModeState
+{
+    public StepperValue? CPULongTermPowerLimit { get; init; }
+    public StepperValue? CPUShortTermPowerLimit { get; init; }
+    public StepperValue? CPUCrossLoadingPowerLimit { get; init; }
+    public StepperValue? CPUTemperatureLimit { get; init; }
+    public StepperValue? GPUPowerBoost { get; init; }
+    public StepperValue? GPUConfigurableTGP { get; init; }
+    public StepperValue? GPUTemperatureLimit { get; init; }
+    public FanTableInfo? FanTableInfo { get; init; }
+    public bool FanFullSpeed { get; init; }
+    public int MaxValueOffset { get; init; }
+
+    public override string ToString()
+    {
+        return $"{nameof(CPULongTermPowerLimit)}: {CPULongTermPowerLimit}, {nameof(CPUShortTermPowerLimit)}: {CPUShortTermPowerLimit}, {nameof(CPUCrossLoadingPowerLimit)}: {CPUCrossLoadingPowerLimit}, {nameof(CPUTemperatureLimit)}: {CPUTemperatureLimit}, {nameof(GPUPowerBoost)}: {GPUPowerBoost}, {nameof(GPUConfigurableTGP)}: {GPUConfigurableTGP}, {nameof(GPUTemperatureLimit)}: {GPUTemperatureLimit}, {nameof(FanTableInfo)}: {FanTableInfo}, {nameof(FanFullSpeed)}: {FanFullSpeed}, {nameof(MaxValueOffset)}: {MaxValueOffset}";
     }
 }
 
@@ -595,6 +629,11 @@ public readonly struct StepperValue
     }
 
     public StepperValue WithValue(int value) => new(value, Min, Max, Step);
+
+    public override string ToString()
+    {
+        return $"{nameof(Value)}: {Value}, {nameof(Min)}: {Min}, {nameof(Max)}: {Max}, {nameof(Step)}: {Step}";
+    }
 }
 
 public readonly struct Time

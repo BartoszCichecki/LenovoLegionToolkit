@@ -2171,38 +2171,38 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mute all available microphones..
+        ///   Looks up a localized string similar to When off, microphones will be muted..
         /// </summary>
-        public static string MicrophoneMuteAutomationStepControl_Message {
+        public static string MicrophoneAutomationStepControl_Message {
             get {
-                return ResourceManager.GetString("MicrophoneMuteAutomationStepControl_Message", resourceCulture);
+                return ResourceManager.GetString("MicrophoneAutomationStepControl_Message", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Microphone Mute.
+        ///   Looks up a localized string similar to Microphone.
         /// </summary>
-        public static string MicrophoneMuteAutomationStepControl_Title {
+        public static string MicrophoneAutomationStepControl_Title {
             get {
-                return ResourceManager.GetString("MicrophoneMuteAutomationStepControl_Title", resourceCulture);
+                return ResourceManager.GetString("MicrophoneAutomationStepControl_Title", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mute all available microphones..
+        ///   Looks up a localized string similar to When off, microphones will be muted..
         /// </summary>
-        public static string MicrophoneMuteControl_Message {
+        public static string MicrophoneControl_Message {
             get {
-                return ResourceManager.GetString("MicrophoneMuteControl_Message", resourceCulture);
+                return ResourceManager.GetString("MicrophoneControl_Message", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Microphone Mute.
+        ///   Looks up a localized string similar to Microphone.
         /// </summary>
-        public static string MicrophoneMuteControl_Title {
+        public static string MicrophoneControl_Title {
             get {
-                return ResourceManager.GetString("MicrophoneMuteControl_Title", resourceCulture);
+                return ResourceManager.GetString("MicrophoneControl_Title", resourceCulture);
             }
         }
         
@@ -2537,6 +2537,42 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string OK {
             get {
                 return ResourceManager.GetString("OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turn backlight on or off..
+        /// </summary>
+        public static string OneLevelWhiteKeyboardBacklightAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("OneLevelWhiteKeyboardBacklightAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Backlight.
+        /// </summary>
+        public static string OneLevelWhiteKeyboardBacklightAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("OneLevelWhiteKeyboardBacklightAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can turn backlight on or off with Fn+Space..
+        /// </summary>
+        public static string OneLevelWhiteKeyboardBacklightControl_Message {
+            get {
+                return ResourceManager.GetString("OneLevelWhiteKeyboardBacklightControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Backlight.
+        /// </summary>
+        public static string OneLevelWhiteKeyboardBacklightControl_Title {
+            get {
+                return ResourceManager.GetString("OneLevelWhiteKeyboardBacklightControl_Title", resourceCulture);
             }
         }
         

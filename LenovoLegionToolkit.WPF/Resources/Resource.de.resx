@@ -474,6 +474,12 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>BIOS Version</value>
   </data>
+  <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
+    <value>"{0}" in die Zwischenablage kopiert.</value>
+  </data>
+  <data name="CopiedToClipboard_Title" xml:space="preserve">
+    <value>Kopiert!</value>
+  </data>
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
     <value>Gerät</value>
   </data>
@@ -997,8 +1003,14 @@ Stellen Sie immer sicher, dass Sie die richtigen Pakete installieren.</value>
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Primäre (Empfohlen)</value>
   </data>
+  <data name="PackagesPage_PrimarySource_ToolTip" xml:space="preserve">
+    <value>Wie bei Lenovo Ventage</value>
+  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Sekundäre</value>
+  </data>
+  <data name="PackagesPage_SecondarySource_ToolTip" xml:space="preserve">
+    <value>Wie bei Lenovo PC Support Website</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Kategorie</value>
@@ -1496,17 +1508,5 @@ Die Protokollierung wird automatisch aktiviert, wenn Sie fortfahren möchten.</v
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Ja</value>
-  </data>
-  <data name="MicrophoneMuteControl_Title" xml:space="preserve">
-    <value>Mikrofon-Stummschaltung</value>
-  </data>
-  <data name="MicrophoneMuteControl_Message" xml:space="preserve">
-    <value>Alle verfügbaren Mikrofone stumm schalten.</value>
-  </data>
-  <data name="MicrophoneMuteAutomationStepControl_Title" xml:space="preserve">
-    <value>Mikrofon-Stummschaltung</value>
-  </data>
-  <data name="MicrophoneMuteAutomationStepControl_Message" xml:space="preserve">
-    <value>Alle verfügbaren Mikrofone stumm schalten.</value>
   </data>
 </root>

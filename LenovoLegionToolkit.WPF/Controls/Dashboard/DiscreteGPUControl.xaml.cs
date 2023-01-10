@@ -5,24 +5,24 @@ using System.Windows;
 using System.Windows.Controls.Primitives;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.WPF.Resources;
-using Windows.Win32;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard;
 
 public partial class DiscreteGPUControl
 {
     private readonly GPUController _gpuController = IoCContainer.Resolve<GPUController>();
+    private readonly NativeWindowsMessageListener _nativeWindowsMessageListener = IoCContainer.Resolve<NativeWindowsMessageListener>();
 
     public DiscreteGPUControl()
     {
         InitializeComponent();
 
         _gpuController.Refreshed += GpuController_Refreshed;
+        _nativeWindowsMessageListener.Changed += NativeWindowsMessageListener_Changed;
 
         IsVisibleChanged += DiscreteGPUControl_IsVisibleChanged;
-
-        MessagingCenter.Subscribe<Guid>(this, Handler);
     }
 
     protected override void OnFinishedLoading() { }
@@ -38,9 +38,9 @@ public partial class DiscreteGPUControl
         await _gpuController.StartAsync();
     }
 
-    private async void Handler(Guid guid)
+    private async void NativeWindowsMessageListener_Changed(object? sender, NativeWindowsMessage e)
     {
-        if (guid != PInvoke.GUID_DISPLAY_DEVICE_ARRIVAL || IsVisible)
+        if (e != NativeWindowsMessage.OnDisplayDeviceArrival)
             return;
 
         Visibility = Visibility.Visible;

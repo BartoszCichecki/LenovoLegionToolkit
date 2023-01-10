@@ -24,7 +24,7 @@ using MenuItem = Wpf.Ui.Controls.MenuItem;
 
 namespace LenovoLegionToolkit.WPF.Pages;
 
-public partial class PackagesPage : Page, IProgress<float>
+public partial class PackagesPage : IProgress<float>
 {
     private readonly PackageDownloaderSettings _packageDownloaderSettings = IoCContainer.Resolve<PackageDownloaderSettings>();
     private readonly PackageDownloaderFactory _packageDownloaderFactory = IoCContainer.Resolve<PackageDownloaderFactory>();
@@ -48,7 +48,12 @@ public partial class PackagesPage : Page, IProgress<float>
     {
         _machineTypeTextBox.Text = (await Compatibility.GetMachineInformationAsync()).MachineType;
         _osComboBox.SetItems(Enum.GetValues<OS>(), OSExtensions.GetCurrent(), os => os.GetDisplayName());
-        _downloadToText.PlaceholderText = _downloadToText.Text = KnownFolders.GetPath(KnownFolder.Downloads);
+
+        var downloadsFolder = KnownFolders.GetPath(KnownFolder.Downloads);
+        _downloadToText.PlaceholderText = downloadsFolder;
+        _downloadToText.Text = Directory.Exists(_packageDownloaderSettings.Store.DownloadPath)
+            ? _packageDownloaderSettings.Store.DownloadPath
+            : downloadsFolder;
 
         _downloadPackagesButton.IsEnabled = true;
         _cancelDownloadPackagesButton.IsEnabled = true;
@@ -62,6 +67,17 @@ public partial class PackagesPage : Page, IProgress<float>
         _loader.IsIndeterminate = !(value > 0);
         _loader.Progress = value;
     });
+
+    private void DownloadToText_OnTextChanged(object sender, TextChangedEventArgs e)
+    {
+        var location = _downloadToText.Text;
+
+        if (!Directory.Exists(location))
+            return;
+
+        _packageDownloaderSettings.Store.DownloadPath = location;
+        _packageDownloaderSettings.SynchronizeStore();
+    }
 
     private void OpenDownloadToButton_Click(object sender, RoutedEventArgs e)
     {
@@ -81,7 +97,10 @@ public partial class PackagesPage : Page, IProgress<float>
         if (ofd.ShowDialog() != DialogResult.OK)
             return;
 
-        _downloadToText.Text = ofd.SelectedPath;
+        var selectedPath = ofd.SelectedPath;
+        _downloadToText.Text = selectedPath;
+        _packageDownloaderSettings.Store.DownloadPath = selectedPath;
+        _packageDownloaderSettings.SynchronizeStore();
     }
 
     private async void DownloadPackagesButton_Click(object sender, RoutedEventArgs e)
@@ -117,10 +136,8 @@ public partial class PackagesPage : Page, IProgress<float>
 
             var token = _getPackagesTokenSource.Token;
 
-            var packageDownloaderType = new[] {
-                    _sourcePrimaryRadio,
-                    _sourceSecondaryRadio,
-                }.Where(r => r.IsChecked == true)
+            var packageDownloaderType = new[] { _sourcePrimaryRadio, _sourceSecondaryRadio }
+                .Where(r => r.IsChecked == true)
                 .Select(r => (PackageDownloaderFactory.Type)r.Tag)
                 .First();
 
@@ -212,8 +229,16 @@ public partial class PackagesPage : Page, IProgress<float>
     private string GetDownloadLocation()
     {
         var location = _downloadToText.Text.Trim();
+
         if (!Directory.Exists(location))
-            return KnownFolders.GetPath(KnownFolder.Downloads);
+        {
+            var downloads = KnownFolders.GetPath(KnownFolder.Downloads);
+            location = downloads;
+            _downloadToText.Text = downloads;
+            _packageDownloaderSettings.Store.DownloadPath = downloads;
+            _packageDownloaderSettings.SynchronizeStore();
+        }
+
         return location;
     }
 
