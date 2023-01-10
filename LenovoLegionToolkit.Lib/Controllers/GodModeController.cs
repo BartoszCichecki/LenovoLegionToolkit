@@ -293,7 +293,6 @@ public class GodModeController
             }
         }
 
-
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"State applied.");
     }
