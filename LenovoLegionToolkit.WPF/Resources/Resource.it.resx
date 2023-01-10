@@ -474,6 +474,12 @@ Attenzione: Questa azione non funzionerà correttamente se il display è spento 
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>Versione BIOS</value>
   </data>
+  <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
+    <value>"{0}" è stato copiato.</value>
+  </data>
+  <data name="CopiedToClipboard_Title" xml:space="preserve">
+    <value>Copiato!</value>
+  </data>
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
     <value>Dispositivo</value>
   </data>
@@ -1475,10 +1481,10 @@ Il logging verrà abilitato automaticamente, se scegli di continuare.</value>
   <data name="Yes" xml:space="preserve">
     <value>Si</value>
   </data>
-  <data name="MicrophoneMuteControl_Title" xml:space="preserve">
-    <value>Microfono muto</value>
+  <data name="MicrophoneControl_Title" xml:space="preserve">
+    <value>Microfono</value>
   </data>
-  <data name="MicrophoneMuteAutomationStepControl_Title" xml:space="preserve">
-    <value>Microfono muto</value>
+  <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
+    <value>Microfono</value>
   </data>
 </root>

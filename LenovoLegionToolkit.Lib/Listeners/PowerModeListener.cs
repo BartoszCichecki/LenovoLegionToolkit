@@ -10,12 +10,10 @@ namespace LenovoLegionToolkit.Lib.Listeners;
 public class PowerModeListener : AbstractWMIListener<PowerModeState>, INotifyingListener<PowerModeState>
 {
     private readonly AIModeController _aiModeController;
-    private readonly GodModeController _godModeController;
 
-    public PowerModeListener(AIModeController aiModeController, GodModeController godModeController) : base("ROOT\\WMI", "LENOVO_GAMEZONE_SMART_FAN_MODE_EVENT")
+    public PowerModeListener(AIModeController aiModeController) : base("ROOT\\WMI", "LENOVO_GAMEZONE_SMART_FAN_MODE_EVENT")
     {
         _aiModeController = aiModeController ?? throw new ArgumentNullException(nameof(aiModeController));
-        _godModeController = godModeController ?? throw new ArgumentNullException(nameof(godModeController));
     }
 
     protected override PowerModeState GetValue(PropertyDataCollection properties)
@@ -42,9 +40,6 @@ public class PowerModeListener : AbstractWMIListener<PowerModeState>, INotifying
     {
         await _aiModeController.StopAsync(value).ConfigureAwait(false);
         await _aiModeController.StartAsync(value).ConfigureAwait(false);
-
-        if (value == PowerModeState.GodMode)
-            await _godModeController.ApplyStateAsync().ConfigureAwait(false);
 
         await Power.ActivatePowerPlanAsync(value).ConfigureAwait(false);
     }

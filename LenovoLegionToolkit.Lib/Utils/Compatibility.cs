@@ -24,6 +24,7 @@ public static class Compatibility
         "15ACH",
         "15ARH",
         "15IAH",
+        "15IHU",
         "15IMH",
         "15ITH",
 

@@ -1,4 +1,5 @@
-﻿using System.Management;
+﻿using System;
+using System.Management;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Features;
 
@@ -16,11 +17,24 @@ public class ThermalModeListener : AbstractWMIListener<ThermalModeState>
         _powerModeListener = powerModeListener;
     }
 
-    protected override ThermalModeState GetValue(PropertyDataCollection properties) => ThermalModeState.IrrelevantAndBuggy;
-
-    protected override async Task OnChangedAsync(ThermalModeState _)
+    protected override ThermalModeState GetValue(PropertyDataCollection properties)
     {
-        var state = await _powerModeFeature.GetStateAsync();
-        await _powerModeListener.NotifyAsync(state);
+        var property = properties["mode"];
+        var propertyValue = Convert.ToInt32(property.Value);
+        var value = (ThermalModeState)(object)propertyValue;
+
+        if (!Enum.IsDefined(value))
+            value = ThermalModeState.Unknown;
+
+        return value;
+    }
+
+    protected override async Task OnChangedAsync(ThermalModeState state)
+    {
+        if (state == ThermalModeState.Unknown)
+            return;
+
+        var powerModeState = await _powerModeFeature.GetStateAsync();
+        await _powerModeListener.NotifyAsync(powerModeState);
     }
 }
