@@ -2171,38 +2171,38 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mute all available microphones..
+        ///   Looks up a localized string similar to When off, microphones will be muted..
         /// </summary>
-        public static string MicrophoneMuteAutomationStepControl_Message {
+        public static string MicrophoneAutomationStepControl_Message {
             get {
-                return ResourceManager.GetString("MicrophoneMuteAutomationStepControl_Message", resourceCulture);
+                return ResourceManager.GetString("MicrophoneAutomationStepControl_Message", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Microphone Mute.
+        ///   Looks up a localized string similar to Microphone.
         /// </summary>
-        public static string MicrophoneMuteAutomationStepControl_Title {
+        public static string MicrophoneAutomationStepControl_Title {
             get {
-                return ResourceManager.GetString("MicrophoneMuteAutomationStepControl_Title", resourceCulture);
+                return ResourceManager.GetString("MicrophoneAutomationStepControl_Title", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mute all available microphones..
+        ///   Looks up a localized string similar to When off, microphones will be muted..
         /// </summary>
-        public static string MicrophoneMuteControl_Message {
+        public static string MicrophoneControl_Message {
             get {
-                return ResourceManager.GetString("MicrophoneMuteControl_Message", resourceCulture);
+                return ResourceManager.GetString("MicrophoneControl_Message", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Microphone Mute.
+        ///   Looks up a localized string similar to Microphone.
         /// </summary>
-        public static string MicrophoneMuteControl_Title {
+        public static string MicrophoneControl_Title {
             get {
-                return ResourceManager.GetString("MicrophoneMuteControl_Title", resourceCulture);
+                return ResourceManager.GetString("MicrophoneControl_Title", resourceCulture);
             }
         }
         

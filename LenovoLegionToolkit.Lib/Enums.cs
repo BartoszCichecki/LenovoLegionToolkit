@@ -116,7 +116,7 @@ public enum LightingChangeState
     Ports = 1,
 }
 
-public enum MicrophoneMuteState
+public enum MicrophoneState
 {
     Off,
     On
