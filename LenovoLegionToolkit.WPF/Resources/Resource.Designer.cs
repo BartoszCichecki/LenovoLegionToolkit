@@ -2541,6 +2541,42 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Turn backlight on or off..
+        /// </summary>
+        public static string OneLevelWhiteKeyboardBacklightAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("OneLevelWhiteKeyboardBacklightAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Backlight.
+        /// </summary>
+        public static string OneLevelWhiteKeyboardBacklightAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("OneLevelWhiteKeyboardBacklightAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can turn backlight on or off with Fn+Space..
+        /// </summary>
+        public static string OneLevelWhiteKeyboardBacklightControl_Message {
+            get {
+                return ResourceManager.GetString("OneLevelWhiteKeyboardBacklightControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Backlight.
+        /// </summary>
+        public static string OneLevelWhiteKeyboardBacklightControl_Title {
+            get {
+                return ResourceManager.GetString("OneLevelWhiteKeyboardBacklightControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Open.
         /// </summary>
         public static string Open {
