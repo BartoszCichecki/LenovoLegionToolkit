@@ -411,7 +411,10 @@ public enum TemperatureUnit
 
 public enum ThermalModeState
 {
-    IrrelevantAndBuggy
+    Unknown,
+    Quiet,
+    Balanced,
+    Performance
 }
 
 public enum TouchpadLockState
