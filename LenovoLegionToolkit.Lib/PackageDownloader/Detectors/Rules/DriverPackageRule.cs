@@ -49,14 +49,7 @@ internal readonly struct DriverPackageRule : IPackageRule
         if (string.IsNullOrEmpty(driverInfo.HardwareId))
             return Task.FromResult(false);
 
-        var result = true;
-
-        if (Version is not null && driverInfo.Version is not null)
-            result &= Version <= driverInfo.Version;
-
-        if (Date is not null && driverInfo.Date is not null)
-            result &= Date <= driverInfo.Date;
-
+        var result = !VerifyByDateVersion(driverInfo);
         return Task.FromResult(result);
     }
 
@@ -67,15 +60,37 @@ internal readonly struct DriverPackageRule : IPackageRule
         if (string.IsNullOrEmpty(driverInfo.HardwareId))
             return Task.FromResult(false);
 
-        var result = true;
+        var result = VerifyByDateVersion(driverInfo);
+        return Task.FromResult(result);
+    }
+
+    private bool VerifyByDateVersion(DriverInfo driverInfo)
+    {
+        if (Date is not null && driverInfo.Date is not null && Version is not null && driverInfo.Version is not null)
+        {
+            if (Date < driverInfo.Date)
+                return false;
+
+            if (Date == driverInfo.Date)
+            {
+                var result = Version > driverInfo.Version;
+                return result;
+            }
+
+            if (Date > driverInfo.Date)
+            {
+                var result = Version != driverInfo.Version;
+                return result;
+            }
+        }
 
         if (Version is not null && driverInfo.Version is not null)
-            result &= Version > driverInfo.Version;
+        {
+            var result = Version > driverInfo.Version;
+            return result;
+        }
 
-        if (Date is not null && driverInfo.Date is not null)
-            result &= Date > driverInfo.Date;
-
-        return Task.FromResult(result);
+        return false;
     }
 
     private static string RemoveNonVersionCharacters(string? versionString)

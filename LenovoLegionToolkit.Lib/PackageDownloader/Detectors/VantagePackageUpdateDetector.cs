@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Management;
 using System.Net.Http;
 using System.Threading;
@@ -32,7 +31,7 @@ internal class VantagePackageUpdateDetector
 
                 DateTime? driverDate = null;
                 if (driverDateString is not null)
-                    driverDate = ManagementDateTimeConverter.ToDateTime(driverDateString);
+                    driverDate = ManagementDateTimeConverter.ToDateTime(driverDateString).Date;
 
                 return new DriverInfo
                 {
