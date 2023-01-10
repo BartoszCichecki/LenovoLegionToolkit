@@ -73,6 +73,7 @@ public readonly struct DisplayAdvancedColorInfo
 
 public readonly struct DriverInfo
 {
+    public string DeviceId { get; init; }
     public string HardwareId { get; init; }
     public Version? Version { get; init; }
     public DateTime? Date { get; init; }

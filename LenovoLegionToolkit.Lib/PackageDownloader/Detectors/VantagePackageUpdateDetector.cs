@@ -21,6 +21,7 @@ internal class VantagePackageUpdateDetector
             $"SELECT * FROM Win32_PnPSignedDriver",
             pdc =>
             {
+                var deviceId = pdc["DeviceID"].Value as string ?? string.Empty;
                 var hardwareId = pdc["HardWareId"].Value as string ?? string.Empty;
                 var driverVersionString = pdc["DriverVersion"].Value as string;
                 var driverDateString = pdc["DriverDate"].Value as string;
@@ -35,6 +36,7 @@ internal class VantagePackageUpdateDetector
 
                 return new DriverInfo
                 {
+                    DeviceId = deviceId,
                     HardwareId = hardwareId,
                     Version = driverVersion,
                     Date = driverDate

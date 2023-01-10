@@ -102,6 +102,11 @@ internal readonly struct DriverPackageRule : IPackageRule
 
     private static DriverInfo FindMatchingDriverInfo(IEnumerable<string> hardwareIds, IEnumerable<DriverInfo> driverInfoCache)
     {
-        return driverInfoCache.FirstOrDefault(di => hardwareIds.Any(hardwareId => di.HardwareId.StartsWith(hardwareId, StringComparison.InvariantCultureIgnoreCase)));
+        return driverInfoCache.FirstOrDefault(di => hardwareIds.Any(hardwareId =>
+        {
+            var result = di.DeviceId.StartsWith(hardwareId, StringComparison.InvariantCultureIgnoreCase);
+            result |= di.HardwareId.StartsWith(hardwareId, StringComparison.InvariantCultureIgnoreCase);
+            return result;
+        }));
     }
 }

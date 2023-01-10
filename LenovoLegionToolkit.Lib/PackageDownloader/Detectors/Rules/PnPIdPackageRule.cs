@@ -39,6 +39,11 @@ internal readonly struct PnPIdPackageRule : IPackageRule
     }
     private static bool MatchingDriverInfoExists(string hardwareId, IEnumerable<DriverInfo> driverInfoCache)
     {
-        return driverInfoCache.Any(di => di.HardwareId.StartsWith(hardwareId, StringComparison.InvariantCultureIgnoreCase));
+        return driverInfoCache.Any(di =>
+        {
+            var result = di.DeviceId.StartsWith(hardwareId, StringComparison.InvariantCultureIgnoreCase);
+            result |= di.HardwareId.StartsWith(hardwareId, StringComparison.InvariantCultureIgnoreCase);
+            return result;
+        });
     }
 }
