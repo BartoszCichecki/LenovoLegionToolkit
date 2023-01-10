@@ -476,6 +476,9 @@ ATTENTION : Cette action ne fonctionnera pas correctement, si l'écran intégré
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>Version du BIOS</value>
   </data>
+  <data name="CopiedToClipboard_Message" xml:space="preserve">
+    <value>Texte copié dans le presse-papier.</value>
+  </data>
   <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
     <value>"{0}" copié dans le presse-papiers.</value>
   </data>
@@ -604,6 +607,9 @@ Merci par avance !</value>
   </data>
   <data name="Exit" xml:space="preserve">
     <value>Quitter</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Exporter</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
     <value>Utilisez uniquement le GPU intégré lorsque vous utilisez la batterie et les GPU intégrés et discrets lorsque l'adaptateur secteur est connecté. Lorsqu'un adaptateur non-standard est connecté, le système passe en mode Hybride-iGPU uniquement.</value>
@@ -762,6 +768,9 @@ AVERTISSEMENT : Cette action ne fonctionnera pas correctement si l'affichage int
   </data>
   <data name="HDRControl_Warning" xml:space="preserve">
     <value>L'utilisation du HDR est bloquée par les paramètres Windows.</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Importer</value>
   </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Cet appareil n'est pas compatible avec Lenovo Legion Toolkit.</value>
@@ -1331,6 +1340,18 @@ Un redémarrage est recommandé après avoir modifié cette option.</value>
   <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
     <value>Effets</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Message" xml:space="preserve">
+    <value>Le profil n'a pas pu être exporté</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Title" xml:space="preserve">
+    <value>Impossible d'exporter le profil</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Message" xml:space="preserve">
+    <value>Le profil n'a pas pu être importé</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Title" xml:space="preserve">
+    <value>Impossible d'importer le profil</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
     <value>Aucun effet ajouté.</value>
   </data>
@@ -1492,5 +1513,48 @@ La journalisation sera activée automatiquement si vous choisissez de continuer.
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Oui</value>
+  </data>
+  <data name="MicrophoneControl_Title" xml:space="preserve">
+    <value>Microphone</value>
+  </data>
+  <data name="MicrophoneControl_Message" xml:space="preserve">
+    <value>Lorsqu'il est désactivé, les microphones sont coupés.</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
+    <value>Microphone</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
+    <value>Lorsqu'il est désactivé, les microphones sont coupés.</value>
+  </data>
+  <data name="ResolutionControl_Title" xml:space="preserve">
+	  <value>Résolution</value>
+  </data>
+  <data name="ResolutionControl_Message" xml:space="preserve">
+	  <value>Modifier la résolution de l'écran intégré.</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
+	  <value>Résolution</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
+	  <value>Modifier la résolution de l'écran intégré.
+
+ATTENTION : Cette action ne fonctionnera pas correctement, si l'écran interne est éteint.</value>
+  </data>
+  <data name="DpiScaleControl_Title" xml:space="preserve">
+	  <value>DPI</value>
+  </data>
+  <data name="DpiScaleControl_Message" xml:space="preserve">
+	  <value>Modifier l'échelle de l'écran intégré.</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
+	  <value>DPI</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
+	  <value>Modifier l'échelle de l'écran intégré.
+
+ATTENTION : Cette action ne fonctionnera pas correctement, si l'écran interne est éteint.</value>
+  </data>
+  <data name="DashboardPage_Display_Title" xml:space="preserve">
+	  <value>Affichage</value>
   </data>
 </root>
