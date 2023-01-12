@@ -793,9 +793,6 @@ ATTENZIONE: questa azione non verrà eseguita correttamente se il display intern
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
     <value>Tastiera</value>
   </data>
-  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-    <value>Pacchetti</value>
-  </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Impostazioni</value>
   </data>
