@@ -801,9 +801,6 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je interní displej vypnutý.
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
     <value>Klávesnice</value>
   </data>
-  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-    <value>Balíčky</value>
-  </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Nastavení</value>
   </data>
@@ -1508,34 +1505,34 @@ Pokud se rozhodneš pokračovat, protokolování bude automaticky povoleno.</val
     <value>Ano</value>
   </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
-	  <value>Rozlišení</value>
+    <value>Rozlišení</value>
   </data>
   <data name="ResolutionControl_Message" xml:space="preserve">
-	  <value>Změnit rozlišení displeje notebooku.</value>
+    <value>Změnit rozlišení displeje notebooku.</value>
   </data>
   <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
-	  <value>Rozlišení</value>
+    <value>Rozlišení</value>
   </data>
   <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
-	  <value>Změnit rozlišení displeje notebooku.
+    <value>Změnit rozlišení displeje notebooku.
 
 VAROVÁNÍ: Tato akce neproběhne správně, pokud je interní displej vypnutý.</value>
   </data>
   <data name="DpiScaleControl_Title" xml:space="preserve">
-	  <value>DPI</value>
+    <value>DPI</value>
   </data>
   <data name="DpiScaleControl_Message" xml:space="preserve">
-	  <value>Změnit měřítko displeje notebooku.</value>
+    <value>Změnit měřítko displeje notebooku.</value>
   </data>
   <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
-	  <value>DPI</value>
+    <value>DPI</value>
   </data>
   <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
-	  <value>Změnit měřítko displeje notebooku.
+    <value>Změnit měřítko displeje notebooku.
 
 VAROVÁNÍ: Tato akce neproběhne správně, pokud je interní displej vypnutý.</value>
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
-	  <value>Displej</value>
+    <value>Displej</value>
   </data>
 </root>
