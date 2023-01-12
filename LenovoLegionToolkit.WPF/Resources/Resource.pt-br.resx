@@ -807,6 +807,9 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
     <value>Teclado</value>
   </data>
+  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
+    <value>Downloads</value>
+  </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Configurações</value>
   </data>
@@ -1552,5 +1555,17 @@ AVISO: Esta ação não será executada corretamente se a tela integrada estiver
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>Tela</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Luz de fundo</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
+    <value>Você pode desligar as luzes de fundo do teclado pressionando as teclas Fn+espaço.</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Luz de fundo</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Desligar ou ligar as luzes de fundo.</value>
   </data>
 </root>
