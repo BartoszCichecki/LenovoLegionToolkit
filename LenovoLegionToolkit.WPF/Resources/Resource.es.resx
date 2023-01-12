@@ -807,6 +807,9 @@ AVISO: Esta acción no se ejecutará correctamente si la pantalla interna está 
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
     <value>Teclado</value>
   </data>
+  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
+    <value>Descargas</value>
+  </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Ajustes</value>
   </data>
@@ -1511,6 +1514,18 @@ El registro de sucesos se activará automáticamente, si decide continuar.</valu
   <data name="Yes" xml:space="preserve">
     <value>Si</value>
   </data>
+  <data name="MicrophoneControl_Title" xml:space="preserve">
+    <value>Micrófono</value>
+  </data>
+  <data name="MicrophoneControl_Message" xml:space="preserve">
+    <value>Cuando está desactivado, los micrófonos se silencian.</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
+    <value>Micrófono</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
+    <value>Cuando está desactivado, los micrófonos se silencian.</value>
+  </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
     <value>Resolución</value>
   </data>
@@ -1541,5 +1556,11 @@ AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>Pantalla</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Retroiluminación</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Encender o apagar la retroiluminación.</value>
   </data>
 </root>
