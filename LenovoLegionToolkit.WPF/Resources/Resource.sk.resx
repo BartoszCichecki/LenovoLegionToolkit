@@ -425,9 +425,6 @@ Táto možnosť je určená pre zariadenia, ktoré nemajú viacero napájacích 
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
     <value>Klávesnica</value>
   </data>
-  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-    <value>Balíčky</value>
-  </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Nastavenia</value>
   </data>
