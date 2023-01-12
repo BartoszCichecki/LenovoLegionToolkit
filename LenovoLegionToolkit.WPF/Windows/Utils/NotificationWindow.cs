@@ -54,7 +54,7 @@ public class NotificationWindow : UiWindow
         InitializeStyle();
         InitializeContent(symbol, overlaySymbol, symbolTransform, text);
 
-        SourceInitialized += (_, _) => InitializePosition(position, GetPrimaryDesktopWorkingArea());
+        SourceInitialized += (_, _) => InitializePosition(position);
         MouseDown += (_, _) => Close();
     }
 
@@ -101,8 +101,10 @@ public class NotificationWindow : UiWindow
         _textBlock.Foreground = (SolidColorBrush)FindResource("TextFillColorPrimaryBrush");
     }
 
-    private void InitializePosition(NotificationPosition position, Rect desktopWorkingArea)
+    private void InitializePosition(NotificationPosition position)
     {
+        var desktopWorkingArea = GetPrimaryDesktopWorkingArea();
+
         _mainGrid.Measure(new Size(double.PositiveInfinity, 80));
 
         Width = MinWidth = Math.Max(_mainGrid.DesiredSize.Width, 300);

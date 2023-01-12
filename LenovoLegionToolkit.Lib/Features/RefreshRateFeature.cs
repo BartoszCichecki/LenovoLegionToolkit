@@ -106,9 +106,12 @@ public class RefreshRateFeature : IFeature<RefreshRate>
         if (newSettings is not null)
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Setting display to {newSettings}");
+                Log.Instance.Trace($"Setting display to {newSettings}...");
 
             display.SetSettings(newSettings, true);
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Display set to {newSettings}");
         }
         else
         {

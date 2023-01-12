@@ -290,6 +290,8 @@ public readonly struct Notification
         Duration = duration;
         Args = args;
     }
+
+    public override string ToString() => $"{nameof(Type)}: {Type}, {nameof(Duration)}: {Duration}, {nameof(Args)}: {string.Join(",", Args)}";
 }
 
 public readonly struct PowerPlan
@@ -506,6 +508,8 @@ public readonly struct RefreshRate : IDisplayName, IEquatable<RefreshRate>
     {
         Frequency = frequency;
     }
+
+    public override string ToString() => $"{Frequency}Hz";
 
     #region Equality
 

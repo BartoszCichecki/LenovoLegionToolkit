@@ -33,7 +33,7 @@
 
             <wpfui:CardControl
                 Grid.Row="1"
-                Margin="0,0,16,24"
+                Margin="0,0,16,8"
                 FocusVisualStyle="{DynamicResource DefaultControlFocusVisualStyle}">
                 <wpfui:CardControl.Header>
                     <Grid>
@@ -101,7 +101,10 @@
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
 
-                            <wpfui:TextBox x:Name="_downloadToText" TextChanged="DownloadToText_OnTextChanged" Grid.Column="0" />
+                            <wpfui:TextBox
+                                x:Name="_downloadToText"
+                                Grid.Column="0"
+                                TextChanged="DownloadToText_OnTextChanged" />
 
                             <wpfui:Button
                                 Grid.Column="1"
@@ -177,20 +180,12 @@
 
                     <StackPanel>
 
-                        <wpfui:CardControl Margin="0,0,16,16" Icon="Info24">
-                            <wpfui:CardControl.Header>
-                                <StackPanel>
-                                    <TextBlock
-                                        Margin="0,0,0,4"
-                                        FontWeight="Medium"
-                                        Text="{x:Static resources:Resource.PackagesPage_Disclaimer_Title}" />
-                                    <TextBlock
-                                        FontSize="12"
-                                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                        Text="{x:Static resources:Resource.PackagesPage_Disclaimer_Message}" />
-                                </StackPanel>
-                            </wpfui:CardControl.Header>
-                        </wpfui:CardControl>
+                        <wpfui:InfoBar
+                            Title="{x:Static resources:Resource.PackagesPage_Disclaimer_Title}"
+                            Margin="0,0,16,8"
+                            IsOpen="True"
+                            Message="{x:Static resources:Resource.PackagesPage_Disclaimer_Message}"
+                            Severity="Warning" />
 
                         <Grid Margin="0,0,16,8">
                             <Grid.ColumnDefinitions>
