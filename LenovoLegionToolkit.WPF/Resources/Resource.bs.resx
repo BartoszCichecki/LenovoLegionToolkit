@@ -512,9 +512,6 @@ Ovo vrijeme možda neće biti tačno ako je laptop bio napunjen dok je spavao il
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
     <value>Tastatura</value>
   </data>
-  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-    <value>Paketi</value>
-  </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Postavke</value>
   </data>
