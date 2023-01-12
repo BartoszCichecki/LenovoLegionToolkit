@@ -811,6 +811,9 @@
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
     <value>键盘</value>
   </data>
+  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
+    <value>驱动下载</value>
+  </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>设置</value>
   </data>
