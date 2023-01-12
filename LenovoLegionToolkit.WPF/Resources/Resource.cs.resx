@@ -294,8 +294,14 @@ Spustí se pouze akce, které odpovídají aktuálnímu stavu.</value>
   <data name="BalanceModeSettingsWindow_Title" xml:space="preserve">
     <value>Nastavení vyváženého módu</value>
   </data>
+  <data name="BatteryAutomationStepControl_Message" xml:space="preserve">
+    <value>Vyber, jak se bude baterie nabíjet.</value>
+  </data>
   <data name="BatteryAutomationStepControl_Title" xml:space="preserve">
     <value>Režim baterie</value>
+  </data>
+  <data name="BatteryModeControl_Message" xml:space="preserve">
+    <value>Vyber, jak se bude baterie nabíjet.</value>
   </data>
   <data name="BatteryModeControl_Title" xml:space="preserve">
     <value>Režim baterie</value>
@@ -800,6 +806,9 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je interní displej vypnutý.
   </data>
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
     <value>Klávesnice</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
+    <value>Balíčky</value>
   </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Nastavení</value>
@@ -1504,6 +1513,18 @@ Pokud se rozhodneš pokračovat, protokolování bude automaticky povoleno.</val
   <data name="Yes" xml:space="preserve">
     <value>Ano</value>
   </data>
+  <data name="MicrophoneControl_Title" xml:space="preserve">
+    <value>Mikrofon</value>
+  </data>
+  <data name="MicrophoneControl_Message" xml:space="preserve">
+    <value>Zapni, nebo vypni mikrofon.</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
+    <value>Mikrofon</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
+    <value>Zapni, nebo vypni mikrofon.</value>
+  </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
     <value>Rozlišení</value>
   </data>
@@ -1534,5 +1555,17 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je interní displej vypnutý.
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>Displej</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Podsvícení</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
+    <value>Můžeš přepínat podsvícení pomocí Fn+Mezerník.</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Podsvícení</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Přepnout podsvícení.</value>
   </data>
 </root>
