@@ -6,7 +6,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
 using LenovoLegionToolkit.Lib.PackageDownloader.Detectors;
-using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.PackageDownloader;
 
@@ -38,7 +37,7 @@ public class VantagePackageDownloader : AbstractPackageDownloader
         var packageDefinitions = await GetPackageDefinitionsAsync(httpClient, $"{_catalogBaseUrl}/{machineType}_{osString}.xml", token).ConfigureAwait(false);
 
         var updateDetector = new VantagePackageUpdateDetector();
-        await updateDetector.BuildDriverInfoCache().ConfigureAwait(false);
+        // await updateDetector.BuildDriverInfoCache().ConfigureAwait(false);
 
         var count = 0;
         var totalCount = packageDefinitions.Count;
@@ -106,16 +105,16 @@ public class VantagePackageDownloader : AbstractPackageDownloader
         var readme = await GetReadmeAsync(httpClient, $"{baseLocation}/{readmeName}", token).ConfigureAwait(false);
         var fileLocation = $"{baseLocation}/{fileName}";
 
-        var isUpdate = false;
-        try
-        {
-            isUpdate = await updateDetector.DetectAsync(httpClient, document, baseLocation, token).ConfigureAwait(false);
-        }
-        catch (Exception ex)
-        {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Couldn't detect update for package {id}. [title={title}, location={location}]", ex);
-        }
+        // var isUpdate = false;
+        // try
+        // {
+        //     isUpdate = await updateDetector.DetectAsync(httpClient, document, baseLocation, token).ConfigureAwait(false);
+        // }
+        // catch (Exception ex)
+        // {
+        //     if (Log.Instance.IsTraceEnabled)
+        //         Log.Instance.Trace($"Couldn't detect update for package {id}. [title={title}, location={location}]", ex);
+        // }
 
         return new()
         {
@@ -129,7 +128,7 @@ public class VantagePackageDownloader : AbstractPackageDownloader
             ReleaseDate = releaseDate,
             Readme = readme,
             FileLocation = fileLocation,
-            IsUpdate = isUpdate
+            IsUpdate = false // isUpdate
         };
     }
 }

@@ -376,8 +376,8 @@ public partial class PackagesPage : IProgress<float>
 
         result = result.Where(p => !_packageDownloaderSettings.Store.HiddenPackages.Contains(p.Id));
 
-        if (_onlyShowUpdatesCheckBox.IsChecked ?? false)
-            result = result.Where(p => p.IsUpdate);
+        // if (_onlyShowUpdatesCheckBox.IsChecked ?? false)
+        //     result = result.Where(p => p.IsUpdate);
 
         if (!string.IsNullOrWhiteSpace(_filterTextBox.Text))
             result = result.Where(p => p.Index.Contains(_filterTextBox.Text, StringComparison.InvariantCultureIgnoreCase));

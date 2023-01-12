@@ -2803,6 +2803,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show updates only.
+        /// </summary>
+        public static string PackagesPage_OnlyShowUpdates {
+            get {
+                return ResourceManager.GetString("PackagesPage_OnlyShowUpdates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Operating System.
         /// </summary>
         public static string PackagesPage_OperatingSystem {
