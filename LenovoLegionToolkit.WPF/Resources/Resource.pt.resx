@@ -807,9 +807,6 @@ ATENÇÃO: Está ação não irá executar corretamente se o ecrã interno estiv
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
     <value>Teclado</value>
   </data>
-  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-    <value>Pacotes</value>
-  </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Definições</value>
   </data>
@@ -1512,34 +1509,34 @@ Logs serão guardados automaticamente, se escolheres continuar.</value>
     <value>Sim</value>
   </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
-	  <value>Resolução</value>
+    <value>Resolução</value>
   </data>
   <data name="ResolutionControl_Message" xml:space="preserve">
-	  <value>Alterar resolução do ecrã interno.</value>
+    <value>Alterar resolução do ecrã interno.</value>
   </data>
   <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
-	  <value>Resolução</value>
+    <value>Resolução</value>
   </data>
   <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
-	  <value>Alterar resolução do ecrã interno.
+    <value>Alterar resolução do ecrã interno.
 
 ATENÇÃO: Esta ação não irá executar corretamente se o ecrã interno estiver desligado.</value>
   </data>
   <data name="DpiScaleControl_Title" xml:space="preserve">
-	  <value>DPI</value>
+    <value>DPI</value>
   </data>
   <data name="DpiScaleControl_Message" xml:space="preserve">
-	  <value>Alterar escala do ecrã interno.</value>
+    <value>Alterar escala do ecrã interno.</value>
   </data>
   <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
-	  <value>DPI</value>
+    <value>DPI</value>
   </data>
   <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
-	  <value>Alterar escala do ecrã interno.
+    <value>Alterar escala do ecrã interno.
 
 ATENÇÃO: Esta ação não irá executar corretamente se o ecrã interno estiver desligado.</value>
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
-	  <value>Ecrã</value>
+    <value>Ecrã</value>
   </data>
 </root>

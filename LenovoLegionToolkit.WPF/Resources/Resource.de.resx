@@ -474,6 +474,9 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>BIOS Version</value>
   </data>
+  <data name="CopiedToClipboard_Message" xml:space="preserve">
+    <value>Text in Zwischenablage kopiert.</value>
+  </data>
   <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
     <value>"{0}" in die Zwischenablage kopiert.</value>
   </data>
@@ -962,6 +965,9 @@ Aktiviere diese Option, wenn Konflikte mit Vollbildanwendungen auftreten.</value
   </data>
   <data name="PackageControl_HttpGeneralError_Title" xml:space="preserve">
     <value>Etwas ist schiefgelaufen</value>
+  </data>
+  <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
+    <value>Update verfügbar!</value>
   </data>
   <data name="PackageControl_OldPackageWarning" xml:space="preserve">
     <value>Dieses Paket ist mehr als ein Jahr alt.</value>
@@ -1508,5 +1514,66 @@ Die Protokollierung wird automatisch aktiviert, wenn Sie fortfahren möchten.</v
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Ja</value>
+  </data>
+  <data name="MicrophoneControl_Title" xml:space="preserve">
+    <value>Mikrofon-Stummschaltung</value>
+  </data>
+  <data name="MicrophoneControl_Message" xml:space="preserve">
+    <value>Alle verfügbaren Mikrofone stumm schalten.</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
+    <value>Mikrofon-Stummschaltung</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
+    <value>Alle verfügbaren Mikrofone stumm schalten.</value>
+  </data>
+  <data name="ResolutionControl_Title" xml:space="preserve">
+    <value>Auflösung</value>
+  </data>
+  <data name="ResolutionControl_Message" xml:space="preserve">
+    <value>Ändert die Auflösung des eingebauten Displays.</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
+    <value>Auflösung</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
+    <value>Ändert die Auflösung des eingebauten Displays.
+
+WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display ausgeschaltet ist.</value>
+  </data>
+  <data name="DpiScaleControl_Title" xml:space="preserve">
+    <value>DPI</value>
+  </data>
+  <data name="DpiScaleControl_Message" xml:space="preserve">
+    <value>Ändert die Skalierung des eingebauten Displays.</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
+    <value>DPI</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
+    <value>Ändert die Skalierung des eingebauten Displays.
+
+WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display ausgeschaltet ist.</value>
+  </data>
+  <data name="DashboardPage_Display_Title" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Tastaturbeleuchtung</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
+    <value>Sie können die Tastaturbeleuchtung mit Fn+Leertaste ein- oder ausschalten.</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Tastaturbeleuchtung</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Schalte Tastaturbeleuchtung ein oder aus.</value>
+  </data>
+  <data name="PackagesPage_NoMatchingDownloads" xml:space="preserve">
+    <value>Keine passenden Downloads gefunden</value>
+  </data>
+  <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
+	  <value>Zeige nur Updates</value>
   </data>
 </root>

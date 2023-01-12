@@ -795,7 +795,7 @@
     <value>لوحة المفاتيح</value>
   </data>
   <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-    <value>الحزم</value>
+    <value>التحميلات</value>
   </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>الإعدادات</value>

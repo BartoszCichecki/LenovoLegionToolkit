@@ -805,7 +805,7 @@
     <value>Клавиатура</value>
   </data>
   <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-    <value>Пакеты</value>
+    <value>Загрузки</value>
   </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Настройки</value>
@@ -1510,35 +1510,47 @@
   <data name="Yes" xml:space="preserve">
     <value>Да</value>
   </data>
+  <data name="MicrophoneControl_Title" xml:space="preserve">
+    <value>Микрофон</value>
+  </data>
+  <data name="MicrophoneControl_Message" xml:space="preserve">
+    <value>Отключить все доступные микрофоны.</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
+    <value>Отключить микрофон</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
+    <value>Отключить все доступные микрофоны.</value>
+  </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
-	  <value>Разрешение</value>
+    <value>Разрешение</value>
   </data>
   <data name="ResolutionControl_Message" xml:space="preserve">
-	  <value>Изменить разрешение встроенного дисплея.</value>
+    <value>Изменить разрешение встроенного дисплея.</value>
   </data>
   <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
-	  <value>Разрешение</value>
+    <value>Разрешение</value>
   </data>
   <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
-	  <value>Изменить разрешение встроенного дисплея.
+    <value>Изменить разрешение встроенного дисплея.
 
 ВНИМАНИЕ: Это действие не будет выполняться корректно, если внутренний дисплей выключен.</value>
   </data>
   <data name="DpiScaleControl_Title" xml:space="preserve">
-	  <value>DPI</value>
+    <value>DPI</value>
   </data>
   <data name="DpiScaleControl_Message" xml:space="preserve">
-	  <value>Изменить масштаб встроенного дисплея.</value>
+    <value>Изменить масштаб встроенного дисплея.</value>
   </data>
   <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
-	  <value>DPI</value>
+    <value>DPI</value>
   </data>
   <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
-	  <value>Изменить масштаб встроенного дисплея.
+    <value>Изменить масштаб встроенного дисплея.
 
 ВНИМАНИЕ: Это действие не будет выполняться корректно, если внутренний дисплей выключен.</value>
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
-	  <value>Дисплей</value>
+    <value>Дисплей</value>
   </data>
 </root>
