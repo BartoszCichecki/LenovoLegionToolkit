@@ -811,9 +811,6 @@
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
     <value>键盘</value>
   </data>
-  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-    <value>驱动下载</value>
-  </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>设置</value>
   </data>
@@ -1533,34 +1530,34 @@
     <value>关闭此选项将静音所有可用的麦克风。</value>
   </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
-	  <value>分辨率</value>
+    <value>分辨率</value>
   </data>
   <data name="ResolutionControl_Message" xml:space="preserve">
-	  <value>切换内置屏幕分辨率。</value>
+    <value>切换内置屏幕分辨率。</value>
   </data>
   <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
-	  <value>分辨率</value>
+    <value>分辨率</value>
   </data>
   <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
-	  <value>切换内置屏幕分辨率。
+    <value>切换内置屏幕分辨率。
 
 警告！当内置屏幕关闭时此选项无法生效。</value>
   </data>
   <data name="DpiScaleControl_Title" xml:space="preserve">
-	  <value>DPI</value>
+    <value>DPI</value>
   </data>
   <data name="DpiScaleControl_Message" xml:space="preserve">
-	  <value>切换内置屏幕缩放。</value>
+    <value>切换内置屏幕缩放。</value>
   </data>
   <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
-	  <value>DPI</value>
+    <value>DPI</value>
   </data>
   <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
-	  <value>切换内置屏幕缩放。
+    <value>切换内置屏幕缩放。
 
 警告！当内置屏幕关闭时此选项无法生效。</value>
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
-	  <value>显示</value>
+    <value>显示</value>
   </data>
 </root>
