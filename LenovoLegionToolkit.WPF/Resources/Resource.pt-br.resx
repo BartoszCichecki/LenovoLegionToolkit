@@ -807,9 +807,6 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
     <value>Teclado</value>
   </data>
-  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-    <value>Pacotes</value>
-  </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Configurações</value>
   </data>
@@ -1520,40 +1517,40 @@ O registro será ativado automaticamente, se você optar por continuar.</value>
     <value>Quando desligado, todos os microfones serão mutados.</value>
   </data>
   <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
-	  <value>Microfone</value>
+    <value>Desligar</value>
   </data>
   <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
     <value>Quando desligado, todos os microfones serão mutados.</value>
   </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
-	  <value>Resolução</value>
+    <value>Resolução</value>
   </data>
   <data name="ResolutionControl_Message" xml:space="preserve">
-	  <value>Alterar a resolução da tela integrada.</value>
+    <value>Alterar a resolução da tela integrada.</value>
   </data>
   <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
-	  <value>Resolução</value>
+    <value>Resolução</value>
   </data>
   <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
-	  <value>Alterar a resolução da tela integrada.
+    <value>Alterar a resolução da tela integrada.
 
 AVISO: Esta ação não será executada corretamente se a tela integrada estiver desligada.</value>
   </data>
   <data name="DpiScaleControl_Title" xml:space="preserve">
-	  <value>DPI</value>
+    <value>DPI</value>
   </data>
   <data name="DpiScaleControl_Message" xml:space="preserve">
-	  <value>Alterar a escala de resolução da tela integrada.</value>
+    <value>Alterar a escala de resolução da tela integrada.</value>
   </data>
   <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
-	  <value>DPI</value>
+    <value>DPI</value>
   </data>
   <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
-	  <value>Altera a escala de resolução da tela integrada, afetando o tamanho dos textos, aplicativos e outros itens.
+    <value>Altera a escala de resolução da tela integrada, afetando o tamanho dos textos, aplicativos e outros itens.
 
 AVISO: Esta ação não será executada corretamente se a tela integrada estiver desligada.</value>
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
-	  <value>Tela</value>
+    <value>Tela</value>
   </data>
 </root>
