@@ -804,9 +804,6 @@
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
     <value>Клавіатура</value>
   </data>
-  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-    <value>Пакунки</value>
-  </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Налаштування</value>
   </data>
