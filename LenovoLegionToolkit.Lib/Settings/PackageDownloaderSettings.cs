@@ -7,6 +7,7 @@ public class PackageDownloaderSettings : AbstractSettings<PackageDownloaderSetti
     public class PackageDownloaderSettingsStore
     {
         public string? DownloadPath { get; set; }
+        public bool OnlyShowUpdates { get; set; }
         public HashSet<string> HiddenPackages { get; set; } = new();
     }
 

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
+using System.Windows.Media;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.PackageDownloader;
@@ -20,6 +21,7 @@ using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
+using HorizontalAlignment = System.Windows.HorizontalAlignment;
 using MenuItem = Wpf.Ui.Controls.MenuItem;
 
 namespace LenovoLegionToolkit.WPF.Pages;
@@ -57,6 +59,8 @@ public partial class PackagesPage : IProgress<float>
 
         _downloadPackagesButton.IsEnabled = true;
         _cancelDownloadPackagesButton.IsEnabled = true;
+
+        _onlyShowUpdatesCheckBox.IsChecked = _packageDownloaderSettings.Store.OnlyShowUpdates;
 
         _sourcePrimaryRadio.Tag = PackageDownloaderFactory.Type.Vantage;
         _sourceSecondaryRadio.Tag = PackageDownloaderFactory.Type.PCSupport;
@@ -212,6 +216,23 @@ public partial class PackagesPage : IProgress<float>
         catch (TaskCanceledException) { }
     }
 
+    private async void OnlyShowUpdatesCheckBox_OnChecked(object sender, RoutedEventArgs e)
+    {
+        if (!await ShouldInterruptDownloadsIfRunning())
+            return;
+
+        if (_packages is null)
+            return;
+
+        _packageDownloaderSettings.Store.OnlyShowUpdates = _onlyShowUpdatesCheckBox.IsChecked ?? false;
+        _packageDownloaderSettings.SynchronizeStore();
+
+        _packagesStackPanel.Children.Clear();
+        _scrollViewer.ScrollToHome();
+
+        Reload();
+    }
+
     private async void SortingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         if (!await ShouldInterruptDownloadsIfRunning())
@@ -329,6 +350,18 @@ public partial class PackagesPage : IProgress<float>
             };
             _packagesStackPanel.Children.Add(clearHidden);
         }
+
+        if (_packagesStackPanel.Children.Count < 1)
+        {
+            var tb = new TextBlock
+            {
+                Text = Resource.PackagesPage_NoMatchingDownloads,
+                Foreground = (SolidColorBrush)FindResource("TextFillColorSecondaryBrush"),
+                HorizontalAlignment = HorizontalAlignment.Center,
+                Margin = new(0, 32, 0, 32)
+            };
+            _packagesStackPanel.Children.Add(tb);
+        }
     }
 
     private List<Package> SortAndFilter(List<Package> packages)
@@ -342,6 +375,9 @@ public partial class PackagesPage : IProgress<float>
         };
 
         result = result.Where(p => !_packageDownloaderSettings.Store.HiddenPackages.Contains(p.Id));
+
+        if (_onlyShowUpdatesCheckBox.IsChecked ?? false)
+            result = result.Where(p => p.IsUpdate);
 
         if (!string.IsNullOrWhiteSpace(_filterTextBox.Text))
             result = result.Where(p => p.Index.Contains(_filterTextBox.Text, StringComparison.InvariantCultureIgnoreCase));

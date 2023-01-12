@@ -2135,7 +2135,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Packages.
+        ///   Looks up a localized string similar to Downloads.
         /// </summary>
         public static string MainWindow_NavigationItem_Packages {
             get {
@@ -2790,6 +2790,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string PackagesPage_MachineType {
             get {
                 return ResourceManager.GetString("PackagesPage_MachineType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No matching downloads found.
+        /// </summary>
+        public static string PackagesPage_NoMatchingDownloads {
+            get {
+                return ResourceManager.GetString("PackagesPage_NoMatchingDownloads", resourceCulture);
             }
         }
         

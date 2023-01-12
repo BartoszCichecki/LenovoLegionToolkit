@@ -189,7 +189,8 @@
 
                         <Grid Margin="0,0,16,8">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="300" />
+                                <ColumnDefinition Width="250" />
+                                <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
@@ -202,9 +203,17 @@
                                 PlaceholderText="{x:Static resources:Resource.PackagesPage_Filter}"
                                 TextChanged="FilterTextBox_TextChanged" />
 
+                            <CheckBox
+                                x:Name="_onlyShowUpdatesCheckBox"
+                                Grid.Column="1"
+                                Margin="16,0,0,0"
+                                Checked="OnlyShowUpdatesCheckBox_OnChecked"
+                                Content="Show updates only"
+                                Unchecked="OnlyShowUpdatesCheckBox_OnChecked" />
+
                             <ComboBox
                                 x:Name="_sortingComboBox"
-                                Grid.Column="2"
+                                Grid.Column="3"
                                 MaxDropDownHeight="Auto"
                                 SelectedIndex="2"
                                 SelectionChanged="SortingComboBox_SelectionChanged">
