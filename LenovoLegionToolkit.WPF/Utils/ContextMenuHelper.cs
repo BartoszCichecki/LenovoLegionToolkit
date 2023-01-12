@@ -32,11 +32,7 @@ public class ContextMenuHelper
     public Action? BringToForeground { get; set; }
     public Func<Task>? Close { get; set; }
 
-    private static ContextMenuHelper? _instance;
-
-    public static ContextMenuHelper Instance => _instance ??= new ContextMenuHelper();
-
-    private ContextMenuHelper()
+    public ContextMenuHelper()
     {
         ContextMenu = new ContextMenu
         {

@@ -22,6 +22,8 @@ public partial class MainWindow
     private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
     private readonly UpdateChecker _updateChecker = IoCContainer.Resolve<UpdateChecker>();
 
+    private readonly ContextMenuHelper _contextMenuHelper = new();
+
     public bool SuppressClosingEventHandler { get; set; }
 
     public Snackbar Snackbar => _snackbar;
@@ -51,11 +53,11 @@ public partial class MainWindow
 
     private void InitializeTray()
     {
-        ContextMenuHelper.Instance.BringToForeground = BringToForeground;
-        ContextMenuHelper.Instance.Close = App.Current.ShutdownAsync;
+        _contextMenuHelper.BringToForeground = BringToForeground;
+        _contextMenuHelper.Close = App.Current.ShutdownAsync;
 
         _trayIcon.TrayLeftMouseUp += (s, e) => BringToForeground();
-        _trayIcon.ContextMenu = ContextMenuHelper.Instance.ContextMenu;
+        _trayIcon.ContextMenu = _contextMenuHelper.ContextMenu;
     }
 
     private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -65,7 +67,7 @@ public partial class MainWindow
         if (!await KeyboardBacklightPage.IsSupportedAsync())
             _navigationStore.Items.Remove(_keyboardItem);
 
-        ContextMenuHelper.Instance.SetNavigationItems(_navigationStore);
+        _contextMenuHelper.SetNavigationItems(_navigationStore);
 
         SmartKeyHelper.Instance.BringToForeground = () => Dispatcher.Invoke(BringToForeground);
 
@@ -82,7 +84,10 @@ public partial class MainWindow
     private async void MainWindow_Closing(object? sender, CancelEventArgs e)
     {
         if (SuppressClosingEventHandler)
+        {
+            _trayIcon.Dispose();
             return;
+        }
 
         if (_settings.Store.MinimizeOnClose)
         {
