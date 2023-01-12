@@ -794,9 +794,6 @@ WAARSCHUWING: Deze actie wordt niet correct uitgevoerd als het interne display i
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
     <value>Toetsenbord</value>
   </data>
-  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-    <value>Pakketten</value>
-  </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Instellingen</value>
   </data>
