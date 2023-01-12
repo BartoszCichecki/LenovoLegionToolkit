@@ -144,6 +144,9 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
 
             var next = filtered[newIndex];
 
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Switching refresh rate after Fn+R to {next}...");
+
             await _refreshRateFeature.SetStateAsync(next).ConfigureAwait(false);
 
             _ = Task.Delay(TimeSpan.FromSeconds(2)).ContinueWith(_ =>
