@@ -807,9 +807,6 @@ AVISO: Esta acción no se ejecutará correctamente si la pantalla interna está 
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
     <value>Teclado</value>
   </data>
-  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-    <value>Paquetes</value>
-  </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Ajustes</value>
   </data>
@@ -1515,34 +1512,34 @@ El registro de sucesos se activará automáticamente, si decide continuar.</valu
     <value>Si</value>
   </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
-	  <value>Resolución</value>
+    <value>Resolución</value>
   </data>
   <data name="ResolutionControl_Message" xml:space="preserve">
-	  <value>Cambiar resolución de la pantalla integrada.</value>
+    <value>Cambiar resolución de la pantalla integrada.</value>
   </data>
   <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
-	  <value>Resolución</value>
+    <value>Resolución</value>
   </data>
   <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
-	  <value>Cambiar la resolución de la pantalla integrada.
+    <value>Cambiar la resolución de la pantalla integrada.
 
 AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está apagada.</value>
   </data>
   <data name="DpiScaleControl_Title" xml:space="preserve">
-	  <value>Puntos por pulgada (DPI)</value>
+    <value>Puntos por pulgada (DPI)</value>
   </data>
   <data name="DpiScaleControl_Message" xml:space="preserve">
-	  <value>Cambiar la resolución de la pantalla integrada.</value>
+    <value>Cambiar la resolución de la pantalla integrada.</value>
   </data>
   <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
-	  <value>Puntos por pulgada (DPI)</value>
+    <value>Puntos por pulgada (DPI)</value>
   </data>
   <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
-	  <value>Cambiar la resolución de la pantalla integrada.
+    <value>Cambiar la resolución de la pantalla integrada.
 
 AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está apagada.</value>
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
-	  <value>Pantalla</value>
+    <value>Pantalla</value>
   </data>
 </root>
