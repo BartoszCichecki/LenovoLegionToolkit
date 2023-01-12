@@ -1520,7 +1520,7 @@ O registro será ativado automaticamente, se você optar por continuar.</value>
     <value>Quando desligado, todos os microfones serão mutados.</value>
   </data>
   <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
-    <value>Desligar</value>
+	  <value>Microfone</value>
   </data>
   <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
     <value>Quando desligado, todos os microfones serão mutados.</value>
