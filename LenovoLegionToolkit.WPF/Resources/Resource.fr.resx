@@ -808,9 +808,6 @@ AVERTISSEMENT : Cette action ne fonctionnera pas correctement si l'affichage int
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
     <value>Clavier</value>
   </data>
-  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-    <value>Paquets</value>
-  </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Paramètres</value>
   </data>
@@ -1527,34 +1524,34 @@ La journalisation sera activée automatiquement si vous choisissez de continuer.
     <value>Lorsqu'il est désactivé, les microphones sont coupés.</value>
   </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
-	  <value>Résolution</value>
+    <value>Résolution</value>
   </data>
   <data name="ResolutionControl_Message" xml:space="preserve">
-	  <value>Modifier la résolution de l'écran intégré.</value>
+    <value>Modifier la résolution de l'écran intégré.</value>
   </data>
   <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
-	  <value>Résolution</value>
+    <value>Résolution</value>
   </data>
   <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
-	  <value>Modifier la résolution de l'écran intégré.
+    <value>Modifier la résolution de l'écran intégré.
 
 ATTENTION : Cette action ne fonctionnera pas correctement, si l'écran interne est éteint.</value>
   </data>
   <data name="DpiScaleControl_Title" xml:space="preserve">
-	  <value>DPI</value>
+    <value>DPI</value>
   </data>
   <data name="DpiScaleControl_Message" xml:space="preserve">
-	  <value>Modifier l'échelle de l'écran intégré.</value>
+    <value>Modifier l'échelle de l'écran intégré.</value>
   </data>
   <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
-	  <value>DPI</value>
+    <value>DPI</value>
   </data>
   <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
-	  <value>Modifier l'échelle de l'écran intégré.
+    <value>Modifier l'échelle de l'écran intégré.
 
 ATTENTION : Cette action ne fonctionnera pas correctement, si l'écran interne est éteint.</value>
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
-	  <value>Affichage</value>
+    <value>Affichage</value>
   </data>
 </root>
