@@ -294,14 +294,8 @@ Spustí se pouze akce, které odpovídají aktuálnímu stavu.</value>
   <data name="BalanceModeSettingsWindow_Title" xml:space="preserve">
     <value>Nastavení vyváženého módu</value>
   </data>
-  <data name="BatteryAutomationStepControl_Message" xml:space="preserve">
-    <value>Vyber, jak se bude baterie nabíjet.</value>
-  </data>
   <data name="BatteryAutomationStepControl_Title" xml:space="preserve">
     <value>Režim baterie</value>
-  </data>
-  <data name="BatteryModeControl_Message" xml:space="preserve">
-    <value>Vyber, jak se bude baterie nabíjet.</value>
   </data>
   <data name="BatteryModeControl_Title" xml:space="preserve">
     <value>Režim baterie</value>
