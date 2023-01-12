@@ -807,9 +807,6 @@ ATENȚIE: Această acțiune nu va rula corect dacă afișajul incorporat este op
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
     <value>Tastatură</value>
   </data>
-  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-    <value>Pachete</value>
-  </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Setări</value>
   </data>
@@ -1526,34 +1523,34 @@ Salvarea logurilor va fi activată automat dacă alegeți să continuați.</valu
     <value>Când setarea este dezactivată, microfonul va fi oprit.</value>
   </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
-	  <value>Rezoluție</value>
+    <value>Rezoluție</value>
   </data>
   <data name="ResolutionControl_Message" xml:space="preserve">
-	  <value>Schimbați rezoluția afișajului încorporat.</value>
+    <value>Schimbați rezoluția afișajului încorporat.</value>
   </data>
   <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
-	  <value>Rezoluție</value>
+    <value>Rezoluție</value>
   </data>
   <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
-	  <value>Schimbați rezoluția afișajului încorporat.
+    <value>Schimbați rezoluția afișajului încorporat.
 
 ATENȚIE: Această acțiune nu va rula corect dacă afișajul încorporat este oprit.</value>
   </data>
   <data name="DpiScaleControl_Title" xml:space="preserve">
-	  <value>DPI</value>
+    <value>DPI</value>
   </data>
   <data name="DpiScaleControl_Message" xml:space="preserve">
-	  <value>Modificați scalarea afișajului încorporat.</value>
+    <value>Modificați scalarea afișajului încorporat.</value>
   </data>
   <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
-	  <value>DPI</value>
+    <value>DPI</value>
   </data>
   <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
-	  <value>Modificați scalarea afișajului încorporat.
+    <value>Modificați scalarea afișajului încorporat.
 
 ATENȚIE: Această acțiune nu va rula corect dacă afișajul încorporat este oprit.</value>
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
-	  <value>Afișaj</value>
+    <value>Afișaj</value>
   </data>
 </root>
