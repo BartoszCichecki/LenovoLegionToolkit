@@ -579,7 +579,7 @@
     <value>显示器亮度</value>
   </data>
   <data name="DonatePage_DonateWith" xml:space="preserve">
-    <value>点击以使用Stripe赞助（支持支付宝）</value>
+    <value>点击使用 Stripe 赞助（支持支付宝）</value>
   </data>
   <data name="DonatePage_Message" xml:space="preserve">
     <value>开发与维护联想拯救箱需要大量时间。如果你喜欢这个软件，你可以通过赞助来支持软件的开发。
@@ -971,6 +971,9 @@
   </data>
   <data name="PackageControl_HttpGeneralError_Title" xml:space="preserve">
     <value>什么地方出错了(っ °Д °;)っ</value>
+  </data>
+  <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
+    <value>新版本可用！</value>
   </data>
   <data name="PackageControl_OldPackageWarning" xml:space="preserve">
     <value>此驱动包的发布日期距今已超过一年</value>
@@ -1562,5 +1565,23 @@
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>显示</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>背光</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
+    <value>你可以使用快捷键 Fn + 空格 来开关背光。</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>背光</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>开关背光。</value>
+  </data>
+  <data name="PackagesPage_NoMatchingDownloads" xml:space="preserve">
+    <value>没有匹配的结果</value>
+  </data>
+  <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
+	  <value>仅显示更新</value>
   </data>
 </root>
