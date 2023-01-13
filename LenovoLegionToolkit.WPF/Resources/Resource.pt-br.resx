@@ -967,6 +967,9 @@ Ative esta opção se você tiver conflitos com aplicativos de tela inteira.</va
   <data name="PackageControl_HttpGeneralError_Title" xml:space="preserve">
     <value>Alguma coisa deu errado</value>
   </data>
+  <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
+    <value>Atualização disponível!</value>
+  </data>
   <data name="PackageControl_OldPackageWarning" xml:space="preserve">
     <value>Este pacote tem mais de um ano.</value>
   </data>
@@ -1567,5 +1570,11 @@ AVISO: Esta ação não será executada corretamente se a tela integrada estiver
   </data>
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Desligar ou ligar as luzes de fundo.</value>
+  </data>
+  <data name="PackagesPage_NoMatchingDownloads" xml:space="preserve">
+    <value>Nenhum download correspondente encontrado</value>
+  </data>
+  <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
+	  <value>Exibir somente atualizações</value>
   </data>
 </root>
