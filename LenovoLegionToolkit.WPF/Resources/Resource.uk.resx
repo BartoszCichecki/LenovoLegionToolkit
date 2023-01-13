@@ -964,6 +964,9 @@
   <data name="PackageControl_HttpGeneralError_Title" xml:space="preserve">
     <value>Сталася помилка</value>
   </data>
+  <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
+    <value>Доступне оновлення!</value>
+  </data>
   <data name="PackageControl_OldPackageWarning" xml:space="preserve">
     <value>Цьому пакету вже понад рік.</value>
   </data>
@@ -1509,5 +1512,66 @@
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Так</value>
+  </data>
+  <data name="MicrophoneControl_Title" xml:space="preserve">
+    <value>Мікрофон</value>
+  </data>
+  <data name="MicrophoneControl_Message" xml:space="preserve">
+    <value>Коли вимкнено, мікрофон буде приглушений.</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
+    <value>Мікрофон</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
+    <value>Коли вимкнено, мікрофон буде приглушений.</value>
+  </data>
+  <data name="ResolutionControl_Title" xml:space="preserve">
+    <value>Роздільна здатність</value>
+  </data>
+  <data name="ResolutionControl_Message" xml:space="preserve">
+    <value>Змінити роздільну здатність вбудованого дисплея.</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
+    <value>Роздільна здатність</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
+    <value>Змінити роздільну здатність вбудованого дисплея.
+
+УВАГА: Ця дія може спрацювати некоректно, якщо вбудований дисплей вимкнено.</value>
+  </data>
+  <data name="DpiScaleControl_Title" xml:space="preserve">
+    <value>DPI</value>
+  </data>
+  <data name="DpiScaleControl_Message" xml:space="preserve">
+    <value>Змінити масштаб вбудованого дисплея.</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
+    <value>DPI</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
+    <value>Змінити масштаб вбудованого дисплея.
+
+УВАГА: Ця дія може спрацювати некоректно, якщо вбудований дисплей вимкнено.</value>
+  </data>
+  <data name="DashboardPage_Display_Title" xml:space="preserve">
+    <value>Дисплей</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Підсвітка</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
+    <value>Ви можете увімкнути або вимкнути підсвітку комбінацією Fn+Пробіл.</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Підсвітка</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Увімкнути або вимкнути підсвітку.</value>
+  </data>
+  <data name="PackagesPage_NoMatchingDownloads" xml:space="preserve">
+    <value>Не знайдено відповідних завантажень</value>
+  </data>
+  <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
+	  <value>Показувати тільки оновлення</value>
   </data>
 </root>
