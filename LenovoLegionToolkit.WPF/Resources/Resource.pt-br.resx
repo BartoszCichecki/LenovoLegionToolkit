@@ -188,6 +188,10 @@ Esta opção destina-se apenas a dispositivos que não possuem vários planos de
   <data name="AutomationPage_Actions_Empty" xml:space="preserve">
     <value>Sem ações definidas. Clique em "Adicionar nova" para criar uma ação.</value>
   </data>
+  <data name="AutomationPage_Actions_Message" xml:space="preserve">
+    <value>Se habilitado, essas ações serão executadas automaticamente. Independente do estado, todas as ações serão validadas de cima para baixo.
+Somente ações que correspondem com o estado atual serão executadas.</value>
+  </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>Ações</value>
   </data>
@@ -308,6 +312,9 @@ Esta opção destina-se apenas a dispositivos que não possuem vários planos de
   <data name="BatteryPage_ACAdapterConnectedNotCharging" xml:space="preserve">
     <value>Conectado, não carregando</value>
   </data>
+  <data name="BatteryPage_BatteryTemperature_Message" xml:space="preserve">
+    <value>Temperatura atual da bateria.</value>
+  </data>
   <data name="BatteryPage_BatteryTemperature_Title" xml:space="preserve">
     <value>Temperatura da bateria</value>
   </data>
@@ -368,6 +375,9 @@ Este tempo pode não ser exato caso o equipamento for carregado em estado de sus
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
     <value>Em bateria desde</value>
+  </data>
+  <data name="BatteryPage_Title" xml:space="preserve">
+    <value>Bateria</value>
   </data>
   <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
     <value>Na bateria</value>
@@ -784,6 +794,9 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
   </data>
   <data name="MainWindow_NavigationItem_Actions" xml:space="preserve">
     <value>Ações</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Battery" xml:space="preserve">
+    <value>Bateria</value>
   </data>
   <data name="MainWindow_NavigationItem_Dashboard" xml:space="preserve">
     <value>Dashboard</value>
@@ -1506,8 +1519,14 @@ O registro será ativado automaticamente, se você optar por continuar.</value>
   <data name="MicrophoneControl_Title" xml:space="preserve">
     <value>Microfone</value>
   </data>
+  <data name="MicrophoneControl_Message" xml:space="preserve">
+    <value>Desligar todos os microfones disponíveis.</value>
+  </data>
   <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
     <value>Desligar</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
+    <value>Desligar todos os microfones disponíveis.</value>
   </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
     <value>Resolução</value>
