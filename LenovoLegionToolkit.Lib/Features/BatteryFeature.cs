@@ -74,8 +74,14 @@ public class BatteryFeature : AbstractDriverFeature<BatteryState>
     public async Task EnsureCorrectBatteryModeIsSetAsync()
     {
         var state = GetStateFromRegistry();
-        if (state.HasValue)
-            await SetStateAsync(state.Value).ConfigureAwait(false);
+
+        if (!state.HasValue)
+            return;
+
+        if (await GetStateAsync().ConfigureAwait(false) == state.Value)
+            return;
+
+        await SetStateAsync(state.Value).ConfigureAwait(false);
     }
 
     private static BatteryState? GetStateFromRegistry()
