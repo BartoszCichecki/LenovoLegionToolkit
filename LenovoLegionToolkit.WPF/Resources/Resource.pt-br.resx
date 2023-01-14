@@ -188,10 +188,6 @@ Esta opção destina-se apenas a dispositivos que não possuem vários planos de
   <data name="AutomationPage_Actions_Empty" xml:space="preserve">
     <value>Sem ações definidas. Clique em "Adicionar nova" para criar uma ação.</value>
   </data>
-  <data name="AutomationPage_Actions_Message" xml:space="preserve">
-    <value>Se habilitado, essas ações serão executadas automaticamente. Independente do estado, todas as ações serão validadas de cima para baixo.
-Somente ações que corresponder com o estado atual serão executadas.</value>
-  </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>Ações</value>
   </data>
