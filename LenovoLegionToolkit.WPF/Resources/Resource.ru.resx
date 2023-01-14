@@ -475,6 +475,9 @@
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>Версия BIOS</value>
   </data>
+  <data name="CopiedToClipboard_Message" xml:space="preserve">
+    <value>Текст скопирован в буфер обмена.</value>
+  </data>
   <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
     <value>"{0}" скопировано в буфер обмена.</value>
   </data>
@@ -963,6 +966,9 @@
   </data>
   <data name="PackageControl_HttpGeneralError_Title" xml:space="preserve">
     <value>Что-то пошло не так</value>
+  </data>
+  <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
+    <value>Доступно обновление!</value>
   </data>
   <data name="PackageControl_OldPackageWarning" xml:space="preserve">
     <value>Этому пакету ПО более года.</value>
@@ -1552,5 +1558,23 @@
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>Дисплей</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Подсветка клавиатуры</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
+    <value>Включить или выключить подсветку можно с помощью Fn+Пробел.</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Подсветка клавиатуры</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Включить или выключить подсветку.</value>
+  </data>
+  <data name="PackagesPage_NoMatchingDownloads" xml:space="preserve">
+    <value>Подходящих пакетов не найдено</value>
+  </data>
+  <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
+	  <value>Показывать только обновления</value>
   </data>
 </root>

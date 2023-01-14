@@ -190,7 +190,7 @@ Esta opção destina-se apenas a dispositivos que não possuem vários planos de
   </data>
   <data name="AutomationPage_Actions_Message" xml:space="preserve">
     <value>Se habilitado, essas ações serão executadas automaticamente. Independente do estado, todas as ações serão validadas de cima para baixo.
-Somente ações que corresponder com o estado atual serão executadas.</value>
+Somente ações que correspondem com o estado atual serão executadas.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>Ações</value>
@@ -313,7 +313,7 @@ Somente ações que corresponder com o estado atual serão executadas.</value>
     <value>Conectado, não carregando</value>
   </data>
   <data name="BatteryPage_BatteryTemperature_Message" xml:space="preserve">
-    <value>Temperatura atual da batería.</value>
+    <value>Temperatura atual da bateria.</value>
   </data>
   <data name="BatteryPage_BatteryTemperature_Title" xml:space="preserve">
     <value>Temperatura da bateria</value>
@@ -377,7 +377,7 @@ Este tempo pode não ser exato caso o equipamento for carregado em estado de sus
     <value>Em bateria desde</value>
   </data>
   <data name="BatteryPage_Title" xml:space="preserve">
-    <value>Batería</value>
+    <value>Bateria</value>
   </data>
   <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
     <value>Na bateria</value>
@@ -796,7 +796,7 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
     <value>Ações</value>
   </data>
   <data name="MainWindow_NavigationItem_Battery" xml:space="preserve">
-    <value>Batería</value>
+    <value>Bateria</value>
   </data>
   <data name="MainWindow_NavigationItem_Dashboard" xml:space="preserve">
     <value>Dashboard</value>
@@ -1520,13 +1520,13 @@ O registro será ativado automaticamente, se você optar por continuar.</value>
     <value>Microfone</value>
   </data>
   <data name="MicrophoneControl_Message" xml:space="preserve">
-    <value>Quando desligado, todos os microfones serão mutados.</value>
+    <value>Desligar todos os microfones disponíveis.</value>
   </data>
   <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
     <value>Desligar</value>
   </data>
   <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
-    <value>Quando desligado, todos os microfones serão mutados.</value>
+    <value>Desligar todos os microfones disponíveis.</value>
   </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
     <value>Resolução</value>
