@@ -13,13 +13,13 @@ public class FnKeys : SoftwareDisabler
     public override async Task EnableAsync()
     {
         await base.EnableAsync().ConfigureAwait(false);
-        Registry.SetUWPStartup("LenovoUtility", "LenovoUtilityID", true);
+        Registry.SetUwpStartup("LenovoUtility", "LenovoUtilityID", true);
     }
 
     public override async Task DisableAsync()
     {
         await base.DisableAsync().ConfigureAwait(false);
-        Registry.SetUWPStartup("LenovoUtility", "LenovoUtilityID", false);
+        Registry.SetUwpStartup("LenovoUtility", "LenovoUtilityID", false);
     }
 
     protected override bool AreProcessesRunning()

@@ -102,7 +102,12 @@ public static class Registry
         return (T)result;
     }
 
-    public static void SetUWPStartup(string appPattern, string subKeyName, bool enabled)
+    public static void Write<T>(string hive, string path, string key, T value) where T : notnull
+    {
+        Microsoft.Win32.Registry.SetValue(@$"{hive}\{path}", key, value);
+    }
+
+    public static void SetUwpStartup(string appPattern, string subKeyName, bool enabled)
     {
         var currentUserHive = Microsoft.Win32.Registry.CurrentUser;
 
