@@ -19,9 +19,6 @@ public class IGPUModeFeature : AbstractLenovoGamezoneWmiFeature<IGPUModeState>
     {
         try
         {
-            if (!await IsSupportedAsync().ConfigureAwait(false))
-                return;
-
             var dgpuHardwareId = await GetDGPUHardwareId().ConfigureAwait(false);
             var isAvailable = IsDGPUAvailable(dgpuHardwareId);
             await NotifyDGPUStatusAsync(isAvailable).ConfigureAwait(false);

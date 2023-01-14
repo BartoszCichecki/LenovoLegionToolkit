@@ -58,32 +58,15 @@ public static class Registry
 
         try
         {
-            RegistryKey registryKey;
-            switch (hive)
+            var registryKey = hive switch
             {
-                case "HKLM":
-                case "HKEY_LOCAL_MACHINE":
-                    registryKey = Microsoft.Win32.Registry.LocalMachine;
-                    break;
-                case "HKCU":
-                case "HKEY_CURRENT_USER":
-                    registryKey = Microsoft.Win32.Registry.CurrentUser;
-                    break;
-                case "HKU":
-                case "HKEY_USERS":
-                    registryKey = Microsoft.Win32.Registry.Users;
-                    break;
-                case "HKCR":
-                case "HKEY_CLASSES_ROOT ":
-                    registryKey = Microsoft.Win32.Registry.ClassesRoot;
-                    break;
-                case "HKCC":
-                case "HKEY_CURRENT_CONFIG  ":
-                    registryKey = Microsoft.Win32.Registry.CurrentConfig;
-                    break;
-                default:
-                    throw new ArgumentException(nameof(hive));
-            }
+                "HKLM" or "HKEY_LOCAL_MACHINE" => Microsoft.Win32.Registry.LocalMachine,
+                "HKCU" or "HKEY_CURRENT_USER" => Microsoft.Win32.Registry.CurrentUser,
+                "HKU" or "HKEY_USERS" => Microsoft.Win32.Registry.Users,
+                "HKCR" or "HKEY_CLASSES_ROOT " => Microsoft.Win32.Registry.ClassesRoot,
+                "HKCC" or "HKEY_CURRENT_CONFIG  " => Microsoft.Win32.Registry.CurrentConfig,
+                _ => throw new ArgumentException(null, nameof(hive))
+            };
 
             var value = registryKey.OpenSubKey(path);
             return value is not null;
@@ -102,7 +85,12 @@ public static class Registry
         return (T)result;
     }
 
-    public static void SetUWPStartup(string appPattern, string subKeyName, bool enabled)
+    public static void Write<T>(string hive, string path, string key, T value) where T : notnull
+    {
+        Microsoft.Win32.Registry.SetValue(@$"{hive}\{path}", key, value);
+    }
+
+    public static void SetUwpStartup(string appPattern, string subKeyName, bool enabled)
     {
         var currentUserHive = Microsoft.Win32.Registry.CurrentUser;
 

@@ -13,14 +13,14 @@ using Windows.Win32.UI.WindowsAndMessaging;
 namespace LenovoLegionToolkit.Lib.Listeners;
 
 
-public unsafe class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindowsMessage>
+public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindowsMessage>
 {
     private readonly IGPUModeFeature _igpuModeFeature;
 
     private readonly HOOKPROC _kbProc;
 
-    private void* _displayArrivalHandle;
-    private void* _devInterfaceMonitorHandle;
+    private unsafe void* _displayArrivalHandle;
+    private unsafe void* _devInterfaceMonitorHandle;
     private HHOOK _kbHook;
 
     public event EventHandler<NativeWindowsMessage>? Changed;
@@ -32,7 +32,7 @@ public unsafe class NativeWindowsMessageListener : NativeWindow, IListener<Nativ
         _kbProc = LowLevelKeyboardProc;
     }
 
-    public Task StartAsync()
+    public unsafe Task StartAsync()
     {
         CreateHandle(new CreateParams
         {
@@ -48,7 +48,7 @@ public unsafe class NativeWindowsMessageListener : NativeWindow, IListener<Nativ
         return Task.CompletedTask;
     }
 
-    public Task StopAsync()
+    public unsafe Task StopAsync()
     {
         PInvoke.UnhookWindowsHookEx(_kbHook);
 
@@ -103,7 +103,11 @@ public unsafe class NativeWindowsMessageListener : NativeWindow, IListener<Nativ
 
     private void OnDisplayDeviceArrival()
     {
-        Task.Run(_igpuModeFeature.NotifyAsync);
+        Task.Run(async () =>
+        {
+            if (await _igpuModeFeature.IsSupportedAsync().ConfigureAwait(false))
+                await _igpuModeFeature.NotifyAsync().ConfigureAwait(false);
+        });
 
         Changed?.Invoke(this, NativeWindowsMessage.OnDisplayDeviceArrival);
     }
@@ -130,7 +134,7 @@ public unsafe class NativeWindowsMessageListener : NativeWindow, IListener<Nativ
         return PInvoke.CallNextHookEx(HHOOK.Null, nCode, wParam, lParam);
     }
 
-    private static void* RegisterDeviceNotification(IntPtr handle, Guid classGuid)
+    private static unsafe void* RegisterDeviceNotification(IntPtr handle, Guid classGuid)
     {
         var ptr = IntPtr.Zero;
         try

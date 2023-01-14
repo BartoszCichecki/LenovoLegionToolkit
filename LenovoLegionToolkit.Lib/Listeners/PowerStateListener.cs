@@ -11,6 +11,7 @@ namespace LenovoLegionToolkit.Lib.Listeners;
 public class PowerStateListener : IListener<EventArgs>
 {
     private readonly IGPUModeFeature _igpuModeFeature;
+    private readonly BatteryFeature _batteryFeature;
     private readonly RGBKeyboardBacklightController _rgbController;
 
     private bool _started;
@@ -18,9 +19,10 @@ public class PowerStateListener : IListener<EventArgs>
 
     public event EventHandler<EventArgs>? Changed;
 
-    public PowerStateListener(IGPUModeFeature igpuModeFeature, RGBKeyboardBacklightController rgbController)
+    public PowerStateListener(IGPUModeFeature igpuModeFeature, BatteryFeature batteryFeature, RGBKeyboardBacklightController rgbController)
     {
         _igpuModeFeature = igpuModeFeature ?? throw new ArgumentNullException(nameof(igpuModeFeature));
+        _batteryFeature = batteryFeature ?? throw new ArgumentNullException(nameof(batteryFeature));
         _rgbController = rgbController ?? throw new ArgumentNullException(nameof(rgbController));
     }
 
@@ -54,14 +56,19 @@ public class PowerStateListener : IListener<EventArgs>
         {
             _ = Task.Run(async () =>
             {
-                await Task.Delay(TimeSpan.FromSeconds(5)).ConfigureAwait(false);
-                await _igpuModeFeature.NotifyAsync().ConfigureAwait(false);
-            });
-        }
+                if (await _batteryFeature.IsSupportedAsync().ConfigureAwait(false))
+                    await _batteryFeature.EnsureCorrectBatteryModeIsSetAsync().ConfigureAwait(false);
 
-        if (e.Mode is PowerModes.Resume or PowerModes.StatusChange)
-        {
-            await RestoreRGBKeyboardStateAsync(e.Mode).ConfigureAwait(false);
+                if (await _rgbController.IsSupportedAsync().ConfigureAwait(false))
+                    await _rgbController.SetLightControlOwnerAsync(true, true).ConfigureAwait(false);
+
+                if (await _igpuModeFeature.IsSupportedAsync().ConfigureAwait(false))
+                {
+                    await Task.Delay(TimeSpan.FromSeconds(5)).ConfigureAwait(false);
+                    await _igpuModeFeature.NotifyAsync().ConfigureAwait(false);
+                }
+            });
+
         }
 
         if (newState == _lastState)
@@ -87,33 +94,8 @@ public class PowerStateListener : IListener<EventArgs>
         Notify(e.Mode, newState);
     }
 
-    private async Task RestoreRGBKeyboardStateAsync(PowerModes mode)
-    {
-        if (mode != PowerModes.Resume)
-            return;
-
-        try
-        {
-            if (await _rgbController.IsSupportedAsync().ConfigureAwait(false))
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Setting light control owner and restoring preset...");
-
-                await _rgbController.SetLightControlOwnerAsync(true, true).ConfigureAwait(false);
-            }
-        }
-        catch (Exception ex)
-        {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Couldn't set light control owner or current preset.", ex);
-        }
-    }
-
     private static void Notify(PowerModes mode, PowerAdapterStatus newState)
     {
-        if (mode == PowerModes.Suspend)
-            return;
-
         switch (newState)
         {
             case PowerAdapterStatus.Connected:
