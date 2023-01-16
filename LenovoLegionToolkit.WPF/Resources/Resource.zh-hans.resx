@@ -1016,8 +1016,14 @@
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>首选来源（推荐）</value>
   </data>
+  <data name="PackagesPage_PrimarySource_Message" xml:space="preserve">
+    <value>与 Lenovo Vantage 中的驱动一致</value>
+  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>备用来源（第三方）</value>
+  </data>
+  <data name="PackagesPage_SecondarySource_Message" xml:space="preserve">
+    <value>与联想海外支持网页的驱动一致</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>类别</value>
