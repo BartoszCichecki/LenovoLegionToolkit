@@ -808,7 +808,7 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je interní displej vypnutý.
     <value>Klávesnice</value>
   </data>
   <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-	  <value>Stažené</value>
+    <value>Balíčky</value>
   </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Nastavení</value>
@@ -1010,14 +1010,8 @@ Vždy se ujisti, že instaluješ správné balíčky.</value>
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Primární (Doporučený)</value>
   </data>
-  <data name="PackagesPage_PrimarySource_Message" xml:space="preserve">
-    <value>Stejný jako od Lenovo Vantage</value>
-  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Sekundární</value>
-  </data>
-  <data name="PackagesPage_SecondarySource_Message" xml:space="preserve">
-    <value>Stejný jako od stránky podpory Lenovo</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Kategorie</value>
