@@ -1533,7 +1533,4 @@ ATENÇÃO: Esta ação não irá executar corretamente se o ecrã interno estive
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>Ecrã</value>
   </data>
-  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-	  <value>Downloads</value>
-  </data>
 </root>
