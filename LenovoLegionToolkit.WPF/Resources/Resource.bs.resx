@@ -389,6 +389,12 @@ Ovo vrijeme možda neće biti tačno ako je laptop bio napunjen dok je spavao il
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>Verzija BIOS-a</value>
   </data>
+  <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
+    <value>"{0}" kopirano u međuspremnik.</value>
+  </data>
+  <data name="CopiedToClipboard_Title" xml:space="preserve">
+    <value>Kopirano!</value>
+  </data>
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
     <value>Uređaj</value>
   </data>

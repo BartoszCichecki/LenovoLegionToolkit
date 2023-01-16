@@ -593,7 +593,7 @@ Díky předem!</value>
     <value>Editovat</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
-    <value>Zruš zaškrtnutí obnovovacích frekvencí, které nechceš používat při použití zkratky Fn+R.</value>
+    <value>Zaškrtni obnovovací frekvence, které chceš používat při použití zkratky Fn+R.</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>Ujisti se, že je zapnutý displej notebooku. Lenovo Legion Toolkit nemůže načíst obnovovací frekvence pro displej, který není zapnutý.</value>
@@ -967,6 +967,9 @@ Povol tuto možnost, pokud máš konflikty s aplikacemi na celou obrazovku.</val
   <data name="PackageControl_HttpGeneralError_Title" xml:space="preserve">
     <value>Něco se pokazilo</value>
   </data>
+  <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
+    <value>Aktualizace k dispozici!</value>
+  </data>
   <data name="PackageControl_OldPackageWarning" xml:space="preserve">
     <value>Tento balíček je více než rok starý.</value>
   </data>
@@ -1283,7 +1286,7 @@ Po změně této možnosti se doporučuje restartovat.</value>
     <value>Minimalizovat při zavření</value>
   </data>
   <data name="SettingsPage_Notifications_Message" xml:space="preserve">
-    <value>Nastavit, které notifikace se objeví.</value>
+    <value>Nastavení notifikací z aplikace.</value>
   </data>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>Notifikace</value>
@@ -1567,5 +1570,11 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je interní displej vypnutý.
   </data>
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Přepnout podsvícení.</value>
+  </data>
+  <data name="PackagesPage_NoMatchingDownloads" xml:space="preserve">
+    <value>Nebyl nalezen žadný odpovídající obsah</value>
+  </data>
+  <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
+	  <value>Zobrazit pouze aktualizace</value>
   </data>
 </root>
