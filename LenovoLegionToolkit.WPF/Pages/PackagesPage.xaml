@@ -218,8 +218,7 @@
                                 Margin="16,0,0,0"
                                 Checked="OnlyShowUpdatesCheckBox_OnChecked"
                                 Content="{x:Static resources:Resource.PackagesPage_OnlyShowUpdates}"
-                                Unchecked="OnlyShowUpdatesCheckBox_OnChecked"
-                                Visibility="Hidden" />
+                                Unchecked="OnlyShowUpdatesCheckBox_OnChecked" />
 
                             <ComboBox
                                 x:Name="_sortingComboBox"
