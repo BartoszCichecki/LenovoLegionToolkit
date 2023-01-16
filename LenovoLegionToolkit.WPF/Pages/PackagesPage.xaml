@@ -41,6 +41,7 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
@@ -124,31 +125,39 @@
 
                         <StackPanel
                             Grid.Row="0"
-                            Grid.RowSpan="2"
-                            Grid.Column="4"
+                            Grid.RowSpan="3"
+                            Grid.Column="3"
                             HorizontalAlignment="Right">
 
                             <TextBlock Margin="0,0,0,4" Text="{x:Static resources:Resource.PackagesPage_Source}" />
                             <RadioButton
                                 x:Name="_sourcePrimaryRadio"
-                                Content="{x:Static resources:Resource.PackagesPage_PrimarySource}"
                                 GroupName="source"
-                                IsChecked="True"
-                                ToolTip="{x:Static resources:Resource.PackagesPage_PrimarySource_ToolTip}"
-                                ToolTipService.InitialShowDelay="0" />
-                            <RadioButton
-                                x:Name="_sourceSecondaryRadio"
-                                Content="{x:Static resources:Resource.PackagesPage_SecondarySource}"
-                                GroupName="source"
-                                ToolTip="{x:Static resources:Resource.PackagesPage_SecondarySource_ToolTip}"
-                                ToolTipService.InitialShowDelay="0" />
+                                IsChecked="True">
+                                <StackPanel>
+                                    <TextBlock Text="{x:Static resources:Resource.PackagesPage_PrimarySource}" />
+                                    <TextBlock
+                                        FontSize="12"
+                                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                        Text="{x:Static resources:Resource.PackagesPage_PrimarySource_Message}" />
+                                </StackPanel>
+                            </RadioButton>
+                            <RadioButton x:Name="_sourceSecondaryRadio" GroupName="source">
+                                <StackPanel>
+                                    <TextBlock Text="{x:Static resources:Resource.PackagesPage_SecondarySource}" />
+                                    <TextBlock
+                                        FontSize="12"
+                                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                        Text="{x:Static resources:Resource.PackagesPage_SecondarySource_Message}" />
+                                </StackPanel>
+                            </RadioButton>
 
                         </StackPanel>
 
                         <wpfui:Button
                             x:Name="_downloadPackagesButton"
-                            Grid.Row="2"
-                            Grid.Column="4"
+                            Grid.Row="3"
+                            Grid.Column="3"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Bottom"
                             Appearance="Primary"
@@ -158,8 +167,8 @@
 
                         <wpfui:Button
                             x:Name="_cancelDownloadPackagesButton"
-                            Grid.Row="2"
-                            Grid.Column="4"
+                            Grid.Row="3"
+                            Grid.Column="3"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Bottom"
                             Appearance="Secondary"

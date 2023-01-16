@@ -1010,14 +1010,8 @@ Asigurați-vă întotdeauna că instalați pachetele corecte.</value>
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Principal (recomandat)</value>
   </data>
-  <data name="PackagesPage_PrimarySource_ToolTip" xml:space="preserve">
-    <value>La fel ca Lenovo PC Support</value>
-  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Secundar</value>
-  </data>
-  <data name="PackagesPage_SecondarySource_ToolTip" xml:space="preserve">
-    <value>La fel ca Lenovo DriverGrabber</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Categorie</value>

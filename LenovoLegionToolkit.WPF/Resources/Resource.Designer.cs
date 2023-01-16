@@ -2832,9 +2832,9 @@ namespace LenovoLegionToolkit.WPF.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Same as Lenovo Vantage.
         /// </summary>
-        public static string PackagesPage_PrimarySource_ToolTip {
+        public static string PackagesPage_PrimarySource_Message {
             get {
-                return ResourceManager.GetString("PackagesPage_PrimarySource_ToolTip", resourceCulture);
+                return ResourceManager.GetString("PackagesPage_PrimarySource_Message", resourceCulture);
             }
         }
         
@@ -2848,11 +2848,11 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Same as Lenovo PC Support webpage.
+        ///   Looks up a localized string similar to Same as Lenovo PC Support.
         /// </summary>
-        public static string PackagesPage_SecondarySource_ToolTip {
+        public static string PackagesPage_SecondarySource_Message {
             get {
-                return ResourceManager.GetString("PackagesPage_SecondarySource_ToolTip", resourceCulture);
+                return ResourceManager.GetString("PackagesPage_SecondarySource_Message", resourceCulture);
             }
         }
         

@@ -991,14 +991,8 @@ Zorg er altijd voor dat u de juiste pakketten installeert.</value>
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Primair (aanbevolen)</value>
   </data>
-  <data name="PackagesPage_PrimarySource_ToolTip" xml:space="preserve">
-    <value>Hetzelfde als Lenovo pc-ondersteuning</value>
-  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Secundair</value>
-  </data>
-  <data name="PackagesPage_SecondarySource_ToolTip" xml:space="preserve">
-    <value>Hetzelfde als Lenovo DriverGrabber</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Categorie</value>
@@ -1485,5 +1479,8 @@ Logboekregistratie wordt automatisch ingeschakeld als u ervoor kiest om door te 
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Ja</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
+	  <value>Downloads</value>
   </data>
 </root>

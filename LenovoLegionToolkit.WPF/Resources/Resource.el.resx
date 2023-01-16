@@ -948,14 +948,8 @@
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Κύριο (Συνιστάται)</value>
   </data>
-  <data name="PackagesPage_PrimarySource_ToolTip" xml:space="preserve">
-    <value>Ίδιο με την υποστήριξη υπολογιστών Lenovo</value>
-  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Δευτερεύων</value>
-  </data>
-  <data name="PackagesPage_SecondarySource_ToolTip" xml:space="preserve">
-    <value>Ίδιο με το Lenovo DriverGrabber</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Κατηγορία</value>

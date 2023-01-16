@@ -807,7 +807,7 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
     <value>Tastatur</value>
   </data>
   <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-    <value>Pakete</value>
+	  <value>Downloads</value>
   </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Einstellungen</value>
@@ -1009,13 +1009,13 @@ Stellen Sie immer sicher, dass Sie die richtigen Pakete installieren.</value>
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Primäre (Empfohlen)</value>
   </data>
-  <data name="PackagesPage_PrimarySource_ToolTip" xml:space="preserve">
+  <data name="PackagesPage_PrimarySource_Message" xml:space="preserve">
     <value>Wie bei Lenovo Ventage</value>
   </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Sekundäre</value>
   </data>
-  <data name="PackagesPage_SecondarySource_ToolTip" xml:space="preserve">
+  <data name="PackagesPage_SecondarySource_Message" xml:space="preserve">
     <value>Wie bei Lenovo PC Support Website</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">

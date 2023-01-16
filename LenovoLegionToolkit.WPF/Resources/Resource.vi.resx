@@ -1489,4 +1489,7 @@ Logging sẽ được tự động bật, nếu bạn chọn tiếp tục.</valu
   <data name="Yes" xml:space="preserve">
     <value>Có</value>
   </data>
+  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
+	  <value>Tải về</value>
+  </data>
 </root>

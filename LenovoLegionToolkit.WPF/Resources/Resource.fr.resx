@@ -1005,14 +1005,8 @@ Assurez-vous toujours que vous installez les paquets appropriés.</value>
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Principale (Recommandée)</value>
   </data>
-  <data name="PackagesPage_PrimarySource_ToolTip" xml:space="preserve">
-    <value>Identique à celui du Support PC Lenovo</value>
-  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Secondaire</value>
-  </data>
-  <data name="PackagesPage_SecondarySource_ToolTip" xml:space="preserve">
-    <value>Identique à Lenovo DriverGrabber</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Catégorie</value>
@@ -1553,5 +1547,8 @@ ATTENTION : Cette action ne fonctionnera pas correctement, si l'écran interne e
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>Affichage</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
+	  <value>Téléchargements</value>
   </data>
 </root>
