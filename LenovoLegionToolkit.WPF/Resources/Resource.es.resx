@@ -967,6 +967,9 @@ Activar esta opción si tiene conflictos con las aplicaciones en pantalla comple
   <data name="PackageControl_HttpGeneralError_Title" xml:space="preserve">
     <value>Algo salió mal</value>
   </data>
+  <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
+    <value>¡Actualización disponible!</value>
+  </data>
   <data name="PackageControl_OldPackageWarning" xml:space="preserve">
     <value>Este paquete tiene más de un año.</value>
   </data>
@@ -1007,8 +1010,14 @@ Asegúrese de instalar siempre los paquetes correctos.</value>
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Primario (recomendado)</value>
   </data>
+  <data name="PackagesPage_PrimarySource_Message" xml:space="preserve">
+    <value>Igual que Lenovo Vantage</value>
+  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Secundario</value>
+  </data>
+  <data name="PackagesPage_SecondarySource_Message" xml:space="preserve">
+    <value>Igual que en la página web de soporte PC de Lenovo</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Categoría</value>
@@ -1556,5 +1565,11 @@ AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está
   </data>
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Encender o apagar la retroiluminación.</value>
+  </data>
+  <data name="PackagesPage_NoMatchingDownloads" xml:space="preserve">
+    <value>No se han encontrado descargas coincidentes</value>
+  </data>
+  <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
+	  <value>Mostrar sólo actualizaciones</value>
   </data>
 </root>
