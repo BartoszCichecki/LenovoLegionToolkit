@@ -351,6 +351,18 @@ public partial class PackagesPage : IProgress<float>
             _packagesStackPanel.Children.Add(control);
         }
 
+        if (_packagesStackPanel.Children.Count < 1)
+        {
+            var tb = new TextBlock
+            {
+                Text = Resource.PackagesPage_NoMatchingDownloads,
+                Foreground = (SolidColorBrush)FindResource("TextFillColorSecondaryBrush"),
+                HorizontalAlignment = HorizontalAlignment.Center,
+                Margin = new(0, 32, 0, 32)
+            };
+            _packagesStackPanel.Children.Add(tb);
+        }
+
         if (_packageDownloaderSettings.Store.HiddenPackages.Any())
         {
             var clearHidden = new Hyperlink
@@ -367,18 +379,6 @@ public partial class PackagesPage : IProgress<float>
                 Reload();
             };
             _packagesStackPanel.Children.Add(clearHidden);
-        }
-
-        if (_packagesStackPanel.Children.Count < 1)
-        {
-            var tb = new TextBlock
-            {
-                Text = Resource.PackagesPage_NoMatchingDownloads,
-                Foreground = (SolidColorBrush)FindResource("TextFillColorSecondaryBrush"),
-                HorizontalAlignment = HorizontalAlignment.Center,
-                Margin = new(0, 32, 0, 32)
-            };
-            _packagesStackPanel.Children.Add(tb);
         }
     }
 
