@@ -1010,8 +1010,14 @@ Vždy se ujisti, že instaluješ správné balíčky.</value>
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Primární (Doporučený)</value>
   </data>
+  <data name="PackagesPage_PrimarySource_Message" xml:space="preserve">
+    <value>Stejný jako od Lenovo Vantage</value>
+  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Sekundární</value>
+  </data>
+  <data name="PackagesPage_SecondarySource_Message" xml:space="preserve">
+    <value>Stejný jako od stránky podpory Lenovo</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Kategorie</value>
