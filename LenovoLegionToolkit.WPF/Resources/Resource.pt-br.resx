@@ -810,6 +810,9 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
   <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
     <value>Downloads</value>
   </data>
+  <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
+    <value>Configs</value>
+  </data>
   <data name="MainWindow_UpdateAvailable" xml:space="preserve">
     <value>Atualização disponível!</value>
   </data>
