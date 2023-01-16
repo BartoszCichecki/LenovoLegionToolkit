@@ -993,14 +993,8 @@ Assicurati sempre di installare i pacchetti corretti.</value>
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Ufficiale (consigliato)</value>
   </data>
-  <data name="PackagesPage_PrimarySource_Message" xml:space="preserve">
-    <value>Come Lenovo Vantage</value>
-  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Terze parti</value>
-  </data>
-  <data name="PackagesPage_SecondarySource_Message" xml:space="preserve">
-	  <value>Come Lenovo PC Support</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Categoria</value>
