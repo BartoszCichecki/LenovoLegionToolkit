@@ -913,7 +913,4 @@ Logiranje će biti automatski omogućeno, ukoliko izaberete da nastavite.</value
   <data name="Yes" xml:space="preserve">
     <value>Da</value>
   </data>
-  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-	  <value>Preuzimanja</value>
-  </data>
 </root>
