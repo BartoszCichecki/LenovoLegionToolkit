@@ -58,6 +58,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccentColorSource_Custom" xml:space="preserve">
+    <value>Vlastné</value>
+  </data>
+  <data name="AccentColorSource_System" xml:space="preserve">
+    <value>Systém</value>
+  </data>
   <data name="AlwaysOnUSBState_Off" xml:space="preserve">
     <value>Vypnuté</value>
   </data>
@@ -103,6 +109,33 @@
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
     <value>Hybrid-iGPU</value>
   </data>
+  <data name="NotificationPosition_BottomCenter" xml:space="preserve">
+    <value>Dole v strede</value>
+  </data>
+  <data name="NotificationPosition_BottomLeft" xml:space="preserve">
+    <value>Vľavo dole</value>
+  </data>
+  <data name="NotificationPosition_BottomRight" xml:space="preserve">
+    <value>Vpravo dole</value>
+  </data>
+  <data name="NotificationPosition_Center" xml:space="preserve">
+    <value>Uprostred</value>
+  </data>
+  <data name="NotificationPosition_CenterLeft" xml:space="preserve">
+    <value>Uprostred vľavo</value>
+  </data>
+  <data name="NotificationPosition_CenterRight" xml:space="preserve">
+    <value>Uprostred vpravo</value>
+  </data>
+  <data name="NotificationPosition_TopCenter" xml:space="preserve">
+    <value>Hore v strede</value>
+  </data>
+  <data name="NotificationPosition_TopLeft" xml:space="preserve">
+    <value>Vľavo hore</value>
+  </data>
+  <data name="NotificationPosition_TopRight" xml:space="preserve">
+    <value>Vpravo hore</value>
+  </data>
   <data name="PowerModeState_Balance" xml:space="preserve">
     <value>Vyvážený</value>
   </data>
@@ -115,6 +148,39 @@
   <data name="PowerModeState_Quiet" xml:space="preserve">
     <value>Tichý</value>
   </data>
+  <data name="RBGKeyboardBacklightSpeed_Fast" xml:space="preserve">
+    <value>Rýchla</value>
+  </data>
+  <data name="RBGKeyboardBacklightSpeed_Fastest" xml:space="preserve">
+    <value>Najrýchlejšia</value>
+  </data>
+  <data name="RBGKeyboardBacklightSpeed_Slow" xml:space="preserve">
+    <value>Pomalá</value>
+  </data>
+  <data name="RBGKeyboardBacklightSpeed_Slowest" xml:space="preserve">
+    <value>Najpomalšia</value>
+  </data>
+  <data name="RGBKeyboardBacklightBrightness_High" xml:space="preserve">
+    <value>Vysoký</value>
+  </data>
+  <data name="RGBKeyboardBacklightBrightness_Low" xml:space="preserve">
+    <value>Nízky</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_Breath" xml:space="preserve">
+    <value>Dych</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_Smooth" xml:space="preserve">
+    <value>Hladký</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_Static" xml:space="preserve">
+    <value>Statický</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_WaveLTR" xml:space="preserve">
+    <value>Vlna vľavo</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_WaveRTL" xml:space="preserve">
+    <value>Vlna vpravo</value>
+  </data>
   <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
     <value>Vypnutá</value>
   </data>
@@ -126,6 +192,81 @@
   </data>
   <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
     <value>Predvoľba 2</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightness_High" xml:space="preserve">
+    <value>Vysoký</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightness_Low" xml:space="preserve">
+    <value>Nízky</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightness_Medium" xml:space="preserve">
+    <value>Stredný</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightness_Off" xml:space="preserve">
+    <value>Vypnutý</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_BottomToTop" xml:space="preserve">
+    <value>Zdola hore</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_Clockwise" xml:space="preserve">
+    <value>V smere hodinových ručičiek</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_CounterClockwise" xml:space="preserve">
+    <value>V protismeru hodinových ručičiek</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_LeftToRight" xml:space="preserve">
+    <value>Zľava doprava</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_RightToLeft" xml:space="preserve">
+    <value>Sprava do ľava</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_TopToBottom" xml:space="preserve">
+    <value>Zhora dole</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Always" xml:space="preserve">
+    <value>Vždy</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_AudioBounce" xml:space="preserve">
+    <value>Zvukové skoky</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_AudioRipple" xml:space="preserve">
+    <value>Zvukové zvlnenie</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_AuroraSync" xml:space="preserve">
+    <value>Synch. Aurora</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_ColorChange" xml:space="preserve">
+    <value>Farebná zmena</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_ColorPulse" xml:space="preserve">
+    <value>Farebný pulz</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_ColorWave" xml:space="preserve">
+    <value>Farebné vlny</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Rain" xml:space="preserve">
+    <value>Dážď</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_RainbowWave" xml:space="preserve">
+    <value>Dúhová vlna</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Ripple" xml:space="preserve">
+    <value>Zvlnenie</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Smooth" xml:space="preserve">
+    <value>Hladké</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Type" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed1" xml:space="preserve">
+    <value>Pomalá</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed2" xml:space="preserve">
+    <value>Stredná</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed3" xml:space="preserve">
+    <value>Rýchla</value>
   </data>
   <data name="Theme_Dark" xml:space="preserve">
     <value>Tmavá</value>
