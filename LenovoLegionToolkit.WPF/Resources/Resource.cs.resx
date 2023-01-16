@@ -808,7 +808,7 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je interní displej vypnutý.
     <value>Klávesnice</value>
   </data>
   <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-	  <value>Stažené</value>
+    <value>Balíčky</value>
   </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Nastavení</value>

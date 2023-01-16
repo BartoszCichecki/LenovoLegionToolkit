@@ -1236,7 +1236,4 @@ Devam etmeyi seçerseniz, kayıt etme otomatik olarak etkinleştirilecektir.</va
   <data name="Yes" xml:space="preserve">
     <value>Evet</value>
   </data>
-  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-	  <value>İndirilenler</value>
-  </data>
 </root>

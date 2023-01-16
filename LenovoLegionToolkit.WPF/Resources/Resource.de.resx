@@ -807,7 +807,7 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
     <value>Tastatur</value>
   </data>
   <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-	  <value>Downloads</value>
+    <value>Pakete</value>
   </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Einstellungen</value>

@@ -807,6 +807,9 @@ ATENÇÃO: Está ação não irá executar corretamente se o ecrã interno estiv
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
     <value>Teclado</value>
   </data>
+  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
+    <value>Pacotes</value>
+  </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Definições</value>
   </data>
@@ -1502,6 +1505,9 @@ Logs serão guardados automaticamente, se escolheres continuar.</value>
   <data name="Yes" xml:space="preserve">
     <value>Sim</value>
   </data>
+  <data name="MicrophoneControl_Message" xml:space="preserve">
+    <value>Tirar o som de todos os microfones disponíveis.</value>
+  </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
     <value>Resolução</value>
   </data>
@@ -1532,8 +1538,5 @@ ATENÇÃO: Esta ação não irá executar corretamente se o ecrã interno estive
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>Ecrã</value>
-  </data>
-  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-	  <value>Downloads</value>
   </data>
 </root>

@@ -1017,7 +1017,7 @@ Sempre certifique-se de estar instalando os pacotes corretos.</value>
     <value>Secundário</value>
   </data>
   <data name="PackagesPage_SecondarySource_Message" xml:space="preserve">
-	  <value>O mesmo que Lenovo PC Support</value>
+    <value>O mesmo que Lenovo PC Support</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Categoria</value>

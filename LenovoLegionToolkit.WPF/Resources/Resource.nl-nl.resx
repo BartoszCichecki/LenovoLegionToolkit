@@ -1480,7 +1480,4 @@ Logboekregistratie wordt automatisch ingeschakeld als u ervoor kiest om door te 
   <data name="Yes" xml:space="preserve">
     <value>Ja</value>
   </data>
-  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
-	  <value>Downloads</value>
-  </data>
 </root>
