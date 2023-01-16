@@ -351,7 +351,7 @@ public partial class PackagesPage : IProgress<float>
             _packagesStackPanel.Children.Add(control);
         }
 
-        if (_packagesStackPanel.Children.Count < 1)
+        if (packages.IsEmpty())
         {
             var tb = new TextBlock
             {
