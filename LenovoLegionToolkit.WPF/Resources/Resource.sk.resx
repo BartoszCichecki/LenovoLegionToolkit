@@ -188,6 +188,9 @@ Táto možnosť je určená pre zariadenia, ktoré nemajú viacero napájacích 
   <data name="AutomationPage_Actions_Empty" xml:space="preserve">
     <value>Žiadne akcie. Kliknite "Pridať novú" pre vytvorenie nových akcií.</value>
   </data>
+  <data name="AutomationPage_Actions_Message" xml:space="preserve">
+    <value>Pri povolení budú tieto akcie spustené automaticky. Kedykoľvek sa zmení stav, všetky akcie budú vyhodnotené z hora dole. Len akcie zhodne s momentálnym stavom budú spustené.</value>
+  </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>Akcie</value>
   </data>
@@ -196,6 +199,9 @@ Táto možnosť je určená pre zariadenia, ktoré nemajú viacero napájacích 
   </data>
   <data name="AutomationPage_AddManualPipeline_Title" xml:space="preserve">
     <value>Pridať novú</value>
+  </data>
+  <data name="AutomationPage_QuickActions_Empty" xml:space="preserve">
+    <value>Žiadne rýchle akcie. Kliknite "Pridať novú" pre vytvorenie nových rýchlych akcií.</value>
   </data>
   <data name="AutomationPage_QuickActions_Title" xml:space="preserve">
     <value>Rýchle akcie</value>
@@ -221,6 +227,9 @@ Táto možnosť je určená pre zariadenia, ktoré nemajú viacero napájacích 
   <data name="AutomationPage_Title" xml:space="preserve">
     <value>Automatizácia</value>
   </data>
+  <data name="AutomationPipelineControl_AddStep" xml:space="preserve">
+    <value>Pridať krok</value>
+  </data>
   <data name="AutomationPipelineControl_Configure" xml:space="preserve">
     <value>Konfigurovať</value>
   </data>
@@ -230,11 +239,38 @@ Táto možnosť je určená pre zariadenia, ktoré nemajú viacero napájacích 
   <data name="AutomationPipelineControl_RunNow" xml:space="preserve">
     <value>Spustiť teraz</value>
   </data>
+  <data name="AutomationPipelineControl_RunNow_Error_Message" xml:space="preserve">
+    <value>Dokončené s chybami.</value>
+  </data>
   <data name="AutomationPipelineControl_RunNow_Error_Title" xml:space="preserve">
     <value>Spustiť teraz</value>
   </data>
+  <data name="AutomationPipelineControl_RunNow_Success_Message" xml:space="preserve">
+    <value>Dokončené úspešne!</value>
+  </data>
+  <data name="AutomationPipelineControl_RunNow_Success_Title" xml:space="preserve">
+    <value>Spustiť teraz</value>
+  </data>
+  <data name="AutomationPipelineControl_Running" xml:space="preserve">
+    <value>Beží...</value>
+  </data>
+  <data name="AutomationPipelineControl_Step" xml:space="preserve">
+    <value>{0} krok</value>
+  </data>
+  <data name="AutomationPipelineControl_Step_Many" xml:space="preserve">
+    <value>{0} krokov</value>
+  </data>
   <data name="AutomationPipelineControl_SubtitlePart_Apps" xml:space="preserve">
     <value>Aplikácie</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_AtSunrise" xml:space="preserve">
+    <value>Na úsvite</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_AtSunset" xml:space="preserve">
+    <value>Na súmraku</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_AtTime" xml:space="preserve">
+    <value>O {0:D2}:{1:D2}</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_PowerMode" xml:space="preserve">
     <value>Režim výkonu</value>
@@ -242,23 +278,96 @@ Táto možnosť je určená pre zariadenia, ktoré nemajú viacero napájacích 
   <data name="AutomationPipelineControl_Unnamed" xml:space="preserve">
     <value>Nepomenovaná</value>
   </data>
+  <data name="BalanceModeSettingsWindow_AIEngine_Message" xml:space="preserve">
+    <value>Automaticky zistí keď sú spustené určité hry a vyladí výkon CPU a GPU. Hluk ventilátora a teploty sa môžu zvýšiť.</value>
+  </data>
   <data name="BalanceModeSettingsWindow_AIEngine_Title" xml:space="preserve">
     <value>Zapnúť AI Engine</value>
   </data>
   <data name="BalanceModeSettingsWindow_Title" xml:space="preserve">
     <value>Nastavenia vyváženého výkonu</value>
   </data>
+  <data name="BatteryAutomationStepControl_Message" xml:space="preserve">
+    <value>Vyberte ako sa bude batéria nabíjať.</value>
+  </data>
   <data name="BatteryAutomationStepControl_Title" xml:space="preserve">
     <value>Režim batérie</value>
+  </data>
+  <data name="BatteryModeControl_Message" xml:space="preserve">
+    <value>Vyberte ako sa bude batéria nabíjať.</value>
   </data>
   <data name="BatteryModeControl_Title" xml:space="preserve">
     <value>Režim batérie</value>
   </data>
+  <data name="BatteryPage_ACAdapterConnectedAndCharging" xml:space="preserve">
+    <value>Pripojené, nabíja...</value>
+  </data>
+  <data name="BatteryPage_ACAdapterConnectedNotCharging" xml:space="preserve">
+    <value>Pripojené, nenabíja</value>
+  </data>
+  <data name="BatteryPage_BatteryTemperature_Message" xml:space="preserve">
+    <value>Aktuálna teplota batérie.</value>
+  </data>
+  <data name="BatteryPage_BatteryTemperature_Title" xml:space="preserve">
+    <value>Teplota batérie</value>
+  </data>
+  <data name="BatteryPage_CurrentCapacity_Message" xml:space="preserve">
+    <value>Aktuálna kapacita batérie.</value>
+  </data>
+  <data name="BatteryPage_CurrentCapacity_Title" xml:space="preserve">
+    <value>Aktuálna kapacita</value>
+  </data>
+  <data name="BatteryPage_CycleCount_Message" xml:space="preserve">
+    <value>Počet nabíjacích/vybíjacích cyklov.</value>
+  </data>
+  <data name="BatteryPage_CycleCount_Title" xml:space="preserve">
+    <value>Počet cyklov</value>
+  </data>
+  <data name="BatteryPage_DesignCapacity_Message" xml:space="preserve">
+    <value>Konštrukčná kapacita batérie.</value>
+  </data>
+  <data name="BatteryPage_DesignCapacity_Title" xml:space="preserve">
+    <value>Konštrukčná kapacita</value>
+  </data>
+  <data name="BatteryPage_DischargeRate_Message" xml:space="preserve">
+    <value>Rýchlosť ako sa batéria nabíja (+), alebo vybíja (-).</value>
+  </data>
+  <data name="BatteryPage_DischargeRate_Title" xml:space="preserve">
+    <value>Rýchlosť vybíjania</value>
+  </data>
+  <data name="BatteryPage_EstimatedBatteryLifeRemaining" xml:space="preserve">
+    <value>Odhadovaný ostávajúci čas: {0}</value>
+  </data>
   <data name="BatteryPage_EstimatingBatteryLife" xml:space="preserve">
     <value>Odhadovaný čas...</value>
   </data>
+  <data name="BatteryPage_FirstUseDate_Title" xml:space="preserve">
+    <value>Dátum prvého použitia</value>
+  </data>
+  <data name="BatteryPage_FirstUse_Message" xml:space="preserve">
+    <value>Kedy bola batéria prvýkrát použitá.</value>
+  </data>
+  <data name="BatteryPage_FullChargeCapacity_Message" xml:space="preserve">
+    <value>Kapacita batéria keď je plne nabitá.</value>
+  </data>
+  <data name="BatteryPage_FullChargeCapacity_Title" xml:space="preserve">
+    <value>Plne nabitá kapacita</value>
+  </data>
+  <data name="BatteryPage_LowWattageChargerConnected" xml:space="preserve">
+    <value>Pripojená nízkovýkonová nabíjačka</value>
+  </data>
+  <data name="BatteryPage_ManufactureDate_Message" xml:space="preserve">
+    <value>Kedy bola batéria vyrobená.</value>
+  </data>
   <data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
     <value>Dátum výroby</value>
+  </data>
+  <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
+    <value>Čas od posledného pripojenia notebooku k nabíjačke.
+Tento čas nemusí byť presný, ak bol laptop nabíjaný v spánku alebo vypnutý.</value>
+  </data>
+  <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
+    <value>Na batérii od</value>
   </data>
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Batéria</value>
@@ -268,6 +377,15 @@ Táto možnosť je určená pre zariadenia, ktoré nemajú viacero napájacích 
   </data>
   <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
     <value>Pripojený do siete</value>
+  </data>
+  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
+    <value>Plány napájania</value>
+  </data>
+  <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
+    <value>Zistite viac na microsoft.com</value>
+  </data>
+  <data name="CPUBoostModesWindow_Title" xml:space="preserve">
+    <value>Režimy posilnenia CPU</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Zrušiť</value>
@@ -287,6 +405,22 @@ Táto možnosť je určená pre zariadenia, ktoré nemajú viacero napájacích 
   <data name="ColorCardControl_Red" xml:space="preserve">
     <value>Červená</value>
   </data>
+  <data name="Color_Blue" xml:space="preserve">
+    <value>Modrá</value>
+  </data>
+  <data name="Color_Green" xml:space="preserve">
+    <value>Zelená</value>
+  </data>
+  <data name="Color_Red" xml:space="preserve">
+    <value>Červená</value>
+  </data>
+  <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
+    <value>Vyberte prevádzkový režim GPU na základe použitia počítača a podmienok napájania.
+Prepínanie režimov môže vyžadovať reštart.</value>
+  </data>
+  <data name="ComboBoxHybridModeControl_RestartRequired_Title" xml:space="preserve">
+    <value>Vyžaduje sa reštart</value>
+  </data>
   <data name="Continue" xml:space="preserve">
     <value>Pokračovať</value>
   </data>
@@ -305,11 +439,34 @@ Táto možnosť je určená pre zariadenia, ktoré nemajú viacero napájacích 
   <data name="DashboardPage_Title" xml:space="preserve">
     <value>Domov</value>
   </data>
+  <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
+    <value>Deaktivovať dedikovanú GPU, ak je aktívna zbytočne.
+
+VAROVANIE: Táto akcia neprebehne správne, ak je displej notebooku vypnutý, alebo nie je aktívny hybridní režim.</value>
+  </data>
+  <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
+    <value>Deaktivovať GPU</value>
+  </data>
+  <data name="DelayAutomationStepControl_Message" xml:space="preserve">
+    <value>Pridať oneskorenie pred spustením ďalšieho kroku.</value>
+  </data>
+  <data name="DelayAutomationStepControl_Title" xml:space="preserve">
+    <value>Oneskorenie</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Vymazať</value>
   </data>
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>Verzia BIOSu</value>
+  </data>
+  <data name="CopiedToClipboard_Message" xml:space="preserve">
+    <value>Text skopírovaný do schránky.</value>
+  </data>
+  <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
+    <value>"{0}" skopírované do schránky.</value>
+  </data>
+  <data name="CopiedToClipboard_Title" xml:space="preserve">
+    <value>Skopírované!</value>
   </data>
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
     <value>Zariadenie</value>
@@ -356,11 +513,25 @@ Táto možnosť je určená pre zariadenia, ktoré nemajú viacero napájacích 
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Deaktivovať</value>
   </data>
+  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
+    <value>nVidia GPU môže byť deaktivovaná.
+
+Pamätajte, niektoré programy môžu spadnúť, ak to urobíte.</value>
+  </data>
+  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
+    <value>nVidia GPU je neaktívna.</value>
+  </data>
   <data name="DiscreteGPUControl_Inactive" xml:space="preserve">
     <value>Neaktívna</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Ukončiť aplikácie</value>
+  </data>
+  <data name="DiscreteGPUControl_Message" xml:space="preserve">
+    <value>Deaktivovať dedikovanú GPU, ak je aktívna zbytočne.</value>
+  </data>
+  <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
+    <value>K nVidia GPU je pripojený monitor.</value>
   </data>
   <data name="DiscreteGPUControl_NoProcesses" xml:space="preserve">
     <value>Žiadne procesy</value>
@@ -376,6 +547,12 @@ Táto možnosť je určená pre zariadenia, ktoré nemajú viacero napájacích 
   </data>
   <data name="DiscreteGPUControl_RestartGPU" xml:space="preserve">
     <value>Reštartovať GPU</value>
+  </data>
+  <data name="DiscreteGPUControl_Title" xml:space="preserve">
+    <value>Dedikovaná GPU</value>
+  </data>
+  <data name="DonatePage_DonateWith" xml:space="preserve">
+    <value>Prispieť pomocou</value>
   </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Podporiť</value>
@@ -424,6 +601,9 @@ Táto možnosť je určená pre zariadenia, ktoré nemajú viacero napájacích 
   </data>
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
     <value>Klávesnica</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
+    <value>Balíčky</value>
   </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Nastavenia</value>
