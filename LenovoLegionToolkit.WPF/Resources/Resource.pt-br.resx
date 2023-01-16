@@ -1010,14 +1010,8 @@ Sempre certifique-se de estar instalando os pacotes corretos.</value>
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Primário (Recomendado)</value>
   </data>
-  <data name="PackagesPage_PrimarySource_Message" xml:space="preserve">
-    <value>O mesmo que o Lenovo Vantage</value>
-  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Secundário</value>
-  </data>
-  <data name="PackagesPage_SecondarySource_Message" xml:space="preserve">
-	  <value>O mesmo que Lenovo PC Support</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Categoria</value>
