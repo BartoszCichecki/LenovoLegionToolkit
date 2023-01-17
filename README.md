@@ -111,6 +111,8 @@ Custom Mode is supported on following BIOS versions:
 * HACN31WW and higher
 * HHCN23WW and higher
 * K1CN31WW and higher
+* K9CN34WW and higher
+* KFCN32WW and higher
 * J2CN40WW and higher
 * JUCN51WW and higher
 * JYCN39WW and higher
@@ -174,17 +176,9 @@ Many thanks to everyone else, who monitors and corrects translations!
 
 ## FAQ
 
-#### Why doesn't LLT launch on startup even though Autorun option is enabled?
-
-LLT is started using Task Scheduler, so that it can launch with admin rights. Startup is delayed by 1 minutes (30 seconds in version 2.4.0 and up) to allow other components to start and be ready to use. If you don't see LLT in tray after a ~minute after seeing your desktop, create an issue.
-
 #### My motherboard was replaced and now LLT gives me incompatible message. What do I do?
 
 Sometimes new motherboard does not contain correct model numbers and serial numbers. You should try [this tutorial](https://laptopwiki.eu/index.php/guides-and-tutorials/important-bios-related-guides/recover-original-model-sku-values/) to try and recover them. If that method does not succeed, you can workaround by going to `%LOCALAPPDATA%\LenovoLegionToolkit` and creating an `args.txt` file. Inside that file paste `--skip-compat-check`. This will disable all compatibility checks in LLT. Use this workaround only if correct model number, serial number etc. can't be restored.
-
-#### Which RGB types are supported?
-
-Currently only white-backlight, 4-zone RGB and Spectrum RGB keyboards are supported.
 
 #### Will iCue RGB keyboards be supported?
 
