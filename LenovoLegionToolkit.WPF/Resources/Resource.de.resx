@@ -1010,7 +1010,7 @@ Stellen Sie immer sicher, dass Sie die richtigen Pakete installieren.</value>
     <value>Primäre (Empfohlen)</value>
   </data>
   <data name="PackagesPage_PrimarySource_Message" xml:space="preserve">
-    <value>Wie bei Lenovo Ventage</value>
+    <value>Wie bei Lenovo Vantage</value>
   </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Sekundäre</value>
