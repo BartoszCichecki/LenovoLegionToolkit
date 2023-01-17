@@ -203,6 +203,9 @@ Táto možnosť je určená pre zariadenia, ktoré nemajú viacero napájacích 
   <data name="AutomationPage_QuickActions_Empty" xml:space="preserve">
     <value>Žiadne rýchle akcie. Kliknite "Pridať novú" pre vytvorenie nových rýchlych akcií.</value>
   </data>
+  <data name="AutomationPage_QuickActions_Message" xml:space="preserve">
+    <value>Rýchle akcie sú dostupné po pravom kliknutí na ikonu v panely úloh.</value>
+  </data>
   <data name="AutomationPage_QuickActions_Title" xml:space="preserve">
     <value>Rýchle akcie</value>
   </data>
@@ -235,6 +238,9 @@ Táto možnosť je určená pre zariadenia, ktoré nemajú viacero napájacích 
   </data>
   <data name="AutomationPipelineControl_Exclusive" xml:space="preserve">
     <value>Exkluzívne</value>
+  </data>
+  <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
+    <value>Nevykonávať ďalšie akcie, pokiaľ beží táto akcia.</value>
   </data>
   <data name="AutomationPipelineControl_RunNow" xml:space="preserve">
     <value>Spustiť teraz</value>
@@ -418,8 +424,17 @@ Tento čas nemusí byť presný, ak bol laptop nabíjaný v spánku alebo vypnut
     <value>Vyberte prevádzkový režim GPU na základe použitia počítača a podmienok napájania.
 Prepínanie režimov môže vyžadovať reštart.</value>
   </data>
+  <data name="ComboBoxHybridModeControl_RestartRequired_Message" xml:space="preserve">
+    <value>Zmena na {0} vyžaduje reštart. Chcete reštartovať teraz?</value>
+  </data>
   <data name="ComboBoxHybridModeControl_RestartRequired_Title" xml:space="preserve">
     <value>Vyžaduje sa reštart</value>
+  </data>
+  <data name="ComboBoxHybridModeControl_Title" xml:space="preserve">
+    <value>Pracovný režim GPU</value>
+  </data>
+  <data name="ContextMenu_QuickActions" xml:space="preserve">
+    <value>Rýchle akcie</value>
   </data>
   <data name="Continue" xml:space="preserve">
     <value>Pokračovať</value>
@@ -551,11 +566,33 @@ Pamätajte, niektoré programy môžu spadnúť, ak to urobíte.</value>
   <data name="DiscreteGPUControl_Title" xml:space="preserve">
     <value>Dedikovaná GPU</value>
   </data>
+  <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
+    <value>Zmeniť jas zabudovaného displeja.
+Na niektorých zariadenia menia napájacie režimy jas. Uistite sa, že tento krok umiestnite ako posledný, ak niečo nefunguje správne.
+
+VAROVANIE: Táto akcia neprebehne správne, ak je zabudovaný displej vypnutý.</value>
+  </data>
+  <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
+    <value>Jas displeja</value>
+  </data>
   <data name="DonatePage_DonateWith" xml:space="preserve">
     <value>Prispieť pomocou</value>
   </data>
+  <data name="DonatePage_Message" xml:space="preserve">
+    <value>Vývoj a údržba Lenovo Legion Toolkit zaberá veľa času. Ak sa vám páči tento softvér, môžete podporiť jeho budúcnosť prispením čiastky podľa vášho uváženia.
+
+Pre prispenie cez PayPal kliknite na logo PayPal dole alebo naskenujte QR kód.
+
+Vopred vďaka!</value>
+  </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Podporiť</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Upraviť</value>
+  </data>
+  <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
+    <value>Zaškrtnite obnovovacie frekvencie, ktoré chcete použiť pri klávesovej skratke Fn+R.</value>
   </data>
   <data name="Exit" xml:space="preserve">
     <value>Ukončiť</value>
@@ -619,6 +656,9 @@ Pamätajte, niektoré programy môžu spadnúť, ak to urobíte.</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>Nie</value>
+  </data>
+  <data name="Notification_ACAdapterConnected" xml:space="preserve">
+    <value>Sieťový adaptér pripojený</value>
   </data>
   <data name="Notification_CameraOff" xml:space="preserve">
     <value>Kamera vypnutá</value>
