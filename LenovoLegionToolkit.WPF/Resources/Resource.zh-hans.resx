@@ -1582,6 +1582,6 @@
     <value>没有匹配的结果</value>
   </data>
   <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
-	  <value>仅显示更新</value>
+	  <value>仅显示有更新的驱动/软件</value>
   </data>
 </root>
