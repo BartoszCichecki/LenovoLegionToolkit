@@ -154,7 +154,7 @@ public class IGPUModeFeature : AbstractLenovoGamezoneWmiFeature<IGPUModeState>
     {
         try
         {
-            var matches = new Regex("pci#ven_([0-9A-Fa-f]{4})|dev_([0-9A-Fa-f]{4})|subsys_([0-9A-Fa-f]{4})").Matches(devicePath);
+            var matches = new Regex("pci#ven_([0-9A-Fa-f]{4})|dev_([0-9A-Fa-f]{4})|subsys_([0-9A-Fa-f]*)").Matches(devicePath);
             if (matches.Count != 3)
                 return default;
 

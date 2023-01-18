@@ -220,7 +220,22 @@ public readonly struct HardwareId
 
     public static bool operator !=(HardwareId left, HardwareId right) => !left.Equals(right);
 
-    public override bool Equals(object? obj) => obj is HardwareId other && Vendor == other.Vendor && Device == other.Device && SubSystem == other.SubSystem;
+    public override bool Equals(object? obj)
+    {
+        if (obj is not HardwareId other)
+            return false;
+
+        if (!Vendor.Equals(other.Vendor, StringComparison.InvariantCultureIgnoreCase))
+            return false;
+
+        if (!Device.Equals(other.Device, StringComparison.InvariantCultureIgnoreCase))
+            return false;
+
+        if (!SubSystem.Equals(other.SubSystem, StringComparison.InvariantCultureIgnoreCase))
+            return false;
+
+        return true;
+    }
 
     public override int GetHashCode() => HashCode.Combine(Vendor, Device, SubSystem);
 }
