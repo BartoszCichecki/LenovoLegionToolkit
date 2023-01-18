@@ -31,7 +31,7 @@
 
         <wpfui:TitleBar Grid.Row="0" />
 
-        <Grid Grid.Row="0" Margin="12,6,150,4">
+        <Grid Grid.Row="0" Margin="12,4,150,4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
@@ -53,7 +53,7 @@
                 x:Name="_openLogIndicator"
                 Grid.Column="1"
                 Margin="0,0,8,0"
-                Padding="8,4,8,4"
+                Padding="8,2,8,2"
                 Appearance="Caution"
                 Content="Log"
                 Cursor="Hand"
@@ -65,7 +65,7 @@
                 x:Name="_updateIndicator"
                 Grid.Column="2"
                 Margin="0,0,8,0"
-                Padding="8,4,8,4"
+                Padding="8,2,8,2"
                 Appearance="Success"
                 Content="{x:Static resources:Resource.MainWindow_UpdateAvailable}"
                 Cursor="Hand"
@@ -76,7 +76,7 @@
             <wpfui:Badge
                 x:Name="_deviceInfoIndicator"
                 Grid.Column="3"
-                Padding="8,4,8,4"
+                Padding="8,2,8,2"
                 Appearance="Transparent"
                 Cursor="Hand"
                 MouseLeftButtonDown="DeviceInfoIndicator_Click"
