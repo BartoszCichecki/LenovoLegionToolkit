@@ -146,7 +146,7 @@
 * 法语 - EliotAku, [Georges de Massol](https://github.com/jojo2massol), Rigbone, ZeroDegree
 * 德语 - Sko-Inductor, Running_Dead89
 * 希腊语 - GreatApo
-* Italian - [Lampadina17](https://github.com/Lampadina17)
+* 意大利语 - [Lampadina17](https://github.com/Lampadina17)
 * 罗马尼亚语 - [Mario Bălănică](https://github.com/mariobalanica)
 * 西班牙语 - M.A.G.
 * 葡萄牙语 - dvsilva
