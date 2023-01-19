@@ -95,6 +95,8 @@
 * HACN31WW 和更高
 * HHCN23WW 和更高
 * K1CN31WW 和更高
+* K9CN34WW 和更高
+* KFCN32WW 和更高
 * J2CN40WW 和更高
 * JUCN51WW 和更高
 * JYCN39WW 和更高
@@ -144,7 +146,7 @@
 * 法语 - EliotAku, [Georges de Massol](https://github.com/jojo2massol), Rigbone, ZeroDegree
 * 德语 - Sko-Inductor, Running_Dead89
 * 希腊语 - GreatApo
-* 意大利语 - Lampadina17
+* 意大利语 - [Lampadina17](https://github.com/Lampadina17)
 * 罗马尼亚语 - [Mario Bălănică](https://github.com/mariobalanica)
 * 西班牙语 - M.A.G.
 * 葡萄牙语 - dvsilva
@@ -156,17 +158,15 @@
 
 ## FAQ
 
-#### 打开开机自启后拯救者工具箱没有开启自启？
+#### 为什么我的杀毒软件报告安装程序含有病毒/木马/恶意软件？
 
-拯救者工具箱是使用计划任务实现开机自启，这样可以使得开机自启时便有管理员权限。开机后延迟 30 秒（2.4.0 之前的版本是 1 分钟）自启动，以保证其他组件驱动已启动。如果你在开机看到桌面 1 分钟后仍然没有在托盘中看到拯救者工具箱的图标，请提交一个 Issue。
+拯救者工具箱使用了许多底层的 Windows API，杀毒软件可能会识别这些 API 的调用为可疑的，从而造成误报。拯救者工具箱本身是开源的，任何感觉此软件有问题的人可以很简单的审查此软件源代码。同时所有安装包都是直接在 Github 上使用 Github Actions 构建的，所以你也不需要担心安装包含有恶意内容。此问题可以通过对程序签名来解决，但此项目只是我业余时间来制作的开源项目，我无法负担每年花几百美元买一个证书。
+
+简而言之，如果你从这个项目的网站上下载了安装程序，不需要担心杀毒软件的报毒，这只是一个误报。同时如果你有能力帮助解决杀毒软件的误报问题，欢迎联系我。
 
 #### 更换主板后提示不兼容？
 
 有时新主板内的机型和序列号信息出错，你可以尝试 [这篇教程](https://laptopwiki.eu/index.php/guides-and-tutorials/important-bios-related-guides/recover-original-model-sku-values/) 来恢复。如果这不起作用你可以尝试打开 `%LOCALAPPDATA%\LenovoLegionToolkit` 并创建一个名为 `args.txt` 的文件并打开文件后呼入 `--skip-compat-check` ，这会禁用拯救者工具箱的兼容性检查。我们建议你在无法正确恢复型号、序列号等信息的情况下再使用这个办法。
-
-#### 支持哪些RGB？
-
-目前仅支持白色背光键盘与四分区 RGB 与 Spectrum RGB 键盘。
 
 #### 支持 iCue RGB 键盘吗？
 
