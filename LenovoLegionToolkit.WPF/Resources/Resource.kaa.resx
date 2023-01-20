@@ -123,11 +123,23 @@
   <data name="AboutPage_Links" xml:space="preserve">
     <value>Siltemeler</value>
   </data>
+  <data name="AboutPage_Title" xml:space="preserve">
+    <value>Baǵdarlama haqqında</value>
+  </data>
   <data name="AboutPage_Version" xml:space="preserve">
     <value>Versıya</value>
   </data>
   <data name="Add" xml:space="preserve">
     <value>Qosıw</value>
+  </data>
+  <data name="AddNew" xml:space="preserve">
+    <value>Jańadan qosıw</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Lenovo Legion Toolkit</value>
+  </data>
+  <data name="AutomationPage_RenamePipeline_Title" xml:space="preserve">
+    <value>Qayta ataw</value>
   </data>
   <data name="AutomationPage_Saved_Title" xml:space="preserve">
     <value>Saqlandı</value>
@@ -148,7 +160,7 @@
     <value>Tań atqanda</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_AtSunset" xml:space="preserve">
-    <value>Kun batqanda</value>
+    <value>Kún batqanda</value>
   </data>
   <data name="Celsius" xml:space="preserve">
     <value>°C</value>
@@ -176,6 +188,9 @@
   </data>
   <data name="DashboardPage_Graphics_Title" xml:space="preserve">
     <value>Grafika</value>
+  </data>
+  <data name="DashboardPage_Other_Title" xml:space="preserve">
+    <value>Basqa</value>
   </data>
   <data name="DashboardPage_Title" xml:space="preserve">
     <value>Bas bet</value>
