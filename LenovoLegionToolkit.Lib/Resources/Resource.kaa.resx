@@ -107,13 +107,19 @@
     <value>Aurora Sync</value>
   </data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorChange" xml:space="preserve">
-    <value>Reńdı ózgertiw</value>
+    <value>Reńdi ózgertiw</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_ColorWave" xml:space="preserve">
+    <value>Reń tolqını</value>
   </data>
   <data name="SpectrumKeyboardBacklightEffectType_Rain" xml:space="preserve">
-    <value>Jamǵır</value>
+    <value>Jawın</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Ripple" xml:space="preserve">
+    <value>Tolqın</value>
   </data>
   <data name="SpectrumKeyboardBacklightSpeed_Speed1" xml:space="preserve">
-    <value>Ásten</value>
+    <value>Áste</value>
   </data>
   <data name="SpectrumKeyboardBacklightSpeed_Speed2" xml:space="preserve">
     <value>Ortasha</value>
