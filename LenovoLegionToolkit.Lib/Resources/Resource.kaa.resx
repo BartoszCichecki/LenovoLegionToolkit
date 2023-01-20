@@ -58,4 +58,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="SpectrumKeyboardBacklightEffectType_ColorChange" xml:space="preserve">
+    <value>Reńdı ózgertiw</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Rain" xml:space="preserve">
+    <value>Jamǵır</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed1" xml:space="preserve">
+    <value>Ásten</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed2" xml:space="preserve">
+    <value>Ortasha</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed3" xml:space="preserve">
+    <value>Tez</value>
+  </data>
 </root>
