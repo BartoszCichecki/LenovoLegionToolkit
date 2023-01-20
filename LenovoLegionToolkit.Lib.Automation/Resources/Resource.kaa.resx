@@ -58,11 +58,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DeactivateGPUAutomationStepState_RestartGPU" xml:space="preserve">
+    <value>Grafikalıq drayverdı qayta iske qosıw</value>
+  </data>
   <data name="Delay_Second" xml:space="preserve">
     <value>{0} sekund</value>
   </data>
   <data name="Delay_Second_Many" xml:space="preserve">
     <value>{0} sekund</value>
+  </data>
+  <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Baǵdarlama iske túskende</value>
+  </data>
+  <data name="ProcessesStopRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Baǵdarlama jabılǵanda</value>
   </data>
   <data name="TimeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Belgilengen waqıtta</value>
