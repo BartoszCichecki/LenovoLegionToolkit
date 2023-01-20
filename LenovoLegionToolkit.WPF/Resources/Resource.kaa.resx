@@ -117,4 +117,79 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutPage_AppName" xml:space="preserve">
+    <value>Lenovo Legion Toolkit</value>
+  </data>
+  <data name="AboutPage_Links" xml:space="preserve">
+    <value>Siltemeler</value>
+  </data>
+  <data name="AboutPage_Version" xml:space="preserve">
+    <value>Versıya</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Qosıw</value>
+  </data>
+  <data name="AutomationPage_Saved_Title" xml:space="preserve">
+    <value>Saqlandı</value>
+  </data>
+  <data name="AutomationPipelineControl_Configure" xml:space="preserve">
+    <value>Sazlaw</value>
+  </data>
+  <data name="AutomationPipelineControl_Step" xml:space="preserve">
+    <value>{0} adım</value>
+  </data>
+  <data name="AutomationPipelineControl_Step_Many" xml:space="preserve">
+    <value>{0} adım</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_Apps" xml:space="preserve">
+    <value>Baǵdarlamalar</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_AtSunrise" xml:space="preserve">
+    <value>Tań atqanda</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_AtSunset" xml:space="preserve">
+    <value>Kun batqanda</value>
+  </data>
+  <data name="Celsius" xml:space="preserve">
+    <value>°C</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Jabıw</value>
+  </data>
+  <data name="ColorCardControl_Blue" xml:space="preserve">
+    <value>Kók</value>
+  </data>
+  <data name="ColorCardControl_Green" xml:space="preserve">
+    <value>Jasıl</value>
+  </data>
+  <data name="ColorCardControl_Red" xml:space="preserve">
+    <value>Qızıl</value>
+  </data>
+  <data name="Color_Blue" xml:space="preserve">
+    <value>Kók</value>
+  </data>
+  <data name="Color_Green" xml:space="preserve">
+    <value>Jasıl</value>
+  </data>
+  <data name="Color_Red" xml:space="preserve">
+    <value>Qızıl</value>
+  </data>
+  <data name="DashboardPage_Graphics_Title" xml:space="preserve">
+    <value>Grafika</value>
+  </data>
+  <data name="DashboardPage_Title" xml:space="preserve">
+    <value>Bas bet</value>
+  </data>
+  <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
+    <value>BIOS versıyası</value>
+  </data>
+  <data name="CopiedToClipboard_Title" xml:space="preserve">
+    <value>Kóshirip alındı!</value>
+  </data>
+  <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
+    <value>Qurılma</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Shıǵıw</value>
+  </data>
 </root>
