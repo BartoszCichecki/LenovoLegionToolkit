@@ -291,9 +291,6 @@ Somente ações que correspondem com o estado atual serão executadas.</value>
   <data name="BalanceModeSettingsWindow_AIEngine_Title" xml:space="preserve">
     <value>Ativar mecanismo de IA</value>
   </data>
-  <data name="BalanceModeSettingsWindow_Title" xml:space="preserve">
-    <value>Configurações do modo equilibrado</value>
-  </data>
   <data name="BatteryAutomationStepControl_Message" xml:space="preserve">
     <value>Definir o modo de carregamento da bateria.</value>
   </data>
@@ -314,9 +311,6 @@ Somente ações que correspondem com o estado atual serão executadas.</value>
   </data>
   <data name="BatteryPage_BatteryTemperature_Message" xml:space="preserve">
     <value>Temperatura atual da bateria.</value>
-  </data>
-  <data name="BatteryPage_BatteryTemperature_Title" xml:space="preserve">
-    <value>Temperatura da bateria</value>
   </data>
   <data name="BatteryPage_CurrentCapacity_Message" xml:space="preserve">
     <value>Capacidade de carga atual.</value>
@@ -578,13 +572,6 @@ AVISO: Esta ação não será executada corretamente se a tela integrada estiver
   </data>
   <data name="DonatePage_DonateWith" xml:space="preserve">
     <value>Doar com</value>
-  </data>
-  <data name="DonatePage_Message" xml:space="preserve">
-    <value>O desenvolvimento e a manutenção do Lenovo Legion Toolkit leva muito tempo. Se você gosta de usar este software, pode apoiá-lo no futuro doando uma quantia de sua escolha.
-
-Clique no logotipo do PayPal abaixo ou digitalize o código QR para doar com o PayPal.
-
-Desde já, obrigado!</value>
   </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Doar</value>
@@ -1071,17 +1058,11 @@ Você pode alternar entre os modos pressionando Fn+Q.</value>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Você tem certeza?</value>
   </data>
-  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
-    <value>Modo equilibrado</value>
-  </data>
   <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
     <value>Modo personalizado</value>
   </data>
   <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
     <value>Padrão </value>
-  </data>
-  <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
-    <value>Modo desempenho</value>
   </data>
   <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
     <value>Modo silencioso</value>
@@ -1306,9 +1287,6 @@ A reinicialização é recomendada após alterar esta opção.</value>
   <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
     <value>Ação da Tecla de Acesso Rápido</value>
   </data>
-  <data name="SettingsPage_Theme_Description" xml:space="preserve">
-    <value>Defina o tema claro, tema escuro ou siga as configurações do sistema.</value>
-  </data>
   <data name="SettingsPage_Theme_Title" xml:space="preserve">
     <value>Tema</value>
   </data>
@@ -1416,10 +1394,6 @@ A reinicialização é recomendada após alterar esta opção.</value>
   </data>
   <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
     <value>Hora</value>
-  </data>
-  <data name="ToggleHybridModeControl_Message" xml:space="preserve">
-    <value>Permite alternar entre GPUs integradas e dedicadas.
-Requer reinicialização.</value>
   </data>
   <data name="ToggleHybridModeControl_RestartRequired_Message" xml:space="preserve">
     <value>Mudar o modo hibrido requer uma reinicialização. Deseja reiniciar o computador agora?</value>
