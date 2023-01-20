@@ -1058,6 +1058,9 @@ Você pode alternar entre os modos pressionando Fn+Q.</value>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Você tem certeza?</value>
   </data>
+  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
+    <value>Modo Balanceado</value>
+  </data>
   <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
     <value>Modo personalizado</value>
   </data>
