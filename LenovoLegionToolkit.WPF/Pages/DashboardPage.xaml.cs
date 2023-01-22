@@ -20,7 +20,13 @@ public partial class DashboardPage
 
     public DashboardPage() => InitializeComponent();
 
-    private async void DashboardPage_Loaded(object sender, RoutedEventArgs e) => await RefreshAsync();
+    private async void DashboardPage_Loaded(object sender, RoutedEventArgs e)
+    {
+        if (IsLoaded)
+            return;
+
+        await RefreshAsync();
+    }
 
     private async Task RefreshAsync()
     {
@@ -54,7 +60,7 @@ public partial class DashboardPage
         var editDashboardHyperlink = new Hyperlink
         {
             Icon = SymbolRegular.Edit24,
-            Content = "Customize Dashboard",
+            Content = "Customize",
             Margin = new(0, 16, 0, 0),
             HorizontalAlignment = HorizontalAlignment.Center
         };
