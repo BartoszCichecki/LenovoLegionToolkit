@@ -20,6 +20,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <StackPanel
@@ -90,6 +91,16 @@
             <controls:WinKeyControl />
 
         </StackPanel>
+
+        <wpfui:Hyperlink
+            Grid.Row="4"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Margin="0,16,0,0"
+            HorizontalAlignment="Center"
+            Click="EditDashboard_OnClick"
+            Content="Customize Dashboard"
+            Icon="Edit24" />
 
     </Grid>
 </wpfui:UiPage>

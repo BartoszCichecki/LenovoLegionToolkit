@@ -1,0 +1,77 @@
+﻿using System;
+using System.Windows.Controls;
+using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
+using Button = Wpf.Ui.Controls.Button;
+
+namespace LenovoLegionToolkit.WPF.Controls.Dashboard.Edit;
+
+public class EditDashboardItemControl : UserControl
+{
+    public DashboardItem DashboardItem { get; }
+
+    private readonly CardControl _cardControl = new()
+    {
+        Margin = new(0, 0, 0, 8),
+    };
+
+    private readonly CardHeaderControl _cardHeaderControl = new();
+
+    private readonly StackPanel _stackPanel = new()
+    {
+        Orientation = Orientation.Horizontal,
+    };
+
+    private readonly Button _moveUpButton = new()
+    {
+        Icon = SymbolRegular.ArrowUp24,
+        MinWidth = 34,
+        Height = 34,
+        Margin = new(8, 0, 0, 0),
+    };
+
+    private readonly Button _moveDownButton = new()
+    {
+        Icon = SymbolRegular.ArrowDown24,
+        MinWidth = 34,
+        Height = 34,
+        Margin = new(8, 0, 0, 0),
+    };
+
+    private readonly Button _deleteButton = new()
+    {
+        Icon = SymbolRegular.Dismiss24,
+        MinWidth = 34,
+        Height = 34,
+        Margin = new(8, 0, 0, 0),
+    };
+
+    public event EventHandler? MoveUp;
+    public event EventHandler? MoveDown;
+    public event EventHandler? Delete;
+
+    public EditDashboardItemControl(DashboardItem dashboardItem)
+    {
+        DashboardItem = dashboardItem;
+
+        InitializeComponent();
+    }
+
+    private void InitializeComponent()
+    {
+        _moveUpButton.Click += (s, e) => MoveUp?.Invoke(this, EventArgs.Empty);
+        _moveDownButton.Click += (s, e) => MoveDown?.Invoke(this, EventArgs.Empty);
+        _deleteButton.Click += (s, e) => Delete?.Invoke(this, EventArgs.Empty);
+
+        _stackPanel.Children.Add(_moveUpButton);
+        _stackPanel.Children.Add(_moveDownButton);
+        _stackPanel.Children.Add(_deleteButton);
+
+        _cardHeaderControl.Title = DashboardItem.GetTitle();
+        _cardHeaderControl.Accessory = _stackPanel;
+        _cardControl.Icon = DashboardItem.GetIcon();
+        _cardControl.Header = _cardHeaderControl;
+
+        Content = _cardControl;
+    }
+}

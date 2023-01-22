@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using LenovoLegionToolkit.WPF.Windows.Dashboard;
 
 namespace LenovoLegionToolkit.WPF.Pages;
 
@@ -55,5 +56,11 @@ public partial class DashboardPage
 
         Grid.SetRow(_otherStackPanel, 3);
         Grid.SetColumn(_otherStackPanel, 0);
+    }
+
+    private void EditDashboard_OnClick(object sender, RoutedEventArgs e)
+    {
+        var window = new EditDashboardWindow { Owner = Window.GetWindow(this) };
+        window.ShowDialog();
     }
 }
