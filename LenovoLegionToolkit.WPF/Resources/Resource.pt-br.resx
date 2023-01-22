@@ -330,12 +330,6 @@ Somente ações que correspondem com o estado atual serão executadas.</value>
   <data name="BatteryPage_DesignCapacity_Title" xml:space="preserve">
     <value>Capacidade original</value>
   </data>
-  <data name="BatteryPage_DischargeRate_Message" xml:space="preserve">
-    <value>Taxa do carregamento (+) ou descarregamento (-) da bateria.</value>
-  </data>
-  <data name="BatteryPage_DischargeRate_Title" xml:space="preserve">
-    <value>Taxa de descarregamento</value>
-  </data>
   <data name="BatteryPage_EstimatedBatteryLifeRemaining" xml:space="preserve">
     <value>Tempo restante estimado: {0}</value>
   </data>
@@ -1057,9 +1051,6 @@ Você pode alternar entre os modos pressionando Fn+Q.</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Você tem certeza?</value>
-  </data>
-  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
-    <value>Modo Balanceado</value>
   </data>
   <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
     <value>Modo personalizado</value>
