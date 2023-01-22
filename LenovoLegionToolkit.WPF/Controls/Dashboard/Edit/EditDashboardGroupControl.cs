@@ -86,10 +86,10 @@ public class EditDashboardGroupControl : UserControl
 
     private void InitializeComponent()
     {
-        _moveUpButton.Click += (s, e) => MoveUp?.Invoke(this, EventArgs.Empty);
-        _moveDownButton.Click += (s, e) => MoveDown?.Invoke(this, EventArgs.Empty);
-        _deleteButton.Click += (s, e) => Delete?.Invoke(this, EventArgs.Empty);
-        _addItemButton.Click += (s, e) => ShowContextMenu();
+        _moveUpButton.Click += (_, _) => MoveUp?.Invoke(this, EventArgs.Empty);
+        _moveDownButton.Click += (_, _) => MoveDown?.Invoke(this, EventArgs.Empty);
+        _deleteButton.Click += (_, _) => Delete?.Invoke(this, EventArgs.Empty);
+        _addItemButton.Click += (_, _) => ShowContextMenu();
 
         _buttonsStackPanel.Children.Add(_moveUpButton);
         _buttonsStackPanel.Children.Add(_moveDownButton);
@@ -130,7 +130,7 @@ public class EditDashboardGroupControl : UserControl
         foreach (var item in allItems)
         {
             var menuItem = new MenuItem { SymbolIcon = item.GetIcon(), Header = item.GetTitle() };
-            menuItem.Click += (s, e) => AddItem(item);
+            menuItem.Click += (_, _) => AddItem(item);
             menuItem.IsEnabled = !existingItems.Contains(item);
             menuItems.Add(menuItem);
         }
@@ -156,9 +156,9 @@ public class EditDashboardGroupControl : UserControl
     private Control CreateGroupControl(DashboardItem dashboardItem)
     {
         var control = new EditDashboardItemControl(dashboardItem);
-        control.MoveUp += (s, e) => MoveItemUp(control);
-        control.MoveDown += (s, e) => MoveItemDown(control);
-        control.Delete += (s, e) => DeleteItem(control);
+        control.MoveUp += (_, _) => MoveItemUp(control);
+        control.MoveDown += (_, _) => MoveItemDown(control);
+        control.Delete += (_, _) => DeleteItem(control);
         return control;
     }
 

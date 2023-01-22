@@ -59,9 +59,9 @@ public class EditDashboardItemControl : UserControl
 
     private void InitializeComponent()
     {
-        _moveUpButton.Click += (s, e) => MoveUp?.Invoke(this, EventArgs.Empty);
-        _moveDownButton.Click += (s, e) => MoveDown?.Invoke(this, EventArgs.Empty);
-        _deleteButton.Click += (s, e) => Delete?.Invoke(this, EventArgs.Empty);
+        _moveUpButton.Click += (_, _) => MoveUp?.Invoke(this, EventArgs.Empty);
+        _moveDownButton.Click += (_, _) => MoveDown?.Invoke(this, EventArgs.Empty);
+        _deleteButton.Click += (_, _) => Delete?.Invoke(this, EventArgs.Empty);
 
         _stackPanel.Children.Add(_moveUpButton);
         _stackPanel.Children.Add(_moveDownButton);
