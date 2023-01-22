@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
+using MenuItem = Wpf.Ui.Controls.MenuItem;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard.Edit;
 
@@ -52,6 +56,15 @@ public class EditDashboardGroupControl : UserControl
         Margin = new(8, 0, 0, 0),
     };
 
+    private readonly Button _addItemButton = new()
+    {
+        MinWidth = 120,
+        HorizontalAlignment = HorizontalAlignment.Right,
+        Appearance = ControlAppearance.Primary,
+        Content = Resource.Add,
+        Margin = new(0, 8, 0, 0),
+    };
+
     public event EventHandler? MoveUp;
     public event EventHandler? MoveDown;
     public event EventHandler? Delete;
@@ -59,14 +72,14 @@ public class EditDashboardGroupControl : UserControl
     private readonly DashboardGroupType _dashboardGroupType;
     private readonly string _dashboardGroupName;
     private readonly DashboardItem[] _dashboardGroupItems;
-    private readonly Func<IEnumerable<DashboardItem>> _getAllItems;
+    private readonly Func<IEnumerable<DashboardItem>> _getExistingItems;
 
-    public EditDashboardGroupControl(DashboardGroup dashboardGroup, Func<IEnumerable<DashboardItem>> getAllItems)
+    public EditDashboardGroupControl(DashboardGroup dashboardGroup, Func<IEnumerable<DashboardItem>> getExistingItems)
     {
         _dashboardGroupType = dashboardGroup.Type;
         _dashboardGroupName = dashboardGroup.GetName();
         _dashboardGroupItems = dashboardGroup.Items;
-        _getAllItems = getAllItems;
+        _getExistingItems = getExistingItems;
 
         InitializeComponent();
     }
@@ -76,6 +89,7 @@ public class EditDashboardGroupControl : UserControl
         _moveUpButton.Click += (s, e) => MoveUp?.Invoke(this, EventArgs.Empty);
         _moveDownButton.Click += (s, e) => MoveDown?.Invoke(this, EventArgs.Empty);
         _deleteButton.Click += (s, e) => Delete?.Invoke(this, EventArgs.Empty);
+        _addItemButton.Click += (s, e) => ShowContextMenu();
 
         _buttonsStackPanel.Children.Add(_moveUpButton);
         _buttonsStackPanel.Children.Add(_moveDownButton);
@@ -85,6 +99,7 @@ public class EditDashboardGroupControl : UserControl
             _itemsStackPanel.Children.Add(CreateGroupControl(item));
 
         _stackPanel.Children.Add(_itemsStackPanel);
+        _stackPanel.Children.Add(_addItemButton);
 
         _cardHeaderControl.Title = _dashboardGroupName;
         _cardHeaderControl.Accessory = _buttonsStackPanel;
@@ -103,6 +118,39 @@ public class EditDashboardGroupControl : UserControl
     public IEnumerable<DashboardItem> GetItems()
     {
         return _itemsStackPanel.Children.OfType<EditDashboardItemControl>().Select(c => c.DashboardItem);
+    }
+
+    private void ShowContextMenu()
+    {
+        var allItems = Enum.GetValues<DashboardItem>();
+        var existingItems = _getExistingItems().ToArray();
+
+        var menuItems = new List<MenuItem>();
+
+        foreach (var item in allItems)
+        {
+            var menuItem = new MenuItem { SymbolIcon = item.GetIcon(), Header = item.GetTitle() };
+            menuItem.Click += (s, e) => AddItem(item);
+            menuItem.IsEnabled = !existingItems.Contains(item);
+            menuItems.Add(menuItem);
+        }
+
+        var contextMenu = new ContextMenu
+        {
+            PlacementTarget = _addItemButton,
+            Placement = PlacementMode.Bottom,
+        };
+
+        foreach (var menuItem in menuItems.OrderBy(mi => mi.Header))
+            contextMenu.Items.Add(menuItem);
+
+        _addItemButton.ContextMenu = contextMenu;
+        _addItemButton.ContextMenu.IsOpen = true;
+    }
+
+    private void AddItem(DashboardItem dashboardItem)
+    {
+        _itemsStackPanel.Children.Add(CreateGroupControl(dashboardItem));
     }
 
     private Control CreateGroupControl(DashboardItem dashboardItem)

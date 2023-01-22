@@ -16,10 +16,14 @@ public partial class EditDashboardWindow
 {
     private readonly DashboardSettings _dashboardSettings = IoCContainer.Resolve<DashboardSettings>();
 
+    private DashboardGroup[] _groups;
+
     public event EventHandler? Apply;
 
     public EditDashboardWindow()
     {
+        _groups = _dashboardSettings.Store.Groups ?? DashboardGroup.DefaultGroups;
+
         InitializeComponent();
     }
 
@@ -38,7 +42,7 @@ public partial class EditDashboardWindow
 
         var loadingTask = Task.Delay(500);
 
-        var groups = _dashboardSettings.Store.Groups ?? DashboardGroup.DefaultGroups;
+        var groups = _groups;
 
         _groupsScrollViewer.ScrollToTop();
         _groupsStackPanel.Children.Clear();
@@ -64,8 +68,7 @@ public partial class EditDashboardWindow
 
     private async void ResetButton_Click(object sender, RoutedEventArgs e)
     {
-        _dashboardSettings.Store.Groups = null;
-        _dashboardSettings.SynchronizeStore();
+        _groups = DashboardGroup.DefaultGroups;
 
         await RefreshAsync();
     }
