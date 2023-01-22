@@ -169,7 +169,7 @@ Translations provided by:
 * Portuguese (Brasil) - Vernon
 * Russian - [Edward Johan](https://github.com/younyokel)
 * Turkish - Undervolt
-* Ukrainian -  [Владислав «vaidee» Придатько](https://github.com/va1dee)
+* Ukrainian -  [Vladyslav Prydatko](https://github.com/va1dee)
 * Vietnamese - Not_Nhan, Kuri
 
 Many thanks to everyone else, who monitors and corrects translations!
