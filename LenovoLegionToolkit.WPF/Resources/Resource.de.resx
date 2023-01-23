@@ -1588,4 +1588,7 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
   <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
 	  <value>Je nach Zustand und Konfiguration Ihres Geräts werden einige Funktionen möglicherweise nicht in der Übersicht angezeigt.</value>
   </data>
+  <data name="DashboardPage_Customize" xml:space="preserve">
+	  <value>Anpassen</value>
+  </data>
 </root>
