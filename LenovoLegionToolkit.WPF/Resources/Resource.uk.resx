@@ -1004,8 +1004,14 @@
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Початкове (рекомендовано)</value>
   </data>
+  <data name="PackagesPage_PrimarySource_Message" xml:space="preserve">
+    <value>Так само як Lenovo Vantage</value>
+  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Додаткове</value>
+  </data>
+  <data name="PackagesPage_SecondarySource_Message" xml:space="preserve">
+    <value>Те саме, що й підтримка ПК Lenovo</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Категорія</value>
