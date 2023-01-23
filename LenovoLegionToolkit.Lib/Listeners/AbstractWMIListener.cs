@@ -79,12 +79,20 @@ public abstract class AbstractWMIListener<T> : IListener<T> where T : struct
 
     private async void Handler(PropertyDataCollection properties)
     {
-        var value = GetValue(properties);
+        try
+        {
+            var value = GetValue(properties);
 
-        if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Event received. [value={value}, listener={GetType().Name}]");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Event received. [value={value}, listener={GetType().Name}]");
 
-        await OnChangedAsync(value).ConfigureAwait(false);
-        RaiseChanged(value);
+            await OnChangedAsync(value).ConfigureAwait(false);
+            RaiseChanged(value);
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Failed to handle event.  [listener={GetType().Name}]", ex);
+        }
     }
 }

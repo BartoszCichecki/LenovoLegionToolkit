@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics.Eventing.Reader;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
@@ -35,7 +36,15 @@ public abstract class AbstractEventLogListener : IListener<EventArgs>
 
     private async void Watcher_EventRecordWritten(object? sender, EventRecordWrittenEventArgs e)
     {
-        await OnChangedAsync().ConfigureAwait(false);
-        Changed?.Invoke(this, EventArgs.Empty);
+        try
+        {
+            await OnChangedAsync().ConfigureAwait(false);
+            Changed?.Invoke(this, EventArgs.Empty);
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Failed to handle event.  [listener={GetType().Name}]", ex);
+        }
     }
 }
