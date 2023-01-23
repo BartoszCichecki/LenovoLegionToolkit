@@ -18,12 +18,16 @@ public partial class DashboardPage
 
     private readonly List<DashboardGroupControl> _dashboardGroupControls = new();
 
+    private bool _refreshOnce;
+
     public DashboardPage() => InitializeComponent();
 
     private async void DashboardPage_Loaded(object sender, RoutedEventArgs e)
     {
-        if (IsLoaded)
+        if (_refreshOnce)
             return;
+
+        _refreshOnce = true;
 
         await RefreshAsync();
     }
