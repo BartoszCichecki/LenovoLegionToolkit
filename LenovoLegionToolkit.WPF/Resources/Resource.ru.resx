@@ -980,9 +980,6 @@
     <value>Ниже приведен список пакетов программного обеспечения, отмеченные как совместимые с вашим ноутбуком.
 Убедитесь, что вы устанавливаете правильные пакеты.</value>
   </data>
-  <data name="PackagesPage_Disclaimer_Title" xml:space="preserve">
-    <value>Внимание</value>
-  </data>
   <data name="PackagesPage_DownloadFailed_Message" xml:space="preserve">
     <value>Проверьте, верно ли заданы Тип модели устройства и ОС.</value>
   </data>
@@ -1010,8 +1007,14 @@
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Основной (Рекомендуется)</value>
   </data>
+  <data name="PackagesPage_PrimarySource_Message" xml:space="preserve">
+    <value>Аналогичен Lenovo Vantage</value>
+  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Вторичный</value>
+  </data>
+  <data name="PackagesPage_SecondarySource_Message" xml:space="preserve">
+    <value>Аналогичен Поддержке ПК Lenovo</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Категория</value>
