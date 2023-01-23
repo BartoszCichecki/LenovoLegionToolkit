@@ -714,9 +714,6 @@ Vopred vďaka!</value>
   <data name="PackageControl_Version" xml:space="preserve">
     <value>Verzia</value>
   </data>
-  <data name="PackagesPage_Disclaimer_Title" xml:space="preserve">
-    <value>Dôležité</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Režim výkonu</value>
   </data>

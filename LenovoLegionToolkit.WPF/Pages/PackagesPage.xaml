@@ -189,12 +189,15 @@
 
                     <StackPanel>
 
-                        <wpfui:InfoBar
-                            Title="{x:Static resources:Resource.PackagesPage_Disclaimer_Title}"
+                        <wpfui:CardControl
+                            x:Name="_infoBar"
                             Margin="0,0,16,8"
-                            IsOpen="True"
-                            Message="{x:Static resources:Resource.PackagesPage_Disclaimer_Message}"
-                            Severity="Warning" />
+                            Icon="Info24">
+                            <wpfui:CardControl.Header>
+                                <TextBlock Text="{x:Static resources:Resource.PackagesPage_Disclaimer_Message}" TextWrapping="Wrap" />
+                            </wpfui:CardControl.Header>
+                            <wpfui:Button Click="InfoBarDismissButton_Click" Icon="Dismiss24" />
+                        </wpfui:CardControl>
 
                         <Grid Margin="0,0,16,8">
                             <Grid.ColumnDefinitions>

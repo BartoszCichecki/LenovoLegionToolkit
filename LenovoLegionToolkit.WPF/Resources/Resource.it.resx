@@ -963,9 +963,6 @@ Abilita questa opzione in caso di conflitti con le applicazioni a schermo intero
     <value>Qua sotto è riportato un elenco di pacchetti software contrassegnati come compatibili con il tuo laptop. 
 Assicurati sempre di installare i pacchetti corretti.</value>
   </data>
-  <data name="PackagesPage_Disclaimer_Title" xml:space="preserve">
-    <value>Importante</value>
-  </data>
   <data name="PackagesPage_DownloadFailed_Message" xml:space="preserve">
     <value>Verificare se il tipo di macchina e il sistema operativo sono impostati correttamente.</value>
   </data>

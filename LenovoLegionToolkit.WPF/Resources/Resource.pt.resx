@@ -980,9 +980,6 @@ Ativa esta opção se tiveres problemas de conflitos com apps em ecrã inteiro.<
     <value>Abaixo está uma lista de software que foi marcado como compatível com o teu portátil.
 Confirma sempre que estás a instalar o pacotes corretos.</value>
   </data>
-  <data name="PackagesPage_Disclaimer_Title" xml:space="preserve">
-    <value>Importante</value>
-  </data>
   <data name="PackagesPage_DownloadFailed_Message" xml:space="preserve">
     <value>Confirma que o tipo de máquina e sistema operativo estão definidos corretamente.</value>
   </data>

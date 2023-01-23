@@ -105,6 +105,11 @@ public partial class PackagesPage : IProgress<float>
         _packageDownloaderSettings.SynchronizeStore();
     }
 
+    private void InfoBarDismissButton_Click(object sender, RoutedEventArgs e)
+    {
+        _infoBar.Visibility = Visibility.Collapsed;
+    }
+
     private async void DownloadPackagesButton_Click(object sender, RoutedEventArgs e)
     {
         if (!await ShouldInterruptDownloadsIfRunning())

@@ -2758,15 +2758,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Important.
-        /// </summary>
-        public static string PackagesPage_Disclaimer_Title {
-            get {
-                return ResourceManager.GetString("PackagesPage_Disclaimer_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Check if Machine Type and OS are set correctly..
         /// </summary>
         public static string PackagesPage_DownloadFailed_Message {
