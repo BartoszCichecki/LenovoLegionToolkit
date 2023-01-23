@@ -961,9 +961,6 @@ Ative esta opção se você tiver conflitos com aplicativos de tela inteira.</va
     <value>Abaixo está uma lista de pacotes de software marcados como compatíveis com seu notebook.
 Sempre certifique-se de estar instalando os pacotes corretos.</value>
   </data>
-  <data name="PackagesPage_Disclaimer_Title" xml:space="preserve">
-    <value>Importante</value>
-  </data>
   <data name="PackagesPage_DownloadFailed_Message" xml:space="preserve">
     <value>Verifique se o Tipo de Máquina e o sistema operacional estão configurados corretamente.</value>
   </data>
