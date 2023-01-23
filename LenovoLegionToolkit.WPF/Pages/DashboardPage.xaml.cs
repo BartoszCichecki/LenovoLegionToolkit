@@ -45,7 +45,7 @@ public partial class DashboardPage
         _content.RowDefinitions.Clear();
         _content.Children.Clear();
 
-        var groups = _dashboardSettings.Store.Groups ?? DashboardGroup.DefaultGroups;
+        var groups = _dashboardSettings.Store.Groups;
 
         _content.ColumnDefinitions.Add(new ColumnDefinition { Width = new(1, GridUnitType.Star) });
         _content.ColumnDefinitions.Add(new ColumnDefinition { Width = new(1, GridUnitType.Star) });

@@ -22,7 +22,7 @@ public partial class EditDashboardWindow
 
     public EditDashboardWindow()
     {
-        _groups = _dashboardSettings.Store.Groups ?? DashboardGroup.DefaultGroups;
+        _groups = _dashboardSettings.Store.Groups;
 
         InitializeComponent();
     }
@@ -77,7 +77,10 @@ public partial class EditDashboardWindow
 
     private void ApplyButton_Click(object sender, RoutedEventArgs e)
     {
-        var groups = _groupsStackPanel.Children.OfType<EditDashboardGroupControl>().Select(c => c.GetDashboardGroup()).ToArray();
+        var groups = _groupsStackPanel.Children
+            .OfType<EditDashboardGroupControl>()
+            .Select(c => c.GetDashboardGroup())
+            .ToArray();
 
         _dashboardSettings.Store.Groups = groups;
         _dashboardSettings.SynchronizeStore();
@@ -97,10 +100,10 @@ public partial class EditDashboardWindow
         _infoBar.Visibility = Visibility.Collapsed;
     }
 
-    private IEnumerable<DashboardItem> GetAllItems()
-    {
-        return _groupsStackPanel.Children.OfType<EditDashboardGroupControl>().SelectMany(c => c.GetItems());
-    }
+    private IEnumerable<DashboardItem> GetAllItems() =>
+        _groupsStackPanel.Children
+            .OfType<EditDashboardGroupControl>()
+            .SelectMany(c => c.GetItems());
 
     private Control CreateGroupControl(DashboardGroup dashboardGroup)
     {

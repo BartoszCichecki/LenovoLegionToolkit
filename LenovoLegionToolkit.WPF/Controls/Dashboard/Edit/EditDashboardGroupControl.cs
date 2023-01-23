@@ -112,14 +112,17 @@ public class EditDashboardGroupControl : UserControl
 
     public DashboardGroup GetDashboardGroup()
     {
-        var items = _itemsStackPanel.Children.OfType<EditDashboardItemControl>().Select(c => c.DashboardItem).ToArray();
+        var items = _itemsStackPanel.Children
+            .OfType<EditDashboardItemControl>()
+            .Select(c => c.DashboardItem)
+            .ToArray();
         return new(_dashboardGroupType, _dashboardGroupName, items);
     }
 
-    public IEnumerable<DashboardItem> GetItems()
-    {
-        return _itemsStackPanel.Children.OfType<EditDashboardItemControl>().Select(c => c.DashboardItem);
-    }
+    public IEnumerable<DashboardItem> GetItems() =>
+        _itemsStackPanel.Children
+            .OfType<EditDashboardItemControl>()
+            .Select(c => c.DashboardItem);
 
     private void ShowContextMenu()
     {

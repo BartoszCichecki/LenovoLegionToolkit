@@ -6,7 +6,7 @@ public class DashboardSettings : AbstractSettings<DashboardSettings.DashboardSet
 {
     public class DashboardSettingsStore
     {
-        public DashboardGroup[]? Groups { get; set; } = null;
+        public DashboardGroup[] Groups { get; set; } = DashboardGroup.DefaultGroups;
     }
 
     protected override string FileName => "dashboard.json";
