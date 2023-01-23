@@ -58,4 +58,106 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BatteryState_Conservation" xml:space="preserve">
+    <value>Saqlaw</value>
+  </data>
+  <data name="GPUController_PoweredOff" xml:space="preserve">
+    <value>Óshirilgen</value>
+  </data>
+  <data name="GPUController_PoweredOn" xml:space="preserve">
+    <value>Qosılǵan</value>
+  </data>
+  <data name="HybridModeState_OnAuto" xml:space="preserve">
+    <value>Gibrid-Avto</value>
+  </data>
+  <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
+    <value>Gibrid-iGPU</value>
+  </data>
+  <data name="PowerModeState_GodMode" xml:space="preserve">
+    <value>Arnawlı</value>
+  </data>
+  <data name="RBGKeyboardBacklightSpeed_Fast" xml:space="preserve">
+    <value>Tez</value>
+  </data>
+  <data name="RBGKeyboardBacklightSpeed_Fastest" xml:space="preserve">
+    <value>Júdá tez</value>
+  </data>
+  <data name="RBGKeyboardBacklightSpeed_Slow" xml:space="preserve">
+    <value>Ásten</value>
+  </data>
+  <data name="RBGKeyboardBacklightSpeed_Slowest" xml:space="preserve">
+    <value>Júdá ásten</value>
+  </data>
+  <data name="RGBKeyboardBacklightBrightness_Low" xml:space="preserve">
+    <value>Pás</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
+    <value>Óshik</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_One" xml:space="preserve">
+    <value>Sazlamalar jıyındısı 1</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Three" xml:space="preserve">
+    <value>Sazlamalar jıyındısı 3</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
+    <value>Sazlamalar jıyındısı 2</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightness_High" xml:space="preserve">
+    <value>Joqarı</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightness_Low" xml:space="preserve">
+    <value>Pás</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightness_Medium" xml:space="preserve">
+    <value>Ortasha</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightness_Off" xml:space="preserve">
+    <value>Óshik</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_BottomToTop" xml:space="preserve">
+    <value>Tómennen joqarıǵa</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_Clockwise" xml:space="preserve">
+    <value>Saat jónelisi boyınsha</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_CounterClockwise" xml:space="preserve">
+    <value>Saat jónelisine qarsı</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_LeftToRight" xml:space="preserve">
+    <value>Shepten ońǵa</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_RightToLeft" xml:space="preserve">
+    <value>Ońnan shepke</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_TopToBottom" xml:space="preserve">
+    <value>Joqarıdan tómenge</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_AuroraSync" xml:space="preserve">
+    <value>Aurora Sync</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_ColorChange" xml:space="preserve">
+    <value>Reńdi ózgertiw</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_ColorWave" xml:space="preserve">
+    <value>Reń tolqını</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Rain" xml:space="preserve">
+    <value>Jawın</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Ripple" xml:space="preserve">
+    <value>Tolqın</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed1" xml:space="preserve">
+    <value>Áste</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed2" xml:space="preserve">
+    <value>Ortasha</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed3" xml:space="preserve">
+    <value>Tez</value>
+  </data>
+  <data name="WhiteKeyboardBacklightState_Low" xml:space="preserve">
+    <value>Pás</value>
+  </data>
 </root>

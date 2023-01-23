@@ -136,9 +136,6 @@
   <data name="NotificationPosition_TopRight" xml:space="preserve">
     <value>Superior direito</value>
   </data>
-  <data name="PowerModeState_Balance" xml:space="preserve">
-    <value>Balanceado</value>
-  </data>
   <data name="PowerModeState_GodMode" xml:space="preserve">
     <value>Personalizado</value>
   </data>

@@ -117,4 +117,280 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutPage_AppName" xml:space="preserve">
+    <value>Lenovo Legion Toolkit</value>
+  </data>
+  <data name="AboutPage_Links" xml:space="preserve">
+    <value>Siltemeler</value>
+  </data>
+  <data name="AboutPage_Title" xml:space="preserve">
+    <value>Baǵdarlama haqqında</value>
+  </data>
+  <data name="AboutPage_Version" xml:space="preserve">
+    <value>Versiya</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Qosıw</value>
+  </data>
+  <data name="AddNew" xml:space="preserve">
+    <value>Jańadan qosıw</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Lenovo Legion Toolkit</value>
+  </data>
+  <data name="AutomationPage_RenamePipeline_Title" xml:space="preserve">
+    <value>Qayta ataw</value>
+  </data>
+  <data name="AutomationPage_Saved_Title" xml:space="preserve">
+    <value>Saqlandı</value>
+  </data>
+  <data name="AutomationPipelineControl_Configure" xml:space="preserve">
+    <value>Sazlaw</value>
+  </data>
+  <data name="AutomationPipelineControl_Step" xml:space="preserve">
+    <value>{0} adım</value>
+  </data>
+  <data name="AutomationPipelineControl_Step_Many" xml:space="preserve">
+    <value>{0} adım</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_Apps" xml:space="preserve">
+    <value>Baǵdarlamalar</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_AtSunrise" xml:space="preserve">
+    <value>Tań atqanda</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_AtSunset" xml:space="preserve">
+    <value>Kún batqanda</value>
+  </data>
+  <data name="Celsius" xml:space="preserve">
+    <value>°C</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Jabıw</value>
+  </data>
+  <data name="ColorCardControl_Blue" xml:space="preserve">
+    <value>Kók</value>
+  </data>
+  <data name="ColorCardControl_Green" xml:space="preserve">
+    <value>Jasıl</value>
+  </data>
+  <data name="ColorCardControl_Red" xml:space="preserve">
+    <value>Qızıl</value>
+  </data>
+  <data name="Color_Blue" xml:space="preserve">
+    <value>Kók</value>
+  </data>
+  <data name="Color_Green" xml:space="preserve">
+    <value>Jasıl</value>
+  </data>
+  <data name="Color_Red" xml:space="preserve">
+    <value>Qızıl</value>
+  </data>
+  <data name="DashboardPage_Graphics_Title" xml:space="preserve">
+    <value>Grafika</value>
+  </data>
+  <data name="DashboardPage_Other_Title" xml:space="preserve">
+    <value>Basqa</value>
+  </data>
+  <data name="DashboardPage_Title" xml:space="preserve">
+    <value>Bas bet</value>
+  </data>
+  <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
+    <value>BIOS versiyası</value>
+  </data>
+  <data name="CopiedToClipboard_Title" xml:space="preserve">
+    <value>Kóshirip alındı!</value>
+  </data>
+  <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
+    <value>Qurılma</value>
+  </data>
+  <data name="DeviceInformationWindow_Title" xml:space="preserve">
+    <value>Qurılmańız haqqında</value>
+  </data>
+  <data name="DiscreteGPUControl_RestartGPU" xml:space="preserve">
+    <value>Grafikalıq processordı qayta iske qosıw</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Ózgertiw</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Shıǵıw</value>
+  </data>
+  <data name="Fahrenheit" xml:space="preserve">
+    <value>°F</value>
+  </data>
+  <data name="FanCurveControl_FanSpeed" xml:space="preserve">
+    <value>Samallatqıshtıń tezligi</value>
+  </data>
+  <data name="FanCurveControl_GPU" xml:space="preserve">
+    <value>Grafikalıq processor</value>
+  </data>
+  <data name="FnLockAutomationStepControl_Title" xml:space="preserve">
+    <value>Fn Lock</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_Title" xml:space="preserve">
+    <value>Qosımsha sazlamalar</value>
+  </data>
+  <data name="GodModeSettingsWindow_Fans_Max_Title" xml:space="preserve">
+    <value>Samallatqıshtıń maksimal tezligi</value>
+  </data>
+  <data name="GodModeSettingsWindow_Fans_Title" xml:space="preserve">
+    <value>Samallatqıshlar</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_Title" xml:space="preserve">
+    <value>Grafikalıq processor</value>
+  </data>
+  <data name="HDRAutomationStepControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="IncompatibleDevice_Title" xml:space="preserve">
+    <value>Lenovo Legion Toolkit</value>
+  </data>
+  <data name="MainWindow_NavigationItem_About" xml:space="preserve">
+    <value>Baǵdarlama haqqında</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
+    <value>Klaviatura</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
+    <value>Júklengenler</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
+    <value>Sazlamalar</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Yaq</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Camera" xml:space="preserve">
+    <value>Kamera</value>
+  </data>
+  <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
+    <value>Caps Lock hám Num Lock</value>
+  </data>
+  <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
+    <value>Fn Lock</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Microphone" xml:space="preserve">
+    <value>Mikrofon</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>Yaqshı</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Ashıw</value>
+  </data>
+  <data name="OverDriveAutomationStepControl_Title" xml:space="preserve">
+    <value>Over Drive</value>
+  </data>
+  <data name="OverDriveControl_Title" xml:space="preserve">
+    <value>Over Drive</value>
+  </data>
+  <data name="PackageControl_DownloadComplete_Message" xml:space="preserve">
+    <value>{0} júklendi!</value>
+  </data>
+  <data name="PackageControl_Version" xml:space="preserve">
+    <value>Versiya</value>
+  </data>
+  <data name="PackagesPage_Disclaimer_Title" xml:space="preserve">
+    <value>Dıqqat</value>
+  </data>
+  <data name="PackagesPage_Sort_Category" xml:space="preserve">
+    <value>Kategoriya</value>
+  </data>
+  <data name="PackagesPage_Sort_Date" xml:space="preserve">
+    <value>Sáne</value>
+  </data>
+  <data name="PackagesPage_Source" xml:space="preserve">
+    <value>Derek</value>
+  </data>
+  <data name="PackagesPage_Title" xml:space="preserve">
+    <value>Júklengenler</value>
+  </data>
+  <data name="PickProcessesWindow_Title" xml:space="preserve">
+    <value>Baǵdarlamalar</value>
+  </data>
+  <data name="PowerModeControl_Settings" xml:space="preserve">
+    <value>Sazlamalar</value>
+  </data>
+  <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
+    <value>Jarıqlıq</value>
+  </data>
+  <data name="RGBKeyboardBacklightSpeedCardControl_Title" xml:space="preserve">
+    <value>Tezlik</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Qayta ataw</value>
+  </data>
+  <data name="RestartLater" xml:space="preserve">
+    <value>Keyinirek qayta iske qosaman</value>
+  </data>
+  <data name="Revert" xml:space="preserve">
+    <value>Izge qaytarıw</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Saqlaw</value>
+  </data>
+  <data name="Saving" xml:space="preserve">
+    <value>Saqlanbaqta...</value>
+  </data>
+  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
+    <value>Qosımsha sazlamalar</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
+    <value>Lenovo Vantagedi óshiriw</value>
+  </data>
+  <data name="SettingsPage_Language_Message" xml:space="preserve">
+    <value>Tildi saylań.</value>
+  </data>
+  <data name="SettingsPage_Language_Title" xml:space="preserve">
+    <value>Til</value>
+  </data>
+  <data name="SettingsPage_Title" xml:space="preserve">
+    <value>Sazlamalar</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
+    <value>Jarıqlıq</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Color_Title" xml:space="preserve">
+    <value>Reń</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Colors_Title" xml:space="preserve">
+    <value>Reńler</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Speed_Title" xml:space="preserve">
+    <value>Tezlik</value>
+  </data>
+  <data name="TimeWindow_Sunrise" xml:space="preserve">
+    <value>Tań azan</value>
+  </data>
+  <data name="TimeWindow_Sunset" xml:space="preserve">
+    <value>Tań azan</value>
+  </data>
+  <data name="TimeWindow_Time" xml:space="preserve">
+    <value>Waqıt</value>
+  </data>
+  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
+    <value>Waqıt</value>
+  </data>
+  <data name="UnsupportedWindow_Vendor" xml:space="preserve">
+    <value>Támiyinlewshi</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Jańalaw</value>
+  </data>
+  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Jarıqlıq</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Awa</value>
+  </data>
+  <data name="MicrophoneControl_Title" xml:space="preserve">
+    <value>Mikrofon</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
+    <value>Mikrofon</value>
+  </data>
 </root>
