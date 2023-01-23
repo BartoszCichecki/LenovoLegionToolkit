@@ -38,6 +38,7 @@ public partial class EditDashboardWindow
     private async Task RefreshAsync()
     {
         _loader.IsLoading = true;
+        _infoBar.Visibility = Visibility.Hidden;
         _applyRevertStackPanel.Visibility = Visibility.Hidden;
 
         var loadingTask = Task.Delay(500);
@@ -53,6 +54,7 @@ public partial class EditDashboardWindow
         await loadingTask;
 
         _applyRevertStackPanel.Visibility = Visibility.Visible;
+        _infoBar.Visibility = Visibility.Visible;
         _loader.IsLoading = false;
     }
 
@@ -88,6 +90,11 @@ public partial class EditDashboardWindow
     private void CancelButton_Click(object sender, RoutedEventArgs e)
     {
         Close();
+    }
+
+    private void InfoBarDismissButton_Click(object sender, RoutedEventArgs e)
+    {
+        _infoBar.Visibility = Visibility.Collapsed;
     }
 
     private IEnumerable<DashboardItem> GetAllItems()

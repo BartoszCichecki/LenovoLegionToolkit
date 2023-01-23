@@ -21,6 +21,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
@@ -49,9 +50,20 @@
                 Text="Customize Dashboard" />
         </Grid>
 
+        <wpfui:CardControl
+            x:Name="_infoBar"
+            Grid.Row="1"
+            Margin="12,0,16,16"
+            Icon="Info24">
+            <wpfui:CardControl.Header>
+                <TextBlock Text="Some features may not appear on the Dashboard depending on state and configuration of your device." TextWrapping="Wrap" />
+            </wpfui:CardControl.Header>
+            <wpfui:Button Click="InfoBarDismissButton_Click" Icon="Dismiss24" />
+        </wpfui:CardControl>
+
         <controls:LoadableControl
             x:Name="_loader"
-            Grid.Row="1"
+            Grid.Row="2"
             Margin="12,0,0,0"
             IndicatorVerticalAlignment="Center">
             <wpfui:DynamicScrollViewer x:Name="_groupsScrollViewer">
@@ -61,7 +73,7 @@
 
         <Grid
             x:Name="_applyRevertStackPanel"
-            Grid.Row="2"
+            Grid.Row="3"
             Margin="12"
             Visibility="Collapsed">
 
