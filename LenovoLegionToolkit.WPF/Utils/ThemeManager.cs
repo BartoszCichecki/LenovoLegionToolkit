@@ -11,7 +11,7 @@ namespace LenovoLegionToolkit.WPF.Utils;
 public class ThemeManager
 {
     private readonly ApplicationSettings _settings;
-    private readonly SystemThemeListener _listener = IoCContainer.Resolve<SystemThemeListener>();
+    private readonly SystemThemeListener _listener;
 
     public RGBColor DefaultAccentColor => new(255, 33, 33);
 
@@ -40,9 +40,11 @@ public class ThemeManager
 
     public event EventHandler? ThemeApplied;
 
-    public ThemeManager(ApplicationSettings settings)
+    public ThemeManager(SystemThemeListener systemThemeListener, ApplicationSettings settings)
     {
+        _listener = systemThemeListener;
         _settings = settings;
+
         _listener.Changed += (_, _) => Application.Current.Dispatcher.Invoke(Apply);
     }
 

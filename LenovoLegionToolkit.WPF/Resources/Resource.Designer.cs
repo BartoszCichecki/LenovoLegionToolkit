@@ -1500,6 +1500,42 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string EditDashboardWindow_CreateGroup_Message {
+            get {
+                return ResourceManager.GetString("EditDashboardWindow_CreateGroup_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create group.
+        /// </summary>
+        public static string EditDashboardWindow_CreateGroup_Title {
+            get {
+                return ResourceManager.GetString("EditDashboardWindow_CreateGroup_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Some features may not appear on the Dashboard depending on state and configuration of your device..
+        /// </summary>
+        public static string EditDashboardWindow_Disclaimer_Message {
+            get {
+                return ResourceManager.GetString("EditDashboardWindow_Disclaimer_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customize Dashboard.
+        /// </summary>
+        public static string EditDashboardWindow_Title {
+            get {
+                return ResourceManager.GetString("EditDashboardWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Uncheck refresh rates that you do not want to use when Fn+R shortcut is used..
         /// </summary>
         public static string ExcludeRefreshRatesWindow_Description {
@@ -3126,6 +3162,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string Rename {
             get {
                 return ResourceManager.GetString("Rename", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset.
+        /// </summary>
+        public static string Reset {
+            get {
+                return ResourceManager.GetString("Reset", resourceCulture);
             }
         }
         
