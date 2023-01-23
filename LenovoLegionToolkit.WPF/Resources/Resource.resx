@@ -1589,4 +1589,7 @@ WARNING: This action will not run correctly, if internal display is off.</value>
   <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
 	  <value>Some features may not appear on the Dashboard depending on state and configuration of your device.</value>
   </data>
+  <data name="DashboardPage_Customize" xml:space="preserve">
+	  <value>Customize</value>
+  </data>
 </root>

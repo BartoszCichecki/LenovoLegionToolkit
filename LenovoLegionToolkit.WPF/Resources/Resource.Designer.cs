@@ -1055,6 +1055,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Customize.
+        /// </summary>
+        public static string DashboardPage_Customize {
+            get {
+                return ResourceManager.GetString("DashboardPage_Customize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Display.
         /// </summary>
         public static string DashboardPage_Display_Title {
