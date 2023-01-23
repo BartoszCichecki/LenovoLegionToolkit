@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Controls;
 using LenovoLegionToolkit.WPF.Extensions;
+using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
@@ -26,6 +27,7 @@ public class EditDashboardItemControl : UserControl
     private readonly Button _moveUpButton = new()
     {
         Icon = SymbolRegular.ArrowUp24,
+        ToolTip = Resource.MoveUp,
         MinWidth = 34,
         Height = 34,
         Margin = new(8, 0, 0, 0),
@@ -34,6 +36,7 @@ public class EditDashboardItemControl : UserControl
     private readonly Button _moveDownButton = new()
     {
         Icon = SymbolRegular.ArrowDown24,
+        ToolTip = Resource.MoveDown,
         MinWidth = 34,
         Height = 34,
         Margin = new(8, 0, 0, 0),
@@ -42,6 +45,7 @@ public class EditDashboardItemControl : UserControl
     private readonly Button _deleteButton = new()
     {
         Icon = SymbolRegular.Dismiss24,
+        ToolTip = Resource.Delete,
         MinWidth = 34,
         Height = 34,
         Margin = new(8, 0, 0, 0),

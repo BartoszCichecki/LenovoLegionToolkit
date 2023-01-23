@@ -7,7 +7,7 @@
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:utils="clr-namespace:LenovoLegionToolkit.WPF.Utils"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Customize Dashboard"
+    Title="{x:Static resources:Resource.EditDashboardWindow_Title}"
     Width="700"
     Height="700"
     MinWidth="600"
@@ -47,7 +47,7 @@
                 VerticalAlignment="Center"
                 FontSize="12"
                 IsHitTestVisible="False"
-                Text="Customize Dashboard" />
+                Text="{x:Static resources:Resource.EditDashboardWindow_Title}" />
         </Grid>
 
         <wpfui:CardControl
@@ -56,7 +56,7 @@
             Margin="12,0,16,16"
             Icon="Info24">
             <wpfui:CardControl.Header>
-                <TextBlock Text="Some features may not appear on the Dashboard depending on state and configuration of your device." TextWrapping="Wrap" />
+                <TextBlock Text="{x:Static resources:Resource.EditDashboardWindow_Disclaimer_Message}" TextWrapping="Wrap" />
             </wpfui:CardControl.Header>
             <wpfui:Button Click="InfoBarDismissButton_Click" Icon="Dismiss24" />
         </wpfui:CardControl>
@@ -97,7 +97,7 @@
                 Margin="12,0,0,0"
                 Appearance="Secondary"
                 Click="ResetButton_Click"
-                Content="Reset" />
+                Content="{x:Static resources:Resource.Reset}" />
             <wpfui:Button
                 Grid.Column="3"
                 MinWidth="120"

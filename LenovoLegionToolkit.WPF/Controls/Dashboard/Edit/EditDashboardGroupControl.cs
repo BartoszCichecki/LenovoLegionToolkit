@@ -36,6 +36,7 @@ public class EditDashboardGroupControl : UserControl
     private readonly Button _moveUpButton = new()
     {
         Icon = SymbolRegular.ArrowUp24,
+        ToolTip = Resource.MoveUp,
         MinWidth = 34,
         Height = 34,
         Margin = new(8, 0, 0, 0),
@@ -44,6 +45,7 @@ public class EditDashboardGroupControl : UserControl
     private readonly Button _moveDownButton = new()
     {
         Icon = SymbolRegular.ArrowDown24,
+        ToolTip = Resource.MoveDown,
         MinWidth = 34,
         Height = 34,
         Margin = new(8, 0, 0, 0),
@@ -52,6 +54,7 @@ public class EditDashboardGroupControl : UserControl
     private readonly Button _deleteButton = new()
     {
         Icon = SymbolRegular.Dismiss24,
+        ToolTip = Resource.Delete,
         MinWidth = 34,
         Height = 34,
         Margin = new(8, 0, 0, 0),

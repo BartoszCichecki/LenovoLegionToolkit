@@ -60,7 +60,11 @@ public partial class EditDashboardWindow
 
     private async void AddButton_Click(object sender, RoutedEventArgs e)
     {
-        var result = await MessageBoxHelper.ShowInputAsync(this, "Create group", "Name", primaryButton: Resource.OK, secondaryButton: Resource.Cancel);
+        var result = await MessageBoxHelper.ShowInputAsync(this,
+            Resource.EditDashboardWindow_CreateGroup_Title,
+            Resource.EditDashboardWindow_CreateGroup_Message,
+            primaryButton: Resource.OK,
+            secondaryButton: Resource.Cancel);
 
         if (string.IsNullOrEmpty(result))
             return;
