@@ -89,6 +89,10 @@ If you are getting an incompatible message on startup, you can check the *Contri
 
 Overall the recommendation is to disable or uninstall Vantage, Hotkeys and Legion Zone while using LLT. There are some functions that cause conflicts or may not work properly when LLT is working along side other Lenovo apps.
 
+### Other remarks
+
+LLT currently does not support installation for multiple users, so if you need to have multiple users on you laptop you might encounter issues. Same goes for accounts without Administrator rights - LLT needs an account with Administrator rights. If you install LLT on an account without such rights, LLT will not work properly.
+
 ## Features
 
 The app allows to:
