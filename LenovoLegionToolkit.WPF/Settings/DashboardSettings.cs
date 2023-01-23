@@ -11,5 +11,5 @@ public class DashboardSettings : AbstractSettings<DashboardSettings.DashboardSet
 
     protected override string FileName => "dashboard.json";
 
-    public override DashboardSettingsStore Default => new();
+    protected override DashboardSettingsStore Default => new();
 }

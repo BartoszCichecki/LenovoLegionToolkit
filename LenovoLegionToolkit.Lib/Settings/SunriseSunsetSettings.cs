@@ -13,5 +13,5 @@ public class SunriseSunsetSettings : AbstractSettings<SunriseSunsetSettings.Sunr
 
     protected override string FileName => "sunrise_sunset.json";
 
-    public override SunriseSunsetSettingsStore Default => new();
+    protected override SunriseSunsetSettingsStore Default => new();
 }

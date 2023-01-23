@@ -9,5 +9,5 @@ public class SpectrumKeyboardSettings : AbstractSettings<SpectrumKeyboardSetting
 
     protected override string FileName => "spectrum_keyboard.json";
 
-    public override SpectrumKeyboardSettingsStore Default => new();
+    protected override SpectrumKeyboardSettingsStore Default => new();
 }

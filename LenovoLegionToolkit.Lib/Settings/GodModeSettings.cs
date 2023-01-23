@@ -16,7 +16,7 @@ public class GodModeSettings : AbstractSettings<GodModeSettings.GodModeSettingsS
         public int MaxValueOffset { get; set; }
     }
 
-    public override GodModeSettingsStore Default => new();
+    protected override GodModeSettingsStore Default => new();
 
     protected override string FileName => "godmode.json";
 }

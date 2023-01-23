@@ -17,7 +17,7 @@ public class AutomationSettings : AbstractSettings<AutomationSettings.Automation
 
     protected override string FileName => "automation.json";
 
-    public override AutomationSettingsStore Default => new()
+    protected override AutomationSettingsStore Default => new()
     {
         Pipelines =
         {

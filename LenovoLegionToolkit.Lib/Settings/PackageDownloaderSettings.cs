@@ -13,5 +13,5 @@ public class PackageDownloaderSettings : AbstractSettings<PackageDownloaderSetti
 
     protected override string FileName => "package_downloader.json";
 
-    public override PackageDownloaderSettingsStore Default => new();
+    protected override PackageDownloaderSettingsStore Default => new();
 }

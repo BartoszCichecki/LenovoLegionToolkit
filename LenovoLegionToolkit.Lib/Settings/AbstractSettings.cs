@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using LenovoLegionToolkit.Lib.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -12,11 +13,11 @@ public abstract class AbstractSettings<T> where T : new()
 
     protected abstract string FileName { get; }
 
+    protected abstract T Default { get; }
+
     public T Store { get; }
 
-    public abstract T Default { get; }
-
-    public AbstractSettings()
+    protected AbstractSettings()
     {
         _jsonSerializerSettings = new()
         {
@@ -28,16 +29,26 @@ public abstract class AbstractSettings<T> where T : new()
                 new StringEnumConverter(),
             }
         };
-        _settingsStorePath = Path.Combine(Folders.AppData, FileName);
+
+        _settingsStorePath = Path.Combine(Folders.AppData, GetFileName());
 
         try
         {
             var settingsSerialized = File.ReadAllText(_settingsStorePath);
-            Store = JsonConvert.DeserializeObject<T>(settingsSerialized, _jsonSerializerSettings) ?? Default;
+            var store = JsonConvert.DeserializeObject<T>(settingsSerialized, _jsonSerializerSettings);
+
+            if (store is null)
+            {
+                TryBackup();
+                store = GetDefault();
+            }
+
+            Store = store;
         }
         catch
         {
-            Store = Default;
+            TryBackup();
+            Store = GetDefault();
         }
 
         SynchronizeStore();
@@ -47,5 +58,27 @@ public abstract class AbstractSettings<T> where T : new()
     {
         var settingsSerialized = JsonConvert.SerializeObject(Store, _jsonSerializerSettings);
         File.WriteAllText(_settingsStorePath, settingsSerialized);
+    }
+
+    private string GetFileName() => FileName;
+
+    private T GetDefault() => Default;
+
+    private void TryBackup()
+    {
+        try
+        {
+            if (!File.Exists(_settingsStorePath))
+                return;
+
+            var backupFileName = $"{Path.GetFileNameWithoutExtension(FileName)}_backup_{DateTime.UtcNow:yyyyMMddHHmmss}{Path.GetExtension(FileName)}";
+            var backupFilePath = Path.Combine(Folders.AppData, backupFileName);
+            File.Copy(_settingsStorePath, backupFilePath);
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Unable to create backup for {FileName}", ex);
+        }
     }
 }

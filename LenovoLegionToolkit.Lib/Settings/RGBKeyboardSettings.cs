@@ -11,7 +11,7 @@ public class RGBKeyboardSettings : AbstractSettings<RGBKeyboardSettings.RGBKeybo
 
     protected override string FileName => "rgb_keyboard.json";
 
-    public override RGBKeyboardSettingsStore Default => new()
+    protected override RGBKeyboardSettingsStore Default => new()
     {
         State = new(RGBKeyboardBacklightPreset.Off, new Dictionary<RGBKeyboardBacklightPreset, RGBKeyboardBacklightBacklightPresetDescription> {
             { RGBKeyboardBacklightPreset.One, new(RGBKeyboardBacklightEffect.Static, RBGKeyboardBacklightSpeed.Slowest, RGBKeyboardBacklightBrightness.Low, new(142, 255, 0), new(0, 212, 255), new(101, 0, 255), new(186, 0, 255)) },

@@ -41,5 +41,5 @@ public class ApplicationSettings : AbstractSettings<ApplicationSettings.Applicat
 
     protected override string FileName => "settings.json";
 
-    public override ApplicationSettingsStore Default => new();
+    protected override ApplicationSettingsStore Default => new();
 }
