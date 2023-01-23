@@ -5,30 +5,12 @@ namespace LenovoLegionToolkit.WPF;
 
 public readonly struct DashboardGroup
 {
-    public static readonly DashboardGroup[] DefaultGroups = {
-        new(DashboardGroupType.Power,
-            null,
-            DashboardItem.PowerMode,
-            DashboardItem.BatteryMode,
-            DashboardItem.AlwaysOnUsb),
-        new(DashboardGroupType.Graphics,
-            null,
-            DashboardItem.HybridMode,
-            DashboardItem.DiscreteGpu),
-        new(DashboardGroupType.Display,
-            null,
-            DashboardItem.Resolution,
-            DashboardItem.RefreshRate,
-            DashboardItem.DpiScale,
-            DashboardItem.Hdr,
-            DashboardItem.OverDrive),
-        new(DashboardGroupType.Other,
-            null,
-            DashboardItem.Microphone,
-            DashboardItem.FlipToStart,
-            DashboardItem.TouchpadLock,
-            DashboardItem.FnLock,
-            DashboardItem.WinKeyLock)
+    public static readonly DashboardGroup[] DefaultGroups =
+    {
+        new(DashboardGroupType.Power, null, DashboardItem.PowerMode, DashboardItem.BatteryMode, DashboardItem.AlwaysOnUsb),
+        new(DashboardGroupType.Graphics, null, DashboardItem.HybridMode, DashboardItem.DiscreteGpu),
+        new(DashboardGroupType.Display, null, DashboardItem.Resolution, DashboardItem.RefreshRate, DashboardItem.DpiScale, DashboardItem.Hdr, DashboardItem.OverDrive),
+        new(DashboardGroupType.Other, null, DashboardItem.Microphone, DashboardItem.FlipToStart, DashboardItem.TouchpadLock, DashboardItem.FnLock, DashboardItem.WinKeyLock)
     };
 
     public DashboardGroupType Type { get; }
