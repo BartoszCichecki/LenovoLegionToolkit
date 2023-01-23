@@ -583,9 +583,6 @@ Omogućite ovu opciju ukoliko imate konflikata sa aplikacijama u fullscreenu.</v
     <value>Ispod je lista softverskih paketa koji su označeni kao kompatibilni sa vašim laptopom.
 Uvijek provjerite da li instalirate ispravne pakete.</value>
   </data>
-  <data name="PackagesPage_Disclaimer_Title" xml:space="preserve">
-    <value>Važno</value>
-  </data>
   <data name="PackagesPage_DownloadFailed_Message" xml:space="preserve">
     <value>Provjerite da li su tip uređaja i OS ispravno postavljeni.</value>
   </data>
