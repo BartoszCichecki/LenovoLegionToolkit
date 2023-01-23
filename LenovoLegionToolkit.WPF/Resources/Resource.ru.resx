@@ -1007,8 +1007,14 @@
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Основной (Рекомендуется)</value>
   </data>
+  <data name="PackagesPage_PrimarySource_Message" xml:space="preserve">
+    <value>Аналогичен Lenovo Vantage</value>
+  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Вторичный</value>
+  </data>
+  <data name="PackagesPage_SecondarySource_Message" xml:space="preserve">
+    <value>Аналогичен Поддержке ПК Lenovo</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Категория</value>
