@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.WPF.Controls.Dashboard;
+using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Settings;
 using LenovoLegionToolkit.WPF.Windows.Dashboard;
 using Wpf.Ui.Common;
@@ -64,7 +65,7 @@ public partial class DashboardPage
         var editDashboardHyperlink = new Hyperlink
         {
             Icon = SymbolRegular.Edit24,
-            Content = "Customize",
+            Content = Resource.DashboardPage_Customize,
             Margin = new(0, 16, 0, 0),
             HorizontalAlignment = HorizontalAlignment.Center
         };
