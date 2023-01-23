@@ -176,7 +176,7 @@ public partial class SettingsPage
     private void UpdateAccentColorPicker()
     {
         _accentColorPicker.Visibility = _settings.Store.AccentColorSource == AccentColorSource.Custom ? Visibility.Visible : Visibility.Collapsed;
-        _accentColorPicker.SelectedColor = _themeManager.AccentColor.ToColor();
+        _accentColorPicker.SelectedColor = _themeManager.GetAccentColor().ToColor();
     }
 
     private void AutorunComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
