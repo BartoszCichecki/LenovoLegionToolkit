@@ -594,8 +594,53 @@ Vopred vďaka!</value>
   <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
     <value>Zaškrtnite obnovovacie frekvencie, ktoré chcete použiť pri klávesovej skratke Fn+R.</value>
   </data>
+  <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
+    <value>Uistite sa, že zabudovaný displej je zapnutý. Lenovo Legion Toolkit nemôže načítať obnovovaciu frekvenciu ktoré nie sú.</value>
+  </data>
+  <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Title" xml:space="preserve">
+    <value>Žiadne nájdené obnovovacie frekvencie</value>
+  </data>
+  <data name="ExcludeRefreshRatesWindow_Title" xml:space="preserve">
+    <value>Vylúčiť obnovovacie frekvencie</value>
+  </data>
   <data name="Exit" xml:space="preserve">
     <value>Ukončiť</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
+    <value>Pri napájaní z batérie použiť len integrovanú GPU and obe integrovanú aj dedikovanú GPU pri napájaní sieťovým adaptérom. Pri napájaní z neštandardného adaptéru systém prepne na režim len Hybrid-iGPU.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
+    <value>Hybrid-Auto režim</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_DGPU_Disclaimer" xml:space="preserve">
+    <value>Prepínanie do a z tohto režimu vyžaduje reštart.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_DGPU_Message" xml:space="preserve">
+    <value>Použiť len dedikovanú GPU. Tento režim poskytuje najlepší grafický výkon avšak so zvýšenou spotrebou.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
+    <value>dGPU režim</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
+    <value>Obe integrovaná aj dedikovaná GPU sú povolené. Systém bude automaticky prepínať medzi nimi podľa potreby.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
+    <value>Hybridný režim</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_IGPU_Disclaimer" xml:space="preserve">
+    <value>Tento režim nadobudne účinnosť len keď dedikovaná GPU nepracuje.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_IGPU_Message" xml:space="preserve">
+    <value>Použiť len integrovanú GPU. Tento režim minimalizuje spotrebu energie a hluk.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_IGPU_Title" xml:space="preserve">
+    <value>Len Hybrid-iGPU režim</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Title" xml:space="preserve">
+    <value>O prevádzkových režimoch GPU</value>
   </data>
   <data name="Fahrenheit" xml:space="preserve">
     <value>°F</value>
@@ -603,23 +648,145 @@ Vopred vďaka!</value>
   <data name="FanCurveControl_CPU" xml:space="preserve">
     <value>CPU</value>
   </data>
+  <data name="FanCurveControl_CPUSensor" xml:space="preserve">
+    <value>CPU senzor</value>
+  </data>
+  <data name="FanCurveControl_FanSpeed" xml:space="preserve">
+    <value>Rýchlosť ventilátora</value>
+  </data>
+  <data name="FanCurveControl_GPU" xml:space="preserve">
+    <value>GPU</value>
+  </data>
+  <data name="FanCurveControl_RPM" xml:space="preserve">
+    <value>Ot/min</value>
+  </data>
+  <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
+    <value>Zapnúť notebook pri otvorení krytu.</value>
+  </data>
+  <data name="FlipToStartAutomationStepControl_Title" xml:space="preserve">
+    <value>Zapnúť otvorením</value>
+  </data>
+  <data name="FlipToStartControl_Message" xml:space="preserve">
+    <value>Zapnúť notebook pri otvorení krytu.</value>
+  </data>
+  <data name="FlipToStartControl_Title" xml:space="preserve">
+    <value>Zapnúť otvorením</value>
+  </data>
+  <data name="FnLockAutomationStepControl_Message" xml:space="preserve">
+    <value>Použivať sekundárnu funkciu kláves F1-F12 bez držania klávesy Fn.</value>
+  </data>
+  <data name="FnLockAutomationStepControl_Title" xml:space="preserve">
+    <value>Fn zámok</value>
+  </data>
+  <data name="FnLockControl_Message" xml:space="preserve">
+    <value>Použivať sekundárnu funkciu kláves F1-F12 bez držania klávesy Fn.</value>
+  </data>
+  <data name="FnLockControl_Title" xml:space="preserve">
+    <value>Fn zámok</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
+    <value>VAROVANIE!
+Niektoré notebooky môžu akceptovať vyššie limity výkonu ako uvádzajú ale buďte opatrný. Táto možnosť môže mať za následok nepredvídateľné správanie, takže ak si nie ste istý čo robíte nechajte to na 0.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
+    <value>Posun maximálneho limitu výkonu</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
+    <value>Nemeňte dole uvedené možnosti pokiaľ naozaj neviete čo robíte.</value>
+  </data>
   <data name="GodModeSettingsWindow_Advanced_Title" xml:space="preserve">
     <value>Pokročilé</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_CrossLoading" xml:space="preserve">
+    <value>Dlhodobý limit výkonu (krížové zaťaženie)</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL" xml:space="preserve">
+    <value>Dlhodobý limit výkonu</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL" xml:space="preserve">
+    <value>Krátkodobý limit výkonu</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_TempLimit" xml:space="preserve">
+    <value>Teplotný limit CPU</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_Title" xml:space="preserve">
     <value>CPU</value>
   </data>
+  <data name="GodModeSettingsWindow_Error_Apply_Title" xml:space="preserve">
+    <value>Nemožno uplatniť nastavenia</value>
+  </data>
+  <data name="GodModeSettingsWindow_Error_Load_Title" xml:space="preserve">
+    <value>Nemožno načítať nastavenia.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Fans_Curve_Message" xml:space="preserve">
+    <value>Otáčky ventilátora nie sú striktne určené jedným teplotným senzorom. Zvýši alebo zníži rýchlosť podľa najvyššej teploty medzi CPU, GPU a chladiča. Presné hodnoty sa zobrazia, keď prejdete myšou nad jednotlivý krok.</value>
+  </data>
   <data name="GodModeSettingsWindow_Fans_Curve_Title" xml:space="preserve">
     <value>Krivka vetrákov</value>
+  </data>
+  <data name="GodModeSettingsWindow_Fans_Max_Message" xml:space="preserve">
+    <value>VAROVANIE!
+Dlhodobé používanie tejto možnosti kazí ventilátory a ich životnosť.
+Vážne, buďte opatrný s touto možnosťou!</value>
+  </data>
+  <data name="GodModeSettingsWindow_Fans_Max_Title" xml:space="preserve">
+    <value>Maximálna rýchlosť ventilátorov</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Title" xml:space="preserve">
     <value>Vetráky</value>
   </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP" xml:space="preserve">
+    <value>Nastaviteľné TGP</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_DynamicBoost" xml:space="preserve">
+    <value>Dynamický Boost</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TempLimit" xml:space="preserve">
+    <value>Teplotný limit GPU</value>
+  </data>
   <data name="GodModeSettingsWindow_GPU_Title" xml:space="preserve">
     <value>GPU</value>
   </data>
+  <data name="GodModeSettingsWindow_Title" xml:space="preserve">
+    <value>Nastavenia vlastného režimu</value>
+  </data>
+  <data name="HDRAutomationStepControl_Message" xml:space="preserve">
+    <value>Povoliť vysoký dynamický rozsah (HDR) zabudovaného displeja.
+
+VAROVANIE: Táto akcia neprebehne správne, ak je zabudovaný displej vypnutý.</value>
+  </data>
+  <data name="HDRAutomationStepControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Message" xml:space="preserve">
+    <value>Povoliť vysoký dynamický rozsah (HDR) zabudovaného displeja.</value>
+  </data>
+  <data name="HDRControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Warning" xml:space="preserve">
+    <value>Použitie HDR je blokované nastaveniami Windows.</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Importovať</value>
+  </data>
+  <data name="IncompatibleDevice_Message" xml:space="preserve">
+    <value>Toto zariadenie nie je kompatibilné s Lenovo Legion Toolkit.</value>
+  </data>
   <data name="IncompatibleDevice_Title" xml:space="preserve">
     <value>Lenovo Legion Toolkit</value>
+  </data>
+  <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
+    <value>Nenašli sa kompatibilné klávesnice</value>
+  </data>
+  <data name="KeyboardBacklightPage_Title" xml:space="preserve">
+    <value>Podsvietenie klávesnice</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>Podsvietenie klávesnice nemôže byť ovládanie tu pokiaľ beží Vantage alebo jeho služby.</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
+    <value>Zdá sa, že Lenovo Vantage je povolený</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>O projekte</value>
@@ -648,6 +815,9 @@ Vopred vďaka!</value>
   <data name="MainWindow_UpdateAvailable" xml:space="preserve">
     <value>Aktualizácia je k dispozícii!</value>
   </data>
+  <data name="MainWindow_UpdateAvailableWithVersion" xml:space="preserve">
+    <value>Aktualizácia {0} dostupná!</value>
+  </data>
   <data name="MoveDown" xml:space="preserve">
     <value>Presunúť nadol</value>
   </data>
@@ -659,6 +829,12 @@ Vopred vďaka!</value>
   </data>
   <data name="Notification_ACAdapterConnected" xml:space="preserve">
     <value>Sieťový adaptér pripojený</value>
+  </data>
+  <data name="Notification_ACAdapterConnectedLowWattage" xml:space="preserve">
+    <value>Sieťový adaptér pripojený (nízkovýkonový)</value>
+  </data>
+  <data name="Notification_ACAdapterDisconnected" xml:space="preserve">
+    <value>Sieťový adaptér odpojený</value>
   </data>
   <data name="Notification_CameraOff" xml:space="preserve">
     <value>Kamera vypnutá</value>
@@ -690,11 +866,51 @@ Vopred vďaka!</value>
   <data name="Notification_NumLockOn" xml:space="preserve">
     <value>Num zámok zapnutý</value>
   </data>
+  <data name="Notification_SpectrumKeyboardBacklight_Backlight" xml:space="preserve">
+    <value>Podsvietenie {0}</value>
+  </data>
+  <data name="Notification_SpectrumKeyboardBacklight_Brightness" xml:space="preserve">
+    <value>Jas {0}</value>
+  </data>
+  <data name="Notification_SpectrumKeyboardBacklight_Profile" xml:space="preserve">
+    <value>Profil {0}</value>
+  </data>
+  <data name="Notification_TouchpadOff" xml:space="preserve">
+    <value>Touchpad vypnutý</value>
+  </data>
+  <data name="Notification_TouchpadOn" xml:space="preserve">
+    <value>Touchpad zapnutý</value>
+  </data>
+  <data name="Notification_WhiteKeyboardBacklight" xml:space="preserve">
+    <value>Podsvietenie {0}</value>
+  </data>
+  <data name="NotificationsSettingsWindow_ACAdapter" xml:space="preserve">
+    <value>Sieťový adaptér</value>
+  </data>
   <data name="NotificationsSettingsWindow_Camera" xml:space="preserve">
     <value>Kamera</value>
   </data>
+  <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
+    <value>Caps Lock a Num Lock</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
+    <value>Zakázať upozornenia na akcie Fn kláves ako stíšenie mikrofónu.
+Povoľte túto možnosť ak máte konflikty s aplikáciami na celú obrazovku.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
+    <value>Nezobrazovať upozornenia</value>
+  </data>
+  <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
+    <value>Fn zámok</value>
+  </data>
+  <data name="NotificationsSettingsWindow_KeyboardBacklight" xml:space="preserve">
+    <value>Podsvietenie klávesnice</value>
+  </data>
   <data name="NotificationsSettingsWindow_Microphone" xml:space="preserve">
     <value>Mikrofón</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationPosition_Title" xml:space="preserve">
+    <value>Pozícia</value>
   </data>
   <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
     <value>Režim výkonu</value>
@@ -702,8 +918,14 @@ Vopred vďaka!</value>
   <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
     <value>Obnovovacia frekvencia</value>
   </data>
+  <data name="NotificationsSettingsWindow_SmartKey" xml:space="preserve">
+    <value>Smart tlačidlo</value>
+  </data>
   <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
     <value>Notifikácie</value>
+  </data>
+  <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
+    <value>Zámok touchpadu</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
@@ -711,14 +933,116 @@ Vopred vďaka!</value>
   <data name="Open" xml:space="preserve">
     <value>Otvoriť</value>
   </data>
+  <data name="OverDriveAutomationStepControl_Message" xml:space="preserve">
+    <value>Zlepši čas odozvy zabudovaného displeja.</value>
+  </data>
+  <data name="OverDriveAutomationStepControl_Title" xml:space="preserve">
+    <value>Over Drive</value>
+  </data>
+  <data name="OverDriveControl_Message" xml:space="preserve">
+    <value>Zlepši čas odozvy zabudovaného displeja.</value>
+  </data>
+  <data name="OverDriveControl_Title" xml:space="preserve">
+    <value>Over Drive</value>
+  </data>
+  <data name="PackageControl_DownloadComplete_Message" xml:space="preserve">
+    <value>{0} stiahnutý!</value>
+  </data>
+  <data name="PackageControl_DownloadComplete_Title" xml:space="preserve">
+    <value>Sťahovanie dokončené</value>
+  </data>
+  <data name="PackageControl_GeneralError_Title" xml:space="preserve">
+    <value>Niečo sa pokazilo</value>
+  </data>
+  <data name="PackageControl_Http404Error_Message" xml:space="preserve">
+    <value>Server vrátil kód 404.</value>
+  </data>
+  <data name="PackageControl_Http404Error_Title" xml:space="preserve">
+    <value>Zdá sa, že súbor je preč</value>
+  </data>
   <data name="PackageControl_Version" xml:space="preserve">
     <value>Verzia</value>
+  </data>
+  <data name="PackagesPage_DownloadTo" xml:space="preserve">
+    <value>Stiahnuť do</value>
+  </data>
+  <data name="PackagesPage_Filter" xml:space="preserve">
+    <value>Filter...</value>
+  </data>
+  <data name="PackagesPage_MachineType" xml:space="preserve">
+    <value>Typ zariadenia</value>
+  </data>
+  <data name="PackagesPage_OperatingSystem" xml:space="preserve">
+    <value>Operačný systém</value>
+  </data>
+  <data name="PackagesPage_PrimarySource" xml:space="preserve">
+    <value>Primárny (Odporúčaný)</value>
+  </data>
+  <data name="PackagesPage_SecondarySource" xml:space="preserve">
+    <value>Sekundárny</value>
+  </data>
+  <data name="PackagesPage_Sort_Category" xml:space="preserve">
+    <value>Kategória</value>
+  </data>
+  <data name="PackagesPage_Sort_Date" xml:space="preserve">
+    <value>Dátum</value>
+  </data>
+  <data name="PackagesPage_Sort_Name" xml:space="preserve">
+    <value>Názov</value>
+  </data>
+  <data name="PackagesPage_Source" xml:space="preserve">
+    <value>Zdroj</value>
+  </data>
+  <data name="PackagesPage_Title" xml:space="preserve">
+    <value>Balíčky</value>
+  </data>
+  <data name="Paste" xml:space="preserve">
+    <value>Vložiť</value>
+  </data>
+  <data name="PickProcessesWindow_Title" xml:space="preserve">
+    <value>Aplikácie</value>
+  </data>
+  <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
+    <value>Zvoliť výkonný režim.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Režim výkonu</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
     <value>Nastavenia</value>
+  </data>
+  <data name="PowerModeControl_Title" xml:space="preserve">
+    <value>Režim výkonu</value>
+  </data>
+  <data name="PowerModeWindow_Title" xml:space="preserve">
+    <value>Režim výkonu</value>
+  </data>
+  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
+    <value>Ste si istý?</value>
+  </data>
+  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
+    <value>Vyvážený režim</value>
+  </data>
+  <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
+    <value>Vlastný režim</value>
+  </data>
+  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
+    <value>Východzie</value>
+  </data>
+  <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
+    <value>Výkonný režim</value>
+  </data>
+  <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
+    <value>Tichý režim</value>
+  </data>
+  <data name="PowerPlansWindow_Title" xml:space="preserve">
+    <value>Plány napájania</value>
+  </data>
+  <data name="RGBKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Podsvietenie klávesnice</value>
+  </data>
+  <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
+    <value>Jas</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Preset1" xml:space="preserve">
     <value>Predvoľba 1</value>
@@ -744,23 +1068,53 @@ Vopred vďaka!</value>
   <data name="RGBKeyboardBacklightControl_Zone4" xml:space="preserve">
     <value>Zóna 4</value>
   </data>
+  <data name="RGBKeyboardBacklightEffectCardControl_Title" xml:space="preserve">
+    <value>Efekt</value>
+  </data>
+  <data name="RGBKeyboardBacklightSpeedCardControl_Title" xml:space="preserve">
+    <value>Rýchlosť</value>
+  </data>
   <data name="ReadmeWindow_Title" xml:space="preserve">
     <value>Informácie</value>
   </data>
   <data name="Refresh" xml:space="preserve">
     <value>Obnoviť</value>
   </data>
+  <data name="RefreshRateAutomationStepControl_Message" xml:space="preserve">
+    <value>Zmena obnovovacej frekvencie zabudovaného displeja.
+
+VAROVANIE: Táto akcia neprebehne správne, ak je zabudovaný displej vypnutý.</value>
+  </data>
   <data name="RefreshRateAutomationStepControl_Title" xml:space="preserve">
+    <value>Obnovovacia frekvencia</value>
+  </data>
+  <data name="RefreshRateControl_Message" xml:space="preserve">
+    <value>Zmena obnovovacej frekvencie zabudovaného displeja.</value>
+  </data>
+  <data name="RefreshRateControl_Title" xml:space="preserve">
     <value>Obnovovacia frekvencia</value>
   </data>
   <data name="Rename" xml:space="preserve">
     <value>Premenovať</value>
+  </data>
+  <data name="RestartLater" xml:space="preserve">
+    <value>Reštartujem neskôr</value>
+  </data>
+  <data name="RestartNow" xml:space="preserve">
+    <value>Reštartovať teraz</value>
   </data>
   <data name="Revert" xml:space="preserve">
     <value>Vrátiť</value>
   </data>
   <data name="RunAutomationStepControl_ExeArguments" xml:space="preserve">
     <value>Argumenty</value>
+  </data>
+  <data name="RunAutomationStepControl_ExePath" xml:space="preserve">
+    <value>Cesta k spustiteľným programom</value>
+  </data>
+  <data name="RunAutomationStepControl_Message" xml:space="preserve">
+    <value>Spustiť skript alebo program.
+Prv sa uistite, že váš skript beží správne.</value>
   </data>
   <data name="RunAutomationStepControl_Title" xml:space="preserve">
     <value>Spustť</value>
@@ -771,7 +1125,275 @@ Vopred vďaka!</value>
   <data name="Saving" xml:space="preserve">
     <value>Ukladanie...</value>
   </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Description" xml:space="preserve">
+    <value>Vybrať jednu alebo viac rýchlych akcii na cyklovanie</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
+    <value>Žiadne rýchle akcie určené.</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
+    <value>Zobraziť túto aplikáciu</value>
+  </data>
+  <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
+    <value>Zmeniť farebný odtieň aplikácie.</value>
+  </data>
+  <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
+    <value>Odtieň</value>
+  </data>
+  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
+    <value>Nemeňte dole uvedené možnosti pokiaľ naozaj neviete čo robíte.</value>
+  </data>
   <data name="SettingsPage_Advanced_Title" xml:space="preserve">
     <value>Pokročilé</value>
+  </data>
+  <data name="SettingsPage_Autorun_Message" xml:space="preserve">
+    <value>Spustiť minimalizované na panely úloh pri prihlásení.</value>
+  </data>
+  <data name="SettingsPage_Autorun_Title" xml:space="preserve">
+    <value>Automatické spustenie</value>
+  </data>
+  <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
+    <value>Režimy posilnenia CPU</value>
+  </data>
+  <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
+    <value>Legion Zone možno nebol zakázaný správne</value>
+  </data>
+  <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
+    <value>Nepodarilo sa zakázať Legion Zone</value>
+  </data>
+  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
+    <value>Zakázať Legion Zone a jeho služby bez odinštalovania.
+Po zmene tejto možnosti sa odporúča reštart.</value>
+  </data>
+  <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
+    <value>Zakázať Legion Zone</value>
+  </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Error_Message" xml:space="preserve">
+    <value>Lenovo Hotkeys možno nebol zakázaný správne</value>
+  </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
+    <value>Nepodarilo sa zakázať Lenovo Hotkeys</value>
+  </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
+    <value>Zakázať Lenovo Hotkeys a jeho služby bez odinštalovania.
+Po zakázaní bude táto aplikácia mať na starosti Fn skratky.
+Po zmene tejto možnosti sa odporúča reštart.</value>
+  </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
+    <value>Zakázať Lenovo Hotkeys</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
+    <value>Vantage možno nebol zakázaný správne</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
+    <value>Nepodarilo sa zakázať Vantage</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
+    <value>Zakázať Vantage a jeho služby bez odinštalovania.
+Po zmene tejto možnosti sa odporúča reštart.</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
+    <value>Zakázať Lenovo Vantage</value>
+  </data>
+  <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
+    <value>Legion Zone možno nebol povolený správne</value>
+  </data>
+  <data name="SettingsPage_EnableLegionZone_Error_Title" xml:space="preserve">
+    <value>Nepodarilo sa povoliť Legion Zone</value>
+  </data>
+  <data name="SettingsPage_EnableLenovoHotkeys_Error_Message" xml:space="preserve">
+    <value>Lenovo Hotkeys možno nebol povolený správne</value>
+  </data>
+  <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
+    <value>Nepodarilo sa povoliť Lenovo Hotkeys</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+    <value>Vantage možno nebol povolený správne</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+    <value>Nepodarilo sa povoliť Vantage</value>
+  </data>
+  <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
+    <value>Môžete vylúčiť obnovovacie frekvencie, aby bola skratka Fn+R užitočnejšia.</value>
+  </data>
+  <data name="SettingsPage_ExcludeRefreshRates_Title" xml:space="preserve">
+    <value>Vylúčiť obnovovacie frekvencie</value>
+  </data>
+  <data name="SettingsPage_Language_Message" xml:space="preserve">
+    <value>Vybrať jazyk.</value>
+  </data>
+  <data name="SettingsPage_Language_Title" xml:space="preserve">
+    <value>Jazyk</value>
+  </data>
+  <data name="SettingsPage_MinimizeOnClose_Message" xml:space="preserve">
+    <value>Vždy minimalizovať na panel úloh. Zatvoriť pravým kliknutím na ikonu v panely úloh.</value>
+  </data>
+  <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
+    <value>Minimalizovať pri zatvorení</value>
+  </data>
+  <data name="SettingsPage_Notifications_Message" xml:space="preserve">
+    <value>Nastaviť ktoré upozornenia sa zobrazujú.</value>
+  </data>
+  <data name="SettingsPage_Notifications_Title" xml:space="preserve">
+    <value>Upozornenia</value>
+  </data>
+  <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
+    <value>Plány napájania</value>
+  </data>
+  <data name="SettingsPage_Theme_Title" xml:space="preserve">
+    <value>Motív</value>
+  </data>
+  <data name="SettingsPage_Title" xml:space="preserve">
+    <value>Nastavenia</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Message" xml:space="preserve">
+    <value>Upraviť podsvietenie tlačidiel klávesnice.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Off" xml:space="preserve">
+    <value>Vypnutý</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Title" xml:space="preserve">
+    <value>Podsvietenie tlačidiel klávesnice</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_AddEffect" xml:space="preserve">
+    <value>Pridať efekt</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
+    <value>Jas</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
+    <value>Efekty</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip" xml:space="preserve">
+    <value>Obnoviť východzie</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_ClockwiseDirection_Title" xml:space="preserve">
+    <value>Smer</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Color_Title" xml:space="preserve">
+    <value>Farba</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Colors_Title" xml:space="preserve">
+    <value>Farby</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Direction_Title" xml:space="preserve">
+    <value>Smer</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Title" xml:space="preserve">
+    <value>Efekt</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Speed_Title" xml:space="preserve">
+    <value>Rýchlosť</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Add" xml:space="preserve">
+    <value>Pridať efekt</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Edit" xml:space="preserve">
+    <value>Upraviť efekt</value>
+  </data>
+  <data name="TimeWindow_Sunrise" xml:space="preserve">
+    <value>Úsvit</value>
+  </data>
+  <data name="TimeWindow_Sunset" xml:space="preserve">
+    <value>Úsvit</value>
+  </data>
+  <data name="TimeWindow_Time" xml:space="preserve">
+    <value>Čas</value>
+  </data>
+  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
+    <value>Čas</value>
+  </data>
+  <data name="ToggleHybridModeControl_RestartRequired_Title" xml:space="preserve">
+    <value>Vyžaduje sa reštart</value>
+  </data>
+  <data name="ToggleHybridModeControl_Title" xml:space="preserve">
+    <value>Hybridný režim</value>
+  </data>
+  <data name="TouchpadLockAutomationStepControl_Message" xml:space="preserve">
+    <value>Zakázať touchpad.</value>
+  </data>
+  <data name="TouchpadLockAutomationStepControl_Title" xml:space="preserve">
+    <value>Zámok touchpadu</value>
+  </data>
+  <data name="TouchpadLockControl_Message" xml:space="preserve">
+    <value>Zakázať touchpad.</value>
+  </data>
+  <data name="TouchpadLockControl_Title" xml:space="preserve">
+    <value>Zámok touchpadu</value>
+  </data>
+  <data name="TryAgain" xml:space="preserve">
+    <value>Skúsiť znova</value>
+  </data>
+  <data name="Unnamed" xml:space="preserve">
+    <value>Nepomenované</value>
+  </data>
+  <data name="UnsupportedWindow_Disclaimer_Logs" xml:space="preserve">
+    <value>Priečinok so záznamami</value>
+  </data>
+  <data name="UnsupportedWindow_MachineType" xml:space="preserve">
+    <value>Typ zariadenia</value>
+  </data>
+  <data name="UnsupportedWindow_Model" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="UnsupportedWindow_Title" xml:space="preserve">
+    <value>Nepodporované zariadenie</value>
+  </data>
+  <data name="UnsupportedWindow_Vendor" xml:space="preserve">
+    <value>Dodávateľ</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Aktualizovať</value>
+  </data>
+  <data name="UpdateWindow_Title" xml:space="preserve">
+    <value>Aktualizácia dostupná</value>
+  </data>
+  <data name="UpdateWindow_WhatsNew" xml:space="preserve">
+    <value>Čo je nové?</value>
+  </data>
+  <data name="WhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Upraviť podsvietenie tlačidiel klávesnice.</value>
+  </data>
+  <data name="WhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Podsvietenie klávesnice</value>
+  </data>
+  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Jas</value>
+  </data>
+  <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
+    <value>Tlačidlo Windows</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Áno</value>
+  </data>
+  <data name="MicrophoneControl_Title" xml:space="preserve">
+    <value>Mikrofón</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
+    <value>Mikrofón</value>
+  </data>
+  <data name="ResolutionControl_Title" xml:space="preserve">
+    <value>Rozlíšenie</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
+    <value>Rozlíšenie</value>
+  </data>
+  <data name="DpiScaleControl_Title" xml:space="preserve">
+    <value>DPI</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
+    <value>DPI</value>
+  </data>
+  <data name="DashboardPage_Display_Title" xml:space="preserve">
+    <value>Displej</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Podsvietenie</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Podsvietenie</value>
+  </data>
+  <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
+	  <value>Zobraziť len aktualizácie</value>
   </data>
 </root>
