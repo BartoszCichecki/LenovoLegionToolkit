@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32;
 
@@ -34,6 +35,8 @@ public class DisplayConfigurationListener : IListener<EventArgs>
     {
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Event received.");
+
+        InternalDisplay.SetNeedsRefresh();
 
         Changed?.Invoke(this, EventArgs.Empty);
     }

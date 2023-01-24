@@ -1,8 +1,4 @@
-﻿using System.Linq;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.System;
-using LenovoLegionToolkit.Lib.Utils;
+﻿using System.Runtime.InteropServices;
 using Windows.Win32;
 using Windows.Win32.Devices.Display;
 using WindowsDisplayAPI;
@@ -11,24 +7,6 @@ namespace LenovoLegionToolkit.Lib.Extensions;
 
 public static class DisplayExtensions
 {
-    public static async Task<Display?> GetBuiltInDisplayAsync()
-    {
-        var displays = Display.GetDisplays();
-
-        if (Log.Instance.IsTraceEnabled)
-        {
-            Log.Instance.Trace($"Found displays:");
-            foreach (var display in displays)
-                Log.Instance.Trace($" - {display}");
-        }
-
-        foreach (var display in Display.GetDisplays())
-            if (await display.IsInternalAsync().ConfigureAwait(false))
-                return display;
-
-        return null;
-    }
-
     public static DisplayAdvancedColorInfo GetAdvancedColorInfo(this Display display)
     {
         var getAdvancedColorInfo = new DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO();
@@ -60,22 +38,5 @@ public static class DisplayExtensions
 
         if (PInvoke.DisplayConfigSetDeviceInfo(setAdvancedColorState.header) != 0)
             PInvokeExtensions.ThrowIfWin32Error("SetAdvancedColorState");
-    }
-
-    private static async Task<bool> IsInternalAsync(this Device display)
-    {
-        var instanceName = display.DevicePath
-            .Split("#")
-            .Skip(1)
-            .Take(1)
-            .Aggregate((s1, s2) => s1 + "\\" + s2);
-
-        var result = await WMI.ReadAsync("root\\WMI",
-            $"SELECT * FROM WmiMonitorConnectionParams WHERE InstanceName LIKE '%{instanceName}%'",
-            pdc => (uint)pdc["VideoOutputTechnology"].Value).ConfigureAwait(false);
-
-        const uint votInternal = 0x80000000;
-        const uint votDisplayPortEmbedded = 11;
-        return result.Any(vot => vot is votInternal or votDisplayPortEmbedded);
     }
 }

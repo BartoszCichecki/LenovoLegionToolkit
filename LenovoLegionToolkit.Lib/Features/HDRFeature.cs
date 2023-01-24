@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features;
@@ -12,7 +13,7 @@ public class HDRFeature : IFeature<HDRState>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Checking HDR support...");
 
-        var display = await DisplayExtensions.GetBuiltInDisplayAsync().ConfigureAwait(false);
+        var display = await InternalDisplay.GetAsync().ConfigureAwait(false);
         if (display is null)
         {
             if (Log.Instance.IsTraceEnabled)
@@ -31,7 +32,7 @@ public class HDRFeature : IFeature<HDRState>
 
     public async Task<bool> IsHDRBlockedAsync()
     {
-        var display = await DisplayExtensions.GetBuiltInDisplayAsync().ConfigureAwait(false);
+        var display = await InternalDisplay.GetAsync().ConfigureAwait(false);
         if (display is null)
             throw new InvalidOperationException("Built in display not found");
 
@@ -45,7 +46,7 @@ public class HDRFeature : IFeature<HDRState>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting current HDR state...");
 
-        var display = await DisplayExtensions.GetBuiltInDisplayAsync().ConfigureAwait(false);
+        var display = await InternalDisplay.GetAsync().ConfigureAwait(false);
         if (display is null)
             throw new InvalidOperationException("Built in display not found");
 
@@ -68,7 +69,7 @@ public class HDRFeature : IFeature<HDRState>
             return;
         }
 
-        var display = await DisplayExtensions.GetBuiltInDisplayAsync().ConfigureAwait(false);
+        var display = await InternalDisplay.GetAsync().ConfigureAwait(false);
         if (display is null)
             throw new InvalidOperationException("Built in display not found");
 

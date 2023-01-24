@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
@@ -101,17 +102,25 @@ public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshing
 
     protected virtual async Task OnStateChange(ComboBox comboBox, IFeature<T> feature, T? newValue, T? oldValue)
     {
-        if (IsRefreshing)
-            return;
+        try
+        {
+            if (IsRefreshing)
+                return;
 
-        if (!comboBox.TryGetSelectedItem(out T selectedState))
-            return;
+            if (!comboBox.TryGetSelectedItem(out T selectedState))
+                return;
 
-        var currentState = await feature.GetStateAsync();
+            var currentState = await feature.GetStateAsync();
 
-        if (selectedState.Equals(currentState))
-            return;
+            if (selectedState.Equals(currentState))
+                return;
 
-        await feature.SetStateAsync(selectedState);
+            await feature.SetStateAsync(selectedState);
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Failed to change state. [feature={GetType().Name}]", ex);
+        }
     }
 }

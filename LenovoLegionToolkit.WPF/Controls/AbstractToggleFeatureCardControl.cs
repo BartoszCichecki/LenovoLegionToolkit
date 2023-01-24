@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
@@ -90,13 +91,22 @@ public abstract class AbstractToggleFeatureCardControl<T> : AbstractRefreshingCo
 
     protected virtual async Task OnStateChange(ToggleSwitch toggle, IFeature<T> feature)
     {
-        if (IsRefreshing || toggle.IsChecked is null)
-            return;
+        try
+        {
+            if (IsRefreshing || toggle.IsChecked is null)
+                return;
 
-        var state = toggle.IsChecked.Value ? OnState : OffState;
-        if (state.Equals(await feature.GetStateAsync()))
-            return;
+            var state = toggle.IsChecked.Value ? OnState : OffState;
+            if (state.Equals(await feature.GetStateAsync()))
+                return;
 
-        await feature.SetStateAsync(state);
+            await feature.SetStateAsync(state);
+
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Failed to change state. [feature={GetType().Name}]", ex);
+        }
     }
 }

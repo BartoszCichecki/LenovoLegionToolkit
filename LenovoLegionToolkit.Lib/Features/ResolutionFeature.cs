@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using WindowsDisplayAPI;
 
@@ -16,7 +16,7 @@ public class ResolutionFeature : IFeature<Resolution>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting all resolutions...");
 
-        var display = await DisplayExtensions.GetBuiltInDisplayAsync().ConfigureAwait(false);
+        var display = await InternalDisplay.GetAsync().ConfigureAwait(false);
         if (display is null)
         {
             if (Log.Instance.IsTraceEnabled)
@@ -60,7 +60,7 @@ public class ResolutionFeature : IFeature<Resolution>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting current resolution...");
 
-        var display = await DisplayExtensions.GetBuiltInDisplayAsync().ConfigureAwait(false);
+        var display = await InternalDisplay.GetAsync().ConfigureAwait(false);
         if (display is null)
         {
             if (Log.Instance.IsTraceEnabled)
@@ -80,7 +80,7 @@ public class ResolutionFeature : IFeature<Resolution>
 
     public async Task SetStateAsync(Resolution state)
     {
-        var display = await DisplayExtensions.GetBuiltInDisplayAsync().ConfigureAwait(false);
+        var display = await InternalDisplay.GetAsync().ConfigureAwait(false);
         if (display is null)
         {
             if (Log.Instance.IsTraceEnabled)

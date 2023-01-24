@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using WindowsDisplayAPI.Native.DisplayConfig;
 
@@ -16,7 +16,7 @@ public class DpiScaleFeature : IFeature<DpiScale>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting all DPI scales...");
 
-        var display = await DisplayExtensions.GetBuiltInDisplayAsync().ConfigureAwait(false);
+        var display = await InternalDisplay.GetAsync().ConfigureAwait(false);
         var pds = display?.ToPathDisplaySource();
         if (pds is null)
         {
@@ -46,7 +46,7 @@ public class DpiScaleFeature : IFeature<DpiScale>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting current DPI scale...");
 
-        var display = await DisplayExtensions.GetBuiltInDisplayAsync().ConfigureAwait(false);
+        var display = await InternalDisplay.GetAsync().ConfigureAwait(false);
         var pds = display?.ToPathDisplaySource();
         if (pds is null)
         {
@@ -66,7 +66,7 @@ public class DpiScaleFeature : IFeature<DpiScale>
 
     public async Task SetStateAsync(DpiScale state)
     {
-        var display = await DisplayExtensions.GetBuiltInDisplayAsync().ConfigureAwait(false);
+        var display = await InternalDisplay.GetAsync().ConfigureAwait(false);
         var pds = display?.ToPathDisplaySource();
         if (pds is null)
         {
