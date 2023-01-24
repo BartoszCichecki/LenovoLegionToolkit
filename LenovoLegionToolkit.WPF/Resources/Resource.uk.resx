@@ -1571,4 +1571,22 @@
   <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
 	  <value>Показувати тільки оновлення</value>
   </data>
+  <data name="EditDashboardWindow_Title" xml:space="preserve">
+	  <value>Налаштування панелі керування</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+	  <value>Скидання</value>
+  </data>
+  <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
+	  <value>Створити групу</value>
+  </data>
+  <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
+	  <value>Назва</value>
+  </data>
+  <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
+	  <value>Деякі можливості можуть не з'явитися на панелі керування, залежачи від стану та конфігурації вашого пристрою.</value>
+  </data>
+  <data name="DashboardPage_Customize" xml:space="preserve">
+	  <value>Налаштувати</value>
+  </data>
 </root>
