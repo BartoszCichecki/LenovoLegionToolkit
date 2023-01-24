@@ -67,16 +67,15 @@ public static class DisplayExtensions
         var instanceName = display.DevicePath
             .Split("#")
             .Skip(1)
-            .Take(2)
+            .Take(1)
             .Aggregate((s1, s2) => s1 + "\\" + s2);
 
         var result = await WMI.ReadAsync("root\\WMI",
             $"SELECT * FROM WmiMonitorConnectionParams WHERE InstanceName LIKE '%{instanceName}%'",
             pdc => (uint)pdc["VideoOutputTechnology"].Value).ConfigureAwait(false);
-        var vot = result.FirstOrDefault();
 
         const uint votInternal = 0x80000000;
         const uint votDisplayPortEmbedded = 11;
-        return vot is votInternal or votDisplayPortEmbedded;
+        return result.Any(vot => vot is votInternal or votDisplayPortEmbedded);
     }
 }
