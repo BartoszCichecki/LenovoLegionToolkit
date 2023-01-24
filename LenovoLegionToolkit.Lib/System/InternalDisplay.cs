@@ -7,7 +7,7 @@ using WindowsDisplayAPI;
 
 namespace LenovoLegionToolkit.Lib.System;
 
-internal static class InternalDisplay
+public static class InternalDisplay
 {
     private readonly struct DisplayHolder
     {
