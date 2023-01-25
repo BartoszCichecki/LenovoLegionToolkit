@@ -1584,4 +1584,22 @@ AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está
   <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
 	  <value>Es posible que algunas funciones no aparezcan en el panel de control en función del estado y la configuración del dispositivo.</value>
   </data>
+  <data name="DashboardPage_Customize" xml:space="preserve">
+	  <value>Personalizar</value>
+  </data>
+  <data name="TurnOffMonitorsControl_Title" xml:space="preserve">
+	  <value>Apagar las pantallas</value>
+  </data>
+  <data name="TurnOffMonitorsControl_Message" xml:space="preserve">
+	  <value>Apagar todas las pantallas disponibles.</value>
+  </data>
+  <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
+	  <value>Apagar</value>
+  </data>
+  <data name="TurnOffMonitorsAutomationStepControl_Title" xml:space="preserve">
+	  <value>Apagar las pantallas</value>
+  </data>
+  <data name="TurnOffMonitorsAutomationStepControl_Message" xml:space="preserve">
+	  <value>Apagar todas las pantallas disponibles.</value>
+  </data>
 </root>
