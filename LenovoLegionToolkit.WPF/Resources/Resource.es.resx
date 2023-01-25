@@ -1567,39 +1567,36 @@ AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está
     <value>No se han encontrado descargas coincidentes</value>
   </data>
   <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
-	  <value>Mostrar sólo actualizaciones</value>
+    <value>Mostrar sólo actualizaciones</value>
   </data>
   <data name="EditDashboardWindow_Title" xml:space="preserve">
-	  <value>Personalizar el panel de control</value>
+    <value>Personalizar el panel de control</value>
   </data>
   <data name="Reset" xml:space="preserve">
-	  <value>Restablecer</value>
+    <value>Restablecer</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
-	  <value>Crear un grupo</value>
+    <value>Crear un grupo</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
-	  <value>Nombre</value>
+    <value>Nombre</value>
   </data>
   <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-	  <value>Es posible que algunas funciones no aparezcan en el panel de control en función del estado y la configuración del dispositivo.</value>
+    <value>Es posible que algunas funciones no aparezcan en el panel de control en función del estado y la configuración del dispositivo.</value>
   </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
-	  <value>Personalizar</value>
+    <value>Personalizar</value>
   </data>
   <data name="TurnOffMonitorsControl_Title" xml:space="preserve">
-	  <value>Apagar las pantallas</value>
-  </data>
-  <data name="TurnOffMonitorsControl_Message" xml:space="preserve">
-	  <value>Apagar todas las pantallas disponibles.</value>
+    <value>Apagar las pantallas</value>
   </data>
   <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
-	  <value>Apagar</value>
+    <value>Apagar</value>
   </data>
   <data name="TurnOffMonitorsAutomationStepControl_Title" xml:space="preserve">
-	  <value>Apagar las pantallas</value>
+    <value>Apagar las pantallas</value>
   </data>
   <data name="TurnOffMonitorsAutomationStepControl_Message" xml:space="preserve">
-	  <value>Apagar todas las pantallas disponibles.</value>
+    <value>Apagar todas las pantallas disponibles.</value>
   </data>
 </root>
