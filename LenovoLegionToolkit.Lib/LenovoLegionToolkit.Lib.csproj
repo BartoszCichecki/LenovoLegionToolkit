@@ -13,7 +13,7 @@
 		<PackageReference Include="CoordinateSharp" Version="2.15.2.1" />
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
 		<PackageReference Include="Microsoft.Win32.SystemEvents" Version="7.0.0" />
-		<PackageReference Include="Microsoft.Windows.CsWin32" Version="0.2.164-beta">
+		<PackageReference Include="Microsoft.Windows.CsWin32" Version="0.2.188-beta">
 		  <PrivateAssets>all</PrivateAssets>
 		</PackageReference>
 		<PackageReference Include="NAudio.Wasapi" Version="2.1.0" />
@@ -23,7 +23,7 @@
 		<PackageReference Include="NeoSmart.AsyncLock" Version="3.2.1" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
 		<PackageReference Include="NvAPIWrapper.Net" Version="0.8.1.101" />
-		<PackageReference Include="Octokit" Version="4.0.4" />
+		<PackageReference Include="Octokit" Version="5.0.0" />
 		<PackageReference Include="TaskScheduler" Version="2.10.1" />
 		<PackageReference Include="WindowsDisplayAPI" Version="1.3.0.13" />
 	</ItemGroup>
