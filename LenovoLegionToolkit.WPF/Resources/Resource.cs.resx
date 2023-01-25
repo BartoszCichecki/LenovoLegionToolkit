@@ -1574,4 +1574,37 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je interní displej vypnutý.
   <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
 	  <value>Zobrazit pouze aktualizace</value>
   </data>
+  <data name="EditDashboardWindow_Title" xml:space="preserve">
+	  <value>Přizpůsobit přehled</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+	  <value>Resetovat</value>
+  </data>
+  <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
+	  <value>Vytvořit skupinu</value>
+  </data>
+  <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
+	  <value>Název</value>
+  </data>
+  <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
+	  <value>Některé funkce se nemusí objevit na přehledu kvůli stavu a konfiguraci tvého zařízení.</value>
+  </data>
+  <data name="DashboardPage_Customize" xml:space="preserve">
+	  <value>Přizpůsobit</value>
+  </data>
+  <data name="TurnOffMonitorsControl_Title" xml:space="preserve">
+	  <value>Vypnout monitory</value>
+  </data>
+  <data name="TurnOffMonitorsControl_Message" xml:space="preserve">
+	  <value>Vypnout všechny dostupné monitory.</value>
+  </data>
+  <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
+	  <value>Vypnout</value>
+  </data>
+  <data name="TurnOffMonitorsAutomationStepControl_Title" xml:space="preserve">
+	  <value>Vypnout monitory</value>
+  </data>
+  <data name="TurnOffMonitorsAutomationStepControl_Message" xml:space="preserve">
+	  <value>Vypnout všechny dostupné monitory.</value>
+  </data>
 </root>
