@@ -1570,6 +1570,6 @@ ATENÇÃO: Esta ação não irá executar corretamente se o ecrã interno estive
     <value>Não foram encontradas transferências correspondentes</value>
   </data>
   <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
-	  <value>Mostrar só atualizações</value>
+    <value>Mostrar só atualizações</value>
   </data>
 </root>
