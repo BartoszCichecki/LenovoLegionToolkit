@@ -1572,24 +1572,24 @@
     <value>Подходящих пакетов не найдено</value>
   </data>
   <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
-	  <value>Показывать только обновления</value>
+    <value>Показывать только обновления</value>
   </data>
   <data name="EditDashboardWindow_Title" xml:space="preserve">
-	  <value>Настроить домашнюю страницу</value>
+    <value>Настроить домашнюю страницу</value>
   </data>
   <data name="Reset" xml:space="preserve">
-	  <value>Сброс</value>
+    <value>Сброс</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
-	  <value>Создать группу</value>
+    <value>Создать группу</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
-	  <value>Имя</value>
+    <value>Имя</value>
   </data>
   <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-	  <value>Некоторые функции могут не отображаться на вкладке "Обзор" в зависимости от состояния и конфигурации вашего устройства.</value>
+    <value>Некоторые функции могут не отображаться на вкладке "Обзор" в зависимости от состояния и конфигурации вашего устройства.</value>
   </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
-	  <value>Настроить</value>
+    <value>Настроить</value>
   </data>
 </root>
