@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
@@ -8,6 +9,8 @@ namespace LenovoLegionToolkit.WPF.Pages;
 
 public partial class KeyboardBacklightPage
 {
+    private bool _refreshOnce;
+
     public KeyboardBacklightPage()
     {
         InitializeComponent();
@@ -38,13 +41,22 @@ public partial class KeyboardBacklightPage
 
     private async void KeyboardBacklightPage_Loaded(object sender, RoutedEventArgs e)
     {
+        if (_refreshOnce)
+            return;
+
+        _refreshOnce = true;
+
+        _titleTextBlock.Visibility = Visibility.Collapsed;
+
         await Task.WhenAll(
-            _spectrumKeyboardBacklightControl.FinishedLoadingTask,
-            _rgbKeyboardBacklightControl.FinishedLoadingTask,
-            _whiteKeyboardBacklightControl.FinishedLoadingTask,
-            _oneLevelWhiteKeyboardBacklightControl.FinishedLoadingTask,
-            Task.Delay(1000)
+            Task.Delay(TimeSpan.FromMilliseconds(500)),
+            _spectrumKeyboardBacklightControl.InitializedTask,
+            _rgbKeyboardBacklightControl.InitializedTask,
+            _whiteKeyboardBacklightControl.InitializedTask,
+            _oneLevelWhiteKeyboardBacklightControl.InitializedTask
         );
+
+        _titleTextBlock.Visibility = Visibility.Visible;
 
         var spectrum = _spectrumKeyboardBacklightControl.Visibility == Visibility.Visible;
         var rgb = _rgbKeyboardBacklightControl.Visibility == Visibility.Visible;

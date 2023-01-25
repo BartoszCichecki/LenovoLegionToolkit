@@ -16,12 +16,13 @@
     <StackPanel Margin="0,0,0,0">
 
         <TextBlock
+            x:Name="_titleTextBlock"
             Margin="0,16,0,24"
             FontSize="24"
             FontWeight="Medium"
             Text="{x:Static resources:Resource.KeyboardBacklightPage_Title}" />
 
-        <controls:LoadableControl x:Name="_loader">
+        <controls:LoadableControl x:Name="_loader" InidicatorMargin="0,128,0,0">
             <StackPanel>
                 <TextBlock
                     x:Name="_noKeyboardsText"

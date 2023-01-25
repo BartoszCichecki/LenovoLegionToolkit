@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -37,7 +38,7 @@ public partial class DashboardPage
     {
         _loader.IsLoading = true;
 
-        var loadingTask = Task.Delay(500);
+        var initializedTasks = new List<Task> { Task.Delay(TimeSpan.FromMilliseconds(500)) };
 
         ScrollHost.ScrollToTop();
 
@@ -58,6 +59,7 @@ public partial class DashboardPage
             var control = new DashboardGroupControl(group);
             _content.Children.Add(control);
             _dashboardGroupControls.Add(control);
+            initializedTasks.Add(control.InitializedTask);
         }
 
         _content.RowDefinitions.Add(new RowDefinition { Height = new(1, GridUnitType.Auto) });
@@ -84,7 +86,7 @@ public partial class DashboardPage
 
         LayoutGroups(ActualWidth);
 
-        await loadingTask;
+        await Task.WhenAll(initializedTasks);
 
         _loader.IsLoading = false;
     }

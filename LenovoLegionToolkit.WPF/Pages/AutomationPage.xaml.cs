@@ -104,7 +104,8 @@ public partial class AutomationPage
         _loaderAutomatic.IsLoading = true;
         _loaderManual.IsLoading = true;
 
-        var loadingTask = Task.Delay(TimeSpan.FromSeconds(1));
+
+        var initializedTasks = new List<Task> { Task.Delay(TimeSpan.FromMilliseconds(500)) };
 
         var pipelines = await _automationProcessor.GetPipelinesAsync();
 
@@ -117,12 +118,14 @@ public partial class AutomationPage
         {
             var control = GenerateControl(pipeline, _automaticPipelinesStackPanel);
             _automaticPipelinesStackPanel.Children.Add(control);
+            initializedTasks.Add(control.InitializedTask);
         }
 
         foreach (var pipeline in pipelines.Where(p => p.Trigger is null))
         {
             var control = GenerateControl(pipeline, _manualPipelinesStackPanel);
             _manualPipelinesStackPanel.Children.Add(control);
+            initializedTasks.Add(control.InitializedTask);
         }
 
         await RefreshNewAutomaticPipelineButtonAsync();
@@ -136,13 +139,13 @@ public partial class AutomationPage
             ? Visibility.Visible
             : Visibility.Collapsed;
 
-        await loadingTask;
+        await Task.WhenAll(initializedTasks);
 
         _loaderAutomatic.IsLoading = false;
         _loaderManual.IsLoading = false;
     }
 
-    private UIElement GenerateControl(AutomationPipeline pipeline, StackPanel stackPanel)
+    private AutomationPipelineControl GenerateControl(AutomationPipeline pipeline, StackPanel stackPanel)
     {
         var control = new AutomationPipelineControl(pipeline);
         control.MouseRightButtonUp += (s, e) =>

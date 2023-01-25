@@ -246,7 +246,11 @@
 
             </Grid>
 
-            <controls:LoadableControl x:Name="_effectsLoader" Margin="0,8,0,16">
+            <controls:LoadableControl
+                x:Name="_effectsLoader"
+                Margin="0,8,0,16"
+                IndicatorHeight="32"
+                IndicatorWidth="32">
                 <StackPanel>
                     <TextBlock
                         x:Name="_noEffectsText"

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Threading.Tasks;
+using System.Windows;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Listeners;
 
@@ -12,6 +13,10 @@ public partial class TurnOffMonitorsControl
 
     private void TurnOffButton_Click(object sender, RoutedEventArgs e)
     {
-        _nativeWindowsMessageListener.TurnOffMonitor(); ;
+        _nativeWindowsMessageListener.TurnOffMonitor();
     }
+
+    protected override Task OnRefreshAsync() => Task.CompletedTask;
+
+    protected override void OnFinishedLoading() { }
 }

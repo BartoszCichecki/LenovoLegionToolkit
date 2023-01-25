@@ -85,91 +85,87 @@
 
         </Grid>
 
-        <controls:LoadableControl
-            x:Name="_loader"
+        <Grid
+            x:Name="_contentGrid"
             Grid.Row="1"
-            IndicatorVerticalAlignment="Center">
+            Margin="12,6,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-            <Grid Margin="12,6,0,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+            <wpfui:NavigationStore
+                x:Name="_navigationStore"
+                Grid.Column="0"
+                Margin="0,0,12,12"
+                Frame="{Binding ElementName=_rootFrame}"
+                SelectedPageIndex="0">
 
-                <wpfui:NavigationStore
-                    x:Name="_navigationStore"
-                    Grid.Column="0"
-                    Margin="0,0,12,12"
-                    Frame="{Binding ElementName=_rootFrame}"
-                    SelectedPageIndex="0">
+                <wpfui:NavigationStore.Items>
+                    <wpfui:NavigationItem
+                        Content="{x:Static resources:Resource.MainWindow_NavigationItem_Dashboard}"
+                        Icon="Home24"
+                        PageTag="dashboard"
+                        PageType="{x:Type pages:DashboardPage}" />
+                    <wpfui:NavigationItem
+                        x:Name="_keyboardItem"
+                        Content="{x:Static resources:Resource.MainWindow_NavigationItem_Keyboard}"
+                        Icon="Keyboard24"
+                        PageTag="keyboardBacklight"
+                        PageType="{x:Type pages:KeyboardBacklightPage}" />
+                    <wpfui:NavigationItem
+                        Content="{x:Static resources:Resource.MainWindow_NavigationItem_Battery}"
+                        Icon="BatteryCheckmark24"
+                        PageTag="battery"
+                        PageType="{x:Type pages:BatteryPage}" />
+                    <wpfui:NavigationItem
+                        Content="{x:Static resources:Resource.MainWindow_NavigationItem_Actions}"
+                        Icon="Rocket24"
+                        PageTag="automation"
+                        PageType="{x:Type pages:AutomationPage}" />
+                    <wpfui:NavigationItem
+                        Content="{x:Static resources:Resource.MainWindow_NavigationItem_Packages}"
+                        Icon="Box24"
+                        PageTag="packages"
+                        PageType="{x:Type pages:PackagesPage}" />
+                </wpfui:NavigationStore.Items>
 
-                    <wpfui:NavigationStore.Items>
-                        <wpfui:NavigationItem
-                            Content="{x:Static resources:Resource.MainWindow_NavigationItem_Dashboard}"
-                            Icon="Home24"
-                            PageTag="dashboard"
-                            PageType="{x:Type pages:DashboardPage}" />
-                        <wpfui:NavigationItem
-                            x:Name="_keyboardItem"
-                            Content="{x:Static resources:Resource.MainWindow_NavigationItem_Keyboard}"
-                            Icon="Keyboard24"
-                            PageTag="keyboardBacklight"
-                            PageType="{x:Type pages:KeyboardBacklightPage}" />
-                        <wpfui:NavigationItem
-                            Content="{x:Static resources:Resource.MainWindow_NavigationItem_Battery}"
-                            Icon="BatteryCheckmark24"
-                            PageTag="battery"
-                            PageType="{x:Type pages:BatteryPage}" />
-                        <wpfui:NavigationItem
-                            Content="{x:Static resources:Resource.MainWindow_NavigationItem_Actions}"
-                            Icon="Rocket24"
-                            PageTag="automation"
-                            PageType="{x:Type pages:AutomationPage}" />
-                        <wpfui:NavigationItem
-                            Content="{x:Static resources:Resource.MainWindow_NavigationItem_Packages}"
-                            Icon="Box24"
-                            PageTag="packages"
-                            PageType="{x:Type pages:PackagesPage}" />
-                    </wpfui:NavigationStore.Items>
+                <wpfui:NavigationStore.Footer>
+                    <wpfui:NavigationItem
+                        Content="{x:Static resources:Resource.MainWindow_NavigationItem_Settings}"
+                        Icon="Settings24"
+                        PageTag="settings"
+                        PageType="{x:Type pages:SettingsPage}" />
+                    <wpfui:NavigationItem
+                        Content="{x:Static resources:Resource.MainWindow_NavigationItem_Donate}"
+                        Icon="Money24"
+                        PageTag="donate"
+                        PageType="{x:Type pages:DonatePage}" />
+                    <wpfui:NavigationItem
+                        Content="{x:Static resources:Resource.MainWindow_NavigationItem_About}"
+                        Icon="Info24"
+                        PageTag="about"
+                        PageType="{x:Type pages:AboutPage}" />
+                </wpfui:NavigationStore.Footer>
 
-                    <wpfui:NavigationStore.Footer>
-                        <wpfui:NavigationItem
-                            Content="{x:Static resources:Resource.MainWindow_NavigationItem_Settings}"
-                            Icon="Settings24"
-                            PageTag="settings"
-                            PageType="{x:Type pages:SettingsPage}" />
-                        <wpfui:NavigationItem
-                            Content="{x:Static resources:Resource.MainWindow_NavigationItem_Donate}"
-                            Icon="Money24"
-                            PageTag="donate"
-                            PageType="{x:Type pages:DonatePage}" />
-                        <wpfui:NavigationItem
-                            Content="{x:Static resources:Resource.MainWindow_NavigationItem_About}"
-                            Icon="Info24"
-                            PageTag="about"
-                            PageType="{x:Type pages:AboutPage}" />
-                    </wpfui:NavigationStore.Footer>
+            </wpfui:NavigationStore>
 
-                </wpfui:NavigationStore>
+            <Border
+                Grid.Column="1"
+                Background="{DynamicResource ControlFillColorDefaultBrush}"
+                CornerRadius="8,0,0,0">
+                <Frame Name="_rootFrame" Margin="24,0,0,0" />
+            </Border>
 
-                <Border
-                    Grid.Column="1"
-                    Background="{DynamicResource ControlFillColorDefaultBrush}"
-                    CornerRadius="8,0,0,0">
-                    <Frame Name="_rootFrame" Margin="24,0,0,0" />
-                </Border>
+            <wpfui:Snackbar
+                x:Name="_snackbar"
+                Grid.Column="1"
+                MinWidth="300"
+                MaxWidth="600"
+                HorizontalAlignment="Center"
+                Icon="Checkmark24" />
 
-                <wpfui:Snackbar
-                    x:Name="_snackbar"
-                    Grid.Column="1"
-                    MinWidth="300"
-                    MaxWidth="600"
-                    HorizontalAlignment="Center"
-                    Icon="Checkmark24" />
-
-            </Grid>
-
-        </controls:LoadableControl>
+        </Grid>
 
     </Grid>
 </local:BaseWindow>

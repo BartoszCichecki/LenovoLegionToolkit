@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Windows.Controls;
+using System.Threading.Tasks;
+using LenovoLegionToolkit.WPF.Controls;
 using LenovoLegionToolkit.WPF.Controls.Dashboard;
 using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Common;
@@ -50,12 +51,12 @@ public static class DashboardItemExtensions
         _ => throw new InvalidOperationException($"Invalid DashboardItem {dashboardItem}"),
     };
 
-    public static ContentControl GetControl(this DashboardItem dashboardItem) => dashboardItem switch
+    public static async Task<AbstractRefreshingControl> GetControlAsync(this DashboardItem dashboardItem) => dashboardItem switch
     {
         DashboardItem.PowerMode => new PowerModeControl(),
         DashboardItem.BatteryMode => new BatteryModeControl(),
         DashboardItem.AlwaysOnUsb => new AlwaysOnUSBControl(),
-        DashboardItem.HybridMode => new HybridModeControl(),
+        DashboardItem.HybridMode => await HybridModeControlFactory.GetControlAsync(),
         DashboardItem.DiscreteGpu => new DiscreteGPUControl(),
         DashboardItem.Resolution => new ResolutionControl(),
         DashboardItem.RefreshRate => new RefreshRateControl(),

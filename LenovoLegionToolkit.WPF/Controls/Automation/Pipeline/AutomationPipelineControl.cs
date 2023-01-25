@@ -25,6 +25,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline;
 
 public class AutomationPipelineControl : UserControl
 {
+    private readonly TaskCompletionSource _initializedTaskCompletionSource = new();
+
     private readonly AutomationProcessor _automationProcessor = IoCContainer.Resolve<AutomationProcessor>();
 
     private readonly CardExpander _cardExpander = new()
@@ -83,6 +85,8 @@ public class AutomationPipelineControl : UserControl
 
     public event EventHandler? OnChanged;
     public event EventHandler? OnDelete;
+
+    public Task InitializedTask => _initializedTaskCompletionSource.Task;
 
     public AutomationPipelineControl(AutomationPipeline automationPipeline)
     {
@@ -166,6 +170,8 @@ public class AutomationPipelineControl : UserControl
         _cardExpander.Content = _stackPanel;
 
         Content = _cardExpander;
+
+        _initializedTaskCompletionSource.TrySetResult();
     }
 
     private async Task RunAsync()

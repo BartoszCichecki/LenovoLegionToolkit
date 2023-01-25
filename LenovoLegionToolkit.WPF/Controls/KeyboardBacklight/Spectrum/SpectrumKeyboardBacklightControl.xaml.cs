@@ -416,7 +416,7 @@ public partial class SpectrumKeyboardBacklightControl
     {
         ShowProfileDescriptionLoader();
 
-        var delay = Task.Delay(TimeSpan.FromMilliseconds(250));
+        var delay = Task.Delay(TimeSpan.FromMilliseconds(500));
 
         var profile = await _controller.GetProfileAsync();
         var (_, effects) = await _controller.GetProfileDescriptionAsync(profile);

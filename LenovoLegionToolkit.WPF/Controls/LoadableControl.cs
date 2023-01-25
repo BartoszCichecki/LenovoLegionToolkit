@@ -67,6 +67,12 @@ public class LoadableControl : UserControl
         set => _progressRing.VerticalAlignment = value;
     }
 
+    public Thickness InidicatorMargin
+    {
+        get => _progressRing.Margin;
+        set => _progressRing.Margin = value;
+    }
+
     public Visibility ContentVisibilityWhileLoading { get; set; } = Visibility.Hidden;
 
     protected override void OnInitialized(EventArgs e)
