@@ -2,7 +2,6 @@
     x:Class="LenovoLegionToolkit.WPF.Windows.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:pages="clr-namespace:LenovoLegionToolkit.WPF.Pages"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
@@ -20,6 +19,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <tb:TaskbarIcon
@@ -34,7 +34,6 @@
         <Grid Grid.Row="0" Margin="12,4,150,4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
@@ -62,20 +61,8 @@
                 Visibility="Collapsed" />
 
             <wpfui:Badge
-                x:Name="_updateIndicator"
-                Grid.Column="2"
-                Margin="0,0,8,0"
-                Padding="8,2,8,2"
-                Appearance="Success"
-                Content="{x:Static resources:Resource.MainWindow_UpdateAvailable}"
-                Cursor="Hand"
-                MouseLeftButtonDown="UpdateIndicator_Click"
-                MouseRightButtonDown="UpdateIndicator_Click"
-                Visibility="Collapsed" />
-
-            <wpfui:Badge
                 x:Name="_deviceInfoIndicator"
-                Grid.Column="3"
+                Grid.Column="2"
                 Padding="8,2,8,2"
                 Appearance="Transparent"
                 Cursor="Hand"
@@ -166,6 +153,24 @@
                 Icon="Checkmark24" />
 
         </Grid>
+
+        <Label
+            x:Name="_updateIndicator"
+            Grid.Row="2"
+            Padding="8,4,8,4"
+            HorizontalContentAlignment="Center"
+            Content="{x:Static resources:Resource.MainWindow_UpdateAvailable}"
+            Cursor="Hand"
+            MouseLeftButtonDown="OpenLogIndicator_Click"
+            MouseRightButtonDown="OpenLogIndicator_Click"
+            Visibility="Collapsed">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource TextFillColorPrimary}" />
+            </Label.Foreground>
+            <Label.Background>
+                <SolidColorBrush Opacity="0.8" Color="{DynamicResource SystemFillColorSuccess}" />
+            </Label.Background>
+        </Label>
 
     </Grid>
 </local:BaseWindow>
