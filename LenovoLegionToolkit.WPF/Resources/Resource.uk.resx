@@ -1589,4 +1589,19 @@
   <data name="DashboardPage_Customize" xml:space="preserve">
 	  <value>Налаштувати</value>
   </data>
+  <data name="TurnOffMonitorsControl_Title" xml:space="preserve">
+	  <value>Вимкнути дисплеї</value>
+  </data>
+  <data name="TurnOffMonitorsControl_Message" xml:space="preserve">
+	  <value>Вимкнути усі доступні дисплеї.</value>
+  </data>
+  <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
+	  <value>Вимкнути</value>
+  </data>
+  <data name="TurnOffMonitorsAutomationStepControl_Title" xml:space="preserve">
+	  <value>Вимкнути дисплеї</value>
+  </data>
+  <data name="TurnOffMonitorsAutomationStepControl_Message" xml:space="preserve">
+	  <value>Вимкнути усі доступні дисплеї.</value>
+  </data>
 </root>
