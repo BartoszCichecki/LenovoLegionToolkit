@@ -4218,7 +4218,8 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Turn off all available displays..
+        ///   Looks up a localized string similar to Turn off all available displays.
+        ///Moving the mouse or pressing the keyboard will wake displays up..
         /// </summary>
         public static string TurnOffMonitorsControl_Message {
             get {
