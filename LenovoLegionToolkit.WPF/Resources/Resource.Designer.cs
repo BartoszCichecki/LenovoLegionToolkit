@@ -4200,6 +4200,51 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Turn off all available displays..
+        /// </summary>
+        public static string TurnOffMonitorsAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("TurnOffMonitorsAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turn off displays.
+        /// </summary>
+        public static string TurnOffMonitorsAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("TurnOffMonitorsAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turn off all available displays..
+        /// </summary>
+        public static string TurnOffMonitorsControl_Message {
+            get {
+                return ResourceManager.GetString("TurnOffMonitorsControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turn off displays.
+        /// </summary>
+        public static string TurnOffMonitorsControl_Title {
+            get {
+                return ResourceManager.GetString("TurnOffMonitorsControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turn off.
+        /// </summary>
+        public static string TurnOffMonitorsControl_TurnOff {
+            get {
+                return ResourceManager.GetString("TurnOffMonitorsControl_TurnOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unexpected exception occurred:
         ///{0}
         ///

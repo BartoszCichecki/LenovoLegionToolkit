@@ -12,7 +12,6 @@ using Windows.Win32.UI.WindowsAndMessaging;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-
 public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindowsMessage>
 {
     private readonly IGPUModeFeature _igpuModeFeature;
@@ -30,6 +29,11 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         _igpuModeFeature = igpuModeFeature ?? throw new ArgumentNullException(nameof(igpuModeFeature));
 
         _kbProc = LowLevelKeyboardProc;
+    }
+
+    public void TurnOffMonitor()
+    {
+        PInvoke.SendMessage(new HWND(Handle), PInvoke.WM_SYSCOMMAND, new WPARAM(PInvoke.SC_MONITORPOWER), new LPARAM(2));
     }
 
     public unsafe Task StartAsync()

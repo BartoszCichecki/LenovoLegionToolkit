@@ -168,9 +168,9 @@ public partial class App
 
         try
         {
-            if (IoCContainer.TryResolve<NativeWindowsMessageListener>() is { } windowsMessageListener)
+            if (IoCContainer.TryResolve<NativeWindowsMessageListener>() is { } nativeMessageWindowListener)
             {
-                await windowsMessageListener.StopAsync();
+                await nativeMessageWindowListener.StopAsync();
             }
         }
         catch { }

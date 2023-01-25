@@ -36,6 +36,9 @@ SERVICE_NO_CHANGE
 DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO
 DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE
 
+WM_SYSCOMMAND
+SC_MONITORPOWER
+
 CreateFile
 DeviceIoControl
 
@@ -91,3 +94,5 @@ DisplayConfigSetDeviceInfo
 MonitorFromPoint
 GetMonitorInfoW
 GetDpiForMonitor
+
+SendMessage

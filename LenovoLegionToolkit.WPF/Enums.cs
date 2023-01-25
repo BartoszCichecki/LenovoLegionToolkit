@@ -21,6 +21,7 @@ public enum DashboardItem
     DpiScale,
     Hdr,
     OverDrive,
+    TurnOffMonitors,
     Microphone,
     FlipToStart,
     TouchpadLock,
