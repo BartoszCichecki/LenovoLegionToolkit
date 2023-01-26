@@ -31,8 +31,9 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         _kbProc = LowLevelKeyboardProc;
     }
 
-    public void TurnOffMonitor()
+    public async Task TurnOffMonitorAsync()
     {
+        await Task.Delay(TimeSpan.FromSeconds(1));
         PInvoke.SendMessage(new HWND(Handle), PInvoke.WM_SYSCOMMAND, new WPARAM(PInvoke.SC_MONITORPOWER), new LPARAM(2));
     }
 

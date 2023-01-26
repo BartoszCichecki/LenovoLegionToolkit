@@ -15,6 +15,7 @@
             <controls:CardHeaderControl Title="{x:Static resources:Resource.TurnOffMonitorsControl_Title}" Subtitle="{x:Static resources:Resource.TurnOffMonitorsControl_Message}" />
         </wpfui:CardControl.Header>
         <wpfui:Button
+            x:Name="_turnOffButton"
             MinWidth="120"
             Click="TurnOffButton_Click"
             Content="{x:Static resources:Resource.TurnOffMonitorsControl_TurnOff}" />

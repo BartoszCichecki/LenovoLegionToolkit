@@ -1608,4 +1608,10 @@ Moving the mouse or pressing the keyboard will wake displays up.</value>
   <data name="TurnOffMonitorsAutomationStepControl_Message" xml:space="preserve">
     <value>Turn off all available displays.</value>
   </data>
+  <data name="EditDashboardGroupControl_EditGroup_Title" xml:space="preserve">
+	  <value>Edit group name</value>
+  </data>
+  <data name="EditDashboardGroupControl_EditGroup_Message" xml:space="preserve">
+	  <value>Name</value>
+  </data>
 </root>

@@ -100,10 +100,7 @@ public static class MessageBoxHelper
             MaxLines = 1,
             MaxLength = 50,
             PlaceholderText = placeholder,
-            Text = text,
-            TextWrapping = TextWrapping.Wrap,
-            SelectionStart = text?.Length ?? 0,
-            SelectionLength = 0
+            TextWrapping = TextWrapping.Wrap
         };
         var messageBox = new MessageBox
         {
@@ -144,6 +141,10 @@ public static class MessageBoxHelper
             tcs.TrySetResult("");
         };
         messageBox.Show();
+
+        textBox.Text = text;
+        textBox.SelectionStart = text?.Length ?? 0;
+        textBox.SelectionLength = 0;
 
         FocusManager.SetFocusedElement(window, textBox);
 

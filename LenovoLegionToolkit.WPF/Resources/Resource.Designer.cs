@@ -1511,6 +1511,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
+        public static string EditDashboardGroupControl_EditGroup_Message {
+            get {
+                return ResourceManager.GetString("EditDashboardGroupControl_EditGroup_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit group name.
+        /// </summary>
+        public static string EditDashboardGroupControl_EditGroup_Title {
+            get {
+                return ResourceManager.GetString("EditDashboardGroupControl_EditGroup_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
         public static string EditDashboardWindow_CreateGroup_Message {
             get {
                 return ResourceManager.GetString("EditDashboardWindow_CreateGroup_Message", resourceCulture);
