@@ -1592,6 +1592,10 @@
   <data name="TurnOffMonitorsControl_Title" xml:space="preserve">
     <value>Вимкнути дисплеї</value>
   </data>
+  <data name="TurnOffMonitorsControl_Message" xml:space="preserve">
+    <value>Вимкнути усі доступні дисплеї.
+Пересування миші чи натискання на клавіатуру може увімкнути дисплеї.</value>
+  </data>
   <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
     <value>Вимкнути</value>
   </data>
