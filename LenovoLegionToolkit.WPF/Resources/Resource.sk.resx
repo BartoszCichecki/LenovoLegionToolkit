@@ -960,6 +960,9 @@ Povoľte túto možnosť ak máte konflikty s aplikáciami na celú obrazovku.</
   <data name="PackageControl_Http404Error_Title" xml:space="preserve">
     <value>Zdá sa, že súbor je preč</value>
   </data>
+  <data name="PackageControl_HttpGeneralError_Message" xml:space="preserve">
+    <value>Skontrolujte vaše internetové pripojenie.</value>
+  </data>
   <data name="PackageControl_Version" xml:space="preserve">
     <value>Verzia</value>
   </data>
@@ -1375,14 +1378,30 @@ Po zmene tejto možnosti sa odporúča reštart.</value>
   <data name="ResolutionControl_Title" xml:space="preserve">
     <value>Rozlíšenie</value>
   </data>
+  <data name="ResolutionControl_Message" xml:space="preserve">
+    <value>Zmena rozlíšenia zabudovaného displeja.</value>
+  </data>
   <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
     <value>Rozlíšenie</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
+    <value>Zmena rozlíšenia zabudovaného displeja.
+
+VAROVANIE: Táto akcia neprebehne správne, ak je zabudovaný displej vypnutý.</value>
   </data>
   <data name="DpiScaleControl_Title" xml:space="preserve">
     <value>DPI</value>
   </data>
+  <data name="DpiScaleControl_Message" xml:space="preserve">
+    <value>Zmena škálovania zabudovaného displeja.</value>
+  </data>
   <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
     <value>DPI</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
+    <value>Zmena škálovania zabudovaného displeja.
+
+VAROVANIE: Táto akcia neprebehne správne, ak je zabudovaný displej vypnutý.</value>
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>Displej</value>
@@ -1394,6 +1413,22 @@ Po zmene tejto možnosti sa odporúča reštart.</value>
     <value>Podsvietenie</value>
   </data>
   <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
-	  <value>Zobraziť len aktualizácie</value>
+    <value>Zobraziť len aktualizácie</value>
+  </data>
+  <data name="TurnOffMonitorsControl_Title" xml:space="preserve">
+    <value>Vypnúť displeje</value>
+  </data>
+  <data name="TurnOffMonitorsControl_Message" xml:space="preserve">
+    <value>Vypnúť všetky dostupné displeje.
+Pohyb kurzoru alebo stlačenie klávesnice zobudí displeje.</value>
+  </data>
+  <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
+    <value>Vypnúť</value>
+  </data>
+  <data name="TurnOffMonitorsAutomationStepControl_Title" xml:space="preserve">
+    <value>Vypnúť displeje</value>
+  </data>
+  <data name="TurnOffMonitorsAutomationStepControl_Message" xml:space="preserve">
+    <value>Vypnúť všetky dostupné displeje.</value>
   </data>
 </root>

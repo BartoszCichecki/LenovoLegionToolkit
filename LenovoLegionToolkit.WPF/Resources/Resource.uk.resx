@@ -1569,39 +1569,40 @@
     <value>Не знайдено відповідних завантажень</value>
   </data>
   <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
-	  <value>Показувати тільки оновлення</value>
+    <value>Показувати тільки оновлення</value>
   </data>
   <data name="EditDashboardWindow_Title" xml:space="preserve">
-	  <value>Налаштування панелі керування</value>
+    <value>Налаштування панелі керування</value>
   </data>
   <data name="Reset" xml:space="preserve">
-	  <value>Скидання</value>
+    <value>Скидання</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
-	  <value>Створити групу</value>
+    <value>Створити групу</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
-	  <value>Назва</value>
+    <value>Назва</value>
   </data>
   <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-	  <value>Деякі можливості можуть не з'явитися на панелі керування, залежачи від стану та конфігурації вашого пристрою.</value>
+    <value>Деякі можливості можуть не з'явитися на панелі керування, залежачи від стану та конфігурації вашого пристрою.</value>
   </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
-	  <value>Налаштувати</value>
+    <value>Налаштувати</value>
   </data>
   <data name="TurnOffMonitorsControl_Title" xml:space="preserve">
-	  <value>Вимкнути дисплеї</value>
+    <value>Вимкнути дисплеї</value>
   </data>
   <data name="TurnOffMonitorsControl_Message" xml:space="preserve">
-	  <value>Вимкнути усі доступні дисплеї.</value>
+    <value>Вимкнути усі доступні дисплеї.
+Пересування миші чи натискання на клавіатуру може увімкнути дисплеї.</value>
   </data>
   <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
-	  <value>Вимкнути</value>
+    <value>Вимкнути</value>
   </data>
   <data name="TurnOffMonitorsAutomationStepControl_Title" xml:space="preserve">
-	  <value>Вимкнути дисплеї</value>
+    <value>Вимкнути дисплеї</value>
   </data>
   <data name="TurnOffMonitorsAutomationStepControl_Message" xml:space="preserve">
-	  <value>Вимкнути усі доступні дисплеї.</value>
+    <value>Вимкнути усі доступні дисплеї.</value>
   </data>
 </root>

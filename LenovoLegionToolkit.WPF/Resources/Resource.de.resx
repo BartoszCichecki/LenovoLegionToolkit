@@ -1571,39 +1571,36 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
     <value>Keine passenden Downloads gefunden</value>
   </data>
   <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
-	  <value>Zeige nur Updates</value>
+    <value>Zeige nur Updates</value>
   </data>
   <data name="EditDashboardWindow_Title" xml:space="preserve">
-	  <value>Übersicht anpassen</value>
+    <value>Übersicht anpassen</value>
   </data>
   <data name="Reset" xml:space="preserve">
-	  <value>Zurücksetzen</value>
+    <value>Zurücksetzen</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
-	  <value>Gruppe erstellen</value>
+    <value>Gruppe erstellen</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
-	  <value>Name</value>
+    <value>Name</value>
   </data>
   <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-	  <value>Je nach Zustand und Konfiguration Ihres Geräts werden einige Funktionen möglicherweise nicht in der Übersicht angezeigt.</value>
+    <value>Je nach Zustand und Konfiguration Ihres Geräts werden einige Funktionen möglicherweise nicht in der Übersicht angezeigt.</value>
   </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
-	  <value>Anpassen</value>
+    <value>Anpassen</value>
   </data>
   <data name="TurnOffMonitorsControl_Title" xml:space="preserve">
-	  <value>Bildschirme ausschalten</value>
-  </data>
-  <data name="TurnOffMonitorsControl_Message" xml:space="preserve">
-	  <value>Alle verfügbaren Bildschirme ausschalten.</value>
+    <value>Bildschirme ausschalten</value>
   </data>
   <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
-	  <value>Ausschalten</value>
+    <value>Ausschalten</value>
   </data>
   <data name="TurnOffMonitorsAutomationStepControl_Title" xml:space="preserve">
-	  <value>Bildschirme ausschalten</value>
+    <value>Bildschirme ausschalten</value>
   </data>
   <data name="TurnOffMonitorsAutomationStepControl_Message" xml:space="preserve">
-	  <value>Alle verfügbaren Bildschirme ausschalten.</value>
+    <value>Alle verfügbaren Bildschirme ausschalten.</value>
   </data>
 </root>

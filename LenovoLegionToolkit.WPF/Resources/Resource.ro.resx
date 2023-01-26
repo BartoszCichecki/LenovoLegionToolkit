@@ -1572,39 +1572,40 @@ ATENȚIE: Această acțiune nu va rula corect dacă afișajul încorporat este o
     <value>Nu s-au găsit descărcări care îndeplinesc criteriul</value>
   </data>
   <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
-	  <value>Arată doar actualizările</value>
+    <value>Arată doar actualizările</value>
   </data>
   <data name="EditDashboardWindow_Title" xml:space="preserve">
-	  <value>Personalizare bord</value>
+    <value>Personalizare bord</value>
   </data>
   <data name="Reset" xml:space="preserve">
-	  <value>Resetare</value>
+    <value>Resetare</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
-	  <value>Creați grupare</value>
+    <value>Creați grupare</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
-	  <value>Nume</value>
+    <value>Nume</value>
   </data>
   <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-	  <value>Este posibil ca unele funcții să nu apară în tabloul de bord, în funcție de starea și configurația dispozitivului dvs.</value>
+    <value>Este posibil ca unele funcții să nu apară în tabloul de bord, în funcție de starea și configurația dispozitivului dvs.</value>
   </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
-	  <value>Personalizare</value>
+    <value>Personalizare</value>
   </data>
   <data name="TurnOffMonitorsControl_Title" xml:space="preserve">
-	  <value>Oprire afișaje</value>
+    <value>Oprire afișaje</value>
   </data>
   <data name="TurnOffMonitorsControl_Message" xml:space="preserve">
-	  <value>Opriți toate afișajele disponibile.</value>
+    <value>Opriți toate afișajele disponibile.
+Mișcarea mouse-ului sau apăsarea tastaturii va reporni afișajele.</value>
   </data>
   <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
-	  <value>Oprire</value>
+    <value>Oprire</value>
   </data>
   <data name="TurnOffMonitorsAutomationStepControl_Title" xml:space="preserve">
-	  <value>Oprire afișaje</value>
+    <value>Oprire afișaje</value>
   </data>
   <data name="TurnOffMonitorsAutomationStepControl_Message" xml:space="preserve">
-	  <value>Opriți toate afișajele disponibile.</value>
+    <value>Opriți toate afișajele disponibile.</value>
   </data>
 </root>

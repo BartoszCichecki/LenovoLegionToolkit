@@ -1495,4 +1495,38 @@ Logging sẽ được tự động bật, nếu bạn chọn tiếp tục.</valu
   <data name="Yes" xml:space="preserve">
     <value>Có</value>
   </data>
+  <data name="EditDashboardWindow_Title" xml:space="preserve">
+    <value>Tùy biến trang chủ</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Đặt lại</value>
+  </data>
+  <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
+    <value>Tạo nhóm</value>
+  </data>
+  <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
+    <value>Tên</value>
+  </data>
+  <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
+    <value>Một số chức năng sẽ không xuất hiện trên Trang Chủ tùy vào trạng thái và cấu hình của Laptop.</value>
+  </data>
+  <data name="DashboardPage_Customize" xml:space="preserve">
+    <value>Tùy chỉnh</value>
+  </data>
+  <data name="TurnOffMonitorsControl_Title" xml:space="preserve">
+    <value>Tắt các màn hình</value>
+  </data>
+  <data name="TurnOffMonitorsControl_Message" xml:space="preserve">
+    <value>Tắt tất cả các màn hình được kết nối. 
+Di chuyển chuột hoặc bấm phím bất kỳ trên bàn phím để bật màn hình.</value>
+  </data>
+  <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
+    <value>Tắt</value>
+  </data>
+  <data name="TurnOffMonitorsAutomationStepControl_Title" xml:space="preserve">
+    <value>Tắt các màn hình</value>
+  </data>
+  <data name="TurnOffMonitorsAutomationStepControl_Message" xml:space="preserve">
+    <value>Tắt tất cả các màn hình.</value>
+  </data>
 </root>
