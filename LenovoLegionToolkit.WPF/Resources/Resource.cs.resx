@@ -1595,6 +1595,10 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je interní displej vypnutý.
   <data name="TurnOffMonitorsControl_Title" xml:space="preserve">
     <value>Vypnout monitory</value>
   </data>
+  <data name="TurnOffMonitorsControl_Message" xml:space="preserve">
+    <value>Vypnout všechny dostupné monitory.
+Pohybem myši, nebo stiskem klávesnice se znovu zapnou.</value>
+  </data>
   <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
     <value>Vypnout</value>
   </data>
