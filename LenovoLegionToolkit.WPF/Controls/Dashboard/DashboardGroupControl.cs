@@ -36,12 +36,14 @@ public class DashboardGroupControl : UserControl
             Margin = new(0, 16, 0, 24)
         });
 
-        var controls = await Task.WhenAll(_dashboardGroup.Items.Select(i => i.GetControlAsync()));
+        var controlsTasks = _dashboardGroup.Items.Select(i => i.GetControlAsync());
+        var controls = await Task.WhenAll(controlsTasks);
 
-        foreach (var control in controls)
+        foreach (var control in controls.SelectMany(c => c))
+        {
             stackPanel.Children.Add(control);
-
-        initializedTasks.AddRange(controls.Select(c => c.InitializedTask));
+            initializedTasks.Add(control.InitializedTask);
+        }
 
         Content = stackPanel;
 

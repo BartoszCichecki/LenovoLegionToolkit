@@ -26,5 +26,6 @@ public enum DashboardItem
     FlipToStart,
     TouchpadLock,
     FnLock,
-    WinKeyLock
+    WinKeyLock,
+    WhiteKeyboardBacklight
 }

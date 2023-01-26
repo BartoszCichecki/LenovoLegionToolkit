@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.WPF.Controls;
 using LenovoLegionToolkit.WPF.Controls.Dashboard;
@@ -27,6 +28,7 @@ public static class DashboardItemExtensions
         DashboardItem.TouchpadLock => SymbolRegular.Tablet24,
         DashboardItem.FnLock => SymbolRegular.Keyboard24,
         DashboardItem.WinKeyLock => SymbolRegular.Keyboard24,
+        DashboardItem.WhiteKeyboardBacklight => SymbolRegular.Keyboard24,
         _ => throw new InvalidOperationException($"Invalid DashboardItem {dashboardItem}"),
     };
 
@@ -48,27 +50,29 @@ public static class DashboardItemExtensions
         DashboardItem.TouchpadLock => Resource.TouchpadLockControl_Title,
         DashboardItem.FnLock => Resource.FnLockControl_Title,
         DashboardItem.WinKeyLock => Resource.WinKeyControl_Title,
+        DashboardItem.WhiteKeyboardBacklight => $"{Resource.WhiteKeyboardBacklightControl_Title} / {Resource.OneLevelWhiteKeyboardBacklightControl_Title}",
         _ => throw new InvalidOperationException($"Invalid DashboardItem {dashboardItem}"),
     };
 
-    public static async Task<AbstractRefreshingControl> GetControlAsync(this DashboardItem dashboardItem) => dashboardItem switch
+    public static async Task<IEnumerable<AbstractRefreshingControl>> GetControlAsync(this DashboardItem dashboardItem) => dashboardItem switch
     {
-        DashboardItem.PowerMode => new PowerModeControl(),
-        DashboardItem.BatteryMode => new BatteryModeControl(),
-        DashboardItem.AlwaysOnUsb => new AlwaysOnUSBControl(),
-        DashboardItem.HybridMode => await HybridModeControlFactory.GetControlAsync(),
-        DashboardItem.DiscreteGpu => new DiscreteGPUControl(),
-        DashboardItem.Resolution => new ResolutionControl(),
-        DashboardItem.RefreshRate => new RefreshRateControl(),
-        DashboardItem.DpiScale => new DpiScaleControl(),
-        DashboardItem.Hdr => new HDRControl(),
-        DashboardItem.OverDrive => new OverDriveControl(),
-        DashboardItem.TurnOffMonitors => new TurnOffMonitorsControl(),
-        DashboardItem.Microphone => new MicrophoneControl(),
-        DashboardItem.FlipToStart => new FlipToStartControl(),
-        DashboardItem.TouchpadLock => new TouchpadLockControl(),
-        DashboardItem.FnLock => new FnLockControl(),
-        DashboardItem.WinKeyLock => new WinKeyControl(),
+        DashboardItem.PowerMode => new[] { new PowerModeControl() },
+        DashboardItem.BatteryMode => new[] { new BatteryModeControl() },
+        DashboardItem.AlwaysOnUsb => new[] { new AlwaysOnUSBControl() },
+        DashboardItem.HybridMode => new[] { await HybridModeControlFactory.GetControlAsync() },
+        DashboardItem.DiscreteGpu => new[] { new DiscreteGPUControl() },
+        DashboardItem.Resolution => new[] { new ResolutionControl() },
+        DashboardItem.RefreshRate => new[] { new RefreshRateControl() },
+        DashboardItem.DpiScale => new[] { new DpiScaleControl() },
+        DashboardItem.Hdr => new[] { new HDRControl() },
+        DashboardItem.OverDrive => new[] { new OverDriveControl() },
+        DashboardItem.TurnOffMonitors => new[] { new TurnOffMonitorsControl() },
+        DashboardItem.Microphone => new[] { new MicrophoneControl() },
+        DashboardItem.FlipToStart => new[] { new FlipToStartControl() },
+        DashboardItem.TouchpadLock => new[] { new TouchpadLockControl() },
+        DashboardItem.FnLock => new[] { new FnLockControl() },
+        DashboardItem.WinKeyLock => new[] { new WinKeyControl() },
+        DashboardItem.WhiteKeyboardBacklight => new AbstractRefreshingControl[] { new WhiteKeyboardBacklightControl(), new OneLevelWhiteKeyboardBacklightControl() },
         _ => throw new InvalidOperationException($"Invalid DashboardItem {dashboardItem}"),
     };
 }

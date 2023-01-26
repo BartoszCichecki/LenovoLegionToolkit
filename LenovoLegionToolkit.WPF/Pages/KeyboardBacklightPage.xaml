@@ -7,7 +7,6 @@
     xmlns:rgb="clr-namespace:LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.RGB"
     xmlns:spectrum="clr-namespace:LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum"
     xmlns:utils="clr-namespace:LenovoLegionToolkit.WPF.Utils"
-    xmlns:white="clr-namespace:LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.White"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="{x:Static resources:Resource.KeyboardBacklightPage_Title}"
     FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
@@ -33,8 +32,6 @@
 
                 <spectrum:SpectrumKeyboardBacklightControl x:Name="_spectrumKeyboardBacklightControl" Margin="0,0,8,0" />
                 <rgb:RGBKeyboardBacklightControl x:Name="_rgbKeyboardBacklightControl" Margin="0,0,8,0" />
-                <white:WhiteKeyboardBacklightControl x:Name="_whiteKeyboardBacklightControl" Margin="0,0,16,0" />
-                <white:OneLevelWhiteKeyboardBacklightControl x:Name="_oneLevelWhiteKeyboardBacklightControl" Margin="0,0,16,0" />
             </StackPanel>
         </controls:LoadableControl>
 

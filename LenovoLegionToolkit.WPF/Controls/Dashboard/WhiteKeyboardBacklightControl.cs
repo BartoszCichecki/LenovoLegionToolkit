@@ -3,7 +3,7 @@ using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Common;
 
-namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.White;
+namespace LenovoLegionToolkit.WPF.Controls.Dashboard;
 
 public class WhiteKeyboardBacklightControl : AbstractComboBoxFeatureCardControl<WhiteKeyboardBacklightState>
 {
