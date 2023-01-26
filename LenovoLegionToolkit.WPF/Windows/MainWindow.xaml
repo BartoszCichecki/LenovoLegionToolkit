@@ -159,7 +159,6 @@
             Grid.Row="2"
             Padding="8,4,8,4"
             HorizontalContentAlignment="Center"
-            Content="{x:Static resources:Resource.MainWindow_UpdateAvailable}"
             Cursor="Hand"
             MouseLeftButtonDown="UpdateIndicator_Click"
             MouseRightButtonDown="UpdateIndicator_Click"
@@ -170,6 +169,10 @@
             <Label.Background>
                 <SolidColorBrush Opacity="0.8" Color="{DynamicResource SystemFillColorSuccess}" />
             </Label.Background>
+            <StackPanel Orientation="Horizontal">
+                <wpfui:SymbolIcon Margin="0,0,4,0" Symbol="ArrowSync24" />
+                <TextBlock Text="{x:Static resources:Resource.MainWindow_UpdateAvailable}" />
+            </StackPanel>
         </Label>
 
     </Grid>
