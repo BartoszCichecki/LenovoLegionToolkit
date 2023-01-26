@@ -10,8 +10,8 @@
     xmlns:white="clr-namespace:LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.White"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="{x:Static resources:Resource.KeyboardBacklightPage_Title}"
-    Initialized="KeyboardBacklightPage_Initialized"
     FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
+    Initialized="KeyboardBacklightPage_Initialized"
     Scrollable="True">
 
     <StackPanel Margin="0,0,0,0">
@@ -23,7 +23,7 @@
             FontWeight="Medium"
             Text="{x:Static resources:Resource.KeyboardBacklightPage_Title}" />
 
-        <controls:LoadableControl x:Name="_loader" InidicatorMargin="0,128,0,0">
+        <controls:LoadableControl x:Name="_loader" InidicatorMargin="0,64,0,0">
             <StackPanel>
                 <TextBlock
                     x:Name="_noKeyboardsText"

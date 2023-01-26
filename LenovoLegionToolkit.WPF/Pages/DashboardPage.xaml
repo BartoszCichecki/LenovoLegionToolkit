@@ -15,7 +15,7 @@
     <controls:LoadableControl
         x:Name="_loader"
         Margin="0,0,0,12"
-        InidicatorMargin="0,128,0,0">
+        InidicatorMargin="0,64,0,0">
         <Grid x:Name="_content" />
     </controls:LoadableControl>
 
