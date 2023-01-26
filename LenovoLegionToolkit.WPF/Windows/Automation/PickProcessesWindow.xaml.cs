@@ -210,7 +210,7 @@ public partial class PickProcessesWindow
 
             _pathTextBox.SetResourceReference(ForegroundProperty, "TextFillColorTertiaryBrush");
 
-            _deleteButton.Click += (s, e) => OnDelete?.Invoke(this, EventArgs.Empty);
+            _deleteButton.Click += (_, _) => OnDelete?.Invoke(this, EventArgs.Empty);
 
             Grid.SetColumn(_icon, 0);
             Grid.SetRow(_icon, 0);

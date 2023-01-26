@@ -112,9 +112,9 @@ public partial class EditDashboardWindow
     private Control CreateGroupControl(DashboardGroup dashboardGroup)
     {
         var control = new EditDashboardGroupControl(dashboardGroup, GetAllItems);
-        control.MoveUp += (s, e) => MoveGroupUp(control);
-        control.MoveDown += (s, e) => MoveGroupDown(control);
-        control.Delete += (s, e) => DeleteGroup(control);
+        control.MoveUp += (_, _) => MoveGroupUp(control);
+        control.MoveDown += (_, _) => MoveGroupDown(control);
+        control.Delete += (_, _) => DeleteGroup(control);
         return control;
     }
 

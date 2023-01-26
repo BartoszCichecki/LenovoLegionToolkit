@@ -49,9 +49,9 @@ public partial class MultiColorPickerControl
         {
             Margin = new(0, 0, 8, 0),
         };
-        picker.ColorChangedContinuous += (s, e) => ColorsChangedContinuous?.Invoke(this, EventArgs.Empty);
-        picker.ColorChangedDelayed += (s, e) => ColorsChangedDelayed?.Invoke(this, EventArgs.Empty);
-        picker.Delete += (s, e) =>
+        picker.ColorChangedContinuous += (_, _) => ColorsChangedContinuous?.Invoke(this, EventArgs.Empty);
+        picker.ColorChangedDelayed += (_, _) => ColorsChangedDelayed?.Invoke(this, EventArgs.Empty);
+        picker.Delete += (_, e) =>
         {
             _buttons.Children.Remove(picker);
             Update();

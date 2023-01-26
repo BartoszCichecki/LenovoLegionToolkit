@@ -56,7 +56,7 @@ public partial class MainWindow
         _contextMenuHelper.BringToForeground = BringToForeground;
         _contextMenuHelper.Close = App.Current.ShutdownAsync;
 
-        _trayIcon.TrayLeftMouseUp += (s, e) => BringToForeground();
+        _trayIcon.TrayLeftMouseUp += (_, _) => BringToForeground();
         _trayIcon.ContextMenu = _contextMenuHelper.ContextMenu;
     }
 

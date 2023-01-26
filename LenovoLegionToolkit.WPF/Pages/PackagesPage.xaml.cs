@@ -296,7 +296,7 @@ public partial class PackagesPage : IProgress<float>
             SymbolIcon = SymbolRegular.EyeOff24,
             Header = "Hide",
         };
-        hideMenuItem.Click += (s, e) =>
+        hideMenuItem.Click += (_, _) =>
         {
             _packageDownloaderSettings.Store.HiddenPackages.Add(package.Id);
             _packageDownloaderSettings.SynchronizeStore();
@@ -309,7 +309,7 @@ public partial class PackagesPage : IProgress<float>
             SymbolIcon = SymbolRegular.EyeOff24,
             Header = "Hide all",
         };
-        hideAllMenuItem.Click += (s, e) =>
+        hideAllMenuItem.Click += (_, _) =>
         {
             foreach (var id in packages.Select(p => p.Id))
                 _packageDownloaderSettings.Store.HiddenPackages.Add(id);
@@ -376,7 +376,7 @@ public partial class PackagesPage : IProgress<float>
                 Content = "Show hidden downloads",
                 HorizontalAlignment = System.Windows.HorizontalAlignment.Right,
             };
-            clearHidden.Click += (s, e) =>
+            clearHidden.Click += (_, _) =>
             {
                 _packageDownloaderSettings.Store.HiddenPackages.Clear();
                 _packageDownloaderSettings.SynchronizeStore();

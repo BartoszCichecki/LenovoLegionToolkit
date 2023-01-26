@@ -131,7 +131,7 @@ public class CardHeaderControl : UserControl
         Content = _grid;
 
         UpdateTextStyle();
-        IsEnabledChanged += (s, e) => UpdateTextStyle();
+        IsEnabledChanged += (_, _) => UpdateTextStyle();
     }
 
     private void RefreshLayout()

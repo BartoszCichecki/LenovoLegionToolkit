@@ -25,7 +25,7 @@ public static class Registry
             Log.Instance.Trace($"Starting listener... [hive={hive}, pathFormatted ={pathFormatted}, key={key}]");
 
         var watcher = new ManagementEventWatcher(pathFormatted);
-        watcher.EventArrived += (s, e) =>
+        watcher.EventArrived += (_, e) =>
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Event arrived [classPath={e.NewEvent.ClassPath}, hive={hive}, pathFormatted={pathFormatted}, key={key}]");

@@ -191,13 +191,13 @@ public partial class AutomationPage
     private AutomationPipelineControl GenerateControl(AutomationPipeline pipeline, StackPanel stackPanel)
     {
         var control = new AutomationPipelineControl(pipeline, _supportedAutomationSteps);
-        control.MouseRightButtonUp += (s, e) =>
+        control.MouseRightButtonUp += (_, e) =>
         {
             ShowPipelineContextMenu(control, stackPanel);
             e.Handled = true;
         };
-        control.OnChanged += (s, e) => PipelinesChanged();
-        control.OnDelete += async (s, e) =>
+        control.OnChanged += (_, _) => PipelinesChanged();
+        control.OnDelete += async (s, _) =>
         {
             if (s is AutomationPipelineControl c)
                 await DeletePipelineAsync(c, stackPanel);
@@ -219,24 +219,24 @@ public partial class AutomationPage
 
         var moveUpMenuItem = new MenuItem { SymbolIcon = SymbolRegular.ArrowUp24, Header = Resource.MoveUp };
         if (index > 0)
-            moveUpMenuItem.Click += (s, e) => MovePipeline(control, stackPanel, index - 1);
+            moveUpMenuItem.Click += (_, _) => MovePipeline(control, stackPanel, index - 1);
         else
             moveUpMenuItem.IsEnabled = false;
         menuItems.Add(moveUpMenuItem);
 
         var moveDownMenuItem = new MenuItem { SymbolIcon = SymbolRegular.ArrowDown24, Header = Resource.MoveDown };
         if (index < maxIndex)
-            moveDownMenuItem.Click += (s, e) => MovePipeline(control, stackPanel, index + 1);
+            moveDownMenuItem.Click += (_, _) => MovePipeline(control, stackPanel, index + 1);
         else
             moveDownMenuItem.IsEnabled = false;
         menuItems.Add(moveDownMenuItem);
 
         var renameMenuItem = new MenuItem { SymbolIcon = SymbolRegular.Edit24, Header = Resource.Rename };
-        renameMenuItem.Click += async (s, e) => await RenamePipelineAsync(control);
+        renameMenuItem.Click += async (_, _) => await RenamePipelineAsync(control);
         menuItems.Add(renameMenuItem);
 
         var deleteMenuItem = new MenuItem { SymbolIcon = SymbolRegular.Delete24, Header = Resource.Delete };
-        deleteMenuItem.Click += async (s, e) => await DeletePipelineAsync(control, stackPanel);
+        deleteMenuItem.Click += async (_, _) => await DeletePipelineAsync(control, stackPanel);
         menuItems.Add(deleteMenuItem);
 
         control.ContextMenu = new();
@@ -344,7 +344,7 @@ public partial class AutomationPage
             };
 
             if (AllowDuplicates(trigger))
-                menuItem.Click += async (s, e) => await AddAutomaticPipelineAsync(trigger);
+                menuItem.Click += async (_, _) => await AddAutomaticPipelineAsync(trigger);
             else
                 menuItem.IsEnabled = false;
 

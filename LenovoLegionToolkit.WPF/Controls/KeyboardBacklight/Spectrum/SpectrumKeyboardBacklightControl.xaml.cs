@@ -470,16 +470,16 @@ public partial class SpectrumKeyboardBacklightControl
     private void CreateEffect(ushort[] keyCodes)
     {
         var window = new SpectrumKeyboardBacklightEditEffectWindow(keyCodes) { Owner = Window.GetWindow(this) };
-        window.Apply += async (s, e) => await AddEffect(e);
+        window.Apply += async (_, e) => await AddEffect(e);
         window.ShowDialog();
     }
 
     private SpectrumKeyboardEffectControl CreateEffectControl(SpectrumKeyboardBacklightEffect effect)
     {
         var control = new SpectrumKeyboardEffectControl(effect);
-        control.Click += (s, e) => SelectButtons(effect.Keys);
-        control.Edit += (s, e) => EditEffect(control);
-        control.Delete += async (s, e) => await DeleteEffectAsync(control);
+        control.Click += (_, _) => SelectButtons(effect.Keys);
+        control.Edit += (_, _) => EditEffect(control);
+        control.Delete += async (_, _) => await DeleteEffectAsync(control);
         return control;
     }
 
@@ -503,7 +503,7 @@ public partial class SpectrumKeyboardBacklightControl
     {
         var keyCodes = _device.GetVisibleButtons().Select(b => b.KeyCode).ToArray();
         var window = new SpectrumKeyboardBacklightEditEffectWindow(effectControl.Effect, keyCodes) { Owner = Window.GetWindow(this) };
-        window.Apply += async (s, e) => await ReplaceEffectAsync(effectControl, e);
+        window.Apply += async (_, e) => await ReplaceEffectAsync(effectControl, e);
         window.ShowDialog();
     }
 
@@ -513,9 +513,9 @@ public partial class SpectrumKeyboardBacklightControl
         DeselectAllButtons();
 
         var control = new SpectrumKeyboardEffectControl(effect);
-        control.Click += (s, e) => SelectButtons(effect.Keys);
-        control.Edit += (s, e) => EditEffect(control);
-        control.Delete += async (s, e) => await DeleteEffectAsync(control);
+        control.Click += (_, _) => SelectButtons(effect.Keys);
+        control.Edit += (_, _) => EditEffect(control);
+        control.Delete += async (_, _) => await DeleteEffectAsync(control);
 
         var index = _effects.Children.IndexOf(effectControl);
         if (index < 0)

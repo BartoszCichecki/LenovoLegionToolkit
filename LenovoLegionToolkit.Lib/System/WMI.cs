@@ -45,7 +45,7 @@ public static class WMI
     {
         var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
         var watcher = new ManagementEventWatcher(scope, queryFormatted);
-        watcher.EventArrived += (s, e) => handler(e.NewEvent.Properties);
+        watcher.EventArrived += (_, e) => handler(e.NewEvent.Properties);
         watcher.Start();
         return new DisposableListener(watcher);
     }

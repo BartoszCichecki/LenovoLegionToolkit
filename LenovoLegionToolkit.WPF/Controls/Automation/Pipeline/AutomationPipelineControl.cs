@@ -134,23 +134,23 @@ public class AutomationPipelineControl : UserControl
         if (AutomationPipeline.Trigger is not null)
         {
             _isExclusiveCheckBox.IsChecked = AutomationPipeline.IsExclusive;
-            _isExclusiveCheckBox.Checked += (s, e) => OnChanged?.Invoke(this, EventArgs.Empty);
+            _isExclusiveCheckBox.Checked += (_, _) => OnChanged?.Invoke(this, EventArgs.Empty);
         }
         else
         {
             _isExclusiveCheckBox.Visibility = Visibility.Hidden;
         }
 
-        _runNowButton.Click += async (s, e) => await RunAsync();
+        _runNowButton.Click += async (_, _) => await RunAsync();
 
         _addStepButton.ContextMenu = CreateAddStepContextMenu();
-        _addStepButton.Click += (s, e) =>
+        _addStepButton.Click += (_, _) =>
         {
             if (_addStepButton.ContextMenu is not null)
                 _addStepButton.ContextMenu.IsOpen = true;
         };
 
-        _deletePipelineButton.Click += (s, e) => OnDelete?.Invoke(this, EventArgs.Empty);
+        _deletePipelineButton.Click += (_, _) => OnDelete?.Invoke(this, EventArgs.Empty);
 
         Grid.SetColumn(_isExclusiveCheckBox, 0);
         Grid.SetColumn(_runNowButton, 1);
@@ -261,10 +261,10 @@ public class AutomationPipelineControl : UserControl
                 Margin = new(16, 0, 16, 0),
                 MinWidth = 120,
             };
-            button.Click += (s, e) =>
+            button.Click += (_, _) =>
             {
                 var window = new PowerModeWindow(pmt.PowerModeState) { Owner = Window.GetWindow(this) };
-                window.OnSave += (s, e) =>
+                window.OnSave += (_, e) =>
                 {
                     AutomationPipeline.Trigger = pmt.DeepCopy(e);
                     _cardHeaderControl.Subtitle = GenerateSubtitle();
@@ -285,10 +285,10 @@ public class AutomationPipelineControl : UserControl
                 Margin = new(16, 0, 16, 0),
                 MinWidth = 120,
             };
-            button.Click += (s, e) =>
+            button.Click += (_, _) =>
             {
                 var window = new PickProcessesWindow(pt.Processes) { Owner = Window.GetWindow(this) };
-                window.OnSave += (s, e) =>
+                window.OnSave += (_, e) =>
                 {
                     AutomationPipeline.Trigger = pt.DeepCopy(e);
                     _cardHeaderControl.Subtitle = GenerateSubtitle();
@@ -310,10 +310,10 @@ public class AutomationPipelineControl : UserControl
                 Margin = new(16, 0, 16, 0),
                 MinWidth = 120,
             };
-            button.Click += (s, e) =>
+            button.Click += (_, _) =>
             {
                 var window = new TimeWindow(tt.IsSunrise, tt.IsSunset, tt.Time) { Owner = Window.GetWindow(this) };
-                window.OnSave += (s, e) =>
+                window.OnSave += (_, e) =>
                 {
                     AutomationPipeline.Trigger = tt.DeepCopy(e.Item1, e.Item2, e.Item3);
                     _cardHeaderControl.Subtitle = GenerateSubtitle();
@@ -337,7 +337,7 @@ public class AutomationPipelineControl : UserControl
         {
             var control = GenerateStepControl(step);
             var menuItem = new MenuItem { SymbolIcon = control.Icon, Header = control.Title };
-            menuItem.Click += (s, e) => AddStep(control);
+            menuItem.Click += (_, _) => AddStep(control);
             menuItems.Add(menuItem);
         }
 
@@ -382,16 +382,16 @@ public class AutomationPipelineControl : UserControl
             WinKeyAutomationStep s => new WinKeyAutomationStepControl(s),
             _ => throw new InvalidOperationException("Unknown step type."),
         };
-        control.MouseRightButtonUp += (s, e) =>
+        control.MouseRightButtonUp += (_, e) =>
         {
             ShowContextMenu(control);
             e.Handled = true;
         };
-        control.Changed += (s, e) =>
+        control.Changed += (_, _) =>
         {
             OnChanged?.Invoke(this, EventArgs.Empty);
         };
-        control.Delete += (s, e) =>
+        control.Delete += (s, _) =>
         {
             if (s is AbstractAutomationStepControl step)
                 DeleteStep(step);
@@ -412,7 +412,7 @@ public class AutomationPipelineControl : UserControl
             Header = Resource.MoveUp
         };
         if (index > 0)
-            moveUpMenuItem.Click += (s, e) => MoveStep(control, index - 1);
+            moveUpMenuItem.Click += (_, _) => MoveStep(control, index - 1);
         else
             moveUpMenuItem.IsEnabled = false;
         menuItems.Add(moveUpMenuItem);
@@ -423,7 +423,7 @@ public class AutomationPipelineControl : UserControl
             Header = Resource.MoveDown
         };
         if (index < maxIndex)
-            moveDownMenuItem.Click += (s, e) => MoveStep(control, index + 1);
+            moveDownMenuItem.Click += (_, _) => MoveStep(control, index + 1);
         else
             moveDownMenuItem.IsEnabled = false;
 

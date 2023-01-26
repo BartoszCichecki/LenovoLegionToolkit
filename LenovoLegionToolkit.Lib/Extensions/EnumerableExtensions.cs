@@ -15,7 +15,7 @@ public static class EnumerableExtensions
     public static IEnumerable<IEnumerable<T>> Split<T>(this IEnumerable<T> source, int size)
     {
         return source
-            .Select((s, i) => source.Skip(i * size).Take(size))
+            .Select((_, i) => source.Skip(i * size).Take(size))
             .Where(a => a.Any());
     }
 }

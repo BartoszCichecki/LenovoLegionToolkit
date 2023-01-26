@@ -48,17 +48,17 @@ public static class MessageBoxHelper
             Topmost = false,
             ResizeMode = ResizeMode.NoResize,
         };
-        messageBox.ButtonLeftClick += (s, e) =>
+        messageBox.ButtonLeftClick += (_, _) =>
         {
             tcs.SetResult(true);
             messageBox.Close();
         };
-        messageBox.ButtonRightClick += (s, e) =>
+        messageBox.ButtonRightClick += (_, _) =>
         {
             tcs.SetResult(false);
             messageBox.Close();
         };
-        messageBox.Closing += (s, e) =>
+        messageBox.Closing += (_, _) =>
         {
             tcs.TrySetResult(false);
         };
@@ -117,12 +117,12 @@ public static class MessageBoxHelper
             ResizeMode = ResizeMode.NoResize,
         };
 
-        textBox.TextChanged += (s, e) =>
+        textBox.TextChanged += (_, _) =>
         {
             var isEmpty = !allowEmpty && string.IsNullOrWhiteSpace(textBox.Text);
             messageBox.ButtonLeftAppearance = isEmpty ? ControlAppearance.Transparent : ControlAppearance.Primary;
         };
-        messageBox.ButtonLeftClick += (s, e) =>
+        messageBox.ButtonLeftClick += (_, _) =>
         {
             var content = textBox.Text?.Trim();
             var newText = string.IsNullOrWhiteSpace(content) ? null : content;
@@ -131,12 +131,12 @@ public static class MessageBoxHelper
             tcs.SetResult(newText);
             messageBox.Close();
         };
-        messageBox.ButtonRightClick += (s, e) =>
+        messageBox.ButtonRightClick += (_, _) =>
         {
             tcs.SetResult("");
             messageBox.Close();
         };
-        messageBox.Closing += (s, e) =>
+        messageBox.Closing += (_, _) =>
         {
             tcs.TrySetResult("");
         };

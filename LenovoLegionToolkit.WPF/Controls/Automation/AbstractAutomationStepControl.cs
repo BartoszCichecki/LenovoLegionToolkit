@@ -73,7 +73,7 @@ public abstract class AbstractAutomationStepControl : UserControl
 
     private void InitializeComponent()
     {
-        _deleteButton.Click += (s, e) => Delete?.Invoke(this, EventArgs.Empty);
+        _deleteButton.Click += (_, _) => Delete?.Invoke(this, EventArgs.Empty);
 
         var control = GetCustomControl();
         if (control is not null)

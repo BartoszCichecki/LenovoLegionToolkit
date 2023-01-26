@@ -48,12 +48,12 @@ public class RunAutomationStepControl : AbstractAutomationStepControl<RunAutomat
 
     protected override UIElement? GetCustomControl()
     {
-        _scriptPath.TextChanged += (s, e) =>
+        _scriptPath.TextChanged += (_, _) =>
         {
             if (_scriptPath.Text != AutomationStep.ScriptPath)
                 RaiseChanged();
         };
-        _scriptArguments.TextChanged += (s, e) =>
+        _scriptArguments.TextChanged += (_, _) =>
         {
             if (_scriptArguments.Text != AutomationStep.ScriptArguments)
                 RaiseChanged();

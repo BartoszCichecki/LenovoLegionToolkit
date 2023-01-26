@@ -12,8 +12,8 @@ public static class ManagementObjectSearcherExtensions
         var list = new ConcurrentBag<ManagementBaseObject>();
         var tcs = new TaskCompletionSource<IEnumerable<ManagementBaseObject>>();
         var watcher = new ManagementOperationObserver();
-        watcher.ObjectReady += (o, args) => list.Add(args.NewObject);
-        watcher.Completed += (o, args) =>
+        watcher.ObjectReady += (_, args) => list.Add(args.NewObject);
+        watcher.Completed += (_, args) =>
         {
             if (args.Status == ManagementStatus.NoError)
                 tcs.SetResult(list);
