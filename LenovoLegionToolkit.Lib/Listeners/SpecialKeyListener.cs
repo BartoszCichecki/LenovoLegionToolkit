@@ -180,7 +180,7 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Starting snipping tool..");
 
-            Process.Start("snippingtool");
+            Process.Start("explorer", "ms-screenclip:");
         }
         catch { }
     }
