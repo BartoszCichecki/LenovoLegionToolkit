@@ -9,13 +9,9 @@ namespace LenovoLegionToolkit.WPF.Pages;
 
 public partial class KeyboardBacklightPage
 {
-    private bool _refreshOnce;
-
     public KeyboardBacklightPage()
     {
         InitializeComponent();
-
-        Loaded += KeyboardBacklightPage_Loaded;
     }
 
     public static async Task<bool> IsSupportedAsync()
@@ -39,13 +35,8 @@ public partial class KeyboardBacklightPage
         return false;
     }
 
-    private async void KeyboardBacklightPage_Loaded(object sender, RoutedEventArgs e)
+    private async void KeyboardBacklightPage_Initialized(object? sender, EventArgs e)
     {
-        if (_refreshOnce)
-            return;
-
-        _refreshOnce = true;
-
         _titleTextBlock.Visibility = Visibility.Collapsed;
 
         await Task.WhenAll(

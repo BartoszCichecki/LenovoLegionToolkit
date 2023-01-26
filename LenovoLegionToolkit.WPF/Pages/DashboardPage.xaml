@@ -8,7 +8,7 @@
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="{x:Static resources:Resource.DashboardPage_Title}"
     FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
-    Loaded="DashboardPage_Loaded"
+    Initialized="DashboardPage_Initialized"
     Scrollable="True"
     SizeChanged="DashboardPage_SizeChanged">
 

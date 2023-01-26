@@ -10,6 +10,7 @@
     xmlns:white="clr-namespace:LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.White"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="{x:Static resources:Resource.KeyboardBacklightPage_Title}"
+    Initialized="KeyboardBacklightPage_Initialized"
     FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
     Scrollable="True">
 

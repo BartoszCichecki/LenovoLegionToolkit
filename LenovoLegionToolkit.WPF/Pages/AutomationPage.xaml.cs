@@ -9,6 +9,7 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
 using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
+using LenovoLegionToolkit.Lib.Automation.Steps;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Controls.Automation.Pipeline;
@@ -22,6 +23,8 @@ namespace LenovoLegionToolkit.WPF.Pages;
 public partial class AutomationPage
 {
     private readonly AutomationProcessor _automationProcessor = IoCContainer.Resolve<AutomationProcessor>();
+
+    private IAutomationStep[] _supportedAutomationSteps = Array.Empty<IAutomationStep>();
 
     public AutomationPage()
     {
@@ -104,15 +107,17 @@ public partial class AutomationPage
         _loaderAutomatic.IsLoading = true;
         _loaderManual.IsLoading = true;
 
-
         var initializedTasks = new List<Task> { Task.Delay(TimeSpan.FromMilliseconds(500)) };
-
-        var pipelines = await _automationProcessor.GetPipelinesAsync();
 
         _enableAutomaticPipelinesToggle.IsChecked = _automationProcessor.IsEnabled;
 
         _automaticPipelinesStackPanel.Children.Clear();
         _manualPipelinesStackPanel.Children.Clear();
+
+        var pipelines = await _automationProcessor.GetPipelinesAsync();
+
+        if (_supportedAutomationSteps.IsEmpty())
+            _supportedAutomationSteps = await GetSupportedAutomationStepsAsync();
 
         foreach (var pipeline in pipelines.Where(p => p.Trigger is not null))
         {
@@ -145,9 +150,47 @@ public partial class AutomationPage
         _loaderManual.IsLoading = false;
     }
 
+    private async Task<IAutomationStep[]> GetSupportedAutomationStepsAsync()
+    {
+        var steps = new IAutomationStep[]
+        {
+            new AlwaysOnUsbAutomationStep(default),
+            new BatteryAutomationStep(default),
+            new DeactivateGPUAutomationStep(default),
+            new DelayAutomationStep(default),
+            new DisplayBrightnessAutomationStep(50),
+            new DpiScaleAutomationStep(default),
+            new FlipToStartAutomationStep(default),
+            new FnLockAutomationStep(default),
+            new HDRAutomationStep(default),
+            new MicrophoneAutomationStep(default),
+            new OneLevelWhiteKeyboardBacklightAutomationStep(default),
+            new OverDriveAutomationStep(default),
+            new PowerModeAutomationStep(default),
+            new RefreshRateAutomationStep(default),
+            new ResolutionAutomationStep(default),
+            new RGBKeyboardBacklightAutomationStep(default),
+            new RunAutomationStep(default, default),
+            new SpectrumKeyboardBacklightBrightnessAutomationStep(0),
+            new SpectrumKeyboardBacklightProfileAutomationStep(1),
+            new TouchpadLockAutomationStep(default),
+            new TurnOffMonitorsAutomationStep(),
+            new WhiteKeyboardBacklightAutomationStep(default),
+            new WinKeyAutomationStep(default),
+        };
+
+        var supportedSteps = new List<IAutomationStep>();
+
+        foreach (var step in steps)
+            if (await step.IsSupportedAsync())
+                supportedSteps.Add(step);
+
+        return supportedSteps.ToArray();
+    }
+
     private AutomationPipelineControl GenerateControl(AutomationPipeline pipeline, StackPanel stackPanel)
     {
-        var control = new AutomationPipelineControl(pipeline);
+        var control = new AutomationPipelineControl(pipeline, _supportedAutomationSteps);
         control.MouseRightButtonUp += (s, e) =>
         {
             ShowPipelineContextMenu(control, stackPanel);

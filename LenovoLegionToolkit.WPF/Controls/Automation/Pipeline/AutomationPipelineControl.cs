@@ -81,6 +81,8 @@ public class AutomationPipelineControl : UserControl
         MinWidth = 100,
     };
 
+    private readonly IAutomationStep[] _supportedAutomationSteps;
+
     public AutomationPipeline AutomationPipeline { get; }
 
     public event EventHandler? OnChanged;
@@ -88,9 +90,10 @@ public class AutomationPipelineControl : UserControl
 
     public Task InitializedTask => _initializedTaskCompletionSource.Task;
 
-    public AutomationPipelineControl(AutomationPipeline automationPipeline)
+    public AutomationPipelineControl(AutomationPipeline automationPipeline, IAutomationStep[] supportedAutomationSteps)
     {
         AutomationPipeline = automationPipeline;
+        _supportedAutomationSteps = supportedAutomationSteps;
 
         Initialized += AutomationPipelineControl_Initialized;
     }
@@ -118,7 +121,7 @@ public class AutomationPipelineControl : UserControl
         OnChanged?.Invoke(this, EventArgs.Empty);
     }
 
-    private async void AutomationPipelineControl_Initialized(object? sender, EventArgs e)
+    private void AutomationPipelineControl_Initialized(object? sender, EventArgs e)
     {
         _cardExpander.Header = _cardHeaderControl;
 
@@ -140,7 +143,7 @@ public class AutomationPipelineControl : UserControl
 
         _runNowButton.Click += async (s, e) => await RunAsync();
 
-        _addStepButton.ContextMenu = await CreateAddStepContextMenuAsync();
+        _addStepButton.ContextMenu = CreateAddStepContextMenu();
         _addStepButton.Click += (s, e) =>
         {
             if (_addStepButton.ContextMenu is not null)
@@ -326,44 +329,15 @@ public class AutomationPipelineControl : UserControl
         return null;
     }
 
-    private async Task<ContextMenu> CreateAddStepContextMenuAsync()
+    private ContextMenu CreateAddStepContextMenu()
     {
-        var steps = new IAutomationStep[] {
-            new AlwaysOnUsbAutomationStep(default),
-            new BatteryAutomationStep(default),
-            new DeactivateGPUAutomationStep(default),
-            new DelayAutomationStep(default),
-            new DisplayBrightnessAutomationStep(50),
-            new DpiScaleAutomationStep(default),
-            new FlipToStartAutomationStep(default),
-            new FnLockAutomationStep(default),
-            new HDRAutomationStep(default),
-            new MicrophoneAutomationStep(default),
-            new OneLevelWhiteKeyboardBacklightAutomationStep(default),
-            new OverDriveAutomationStep(default),
-            new PowerModeAutomationStep(default),
-            new RefreshRateAutomationStep(default),
-            new ResolutionAutomationStep(default),
-            new RGBKeyboardBacklightAutomationStep(default),
-            new RunAutomationStep(default, default),
-            new SpectrumKeyboardBacklightBrightnessAutomationStep(0),
-            new SpectrumKeyboardBacklightProfileAutomationStep(1),
-            new TouchpadLockAutomationStep(default),
-            new TurnOffMonitorsAutomationStep(),
-            new WhiteKeyboardBacklightAutomationStep(default),
-            new WinKeyAutomationStep(default),
-        };
-
         var menuItems = new List<MenuItem>();
 
-        foreach (var step in steps)
+        foreach (var step in _supportedAutomationSteps)
         {
-            if (!await step.IsSupportedAsync())
-                continue;
-
             var control = GenerateStepControl(step);
             var menuItem = new MenuItem { SymbolIcon = control.Icon, Header = control.Title };
-            menuItem.Click += async (s, e) => await AddStepAsync(control);
+            menuItem.Click += (s, e) => AddStep(control);
             menuItems.Add(menuItem);
         }
 
@@ -417,10 +391,10 @@ public class AutomationPipelineControl : UserControl
         {
             OnChanged?.Invoke(this, EventArgs.Empty);
         };
-        control.Delete += async (s, e) =>
+        control.Delete += (s, e) =>
         {
             if (s is AbstractAutomationStepControl step)
-                await DeleteStepAsync(step);
+                DeleteStep(step);
         };
         return control;
     }
@@ -468,22 +442,22 @@ public class AutomationPipelineControl : UserControl
         OnChanged?.Invoke(this, EventArgs.Empty);
     }
 
-    private async Task AddStepAsync(AbstractAutomationStepControl control)
+    private void AddStep(AbstractAutomationStepControl control)
     {
         _stepsStackPanel.Children.Add(control);
         _cardHeaderControl.Subtitle = GenerateSubtitle();
         _cardHeaderControl.SubtitleToolTip = _cardHeaderControl.Subtitle;
-        _addStepButton.ContextMenu = await CreateAddStepContextMenuAsync();
+        _addStepButton.ContextMenu = CreateAddStepContextMenu();
 
         OnChanged?.Invoke(this, EventArgs.Empty);
     }
 
-    private async Task DeleteStepAsync(Control control)
+    private void DeleteStep(Control control)
     {
         _stepsStackPanel.Children.Remove(control);
         _cardHeaderControl.Subtitle = GenerateSubtitle();
         _cardHeaderControl.SubtitleToolTip = _cardHeaderControl.Subtitle;
-        _addStepButton.ContextMenu = await CreateAddStepContextMenuAsync();
+        _addStepButton.ContextMenu = CreateAddStepContextMenu();
 
         OnChanged?.Invoke(this, EventArgs.Empty);
     }
