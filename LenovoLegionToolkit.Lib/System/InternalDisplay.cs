@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Management;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Utils;
@@ -9,6 +10,13 @@ namespace LenovoLegionToolkit.Lib.System;
 
 public static class InternalDisplay
 {
+    private enum VideoOutputTechnology : uint
+    {
+        Internal = 0x80000000u,
+        DisplayPortExternal = 10u,
+        DisplayPortEmbedded = 11u,
+    }
+
     private readonly struct DisplayHolder
     {
         public readonly Display? Display;
@@ -56,34 +64,53 @@ public static class InternalDisplay
                     Log.Instance.Trace($" - {display}");
             }
 
-            foreach (var display in displays)
-            {
-                if (await display.IsInternalAsync().ConfigureAwait(false))
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Internal display found: {display}");
-
-                    return (_displayHolder = display);
-                }
-            }
+            var internalDisplay = await FindInternalDisplayAsync(displays);
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Internal display not found");
+            {
+                if (internalDisplay is null)
+                    Log.Instance.Trace($"Internal display not found");
+                else
+                    Log.Instance.Trace($"Internal display found: {internalDisplay}");
+            }
 
-            return (_displayHolder = null);
+            return (_displayHolder = internalDisplay);
         }
     }
 
-    private static async Task<bool> IsInternalAsync(this Device display)
+    private static async Task<Display?> FindInternalDisplayAsync(IEnumerable<Display> displays)
     {
-        var instanceName = display.DevicePath
+        var displayInfos = new List<(Display Display, VideoOutputTechnology Vot)>();
+
+        foreach (var display in displays)
+        {
+            var instanceName = GetInstanceNamePattern(display);
+            if (!await HasBiosNameAsync(instanceName))
+                continue;
+
+            var vot = await GetVideoOutputTechnologyAsync(instanceName);
+            displayInfos.Add((display, vot));
+        }
+
+        if (displayInfos.Count != 1)
+            return null;
+
+        var displayInfo = displayInfos[0];
+        return displayInfo.Vot is VideoOutputTechnology.Internal or VideoOutputTechnology.DisplayPortEmbedded or VideoOutputTechnology.DisplayPortExternal
+            ? displayInfo.Display
+            : null;
+    }
+
+    private static string GetInstanceNamePattern(Display display) =>
+        display.DevicePath
             .Split("#")
             .Skip(1)
             .Take(1)
             .Aggregate((s1, s2) => s1 + "\\" + s2);
 
-
-        var hasBiosName = await WMI.CallAsync("root\\CIMV2", $"SELECT * FROM Win32_PnPEntity WHERE PnPDeviceID LIKE '%{instanceName}%'",
+    private static Task<bool> HasBiosNameAsync(string instanceName)
+    {
+        return WMI.CallAsync("root\\CIMV2", $"SELECT * FROM Win32_PnPEntity WHERE PnPDeviceID LIKE '%{instanceName}%'",
             "GetDeviceProperties",
             new() { { "devicePropertyKeys", new[] { "DEVPKEY_Device_BiosDeviceName" } } },
             pdc =>
@@ -102,25 +129,13 @@ public static class InternalDisplay
 
                 return false;
             });
+    }
 
-        if (!hasBiosName)
-            return false;
-
+    private static async Task<VideoOutputTechnology> GetVideoOutputTechnologyAsync(string instanceName)
+    {
         var result = await WMI.ReadAsync("root\\WMI",
             $"SELECT * FROM WmiMonitorConnectionParams WHERE InstanceName LIKE '%{instanceName}%'",
             pdc => (uint)pdc["VideoOutputTechnology"].Value).ConfigureAwait(false);
-
-        const uint votInternal = 0x80000000;
-        const uint votDisplayPortEmbedded = 11;
-
-        var resultEnumerated = result.ToArray();
-
-        if (resultEnumerated.Length == 1)
-            return resultEnumerated.All(vot => vot is votInternal or votDisplayPortEmbedded);
-
-        if (resultEnumerated.Length == 2)
-            return resultEnumerated.Any(vot => vot is votInternal or votDisplayPortEmbedded);
-
-        return false;
+        return (VideoOutputTechnology)result.FirstOrDefault();
     }
 }
