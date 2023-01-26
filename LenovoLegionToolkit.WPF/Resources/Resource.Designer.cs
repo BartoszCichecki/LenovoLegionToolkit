@@ -2414,6 +2414,42 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Legion logo off.
+        /// </summary>
+        public static string Notification_PanelLogoLightingOff {
+            get {
+                return ResourceManager.GetString("Notification_PanelLogoLightingOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Legion logo on.
+        /// </summary>
+        public static string Notification_PanelLogoLightingOn {
+            get {
+                return ResourceManager.GetString("Notification_PanelLogoLightingOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ports backlight off.
+        /// </summary>
+        public static string Notification_PortLightingOff {
+            get {
+                return ResourceManager.GetString("Notification_PortLightingOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ports backlight on.
+        /// </summary>
+        public static string Notification_PortLightingOn {
+            get {
+                return ResourceManager.GetString("Notification_PortLightingOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Backlight {0}.
         /// </summary>
         public static string Notification_SpectrumKeyboardBacklight_Backlight {

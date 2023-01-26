@@ -1614,4 +1614,16 @@ Moving the mouse or pressing the keyboard will wake displays up.</value>
   <data name="EditDashboardGroupControl_EditGroup_Message" xml:space="preserve">
 	  <value>Name</value>
   </data>
+  <data name="Notification_PanelLogoLightingOn" xml:space="preserve">
+	  <value>Legion logo on</value>
+  </data>
+  <data name="Notification_PanelLogoLightingOff" xml:space="preserve">
+	  <value>Legion logo off</value>
+  </data>
+  <data name="Notification_PortLightingOn" xml:space="preserve">
+	  <value>Ports backlight on</value>
+  </data>
+  <data name="Notification_PortLightingOff" xml:space="preserve">
+	  <value>Ports backlight off</value>
+  </data>
 </root>

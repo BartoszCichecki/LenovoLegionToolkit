@@ -43,6 +43,7 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
         SpecialKey.FnLockOn or SpecialKey.FnLockOff => NotifyFnLockState(value),
         SpecialKey.FnR or SpecialKey.FnR2 => ToggleRefreshRateAsync(),
         SpecialKey.FnPrtSc => OpenSnippingTool(),
+        SpecialKey.PanelLogoLightingOn or SpecialKey.PanelLogoLightingOff => NotifyPanelLogoLighting(value),
         SpecialKey.SpectrumBacklightOff => NotifySpectrumBacklight(0),
         SpecialKey.SpectrumBacklight1 => NotifySpectrumBacklight(1),
         SpecialKey.SpectrumBacklight2 => NotifySpectrumBacklight(2),
@@ -180,6 +181,27 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
                 Log.Instance.Trace($"Starting snipping tool..");
 
             Process.Start("snippingtool");
+        }
+        catch { }
+    }
+
+    private async Task NotifyPanelLogoLighting(SpecialKey value)
+    {
+        try
+        {
+            if (await _fnKeys.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Ignoring, FnKeys are enabled.");
+
+                return;
+            }
+
+            if (value == SpecialKey.PanelLogoLightingOn)
+                MessagingCenter.Publish(new Notification(NotificationType.PanelLogoLightingOn, NotificationDuration.Short));
+
+            if (value == SpecialKey.PanelLogoLightingOff)
+                MessagingCenter.Publish(new Notification(NotificationType.PanelLogoLightingOff, NotificationDuration.Short));
         }
         catch { }
     }
