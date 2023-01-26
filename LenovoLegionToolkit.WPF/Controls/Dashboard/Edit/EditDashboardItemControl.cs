@@ -59,11 +59,6 @@ public class EditDashboardItemControl : UserControl
     {
         DashboardItem = dashboardItem;
 
-        InitializeComponent();
-    }
-
-    private void InitializeComponent()
-    {
         _moveUpButton.Click += (_, _) => MoveUp?.Invoke(this, EventArgs.Empty);
         _moveDownButton.Click += (_, _) => MoveDown?.Invoke(this, EventArgs.Empty);
         _deleteButton.Click += (_, _) => Delete?.Invoke(this, EventArgs.Empty);

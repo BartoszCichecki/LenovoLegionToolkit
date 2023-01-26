@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
+using LenovoLegionToolkit.WPF.Utils;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
@@ -31,6 +33,15 @@ public class EditDashboardGroupControl : UserControl
     {
         Margin = new(0, 0, 16, 0),
         Orientation = Orientation.Horizontal
+    };
+
+    private readonly Button _editButton = new()
+    {
+        Icon = SymbolRegular.Edit24,
+        ToolTip = Resource.Edit,
+        MinWidth = 34,
+        Height = 34,
+        Margin = new(8, 0, 0, 0),
     };
 
     private readonly Button _moveUpButton = new()
@@ -73,39 +84,33 @@ public class EditDashboardGroupControl : UserControl
     public event EventHandler? MoveDown;
     public event EventHandler? Delete;
 
-    private readonly DashboardGroupType _dashboardGroupType;
-    private readonly string _dashboardGroupName;
-    private readonly DashboardItem[] _dashboardGroupItems;
+    private DashboardGroupType _dashboardGroupType;
     private readonly Func<IEnumerable<DashboardItem>> _getExistingItems;
 
     public EditDashboardGroupControl(DashboardGroup dashboardGroup, Func<IEnumerable<DashboardItem>> getExistingItems)
     {
         _dashboardGroupType = dashboardGroup.Type;
-        _dashboardGroupName = dashboardGroup.GetName();
-        _dashboardGroupItems = dashboardGroup.Items;
+
         _getExistingItems = getExistingItems;
 
-        InitializeComponent();
-    }
-
-    private void InitializeComponent()
-    {
+        _editButton.Click += async (_, _) => await EditNameAsync();
         _moveUpButton.Click += (_, _) => MoveUp?.Invoke(this, EventArgs.Empty);
         _moveDownButton.Click += (_, _) => MoveDown?.Invoke(this, EventArgs.Empty);
         _deleteButton.Click += (_, _) => Delete?.Invoke(this, EventArgs.Empty);
         _addItemButton.Click += (_, _) => ShowContextMenu();
 
+        _buttonsStackPanel.Children.Add(_editButton);
         _buttonsStackPanel.Children.Add(_moveUpButton);
         _buttonsStackPanel.Children.Add(_moveDownButton);
         _buttonsStackPanel.Children.Add(_deleteButton);
 
-        foreach (var item in _dashboardGroupItems)
+        foreach (var item in dashboardGroup.Items)
             _itemsStackPanel.Children.Add(CreateGroupControl(item));
 
         _stackPanel.Children.Add(_itemsStackPanel);
         _stackPanel.Children.Add(_addItemButton);
 
-        _cardHeaderControl.Title = _dashboardGroupName;
+        _cardHeaderControl.Title = dashboardGroup.GetName();
         _cardHeaderControl.Accessory = _buttonsStackPanel;
         _cardExpander.Header = _cardHeaderControl;
         _cardExpander.Content = _stackPanel;
@@ -119,13 +124,31 @@ public class EditDashboardGroupControl : UserControl
             .OfType<EditDashboardItemControl>()
             .Select(c => c.DashboardItem)
             .ToArray();
-        return new(_dashboardGroupType, _dashboardGroupName, items);
+        return new(_dashboardGroupType, _cardHeaderControl.Title, items);
     }
 
     public IEnumerable<DashboardItem> GetItems() =>
         _itemsStackPanel.Children
             .OfType<EditDashboardItemControl>()
             .Select(c => c.DashboardItem);
+
+    private async Task EditNameAsync()
+    {
+        var text = _dashboardGroupType == DashboardGroupType.Custom ? _cardHeaderControl.Title : null;
+
+        var result = await MessageBoxHelper.ShowInputAsync(this,
+            Resource.EditDashboardGroupControl_EditGroup_Title,
+            Resource.EditDashboardGroupControl_EditGroup_Message,
+            text,
+            primaryButton: Resource.OK,
+            secondaryButton: Resource.Cancel);
+
+        if (string.IsNullOrEmpty(result))
+            return;
+
+        _dashboardGroupType = DashboardGroupType.Custom;
+        _cardHeaderControl.Title = result;
+    }
 
     private void ShowContextMenu()
     {
