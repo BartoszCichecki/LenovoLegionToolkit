@@ -11,9 +11,11 @@ public partial class TurnOffMonitorsControl
 
     public TurnOffMonitorsControl() => InitializeComponent();
 
-    private void TurnOffButton_Click(object sender, RoutedEventArgs e)
+    private async void TurnOffButton_Click(object sender, RoutedEventArgs e)
     {
-        _nativeWindowsMessageListener.TurnOffMonitor();
+        _turnOffButton.IsEnabled = false;
+        await _nativeWindowsMessageListener.TurnOffMonitorAsync();
+        _turnOffButton.IsEnabled = true;
     }
 
     protected override Task OnRefreshAsync() => Task.CompletedTask;

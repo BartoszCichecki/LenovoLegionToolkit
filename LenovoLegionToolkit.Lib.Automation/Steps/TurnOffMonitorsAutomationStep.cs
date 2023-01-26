@@ -9,11 +9,7 @@ public class TurnOffMonitorsAutomationStep : IAutomationStep
 
     public Task<bool> IsSupportedAsync() => Task.FromResult(true);
 
-    public Task RunAsync()
-    {
-        _nativeWindowsMessageListener.TurnOffMonitor();
-        return Task.CompletedTask;
-    }
+    public Task RunAsync() => _nativeWindowsMessageListener.TurnOffMonitorAsync();
 
     public IAutomationStep DeepCopy() => new TurnOffMonitorsAutomationStep();
 }
