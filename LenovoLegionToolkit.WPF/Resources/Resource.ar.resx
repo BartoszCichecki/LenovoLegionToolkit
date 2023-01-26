@@ -954,6 +954,9 @@
   <data name="PackageControl_HttpGeneralError_Title" xml:space="preserve">
     <value>هناك خطأ ما</value>
   </data>
+  <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
+    <value>يتوفر تحديث!</value>
+  </data>
   <data name="PackageControl_OldPackageWarning" xml:space="preserve">
     <value>هذه الحزمة عمرها أكثر من عام.</value>
   </data>
