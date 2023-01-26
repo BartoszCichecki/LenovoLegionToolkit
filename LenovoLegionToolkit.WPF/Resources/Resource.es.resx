@@ -1590,6 +1590,10 @@ AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está
   <data name="TurnOffMonitorsControl_Title" xml:space="preserve">
     <value>Apagar las pantallas</value>
   </data>
+  <data name="TurnOffMonitorsControl_Message" xml:space="preserve">
+    <value>Apaga todas las pantallas disponibles.
+Al mover el ratón o pulsar el teclado se activarán las pantallas.</value>
+  </data>
   <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
     <value>Apagar</value>
   </data>
