@@ -161,8 +161,8 @@
             HorizontalContentAlignment="Center"
             Content="{x:Static resources:Resource.MainWindow_UpdateAvailable}"
             Cursor="Hand"
-            MouseLeftButtonDown="OpenLogIndicator_Click"
-            MouseRightButtonDown="OpenLogIndicator_Click"
+            MouseLeftButtonDown="UpdateIndicator_Click"
+            MouseRightButtonDown="UpdateIndicator_Click"
             Visibility="Collapsed">
             <Label.Foreground>
                 <SolidColorBrush Color="{DynamicResource TextFillColorPrimary}" />
