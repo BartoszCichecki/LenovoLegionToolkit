@@ -171,7 +171,7 @@
             </Label.Background>
             <StackPanel Orientation="Horizontal">
                 <wpfui:SymbolIcon Margin="0,0,4,0" Symbol="ArrowSync24" />
-                <TextBlock Text="{x:Static resources:Resource.MainWindow_UpdateAvailable}" />
+                <TextBlock x:Name="_updateIndicatorText" Text="{x:Static resources:Resource.MainWindow_UpdateAvailable}" />
             </StackPanel>
         </Label>
 

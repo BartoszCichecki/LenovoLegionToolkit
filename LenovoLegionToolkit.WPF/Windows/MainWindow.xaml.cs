@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
@@ -153,8 +152,6 @@ public partial class MainWindow
         window.ShowDialog();
     }
 
-    private void NotifyIcon_LeftClick([NotNull] NotifyIcon sender, RoutedEventArgs e) => BringToForeground();
-
     private void LoadDeviceInfo()
     {
         Task.Run(Compatibility.GetMachineInformationAsync)
@@ -177,7 +174,7 @@ public partial class MainWindow
                 }
                 else
                 {
-                    _updateIndicator.Content = string.Format(Resource.MainWindow_UpdateAvailableWithVersion, result.ToString(3));
+                    _updateIndicatorText.Text = string.Format(Resource.MainWindow_UpdateAvailableWithVersion, result.ToString(3));
                     _updateIndicator.Visibility = Visibility.Visible;
                 }
             }, TaskScheduler.FromCurrentSynchronizationContext());
