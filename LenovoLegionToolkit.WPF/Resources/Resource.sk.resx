@@ -284,9 +284,6 @@ Táto možnosť je určená pre zariadenia, ktoré nemajú viacero napájacích 
   <data name="AutomationPipelineControl_Unnamed" xml:space="preserve">
     <value>Nepomenovaná</value>
   </data>
-  <data name="BalanceModeSettingsWindow_AIEngine_Message" xml:space="preserve">
-    <value>Automaticky zistí keď sú spustené určité hry a vyladí výkon CPU a GPU. Hluk ventilátora a teploty sa môžu zvýšiť.</value>
-  </data>
   <data name="BalanceModeSettingsWindow_AIEngine_Title" xml:space="preserve">
     <value>Zapnúť AI Engine</value>
   </data>
@@ -352,9 +349,6 @@ Táto možnosť je určená pre zariadenia, ktoré nemajú viacero napájacích 
   </data>
   <data name="BatteryPage_FirstUse_Message" xml:space="preserve">
     <value>Kedy bola batéria prvýkrát použitá.</value>
-  </data>
-  <data name="BatteryPage_FullChargeCapacity_Message" xml:space="preserve">
-    <value>Kapacita batéria keď je plne nabitá.</value>
   </data>
   <data name="BatteryPage_FullChargeCapacity_Title" xml:space="preserve">
     <value>Plne nabitá kapacita</value>
@@ -594,9 +588,6 @@ Vopred vďaka!</value>
   <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
     <value>Zaškrtnite obnovovacie frekvencie, ktoré chcete použiť pri klávesovej skratke Fn+R.</value>
   </data>
-  <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
-    <value>Uistite sa, že zabudovaný displej je zapnutý. Lenovo Legion Toolkit nemôže načítať obnovovaciu frekvenciu ktoré nie sú.</value>
-  </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Title" xml:space="preserve">
     <value>Žiadne nájdené obnovovacie frekvencie</value>
   </data>
@@ -609,17 +600,11 @@ Vopred vďaka!</value>
   <data name="Export" xml:space="preserve">
     <value>Export</value>
   </data>
-  <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
-    <value>Pri napájaní z batérie použiť len integrovanú GPU and obe integrovanú aj dedikovanú GPU pri napájaní sieťovým adaptérom. Pri napájaní z neštandardného adaptéru systém prepne na režim len Hybrid-iGPU.</value>
-  </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
     <value>Hybrid-Auto režim</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Disclaimer" xml:space="preserve">
     <value>Prepínanie do a z tohto režimu vyžaduje reštart.</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_DGPU_Message" xml:space="preserve">
-    <value>Použiť len dedikovanú GPU. Tento režim poskytuje najlepší grafický výkon avšak so zvýšenou spotrebou.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
     <value>dGPU režim</value>
@@ -629,9 +614,6 @@ Vopred vďaka!</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Hybridný režim</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_IGPU_Disclaimer" xml:space="preserve">
-    <value>Tento režim nadobudne účinnosť len keď dedikovaná GPU nepracuje.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Message" xml:space="preserve">
     <value>Použiť len integrovanú GPU. Tento režim minimalizuje spotrebu energie a hluk.</value>
