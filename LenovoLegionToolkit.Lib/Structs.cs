@@ -699,3 +699,15 @@ public readonly struct WarrantyInfo
     public DateTime? End { get; init; }
     public Uri? Link { get; init; }
 }
+
+public readonly struct WindowSize
+{
+    public double Width { get; }
+    public double Height { get; }
+
+    public WindowSize(double width, double height)
+    {
+        Width = width;
+        Height = height;
+    }
+}

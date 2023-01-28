@@ -18,7 +18,7 @@ namespace LenovoLegionToolkit.WPF.Windows;
 
 public partial class MainWindow
 {
-    private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
+    private readonly ApplicationSettings _applicationSettings = IoCContainer.Resolve<ApplicationSettings>();
     private readonly UpdateChecker _updateChecker = IoCContainer.Resolve<UpdateChecker>();
 
     private readonly ContextMenuHelper _contextMenuHelper = new();
@@ -30,11 +30,6 @@ public partial class MainWindow
     public MainWindow()
     {
         InitializeComponent();
-
-        Loaded += MainWindow_Loaded;
-        Closing += MainWindow_Closing;
-        IsVisibleChanged += MainWindow_IsVisibleChanged;
-        StateChanged += MainWindow_StateChanged;
 
         if (Assembly.GetEntryAssembly()?.GetName().Version == new Version(0, 0, 1, 0))
             _title.Text += " [BETA]";
@@ -59,6 +54,8 @@ public partial class MainWindow
         _trayIcon.ContextMenu = _contextMenuHelper.ContextMenu;
     }
 
+    private void MainWindow_SourceInitialized(object? sender, EventArgs e) => RestoreSize();
+
     private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
     {
         _contentGrid.Visibility = Visibility.Hidden;
@@ -80,13 +77,15 @@ public partial class MainWindow
 
     private async void MainWindow_Closing(object? sender, CancelEventArgs e)
     {
+        SaveSize();
+
         if (SuppressClosingEventHandler)
         {
             _trayIcon.Dispose();
             return;
         }
 
-        if (_settings.Store.MinimizeOnClose)
+        if (_applicationSettings.Store.MinimizeOnClose)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Minimizing...");
@@ -180,7 +179,24 @@ public partial class MainWindow
             }, TaskScheduler.FromCurrentSynchronizationContext());
     }
 
-    public void BringToForeground() => WindowExtensions.BringToForeground(this);
+    private void RestoreSize()
+    {
+        if (!_applicationSettings.Store.WindowSize.HasValue)
+            return;
+
+        Width = _applicationSettings.Store.WindowSize.Value.Width;
+        Height = _applicationSettings.Store.WindowSize.Value.Height;
+    }
+
+    private void SaveSize()
+    {
+        _applicationSettings.Store.WindowSize = WindowState != WindowState.Normal
+            ? new(RestoreBounds.Width, RestoreBounds.Height)
+            : new(Width, Height);
+        _applicationSettings.SynchronizeStore();
+    }
+
+    private void BringToForeground() => WindowExtensions.BringToForeground(this);
 
     public void SendToTray()
     {

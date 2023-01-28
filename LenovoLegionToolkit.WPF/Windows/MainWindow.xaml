@@ -13,7 +13,12 @@
     Height="750"
     MinWidth="650"
     MinHeight="600"
-    FlowDirection="{x:Static utils:LocalizationHelper.Direction}">
+    Closing="MainWindow_Closing"
+    FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
+    IsVisibleChanged="MainWindow_IsVisibleChanged"
+    Loaded="MainWindow_Loaded"
+    SourceInitialized="MainWindow_SourceInitialized"
+    StateChanged="MainWindow_StateChanged">
 
     <Grid>
         <Grid.RowDefinitions>
