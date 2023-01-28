@@ -808,6 +808,9 @@ AVERTISSEMENT : Cette action ne fonctionnera pas correctement si l'affichage int
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
     <value>Clavier</value>
   </data>
+  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
+    <value>Paquets</value>
+  </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Paramètres</value>
   </data>
@@ -965,6 +968,9 @@ Activez cette option si vous avez des conflits avec les applications en plein é
   <data name="PackageControl_HttpGeneralError_Title" xml:space="preserve">
     <value>Un problème est survenu</value>
   </data>
+  <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
+    <value>Mise à jour disponible !</value>
+  </data>
   <data name="PackageControl_OldPackageWarning" xml:space="preserve">
     <value>Ce paquet est vieux de plus d'un an.</value>
   </data>
@@ -1002,8 +1008,14 @@ Assurez-vous toujours que vous installez les paquets appropriés.</value>
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Principale (Recommandée)</value>
   </data>
+  <data name="PackagesPage_PrimarySource_Message" xml:space="preserve">
+    <value>Identique à Lenovo Vantage</value>
+  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Secondaire</value>
+  </data>
+  <data name="PackagesPage_SecondarySource_Message" xml:space="preserve">
+    <value>Identique à celui du Support PC Lenovo</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Catégorie</value>
@@ -1544,5 +1556,75 @@ ATTENTION : Cette action ne fonctionnera pas correctement, si l'écran interne e
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>Affichage</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Rétroéclairage</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
+    <value>Vous pouvez activer ou désactiver le rétroéclairage avec Fn+Espace.</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Rétroéclairage</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Allume ou éteint le rétro-éclairage.</value>
+  </data>
+  <data name="PackagesPage_NoMatchingDownloads" xml:space="preserve">
+    <value>Aucun téléchargement trouvé</value>
+  </data>
+  <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
+    <value>Afficher les mises à jour uniquement</value>
+  </data>
+  <data name="EditDashboardWindow_Title" xml:space="preserve">
+    <value>Tableau de bord personnalisé</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Réinitialiser</value>
+  </data>
+  <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
+    <value>Créer un groupe</value>
+  </data>
+  <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
+    <value>Certaines fonctionnalités peuvent ne pas apparaître sur le tableau de bord selon l'état et la configuration de votre appareil.</value>
+  </data>
+  <data name="DashboardPage_Customize" xml:space="preserve">
+    <value>Personnaliser</value>
+  </data>
+  <data name="TurnOffMonitorsControl_Title" xml:space="preserve">
+    <value>Éteindre les écrans</value>
+  </data>
+  <data name="TurnOffMonitorsControl_Message" xml:space="preserve">
+    <value>Éteint tous les écrans disponibles.
+En déplaçant la souris ou en appuyant sur le clavier, les écrans se réveillent.</value>
+  </data>
+  <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
+    <value>Éteindre</value>
+  </data>
+  <data name="TurnOffMonitorsAutomationStepControl_Title" xml:space="preserve">
+    <value>Éteindre les écrans</value>
+  </data>
+  <data name="TurnOffMonitorsAutomationStepControl_Message" xml:space="preserve">
+    <value>Éteint tous les écrans disponibles.</value>
+  </data>
+  <data name="EditDashboardGroupControl_EditGroup_Title" xml:space="preserve">
+	  <value>Modifier le nom du groupe</value>
+  </data>
+  <data name="EditDashboardGroupControl_EditGroup_Message" xml:space="preserve">
+	  <value>Nom</value>
+  </data>
+  <data name="Notification_PanelLogoLightingOn" xml:space="preserve">
+	  <value>Logo Legion allumé</value>
+  </data>
+  <data name="Notification_PanelLogoLightingOff" xml:space="preserve">
+	  <value>Logo Legion éteint</value>
+  </data>
+  <data name="Notification_PortLightingOn" xml:space="preserve">
+	  <value>Éclairage des ports allumé</value>
+  </data>
+  <data name="Notification_PortLightingOff" xml:space="preserve">
+	  <value>Éclairage des ports éteint</value>
   </data>
 </root>
