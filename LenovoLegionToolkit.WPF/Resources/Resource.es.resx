@@ -1603,4 +1603,22 @@ Al mover el ratón o pulsar el teclado se activarán las pantallas.</value>
   <data name="TurnOffMonitorsAutomationStepControl_Message" xml:space="preserve">
     <value>Apagar todas las pantallas disponibles.</value>
   </data>
+  <data name="EditDashboardGroupControl_EditGroup_Title" xml:space="preserve">
+	  <value>Editar el nombre del grupo</value>
+  </data>
+  <data name="EditDashboardGroupControl_EditGroup_Message" xml:space="preserve">
+	  <value>Nombre</value>
+  </data>
+  <data name="Notification_PanelLogoLightingOn" xml:space="preserve">
+	  <value>Logo Legion encendido</value>
+  </data>
+  <data name="Notification_PanelLogoLightingOff" xml:space="preserve">
+	  <value>Logo Legion apagado</value>
+  </data>
+  <data name="Notification_PortLightingOn" xml:space="preserve">
+	  <value>Puertos retroiluminados encendidos</value>
+  </data>
+  <data name="Notification_PortLightingOff" xml:space="preserve">
+	  <value>Puertos retroiluminados apagados</value>
+  </data>
 </root>

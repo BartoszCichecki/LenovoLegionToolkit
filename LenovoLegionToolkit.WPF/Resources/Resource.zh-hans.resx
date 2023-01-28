@@ -833,19 +833,19 @@
     <value>否</value>
   </data>
   <data name="Notification_ACAdapterConnected" xml:space="preserve">
-    <value>充电器已插入</value>
+    <value>充电器 已插入</value>
   </data>
   <data name="Notification_ACAdapterConnectedLowWattage" xml:space="preserve">
-    <value>充电器已插入（低功率）</value>
+    <value>充电器 已插入（低功率）</value>
   </data>
   <data name="Notification_ACAdapterDisconnected" xml:space="preserve">
-    <value>充电器已拔出</value>
+    <value>充电器 已拔出</value>
   </data>
   <data name="Notification_CameraOff" xml:space="preserve">
-    <value>摄像头已关闭</value>
+    <value>摄像头 关</value>
   </data>
   <data name="Notification_CameraOn" xml:space="preserve">
-    <value>摄像头已开启</value>
+    <value>摄像头 开</value>
   </data>
   <data name="Notification_CapsLockOff" xml:space="preserve">
     <value>Caps Lock 关</value>
@@ -860,10 +860,10 @@
     <value>锁定 Fn 键 开</value>
   </data>
   <data name="Notification_MicrophoneOff" xml:space="preserve">
-    <value>麦克风已关闭</value>
+    <value>麦克风 关</value>
   </data>
   <data name="Notification_MicrophoneOn" xml:space="preserve">
-    <value>麦克风已开启</value>
+    <value>麦克风 开</value>
   </data>
   <data name="Notification_NumLockOff" xml:space="preserve">
     <value>Num Lock 关</value>
@@ -881,10 +881,10 @@
     <value>灯效主题 {0}</value>
   </data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
-    <value>触摸板已关闭</value>
+    <value>触摸板 关</value>
   </data>
   <data name="Notification_TouchpadOn" xml:space="preserve">
-    <value>触摸板已开启</value>
+    <value>触摸板 开</value>
   </data>
   <data name="Notification_WhiteKeyboardBacklight" xml:space="preserve">
     <value>背光 {0}</value>
@@ -1602,6 +1602,10 @@
   <data name="TurnOffMonitorsControl_Title" xml:space="preserve">
     <value>关闭显示器</value>
   </data>
+  <data name="TurnOffMonitorsControl_Message" xml:space="preserve">
+    <value>关闭所有可用的显示器。
+移动鼠标或按下键盘按键即可唤醒屏幕。</value>
+  </data>
   <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
     <value>关闭</value>
   </data>
@@ -1610,5 +1614,24 @@
   </data>
   <data name="TurnOffMonitorsAutomationStepControl_Message" xml:space="preserve">
     <value>关闭所有可用的显示器。</value>
+  </data>
+  <data name="EditDashboardGroupControl_EditGroup_Title" xml:space="preserve">
+	  <value>修改分组名称</value>
+  </data>
+  <data name="EditDashboardGroupControl_EditGroup_Message" xml:space="preserve">
+	  <value>点此输入名称</value>
+  </data>
+  <data name="Notification_PanelLogoLightingOn" xml:space="preserve">
+	  <value>拯救者 LOGO 灯 开
+</value>
+  </data>
+  <data name="Notification_PanelLogoLightingOff" xml:space="preserve">
+	  <value>拯救者 LOGO 灯 关</value>
+  </data>
+  <data name="Notification_PortLightingOn" xml:space="preserve">
+	  <value>接口指示灯 开</value>
+  </data>
+  <data name="Notification_PortLightingOff" xml:space="preserve">
+	  <value>接口指示灯 关</value>
   </data>
 </root>

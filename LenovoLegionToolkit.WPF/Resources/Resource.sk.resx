@@ -284,9 +284,6 @@ Táto možnosť je určená pre zariadenia, ktoré nemajú viacero napájacích 
   <data name="AutomationPipelineControl_Unnamed" xml:space="preserve">
     <value>Nepomenovaná</value>
   </data>
-  <data name="BalanceModeSettingsWindow_AIEngine_Message" xml:space="preserve">
-    <value>Automaticky zistí keď sú spustené určité hry a vyladí výkon CPU a GPU. Hluk ventilátora a teploty sa môžu zvýšiť.</value>
-  </data>
   <data name="BalanceModeSettingsWindow_AIEngine_Title" xml:space="preserve">
     <value>Zapnúť AI Engine</value>
   </data>
@@ -335,9 +332,6 @@ Táto možnosť je určená pre zariadenia, ktoré nemajú viacero napájacích 
   <data name="BatteryPage_DesignCapacity_Title" xml:space="preserve">
     <value>Konštrukčná kapacita</value>
   </data>
-  <data name="BatteryPage_DischargeRate_Message" xml:space="preserve">
-    <value>Rýchlosť ako sa batéria nabíja (+), alebo vybíja (-).</value>
-  </data>
   <data name="BatteryPage_DischargeRate_Title" xml:space="preserve">
     <value>Rýchlosť vybíjania</value>
   </data>
@@ -353,9 +347,6 @@ Táto možnosť je určená pre zariadenia, ktoré nemajú viacero napájacích 
   <data name="BatteryPage_FirstUse_Message" xml:space="preserve">
     <value>Kedy bola batéria prvýkrát použitá.</value>
   </data>
-  <data name="BatteryPage_FullChargeCapacity_Message" xml:space="preserve">
-    <value>Kapacita batéria keď je plne nabitá.</value>
-  </data>
   <data name="BatteryPage_FullChargeCapacity_Title" xml:space="preserve">
     <value>Plne nabitá kapacita</value>
   </data>
@@ -367,10 +358,6 @@ Táto možnosť je určená pre zariadenia, ktoré nemajú viacero napájacích 
   </data>
   <data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
     <value>Dátum výroby</value>
-  </data>
-  <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-    <value>Čas od posledného pripojenia notebooku k nabíjačke.
-Tento čas nemusí byť presný, ak bol laptop nabíjaný v spánku alebo vypnutý.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
     <value>Na batérii od</value>
@@ -594,9 +581,6 @@ Vopred vďaka!</value>
   <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
     <value>Zaškrtnite obnovovacie frekvencie, ktoré chcete použiť pri klávesovej skratke Fn+R.</value>
   </data>
-  <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
-    <value>Uistite sa, že zabudovaný displej je zapnutý. Lenovo Legion Toolkit nemôže načítať obnovovaciu frekvenciu ktoré nie sú.</value>
-  </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Title" xml:space="preserve">
     <value>Žiadne nájdené obnovovacie frekvencie</value>
   </data>
@@ -609,17 +593,11 @@ Vopred vďaka!</value>
   <data name="Export" xml:space="preserve">
     <value>Export</value>
   </data>
-  <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
-    <value>Pri napájaní z batérie použiť len integrovanú GPU and obe integrovanú aj dedikovanú GPU pri napájaní sieťovým adaptérom. Pri napájaní z neštandardného adaptéru systém prepne na režim len Hybrid-iGPU.</value>
-  </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
     <value>Hybrid-Auto režim</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Disclaimer" xml:space="preserve">
     <value>Prepínanie do a z tohto režimu vyžaduje reštart.</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_DGPU_Message" xml:space="preserve">
-    <value>Použiť len dedikovanú GPU. Tento režim poskytuje najlepší grafický výkon avšak so zvýšenou spotrebou.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
     <value>dGPU režim</value>
@@ -629,9 +607,6 @@ Vopred vďaka!</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Hybridný režim</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_IGPU_Disclaimer" xml:space="preserve">
-    <value>Tento režim nadobudne účinnosť len keď dedikovaná GPU nepracuje.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Message" xml:space="preserve">
     <value>Použiť len integrovanú GPU. Tento režim minimalizuje spotrebu energie a hluk.</value>
@@ -718,9 +693,6 @@ Niektoré notebooky môžu akceptovať vyššie limity výkonu ako uvádzajú al
   <data name="GodModeSettingsWindow_Error_Load_Title" xml:space="preserve">
     <value>Nemožno načítať nastavenia.</value>
   </data>
-  <data name="GodModeSettingsWindow_Fans_Curve_Message" xml:space="preserve">
-    <value>Otáčky ventilátora nie sú striktne určené jedným teplotným senzorom. Zvýši alebo zníži rýchlosť podľa najvyššej teploty medzi CPU, GPU a chladiča. Presné hodnoty sa zobrazia, keď prejdete myšou nad jednotlivý krok.</value>
-  </data>
   <data name="GodModeSettingsWindow_Fans_Curve_Title" xml:space="preserve">
     <value>Krivka vetrákov</value>
   </data>
@@ -781,9 +753,6 @@ VAROVANIE: Táto akcia neprebehne správne, ak je zabudovaný displej vypnutý.<
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Podsvietenie klávesnice</value>
-  </data>
-  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Podsvietenie klávesnice nemôže byť ovládanie tu pokiaľ beží Vantage alebo jeho služby.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Zdá sa, že Lenovo Vantage je povolený</value>
@@ -1233,9 +1202,6 @@ Po zmene tejto možnosti sa odporúča reštart.</value>
   </data>
   <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
     <value>Minimalizovať pri zatvorení</value>
-  </data>
-  <data name="SettingsPage_Notifications_Message" xml:space="preserve">
-    <value>Nastaviť ktoré upozornenia sa zobrazujú.</value>
   </data>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>Upozornenia</value>

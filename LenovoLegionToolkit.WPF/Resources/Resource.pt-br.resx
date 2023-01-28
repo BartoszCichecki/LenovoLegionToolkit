@@ -1608,4 +1608,22 @@ Mover o mouse ou pressionar o teclado reativará as telas.</value>
   <data name="TurnOffMonitorsAutomationStepControl_Message" xml:space="preserve">
     <value>Desligar todas as telas disponíveis.</value>
   </data>
+  <data name="EditDashboardGroupControl_EditGroup_Title" xml:space="preserve">
+	  <value>Editar o nome do grupo</value>
+  </data>
+  <data name="EditDashboardGroupControl_EditGroup_Message" xml:space="preserve">
+	  <value>Nome</value>
+  </data>
+  <data name="Notification_PanelLogoLightingOn" xml:space="preserve">
+	  <value>Logo Legion da tampa ligado</value>
+  </data>
+  <data name="Notification_PanelLogoLightingOff" xml:space="preserve">
+	  <value>Logo Legion da tampa desligado</value>
+  </data>
+  <data name="Notification_PortLightingOn" xml:space="preserve">
+	  <value>Iluminação das portas traseiras ligadas</value>
+  </data>
+  <data name="Notification_PortLightingOff" xml:space="preserve">
+	  <value>Iluminação das portas traseiras desligadas</value>
+  </data>
 </root>
