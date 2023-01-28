@@ -475,6 +475,9 @@ CẢNH BÁO: Hành động sẽ không chạy đúng nếu màn hình laptop kh�
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>Phiên bản BIOS</value>
   </data>
+  <data name="CopiedToClipboard_Message" xml:space="preserve">
+    <value>Đã chép vào bộ nhớ tạm.</value>
+  </data>
   <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
     <value>"{0}" sao chép vào clipboard.</value>
   </data>
@@ -964,6 +967,9 @@ Bật tùy chọn này nếu có xung đột với các ứng dụng chạy toà
   <data name="PackageControl_HttpGeneralError_Title" xml:space="preserve">
     <value>Đã có lỗi xảy ra</value>
   </data>
+  <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
+    <value>Có cập nhật mới!</value>
+  </data>
   <data name="PackageControl_OldPackageWarning" xml:space="preserve">
     <value>Gói cài đặt này đã hơn 1 năm tuổi.</value>
   </data>
@@ -1001,8 +1007,14 @@ Luôn kiểm tra rằng bạn cài đặt đúng gói cài đặt mong muốn.</
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Chính (Khuyên Dùng)</value>
   </data>
+  <data name="PackagesPage_PrimarySource_Message" xml:space="preserve">
+    <value>Tương tự như trên Lenovo PC Support</value>
+  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Phụ</value>
+  </data>
+  <data name="PackagesPage_SecondarySource_Message" xml:space="preserve">
+    <value>Tương tự như trên Lenovo PC Support</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Danh mục</value>
@@ -1333,6 +1345,12 @@ Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
   <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Title" xml:space="preserve">
     <value>Không thể xuất profile</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Message" xml:space="preserve">
+    <value>Cấu hình không thể được nhập vào</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Title" xml:space="preserve">
+    <value>Không thể nhập cấu hình</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
     <value>Không có hiệu ứng nào được thêm.</value>
   </data>
@@ -1495,6 +1513,67 @@ Logging sẽ được tự động bật, nếu bạn chọn tiếp tục.</valu
   <data name="Yes" xml:space="preserve">
     <value>Có</value>
   </data>
+  <data name="MicrophoneControl_Title" xml:space="preserve">
+    <value>Microphone</value>
+  </data>
+  <data name="MicrophoneControl_Message" xml:space="preserve">
+    <value>Khi tắt, microphone sẽ bị tắt tiếng.</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
+    <value>Microphone</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
+    <value>Khi tắt, microphone sẽ bị tắt tiếng.</value>
+  </data>
+  <data name="ResolutionControl_Title" xml:space="preserve">
+    <value>Độ phân giải</value>
+  </data>
+  <data name="ResolutionControl_Message" xml:space="preserve">
+    <value>Thay đổi độ phân giải màn hình laptop.</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
+    <value>Độ phân giải</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
+    <value>Thay đổi độ phân giải màn hình laptop.
+
+CẢNH BẢO! Hành động sẽ không chạy nếu màn hình laptop tắt.</value>
+  </data>
+  <data name="DpiScaleControl_Title" xml:space="preserve">
+    <value>DPI</value>
+  </data>
+  <data name="DpiScaleControl_Message" xml:space="preserve">
+    <value>Thay đổi scaling màn hình laptop.</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
+    <value>DPI</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
+    <value>Thay đổi scaling màn hình laptop.
+
+CẢNH BÁO! Hành động sẽ không chạy nếu màn hình laptop tắt.</value>
+  </data>
+  <data name="DashboardPage_Display_Title" xml:space="preserve">
+    <value>Màn hình</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Đèn nền bàn phím</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
+    <value>Bạn có thể bật tắt đèn nền bàn phím với FN+Space.</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Đèn nền bàn phím</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Tắt hoặc bật đèn nền bàn phím.</value>
+  </data>
+  <data name="PackagesPage_NoMatchingDownloads" xml:space="preserve">
+    <value>Không tìm thấy gói tải xuống phù hợp</value>
+  </data>
+  <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
+    <value>Chỉ hiện cập nhật</value>
+  </data>
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Tùy biến trang chủ</value>
   </data>
@@ -1528,5 +1607,23 @@ Di chuyển chuột hoặc bấm phím bất kỳ trên bàn phím để bật m
   </data>
   <data name="TurnOffMonitorsAutomationStepControl_Message" xml:space="preserve">
     <value>Tắt tất cả các màn hình.</value>
+  </data>
+  <data name="EditDashboardGroupControl_EditGroup_Title" xml:space="preserve">
+	  <value>Sửa tên nhóm</value>
+  </data>
+  <data name="EditDashboardGroupControl_EditGroup_Message" xml:space="preserve">
+	  <value>Tên</value>
+  </data>
+  <data name="Notification_PanelLogoLightingOn" xml:space="preserve">
+	  <value>Đèn Logo bật</value>
+  </data>
+  <data name="Notification_PanelLogoLightingOff" xml:space="preserve">
+	  <value>Đèn Logo tắt</value>
+  </data>
+  <data name="Notification_PortLightingOn" xml:space="preserve">
+	  <value>Đèn I/O bật</value>
+  </data>
+  <data name="Notification_PortLightingOff" xml:space="preserve">
+	  <value>Đèn I/O tắt</value>
   </data>
 </root>
