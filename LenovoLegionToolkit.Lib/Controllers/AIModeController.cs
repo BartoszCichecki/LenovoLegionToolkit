@@ -58,8 +58,7 @@ public class AIModeController
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Starting...");
 
-            if (_startProcessListener is not null || _stopProcessListener is not null)
-                await StopAsync(powerModeState).ConfigureAwait(false);
+            await StopAsync(powerModeState).ConfigureAwait(false);
 
             _setInitialDelayedCancellationTokenSource?.Cancel();
             if (_setInitialDelayedTask is not null)
@@ -99,13 +98,11 @@ public class AIModeController
             _runningProcessIds.Clear();
             _subModeData.Clear();
 
-            _setInitialDelayedCancellationTokenSource?.Cancel();
+            if (powerModeState == PowerModeState.Balance && await GetIntelligentSubModeAsync().ConfigureAwait(false) != 0)
+                await SetIntelligentSubModeAsync(0).ConfigureAwait(false);
 
             if (_setInitialDelayedTask is not null)
                 await _setInitialDelayedTask.ConfigureAwait(false);
-
-            if (powerModeState == PowerModeState.Balance)
-                await SetIntelligentSubModeAsync(0).ConfigureAwait(false);
 
             _startProcessListener = null;
             _stopProcessListener = null;

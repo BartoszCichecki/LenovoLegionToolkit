@@ -38,7 +38,6 @@ public class PowerModeListener : AbstractWMIListener<PowerModeState>, INotifying
 
     private async Task ChangeDependenciesAsync(PowerModeState value)
     {
-        await _aiModeController.StopAsync(value).ConfigureAwait(false);
         await _aiModeController.StartAsync(value).ConfigureAwait(false);
 
         await Power.ActivatePowerPlanAsync(value).ConfigureAwait(false);

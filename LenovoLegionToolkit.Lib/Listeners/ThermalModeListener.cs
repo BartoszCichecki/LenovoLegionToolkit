@@ -1,21 +1,13 @@
 ﻿using System;
 using System.Management;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.System;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
 public class ThermalModeListener : AbstractWMIListener<ThermalModeState>
 {
-    private readonly PowerModeFeature _powerModeFeature;
-    private readonly PowerModeListener _powerModeListener;
-
-    public ThermalModeListener(PowerModeFeature powerModeFeature, PowerModeListener powerModeListener)
-        : base("ROOT\\WMI", "LENOVO_GAMEZONE_THERMAL_MODE_EVENT")
-    {
-        _powerModeFeature = powerModeFeature;
-        _powerModeListener = powerModeListener;
-    }
+    public ThermalModeListener() : base("ROOT\\WMI", "LENOVO_GAMEZONE_THERMAL_MODE_EVENT") { }
 
     protected override ThermalModeState GetValue(PropertyDataCollection properties)
     {
@@ -34,7 +26,17 @@ public class ThermalModeListener : AbstractWMIListener<ThermalModeState>
         if (state == ThermalModeState.Unknown)
             return;
 
-        var powerModeState = await _powerModeFeature.GetStateAsync();
-        await _powerModeListener.NotifyAsync(powerModeState);
+        switch (state)
+        {
+            case ThermalModeState.Quiet:
+                await Power.ActivatePowerPlanAsync(PowerModeState.Quiet).ConfigureAwait(false);
+                break;
+            case ThermalModeState.Balanced:
+                await Power.ActivatePowerPlanAsync(PowerModeState.Balance).ConfigureAwait(false);
+                break;
+            case ThermalModeState.Performance:
+                await Power.ActivatePowerPlanAsync(PowerModeState.Performance).ConfigureAwait(false);
+                break;
+        }
     }
 }
