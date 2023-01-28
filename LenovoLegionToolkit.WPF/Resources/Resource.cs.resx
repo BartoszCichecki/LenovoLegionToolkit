@@ -916,9 +916,6 @@ Povol tuto možnost, pokud máš konflikty s aplikacemi na celou obrazovku.</val
   <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
     <value>Režim výkonu</value>
   </data>
-  <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
-    <value>Frekvence obnovení</value>
-  </data>
   <data name="NotificationsSettingsWindow_SmartKey" xml:space="preserve">
     <value>Chytré tlačitko</value>
   </data>
@@ -1136,14 +1133,8 @@ Režim můžeš přepínat pomocí Fn+Q.</value>
 
 VAROVÁNÍ: Tato akce neproběhne správně, pokud je interní displej vypnutý.</value>
   </data>
-  <data name="RefreshRateAutomationStepControl_Title" xml:space="preserve">
-    <value>Frekvence obnovení</value>
-  </data>
   <data name="RefreshRateControl_Message" xml:space="preserve">
     <value>Změnit obnovovací frekvenci displeje notebooku.</value>
-  </data>
-  <data name="RefreshRateControl_Title" xml:space="preserve">
-    <value>Frekvence obnovení</value>
   </data>
   <data name="Rename" xml:space="preserve">
     <value>Přejmenovat</value>
