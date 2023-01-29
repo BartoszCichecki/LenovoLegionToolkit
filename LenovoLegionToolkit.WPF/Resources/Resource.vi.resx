@@ -1495,6 +1495,9 @@ Logging sẽ được tự động bật, nếu bạn chọn tiếp tục.</valu
   <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Bạn có thể thay đổi độ sáng đèn nền phím bằng Fn+Space</value>
   </data>
+  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Đèn nền bàn phím</value>
+  </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
     <value>Bật hoặc tắt phím Windows.</value>
   </data>
@@ -1553,8 +1556,14 @@ CẢNH BÁO! Hành động sẽ không chạy nếu màn hình laptop tắt.</va
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>Màn hình</value>
   </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Đèn nền bàn phím</value>
+  </data>
   <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Bạn có thể bật tắt đèn nền bàn phím với FN+Space.</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Đèn nền bàn phím</value>
   </data>
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Tắt hoặc bật đèn nền bàn phím.</value>
