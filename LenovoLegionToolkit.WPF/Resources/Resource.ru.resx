@@ -1496,7 +1496,7 @@
     <value>Вы можете изменить яркость с помощью Fn+Пробел</value>
   </data>
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
-    <value>Яркость</value>
+    <value>Подсветка клавиатуры</value>
   </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
     <value>Включить или отключить клавишу Windows.</value>
@@ -1593,15 +1593,15 @@
     <value>Настроить</value>
   </data>
   <data name="EditDashboardGroupControl_EditGroup_Message" xml:space="preserve">
-	  <value>Имя</value>
+    <value>Имя</value>
   </data>
   <data name="PackageControl_RebootRequired" xml:space="preserve">
-	  <value>Требуется перезапуск</value>
+    <value>Требуется перезапуск</value>
   </data>
   <data name="PackageControl_ShutdownRequired" xml:space="preserve">
-	  <value>Требуется выключение системы</value>
+    <value>Требуется выключение системы</value>
   </data>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
-	  <value>Рекомендуется перезапуск системы</value>
+    <value>Рекомендуется перезапуск системы</value>
   </data>
 </root>

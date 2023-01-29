@@ -1496,7 +1496,7 @@ Logging sẽ được tự động bật, nếu bạn chọn tiếp tục.</valu
     <value>Bạn có thể thay đổi độ sáng đèn nền phím bằng Fn+Space</value>
   </data>
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
-    <value>Độ sáng</value>
+    <value>Đèn nền bàn phím</value>
   </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
     <value>Bật hoặc tắt phím Windows.</value>
@@ -1609,30 +1609,30 @@ Di chuyển chuột hoặc bấm phím bất kỳ trên bàn phím để bật m
     <value>Tắt tất cả các màn hình.</value>
   </data>
   <data name="EditDashboardGroupControl_EditGroup_Title" xml:space="preserve">
-	  <value>Sửa tên nhóm</value>
+    <value>Sửa tên nhóm</value>
   </data>
   <data name="EditDashboardGroupControl_EditGroup_Message" xml:space="preserve">
-	  <value>Tên</value>
+    <value>Tên</value>
   </data>
   <data name="Notification_PanelLogoLightingOn" xml:space="preserve">
-	  <value>Đèn Logo bật</value>
+    <value>Đèn Logo bật</value>
   </data>
   <data name="Notification_PanelLogoLightingOff" xml:space="preserve">
-	  <value>Đèn Logo tắt</value>
+    <value>Đèn Logo tắt</value>
   </data>
   <data name="Notification_PortLightingOn" xml:space="preserve">
-	  <value>Đèn I/O bật</value>
+    <value>Đèn I/O bật</value>
   </data>
   <data name="Notification_PortLightingOff" xml:space="preserve">
-	  <value>Đèn I/O tắt</value>
+    <value>Đèn I/O tắt</value>
   </data>
   <data name="PackageControl_RebootRequired" xml:space="preserve">
-	  <value>Yêu cầu khởi động lại</value>
+    <value>Yêu cầu khởi động lại</value>
   </data>
   <data name="PackageControl_ShutdownRequired" xml:space="preserve">
-	  <value>Yêu cầu tắt máy</value>
+    <value>Yêu cầu tắt máy</value>
   </data>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
-	  <value>Khuyến nghị khởi động lại</value>
+    <value>Khuyến nghị khởi động lại</value>
   </data>
 </root>

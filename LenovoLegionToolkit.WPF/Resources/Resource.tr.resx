@@ -1215,9 +1215,6 @@ Devam etmeyi seçerseniz, kayıt etme otomatik olarak etkinleştirilecektir.</va
   <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Fn+Space ile parlaklığı değiştirebilirsiniz</value>
   </data>
-  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
-    <value>Parlaklık</value>
-  </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
     <value>Windows tuşunu etkinleştirin veya devre dışı bırakın.</value>
   </data>

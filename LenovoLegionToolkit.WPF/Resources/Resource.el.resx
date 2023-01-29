@@ -1311,9 +1311,6 @@
   <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Μπορείτε να αλλάξετε τη φωτεινότητα με το Fn+Space</value>
   </data>
-  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
-    <value>Φωτεινότητα</value>
-  </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
     <value>Ενεργοποίηση ή απενεργοποίηση του πλήκτρου των Windows.</value>
   </data>

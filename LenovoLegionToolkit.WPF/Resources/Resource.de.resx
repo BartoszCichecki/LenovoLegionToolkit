@@ -1495,7 +1495,7 @@ Die Protokollierung wird automatisch aktiviert, wenn Sie fortfahren möchten.</v
     <value>Sie können die Helligkeit mit Fn+Leertaste ändern</value>
   </data>
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
-    <value>Helligkeit</value>
+    <value>Tastaturbeleuchtung</value>
   </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
     <value>Aktiviere oder deaktiviere die Windows-Taste.</value>
@@ -1602,5 +1602,8 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
   </data>
   <data name="TurnOffMonitorsAutomationStepControl_Message" xml:space="preserve">
     <value>Alle verfügbaren Bildschirme ausschalten.</value>
+  </data>
+  <data name="EditDashboardGroupControl_EditGroup_Message" xml:space="preserve">
+    <value>Name</value>
   </data>
 </root>

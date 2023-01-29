@@ -1497,7 +1497,7 @@ La journalisation sera activée automatiquement si vous choisissez de continuer.
     <value>Vous pouvez modifier la luminosité avec Fn+Espace</value>
   </data>
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
-    <value>Luminosité</value>
+    <value>Rétroéclairage du clavier</value>
   </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
     <value>Activer ou Désactiver la touche Windows.</value>
@@ -1558,13 +1558,13 @@ ATTENTION : Cette action ne fonctionnera pas correctement, si l'écran interne e
     <value>Affichage</value>
   </data>
   <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
-    <value>Rétroéclairage</value>
+    <value>Rétroéclairage du clavier</value>
   </data>
   <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Vous pouvez activer ou désactiver le rétroéclairage avec Fn+Espace.</value>
   </data>
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
-    <value>Rétroéclairage</value>
+    <value>Rétroéclairage du clavier</value>
   </data>
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Allume ou éteint le rétro-éclairage.</value>
@@ -1610,30 +1610,30 @@ En déplaçant la souris ou en appuyant sur le clavier, les écrans se réveille
     <value>Éteint tous les écrans disponibles.</value>
   </data>
   <data name="EditDashboardGroupControl_EditGroup_Title" xml:space="preserve">
-	  <value>Modifier le nom du groupe</value>
+    <value>Modifier le nom du groupe</value>
   </data>
   <data name="EditDashboardGroupControl_EditGroup_Message" xml:space="preserve">
-	  <value>Nom</value>
+    <value>Nom</value>
   </data>
   <data name="Notification_PanelLogoLightingOn" xml:space="preserve">
-	  <value>Logo Legion allumé</value>
+    <value>Logo Legion allumé</value>
   </data>
   <data name="Notification_PanelLogoLightingOff" xml:space="preserve">
-	  <value>Logo Legion éteint</value>
+    <value>Logo Legion éteint</value>
   </data>
   <data name="Notification_PortLightingOn" xml:space="preserve">
-	  <value>Éclairage des ports allumé</value>
+    <value>Éclairage des ports allumé</value>
   </data>
   <data name="Notification_PortLightingOff" xml:space="preserve">
-	  <value>Éclairage des ports éteint</value>
+    <value>Éclairage des ports éteint</value>
   </data>
   <data name="PackageControl_RebootRequired" xml:space="preserve">
-	  <value>Redémarrage nécessaire</value>
+    <value>Redémarrage nécessaire</value>
   </data>
   <data name="PackageControl_ShutdownRequired" xml:space="preserve">
-	  <value>Redémarrage nécessaire</value>
+    <value>Redémarrage nécessaire</value>
   </data>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
-	  <value>Redémarrage recommandé</value>
+    <value>Redémarrage recommandé</value>
   </data>
 </root>

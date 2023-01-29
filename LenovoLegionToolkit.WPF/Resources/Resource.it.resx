@@ -1466,9 +1466,6 @@ Il logging verrà abilitato automaticamente, se scegli di continuare.</value>
   <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Puoi cambiare la retroilluminazione con Fn+Spazio</value>
   </data>
-  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
-    <value>Luminosità</value>
-  </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
     <value>Abilita o Disabilita il tasto Windows.</value>
   </data>
