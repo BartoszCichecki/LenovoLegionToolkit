@@ -1495,9 +1495,6 @@ Salvarea logurilor va fi activată automat dacă alegeți să continuați.</valu
   <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Puteți schimba luminozitatea apăsând Fn+Space</value>
   </data>
-  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
-    <value>Luminozitate</value>
-  </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
     <value>Activați sau dezactivați tasta Windows.</value>
   </data>
@@ -1556,14 +1553,8 @@ ATENȚIE: Această acțiune nu va rula corect dacă afișajul încorporat este o
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>Afișaj</value>
   </data>
-  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
-    <value>Iluminare</value>
-  </data>
   <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Puteți porni sau opri iluminarea apăsând Fn+Space.</value>
-  </data>
-  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
-    <value>Iluminare</value>
   </data>
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Pornire sau oprire iluminare.</value>
