@@ -1627,4 +1627,13 @@ En déplaçant la souris ou en appuyant sur le clavier, les écrans se réveille
   <data name="Notification_PortLightingOff" xml:space="preserve">
 	  <value>Éclairage des ports éteint</value>
   </data>
+  <data name="PackageControl_RebootRequired" xml:space="preserve">
+	  <value>Redémarrage nécessaire</value>
+  </data>
+  <data name="PackageControl_ShutdownRequired" xml:space="preserve">
+	  <value>Redémarrage nécessaire</value>
+  </data>
+  <data name="PackageControl_RebootRecommended" xml:space="preserve">
+	  <value>Redémarrage recommandé</value>
+  </data>
 </root>

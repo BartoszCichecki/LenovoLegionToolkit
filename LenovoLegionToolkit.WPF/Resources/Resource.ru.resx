@@ -1592,4 +1592,16 @@
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>Настроить</value>
   </data>
+  <data name="EditDashboardGroupControl_EditGroup_Message" xml:space="preserve">
+	  <value>Имя</value>
+  </data>
+  <data name="PackageControl_RebootRequired" xml:space="preserve">
+	  <value>Требуется перезапуск</value>
+  </data>
+  <data name="PackageControl_ShutdownRequired" xml:space="preserve">
+	  <value>Требуется выключение системы</value>
+  </data>
+  <data name="PackageControl_RebootRecommended" xml:space="preserve">
+	  <value>Рекомендуется перезапуск системы</value>
+  </data>
 </root>

@@ -1623,4 +1623,13 @@
   <data name="Notification_PortLightingOff" xml:space="preserve">
 	  <value>Підсвітка портів вимкнена</value>
   </data>
+  <data name="PackageControl_RebootRequired" xml:space="preserve">
+	  <value>Необхідне перезавантаження</value>
+  </data>
+  <data name="PackageControl_ShutdownRequired" xml:space="preserve">
+	  <value>Необхідне вимкнення</value>
+  </data>
+  <data name="PackageControl_RebootRecommended" xml:space="preserve">
+	  <value>Рекомендується перезавантаження</value>
+  </data>
 </root>
