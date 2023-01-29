@@ -243,6 +243,15 @@ public enum ProcessEventInfoType
     Stopped
 }
 
+public enum RebootType
+{
+    NotRequired = 0,
+    Forced = 1,
+    Requested = 3,
+    ForcedPowerOff = 4,
+    Delayed = 5
+}
+
 public enum RGBKeyboardBacklightChanged { }
 
 public enum RGBKeyboardBacklightBrightness

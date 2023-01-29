@@ -1626,4 +1626,13 @@ Moving the mouse or pressing the keyboard will wake displays up.</value>
   <data name="Notification_PortLightingOff" xml:space="preserve">
 	  <value>Ports backlight off</value>
   </data>
+  <data name="PackageControl_RebootRequired" xml:space="preserve">
+	  <value>Restart required</value>
+  </data>
+  <data name="PackageControl_ShutdownRequired" xml:space="preserve">
+	  <value>Shutdown required</value>
+  </data>
+  <data name="PackageControl_RebootRecommended" xml:space="preserve">
+	  <value>Restart recommended</value>
+  </data>
 </root>

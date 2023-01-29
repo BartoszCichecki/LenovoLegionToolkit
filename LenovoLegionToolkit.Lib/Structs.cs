@@ -272,6 +272,7 @@ public struct Package
     public string? Readme { get; init; }
     public string FileLocation { get; init; }
     public bool IsUpdate { get; init; }
+    public RebootType Reboot { get; init; }
 
     private string? _index;
 

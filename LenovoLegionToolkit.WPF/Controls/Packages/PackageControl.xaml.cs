@@ -44,8 +44,18 @@ public partial class PackageControl : IProgress<float>
         _detailTextBlock.Text = $"{Resource.PackageControl_Version} {package.Version}  |  {package.FileSize}  |  {package.FileName}";
 
         _readmeButton.Visibility = string.IsNullOrWhiteSpace(package.Readme) ? Visibility.Collapsed : Visibility.Visible;
+        _updateRebootStackPanel.Visibility = _isUpdateStackPanel.Visibility = package.IsUpdate ? Visibility.Visible : Visibility.Collapsed;
 
-        _isUpdateStackPanel.Visibility = package.IsUpdate ? Visibility.Visible : Visibility.Collapsed;
+        _rebootStackPanel.Visibility = package is { IsUpdate: true, Reboot: RebootType.Delayed or RebootType.Requested or RebootType.Forced or RebootType.ForcedPowerOff }
+            ? Visibility.Visible
+            : Visibility.Collapsed;
+        _rebootTextBlock.Text = package.Reboot switch
+        {
+            RebootType.Delayed or RebootType.Requested => Resource.PackageControl_RebootRecommended,
+            RebootType.Forced => Resource.PackageControl_RebootRequired,
+            RebootType.ForcedPowerOff => Resource.PackageControl_ShutdownRequired,
+            _ => string.Empty
+        };
 
         var showWarning = package.ReleaseDate < DateTime.UtcNow.AddYears(-1);
         _warningTextBlock.Visibility = showWarning ? Visibility.Visible : Visibility.Collapsed;

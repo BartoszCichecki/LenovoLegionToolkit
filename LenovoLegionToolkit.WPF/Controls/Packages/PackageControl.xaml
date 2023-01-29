@@ -23,25 +23,48 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel
-                    x:Name="_isUpdateStackPanel"
+                    x:Name="_updateRebootStackPanel"
                     Grid.Row="0"
                     Grid.Column="0"
                     Margin="0,0,0,8"
                     Orientation="Horizontal">
 
-                    <wpfui:SymbolIcon
-                        Margin="0,0,4,0"
-                        FontSize="18"
-                        FontWeight="Medium"
-                        Foreground="{DynamicResource SystemFillColorSuccessBrush}"
-                        Symbol="ArrowSync24" />
+                    <StackPanel x:Name="_isUpdateStackPanel" Orientation="Horizontal">
+                        <wpfui:SymbolIcon
+                            Margin="0,0,4,0"
+                            FontSize="18"
+                            FontWeight="Medium"
+                            Foreground="{DynamicResource SystemFillColorSuccessBrush}"
+                            Symbol="ArrowSync24" />
+                        <TextBlock
+                            FontSize="14"
+                            FontWeight="Medium"
+                            Foreground="{DynamicResource SystemFillColorSuccessBrush}"
+                            Text="{x:Static resources:Resource.PackageControl_IsUpdateInfo}"
+                            TextTrimming="CharacterEllipsis" />
+                    </StackPanel>
 
-                    <TextBlock
-                        FontSize="14"
-                        FontWeight="Medium"
-                        Foreground="{DynamicResource SystemFillColorSuccessBrush}"
-                        Text="{x:Static resources:Resource.PackageControl_IsUpdateInfo}"
-                        TextTrimming="CharacterEllipsis" />
+                    <StackPanel
+                        x:Name="_rebootStackPanel"
+                        Margin="16,0,0,0"
+                        Orientation="Horizontal">
+                        <wpfui:SymbolIcon
+                            Margin="0,0,4,0"
+                            FontSize="18"
+                            FontWeight="Medium"
+                            Foreground="{DynamicResource SystemFillColorCautionBrush}"
+                            Symbol="Warning24" />
+                        <TextBlock
+                            x:Name="_rebootTextBlock"
+                            FontSize="14"
+                            FontWeight="Medium"
+                            Foreground="{DynamicResource SystemFillColorCautionBrush}"
+                            Text="{x:Static resources:Resource.PackageControl_RebootRecommended}"
+                            TextTrimming="CharacterEllipsis" />
+                    </StackPanel>
+
+
+
                 </StackPanel>
 
                 <TextBlock

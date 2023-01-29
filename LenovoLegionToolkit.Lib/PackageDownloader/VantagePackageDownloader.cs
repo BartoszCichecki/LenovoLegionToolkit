@@ -88,7 +88,7 @@ public class VantagePackageDownloader : AbstractPackageDownloader
     private async Task<Package> GetPackage(HttpClient httpClient, VantagePackageUpdateDetector updateDetector, PackageDefinition packageDefinition, CancellationToken token)
     {
         var location = packageDefinition.Location;
-        var baseLocation = location.Remove(location.LastIndexOf("/"));
+        var baseLocation = location.Remove(location.LastIndexOf("/", StringComparison.InvariantCultureIgnoreCase));
 
         var packageString = await httpClient.GetStringAsync(location, token).ConfigureAwait(false);
 
@@ -106,6 +106,8 @@ public class VantagePackageDownloader : AbstractPackageDownloader
         var readmeName = document.SelectSingleNode("/Package/Files/Readme/File/Name")?.InnerText;
         var readme = await GetReadmeAsync(httpClient, $"{baseLocation}/{readmeName}", token).ConfigureAwait(false);
         var fileLocation = $"{baseLocation}/{fileName}";
+        var rebootString = document.SelectSingleNode("/Package/Reboot/@type")!.InnerText;
+        var reboot = int.TryParse(rebootString, out var rebootInt) ? (RebootType)rebootInt : RebootType.NotRequired;
 
         var isUpdate = false;
         if (FeatureFlags.CheckUpdates)
@@ -135,7 +137,8 @@ public class VantagePackageDownloader : AbstractPackageDownloader
             ReleaseDate = releaseDate,
             Readme = readme,
             FileLocation = fileLocation,
-            IsUpdate = isUpdate
+            IsUpdate = isUpdate,
+            Reboot = reboot
         };
     }
 }

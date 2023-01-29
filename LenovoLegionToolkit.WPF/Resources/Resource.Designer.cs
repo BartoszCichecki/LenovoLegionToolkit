@@ -2802,6 +2802,33 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Restart recommended.
+        /// </summary>
+        public static string PackageControl_RebootRecommended {
+            get {
+                return ResourceManager.GetString("PackageControl_RebootRecommended", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restart required.
+        /// </summary>
+        public static string PackageControl_RebootRequired {
+            get {
+                return ResourceManager.GetString("PackageControl_RebootRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shutdown required.
+        /// </summary>
+        public static string PackageControl_ShutdownRequired {
+            get {
+                return ResourceManager.GetString("PackageControl_ShutdownRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Version.
         /// </summary>
         public static string PackageControl_Version {
