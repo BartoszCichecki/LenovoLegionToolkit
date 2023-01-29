@@ -100,7 +100,7 @@ public class ResolutionFeature : IFeature<Resolution>
         var possibleSettings = display.GetPossibleSettings();
         var newSettings = possibleSettings
             .Where(dps => Match(dps, currentSettings))
-            .Select(dps => new DisplaySetting(dps, currentSettings.Position))
+            .Select(dps => new DisplaySetting(dps, currentSettings.Position, currentSettings.Orientation, currentSettings.OutputScalingMode))
             .FirstOrDefault(dps => dps.Resolution == state);
 
         if (newSettings is not null)

@@ -100,7 +100,7 @@ public class RefreshRateFeature : IFeature<RefreshRate>
         var possibleSettings = display.GetPossibleSettings();
         var newSettings = possibleSettings
             .Where(dps => Match(dps, currentSettings))
-            .Select(dps => new DisplaySetting(dps, currentSettings.Position))
+            .Select(dps => new DisplaySetting(dps, currentSettings.Position, currentSettings.Orientation, currentSettings.OutputScalingMode))
             .FirstOrDefault(dps => dps.Frequency == state.Frequency);
 
         if (newSettings is not null)
