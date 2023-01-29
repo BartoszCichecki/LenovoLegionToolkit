@@ -1492,9 +1492,6 @@
   <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Ви можете змінювати яскравість за допомогою Fn+Space</value>
   </data>
-  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
-    <value>Яскравість</value>
-  </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
     <value>Увімкнути або вимкнути клавішу Windows.</value>
   </data>
@@ -1553,14 +1550,8 @@
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>Дисплей</value>
   </data>
-  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
-    <value>Підсвітка</value>
-  </data>
   <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Ви можете увімкнути або вимкнути підсвітку комбінацією Fn+Пробіл.</value>
-  </data>
-  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
-    <value>Підсвітка</value>
   </data>
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Увімкнути або вимкнути підсвітку.</value>
@@ -1606,30 +1597,30 @@
     <value>Вимкнути усі доступні дисплеї.</value>
   </data>
   <data name="EditDashboardGroupControl_EditGroup_Title" xml:space="preserve">
-	  <value>Змінити назву групи</value>
+    <value>Змінити назву групи</value>
   </data>
   <data name="EditDashboardGroupControl_EditGroup_Message" xml:space="preserve">
-	  <value>Назва</value>
+    <value>Назва</value>
   </data>
   <data name="Notification_PanelLogoLightingOn" xml:space="preserve">
-	  <value>Лого Legion увімкнено</value>
+    <value>Лого Legion увімкнено</value>
   </data>
   <data name="Notification_PanelLogoLightingOff" xml:space="preserve">
-	  <value>Лого Legion вимкнено</value>
+    <value>Лого Legion вимкнено</value>
   </data>
   <data name="Notification_PortLightingOn" xml:space="preserve">
-	  <value>Підсвітка портів увімкнена</value>
+    <value>Підсвітка портів увімкнена</value>
   </data>
   <data name="Notification_PortLightingOff" xml:space="preserve">
-	  <value>Підсвітка портів вимкнена</value>
+    <value>Підсвітка портів вимкнена</value>
   </data>
   <data name="PackageControl_RebootRequired" xml:space="preserve">
-	  <value>Необхідне перезавантаження</value>
+    <value>Необхідне перезавантаження</value>
   </data>
   <data name="PackageControl_ShutdownRequired" xml:space="preserve">
-	  <value>Необхідне вимкнення</value>
+    <value>Необхідне вимкнення</value>
   </data>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
-	  <value>Рекомендується перезавантаження</value>
+    <value>Рекомендується перезавантаження</value>
   </data>
 </root>
