@@ -9,7 +9,8 @@
         Delete me when fixed in upstream Wpf.Ui
     -->
     <Style x:Key="NavigationStoreItem" TargetType="{x:Type controls:NavigationItem}">
-        <Setter Property="Width" Value="60" />
+        <Setter Property="MinWidth" Value="60" />
+        <Setter Property="MaxWidth" Value="80" />
         <Setter Property="MinHeight" Value="60" />
         <Setter Property="Margin" Value="0,0,0,4" />
         <Setter Property="Padding" Value="0" />
@@ -231,7 +232,8 @@
 
     <Style TargetType="{x:Type controls:NavigationStore}">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Width" Value="60" />
+        <Setter Property="MinWidth" Value="60" />
+        <Setter Property="MaxWidth" Value="80" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
@@ -250,7 +252,8 @@
 
                             <ItemsControl
                                 Grid.Row="0"
-                                Width="250"
+                                MinWidth="60"
+                                MaxWidth="80"
                                 Focusable="False"
                                 ItemsSource="{TemplateBinding Items}"
                                 KeyboardNavigation.DirectionalNavigation="Contained"

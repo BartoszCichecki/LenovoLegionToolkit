@@ -84,7 +84,7 @@
                     </Grid>
                 </wpfui:Button.Content>
                 <wpfui:Button.ContextMenu>
-                    <ContextMenu Width="150">
+                    <ContextMenu MinWidth="150">
                         <ContextMenu.Items>
                             <wpfui:MenuItem Click="KillAppsMenuItem_Click" Header="{x:Static resources:Resource.DiscreteGPUControl_KillApps}" />
                             <wpfui:MenuItem Click="RestartGPUMenuItem_Click" Header="{x:Static resources:Resource.DiscreteGPUControl_RestartGPU}" />
