@@ -120,9 +120,13 @@ public partial class FanCurveControl
         if (sender is not Slider { IsMouseCaptureWithin: true } currentSlider)
             return;
 
-        if (currentSlider.Value < 1)
+        var index = (int)currentSlider.Tag;
+        var minimum = FanTable.Minimum.GetTable();
+
+        if (currentSlider.Value < minimum[index])
         {
-            currentSlider.Value = 1;
+            currentSlider.Value = minimum[index];
+            DrawGraph();
             return;
         }
 
@@ -215,6 +219,7 @@ public partial class FanCurveControl
         var point = slider.TranslatePoint(new(x, y), _canvas);
         return point;
     }
+
     private class InfoTooltip : ToolTip
     {
         private readonly Grid _grid = new()
@@ -279,7 +284,7 @@ public partial class FanCurveControl
             {
                 _value1.Text = tableData
                     .Where(td => td.Type == FanTableType.CPU)
-                    .Select(td => $"{td.Temps[index]}{Resource.Celsius} @ {td.FanSpeeds[value]} {Resource.FanCurveControl_RPM}")
+                    .Select(td => GetDescription(td, index, value))
                     .FirstOrDefault() ?? "-";
             }
             catch
@@ -291,7 +296,7 @@ public partial class FanCurveControl
             {
                 _value2.Text = tableData
                     .Where(td => td.Type == FanTableType.CPUSensor)
-                    .Select(td => $"{td.Temps[index]}{Resource.Celsius} @ {td.FanSpeeds[value]} {Resource.FanCurveControl_RPM}")
+                    .Select(td => GetDescription(td, index, value))
                     .FirstOrDefault() ?? "-";
             }
             catch
@@ -303,13 +308,19 @@ public partial class FanCurveControl
             {
                 _value3.Text = tableData
                     .Where(td => td.Type == FanTableType.GPU)
-                    .Select(td => $"{td.Temps[index]}{Resource.Celsius} @ {td.FanSpeeds[value]} {Resource.FanCurveControl_RPM}")
+                    .Select(td => GetDescription(td, index, value))
                     .FirstOrDefault() ?? "-";
             }
             catch
             {
                 _value3.Text = "-";
             }
+        }
+
+        private static string GetDescription(FanTableData tableData, int index, int value)
+        {
+            var rpm = value < 0 ? 0 : tableData.FanSpeeds[value];
+            return $"{tableData.Temps[index]}{Resource.Celsius} @ {rpm} {Resource.FanCurveControl_RPM}";
         }
     }
 }
