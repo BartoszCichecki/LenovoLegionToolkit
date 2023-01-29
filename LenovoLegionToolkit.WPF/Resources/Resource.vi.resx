@@ -1626,4 +1626,13 @@ Di chuyển chuột hoặc bấm phím bất kỳ trên bàn phím để bật m
   <data name="Notification_PortLightingOff" xml:space="preserve">
 	  <value>Đèn I/O tắt</value>
   </data>
+  <data name="PackageControl_RebootRequired" xml:space="preserve">
+	  <value>Yêu cầu khởi động lại</value>
+  </data>
+  <data name="PackageControl_ShutdownRequired" xml:space="preserve">
+	  <value>Yêu cầu tắt máy</value>
+  </data>
+  <data name="PackageControl_RebootRecommended" xml:space="preserve">
+	  <value>Khuyến nghị khởi động lại</value>
+  </data>
 </root>
