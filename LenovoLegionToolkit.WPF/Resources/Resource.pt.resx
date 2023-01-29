@@ -1493,6 +1493,9 @@ Logs serão guardados automaticamente, se escolheres continuar.</value>
   <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Podes alterar a luminosidade com Fn+Space</value>
   </data>
+  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Luz do teclado</value>
+  </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
     <value>Ativa ou desativa a tecla Windows.</value>
   </data>
@@ -1551,8 +1554,14 @@ ATENÇÃO: Esta ação não irá executar corretamente se o ecrã interno estive
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>Ecrã</value>
   </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Luz do teclado</value>
+  </data>
   <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Podes ligar ou desligar a luz de fundo com Fn+Espaço.</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Luz do teclado</value>
   </data>
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Liga ou desliga a luz de fundo.</value>
