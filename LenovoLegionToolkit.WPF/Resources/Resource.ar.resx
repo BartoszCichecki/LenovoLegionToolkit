@@ -1455,6 +1455,9 @@
   <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>يمكنك تغيير السطوع باستخدام Fn + Space</value>
   </data>
+  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>الإضاءة الخلفية للوحة المفاتيح</value>
+  </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
     <value>تمكين أو تعطيل مفتاح الويندوز.</value>
   </data>
@@ -1469,5 +1472,11 @@
   </data>
   <data name="Yes" xml:space="preserve">
     <value>نعم</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>الإضاءة الخلفية للوحة المفاتيح</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>الإضاءة الخلفية للوحة المفاتيح</value>
   </data>
 </root>
