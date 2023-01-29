@@ -1494,6 +1494,9 @@ Die Protokollierung wird automatisch aktiviert, wenn Sie fortfahren möchten.</v
   <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Sie können die Helligkeit mit Fn+Leertaste ändern</value>
   </data>
+  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Tastaturbeleuchtung</value>
+  </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
     <value>Aktiviere oder deaktiviere die Windows-Taste.</value>
   </data>
@@ -1552,8 +1555,14 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>Display</value>
   </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Tastaturbeleuchtung</value>
+  </data>
   <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Sie können die Tastaturbeleuchtung mit Fn+Leertaste ein- oder ausschalten.</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Tastaturbeleuchtung</value>
   </data>
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Schalte Tastaturbeleuchtung ein oder aus.</value>
@@ -1593,5 +1602,8 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
   </data>
   <data name="TurnOffMonitorsAutomationStepControl_Message" xml:space="preserve">
     <value>Alle verfügbaren Bildschirme ausschalten.</value>
+  </data>
+  <data name="EditDashboardGroupControl_EditGroup_Message" xml:space="preserve">
+    <value>Name</value>
   </data>
 </root>
