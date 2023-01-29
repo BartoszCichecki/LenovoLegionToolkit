@@ -1493,9 +1493,6 @@ Logs serão guardados automaticamente, se escolheres continuar.</value>
   <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Podes alterar a luminosidade com Fn+Space</value>
   </data>
-  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
-    <value>Luminosidade</value>
-  </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
     <value>Ativa ou desativa a tecla Windows.</value>
   </data>
@@ -1554,14 +1551,8 @@ ATENÇÃO: Esta ação não irá executar corretamente se o ecrã interno estive
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>Ecrã</value>
   </data>
-  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
-    <value>Luz de fundo</value>
-  </data>
   <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Podes ligar ou desligar a luz de fundo com Fn+Espaço.</value>
-  </data>
-  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
-    <value>Luz de fundo</value>
   </data>
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Liga ou desliga a luz de fundo.</value>
@@ -1607,21 +1598,30 @@ Mover o rato ou clicar no teclado vai ligar os ecrãs.</value>
     <value>Desligar todos os ecrãs disponíveis.</value>
   </data>
   <data name="EditDashboardGroupControl_EditGroup_Title" xml:space="preserve">
-	  <value>Editar o nome do grupo</value>
+    <value>Editar o nome do grupo</value>
   </data>
   <data name="EditDashboardGroupControl_EditGroup_Message" xml:space="preserve">
-	  <value>Nome</value>
+    <value>Nome</value>
   </data>
   <data name="Notification_PanelLogoLightingOn" xml:space="preserve">
-	  <value>Logótipo Legion ligado</value>
+    <value>Logótipo Legion ligado</value>
   </data>
   <data name="Notification_PanelLogoLightingOff" xml:space="preserve">
-	  <value>Logótipo Legion desligado</value>
+    <value>Logótipo Legion desligado</value>
   </data>
   <data name="Notification_PortLightingOn" xml:space="preserve">
-	  <value>Luz das portas ligada</value>
+    <value>Luz das portas ligada</value>
   </data>
   <data name="Notification_PortLightingOff" xml:space="preserve">
-	  <value>Luz das portas desligada</value>
+    <value>Luz das portas desligada</value>
+  </data>
+  <data name="PackageControl_RebootRequired" xml:space="preserve">
+    <value>É necessário reiniciar</value>
+  </data>
+  <data name="PackageControl_ShutdownRequired" xml:space="preserve">
+    <value>É necessário encerrar</value>
+  </data>
+  <data name="PackageControl_RebootRecommended" xml:space="preserve">
+    <value>É recomendado reiniciar</value>
   </data>
 </root>
