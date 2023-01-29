@@ -1496,7 +1496,7 @@ Logging will be enabled automatically, if you choose to continue.</value>
     <value>You can change brightness with Fn+Space</value>
   </data>
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
-    <value>Brightness</value>
+    <value>Keyboard backlight</value>
   </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
     <value>Enabled or disable Windows key.</value>
@@ -1557,13 +1557,13 @@ WARNING: This action will not run correctly, if internal display is off.</value>
     <value>Display</value>
   </data>
   <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
-    <value>Backlight</value>
+    <value>Keyboard backlight</value>
   </data>
   <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>You can turn backlight on or off with Fn+Space.</value>
   </data>
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
-    <value>Backlight</value>
+    <value>Keyboard backlight</value>
   </data>
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Turn backlight on or off.</value>
@@ -1609,30 +1609,30 @@ Moving the mouse or pressing the keyboard will wake displays up.</value>
     <value>Turn off all available displays.</value>
   </data>
   <data name="EditDashboardGroupControl_EditGroup_Title" xml:space="preserve">
-	  <value>Edit group name</value>
+    <value>Edit group name</value>
   </data>
   <data name="EditDashboardGroupControl_EditGroup_Message" xml:space="preserve">
-	  <value>Name</value>
+    <value>Name</value>
   </data>
   <data name="Notification_PanelLogoLightingOn" xml:space="preserve">
-	  <value>Legion logo on</value>
+    <value>Legion logo on</value>
   </data>
   <data name="Notification_PanelLogoLightingOff" xml:space="preserve">
-	  <value>Legion logo off</value>
+    <value>Legion logo off</value>
   </data>
   <data name="Notification_PortLightingOn" xml:space="preserve">
-	  <value>Ports backlight on</value>
+    <value>Ports backlight on</value>
   </data>
   <data name="Notification_PortLightingOff" xml:space="preserve">
-	  <value>Ports backlight off</value>
+    <value>Ports backlight off</value>
   </data>
   <data name="PackageControl_RebootRequired" xml:space="preserve">
-	  <value>Restart required</value>
+    <value>Restart required</value>
   </data>
   <data name="PackageControl_ShutdownRequired" xml:space="preserve">
-	  <value>Shutdown required</value>
+    <value>Shutdown required</value>
   </data>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
-	  <value>Restart recommended</value>
+    <value>Restart recommended</value>
   </data>
 </root>

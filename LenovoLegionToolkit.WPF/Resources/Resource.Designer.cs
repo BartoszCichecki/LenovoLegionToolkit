@@ -2649,7 +2649,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Backlight.
+        ///   Looks up a localized string similar to Keyboard backlight.
         /// </summary>
         public static string OneLevelWhiteKeyboardBacklightAutomationStepControl_Title {
             get {
@@ -2667,7 +2667,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Backlight.
+        ///   Looks up a localized string similar to Keyboard backlight.
         /// </summary>
         public static string OneLevelWhiteKeyboardBacklightControl_Title {
             get {
@@ -4476,7 +4476,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Brightness.
+        ///   Looks up a localized string similar to Keyboard backlight.
         /// </summary>
         public static string WhiteKeyboardBacklightControl_Title {
             get {
