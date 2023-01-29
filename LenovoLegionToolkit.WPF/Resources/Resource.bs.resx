@@ -895,9 +895,6 @@ Logiranje će biti automatski omogućeno, ukoliko izaberete da nastavite.</value
   <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Možete promijeniti svjetlost sa Fn + Space</value>
   </data>
-  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
-    <value>Svjetlost</value>
-  </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
     <value>Omogućite ili onemogućite Windows dugme.</value>
   </data>
