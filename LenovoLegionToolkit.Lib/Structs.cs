@@ -102,7 +102,7 @@ public readonly struct FanTableData
 
 public readonly struct FanTable
 {
-    public static readonly FanTable Minimum = new(new ushort[] { 0, 0, 0, 0, 0, 2, 3, 4, 5, 5 });
+    public static readonly FanTable Minimum = new(new ushort[] { 0, 0, 0, 0, 0, 0, 1, 3, 5, 7 });
     public static readonly FanTable Default = new(new ushort[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
 
     // ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
