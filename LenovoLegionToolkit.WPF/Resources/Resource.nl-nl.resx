@@ -1459,9 +1459,6 @@ Logboekregistratie wordt automatisch ingeschakeld als u ervoor kiest om door te 
   <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>U kunt de helderheid wijzigen met Fn+Space</value>
   </data>
-  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
-    <value>Helderheid</value>
-  </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
     <value>Windows-toets in- of uitschakelen.</value>
   </data>
