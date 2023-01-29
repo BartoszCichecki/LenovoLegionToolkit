@@ -1496,9 +1496,6 @@ El registro de sucesos se activará automáticamente, si decide continuar.</valu
   <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Puede cambiar el brillo con Fn+Espacio</value>
   </data>
-  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
-    <value>Brillo</value>
-  </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
     <value>Activar o desactivar la tecla Windows.</value>
   </data>
@@ -1557,9 +1554,6 @@ AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>Pantalla</value>
   </data>
-  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
-    <value>Retroiluminación</value>
-  </data>
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Encender o apagar la retroiluminación.</value>
   </data>
@@ -1604,21 +1598,21 @@ Al mover el ratón o pulsar el teclado se activarán las pantallas.</value>
     <value>Apagar todas las pantallas disponibles.</value>
   </data>
   <data name="EditDashboardGroupControl_EditGroup_Title" xml:space="preserve">
-	  <value>Editar el nombre del grupo</value>
+    <value>Editar el nombre del grupo</value>
   </data>
   <data name="EditDashboardGroupControl_EditGroup_Message" xml:space="preserve">
-	  <value>Nombre</value>
+    <value>Nombre</value>
   </data>
   <data name="Notification_PanelLogoLightingOn" xml:space="preserve">
-	  <value>Logo Legion encendido</value>
+    <value>Logo Legion encendido</value>
   </data>
   <data name="Notification_PanelLogoLightingOff" xml:space="preserve">
-	  <value>Logo Legion apagado</value>
+    <value>Logo Legion apagado</value>
   </data>
   <data name="Notification_PortLightingOn" xml:space="preserve">
-	  <value>Puertos retroiluminados encendidos</value>
+    <value>Puertos retroiluminados encendidos</value>
   </data>
   <data name="Notification_PortLightingOff" xml:space="preserve">
-	  <value>Puertos retroiluminados apagados</value>
+    <value>Puertos retroiluminados apagados</value>
   </data>
 </root>
