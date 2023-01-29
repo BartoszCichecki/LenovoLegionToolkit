@@ -279,7 +279,7 @@ public class GodModeController
                         if (Log.Instance.IsTraceEnabled)
                             Log.Instance.Trace($"Fan table invalid, replacing with default...");
 
-                        table = GetDefaultFanTable();
+                        table = FanTable.Default;
                     }
 
                     await SetFanTable(table).ConfigureAwait(false);
@@ -314,7 +314,7 @@ public class GodModeController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Fan table data retrieved: {fanTableData}");
 
-        var fanTable = _settings.Store.FanTable ?? GetDefaultFanTable();
+        var fanTable = _settings.Store.FanTable ?? FanTable.Default;
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Fan table retrieved: {fanTable}");
@@ -324,7 +324,7 @@ public class GodModeController
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Fan table invalid, replacing with default...");
 
-            fanTable = GetDefaultFanTable();
+            fanTable = FanTable.Default;
         }
 
         return new FanTableInfo(fanTableData, fanTable);
@@ -500,14 +500,6 @@ public class GodModeController
     #endregion
 
     #region Fan Table
-
-    private static FanTable GetDefaultFanTable()
-    {
-        if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Using default fan table...");
-
-        return new(new ushort[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
-    }
 
     private async Task<FanTableData[]?> GetFanTableDataAsync()
     {
