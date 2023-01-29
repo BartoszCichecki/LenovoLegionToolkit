@@ -1492,6 +1492,9 @@
   <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Ви можете змінювати яскравість за допомогою Fn+Space</value>
   </data>
+  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Підсвітка клавіатури</value>
+  </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
     <value>Увімкнути або вимкнути клавішу Windows.</value>
   </data>
@@ -1550,8 +1553,14 @@
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>Дисплей</value>
   </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Підсвітка клавіатури</value>
+  </data>
   <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Ви можете увімкнути або вимкнути підсвітку комбінацією Fn+Пробіл.</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Підсвітка клавіатури</value>
   </data>
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Увімкнути або вимкнути підсвітку.</value>
