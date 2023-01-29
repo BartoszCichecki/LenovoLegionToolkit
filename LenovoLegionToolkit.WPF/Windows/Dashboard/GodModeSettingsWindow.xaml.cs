@@ -168,6 +168,18 @@ public partial class GodModeSettingsWindow
             slider.IsEnabled = false;
     }
 
+    private async void ResetFanCurve_Click(object sender, RoutedEventArgs e)
+    {
+        var state = await _controller.GetStateAsync();
+        var data = state.FanTableInfo?.Data;
+
+        if (data is null)
+            return;
+
+        var defautFanTableInfo = new FanTableInfo(data, FanTable.Default);
+        _fanCurveControl.SetFanTableInfo(defautFanTableInfo);
+    }
+
     private async void ApplyAndCloseButton_Click(object sender, RoutedEventArgs e)
     {
         await ApplyAsync();
@@ -198,7 +210,7 @@ public partial class GodModeSettingsWindow
             _cpuLongTermPowerLimitSlider.Value = _cpuShortTermPowerLimitSlider.Value;
     }
 
-    private void FanFullSpeedToggle_OnClick(object sender, RoutedEventArgs e)
+    private void FanFullSpeedToggle_Click(object sender, RoutedEventArgs e)
     {
         _fanCurveCardControl.IsEnabled = !(_fanFullSpeedToggle.IsChecked ?? false);
     }

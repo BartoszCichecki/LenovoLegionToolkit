@@ -222,6 +222,12 @@
                             <StackPanel>
                                 <controls:CardHeaderControl Title="{x:Static resources:Resource.GodModeSettingsWindow_Fans_Curve_Title}" Subtitle="{x:Static resources:Resource.GodModeSettingsWindow_Fans_Curve_Message}" />
                                 <controls:FanCurveControl x:Name="_fanCurveControl" Margin="0,32,0,0" />
+                                <wpfui:Button
+                                    MinWidth="120"
+                                    HorizontalAlignment="Right"
+                                    Content="{x:Static resources:Resource.Reset}"
+                                    Click="ResetFanCurve_Click"
+                                    Icon="ArrowClockwise24" />
                             </StackPanel>
                         </wpfui:CardControl.Header>
                     </wpfui:CardControl>
@@ -233,7 +239,7 @@
                         <wpfui:ToggleSwitch
                             x:Name="_fanFullSpeedToggle"
                             Margin="0,0,0,8"
-                            Click="FanFullSpeedToggle_OnClick" />
+                            Click="FanFullSpeedToggle_Click" />
                     </wpfui:CardControl>
 
                     <TextBlock

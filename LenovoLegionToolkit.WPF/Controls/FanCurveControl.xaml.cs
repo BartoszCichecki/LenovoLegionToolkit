@@ -6,6 +6,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
@@ -54,6 +55,8 @@ public partial class FanCurveControl
         }
 
         _tableData = fanTableInfo.Data;
+
+        Dispatcher.InvokeAsync(DrawGraph, DispatcherPriority.Render);
     }
 
     public FanTableInfo? GetFanTableInfo()
@@ -114,7 +117,7 @@ public partial class FanCurveControl
 
     private void Slider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
     {
-        if (_sliders.Count < 2)
+        if (_sliders.Count < 10)
             return;
 
         if (sender is not Slider { IsMouseCaptureWithin: true } currentSlider)
@@ -126,7 +129,6 @@ public partial class FanCurveControl
         if (currentSlider.Value < minimum[index])
         {
             currentSlider.Value = minimum[index];
-            DrawGraph();
             return;
         }
 
