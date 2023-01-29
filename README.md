@@ -199,6 +199,16 @@ No. Check out [OpenRGB](https://openrgb.org/) project.
 
 Only options natively supported by hardware are available; adding support for custom effects is not planned. If you would like more customization check out [L5P-Keyboard-RGB](https://github.com/4JX/L5P-Keyboard-RGB) or [OpenRGB](https://openrgb.org/).
 
+#### Can I use other RGB software while using LLT?
+
+In general yes. LLT will disable RGB controls when Vantage is running to avoid conflicts. If you use other RGB software like [L5P-Keyboard-RGB](https://github.com/4JX/L5P-Keyboard-RGB) or [OpenRGB](https://openrgb.org/), you can disable RGB in LLT to avoid conflicts.
+
+To disable RGB:
+1. Go to `%LOCALAPPDATA%\LenovoLegionToolkit`
+2. Create `args.txt` file in there (if you already have it edit)
+3. Paste `--force-disable-rgbkb` or `--force-disable-spectrumkb` depending on which keyboard you have (if you have other parameters, there should be 1 per line)
+4. Start LLT
+
 #### Can you add fan control to other models?
 
 If you have a 2022 Legion that does not support it make a ticket and we'll try to add suport for it. Older models will not be supported due to technical limitations.
