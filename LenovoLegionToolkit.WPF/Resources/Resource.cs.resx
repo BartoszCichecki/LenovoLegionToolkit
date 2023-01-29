@@ -1495,6 +1495,9 @@ Pokud se rozhodneš pokračovat, protokolování bude automaticky povoleno.</val
   <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Můžeš nastavit podsvícení pomocí Fn+Mezerníku</value>
   </data>
+  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Podsvícení klávesnice</value>
+  </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
     <value>Povolit nebo zakázat tlačitko Windows.</value>
   </data>
@@ -1553,8 +1556,14 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je interní displej vypnutý.
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>Displej</value>
   </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Podsvícení klávesnice</value>
+  </data>
   <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Můžeš přepínat podsvícení pomocí Fn+Mezerník.</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Podsvícení klávesnice</value>
   </data>
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Přepnout podsvícení.</value>
@@ -1616,5 +1625,14 @@ Pohybem myši, nebo stiskem klávesnice se znovu zapnou.</value>
   </data>
   <data name="Notification_PortLightingOff" xml:space="preserve">
     <value>Podsvícení portů vypnuto</value>
+  </data>
+  <data name="PackageControl_RebootRequired" xml:space="preserve">
+    <value>Vyžadován restart</value>
+  </data>
+  <data name="PackageControl_ShutdownRequired" xml:space="preserve">
+    <value>Vyžadováno vypnutí</value>
+  </data>
+  <data name="PackageControl_RebootRecommended" xml:space="preserve">
+    <value>Doporučený restart</value>
   </data>
 </root>
