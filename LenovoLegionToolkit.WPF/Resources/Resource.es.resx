@@ -1496,6 +1496,9 @@ El registro de sucesos se activará automáticamente, si decide continuar.</valu
   <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Puede cambiar el brillo con Fn+Espacio</value>
   </data>
+  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Retroiluminación del teclado</value>
+  </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
     <value>Activar o desactivar la tecla Windows.</value>
   </data>
@@ -1553,6 +1556,12 @@ AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>Pantalla</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Retroiluminación del teclado</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Retroiluminación del teclado</value>
   </data>
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Encender o apagar la retroiluminación.</value>
@@ -1614,5 +1623,14 @@ Al mover el ratón o pulsar el teclado se activarán las pantallas.</value>
   </data>
   <data name="Notification_PortLightingOff" xml:space="preserve">
     <value>Puertos retroiluminados apagados</value>
+  </data>
+  <data name="PackageControl_RebootRequired" xml:space="preserve">
+    <value>Se requiere un reinicio</value>
+  </data>
+  <data name="PackageControl_ShutdownRequired" xml:space="preserve">
+    <value>Se requiere un apagado</value>
+  </data>
+  <data name="PackageControl_RebootRecommended" xml:space="preserve">
+    <value>Se recomienda un reinicio</value>
   </data>
 </root>
