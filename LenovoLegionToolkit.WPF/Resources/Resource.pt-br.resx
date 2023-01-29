@@ -1495,9 +1495,6 @@ O registro será ativado automaticamente, se você optar por continuar.</value>
   <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Você pode alterar os níveis de brilho com a tecla Fn+Espaço</value>
   </data>
-  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
-    <value>Brilho</value>
-  </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
     <value>Habilitar ou desabilitar a tecla Windows.</value>
   </data>
@@ -1556,14 +1553,8 @@ AVISO: Esta ação não será executada corretamente se a tela integrada estiver
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>Tela</value>
   </data>
-  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
-    <value>Luz de fundo</value>
-  </data>
   <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Você pode desligar as luzes de fundo do teclado pressionando as teclas Fn+espaço.</value>
-  </data>
-  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
-    <value>Luz de fundo</value>
   </data>
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Desligar ou ligar as luzes de fundo.</value>
@@ -1609,30 +1600,30 @@ Mover o mouse ou pressionar o teclado reativará as telas.</value>
     <value>Desligar todas as telas disponíveis.</value>
   </data>
   <data name="EditDashboardGroupControl_EditGroup_Title" xml:space="preserve">
-	  <value>Editar o nome do grupo</value>
+    <value>Editar o nome do grupo</value>
   </data>
   <data name="EditDashboardGroupControl_EditGroup_Message" xml:space="preserve">
-	  <value>Nome</value>
+    <value>Nome</value>
   </data>
   <data name="Notification_PanelLogoLightingOn" xml:space="preserve">
-	  <value>Logo Legion da tampa ligado</value>
+    <value>Logo Legion da tampa ligado</value>
   </data>
   <data name="Notification_PanelLogoLightingOff" xml:space="preserve">
-	  <value>Logo Legion da tampa desligado</value>
+    <value>Logo Legion da tampa desligado</value>
   </data>
   <data name="Notification_PortLightingOn" xml:space="preserve">
-	  <value>Iluminação das portas traseiras ligadas</value>
+    <value>Iluminação das portas traseiras ligadas</value>
   </data>
   <data name="Notification_PortLightingOff" xml:space="preserve">
-	  <value>Iluminação das portas traseiras desligadas</value>
+    <value>Iluminação das portas traseiras desligadas</value>
   </data>
   <data name="PackageControl_RebootRequired" xml:space="preserve">
-	  <value>Reinicialização necessária</value>
+    <value>Reinicialização necessária</value>
   </data>
   <data name="PackageControl_ShutdownRequired" xml:space="preserve">
-	  <value>Desligamento necessário</value>
+    <value>Desligamento necessário</value>
   </data>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
-	  <value>Reinicialização recomendada </value>
+    <value>Reinicialização recomendada </value>
   </data>
 </root>
