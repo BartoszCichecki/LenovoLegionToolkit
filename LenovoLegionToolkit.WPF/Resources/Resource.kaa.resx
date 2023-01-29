@@ -229,7 +229,7 @@
     <value>Fn Lock</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_Title" xml:space="preserve">
-    <value>Qosımsha sazlamalar</value>
+    <value>Qosımsha sazlawlar</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Max_Title" xml:space="preserve">
     <value>Samallatqıshtıń maksimal tezligi</value>
@@ -259,7 +259,7 @@
     <value>Júklengenler</value>
   </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
-    <value>Sazlamalar</value>
+    <value>Sazlawlar</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>Yaq</value>
@@ -310,7 +310,7 @@
     <value>Baǵdarlamalar</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
-    <value>Sazlamalar</value>
+    <value>Sazlawlar</value>
   </data>
   <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
     <value>Jarıqlıq</value>
@@ -334,7 +334,7 @@
     <value>Saqlanbaqta...</value>
   </data>
   <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Qosımsha sazlamalar</value>
+    <value>Qosımsha sazlawlar</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Lenovo Vantagedi óshiriw</value>
@@ -346,7 +346,7 @@
     <value>Til</value>
   </data>
   <data name="SettingsPage_Title" xml:space="preserve">
-    <value>Sazlamalar</value>
+    <value>Sazlawlar</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Jarıqlıq</value>
