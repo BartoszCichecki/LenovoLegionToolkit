@@ -1495,9 +1495,6 @@ Pokud se rozhodneš pokračovat, protokolování bude automaticky povoleno.</val
   <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Můžeš nastavit podsvícení pomocí Fn+Mezerníku</value>
   </data>
-  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
-    <value>Jas</value>
-  </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
     <value>Povolit nebo zakázat tlačitko Windows.</value>
   </data>
@@ -1556,14 +1553,8 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je interní displej vypnutý.
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>Displej</value>
   </data>
-  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
-    <value>Podsvícení</value>
-  </data>
   <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Můžeš přepínat podsvícení pomocí Fn+Mezerník.</value>
-  </data>
-  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
-    <value>Podsvícení</value>
   </data>
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Přepnout podsvícení.</value>
@@ -1609,21 +1600,21 @@ Pohybem myši, nebo stiskem klávesnice se znovu zapnou.</value>
     <value>Vypnout všechny dostupné monitory.</value>
   </data>
   <data name="EditDashboardGroupControl_EditGroup_Title" xml:space="preserve">
-	  <value>Upravit název skupiny</value>
+    <value>Upravit název skupiny</value>
   </data>
   <data name="EditDashboardGroupControl_EditGroup_Message" xml:space="preserve">
-	  <value>Název</value>
+    <value>Název</value>
   </data>
   <data name="Notification_PanelLogoLightingOn" xml:space="preserve">
-	  <value>Logo Legion zapnuto</value>
+    <value>Logo Legion zapnuto</value>
   </data>
   <data name="Notification_PanelLogoLightingOff" xml:space="preserve">
-	  <value>Logo Legion vypnuto</value>
+    <value>Logo Legion vypnuto</value>
   </data>
   <data name="Notification_PortLightingOn" xml:space="preserve">
-	  <value>Podsvícení portů zapnuto</value>
+    <value>Podsvícení portů zapnuto</value>
   </data>
   <data name="Notification_PortLightingOff" xml:space="preserve">
-	  <value>Podsvícení portů vypnuto</value>
+    <value>Podsvícení portů vypnuto</value>
   </data>
 </root>
