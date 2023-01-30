@@ -38,8 +38,7 @@ public class VantagePackageDownloader : AbstractPackageDownloader
         var packageDefinitions = await GetPackageDefinitionsAsync(httpClient, $"{_catalogBaseUrl}/{machineType}_{osString}.xml", token).ConfigureAwait(false);
 
         var updateDetector = new VantagePackageUpdateDetector();
-        if (FeatureFlags.CheckUpdates)
-            await updateDetector.BuildDriverInfoCache().ConfigureAwait(false);
+        await updateDetector.BuildDriverInfoCache().ConfigureAwait(false);
 
         var count = 0;
         var totalCount = packageDefinitions.Count;
@@ -110,19 +109,16 @@ public class VantagePackageDownloader : AbstractPackageDownloader
         var reboot = int.TryParse(rebootString, out var rebootInt) ? (RebootType)rebootInt : RebootType.NotRequired;
 
         var isUpdate = false;
-        if (FeatureFlags.CheckUpdates)
+        try
         {
-            try
-            {
-                isUpdate = await updateDetector.DetectAsync(httpClient, document, baseLocation, token)
-                    .ConfigureAwait(false);
-            }
-            catch (Exception ex)
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Couldn't detect update for package {id}. [title={title}, location={location}]",
-                        ex);
-            }
+            isUpdate = await updateDetector.DetectAsync(httpClient, document, baseLocation, token)
+                .ConfigureAwait(false);
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Couldn't detect update for package {id}. [title={title}, location={location}]",
+                    ex);
         }
 
         return new()

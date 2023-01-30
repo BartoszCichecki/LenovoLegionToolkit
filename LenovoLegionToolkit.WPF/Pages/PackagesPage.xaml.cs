@@ -148,24 +148,16 @@ public partial class PackagesPage : IProgress<float>
                 .Select(r => (PackageDownloaderFactory.Type)r.Tag)
                 .First();
 
-            if (FeatureFlags.CheckUpdates)
+            switch (packageDownloaderType)
             {
-                switch (packageDownloaderType)
-                {
-                    case PackageDownloaderFactory.Type.Vantage:
-                        _onlyShowUpdatesCheckBox.Visibility = Visibility.Visible;
-                        _onlyShowUpdatesCheckBox.IsChecked = _packageDownloaderSettings.Store.OnlyShowUpdates;
-                        break;
-                    default:
-                        _onlyShowUpdatesCheckBox.Visibility = Visibility.Hidden;
-                        _onlyShowUpdatesCheckBox.IsChecked = false;
-                        break;
-                }
-            }
-            else
-            {
-                _onlyShowUpdatesCheckBox.Visibility = Visibility.Hidden;
-                _onlyShowUpdatesCheckBox.IsChecked = false;
+                case PackageDownloaderFactory.Type.Vantage:
+                    _onlyShowUpdatesCheckBox.Visibility = Visibility.Visible;
+                    _onlyShowUpdatesCheckBox.IsChecked = _packageDownloaderSettings.Store.OnlyShowUpdates;
+                    break;
+                default:
+                    _onlyShowUpdatesCheckBox.Visibility = Visibility.Hidden;
+                    _onlyShowUpdatesCheckBox.IsChecked = false;
+                    break;
             }
 
             _packageDownloader = _packageDownloaderFactory.GetInstance(packageDownloaderType);
@@ -399,12 +391,8 @@ public partial class PackagesPage : IProgress<float>
 
         result = result.Where(p => !_packageDownloaderSettings.Store.HiddenPackages.Contains(p.Id));
 
-
-        if (FeatureFlags.CheckUpdates)
-        {
-            if (_onlyShowUpdatesCheckBox.IsChecked ?? false)
-                result = result.Where(p => p.IsUpdate);
-        }
+        if (_onlyShowUpdatesCheckBox.IsChecked ?? false)
+            result = result.Where(p => p.IsUpdate);
 
         if (!string.IsNullOrWhiteSpace(_filterTextBox.Text))
             result = result.Where(p => p.Index.Contains(_filterTextBox.Text, StringComparison.InvariantCultureIgnoreCase));
