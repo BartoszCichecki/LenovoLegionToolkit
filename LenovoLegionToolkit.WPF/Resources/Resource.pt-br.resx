@@ -180,7 +180,7 @@ Esta opção destina-se apenas a dispositivos que não possuem vários planos de
     <value>Aplicar ao fechar</value>
   </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
-    <value>Lenovo Legion Toolkit deve estar sendo executado para rodar tarefas automatizadas.</value>
+    <value>O Lenovo Legion Toolkit deve estar sendo executado para rodar tarefas automatizadas.</value>
   </data>
   <data name="AutomationPage_ActionsEnabled_Title" xml:space="preserve">
     <value>Habilitar</value>
