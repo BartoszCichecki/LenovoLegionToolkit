@@ -335,9 +335,6 @@ Táto možnosť je určená pre zariadenia, ktoré nemajú viacero napájacích 
   <data name="BatteryPage_DischargeRate_Title" xml:space="preserve">
     <value>Rýchlosť vybíjania</value>
   </data>
-  <data name="BatteryPage_EstimatedBatteryLifeRemaining" xml:space="preserve">
-    <value>Odhadovaný ostávajúci čas: {0}</value>
-  </data>
   <data name="BatteryPage_EstimatingBatteryLife" xml:space="preserve">
     <value>Odhadovaný čas...</value>
   </data>
@@ -346,9 +343,6 @@ Táto možnosť je určená pre zariadenia, ktoré nemajú viacero napájacích 
   </data>
   <data name="BatteryPage_FirstUse_Message" xml:space="preserve">
     <value>Kedy bola batéria prvýkrát použitá.</value>
-  </data>
-  <data name="BatteryPage_FullChargeCapacity_Title" xml:space="preserve">
-    <value>Plne nabitá kapacita</value>
   </data>
   <data name="BatteryPage_LowWattageChargerConnected" xml:space="preserve">
     <value>Pripojená nízkovýkonová nabíjačka</value>
@@ -407,18 +401,11 @@ Táto možnosť je určená pre zariadenia, ktoré nemajú viacero napájacích 
   <data name="Color_Red" xml:space="preserve">
     <value>Červená</value>
   </data>
-  <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
-    <value>Vyberte prevádzkový režim GPU na základe použitia počítača a podmienok napájania.
-Prepínanie režimov môže vyžadovať reštart.</value>
-  </data>
   <data name="ComboBoxHybridModeControl_RestartRequired_Message" xml:space="preserve">
     <value>Zmena na {0} vyžaduje reštart. Chcete reštartovať teraz?</value>
   </data>
   <data name="ComboBoxHybridModeControl_RestartRequired_Title" xml:space="preserve">
     <value>Vyžaduje sa reštart</value>
-  </data>
-  <data name="ComboBoxHybridModeControl_Title" xml:space="preserve">
-    <value>Pracovný režim GPU</value>
   </data>
   <data name="ContextMenu_QuickActions" xml:space="preserve">
     <value>Rýchle akcie</value>
@@ -593,14 +580,8 @@ Vopred vďaka!</value>
   <data name="Export" xml:space="preserve">
     <value>Export</value>
   </data>
-  <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
-    <value>Hybrid-Auto režim</value>
-  </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Disclaimer" xml:space="preserve">
     <value>Prepínanie do a z tohto režimu vyžaduje reštart.</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
-    <value>dGPU režim</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
     <value>Obe integrovaná aj dedikovaná GPU sú povolené. Systém bude automaticky prepínať medzi nimi podľa potreby.</value>
@@ -610,9 +591,6 @@ Vopred vďaka!</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Message" xml:space="preserve">
     <value>Použiť len integrovanú GPU. Tento režim minimalizuje spotrebu energie a hluk.</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_IGPU_Title" xml:space="preserve">
-    <value>Len Hybrid-iGPU režim</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Title" xml:space="preserve">
     <value>O prevádzkových režimoch GPU</value>
@@ -658,10 +636,6 @@ Vopred vďaka!</value>
   </data>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Fn zámok</value>
-  </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>VAROVANIE!
-Niektoré notebooky môžu akceptovať vyššie limity výkonu ako uvádzajú ale buďte opatrný. Táto možnosť môže mať za následok nepredvídateľné správanie, takže ak si nie ste istý čo robíte nechajte to na 0.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
     <value>Posun maximálneho limitu výkonu</value>
@@ -887,9 +861,6 @@ Povoľte túto možnosť ak máte konflikty s aplikáciami na celú obrazovku.</
   <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
     <value>Obnovovacia frekvencia</value>
   </data>
-  <data name="NotificationsSettingsWindow_SmartKey" xml:space="preserve">
-    <value>Smart tlačidlo</value>
-  </data>
   <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
     <value>Notifikácie</value>
   </data>
@@ -1080,9 +1051,6 @@ VAROVANIE: Táto akcia neprebehne správne, ak je zabudovaný displej vypnutý.<
   </data>
   <data name="RunAutomationStepControl_ExeArguments" xml:space="preserve">
     <value>Argumenty</value>
-  </data>
-  <data name="RunAutomationStepControl_ExePath" xml:space="preserve">
-    <value>Cesta k spustiteľným programom</value>
   </data>
   <data name="RunAutomationStepControl_Message" xml:space="preserve">
     <value>Spustiť skript alebo program.
