@@ -109,6 +109,7 @@ public static class Compatibility
         (string, int)[] supportedBiosVersions =
         {
             ("GKCN", 49),
+            ("G9CN", 30),
             ("H1CN", 49),
             ("HACN", 31),
             ("HHCN", 23),
