@@ -74,13 +74,13 @@
     <value>Zapnuté v spánku</value>
   </data>
   <data name="AutorunState_Disabled" xml:space="preserve">
-    <value>Vypnutý</value>
+    <value>Zakázaný</value>
   </data>
   <data name="AutorunState_Enabled" xml:space="preserve">
-    <value>Zapnutý</value>
+    <value>Povolený</value>
   </data>
   <data name="AutorunState_EnabledDelayed" xml:space="preserve">
-    <value>Zapnutý, oneskorený</value>
+    <value>Povolený, oneskorený</value>
   </data>
   <data name="BatteryState_Conservation" xml:space="preserve">
     <value>Šetrenie</value>
@@ -92,10 +92,10 @@
     <value>Rýchle nabíjanie</value>
   </data>
   <data name="GPUController_PoweredOff" xml:space="preserve">
-    <value>Napojené</value>
+    <value>Vypnutý</value>
   </data>
   <data name="GPUController_PoweredOn" xml:space="preserve">
-    <value>Odpojené</value>
+    <value>Zapnuté</value>
   </data>
   <data name="HybridModeState_Off" xml:space="preserve">
     <value>dGPU</value>
@@ -182,7 +182,7 @@
     <value>Vlna vpravo</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
-    <value>Vypnutá</value>
+    <value>Vypnutý</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_One" xml:space="preserve">
     <value>Predvoľba 1</value>
@@ -281,12 +281,12 @@
     <value>Systémová</value>
   </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
-    <value>Silná</value>
+    <value>Silné</value>
   </data>
   <data name="WhiteKeyboardBacklightState_Low" xml:space="preserve">
-    <value>Slabá</value>
+    <value>Slabé</value>
   </data>
   <data name="WhiteKeyboardBacklightState_Off" xml:space="preserve">
-    <value>Vypnutá</value>
+    <value>Vypnuté</value>
   </data>
 </root>

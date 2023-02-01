@@ -59,13 +59,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Keď je napájací adaptér pripojený</value>
+    <value>Pri pripojení sieťového napájania</value>
   </data>
   <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Keď je napájací adaptér odpojený</value>
+    <value>Pri odpojení sieťového napájania</value>
   </data>
   <data name="DeactivateGPUAutomationStepState_KillApps" xml:space="preserve">
-    <value>Ukončiť aplikáciu</value>
+    <value>Ukončiť aplikácie</value>
   </data>
   <data name="DeactivateGPUAutomationStepState_RestartGPU" xml:space="preserve">
     <value>Reštartovať GPU</value>
@@ -77,22 +77,22 @@
     <value>{0} sekúnd</value>
   </data>
   <data name="LowWattageACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Keď je nízkoenergetický napájací adaptér pripojený</value>
+    <value>Pri pripojení nízkovýkonového sieťového napájania</value>
   </data>
   <data name="OnStartupAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Pri štarte</value>
   </data>
   <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Ked je napájací režim zmenený</value>
+    <value>Pri zmene napájacieho režimu</value>
   </data>
   <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Pri štarte aplikácie</value>
   </data>
   <data name="ProcessesStopRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Keď sa aplikácia zatvorí</value>
+    <value>Pri zatvorení aplikácie</value>
   </data>
   <data name="TimeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Špecifický čas</value>
+    <value>V určený čas</value>
   </data>
   <data name="ExternalDisplayConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
 		<value>Pri pripojení externého displeja</value>
