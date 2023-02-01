@@ -345,7 +345,7 @@ Táto možnosť je určená pre zariadenia, ktoré nie sú dodávané s viacero 
     <value>Odhadovaný zostávajúci čas: {0}</value>
   </data>
   <data name="BatteryPage_EstimatingBatteryLife" xml:space="preserve">
-    <value>Odhadovaný čas...</value>
+    <value>Odhaduje sa čas...</value>
   </data>
   <data name="BatteryPage_FirstUseDate_Title" xml:space="preserve">
     <value>Dátum prvého použitia</value>
@@ -382,7 +382,7 @@ Tento čas nemusí byť presný, ak bol notebooku nabíjaný vypnutý alebo v sp
     <value>Na batérii</value>
   </data>
   <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>Pripojený do siete</value>
+    <value>Zapojený</value>
   </data>
   <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
     <value>Plány napájania</value>
@@ -511,10 +511,10 @@ VAROVANIE: Táto akcia neprebehne správne, ak je displej notebooku vypnutý, al
     <value>O zariadení</value>
   </data>
   <data name="DeviceInformationWindow_WarrantyEndDate_Title" xml:space="preserve">
-    <value>Dátum expirácie</value>
+    <value>Dátum konca</value>
   </data>
   <data name="DeviceInformationWindow_WarrantyStartDate_Title" xml:space="preserve">
-    <value>Platná od</value>
+    <value>Dátum začiatku</value>
   </data>
   <data name="DeviceInformationWindow_WarrantyStatus_Title" xml:space="preserve">
     <value>Stav</value>
@@ -552,7 +552,7 @@ Pamätajte, niektoré programy môžu spadnúť, ak to urobíte.</value>
     <value>Žiadne procesy</value>
   </data>
   <data name="DiscreteGPUControl_PerformanceState" xml:space="preserve">
-    <value>Úroveň napájania</value>
+    <value>Stav výkonu</value>
   </data>
   <data name="DiscreteGPUControl_PerformanceState_Unknown" xml:space="preserve">
     <value>Neznámy</value>
@@ -586,7 +586,7 @@ Pre prispenie cez PayPal kliknite na logo PayPal dole alebo naskenujte QR kód.
 Vopred vďaka!</value>
   </data>
   <data name="DonatePage_Title" xml:space="preserve">
-    <value>Podporiť</value>
+    <value>Prispieť</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Upraviť</value>
@@ -722,7 +722,7 @@ Niektoré notebooky môžu akceptovať vyššie limity výkonu ako uvádzajú, a
     <value>Otáčky ventilátora nie sú striktne určené jedným teplotným senzorom. Rýchlosť sa zvýši, alebo zníži podľa najvyššej teploty medzi CPU, GPU a chladičom. Presné hodnoty sa zobrazia, keď prejdete myšou nad jednotlivý krok.</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Curve_Title" xml:space="preserve">
-    <value>Krivka vetrákov</value>
+    <value>Krivka ventilátora</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Max_Message" xml:space="preserve">
     <value>VAROVANIE!
@@ -733,7 +733,7 @@ Vážne, buďte opatrný s touto možnosťou!</value>
     <value>Maximálna rýchlosť ventilátorov</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Title" xml:space="preserve">
-    <value>Vetráky</value>
+    <value>Ventilátory</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_CTGP" xml:space="preserve">
     <value>Nastaviteľné TGP</value>
@@ -798,10 +798,10 @@ VAROVANIE: Táto akcia neprebehne správne, ak je zabudovaný displej vypnutý.<
     <value>Batéria</value>
   </data>
   <data name="MainWindow_NavigationItem_Dashboard" xml:space="preserve">
-    <value>Hlavný panel</value>
+    <value>Prehľad</value>
   </data>
   <data name="MainWindow_NavigationItem_Donate" xml:space="preserve">
-    <value>Podporiť</value>
+    <value>Prispieť</value>
   </data>
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
     <value>Klávesnica</value>
@@ -843,7 +843,7 @@ VAROVANIE: Táto akcia neprebehne správne, ak je zabudovaný displej vypnutý.<
     <value>Kamera zapnutá</value>
   </data>
   <data name="Notification_CapsLockOff" xml:space="preserve">
-    <value>Caps zámok vypnutý</value>
+    <value>Caps Lock vypnutý</value>
   </data>
   <data name="Notification_CapsLockOn" xml:space="preserve">
     <value>Caps Lock zapnutý</value>
@@ -922,7 +922,7 @@ Povoľte túto možnosť ak máte konflikty s aplikáciami na celú obrazovku.</
     <value>Chytré tlačidlo</value>
   </data>
   <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
-    <value>Notifikácie</value>
+    <value>Upozornenia</value>
   </data>
   <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
     <value>Zámok touchpadu</value>
@@ -931,7 +931,7 @@ Povoľte túto možnosť ak máte konflikty s aplikáciami na celú obrazovku.</
     <value>OK</value>
   </data>
   <data name="Open" xml:space="preserve">
-    <value>Otvoriť</value>
+    <value>Otvor</value>
   </data>
   <data name="OverDriveAutomationStepControl_Message" xml:space="preserve">
     <value>Zlepši čas odozvy zabudovaného displeja.</value>
