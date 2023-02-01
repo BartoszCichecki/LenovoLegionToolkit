@@ -74,11 +74,10 @@ public static class Compatibility
                 MachineType = machineType,
                 Model = model,
                 SerialNumber = serialNumber,
-                BIOSVersion = biosVersion,
+                BiosVersion = biosVersion,
                 Properties = new()
                 {
                     SupportsGodMode = GetSupportsGodMode(biosVersion),
-                    SupportsACDetection = await GetSupportsACDetection().ConfigureAwait(false),
                     SupportsExtendedHybridMode = await GetSupportsExtendedHybridModeAsync().ConfigureAwait(false),
                     SupportsIntelligentSubMode = await GetSupportsIntelligentSubModeAsync().ConfigureAwait(false),
                     HasPerformanceModeSwitchingBug = GetHasPerformanceModeSwitchingBug(biosVersion)
@@ -91,8 +90,7 @@ public static class Compatibility
                 Log.Instance.Trace($" * Vendor: '{machineInformation.Vendor}'");
                 Log.Instance.Trace($" * Machine Type: '{machineInformation.MachineType}'");
                 Log.Instance.Trace($" * Model: '{machineInformation.Model}'");
-                Log.Instance.Trace($" * BIOS: '{machineInformation.BIOSVersion}'");
-                Log.Instance.Trace($" * SupportsACDetection: '{machineInformation.Properties.SupportsACDetection}'");
+                Log.Instance.Trace($" * BIOS: '{machineInformation.BiosVersion}'");
                 Log.Instance.Trace($" * SupportsGodMode: '{machineInformation.Properties.SupportsGodMode}'");
                 Log.Instance.Trace($" * SupportsExtendedHybridMode: '{machineInformation.Properties.SupportsExtendedHybridMode}'");
                 Log.Instance.Trace($" * SupportsIntelligentSubMode: '{machineInformation.Properties.SupportsIntelligentSubMode}'");
@@ -137,11 +135,6 @@ public static class Compatibility
         }
 
         return false;
-    }
-
-    private static async Task<bool> GetSupportsACDetection()
-    {
-        return await Power.IsACFitForOC().ConfigureAwait(false) != null;
     }
 
     private static async Task<bool> GetSupportsExtendedHybridModeAsync()

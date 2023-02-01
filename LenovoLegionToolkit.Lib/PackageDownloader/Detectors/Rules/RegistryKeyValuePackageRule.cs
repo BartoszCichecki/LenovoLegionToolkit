@@ -12,14 +12,12 @@ namespace LenovoLegionToolkit.Lib.PackageDownloader.Detectors.Rules;
 internal readonly struct RegistryKeyValuePackageRule : IPackageRule
 {
     private string Key { get; init; }
-    private string KeyType { get; init; }
     private string KeyName { get; init; }
     private Version Version { get; init; }
 
     public static bool TryCreate(XmlNode? node, out RegistryKeyValuePackageRule value)
     {
         var key = node?.SelectSingleNode("Key")?.InnerText;
-        var keyType = node?.Attributes?.OfType<XmlAttribute>()?.FirstOrDefault(a => a.Name == "type")?.InnerText;
         var keyName = node?.SelectSingleNode("KeyName")?.InnerText;
         var versionString = node?.SelectSingleNode("Version")?.InnerText;
 
@@ -28,13 +26,13 @@ internal readonly struct RegistryKeyValuePackageRule : IPackageRule
         if (Version.TryParse(RemoveNonVersionCharacters(versionString), out var v))
             version = v;
 
-        if (key is null || keyType is null || keyName is null || version is null)
+        if (key is null || keyName is null || version is null)
         {
             value = default;
             return false;
         }
 
-        value = new RegistryKeyValuePackageRule { Key = key, KeyType = keyType, KeyName = keyName, Version = version };
+        value = new RegistryKeyValuePackageRule { Key = key, KeyName = keyName, Version = version };
         return true;
     }
 

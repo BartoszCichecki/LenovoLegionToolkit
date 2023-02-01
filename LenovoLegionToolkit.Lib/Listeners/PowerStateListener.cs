@@ -91,10 +91,10 @@ public class PowerStateListener : IListener<EventArgs>
 
         Changed?.Invoke(this, EventArgs.Empty);
 
-        Notify(e.Mode, newState);
+        Notify(newState);
     }
 
-    private static void Notify(PowerModes mode, PowerAdapterStatus newState)
+    private static void Notify(PowerAdapterStatus newState)
     {
         switch (newState)
         {

@@ -206,12 +206,12 @@ public partial class App
         if (isCompatible)
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Compatibility check passed. [Vendor={mi.Vendor}, Model={mi.Model}, MachineType={mi.MachineType}, BIOS={mi.BIOSVersion}]");
+                Log.Instance.Trace($"Compatibility check passed. [Vendor={mi.Vendor}, Model={mi.Model}, MachineType={mi.MachineType}, BIOS={mi.BiosVersion}]");
             return;
         }
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Incompatible system detected. [Vendor={mi.Vendor}, Model={mi.Model}, MachineType={mi.MachineType}, BIOS={mi.BIOSVersion}]");
+            Log.Instance.Trace($"Incompatible system detected. [Vendor={mi.Vendor}, Model={mi.Model}, MachineType={mi.MachineType}, BIOS={mi.BiosVersion}]");
 
         var unsupportedWindow = new UnsupportedWindow(mi);
         unsupportedWindow.Show();

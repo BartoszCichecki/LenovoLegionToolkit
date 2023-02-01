@@ -38,7 +38,7 @@ internal readonly struct BiosPackageRule : IPackageRule
     public async Task<bool> CheckDependenciesSatisfiedAsync(List<DriverInfo> driverInfoCache, HttpClient httpClient, CancellationToken token)
     {
         var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
-        var currentBios = mi.BIOSVersion;
+        var currentBios = mi.BiosVersion;
 
         var currentBiosPrefix = _prefixRegex.Match(currentBios).Value;
         var currentBiosVersion = int.Parse(_versionRegex.Match(currentBios).Value);
@@ -56,7 +56,7 @@ internal readonly struct BiosPackageRule : IPackageRule
     public async Task<bool> DetectInstallNeededAsync(List<DriverInfo> _1, HttpClient _2, CancellationToken _3)
     {
         var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
-        var currentBios = mi.BIOSVersion;
+        var currentBios = mi.BiosVersion;
 
         var currentBiosPrefix = _prefixRegex.Match(currentBios).Value;
         var currentBiosVersion = int.Parse(_versionRegex.Match(currentBios).Value);

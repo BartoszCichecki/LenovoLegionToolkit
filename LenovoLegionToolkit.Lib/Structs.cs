@@ -253,7 +253,6 @@ public readonly struct MachineInformation
     public readonly struct CompatibilityProperties
     {
         public bool SupportsGodMode { get; init; }
-        public bool SupportsACDetection { get; init; }
         public bool SupportsExtendedHybridMode { get; init; }
         public bool SupportsIntelligentSubMode { get; init; }
         public bool HasPerformanceModeSwitchingBug { get; init; }
@@ -263,7 +262,7 @@ public readonly struct MachineInformation
     public string MachineType { get; init; }
     public string Model { get; init; }
     public string SerialNumber { get; init; }
-    public string BIOSVersion { get; init; }
+    public string BiosVersion { get; init; }
     public CompatibilityProperties Properties { get; init; }
 }
 

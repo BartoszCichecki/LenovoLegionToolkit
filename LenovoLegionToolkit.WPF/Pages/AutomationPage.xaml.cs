@@ -11,7 +11,6 @@ using LenovoLegionToolkit.Lib.Automation.Pipeline;
 using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 using LenovoLegionToolkit.Lib.Automation.Steps;
 using LenovoLegionToolkit.Lib.Extensions;
-using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Controls.Automation.Pipeline;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
@@ -316,14 +315,8 @@ public partial class AutomationPage
     {
         var triggers = new List<IAutomationPipelineTrigger>
         {
-            new ACAdapterConnectedAutomationPipelineTrigger()
-        };
-
-        if ((await Compatibility.GetMachineInformationAsync()).Properties.SupportsACDetection)
-            triggers.Add(new LowWattageACAdapterConnectedAutomationPipelineTrigger());
-
-        triggers.AddRange(new IAutomationPipelineTrigger[]
-        {
+            new ACAdapterConnectedAutomationPipelineTrigger(),
+            new LowWattageACAdapterConnectedAutomationPipelineTrigger(),
             new ACAdapterDisconnectedAutomationPipelineTrigger(),
             new PowerModeAutomationPipelineTrigger(PowerModeState.Balance),
             new ProcessesAreRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()),
@@ -332,7 +325,7 @@ public partial class AutomationPage
             new ExternalDisplayDisconnectedAutomationPipelineTrigger(),
             new TimeAutomationPipelineTrigger(false, false, null),
             new OnStartupAutomationPipelineTrigger()
-        });
+        };
 
         var menuItems = new List<MenuItem>();
 

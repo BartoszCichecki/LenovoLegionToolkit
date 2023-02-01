@@ -28,9 +28,10 @@ public static class Power
             return PowerAdapterStatus.Connected;
 
         var adapterConnected = sps.ACLineStatus == 1;
-        var isACFitForOC = await IsACFitForOC().ConfigureAwait(false);
+        var acFitForOc = await IsAcFitForOc().ConfigureAwait(false) ?? true;
+        var chargingNormally = await IsChargingNormally().ConfigureAwait(false) ?? true;
 
-        return (adapterConnected, isACFitForOC) switch
+        return (adapterConnected, acFitForOc && chargingNormally) switch
         {
             (true, false) => PowerAdapterStatus.ConnectedLowWattage,
             (true, _) => PowerAdapterStatus.Connected,
@@ -139,19 +140,41 @@ public static class Power
             .ToArray();
     }
 
-    public static async Task<bool?> IsACFitForOC()
+    private static async Task<bool?> IsAcFitForOc()
     {
         try
         {
-            return await WMI.CallAsync("root\\WMI",
+            var result = await WMI.CallAsync("root\\WMI",
                 $"SELECT * FROM LENOVO_GAMEZONE_DATA",
                 "IsACFitForOC",
                 new(),
-                pdc =>
-                {
-                    var value = (uint)pdc["Data"].Value;
-                    return value == 1;
-                }).ConfigureAwait(false);
+                pdc => (uint)pdc["Data"].Value).ConfigureAwait(false);
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Mode = {result}");
+
+            return result == 1;
+        }
+        catch
+        {
+            return null;
+        }
+    }
+
+    private static async Task<bool?> IsChargingNormally()
+    {
+        try
+        {
+            var result = await WMI.CallAsync("root\\WMI",
+                $"SELECT * FROM LENOVO_GAMEZONE_DATA",
+                "GetPowerChargeMode",
+                new(),
+                pdc => (uint)pdc["Data"].Value).ConfigureAwait(false);
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Mode = {result}");
+
+            return result == 1;
         }
         catch
         {

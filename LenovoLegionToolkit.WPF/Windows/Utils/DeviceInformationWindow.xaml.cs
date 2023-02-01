@@ -26,7 +26,7 @@ public partial class DeviceInformationWindow
         _modelLabel.Content = mi.Model;
         _mtmLabel.Content = mi.MachineType;
         _serialNumberLabel.Content = mi.SerialNumber;
-        _biosLabel.Content = mi.BIOSVersion;
+        _biosLabel.Content = mi.BiosVersion;
 
         try
         {
