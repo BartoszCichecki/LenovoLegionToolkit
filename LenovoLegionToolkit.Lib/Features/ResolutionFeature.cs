@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using WindowsDisplayAPI;
@@ -119,6 +120,9 @@ public class ResolutionFeature : IFeature<Resolution>
 
     private static bool Match(DisplayPossibleSetting dps, DisplaySetting ds)
     {
+        if (dps.IsTooSmall())
+            return false;
+
         var result = true;
         result &= dps.Frequency == ds.Frequency;
         result &= dps.ColorDepth == ds.ColorDepth;

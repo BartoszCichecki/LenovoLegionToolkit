@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using WindowsDisplayAPI;
@@ -122,6 +123,9 @@ public class RefreshRateFeature : IFeature<RefreshRate>
 
     private static bool Match(DisplayPossibleSetting dps, DisplaySetting ds)
     {
+        if (dps.IsTooSmall())
+            return false;
+
         var result = true;
         result &= dps.Resolution == ds.Resolution;
         result &= dps.ColorDepth == ds.ColorDepth;
