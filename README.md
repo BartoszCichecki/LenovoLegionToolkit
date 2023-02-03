@@ -162,12 +162,13 @@ Special thanks to:
 Translations provided by:
 * Chinese - [凌卡Karl](https://github.com/KarlLee830)
 * Czech - J0sef
-* Dutch - Melm
+* Dutch - Melm, [JarneStaalPXL](https://github.com/JarneStaalPXL)
 * French - EliotAku, [Georges de Massol](https://github.com/jojo2massol), Rigbone, ZeroDegree
 * German - Sko-Inductor, Running_Dead89
 * Greek - GreatApo
 * Italian - [Lampadina17](https://github.com/Lampadina17)
 * Romanian - [Mario Bălănică](https://github.com/mariobalanica)
+* Slovak - Mitschud, Newbie414
 * Spanish - M.A.G.
 * Portugese - dvsilva
 * Portuguese (Brasil) - Vernon
