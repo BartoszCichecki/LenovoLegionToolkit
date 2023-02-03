@@ -85,10 +85,19 @@
   <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Wanneer de energiemodus wordt gewijzigd</value>
   </data>
+  <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Bij starten van app</value>
+  </data>
   <data name="ProcessesStopRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Wanneer app afgesloten</value>
   </data>
   <data name="TimeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Op bepaalde tijd</value>
   </data>
+  <data name="ExternalDisplayConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Wanneer een extern beeldscherm is aangesloten</value>
+	</data>
+  <data name="ExternalDisplayDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Wanneer een extern beeldscherm is losgekoppeld</value>
+	</data>
 </root>
