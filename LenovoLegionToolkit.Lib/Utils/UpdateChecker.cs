@@ -25,8 +25,8 @@ public class UpdateChecker
         {
             try
             {
-                var timeSpaneSinceLastUpdate = DateTime.UtcNow - _lastUpdate;
-                var shouldCheck = timeSpaneSinceLastUpdate > _minimumTimeSpanForRefresh;
+                var timeSpanSinceLastUpdate = DateTime.UtcNow - _lastUpdate;
+                var shouldCheck = timeSpanSinceLastUpdate > _minimumTimeSpanForRefresh;
 
                 if (!shouldCheck)
                     return _updates.Any() ? _updates.First().Version : null;
