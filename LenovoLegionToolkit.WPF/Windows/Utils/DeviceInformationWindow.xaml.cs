@@ -6,6 +6,7 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
+using LenovoLegionToolkit.WPF.Utils;
 using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Windows.Utils;
@@ -45,8 +46,8 @@ public partial class DeviceInformationWindow
                 return;
 
             _warrantyStatusLabel.Content = TryLocalizeStatus(warrantyInfo.Value.Status);
-            _warrantyStartLabel.Content = warrantyInfo.Value.Start is not null ? $"{warrantyInfo.Value.Start:d}" : "-";
-            _warrantyEndLabel.Content = warrantyInfo.Value.End is not null ? $"{warrantyInfo.Value.End:d}" : "-";
+            _warrantyStartLabel.Content = warrantyInfo.Value.Start is not null ? warrantyInfo.Value.Start?.ToString(LocalizationHelper.ShortDateFormat) : "-";
+            _warrantyEndLabel.Content = warrantyInfo.Value.End is not null ? warrantyInfo.Value.End?.ToString(LocalizationHelper.ShortDateFormat) : "-";
             _warrantyLinkCardAction.Tag = warrantyInfo.Value.Link;
 
             _warrantyLinkCardAction.IsEnabled = true;

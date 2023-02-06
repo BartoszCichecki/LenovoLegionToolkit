@@ -36,7 +36,7 @@ public partial class PackageControl : IProgress<float>
 
         Unloaded += PackageControl_Unloaded;
 
-        _dateTextBlock.Text = package.ReleaseDate.ToString("d");
+        _dateTextBlock.Text = package.ReleaseDate.ToString(LocalizationHelper.ShortDateFormat);
         _titleTextBlock.Text = package.Title;
         _descriptionTextBlock.Text = package.Description;
         _descriptionTextBlock.Visibility = string.IsNullOrWhiteSpace(package.Description) ? Visibility.Collapsed : Visibility.Visible;

@@ -118,7 +118,7 @@ public partial class MainWindow
         }
     }
 
-    private void MainWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+    private void MainWindow_IsVisibleChanged(object _1, DependencyPropertyChangedEventArgs _2)
     {
         if (!IsVisible)
             return;

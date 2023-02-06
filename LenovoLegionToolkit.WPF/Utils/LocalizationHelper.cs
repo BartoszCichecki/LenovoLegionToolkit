@@ -2,12 +2,15 @@
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Windows.Utils;
+using Windows.Win32;
+using Windows.Win32.Foundation;
 
 namespace LenovoLegionToolkit.WPF.Utils;
 
@@ -15,7 +18,7 @@ public static class LocalizationHelper
 {
     private static readonly string LanguagePath = Path.Combine(Folders.AppData, "lang");
 
-    public static readonly CultureInfo DefaultLanguage = new("en");
+    private static readonly CultureInfo DefaultLanguage = new("en");
 
     public static readonly CultureInfo[] Languages = {
         DefaultLanguage,
@@ -41,6 +44,20 @@ public static class LocalizationHelper
     public static FlowDirection Direction => Resource.Culture?.TextInfo.IsRightToLeft ?? false
         ? FlowDirection.RightToLeft
         : FlowDirection.LeftToRight;
+
+    private static string? _dateFormat = null;
+
+    public static string ShortDateFormat
+    {
+        get
+        {
+            if (_dateFormat is not null)
+                return _dateFormat;
+
+            _dateFormat = GetSystemShortDateFormat() ?? "dd/M/yyyy";
+            return _dateFormat;
+        }
+    }
 
     public static string ForceLeftToRight(string str)
     {
@@ -113,5 +130,29 @@ public static class LocalizationHelper
         Resource.Culture = cultureInfo;
         Lib.Resources.Resource.Culture = cultureInfo;
         Lib.Automation.Resources.Resource.Culture = cultureInfo;
+    }
+
+    private static unsafe string? GetSystemShortDateFormat()
+    {
+        var ptr = IntPtr.Zero;
+        try
+        {
+            var length = PInvoke.GetLocaleInfoEx((string?)null, PInvoke.LOCALE_SSHORTDATE, null, 0);
+            if (length == 0)
+                return null;
+
+            ptr = Marshal.AllocHGlobal(sizeof(char) * length);
+            var charPtr = new PWSTR((char*)ptr.ToPointer());
+
+            length = PInvoke.GetLocaleInfoEx((string?)null, PInvoke.LOCALE_SSHORTDATE, charPtr, length);
+            if (length == 0)
+                return null;
+
+            return charPtr.ToString();
+        }
+        finally
+        {
+            Marshal.FreeHGlobal(ptr);
+        }
     }
 }

@@ -9,6 +9,7 @@ using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Resources;
+using LenovoLegionToolkit.WPF.Utils;
 using Wpf.Ui.Common;
 
 #pragma warning disable IDE0052 // Remove unread private members
@@ -123,12 +124,12 @@ public partial class BatteryPage
         _batteryDesignCapacityText.Text = $"{batteryInfo.DesignCapacity / 1000.0:0.00} Wh";
 
         if (batteryInfo.ManufactureDate is not null)
-            _batteryManufactureDateText.Text = batteryInfo.ManufactureDate?.ToString("d", Resource.Culture) ?? "-";
+            _batteryManufactureDateText.Text = batteryInfo.ManufactureDate?.ToString(LocalizationHelper.ShortDateFormat) ?? "-";
         else
             _batteryManufactureDateCardControl.Visibility = Visibility.Collapsed;
 
         if (batteryInfo.FirstUseDate is not null)
-            _batteryFirstUseDateText.Text = batteryInfo.FirstUseDate?.ToString("d", Resource.Culture) ?? "-";
+            _batteryFirstUseDateText.Text = batteryInfo.FirstUseDate?.ToString(LocalizationHelper.ShortDateFormat) ?? "-";
         else
             _batteryFirstUseDateCardControl.Visibility = Visibility.Collapsed;
 
