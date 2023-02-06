@@ -132,7 +132,7 @@ public partial class AutomationPage
             initializedTasks.Add(control.InitializedTask);
         }
 
-        await RefreshNewAutomaticPipelineButtonAsync();
+        RefreshNewAutomaticPipelineButton();
 
         _saveRevertStackPanel.Visibility = Visibility.Collapsed;
 
@@ -196,10 +196,10 @@ public partial class AutomationPage
             e.Handled = true;
         };
         control.OnChanged += (_, _) => PipelinesChanged();
-        control.OnDelete += async (s, _) =>
+        control.OnDelete += (s, _) =>
         {
             if (s is AutomationPipelineControl c)
-                await DeletePipelineAsync(c, stackPanel);
+                DeletePipeline(c, stackPanel);
         };
         return control;
     }
@@ -235,7 +235,7 @@ public partial class AutomationPage
         menuItems.Add(renameMenuItem);
 
         var deleteMenuItem = new MenuItem { SymbolIcon = SymbolRegular.Delete24, Header = Resource.Delete };
-        deleteMenuItem.Click += async (_, _) => await DeletePipelineAsync(control, stackPanel);
+        deleteMenuItem.Click += (_, _) => DeletePipeline(control, stackPanel);
         menuItems.Add(deleteMenuItem);
 
         control.ContextMenu = new();
@@ -251,7 +251,7 @@ public partial class AutomationPage
         PipelinesChanged();
     }
 
-    private async Task AddAutomaticPipelineAsync(IAutomationPipelineTrigger trigger)
+    private void AddAutomaticPipeline(IAutomationPipelineTrigger trigger)
     {
         var pipeline = new AutomationPipeline(trigger);
         var control = GenerateControl(pipeline, _automaticPipelinesStackPanel);
@@ -261,7 +261,7 @@ public partial class AutomationPage
             ? Visibility.Visible
             : Visibility.Collapsed;
 
-        await RefreshNewAutomaticPipelineButtonAsync();
+        RefreshNewAutomaticPipelineButton();
         PipelinesChanged();
     }
 
@@ -281,7 +281,7 @@ public partial class AutomationPage
             ? Visibility.Visible
             : Visibility.Collapsed;
 
-        await RefreshNewAutomaticPipelineButtonAsync();
+        RefreshNewAutomaticPipelineButton();
         PipelinesChanged();
     }
 
@@ -296,7 +296,7 @@ public partial class AutomationPage
         control.SetName(newName);
     }
 
-    private async Task DeletePipelineAsync(AutomationPipelineControl control, StackPanel stackPanel)
+    private void DeletePipeline(AutomationPipelineControl control, StackPanel stackPanel)
     {
         stackPanel.Children.Remove(control);
 
@@ -307,11 +307,11 @@ public partial class AutomationPage
             ? Visibility.Visible
             : Visibility.Collapsed;
 
-        await RefreshNewAutomaticPipelineButtonAsync();
+        RefreshNewAutomaticPipelineButton();
         PipelinesChanged();
     }
 
-    private async Task RefreshNewAutomaticPipelineButtonAsync()
+    private void RefreshNewAutomaticPipelineButton()
     {
         var triggers = new List<IAutomationPipelineTrigger>
         {
@@ -337,7 +337,7 @@ public partial class AutomationPage
             };
 
             if (AllowDuplicates(trigger))
-                menuItem.Click += async (_, _) => await AddAutomaticPipelineAsync(trigger);
+                menuItem.Click += (_, _) => AddAutomaticPipeline(trigger);
             else
                 menuItem.IsEnabled = false;
 

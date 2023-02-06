@@ -86,9 +86,18 @@ public static class InternalDisplay
         {
             var instanceName = GetInstanceNamePattern(display);
             if (!await HasBiosNameAsync(instanceName))
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Display {display} does not have BIOS name. [instanceName={instanceName}, display.DevicePath={display.DevicePath}]");
+
                 continue;
+            }
 
             var vot = await GetVideoOutputTechnologyAsync(instanceName);
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Display {display} is connected over {vot}.");
+
             displayInfos.Add((display, vot));
         }
 
