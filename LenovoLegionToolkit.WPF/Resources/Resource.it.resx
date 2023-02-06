@@ -474,6 +474,9 @@ Attenzione: Questa azione non funzionerà correttamente se il display è spento 
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>Versione BIOS</value>
   </data>
+  <data name="CopiedToClipboard_Message" xml:space="preserve">
+    <value>Testo copiato negli appunti.</value>
+  </data>
   <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
     <value>"{0}" è stato copiato.</value>
   </data>
@@ -600,6 +603,9 @@ Clicca il logo PayPal qui sotto oppure scansiona il QR code per donare con PayPa
   </data>
   <data name="Exit" xml:space="preserve">
     <value>Esci</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Esporta</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
     <value>Usa solo la GPU integrata quando è a batteria e sia la GPU integrata che quella dedicata quando è collegato l'adattatore CA. Quando è collegato un adattatore non standard, il sistema passa alla modalità solo GPU ibrida-integrata.</value>
@@ -756,6 +762,9 @@ ATTENZIONE: questa azione non verrà eseguita correttamente se il display intern
   </data>
   <data name="HDRControl_Warning" xml:space="preserve">
     <value>L'utilizzo dell'HDR è bloccato dalle impostazioni di Windows.</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Importa</value>
   </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Questo dispositivo non è compatibile con Lenovo Legion Toolkit.</value>
@@ -952,6 +961,9 @@ Abilita questa opzione in caso di conflitti con le applicazioni a schermo intero
   </data>
   <data name="PackageControl_HttpGeneralError_Title" xml:space="preserve">
     <value>Si è verificato un errore</value>
+  </data>
+  <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
+    <value>Aggiornamento disponibile!</value>
   </data>
   <data name="PackageControl_OldPackageWarning" xml:space="preserve">
     <value>Questo pacchetto ha più di un anno.</value>
@@ -1322,6 +1334,18 @@ Il riavvio è consigliabile dopo aver cambiato questa impostazione.</value>
   <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
     <value>Effetti</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Message" xml:space="preserve">
+    <value>Il profilo non può essere esportato</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Title" xml:space="preserve">
+    <value>Impossibile esportate il profilo</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Message" xml:space="preserve">
+    <value>Il profilo non può essere importato</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Title" xml:space="preserve">
+    <value>Impossibile importare il profilo</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
     <value>Nessun effetto impostato.</value>
   </data>
@@ -1466,6 +1490,9 @@ Il logging verrà abilitato automaticamente, se scegli di continuare.</value>
   <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Puoi cambiare la retroilluminazione con Fn+Spazio</value>
   </data>
+  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Retroilluminazione tastiera</value>
+  </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
     <value>Abilita o Disabilita il tasto Windows.</value>
   </data>
@@ -1484,7 +1511,123 @@ Il logging verrà abilitato automaticamente, se scegli di continuare.</value>
   <data name="MicrophoneControl_Title" xml:space="preserve">
     <value>Microfono</value>
   </data>
+  <data name="MicrophoneControl_Message" xml:space="preserve">
+    <value>Se spento, Il microfono sarà mutato.</value>
+  </data>
   <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
     <value>Microfono</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
+    <value>Se spento, Il microfono sarà mutato.</value>
+  </data>
+  <data name="ResolutionControl_Title" xml:space="preserve">
+    <value>Risoluzione</value>
+  </data>
+  <data name="ResolutionControl_Message" xml:space="preserve">
+    <value>Cambia la risoluzione dello schermo integrato.</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
+    <value>Risoluzione</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
+    <value>Modifica la risoluzione del display integrato.
+
+ATTENZIONE: questa azione non verrà eseguita correttamente se il display interno è spento.</value>
+  </data>
+  <data name="DpiScaleControl_Title" xml:space="preserve">
+    <value>DPI</value>
+  </data>
+  <data name="DpiScaleControl_Message" xml:space="preserve">
+    <value>Cambia il fattore di scala dello schermo integrato.</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
+    <value>DPI</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
+    <value>Modifica il fattore di scala del display integrato.
+
+ATTENZIONE: questa azione non verrà eseguita correttamente se il display interno è spento.</value>
+  </data>
+  <data name="DashboardPage_Display_Title" xml:space="preserve">
+    <value>Schermo</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Retroilluminazione tastiera</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
+    <value>Puoi spegnere o accendere la retroilluminazione tastiera con Fn+Spazio.</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Retroilluminazione tastiera</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Accendi o spegni retroilluminazione tastiera.</value>
+  </data>
+  <data name="PackagesPage_NoMatchingDownloads" xml:space="preserve">
+    <value>Nessun elemento corrispondente trovato</value>
+  </data>
+  <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
+    <value>Visualizza solo gli aggiornamenti</value>
+  </data>
+  <data name="EditDashboardWindow_Title" xml:space="preserve">
+    <value>Personalizza Dashboard</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Ripristina</value>
+  </data>
+  <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
+    <value>Crea gruppo</value>
+  </data>
+  <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
+    <value>Alcune opzioni potrebbero non apparire nella Dashboard in base allo stato e configurazione del tuo dispositivo.</value>
+  </data>
+  <data name="DashboardPage_Customize" xml:space="preserve">
+    <value>Personalizza</value>
+  </data>
+  <data name="TurnOffMonitorsControl_Title" xml:space="preserve">
+    <value>Spegni i display</value>
+  </data>
+  <data name="TurnOffMonitorsControl_Message" xml:space="preserve">
+    <value>Spegni tutti i display.
+Spostare il mouse o premere il tasto sulla tastiera per risvegliarli.</value>
+  </data>
+  <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
+    <value>Spegni</value>
+  </data>
+  <data name="TurnOffMonitorsAutomationStepControl_Title" xml:space="preserve">
+    <value>Spegni i display</value>
+  </data>
+  <data name="TurnOffMonitorsAutomationStepControl_Message" xml:space="preserve">
+    <value>Spegni tutti i display.</value>
+  </data>
+  <data name="EditDashboardGroupControl_EditGroup_Title" xml:space="preserve">
+    <value>Modifica il nome del gruppo</value>
+  </data>
+  <data name="EditDashboardGroupControl_EditGroup_Message" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="Notification_PanelLogoLightingOn" xml:space="preserve">
+    <value>Logo Legion acceso</value>
+  </data>
+  <data name="Notification_PanelLogoLightingOff" xml:space="preserve">
+    <value>Logo Legion spento</value>
+  </data>
+  <data name="Notification_PortLightingOn" xml:space="preserve">
+    <value>Retroilluminazione porte accesa</value>
+  </data>
+  <data name="Notification_PortLightingOff" xml:space="preserve">
+    <value>Retroilluminazione porte spenta</value>
+  </data>
+  <data name="PackageControl_RebootRequired" xml:space="preserve">
+    <value>Riavvio richiesto</value>
+  </data>
+  <data name="PackageControl_ShutdownRequired" xml:space="preserve">
+    <value>Spegnimento richiesto</value>
+  </data>
+  <data name="PackageControl_RebootRecommended" xml:space="preserve">
+    <value>Riavvio consigliato</value>
   </data>
 </root>
