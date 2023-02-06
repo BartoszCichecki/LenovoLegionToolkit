@@ -186,6 +186,11 @@ public partial class MainWindow
 
         Width = _applicationSettings.Store.WindowSize.Value.Width;
         Height = _applicationSettings.Store.WindowSize.Value.Height;
+
+        var desktopWorkingArea = ScreenHelper.GetPrimaryDesktopWorkingArea();
+
+        Left = (desktopWorkingArea.Width - Width) / 2 + desktopWorkingArea.Left;
+        Top = (desktopWorkingArea.Height - Height) / 2 + desktopWorkingArea.Top;
     }
 
     private void SaveSize()
