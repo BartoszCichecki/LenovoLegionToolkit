@@ -7,6 +7,7 @@ namespace LenovoLegionToolkit.Lib.Extensions;
 
 public static class PInvokeExtensions
 {
+    public const int ERROR_SUCCESS = 0;
     public const int ERROR_NO_MORE_ITEMS = 259;
 
     public const uint KF_FLAG_DEFAULT = 0;

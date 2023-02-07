@@ -1,42 +1,38 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Management;
-using System.Threading.Tasks;
+using System.Runtime.InteropServices;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Utils;
-using NeoSmart.AsyncLock;
+using Windows.Win32;
+using Windows.Win32.Devices.Display;
+using Windows.Win32.Foundation;
 using WindowsDisplayAPI;
+using WindowsDisplayAPI.DisplayConfig;
 
 namespace LenovoLegionToolkit.Lib.System;
 
 public static class InternalDisplay
 {
-    private enum VideoOutputTechnology : uint
-    {
-        Internal = 0x80000000u,
-        DisplayPortExternal = 10u,
-        DisplayPortEmbedded = 11u,
-    }
-
     private readonly struct DisplayHolder
     {
-        public readonly Display? Display;
+        public static DisplayHolder Empty = new DisplayHolder();
 
-        public DisplayHolder(Display? display)
-        {
-            Display = display;
-        }
+        private readonly Display? _display;
+
+        private DisplayHolder(Display? display) => _display = display;
 
         public static implicit operator DisplayHolder(Display? s) => new(s);
 
-        public static implicit operator Display?(DisplayHolder s) => s.Display;
+        public static implicit operator Display?(DisplayHolder s) => s._display;
     }
 
-    private static readonly AsyncLock _lock = new();
+    private static readonly object _lock = new();
     private static DisplayHolder? _displayHolder;
 
     public static void SetNeedsRefresh()
     {
-        using (_lock.Lock())
+        lock (_lock)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Resetting holder...");
@@ -45,106 +41,120 @@ public static class InternalDisplay
         }
     }
 
-    public static async Task<Display?> GetAsync()
+    public static Display? Get()
     {
-        using (await _lock.LockAsync())
+        lock (_lock)
         {
             if (_displayHolder is not null)
                 return _displayHolder;
 
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Finding internal display...");
-
             var displays = Display.GetDisplays().ToArray();
-
-            if (Log.Instance.IsTraceEnabled)
-            {
-                Log.Instance.Trace($"Found displays:");
-                foreach (var display in displays)
-                    Log.Instance.Trace($" - {display}");
-            }
-
-            var internalDisplay = await FindInternalDisplayAsync(displays);
-
-            if (Log.Instance.IsTraceEnabled)
-            {
-                if (internalDisplay is null)
-                    Log.Instance.Trace($"Internal display not found");
-                else
-                    Log.Instance.Trace($"Internal display found: {internalDisplay}");
-            }
-
-            return (_displayHolder = internalDisplay);
-        }
-    }
-
-    private static async Task<Display?> FindInternalDisplayAsync(IEnumerable<Display> displays)
-    {
-        var displayInfos = new List<(Display Display, VideoOutputTechnology Vot)>();
-
-        foreach (var display in displays)
-        {
-            var instanceName = GetInstanceNamePattern(display);
-            if (!await HasBiosNameAsync(instanceName))
+            var internalDisplay = FindInternalDisplay(displays);
+            if (internalDisplay is not null)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Display {display} does not have BIOS name. [instanceName={instanceName}, display.DevicePath={display.DevicePath}]");
+                    Log.Instance.Trace($"Found internal display: {internalDisplay}");
 
-                continue;
+                return (_displayHolder = internalDisplay);
             }
 
-            var vot = await GetVideoOutputTechnologyAsync(instanceName);
+            var aoDisplay = FindInternalAdvancedOptimusDisplay(displays);
+            if (aoDisplay is not null)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Found internal AO display: {aoDisplay}");
+
+                return (_displayHolder = aoDisplay);
+            }
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Display {display} is connected over {vot}.");
+                Log.Instance.Trace($"No internal displays found.");
 
-            displayInfos.Add((display, vot));
+            return (_displayHolder = DisplayHolder.Empty);
         }
+    }
 
-        if (displayInfos.Count != 1)
+    private static Display? FindInternalDisplay(IEnumerable<Display> displays)
+    {
+        return displays.Where(d => d.GetVideoOutputTechnology().IsInternalOutput()).FirstOrDefault();
+    }
+
+    private static Display? FindInternalAdvancedOptimusDisplay(IEnumerable<Display> displays)
+    {
+        var exDpDisplays = displays.Where(di => di.GetVideoOutputTechnology().IsExternalDisplayPortOutput()).ToArray();
+
+        if (exDpDisplays.Length < 1)
             return null;
 
-        var displayInfo = displayInfos[0];
-        return displayInfo.Vot is VideoOutputTechnology.Internal or VideoOutputTechnology.DisplayPortEmbedded or VideoOutputTechnology.DisplayPortExternal
-            ? displayInfo.Display
-            : null;
+        var exDpDisplay = exDpDisplays[0];
+        var exDpPathDisplayTarget = exDpDisplay.ToPathDisplayTarget();
+        var exDpPortDisplayEDID = exDpPathDisplayTarget.EDIDManufactureId;
+
+        var sameDeviceIsOnAnotherAdapter = DisplayAdapter.GetDisplayAdapters()
+            .Where(da => da.DevicePath != exDpDisplay.Adapter.DevicePath)
+            .SelectMany(da => da.GetDisplayDevices())
+            .Select(dd => dd.ToPathDisplayTarget())
+            .Any(pdt => pdt.EDIDManufactureId == exDpPortDisplayEDID && pdt.GetVideoOutputTechnology().IsInternalOutput());
+
+        return sameDeviceIsOnAnotherAdapter ? exDpDisplay : null;
     }
 
-    private static string GetInstanceNamePattern(Display display) =>
-        display.DevicePath
-            .Split("#")
-            .Skip(1)
-            .Take(1)
-            .Aggregate((s1, s2) => s1 + "\\" + s2);
-
-    private static Task<bool> HasBiosNameAsync(string instanceName)
+    private static DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY GetVideoOutputTechnology(this DisplayDevice displayDevice)
     {
-        return WMI.CallAsync("root\\CIMV2", $"SELECT * FROM Win32_PnPEntity WHERE PnPDeviceID LIKE '%{instanceName}%'",
-            "GetDeviceProperties",
-            new() { { "devicePropertyKeys", new[] { "DEVPKEY_Device_BiosDeviceName" } } },
-            pdc =>
+        return GetVideoOutputTechnology(displayDevice.ToPathDisplayTarget());
+    }
+
+    private static unsafe DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY GetVideoOutputTechnology(this PathDisplayTarget pathDisplayTarget)
+    {
+        var intPtr = IntPtr.Zero;
+        try
+        {
+            var deviceName = new DISPLAYCONFIG_TARGET_DEVICE_NAME
             {
-                var devicePropertiesObjects = pdc["deviceProperties"].Value as ManagementBaseObject[];
-                var properties = devicePropertiesObjects?.FirstOrDefault()?.Properties?.GetEnumerator();
-                if (properties is null)
-                    return false;
-
-                while (properties.MoveNext())
+                header = new DISPLAYCONFIG_DEVICE_INFO_HEADER
                 {
-                    var current = properties.Current;
-                    if (current.Name == "Data" && !string.IsNullOrEmpty(current.Value.ToString()))
-                        return true;
+                    type = DISPLAYCONFIG_DEVICE_INFO_TYPE.DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_NAME,
+                    id = pathDisplayTarget.TargetId,
+                    adapterId = new LUID
+                    {
+                        HighPart = pathDisplayTarget.Adapter.AdapterId.HighPart,
+                        LowPart = pathDisplayTarget.Adapter.AdapterId.LowPart,
+                    },
+                    size = (uint)Marshal.SizeOf<DISPLAYCONFIG_TARGET_DEVICE_NAME>()
                 }
+            };
 
-                return false;
-            });
+            intPtr = Marshal.AllocHGlobal((int)deviceName.header.size);
+            Marshal.StructureToPtr(deviceName, intPtr, false);
+
+            var ptr = (DISPLAYCONFIG_DEVICE_INFO_HEADER*)intPtr.ToPointer();
+
+            var success = PInvoke.DisplayConfigGetDeviceInfo(ptr);
+            if (success != PInvokeExtensions.ERROR_SUCCESS)
+                PInvokeExtensions.ThrowIfWin32Error("DisplayConfigGetDeviceInfo");
+
+            var deviceNameResponse = Marshal.PtrToStructure<DISPLAYCONFIG_TARGET_DEVICE_NAME>(intPtr);
+            return deviceNameResponse.outputTechnology;
+        }
+        catch
+        {
+            return DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY.DISPLAYCONFIG_OUTPUT_TECHNOLOGY_OTHER;
+        }
+        finally
+        {
+            Marshal.FreeHGlobal(intPtr);
+        }
     }
 
-    private static async Task<VideoOutputTechnology> GetVideoOutputTechnologyAsync(string instanceName)
+    private static bool IsInternalOutput(this DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY outputTechnology)
     {
-        var result = await WMI.ReadAsync("root\\WMI",
-            $"SELECT * FROM WmiMonitorConnectionParams WHERE InstanceName LIKE '%{instanceName}%'",
-            pdc => (uint)pdc["VideoOutputTechnology"].Value).ConfigureAwait(false);
-        return (VideoOutputTechnology)result.FirstOrDefault();
+        var result = outputTechnology is DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY.DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INTERNAL;
+        result |= outputTechnology is DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY.DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_EMBEDDED;
+        return result;
+    }
+
+    private static bool IsExternalDisplayPortOutput(this DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY outputTechnology)
+    {
+        return outputTechnology is DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY.DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_EXTERNAL;
     }
 }

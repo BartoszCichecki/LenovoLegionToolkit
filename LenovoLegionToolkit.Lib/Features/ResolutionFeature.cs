@@ -12,18 +12,18 @@ public class ResolutionFeature : IFeature<Resolution>
 {
     public Task<bool> IsSupportedAsync() => Task.FromResult(true);
 
-    public async Task<Resolution[]> GetAllStatesAsync()
+    public Task<Resolution[]> GetAllStatesAsync()
     {
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting all resolutions...");
 
-        var display = await InternalDisplay.GetAsync().ConfigureAwait(false);
+        var display = InternalDisplay.Get();
         if (display is null)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Built in display not found");
 
-            return Array.Empty<Resolution>();
+            return Task.FromResult(Array.Empty<Resolution>());
         }
 
         if (Log.Instance.IsTraceEnabled)
@@ -42,32 +42,24 @@ public class ResolutionFeature : IFeature<Resolution>
             .OrderByDescending(res => res)
             .ToArray();
 
-        if (result.Length == 1)
-        {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Single display mode found");
-
-            return result;
-        }
-
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Possible resolutions are {string.Join(", ", result)}");
 
-        return result;
+        return Task.FromResult(result);
     }
 
-    public async Task<Resolution> GetStateAsync()
+    public Task<Resolution> GetStateAsync()
     {
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting current resolution...");
 
-        var display = await InternalDisplay.GetAsync().ConfigureAwait(false);
+        var display = InternalDisplay.Get();
         if (display is null)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Built in display not found");
 
-            return default;
+            return Task.FromResult(default(Resolution));
         }
 
         var currentSettings = display.CurrentSetting;
@@ -76,12 +68,12 @@ public class ResolutionFeature : IFeature<Resolution>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Current resolution is {result} [currentSettings={currentSettings}]");
 
-        return result;
+        return Task.FromResult(result);
     }
 
-    public async Task SetStateAsync(Resolution state)
+    public Task SetStateAsync(Resolution state)
     {
-        var display = await InternalDisplay.GetAsync().ConfigureAwait(false);
+        var display = InternalDisplay.Get();
         if (display is null)
         {
             if (Log.Instance.IsTraceEnabled)
@@ -95,7 +87,8 @@ public class ResolutionFeature : IFeature<Resolution>
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Resolution already set to {state}");
-            return;
+
+            return Task.CompletedTask;
         }
 
         var possibleSettings = display.GetPossibleSettings();
@@ -116,6 +109,8 @@ public class ResolutionFeature : IFeature<Resolution>
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Could not find matching settings for resolution {state}");
         }
+
+        return Task.CompletedTask;
     }
 
     private static bool Match(DisplayPossibleSetting dps, DisplaySetting ds)
