@@ -11,19 +11,19 @@ public class DpiScaleFeature : IFeature<DpiScale>
 {
     public Task<bool> IsSupportedAsync() => Task.FromResult(true);
 
-    public async Task<DpiScale[]> GetAllStatesAsync()
+    public Task<DpiScale[]> GetAllStatesAsync()
     {
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting all DPI scales...");
 
-        var display = await InternalDisplay.GetAsync().ConfigureAwait(false);
+        var display = InternalDisplay.Get();
         var pds = display?.ToPathDisplaySource();
         if (pds is null)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Built in display not found");
 
-            return Array.Empty<DpiScale>();
+            return Task.FromResult(Array.Empty<DpiScale>());
         }
 
         var max = (int)pds.MaximumDPIScale;
@@ -38,22 +38,22 @@ public class DpiScaleFeature : IFeature<DpiScale>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Current DPI scale is {result}");
 
-        return result;
+        return Task.FromResult(result);
     }
 
-    public async Task<DpiScale> GetStateAsync()
+    public Task<DpiScale> GetStateAsync()
     {
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting current DPI scale...");
 
-        var display = await InternalDisplay.GetAsync().ConfigureAwait(false);
+        var display = InternalDisplay.Get();
         var pds = display?.ToPathDisplaySource();
         if (pds is null)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Built in display not found");
 
-            return default;
+            return Task.FromResult(default(DpiScale));
         }
 
         var result = (int)pds.CurrentDPIScale;
@@ -61,12 +61,12 @@ public class DpiScaleFeature : IFeature<DpiScale>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Current DPI scale is {result}");
 
-        return new DpiScale(result);
+        return Task.FromResult(new DpiScale(result));
     }
 
-    public async Task SetStateAsync(DpiScale state)
+    public Task SetStateAsync(DpiScale state)
     {
-        var display = await InternalDisplay.GetAsync().ConfigureAwait(false);
+        var display = InternalDisplay.Get();
         var pds = display?.ToPathDisplaySource();
         if (pds is null)
         {
@@ -79,19 +79,20 @@ public class DpiScaleFeature : IFeature<DpiScale>
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"DPI scale already set to {state.Scale}");
-            return;
+            return Task.CompletedTask;
         }
 
         if (!Enum.IsDefined(typeof(DisplayConfigSourceDPIScale), (uint)state.Scale))
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"DPI scale {state.Scale} not found");
-            return;
+            return Task.CompletedTask;
         }
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Setting DPI scale to {state.Scale}");
 
         pds.CurrentDPIScale = (DisplayConfigSourceDPIScale)state.Scale;
+        return Task.CompletedTask;
     }
 }
