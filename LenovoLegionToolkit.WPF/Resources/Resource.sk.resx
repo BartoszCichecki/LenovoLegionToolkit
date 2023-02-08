@@ -294,13 +294,13 @@ Táto možnosť je určená pre zariadenia, ktoré nie sú dodávané s viacero 
     <value>Nastavenia vyváženého výkonu</value>
   </data>
   <data name="BatteryAutomationStepControl_Message" xml:space="preserve">
-    <value>Vyberte ako sa bude batéria nabíjať.</value>
+    <value>Vyberte ako sa bude nabíjať batéria.</value>
   </data>
   <data name="BatteryAutomationStepControl_Title" xml:space="preserve">
     <value>Režim batérie</value>
   </data>
   <data name="BatteryModeControl_Message" xml:space="preserve">
-    <value>Vyberte ako sa bude batéria nabíjať.</value>
+    <value>Vyberte ako sa bude nabíjať batéria.</value>
   </data>
   <data name="BatteryModeControl_Title" xml:space="preserve">
     <value>Režim batérie</value>
@@ -676,13 +676,13 @@ Vopred vďaka!</value>
     <value>Použivať sekundárnu funkciu kláves F1-F12 bez držania klávesy Fn.</value>
   </data>
   <data name="FnLockAutomationStepControl_Title" xml:space="preserve">
-    <value>Fn zámok</value>
+    <value>Zámok Fn klávesy</value>
   </data>
   <data name="FnLockControl_Message" xml:space="preserve">
     <value>Použivať sekundárnu funkciu kláves F1-F12 bez držania klávesy Fn.</value>
   </data>
   <data name="FnLockControl_Title" xml:space="preserve">
-    <value>Fn zámok</value>
+    <value>Zámok Fn klávesy</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
     <value>VAROVANIE!
@@ -901,7 +901,7 @@ Povoľte túto možnosť ak máte konflikty s aplikáciami na celú obrazovku.</
     <value>Nezobrazovať upozornenia</value>
   </data>
   <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
-    <value>Fn zámok</value>
+    <value>Zámok Fn klávesy</value>
   </data>
   <data name="NotificationsSettingsWindow_KeyboardBacklight" xml:space="preserve">
     <value>Podsvietenie klávesnice</value>
@@ -1046,7 +1046,7 @@ Vždy sa uistite, že inštalujete správne balíky.</value>
     <value>Nepodarilo sa zmeniť Režim výkonu</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
-    <value>Vybrať výkonný režim.
+    <value>Výber výkonostného režimu.
 Môžete prepnúť pomocou Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
@@ -1074,7 +1074,7 @@ Môžete prepnúť pomocou Fn+Q.</value>
     <value>Vlastný režim</value>
   </data>
   <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
-    <value>Východzie</value>
+    <value>Predvolený</value>
   </data>
   <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
     <value>Výkonný režim</value>
@@ -1294,7 +1294,7 @@ Po zmene tejto možnosti sa odporúča reštart.</value>
     <value>Priradiť Rýchlu akciu na dve stlačenia Fn+F9.</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">
-    <value>Sekundárna akcia chytrého tlačidla</value>
+    <value>Sekundárna akcia chytrej klávesy</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
     <value>Priradiť Rýchlu akciu na jedno stlačenia Fn+F9.</value>

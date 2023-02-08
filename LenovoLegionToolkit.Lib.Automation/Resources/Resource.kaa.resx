@@ -95,7 +95,7 @@
     <value>Belgilengen waqıtta</value>
   </data>
   <data name="ExternalDisplayConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-		<value>Sırtqı displey qosılǵanda</value>
+		<value>Sırtqı display qosılǵanda</value>
 	</data>
   <data name="ExternalDisplayDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
 		<value>Sırtqı display óshirilgende</value>
