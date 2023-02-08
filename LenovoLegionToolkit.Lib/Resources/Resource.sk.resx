@@ -86,7 +86,7 @@
     <value>Šetrenie</value>
   </data>
   <data name="BatteryState_Normal" xml:space="preserve">
-    <value>Normálne</value>
+    <value>Normálny</value>
   </data>
   <data name="BatteryState_RapidCharge" xml:space="preserve">
     <value>Rýchle nabíjanie</value>
@@ -272,13 +272,13 @@
     <value>Rýchla</value>
   </data>
   <data name="Theme_Dark" xml:space="preserve">
-    <value>Tmavá</value>
+    <value>Tmavý</value>
   </data>
   <data name="Theme_Light" xml:space="preserve">
-    <value>Svetlá</value>
+    <value>Svetlý</value>
   </data>
   <data name="Theme_System" xml:space="preserve">
-    <value>Systémová</value>
+    <value>Systém</value>
   </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
     <value>Silné</value>
