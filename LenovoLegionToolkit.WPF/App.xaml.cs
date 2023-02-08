@@ -140,7 +140,7 @@ public partial class App
         try
         {
             if (IoCContainer.TryResolve<PowerModeFeature>() is { } powerModeFeature)
-                await powerModeFeature.EnsureAIModeIsOffAsync();
+                await powerModeFeature.EnsureAiModeIsOffAsync();
         }
         catch { }
 
@@ -306,13 +306,30 @@ public partial class App
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Ensuring AI Mode is set...");
 
-                await feature.EnsureAIModeIsSetAsync();
+                await feature.EnsureAiModeIsSetAsync();
             }
         }
         catch (Exception ex)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Couldn't set AI Mode.", ex);
+        }
+
+        try
+        {
+            var feature = IoCContainer.Resolve<PowerModeFeature>();
+            if (await feature.IsSupportedAsync())
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Ensuring god mode state is applied...");
+
+                await feature.EnsureGodModeStateIsAppliedAsync();
+            }
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Couldn't ensure god mode state.", ex);
         }
 
         try
