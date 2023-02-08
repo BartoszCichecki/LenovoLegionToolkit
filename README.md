@@ -75,6 +75,10 @@ If you live in China, you can also donate in Chinese Yuan using Stripe (supports
 
 You can download the installer from the [Releases page](https://github.com/BartoszCichecki/LenovoLegionToolkit/releases/latest).
 
+Or install using [winget](https://github.com/microsoft/winget-cli):
+
+`winget install BartoszCichecki.LenovoLegionToolkit`
+
 ## Compatibility
 
 Lenovo Legion Toolkit is made for Lenovo Legion laptops released in 2020 or later.
