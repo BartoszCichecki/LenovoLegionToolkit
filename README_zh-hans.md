@@ -71,7 +71,11 @@
 
 ### 联想软件兼容
 
-总的来说，建议在使用 LLT 时禁用或卸载 Lenovo Vantage、Hotkeys 和 Legion Zone。当 LLT 与其他联想应用程序一起工作时，可能会导致部分功能冲突或可能无法正常工作。
+总的来说，建议在使用拯救者工具箱时禁用或卸载 Lenovo Vantage、Hotkeys 和 Legion Zone。当拯救者工具箱与其他联想应用程序一起工作时，可能会导致部分功能冲突或可能无法正常工作。
+
+### 备注
+
+拯救者工具箱目前不支持多用户安装，所以如果你的笔记本电脑上有多个用户，你可能会遇到兼容性问题，即使是没有管理员权限的账户。拯救者工具箱需要一个有管理员权限的账户，拯救者工具箱无法在普通账户上正常运行。
 
 ## 功能介绍
 
@@ -142,12 +146,13 @@
 翻译贡献者：
 * 中文 - [凌卡Karl](https://github.com/KarlLee830)
 * 捷克语 - J0sef
-* 荷兰语 - Melm
+* 荷兰语 - Melm, [JarneStaalPXL](https://github.com/JarneStaalPXL)
 * 法语 - EliotAku, [Georges de Massol](https://github.com/jojo2massol), Rigbone, ZeroDegree
 * 德语 - Sko-Inductor, Running_Dead89
 * 希腊语 - GreatApo
 * 意大利语 - [Lampadina17](https://github.com/Lampadina17)
 * 罗马尼亚语 - [Mario Bălănică](https://github.com/mariobalanica)
+* 斯洛伐克语 - Mitschud, Newbie414
 * 西班牙语 - M.A.G.
 * 葡萄牙语 - dvsilva
 * 葡萄牙语（巴西） - Vernon
@@ -174,7 +179,17 @@
 
 #### 能不能多整一些 RGB 效果？
 
-只有硬件支持的选项可用，不计划支持自定义效果。如果你想要自定义效果可以看看 [L5P-Keyboard-RGB](https://github.com/4JX/L5P-Keyboard-RGB) 或 [OpenRGB](https://openrgb.org/).
+只有硬件支持的选项可用，不计划支持自定义效果。如果你想要自定义效果可以看看 [L5P-Keyboard-RGB](https://github.com/4JX/L5P-Keyboard-RGB) 或 [OpenRGB](https://openrgb.org/)。
+
+#### 我可以在使用拯救者工具箱时使用其他RGB软件吗？
+
+总的来说，可以。 当 Lenovo Vantage 运行时，拯救者工具箱将禁用 RGB 控制，以避免冲突。如果你想使用其他 RGB 软件，如 [L5P-Keyboard-RGB](https://github.com/4JX/L5P-Keyboard-RGB) 或 [OpenRGB](https://openrgb.org/)，你可以在拯救者工具箱中禁用 RGB 以避免冲突。
+
+禁用 RGB 方法：
+1. 打开 `%LOCALAPPDATA%\LenovoLegionToolkit`；
+2. 在此处创建名为 `args.txt` 的文件。（如果已有，请编辑此文件。）；
+3. 根据你的键盘型号，在文件夹内粘贴 `--force-disable-rgbkb` 或 `--force-disable-spectrumkb`。（如果此文件夹内已被添加了启动参数，请另起一行，保证每行一个参数。）；
+4. 启动拯救者工具箱，
 
 #### 2022 款之前的机器能否自定义调节风扇曲线？
 
