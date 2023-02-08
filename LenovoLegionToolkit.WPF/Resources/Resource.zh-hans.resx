@@ -824,10 +824,10 @@
     <value>发现新版本 {0}！</value>
   </data>
   <data name="MoveDown" xml:space="preserve">
-    <value>上移</value>
+    <value>下移</value>
   </data>
   <data name="MoveUp" xml:space="preserve">
-    <value>下移</value>
+    <value>上移</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>否</value>
