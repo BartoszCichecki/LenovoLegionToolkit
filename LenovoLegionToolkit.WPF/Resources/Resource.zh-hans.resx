@@ -1491,7 +1491,7 @@
     <value>有新的更新！</value>
   </data>
   <data name="UpdateWindow_WhatsNew" xml:space="preserve">
-    <value>各版本更新日志：</value>
+    <value>更新日志</value>
   </data>
   <data name="WhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>调节键盘背光</value>
