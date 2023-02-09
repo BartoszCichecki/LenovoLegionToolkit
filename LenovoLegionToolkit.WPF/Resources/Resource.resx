@@ -1635,4 +1635,7 @@ Moving the mouse or pressing the keyboard will wake displays up.</value>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>Restart recommended</value>
   </data>
+  <data name="SaveAndClose" xml:space="preserve">
+	  <value>Save &amp; Close</value>
+  </data>
 </root>

@@ -22,7 +22,7 @@ public static class ComboBoxExtensions
 
     public static void SelectItem<T>(this ComboBox comboBox, T item) where T : struct
     {
-        var boxedItems = comboBox.Items.OfType<ComboBoxItem<T>>().Select(item => item.Value).ToArray();
+        var boxedItems = comboBox.Items.OfType<ComboBoxItem<T>>().Select(i => i.Value).ToArray();
         comboBox.SelectedIndex = Array.IndexOf(boxedItems, item);
     }
 

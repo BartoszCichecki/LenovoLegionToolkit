@@ -7,7 +7,5 @@ public class SpectrumKeyboardSettings : AbstractSettings<SpectrumKeyboardSetting
         public KeyboardLayout? KeyboardLayout { get; set; }
     }
 
-    protected override string FileName => "spectrum_keyboard.json";
-
-    protected override SpectrumKeyboardSettingsStore Default => new();
+    public SpectrumKeyboardSettings() : base("spectrum_keyboard.json") { }
 }

@@ -9,7 +9,5 @@ public class BalanceModeSettings : AbstractSettings<BalanceModeSettingsStore>
         public bool AIModeEnabled { get; set; }
     }
 
-    protected override BalanceModeSettingsStore Default => new();
-
-    protected override string FileName => "balancemode.json";
+    public BalanceModeSettings() : base("balancemode.json") { }
 }

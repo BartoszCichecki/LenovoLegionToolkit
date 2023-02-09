@@ -11,7 +11,5 @@ public class PackageDownloaderSettings : AbstractSettings<PackageDownloaderSetti
         public HashSet<string> HiddenPackages { get; set; } = new();
     }
 
-    protected override string FileName => "package_downloader.json";
-
-    protected override PackageDownloaderSettingsStore Default => new();
+    public PackageDownloaderSettings() : base("package_downloader.json") { }
 }

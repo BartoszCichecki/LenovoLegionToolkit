@@ -6,63 +6,56 @@ using Newtonsoft.Json.Converters;
 
 namespace LenovoLegionToolkit.Lib.Settings;
 
-public abstract class AbstractSettings<T> where T : new()
+public abstract class AbstractSettings<T> where T : class, new()
 {
-    private readonly JsonSerializerSettings _jsonSerializerSettings;
+    protected readonly JsonSerializerSettings JsonSerializerSettings;
     private readonly string _settingsStorePath;
+    private readonly string _fileName;
 
-    protected abstract string FileName { get; }
+    protected virtual T Default => new();
 
-    protected abstract T Default { get; }
+    public T Store => _store ??= LoadStore() ?? Default;
 
-    public T Store { get; }
+    private T? _store;
 
-    protected AbstractSettings()
+    protected AbstractSettings(string filename)
     {
-        _jsonSerializerSettings = new()
+        JsonSerializerSettings = new()
         {
             Formatting = Formatting.Indented,
             TypeNameHandling = TypeNameHandling.Auto,
             ObjectCreationHandling = ObjectCreationHandling.Replace,
-            Converters =
-            {
-                new StringEnumConverter(),
-            }
+            Converters = { new StringEnumConverter() }
         };
 
-        _settingsStorePath = Path.Combine(Folders.AppData, GetFileName());
-
-        try
-        {
-            var settingsSerialized = File.ReadAllText(_settingsStorePath);
-            var store = JsonConvert.DeserializeObject<T>(settingsSerialized, _jsonSerializerSettings);
-
-            if (store is null)
-            {
-                TryBackup();
-                store = GetDefault();
-            }
-
-            Store = store;
-        }
-        catch
-        {
-            TryBackup();
-            Store = GetDefault();
-        }
-
-        SynchronizeStore();
+        _fileName = filename;
+        _settingsStorePath = Path.Combine(Folders.AppData, _fileName);
     }
 
     public void SynchronizeStore()
     {
-        var settingsSerialized = JsonConvert.SerializeObject(Store, _jsonSerializerSettings);
+        var settingsSerialized = JsonConvert.SerializeObject(_store, JsonSerializerSettings);
         File.WriteAllText(_settingsStorePath, settingsSerialized);
     }
 
-    private string GetFileName() => FileName;
+    public virtual T? LoadStore()
+    {
+        T? store = null;
+        try
+        {
+            var settingsSerialized = File.ReadAllText(_settingsStorePath);
+            store = JsonConvert.DeserializeObject<T>(settingsSerialized, JsonSerializerSettings);
 
-    private T GetDefault() => Default;
+            if (store is null)
+                TryBackup();
+        }
+        catch
+        {
+            TryBackup();
+        }
+
+        return store;
+    }
 
     private void TryBackup()
     {
@@ -71,14 +64,14 @@ public abstract class AbstractSettings<T> where T : new()
             if (!File.Exists(_settingsStorePath))
                 return;
 
-            var backupFileName = $"{Path.GetFileNameWithoutExtension(FileName)}_backup_{DateTime.UtcNow:yyyyMMddHHmmss}{Path.GetExtension(FileName)}";
+            var backupFileName = $"{Path.GetFileNameWithoutExtension(_fileName)}_backup_{DateTime.UtcNow:yyyyMMddHHmmss}{Path.GetExtension(_fileName)}";
             var backupFilePath = Path.Combine(Folders.AppData, backupFileName);
             File.Copy(_settingsStorePath, backupFilePath);
         }
         catch (Exception ex)
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Unable to create backup for {FileName}", ex);
+                Log.Instance.Trace($"Unable to create backup for {_fileName}", ex);
         }
     }
 }
