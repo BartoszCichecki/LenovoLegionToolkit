@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Settings;
 
@@ -28,9 +29,7 @@ public class GodModeSettings : AbstractSettings<GodModeSettings.GodModeSettingsS
         public Dictionary<Guid, Preset> Presets { get; set; } = new();
     }
 
-    protected override GodModeSettingsStore Default => new();
-
-    protected override string FileName => "godmode.json";
+    public GodModeSettings() : base("godmode.json") { }
 
     public override GodModeSettingsStore LoadStore() => base.LoadStore() ?? LoadLegacyStore();
 
@@ -83,5 +82,8 @@ class LegacyGodModeSettings : AbstractSettings<LegacyGodModeSettings.LegacyGodMo
 
     protected override LegacyGodModeSettingsStore Default => new();
 
-    protected override string FileName => "godmode.json";
+    public LegacyGodModeSettings() : base("godmode.json")
+    {
+        JsonSerializerSettings.MissingMemberHandling = MissingMemberHandling.Error;
+    }
 }

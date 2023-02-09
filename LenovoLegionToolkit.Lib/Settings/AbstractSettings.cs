@@ -8,34 +8,33 @@ namespace LenovoLegionToolkit.Lib.Settings;
 
 public abstract class AbstractSettings<T> where T : class, new()
 {
-    private readonly JsonSerializerSettings _jsonSerializerSettings;
+    protected readonly JsonSerializerSettings JsonSerializerSettings;
     private readonly string _settingsStorePath;
+    private readonly string _fileName;
 
-    protected abstract string FileName { get; }
-
-    protected abstract T Default { get; }
+    protected virtual T Default => new();
 
     public T Store => _store ??= LoadStore() ?? Default;
 
     private T? _store;
 
-    protected AbstractSettings()
+    protected AbstractSettings(string filename)
     {
-        _jsonSerializerSettings = new()
+        JsonSerializerSettings = new()
         {
             Formatting = Formatting.Indented,
-            MissingMemberHandling = MissingMemberHandling.Error,
             TypeNameHandling = TypeNameHandling.Auto,
             ObjectCreationHandling = ObjectCreationHandling.Replace,
             Converters = { new StringEnumConverter() }
         };
 
-        _settingsStorePath = Path.Combine(Folders.AppData, FileName);
+        _fileName = filename;
+        _settingsStorePath = Path.Combine(Folders.AppData, _fileName);
     }
 
     public void SynchronizeStore()
     {
-        var settingsSerialized = JsonConvert.SerializeObject(_store, _jsonSerializerSettings);
+        var settingsSerialized = JsonConvert.SerializeObject(_store, JsonSerializerSettings);
         File.WriteAllText(_settingsStorePath, settingsSerialized);
     }
 
@@ -45,7 +44,7 @@ public abstract class AbstractSettings<T> where T : class, new()
         try
         {
             var settingsSerialized = File.ReadAllText(_settingsStorePath);
-            store = JsonConvert.DeserializeObject<T>(settingsSerialized, _jsonSerializerSettings);
+            store = JsonConvert.DeserializeObject<T>(settingsSerialized, JsonSerializerSettings);
 
             if (store is null)
                 TryBackup();
@@ -65,14 +64,14 @@ public abstract class AbstractSettings<T> where T : class, new()
             if (!File.Exists(_settingsStorePath))
                 return;
 
-            var backupFileName = $"{Path.GetFileNameWithoutExtension(FileName)}_backup_{DateTime.UtcNow:yyyyMMddHHmmss}{Path.GetExtension(FileName)}";
+            var backupFileName = $"{Path.GetFileNameWithoutExtension(_fileName)}_backup_{DateTime.UtcNow:yyyyMMddHHmmss}{Path.GetExtension(_fileName)}";
             var backupFilePath = Path.Combine(Folders.AppData, backupFileName);
             File.Copy(_settingsStorePath, backupFilePath);
         }
         catch (Exception ex)
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Unable to create backup for {FileName}", ex);
+                Log.Instance.Trace($"Unable to create backup for {_fileName}", ex);
         }
     }
 }

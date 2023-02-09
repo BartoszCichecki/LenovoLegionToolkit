@@ -15,8 +15,6 @@ public class AutomationSettings : AbstractSettings<AutomationSettings.Automation
         public List<AutomationPipeline> Pipelines { get; set; } = new();
     }
 
-    protected override string FileName => "automation.json";
-
     protected override AutomationSettingsStore Default => new()
     {
         Pipelines =
@@ -38,4 +36,6 @@ public class AutomationSettings : AbstractSettings<AutomationSettings.Automation
             },
         },
     };
+
+    public AutomationSettings() : base("automation.json") { }
 }
