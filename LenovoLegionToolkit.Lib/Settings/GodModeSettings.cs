@@ -8,25 +8,24 @@ public class GodModeSettings : AbstractSettings<GodModeSettings.GodModeSettingsS
 {
     public class GodModeSettingsStore
     {
-        public Guid? ActivePresetId { get; set; }
-
-        public List<GodModeSettingsPreset> Presets { get; set; } = new();
-
-        public class GodModeSettingsPreset
+        public class Preset
         {
-            public Guid Id { get; set; }
-            public string Name { get; set; }
-            public StepperValue? CPULongTermPowerLimit { get; set; }
-            public StepperValue? CPUShortTermPowerLimit { get; set; }
-            public StepperValue? CPUCrossLoadingPowerLimit { get; set; }
-            public StepperValue? CPUTemperatureLimit { get; set; }
-            public StepperValue? GPUPowerBoost { get; set; }
-            public StepperValue? GPUConfigurableTGP { get; set; }
-            public StepperValue? GPUTemperatureLimit { get; set; }
-            public FanTable? FanTable { get; set; }
-            public bool? FanFullSpeed { get; set; }
-            public int MaxValueOffset { get; set; }
+            public string Name { get; init; } = string.Empty;
+            public StepperValue? CPULongTermPowerLimit { get; init; }
+            public StepperValue? CPUShortTermPowerLimit { get; init; }
+            public StepperValue? CPUCrossLoadingPowerLimit { get; init; }
+            public StepperValue? CPUTemperatureLimit { get; init; }
+            public StepperValue? GPUPowerBoost { get; init; }
+            public StepperValue? GPUConfigurableTGP { get; init; }
+            public StepperValue? GPUTemperatureLimit { get; init; }
+            public FanTable? FanTable { get; init; }
+            public bool FanFullSpeed { get; init; }
+            public int MaxValueOffset { get; init; }
         }
+
+        public Guid ActivePresetId { get; set; }
+
+        public Dictionary<Guid, Preset> Presets { get; set; } = new();
     }
 
     protected override GodModeSettingsStore Default => new();
@@ -42,9 +41,9 @@ public class GodModeSettings : AbstractSettings<GodModeSettings.GodModeSettingsS
         var legacyStore = legacySettings.LoadStore();
         if (legacyStore is not null)
         {
-            var preset = new GodModeSettingsStore.GodModeSettingsPreset
+            var id = Guid.NewGuid();
+            var preset = new GodModeSettingsStore.Preset
             {
-                Id = Guid.NewGuid(),
                 Name = "Default",
                 CPULongTermPowerLimit = legacyStore.CPULongTermPowerLimit,
                 CPUShortTermPowerLimit = legacyStore.CPUShortTermPowerLimit,
@@ -54,12 +53,12 @@ public class GodModeSettings : AbstractSettings<GodModeSettings.GodModeSettingsS
                 GPUConfigurableTGP = legacyStore.GPUConfigurableTGP,
                 GPUTemperatureLimit = legacyStore.GPUTemperatureLimit,
                 FanTable = legacyStore.FanTable,
-                FanFullSpeed = legacyStore.FanFullSpeed,
+                FanFullSpeed = legacyStore.FanFullSpeed ?? false,
                 MaxValueOffset = legacyStore.MaxValueOffset
             };
 
-            store.ActivePresetId = preset.Id;
-            store.Presets.Add(preset);
+            store.ActivePresetId = id;
+            store.Presets.Add(id, preset);
         }
 
         return store;

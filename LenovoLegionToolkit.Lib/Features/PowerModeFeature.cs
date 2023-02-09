@@ -50,7 +50,7 @@ public class PowerModeFeature : AbstractLenovoGamezoneWmiFeature<PowerModeState>
         await _listener.NotifyAsync(state).ConfigureAwait(false);
 
         if (state == PowerModeState.GodMode)
-            await _godModeController.ApplyActiveStateAsync().ConfigureAwait(false);
+            await _godModeController.ApplyStateAsync().ConfigureAwait(false);
     }
 
     public async Task EnsureCorrectPowerPlanIsSetAsync()
@@ -65,7 +65,7 @@ public class PowerModeFeature : AbstractLenovoGamezoneWmiFeature<PowerModeState>
         if (state != PowerModeState.GodMode)
             return;
 
-        await _godModeController.ApplyActiveStateAsync().ConfigureAwait(false);
+        await _godModeController.ApplyStateAsync().ConfigureAwait(false);
     }
 
     public async Task EnsureAiModeIsSetAsync()
