@@ -105,32 +105,7 @@ public class SpectrumKeyboardBacklightController
 
     public async Task<bool> IsSupportedAsync() => await GetDeviceHandleAsync().ConfigureAwait(false) is not null;
 
-    public async Task<bool> IsExtendedAsync()
-    {
-        try
-        {
-            var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
-            if (handle is null)
-                return false;
-
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Checking if keyboard is extended...");
-
-            SetAndGetFeature(handle, new LENOVO_SPECTRUM_GET_KEYCOUNT_REQUEST(), out LENOVO_SPECTRUM_GET_KEYCOUNT_RESPONSE res);
-            var result = res.IsExtended;
-
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Is keyboard extended {result}.");
-
-            return result;
-        }
-        catch
-        {
-            return false;
-        }
-    }
-
-    public async Task<KeyboardLayout> GetKeyboardLayoutAsync()
+    public async Task<(KeyboardLayout, HashSet<ushort>)> GetKeyboardLayoutAsync()
     {
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Checking keyboard layout...");
@@ -141,7 +116,7 @@ public class SpectrumKeyboardBacklightController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Keyboard layout is {layout}.");
 
-        return layout;
+        return (layout, keys);
     }
 
     public async Task<int> GetBrightnessAsync()

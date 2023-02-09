@@ -13,12 +13,12 @@ public partial class SpectrumDeviceControl
         InitializeComponent();
     }
 
-    public void SetLayout(KeyboardLayout layout, bool isExtended)
+    public void SetLayout(KeyboardLayout layout, HashSet<ushort> keys)
     {
         _keyboard.SetLayout(layout);
 
-        foreach (var button in GetButtons().Where(b => b.IsExtended))
-            button.Visibility = isExtended ? Visibility.Visible : Visibility.Hidden;
+        foreach (var button in GetButtons())
+            button.Visibility = keys.Contains(button.KeyCode) ? Visibility.Visible : Visibility.Hidden;
     }
 
     public IEnumerable<SpectrumKeyboardButtonControl> GetVisibleButtons() =>
