@@ -166,9 +166,9 @@ public partial class SpectrumKeyboardBacklightControl
         _settings.Store.KeyboardLayout = layout;
         _settings.SynchronizeStore();
 
-        var isExtended = await _controller.IsExtendedAsync();
+        var (_, keys) = await _controller.GetKeyboardLayoutAsync();
 
-        _device.SetLayout(layout, isExtended);
+        _device.SetLayout(layout, keys);
 
         if (IsVisible)
             await StartAnimationAsync();
@@ -268,16 +268,19 @@ public partial class SpectrumKeyboardBacklightControl
 
         _vantageWarningCard.Visibility = Visibility.Collapsed;
 
+        var (layout, keys) = await _controller.GetKeyboardLayoutAsync();
+
         if (!_settings.Store.KeyboardLayout.HasValue)
         {
-            _settings.Store.KeyboardLayout = await _controller.GetKeyboardLayoutAsync();
+            _settings.Store.KeyboardLayout = layout;
             _settings.SynchronizeStore();
         }
+        else
+        {
+            layout = _settings.Store.KeyboardLayout.Value;
+        }
 
-        var layout = _settings.Store.KeyboardLayout.Value;
-        var isExtended = await _controller.IsExtendedAsync();
-
-        _device.SetLayout(layout, isExtended);
+        _device.SetLayout(layout, keys);
 
         _content.IsEnabled = true;
 
