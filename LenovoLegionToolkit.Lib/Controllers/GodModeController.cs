@@ -1,6 +1,7 @@
 ﻿// #define MOCK_FAN_TABLE
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
@@ -21,55 +22,65 @@ public class GodModeController
         _legionZone = legionZone ?? throw new ArgumentNullException(nameof(legionZone));
     }
 
-    public async Task<GodModeState> GetStateAsync()
+    public async Task<(Guid? PresetId, List<GodModeState> Presets)> GetStateAsync()
     {
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting state...");
 
-        var maxValueOffset = _settings.Store.MaxValueOffset;
+        var states = new List<GodModeState>();
 
-        var cpuLongTermPowerLimitState = await GetCPULongTermPowerLimitAsync().OrNull().ConfigureAwait(false);
-        var cpuLongTermPowerLimit = CreateStepperValue(cpuLongTermPowerLimitState, _settings.Store.CPULongTermPowerLimit, maxValueOffset);
+        var id = _settings.Store.ActivePresetId;
 
-        var cpuShortTermPowerLimitState = await GetCPUShortTermPowerLimitAsync().OrNull().ConfigureAwait(false);
-        var cpuShortTermPowerLimit = CreateStepperValue(cpuShortTermPowerLimitState, _settings.Store.CPUShortTermPowerLimit, maxValueOffset);
-
-        var cpuCrossLoadingPowerLimitState = await GetCPUCrossLoadingPowerLimitAsync().OrNull().ConfigureAwait(false);
-        var cpuCrossLoadingPowerLimit = CreateStepperValue(cpuCrossLoadingPowerLimitState, _settings.Store.CPUCrossLoadingPowerLimit, maxValueOffset);
-
-        var cpuTemperatureLimitState = await GetCPUTemperatureLimitAsync().OrNull().ConfigureAwait(false);
-        var cpuTemperatureLimit = CreateStepperValue(cpuTemperatureLimitState, _settings.Store.CPUTemperatureLimit, maxValueOffset);
-
-        var gpuPowerBoostState = await GetGPUPowerBoost().OrNull().ConfigureAwait(false);
-        var gpuPowerBoost = CreateStepperValue(gpuPowerBoostState, _settings.Store.GPUPowerBoost, maxValueOffset);
-
-        var gpuConfigurableTGPState = await GetGPUConfigurableTGPAsync().OrNull().ConfigureAwait(false);
-        var gpuConfigurableTGP = CreateStepperValue(gpuConfigurableTGPState, _settings.Store.GPUConfigurableTGP, maxValueOffset);
-
-        var gpuTemperatureLimitState = await GetGPUTemperatureLimitAsync().OrNull().ConfigureAwait(false);
-        var gpuTemperatureLimit = CreateStepperValue(gpuTemperatureLimitState, _settings.Store.GPUTemperatureLimit, maxValueOffset);
-
-        var fanTableInfo = await GetFanTableInfoAsync().ConfigureAwait(false);
-        var fanFullSpeed = _settings.Store.FanFullSpeed ?? await GetFanFullSpeedAsync().ConfigureAwait(false);
-
-        var state = new GodModeState
+        foreach (var preset in _settings.Store.Presets)
         {
-            CPULongTermPowerLimit = cpuLongTermPowerLimit,
-            CPUShortTermPowerLimit = cpuShortTermPowerLimit,
-            CPUCrossLoadingPowerLimit = cpuCrossLoadingPowerLimit,
-            CPUTemperatureLimit = cpuTemperatureLimit,
-            GPUPowerBoost = gpuPowerBoost,
-            GPUConfigurableTGP = gpuConfigurableTGP,
-            GPUTemperatureLimit = gpuTemperatureLimit,
-            FanTableInfo = fanTableInfo,
-            FanFullSpeed = fanFullSpeed,
-            MaxValueOffset = maxValueOffset
-        };
+            var maxValueOffset = preset.MaxValueOffset;
+
+            var cpuLongTermPowerLimitState = await GetCPULongTermPowerLimitAsync().OrNull().ConfigureAwait(false);
+            var cpuLongTermPowerLimit = CreateStepperValue(cpuLongTermPowerLimitState, preset.CPULongTermPowerLimit, maxValueOffset);
+
+            var cpuShortTermPowerLimitState = await GetCPUShortTermPowerLimitAsync().OrNull().ConfigureAwait(false);
+            var cpuShortTermPowerLimit = CreateStepperValue(cpuShortTermPowerLimitState, preset.CPUShortTermPowerLimit, maxValueOffset);
+
+            var cpuCrossLoadingPowerLimitState = await GetCPUCrossLoadingPowerLimitAsync().OrNull().ConfigureAwait(false);
+            var cpuCrossLoadingPowerLimit = CreateStepperValue(cpuCrossLoadingPowerLimitState, preset.CPUCrossLoadingPowerLimit, maxValueOffset);
+
+            var cpuTemperatureLimitState = await GetCPUTemperatureLimitAsync().OrNull().ConfigureAwait(false);
+            var cpuTemperatureLimit = CreateStepperValue(cpuTemperatureLimitState, preset.CPUTemperatureLimit, maxValueOffset);
+
+            var gpuPowerBoostState = await GetGPUPowerBoost().OrNull().ConfigureAwait(false);
+            var gpuPowerBoost = CreateStepperValue(gpuPowerBoostState, preset.GPUPowerBoost, maxValueOffset);
+
+            var gpuConfigurableTGPState = await GetGPUConfigurableTGPAsync().OrNull().ConfigureAwait(false);
+            var gpuConfigurableTGP = CreateStepperValue(gpuConfigurableTGPState, preset.GPUConfigurableTGP, maxValueOffset);
+
+            var gpuTemperatureLimitState = await GetGPUTemperatureLimitAsync().OrNull().ConfigureAwait(false);
+            var gpuTemperatureLimit = CreateStepperValue(gpuTemperatureLimitState, preset.GPUTemperatureLimit, maxValueOffset);
+
+            var fanTableInfo = await GetFanTableInfoAsync(preset).ConfigureAwait(false);
+            var fanFullSpeed = preset.FanFullSpeed ?? await GetFanFullSpeedAsync().ConfigureAwait(false);
+
+            var state = new GodModeState
+            {
+                Id = preset.Id,
+                Name = preset.Name,
+                CPULongTermPowerLimit = cpuLongTermPowerLimit,
+                CPUShortTermPowerLimit = cpuShortTermPowerLimit,
+                CPUCrossLoadingPowerLimit = cpuCrossLoadingPowerLimit,
+                CPUTemperatureLimit = cpuTemperatureLimit,
+                GPUPowerBoost = gpuPowerBoost,
+                GPUConfigurableTGP = gpuConfigurableTGP,
+                GPUTemperatureLimit = gpuTemperatureLimit,
+                FanTableInfo = fanTableInfo,
+                FanFullSpeed = fanFullSpeed,
+                MaxValueOffset = maxValueOffset
+            };
+            states.Add(state);
+        }
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"State retrieved: {state}");
+            Log.Instance.Trace($"State retrieved: {states}");
 
-        return state;
+        return (id, states);
     }
 
     public Task SetStateAsync(GodModeState state)
@@ -77,16 +88,22 @@ public class GodModeController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Settings state: {state}");
 
-        _settings.Store.CPULongTermPowerLimit = state.CPULongTermPowerLimit;
-        _settings.Store.CPUShortTermPowerLimit = state.CPUShortTermPowerLimit;
-        _settings.Store.CPUCrossLoadingPowerLimit = state.CPUCrossLoadingPowerLimit;
-        _settings.Store.CPUTemperatureLimit = state.CPUTemperatureLimit;
-        _settings.Store.GPUPowerBoost = state.GPUPowerBoost;
-        _settings.Store.GPUConfigurableTGP = state.GPUConfigurableTGP;
-        _settings.Store.GPUTemperatureLimit = state.GPUTemperatureLimit;
-        _settings.Store.FanTable = state.FanTableInfo?.Table;
-        _settings.Store.FanFullSpeed = state.FanFullSpeed;
-        _settings.Store.MaxValueOffset = state.MaxValueOffset;
+        var id = _settings.Store.ActivePresetId;
+        var preset = _settings.Store.Presets.FirstOrDefault(p => p.Id == id);
+
+        if (preset is null)
+            throw new InvalidOperationException($"Preset with ID {id} not found.");
+
+        preset.CPULongTermPowerLimit = state.CPULongTermPowerLimit;
+        preset.CPUShortTermPowerLimit = state.CPUShortTermPowerLimit;
+        preset.CPUCrossLoadingPowerLimit = state.CPUCrossLoadingPowerLimit;
+        preset.CPUTemperatureLimit = state.CPUTemperatureLimit;
+        preset.GPUPowerBoost = state.GPUPowerBoost;
+        preset.GPUConfigurableTGP = state.GPUConfigurableTGP;
+        preset.GPUTemperatureLimit = state.GPUTemperatureLimit;
+        preset.FanTable = state.FanTableInfo?.Table;
+        preset.FanFullSpeed = state.FanFullSpeed;
+        preset.MaxValueOffset = state.MaxValueOffset;
 
         _settings.SynchronizeStore();
 
@@ -96,7 +113,9 @@ public class GodModeController
         return Task.CompletedTask;
     }
 
-    public async Task ApplyStateAsync()
+    public Task ApplyActiveStateAsync() => ApplyStateAsync(_settings.Store.ActivePresetId);
+
+    public async Task ApplyStateAsync(Guid? presetId)
     {
         if (await _legionZone.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
             throw new InvalidOperationException("Can't correctly apply state when Legion Zone is running.");
@@ -104,15 +123,20 @@ public class GodModeController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Applying state...");
 
-        var cpuLongTermPowerLimit = _settings.Store.CPULongTermPowerLimit;
-        var cpuShortTermPowerLimit = _settings.Store.CPUShortTermPowerLimit;
-        var cpuCrossLoadingPowerLimit = _settings.Store.CPUCrossLoadingPowerLimit;
-        var cpuTemperatureLimit = _settings.Store.CPUTemperatureLimit;
-        var gpuPowerBoost = _settings.Store.GPUPowerBoost;
-        var gpuConfigurableTGP = _settings.Store.GPUConfigurableTGP;
-        var gpuTemperatureLimit = _settings.Store.GPUTemperatureLimit;
-        var fanTable = _settings.Store.FanTable;
-        var maxFan = _settings.Store.FanFullSpeed;
+        var preset = _settings.Store.Presets.FirstOrDefault(p => p.Id == presetId) ?? new();
+
+        if (preset is null)
+            throw new InvalidOperationException($"Preset with ID {presetId} not found.");
+
+        var cpuLongTermPowerLimit = preset.CPULongTermPowerLimit;
+        var cpuShortTermPowerLimit = preset.CPUShortTermPowerLimit;
+        var cpuCrossLoadingPowerLimit = preset.CPUCrossLoadingPowerLimit;
+        var cpuTemperatureLimit = preset.CPUTemperatureLimit;
+        var gpuPowerBoost = preset.GPUPowerBoost;
+        var gpuConfigurableTGP = preset.GPUConfigurableTGP;
+        var gpuTemperatureLimit = preset.GPUTemperatureLimit;
+        var fanTable = preset.FanTable;
+        var maxFan = preset.FanFullSpeed;
 
         if (cpuLongTermPowerLimit is not null)
         {
@@ -297,7 +321,7 @@ public class GodModeController
             Log.Instance.Trace($"State applied.");
     }
 
-    private async Task<FanTableInfo?> GetFanTableInfoAsync()
+    private async Task<FanTableInfo?> GetFanTableInfoAsync(GodModeSettings.GodModeSettingsStore.GodModeSettingsPreset preset)
     {
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting fan table info...");
@@ -314,7 +338,7 @@ public class GodModeController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Fan table data retrieved: {fanTableData}");
 
-        var fanTable = _settings.Store.FanTable ?? FanTable.Default;
+        var fanTable = preset.FanTable ?? FanTable.Default;
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Fan table retrieved: {fanTable}");

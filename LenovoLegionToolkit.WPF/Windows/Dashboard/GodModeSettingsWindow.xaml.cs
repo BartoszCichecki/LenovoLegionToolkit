@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -39,26 +40,29 @@ public partial class GodModeSettingsWindow
 
             var loadingTask = Task.Delay(500);
 
-            var state = await _controller.GetStateAsync();
+            var (presetId, presets) = await _controller.GetStateAsync();
+            var preset = presets.FirstOrDefault(p => p.Id == presetId);
 
-            var maxValueOffset = state.MaxValueOffset;
+            _presetsComboBox.SetItems(presets, preset, p => p.Name);
 
-            SetSliderValues(_cpuLongTermPowerLimitCardControl, _cpuLongTermPowerLimitSlider, state.CPULongTermPowerLimit, maxValueOffset);
-            SetSliderValues(_cpuShortTermPowerLimitCardControl, _cpuShortTermPowerLimitSlider, state.CPUShortTermPowerLimit, maxValueOffset);
-            SetSliderValues(_cpuCrossLoadingLimitCardControl, _cpuCrossLoadingLimitSlider, state.CPUCrossLoadingPowerLimit, maxValueOffset);
-            SetSliderValues(_cpuTemperatureLimitCardControl, _cpuTemperatureLimitSlider, state.CPUTemperatureLimit);
-            SetSliderValues(_gpuPowerBoostCardControl, _gpuPowerBoostSlider, state.GPUPowerBoost, maxValueOffset);
-            SetSliderValues(_gpuConfigurableTGPCardControl, _gpuConfigurableTGPSlider, state.GPUConfigurableTGP, maxValueOffset);
-            SetSliderValues(_gpuTemperatureLimitCardControl, _gpuTemperatureLimitSlider, state.GPUTemperatureLimit);
+            var maxValueOffset = preset.MaxValueOffset;
 
-            var fanTableInfo = state.FanTableInfo;
+            SetSliderValues(_cpuLongTermPowerLimitCardControl, _cpuLongTermPowerLimitSlider, preset.CPULongTermPowerLimit, maxValueOffset);
+            SetSliderValues(_cpuShortTermPowerLimitCardControl, _cpuShortTermPowerLimitSlider, preset.CPUShortTermPowerLimit, maxValueOffset);
+            SetSliderValues(_cpuCrossLoadingLimitCardControl, _cpuCrossLoadingLimitSlider, preset.CPUCrossLoadingPowerLimit, maxValueOffset);
+            SetSliderValues(_cpuTemperatureLimitCardControl, _cpuTemperatureLimitSlider, preset.CPUTemperatureLimit);
+            SetSliderValues(_gpuPowerBoostCardControl, _gpuPowerBoostSlider, preset.GPUPowerBoost, maxValueOffset);
+            SetSliderValues(_gpuConfigurableTGPCardControl, _gpuConfigurableTGPSlider, preset.GPUConfigurableTGP, maxValueOffset);
+            SetSliderValues(_gpuTemperatureLimitCardControl, _gpuTemperatureLimitSlider, preset.GPUTemperatureLimit);
+
+            var fanTableInfo = preset.FanTableInfo;
             if (fanTableInfo.HasValue)
                 _fanCurveControl.SetFanTableInfo(fanTableInfo.Value);
             else
                 _fanCurveCardControl.Visibility = Visibility.Collapsed;
 
-            _fanCurveCardControl.IsEnabled = !state.FanFullSpeed;
-            _fanFullSpeedToggle.IsChecked = state.FanFullSpeed;
+            _fanCurveCardControl.IsEnabled = !preset.FanFullSpeed;
+            _fanFullSpeedToggle.IsChecked = preset.FanFullSpeed;
 
             _maxValueOffsetNumberBox.Text = $"{maxValueOffset}";
 
@@ -86,36 +90,37 @@ public partial class GodModeSettingsWindow
     {
         try
         {
-            var state = await _controller.GetStateAsync();
+            var (_, presets) = await _controller.GetStateAsync();
+            var preset = presets.FirstOrDefault();
 
             StepperValue? cpuLongTermPowerLimit = null;
             StepperValue? cpuShortTermPowerLimit = null;
             StepperValue? cpuCrossLoadingPowerLimit = null;
             StepperValue? cpuTemperatureLimit = null;
             StepperValue? gpuPowerBoost = null;
-            StepperValue? gpuConfigurableTGP = null;
+            StepperValue? gpuConfigurableTgp = null;
             StepperValue? gpuTemperatureLimit = null;
 
-            if (state.CPULongTermPowerLimit.HasValue)
-                cpuLongTermPowerLimit = state.CPULongTermPowerLimit.Value.WithValue((int)_cpuLongTermPowerLimitSlider.Value);
+            if (preset.CPULongTermPowerLimit.HasValue)
+                cpuLongTermPowerLimit = preset.CPULongTermPowerLimit.Value.WithValue((int)_cpuLongTermPowerLimitSlider.Value);
 
-            if (state.CPUShortTermPowerLimit.HasValue)
-                cpuShortTermPowerLimit = state.CPUShortTermPowerLimit.Value.WithValue((int)_cpuShortTermPowerLimitSlider.Value);
+            if (preset.CPUShortTermPowerLimit.HasValue)
+                cpuShortTermPowerLimit = preset.CPUShortTermPowerLimit.Value.WithValue((int)_cpuShortTermPowerLimitSlider.Value);
 
-            if (state.CPUCrossLoadingPowerLimit.HasValue)
-                cpuCrossLoadingPowerLimit = state.CPUCrossLoadingPowerLimit.Value.WithValue((int)_cpuCrossLoadingLimitSlider.Value);
+            if (preset.CPUCrossLoadingPowerLimit.HasValue)
+                cpuCrossLoadingPowerLimit = preset.CPUCrossLoadingPowerLimit.Value.WithValue((int)_cpuCrossLoadingLimitSlider.Value);
 
-            if (state.CPUTemperatureLimit.HasValue)
-                cpuTemperatureLimit = state.CPUTemperatureLimit.Value.WithValue((int)_cpuTemperatureLimitSlider.Value);
+            if (preset.CPUTemperatureLimit.HasValue)
+                cpuTemperatureLimit = preset.CPUTemperatureLimit.Value.WithValue((int)_cpuTemperatureLimitSlider.Value);
 
-            if (state.GPUPowerBoost.HasValue)
-                gpuPowerBoost = state.GPUPowerBoost.Value.WithValue((int)_gpuPowerBoostSlider.Value);
+            if (preset.GPUPowerBoost.HasValue)
+                gpuPowerBoost = preset.GPUPowerBoost.Value.WithValue((int)_gpuPowerBoostSlider.Value);
 
-            if (state.GPUConfigurableTGP.HasValue)
-                gpuConfigurableTGP = state.GPUConfigurableTGP.Value.WithValue((int)_gpuConfigurableTGPSlider.Value);
+            if (preset.GPUConfigurableTGP.HasValue)
+                gpuConfigurableTgp = preset.GPUConfigurableTGP.Value.WithValue((int)_gpuConfigurableTGPSlider.Value);
 
-            if (state.GPUTemperatureLimit.HasValue)
-                gpuTemperatureLimit = state.GPUTemperatureLimit.Value.WithValue((int)_gpuTemperatureLimitSlider.Value);
+            if (preset.GPUTemperatureLimit.HasValue)
+                gpuTemperatureLimit = preset.GPUTemperatureLimit.Value.WithValue((int)_gpuTemperatureLimitSlider.Value);
 
             var fanTableInfo = _fanCurveControl.GetFanTableInfo();
             var fanFullSpeed = _fanFullSpeedToggle.IsChecked ?? false;
@@ -129,7 +134,7 @@ public partial class GodModeSettingsWindow
                 CPUCrossLoadingPowerLimit = cpuCrossLoadingPowerLimit,
                 CPUTemperatureLimit = cpuTemperatureLimit,
                 GPUPowerBoost = gpuPowerBoost,
-                GPUConfigurableTGP = gpuConfigurableTGP,
+                GPUConfigurableTGP = gpuConfigurableTgp,
                 GPUTemperatureLimit = gpuTemperatureLimit,
                 FanTableInfo = fanTableInfo,
                 FanFullSpeed = fanFullSpeed,
@@ -140,7 +145,7 @@ public partial class GodModeSettingsWindow
                 await _powerModeFeature.SetStateAsync(PowerModeState.GodMode);
 
             await _controller.SetStateAsync(newState);
-            await _controller.ApplyStateAsync();
+            await _controller.ApplyActiveStateAsync();
         }
         catch (Exception ex)
         {
@@ -170,14 +175,16 @@ public partial class GodModeSettingsWindow
 
     private async void ResetFanCurve_Click(object sender, RoutedEventArgs e)
     {
-        var state = await _controller.GetStateAsync();
-        var data = state.FanTableInfo?.Data;
+        var (_, presets) = await _controller.GetStateAsync();
+        var preset = presets.FirstOrDefault();
+
+        var data = preset.FanTableInfo?.Data;
 
         if (data is null)
             return;
 
-        var defautFanTableInfo = new FanTableInfo(data, FanTable.Default);
-        _fanCurveControl.SetFanTableInfo(defautFanTableInfo);
+        var defaultFanTableInfo = new FanTableInfo(data, FanTable.Default);
+        _fanCurveControl.SetFanTableInfo(defaultFanTableInfo);
     }
 
     private async void ApplyAndCloseButton_Click(object sender, RoutedEventArgs e)

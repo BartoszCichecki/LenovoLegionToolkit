@@ -6,7 +6,7 @@ using Newtonsoft.Json.Converters;
 
 namespace LenovoLegionToolkit.Lib.Settings;
 
-public abstract class AbstractSettings<T> where T : new()
+public abstract class AbstractSettings<T> where T : class, new()
 {
     private readonly JsonSerializerSettings _jsonSerializerSettings;
     private readonly string _settingsStorePath;
@@ -15,54 +15,48 @@ public abstract class AbstractSettings<T> where T : new()
 
     protected abstract T Default { get; }
 
-    public T Store { get; }
+    public T Store => _store ??= LoadStore() ?? Default;
+
+    private T? _store;
 
     protected AbstractSettings()
     {
         _jsonSerializerSettings = new()
         {
             Formatting = Formatting.Indented,
+            MissingMemberHandling = MissingMemberHandling.Error,
             TypeNameHandling = TypeNameHandling.Auto,
             ObjectCreationHandling = ObjectCreationHandling.Replace,
-            Converters =
-            {
-                new StringEnumConverter(),
-            }
+            Converters = { new StringEnumConverter() }
         };
 
-        _settingsStorePath = Path.Combine(Folders.AppData, GetFileName());
-
-        try
-        {
-            var settingsSerialized = File.ReadAllText(_settingsStorePath);
-            var store = JsonConvert.DeserializeObject<T>(settingsSerialized, _jsonSerializerSettings);
-
-            if (store is null)
-            {
-                TryBackup();
-                store = GetDefault();
-            }
-
-            Store = store;
-        }
-        catch
-        {
-            TryBackup();
-            Store = GetDefault();
-        }
-
-        SynchronizeStore();
+        _settingsStorePath = Path.Combine(Folders.AppData, FileName);
     }
 
     public void SynchronizeStore()
     {
-        var settingsSerialized = JsonConvert.SerializeObject(Store, _jsonSerializerSettings);
+        var settingsSerialized = JsonConvert.SerializeObject(_store, _jsonSerializerSettings);
         File.WriteAllText(_settingsStorePath, settingsSerialized);
     }
 
-    private string GetFileName() => FileName;
+    public virtual T? LoadStore()
+    {
+        T? store = null;
+        try
+        {
+            var settingsSerialized = File.ReadAllText(_settingsStorePath);
+            store = JsonConvert.DeserializeObject<T>(settingsSerialized, _jsonSerializerSettings);
 
-    private T GetDefault() => Default;
+            if (store is null)
+                TryBackup();
+        }
+        catch
+        {
+            TryBackup();
+        }
+
+        return store;
+    }
 
     private void TryBackup()
     {

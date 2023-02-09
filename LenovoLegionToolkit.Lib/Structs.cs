@@ -201,6 +201,8 @@ public readonly struct FanTableInfo
 
 public readonly struct GodModeState
 {
+    public Guid Id { get; init; }
+    public string Name { get; init; }
     public StepperValue? CPULongTermPowerLimit { get; init; }
     public StepperValue? CPUShortTermPowerLimit { get; init; }
     public StepperValue? CPUCrossLoadingPowerLimit { get; init; }

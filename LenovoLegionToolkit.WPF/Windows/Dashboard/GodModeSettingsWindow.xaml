@@ -58,6 +58,33 @@
             <wpfui:DynamicScrollViewer>
                 <StackPanel Margin="0,0,16,0">
 
+                    <Grid Margin="0,16,0,16">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <ComboBox
+                            x:Name="_presetsComboBox"
+                            Grid.Column="0"
+                            Margin="0,0,0,0" />
+                        <wpfui:Button
+                            x:Name="_deletePresetsButton"
+                            Grid.Column="1"
+                            Margin="8,0,0,0"
+                            VerticalAlignment="Stretch"
+                            Icon="Dismiss24"
+                            ToolTip="{x:Static resources:Resource.Delete}" />
+                        <wpfui:Button
+                            x:Name="_addPresetsButton"
+                            Grid.Column="2"
+                            Margin="8,0,0,0"
+                            VerticalAlignment="Stretch"
+                            Icon="Add24"
+                            ToolTip="{x:Static resources:Resource.AddNew}" />
+                    </Grid>
+
                     <TextBlock
                         Margin="0,16,0,24"
                         FontSize="24"
@@ -225,8 +252,8 @@
                                 <wpfui:Button
                                     MinWidth="120"
                                     HorizontalAlignment="Right"
-                                    Content="{x:Static resources:Resource.Reset}"
                                     Click="ResetFanCurve_Click"
+                                    Content="{x:Static resources:Resource.Reset}"
                                     Icon="ArrowClockwise24" />
                             </StackPanel>
                         </wpfui:CardControl.Header>
