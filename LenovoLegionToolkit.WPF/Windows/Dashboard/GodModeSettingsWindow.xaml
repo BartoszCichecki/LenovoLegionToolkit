@@ -316,7 +316,7 @@
         </controls:LoadableControl>
 
         <StackPanel
-            x:Name="_applyRevertStackPanel"
+            x:Name="_buttonsStackPanel"
             Grid.Row="2"
             Margin="12"
             HorizontalAlignment="Right"
@@ -324,14 +324,14 @@
             Visibility="Collapsed">
             <wpfui:Button
                 MinWidth="120"
-                Click="ApplyButton_Click"
-                Content="{x:Static resources:Resource.Apply}" />
+                Click="SaveButton_Click"
+                Content="{x:Static resources:Resource.Save}" />
             <wpfui:Button
                 MinWidth="120"
                 Margin="12,0,0,0"
                 Appearance="Primary"
-                Click="ApplyAndCloseButton_Click"
-                Content="{x:Static resources:Resource.ApplyAndClose}" />
+                Click="SaveAndCloseButton_Click"
+                Content="{x:Static resources:Resource.SaveAndClose}" />
         </StackPanel>
 
         <wpfui:Snackbar

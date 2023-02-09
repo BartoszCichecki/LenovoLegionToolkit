@@ -40,7 +40,7 @@ public partial class GodModeSettingsWindow
         try
         {
             _loader.IsLoading = true;
-            _applyRevertStackPanel.Visibility = Visibility.Hidden;
+            _buttonsStackPanel.Visibility = Visibility.Hidden;
 
             var loadingTask = Task.Delay(500);
 
@@ -53,7 +53,7 @@ public partial class GodModeSettingsWindow
 
             await loadingTask;
 
-            _applyRevertStackPanel.Visibility = Visibility.Visible;
+            _buttonsStackPanel.Visibility = Visibility.Visible;
             _loader.IsLoading = false;
         }
         catch (Exception ex)
@@ -319,13 +319,13 @@ public partial class GodModeSettingsWindow
         _fanCurveControl.SetFanTableInfo(defaultFanTableInfo);
     }
 
-    private async void ApplyAndCloseButton_Click(object sender, RoutedEventArgs e)
+    private async void SaveAndCloseButton_Click(object sender, RoutedEventArgs e)
     {
         if (await ApplyAsync())
             Close();
     }
 
-    private async void ApplyButton_Click(object sender, RoutedEventArgs e)
+    private async void SaveButton_Click(object sender, RoutedEventArgs e)
     {
         await ApplyAsync();
         await RefreshAsync();
