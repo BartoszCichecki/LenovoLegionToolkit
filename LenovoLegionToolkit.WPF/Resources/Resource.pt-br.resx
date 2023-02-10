@@ -360,9 +360,6 @@ Somente ações que correspondem com o estado atual serão executadas.</value>
   <data name="BatteryPage_FullChargeCapacity_Title" xml:space="preserve">
     <value>Capacidade de carga total</value>
   </data>
-  <data name="BatteryPage_LowWattageChargerConnected" xml:space="preserve">
-    <value>Carregador de baixo consumo conectado</value>
-  </data>
   <data name="BatteryPage_ManufactureDate_Message" xml:space="preserve">
     <value>Data de fabricação da bateria.</value>
   </data>
