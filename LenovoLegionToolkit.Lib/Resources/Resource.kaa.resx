@@ -64,6 +64,9 @@
   <data name="AlwaysOnUSBState_Off" xml:space="preserve">
     <value>Òshik</value>
   </data>
+  <data name="AutorunState_Enabled" xml:space="preserve">
+    <value>Iske túsirilgen</value>
+  </data>
   <data name="BatteryState_Conservation" xml:space="preserve">
     <value>Saqlaw</value>
   </data>
