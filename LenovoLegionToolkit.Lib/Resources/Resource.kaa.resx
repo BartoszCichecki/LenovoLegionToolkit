@@ -58,6 +58,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccentColorSource_System" xml:space="preserve">
+    <value>Sistema</value>
+  </data>
+  <data name="AlwaysOnUSBState_Off" xml:space="preserve">
+    <value>Òshik</value>
+  </data>
   <data name="BatteryState_Conservation" xml:space="preserve">
     <value>Saqlaw</value>
   </data>
@@ -72,6 +78,15 @@
   </data>
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
     <value>Gibrid-iGPU</value>
+  </data>
+  <data name="NotificationPosition_BottomLeft" xml:space="preserve">
+    <value>Tómen shep</value>
+  </data>
+  <data name="NotificationPosition_BottomRight" xml:space="preserve">
+    <value>Tómen oń</value>
+  </data>
+  <data name="NotificationPosition_Center" xml:space="preserve">
+    <value>Oray</value>
   </data>
   <data name="PowerModeState_GodMode" xml:space="preserve">
     <value>Arnawlı</value>
@@ -90,6 +105,9 @@
   </data>
   <data name="RGBKeyboardBacklightBrightness_Low" xml:space="preserve">
     <value>Pás</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_Smooth" xml:space="preserve">
+    <value>Tegis</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
     <value>Óshik</value>
