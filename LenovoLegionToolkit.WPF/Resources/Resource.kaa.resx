@@ -138,6 +138,12 @@
   <data name="AppName" xml:space="preserve">
     <value>Lenovo Legion Toolkit</value>
   </data>
+  <data name="AutomationPage_ActionsEnabled_Title" xml:space="preserve">
+    <value>Iske túsiriw</value>
+  </data>
+  <data name="AutomationPage_Actions_Title" xml:space="preserve">
+    <value>Háreketler</value>
+  </data>
   <data name="AutomationPage_RenamePipeline_Title" xml:space="preserve">
     <value>Qayta ataw</value>
   </data>
@@ -164,6 +170,9 @@
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_AtSunset" xml:space="preserve">
     <value>Kún batqanda</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_AtTime" xml:space="preserve">
+    <value>{0:D2}:{1:D2}</value>
   </data>
   <data name="Celsius" xml:space="preserve">
     <value>°C</value>
