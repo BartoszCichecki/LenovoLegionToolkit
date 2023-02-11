@@ -222,7 +222,7 @@ public partial class GodModeSettingsWindow
         var preset = presets[activePresetId];
 
         var result = await MessageBoxHelper.ShowInputAsync(this, "Preset name", "Name", preset.Name);
-        if (result is null)
+        if (string.IsNullOrEmpty(result))
             return;
 
         var newPresets = new Dictionary<Guid, GodModePreset>(presets)
@@ -267,7 +267,7 @@ public partial class GodModeSettingsWindow
             return;
 
         var result = await MessageBoxHelper.ShowInputAsync(this, "Preset name", "Name");
-        if (result is null)
+        if (string.IsNullOrEmpty(result))
             return;
 
         var activePresetId = _state.Value.ActivePresetId;
