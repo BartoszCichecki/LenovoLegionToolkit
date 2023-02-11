@@ -31,7 +31,7 @@ public class DisplayBrightnessAutomationStepControl : AbstractAutomationStepCont
 
     public override IAutomationStep CreateAutomationStep() => new DisplayBrightnessAutomationStep((int)_brightness.Value);
 
-    protected override UIElement? GetCustomControl()
+    protected override UIElement GetCustomControl()
     {
         _brightness.TextChanged += (_, _) => RaiseChanged();
         _grid.Children.Add(_brightness);

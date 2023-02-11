@@ -161,6 +161,7 @@ public partial class AutomationPage
             new DpiScaleAutomationStep(default),
             new FlipToStartAutomationStep(default),
             new FnLockAutomationStep(default),
+            new GodModePresetAutomationStep(default),
             new HDRAutomationStep(default),
             new MicrophoneAutomationStep(default),
             new OneLevelWhiteKeyboardBacklightAutomationStep(default),

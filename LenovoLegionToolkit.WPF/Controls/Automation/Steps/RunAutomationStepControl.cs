@@ -46,7 +46,7 @@ public class RunAutomationStepControl : AbstractAutomationStepControl<RunAutomat
 
     public override IAutomationStep CreateAutomationStep() => new RunAutomationStep(_scriptPath.Text, _scriptArguments.Text);
 
-    protected override UIElement? GetCustomControl()
+    protected override UIElement GetCustomControl()
     {
         _scriptPath.TextChanged += (_, _) =>
         {

@@ -365,6 +365,7 @@ public class AutomationPipelineControl : UserControl
             DpiScaleAutomationStep s => new DpiScaleAutomationStepControl(s),
             FlipToStartAutomationStep s => new FlipToStartAutomationStepControl(s),
             FnLockAutomationStep s => new FnLockAutomationStepControl(s),
+            GodModePresetAutomationStep s => new GodModePresetAutomationStepControl(s),
             HDRAutomationStep s => new HDRAutomationStepControl(s),
             MicrophoneAutomationStep s => new MicrophoneAutomationStepControl(s),
             OneLevelWhiteKeyboardBacklightAutomationStep s => new OneLevelWhiteKeyboardBacklightAutomationStepControl(s),
