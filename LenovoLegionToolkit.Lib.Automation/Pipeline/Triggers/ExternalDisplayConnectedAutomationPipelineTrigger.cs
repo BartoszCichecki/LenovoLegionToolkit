@@ -7,7 +7,8 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 
 public class ExternalDisplayConnectedAutomationPipelineTrigger : IAutomationPipelineTrigger, INativeWindowsMessagePipelineTrigger, IDisallowDuplicatesAutomationPipelineTrigger
 {
-    [JsonIgnore] public string DisplayName => Resource.ExternalDisplayConnectedAutomationPipelineTrigger_DisplayName;
+    [JsonIgnore]
+    public string DisplayName => Resource.ExternalDisplayConnectedAutomationPipelineTrigger_DisplayName;
 
     public Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent)
     {

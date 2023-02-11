@@ -124,6 +124,8 @@ public enum MicrophoneState
 
 public enum NativeWindowsMessage
 {
+    MonitorOn,
+    MonitorOff,
     MonitorConnected,
     MonitorDisconnected,
     OnDisplayDeviceArrival
