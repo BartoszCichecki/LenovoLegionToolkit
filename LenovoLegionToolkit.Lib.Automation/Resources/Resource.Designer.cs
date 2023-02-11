@@ -115,6 +115,24 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to When displays turn off.
+        /// </summary>
+        public static string DisplayOffAutomationPipelineTrigger_DisplayName {
+            get {
+                return ResourceManager.GetString("DisplayOffAutomationPipelineTrigger_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When displays turn on.
+        /// </summary>
+        public static string DisplayOnAutomationPipelineTrigger_DisplayName {
+            get {
+                return ResourceManager.GetString("DisplayOnAutomationPipelineTrigger_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to When external display is connected.
         /// </summary>
         public static string ExternalDisplayConnectedAutomationPipelineTrigger_DisplayName {
