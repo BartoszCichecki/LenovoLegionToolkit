@@ -322,6 +322,8 @@ public partial class AutomationPage
             new PowerModeAutomationPipelineTrigger(PowerModeState.Balance),
             new ProcessesAreRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()),
             new ProcessesStopRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()),
+            new DisplayOnAutomationPipelineTrigger(),
+            new DisplayOffAutomationPipelineTrigger(),
             new ExternalDisplayConnectedAutomationPipelineTrigger(),
             new ExternalDisplayDisconnectedAutomationPipelineTrigger(),
             new TimeAutomationPipelineTrigger(false, false, null),

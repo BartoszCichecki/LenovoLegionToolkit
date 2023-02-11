@@ -21,3 +21,37 @@ public class ExternalDisplayConnectedAutomationPipelineTrigger : IAutomationPipe
 
     public override int GetHashCode() => HashCode.Combine(DisplayName);
 }
+
+public class DisplayOnAutomationPipelineTrigger : IAutomationPipelineTrigger, INativeWindowsMessagePipelineTrigger, IDisallowDuplicatesAutomationPipelineTrigger
+{
+    [JsonIgnore] public string DisplayName => "When displays turn on";
+
+    public Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent)
+    {
+        var result = automationEvent is NativeWindowsMessageEvent { Message: NativeWindowsMessage.MonitorOn };
+        return Task.FromResult(result);
+    }
+
+    public IAutomationPipelineTrigger DeepCopy() => new DisplayOnAutomationPipelineTrigger();
+
+    public override bool Equals(object? obj) => obj is DisplayOnAutomationPipelineTrigger;
+
+    public override int GetHashCode() => HashCode.Combine(DisplayName);
+}
+
+public class DisplayOffAutomationPipelineTrigger : IAutomationPipelineTrigger, INativeWindowsMessagePipelineTrigger, IDisallowDuplicatesAutomationPipelineTrigger
+{
+    [JsonIgnore] public string DisplayName => "When displays turn off";
+
+    public Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent)
+    {
+        var result = automationEvent is NativeWindowsMessageEvent { Message: NativeWindowsMessage.MonitorOff };
+        return Task.FromResult(result);
+    }
+
+    public IAutomationPipelineTrigger DeepCopy() => new DisplayOffAutomationPipelineTrigger();
+
+    public override bool Equals(object? obj) => obj is DisplayOnAutomationPipelineTrigger;
+
+    public override int GetHashCode() => HashCode.Combine(DisplayName);
+}
