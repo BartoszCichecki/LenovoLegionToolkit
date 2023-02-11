@@ -221,7 +221,7 @@ public partial class GodModeSettingsWindow
         var presets = _state.Value.Presets;
         var preset = presets[activePresetId];
 
-        var result = await MessageBoxHelper.ShowInputAsync(this, "Preset name", "Name", preset.Name);
+        var result = await MessageBoxHelper.ShowInputAsync(this, Resource.GodModeSettingsWindow_EditPreset_Title, Resource.GodModeSettingsWindow_EditPreset_Message, preset.Name);
         if (string.IsNullOrEmpty(result))
             return;
 
@@ -266,7 +266,7 @@ public partial class GodModeSettingsWindow
         if (_state.Value.Presets.Count >= 5)
             return;
 
-        var result = await MessageBoxHelper.ShowInputAsync(this, "Preset name", "Name");
+        var result = await MessageBoxHelper.ShowInputAsync(this, Resource.GodModeSettingsWindow_EditPreset_Title, Resource.GodModeSettingsWindow_EditPreset_Message);
         if (string.IsNullOrEmpty(result))
             return;
 

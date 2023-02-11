@@ -1638,4 +1638,19 @@ Moving the mouse or pressing the keyboard will wake displays up.</value>
   <data name="SaveAndClose" xml:space="preserve">
 	  <value>Save &amp; Close</value>
   </data>
+  <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
+	  <value>Custom Mode preset</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
+	  <value>Activate Custom Mode preset.</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
+	  <value>Preset name</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Message" xml:space="preserve">
+	  <value>Name</value>
+  </data>
+  <data name="GodModeSettingsWindow_ActivePreset_Title" xml:space="preserve">
+	  <value>Active preset</value>
+  </data>
 </root>

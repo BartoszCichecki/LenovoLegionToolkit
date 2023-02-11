@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation.Steps;
+using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps;
@@ -22,8 +23,8 @@ public class GodModePresetAutomationStepControl : AbstractAutomationStepControl<
     public GodModePresetAutomationStepControl(GodModePresetAutomationStep step) : base(step)
     {
         Icon = SymbolRegular.Gauge24;
-        Title = "Custom Mode preset";
-        Subtitle = "Activate Custom Mode preset.";
+        Title = Resource.GodModePresetAutomationStepControl_Title;
+        Subtitle = Resource.GodModePresetAutomationStepControl_Message;
     }
 
     public override IAutomationStep CreateAutomationStep()

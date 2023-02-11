@@ -1842,6 +1842,33 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Activate Custom Mode preset..
+        /// </summary>
+        public static string GodModePresetAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("GodModePresetAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom Mode preset.
+        /// </summary>
+        public static string GodModePresetAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("GodModePresetAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active preset.
+        /// </summary>
+        public static string GodModeSettingsWindow_ActivePreset_Title {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_ActivePreset_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to WARNING!
         ///Some laptops may accept higher power limits than they indicate, but be careful. This option may result in unpredictable behavior, so if you are not sure what are you doing, leave this at 0..
         /// </summary>
@@ -1920,6 +1947,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string GodModeSettingsWindow_CPU_Title {
             get {
                 return ResourceManager.GetString("GodModeSettingsWindow_CPU_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string GodModeSettingsWindow_EditPreset_Message {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_EditPreset_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preset name.
+        /// </summary>
+        public static string GodModeSettingsWindow_EditPreset_Title {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_EditPreset_Title", resourceCulture);
             }
         }
         
