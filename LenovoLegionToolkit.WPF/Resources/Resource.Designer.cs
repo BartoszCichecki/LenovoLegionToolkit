@@ -61,6 +61,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Application Folders.
+        /// </summary>
+        public static string AboutPage_ApplicationFolders {
+            get {
+                return ResourceManager.GetString("AboutPage_ApplicationFolders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lenovo Legion Toolkit.
         /// </summary>
         public static string AboutPage_AppName {
@@ -75,6 +84,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string AboutPage_Build {
             get {
                 return ResourceManager.GetString("AboutPage_Build", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data.
+        /// </summary>
+        public static string AboutPage_Data {
+            get {
+                return ResourceManager.GetString("AboutPage_Data", resourceCulture);
             }
         }
         
@@ -102,6 +120,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string AboutPage_ProjectWebsiteOnGitHub {
             get {
                 return ResourceManager.GetString("AboutPage_ProjectWebsiteOnGitHub", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Temp.
+        /// </summary>
+        public static string AboutPage_Temp {
+            get {
+                return ResourceManager.GetString("AboutPage_Temp", resourceCulture);
             }
         }
         

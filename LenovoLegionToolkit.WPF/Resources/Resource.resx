@@ -1653,4 +1653,13 @@ Moving the mouse or pressing the keyboard will wake displays up.</value>
   <data name="GodModeSettingsWindow_ActivePreset_Title" xml:space="preserve">
 	  <value>Active preset</value>
   </data>
+  <data name="AboutPage_ApplicationFolders" xml:space="preserve">
+	  <value>Application Folders</value>
+  </data>
+  <data name="AboutPage_Data" xml:space="preserve">
+	  <value>Data</value>
+  </data>
+  <data name="AboutPage_Temp" xml:space="preserve">
+	  <value>Temp</value>
+  </data>
 </root>
