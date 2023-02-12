@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Automation.Resources;
 using Newtonsoft.Json;
+using WindowsDisplayAPI;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 
@@ -10,9 +12,18 @@ public class DisplayOnAutomationPipelineTrigger : IAutomationPipelineTrigger, IN
     [JsonIgnore]
     public string DisplayName => Resource.DisplayOnAutomationPipelineTrigger_DisplayName;
 
-    public Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent)
+    public Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
     {
         var result = automationEvent is NativeWindowsMessageEvent { Message: NativeWindowsMessage.MonitorOn };
+        return Task.FromResult(result);
+    }
+
+    public Task<bool> IsMatchingState()
+    {
+        var result = DisplayAdapter.GetDisplayAdapters()
+            .SelectMany(da => da.GetDisplayDevices())
+            .Where(dd => dd.IsAvailable)
+            .Any();
         return Task.FromResult(result);
     }
 

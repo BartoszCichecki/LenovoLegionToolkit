@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Automation.Resources;
+using LenovoLegionToolkit.Lib.Features;
 using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
@@ -17,13 +18,19 @@ public class PowerModeAutomationPipelineTrigger : IAutomationPipelineTrigger, IP
         PowerModeState = powerModeState;
     }
 
-    public Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent)
+    public Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
     {
-        if (automationEvent is not PowerModeAutomationEvent pmae)
+        if (automationEvent is not PowerModeAutomationEvent e)
             return Task.FromResult(false);
 
-        var result = pmae.PowerModeState == PowerModeState;
+        var result = e.PowerModeState == PowerModeState;
         return Task.FromResult(result);
+    }
+
+    public async Task<bool> IsMatchingState()
+    {
+        var feature = IoCContainer.Resolve<PowerModeFeature>();
+        return await feature.GetStateAsync().ConfigureAwait(false) == PowerModeState;
     }
 
     public IAutomationPipelineTrigger DeepCopy() => new PowerModeAutomationPipelineTrigger(PowerModeState);

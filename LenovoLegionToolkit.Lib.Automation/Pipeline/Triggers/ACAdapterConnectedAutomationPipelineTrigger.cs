@@ -11,12 +11,19 @@ public class ACAdapterConnectedAutomationPipelineTrigger : IAutomationPipelineTr
     [JsonIgnore]
     public string DisplayName => Resource.ACAdapterConnectedAutomationPipelineTrigger_DisplayName;
 
-    public async Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent)
+    public async Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
     {
         if (automationEvent is not (PowerStateAutomationEvent or StartupAutomationEvent))
             return false;
 
-        return await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false) == PowerAdapterStatus.Connected;
+        var status = await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false);
+        return status == PowerAdapterStatus.Connected;
+    }
+
+    public async Task<bool> IsMatchingState()
+    {
+        var status = await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false);
+        return status == PowerAdapterStatus.Connected;
     }
 
     public IAutomationPipelineTrigger DeepCopy() => new ACAdapterConnectedAutomationPipelineTrigger();

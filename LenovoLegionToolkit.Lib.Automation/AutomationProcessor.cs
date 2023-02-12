@@ -200,7 +200,7 @@ public class AutomationProcessor
 
                 try
                 {
-                    if (pipeline.Trigger is null || !await pipeline.Trigger.IsSatisfiedAsync(automationEvent).ConfigureAwait(false))
+                    if (pipeline.Trigger is null || !await pipeline.Trigger.IsMatchingEvent(automationEvent).ConfigureAwait(false))
                     {
                         if (Log.Instance.IsTraceEnabled)
                             Log.Instance.Trace($"Pipeline triggers not satisfied. [name={pipeline.Name}, trigger={pipeline.Trigger}, steps.Count={pipeline.Steps.Count}]");
@@ -274,10 +274,10 @@ public class AutomationProcessor
 
     private async Task ProcessEvent(NativeWindowsMessageEvent e)
     {
-        var potentialMatch = _pipelines.Select(p => p.Trigger)
+        var potentialMatch = _pipelines.SelectMany(p => p.AllTriggers)
             .Where(t => t is not null)
             .Where(t => t is INativeWindowsMessagePipelineTrigger)
-            .Select(async t => await t!.IsSatisfiedAsync(e).ConfigureAwait(false))
+            .Select(async t => await t!.IsMatchingEvent(e).ConfigureAwait(false))
             .Select(t => t.Result)
             .Where(t => t)
             .Any();
@@ -293,10 +293,10 @@ public class AutomationProcessor
 
     private async Task ProcessEvent(PowerStateAutomationEvent e)
     {
-        var potentialMatch = _pipelines.Select(p => p.Trigger)
+        var potentialMatch = _pipelines.SelectMany(p => p.AllTriggers)
             .Where(t => t is not null)
             .Where(t => t is IPowerStateAutomationPipelineTrigger)
-            .Select(async t => await t!.IsSatisfiedAsync(e).ConfigureAwait(false))
+            .Select(async t => await t!.IsMatchingEvent(e).ConfigureAwait(false))
             .Select(t => t.Result)
             .Where(t => t)
             .Any();
@@ -312,10 +312,10 @@ public class AutomationProcessor
 
     private async Task ProcessEvent(PowerModeAutomationEvent e)
     {
-        var potentialMatch = _pipelines.Select(p => p.Trigger)
+        var potentialMatch = _pipelines.SelectMany(p => p.AllTriggers)
             .Where(t => t is not null)
             .Where(t => t is IPowerModeAutomationPipelineTrigger)
-            .Select(async t => await t!.IsSatisfiedAsync(e).ConfigureAwait(false))
+            .Select(async t => await t!.IsMatchingEvent(e).ConfigureAwait(false))
             .Select(t => t.Result)
             .Where(t => t)
             .Any();
@@ -331,10 +331,10 @@ public class AutomationProcessor
 
     private async Task ProcessEvent(ProcessAutomationEvent e)
     {
-        var potentialMatch = _pipelines.Select(p => p.Trigger)
+        var potentialMatch = _pipelines.SelectMany(p => p.AllTriggers)
             .Where(t => t is not null)
             .Where(t => t is IProcessesAutomationPipelineTrigger)
-            .Select(async t => await t!.IsSatisfiedAsync(e).ConfigureAwait(false))
+            .Select(async t => await t!.IsMatchingEvent(e).ConfigureAwait(false))
             .Select(t => t.Result)
             .Where(t => t)
             .Any();
@@ -350,10 +350,10 @@ public class AutomationProcessor
 
     private async Task ProcessEvent(TimeAutomationEvent e)
     {
-        var potentialMatch = _pipelines.Select(p => p.Trigger)
+        var potentialMatch = _pipelines.SelectMany(p => p.AllTriggers)
             .Where(t => t is not null)
             .Where(t => t is TimeAutomationPipelineTrigger)
-            .Select(async t => await t!.IsSatisfiedAsync(e).ConfigureAwait(false))
+            .Select(async t => await t!.IsMatchingEvent(e).ConfigureAwait(false))
             .Select(t => t.Result)
             .Where(t => t)
             .Any();

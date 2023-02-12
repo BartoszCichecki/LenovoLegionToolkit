@@ -26,20 +26,39 @@ public class TimeAutomationPipelineTrigger : IAutomationPipelineTrigger, ITimeAu
         Time = time;
     }
 
-    public async Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent)
+    public async Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
     {
-        if (automationEvent is not TimeAutomationEvent timeAutomationEvent)
+        if (automationEvent is not TimeAutomationEvent e)
             return false;
 
-        if (Time == timeAutomationEvent.Time)
+        if (Time == e.Time)
             return true;
 
         var (sunrise, sunset) = await _sunriseSunset.GetSunriseSunsetAsync().ConfigureAwait(false);
 
-        if (IsSunrise && sunrise == timeAutomationEvent.Time)
+        if (IsSunrise && sunrise == e.Time)
             return true;
 
-        if (IsSunset && sunset == timeAutomationEvent.Time)
+        if (IsSunset && sunset == e.Time)
+            return true;
+
+        return false;
+    }
+
+    public async Task<bool> IsMatchingState()
+    {
+        var now = DateTime.UtcNow;
+        var time = new Time { Hour = now.Hour, Minute = now.Minute };
+
+        if (Time == time)
+            return true;
+
+        var (sunrise, sunset) = await _sunriseSunset.GetSunriseSunsetAsync().ConfigureAwait(false);
+
+        if (IsSunrise && sunrise == time)
+            return true;
+
+        if (IsSunset && sunset == time)
             return true;
 
         return false;

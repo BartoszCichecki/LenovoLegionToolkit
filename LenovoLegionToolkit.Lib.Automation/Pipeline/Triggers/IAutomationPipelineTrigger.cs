@@ -8,12 +8,19 @@ public interface IAutomationPipelineTrigger
     [JsonIgnore]
     string DisplayName { get; }
 
-    Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent);
+    Task<bool> IsMatchingEvent(IAutomationEvent automationEvent);
+
+    Task<bool> IsMatchingState();
 
     IAutomationPipelineTrigger DeepCopy();
 }
 
 public interface IDisallowDuplicatesAutomationPipelineTrigger { }
+
+public interface ICompositeAutomationPipelineTrigger
+{
+    public IAutomationPipelineTrigger[] Triggers { get; }
+}
 
 public interface INativeWindowsMessagePipelineTrigger { }
 
