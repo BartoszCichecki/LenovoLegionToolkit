@@ -82,8 +82,8 @@ public class NotificationWindow : UiWindow
 
         _mainGrid.Measure(new Size(double.PositiveInfinity, 80));
 
-        Width = MinWidth = Math.Max(_mainGrid.DesiredSize.Width, 300);
-        Height = MinHeight = _mainGrid.DesiredSize.Height;
+        Width = MaxWidth = MinWidth = Math.Max(_mainGrid.DesiredSize.Width, 300);
+        Height = MaxHeight = MinHeight = _mainGrid.DesiredSize.Height;
 
         const int margin = 16;
 
