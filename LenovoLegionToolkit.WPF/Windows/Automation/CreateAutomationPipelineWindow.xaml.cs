@@ -15,7 +15,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Automation;
 
 public partial class CreateAutomationPipelineWindow
 {
-    private static readonly IAutomationPipelineTrigger[] _triggers =
+    private readonly IAutomationPipelineTrigger[] _triggers =
     {
         new ACAdapterConnectedAutomationPipelineTrigger(),
         new LowWattageACAdapterConnectedAutomationPipelineTrigger(),
@@ -102,7 +102,7 @@ public partial class CreateAutomationPipelineWindow
                 Title = "Multiple triggers...",
                 Accessory = new SymbolIcon { Symbol = SymbolRegular.ChevronRight24 }
             },
-            Margin = new(0, 12, 0, 12),
+            Margin = new(0, 8, 0, 0),
         };
 
         control.Click += async (_, _) =>
