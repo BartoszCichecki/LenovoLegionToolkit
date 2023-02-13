@@ -1662,4 +1662,7 @@ Moving the mouse or pressing the keyboard will wake displays up.</value>
   <data name="AboutPage_Temp" xml:space="preserve">
 	  <value>Temp</value>
   </data>
+  <data name="Create" xml:space="preserve">
+	  <value>Create</value>
+  </data>
 </root>
