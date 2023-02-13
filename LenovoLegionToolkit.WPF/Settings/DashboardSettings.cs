@@ -9,7 +9,7 @@ public class DashboardSettings : AbstractSettings<DashboardSettings.DashboardSet
         public DashboardGroup[] Groups { get; set; } = DashboardGroup.DefaultGroups;
     }
 
-    protected override string FileName => "dashboard.json";
-
     protected override DashboardSettingsStore Default => new();
+
+    public DashboardSettings() : base("dashboard.json") { }
 }

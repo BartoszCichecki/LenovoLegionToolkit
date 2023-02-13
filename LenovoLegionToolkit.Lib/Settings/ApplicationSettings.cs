@@ -40,7 +40,5 @@ public class ApplicationSettings : AbstractSettings<ApplicationSettings.Applicat
         public List<Guid> SmartKeyDoublePressActionList { get; set; } = new();
     }
 
-    protected override string FileName => "settings.json";
-
-    protected override ApplicationSettingsStore Default => new();
+    public ApplicationSettings() : base("settings.json") { }
 }

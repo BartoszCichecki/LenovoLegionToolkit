@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -201,6 +202,13 @@ public readonly struct FanTableInfo
 
 public readonly struct GodModeState
 {
+    public Guid ActivePresetId { get; init; }
+    public ReadOnlyDictionary<Guid, GodModePreset> Presets { get; init; }
+}
+
+public readonly struct GodModePreset
+{
+    public string Name { get; init; }
     public StepperValue? CPULongTermPowerLimit { get; init; }
     public StepperValue? CPUShortTermPowerLimit { get; init; }
     public StepperValue? CPUCrossLoadingPowerLimit { get; init; }
@@ -212,10 +220,18 @@ public readonly struct GodModeState
     public bool FanFullSpeed { get; init; }
     public int MaxValueOffset { get; init; }
 
-    public override string ToString()
-    {
-        return $"{nameof(CPULongTermPowerLimit)}: {CPULongTermPowerLimit}, {nameof(CPUShortTermPowerLimit)}: {CPUShortTermPowerLimit}, {nameof(CPUCrossLoadingPowerLimit)}: {CPUCrossLoadingPowerLimit}, {nameof(CPUTemperatureLimit)}: {CPUTemperatureLimit}, {nameof(GPUPowerBoost)}: {GPUPowerBoost}, {nameof(GPUConfigurableTGP)}: {GPUConfigurableTGP}, {nameof(GPUTemperatureLimit)}: {GPUTemperatureLimit}, {nameof(FanTableInfo)}: {FanTableInfo}, {nameof(FanFullSpeed)}: {FanFullSpeed}, {nameof(MaxValueOffset)}: {MaxValueOffset}";
-    }
+    public override string ToString() =>
+        $"{nameof(Name)}: {Name}," +
+        $" {nameof(CPULongTermPowerLimit)}: {CPULongTermPowerLimit}," +
+        $" {nameof(CPUShortTermPowerLimit)}: {CPUShortTermPowerLimit}," +
+        $" {nameof(CPUCrossLoadingPowerLimit)}: {CPUCrossLoadingPowerLimit}," +
+        $" {nameof(CPUTemperatureLimit)}: {CPUTemperatureLimit}," +
+        $" {nameof(GPUPowerBoost)}: {GPUPowerBoost}," +
+        $" {nameof(GPUConfigurableTGP)}: {GPUConfigurableTGP}," +
+        $" {nameof(GPUTemperatureLimit)}: {GPUTemperatureLimit}," +
+        $" {nameof(FanTableInfo)}: {FanTableInfo}," +
+        $" {nameof(FanFullSpeed)}: {FanFullSpeed}," +
+        $" {nameof(MaxValueOffset)}: {MaxValueOffset}";
 }
 
 public readonly struct HardwareId

@@ -88,5 +88,20 @@
 
         </Grid>
 
+        <TextBlock
+            Padding="0,24,0,8"
+            FontSize="14"
+            FontWeight="Medium"
+            Text="{x:Static resources:Resource.AboutPage_ApplicationFolders}" />
+
+        <wpfui:Hyperlink
+            Click="OpenApplicationDataFolder_Click"
+            Content="{x:Static resources:Resource.AboutPage_Data}"
+            Icon="Folder24" />
+        <wpfui:Hyperlink
+            Click="OpenApplicationTempFolder_Click"
+            Content="{x:Static resources:Resource.AboutPage_Temp}"
+            Icon="Folder24" />
+
     </StackPanel>
 </wpfui:UiPage>

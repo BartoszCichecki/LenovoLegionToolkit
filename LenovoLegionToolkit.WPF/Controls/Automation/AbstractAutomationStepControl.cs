@@ -11,14 +11,14 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation;
 
 public abstract class AbstractAutomationStepControl<T> : AbstractAutomationStepControl where T : IAutomationStep
 {
-    public new T AutomationStep => (T)base.AutomationStep;
+    protected new T AutomationStep => (T)base.AutomationStep;
 
     protected AbstractAutomationStepControl(T automationStep) : base(automationStep) { }
 }
 
 public abstract class AbstractAutomationStepControl : UserControl
 {
-    public IAutomationStep AutomationStep { get; }
+    protected IAutomationStep AutomationStep { get; }
 
     private readonly CardControl _cardControl = new()
     {

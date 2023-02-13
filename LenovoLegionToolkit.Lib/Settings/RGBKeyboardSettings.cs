@@ -9,8 +9,6 @@ public class RGBKeyboardSettings : AbstractSettings<RGBKeyboardSettings.RGBKeybo
         public RGBKeyboardBacklightState State { get; set; }
     }
 
-    protected override string FileName => "rgb_keyboard.json";
-
     protected override RGBKeyboardSettingsStore Default => new()
     {
         State = new(RGBKeyboardBacklightPreset.Off, new Dictionary<RGBKeyboardBacklightPreset, RGBKeyboardBacklightBacklightPresetDescription> {
@@ -19,4 +17,6 @@ public class RGBKeyboardSettings : AbstractSettings<RGBKeyboardSettings.RGBKeybo
             { RGBKeyboardBacklightPreset.Three, new(RGBKeyboardBacklightEffect.Smooth, RBGKeyboardBacklightSpeed.Slowest, RGBKeyboardBacklightBrightness.Low, new(255, 255, 255), new(255,255,255), new(255,255,255), new (255,255,255)) },
         }),
     };
+
+    public RGBKeyboardSettings() : base("rgb_keyboard.json") { }
 }

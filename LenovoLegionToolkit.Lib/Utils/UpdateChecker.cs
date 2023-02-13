@@ -79,7 +79,7 @@ public class UpdateChecker
     {
         using (await _updateSemaphore.LockAsync(cancellationToken).ConfigureAwait(false))
         {
-            var tempPath = Path.Combine(Path.GetTempPath(), $"LenovoLegionToolkitSetup_{Guid.NewGuid()}.exe");
+            var tempPath = Path.Combine(Folders.Temp, $"LenovoLegionToolkitSetup_{Guid.NewGuid()}.exe");
             var latestUpdate = _updates.OrderByDescending(u => u.Version).FirstOrDefault();
 
             if (latestUpdate.Equals(default(Update)))

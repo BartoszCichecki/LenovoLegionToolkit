@@ -61,6 +61,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Application Folders.
+        /// </summary>
+        public static string AboutPage_ApplicationFolders {
+            get {
+                return ResourceManager.GetString("AboutPage_ApplicationFolders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lenovo Legion Toolkit.
         /// </summary>
         public static string AboutPage_AppName {
@@ -75,6 +84,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string AboutPage_Build {
             get {
                 return ResourceManager.GetString("AboutPage_Build", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data.
+        /// </summary>
+        public static string AboutPage_Data {
+            get {
+                return ResourceManager.GetString("AboutPage_Data", resourceCulture);
             }
         }
         
@@ -102,6 +120,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string AboutPage_ProjectWebsiteOnGitHub {
             get {
                 return ResourceManager.GetString("AboutPage_ProjectWebsiteOnGitHub", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Temp.
+        /// </summary>
+        public static string AboutPage_Temp {
+            get {
+                return ResourceManager.GetString("AboutPage_Temp", resourceCulture);
             }
         }
         
@@ -1842,6 +1869,33 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Activate Custom Mode preset..
+        /// </summary>
+        public static string GodModePresetAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("GodModePresetAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom Mode preset.
+        /// </summary>
+        public static string GodModePresetAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("GodModePresetAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active preset.
+        /// </summary>
+        public static string GodModeSettingsWindow_ActivePreset_Title {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_ActivePreset_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to WARNING!
         ///Some laptops may accept higher power limits than they indicate, but be careful. This option may result in unpredictable behavior, so if you are not sure what are you doing, leave this at 0..
         /// </summary>
@@ -1920,6 +1974,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string GodModeSettingsWindow_CPU_Title {
             get {
                 return ResourceManager.GetString("GodModeSettingsWindow_CPU_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string GodModeSettingsWindow_EditPreset_Message {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_EditPreset_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preset name.
+        /// </summary>
+        public static string GodModeSettingsWindow_EditPreset_Title {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_EditPreset_Title", resourceCulture);
             }
         }
         
@@ -3480,6 +3552,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save &amp; Close.
+        /// </summary>
+        public static string SaveAndClose {
+            get {
+                return ResourceManager.GetString("SaveAndClose", resourceCulture);
             }
         }
         

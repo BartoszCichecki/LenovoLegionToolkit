@@ -9,20 +9,21 @@ using LenovoLegionToolkit.Lib.Extensions;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation;
 
-public class AbstractComboBoxAutomationStepCardControl<T> : AbstractAutomationStepControl<IAutomationStep<T>> where T : struct
+public abstract class AbstractComboBoxAutomationStepCardControl<T> : AbstractAutomationStepControl<IAutomationStep<T>> where T : struct
 {
 
     private readonly ComboBox _comboBox = new()
     {
         MinWidth = 150,
         Visibility = Visibility.Hidden,
+        Margin = new(8, 0, 0, 0)
     };
 
     private T _state;
 
-    public AbstractComboBoxAutomationStepCardControl(IAutomationStep<T> step) : base(step) { }
+    protected AbstractComboBoxAutomationStepCardControl(IAutomationStep<T> step) : base(step) { }
 
-    protected override UIElement? GetCustomControl()
+    protected override UIElement GetCustomControl()
     {
         _comboBox.SelectionChanged += ComboBox_SelectionChanged;
 

@@ -7,6 +7,13 @@ namespace LenovoLegionToolkit.Lib.Extensions;
 
 public static class PInvokeExtensions
 {
+    public enum CONSOLE_DISPLAY_STATE
+    {
+        Off = 0,
+        On = 1,
+        Dimmed = 2
+    }
+
     public const int ERROR_SUCCESS = 0;
     public const int ERROR_NO_MORE_ITEMS = 259;
 

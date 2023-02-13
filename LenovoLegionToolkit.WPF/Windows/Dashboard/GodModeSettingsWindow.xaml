@@ -62,6 +62,51 @@
                         Margin="0,16,0,24"
                         FontSize="24"
                         FontWeight="Medium"
+                        Text="{x:Static resources:Resource.GodModeSettingsWindow_ActivePreset_Title}" />
+
+                    <Grid Margin="0,0,0,16">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <ComboBox
+                            x:Name="_presetsComboBox"
+                            Grid.Column="0"
+                            SelectionChanged="PresetsComboBox_SelectionChanged" />
+
+                        <wpfui:Button
+                            Grid.Column="1"
+                            Margin="8,0,0,0"
+                            VerticalAlignment="Stretch"
+                            Click="EditPresetsButton_Click"
+                            Icon="Edit24"
+                            ToolTip="{x:Static resources:Resource.Edit}" />
+                        <wpfui:Button
+                            x:Name="_deletePresetsButton"
+                            Grid.Column="2"
+                            Margin="8,0,0,0"
+                            VerticalAlignment="Stretch"
+                            Click="DeletePresetsButton_Click"
+                            Icon="Dismiss24"
+                            ToolTip="{x:Static resources:Resource.Delete}" />
+                        <wpfui:Button
+                            x:Name="_addPresetsButton"
+                            Grid.Column="3"
+                            Margin="8,0,0,0"
+                            VerticalAlignment="Stretch"
+                            Appearance="Primary"
+                            Click="AddPresetsButton_Click"
+                            Content="{x:Static resources:Resource.Add}"
+                            Icon="Add24" />
+                    </Grid>
+
+                    <TextBlock
+                        Margin="0,16,0,24"
+                        FontSize="24"
+                        FontWeight="Medium"
                         Text="{x:Static resources:Resource.GodModeSettingsWindow_CPU_Title}" />
 
                     <wpfui:CardControl x:Name="_cpuLongTermPowerLimitCardControl" Margin="0,0,0,8">
@@ -225,8 +270,8 @@
                                 <wpfui:Button
                                     MinWidth="120"
                                     HorizontalAlignment="Right"
-                                    Content="{x:Static resources:Resource.Reset}"
                                     Click="ResetFanCurve_Click"
+                                    Content="{x:Static resources:Resource.Reset}"
                                     Icon="ArrowClockwise24" />
                             </StackPanel>
                         </wpfui:CardControl.Header>
@@ -271,7 +316,7 @@
         </controls:LoadableControl>
 
         <StackPanel
-            x:Name="_applyRevertStackPanel"
+            x:Name="_buttonsStackPanel"
             Grid.Row="2"
             Margin="12"
             HorizontalAlignment="Right"
@@ -279,14 +324,14 @@
             Visibility="Collapsed">
             <wpfui:Button
                 MinWidth="120"
-                Click="ApplyButton_Click"
-                Content="{x:Static resources:Resource.Apply}" />
+                Click="SaveButton_Click"
+                Content="{x:Static resources:Resource.Save}" />
             <wpfui:Button
                 MinWidth="120"
                 Margin="12,0,0,0"
                 Appearance="Primary"
-                Click="ApplyAndCloseButton_Click"
-                Content="{x:Static resources:Resource.ApplyAndClose}" />
+                Click="SaveAndCloseButton_Click"
+                Content="{x:Static resources:Resource.SaveAndClose}" />
         </StackPanel>
 
         <wpfui:Snackbar

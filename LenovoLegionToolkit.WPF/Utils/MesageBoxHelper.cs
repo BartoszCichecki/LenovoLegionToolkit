@@ -133,12 +133,12 @@ public static class MessageBoxHelper
         };
         messageBox.ButtonRightClick += (_, _) =>
         {
-            tcs.SetResult("");
+            tcs.SetResult(null);
             messageBox.Close();
         };
         messageBox.Closing += (_, _) =>
         {
-            tcs.TrySetResult("");
+            tcs.TrySetResult(null);
         };
         messageBox.Show();
 
