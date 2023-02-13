@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
@@ -14,6 +13,7 @@ using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.WPF.Controls.Automation.Pipeline;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
+using LenovoLegionToolkit.WPF.Windows.Automation;
 using Wpf.Ui.Common;
 using MenuItem = Wpf.Ui.Controls.MenuItem;
 
@@ -46,12 +46,15 @@ public partial class AutomationPage
 
     private void NewAutomaticPipelineButton_Click(object sender, RoutedEventArgs e)
     {
-        if (_newAutomaticPipelineButton.ContextMenu is null)
-            return;
+        var existingTriggersTypes = _automaticPipelinesStackPanel.Children.ToArray()
+            .OfType<AutomationPipelineControl>()
+            .Select(c => c.AutomationPipeline.Trigger)
+            .Where(t => t is not null)
+            .Select(t => t!.GetType())
+        .ToHashSet();
 
-        _newAutomaticPipelineButton.ContextMenu.PlacementTarget = _newAutomaticPipelineButton;
-        _newAutomaticPipelineButton.ContextMenu.Placement = PlacementMode.Bottom;
-        _newAutomaticPipelineButton.ContextMenu.IsOpen = true;
+        var window = new CreateAutomationPipelineWindow(existingTriggersTypes, AddAutomaticPipeline) { Owner = Window.GetWindow(this) };
+        window.ShowDialog();
     }
 
     private async void NewManualPipelineButton_Click(object sender, RoutedEventArgs e)
@@ -139,8 +142,6 @@ public partial class AutomationPage
             _manualPipelinesStackPanel.Children.Add(control);
             initializedTasks.Add(control.InitializedTask);
         }
-
-        RefreshNewAutomaticPipelineButton();
 
         _saveRevertStackPanel.Visibility = Visibility.Collapsed;
 
@@ -270,7 +271,6 @@ public partial class AutomationPage
             ? Visibility.Visible
             : Visibility.Collapsed;
 
-        RefreshNewAutomaticPipelineButton();
         PipelinesChanged();
     }
 
@@ -290,7 +290,6 @@ public partial class AutomationPage
             ? Visibility.Visible
             : Visibility.Collapsed;
 
-        RefreshNewAutomaticPipelineButton();
         PipelinesChanged();
     }
 
@@ -316,65 +315,6 @@ public partial class AutomationPage
             ? Visibility.Visible
             : Visibility.Collapsed;
 
-        RefreshNewAutomaticPipelineButton();
         PipelinesChanged();
-    }
-
-    private void RefreshNewAutomaticPipelineButton()
-    {
-        var triggers = new List<IAutomationPipelineTrigger>
-        {
-            new ACAdapterConnectedAutomationPipelineTrigger(),
-            new LowWattageACAdapterConnectedAutomationPipelineTrigger(),
-            new ACAdapterDisconnectedAutomationPipelineTrigger(),
-            new PowerModeAutomationPipelineTrigger(PowerModeState.Balance),
-            new ProcessesAreRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()),
-            new ProcessesStopRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()),
-            new DisplayOnAutomationPipelineTrigger(),
-            new DisplayOffAutomationPipelineTrigger(),
-            new ExternalDisplayConnectedAutomationPipelineTrigger(),
-            new ExternalDisplayDisconnectedAutomationPipelineTrigger(),
-            new TimeAutomationPipelineTrigger(false, false, null),
-            new OnStartupAutomationPipelineTrigger()
-        };
-
-        var menuItems = new List<MenuItem>();
-
-        foreach (var trigger in triggers)
-        {
-            var menuItem = new MenuItem
-            {
-                Header = trigger.DisplayName,
-            };
-
-            if (AllowDuplicates(trigger))
-                menuItem.Click += (_, _) => AddAutomaticPipeline(trigger);
-            else
-                menuItem.IsEnabled = false;
-
-            menuItems.Add(menuItem);
-        }
-
-        if (_newAutomaticPipelineButton.ContextMenu is null)
-            return;
-
-        _newAutomaticPipelineButton.ContextMenu.Items.Clear();
-        _newAutomaticPipelineButton.ContextMenu.Items.AddRange(menuItems);
-    }
-
-    private bool AllowDuplicates(IAutomationPipelineTrigger trigger)
-    {
-        if (trigger is IDisallowDuplicatesAutomationPipelineTrigger)
-        {
-            var alreadyContains = _automaticPipelinesStackPanel.Children.ToArray()
-                .OfType<AutomationPipelineControl>()
-                .Select(c => c.AutomationPipeline.Trigger)
-                .Where(t => t is not null)
-                .Any(t => t!.GetType() == trigger.GetType());
-
-            return !alreadyContains;
-        }
-
-        return true;
     }
 }
