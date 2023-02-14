@@ -28,6 +28,13 @@ public readonly struct BatteryInformation
     public DateTime? FirstUseDate { get; init; }
 }
 
+public readonly struct Brightness
+{
+    public byte Value { get; init; }
+
+    public static implicit operator Brightness(byte value) => new() { Value = value };
+}
+
 public readonly struct CPUBoostMode
 {
     public int Value { get; }
