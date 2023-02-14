@@ -148,8 +148,21 @@
   <data name="AddNew" xml:space="preserve">
     <value>Jańadan qosıw</value>
   </data>
+  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
+    <value>Vantage qosılǵan bolsa da quwatlıq jobasın aktivlestiriń.
+Bul parametr tek bir neshe quwatlıq jobaları menen támiyinlenbegen qurılmalar ushın mólsherlengen.</value>
+  </data>
+  <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
+    <value>Hámiyshe Windows Quwatlılıq Jobasın aktivlestiriw</value>
+  </data>
+  <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
+    <value>Kompyuter óshirilgen, gibernaciya yamasa uyqı rejiminde bolǵanda qurılmalardı USB arqalı zaryadlaw.</value>
+  </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>Hámiyshe USBden quwatlanıw</value>
+  </data>
+  <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
+    <value>Kompyuter óshirilgen, gibernaciya yamasa uyqı rejiminde bolǵanda qurılmalardı USB arqalı zaryadlaw.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>Hámiyshe USBden quwatlanıw</value>
@@ -169,6 +182,13 @@
   <data name="AutomationPage_ActionsEnabled_Title" xml:space="preserve">
     <value>Iske túsiriw</value>
   </data>
+  <data name="AutomationPage_Actions_Empty" xml:space="preserve">
+    <value>Háreketler anıqlanbaǵan. Jańa háreket jaratıw ushın "Jańadan qosıw" túymesin basıń.</value>
+  </data>
+  <data name="AutomationPage_Actions_Message" xml:space="preserve">
+    <value>Eger qosılǵan bolsa, bul háreketler avtomatikalıq ámelge asırıladı. Jaǵday ózgergende, barlıq háreketler joqarıdan tómenge qaray bahalanadı.
+Tek ámeldegi jaǵdayǵa sáykes keletuǵın háreketler orınlanadı.</value>
+  </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>Háreketler</value>
   </data>
@@ -177,6 +197,9 @@
   </data>
   <data name="AutomationPage_AddManualPipeline_Title" xml:space="preserve">
     <value>Jańasın qosıw</value>
+  </data>
+  <data name="AutomationPage_QuickActions_Empty" xml:space="preserve">
+    <value>Tez háreketler anıqlanbaǵan. Jańa operativ háreket jaratıw ushın "Jańasın qosıw" túymesin basıń.</value>
   </data>
   <data name="AutomationPage_QuickActions_Title" xml:space="preserve">
     <value>Tez háreketler</value>
@@ -189,6 +212,9 @@
   </data>
   <data name="AutomationPage_Reverted_Message" xml:space="preserve">
     <value>Barlıq ózgerisler biykarlandı!</value>
+  </data>
+  <data name="AutomationPage_Reverted_Title" xml:space="preserve">
+    <value>Izge qaytarıldı</value>
   </data>
   <data name="AutomationPage_Saved_Message" xml:space="preserve">
     <value>Ózgerisler tabıslı saqlandı!</value>
@@ -204,6 +230,9 @@
   </data>
   <data name="AutomationPipelineControl_Configure" xml:space="preserve">
     <value>Sazlaw</value>
+  </data>
+  <data name="AutomationPipelineControl_Exclusive" xml:space="preserve">
+    <value>Esaptan tısqarı</value>
   </data>
   <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
     <value>Usı háreket baslanǵanda, basqa ámellerdi orınlamań.</value>
@@ -325,8 +354,15 @@
   <data name="BatteryPage_LowWattageChargerConnected" xml:space="preserve">
     <value>Kem quwatlı zaryadlawshı jalǵanǵan</value>
   </data>
+  <data name="BatteryPage_ManufactureDate_Message" xml:space="preserve">
+    <value>Batareya islep shıǵarılǵan waqıt.</value>
+  </data>
   <data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
     <value>Islep shıǵarılǵan sáne</value>
+  </data>
+  <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
+    <value>Noutbuk aqırǵı márte tarmaqqa jalǵanǵannan beri waqıt.
+Eger noutbuk uyqı rejiminde yamasa óshirilgen waqıtta zaryadlanǵan bolsa, bul waqıt anıq bolmawı múmkin.</value>
   </data>
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Batareya</value>
@@ -382,6 +418,9 @@
   <data name="ComboBoxHybridModeControl_RestartRequired_Title" xml:space="preserve">
     <value>Qayta iske túsiriw talap etiledi</value>
   </data>
+  <data name="ComboBoxHybridModeControl_Title" xml:space="preserve">
+    <value>Videokartanıń jumıs rejimi</value>
+  </data>
   <data name="ContextMenu_QuickActions" xml:space="preserve">
     <value>Tez háreketler</value>
   </data>
@@ -402,6 +441,11 @@
   </data>
   <data name="DashboardPage_Title" xml:space="preserve">
     <value>Bas bet</value>
+  </data>
+  <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
+    <value>Eger bólekli grafikalıq processor zarúr bolmasa da qosılǵan bolsa, onı óshiriw
+
+ESLETPE: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bul háreket durıs orınlanbaydı.</value>
   </data>
   <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
     <value>Grafikalıq processordı óshiriw</value>
@@ -448,6 +492,9 @@
   <data name="DeviceInformationWindow_OutOfWarranty" xml:space="preserve">
     <value>Kepillik múddeti tawsılǵan</value>
   </data>
+  <data name="DeviceInformationWindow_SerialNumber_Title" xml:space="preserve">
+    <value>Seriyalı nomer</value>
+  </data>
   <data name="DeviceInformationWindow_Title" xml:space="preserve">
     <value>Qurılmańız haqqında</value>
   </data>
@@ -478,8 +525,17 @@
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Proceslerdi juwmaqlaw</value>
   </data>
+  <data name="DiscreteGPUControl_Message" xml:space="preserve">
+    <value>Eger bólekli grafikalıq processor zarúr bolmasa da qosılǵan bolsa, onı óshiriw.</value>
+  </data>
+  <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
+    <value>Monitor nVidia grafikalıq processorına jalǵanǵan.</value>
+  </data>
   <data name="DiscreteGPUControl_NoProcesses" xml:space="preserve">
     <value>Processler joq</value>
+  </data>
+  <data name="DiscreteGPUControl_PerformanceState" xml:space="preserve">
+    <value>Ónimdarlıq jaǵdayı</value>
   </data>
   <data name="DiscreteGPUControl_PerformanceState_Unknown" xml:space="preserve">
     <value>Belgisiz</value>
@@ -493,11 +549,20 @@
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>Displey jarıqlıǵı</value>
   </data>
+  <data name="DonatePage_Title" xml:space="preserve">
+    <value>Qollap-quwatlaw</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Ózgertiw</value>
   </data>
+  <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
+    <value>Noutbuk displeyi qosılǵanına isenim kámil etiń. Lenova Legion Toolkit qosılmaǵan displey ushın jańalanıw tezligin júkley almaydı.</value>
+  </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Title" xml:space="preserve">
     <value>Jańalanıw tezligi anıqlanbadı</value>
+  </data>
+  <data name="ExcludeRefreshRatesWindow_Title" xml:space="preserve">
+    <value>Jańalanıw tezligin esaptan tısqarı qılıw</value>
   </data>
   <data name="Exit" xml:space="preserve">
     <value>Shıǵıw</value>
@@ -505,8 +570,26 @@
   <data name="Export" xml:space="preserve">
     <value>Eksportlaw</value>
   </data>
+  <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
+    <value>Gibrid-Avto rejim</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_DGPU_Disclaimer" xml:space="preserve">
+    <value>Bul rejimdi almastırıw qayta iske túsiriwdi talap etedi.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_DGPU_Message" xml:space="preserve">
+    <value>Tek ǵana grafikalıq processordı paydalanıw. Bul rejim eń jaqsı ónimdarlıqtı beredi, biraq zaryadsızlanıwdı kúsheytedi.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
+    <value>Bólekli videokarta rejimi</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
+    <value>Gibrid rejimi</value>
+  </data>
   <data name="Fahrenheit" xml:space="preserve">
     <value>°F</value>
+  </data>
+  <data name="FanCurveControl_CPU" xml:space="preserve">
+    <value>Oraylıq processor</value>
   </data>
   <data name="FanCurveControl_FanSpeed" xml:space="preserve">
     <value>Samallatqıshtıń tezligi</value>
@@ -514,14 +597,50 @@
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>Grafikalıq processor</value>
   </data>
+  <data name="FanCurveControl_RPM" xml:space="preserve">
+    <value>aylanıw/min</value>
+  </data>
+  <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
+    <value>Qaqpaqtı ashqanda noutbuktı qosıw.</value>
+  </data>
+  <data name="FlipToStartAutomationStepControl_Title" xml:space="preserve">
+    <value>Baslaw ushın aylandırıń</value>
+  </data>
+  <data name="FlipToStartControl_Message" xml:space="preserve">
+    <value>Qaqpaqtı ashqanda noutbuktı qosıw.</value>
+  </data>
+  <data name="FlipToStartControl_Title" xml:space="preserve">
+    <value>Baslaw ushın aylandırıń</value>
+  </data>
+  <data name="FnLockAutomationStepControl_Message" xml:space="preserve">
+    <value>Fn túymesin uslap turmay F1-F12 túymeleriniń ekilemshi funkciyalarınan paydalanıw.</value>
+  </data>
   <data name="FnLockAutomationStepControl_Title" xml:space="preserve">
     <value>Fn Lock</value>
+  </data>
+  <data name="FnLockControl_Message" xml:space="preserve">
+    <value>Fn túymesin uslap turmay F1-F12 túymeleriniń ekilemshi funkciyalarınan paydalanıw.</value>
   </data>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Fn Lock</value>
   </data>
+  <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
+    <value>Eger ne islep atırǵanıńızdı bilmeseńiz, tómendegi variantlardı ózgertpeń.</value>
+  </data>
   <data name="GodModeSettingsWindow_Advanced_Title" xml:space="preserve">
     <value>Qosımsha sazlawlar</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL" xml:space="preserve">
+    <value>Uzaq múddetli quwatlıq sheklew</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_TempLimit" xml:space="preserve">
+    <value>Oraylıq processor temperaturasınıń sheklewi</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_Title" xml:space="preserve">
+    <value>Oraylıq processor</value>
+  </data>
+  <data name="GodModeSettingsWindow_Error_Apply_Title" xml:space="preserve">
+    <value>Sazlawlardı qollanıw ámelge aspadı</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Max_Title" xml:space="preserve">
     <value>Samallatqıshtıń maksimal tezligi</value>
