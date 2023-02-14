@@ -3947,6 +3947,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to When this option is on, same brightness level will be applied to all Windows power plans whenever you change it..
+        /// </summary>
+        public static string SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Single Display Brightness.
+        /// </summary>
+        public static string SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Set light theme, dark theme or follow system settings..
         /// </summary>
         public static string SettingsPage_Theme_Description {
