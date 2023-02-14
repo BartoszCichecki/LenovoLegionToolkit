@@ -3947,7 +3947,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When this option is on, same brightness level will be applied to all Windows power plans whenever you change it..
+        ///   Looks up a localized string similar to When on, same brightness level will be applied to all Windows power plans whenever you change it..
         /// </summary>
         public static string SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message {
             get {
