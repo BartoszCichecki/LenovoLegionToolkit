@@ -155,6 +155,17 @@
             </wpfui:CardAction.Content>
         </wpfui:CardAction>
 
+        <wpfui:CardControl Margin="0,0,0,8">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="Single Display Brightness" Subtitle="When this option is on, same brightness level will be applied to all Windows power plans, whenever you change it." />
+            </wpfui:CardControl.Header>
+            <wpfui:ToggleSwitch
+                x:Name="_synchronizeBrightnessToAllPowerPlansToggle"
+                Margin="0,0,0,8"
+                Click="SynchronizeBrightnessToAllPowerPlansToggle_Click"
+                Visibility="Hidden" />
+        </wpfui:CardControl>
+
         <TextBlock
             Grid.Row="0"
             Margin="0,16,0,0"

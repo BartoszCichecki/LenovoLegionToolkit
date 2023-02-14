@@ -78,6 +78,9 @@ public class IoCModule : Module
         builder.Register<WinKeyListener>()
             .OnActivating(e => e.Instance.StartAsync().AsValueTask())
             .AutoActivate();
+        builder.Register<DisplayBrightnessListener>()
+            .OnActivating(e => e.Instance.StartAsync().AsValueTask())
+            .AutoActivate();
         builder.Register<SystemThemeListener>()
             .OnActivating(e => e.Instance.StartAsync().AsValueTask())
             .AutoActivate();

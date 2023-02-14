@@ -38,6 +38,7 @@ public class ApplicationSettings : AbstractSettings<ApplicationSettings.Applicat
         public Guid? SmartKeyDoublePressActionId { get; set; }
         public List<Guid> SmartKeySinglePressActionList { get; set; } = new();
         public List<Guid> SmartKeyDoublePressActionList { get; set; } = new();
+        public bool SynchronizeBrightnessToAllPowerPlans { get; set; }
     }
 
     public ApplicationSettings() : base("settings.json") { }

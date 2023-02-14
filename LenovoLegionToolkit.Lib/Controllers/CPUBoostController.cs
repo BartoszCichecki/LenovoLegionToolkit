@@ -11,8 +11,8 @@ namespace LenovoLegionToolkit.Lib.Controllers;
 
 public class CPUBoostModeController
 {
-    private const string ProcessorPowerManagementSubgroupGUID = "54533251-82be-4824-96c1-47b60b740d00";
-    private const string PowerSettingGUID = "be337238-0d82-4146-a960-4f3749d470c7";
+    private const string PROCESSOR_POWER_MANAGEMENT_SUBGROUP_GUID = "54533251-82be-4824-96c1-47b60b740d00";
+    private const string POWER_SETTING_GUID = "be337238-0d82-4146-a960-4f3749d470c7";
 
     public async Task<List<CPUBoostModeSettings>> GetSettingsAsync()
     {
@@ -25,7 +25,7 @@ public class CPUBoostModeController
             Log.Instance.Trace($"Getting power plans...");
 
         var powerPlans = await Power.GetPowerPlansAsync().ConfigureAwait(false);
-        var cpuBoostModes = await GetCPUBoostModesAsync().ConfigureAwait(false);
+        var cpuBoostModes = await GetCpuBoostModesAsync().ConfigureAwait(false);
 
         var result = new List<CPUBoostModeSettings>();
         foreach (var powerPlan in powerPlans)
@@ -35,7 +35,7 @@ public class CPUBoostModeController
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Getting perfboostmodes for power plan {powerPlan.Name}... [powerPlan.instanceID={powerPlan.InstanceId}]");
 
-                var settings = await GetCPUBoostSettingsAsync(powerPlan, cpuBoostModes).ConfigureAwait(false);
+                var settings = await GetCpuBoostSettingsAsync(powerPlan, cpuBoostModes).ConfigureAwait(false);
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Perfboostmodes settings retrieved for power plan {settings.PowerPlan.Name} [powerPlan.instanceID={settings.PowerPlan.InstanceId}, {string.Join(",", settings.CPUBoostModes.Select(cbm => $"{{{cbm.Name}:{cbm.Value}}}"))}, acSettingsValue={settings.ACSettingValue}, dcSettingValue={settings.DCSettingValue}]");
@@ -55,16 +55,16 @@ public class CPUBoostModeController
         return result;
     }
 
-    public async Task SetSettingAsync(PowerPlan powerPlan, CPUBoostMode cpuBoostMode, bool isAC)
+    public async Task SetSettingAsync(PowerPlan powerPlan, CPUBoostMode cpuBoostMode, bool isAc)
     {
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Setting perfboostmode to {cpuBoostMode.Name}... [powerPlan.name={powerPlan.Name}, powerPlan.instanceID={powerPlan.InstanceId}, cpuBoostMode.value={cpuBoostMode.Value}, isAC={isAC}]");
+            Log.Instance.Trace($"Setting perfboostmode to {cpuBoostMode.Name}... [powerPlan.name={powerPlan.Name}, powerPlan.instanceID={powerPlan.InstanceId}, cpuBoostMode.value={cpuBoostMode.Value}, isAc={isAc}]");
 
-        var option = isAC ? "/SETACVALUEINDEX" : "/SETDCVALUEINDEX";
-        await CMD.RunAsync("powercfg", $"{option} {powerPlan.Guid} {ProcessorPowerManagementSubgroupGUID} {PowerSettingGUID} {cpuBoostMode.Value}").ConfigureAwait(false);
+        var option = isAc ? "/SETACVALUEINDEX" : "/SETDCVALUEINDEX";
+        await CMD.RunAsync("powercfg", $"{option} {powerPlan.Guid} {PROCESSOR_POWER_MANAGEMENT_SUBGROUP_GUID} {POWER_SETTING_GUID} {cpuBoostMode.Value}").ConfigureAwait(false);
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Perfboostmode set to {cpuBoostMode.Name} [powerPlan.name={powerPlan.Name}, powerPlan.instanceID={powerPlan.InstanceId}, cpuBoostMode.value={cpuBoostMode.Value}, isAC={isAC}]");
+            Log.Instance.Trace($"Perfboostmode set to {cpuBoostMode.Name} [powerPlan.name={powerPlan.Name}, powerPlan.instanceID={powerPlan.InstanceId}, cpuBoostMode.value={cpuBoostMode.Value}, isAc={isAc}]");
     }
 
     private async Task EnsureAttributeVisibleAsync()
@@ -78,10 +78,10 @@ public class CPUBoostModeController
             Log.Instance.Trace($"Perfboostmode is visible.");
     }
 
-    private async Task<List<CPUBoostMode>> GetCPUBoostModesAsync()
+    private static async Task<List<CPUBoostMode>> GetCpuBoostModesAsync()
     {
         var result = await WMI.ReadAsync("root\\CIMV2\\power",
-            $"SELECT * FROM Win32_PowerSettingDefinitionPossibleValue WHERE InstanceID LIKE '%{PowerSettingGUID}%'",
+            $"SELECT * FROM Win32_PowerSettingDefinitionPossibleValue WHERE InstanceID LIKE '%{POWER_SETTING_GUID}%'",
             pdc =>
             {
                 var name = (string)pdc["ElementName"].Value;
@@ -91,9 +91,9 @@ public class CPUBoostModeController
         return result.ToList();
     }
 
-    private async Task<CPUBoostModeSettings> GetCPUBoostSettingsAsync(PowerPlan powerPlan, List<CPUBoostMode> cpuBoostModes)
+    private static async Task<CPUBoostModeSettings> GetCpuBoostSettingsAsync(PowerPlan powerPlan, List<CPUBoostMode> cpuBoostModes)
     {
-        var (_, output) = await CMD.RunAsync("powercfg", $"/QUERY {powerPlan.Guid} {ProcessorPowerManagementSubgroupGUID} {PowerSettingGUID}").ConfigureAwait(false);
+        var (_, output) = await CMD.RunAsync("powercfg", $"/QUERY {powerPlan.Guid} {PROCESSOR_POWER_MANAGEMENT_SUBGROUP_GUID} {POWER_SETTING_GUID}").ConfigureAwait(false);
 
         var matches = Regex.Matches(output, "0[xX][0-9a-fA-F]+");
 
