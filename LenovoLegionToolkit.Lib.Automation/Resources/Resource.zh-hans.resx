@@ -100,4 +100,10 @@
   <data name="ExternalDisplayDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
 		<value>当断开了外置屏幕后</value>
 	</data>
+  <data name="DisplayOnAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>当显示器打开时</value>
+	</data>
+  <data name="DisplayOffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>当显示器关闭时</value>
+	</data>
 </root>

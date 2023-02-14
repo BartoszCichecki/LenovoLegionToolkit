@@ -247,6 +247,9 @@
   <data name="SpectrumKeyboardBacklightEffectType_Smooth" xml:space="preserve">
     <value>Tegis</value>
   </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Type" xml:space="preserve">
+    <value>Túri</value>
+  </data>
   <data name="SpectrumKeyboardBacklightSpeed_Speed1" xml:space="preserve">
     <value>Áste</value>
   </data>
