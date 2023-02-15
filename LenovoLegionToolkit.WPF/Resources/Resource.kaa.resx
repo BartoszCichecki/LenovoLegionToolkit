@@ -840,6 +840,12 @@ ESLETPE: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bu
   <data name="PackageControl_Http404Error_Message" xml:space="preserve">
     <value>Server 404 qátelik kodın qaytardı.</value>
   </data>
+  <data name="PackageControl_Http404Error_Title" xml:space="preserve">
+    <value>Fayl joq bolǵanǵa qusaydı</value>
+  </data>
+  <data name="PackageControl_HttpGeneralError_Message" xml:space="preserve">
+    <value>Internet baylanısı islep turǵanın tekseriń.</value>
+  </data>
   <data name="PackageControl_HttpGeneralError_Title" xml:space="preserve">
     <value>Qanday da bir qátelik boldı</value>
   </data>
@@ -848,6 +854,10 @@ ESLETPE: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bu
   </data>
   <data name="PackageControl_Version" xml:space="preserve">
     <value>Versiya</value>
+  </data>
+  <data name="PackagesPage_Disclaimer_Message" xml:space="preserve">
+    <value>Tómende noutbukıńızǵa mas dep belgilengen baǵdarlamalıq paketler dizimi keltirilgen. 
+Durıs paketlerdi ornatıp atırǵanıńızǵa isenim kámil etiń.</value>
   </data>
   <data name="PackagesPage_DownloadFailed_Title" xml:space="preserve">
     <value>Qanday da bir qátelik boldı</value>
@@ -1054,11 +1064,20 @@ Rejimdi Fn+Q járdeminde ózgerte alasız.</value>
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Quwatlıq jobaları</value>
   </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
+    <value>Fn+F9 túymelerin eki márte basıw ushın tez háreketti belgileń.</value>
+  </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">
     <value>Aqıllı túymeniń ekilemshi háreketi</value>
   </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
+    <value>Fn+F9 túymelerin bir márte basıw ushın tez háreketti belgileń.</value>
+  </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
     <value>Aqıllı túyme háreketi</value>
+  </data>
+  <data name="SettingsPage_Theme_Description" xml:space="preserve">
+    <value>Jaqtı temanı, qaranǵı temanı ornatıw yamasa sistema sazlawlarına ámel etiw.</value>
   </data>
   <data name="SettingsPage_Theme_Title" xml:space="preserve">
     <value>Tema</value>
@@ -1069,6 +1088,12 @@ Rejimdi Fn+Q járdeminde ózgerte alasız.</value>
   <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Off" xml:space="preserve">
     <value>Óshik</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_AddEffect" xml:space="preserve">
+    <value>Effekt qosıw</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
+    <value>Profildi qollanıw ámelge aspadı</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Jarıqlıq</value>
   </data>
@@ -1078,11 +1103,20 @@ Rejimdi Fn+Q járdeminde ózgerte alasız.</value>
   <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Message" xml:space="preserve">
     <value>Profildi eksport qılıp bolmadı</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Title" xml:space="preserve">
+    <value>Profildi eksport qılıw ámelge aspadı</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Message" xml:space="preserve">
     <value>Profildi import qılıp bolmadı</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Title" xml:space="preserve">
+    <value>Profildi import qılıw ámelge aspadı</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
     <value>Effektler qosılmaǵan.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
+    <value>Barlıq zonalardı tańlaw</value>
   </data>
   <data name="SpectrumKeyboardBacklightEditEffectWindow_ClockwiseDirection_Title" xml:space="preserve">
     <value>Baǵdar</value>
@@ -1129,11 +1163,32 @@ Rejimdi Fn+Q járdeminde ózgerte alasız.</value>
   <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
     <value>Waqıt</value>
   </data>
+  <data name="ToggleHybridModeControl_RestartRequired_Title" xml:space="preserve">
+    <value>Qayta iske túsiriw talap etiledi</value>
+  </data>
+  <data name="ToggleHybridModeControl_Title" xml:space="preserve">
+    <value>Gibrid rejim</value>
+  </data>
+  <data name="TouchpadLockAutomationStepControl_Message" xml:space="preserve">
+    <value>Sensorlı paneldi óshiriw.</value>
+  </data>
+  <data name="TouchpadLockControl_Message" xml:space="preserve">
+    <value>Sensorlı paneldi óshiriw.</value>
+  </data>
   <data name="TryAgain" xml:space="preserve">
     <value>Qayta urınıp kóriń</value>
   </data>
+  <data name="UnexpectedException" xml:space="preserve">
+    <value>Kútilmegen esaptan tıs háreket júz berdi:
+{0}
+
+Ótinish, mashqala haqqında {1}ǵa xabar beriń.</value>
+  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>Atı atalmaǵan</value>
+  </data>
+  <data name="UnsupportedWindow_Disclaimer_Logs" xml:space="preserve">
+    <value>Jurnallar papkası</value>
   </data>
   <data name="UnsupportedWindow_Message" xml:space="preserve">
     <value>Lenovo Legion Toolkit siziń qurılmańızda tekserilmedi.</value>
@@ -1183,6 +1238,9 @@ Rejimdi Fn+Q járdeminde ózgerte alasız.</value>
   <data name="DpiScaleControl_Title" xml:space="preserve">
     <value>DPI</value>
   </data>
+  <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
+    <value>DPI</value>
+  </data>
   <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Klaviatura arqa jaqtılıǵı</value>
   </data>
@@ -1194,6 +1252,9 @@ Rejimdi Fn+Q járdeminde ózgerte alasız.</value>
   </data>
   <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
     <value>Tek jańalanıwlardı kórsetiw</value>
+  </data>
+  <data name="EditDashboardWindow_Title" xml:space="preserve">
+    <value>Bas betti sazlaw</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
     <value>Topar jaratıw</value>
