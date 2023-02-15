@@ -1644,30 +1644,36 @@
     <value>推荐重启</value>
   </data>
   <data name="SaveAndClose" xml:space="preserve">
-	  <value>保存并关闭</value>
+    <value>保存并关闭</value>
   </data>
   <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
-	  <value>自定义模式预设</value>
+    <value>自定义模式预设</value>
   </data>
   <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
-	  <value>将启用的自定义模式预设。</value>
+    <value>将启用的自定义模式预设。</value>
   </data>
   <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
-	  <value>预设名称</value>
+    <value>预设名称</value>
   </data>
   <data name="GodModeSettingsWindow_EditPreset_Message" xml:space="preserve">
-	  <value>点此输入名称</value>
+    <value>点此输入名称</value>
   </data>
   <data name="GodModeSettingsWindow_ActivePreset_Title" xml:space="preserve">
-	  <value>预设</value>
+    <value>预设</value>
   </data>
   <data name="AboutPage_ApplicationFolders" xml:space="preserve">
-	  <value>应用数据文件夹</value>
+    <value>应用数据文件夹</value>
   </data>
   <data name="AboutPage_Data" xml:space="preserve">
-	  <value>Data</value>
+    <value>Data</value>
   </data>
   <data name="AboutPage_Temp" xml:space="preserve">
-	  <value>Temp</value>
+    <value>Temp</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
+    <value>固定显示亮度</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
+    <value>启用后在不同电源计划间切换将保持亮度不变。</value>
   </data>
 </root>
