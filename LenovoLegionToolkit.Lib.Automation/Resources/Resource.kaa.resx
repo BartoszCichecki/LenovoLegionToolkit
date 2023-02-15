@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Quwatlıq adapteri jalǵanǵanda</value>
+    <value>Quwatlaw blogı jalǵanǵanda</value>
   </data>
   <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>AC quwatlıq adapteri úzilgende</value>
@@ -77,7 +77,7 @@
     <value>{0} sekund</value>
   </data>
   <data name="LowWattageACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Kem vattlı AC quwat adapteri jalǵanǵanda</value>
+    <value>Kem vattlı quwatlaw blogı jalǵanǵanda</value>
   </data>
   <data name="OnStartupAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Iske túsirgende</value>
