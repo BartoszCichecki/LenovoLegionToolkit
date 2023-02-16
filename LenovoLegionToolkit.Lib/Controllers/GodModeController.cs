@@ -62,7 +62,9 @@ public class GodModeController
                 Name = preset.Name,
                 CPULongTermPowerLimit = preset.CPULongTermPowerLimit,
                 CPUShortTermPowerLimit = preset.CPUShortTermPowerLimit,
+                CPUPeakPowerLimit = preset.CPUPeakPowerLimit,
                 CPUCrossLoadingPowerLimit = preset.CPUCrossLoadingPowerLimit,
+                APUsPPTPowerLimit = preset.APUsPPTPowerLimit,
                 CPUTemperatureLimit = preset.CPUTemperatureLimit,
                 GPUPowerBoost = preset.GPUPowerBoost,
                 GPUConfigurableTGP = preset.GPUConfigurableTGP,
@@ -101,7 +103,9 @@ public class GodModeController
 
         var cpuLongTermPowerLimit = preset.CPULongTermPowerLimit;
         var cpuShortTermPowerLimit = preset.CPUShortTermPowerLimit;
+        var cpuPeakPowerLimit = preset.CPUPeakPowerLimit;
         var cpuCrossLoadingPowerLimit = preset.CPUCrossLoadingPowerLimit;
+        var apuSPPTPowerLimit = preset.APUsPPTPowerLimit;
         var cpuTemperatureLimit = preset.CPUTemperatureLimit;
         var gpuPowerBoost = preset.GPUPowerBoost;
         var gpuConfigurableTgp = preset.GPUConfigurableTGP;
@@ -143,6 +147,23 @@ public class GodModeController
             }
         }
 
+        if (cpuPeakPowerLimit is not null)
+        {
+            try
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Applying CPU Peak Power Limit: {cpuPeakPowerLimit}");
+
+                await SetCPUPeakPowerLimitAsync(cpuPeakPowerLimit.Value).ConfigureAwait(false);
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Apply failed. [setting=cpuPeakPowerLimit]", ex);
+                throw;
+            }
+        }
+
         if (cpuCrossLoadingPowerLimit is not null)
         {
             try
@@ -156,6 +177,23 @@ public class GodModeController
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Apply failed. [setting=cpuCrossLoadingPowerLimit]", ex);
+                throw;
+            }
+        }
+
+        if (apuSPPTPowerLimit is not null)
+        {
+            try
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Applying APU sPPT Power Limit: {apuSPPTPowerLimit}");
+
+                await SetAPUSPPTPowerLimitAsync(apuSPPTPowerLimit.Value).ConfigureAwait(false);
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Apply failed. [setting=apuSPPTPowerLimit]", ex);
                 throw;
             }
         }
@@ -291,29 +329,22 @@ public class GodModeController
 
     private async Task<GodModePreset> GetDefaultStateAsync()
     {
-        var cpuLongTermPowerLimit = await GetCPULongTermPowerLimitAsync().OrNull().ConfigureAwait(false);
-        var cpuShortTermPowerLimit = await GetCPUShortTermPowerLimitAsync().OrNull().ConfigureAwait(false);
-        var cpuCrossLoadingPowerLimit = await GetCPUCrossLoadingPowerLimitAsync().OrNull().ConfigureAwait(false);
-        var cpuTemperatureLimit = await GetCPUTemperatureLimitAsync().OrNull().ConfigureAwait(false);
-        var gpuPowerBoost = await GetGPUPowerBoost().OrNull().ConfigureAwait(false);
-        var gpuConfigurableTgp = await GetGPUConfigurableTGPAsync().OrNull().ConfigureAwait(false);
-        var gpuTemperatureLimit = await GetGPUTemperatureLimitAsync().OrNull().ConfigureAwait(false);
         var fanTableData = await GetFanTableDataAsync().ConfigureAwait(false);
-        FanTableInfo? fanTableInfo = fanTableData is null ? null : new FanTableInfo(fanTableData, FanTable.Default);
-        var fanFullSpeed = await GetFanFullSpeedAsync().ConfigureAwait(false);
 
         return new GodModePreset
         {
             Name = "Default",
-            CPULongTermPowerLimit = cpuLongTermPowerLimit,
-            CPUShortTermPowerLimit = cpuShortTermPowerLimit,
-            CPUCrossLoadingPowerLimit = cpuCrossLoadingPowerLimit,
-            CPUTemperatureLimit = cpuTemperatureLimit,
-            GPUPowerBoost = gpuPowerBoost,
-            GPUConfigurableTGP = gpuConfigurableTgp,
-            GPUTemperatureLimit = gpuTemperatureLimit,
-            FanTableInfo = fanTableInfo,
-            FanFullSpeed = fanFullSpeed,
+            CPULongTermPowerLimit = await GetCPULongTermPowerLimitAsync().OrNull().ConfigureAwait(false),
+            CPUShortTermPowerLimit = await GetCPUShortTermPowerLimitAsync().OrNull().ConfigureAwait(false),
+            CPUPeakPowerLimit = await GetCPUPeakPowerLimitAsync().OrNull().ConfigureAwait(false),
+            CPUCrossLoadingPowerLimit = await GetCPUCrossLoadingPowerLimitAsync().OrNull().ConfigureAwait(false),
+            APUsPPTPowerLimit = await GetAPUSPPTPowerLimitAsync().OrNull().ConfigureAwait(false),
+            CPUTemperatureLimit = await GetCPUTemperatureLimitAsync().OrNull().ConfigureAwait(false),
+            GPUPowerBoost = await GetGPUPowerBoost().OrNull().ConfigureAwait(false),
+            GPUConfigurableTGP = await GetGPUConfigurableTGPAsync().OrNull().ConfigureAwait(false),
+            GPUTemperatureLimit = await GetGPUTemperatureLimitAsync().OrNull().ConfigureAwait(false),
+            FanTableInfo = fanTableData is null ? null : new FanTableInfo(fanTableData, FanTable.Default),
+            FanFullSpeed = await GetFanFullSpeedAsync().ConfigureAwait(false),
             MaxValueOffset = 0
         };
     }
@@ -331,7 +362,9 @@ public class GodModeController
                 Name = preset.Name,
                 CPULongTermPowerLimit = CreateStepperValue(defaultState.CPULongTermPowerLimit, preset.CPULongTermPowerLimit, preset.MaxValueOffset),
                 CPUShortTermPowerLimit = CreateStepperValue(defaultState.CPUShortTermPowerLimit, preset.CPUShortTermPowerLimit, preset.MaxValueOffset),
+                CPUPeakPowerLimit = CreateStepperValue(defaultState.CPUPeakPowerLimit, preset.CPUPeakPowerLimit, preset.MaxValueOffset),
                 CPUCrossLoadingPowerLimit = CreateStepperValue(defaultState.CPUCrossLoadingPowerLimit, preset.CPUCrossLoadingPowerLimit, preset.MaxValueOffset),
+                APUsPPTPowerLimit = CreateStepperValue(defaultState.APUsPPTPowerLimit, preset.APUsPPTPowerLimit, preset.MaxValueOffset),
                 CPUTemperatureLimit = CreateStepperValue(defaultState.CPUTemperatureLimit, preset.CPUTemperatureLimit, preset.MaxValueOffset),
                 GPUPowerBoost = CreateStepperValue(defaultState.GPUPowerBoost, preset.GPUPowerBoost, preset.MaxValueOffset),
                 GPUConfigurableTGP = CreateStepperValue(defaultState.GPUConfigurableTGP, preset.GPUConfigurableTGP, preset.MaxValueOffset),
@@ -434,6 +467,29 @@ public class GodModeController
 
     #endregion
 
+    #region CPU Peak Power Limit
+
+    private Task<StepperValue> GetCPUPeakPowerLimitAsync() => WMI.CallAsync("root\\WMI",
+        $"SELECT * FROM LENOVO_CPU_METHOD",
+        "CPU_Get_Peak_PowerLimit",
+        new(),
+        pdc =>
+        {
+            var value = Convert.ToInt32(pdc["CurrentPeakPowerLimit"].Value);
+            var min = Convert.ToInt32(pdc["MinPeakPowerLimit"].Value);
+            var max = Convert.ToInt32(pdc["MaxPeakPowerLimit"].Value);
+            var step = Convert.ToInt32(pdc["step"].Value);
+
+            return new StepperValue(value, min, max, step);
+        });
+
+    private Task SetCPUPeakPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
+        $"SELECT * FROM LENOVO_CPU_METHOD",
+        "CPU_Set_Peak_PowerLimit",
+        new() { { "CurrentPeakPowerLimit", $"{value.Value}" } });
+
+    #endregion
+
     #region CPU Cross Loading Power Limit
 
     private Task<StepperValue> GetCPUCrossLoadingPowerLimitAsync() => WMI.CallAsync("root\\WMI",
@@ -454,6 +510,29 @@ public class GodModeController
         $"SELECT * FROM LENOVO_CPU_METHOD",
         "CPU_Set_Cross_Loading_PowerLimit",
         new() { { "CurrentCpuCrossLoading", $"{value.Value}" } });
+
+    #endregion
+
+    #region APU sPPT Power Limit
+
+    private Task<StepperValue> GetAPUSPPTPowerLimitAsync() => WMI.CallAsync("root\\WMI",
+        $"SELECT * FROM LENOVO_CPU_METHOD",
+        "Get_APU_sPPT_PowerLimit",
+        new(),
+        pdc =>
+        {
+            var value = Convert.ToInt32(pdc["CurrenAPUsPPTPowerLimit"].Value);
+            var min = Convert.ToInt32(pdc["MinAPUsPPTPowerLimit"].Value);
+            var max = Convert.ToInt32(pdc["MaxAPUsPPTPowerLimit"].Value);
+            var step = Convert.ToInt32(pdc["step"].Value);
+
+            return new StepperValue(value, min, max, step);
+        });
+
+    private Task SetAPUSPPTPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
+        $"SELECT * FROM LENOVO_CPU_METHOD",
+        "Set_APU_sPPT_PowerLimit",
+        new() { { "CurrentAPUsPPTPowerLimit", $"{value.Value}" } });
 
     #endregion
 
