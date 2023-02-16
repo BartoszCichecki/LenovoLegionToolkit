@@ -1649,9 +1649,6 @@
   <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
     <value>自定义模式预设</value>
   </data>
-  <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
-    <value>将启用的自定义模式预设。</value>
-  </data>
   <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
     <value>预设名称</value>
   </data>
