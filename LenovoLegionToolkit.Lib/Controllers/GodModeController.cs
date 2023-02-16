@@ -62,10 +62,10 @@ public class GodModeController
                 Name = preset.Name,
                 CPULongTermPowerLimit = preset.CPULongTermPowerLimit,
                 CPUShortTermPowerLimit = preset.CPUShortTermPowerLimit,
-                CPUCrossLoadingPowerLimit = preset.CPUCrossLoadingPowerLimit,
                 CPUPeakPowerLimit = preset.CPUPeakPowerLimit,
-                CPUTemperatureLimit = preset.CPUTemperatureLimit,
+                CPUCrossLoadingPowerLimit = preset.CPUCrossLoadingPowerLimit,
                 APUsPPTPowerLimit = preset.APUsPPTPowerLimit,
+                CPUTemperatureLimit = preset.CPUTemperatureLimit,
                 GPUPowerBoost = preset.GPUPowerBoost,
                 GPUConfigurableTGP = preset.GPUConfigurableTGP,
                 GPUTemperatureLimit = preset.GPUTemperatureLimit,
@@ -103,10 +103,10 @@ public class GodModeController
 
         var cpuLongTermPowerLimit = preset.CPULongTermPowerLimit;
         var cpuShortTermPowerLimit = preset.CPUShortTermPowerLimit;
-        var cpuCrossLoadingPowerLimit = preset.CPUCrossLoadingPowerLimit;
         var cpuPeakPowerLimit = preset.CPUPeakPowerLimit;
-        var cpuTemperatureLimit = preset.CPUTemperatureLimit;
+        var cpuCrossLoadingPowerLimit = preset.CPUCrossLoadingPowerLimit;
         var apuSPPTPowerLimit = preset.APUsPPTPowerLimit;
+        var cpuTemperatureLimit = preset.CPUTemperatureLimit;
         var gpuPowerBoost = preset.GPUPowerBoost;
         var gpuConfigurableTgp = preset.GPUConfigurableTGP;
         var gpuTemperatureLimit = preset.GPUTemperatureLimit;
@@ -147,23 +147,6 @@ public class GodModeController
             }
         }
 
-        if (cpuCrossLoadingPowerLimit is not null)
-        {
-            try
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Applying CPU Cross Loading Power Limit: {cpuCrossLoadingPowerLimit}");
-
-                await SetCPUCrossLoadingPowerLimitAsync(cpuCrossLoadingPowerLimit.Value).ConfigureAwait(false);
-            }
-            catch (Exception ex)
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Apply failed. [setting=cpuCrossLoadingPowerLimit]", ex);
-                throw;
-            }
-        }
-
         if (cpuPeakPowerLimit is not null)
         {
             try
@@ -181,19 +164,19 @@ public class GodModeController
             }
         }
 
-        if (cpuTemperatureLimit is not null)
+        if (cpuCrossLoadingPowerLimit is not null)
         {
             try
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Applying CPU Temperature Limit: {cpuTemperatureLimit}");
+                    Log.Instance.Trace($"Applying CPU Cross Loading Power Limit: {cpuCrossLoadingPowerLimit}");
 
-                await SetCPUTemperatureLimitAsync(cpuTemperatureLimit.Value).ConfigureAwait(false);
+                await SetCPUCrossLoadingPowerLimitAsync(cpuCrossLoadingPowerLimit.Value).ConfigureAwait(false);
             }
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Apply failed. [setting=cpuTemperatureLimit]", ex);
+                    Log.Instance.Trace($"Apply failed. [setting=cpuCrossLoadingPowerLimit]", ex);
                 throw;
             }
         }
@@ -211,6 +194,23 @@ public class GodModeController
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Apply failed. [setting=apuSPPTPowerLimit]", ex);
+                throw;
+            }
+        }
+
+        if (cpuTemperatureLimit is not null)
+        {
+            try
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Applying CPU Temperature Limit: {cpuTemperatureLimit}");
+
+                await SetCPUTemperatureLimitAsync(cpuTemperatureLimit.Value).ConfigureAwait(false);
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Apply failed. [setting=cpuTemperatureLimit]", ex);
                 throw;
             }
         }
@@ -329,33 +329,22 @@ public class GodModeController
 
     private async Task<GodModePreset> GetDefaultStateAsync()
     {
-        var cpuLongTermPowerLimit = await GetCPULongTermPowerLimitAsync().OrNull().ConfigureAwait(false);
-        var cpuShortTermPowerLimit = await GetCPUShortTermPowerLimitAsync().OrNull().ConfigureAwait(false);
-        var cpuCrossLoadingPowerLimit = await GetCPUCrossLoadingPowerLimitAsync().OrNull().ConfigureAwait(false);
-        var cpuPeakPowerLimit = await GetCPUPeakPowerLimitAsync().OrNull().ConfigureAwait(false);
-        var cpuTemperatureLimit = await GetCPUTemperatureLimitAsync().OrNull().ConfigureAwait(false);
-        var apuSPPTPowerLimit = await GetAPUSPPTPowerLimitAsync().OrNull().ConfigureAwait(false);
-        var gpuPowerBoost = await GetGPUPowerBoost().OrNull().ConfigureAwait(false);
-        var gpuConfigurableTgp = await GetGPUConfigurableTGPAsync().OrNull().ConfigureAwait(false);
-        var gpuTemperatureLimit = await GetGPUTemperatureLimitAsync().OrNull().ConfigureAwait(false);
         var fanTableData = await GetFanTableDataAsync().ConfigureAwait(false);
-        FanTableInfo? fanTableInfo = fanTableData is null ? null : new FanTableInfo(fanTableData, FanTable.Default);
-        var fanFullSpeed = await GetFanFullSpeedAsync().ConfigureAwait(false);
 
         return new GodModePreset
         {
             Name = "Default",
-            CPULongTermPowerLimit = cpuLongTermPowerLimit,
-            CPUShortTermPowerLimit = cpuShortTermPowerLimit,
-            CPUCrossLoadingPowerLimit = cpuCrossLoadingPowerLimit,
-            CPUPeakPowerLimit = cpuPeakPowerLimit,
-            CPUTemperatureLimit = cpuTemperatureLimit,
-            APUsPPTPowerLimit = apuSPPTPowerLimit,
-            GPUPowerBoost = gpuPowerBoost,
-            GPUConfigurableTGP = gpuConfigurableTgp,
-            GPUTemperatureLimit = gpuTemperatureLimit,
-            FanTableInfo = fanTableInfo,
-            FanFullSpeed = fanFullSpeed,
+            CPULongTermPowerLimit = await GetCPULongTermPowerLimitAsync().OrNull().ConfigureAwait(false),
+            CPUShortTermPowerLimit = await GetCPUShortTermPowerLimitAsync().OrNull().ConfigureAwait(false),
+            CPUPeakPowerLimit = await GetCPUPeakPowerLimitAsync().OrNull().ConfigureAwait(false),
+            CPUCrossLoadingPowerLimit = await GetCPUCrossLoadingPowerLimitAsync().OrNull().ConfigureAwait(false),
+            APUsPPTPowerLimit = await GetAPUSPPTPowerLimitAsync().OrNull().ConfigureAwait(false),
+            CPUTemperatureLimit = await GetCPUTemperatureLimitAsync().OrNull().ConfigureAwait(false),
+            GPUPowerBoost = await GetGPUPowerBoost().OrNull().ConfigureAwait(false),
+            GPUConfigurableTGP = await GetGPUConfigurableTGPAsync().OrNull().ConfigureAwait(false),
+            GPUTemperatureLimit = await GetGPUTemperatureLimitAsync().OrNull().ConfigureAwait(false),
+            FanTableInfo = fanTableData is null ? null : new FanTableInfo(fanTableData, FanTable.Default),
+            FanFullSpeed = await GetFanFullSpeedAsync().ConfigureAwait(false),
             MaxValueOffset = 0
         };
     }
@@ -373,10 +362,10 @@ public class GodModeController
                 Name = preset.Name,
                 CPULongTermPowerLimit = CreateStepperValue(defaultState.CPULongTermPowerLimit, preset.CPULongTermPowerLimit, preset.MaxValueOffset),
                 CPUShortTermPowerLimit = CreateStepperValue(defaultState.CPUShortTermPowerLimit, preset.CPUShortTermPowerLimit, preset.MaxValueOffset),
-                CPUCrossLoadingPowerLimit = CreateStepperValue(defaultState.CPUCrossLoadingPowerLimit, preset.CPUCrossLoadingPowerLimit, preset.MaxValueOffset),
                 CPUPeakPowerLimit = CreateStepperValue(defaultState.CPUPeakPowerLimit, preset.CPUPeakPowerLimit, preset.MaxValueOffset),
-                CPUTemperatureLimit = CreateStepperValue(defaultState.CPUTemperatureLimit, preset.CPUTemperatureLimit, preset.MaxValueOffset),
+                CPUCrossLoadingPowerLimit = CreateStepperValue(defaultState.CPUCrossLoadingPowerLimit, preset.CPUCrossLoadingPowerLimit, preset.MaxValueOffset),
                 APUsPPTPowerLimit = CreateStepperValue(defaultState.APUsPPTPowerLimit, preset.APUsPPTPowerLimit, preset.MaxValueOffset),
+                CPUTemperatureLimit = CreateStepperValue(defaultState.CPUTemperatureLimit, preset.CPUTemperatureLimit, preset.MaxValueOffset),
                 GPUPowerBoost = CreateStepperValue(defaultState.GPUPowerBoost, preset.GPUPowerBoost, preset.MaxValueOffset),
                 GPUConfigurableTGP = CreateStepperValue(defaultState.GPUConfigurableTGP, preset.GPUConfigurableTGP, preset.MaxValueOffset),
                 GPUTemperatureLimit = CreateStepperValue(defaultState.GPUTemperatureLimit, preset.GPUTemperatureLimit, preset.MaxValueOffset),
