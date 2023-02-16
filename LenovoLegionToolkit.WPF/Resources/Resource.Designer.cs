@@ -1869,7 +1869,8 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activate Custom Mode preset..
+        ///   Looks up a localized string similar to Activate Custom Mode preset.
+        ///This settings takes effect only when Custom Mode is enabled..
         /// </summary>
         public static string GodModePresetAutomationStepControl_Message {
             get {
