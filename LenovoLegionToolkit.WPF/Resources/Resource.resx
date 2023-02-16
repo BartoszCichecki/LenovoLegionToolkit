@@ -1669,4 +1669,7 @@ This settings takes effect only when Custom Mode is enabled.</value>
   <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
     <value>When on, same brightness level will be applied to all Windows power plans whenever you change it.</value>
   </data>
+  <data name="Notification_UpdateAvailable" xml:space="preserve">
+	  <value>Update {0} available!</value>
+  </data>
 </root>

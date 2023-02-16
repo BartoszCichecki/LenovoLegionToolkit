@@ -61,11 +61,7 @@ public class ContextMenuHelper
         await RefreshAutomationMenuItemsAsync(pipelines);
 
         _automationProcessor.PipelinesChanged += async (_, e) => await RefreshAutomationMenuItemsAsync(e);
-        _themeManager.ThemeApplied += async (_, _) =>
-        {
-            var pipelines = await _automationProcessor.GetPipelinesAsync();
-            await RefreshAutomationMenuItemsAsync(pipelines);
-        };
+        _themeManager.ThemeApplied += async (_, _) => await RefreshAutomationMenuItemsAsync(await _automationProcessor.GetPipelinesAsync());
     }
 
     private async Task RefreshAutomationMenuItemsAsync(List<AutomationPipeline> pipelines)

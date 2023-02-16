@@ -42,13 +42,17 @@ public class NotificationWindow : UiWindow
         VerticalContentAlignment = VerticalAlignment.Center,
     };
 
-    public NotificationWindow(SymbolRegular symbol, SymbolRegular? overlaySymbol, Action<SymbolIcon>? symbolTransform, string text, NotificationPosition position)
+    public NotificationWindow(SymbolRegular symbol, SymbolRegular? overlaySymbol, Action<SymbolIcon>? symbolTransform, string text, Action? clickAction, NotificationPosition position)
     {
         InitializeStyle();
         InitializeContent(symbol, overlaySymbol, symbolTransform, text);
 
         SourceInitialized += (_, _) => InitializePosition(position);
-        MouseDown += (_, _) => Close();
+        MouseDown += (_, _) =>
+        {
+            Close();
+            clickAction?.Invoke();
+        };
     }
 
     public void Show(int closeAfter)

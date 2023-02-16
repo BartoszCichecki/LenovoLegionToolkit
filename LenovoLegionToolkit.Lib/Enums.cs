@@ -170,6 +170,7 @@ public enum NotificationType
     SpectrumBacklightPresetChanged,
     TouchpadOn,
     TouchpadOff,
+    UpdateAvailable,
     WhiteKeyboardBacklightChanged,
     WhiteKeyboardBacklightOff
 }

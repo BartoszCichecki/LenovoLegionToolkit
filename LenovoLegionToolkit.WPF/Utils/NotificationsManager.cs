@@ -6,7 +6,9 @@ using System.Windows.Threading;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
+using LenovoLegionToolkit.WPF.Windows;
 using LenovoLegionToolkit.WPF.Windows.Utils;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
@@ -82,6 +84,7 @@ public class NotificationsManager
             NotificationType.SpectrumBacklightPresetChanged => _settings.Store.Notifications.KeyboardBacklight,
             NotificationType.TouchpadOn => _settings.Store.Notifications.TouchpadLock,
             NotificationType.TouchpadOff => _settings.Store.Notifications.TouchpadLock,
+            NotificationType.UpdateAvailable => _settings.Store.Notifications.UpdateAvailable,
             NotificationType.WhiteKeyboardBacklightOff => _settings.Store.Notifications.KeyboardBacklight,
             NotificationType.WhiteKeyboardBacklightChanged => _settings.Store.Notifications.KeyboardBacklight,
             _ => throw new ArgumentException(nameof(notification.Type))
@@ -128,6 +131,7 @@ public class NotificationsManager
             NotificationType.SpectrumBacklightPresetChanged => SymbolRegular.Lightbulb24,
             NotificationType.TouchpadOn => SymbolRegular.Tablet24,
             NotificationType.TouchpadOff => SymbolRegular.Tablet24,
+            NotificationType.UpdateAvailable => SymbolRegular.ArrowSync24,
             NotificationType.WhiteKeyboardBacklightOff => SymbolRegular.Lightbulb24,
             NotificationType.WhiteKeyboardBacklightChanged => SymbolRegular.Lightbulb24,
             _ => throw new ArgumentException(nameof(notification.Type))
@@ -183,6 +187,7 @@ public class NotificationsManager
             NotificationType.SpectrumBacklightPresetChanged => string.Format(Resource.Notification_SpectrumKeyboardBacklight_Profile, notification.Args),
             NotificationType.TouchpadOn => Resource.Notification_TouchpadOn,
             NotificationType.TouchpadOff => Resource.Notification_TouchpadOff,
+            NotificationType.UpdateAvailable => string.Format(Resource.Notification_UpdateAvailable, notification.Args),
             NotificationType.WhiteKeyboardBacklightOff => string.Format(Resource.Notification_WhiteKeyboardBacklight, notification.Args),
             NotificationType.WhiteKeyboardBacklightChanged => string.Format(Resource.Notification_WhiteKeyboardBacklight, notification.Args),
             _ => throw new ArgumentException(nameof(notification.Type))
@@ -199,22 +204,27 @@ public class NotificationsManager
         var closeAfter = notification.Duration switch
         {
             NotificationDuration.Long => 5000,
-            _ => 1000,
+            _ => 1000
+        };
+
+        Action? clickAction = notification.Type switch
+        {
+            NotificationType.UpdateAvailable => UpdateAvailableAction,
+            _ => null
         };
 
         if (symbolTransform is null && overlaySymbol is not null)
             symbolTransform = si => si.SetResourceReference(Control.ForegroundProperty, "TextFillColorTertiaryBrush");
 
-        ShowNotification(symbol, overlaySymbol, symbolTransform, text, closeAfter);
+        ShowNotification(symbol, overlaySymbol, symbolTransform, text, closeAfter, clickAction);
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Notification {notification} shown.");
     });
 
-    private void ShowNotification(SymbolRegular symbol, SymbolRegular? overlaySymbol, Action<SymbolIcon>? symbolTransform, string text, int closeAfter)
+    private void ShowNotification(SymbolRegular symbol, SymbolRegular? overlaySymbol, Action<SymbolIcon>? symbolTransform, string text, int closeAfter, Action? clickAction)
     {
         var mainWindow = Application.Current.MainWindow;
-
         if (mainWindow is null)
             return;
 
@@ -224,8 +234,16 @@ public class NotificationsManager
             _window.Close();
         }
 
-        var nw = new NotificationWindow(symbol, overlaySymbol, symbolTransform, text, _settings.Store.NotificationPosition) { Owner = mainWindow };
+        var nw = new NotificationWindow(symbol, overlaySymbol, symbolTransform, text, clickAction, _settings.Store.NotificationPosition) { Owner = mainWindow };
         nw.Show(closeAfter);
         _window = nw;
+    }
+
+    private static void UpdateAvailableAction()
+    {
+        if (App.Current.MainWindow is not MainWindow mainWindow) return;
+
+        mainWindow.BringToForeground();
+        mainWindow.ShowUpdateWindow();
     }
 }

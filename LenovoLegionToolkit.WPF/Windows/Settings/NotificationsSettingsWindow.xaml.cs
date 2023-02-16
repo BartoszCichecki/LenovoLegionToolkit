@@ -15,6 +15,7 @@ public partial class NotificationsSettingsWindow
     private CardControl[] Cards => new[]
     {
         _notificationPositionCard,
+        _updateAvailableCard,
         _capsNumLockCard,
         _fnLockCard,
         _touchpadLockCard,
@@ -35,6 +36,7 @@ public partial class NotificationsSettingsWindow
 
         _notificationPositionComboBox.SetItems(Enum.GetValues<NotificationPosition>(), _settings.Store.NotificationPosition, v => v.GetDisplayName());
 
+        _updateAvailableToggle.IsChecked = _settings.Store.Notifications.UpdateAvailable;
         _capsNumLockToggle.IsChecked = _settings.Store.Notifications.CapsNumLock;
         _fnLockToggle.IsChecked = _settings.Store.Notifications.FnLock;
         _touchpadLockToggle.IsChecked = _settings.Store.Notifications.TouchpadLock;
@@ -175,6 +177,16 @@ public partial class NotificationsSettingsWindow
             return;
 
         _settings.Store.Notifications.SmartKey = state.Value;
+        _settings.SynchronizeStore();
+    }
+
+    private void UpdateAvailableToggle_Click(object sender, RoutedEventArgs e)
+    {
+        var state = _updateAvailableToggle.IsChecked;
+        if (state is null)
+            return;
+
+        _settings.Store.Notifications.UpdateAvailable = state.Value;
         _settings.SynchronizeStore();
     }
 }

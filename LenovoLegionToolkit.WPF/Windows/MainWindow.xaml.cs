@@ -145,11 +145,7 @@ public partial class MainWindow
         window.ShowDialog();
     }
 
-    private void UpdateIndicator_Click(object sender, RoutedEventArgs e)
-    {
-        var window = new UpdateWindow { Owner = this };
-        window.ShowDialog();
-    }
+    private void UpdateIndicator_Click(object sender, RoutedEventArgs e) => ShowUpdateWindow();
 
     private void LoadDeviceInfo()
     {
@@ -170,12 +166,16 @@ public partial class MainWindow
                 if (result is null)
                 {
                     _updateIndicator.Visibility = Visibility.Collapsed;
+                    return;
                 }
-                else
-                {
-                    _updateIndicatorText.Text = string.Format(Resource.MainWindow_UpdateAvailableWithVersion, result.ToString(3));
-                    _updateIndicator.Visibility = Visibility.Visible;
-                }
+
+                var versionNumber = result.ToString(3);
+
+                _updateIndicatorText.Text = string.Format(Resource.MainWindow_UpdateAvailableWithVersion, versionNumber);
+                _updateIndicator.Visibility = Visibility.Visible;
+
+                if (WindowState == WindowState.Minimized)
+                    MessagingCenter.Publish(new Notification(NotificationType.UpdateAvailable, NotificationDuration.Long, versionNumber));
             }, TaskScheduler.FromCurrentSynchronizationContext());
     }
 
@@ -207,5 +207,11 @@ public partial class MainWindow
     {
         Hide();
         ShowInTaskbar = false;
+    }
+
+    public void ShowUpdateWindow()
+    {
+        var window = new UpdateWindow { Owner = this };
+        window.ShowDialog();
     }
 }
