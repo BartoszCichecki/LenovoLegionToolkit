@@ -171,6 +171,26 @@
                         </StackPanel>
                     </wpfui:CardControl>
 
+                    <wpfui:CardControl x:Name="_cpuPeakPowerLimitCardControl" Margin="0,0,0,8">
+                        <wpfui:CardControl.Header>
+                            <controls:CardHeaderControl Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_PeakPL}" />
+                        </wpfui:CardControl.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Slider
+                                x:Name="_cpuPeakPowerLimitSlider"
+                                Width="200"
+                                IsSnapToTickEnabled="True"
+                                Value="-1" />
+                            <Label
+                                Width="50"
+                                Margin="8,0,0,0"
+                                HorizontalContentAlignment="Right"
+                                Content="{Binding ElementName=_cpuPeakPowerLimitSlider, Path=Value}"
+                                ContentStringFormat="{}{0} W"
+                                FlowDirection="LeftToRight" />
+                        </StackPanel>
+                    </wpfui:CardControl>
+
                     <wpfui:CardControl x:Name="_cpuTemperatureLimitCardControl" Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
                             <controls:CardHeaderControl Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_TempLimit}" />
@@ -187,6 +207,26 @@
                                 HorizontalContentAlignment="Right"
                                 Content="{Binding ElementName=_cpuTemperatureLimitSlider, Path=Value}"
                                 ContentStringFormat="{}{0} °C"
+                                FlowDirection="LeftToRight" />
+                        </StackPanel>
+                    </wpfui:CardControl>
+
+                    <wpfui:CardControl x:Name="_apuSPPTPowerLimitCardControl" Margin="0,0,0,8">
+                        <wpfui:CardControl.Header>
+                            <controls:CardHeaderControl Title="APU sPPT Power Limit" />
+                        </wpfui:CardControl.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Slider
+                                x:Name="_apuSPPTPowerLimitSlider"
+                                Width="200"
+                                IsSnapToTickEnabled="True"
+                                Value="-1" />
+                            <Label
+                                Width="50"
+                                Margin="8,0,0,0"
+                                HorizontalContentAlignment="Right"
+                                Content="{Binding ElementName=_apuSPPTPowerLimitSlider, Path=Value}"
+                                ContentStringFormat="{}{0} W"
                                 FlowDirection="LeftToRight" />
                         </StackPanel>
                     </wpfui:CardControl>

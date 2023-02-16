@@ -1670,6 +1670,9 @@ This settings takes effect only when Custom Mode is enabled.</value>
     <value>When on, same brightness level will be applied to all Windows power plans whenever you change it.</value>
   </data>
   <data name="Notification_UpdateAvailable" xml:space="preserve">
-	  <value>Update {0} available!</value>
+    <value>Update {0} available!</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL" xml:space="preserve">
+    <value>Peak Power Limit</value>
   </data>
 </root>

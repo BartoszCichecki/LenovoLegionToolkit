@@ -219,7 +219,9 @@ public readonly struct GodModePreset
     public StepperValue? CPULongTermPowerLimit { get; init; }
     public StepperValue? CPUShortTermPowerLimit { get; init; }
     public StepperValue? CPUCrossLoadingPowerLimit { get; init; }
+    public StepperValue? CPUPeakPowerLimit { get; init; }
     public StepperValue? CPUTemperatureLimit { get; init; }
+    public StepperValue? APUsPPTPowerLimit { get; init; }
     public StepperValue? GPUPowerBoost { get; init; }
     public StepperValue? GPUConfigurableTGP { get; init; }
     public StepperValue? GPUTemperatureLimit { get; init; }
@@ -232,7 +234,9 @@ public readonly struct GodModePreset
         $" {nameof(CPULongTermPowerLimit)}: {CPULongTermPowerLimit}," +
         $" {nameof(CPUShortTermPowerLimit)}: {CPUShortTermPowerLimit}," +
         $" {nameof(CPUCrossLoadingPowerLimit)}: {CPUCrossLoadingPowerLimit}," +
+        $" {nameof(CPUPeakPowerLimit)}: {CPUPeakPowerLimit}," +
         $" {nameof(CPUTemperatureLimit)}: {CPUTemperatureLimit}," +
+        $" {nameof(APUsPPTPowerLimit)}: {APUsPPTPowerLimit}," +
         $" {nameof(GPUPowerBoost)}: {GPUPowerBoost}," +
         $" {nameof(GPUConfigurableTGP)}: {GPUConfigurableTGP}," +
         $" {nameof(GPUTemperatureLimit)}: {GPUTemperatureLimit}," +

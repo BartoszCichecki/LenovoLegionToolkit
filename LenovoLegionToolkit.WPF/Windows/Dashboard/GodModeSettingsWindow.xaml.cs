@@ -85,7 +85,9 @@ public partial class GodModeSettingsWindow
             StepperValue? cpuLongTermPowerLimit = null;
             StepperValue? cpuShortTermPowerLimit = null;
             StepperValue? cpuCrossLoadingPowerLimit = null;
+            StepperValue? cpuPeakPowerLimit = null;
             StepperValue? cpuTemperatureLimit = null;
+            StepperValue? apuSPPTPowerLimitSlider = null;
             StepperValue? gpuPowerBoost = null;
             StepperValue? gpuConfigurableTgp = null;
             StepperValue? gpuTemperatureLimit = null;
@@ -99,8 +101,14 @@ public partial class GodModeSettingsWindow
             if (preset.CPUCrossLoadingPowerLimit.HasValue)
                 cpuCrossLoadingPowerLimit = preset.CPUCrossLoadingPowerLimit.Value.WithValue((int)_cpuCrossLoadingLimitSlider.Value);
 
+            if (preset.CPUPeakPowerLimit.HasValue)
+                cpuPeakPowerLimit = preset.CPUPeakPowerLimit.Value.WithValue((int)_cpuPeakPowerLimitSlider.Value);
+
             if (preset.CPUTemperatureLimit.HasValue)
                 cpuTemperatureLimit = preset.CPUTemperatureLimit.Value.WithValue((int)_cpuTemperatureLimitSlider.Value);
+
+            if (preset.APUsPPTPowerLimit.HasValue)
+                apuSPPTPowerLimitSlider = preset.APUsPPTPowerLimit.Value.WithValue((int)_apuSPPTPowerLimitSlider.Value);
 
             if (preset.GPUPowerBoost.HasValue)
                 gpuPowerBoost = preset.GPUPowerBoost.Value.WithValue((int)_gpuPowerBoostSlider.Value);
@@ -122,7 +130,9 @@ public partial class GodModeSettingsWindow
                 CPULongTermPowerLimit = cpuLongTermPowerLimit,
                 CPUShortTermPowerLimit = cpuShortTermPowerLimit,
                 CPUCrossLoadingPowerLimit = cpuCrossLoadingPowerLimit,
+                CPUPeakPowerLimit = cpuPeakPowerLimit,
                 CPUTemperatureLimit = cpuTemperatureLimit,
+                APUsPPTPowerLimit = apuSPPTPowerLimitSlider,
                 GPUPowerBoost = gpuPowerBoost,
                 GPUConfigurableTGP = gpuConfigurableTgp,
                 GPUTemperatureLimit = gpuTemperatureLimit,
@@ -173,16 +183,14 @@ public partial class GodModeSettingsWindow
 
         var maxValueOffset = preset.MaxValueOffset;
 
-        SetSliderValues(_cpuLongTermPowerLimitCardControl, _cpuLongTermPowerLimitSlider, preset.CPULongTermPowerLimit,
-            maxValueOffset);
-        SetSliderValues(_cpuShortTermPowerLimitCardControl, _cpuShortTermPowerLimitSlider, preset.CPUShortTermPowerLimit,
-            maxValueOffset);
-        SetSliderValues(_cpuCrossLoadingLimitCardControl, _cpuCrossLoadingLimitSlider, preset.CPUCrossLoadingPowerLimit,
-            maxValueOffset);
+        SetSliderValues(_cpuLongTermPowerLimitCardControl, _cpuLongTermPowerLimitSlider, preset.CPULongTermPowerLimit, maxValueOffset);
+        SetSliderValues(_cpuShortTermPowerLimitCardControl, _cpuShortTermPowerLimitSlider, preset.CPUShortTermPowerLimit, maxValueOffset);
+        SetSliderValues(_cpuCrossLoadingLimitCardControl, _cpuCrossLoadingLimitSlider, preset.CPUCrossLoadingPowerLimit, maxValueOffset);
+        SetSliderValues(_cpuPeakPowerLimitCardControl, _cpuPeakPowerLimitSlider, preset.CPUPeakPowerLimit, maxValueOffset);
         SetSliderValues(_cpuTemperatureLimitCardControl, _cpuTemperatureLimitSlider, preset.CPUTemperatureLimit);
+        SetSliderValues(_apuSPPTPowerLimitCardControl, _apuSPPTPowerLimitSlider, preset.APUsPPTPowerLimit);
         SetSliderValues(_gpuPowerBoostCardControl, _gpuPowerBoostSlider, preset.GPUPowerBoost, maxValueOffset);
-        SetSliderValues(_gpuConfigurableTGPCardControl, _gpuConfigurableTGPSlider, preset.GPUConfigurableTGP,
-            maxValueOffset);
+        SetSliderValues(_gpuConfigurableTGPCardControl, _gpuConfigurableTGPSlider, preset.GPUConfigurableTGP, maxValueOffset);
         SetSliderValues(_gpuTemperatureLimitCardControl, _gpuTemperatureLimitSlider, preset.GPUTemperatureLimit);
 
         var fanTableInfo = preset.FanTableInfo;

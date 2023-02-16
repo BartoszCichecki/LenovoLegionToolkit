@@ -1952,6 +1952,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Peak Power Limit.
+        /// </summary>
+        public static string GodModeSettingsWindow_CPU_PeakPL {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_CPU_PeakPL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Short Term Power Limit.
         /// </summary>
         public static string GodModeSettingsWindow_CPU_ShortTermPL {
