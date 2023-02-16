@@ -1934,6 +1934,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to APU sPPT Power Limit.
+        /// </summary>
+        public static string GodModeSettingsWindow_CPU_APUsPPT_PL {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_CPU_APUsPPT_PL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Long Term Power Limit (Cross Loading).
         /// </summary>
         public static string GodModeSettingsWindow_CPU_CrossLoading {

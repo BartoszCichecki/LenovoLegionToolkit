@@ -213,7 +213,7 @@
 
                     <wpfui:CardControl x:Name="_apuSPPTPowerLimitCardControl" Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
-                            <controls:CardHeaderControl Title="APU sPPT Power Limit" />
+                            <controls:CardHeaderControl Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_APUsPPT_PL}" />
                         </wpfui:CardControl.Header>
                         <StackPanel Orientation="Horizontal">
                             <Slider

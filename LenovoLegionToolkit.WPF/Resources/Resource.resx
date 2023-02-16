@@ -1675,4 +1675,7 @@ This settings takes effect only when Custom Mode is enabled.</value>
   <data name="GodModeSettingsWindow_CPU_PeakPL" xml:space="preserve">
     <value>Peak Power Limit</value>
   </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
+	  <value>APU sPPT Power Limit</value>
+  </data>
 </root>
