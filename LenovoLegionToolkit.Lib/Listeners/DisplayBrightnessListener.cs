@@ -38,12 +38,29 @@ public class DisplayBrightnessListener : AbstractWMIListener<Brightness>
 
     private static async Task SetBrightnessForAllPowerPlansAsync(Brightness brightness)
     {
-        var powerPlans = await Power.GetPowerPlansAsync().ConfigureAwait(false);
-
-        foreach (var powerPlan in powerPlans)
+        try
         {
-            await SetBrightnessForPowerPlansAsync(powerPlan, brightness, true).ConfigureAwait(false);
-            await SetBrightnessForPowerPlansAsync(powerPlan, brightness, false).ConfigureAwait(false);
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Setting brightness to {brightness.Value}...");
+
+            var powerPlans = await Power.GetPowerPlansAsync().ConfigureAwait(false);
+
+            foreach (var powerPlan in powerPlans)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Modifying power plan {powerPlan.Name}... [powerPlan.Guid={powerPlan.Guid}, brightness={brightness.Value}]");
+
+                await SetBrightnessForPowerPlansAsync(powerPlan, brightness, true).ConfigureAwait(false);
+                await SetBrightnessForPowerPlansAsync(powerPlan, brightness, false).ConfigureAwait(false);
+            }
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Brightness set to {brightness.Value}.");
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Failed to set brightness to {brightness.Value}.", ex);
         }
     }
 
