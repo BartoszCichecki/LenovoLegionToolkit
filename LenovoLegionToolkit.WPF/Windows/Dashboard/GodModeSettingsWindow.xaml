@@ -114,7 +114,7 @@
                         x:Name="_cpuLongTermPowerLimitControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_LongTermPL}"
                         Margin="0,0,0,8"
-                        Description="The continuous power consumption that can be reached by the CPU."
+                        Description="{x:Static resources:Resource.GodModeSettingsWindow_CPU_LongTermPL_Description}"
                         Unit="W"
                         ValueChanged="CpuLongTermPowerLimitSlider_ValueChanged" />
 
@@ -122,7 +122,7 @@
                         x:Name="_cpuShortTermPowerLimitControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_ShortTermPL}"
                         Margin="0,0,0,8"
-                        Description="The peak power consumption that can be reached by the CPU within a short amount time."
+                        Description="{x:Static resources:Resource.GodModeSettingsWindow_CPU_ShortTermPL_Description}"
                         Unit="W"
                         ValueChanged="CpuShortTermPowerLimitSlider_ValueChanged" />
 
@@ -130,28 +130,28 @@
                         x:Name="_cpuPeakPowerLimitControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_PeakPL}"
                         Margin="0,0,0,8"
-                        Description="The maximum instantaneous power consumption that can be reached by tje CPU."
+                        Description="{x:Static resources:Resource.GodModeSettingsWindow_CPU_PeakPL_Description}"
                         Unit="W" />
 
                     <godMode:GodModeSliderControl
                         x:Name="_cpuCrossLoadingLimitControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_CrossLoading}"
                         Margin="0,0,0,8"
-                        Description="The maximum power consumption that can be reached by the CPU when both CPU and GPU are fully utilized."
+                        Description="{x:Static resources:Resource.GodModeSettingsWindow_CPU_CrossLoading_Description}"
                         Unit="W" />
 
                     <godMode:GodModeSliderControl
                         x:Name="_apuSPPTPowerLimitControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_APUsPPT_PL}"
                         Margin="0,0,0,8"
-                        Description="The peak power consumption that can be reached by the CPU with a minor delay."
+                        Description="{x:Static resources:Resource.GodModeSettingsWindow_CPU_APUsPPT_PL_Description}"
                         Unit="W" />
 
                     <godMode:GodModeSliderControl
                         x:Name="_cpuTemperatureLimitControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_TempLimit}"
                         Margin="0,0,0,8"
-                        Description="The maximum temperature that can be reached by the CPU before frequency and power is reduced."
+                        Description="{x:Static resources:Resource.GodModeSettingsWindow_CPU_TempLimit_Description}"
                         Unit="°C" />
 
                     <TextBlock
@@ -164,21 +164,21 @@
                         x:Name="_gpuPowerBoostControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_GPU_DynamicBoost}"
                         Margin="0,0,0,8"
-                        Description="The additional maximum power that can be allocated to the GPU based on the power consumption of the CPU."
+                        Description="{x:Static resources:Resource.GodModeSettingsWindow_GPU_DynamicBoost_Description}"
                         Unit="W" />
 
                     <godMode:GodModeSliderControl
                         x:Name="_gpuConfigurableTGPControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_GPU_CTGP}"
                         Margin="0,0,0,8"
-                        Description="The additional amount of power that can be allocated to the GPU, on top of base power consumption"
+                        Description="{x:Static resources:Resource.GodModeSettingsWindow_GPU_CTGP_Description}"
                         Unit="W" />
 
                     <godMode:GodModeSliderControl
                         x:Name="_gpuTemperatureLimitControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_GPU_TempLimit}"
                         Margin="0,0,0,8"
-                        Description="The maximum temperature that can be reached by the GPU before frequency and power is reduced."
+                        Description="{x:Static resources:Resource.GodModeSettingsWindow_GPU_TempLimit_Description}"
                         Unit="°C" />
 
                     <TextBlock

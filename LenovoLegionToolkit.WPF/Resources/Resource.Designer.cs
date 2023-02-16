@@ -1943,11 +1943,29 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The peak power consumption that can be reached by the CPU with a minor delay..
+        /// </summary>
+        public static string GodModeSettingsWindow_CPU_APUsPPT_PL_Description {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_CPU_APUsPPT_PL_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Long Term Power Limit (Cross Loading).
         /// </summary>
         public static string GodModeSettingsWindow_CPU_CrossLoading {
             get {
                 return ResourceManager.GetString("GodModeSettingsWindow_CPU_CrossLoading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The maximum power consumption that can be reached by the CPU when both CPU and GPU are fully utilized..
+        /// </summary>
+        public static string GodModeSettingsWindow_CPU_CrossLoading_Description {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_CPU_CrossLoading_Description", resourceCulture);
             }
         }
         
@@ -1961,11 +1979,29 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The continuous power consumption that can be reached by the CPU..
+        /// </summary>
+        public static string GodModeSettingsWindow_CPU_LongTermPL_Description {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_CPU_LongTermPL_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Peak Power Limit.
         /// </summary>
         public static string GodModeSettingsWindow_CPU_PeakPL {
             get {
                 return ResourceManager.GetString("GodModeSettingsWindow_CPU_PeakPL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The maximum instantaneous power consumption that can be reached by the CPU..
+        /// </summary>
+        public static string GodModeSettingsWindow_CPU_PeakPL_Description {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_CPU_PeakPL_Description", resourceCulture);
             }
         }
         
@@ -1979,11 +2015,29 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The peak power consumption that can be reached by the CPU within a short amount time..
+        /// </summary>
+        public static string GodModeSettingsWindow_CPU_ShortTermPL_Description {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_CPU_ShortTermPL_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CPU Temperature Limit.
         /// </summary>
         public static string GodModeSettingsWindow_CPU_TempLimit {
             get {
                 return ResourceManager.GetString("GodModeSettingsWindow_CPU_TempLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The maximum temperature that can be reached by the CPU before frequency and power is reduced..
+        /// </summary>
+        public static string GodModeSettingsWindow_CPU_TempLimit_Description {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_CPU_TempLimit_Description", resourceCulture);
             }
         }
         
@@ -2089,6 +2143,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The additional amount of power that can be allocated to the GPU on top of base power consumption.
+        /// </summary>
+        public static string GodModeSettingsWindow_GPU_CTGP_Description {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_GPU_CTGP_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dynamic Boost.
         /// </summary>
         public static string GodModeSettingsWindow_GPU_DynamicBoost {
@@ -2098,11 +2161,29 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The additional maximum power that can be allocated to the GPU based on the power consumption of the CPU..
+        /// </summary>
+        public static string GodModeSettingsWindow_GPU_DynamicBoost_Description {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_GPU_DynamicBoost_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to GPU Temperature Limit.
         /// </summary>
         public static string GodModeSettingsWindow_GPU_TempLimit {
             get {
                 return ResourceManager.GetString("GodModeSettingsWindow_GPU_TempLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The maximum temperature that can be reached by the GPU before frequency and power is reduced..
+        /// </summary>
+        public static string GodModeSettingsWindow_GPU_TempLimit_Description {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_GPU_TempLimit_Description", resourceCulture);
             }
         }
         

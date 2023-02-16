@@ -1676,6 +1676,33 @@ This settings takes effect only when Custom Mode is enabled.</value>
     <value>Peak Power Limit</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
-	  <value>APU sPPT Power Limit</value>
+    <value>APU sPPT Power Limit</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL_Description" xml:space="preserve">
+    <value>The continuous power consumption that can be reached by the CPU.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL_Description" xml:space="preserve">
+    <value>The peak power consumption that can be reached by the CPU within a short amount time.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL_Description" xml:space="preserve">
+    <value>The maximum instantaneous power consumption that can be reached by the CPU.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_CrossLoading_Description" xml:space="preserve">
+    <value>The maximum power consumption that can be reached by the CPU when both CPU and GPU are fully utilized.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL_Description" xml:space="preserve">
+    <value>The peak power consumption that can be reached by the CPU with a minor delay.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
+    <value>The maximum temperature that can be reached by the CPU before frequency and power is reduced.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
+    <value>The additional maximum power that can be allocated to the GPU based on the power consumption of the CPU.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
+    <value>The additional amount of power that can be allocated to the GPU on top of base power consumption</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
+    <value>The maximum temperature that can be reached by the GPU before frequency and power is reduced.</value>
   </data>
 </root>
