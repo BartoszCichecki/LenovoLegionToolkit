@@ -1700,7 +1700,7 @@ This settings takes effect only when Custom Mode is enabled.</value>
     <value>The additional maximum power that can be allocated to the GPU based on the power consumption of the CPU.</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
-    <value>The additional amount of power that can be allocated to the GPU on top of base power consumption</value>
+    <value>The additional amount of power that can be allocated to the GPU on top of base power consumption.</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
     <value>The maximum temperature that can be reached by the GPU before frequency and power is reduced.</value>

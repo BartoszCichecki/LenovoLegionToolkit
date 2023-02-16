@@ -2143,7 +2143,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The additional amount of power that can be allocated to the GPU on top of base power consumption.
+        ///   Looks up a localized string similar to The additional amount of power that can be allocated to the GPU on top of base power consumption..
         /// </summary>
         public static string GodModeSettingsWindow_GPU_CTGP_Description {
             get {
