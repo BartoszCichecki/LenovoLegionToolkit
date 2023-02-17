@@ -1636,4 +1636,8 @@ En déplaçant la souris ou en appuyant sur le clavier, les écrans se réveille
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>Redémarrage recommandé</value>
   </data>
+  <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
+    <value>Active le préréglage du mode personnalisé.
+Ce paramètre ne prend effet que lorsque le mode personnalisé est activé.</value>
+  </data>
 </root>
