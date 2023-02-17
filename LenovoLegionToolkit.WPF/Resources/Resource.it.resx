@@ -1630,4 +1630,10 @@ Spostare il mouse o premere il tasto sulla tastiera per risvegliarli.</value>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>Riavvio consigliato</value>
   </data>
+  <data name="SaveAndClose" xml:space="preserve">
+    <value>Salva &amp; chiudi</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
+    <value>Quando attivo, lo stesso livello di luminosità verrà applicato a tutti i profili energia.</value>
+  </data>
 </root>

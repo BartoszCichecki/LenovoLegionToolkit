@@ -1635,4 +1635,10 @@
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>Рекомендуется перезапуск системы</value>
   </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
+    <value>Яркость одного дисплея</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
+    <value>При включении этого параметра один и тот же уровень яркости будет применяться ко всем планам питания Windows при каждом его изменении.</value>
+  </data>
 </root>

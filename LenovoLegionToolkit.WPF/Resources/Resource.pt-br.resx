@@ -1635,4 +1635,41 @@ Mover o mouse ou pressionar o teclado reativará as telas.</value>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>Reinicialização recomendada </value>
   </data>
+  <data name="SaveAndClose" xml:space="preserve">
+    <value>Salvar e Fechar</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
+    <value>Predefinição do modo personalizado</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
+    <value>Ativar predefinição Modo Personalizado.
+Esta configuração somente terá efeito se o Modo Personalizado estiver ativo.</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
+    <value>Nome da predefinição</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Message" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="GodModeSettingsWindow_ActivePreset_Title" xml:space="preserve">
+    <value>Ativar Predefinição</value>
+  </data>
+  <data name="AboutPage_ApplicationFolders" xml:space="preserve">
+    <value>Pasta de aplicativos</value>
+  </data>
+  <data name="AboutPage_Data" xml:space="preserve">
+    <value>Dados</value>
+  </data>
+  <data name="AboutPage_Temp" xml:space="preserve">
+    <value>Temperatura</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
+    <value>Brilho único de tela</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
+    <value>Quando ativo, o mesmo nível de brilho da tela será aplicado a todos os planos de energia do Windows.</value>
+  </data>
+  <data name="Notification_UpdateAvailable" xml:space="preserve">
+    <value>Atualização {0} disponível!</value>
+  </data>
 </root>
