@@ -1634,4 +1634,34 @@ Pohyb kurzoru alebo stlačenie klávesnice zobudí displeje.</value>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>Odporúča sa reštart</value>
   </data>
+  <data name="SaveAndClose" xml:space="preserve">
+    <value>Uložiť a Zatvoriť</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
+    <value>Predvoľba vlastného režimu</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
+    <value>Názov predvoľby</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Message" xml:space="preserve">
+    <value>Názov</value>
+  </data>
+  <data name="GodModeSettingsWindow_ActivePreset_Title" xml:space="preserve">
+    <value>Aktívna predvoľba</value>
+  </data>
+  <data name="AboutPage_ApplicationFolders" xml:space="preserve">
+    <value>Priečinky aplikácie</value>
+  </data>
+  <data name="AboutPage_Data" xml:space="preserve">
+    <value>Údaje</value>
+  </data>
+  <data name="AboutPage_Temp" xml:space="preserve">
+    <value>Teplota</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
+    <value>Jas jediného displeja</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
+    <value>Keď zapnuté, rovnaká úroveň jasu bude použitá na všetky plány napájania Windows hocikedy ich zmeníte.</value>
+  </data>
 </root>
