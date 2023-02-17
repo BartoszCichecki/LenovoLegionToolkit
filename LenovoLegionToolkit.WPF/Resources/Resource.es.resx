@@ -1633,4 +1633,74 @@ Al mover el ratón o pulsar el teclado se activarán las pantallas.</value>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>Se recomienda un reinicio</value>
   </data>
+  <data name="SaveAndClose" xml:space="preserve">
+    <value>Guardar y cerrar</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
+    <value>Preajuste de modo personalizado</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
+    <value>Activa el preajuste del modo personalizado.
+Esta configuración sólo tiene efecto si el modo personalizado está activado.</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
+    <value>Nombre del preajuste</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Message" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="GodModeSettingsWindow_ActivePreset_Title" xml:space="preserve">
+    <value>Preajuste activo</value>
+  </data>
+  <data name="AboutPage_ApplicationFolders" xml:space="preserve">
+    <value>Carpetas de aplicaciones</value>
+  </data>
+  <data name="AboutPage_Data" xml:space="preserve">
+    <value>Datos</value>
+  </data>
+  <data name="AboutPage_Temp" xml:space="preserve">
+    <value>Temperatura</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
+    <value>Brillo de la pantalla única</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
+    <value>Si está activado, se aplicará el mismo nivel de brillo a todos los planes de energía de Windows cada vez que lo cambie.</value>
+  </data>
+  <data name="Notification_UpdateAvailable" xml:space="preserve">
+    <value>¡Actualización {0} disponible!</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL" xml:space="preserve">
+    <value>Límite de potencia máxima</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
+    <value>Límite de potencia APU sPPT</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL_Description" xml:space="preserve">
+    <value>El consumo continuo de energía que puede alcanzar la tarjeta gráfica.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL_Description" xml:space="preserve">
+    <value>El consumo máximo de energía que puede alcanzar la tarjeta gráfica en un breve espacio de tiempo.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL_Description" xml:space="preserve">
+    <value>El consumo máximo instantáneo que puede alcanzar la tarjeta gráfica.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_CrossLoading_Description" xml:space="preserve">
+    <value>El consumo máximo de energía que puede alcanzar la unidad central de procesamiento (CPU), si ésta y la tarjeta gráfica (GPU) se utilizan al máximo.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL_Description" xml:space="preserve">
+    <value>El consumo máximo de energía que puede alcanzar la unidad central de procesamiento con un retardo menor.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
+    <value>La temperatura máxima que puede alcanzar la unidad central de procesamiento antes de que se reduzca la frecuencia y la potencia.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
+    <value>La potencia máxima adicional que puede asignarse a la tarjeta gráfica, en función del consumo de energía de la unidad central de procesamiento.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
+    <value>La cantidad adicional de energía que puede asignarse a la tarjeta gráfica (GPU) además del consumo básico.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
+    <value>La temperatura máxima que puede alcanzar la tarjeta gráfica antes de que se reduzca la frecuencia y la potencia.</value>
+  </data>
 </root>
