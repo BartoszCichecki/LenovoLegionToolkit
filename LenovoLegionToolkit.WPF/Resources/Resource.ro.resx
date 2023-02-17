@@ -1635,4 +1635,74 @@ Mișcarea mouse-ului sau apăsarea tastaturii va reporni afișajele.</value>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>Repornire recomandată</value>
   </data>
+  <data name="SaveAndClose" xml:space="preserve">
+    <value>Salvare &amp; închidere</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
+    <value>Profil Mod Personalizat</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
+    <value>Activați profil Mod Personalizat.
+Aceste setări au efect doar atunci când modul Personalizat este activat.</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
+    <value>Nume profil</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Message" xml:space="preserve">
+    <value>Nume</value>
+  </data>
+  <data name="GodModeSettingsWindow_ActivePreset_Title" xml:space="preserve">
+    <value>Profil activ</value>
+  </data>
+  <data name="AboutPage_ApplicationFolders" xml:space="preserve">
+    <value>Folderele aplicației</value>
+  </data>
+  <data name="AboutPage_Data" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="AboutPage_Temp" xml:space="preserve">
+    <value>Temporar</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
+    <value>Luminozitate universală afișaj</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
+    <value>Când este activată, același nivel de luminozitate va fi aplicat tuturor planurilor de alimentare Windows ori de câte ori îl schimbați.</value>
+  </data>
+  <data name="Notification_UpdateAvailable" xml:space="preserve">
+    <value>Actualizarea {0} disponibilă!</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL" xml:space="preserve">
+    <value>Limită putere de vârf</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
+    <value>Limită putere APU sPPT</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL_Description" xml:space="preserve">
+    <value>Consumul de energie continuu care poate fi atins de CPU.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL_Description" xml:space="preserve">
+    <value>Consumul maxim de energie care poate fi atins de CPU într-un timp scurt.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL_Description" xml:space="preserve">
+    <value>Consumul maxim instantaneu de energie care poate fi atins de CPU.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_CrossLoading_Description" xml:space="preserve">
+    <value>Consumul maxim de energie care poate fi atins de CPU atunci când CPU și GPU sunt utilizate simultan la maxim.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL_Description" xml:space="preserve">
+    <value>Consumul maxim de energie care poate fi atins de procesor cu o întârziere minoră.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
+    <value>Temperatura maximă care poate fi atinsă de CPU înainte ca frecvența și puterea să fie reduse.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
+    <value>Puterea maximă suplimentară care poate fi alocată GPU-ului în funcție de consumul de energie al CPU-ului.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
+    <value>Cantitatea suplimentară de putere care poate fi alocată GPU-ului pe lângă consumul de energie de bază.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
+    <value>Temperatura maximă care poate fi atinsă de GPU înainte ca frecvența și puterea să fie reduse.</value>
+  </data>
 </root>
