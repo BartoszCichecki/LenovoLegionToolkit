@@ -763,6 +763,9 @@ Cidden, bu seçeneğe dikkat edin!</value>
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
     <value>Klavye</value>
   </data>
+  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
+    <value>İndirilenler</value>
+  </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Ayarlar</value>
   </data>
