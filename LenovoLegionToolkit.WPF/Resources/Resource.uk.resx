@@ -1632,4 +1632,37 @@
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>Рекомендується перезавантаження</value>
   </data>
+  <data name="SaveAndClose" xml:space="preserve">
+    <value>Зберегти та закрити</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
+    <value>Пресет користувальницького режиму</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
+    <value>Назва пресету</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Message" xml:space="preserve">
+    <value>Назва</value>
+  </data>
+  <data name="GodModeSettingsWindow_ActivePreset_Title" xml:space="preserve">
+    <value>Активувати пресет</value>
+  </data>
+  <data name="AboutPage_ApplicationFolders" xml:space="preserve">
+    <value>Теки застосунку</value>
+  </data>
+  <data name="AboutPage_Data" xml:space="preserve">
+    <value>Дані</value>
+  </data>
+  <data name="AboutPage_Temp" xml:space="preserve">
+    <value>Тимчасові файли</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
+    <value>Спільна яскравість дисплеїв</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
+    <value>Коли увімкнено, однаковий рівень яскравості буде застосований для всіх планів потужності Windows, поки ви не зміните його.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
+    <value>Додаткова кількість потужності може бути виділена для ГП на додачу до базового енергоспоживання.</value>
+  </data>
 </root>
