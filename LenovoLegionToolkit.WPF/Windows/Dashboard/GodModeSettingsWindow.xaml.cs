@@ -151,6 +151,26 @@ public partial class GodModeSettingsWindow
         SetSliderValues(_gpuConfigurableTGPControl, preset.GPUConfigurableTGP, maxValueOffset);
         SetSliderValues(_gpuTemperatureLimitControl, preset.GPUTemperatureLimit);
 
+        var cpuSectionVisible = new[]
+        {
+            _cpuLongTermPowerLimitControl,
+            _cpuShortTermPowerLimitControl,
+            _cpuPeakPowerLimitControl,
+            _cpuCrossLoadingLimitControl,
+            _apuSPPTPowerLimitControl,
+            _cpuTemperatureLimitControl
+        }.Any(v => v.Visibility == Visibility.Visible);
+
+        var gpuSectionVisible = new[]
+        {
+            _gpuPowerBoostControl,
+            _gpuConfigurableTGPControl,
+            _gpuTemperatureLimitControl
+        }.Any(v => v.Visibility == Visibility.Visible);
+
+        _cpuSectionTitle.Visibility = cpuSectionVisible ? Visibility.Visible : Visibility.Collapsed;
+        _gpuSectionTitle.Visibility = gpuSectionVisible ? Visibility.Visible : Visibility.Collapsed;
+
         var fanTableInfo = preset.FanTableInfo;
         if (fanTableInfo.HasValue)
             _fanCurveControl.SetFanTableInfo(fanTableInfo.Value);
@@ -270,6 +290,8 @@ public partial class GodModeSettingsWindow
 
         if (stepperValue.Value.Min == stepperValue.Value.Max + maxValueOffset)
             control.IsSliderEnabled = false;
+
+        control.Visibility = Visibility.Visible;
     }
 
     private async void ResetFanCurve_Click(object sender, RoutedEventArgs e)

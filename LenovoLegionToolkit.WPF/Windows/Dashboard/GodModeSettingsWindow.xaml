@@ -105,6 +105,7 @@
                     </Grid>
 
                     <TextBlock
+                        x:Name="_cpuSectionTitle"
                         Margin="0,16,0,24"
                         FontSize="24"
                         FontWeight="Medium"
@@ -155,6 +156,7 @@
                         Unit="°C" />
 
                     <TextBlock
+                        x:Name="_gpuSectionTitle"
                         Margin="0,16,0,24"
                         FontSize="24"
                         FontWeight="Medium"
