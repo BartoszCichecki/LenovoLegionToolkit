@@ -138,7 +138,7 @@
                                     <TextBlock Text="{x:Static resources:Resource.PackagesPage_PrimarySource}" />
                                     <TextBlock
                                         FontSize="12"
-                                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                         Text="{x:Static resources:Resource.PackagesPage_PrimarySource_Message}" />
                                 </StackPanel>
                             </RadioButton>
@@ -147,7 +147,7 @@
                                     <TextBlock Text="{x:Static resources:Resource.PackagesPage_SecondarySource}" />
                                     <TextBlock
                                         FontSize="12"
-                                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                         Text="{x:Static resources:Resource.PackagesPage_SecondarySource_Message}" />
                                 </StackPanel>
                             </RadioButton>

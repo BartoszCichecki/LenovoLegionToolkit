@@ -214,7 +214,7 @@ public class NotificationsManager
         };
 
         if (symbolTransform is null && overlaySymbol is not null)
-            symbolTransform = si => si.SetResourceReference(Control.ForegroundProperty, "TextFillColorTertiaryBrush");
+            symbolTransform = si => si.SetResourceReference(Control.ForegroundProperty, "TextFillColorSecondaryBrush");
 
         ShowNotification(symbol, overlaySymbol, symbolTransform, text, closeAfter, clickAction);
 

@@ -30,7 +30,8 @@
                 VerticalContentAlignment="Center"
                 Content="{Binding ElementName=_slider, Path=Value}"
                 ContentStringFormat="{}{0} W"
-                FlowDirection="LeftToRight" />
+                FlowDirection="LeftToRight"
+                Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
         </StackPanel>
     </wpfui:CardControl>
 </UserControl>

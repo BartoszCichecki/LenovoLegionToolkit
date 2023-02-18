@@ -37,7 +37,8 @@
                     x:Name="_status"
                     Margin="0,0,0,2"
                     FontSize="16"
-                    Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    FontWeight="Medium"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
                 <TextBlock
                     x:Name="_lowWattageCharger"
                     FontSize="14"

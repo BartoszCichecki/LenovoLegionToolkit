@@ -27,7 +27,7 @@
                 <TextBlock
                     x:Name="_noKeyboardsText"
                     FontSize="14"
-                    Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                     Text="{x:Static resources:Resource.KeyboardBacklightPage_NoCompatibleKeyboardsFound}" />
 
                 <spectrum:SpectrumKeyboardBacklightControl x:Name="_spectrumKeyboardBacklightControl" Margin="0,0,8,0" />
