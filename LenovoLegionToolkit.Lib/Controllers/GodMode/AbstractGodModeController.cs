@@ -97,9 +97,9 @@ public abstract class AbstractGodModeController
         };
     }
 
-    protected static StepperValue? CreateStepperValue(StepperValue? state, StepperValue? store = null, int maxValueOffset = 0)
+    protected static StepperValue? CreateStepperValue(StepperValue? state, StepperValue? store = null, int? maxValueOffset = 0)
     {
-        if (!state.HasValue || state.Value.Min == state.Value.Max + maxValueOffset)
+        if (!state.HasValue || state.Value.Min == state.Value.Max + (maxValueOffset ?? 0))
             return null;
 
         return new StepperValue(store?.Value ?? state.Value.Value, state.Value.Min, state.Value.Max, state.Value.Step, Array.Empty<int>());

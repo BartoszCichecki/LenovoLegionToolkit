@@ -184,6 +184,7 @@
                         Unit="°C" />
 
                     <TextBlock
+                        x:Name="_fanSectionTitle"
                         Margin="0,16,0,24"
                         FontSize="24"
                         FontWeight="Medium"
@@ -204,7 +205,7 @@
                         </wpfui:CardControl.Header>
                     </wpfui:CardControl>
 
-                    <wpfui:CardControl Margin="0,0,0,8">
+                    <wpfui:CardControl x:Name="_fanFullSpeedCardControl" Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
                             <controls:CardHeaderControl Title="{x:Static resources:Resource.GodModeSettingsWindow_Fans_Max_Title}" Subtitle="{x:Static resources:Resource.GodModeSettingsWindow_Fans_Max_Message}" />
                         </wpfui:CardControl.Header>
@@ -215,17 +216,19 @@
                     </wpfui:CardControl>
 
                     <TextBlock
+                        x:Name="_advancedSectionTitle"
                         Margin="0,16,0,8"
                         FontSize="24"
                         FontWeight="Medium"
                         Text="{x:Static resources:Resource.GodModeSettingsWindow_Advanced_Title}" />
 
                     <TextBlock
+                        x:Name="_advancedSectionMessage"
                         Margin="0,0,0,24"
                         FontSize="12"
                         Text="{x:Static resources:Resource.GodModeSettingsWindow_Advanced_Message}" />
 
-                    <wpfui:CardControl Margin="0,0,0,8">
+                    <wpfui:CardControl x:Name="_maxValueOffsetCardControl" Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
                             <controls:CardHeaderControl Title="{x:Static resources:Resource.GodModeSettingsWindow_Advanced_MaxOffset_Title}" Subtitle="{x:Static resources:Resource.GodModeSettingsWindow_Advanced_MaxOffset_Message}" />
                         </wpfui:CardControl.Header>

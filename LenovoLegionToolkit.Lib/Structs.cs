@@ -228,8 +228,8 @@ public readonly struct GodModePreset
     public StepperValue? GPUTemperatureLimit { get; init; }
     public StepperValue? GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline { get; init; }
     public FanTableInfo? FanTableInfo { get; init; }
-    public bool FanFullSpeed { get; init; }
-    public int MaxValueOffset { get; init; }
+    public bool? FanFullSpeed { get; init; }
+    public int? MaxValueOffset { get; init; }
 
     public override string ToString() =>
         $"{nameof(Name)}: {Name}," +

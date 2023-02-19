@@ -151,6 +151,29 @@ public partial class GodModeSettingsWindow
         SetSliderValues(_gpuConfigurableTGPControl, preset.GPUConfigurableTGP, maxValueOffset);
         SetSliderValues(_gpuTemperatureLimitControl, preset.GPUTemperatureLimit);
 
+        var fanTableInfo = preset.FanTableInfo;
+        if (fanTableInfo.HasValue)
+            _fanCurveControl.SetFanTableInfo(fanTableInfo.Value);
+        else
+            _fanCurveCardControl.Visibility = Visibility.Collapsed;
+
+        var fanFullSpeed = preset.FanFullSpeed;
+        if (fanFullSpeed.HasValue)
+        {
+            _fanCurveCardControl.IsEnabled = !fanFullSpeed.Value;
+            _fanFullSpeedToggle.IsChecked = fanFullSpeed.Value;
+        }
+        else
+        {
+            _fanCurveCardControl.IsEnabled = true;
+            _fanFullSpeedCardControl.Visibility = Visibility.Collapsed;
+        }
+
+        if (maxValueOffset.HasValue)
+            _maxValueOffsetNumberBox.Text = $"{maxValueOffset}";
+        else
+            _maxValueOffsetCardControl.Visibility = Visibility.Collapsed;
+
         var cpuSectionVisible = new[]
         {
             _cpuLongTermPowerLimitControl,
@@ -168,19 +191,19 @@ public partial class GodModeSettingsWindow
             _gpuTemperatureLimitControl
         }.Any(v => v.Visibility == Visibility.Visible);
 
+        var fanSectionVisible = new[]
+        {
+            _fanCurveCardControl,
+            _fanFullSpeedCardControl,
+        }.Any(v => v.Visibility == Visibility.Visible);
+
+        var advancedSectionVisible = _maxValueOffsetCardControl.Visibility == Visibility.Visible;
+
         _cpuSectionTitle.Visibility = cpuSectionVisible ? Visibility.Visible : Visibility.Collapsed;
         _gpuSectionTitle.Visibility = gpuSectionVisible ? Visibility.Visible : Visibility.Collapsed;
-
-        var fanTableInfo = preset.FanTableInfo;
-        if (fanTableInfo.HasValue)
-            _fanCurveControl.SetFanTableInfo(fanTableInfo.Value);
-        else
-            _fanCurveCardControl.Visibility = Visibility.Collapsed;
-
-        _fanCurveCardControl.IsEnabled = !preset.FanFullSpeed;
-        _fanFullSpeedToggle.IsChecked = preset.FanFullSpeed;
-
-        _maxValueOffsetNumberBox.Text = $"{maxValueOffset}";
+        _fanSectionTitle.Visibility = fanSectionVisible ? Visibility.Visible : Visibility.Collapsed;
+        _advancedSectionTitle.Visibility = advancedSectionVisible ? Visibility.Visible : Visibility.Collapsed;
+        _advancedSectionMessage.Visibility = advancedSectionVisible ? Visibility.Visible : Visibility.Collapsed;
     }
 
     private void PresetsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -275,7 +298,7 @@ public partial class GodModeSettingsWindow
         SetState(_state.Value);
     }
 
-    private void SetSliderValues(GodModeSliderControl control, StepperValue? stepperValue, int maxValueOffset = 0)
+    private void SetSliderValues(GodModeSliderControl control, StepperValue? stepperValue, int? maxValueOffset = 0)
     {
         if (!stepperValue.HasValue)
         {
@@ -284,7 +307,7 @@ public partial class GodModeSettingsWindow
         }
 
         control.Minimum = stepperValue.Value.Min;
-        control.Maximum = stepperValue.Value.Max + maxValueOffset;
+        control.Maximum = stepperValue.Value.Max + (maxValueOffset ?? 0);
         control.TickFrequency = stepperValue.Value.Step;
         control.Value = stepperValue.Value.Value;
 

@@ -25,7 +25,7 @@ public class GodModeSettings : AbstractSettings<GodModeSettings.GodModeSettingsS
             public StepperValue? GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline { get; init; }
             public FanTable? FanTable { get; init; }
             public bool FanFullSpeed { get; init; }
-            public int MaxValueOffset { get; init; }
+            public int? MaxValueOffset { get; init; }
         }
 
         public Guid ActivePresetId { get; set; }
