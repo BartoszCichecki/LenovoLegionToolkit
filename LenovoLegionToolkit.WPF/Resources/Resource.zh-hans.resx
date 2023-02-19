@@ -1649,6 +1649,10 @@
   <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
     <value>自定义模式预设</value>
   </data>
+  <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
+    <value>切换至自定义模式的某个预设。
+该设置只有在启用自定义模式时才会生效。</value>
+  </data>
   <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
     <value>预设名称</value>
   </data>
@@ -1672,5 +1676,41 @@
   </data>
   <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
     <value>启用后在不同电源计划间切换将保持亮度不变。</value>
+  </data>
+  <data name="Notification_UpdateAvailable" xml:space="preserve">
+    <value>发现新版本 {0}！</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL" xml:space="preserve">
+    <value>峰值功耗限制</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
+    <value>APU 慢速功耗追踪限制（sPPT）</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL_Description" xml:space="preserve">
+    <value>CPU持续功耗限制。</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL_Description" xml:space="preserve">
+    <value>CPU短时峰值功耗限制。</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL_Description" xml:space="preserve">
+    <value>CPU瞬时功耗限制。</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_CrossLoading_Description" xml:space="preserve">
+    <value>当CPU与GPU同时最大负载时，CPU的最大功耗限制。</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL_Description" xml:space="preserve">
+    <value>在一定延迟内CPU的峰值功耗限制。</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
+    <value>在降频前，CPU的温度限制。</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
+    <value>基于CPU的功耗，可以分配给GPU的额外最大功率。</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
+    <value>在基本功耗的基础上，可以分配给GPU的额外功率量。</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
+    <value>在降频前，GPU的温度限制。</value>
   </data>
 </root>
