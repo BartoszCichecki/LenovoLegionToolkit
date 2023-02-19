@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="LenovoLegionToolkit.WPF.Controls.Dashboard.GodMode.GodModeSliderControl"
+    x:Class="LenovoLegionToolkit.WPF.Controls.Dashboard.GodMode.GodModeValueControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
@@ -21,10 +21,9 @@
                 Width="200"
                 Margin="32,0,0,0"
                 VerticalAlignment="Center"
-                IsSnapToTickEnabled="True"
-                Value="-1" />
+                IsSnapToTickEnabled="True" />
             <Label
-                x:Name="_label"
+                x:Name="_sliderLabel"
                 Width="50"
                 Margin="8,0,0,0"
                 HorizontalContentAlignment="Right"
@@ -33,8 +32,11 @@
                 ContentStringFormat="{}{0} W"
                 FlowDirection="LeftToRight"
                 Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+            <ComboBox x:Name="_comboBox" MinWidth="100" />
             <wpfui:Button
                 x:Name="_resetToDefaultButton"
+                Width="36"
+                Height="36"
                 Margin="16,0,0,0"
                 Click="ResetToDefaultButton_OnClick"
                 Icon="ArrowClockwise24"

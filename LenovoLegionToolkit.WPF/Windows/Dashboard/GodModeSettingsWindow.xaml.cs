@@ -9,7 +9,6 @@ using LenovoLegionToolkit.Lib.Controllers.GodMode;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Utils;
-using LenovoLegionToolkit.WPF.Controls.Dashboard.GodMode;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 
@@ -141,15 +140,15 @@ public partial class GodModeSettingsWindow
 
         var maxValueOffset = preset.MaxValueOffset;
 
-        SetSliderValues(_cpuLongTermPowerLimitControl, preset.CPULongTermPowerLimit, maxValueOffset);
-        SetSliderValues(_cpuShortTermPowerLimitControl, preset.CPUShortTermPowerLimit, maxValueOffset);
-        SetSliderValues(_cpuPeakPowerLimitControl, preset.CPUPeakPowerLimit, maxValueOffset);
-        SetSliderValues(_cpuCrossLoadingLimitControl, preset.CPUCrossLoadingPowerLimit, maxValueOffset);
-        SetSliderValues(_apuSPPTPowerLimitControl, preset.APUsPPTPowerLimit, maxValueOffset);
-        SetSliderValues(_cpuTemperatureLimitControl, preset.CPUTemperatureLimit);
-        SetSliderValues(_gpuPowerBoostControl, preset.GPUPowerBoost, maxValueOffset);
-        SetSliderValues(_gpuConfigurableTGPControl, preset.GPUConfigurableTGP, maxValueOffset);
-        SetSliderValues(_gpuTemperatureLimitControl, preset.GPUTemperatureLimit);
+        _cpuLongTermPowerLimitControl.Set(preset.CPULongTermPowerLimit, maxValueOffset);
+        _cpuShortTermPowerLimitControl.Set(preset.CPUShortTermPowerLimit, maxValueOffset);
+        _cpuPeakPowerLimitControl.Set(preset.CPUPeakPowerLimit, maxValueOffset);
+        _cpuCrossLoadingLimitControl.Set(preset.CPUCrossLoadingPowerLimit, maxValueOffset);
+        _apuSPPTPowerLimitControl.Set(preset.APUsPPTPowerLimit, maxValueOffset);
+        _cpuTemperatureLimitControl.Set(preset.CPUTemperatureLimit);
+        _gpuPowerBoostControl.Set(preset.GPUPowerBoost, maxValueOffset);
+        _gpuConfigurableTGPControl.Set(preset.GPUConfigurableTGP, maxValueOffset);
+        _gpuTemperatureLimitControl.Set(preset.GPUTemperatureLimit);
 
         var fanTableInfo = preset.FanTableInfo;
         if (fanTableInfo.HasValue)
@@ -296,26 +295,6 @@ public partial class GodModeSettingsWindow
             Presets = newPresets.AsReadOnlyDictionary()
         };
         SetState(_state.Value);
-    }
-
-    private void SetSliderValues(GodModeSliderControl control, StepperValue? stepperValue, int? maxValueOffset = 0)
-    {
-        if (!stepperValue.HasValue)
-        {
-            control.Visibility = Visibility.Collapsed;
-            return;
-        }
-
-        control.Minimum = stepperValue.Value.Min;
-        control.Maximum = stepperValue.Value.Max + (maxValueOffset ?? 0);
-        control.TickFrequency = stepperValue.Value.Step;
-        control.Value = stepperValue.Value.Value;
-        control.DefaultValue = stepperValue.Value.DefaultValue;
-
-        if (stepperValue.Value.Min == stepperValue.Value.Max + maxValueOffset)
-            control.IsSliderEnabled = false;
-
-        control.Visibility = Visibility.Visible;
     }
 
     private async void ResetFanCurve_Click(object sender, RoutedEventArgs e)

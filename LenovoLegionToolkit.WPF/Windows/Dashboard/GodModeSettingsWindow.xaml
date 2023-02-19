@@ -111,7 +111,7 @@
                         FontWeight="Medium"
                         Text="{x:Static resources:Resource.GodModeSettingsWindow_CPU_Title}" />
 
-                    <godMode:GodModeSliderControl
+                    <godMode:GodModeValueControl
                         x:Name="_cpuLongTermPowerLimitControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_LongTermPL}"
                         Margin="0,0,0,8"
@@ -119,7 +119,7 @@
                         Unit="W"
                         ValueChanged="CpuLongTermPowerLimitSlider_ValueChanged" />
 
-                    <godMode:GodModeSliderControl
+                    <godMode:GodModeValueControl
                         x:Name="_cpuShortTermPowerLimitControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_ShortTermPL}"
                         Margin="0,0,0,8"
@@ -127,28 +127,28 @@
                         Unit="W"
                         ValueChanged="CpuShortTermPowerLimitSlider_ValueChanged" />
 
-                    <godMode:GodModeSliderControl
+                    <godMode:GodModeValueControl
                         x:Name="_cpuPeakPowerLimitControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_PeakPL}"
                         Margin="0,0,0,8"
                         Description="{x:Static resources:Resource.GodModeSettingsWindow_CPU_PeakPL_Description}"
                         Unit="W" />
 
-                    <godMode:GodModeSliderControl
+                    <godMode:GodModeValueControl
                         x:Name="_cpuCrossLoadingLimitControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_CrossLoading}"
                         Margin="0,0,0,8"
                         Description="{x:Static resources:Resource.GodModeSettingsWindow_CPU_CrossLoading_Description}"
                         Unit="W" />
 
-                    <godMode:GodModeSliderControl
+                    <godMode:GodModeValueControl
                         x:Name="_apuSPPTPowerLimitControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_APUsPPT_PL}"
                         Margin="0,0,0,8"
                         Description="{x:Static resources:Resource.GodModeSettingsWindow_CPU_APUsPPT_PL_Description}"
                         Unit="W" />
 
-                    <godMode:GodModeSliderControl
+                    <godMode:GodModeValueControl
                         x:Name="_cpuTemperatureLimitControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_TempLimit}"
                         Margin="0,0,0,8"
@@ -162,21 +162,21 @@
                         FontWeight="Medium"
                         Text="{x:Static resources:Resource.GodModeSettingsWindow_GPU_Title}" />
 
-                    <godMode:GodModeSliderControl
+                    <godMode:GodModeValueControl
                         x:Name="_gpuPowerBoostControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_GPU_DynamicBoost}"
                         Margin="0,0,0,8"
                         Description="{x:Static resources:Resource.GodModeSettingsWindow_GPU_DynamicBoost_Description}"
                         Unit="W" />
 
-                    <godMode:GodModeSliderControl
+                    <godMode:GodModeValueControl
                         x:Name="_gpuConfigurableTGPControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_GPU_CTGP}"
                         Margin="0,0,0,8"
                         Description="{x:Static resources:Resource.GodModeSettingsWindow_GPU_CTGP_Description}"
                         Unit="W" />
 
-                    <godMode:GodModeSliderControl
+                    <godMode:GodModeValueControl
                         x:Name="_gpuTemperatureLimitControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_GPU_TempLimit}"
                         Margin="0,0,0,8"

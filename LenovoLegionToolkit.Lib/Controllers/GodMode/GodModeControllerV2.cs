@@ -39,7 +39,7 @@ public class GodModeControllerV2 : AbstractGodModeController
     protected override async Task<GodModePreset> GetDefaultStateAsync()
     {
         IEnumerable<(SettingId id, int DefaultValue, int min, int max, int step)> capabilityData = (await GetCapabilityDataAsync().ConfigureAwait(false))
-            .Where(d => Enum.IsDefined<SettingId>(d.Id));
+            .Where(d => Enum.IsDefined(d.Id));
 
         var discreteData = (await GetDiscreteDataAsync().ConfigureAwait(false))
             .Where(d => Enum.IsDefined(d.Id))
