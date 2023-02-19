@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
-using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.Lib.Controllers.GodMode;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Utils;
@@ -18,7 +18,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard;
 public partial class GodModeSettingsWindow
 {
     private readonly PowerModeFeature _powerModeFeature = IoCContainer.Resolve<PowerModeFeature>();
-    private readonly GodModeController _controller = IoCContainer.Resolve<GodModeController>();
+    private readonly GodModeControllerV1 _godModeControllerV1 = IoCContainer.Resolve<GodModeControllerV1>();
 
     private GodModeState? _state;
     private bool _isRefreshing;
@@ -44,7 +44,7 @@ public partial class GodModeSettingsWindow
 
             var loadingTask = Task.Delay(500);
 
-            _state = await _controller.GetStateAsync();
+            _state = await _godModeControllerV1.GetStateAsync();
 
             if (!_state.HasValue)
                 throw new InvalidOperationException("State is null.");
@@ -113,8 +113,8 @@ public partial class GodModeSettingsWindow
             if (await _powerModeFeature.GetStateAsync() != PowerModeState.GodMode)
                 await _powerModeFeature.SetStateAsync(PowerModeState.GodMode);
 
-            await _controller.SetStateAsync(newState);
-            await _controller.ApplyStateAsync();
+            await _godModeControllerV1.SetStateAsync(newState);
+            await _godModeControllerV1.ApplyStateAsync();
 
             return true;
         }
@@ -296,7 +296,7 @@ public partial class GodModeSettingsWindow
 
     private async void ResetFanCurve_Click(object sender, RoutedEventArgs e)
     {
-        var state = await _controller.GetStateAsync();
+        var state = await _godModeControllerV1.GetStateAsync();
         var preset = state.Presets[state.ActivePresetId];
         var data = preset.FanTableInfo?.Data;
 

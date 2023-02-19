@@ -220,11 +220,13 @@ public readonly struct GodModePreset
     public StepperValue? CPUShortTermPowerLimit { get; init; }
     public StepperValue? CPUPeakPowerLimit { get; init; }
     public StepperValue? CPUCrossLoadingPowerLimit { get; init; }
+    public StepperValue? CPUPL1Tau { get; init; }
     public StepperValue? APUsPPTPowerLimit { get; init; }
     public StepperValue? CPUTemperatureLimit { get; init; }
     public StepperValue? GPUPowerBoost { get; init; }
     public StepperValue? GPUConfigurableTGP { get; init; }
     public StepperValue? GPUTemperatureLimit { get; init; }
+    public StepperValue? GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline { get; init; }
     public FanTableInfo? FanTableInfo { get; init; }
     public bool FanFullSpeed { get; init; }
     public int MaxValueOffset { get; init; }
@@ -235,11 +237,13 @@ public readonly struct GodModePreset
         $" {nameof(CPUShortTermPowerLimit)}: {CPUShortTermPowerLimit}," +
         $" {nameof(CPUPeakPowerLimit)}: {CPUPeakPowerLimit}," +
         $" {nameof(CPUCrossLoadingPowerLimit)}: {CPUCrossLoadingPowerLimit}," +
+        $" {nameof(CPUPL1Tau)}: {CPUPL1Tau}," +
         $" {nameof(APUsPPTPowerLimit)}: {APUsPPTPowerLimit}," +
         $" {nameof(CPUTemperatureLimit)}: {CPUTemperatureLimit}," +
         $" {nameof(GPUPowerBoost)}: {GPUPowerBoost}," +
         $" {nameof(GPUConfigurableTGP)}: {GPUConfigurableTGP}," +
         $" {nameof(GPUTemperatureLimit)}: {GPUTemperatureLimit}," +
+        $" {nameof(GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline)}: {GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline}," +
         $" {nameof(FanTableInfo)}: {FanTableInfo}," +
         $" {nameof(FanFullSpeed)}: {FanFullSpeed}," +
         $" {nameof(MaxValueOffset)}: {MaxValueOffset}";
@@ -279,7 +283,9 @@ public readonly struct MachineInformation
 {
     public readonly struct CompatibilityProperties
     {
-        public bool SupportsGodMode { get; init; }
+        public bool SupportsGodMode => SupportsGodModeV1 || SupportsGodModeV2;
+        public bool SupportsGodModeV1 { get; init; }
+        public bool SupportsGodModeV2 { get; init; }
         public bool SupportsExtendedHybridMode { get; init; }
         public bool SupportsIntelligentSubMode { get; init; }
         public bool HasPerformanceModeSwitchingBug { get; init; }
@@ -674,20 +680,22 @@ public readonly struct StepperValue
     public int Min { get; }
     public int Max { get; }
     public int Step { get; }
+    public int[] Steps { get; }
 
-    public StepperValue(int value, int min, int max, int step)
+    public StepperValue(int value, int min, int max, int step, int[] steps)
     {
-        Value = MathExtensions.RoundNearest(value, step);
+        Value = value;
         Min = min;
         Max = max;
         Step = step;
+        Steps = steps;
     }
 
-    public StepperValue WithValue(int value) => new(value, Min, Max, Step);
+    public StepperValue WithValue(int value) => new(value, Min, Max, Step, Steps);
 
     public override string ToString()
     {
-        return $"{nameof(Value)}: {Value}, {nameof(Min)}: {Min}, {nameof(Max)}: {Max}, {nameof(Step)}: {Step}";
+        return $"{nameof(Value)}: {Value}, {nameof(Min)}: {Min}, {nameof(Max)}: {Max}, {nameof(Step)}: {Step}, {nameof(Steps)}: {string.Join(",", Steps)}";
     }
 }
 
