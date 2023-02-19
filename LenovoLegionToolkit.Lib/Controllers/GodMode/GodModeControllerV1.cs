@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Settings;
@@ -11,33 +10,6 @@ namespace LenovoLegionToolkit.Lib.Controllers.GodMode;
 public class GodModeControllerV1 : AbstractGodModeController
 {
     public GodModeControllerV1(GodModeSettings settings, LegionZone legionZone) : base(settings, legionZone) { }
-
-    public override async Task<GodModeState> GetStateAsync()
-    {
-        if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Getting state...");
-
-        var store = Settings.Store;
-        var defaultState = await GetDefaultStateAsync().ConfigureAwait(false);
-
-        if (!IsValidStore(store))
-        {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Loading default state...");
-
-            var id = Guid.NewGuid();
-            return new GodModeState
-            {
-                ActivePresetId = id,
-                Presets = new Dictionary<Guid, GodModePreset> { { id, defaultState } }.AsReadOnlyDictionary()
-            };
-        }
-
-        if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Loading state from store...");
-
-        return LoadStateFromStore(store, defaultState);
-    }
 
     public override async Task ApplyStateAsync()
     {
@@ -198,7 +170,7 @@ public class GodModeControllerV1 : AbstractGodModeController
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Apply failed. [setting=gpuConfigurableTGP]", ex);
+                    Log.Instance.Trace($"Apply failed. [setting=gpuConfigurableTgp]", ex);
                 throw;
             }
         }
@@ -225,7 +197,7 @@ public class GodModeControllerV1 : AbstractGodModeController
             try
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Applying Fan Full speed: {maxFan}");
+                    Log.Instance.Trace($"Applying Fan Full Speed: {maxFan}");
 
                 await SetFanFullSpeedAsync(maxFan).ConfigureAwait(false);
             }
@@ -283,7 +255,7 @@ public class GodModeControllerV1 : AbstractGodModeController
     {
         var fanTableData = await GetFanTableDataAsync().ConfigureAwait(false);
 
-        return new GodModePreset
+        var preset = new GodModePreset
         {
             Name = "Default",
             CPULongTermPowerLimit = await GetCPULongTermPowerLimitAsync().OrNull().ConfigureAwait(false),
@@ -299,6 +271,11 @@ public class GodModeControllerV1 : AbstractGodModeController
             FanFullSpeed = await GetFanFullSpeedAsync().ConfigureAwait(false),
             MaxValueOffset = 0
         };
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Default state retrieved: {preset}");
+
+        return preset;
     }
 
     #region CPU Long Term Power Limit

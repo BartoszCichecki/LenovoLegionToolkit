@@ -20,9 +20,32 @@ public abstract class AbstractGodModeController
         LegionZone = legionZone ?? throw new ArgumentNullException(nameof(legionZone));
     }
 
-    public abstract Task<GodModeState> GetStateAsync();
+    public async Task<GodModeState> GetStateAsync()
+    {
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Getting state...");
 
-    public abstract Task ApplyStateAsync();
+        var store = Settings.Store;
+        var defaultState = await GetDefaultStateAsync().ConfigureAwait(false);
+
+        if (!IsValidStore(store))
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Loading default state...");
+
+            var id = Guid.NewGuid();
+            return new GodModeState
+            {
+                ActivePresetId = id,
+                Presets = new Dictionary<Guid, GodModePreset> { { id, defaultState } }.AsReadOnlyDictionary()
+            };
+        }
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Loading state from store...");
+
+        return LoadStateFromStore(store, defaultState);
+    }
 
     public Task SetStateAsync(GodModeState state)
     {
@@ -61,6 +84,8 @@ public abstract class AbstractGodModeController
 
         return Task.CompletedTask;
     }
+
+    public abstract Task ApplyStateAsync();
 
     protected abstract Task<GodModePreset> GetDefaultStateAsync();
 
