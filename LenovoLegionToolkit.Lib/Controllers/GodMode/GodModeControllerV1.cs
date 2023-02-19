@@ -65,7 +65,7 @@ public class GodModeControllerV1 : AbstractGodModeController
         var gpuConfigurableTgp = preset.GPUConfigurableTGP;
         var gpuTemperatureLimit = preset.GPUTemperatureLimit;
         var fanTable = preset.FanTable;
-        var maxFan = preset.FanFullSpeed;
+        var maxFan = preset.FanFullSpeed ?? false;
 
         if (cpuLongTermPowerLimit is not null)
         {
@@ -258,8 +258,7 @@ public class GodModeControllerV1 : AbstractGodModeController
                     Log.Instance.Trace($"Applying Fan Table {fanTable.Value}");
 
                 var table = fanTable.Value;
-
-                if (!fanTable.Value.IsValid())
+                if (!table.IsValid())
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Fan table invalid, replacing with default...");

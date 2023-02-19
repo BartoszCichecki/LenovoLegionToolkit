@@ -3,8 +3,8 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
+    xmlns:device="clr-namespace:LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum.Device"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
-    xmlns:spectrum="clr-namespace:LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum"
     xmlns:system="clr-namespace:System;assembly=System.Runtime"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml">
     <StackPanel Margin="0,0,8,0">
@@ -158,14 +158,14 @@
                             <SolidColorBrush Opacity="0.25" Color="{DynamicResource SystemAccentColorSecondary}" />
                         </controls:SelectableControl.Fill>
 
-                        <spectrum:SpectrumDeviceControl
+                        <device:SpectrumDeviceControl
                             x:Name="_device"
                             Padding="32"
                             HorizontalAlignment="Center">
-                            <spectrum:SpectrumDeviceControl.LayoutTransform>
+                            <device:SpectrumDeviceControl.LayoutTransform>
                                 <ScaleTransform ScaleX="1" ScaleY="1" />
-                            </spectrum:SpectrumDeviceControl.LayoutTransform>
-                        </spectrum:SpectrumDeviceControl>
+                            </device:SpectrumDeviceControl.LayoutTransform>
+                        </device:SpectrumDeviceControl>
                     </controls:SelectableControl>
                 </Border>
 

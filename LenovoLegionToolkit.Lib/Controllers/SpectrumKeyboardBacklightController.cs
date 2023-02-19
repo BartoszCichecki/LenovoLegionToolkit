@@ -105,18 +105,26 @@ public class SpectrumKeyboardBacklightController
 
     public async Task<bool> IsSupportedAsync() => await GetDeviceHandleAsync().ConfigureAwait(false) is not null;
 
-    public async Task<(KeyboardLayout, HashSet<ushort>)> GetKeyboardLayoutAsync()
+    public async Task<(SpectrumLayout, KeyboardLayout, HashSet<ushort>)> GetKeyboardLayoutAsync()
     {
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Checking keyboard layout...");
 
-        var keys = await ReadAllKeyCodesAsync().ConfigureAwait(false);
-        var layout = keys.Contains(0xA8) ? KeyboardLayout.Iso : KeyboardLayout.Ansi;
+        var (width, height, keys) = await ReadAllKeyCodesAsync().ConfigureAwait(false);
+
+        var spectrumLayout = (width, height) switch
+        {
+            (22, 9) => SpectrumLayout.Full,
+            (20, 8) => SpectrumLayout.KeyboardAndFront,
+            _ => SpectrumLayout.KeyboardOnly // (20, 7)
+        };
+
+        var keyboardLayout = keys.Contains(0xA8) ? KeyboardLayout.Iso : KeyboardLayout.Ansi;
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Keyboard layout is {layout}.");
+            Log.Instance.Trace($"Layout is {spectrumLayout}, {keyboardLayout}.");
 
-        return (layout, keys);
+        return (spectrumLayout, keyboardLayout, keys);
     }
 
     public async Task<int> GetBrightnessAsync()
@@ -357,7 +365,7 @@ public class SpectrumKeyboardBacklightController
             throw new InvalidOperationException("Can't manage Spectrum keyboard with Vantage enabled.");
     }
 
-    private async Task<HashSet<ushort>> ReadAllKeyCodesAsync()
+    private async Task<(int Width, int Height, HashSet<ushort> Keys)> ReadAllKeyCodesAsync()
     {
         var keyMap = await GetKeyMapAsync().ConfigureAwait(false);
         var keyCodes = new HashSet<ushort>(keyMap.Width * keyMap.Height);
@@ -370,7 +378,7 @@ public class SpectrumKeyboardBacklightController
             if (keyCode > 0)
                 keyCodes.Add(keyCode);
 
-        return keyCodes;
+        return (keyMap.Width, keyMap.Height, keyCodes);
     }
 
     private async Task<KeyMap> GetKeyMapAsync()
