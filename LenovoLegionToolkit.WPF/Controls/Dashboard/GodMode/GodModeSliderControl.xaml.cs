@@ -5,6 +5,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard.GodMode;
 public partial class GodModeSliderControl
 {
     private string _unit = string.Empty;
+    private double? _defaultValue;
 
     public string Title
     {
@@ -58,6 +59,16 @@ public partial class GodModeSliderControl
         set => _slider.IsEnabled = value;
     }
 
+    public double? DefaultValue
+    {
+        get => _defaultValue;
+        set
+        {
+            _defaultValue = value;
+            _resetToDefaultButton.Visibility = _defaultValue.HasValue ? Visibility.Visible : Visibility.Collapsed;
+        }
+    }
+
     public event RoutedPropertyChangedEventHandler<double> ValueChanged
     {
         add => _slider.ValueChanged += value;
@@ -65,4 +76,10 @@ public partial class GodModeSliderControl
     }
 
     public GodModeSliderControl() => InitializeComponent();
+
+    private void ResetToDefaultButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        if (DefaultValue.HasValue)
+            Value = DefaultValue.Value;
+    }
 }

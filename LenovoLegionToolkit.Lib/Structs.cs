@@ -681,22 +681,27 @@ public readonly struct StepperValue
     public int Max { get; }
     public int Step { get; }
     public int[] Steps { get; }
+    public int? DefaultValue { get; }
 
-    public StepperValue(int value, int min, int max, int step, int[] steps)
+    public StepperValue(int value, int min, int max, int step, int[] steps, int? defaultValue)
     {
         Value = value;
         Min = min;
         Max = max;
         Step = step;
         Steps = steps;
+        DefaultValue = defaultValue;
     }
 
-    public StepperValue WithValue(int value) => new(value, Min, Max, Step, Steps);
+    public StepperValue WithValue(int value) => new(value, Min, Max, Step, Steps, DefaultValue);
 
-    public override string ToString()
-    {
-        return $"{nameof(Value)}: {Value}, {nameof(Min)}: {Min}, {nameof(Max)}: {Max}, {nameof(Step)}: {Step}, {nameof(Steps)}: {string.Join(",", Steps)}";
-    }
+    public override string ToString() =>
+        $"{nameof(Value)}: {Value}," +
+        $" {nameof(Min)}: {Min}," +
+        $" {nameof(Max)}: {Max}," +
+        $" {nameof(Step)}: {Step}," +
+        $" {nameof(Steps)}: {string.Join(",", Steps)}," +
+        $" {nameof(DefaultValue)} : {DefaultValue}";
 }
 
 public readonly struct Time

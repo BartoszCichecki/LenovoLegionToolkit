@@ -54,7 +54,7 @@ public class GodModeControllerV2 : AbstractGodModeController
             var max = d.max;
             var step = d.step;
             var steps = discreteData.GetValueOrDefault(d.id) ?? Array.Empty<int>();
-            return (id, value: new StepperValue(value, min, max, step, steps));
+            return (id, value: new StepperValue(value, min, max, step, steps, value));
         }).ToArray();
 
         var fanTableData = await GetFanTableDataAsync().ConfigureAwait(false);

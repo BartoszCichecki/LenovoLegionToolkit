@@ -5,6 +5,7 @@
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     d:DesignHeight="450"
     d:DesignWidth="800"
@@ -17,7 +18,7 @@
         <StackPanel Orientation="Horizontal">
             <Slider
                 x:Name="_slider"
-                Width="250"
+                Width="200"
                 Margin="32,0,0,0"
                 VerticalAlignment="Center"
                 IsSnapToTickEnabled="True"
@@ -32,6 +33,12 @@
                 ContentStringFormat="{}{0} W"
                 FlowDirection="LeftToRight"
                 Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+            <wpfui:Button
+                x:Name="_resetToDefaultButton"
+                Margin="16,0,0,0"
+                Click="ResetToDefaultButton_OnClick"
+                Icon="ArrowClockwise24"
+                ToolTip="{x:Static resources:Resource.Default}" />
         </StackPanel>
     </wpfui:CardControl>
 </UserControl>

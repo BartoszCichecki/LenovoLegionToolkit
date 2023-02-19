@@ -102,7 +102,7 @@ public abstract class AbstractGodModeController
         if (!state.HasValue || state.Value.Min == state.Value.Max + (maxValueOffset ?? 0))
             return null;
 
-        return new StepperValue(store?.Value ?? state.Value.Value, state.Value.Min, state.Value.Max, state.Value.Step, Array.Empty<int>());
+        return new StepperValue(store?.Value ?? state.Value.Value, state.Value.Min, state.Value.Max, state.Value.Step, Array.Empty<int>(), state.Value.DefaultValue);
     }
 
     private FanTableInfo? GetFanTableInfo(GodModeSettings.GodModeSettingsStore.Preset preset, FanTableData[]? fanTableData)

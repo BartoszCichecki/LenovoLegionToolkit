@@ -310,6 +310,7 @@ public partial class GodModeSettingsWindow
         control.Maximum = stepperValue.Value.Max + (maxValueOffset ?? 0);
         control.TickFrequency = stepperValue.Value.Step;
         control.Value = stepperValue.Value.Value;
+        control.DefaultValue = stepperValue.Value.DefaultValue;
 
         if (stepperValue.Value.Min == stepperValue.Value.Max + maxValueOffset)
             control.IsSliderEnabled = false;

@@ -303,19 +303,30 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     #region CPU Long Term Power Limit
 
-    private Task<StepperValue> GetCPULongTermPowerLimitAsync() => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_CPU_METHOD",
-        "CPU_Get_LongTerm_PowerLimit",
-        new(),
-        pdc =>
-        {
-            var value = Convert.ToInt32(pdc["CurrentLongTerm_PowerLimit"].Value);
-            var min = Convert.ToInt32(pdc["MinLongTerm_PowerLimit"].Value);
-            var max = Convert.ToInt32(pdc["MaxLongTerm_PowerLimit"].Value);
-            var step = Convert.ToInt32(pdc["step"].Value);
+    private async Task<StepperValue> GetCPULongTermPowerLimitAsync()
+    {
+        var defaultValue = await WMI.CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_CPU_METHOD",
+            "CPU_Get_Default_PowerLimit",
+            new(),
+            pdc => Convert.ToInt32(pdc["DefaultLongTermPowerlimit"].Value)).OrNull().ConfigureAwait(false);
 
-            return new StepperValue(value, min, max, step, Array.Empty<int>());
-        });
+        var stepperValue = await WMI.CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_CPU_METHOD",
+            "CPU_Get_LongTerm_PowerLimit",
+            new(),
+            pdc =>
+            {
+                var value = Convert.ToInt32(pdc["CurrentLongTerm_PowerLimit"].Value);
+                var min = Convert.ToInt32(pdc["MinLongTerm_PowerLimit"].Value);
+                var max = Convert.ToInt32(pdc["MaxLongTerm_PowerLimit"].Value);
+                var step = Convert.ToInt32(pdc["step"].Value);
+
+                return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
+            }).ConfigureAwait(false);
+
+        return stepperValue;
+    }
 
     private Task SetCPULongTermPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_CPU_METHOD",
@@ -326,19 +337,30 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     #region CPU Short Term Power Limit
 
-    private Task<StepperValue> GetCPUShortTermPowerLimitAsync() => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_CPU_METHOD",
-        "CPU_Get_ShortTerm_PowerLimit",
-        new(),
-        pdc =>
-        {
-            var value = Convert.ToInt32(pdc["CurrentShortTerm_PowerLimit"].Value);
-            var min = Convert.ToInt32(pdc["MinShortTerm_PowerLimit"].Value);
-            var max = Convert.ToInt32(pdc["MaxShortTerm_PowerLimit"].Value);
-            var step = Convert.ToInt32(pdc["step"].Value);
+    private async Task<StepperValue> GetCPUShortTermPowerLimitAsync()
+    {
+        var defaultValue = await WMI.CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_CPU_METHOD",
+            "CPU_Get_Default_PowerLimit",
+            new(),
+            pdc => Convert.ToInt32(pdc["DefaultShortTermPowerlimit"].Value)).OrNull().ConfigureAwait(false);
 
-            return new StepperValue(value, min, max, step, Array.Empty<int>());
-        });
+        var stepperValue = await WMI.CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_CPU_METHOD",
+            "CPU_Get_ShortTerm_PowerLimit",
+            new(),
+            pdc =>
+            {
+                var value = Convert.ToInt32(pdc["CurrentShortTerm_PowerLimit"].Value);
+                var min = Convert.ToInt32(pdc["MinShortTerm_PowerLimit"].Value);
+                var max = Convert.ToInt32(pdc["MaxShortTerm_PowerLimit"].Value);
+                var step = Convert.ToInt32(pdc["step"].Value);
+
+                return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
+            }).ConfigureAwait(false);
+
+        return stepperValue;
+    }
 
     private Task SetCPUShortTermPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_CPU_METHOD",
@@ -359,8 +381,9 @@ public class GodModeControllerV1 : AbstractGodModeController
             var min = Convert.ToInt32(pdc["MinPeakPowerLimit"].Value);
             var max = Convert.ToInt32(pdc["MaxPeakPowerLimit"].Value);
             var step = Convert.ToInt32(pdc["step"].Value);
+            var defaultValue = Convert.ToInt32(pdc["DefaultPeakPowerLimit"].Value);
 
-            return new StepperValue(value, min, max, step, Array.Empty<int>());
+            return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
         });
 
     private Task SetCPUPeakPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
@@ -382,8 +405,9 @@ public class GodModeControllerV1 : AbstractGodModeController
             var min = Convert.ToInt32(pdc["MinCpuCrossLoading"].Value);
             var max = Convert.ToInt32(pdc["MaxCpuCrossLoading"].Value);
             var step = Convert.ToInt32(pdc["step"].Value);
+            var defaultValue = Convert.ToInt32(pdc["DefaultCpuCrossLoading"].Value);
 
-            return new StepperValue(value, min, max, step, Array.Empty<int>());
+            return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
         });
 
     private Task SetCPUCrossLoadingPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
@@ -405,8 +429,9 @@ public class GodModeControllerV1 : AbstractGodModeController
             var min = Convert.ToInt32(pdc["MinAPUsPPTPowerLimit"].Value);
             var max = Convert.ToInt32(pdc["MaxAPUsPPTPowerLimit"].Value);
             var step = Convert.ToInt32(pdc["step"].Value);
+            var defaultValue = Convert.ToInt32(pdc["DefaultAPUsPPTPowerLimit"].Value);
 
-            return new StepperValue(value, min, max, step, Array.Empty<int>());
+            return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
         });
 
     private Task SetAPUSPPTPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
@@ -428,8 +453,9 @@ public class GodModeControllerV1 : AbstractGodModeController
             var min = Convert.ToInt32(pdc["MinTemperatueControl"].Value);
             var max = Convert.ToInt32(pdc["MaxTemperatueControl"].Value);
             var step = Convert.ToInt32(pdc["step"].Value);
+            var defaultValue = Convert.ToInt32(pdc["DefaultTemperatueControl"].Value);
 
-            return new StepperValue(value, min, max, step, Array.Empty<int>());
+            return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
         });
 
     private Task SetCPUTemperatureLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
@@ -441,19 +467,30 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     #region GPU Configurable TGP
 
-    private Task<StepperValue> GetGPUConfigurableTGPAsync() => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_GPU_METHOD",
-        "GPU_Get_cTGP_PowerLimit",
-        new(),
-        pdc =>
-        {
-            var value = Convert.ToInt32(pdc["Current_cTGP_PowerLimit"].Value);
-            var min = Convert.ToInt32(pdc["Min_cTGP_PowerLimit"].Value);
-            var max = Convert.ToInt32(pdc["Max_cTGP_PowerLimit"].Value);
-            var step = Convert.ToInt32(pdc["step"].Value);
+    private async Task<StepperValue> GetGPUConfigurableTGPAsync()
+    {
+        var defaultValue = await WMI.CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_GPU_METHOD",
+            "GPU_Get_Default_PPAB_cTGP_PowerLimit",
+            new(),
+            pdc => Convert.ToInt32(pdc["Default_cTGP_Powerlimit"].Value)).OrNull().ConfigureAwait(false);
 
-            return new StepperValue(value, min, max, step, Array.Empty<int>());
-        });
+        var stepperValue = await WMI.CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_GPU_METHOD",
+            "GPU_Get_cTGP_PowerLimit",
+            new(),
+            pdc =>
+            {
+                var value = Convert.ToInt32(pdc["Current_cTGP_PowerLimit"].Value);
+                var min = Convert.ToInt32(pdc["Min_cTGP_PowerLimit"].Value);
+                var max = Convert.ToInt32(pdc["Max_cTGP_PowerLimit"].Value);
+                var step = Convert.ToInt32(pdc["step"].Value);
+
+                return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
+            }).ConfigureAwait(false);
+
+        return stepperValue;
+    }
 
     private Task SetGPUConfigurableTGPAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_GPU_METHOD",
@@ -464,19 +501,30 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     #region GPU Power Boost
 
-    private Task<StepperValue> GetGPUPowerBoost() => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_GPU_METHOD",
-        "GPU_Get_PPAB_PowerLimit",
-        new(),
-        pdc =>
-        {
-            var value = Convert.ToInt32(pdc["CurrentPPAB_PowerLimit"].Value);
-            var min = Convert.ToInt32(pdc["MinPPAB_PowerLimit"].Value);
-            var max = Convert.ToInt32(pdc["MaxPPAB_PowerLimit"].Value);
-            var step = Convert.ToInt32(pdc["step"].Value);
+    private async Task<StepperValue> GetGPUPowerBoost()
+    {
+        var defaultValue = await WMI.CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_GPU_METHOD",
+            "GPU_Get_Default_PPAB_cTGP_PowerLimit",
+            new(),
+            pdc => Convert.ToInt32(pdc["Default_PPAB_Powerlimit"].Value)).OrNull().ConfigureAwait(false);
 
-            return new StepperValue(value, min, max, step, Array.Empty<int>());
-        });
+        var stepperValue = await WMI.CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_GPU_METHOD",
+            "GPU_Get_PPAB_PowerLimit",
+            new(),
+            pdc =>
+            {
+                var value = Convert.ToInt32(pdc["CurrentPPAB_PowerLimit"].Value);
+                var min = Convert.ToInt32(pdc["MinPPAB_PowerLimit"].Value);
+                var max = Convert.ToInt32(pdc["MaxPPAB_PowerLimit"].Value);
+                var step = Convert.ToInt32(pdc["step"].Value);
+
+                return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
+            }).ConfigureAwait(false);
+
+        return stepperValue;
+    }
 
     private Task SetGPUPowerBoostAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_GPU_METHOD",
@@ -497,8 +545,9 @@ public class GodModeControllerV1 : AbstractGodModeController
             var min = Convert.ToInt32(pdc["MinTemperatueLimit"].Value);
             var max = Convert.ToInt32(pdc["MaxTemperatueLimit"].Value);
             var step = Convert.ToInt32(pdc["step"].Value);
+            var defaultValue = Convert.ToInt32(pdc["DefaultTemperatueLimit"].Value);
 
-            return new StepperValue(value, min, max, step, Array.Empty<int>());
+            return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
         });
 
     private Task SetGPUTemperatureLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
