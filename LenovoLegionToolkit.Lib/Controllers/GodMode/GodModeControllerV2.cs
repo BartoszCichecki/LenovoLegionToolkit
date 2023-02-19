@@ -43,10 +43,18 @@ public class GodModeControllerV2 : AbstractGodModeController
     public override async Task ApplyStateAsync()
     {
         if (await _vantage.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
-            throw new InvalidOperationException("Can't correctly apply state when Vantage is running.");
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Can't correctly apply state when Vantage is running.");
+            return;
+        }
 
         if (await LegionZone.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
-            throw new InvalidOperationException("Can't correctly apply state when Legion Zone is running.");
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Can't correctly apply state when Legion Zone is running.");
+            return;
+        }
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Applying state...");

@@ -14,7 +14,11 @@ public class GodModeControllerV1 : AbstractGodModeController
     public override async Task ApplyStateAsync()
     {
         if (await LegionZone.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
-            throw new InvalidOperationException("Can't correctly apply state when Legion Zone is running.");
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Can't correctly apply state when Legion Zone is running.");
+            return;
+        }
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Applying state...");
