@@ -11,16 +11,15 @@ namespace LenovoLegionToolkit.Lib.Controllers.GodMode;
 
 public class GodModeControllerV2 : AbstractGodModeController
 {
+    /*
+     * Structure of ID:
+     * 01 - CPU, 02 - GPU
+     * xx - Index
+     * FF - Custom Mode, 03 - Performance, 02 - Balance, 01 - Quiet
+     * 00 - Unused
+     */
     private enum SettingID
     {
-        /*
-         * Structure of ID:
-         * 01 - CPU, 02 - GPU
-         * xx - Index
-         * FF - Custom Mode, 03 - Performance, 02 - Balance, 01 - Quiet
-         * 00 - Unused
-         */
-
         CPUShortTermPowerLimit = 0x0101FF00,
         CPULongTermPowerLimit = 0x0102FF00,
         CPUPeakPowerLimit = 0x0103FF00,
@@ -169,10 +168,7 @@ public class GodModeControllerV2 : AbstractGodModeController
             .GroupBy(d => d.Id, d => d.Value, (id, values) => (id, values))
             .ToDictionary(d => d.id, d => d.values.ToArray());
 
-        var values = new Dictionary<SettingID, int>();
-
         var stepperValues = new Dictionary<SettingID, StepperValue>();
-
 
         foreach (var (id, defaultValue, min, max, step) in capabilityData)
         {
