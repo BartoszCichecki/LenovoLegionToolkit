@@ -142,6 +142,12 @@
                         Unit="W" />
 
                     <godMode:GodModeValueControl
+                        x:Name="_cpuPL1TauControl"
+                        Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_PL1Tau}"
+                        Margin="0,0,0,8"
+                        Description="{x:Static resources:Resource.GodModeSettingsWindow_CPU_PL1Tau_Description}" />
+
+                    <godMode:GodModeValueControl
                         x:Name="_apuSPPTPowerLimitControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_APUsPPT_PL}"
                         Margin="0,0,0,8"
@@ -182,6 +188,12 @@
                         Margin="0,0,0,8"
                         Description="{x:Static resources:Resource.GodModeSettingsWindow_GPU_TempLimit_Description}"
                         Unit="°C" />
+
+                    <godMode:GodModeValueControl
+                        x:Name="_gpuTotalProcessingPowerTargetOnAcOffsetFromBaselineControl"
+                        Title="{x:Static resources:Resource.GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl}"
+                        Margin="0,0,0,8"
+                        Description="{x:Static resources:Resource.GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description}" />
 
                     <TextBlock
                         x:Name="_fanSectionTitle"

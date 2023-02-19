@@ -84,15 +84,17 @@ public partial class GodModeSettingsWindow
             var newPreset = new GodModePreset
             {
                 Name = preset.Name,
-                CPULongTermPowerLimit = preset.CPULongTermPowerLimit?.WithValue((int)_cpuLongTermPowerLimitControl.Value),
-                CPUShortTermPowerLimit = preset.CPUShortTermPowerLimit?.WithValue((int)_cpuShortTermPowerLimitControl.Value),
-                CPUPeakPowerLimit = preset.CPUPeakPowerLimit?.WithValue((int)_cpuPeakPowerLimitControl.Value),
-                CPUCrossLoadingPowerLimit = preset.CPUCrossLoadingPowerLimit?.WithValue((int)_cpuCrossLoadingLimitControl.Value),
-                APUsPPTPowerLimit = preset.APUsPPTPowerLimit?.WithValue((int)_apuSPPTPowerLimitControl.Value),
-                CPUTemperatureLimit = preset.CPUTemperatureLimit?.WithValue((int)_cpuTemperatureLimitControl.Value),
-                GPUPowerBoost = preset.GPUPowerBoost?.WithValue((int)_gpuPowerBoostControl.Value),
-                GPUConfigurableTGP = preset.GPUConfigurableTGP?.WithValue((int)_gpuConfigurableTGPControl.Value),
-                GPUTemperatureLimit = preset.GPUTemperatureLimit?.WithValue((int)_gpuTemperatureLimitControl.Value),
+                CPULongTermPowerLimit = preset.CPULongTermPowerLimit?.WithValue(_cpuLongTermPowerLimitControl.Value),
+                CPUShortTermPowerLimit = preset.CPUShortTermPowerLimit?.WithValue(_cpuShortTermPowerLimitControl.Value),
+                CPUPeakPowerLimit = preset.CPUPeakPowerLimit?.WithValue(_cpuPeakPowerLimitControl.Value),
+                CPUCrossLoadingPowerLimit = preset.CPUCrossLoadingPowerLimit?.WithValue(_cpuCrossLoadingLimitControl.Value),
+                CPUPL1Tau = preset.CPUPL1Tau?.WithValue(_cpuPL1TauControl.Value),
+                APUsPPTPowerLimit = preset.APUsPPTPowerLimit?.WithValue(_apuSPPTPowerLimitControl.Value),
+                CPUTemperatureLimit = preset.CPUTemperatureLimit?.WithValue(_cpuTemperatureLimitControl.Value),
+                GPUPowerBoost = preset.GPUPowerBoost?.WithValue(_gpuPowerBoostControl.Value),
+                GPUConfigurableTGP = preset.GPUConfigurableTGP?.WithValue(_gpuConfigurableTGPControl.Value),
+                GPUTemperatureLimit = preset.GPUTemperatureLimit?.WithValue(_gpuTemperatureLimitControl.Value),
+                GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline = preset.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline?.WithValue(_gpuTotalProcessingPowerTargetOnAcOffsetFromBaselineControl.Value),
                 FanTableInfo = _fanCurveControl.GetFanTableInfo(),
                 FanFullSpeed = _fanFullSpeedToggle.IsChecked ?? false,
                 MaxValueOffset = (int)_maxValueOffsetNumberBox.Value,
@@ -144,11 +146,13 @@ public partial class GodModeSettingsWindow
         _cpuShortTermPowerLimitControl.Set(preset.CPUShortTermPowerLimit, maxValueOffset);
         _cpuPeakPowerLimitControl.Set(preset.CPUPeakPowerLimit, maxValueOffset);
         _cpuCrossLoadingLimitControl.Set(preset.CPUCrossLoadingPowerLimit, maxValueOffset);
+        _cpuPL1TauControl.Set(preset.CPUPL1Tau);
         _apuSPPTPowerLimitControl.Set(preset.APUsPPTPowerLimit, maxValueOffset);
         _cpuTemperatureLimitControl.Set(preset.CPUTemperatureLimit);
         _gpuPowerBoostControl.Set(preset.GPUPowerBoost, maxValueOffset);
         _gpuConfigurableTGPControl.Set(preset.GPUConfigurableTGP, maxValueOffset);
         _gpuTemperatureLimitControl.Set(preset.GPUTemperatureLimit);
+        _gpuTotalProcessingPowerTargetOnAcOffsetFromBaselineControl.Set(preset.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline);
 
         var fanTableInfo = preset.FanTableInfo;
         if (fanTableInfo.HasValue)
@@ -179,6 +183,7 @@ public partial class GodModeSettingsWindow
             _cpuShortTermPowerLimitControl,
             _cpuPeakPowerLimitControl,
             _cpuCrossLoadingLimitControl,
+            _cpuPL1TauControl,
             _apuSPPTPowerLimitControl,
             _cpuTemperatureLimitControl
         }.Any(v => v.Visibility == Visibility.Visible);
@@ -187,7 +192,8 @@ public partial class GodModeSettingsWindow
         {
             _gpuPowerBoostControl,
             _gpuConfigurableTGPControl,
-            _gpuTemperatureLimitControl
+            _gpuTemperatureLimitControl,
+            _gpuTotalProcessingPowerTargetOnAcOffsetFromBaselineControl
         }.Any(v => v.Visibility == Visibility.Visible);
 
         var fanSectionVisible = new[]

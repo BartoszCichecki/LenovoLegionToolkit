@@ -1708,4 +1708,16 @@ This settings takes effect only when Custom Mode is enabled.</value>
   <data name="Default" xml:space="preserve">
 	  <value>Default</value>
   </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
+	  <value>PL1 Tau</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau_Description" xml:space="preserve">
+	  <value>PL1 power consumption start time.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
+	  <value>Total Processor Power Target In AC</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
+	  <value>The point at which the CPU triggers dynamic power consumption adjustment for the GPU.</value>
+  </data>
 </root>

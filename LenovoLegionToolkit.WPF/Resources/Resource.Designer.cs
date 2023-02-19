@@ -2015,6 +2015,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to PL1 Tau.
+        /// </summary>
+        public static string GodModeSettingsWindow_CPU_PL1Tau {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_CPU_PL1Tau", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PL1 power consumption start time..
+        /// </summary>
+        public static string GodModeSettingsWindow_CPU_PL1Tau_Description {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_CPU_PL1Tau_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Short Term Power Limit.
         /// </summary>
         public static string GodModeSettingsWindow_CPU_ShortTermPL {
@@ -2202,6 +2220,26 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string GodModeSettingsWindow_GPU_Title {
             get {
                 return ResourceManager.GetString("GodModeSettingsWindow_GPU_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Processor Power Target In AC.
+        /// </summary>
+        public static string GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" +
+                        "", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The point at which the CPU triggers dynamic power consumption adjustment for the GPU..
+        /// </summary>
+        public static string GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" +
+                        "_Description", resourceCulture);
             }
         }
         
