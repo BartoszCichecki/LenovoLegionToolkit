@@ -24,7 +24,7 @@ public class ProcessesStopRunningAutomationPipelineTrigger : IAutomationPipeline
             return Task.FromResult(false);
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Checking for {pae.ProcessEventInfo.Process.Name}... [processes={string.Join(",", Processes.Select(p => p.Name))}]");
+            Log.Instance.Trace($"Checking for {pae.ProcessEventInfo.Process.Name}... [processes={string.Join(", ", Processes.Select(p => p.Name))}]");
 
         if (!Processes.Contains(pae.ProcessEventInfo.Process) && !Processes.Select(p => p.Name).Contains(pae.ProcessEventInfo.Process.Name))
         {
