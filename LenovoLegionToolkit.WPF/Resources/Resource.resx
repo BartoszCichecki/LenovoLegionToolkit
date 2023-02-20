@@ -1720,4 +1720,7 @@ This settings takes effect only when Custom Mode is enabled.</value>
   <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
 	  <value>The point at which the CPU triggers dynamic power consumption adjustment for the GPU.</value>
   </data>
+  <data name="Create" xml:space="preserve">
+	  <value>Create</value>
+  </data>
 </root>

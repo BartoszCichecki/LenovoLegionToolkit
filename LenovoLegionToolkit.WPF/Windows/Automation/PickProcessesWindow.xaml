@@ -51,91 +51,86 @@
 
         </Grid>
 
-        <controls:LoadableControl
+        <Grid
             x:Name="_loader"
             Grid.Row="1"
-            Margin="12,0,12,12"
-            IndicatorVerticalAlignment="Center">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
+            Margin="12,0,12,12">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-                <Border Grid.Row="0" CornerRadius="8">
-                    <Border.Background>
-                        <SolidColorBrush Color="{DynamicResource ControlFillColorDefault}" />
-                    </Border.Background>
-                    <wpfui:DynamicScrollViewer>
-                        <ItemsControl
-                            x:Name="_list"
-                            Margin="8,8,16,0"
-                            HorizontalContentAlignment="Stretch"
-                            ScrollViewer.HorizontalScrollBarVisibility="Disabled" />
-                    </wpfui:DynamicScrollViewer>
-                </Border>
+            <Border Grid.Row="0" CornerRadius="8">
+                <Border.Background>
+                    <SolidColorBrush Color="{DynamicResource ControlFillColorDefault}" />
+                </Border.Background>
+                <wpfui:DynamicScrollViewer>
+                    <ItemsControl
+                        x:Name="_list"
+                        Margin="8,8,16,0"
+                        HorizontalContentAlignment="Stretch"
+                        ScrollViewer.HorizontalScrollBarVisibility="Disabled" />
+                </wpfui:DynamicScrollViewer>
+            </Border>
 
-                <Grid Grid.Row="1" Margin="0,8,0,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
+            <Grid Grid.Row="1" Margin="0,8,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
 
-                    <wpfui:Button
-                        Grid.Column="0"
-                        Click="AddButton_Click"
-                        FontSize="18"
-                        Icon="Add24"
-                        ToolTip="{x:Static resources:Resource.Add}" />
+                <wpfui:Button
+                    Grid.Column="0"
+                    Click="AddButton_Click"
+                    FontSize="18"
+                    Icon="Add24"
+                    ToolTip="{x:Static resources:Resource.Add}" />
 
-                    <wpfui:Button
-                        Grid.Column="1"
-                        Margin="8,0,0,0"
-                        Click="DeleteAllButton_Click"
-                        FontSize="18"
-                        Icon="Delete24"
-                        ToolTip="{x:Static resources:Resource.Delete}" />
+                <wpfui:Button
+                    Grid.Column="1"
+                    Margin="8,0,0,0"
+                    Click="DeleteAllButton_Click"
+                    FontSize="18"
+                    Icon="Delete24"
+                    ToolTip="{x:Static resources:Resource.Delete}" />
 
-                    <wpfui:Button
-                        Grid.Column="2"
-                        Margin="8,0,0,0"
-                        Click="CopyShortcut"
-                        FontSize="18"
-                        Icon="Copy24"
-                        ToolTip="{x:Static resources:Resource.CopyAll}" />
+                <wpfui:Button
+                    Grid.Column="2"
+                    Margin="8,0,0,0"
+                    Click="CopyShortcut"
+                    FontSize="18"
+                    Icon="Copy24"
+                    ToolTip="{x:Static resources:Resource.CopyAll}" />
 
-                    <wpfui:Button
-                        Grid.Column="3"
-                        Margin="8,0,0,0"
-                        Click="PasteShortcut"
-                        FontSize="18"
-                        Icon="ClipboardPaste24"
-                        ToolTip="{x:Static resources:Resource.Paste}" />
+                <wpfui:Button
+                    Grid.Column="3"
+                    Margin="8,0,0,0"
+                    Click="PasteShortcut"
+                    FontSize="18"
+                    Icon="ClipboardPaste24"
+                    ToolTip="{x:Static resources:Resource.Paste}" />
 
-                    <wpfui:Button
-                        Grid.Column="5"
-                        MinWidth="100"
-                        Appearance="Primary"
-                        Click="SaveButton_Click"
-                        Content="{x:Static resources:Resource.Save}" />
+                <wpfui:Button
+                    Grid.Column="5"
+                    MinWidth="100"
+                    Appearance="Primary"
+                    Click="SaveButton_Click"
+                    Content="{x:Static resources:Resource.Save}" />
 
-                    <wpfui:Button
-                        Grid.Column="6"
-                        MinWidth="100"
-                        Margin="8,0,0,0"
-                        Click="CancelButton_Click"
-                        Content="{x:Static resources:Resource.Cancel}" />
-
-                </Grid>
+                <wpfui:Button
+                    Grid.Column="6"
+                    MinWidth="100"
+                    Margin="8,0,0,0"
+                    Click="CancelButton_Click"
+                    Content="{x:Static resources:Resource.Cancel}" />
 
             </Grid>
-        </controls:LoadableControl>
-
+        </Grid>
     </Grid>
 
 </local:BaseWindow>
