@@ -18,7 +18,7 @@ public class GodModeControllerV2 : AbstractGodModeController
      * FF - Custom Mode, 03 - Performance, 02 - Balance, 01 - Quiet
      * 00 - Unused
      */
-    private enum SettingID
+    private enum SettingID : uint
     {
         CPUShortTermPowerLimit = 0x0101FF00,
         CPULongTermPowerLimit = 0x0102FF00,
@@ -186,20 +186,28 @@ public class GodModeControllerV2 : AbstractGodModeController
 
     #region Get/Set Value
 
-    private Task<int> GetValue(SettingID id) => WMI.CallAsync("root\\WMI",
+    private Task<int> GetValue(SettingID id)
+    {
+        var idRaw = (uint)id & 0xFFFF00FF;
+        return WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_OTHER_METHOD",
             "GetFeatureValue",
-            new() { { "IDs", $"{(int)id}" } },
+            new() { { "IDs", idRaw } },
             pdc => Convert.ToInt32(pdc["Value"].Value));
+    }
 
-    private Task SetValue(SettingID id, StepperValue value) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_OTHER_METHOD",
-        "SetFeatureValue",
-        new()
-        {
-            { "IDs", $"{(int)id}" },
-            { "value", $"{value.Value}" },
-        });
+    private Task SetValue(SettingID id, StepperValue value)
+    {
+        var idRaw = (uint)id & 0xFFFF00FF;
+        return WMI.CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_OTHER_METHOD",
+            "SetFeatureValue",
+            new()
+            {
+                { "IDs", idRaw },
+                { "value", value.Value },
+            });
+    }
 
     #endregion
 
