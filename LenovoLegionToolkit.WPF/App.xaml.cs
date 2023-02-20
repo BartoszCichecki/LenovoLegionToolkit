@@ -48,8 +48,8 @@ public partial class App
 
         var args = e.Args.Concat(LoadExternalArgs()).ToArray();
 
-        // TODO if (IsTraceEnabled(args))
-        Log.Instance.IsTraceEnabled = true;
+        if (IsTraceEnabled(args))
+            Log.Instance.IsTraceEnabled = true;
 
         if (!ShouldByPassCompatibilityCheck(args))
         {
