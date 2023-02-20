@@ -95,9 +95,9 @@ public partial class GodModeSettingsWindow
                 GPUConfigurableTGP = preset.GPUConfigurableTGP?.WithValue(_gpuConfigurableTGPControl.Value),
                 GPUTemperatureLimit = preset.GPUTemperatureLimit?.WithValue(_gpuTemperatureLimitControl.Value),
                 GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline = preset.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline?.WithValue(_gpuTotalProcessingPowerTargetOnAcOffsetFromBaselineControl.Value),
-                FanTableInfo = _fanCurveControl.GetFanTableInfo(),
-                FanFullSpeed = _fanFullSpeedToggle.IsChecked ?? false,
-                MaxValueOffset = (int)_maxValueOffsetNumberBox.Value,
+                FanTableInfo = preset.FanTableInfo is not null ? _fanCurveControl.GetFanTableInfo() : null,
+                FanFullSpeed = preset.FanFullSpeed is not null ? _fanFullSpeedToggle.IsChecked : null,
+                MaxValueOffset = preset.MaxValueOffset is not null ? (int)_maxValueOffsetNumberBox.Value : null,
             };
 
             var newPresets = new Dictionary<Guid, GodModePreset>(presets)

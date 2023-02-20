@@ -82,7 +82,8 @@ public class GodModeControllerV2 : AbstractGodModeController
             { SettingID.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline, preset.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline },
         };
 
-        var fanTable = preset.FanTable;
+        var fanTable = preset.FanTable ?? FanTable.Default;
+        var fanFullSpeed = preset.FanFullSpeed ?? false;
 
         foreach (var (id, value) in settings)
         {
@@ -92,7 +93,7 @@ public class GodModeControllerV2 : AbstractGodModeController
             try
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Applying {id}: {value}");
+                    Log.Instance.Trace($"Applying {id}: {value}...");
 
                 await SetValue(id, value.Value).ConfigureAwait(false);
             }
@@ -104,27 +105,60 @@ public class GodModeControllerV2 : AbstractGodModeController
             }
         }
 
-        try
+        if (fanFullSpeed)
         {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Applying Fan Table {fanTable}");
-
-            var table = fanTable ?? FanTable.Default;
-            if (!table.IsValid())
+            try
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Fan table invalid, replacing with default...");
+                    Log.Instance.Trace($"Applying Fan Full Speed {fanFullSpeed}...");
 
-                table = FanTable.Default;
+                await SetFanFullSpeedAsync(fanFullSpeed).ConfigureAwait(false);
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Apply failed. [setting=fanFullSpeed]", ex);
+                throw;
+            }
+        }
+        else
+        {
+
+            try
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Making sure Fan Full Speed is false...");
+
+                await SetFanFullSpeedAsync(false).ConfigureAwait(false);
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Apply failed. [setting=fanFullSpeed]", ex);
+                throw;
             }
 
-            await SetFanTable(table).ConfigureAwait(false);
-        }
-        catch (Exception ex)
-        {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Apply failed. [setting=fanTable]", ex);
-            throw;
+            try
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Applying Fan Table {fanTable}...");
+
+                if (!fanTable.IsValid())
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Fan table invalid, replacing with default...");
+
+                    fanTable = FanTable.Default;
+                }
+
+                await SetFanTable(fanTable).ConfigureAwait(false);
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Apply failed. [setting=fanTable]", ex);
+                throw;
+            }
         }
 
         if (Log.Instance.IsTraceEnabled)
@@ -175,7 +209,8 @@ public class GodModeControllerV2 : AbstractGodModeController
             GPUConfigurableTGP = stepperValues.GetValueOrNull(SettingID.GPUConfigurableTGP),
             GPUTemperatureLimit = stepperValues.GetValueOrNull(SettingID.GPUTemperatureLimit),
             GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline = stepperValues.GetValueOrDefault(SettingID.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline),
-            FanTableInfo = fanTableData is null ? null : new FanTableInfo(fanTableData, FanTable.Default)
+            FanTableInfo = fanTableData is null ? null : new FanTableInfo(fanTableData, FanTable.Default),
+            FanFullSpeed = await GetFanFullSpeedAsync().ConfigureAwait(false)
         };
 
         if (Log.Instance.IsTraceEnabled)
@@ -310,6 +345,33 @@ public class GodModeControllerV2 : AbstractGodModeController
         $"SELECT * FROM LENOVO_FAN_METHOD",
         "Fan_Set_Table",
         new() { { "FanTable", fanTable.GetBytes() } });
+
+    #endregion
+
+    #region Fan Full Speed
+
+    protected Task<bool> GetFanFullSpeedAsync()
+    {
+        const uint id = 0x04020000;
+        return WMI.CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_OTHER_METHOD",
+            "GetFeatureValue",
+            new() { { "IDs", id } },
+            pdc => Convert.ToInt32(pdc["Value"].Value) == 1);
+    }
+
+    protected Task SetFanFullSpeedAsync(bool enabled)
+    {
+        const uint id = 0x04020000;
+        return WMI.CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_OTHER_METHOD",
+            "SetFeatureValue",
+            new()
+            {
+                { "IDs", id },
+                { "value", enabled ? 1 : 0 },
+            });
+    }
 
     #endregion
 

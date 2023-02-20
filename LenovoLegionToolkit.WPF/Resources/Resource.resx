@@ -1706,21 +1706,21 @@ This settings takes effect only when Custom Mode is enabled.</value>
     <value>The maximum temperature that can be reached by the GPU before frequency and power is reduced.</value>
   </data>
   <data name="Default" xml:space="preserve">
-	  <value>Default</value>
+    <value>Default</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
-	  <value>PL1 Tau</value>
+    <value>Short Term Power Limit Duration</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_PL1Tau_Description" xml:space="preserve">
-	  <value>PL1 power consumption start time.</value>
+    <value>The amount of time the CPU is allowed to boost and use Short Term Power Limit for. When Tau expires, Long Term Power Limit is used.</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
-	  <value>Total Processor Power Target In AC</value>
+    <value>Total Processor Power Target In AC</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
-	  <value>The point at which the CPU triggers dynamic power consumption adjustment for the GPU.</value>
+    <value>The point at which the CPU triggers dynamic power consumption adjustment for the GPU.</value>
   </data>
   <data name="Create" xml:space="preserve">
-	  <value>Create</value>
+    <value>Create</value>
   </data>
 </root>

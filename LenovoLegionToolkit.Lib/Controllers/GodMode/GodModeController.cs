@@ -4,7 +4,7 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Controllers.GodMode;
 
-public class GodModeController
+public class GodModeController : IGodModeController
 {
     private readonly GodModeControllerV1 _controllerV1;
     private readonly GodModeControllerV2 _controllerV2;

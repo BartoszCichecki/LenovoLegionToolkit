@@ -41,8 +41,8 @@ public class GodModeControllerV1 : AbstractGodModeController
         var gpuPowerBoost = preset.GPUPowerBoost;
         var gpuConfigurableTgp = preset.GPUConfigurableTGP;
         var gpuTemperatureLimit = preset.GPUTemperatureLimit;
-        var fanTable = preset.FanTable;
-        var maxFan = preset.FanFullSpeed ?? false;
+        var fanTable = preset.FanTable ?? FanTable.Default;
+        var fanFullSpeed = preset.FanFullSpeed ?? false;
 
         if (cpuLongTermPowerLimit is not null)
         {
@@ -197,53 +197,53 @@ public class GodModeControllerV1 : AbstractGodModeController
             }
         }
 
-        if (fanTable is null || maxFan)
+        if (fanFullSpeed)
         {
             try
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Applying Fan Full Speed: {maxFan}");
+                    Log.Instance.Trace($"Applying Fan Full Speed {fanFullSpeed}...");
 
-                await SetFanFullSpeedAsync(maxFan).ConfigureAwait(false);
+                await SetFanFullSpeedAsync(fanFullSpeed).ConfigureAwait(false);
             }
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Apply failed. [setting=maxFan]", ex);
+                    Log.Instance.Trace($"Apply failed. [setting=fanFullSpeed]", ex);
                 throw;
             }
         }
         else
         {
+
             try
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Making sure Fan Full Speed is off...");
+                    Log.Instance.Trace($"Making sure Fan Full Speed is false...");
 
                 await SetFanFullSpeedAsync(false).ConfigureAwait(false);
             }
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Apply failed. [setting=maxFan]", ex);
+                    Log.Instance.Trace($"Apply failed. [setting=fanFullSpeed]", ex);
                 throw;
             }
 
             try
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Applying Fan Table {fanTable.Value}");
+                    Log.Instance.Trace($"Applying Fan Table {fanTable}...");
 
-                var table = fanTable.Value;
-                if (!table.IsValid())
+                if (!fanTable.IsValid())
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Fan table invalid, replacing with default...");
 
-                    table = FanTable.Default;
+                    fanTable = FanTable.Default;
                 }
 
-                await SetFanTable(table).ConfigureAwait(false);
+                await SetFanTable(fanTable).ConfigureAwait(false);
             }
             catch (Exception ex)
             {

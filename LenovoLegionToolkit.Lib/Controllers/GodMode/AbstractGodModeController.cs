@@ -9,7 +9,7 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Controllers.GodMode;
 
-public abstract class AbstractGodModeController
+public abstract class AbstractGodModeController : IGodModeController
 {
     protected readonly GodModeSettings Settings;
     protected readonly LegionZone LegionZone;

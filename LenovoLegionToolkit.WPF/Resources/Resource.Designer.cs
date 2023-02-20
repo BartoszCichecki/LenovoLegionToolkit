@@ -2024,7 +2024,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PL1 Tau.
+        ///   Looks up a localized string similar to Short Term Power Limit Duration.
         /// </summary>
         public static string GodModeSettingsWindow_CPU_PL1Tau {
             get {
@@ -2033,7 +2033,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PL1 power consumption start time..
+        ///   Looks up a localized string similar to The amount of time the CPU is allowed to boost and use Short Term Power Limit for. When Tau expires, Long Term Power Limit is used..
         /// </summary>
         public static string GodModeSettingsWindow_CPU_PL1Tau_Description {
             get {
