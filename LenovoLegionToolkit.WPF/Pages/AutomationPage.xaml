@@ -67,11 +67,7 @@
                                 MinWidth="120"
                                 Appearance="Primary"
                                 Click="NewAutomaticPipelineButton_Click"
-                                Content="{x:Static resources:Resource.AddNew}">
-                                <wpfui:Button.ContextMenu>
-                                    <ContextMenu />
-                                </wpfui:Button.ContextMenu>
-                            </wpfui:Button>
+                                Content="{x:Static resources:Resource.AddNew}" />
                         </StackPanel>
 
                     </StackPanel>

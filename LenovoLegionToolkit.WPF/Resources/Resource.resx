@@ -1705,4 +1705,7 @@ This settings takes effect only when Custom Mode is enabled.</value>
   <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
     <value>The maximum temperature that can be reached by the GPU before frequency and power is reduced.</value>
   </data>
+  <data name="Create" xml:space="preserve">
+	  <value>Create</value>
+  </data>
 </root>
