@@ -12,11 +12,13 @@ namespace LenovoLegionToolkit.Lib.Controllers.GodMode;
 public abstract class AbstractGodModeController : IGodModeController
 {
     protected readonly GodModeSettings Settings;
+    protected readonly Vantage Vantage;
     protected readonly LegionZone LegionZone;
 
-    protected AbstractGodModeController(GodModeSettings settings, LegionZone legionZone)
+    protected AbstractGodModeController(GodModeSettings settings, Vantage vantage, LegionZone legionZone)
     {
         Settings = settings ?? throw new ArgumentNullException(nameof(settings));
+        Vantage = vantage ?? throw new ArgumentNullException(nameof(vantage));
         LegionZone = legionZone ?? throw new ArgumentNullException(nameof(legionZone));
     }
 

@@ -10,7 +10,7 @@ namespace LenovoLegionToolkit.Lib.Controllers.GodMode;
 
 public class GodModeControllerV1 : AbstractGodModeController
 {
-    public GodModeControllerV1(GodModeSettings settings, LegionZone legionZone) : base(settings, legionZone) { }
+    public GodModeControllerV1(GodModeSettings settings, Vantage vantage, LegionZone legionZone) : base(settings, vantage, legionZone) { }
 
     public override Task<bool> NeedsVantageDisabledAsync() => Task.FromResult(false);
     public override Task<bool> NeedsLegionZoneDisabledAsync() => Task.FromResult(true);
