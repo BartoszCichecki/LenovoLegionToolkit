@@ -445,7 +445,7 @@ Eger noutbuk uyqı rejiminde yamasa óshirilgen waqıtta zaryadlanǵan bolsa, bu
   <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
     <value>Eger bólekli grafikalıq processor zarúr bolmasa da qosılǵan bolsa, onı óshiriw
 
-ESLETPE: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bul háreket durıs orınlanbaydı.</value>
+DIQQAT: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bul háreket durıs orınlanbaydı.</value>
   </data>
   <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
     <value>Grafikalıq processordı óshiriw</value>
@@ -481,7 +481,7 @@ ESLETPE: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bu
     <value>Lenovo qollap-quwatlaw xizmeti</value>
   </data>
   <data name="DeviceInformationWindow_MachineType_Title" xml:space="preserve">
-    <value>Qurılma modeliniń tipi</value>
+    <value>Qurılma modeliniń túri</value>
   </data>
   <data name="DeviceInformationWindow_Manufacturer_Title" xml:space="preserve">
     <value>Islep shıǵarıwshı</value>
@@ -552,6 +552,9 @@ ESLETPE: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bu
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>Displey jarıqlıǵı</value>
   </data>
+  <data name="DonatePage_DonateWith" xml:space="preserve">
+    <value>Járdeminde qollap-quwatlaw</value>
+  </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Qollap-quwatlaw</value>
   </data>
@@ -580,7 +583,7 @@ ESLETPE: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bu
     <value>Bul rejimdi almastırıw qayta iske túsiriwdi talap etedi.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Message" xml:space="preserve">
-    <value>Tek ǵana grafikalıq processordı paydalanıw. Bul rejim eń jaqsı ónimdarlıqtı beredi, biraq zaryadsızlanıwdı kúsheytedi.</value>
+    <value>Tek ǵana bólekli grafikalıq processordı paydalanıw. Bul rejim eń jaqsı ónimdarlıqtı beredi, biraq zaryadsızlanıwdı kúsheytedi.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
     <value>Bólekli videokarta rejimi</value>
@@ -588,11 +591,23 @@ ESLETPE: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bu
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Gibrid rejimi</value>
   </data>
+  <data name="ExtendedHybridModeInfoWindow_IGPU_Disclaimer" xml:space="preserve">
+    <value>Bul rejim tek ǵana bólekli videokarta islemey turǵanda iske túsiriledi.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_IGPU_Message" xml:space="preserve">
+    <value>Tek ornatılǵan videokartanı paydalanıw. Bul rejim zaryadsızlanıwdı hám shawqımdı azaytadı.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Title" xml:space="preserve">
+    <value>Grafikalıq processordıń islew rejimleri haqqında</value>
+  </data>
   <data name="Fahrenheit" xml:space="preserve">
     <value>°F</value>
   </data>
   <data name="FanCurveControl_CPU" xml:space="preserve">
     <value>Oraylıq processor</value>
+  </data>
+  <data name="FanCurveControl_CPUSensor" xml:space="preserve">
+    <value>OP sensorı</value>
   </data>
   <data name="FanCurveControl_FanSpeed" xml:space="preserve">
     <value>Samallatqıshtıń tezligi</value>
@@ -662,6 +677,9 @@ ESLETPE: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bu
   </data>
   <data name="GodModeSettingsWindow_GPU_Title" xml:space="preserve">
     <value>Grafikalıq processor</value>
+  </data>
+  <data name="GodModeSettingsWindow_Title" xml:space="preserve">
+    <value>Arnawlı rejim sazlawları</value>
   </data>
   <data name="HDRAutomationStepControl_Title" xml:space="preserve">
     <value>HDR</value>
@@ -831,8 +849,14 @@ ESLETPE: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bu
   <data name="Open" xml:space="preserve">
     <value>Ashıw</value>
   </data>
+  <data name="OverDriveAutomationStepControl_Message" xml:space="preserve">
+    <value>Ornatılǵan displeydiń juwap waqtın jaqsılaw.</value>
+  </data>
   <data name="OverDriveAutomationStepControl_Title" xml:space="preserve">
     <value>Over Drive</value>
+  </data>
+  <data name="OverDriveControl_Message" xml:space="preserve">
+    <value>Ornatılǵan displeydiń juwap waqtın jaqsılaw.</value>
   </data>
   <data name="OverDriveControl_Title" xml:space="preserve">
     <value>Over Drive</value>
@@ -879,6 +903,9 @@ Durıs paketlerdi ornatıp atırǵanıńızǵa isenim kámil etiń.</value>
   </data>
   <data name="PackagesPage_Filter" xml:space="preserve">
     <value>Filtr...</value>
+  </data>
+  <data name="PackagesPage_MachineType" xml:space="preserve">
+    <value>Qurılma modeliniń túri</value>
   </data>
   <data name="PackagesPage_OperatingSystem" xml:space="preserve">
     <value>Operacion sistema</value>
@@ -944,6 +971,12 @@ Rejimdi Fn+Q járdeminde ózgerte alasız.</value>
   <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
     <value>Teńlestirilgen rejim</value>
   </data>
+  <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
+    <value>Arnawlı rejim</value>
+  </data>
+  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
+    <value>Aldınnan ornatılǵan</value>
+  </data>
   <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
     <value>Tınısh rejimi</value>
   </data>
@@ -992,8 +1025,16 @@ Rejimdi Fn+Q járdeminde ózgerte alasız.</value>
   <data name="Refresh" xml:space="preserve">
     <value>Jańalaw</value>
   </data>
+  <data name="RefreshRateAutomationStepControl_Message" xml:space="preserve">
+    <value>Ornatılǵan displeydiń jańalanıw tezligin ózgertiw.
+
+ESLETPE: Eger ishki displey óshirilgen bolsa, bul ámel durıs orınlanbaydı.</value>
+  </data>
   <data name="RefreshRateAutomationStepControl_Title" xml:space="preserve">
     <value>Jańalanıw tezligi</value>
+  </data>
+  <data name="RefreshRateControl_Message" xml:space="preserve">
+    <value>Ornatılǵan displeydiń jańalanıw tezligin ózgertiw.</value>
   </data>
   <data name="RefreshRateControl_Title" xml:space="preserve">
     <value>Jańalanıw tezligi</value>
@@ -1085,6 +1126,9 @@ Rejimdi Fn+Q járdeminde ózgerte alasız.</value>
   <data name="SettingsPage_Language_Title" xml:space="preserve">
     <value>Til</value>
   </data>
+  <data name="SettingsPage_Notifications_Message" xml:space="preserve">
+    <value>Qanday xabarnamalar kórsetiliwin sazlań.</value>
+  </data>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>Xabarnamalar</value>
   </data>
@@ -1123,6 +1167,9 @@ Rejimdi Fn+Q járdeminde ózgerte alasız.</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
     <value>Profildi qollanıw ámelge aspadı</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
+    <value>Arqa jaqtılıqtıń profilın qollanıw ámelge aspadı.</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Jarıqlıq</value>
@@ -1175,6 +1222,12 @@ Rejimdi Fn+Q járdeminde ózgerte alasız.</value>
   <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Edit" xml:space="preserve">
     <value>Effektti ózgertiw</value>
   </data>
+  <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Message" xml:space="preserve">
+    <value>Klaviatura arqa jaqtılıǵınıń profilin sazlaw.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Title" xml:space="preserve">
+    <value>Klaviatura arqa jaqtılıǵınıń profili</value>
+  </data>
   <data name="SpectrumKeyboardEffectControl_Description_AllZones" xml:space="preserve">
     <value>Bárshe túymeler</value>
   </data>
@@ -1192,6 +1245,9 @@ Rejimdi Fn+Q járdeminde ózgerte alasız.</value>
   </data>
   <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
     <value>Waqıt</value>
+  </data>
+  <data name="ToggleHybridModeControl_RestartRequired_Message" xml:space="preserve">
+    <value>Gibrid rejimin ózgertiw qayta iske túsiriwdi talap etedi. Házir qayta iske túsiriwdi qáleysiz be?</value>
   </data>
   <data name="ToggleHybridModeControl_RestartRequired_Title" xml:space="preserve">
     <value>Qayta iske túsiriw talap etiledi</value>
@@ -1225,6 +1281,9 @@ Rejimdi Fn+Q járdeminde ózgerte alasız.</value>
   </data>
   <data name="UnsupportedWindow_Disclaimer_Logs" xml:space="preserve">
     <value>Jurnallar papkası</value>
+  </data>
+  <data name="UnsupportedWindow_MachineType" xml:space="preserve">
+    <value>Qurılma modeliniń túri</value>
   </data>
   <data name="UnsupportedWindow_Message" xml:space="preserve">
     <value>Lenovo Legion Toolkit siziń qurılmańızda tekserilmedi.</value>
@@ -1282,6 +1341,17 @@ Rejimdi Fn+Q járdeminde ózgerte alasız.</value>
   </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
     <value>Kólem</value>
+  </data>
+  <data name="ResolutionControl_Message" xml:space="preserve">
+    <value>Ornatılǵan displeydiń kólemin ózgertiw.</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
+    <value>Kólem</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
+    <value>Ornatılǵan displey kólemin ózgertiw.
+
+ESLETPE: Eger ishki displey óshirilgen bolsa, bul ámel durıs orınlanbaydı.</value>
   </data>
   <data name="DpiScaleControl_Title" xml:space="preserve">
     <value>DPI</value>
@@ -1367,6 +1437,9 @@ Tıshqanshanı qozǵaw yamasa klaviaturanı basıw displeydi iske túsiredi.</va
   <data name="PackageControl_RebootRequired" xml:space="preserve">
     <value>Qayta iske túsiriw talap etiledi</value>
   </data>
+  <data name="PackageControl_ShutdownRequired" xml:space="preserve">
+    <value>Óshiriw talap etiledi</value>
+  </data>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>Qayta iske túsiriw usınıs etiledi</value>
   </data>
@@ -1376,7 +1449,22 @@ Tıshqanshanı qozǵaw yamasa klaviaturanı basıw displeydi iske túsiredi.</va
   <data name="GodModeSettingsWindow_EditPreset_Message" xml:space="preserve">
     <value>Ataması</value>
   </data>
+  <data name="AboutPage_ApplicationFolders" xml:space="preserve">
+    <value>Baǵdarlama papkaları</value>
+  </data>
+  <data name="AboutPage_Data" xml:space="preserve">
+    <value>Maǵlıwmatlar</value>
+  </data>
+  <data name="AboutPage_Temp" xml:space="preserve">
+    <value>Waqtınshalıq fayllar</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
+    <value>Bir displeydıń jarıqlıǵı</value>
+  </data>
   <data name="Notification_UpdateAvailable" xml:space="preserve">
     <value>{0} Jańalanıw bar!</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+	  <value>Jaratıw</value>
   </data>
 </root>

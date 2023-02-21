@@ -581,13 +581,6 @@
   <data name="DonatePage_DonateWith" xml:space="preserve">
     <value>点击使用 Stripe 赞助（支持支付宝）</value>
   </data>
-  <data name="DonatePage_Message" xml:space="preserve">
-    <value>开发与维护联想拯救箱需要大量时间。如果你喜欢这个软件，你可以通过赞助来支持软件的开发。
-
-点击下方的 Stripe 图标或扫描二维码使用Stripe赞助，支持支付宝与银联支付。
-
-万分感谢！</value>
-  </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>赞助</value>
   </data>
@@ -626,9 +619,6 @@
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
     <value>独显直连模式</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
-    <value>核显与独显都将启用，系统将自动决定使用哪一个。</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>混合模式</value>
@@ -786,9 +776,6 @@
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>键盘背光</value>
-  </data>
-  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>由于Vantage或其服务正在运行导致冲突，无法在此控制键盘背光。</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage似乎已启用。</value>
@@ -1219,10 +1206,6 @@
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
     <value>无法禁用 Legion Zone</value>
   </data>
-  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
-    <value>禁用 Legion Zone 服务，而不卸载。
-修改此项后推荐重启电脑。</value>
-  </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
     <value>禁用 Legion Zone</value>
   </data>
@@ -1232,11 +1215,6 @@
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>无法禁用 Lenovo Hotkeys</value>
   </data>
-  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
-    <value>禁用 Lenovo Hotkeys，并且无需卸载。
-禁用后本应用将接管 Fn 快捷功能。
-修改此项后建议重启电脑。</value>
-  </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>禁用 Lenovo Hotkeys</value>
   </data>
@@ -1245,10 +1223,6 @@
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
     <value>无法禁用 Lenovo Vantage</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>禁用 Lenovo Vantage，而不卸载。
-修改此项后推荐重启电脑。</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>禁用 Lenovo Vantage</value>
@@ -1712,5 +1686,8 @@
   </data>
   <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
     <value>在降频前，GPU的温度限制。</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+	  <value>创建</value>
   </data>
 </root>

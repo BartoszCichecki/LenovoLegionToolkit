@@ -106,4 +106,10 @@
   <data name="DisplayOffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
 		<value>Quando a tela desligar</value>
 	</data>
+  <data name="LidOpenedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Tampa aberta</value>
+	</data>
+  <data name="LidClosedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Tampa fechada</value>
+	</data>
 </root>

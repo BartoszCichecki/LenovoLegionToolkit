@@ -1636,8 +1636,77 @@ En déplaçant la souris ou en appuyant sur le clavier, les écrans se réveille
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>Redémarrage recommandé</value>
   </data>
+  <data name="SaveAndClose" xml:space="preserve">
+    <value>Enregistrer et fermer</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
+    <value>Préréglage du mode personnalisé</value>
+  </data>
   <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
     <value>Active le préréglage du mode personnalisé.
 Ce paramètre ne prend effet que lorsque le mode personnalisé est activé.</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
+    <value>Nom du pré-réglage</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Message" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="GodModeSettingsWindow_ActivePreset_Title" xml:space="preserve">
+    <value>Préréglage actuel</value>
+  </data>
+  <data name="AboutPage_ApplicationFolders" xml:space="preserve">
+    <value>Dossiers de l'application</value>
+  </data>
+  <data name="AboutPage_Data" xml:space="preserve">
+    <value>Données</value>
+  </data>
+  <data name="AboutPage_Temp" xml:space="preserve">
+    <value>Temp</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
+    <value>Luminosité unique de l'écran</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
+    <value>Activé, le même niveau de luminosité sera appliqué à tous les plans d'alimentation de Windows chaque fois que vous le modifiez.</value>
+  </data>
+  <data name="Notification_UpdateAvailable" xml:space="preserve">
+    <value>La mise à jour {0} est disponible !</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL" xml:space="preserve">
+    <value>Limite de puissance de crête</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
+    <value>Limite de puissance de l'APU sPPT</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL_Description" xml:space="preserve">
+    <value>La consommation d'énergie qui peut être atteinte en continu par le CPU.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL_Description" xml:space="preserve">
+    <value>La consommation d'énergie maximale qui peut être atteinte par le CPU dans un court laps de temps.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL_Description" xml:space="preserve">
+    <value>La consommation d'énergie instantanée maximale qui peut être atteinte par le CPU.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_CrossLoading_Description" xml:space="preserve">
+    <value>La consommation d'énergie maximale qui peut être atteinte par le CPU lorsque le CPU et le GPU sont tous deux pleinement utilisés.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL_Description" xml:space="preserve">
+    <value>La consommation d'énergie maximale qui peut être atteinte par le CPU avec un délai mineur.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
+    <value>La température maximale que peut atteindre le CPU avant que la fréquence et la puissance ne soient réduites.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
+    <value>La puissance maximale supplémentaire qui peut être allouée au GPU en fonction de la consommation d'énergie du CPU.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
+    <value>La quantité supplémentaire de puissance qui peut être allouée au GPU en plus de la consommation de base.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
+    <value>La température maximale que peut atteindre le GPU avant que la fréquence et la puissance ne soient réduites.</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+	  <value>Créer</value>
   </data>
 </root>
