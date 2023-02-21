@@ -11,27 +11,6 @@ namespace LenovoLegionToolkit.Lib.Controllers.GodMode;
 
 public class GodModeControllerV2 : AbstractGodModeController
 {
-    /*
-     * Structure of ID:
-     * 01 - CPU, 02 - GPU
-     * xx - Index
-     * FF - Custom Mode, 03 - Performance, 02 - Balance, 01 - Quiet
-     * 00 - Unused
-     */
-    private enum SettingID : uint
-    {
-        CPUShortTermPowerLimit = 0x0101FF00,
-        CPULongTermPowerLimit = 0x0102FF00,
-        CPUPeakPowerLimit = 0x0103FF00,
-        CPUTemperatureLimit = 0x0104FF00,
-        APUsPPTPowerLimit = 0x0105FF00,
-        CPUCrossLoadingPowerLimit = 0x0106FF00,
-        CPUPL1Tau = 0x0107FF00,
-        GPUPowerBoost = 0x0201FF00,
-        GPUConfigurableTGP = 0x0202FF00,
-        GPUTemperatureLimit = 0x0203FF00,
-        GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline = 0x0204FF00
-    }
 
     private readonly Vantage _vantage;
 
@@ -67,19 +46,19 @@ public class GodModeControllerV2 : AbstractGodModeController
 
         var preset = presets[activePresetId];
 
-        var settings = new Dictionary<SettingID, StepperValue?>
+        var settings = new Dictionary<TuneId, StepperValue?>
         {
-            { SettingID.CPULongTermPowerLimit, preset.CPULongTermPowerLimit },
-            { SettingID.CPUShortTermPowerLimit, preset.CPUShortTermPowerLimit },
-            { SettingID.CPUPeakPowerLimit, preset.CPUPeakPowerLimit },
-            { SettingID.CPUCrossLoadingPowerLimit, preset.CPUCrossLoadingPowerLimit },
-            { SettingID.CPUPL1Tau, preset.CPUPL1Tau },
-            { SettingID.APUsPPTPowerLimit, preset.APUsPPTPowerLimit },
-            { SettingID.CPUTemperatureLimit, preset.CPUTemperatureLimit },
-            { SettingID.GPUPowerBoost, preset.GPUPowerBoost },
-            { SettingID.GPUConfigurableTGP, preset.GPUConfigurableTGP },
-            { SettingID.GPUTemperatureLimit, preset.GPUTemperatureLimit },
-            { SettingID.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline, preset.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline },
+            { TuneId.CPULongTermPowerLimit, preset.CPULongTermPowerLimit },
+            { TuneId.CPUShortTermPowerLimit, preset.CPUShortTermPowerLimit },
+            { TuneId.CPUPeakPowerLimit, preset.CPUPeakPowerLimit },
+            { TuneId.CPUCrossLoadingPowerLimit, preset.CPUCrossLoadingPowerLimit },
+            { TuneId.CPUPL1Tau, preset.CPUPL1Tau },
+            { TuneId.APUsPPTPowerLimit, preset.APUsPPTPowerLimit },
+            { TuneId.CPUTemperatureLimit, preset.CPUTemperatureLimit },
+            { TuneId.GPUPowerBoost, preset.GPUPowerBoost },
+            { TuneId.GPUConfigurableTGP, preset.GPUConfigurableTGP },
+            { TuneId.GPUTemperatureLimit, preset.GPUTemperatureLimit },
+            { TuneId.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline, preset.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline },
         };
 
         var fanTable = preset.FanTable ?? FanTable.Default;
@@ -167,7 +146,9 @@ public class GodModeControllerV2 : AbstractGodModeController
 
     protected override async Task<GodModePreset> GetDefaultStateAsync()
     {
-        IEnumerable<(SettingID id, int defaultValue, int min, int max, int step)> capabilityData = (await GetCapabilityDataAsync().ConfigureAwait(false))
+        var allCapabilityData = (await GetCapabilityDataAsync().ConfigureAwait(false)).ToArray();
+
+        var capabilityData = allCapabilityData
             .Where(d => Enum.IsDefined(d.Id))
             .ToArray();
 
@@ -176,21 +157,21 @@ public class GodModeControllerV2 : AbstractGodModeController
             .GroupBy(d => d.Id, d => d.Value, (id, values) => (id, values))
             .ToDictionary(d => d.id, d => d.values.ToArray());
 
-        var stepperValues = new Dictionary<SettingID, StepperValue>();
+        var stepperValues = new Dictionary<TuneId, StepperValue>();
 
-        foreach (var (id, defaultValue, min, max, step) in capabilityData)
+        foreach (var c in capabilityData)
         {
-            var value = await GetValue(id).OrNull().ConfigureAwait(false) ?? defaultValue;
-            var steps = discreteData.GetValueOrDefault(id) ?? Array.Empty<int>();
+            var value = await GetValue(c.Id).OrNull().ConfigureAwait(false) ?? c.DefaultValue;
+            var steps = discreteData.GetValueOrDefault(c.Id) ?? Array.Empty<int>();
 
-            if (step == 0 && steps.Length < 1)
+            if (c.Step == 0 && steps.Length < 1)
                 continue;
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Creating StepperValue {id}. [idRaw={(int)id:X}, defaultValue={defaultValue}, min={min}, max={max}, step={step}, steps={string.Join(", ", steps)}]");
+                Log.Instance.Trace($"Creating StepperValue {c.Id}... [idRaw={(int)c.Id:X}, defaultValue={c.DefaultValue}, min={c.Min}, max={c.Max}, step={c.Step}, steps={string.Join(", ", steps)}]");
 
-            var stepperValue = new StepperValue(value, min, max, step, steps, defaultValue);
-            stepperValues[id] = stepperValue;
+            var stepperValue = new StepperValue(value, c.Min, c.Max, c.Step, steps, c.DefaultValue);
+            stepperValues[c.Id] = stepperValue;
         }
 
         var fanTableData = await GetFanTableDataAsync().ConfigureAwait(false);
@@ -198,17 +179,17 @@ public class GodModeControllerV2 : AbstractGodModeController
         var preset = new GodModePreset
         {
             Name = "Default",
-            CPULongTermPowerLimit = stepperValues.GetValueOrNull(SettingID.CPULongTermPowerLimit),
-            CPUShortTermPowerLimit = stepperValues.GetValueOrNull(SettingID.CPUShortTermPowerLimit),
-            CPUPeakPowerLimit = stepperValues.GetValueOrNull(SettingID.CPUPeakPowerLimit),
-            CPUCrossLoadingPowerLimit = stepperValues.GetValueOrNull(SettingID.CPUCrossLoadingPowerLimit),
-            CPUPL1Tau = stepperValues.GetValueOrNull(SettingID.CPUPL1Tau),
-            APUsPPTPowerLimit = stepperValues.GetValueOrNull(SettingID.APUsPPTPowerLimit),
-            CPUTemperatureLimit = stepperValues.GetValueOrNull(SettingID.CPUTemperatureLimit),
-            GPUPowerBoost = stepperValues.GetValueOrNull(SettingID.GPUPowerBoost),
-            GPUConfigurableTGP = stepperValues.GetValueOrNull(SettingID.GPUConfigurableTGP),
-            GPUTemperatureLimit = stepperValues.GetValueOrNull(SettingID.GPUTemperatureLimit),
-            GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline = stepperValues.GetValueOrDefault(SettingID.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline),
+            CPULongTermPowerLimit = stepperValues.GetValueOrNull(TuneId.CPULongTermPowerLimit),
+            CPUShortTermPowerLimit = stepperValues.GetValueOrNull(TuneId.CPUShortTermPowerLimit),
+            CPUPeakPowerLimit = stepperValues.GetValueOrNull(TuneId.CPUPeakPowerLimit),
+            CPUCrossLoadingPowerLimit = stepperValues.GetValueOrNull(TuneId.CPUCrossLoadingPowerLimit),
+            CPUPL1Tau = stepperValues.GetValueOrNull(TuneId.CPUPL1Tau),
+            APUsPPTPowerLimit = stepperValues.GetValueOrNull(TuneId.APUsPPTPowerLimit),
+            CPUTemperatureLimit = stepperValues.GetValueOrNull(TuneId.CPUTemperatureLimit),
+            GPUPowerBoost = stepperValues.GetValueOrNull(TuneId.GPUPowerBoost),
+            GPUConfigurableTGP = stepperValues.GetValueOrNull(TuneId.GPUConfigurableTGP),
+            GPUTemperatureLimit = stepperValues.GetValueOrNull(TuneId.GPUTemperatureLimit),
+            GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline = stepperValues.GetValueOrDefault(TuneId.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline),
             FanTableInfo = fanTableData is null ? null : new FanTableInfo(fanTableData, FanTable.Default),
             FanFullSpeed = await GetFanFullSpeedAsync().ConfigureAwait(false)
         };
@@ -221,7 +202,7 @@ public class GodModeControllerV2 : AbstractGodModeController
 
     #region Get/Set Value
 
-    private Task<int> GetValue(SettingID id)
+    private static Task<int> GetValue(TuneId id)
     {
         var idRaw = (uint)id & 0xFFFF00FF;
         return WMI.CallAsync("root\\WMI",
@@ -231,7 +212,7 @@ public class GodModeControllerV2 : AbstractGodModeController
             pdc => Convert.ToInt32(pdc["Value"].Value));
     }
 
-    private Task SetValue(SettingID id, StepperValue value)
+    private static Task SetValue(TuneId id, StepperValue value)
     {
         var idRaw = (uint)id & 0xFFFF00FF;
         return WMI.CallAsync("root\\WMI",
@@ -248,7 +229,7 @@ public class GodModeControllerV2 : AbstractGodModeController
 
     #region Capabilities
 
-    private Task<IEnumerable<(SettingID Id, int DefaultValue, int Min, int Max, int Step)>> GetCapabilityDataAsync() => WMI.ReadAsync("root\\WMI",
+    private static Task<IEnumerable<Capability>> GetCapabilityDataAsync() => WMI.ReadAsync("root\\WMI",
         $"SELECT * FROM LENOVO_CAPABILITY_DATA_01",
         pdc =>
         {
@@ -257,23 +238,23 @@ public class GodModeControllerV2 : AbstractGodModeController
             var min = Convert.ToInt32(pdc["MinValue"].Value);
             var max = Convert.ToInt32(pdc["MaxValue"].Value);
             var step = Convert.ToInt32(pdc["Step"].Value);
-            return ((SettingID)id, defaultValue, min, max, step);
+            return new Capability((TuneId)id, defaultValue, min, max, step);
         });
 
-    private Task<IEnumerable<(SettingID Id, int Value)>> GetDiscreteDataAsync() => WMI.ReadAsync("root\\WMI",
+    private static Task<IEnumerable<Discrete>> GetDiscreteDataAsync() => WMI.ReadAsync("root\\WMI",
         $"SELECT * FROM LENOVO_DISCRETE_DATA",
         pdc =>
         {
-            var id = (SettingID)Convert.ToInt32(pdc["IDs"].Value);
+            var id = (TuneId)Convert.ToInt32(pdc["IDs"].Value);
             var value = Convert.ToInt32(pdc["Value"].Value);
-            return (id, value);
+            return new Discrete(id, value);
         });
 
     #endregion
 
     #region Fan Table
 
-    protected async Task<FanTableData[]?> GetFanTableDataAsync()
+    protected static async Task<FanTableData[]?> GetFanTableDataAsync()
     {
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Reading fan table data...");
@@ -341,7 +322,7 @@ public class GodModeControllerV2 : AbstractGodModeController
         return fanTableData;
     }
 
-    protected Task SetFanTable(FanTable fanTable) => WMI.CallAsync("root\\WMI",
+    protected static Task SetFanTable(FanTable fanTable) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_FAN_METHOD",
         "Fan_Set_Table",
         new() { { "FanTable", fanTable.GetBytes() } });
@@ -350,7 +331,7 @@ public class GodModeControllerV2 : AbstractGodModeController
 
     #region Fan Full Speed
 
-    protected Task<bool> GetFanFullSpeedAsync()
+    protected static Task<bool> GetFanFullSpeedAsync()
     {
         const uint id = 0x04020000;
         return WMI.CallAsync("root\\WMI",
@@ -360,7 +341,7 @@ public class GodModeControllerV2 : AbstractGodModeController
             pdc => Convert.ToInt32(pdc["Value"].Value) == 1);
     }
 
-    protected Task SetFanFullSpeedAsync(bool enabled)
+    protected static Task SetFanFullSpeedAsync(bool enabled)
     {
         const uint id = 0x04020000;
         return WMI.CallAsync("root\\WMI",
@@ -371,6 +352,62 @@ public class GodModeControllerV2 : AbstractGodModeController
                 { "IDs", id },
                 { "value", enabled ? 1 : 0 },
             });
+    }
+
+    #endregion
+
+    #region Support types
+
+    /*
+     * Structure of ID:
+     * 01 - CPU, 02 - GPU
+     * xx - Index
+     * FF - Custom Mode, 03 - Performance, 02 - Balance, 01 - Quiet
+     * 00 - Unused
+     */
+    private enum TuneId : uint
+    {
+        CPUShortTermPowerLimit = 0x0101FF00,
+        CPULongTermPowerLimit = 0x0102FF00,
+        CPUPeakPowerLimit = 0x0103FF00,
+        CPUTemperatureLimit = 0x0104FF00,
+        APUsPPTPowerLimit = 0x0105FF00,
+        CPUCrossLoadingPowerLimit = 0x0106FF00,
+        CPUPL1Tau = 0x0107FF00,
+        GPUPowerBoost = 0x0201FF00,
+        GPUConfigurableTGP = 0x0202FF00,
+        GPUTemperatureLimit = 0x0203FF00,
+        GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline = 0x0204FF00
+    }
+
+    private readonly struct Capability
+    {
+        public TuneId Id { get; }
+        public int DefaultValue { get; }
+        public int Min { get; }
+        public int Max { get; }
+        public int Step { get; }
+
+        public Capability(TuneId id, int defaultValue, int min, int max, int step)
+        {
+            Id = id;
+            DefaultValue = defaultValue;
+            Min = min;
+            Max = max;
+            Step = step;
+        }
+    }
+
+    private readonly struct Discrete
+    {
+        public TuneId Id { get; }
+        public int Value { get; }
+
+        public Discrete(TuneId id, int value)
+        {
+            Id = id;
+            Value = value;
+        }
     }
 
     #endregion

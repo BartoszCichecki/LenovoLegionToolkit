@@ -285,7 +285,7 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     #region CPU Long Term Power Limit
 
-    private async Task<StepperValue> GetCPULongTermPowerLimitAsync()
+    private static async Task<StepperValue> GetCPULongTermPowerLimitAsync()
     {
         var defaultValue = await WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_CPU_METHOD",
@@ -310,7 +310,7 @@ public class GodModeControllerV1 : AbstractGodModeController
         return stepperValue;
     }
 
-    private Task SetCPULongTermPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
+    private static Task SetCPULongTermPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_CPU_METHOD",
         "CPU_Set_LongTerm_PowerLimit",
         new() { { "value", $"{value.Value}" } });
@@ -319,7 +319,7 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     #region CPU Short Term Power Limit
 
-    private async Task<StepperValue> GetCPUShortTermPowerLimitAsync()
+    private static async Task<StepperValue> GetCPUShortTermPowerLimitAsync()
     {
         var defaultValue = await WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_CPU_METHOD",
@@ -344,7 +344,7 @@ public class GodModeControllerV1 : AbstractGodModeController
         return stepperValue;
     }
 
-    private Task SetCPUShortTermPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
+    private static Task SetCPUShortTermPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_CPU_METHOD",
         "CPU_Set_ShortTerm_PowerLimit",
         new() { { "value", $"{value.Value}" } });
@@ -353,7 +353,7 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     #region CPU Peak Power Limit
 
-    private Task<StepperValue> GetCPUPeakPowerLimitAsync() => WMI.CallAsync("root\\WMI",
+    private static Task<StepperValue> GetCPUPeakPowerLimitAsync() => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_CPU_METHOD",
         "CPU_Get_Peak_PowerLimit",
         new(),
@@ -368,7 +368,7 @@ public class GodModeControllerV1 : AbstractGodModeController
             return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
         });
 
-    private Task SetCPUPeakPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
+    private static Task SetCPUPeakPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_CPU_METHOD",
         "CPU_Set_Peak_PowerLimit",
         new() { { "CurrentPeakPowerLimit", $"{value.Value}" } });
@@ -377,7 +377,7 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     #region CPU Cross Loading Power Limit
 
-    private Task<StepperValue> GetCPUCrossLoadingPowerLimitAsync() => WMI.CallAsync("root\\WMI",
+    private static Task<StepperValue> GetCPUCrossLoadingPowerLimitAsync() => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_CPU_METHOD",
         "CPU_Get_Cross_Loading_PowerLimit",
         new(),
@@ -392,7 +392,7 @@ public class GodModeControllerV1 : AbstractGodModeController
             return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
         });
 
-    private Task SetCPUCrossLoadingPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
+    private static Task SetCPUCrossLoadingPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_CPU_METHOD",
         "CPU_Set_Cross_Loading_PowerLimit",
         new() { { "CurrentCpuCrossLoading", $"{value.Value}" } });
@@ -401,7 +401,7 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     #region APU sPPT Power Limit
 
-    private Task<StepperValue> GetAPUSPPTPowerLimitAsync() => WMI.CallAsync("root\\WMI",
+    private static Task<StepperValue> GetAPUSPPTPowerLimitAsync() => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_CPU_METHOD",
         "Get_APU_sPPT_PowerLimit",
         new(),
@@ -416,7 +416,7 @@ public class GodModeControllerV1 : AbstractGodModeController
             return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
         });
 
-    private Task SetAPUSPPTPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
+    private static Task SetAPUSPPTPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_CPU_METHOD",
         "Set_APU_sPPT_PowerLimit",
         new() { { "CurrentAPUsPPTPowerLimit", $"{value.Value}" } });
@@ -425,7 +425,7 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     #region CPU Temperature Limit
 
-    private Task<StepperValue> GetCPUTemperatureLimitAsync() => WMI.CallAsync("root\\WMI",
+    private static Task<StepperValue> GetCPUTemperatureLimitAsync() => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_CPU_METHOD",
         "CPU_Get_Temperature_Control",
         new(),
@@ -440,7 +440,7 @@ public class GodModeControllerV1 : AbstractGodModeController
             return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
         });
 
-    private Task SetCPUTemperatureLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
+    private static Task SetCPUTemperatureLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_CPU_METHOD",
         "CPU_Set_Temperature_Control",
         new() { { "CurrentTemperatureControl", $"{value.Value}" } });
@@ -449,7 +449,7 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     #region GPU Configurable TGP
 
-    private async Task<StepperValue> GetGPUConfigurableTGPAsync()
+    private static async Task<StepperValue> GetGPUConfigurableTGPAsync()
     {
         var defaultValue = await WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_GPU_METHOD",
@@ -474,7 +474,7 @@ public class GodModeControllerV1 : AbstractGodModeController
         return stepperValue;
     }
 
-    private Task SetGPUConfigurableTGPAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
+    private static Task SetGPUConfigurableTGPAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_GPU_METHOD",
         "GPU_Set_cTGP_PowerLimit",
         new() { { "value", $"{value.Value}" } });
@@ -483,7 +483,7 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     #region GPU Power Boost
 
-    private async Task<StepperValue> GetGPUPowerBoost()
+    private static async Task<StepperValue> GetGPUPowerBoost()
     {
         var defaultValue = await WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_GPU_METHOD",
@@ -508,7 +508,7 @@ public class GodModeControllerV1 : AbstractGodModeController
         return stepperValue;
     }
 
-    private Task SetGPUPowerBoostAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
+    private static Task SetGPUPowerBoostAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_GPU_METHOD",
         "GPU_Set_PPAB_PowerLimit",
         new() { { "value", $"{value.Value}" } });
@@ -517,7 +517,7 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     #region GPU Temperature Limit
 
-    private Task<StepperValue> GetGPUTemperatureLimitAsync() => WMI.CallAsync("root\\WMI",
+    private static Task<StepperValue> GetGPUTemperatureLimitAsync() => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_GPU_METHOD",
         "GPU_Get_Temperature_Limit",
         new(),
@@ -532,7 +532,7 @@ public class GodModeControllerV1 : AbstractGodModeController
             return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
         });
 
-    private Task SetGPUTemperatureLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
+    private static Task SetGPUTemperatureLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_GPU_METHOD",
         "GPU_Set_Temperature_Limit",
         new() { { "CurrentTemperatureLimit", $"{value.Value}" } });
@@ -541,7 +541,7 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     #region Fan Table
 
-    protected async Task<FanTableData[]?> GetFanTableDataAsync()
+    protected static async Task<FanTableData[]?> GetFanTableDataAsync()
     {
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Reading fan table data...");
@@ -605,7 +605,7 @@ public class GodModeControllerV1 : AbstractGodModeController
         return fanTableData;
     }
 
-    protected Task SetFanTable(FanTable fanTable) => WMI.CallAsync("root\\WMI",
+    protected static Task SetFanTable(FanTable fanTable) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_FAN_METHOD",
         "Fan_Set_Table",
         new() { { "FanTable", fanTable.GetBytes() } });
@@ -614,13 +614,13 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     #region Fan Full Speed
 
-    protected Task<bool> GetFanFullSpeedAsync() => WMI.CallAsync("root\\WMI",
+    protected static Task<bool> GetFanFullSpeedAsync() => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_FAN_METHOD",
         "Fan_Get_FullSpeed",
         new(),
         pdc => (bool)pdc["Status"].Value);
 
-    protected Task SetFanFullSpeedAsync(bool enabled) => WMI.CallAsync("root\\WMI",
+    protected static Task SetFanFullSpeedAsync(bool enabled) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_FAN_METHOD",
         "Fan_Set_FullSpeed",
         new() { { "Status", enabled } });
