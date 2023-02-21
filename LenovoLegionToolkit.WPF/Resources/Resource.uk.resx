@@ -1665,4 +1665,7 @@
   <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
     <value>Додаткова кількість потужності може бути виділена для ГП на додачу до базового енергоспоживання.</value>
   </data>
+  <data name="Create" xml:space="preserve">
+	  <value>Створити</value>
+  </data>
 </root>
