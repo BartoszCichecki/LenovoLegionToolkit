@@ -1240,6 +1240,10 @@ Il est recommandé de redémarrer l'ordinateur après avoir modifié cette optio
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
     <value>Impossible de désactiver Vantage</value>
   </data>
+  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
+    <value>Désactive Lenovo Vantage et ses services sans les désinstaller.
+Un redémarrage est recommandé après avoir modifié cette option.</value>
+  </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Désactiver Lenovo Vantage</value>
   </data>
