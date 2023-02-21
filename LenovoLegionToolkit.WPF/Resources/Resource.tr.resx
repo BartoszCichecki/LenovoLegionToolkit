@@ -564,13 +564,6 @@ UYARI: Dahili ekran kapalıysa bu eylem düzgün çalışmayacaktır.</value>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>Ekran parlaklığı</value>
   </data>
-  <data name="DonatePage_Message" xml:space="preserve">
-    <value>Lenovo Legion Toolkit'in geliştirilmesi ve bakımı çok zaman alıyor. Bu yazılımı kullanmayı seviyorsanız, istediğiniz miktarda bağış yaparak geleceğine destek olabilirsiniz.
-
-PayPal ile bağış yapmak için aşağıdaki PayPal logosuna tıklayın veya QR kodunu tarayın.
-
-Şimdiden teşekkürler!</value>
-  </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Bağış</value>
   </data>
@@ -600,9 +593,6 @@ PayPal ile bağış yapmak için aşağıdaki PayPal logosuna tıklayın veya QR
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
     <value>dGPU Modu</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
-    <value>Hem tümleşik hem de ayrı GPU etkinleştirilmiştir. Sistem, ihtiyaçlarına göre bunlar arasında otomatik olarak geçiş yapacaktır.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Hibrit Kipi</value>
@@ -738,9 +728,6 @@ Cidden, bu seçeneğe dikkat edin!</value>
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Klavye Işığı</value>
-  </data>
-  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Vantage veya servisleri çalışırken klavye arka ışığı burada kontrol edilemez.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage açık görünüyor</value>
@@ -1048,10 +1035,6 @@ UYARI: Yerleşik ekran kapalıysa bu eylem düzgün çalışmayacaktır.</value>
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
     <value>Legion Zone devre dışı bırakılamadı</value>
   </data>
-  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
-    <value>Legion Zone'u ve hizmetini kaldırmadan devre dışı bırakın.
-Bu seçeneği değiştirdikten sonra yeniden başlatma önerilir.</value>
-  </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
     <value>Legion Zone'u devre dışı bırak</value>
   </data>
@@ -1069,10 +1052,6 @@ Bu seçeneği değiştirdikten sonra yeniden başlatma önerilir.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
     <value>Vantage devre dışı bırakılamadı</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>Lenovo Vantage'ı ve hizmetini kaldırmadan devre dışı bırakın.
-Bu seçeneği değiştirdikten sonra yeniden başlatma önerilir.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Lenovo Vantage'ı devre dışı bırakın</value>
