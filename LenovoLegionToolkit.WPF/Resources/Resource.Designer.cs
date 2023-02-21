@@ -178,6 +178,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add step.
+        /// </summary>
+        public static string AddAutomationStepWindow_Title {
+            get {
+                return ResourceManager.GetString("AddAutomationStepWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add new.
         /// </summary>
         public static string AddNew {
@@ -1091,6 +1100,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create Action.
+        /// </summary>
+        public static string CreateAutomationPipelineWindow_Title {
+            get {
+                return ResourceManager.GetString("CreateAutomationPipelineWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Customize.
         /// </summary>
         public static string DashboardPage_Customize {
@@ -1485,7 +1503,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Development and maintenance of Lenovo Legion Toolkit takes a lot of time. If you like using this software you can support it&apos;s future by donating an amount of your choice.
+        ///   Looks up a localized string similar to Development and maintenance of Lenovo Legion Toolkit takes a lot of time. If you like using this software you can support its future by donating an amount of your choice.
         ///
         ///Click the PayPal logo below or scan the QR code to donate with PayPal.
         ///
@@ -1707,7 +1725,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Both integrated and discrete GPU are enabled. System will automatically switch between them based on it&apos;s needs..
+        ///   Looks up a localized string similar to Both integrated and discrete GPU are enabled. System will automatically switch between them based on its needs..
         /// </summary>
         public static string ExtendedHybridModeInfoWindow_Hybrid_Message {
             get {
@@ -2336,7 +2354,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Keyboard backlight cannot be controlled in here when Vantage or it&apos;s services are running..
+        ///   Looks up a localized string similar to Keyboard backlight cannot be controlled in here when Vantage or its services are running..
         /// </summary>
         public static string Keyboard_VantageEnabledWarning_Message {
             get {
@@ -3847,7 +3865,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Disable Legion Zone and it&apos;s service without uninstalling it.
+        ///   Looks up a localized string similar to Disable Legion Zone and its service without uninstalling it.
         ///Restart is recommended after changing this option..
         /// </summary>
         public static string SettingsPage_DisableLegionZone_Message {
@@ -3884,7 +3902,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Disable Lenovo Hotkeys and it&apos;s service without uninstalling it.
+        ///   Looks up a localized string similar to Disable Lenovo Hotkeys and its service without uninstalling it.
         ///If disabled, this app will handle Fn shortcuts.
         ///Restart is recommended after changing this option..
         /// </summary>
@@ -3922,7 +3940,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Disable Lenovo Vantage and it&apos;s service without uninstalling it.
+        ///   Looks up a localized string similar to Disable Lenovo Vantage and its service without uninstalling it.
         ///Restart is recommended after changing this option..
         /// </summary>
         public static string SettingsPage_DisableVantage_Message {
