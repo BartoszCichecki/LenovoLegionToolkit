@@ -151,6 +151,24 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lid closed.
+        /// </summary>
+        public static string LidClosedAutomationPipelineTrigger_DisplayName {
+            get {
+                return ResourceManager.GetString("LidClosedAutomationPipelineTrigger_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lid opened.
+        /// </summary>
+        public static string LidOpenedAutomationPipelineTrigger_DisplayName {
+            get {
+                return ResourceManager.GetString("LidOpenedAutomationPipelineTrigger_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to When low wattage AC power adapter is connected.
         /// </summary>
         public static string LowWattageACAdapterConnectedAutomationPipelineTrigger_DisplayName {
