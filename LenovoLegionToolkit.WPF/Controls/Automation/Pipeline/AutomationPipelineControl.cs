@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
@@ -143,11 +142,11 @@ public class AutomationPipelineControl : UserControl
 
         _runNowButton.Click += async (_, _) => await RunAsync();
 
-        _addStepButton.ContextMenu = CreateAddStepContextMenu();
         _addStepButton.Click += (_, _) =>
         {
-            if (_addStepButton.ContextMenu is not null)
-                _addStepButton.ContextMenu.IsOpen = true;
+            var stepControls = _supportedAutomationSteps.Select(GenerateStepControl).ToArray();
+            var window = new AddAutomationStepWindow(stepControls, AddStep) { Owner = Window.GetWindow(this) };
+            window.ShowDialog();
         };
 
         _deletePipelineButton.Click += (_, _) => OnDelete?.Invoke(this, EventArgs.Empty);
@@ -329,30 +328,6 @@ public class AutomationPipelineControl : UserControl
         return null;
     }
 
-    private ContextMenu CreateAddStepContextMenu()
-    {
-        var menuItems = new List<MenuItem>();
-
-        foreach (var step in _supportedAutomationSteps)
-        {
-            var control = GenerateStepControl(step);
-            var menuItem = new MenuItem { SymbolIcon = control.Icon, Header = control.Title };
-            menuItem.Click += (_, _) => AddStep(control);
-            menuItems.Add(menuItem);
-        }
-
-        var contextMenu = new ContextMenu
-        {
-            PlacementTarget = _addStepButton,
-            Placement = PlacementMode.Bottom,
-        };
-
-        foreach (var menuItem in menuItems.OrderBy(mi => mi.Header))
-            contextMenu.Items.Add(menuItem);
-
-        return contextMenu;
-    }
-
     private AbstractAutomationStepControl GenerateStepControl(IAutomationStep step)
     {
         AbstractAutomationStepControl control = step switch
@@ -448,7 +423,6 @@ public class AutomationPipelineControl : UserControl
         _stepsStackPanel.Children.Add(control);
         _cardHeaderControl.Subtitle = GenerateSubtitle();
         _cardHeaderControl.SubtitleToolTip = _cardHeaderControl.Subtitle;
-        _addStepButton.ContextMenu = CreateAddStepContextMenu();
 
         OnChanged?.Invoke(this, EventArgs.Empty);
     }
@@ -458,7 +432,6 @@ public class AutomationPipelineControl : UserControl
         _stepsStackPanel.Children.Remove(control);
         _cardHeaderControl.Subtitle = GenerateSubtitle();
         _cardHeaderControl.SubtitleToolTip = _cardHeaderControl.Subtitle;
-        _addStepButton.ContextMenu = CreateAddStepContextMenu();
 
         OnChanged?.Invoke(this, EventArgs.Empty);
     }

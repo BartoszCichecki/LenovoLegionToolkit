@@ -95,27 +95,27 @@ public partial class CreateAutomationPipelineWindow
         return Task.CompletedTask;
     }
 
-    private UIElement CreateMultipleSelectCardControl()
-    {
-        var control = new CardControl
-        {
-            Icon = SymbolRegular.SquareMultiple24,
-            Header = new CardHeaderControl
-            {
-                Title = "Multiple triggers...",
-                Accessory = new SymbolIcon { Symbol = SymbolRegular.ChevronRight24 }
-            },
-            Margin = new(0, 8, 0, 0),
-        };
-
-        control.Click += async (_, _) =>
-        {
-            _multiSelect = true;
-            await RefreshAsync();
-        };
-
-        return control;
-    }
+    // private UIElement CreateMultipleSelectCardControl()
+    // {
+    //     var control = new CardControl
+    //     {
+    //         Icon = SymbolRegular.SquareMultiple24,
+    //         Header = new CardHeaderControl
+    //         {
+    //             Title = "Multiple triggers...",
+    //             Accessory = new SymbolIcon { Symbol = SymbolRegular.ChevronRight24 }
+    //         },
+    //         Margin = new(0, 8, 0, 0),
+    //     };
+    //
+    //     control.Click += async (_, _) =>
+    //     {
+    //         _multiSelect = true;
+    //         await RefreshAsync();
+    //     };
+    //
+    //     return control;
+    // }
 
     private UIElement CreateCardControl(IAutomationPipelineTrigger trigger)
     {

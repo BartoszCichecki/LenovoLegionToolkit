@@ -1708,4 +1708,10 @@ This settings takes effect only when Custom Mode is enabled.</value>
   <data name="Create" xml:space="preserve">
 	  <value>Create</value>
   </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+	  <value>Add step</value>
+  </data>
+  <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
+	  <value>Create Action</value>
+  </data>
 </root>
