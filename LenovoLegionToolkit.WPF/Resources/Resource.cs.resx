@@ -579,13 +579,6 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je displej notebooku vypnutý
   <data name="DonatePage_DonateWith" xml:space="preserve">
     <value>Přispět pomocí</value>
   </data>
-  <data name="DonatePage_Message" xml:space="preserve">
-    <value>Vývoj a údržba Lenovo Legion Toolkit zabere spoustu času. Pokud rád používáš tento software, můžeš podpořit jeho budoucnost darováním částky dle vlastního výběru.
-
-Klikněte na logo PayPal níže nebo naskenujte QR kód a přispějte přes PayPal.
-
-Díky předem!</value>
-  </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Přispět</value>
   </data>
@@ -624,9 +617,6 @@ Díky předem!</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
     <value>dGPU mód</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
-    <value>Integrovaný i dedikovaný GPU jsou povoleny. Systém mezi nimi bude automaticky přepínat podle svých potřeb.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Hybridní mód</value>
@@ -782,9 +772,6 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je interní displej vypnutý.
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Podsvícení klávesnice</value>
-  </data>
-  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Zde nelze ovládat podsvícení klávesnice, když je spuštěný Vantage nebo jeho služby.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Zdá se, že Lenovo Vantage je povolený</value>
@@ -1212,10 +1199,6 @@ Nejprve se ujisti, že tvůj skript běží správně.</value>
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
     <value>Legion Zone se nepodařilo deaktivovat</value>
   </data>
-  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
-    <value>Zakázat Legion Zone a její službu, aniž bys ji odinstaloval.
-Po změně této možnosti se doporučuje restartovat.</value>
-  </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
     <value>Zakázat Legion Zone</value>
   </data>
@@ -1225,11 +1208,6 @@ Po změně této možnosti se doporučuje restartovat.</value>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Lenovo Hotkeys se nepodařilo deaktivovat</value>
   </data>
-  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
-    <value>Zakázat Lenovo Hotkeys a jejich službu, aniž bys ji odinstaloval.
-Pokud je zakázáno, bude tato aplikace zpracovávat zkratky Fn
-Po změně této možnosti se doporučuje restartovat.</value>
-  </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Zakázat Lenovo Hotkeys</value>
   </data>
@@ -1238,10 +1216,6 @@ Po změně této možnosti se doporučuje restartovat.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
     <value>Vantage se nepodařilo zakázat</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>Zakázat službu Lenovo Vantage a její službu, aniž bys ji odinstaloval.
-Po změně této možnosti se doporučuje restartovat.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Zakázat Lenovo Vantage</value>
@@ -1698,6 +1672,9 @@ Toto nastavení se aplikuje jen když je zapnutý vlastní režim.</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
     <value>Dodatečná spotřeba, která může být předána GPU v závislosti na využití CPU.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
+    <value>Dodatečná spotřeba, která může být předána GPU nad rámec zakladní spotřeby.</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
     <value>Maximalní teplota GPU předtím, než se limituje frekvence a spotřeba.</value>
