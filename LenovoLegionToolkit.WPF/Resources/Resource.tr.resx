@@ -564,6 +564,13 @@ UYARI: Dahili ekran kapalıysa bu eylem düzgün çalışmayacaktır.</value>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>Ekran parlaklığı</value>
   </data>
+  <data name="DonatePage_Message" xml:space="preserve">
+    <value>Lenovo Legion Toolkit'in geliştirilmesi ve bakımı çok zaman alıyor. Bu yazılımı kullanmayı seviyorsanız, istediğiniz miktarda bağış yaparak geleceğine destek olabilirsiniz.
+
+PayPal ile bağış yapmak için aşağıdaki PayPal logosuna tıklayın veya QR kodunu tarayın.
+
+Şimdiden teşekkürler!</value>
+  </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Bağış</value>
   </data>
@@ -1211,5 +1218,8 @@ Devam etmeyi seçerseniz, kayıt etme otomatik olarak etkinleştirilecektir.</va
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Evet</value>
+  </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+	  <value>Adım ekle</value>
   </data>
 </root>

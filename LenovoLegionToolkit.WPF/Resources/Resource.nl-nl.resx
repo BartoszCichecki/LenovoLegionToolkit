@@ -578,6 +578,13 @@ WAARSCHUWING: Deze actie wordt niet correct uitgevoerd als het interne display i
   <data name="DonatePage_DonateWith" xml:space="preserve">
     <value>Doneren met</value>
   </data>
+  <data name="DonatePage_Message" xml:space="preserve">
+    <value>De ontwikkeling en het onderhoud van Lenovo Legion Toolkit kost veel tijd. Als u deze software graag gebruikt, kunt u de toekomst ervan steunen door een bedrag naar keuze te doneren.
+
+Klik op het PayPal-logo hieronder of scan de QR-code om te doneren met PayPal.
+
+Bij voorbaat bedankt!</value>
+  </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Doneer</value>
   </data>
@@ -1608,5 +1615,8 @@ Als u de muis beweegt of op het toetsenbord drukt, worden de schermen gewekt.</v
   </data>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>Herstart aanbevolen</value>
+  </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+	  <value>Stap toevoegen</value>
   </data>
 </root>

@@ -106,4 +106,10 @@
   <data name="DisplayOffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
 		<value>Když se monitory vypnou</value>
 	</data>
+  <data name="LidOpenedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Víko otevřeno</value>
+	</data>
+  <data name="LidClosedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Víko zavřeno</value>
+	</data>
 </root>

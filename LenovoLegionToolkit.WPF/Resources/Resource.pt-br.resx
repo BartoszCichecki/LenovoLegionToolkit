@@ -579,6 +579,13 @@ AVISO: Esta ação não será executada corretamente se a tela integrada estiver
   <data name="DonatePage_DonateWith" xml:space="preserve">
     <value>Doar com</value>
   </data>
+  <data name="DonatePage_Message" xml:space="preserve">
+    <value>O desenvolvimento e a manutenção do Lenovo Legion Toolkit leva muito tempo. Se você gosta de usar este software pode apoiar seu futuro doando uma quantia de sua escolha.
+
+Clique no logotipo do PayPal abaixo ou digitalize o QR code para doar com o PayPal.
+
+Desde já, obrigado!</value>
+  </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Doar</value>
   </data>
@@ -617,6 +624,9 @@ AVISO: Esta ação não será executada corretamente se a tela integrada estiver
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
     <value>Modo dGPU</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
+    <value>Tanto a GPU integrada quanto a dedicada estão habilitadas. O sistema alternará automaticamente entre eles com base em suas necessidades.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Modo Hibrido</value>
@@ -772,6 +782,9 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Iluminação do teclado</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>A luz de fundo do teclado não pode ser controlada aqui quando o Vantage ou seus serviços estão em execução.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>O Lenovo Vantage parece estar ativo</value>
@@ -1199,6 +1212,10 @@ Certifique-se de que seu script seja executado corretamente primeiro.</value>
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
     <value>Não foi possível desativar o Legion Zone</value>
   </data>
+  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
+    <value>Desativar o Legion Zone e seu serviço sem desinstalá-lo.
+A reinicialização é recomendada após alterar esta opção.</value>
+  </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
     <value>Desativar o Legion Zone</value>
   </data>
@@ -1208,6 +1225,11 @@ Certifique-se de que seu script seja executado corretamente primeiro.</value>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Não foi possível desativar o Lenovo Hotkeys</value>
   </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
+    <value>Desativar o Lenovo Hotkeys e seu serviço sem desinstalá-lo.
+Se desativado, este aplicativo lidará com atalhos Fn
+A reinicialização é recomendada após alterar esta opção.</value>
+  </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Desativar o Lenovo Hotkeys</value>
   </data>
@@ -1216,6 +1238,10 @@ Certifique-se de que seu script seja executado corretamente primeiro.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
     <value>Não foi possível desativar o Vantage</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
+    <value>Desativar o Lenovo Vantage e seu serviço sem desinstalá-lo.
+A reinicialização é recomendada após alterar esta opção.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Desativar o Lenovo Vantage</value>
@@ -1678,5 +1704,8 @@ Esta configuração somente terá efeito se o Modo Personalizado estiver ativo.<
   </data>
   <data name="Create" xml:space="preserve">
 	  <value>Criar</value>
+  </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+	  <value>Adicionar passo</value>
   </data>
 </root>

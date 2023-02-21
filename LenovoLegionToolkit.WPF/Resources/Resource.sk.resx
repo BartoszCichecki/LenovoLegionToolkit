@@ -578,6 +578,13 @@ VAROVANIE: Táto akcia neprebehne správne, ak je zabudovaný displej vypnutý.<
   <data name="DonatePage_DonateWith" xml:space="preserve">
     <value>Prispieť pomocou</value>
   </data>
+  <data name="DonatePage_Message" xml:space="preserve">
+    <value>Vývoj a údržba Lenovo Legion Toolkit zaberá veľa času. Ak sa vám páči tento softvér, môžete podporiť jeho budúcnosť prispením čiastky podľa vášho uváženia.
+
+Pre prispenie cez PayPal kliknite na logo PayPal dole alebo naskenujte QR kód.
+
+Vopred vďaka!</value>
+  </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Prispieť</value>
   </data>
@@ -1637,5 +1644,8 @@ Pohyb kurzoru alebo stlačenie klávesnice zobudí displeje.</value>
   </data>
   <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
     <value>Keď zapnuté, rovnaká úroveň jasu bude použitá na všetky plány napájania Windows hocikedy ich zmeníte.</value>
+  </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+	  <value>Pridať krok</value>
   </data>
 </root>
