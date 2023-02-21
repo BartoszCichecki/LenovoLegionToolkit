@@ -12,6 +12,9 @@ public class GodModeControllerV1 : AbstractGodModeController
 {
     public GodModeControllerV1(GodModeSettings settings, LegionZone legionZone) : base(settings, legionZone) { }
 
+    public override Task<bool> NeedsVantageDisabledAsync() => Task.FromResult(false);
+    public override Task<bool> NeedsLegionZoneDisabledAsync() => Task.FromResult(true);
+
     public override async Task ApplyStateAsync()
     {
         if (await LegionZone.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)

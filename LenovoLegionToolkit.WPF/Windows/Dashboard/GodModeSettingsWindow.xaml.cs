@@ -8,6 +8,7 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers.GodMode;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
@@ -18,6 +19,9 @@ public partial class GodModeSettingsWindow
 {
     private readonly PowerModeFeature _powerModeFeature = IoCContainer.Resolve<PowerModeFeature>();
     private readonly GodModeController _godModeController = IoCContainer.Resolve<GodModeController>();
+
+    private readonly Vantage _vantage = IoCContainer.Resolve<Vantage>();
+    private readonly LegionZone _legionZone = IoCContainer.Resolve<LegionZone>();
 
     private GodModeState? _state;
     private bool _isRefreshing;
@@ -42,6 +46,16 @@ public partial class GodModeSettingsWindow
             _buttonsStackPanel.Visibility = Visibility.Hidden;
 
             var loadingTask = Task.Delay(500);
+
+            _vantageRunningWarningInfoBar.Visibility = await _godModeController.NeedsVantageDisabledAsync()
+                                                       && await _vantage.GetStatusAsync() == SoftwareStatus.Enabled
+                ? Visibility.Visible
+                : Visibility.Collapsed;
+
+            _legionZoneRunningWarningInfoBar.Visibility = await _godModeController.NeedsLegionZoneDisabledAsync()
+                                                          && await _legionZone.GetStatusAsync() == SoftwareStatus.Enabled
+                ? Visibility.Visible
+                : Visibility.Collapsed;
 
             _state = await _godModeController.GetStateAsync();
 
@@ -349,5 +363,15 @@ public partial class GodModeSettingsWindow
     private void FanFullSpeedToggle_Click(object sender, RoutedEventArgs e)
     {
         _fanCurveCardControl.IsEnabled = !(_fanFullSpeedToggle.IsChecked ?? false);
+    }
+
+    private void VantageRunningWarningInfoBarDismissButton_Click(object sender, RoutedEventArgs e)
+    {
+        _vantageRunningWarningInfoBar.Visibility = Visibility.Collapsed;
+    }
+
+    private void LegionZoneRunningWarningInfoBarDismissButton_Click(object sender, RoutedEventArgs e)
+    {
+        _legionZoneRunningWarningInfoBar.Visibility = Visibility.Collapsed;
     }
 }

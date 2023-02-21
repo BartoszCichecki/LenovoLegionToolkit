@@ -20,6 +20,9 @@ public abstract class AbstractGodModeController : IGodModeController
         LegionZone = legionZone ?? throw new ArgumentNullException(nameof(legionZone));
     }
 
+    public abstract Task<bool> NeedsVantageDisabledAsync();
+    public abstract Task<bool> NeedsLegionZoneDisabledAsync();
+
     public async Task<GodModeState> GetStateAsync()
     {
         if (Log.Instance.IsTraceEnabled)
