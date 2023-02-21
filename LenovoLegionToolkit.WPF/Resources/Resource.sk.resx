@@ -578,13 +578,6 @@ VAROVANIE: Táto akcia neprebehne správne, ak je zabudovaný displej vypnutý.<
   <data name="DonatePage_DonateWith" xml:space="preserve">
     <value>Prispieť pomocou</value>
   </data>
-  <data name="DonatePage_Message" xml:space="preserve">
-    <value>Vývoj a údržba Lenovo Legion Toolkit zaberá veľa času. Ak sa vám páči tento softvér, môžete podporiť jeho budúcnosť prispením čiastky podľa vášho uváženia.
-
-Pre prispenie cez PayPal kliknite na logo PayPal dole alebo naskenujte QR kód.
-
-Vopred vďaka!</value>
-  </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Prispieť</value>
   </data>
@@ -623,9 +616,6 @@ Vopred vďaka!</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
     <value>Režim dGPU</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
-    <value>Obe integrovaná aj dedikovaná GPU sú povolené. Systém bude automaticky prepínať medzi nimi podľa potreby.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Hybridný režim</value>
@@ -781,9 +771,6 @@ VAROVANIE: Táto akcia neprebehne správne, ak je zabudovaný displej vypnutý.<
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Podsvietenie klávesnice</value>
-  </data>
-  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Podsvietenie klávesnice nemôže byť ovládané tu, pokiaľ beží Vantage alebo jeho služby.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Zdá sa, že Lenovo Vantage je povolený</value>
@@ -1211,10 +1198,6 @@ Prv sa uistite, že váš skript beží správne.</value>
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
     <value>Nepodarilo sa zakázať Legion Zone</value>
   </data>
-  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
-    <value>Zakázať Legion Zone a jeho služby bez odinštalovania.
-Po zmene tejto možnosti sa odporúča reštart.</value>
-  </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
     <value>Zakázať Legion Zone</value>
   </data>
@@ -1224,11 +1207,6 @@ Po zmene tejto možnosti sa odporúča reštart.</value>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Nepodarilo sa zakázať Lenovo Hotkeys</value>
   </data>
-  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
-    <value>Zakázať Lenovo Hotkeys a jeho služby bez odinštalovania.
-Po zakázaní bude táto aplikácia mať na starosti Fn skratky.
-Po zmene tejto možnosti sa odporúča reštart.</value>
-  </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Zakázať Lenovo Hotkeys</value>
   </data>
@@ -1237,10 +1215,6 @@ Po zmene tejto možnosti sa odporúča reštart.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
     <value>Nepodarilo sa zakázať Vantage</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>Zakázať Vantage a jeho služby bez odinštalovania.
-Po zmene tejto možnosti sa odporúča reštart.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Zakázať Lenovo Vantage</value>
