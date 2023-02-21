@@ -567,6 +567,13 @@
   <data name="DonatePage_DonateWith" xml:space="preserve">
     <value>Δωρεά με</value>
   </data>
+  <data name="DonatePage_Message" xml:space="preserve">
+    <value>Η ανάπτυξη και η συντήρηση του Lenovo Legion Toolkit απαιτεί πολύ χρόνο. Εάν σας αρέσει να χρησιμοποιείτε αυτό το λογισμικό, μπορείτε να υποστηρίξετε το μέλλον του, δωρίζοντας ένα ποσό της επιλογής σας.
+
+Κάντε κλικ στο λογότυπο του PayPal παρακάτω ή σαρώστε τον κωδικό QR για να κάνετε δωρεά με το PayPal.
+
+Ευχαριστώ εκ των προτέρων!</value>
+  </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Δωρεά</value>
   </data>
@@ -1307,5 +1314,8 @@
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Ναι</value>
+  </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+	  <value>Προσθήκη βήματος</value>
   </data>
 </root>

@@ -578,6 +578,11 @@ ATTENZIONE: questa azione non verrà eseguita correttamente se il display intern
   <data name="DonatePage_DonateWith" xml:space="preserve">
     <value>Dona con</value>
   </data>
+  <data name="DonatePage_Message" xml:space="preserve">
+    <value>Lo sviluppo e il mantenimento di Lenovo Legion Toolkit richiede parecchio tempo. Se ti piace usare questo software puoi supportarlo donando una cifra a tua scelta.
+
+Clicca il logo PayPal qui sotto oppure scansiona il QR code per donare con PayPal.</value>
+  </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Donazioni</value>
   </data>
@@ -1611,5 +1616,8 @@ Spostare il mouse o premere il tasto sulla tastiera per risvegliarli.</value>
   </data>
   <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
     <value>Quando attivo, lo stesso livello di luminosità verrà applicato a tutti i profili energia.</value>
+  </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+	  <value>Aggiungi azione</value>
   </data>
 </root>

@@ -572,6 +572,13 @@
   <data name="DonatePage_DonateWith" xml:space="preserve">
     <value>تبرع لِ</value>
   </data>
+  <data name="DonatePage_Message" xml:space="preserve">
+    <value>العمل على Lenovo Legion Toolkit يحتاج الكثير من الوقت و المجهود. لو اعجبك البرنامج يمكن انت تدعمه من خلال التبرع بمبلغ من اختيارك.
+
+اضغط على رمز الباي بال فى الأسفل او امسح كود ال QR للتبرع بالباي بال. 
+
+وشكرا على دعمكم!</value>
+  </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>دعم المشروع</value>
   </data>
@@ -1452,5 +1459,8 @@
   </data>
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
     <value>الإضاءة الخلفية للوحة المفاتيح</value>
+  </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+	  <value>إضافة خطوة</value>
   </data>
 </root>

@@ -579,6 +579,13 @@
   <data name="DonatePage_DonateWith" xml:space="preserve">
     <value>Сделать пожертвование с</value>
   </data>
+  <data name="DonatePage_Message" xml:space="preserve">
+    <value>На разработку и обслуживание Lenovo Legion Toolkit уходит много времени. Если вам нравится пользоваться этим программным обеспечением, вы можете поддержать его будущее, пожертвовав любую сумму денег.
+
+Нажмите на логотип PayPal ниже или отсканируйте QR-код, чтобы сделать пожертвование через PayPal.
+
+Заранее спасибо!</value>
+  </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Сделать пожертвование</value>
   </data>
@@ -1681,5 +1688,8 @@
   </data>
   <data name="Create" xml:space="preserve">
 	  <value>Создать</value>
+  </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+	  <value>Добавить шаг</value>
   </data>
 </root>
