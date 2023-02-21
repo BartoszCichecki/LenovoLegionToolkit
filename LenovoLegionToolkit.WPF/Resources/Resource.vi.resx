@@ -579,6 +579,13 @@ CẢNH BÁO: Hành động có thể chạy không đúng nếu màn hình lapto
   <data name="DonatePage_DonateWith" xml:space="preserve">
     <value>Ủng hộ qua</value>
   </data>
+  <data name="DonatePage_Message" xml:space="preserve">
+    <value>Phát triển và duy trì Lenovo Legion Toolkit tốn rất nhiều thời gian. Nếu bạn thích phần mềm này, bạn có thể tuỳ tâm hỗ trợ chút tiền cho việc hỗ trợ nó sau này.
+
+Bấm vào logo PayPal bên dưới hoặc quét mã QR để ủng hộ qua PayPal.
+
+Xin chân thành cảm ơn!</value>
+  </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Ủng hộ</value>
   </data>
@@ -1608,5 +1615,8 @@ Di chuyển chuột hoặc bấm phím bất kỳ trên bàn phím để bật m
   </data>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>Khuyến nghị khởi động lại</value>
+  </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+	  <value>Thêm hành động</value>
   </data>
 </root>
