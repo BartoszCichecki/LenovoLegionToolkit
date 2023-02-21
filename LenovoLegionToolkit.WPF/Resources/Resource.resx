@@ -580,7 +580,7 @@ WARNING: This action will not run correctly, if internal display is off.</value>
     <value>Donate with</value>
   </data>
   <data name="DonatePage_Message" xml:space="preserve">
-    <value>Development and maintenance of Lenovo Legion Toolkit takes a lot of time. If you like using this software you can support it's future by donating an amount of your choice.
+    <value>Development and maintenance of Lenovo Legion Toolkit takes a lot of time. If you like using this software you can support its future by donating an amount of your choice.
 
 Click the PayPal logo below or scan the QR code to donate with PayPal.
 
@@ -626,7 +626,7 @@ Thanks in advance!</value>
     <value>dGPU Mode</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
-    <value>Both integrated and discrete GPU are enabled. System will automatically switch between them based on it's needs.</value>
+    <value>Both integrated and discrete GPU are enabled. System will automatically switch between them based on its needs.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Hybrid Mode</value>
@@ -784,7 +784,7 @@ WARNING: This action will not run correctly if the internal display is off.</val
     <value>Keyboard Backlight</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Keyboard backlight cannot be controlled in here when Vantage or it's services are running.</value>
+    <value>Keyboard backlight cannot be controlled in here when Vantage or its services are running.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage seems to be enabled</value>
@@ -1213,7 +1213,7 @@ Make sure that your script runs correctly first.</value>
     <value>Couldn't disable Legion Zone</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
-    <value>Disable Legion Zone and it's service without uninstalling it.
+    <value>Disable Legion Zone and its service without uninstalling it.
 Restart is recommended after changing this option.</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
@@ -1226,7 +1226,7 @@ Restart is recommended after changing this option.</value>
     <value>Couldn't disable Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
-    <value>Disable Lenovo Hotkeys and it's service without uninstalling it.
+    <value>Disable Lenovo Hotkeys and its service without uninstalling it.
 If disabled, this app will handle Fn shortcuts.
 Restart is recommended after changing this option.</value>
   </data>
@@ -1240,7 +1240,7 @@ Restart is recommended after changing this option.</value>
     <value>Couldn't disable Vantage</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>Disable Lenovo Vantage and it's service without uninstalling it.
+    <value>Disable Lenovo Vantage and its service without uninstalling it.
 Restart is recommended after changing this option.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
