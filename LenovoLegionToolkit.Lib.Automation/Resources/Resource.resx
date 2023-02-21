@@ -106,4 +106,10 @@
 	<data name="DisplayOffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
 		<value>When displays turn off</value>
 	</data>
+	<data name="LidOpenedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Lid opened</value>
+	</data>
+	<data name="LidClosedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Lid closed</value>
+	</data>
 </root>

@@ -23,6 +23,8 @@ public partial class CreateAutomationPipelineWindow
         new PowerModeAutomationPipelineTrigger(PowerModeState.Balance),
         new ProcessesAreRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()),
         new ProcessesStopRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()),
+        new LidOpenedAutomationPipelineTrigger(),
+        new LidClosedAutomationPipelineTrigger(),
         new DisplayOnAutomationPipelineTrigger(),
         new DisplayOffAutomationPipelineTrigger(),
         new ExternalDisplayConnectedAutomationPipelineTrigger(),
