@@ -606,6 +606,9 @@ DIQQAT: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bul
   <data name="FanCurveControl_CPU" xml:space="preserve">
     <value>Oraylıq processor</value>
   </data>
+  <data name="FanCurveControl_CPUSensor" xml:space="preserve">
+    <value>OP sensorı</value>
+  </data>
   <data name="FanCurveControl_FanSpeed" xml:space="preserve">
     <value>Samallatqıshtıń tezligi</value>
   </data>
