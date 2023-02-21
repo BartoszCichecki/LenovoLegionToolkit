@@ -100,4 +100,16 @@
   <data name="ExternalDisplayDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
 		<value>Sırtqı display óshirilgende</value>
 	</data>
+  <data name="DisplayOnAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Displeydi qosqanda</value>
+	</data>
+  <data name="DisplayOffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Displeydi óshirgende</value>
+	</data>
+  <data name="LidOpenedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Noutbuk qaqpaǵı ashıldı</value>
+	</data>
+  <data name="LidClosedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Noutbuk qaqpaǵı jawıldı</value>
+	</data>
 </root>
