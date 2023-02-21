@@ -464,9 +464,6 @@ Ovo vrijeme možda neće biti tačno ako je laptop bio napunjen dok je spavao il
   <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
     <value>Hibridno-Auto režim</value>
   </data>
-  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
-    <value>Integrisana i diskretna grafička su omogućene. Sistem će automatski prebacivati između njih na osnovnu svojih potreba.</value>
-  </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Hibridni režim</value>
   </data>
@@ -740,10 +737,6 @@ Startup is delayed by 30 seconds for compatibility reasons.</value>
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
     <value>Nije moguće onemogućiti Legion Zone</value>
   </data>
-  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
-    <value>Onemogući Legion Zone i njene servise bez deinstalacije.
-Restart je preporučen nakon promijene ove opcije.</value>
-  </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
     <value>Onemogući Legion Zone</value>
   </data>
@@ -761,10 +754,6 @@ Restart je preporučen nakon promijene ove opcije.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
     <value>Nije moguće onemogućiti Vantage</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>Onemogući Lenovo Vantage i njene servise bez deinstalacije.
-Restart je preporučen nakon promijene ove opcije.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Onemogući Lenovo Vantage</value>

@@ -582,7 +582,7 @@ AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está
   <data name="DonatePage_Message" xml:space="preserve">
     <value>El desarrollo y mantenimiento de Lenovo Legion Toolkit lleva mucho tiempo. Si le gusta este programa, puede apoyar su futuro, donando la cantidad que desee.
 
-Haga clic en el logotipo de PayPal que aparece a continuación o escanee el código QR para donar con PayPal.
+Haga clic en el logotipo de PayPal que aparece a continuación, o escanee el código QR para donar con PayPal.
 
 ¡Gracias anticipadas!</value>
   </data>
@@ -626,7 +626,8 @@ Haga clic en el logotipo de PayPal que aparece a continuación o escanee el cód
     <value>Modo dGPU</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
-    <value>La GPU integrada y la externa están activadas. El sistema alternará automáticamente entre ellas, en función de sus necesidades.</value>
+    <value>La GPU integrada y la externa están activadas.
+El sistema alternará automáticamente entre ellas, en función de sus necesidades.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Modo híbrido</value>
@@ -1213,7 +1214,7 @@ Asegúrese primero de que su script se ejecuta correctamente.</value>
     <value>No se puede desactivar Legion Zone</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
-    <value>Desactivar Legion Zone y su servicio, sin desinstalarlo.
+    <value>Desactivar Legión Zone y su servicio, sin desinstalarlo.
 Se recomienda reiniciar después de cambiar esta opción.</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
@@ -1702,5 +1703,8 @@ Esta configuración sólo tiene efecto si el modo personalizado está activado.<
   </data>
   <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
     <value>La temperatura máxima que puede alcanzar la tarjeta gráfica antes de que se reduzca la frecuencia y la potencia.</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+	  <value>Crear</value>
   </data>
 </root>

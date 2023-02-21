@@ -578,13 +578,6 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
   <data name="DonatePage_DonateWith" xml:space="preserve">
     <value>Spenden mit</value>
   </data>
-  <data name="DonatePage_Message" xml:space="preserve">
-    <value>Die Entwicklung und Pflege des Lenovo Legion Toolkits ist sehr zeitaufwändig. Wenn Sie diese Software gerne nutzen, können Sie ihre Zukunft unterstützen, indem Sie einen Betrag Ihrer Wahl spenden.
-
-Klicken Sie auf das PayPal-Logo unten oder scannen Sie den QR-Code, um mit PayPal zu spenden.
-
-Vielen Dank im Voraus!</value>
-  </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Spenden</value>
   </data>
@@ -623,9 +616,6 @@ Vielen Dank im Voraus!</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
     <value>dGPU Modus</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
-    <value>Sowohl integrierte als auch diskrete GPU sind aktiviert. Das System schaltet je nach Bedarf automatisch zwischen ihnen um.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Hybrid-Modus</value>
@@ -781,9 +771,6 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Tastaturbeleuchtung</value>
-  </data>
-  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Die Tastaturbeleuchtung kann hier nicht gesteuert werden, wenn Vantage oder seine Dienste ausgeführt werden.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage scheint aktiviert zu sein</value>
@@ -1211,10 +1198,6 @@ Stellen Sie zunächst sicher, dass Ihr Skript korrekt ausgeführt wird.</value>
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
     <value>Legion Zone konnte nicht deaktiviert werden</value>
   </data>
-  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
-    <value>Deaktiviert Legion Zone und dessen Dienste ohne es zu deinstallieren.
-Nach dem Ändern dieser Option wird ein Neustart empfohlen.</value>
-  </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
     <value>Legion Zone deaktivieren</value>
   </data>
@@ -1224,11 +1207,6 @@ Nach dem Ändern dieser Option wird ein Neustart empfohlen.</value>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Lenovo Hotkeys konnte nicht deaktiviert werden</value>
   </data>
-  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
-    <value>Deaktiviert Lenovo Hotkeys und dessen Dienste ohne es zu deinstallieren.
-Wenn deaktiviert, verwaltet diese Anwendung Fn-Tastenkombinationen.
-Nach dem Ändern dieser Option wird ein Neustart empfohlen.</value>
-  </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Lenovo Hotkeys deaktivieren</value>
   </data>
@@ -1237,10 +1215,6 @@ Nach dem Ändern dieser Option wird ein Neustart empfohlen.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
     <value>Vantage konnte nicht deaktiviert werden</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>Deaktiviert Lenovo Vantage und dessen Dienste ohne es zu deinstallieren.
-Nach dem Ändern dieser Option wird ein Neustart empfohlen.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Lenovo Vantage deaktivieren</value>
