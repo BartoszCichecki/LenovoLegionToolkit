@@ -15,15 +15,22 @@
         <wpfui:CardControl.Header>
             <controls:CardHeaderControl x:Name="_cardControlHeader" />
         </wpfui:CardControl.Header>
-        <StackPanel Orientation="Horizontal">
+        <Grid Width="350" Margin="16,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
             <Slider
                 x:Name="_slider"
-                Width="200"
-                Margin="32,0,0,0"
+                Grid.Column="0"
                 VerticalAlignment="Center"
                 IsSnapToTickEnabled="True" />
             <Label
                 x:Name="_sliderLabel"
+                Grid.Column="1"
                 Width="50"
                 Margin="8,0,0,0"
                 HorizontalContentAlignment="Right"
@@ -32,15 +39,19 @@
                 ContentStringFormat="{}{0} W"
                 FlowDirection="LeftToRight"
                 Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-            <ComboBox x:Name="_comboBox" MinWidth="100" />
+            <ComboBox
+                x:Name="_comboBox"
+                Grid.Column="2"
+                MinWidth="100" />
             <wpfui:Button
                 x:Name="_resetToDefaultButton"
+                Grid.Column="3"
                 Width="36"
                 Height="36"
                 Margin="16,0,0,0"
                 Click="ResetToDefaultButton_OnClick"
                 Icon="ArrowClockwise24"
                 ToolTip="{x:Static resources:Resource.Default}" />
-        </StackPanel>
+        </Grid>
     </wpfui:CardControl>
 </UserControl>
