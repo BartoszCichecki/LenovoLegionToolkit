@@ -579,6 +579,13 @@ ATENÇÃO: Está ação não irá funcionar corretamente se o ecrã interno esti
   <data name="DonatePage_DonateWith" xml:space="preserve">
     <value>Doar através de</value>
   </data>
+  <data name="DonatePage_Message" xml:space="preserve">
+    <value>O desenvolvimento e manutenção do Lenovo Legion Toolkit demora bastante tempo. Se gostas deste software podes suportar o seu futuro ao doar uma quantia da tua escolha.
+
+Clica no logo do PayPal abaixo ou faz scan do QR code para doar através do PayPal.
+
+Obrigado desde já!</value>
+  </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Doar</value>
   </data>
@@ -1606,5 +1613,8 @@ Mover o rato ou clicar no teclado vai ligar os ecrãs.</value>
   </data>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>É recomendado reiniciar</value>
+  </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+	  <value>Adicionar etapa</value>
   </data>
 </root>
