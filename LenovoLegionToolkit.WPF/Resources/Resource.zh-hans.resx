@@ -1713,4 +1713,7 @@
   <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
     <value>在降频前，GPU的温度限制。</value>
   </data>
+  <data name="Create" xml:space="preserve">
+	  <value>创建</value>
+  </data>
 </root>
