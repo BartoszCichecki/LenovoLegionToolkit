@@ -1707,4 +1707,7 @@ Esta configuración sólo tiene efecto si el modo personalizado está activado.<
   <data name="Create" xml:space="preserve">
 	  <value>Crear</value>
   </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+	  <value>Añadir paso</value>
+  </data>
 </root>
