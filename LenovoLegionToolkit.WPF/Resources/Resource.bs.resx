@@ -899,4 +899,7 @@ Logiranje će biti automatski omogućeno, ukoliko izaberete da nastavite.</value
   <data name="Yes" xml:space="preserve">
     <value>Da</value>
   </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+	  <value>Dodaj korak</value>
+  </data>
 </root>
