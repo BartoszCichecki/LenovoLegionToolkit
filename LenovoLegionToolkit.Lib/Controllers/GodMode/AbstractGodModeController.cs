@@ -133,10 +133,41 @@ public abstract class AbstractGodModeController : IGodModeController
 
     protected static StepperValue? CreateStepperValue(StepperValue? state, StepperValue? store = null, int? maxValueOffset = 0)
     {
-        if (!state.HasValue || state.Value.Min == state.Value.Max + (maxValueOffset ?? 0))
+        if (state is not { } stateValue)
             return null;
 
-        return new StepperValue(store?.Value ?? state.Value.Value, state.Value.Min, state.Value.Max, state.Value.Step, Array.Empty<int>(), state.Value.DefaultValue);
+        if (stateValue.Step > 0)
+        {
+            var value = store?.Value ?? stateValue.Value;
+            var min = stateValue.Min;
+            var max = stateValue.Max + (maxValueOffset ?? 0);
+            var step = stateValue.Step;
+            var defaultValue = stateValue.DefaultValue;
+
+            value = MathExtensions.RoundNearest(value, step);
+
+            if (value < min || value > max)
+                value = defaultValue ?? Math.Clamp(value, min, max);
+
+            return new(value, min, max, step, Array.Empty<int>(), defaultValue);
+        }
+
+        if (stateValue.Steps.Length > 0)
+        {
+            var value = store?.Value ?? stateValue.Value;
+            var steps = stateValue.Steps;
+            var defaultValue = stateValue.DefaultValue;
+
+            if (!steps.Contains(value))
+            {
+                var valueTemp = value;
+                value = steps.MinBy(v => Math.Abs((long)v - valueTemp));
+            }
+
+            return new(value, 0, 0, 0, steps, defaultValue);
+        }
+
+        return null;
     }
 
     private FanTableInfo? GetFanTableInfo(GodModeSettings.GodModeSettingsStore.Preset preset, FanTableData[]? fanTableData)
