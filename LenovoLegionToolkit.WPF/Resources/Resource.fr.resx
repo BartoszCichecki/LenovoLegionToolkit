@@ -1712,4 +1712,7 @@ Ce paramètre ne prend effet que lorsque le mode personnalisé est activé.</val
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
 	  <value>Ajouter étape</value>
   </data>
+  <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
+	  <value>Créer une action</value>
+  </data>
 </root>
