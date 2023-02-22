@@ -1470,4 +1470,7 @@ Tıshqanshanı qozǵaw yamasa klaviaturanı basıw displeydi iske túsiredi.</va
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
 	  <value>Adım qosıw</value>
   </data>
+  <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
+	  <value>Xáreket jaratıw</value>
+  </data>
 </root>
