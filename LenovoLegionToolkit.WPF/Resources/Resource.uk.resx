@@ -1638,6 +1638,10 @@
   <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
     <value>Пресет користувальницького режиму</value>
   </data>
+  <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
+    <value>Активувати користувацький пресет.
+Ці налаштування працюють тільки, коли включений користувальницький режим.</value>
+  </data>
   <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
     <value>Назва пресету</value>
   </data>
@@ -1662,13 +1666,49 @@
   <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
     <value>Коли увімкнено, однаковий рівень яскравості буде застосований для всіх планів потужності Windows, поки ви не зміните його.</value>
   </data>
+  <data name="Notification_UpdateAvailable" xml:space="preserve">
+    <value>Доступне оновлення {0}!</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL" xml:space="preserve">
+    <value>Обмеження максимальної потужності</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
+    <value>Обмеження потужності APU sPPT</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL_Description" xml:space="preserve">
+    <value>Пік енергоспоживання, якого може досягти ЦП.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL_Description" xml:space="preserve">
+    <value>Пік енергоспоживання, якого може досягти ЦП за короткий проміжок часу.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL_Description" xml:space="preserve">
+    <value>Максимальне миттєве енергоспоживання, якого може досягти ЦП.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_CrossLoading_Description" xml:space="preserve">
+    <value>Максимальне енергоспоживання, яке може бути досягнуте ЦП, коли обидва ЦП та ГП повністю навантажені.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL_Description" xml:space="preserve">
+    <value>Пік енергоспоживання, якого може досягти ЦП з короткою затримкою.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
+    <value>Максимальна температура, яка може бути досягнута ЦП до зниження частоти та потужності.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
+    <value>Додаткова максимальна потужність, яка може бути виділена ГП на основі енергоспоживання ГП.</value>
+  </data>
   <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
     <value>Додаткова кількість потужності може бути виділена для ГП на додачу до базового енергоспоживання.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
+    <value>Максимальна температура, яка може бути досягнути ГП до зниження частоти та потужності.</value>
   </data>
   <data name="Create" xml:space="preserve">
 	  <value>Створити</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
 	  <value>Додати крок</value>
+  </data>
+  <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
+	  <value>Створити дію</value>
   </data>
 </root>
