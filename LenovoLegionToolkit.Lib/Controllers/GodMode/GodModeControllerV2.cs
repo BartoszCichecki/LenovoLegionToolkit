@@ -141,6 +141,11 @@ public class GodModeControllerV2 : AbstractGodModeController
             Log.Instance.Trace($"State applied.");
     }
 
+    public override Task<Dictionary<PowerModeState, GodModeDefaults>> GetDefaultsInOtherPowerModesAsync()
+    {
+        return Task.FromResult(new Dictionary<PowerModeState, GodModeDefaults>());
+    }
+
     protected override async Task<GodModePreset> GetDefaultStateAsync()
     {
         var allCapabilityData = (await GetCapabilityDataAsync().ConfigureAwait(false)).ToArray();

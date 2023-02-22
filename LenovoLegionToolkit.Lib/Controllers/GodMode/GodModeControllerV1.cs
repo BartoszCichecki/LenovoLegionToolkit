@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
@@ -259,6 +260,16 @@ public class GodModeControllerV1 : AbstractGodModeController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"State applied.");
     }
+
+    public override async Task<Dictionary<PowerModeState, GodModeDefaults>> GetDefaultsInOtherPowerModesAsync()
+    {
+        var defaultValues = await GetDefaultValueInDifferentModeAsync().ConfigureAwait(false);
+        return defaultValues
+            .Where(d => d.powerMode is PowerModeState.Quiet or PowerModeState.Balance or PowerModeState.Performance)
+            .DistinctBy(d => d.powerMode)
+            .ToDictionary(d => d.powerMode, d => d.defaults);
+    }
+
     protected override async Task<GodModePreset> GetDefaultStateAsync()
     {
         var fanTableData = await GetFanTableDataAsync().ConfigureAwait(false);
@@ -627,6 +638,32 @@ public class GodModeControllerV1 : AbstractGodModeController
         $"SELECT * FROM LENOVO_FAN_METHOD",
         "Fan_Set_FullSpeed",
         new() { { "Status", enabled } });
+
+    #endregion
+
+    #region Default values
+
+    private static Task<IEnumerable<(PowerModeState powerMode, GodModeDefaults defaults)>> GetDefaultValueInDifferentModeAsync() => WMI.ReadAsync("root\\WMI",
+        $"SELECT * FROM LENOVO_DEFAULT_VALUE_IN_DIFFERENT_MODE_DATA ",
+        pdc =>
+        {
+            var mode = Convert.ToInt32(pdc["mode"].Value) - 1;
+
+            return ((PowerModeState)mode, new GodModeDefaults
+            {
+                CPULongTermPowerLimit = Convert.ToInt32(pdc["DefaultLongTermPowerlimit"].Value),
+                CPUShortTermPowerLimit = Convert.ToInt32(pdc["DefaultShortTermPowerlimit"].Value),
+                CPUPeakPowerLimit = Convert.ToInt32(pdc["DefaultPeakPowerLimit"].Value),
+                CPUCrossLoadingPowerLimit = Convert.ToInt32(pdc["DefaultCpuCrossLoading"].Value),
+                APUsPPTPowerLimit = Convert.ToInt32(pdc["DefaultAPUsPPTPowerLimit"].Value),
+                CPUTemperatureLimit = Convert.ToInt32(pdc["DefaultTemperatueControl"].Value),
+                GPUPowerBoost = Convert.ToInt32(pdc["Default_PPAB_Powerlimit"].Value),
+                GPUConfigurableTGP = Convert.ToInt32(pdc["Default_cTGP_Powerlimit"].Value),
+                GPUTemperatureLimit = Convert.ToInt32(pdc["DefaultTemperatueLimit"].Value),
+                FanTable = FanTable.Default,
+                FanFullSpeed = false
+            });
+        });
 
     #endregion
 

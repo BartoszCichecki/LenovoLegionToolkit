@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Utils;
 
@@ -43,6 +44,12 @@ public class GodModeController : IGodModeController
     {
         var controller = await GetControllerAsync().ConfigureAwait(false);
         await controller.ApplyStateAsync().ConfigureAwait(false);
+    }
+
+    public async Task<Dictionary<PowerModeState, GodModeDefaults>> GetDefaultsInOtherPowerModesAsync()
+    {
+        var controller = await GetControllerAsync().ConfigureAwait(false);
+        return await controller.GetDefaultsInOtherPowerModesAsync().ConfigureAwait(false);
     }
 
     private async Task<IGodModeController> GetControllerAsync()

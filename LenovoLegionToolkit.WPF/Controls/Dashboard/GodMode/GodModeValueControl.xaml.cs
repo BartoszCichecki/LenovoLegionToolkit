@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Extensions;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard.GodMode;
 
@@ -39,13 +41,22 @@ public partial class GodModeValueControl
         {
             if (_slider.Visibility == Visibility.Visible)
             {
-                _slider.Value = value;
+                var newValue = Math.Clamp(MathExtensions.RoundNearest(value, (int)_slider.TickFrequency), _slider.Minimum, _slider.Maximum);
+                _slider.Value = newValue;
                 return;
             }
 
             if (_comboBox.Visibility == Visibility.Visible)
             {
-                _comboBox.SelectItem(value);
+                var newValue = value;
+                var items = _comboBox.GetItems<int>().ToArray();
+                if (!items.Contains(newValue))
+                {
+                    var valueTemp = newValue;
+                    newValue = items.MinBy(v => Math.Abs((long)v - valueTemp));
+                }
+
+                _comboBox.SelectItem(newValue);
                 return;
             }
 

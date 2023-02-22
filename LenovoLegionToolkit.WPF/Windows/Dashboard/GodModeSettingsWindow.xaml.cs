@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers.GodMode;
 using LenovoLegionToolkit.Lib.Extensions;
@@ -24,6 +25,7 @@ public partial class GodModeSettingsWindow
     private readonly LegionZone _legionZone = IoCContainer.Resolve<LegionZone>();
 
     private GodModeState? _state;
+    private Dictionary<PowerModeState, GodModeDefaults>? _defaults;
     private bool _isRefreshing;
 
     public GodModeSettingsWindow() => InitializeComponent();
@@ -58,14 +60,19 @@ public partial class GodModeSettingsWindow
                 : Visibility.Collapsed;
 
             _state = await _godModeController.GetStateAsync();
+            _defaults = await _godModeController.GetDefaultsInOtherPowerModesAsync();
 
-            if (!_state.HasValue)
-                throw new InvalidOperationException("State is null.");
+            if (_state is null)
+                throw new InvalidOperationException($"{nameof(_state)} is null.");
+
+            if (_defaults is null)
+                throw new InvalidOperationException($"{nameof(_defaults)} are null.");
 
             SetState(_state.Value);
 
             await loadingTask;
 
+            _resetButton.Visibility = _defaults.Any() ? Visibility.Visible : Visibility.Collapsed;
             _buttonsStackPanel.Visibility = Visibility.Visible;
             _loader.IsLoading = false;
         }
@@ -225,6 +232,61 @@ public partial class GodModeSettingsWindow
         _advancedSectionMessage.Visibility = advancedSectionVisible ? Visibility.Visible : Visibility.Collapsed;
     }
 
+    private async void SetDefaults(GodModeDefaults defaults)
+    {
+        if (_cpuLongTermPowerLimitControl.Visibility == Visibility.Visible && defaults.CPULongTermPowerLimit is { } cpuLongTermPowerLimit)
+            _cpuLongTermPowerLimitControl.Value = cpuLongTermPowerLimit;
+
+        if (_cpuShortTermPowerLimitControl.Visibility == Visibility.Visible && defaults.CPUShortTermPowerLimit is { } cpuShortTermPowerLimit)
+            _cpuShortTermPowerLimitControl.Value = cpuShortTermPowerLimit;
+
+        if (_cpuPeakPowerLimitControl.Visibility == Visibility.Visible && defaults.CPUPeakPowerLimit is { } cpuPeakPowerLimit)
+            _cpuPeakPowerLimitControl.Value = cpuPeakPowerLimit;
+
+        if (_cpuCrossLoadingLimitControl.Visibility == Visibility.Visible && defaults.CPUCrossLoadingPowerLimit is { } cpuCrossLoadingPowerLimit)
+            _cpuCrossLoadingLimitControl.Value = cpuCrossLoadingPowerLimit;
+
+        if (_cpuPL1TauControl.Visibility == Visibility.Visible && defaults.CPUPL1Tau is { } cpuPL1Tau)
+            _cpuPL1TauControl.Value = cpuPL1Tau;
+
+        if (_apuSPPTPowerLimitControl.Visibility == Visibility.Visible && defaults.APUsPPTPowerLimit is { } _apuSPPTPowerLimit)
+            _apuSPPTPowerLimitControl.Value = _apuSPPTPowerLimit;
+
+        if (_cpuTemperatureLimitControl.Visibility == Visibility.Visible && defaults.CPUTemperatureLimit is { } cpuTemperatureLimit)
+            _cpuTemperatureLimitControl.Value = cpuTemperatureLimit;
+
+        if (_gpuPowerBoostControl.Visibility == Visibility.Visible && defaults.GPUPowerBoost is { } gpuPowerBoost)
+            _gpuPowerBoostControl.Value = gpuPowerBoost;
+
+        if (_gpuConfigurableTGPControl.Visibility == Visibility.Visible && defaults.GPUConfigurableTGP is { } gpuConfigurableTgp)
+            _gpuConfigurableTGPControl.Value = gpuConfigurableTgp;
+
+        if (_gpuTemperatureLimitControl.Visibility == Visibility.Visible && defaults.GPUTemperatureLimit is { } gpuTemperatureLimit)
+            _gpuTemperatureLimitControl.Value = gpuTemperatureLimit;
+
+        if (_gpuTotalProcessingPowerTargetOnAcOffsetFromBaselineControl.Visibility == Visibility.Visible && defaults.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline is { } gpuTotalProcessingPowerTargetOnAcOffsetFromBaseline)
+            _gpuTotalProcessingPowerTargetOnAcOffsetFromBaselineControl.Value = gpuTotalProcessingPowerTargetOnAcOffsetFromBaseline;
+
+        if (_fanCurveCardControl.Visibility == Visibility.Visible && defaults.FanTable is { } fanTable)
+        {
+            var state = await _godModeController.GetStateAsync();
+            var preset = state.Presets[state.ActivePresetId];
+            var data = preset.FanTableInfo?.Data;
+
+            if (data is not null)
+            {
+                var defaultFanTableInfo = new FanTableInfo(data, fanTable);
+                _fanCurveControl.SetFanTableInfo(defaultFanTableInfo);
+            }
+        }
+
+        if (_fanFullSpeedCardControl.Visibility == Visibility.Visible && defaults.FanFullSpeed is { } fanFullSpeed)
+            _fanFullSpeedToggle.IsChecked = fanFullSpeed;
+
+        if (_maxValueOffsetCardControl.Visibility == Visibility.Visible)
+            _maxValueOffsetNumberBox.Text = $"{0}";
+    }
+
     private void PresetsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         if (!_state.HasValue)
@@ -328,6 +390,36 @@ public partial class GodModeSettingsWindow
 
         var defaultFanTableInfo = new FanTableInfo(data, FanTable.Default);
         _fanCurveControl.SetFanTableInfo(defaultFanTableInfo);
+    }
+
+    private void ResetButton_Click(object sender, RoutedEventArgs e)
+    {
+        if (_defaults is null || _defaults.IsEmpty())
+        {
+            _resetButton.Visibility = Visibility.Collapsed;
+            return;
+        }
+
+        var menuItems = _defaults
+            .OrderBy(d => d.Key)
+            .Select(d =>
+            {
+                var menuItem = new MenuItem { Header = d.Key.GetDisplayName() };
+                menuItem.Click += (_, _) => SetDefaults(d.Value);
+                return menuItem;
+            });
+
+        var contextMenu = new ContextMenu
+        {
+            PlacementTarget = _resetButton,
+            Placement = PlacementMode.Bottom,
+        };
+
+        foreach (var menuItem in menuItems)
+            contextMenu.Items.Add(menuItem);
+
+        _resetButton.ContextMenu = contextMenu;
+        _resetButton.ContextMenu.IsOpen = true;
     }
 
     private async void SaveAndCloseButton_Click(object sender, RoutedEventArgs e)

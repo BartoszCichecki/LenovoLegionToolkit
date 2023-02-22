@@ -23,6 +23,7 @@ public abstract class AbstractGodModeController : IGodModeController
     }
 
     public abstract Task<bool> NeedsVantageDisabledAsync();
+
     public abstract Task<bool> NeedsLegionZoneDisabledAsync();
 
     public async Task<GodModeState> GetStateAsync()
@@ -93,6 +94,8 @@ public abstract class AbstractGodModeController : IGodModeController
     }
 
     public abstract Task ApplyStateAsync();
+
+    public abstract Task<Dictionary<PowerModeState, GodModeDefaults>> GetDefaultsInOtherPowerModesAsync();
 
     protected abstract Task<GodModePreset> GetDefaultStateAsync();
 

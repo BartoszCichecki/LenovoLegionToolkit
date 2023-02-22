@@ -212,6 +212,23 @@ public readonly struct FanTableInfo
         $" {nameof(Table)}: {Table}";
 }
 
+public readonly struct GodModeDefaults
+{
+    public int? CPULongTermPowerLimit { get; init; }
+    public int? CPUShortTermPowerLimit { get; init; }
+    public int? CPUPeakPowerLimit { get; init; }
+    public int? CPUCrossLoadingPowerLimit { get; init; }
+    public int? CPUPL1Tau { get; init; }
+    public int? APUsPPTPowerLimit { get; init; }
+    public int? CPUTemperatureLimit { get; init; }
+    public int? GPUPowerBoost { get; init; }
+    public int? GPUConfigurableTGP { get; init; }
+    public int? GPUTemperatureLimit { get; init; }
+    public int? GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline { get; init; }
+    public FanTable? FanTable { get; init; }
+    public bool? FanFullSpeed { get; init; }
+}
+
 public readonly struct GodModeState
 {
     public Guid ActivePresetId { get; init; }
