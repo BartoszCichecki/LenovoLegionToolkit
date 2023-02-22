@@ -625,6 +625,9 @@
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
     <value>Режим дискретной видеокарты</value>
   </data>
+  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
+    <value>Будут включены как встроенная, так и дискретная видеокарта. Система будет автоматически переключаться между ними в зависимости от потребностей.</value>
+  </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Гибридный режим</value>
   </data>
@@ -779,6 +782,9 @@
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Подсветка клавиатуры</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>Подсветкой клавиатуры нельзя управлять здесь, когда работает Vantage или его службы.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Похоже, что Lenovo Vantage включен</value>
@@ -1206,6 +1212,10 @@
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
     <value>Не удалось отключить Legion Zone</value>
   </data>
+  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
+    <value>Отключить Legion Zone и его службы, не удаляя его.
+После изменения этого параметра рекомендуется перезагрузка.</value>
+  </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
     <value>Отключить Legion Zone</value>
   </data>
@@ -1215,6 +1225,11 @@
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Не удалось отключить Lenovo Hotkeys</value>
   </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
+    <value>Отключить Lenovo Hotkeys и его сервис без удаления.
+Если опция отключена, Lenovo Hotkeys будет обслуживать горячие клавиши Fn.
+После изменения этого параметра рекомендуется перезагрузка.</value>
+  </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Отключить Lenovo Hotkeys</value>
   </data>
@@ -1223,6 +1238,10 @@
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
     <value>Не удалось отключить Vantage</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
+    <value>Отключить Lenovo Vantage и его службы, не удаляя его.
+После изменения этого параметра рекомендуется перезагрузка.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Отключить Lenovo Vantage</value>
@@ -1691,5 +1710,8 @@
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
 	  <value>Добавить шаг</value>
+  </data>
+  <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
+	  <value>Создать действие</value>
   </data>
 </root>
