@@ -227,6 +227,21 @@ public readonly struct GodModeDefaults
     public int? GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline { get; init; }
     public FanTable? FanTable { get; init; }
     public bool? FanFullSpeed { get; init; }
+
+    public override string ToString() =>
+        $"{nameof(CPULongTermPowerLimit)}: {CPULongTermPowerLimit}," +
+        $" {nameof(CPUShortTermPowerLimit)}: {CPUShortTermPowerLimit}," +
+        $" {nameof(CPUPeakPowerLimit)}: {CPUPeakPowerLimit}," +
+        $" {nameof(CPUCrossLoadingPowerLimit)}: {CPUCrossLoadingPowerLimit}," +
+        $" {nameof(CPUPL1Tau)}: {CPUPL1Tau}," +
+        $" {nameof(APUsPPTPowerLimit)}: {APUsPPTPowerLimit}," +
+        $" {nameof(CPUTemperatureLimit)}: {CPUTemperatureLimit}," +
+        $" {nameof(GPUPowerBoost)}: {GPUPowerBoost}," +
+        $" {nameof(GPUConfigurableTGP)}: {GPUConfigurableTGP}," +
+        $" {nameof(GPUTemperatureLimit)}: {GPUTemperatureLimit}," +
+        $" {nameof(GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline)}: {GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline}," +
+        $" {nameof(FanTable)}: {FanTable}," +
+        $" {nameof(FanFullSpeed)}: {FanFullSpeed}";
 }
 
 public readonly struct GodModeState

@@ -275,7 +275,11 @@ public class GodModeControllerV1 : AbstractGodModeController
                 .ToDictionary(d => d.powerMode, d => d.defaults);
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Defaults in other power modes retrieved.");
+            {
+                Log.Instance.Trace($"Defaults in other power modes retrieved:");
+                foreach (var (powerMode, defaults) in result)
+                    Log.Instance.Trace($" - {powerMode}: {defaults}");
+            }
 
             return result;
         }

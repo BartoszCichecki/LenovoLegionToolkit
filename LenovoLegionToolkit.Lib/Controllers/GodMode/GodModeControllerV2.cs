@@ -141,9 +141,55 @@ public class GodModeControllerV2 : AbstractGodModeController
             Log.Instance.Trace($"State applied.");
     }
 
-    public override Task<Dictionary<PowerModeState, GodModeDefaults>> GetDefaultsInOtherPowerModesAsync()
+    public override async Task<Dictionary<PowerModeState, GodModeDefaults>> GetDefaultsInOtherPowerModesAsync()
     {
-        return Task.FromResult(new Dictionary<PowerModeState, GodModeDefaults>());
+        try
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Getting defaults in other power modes...");
+
+            var result = new Dictionary<PowerModeState, GodModeDefaults>();
+
+            var allCapabilityData = (await GetCapabilityDataAsync().ConfigureAwait(false)).ToArray();
+
+            foreach (var powerMode in new[] { PowerModeState.Quiet, PowerModeState.Balance, PowerModeState.Performance })
+            {
+                var defaults = new GodModeDefaults
+                {
+                    CPULongTermPowerLimit = GetDefaultTuneIdValueInPowerMode(allCapabilityData, TuneId.CPULongTermPowerLimit, powerMode),
+                    CPUShortTermPowerLimit = GetDefaultTuneIdValueInPowerMode(allCapabilityData, TuneId.CPUShortTermPowerLimit, powerMode),
+                    CPUPeakPowerLimit = GetDefaultTuneIdValueInPowerMode(allCapabilityData, TuneId.CPUPeakPowerLimit, powerMode),
+                    CPUCrossLoadingPowerLimit = GetDefaultTuneIdValueInPowerMode(allCapabilityData, TuneId.CPUCrossLoadingPowerLimit, powerMode),
+                    CPUPL1Tau = GetDefaultTuneIdValueInPowerMode(allCapabilityData, TuneId.CPUPL1Tau, powerMode),
+                    APUsPPTPowerLimit = GetDefaultTuneIdValueInPowerMode(allCapabilityData, TuneId.APUsPPTPowerLimit, powerMode),
+                    CPUTemperatureLimit = GetDefaultTuneIdValueInPowerMode(allCapabilityData, TuneId.CPUTemperatureLimit, powerMode),
+                    GPUPowerBoost = GetDefaultTuneIdValueInPowerMode(allCapabilityData, TuneId.GPUPowerBoost, powerMode),
+                    GPUConfigurableTGP = GetDefaultTuneIdValueInPowerMode(allCapabilityData, TuneId.GPUConfigurableTGP, powerMode),
+                    GPUTemperatureLimit = GetDefaultTuneIdValueInPowerMode(allCapabilityData, TuneId.GPUTemperatureLimit, powerMode),
+                    GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline = GetDefaultTuneIdValueInPowerMode(allCapabilityData, TuneId.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline, powerMode),
+                    FanTable = FanTable.Default,
+                    FanFullSpeed = false
+                };
+
+                result[powerMode] = defaults;
+            }
+
+            if (Log.Instance.IsTraceEnabled)
+            {
+                Log.Instance.Trace($"Defaults in other power modes retrieved:");
+                foreach (var (powerMode, defaults) in result)
+                    Log.Instance.Trace($" - {powerMode}: {defaults}");
+            }
+
+            return result;
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Failed to get defaults in other power modes.", ex);
+
+            return new Dictionary<PowerModeState, GodModeDefaults>();
+        }
     }
 
     protected override async Task<GodModePreset> GetDefaultStateAsync()
@@ -191,7 +237,7 @@ public class GodModeControllerV2 : AbstractGodModeController
             GPUPowerBoost = stepperValues.GetValueOrNull(TuneId.GPUPowerBoost),
             GPUConfigurableTGP = stepperValues.GetValueOrNull(TuneId.GPUConfigurableTGP),
             GPUTemperatureLimit = stepperValues.GetValueOrNull(TuneId.GPUTemperatureLimit),
-            GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline = stepperValues.GetValueOrDefault(TuneId.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline),
+            GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline = stepperValues.GetValueOrNull(TuneId.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline),
             FanTableInfo = fanTableData is null ? null : new FanTableInfo(fanTableData, FanTable.Default),
             FanFullSpeed = await GetFanFullSpeedAsync().ConfigureAwait(false)
         };
@@ -200,6 +246,24 @@ public class GodModeControllerV2 : AbstractGodModeController
             Log.Instance.Trace($"Default state retrieved: {preset}");
 
         return preset;
+    }
+
+    private static TuneId AdjustTuneIdForPowerMode(TuneId tuneId, PowerModeState powerMode)
+    {
+        var tuneIdRaw = (uint)tuneId & 0xFFFF00FF;
+        var powerModeRaw = ((uint)powerMode + 1) << 8;
+        return (TuneId)(tuneIdRaw & powerModeRaw);
+    }
+
+    private static int? GetDefaultTuneIdValueInPowerMode(IEnumerable<Capability> capabilities, TuneId tuneId, PowerModeState powerMode)
+    {
+        var adjustTuneIdForPowerMode = AdjustTuneIdForPowerMode(tuneId, powerMode);
+        var value = capabilities
+            .Where(c => c.Id == adjustTuneIdForPowerMode)
+            .Select(c => c.DefaultValue)
+            .DefaultIfEmpty(-1)
+            .First();
+        return value < 0 ? null : value;
     }
 
     #region Get/Set Value
@@ -256,7 +320,7 @@ public class GodModeControllerV2 : AbstractGodModeController
 
     #region Fan Table
 
-    protected static async Task<FanTableData[]?> GetFanTableDataAsync()
+    protected static async Task<FanTableData[]?> GetFanTableDataAsync(PowerModeState powerModeState = PowerModeState.GodMode)
     {
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Reading fan table data...");
@@ -290,7 +354,7 @@ public class GodModeControllerV2 : AbstractGodModeController
             }).ConfigureAwait(false);
 
         var fanTableData = data
-            .Where(d => d.mode == 255)
+            .Where(d => d.mode == (int)powerModeState + 1)
             .Select(d => d.data)
             .ToArray();
 
