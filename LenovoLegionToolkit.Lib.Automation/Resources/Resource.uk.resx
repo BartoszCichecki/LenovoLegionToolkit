@@ -70,12 +70,6 @@
   <data name="DeactivateGPUAutomationStepState_RestartGPU" xml:space="preserve">
     <value>Перезапустити ГП</value>
   </data>
-  <data name="Delay_Second" xml:space="preserve">
-    <value>{0} секунд</value>
-  </data>
-  <data name="Delay_Second_Many" xml:space="preserve">
-    <value>{0} секунди</value>
-  </data>
   <data name="LowWattageACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Коли малопотужний блок живлення під'єднаний</value>
   </data>
