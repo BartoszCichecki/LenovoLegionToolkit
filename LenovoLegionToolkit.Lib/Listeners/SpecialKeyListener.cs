@@ -12,7 +12,7 @@ namespace LenovoLegionToolkit.Lib.Listeners;
 
 public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
 {
-    private readonly ThrottleFirstDispatcher _refreshRateDispatcher = new(TimeSpan.FromSeconds(2), "refreshRate");
+    private readonly ThrottleFirstDispatcher _refreshRateDispatcher = new(TimeSpan.FromSeconds(2), nameof(SpecialKeyListener));
 
     private readonly ApplicationSettings _settings;
     private readonly FnKeys _fnKeys;

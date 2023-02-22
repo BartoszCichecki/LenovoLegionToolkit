@@ -37,6 +37,9 @@ public class ThermalModeListener : AbstractWMIListener<ThermalModeState>
             case ThermalModeState.Performance:
                 await Power.ActivatePowerPlanAsync(PowerModeState.Performance).ConfigureAwait(false);
                 break;
+            case ThermalModeState.GodMode:
+                await Power.ActivatePowerPlanAsync(PowerModeState.GodMode).ConfigureAwait(false);
+                break;
         }
     }
 }

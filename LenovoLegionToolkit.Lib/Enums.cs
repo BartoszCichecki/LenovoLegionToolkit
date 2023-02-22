@@ -447,7 +447,8 @@ public enum ThermalModeState
     Unknown,
     Quiet,
     Balanced,
-    Performance
+    Performance,
+    GodMode = 255
 }
 
 public enum TouchpadLockState

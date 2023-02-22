@@ -17,8 +17,11 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard;
 
 public class PowerModeControl : AbstractComboBoxFeatureCardControl<PowerModeState>
 {
+    private readonly ThermalModeListener _thermalModeListener = IoCContainer.Resolve<ThermalModeListener>();
     private readonly PowerModeListener _powerModeListener = IoCContainer.Resolve<PowerModeListener>();
     private readonly PowerPlanListener _powerPlanListener = IoCContainer.Resolve<PowerPlanListener>();
+
+    private readonly ThrottleFirstDispatcher _throttleDispatcher = new(TimeSpan.FromSeconds(1), nameof(PowerModeControl));
 
     private readonly Button _configButton = new()
     {
@@ -34,21 +37,28 @@ public class PowerModeControl : AbstractComboBoxFeatureCardControl<PowerModeStat
         Title = Resource.PowerModeControl_Title;
         Subtitle = Resource.PowerModeControl_Message;
 
+        _thermalModeListener.Changed += ThermalModeListener_Changed;
         _powerModeListener.Changed += PowerModeListener_Changed;
         _powerPlanListener.Changed += PowerPlanListener_Changed;
     }
 
-    private void PowerModeListener_Changed(object? sender, PowerModeState e) => Dispatcher.Invoke(async () =>
+    private void ThermalModeListener_Changed(object? sender, ThermalModeState e) => Dispatcher.Invoke(() => _throttleDispatcher.DispatchAsync(async () =>
     {
         if (IsLoaded && IsVisible)
             await RefreshAsync();
-    });
+    }));
 
-    private void PowerPlanListener_Changed(object? sender, EventArgs e) => Dispatcher.Invoke(async () =>
+    private void PowerModeListener_Changed(object? sender, PowerModeState e) => Dispatcher.Invoke(() => _throttleDispatcher.DispatchAsync(async () =>
     {
         if (IsLoaded && IsVisible)
             await RefreshAsync();
-    });
+    }));
+
+    private void PowerPlanListener_Changed(object? sender, EventArgs e) => Dispatcher.Invoke(() => _throttleDispatcher.DispatchAsync(async () =>
+    {
+        if (IsLoaded && IsVisible)
+            await RefreshAsync();
+    }));
 
     protected override async Task OnRefreshAsync()
     {
