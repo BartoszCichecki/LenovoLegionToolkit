@@ -252,7 +252,7 @@ public class GodModeControllerV2 : AbstractGodModeController
     {
         var tuneIdRaw = (uint)tuneId & 0xFFFF00FF;
         var powerModeRaw = ((uint)powerMode + 1) << 8;
-        return (TuneId)(tuneIdRaw & powerModeRaw);
+        return (TuneId)(tuneIdRaw + powerModeRaw);
     }
 
     private static int? GetDefaultTuneIdValueInPowerMode(IEnumerable<Capability> capabilities, TuneId tuneId, PowerModeState powerMode)
