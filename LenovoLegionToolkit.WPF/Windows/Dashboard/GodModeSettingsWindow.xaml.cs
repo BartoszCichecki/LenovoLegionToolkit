@@ -379,7 +379,7 @@ public partial class GodModeSettingsWindow
         SetState(_state.Value);
     }
 
-    private async void ResetFanCurve_Click(object sender, RoutedEventArgs e)
+    private async void DefaultFanCurve_Click(object sender, RoutedEventArgs e)
     {
         var state = await _godModeController.GetStateAsync();
         var preset = state.Presets[state.ActivePresetId];

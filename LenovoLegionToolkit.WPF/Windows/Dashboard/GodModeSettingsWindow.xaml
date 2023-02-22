@@ -235,8 +235,8 @@
                                 <wpfui:Button
                                     MinWidth="120"
                                     HorizontalAlignment="Right"
-                                    Click="ResetFanCurve_Click"
-                                    Content="{x:Static resources:Resource.Reset}"
+                                    Click="DefaultFanCurve_Click"
+                                    Content="{x:Static resources:Resource.Default}"
                                     Icon="ArrowClockwise24" />
                             </StackPanel>
                         </wpfui:CardControl.Header>
