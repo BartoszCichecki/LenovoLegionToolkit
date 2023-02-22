@@ -263,11 +263,28 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     public override async Task<Dictionary<PowerModeState, GodModeDefaults>> GetDefaultsInOtherPowerModesAsync()
     {
-        var defaultValues = await GetDefaultValueInDifferentModeAsync().ConfigureAwait(false);
-        return defaultValues
-            .Where(d => d.powerMode is PowerModeState.Quiet or PowerModeState.Balance or PowerModeState.Performance)
-            .DistinctBy(d => d.powerMode)
-            .ToDictionary(d => d.powerMode, d => d.defaults);
+        try
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Getting defaults in other power modes...");
+
+            var defaultValues = await GetDefaultValuesInDifferentModeAsync().ConfigureAwait(false);
+            var result = defaultValues
+                .Where(d => d.powerMode is PowerModeState.Quiet or PowerModeState.Balance or PowerModeState.Performance)
+                .DistinctBy(d => d.powerMode)
+                .ToDictionary(d => d.powerMode, d => d.defaults);
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Defaults in other power modes retrieved.");
+
+            return result;
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Failed to get defaults in other power modes.", ex);
+            return new Dictionary<PowerModeState, GodModeDefaults>();
+        }
     }
 
     protected override async Task<GodModePreset> GetDefaultStateAsync()
@@ -643,7 +660,7 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     #region Default values
 
-    private static Task<IEnumerable<(PowerModeState powerMode, GodModeDefaults defaults)>> GetDefaultValueInDifferentModeAsync() => WMI.ReadAsync("root\\WMI",
+    private static Task<IEnumerable<(PowerModeState powerMode, GodModeDefaults defaults)>> GetDefaultValuesInDifferentModeAsync() => WMI.ReadAsync("root\\WMI",
         $"SELECT * FROM LENOVO_DEFAULT_VALUE_IN_DIFFERENT_MODE_DATA ",
         pdc =>
         {
