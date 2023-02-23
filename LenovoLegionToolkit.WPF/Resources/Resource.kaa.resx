@@ -555,6 +555,13 @@ DIQQAT: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bul
   <data name="DonatePage_DonateWith" xml:space="preserve">
     <value>Járdeminde qollap-quwatlaw</value>
   </data>
+  <data name="DonatePage_Message" xml:space="preserve">
+    <value>Lenovo Legion Toolkitti rawajlandırıw hám turaqlı islewin támiyinlew ushın kóp waqıt ketedi. Eger sizge bul baǵdarlamanı qollanıw unasa, siz qálegen summańız benen onıń keleshegin qollap-quwatlawıńız múmkin.
+
+PayPal arqalı qollap-quwatlaw ushın PayPal logotibine basıń yamasa tómendegi QR-kodtı tekseriń.
+
+Aldınnan raxmet!</value>
+  </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Qollap-quwatlaw</value>
   </data>
@@ -587,6 +594,9 @@ DIQQAT: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bul
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
     <value>Bólekli videokarta rejimi</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
+    <value>Ornatılǵan hám bólekli videokarta qosıladı. Sistema olardıń arasında zárúrlikke qarap avtomatikalıq ózgerip turadı.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Gibrid rejimi</value>
@@ -651,6 +661,9 @@ DIQQAT: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bul
   <data name="GodModeSettingsWindow_CPU_LongTermPL" xml:space="preserve">
     <value>Uzaq múddetli quwatlıq sheklew</value>
   </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL" xml:space="preserve">
+    <value>Qısqa múddetli quwatlıq sheklew</value>
+  </data>
   <data name="GodModeSettingsWindow_CPU_TempLimit" xml:space="preserve">
     <value>Oraylıq processor temperaturasınıń sheklewi</value>
   </data>
@@ -663,11 +676,17 @@ DIQQAT: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bul
   <data name="GodModeSettingsWindow_Error_Load_Title" xml:space="preserve">
     <value>Sazlawlardı júklew ámelge aspadı.</value>
   </data>
+  <data name="GodModeSettingsWindow_Fans_Curve_Title" xml:space="preserve">
+    <value>Samallatqıshtıń qıysıqlıǵı</value>
+  </data>
   <data name="GodModeSettingsWindow_Fans_Max_Title" xml:space="preserve">
     <value>Samallatqıshtıń maksimal tezligi</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Title" xml:space="preserve">
     <value>Samallatqıshlar</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP" xml:space="preserve">
+    <value>Sazlanatuǵın TGP</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_DynamicBoost" xml:space="preserve">
     <value>Dynamic Boost</value>
@@ -681,8 +700,16 @@ DIQQAT: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bul
   <data name="GodModeSettingsWindow_Title" xml:space="preserve">
     <value>Arnawlı rejim sazlawları</value>
   </data>
+  <data name="HDRAutomationStepControl_Message" xml:space="preserve">
+    <value>Ornatılǵan displeyde High Dynamic Range (HDR)dı qosıw.
+
+DIQQAT: Eger ishki displey óshirilgen bolsa, bul háreket durıs orınlanbaydı.</value>
+  </data>
   <data name="HDRAutomationStepControl_Title" xml:space="preserve">
     <value>HDR</value>
+  </data>
+  <data name="HDRControl_Message" xml:space="preserve">
+    <value>Ornatılǵan displeyde High Dynamic Range (HDR)dı qosıw.</value>
   </data>
   <data name="HDRControl_Title" xml:space="preserve">
     <value>HDR</value>
@@ -813,6 +840,10 @@ DIQQAT: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bul
   <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
     <value>Caps Lock hám Num Lock</value>
   </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
+    <value>Fn túymesiniń mikrofon dawısın óshiriw sıyaqlı háreketleri haqqındaǵı xabarnamalardı óshiredi
+Eger de tolıq ekranlı baǵdarlamalar menen mashqalalar bolsa, bul varianttı qosıń.</value>
+  </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Xabarnamalardı kórsetpew</value>
   </data>
@@ -891,6 +922,9 @@ DIQQAT: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bul
   <data name="PackagesPage_Disclaimer_Message" xml:space="preserve">
     <value>Tómende noutbukıńızǵa mas dep belgilengen baǵdarlamalıq paketler dizimi keltirilgen. 
 Durıs paketlerdi ornatıp atırǵanıńızǵa isenim kámil etiń.</value>
+  </data>
+  <data name="PackagesPage_DownloadFailed_Message" xml:space="preserve">
+    <value>Qurılma modeliniń túri hám OS durıs kórsetilgenin tekseriń.</value>
   </data>
   <data name="PackagesPage_DownloadFailed_Title" xml:space="preserve">
     <value>Qanday da bir qátelik boldı</value>
@@ -1057,6 +1091,10 @@ ESLETPE: Eger ishki displey óshirilgen bolsa, bul ámel durıs orınlanbaydı.<
   <data name="RunAutomationStepControl_ExePath" xml:space="preserve">
     <value>Orınlanatuǵın faylǵa jol</value>
   </data>
+  <data name="RunAutomationStepControl_Message" xml:space="preserve">
+    <value>Skript yamasa baǵdarlamanı iske túsiriń.
+Siziń skriptińiz durıs orınlanıp atırǵanına isenim kámil etiń.</value>
+  </data>
   <data name="RunAutomationStepControl_Title" xml:space="preserve">
     <value>Orınlaw</value>
   </data>
@@ -1093,11 +1131,21 @@ ESLETPE: Eger ishki displey óshirilgen bolsa, bul ámel durıs orınlanbaydı.<
   <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
     <value>Oraylıq processordı tezlestiriw rejimleri</value>
   </data>
+  <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
+    <value>Legion Zone nadurıs óshirilgen bolıwı múmkin</value>
+  </data>
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
     <value>Legion Zonedi óshiriw ámelge aspadı</value>
   </data>
+  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
+    <value>Legion Zone hám onıń xızmetleriniń iskerligin toqtatıp, ózin óshirmew.
+Bul varianttı ózgertkennen keyin, qayta iske túsiriw usınıs etiledi.</value>
+  </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
     <value>Legion Zonedi óshiriw</value>
+  </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Error_Message" xml:space="preserve">
+    <value>Legion Hotkeys nadurıs óshirilgen bolıwı múmkin</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Lenovo Hotkeysti óshiriw ámelge aspadı</value>
@@ -1105,14 +1153,23 @@ ESLETPE: Eger ishki displey óshirilgen bolsa, bul ámel durıs orınlanbaydı.<
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Lenovo Hotkeysti óshiriw</value>
   </data>
+  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
+    <value>Vantage nadurıs óshirilgen bolıwı múmkin</value>
+  </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
     <value>Vantagedi óshiriw ámelge aspadı</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Lenovo Vantagedi óshiriw</value>
   </data>
+  <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
+    <value>Legion Zone nadurıs iske túsirilgen bolıwı múmkin</value>
+  </data>
   <data name="SettingsPage_EnableLegionZone_Error_Title" xml:space="preserve">
     <value>Legion Zonedi iske túsiriw ámelge aspadı</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+    <value>Vantage nadurıs iske túsirilgen bolıwı múmkin</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
     <value>Vantagedi iske túsiriw ámelge aspadı</value>
@@ -1245,6 +1302,10 @@ ESLETPE: Eger ishki displey óshirilgen bolsa, bul ámel durıs orınlanbaydı.<
   </data>
   <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
     <value>Waqıt</value>
+  </data>
+  <data name="ToggleHybridModeControl_Message" xml:space="preserve">
+    <value>Ornatılǵan hám bólekli grafikalıq processor arasında ózgertiw imkániyatın beredi.
+Qayta iske túsiriw talap etiledi.</value>
   </data>
   <data name="ToggleHybridModeControl_RestartRequired_Message" xml:space="preserve">
     <value>Gibrid rejimin ózgertiw qayta iske túsiriwdi talap etedi. Házir qayta iske túsiriwdi qáleysiz be?</value>
@@ -1446,8 +1507,14 @@ Tıshqanshanı qozǵaw yamasa klaviaturanı basıw displeydi iske túsiredi.</va
   <data name="SaveAndClose" xml:space="preserve">
     <value>Saqlaw hám jabıw</value>
   </data>
+  <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
+    <value>Sazlawlar jıyındısınıń ataması</value>
+  </data>
   <data name="GodModeSettingsWindow_EditPreset_Message" xml:space="preserve">
     <value>Ataması</value>
+  </data>
+  <data name="GodModeSettingsWindow_ActivePreset_Title" xml:space="preserve">
+    <value>Aktiv sazlawlar jıyındısı</value>
   </data>
   <data name="AboutPage_ApplicationFolders" xml:space="preserve">
     <value>Baǵdarlama papkaları</value>
@@ -1463,6 +1530,9 @@ Tıshqanshanı qozǵaw yamasa klaviaturanı basıw displeydi iske túsiredi.</va
   </data>
   <data name="Notification_UpdateAvailable" xml:space="preserve">
     <value>{0} Jańalanıw bar!</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL" xml:space="preserve">
+    <value>Quwatlılıqtıń eń joqarǵı shegarası</value>
   </data>
   <data name="Create" xml:space="preserve">
 	  <value>Jaratıw</value>
