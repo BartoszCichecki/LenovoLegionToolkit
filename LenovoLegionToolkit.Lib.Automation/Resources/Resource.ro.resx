@@ -106,4 +106,10 @@
   <data name="DisplayOffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
 		<value>Când afișajele se opresc</value>
 	</data>
+  <data name="LidOpenedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Capac deschis</value>
+	</data>
+  <data name="LidClosedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Capac închis</value>
+	</data>
 </root>
