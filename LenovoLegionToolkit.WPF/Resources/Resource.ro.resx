@@ -1686,6 +1686,9 @@ Aceste setări au efect doar atunci când modul Personalizat este activat.</valu
   <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
     <value>Temperatura maximă care poate fi atinsă de GPU înainte ca frecvența și puterea să fie reduse.</value>
   </data>
+  <data name="Create" xml:space="preserve">
+	  <value>Creare</value>
+  </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
 	  <value>Adăugați pas</value>
   </data>
