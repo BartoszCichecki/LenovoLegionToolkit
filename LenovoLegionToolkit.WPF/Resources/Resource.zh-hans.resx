@@ -627,6 +627,9 @@
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
     <value>独显直连模式</value>
   </data>
+  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
+    <value>核显与独显都将启用，系统将自动决定使用哪一个。</value>
+  </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>混合模式</value>
   </data>
@@ -783,6 +786,9 @@
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>键盘背光</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>由于 Lenovo Vantage 或其服务正在运行导致冲突，无法在此控制键盘背光。</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage似乎已启用。</value>
@@ -1213,6 +1219,10 @@
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
     <value>无法禁用 Legion Zone</value>
   </data>
+  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
+    <value>禁用 Legion Zone 服务且无需卸载。
+修改此项后推荐重启电脑。</value>
+  </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
     <value>禁用 Legion Zone</value>
   </data>
@@ -1222,6 +1232,11 @@
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>无法禁用 Lenovo Hotkeys</value>
   </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
+    <value>禁用 Lenovo Hotkeys 且无需卸载。
+禁用后本应用将接管 Fn 快捷功能。
+修改此项后建议重启电脑。</value>
+  </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>禁用 Lenovo Hotkeys</value>
   </data>
@@ -1230,6 +1245,10 @@
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
     <value>无法禁用 Lenovo Vantage</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
+    <value>禁用 Lenovo Vantage 及其服务且无需卸载。
+修改此项后推荐重启电脑。</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>禁用 Lenovo Vantage</value>
@@ -1699,5 +1718,8 @@
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
 	  <value>添加步骤</value>
+  </data>
+  <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
+	  <value>新建</value>
   </data>
 </root>
