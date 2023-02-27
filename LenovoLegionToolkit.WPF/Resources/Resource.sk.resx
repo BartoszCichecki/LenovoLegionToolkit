@@ -624,6 +624,9 @@ Vopred vďaka!</value>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
     <value>Režim dGPU</value>
   </data>
+  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
+    <value>Obe integrovaná aj dedikovaná GPU sú povolené. Systém bude automaticky prepínať medzi nimi podľa potreby.</value>
+  </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Hybridný režim</value>
   </data>
@@ -778,6 +781,9 @@ VAROVANIE: Táto akcia neprebehne správne, ak je zabudovaný displej vypnutý.<
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Podsvietenie klávesnice</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>Podsvietenie klávesnice nemôže byť ovládané tu, pokiaľ beží Vantage alebo jeho služby.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Zdá sa, že Lenovo Vantage je povolený</value>
@@ -1205,6 +1211,10 @@ Prv sa uistite, že váš skript beží správne.</value>
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
     <value>Nepodarilo sa zakázať Legion Zone</value>
   </data>
+  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
+    <value>Zakázať Legion Zone a jeho služby bez odinštalovania.
+Po zmene tejto možnosti sa odporúča reštart.</value>
+  </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
     <value>Zakázať Legion Zone</value>
   </data>
@@ -1214,6 +1224,11 @@ Prv sa uistite, že váš skript beží správne.</value>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Nepodarilo sa zakázať Lenovo Hotkeys</value>
   </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
+    <value>Zakázať Lenovo Hotkeys a jeho služby bez odinštalovania.
+Po zakázaní bude táto aplikácia mať na starosti Fn skratky.
+Po zmene tejto možnosti sa odporúča reštart.</value>
+  </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Zakázať Lenovo Hotkeys</value>
   </data>
@@ -1222,6 +1237,10 @@ Prv sa uistite, že váš skript beží správne.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
     <value>Nepodarilo sa zakázať Vantage</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
+    <value>Zakázať Vantage a jeho služby bez odinštalovania.
+Po zmene tejto možnosti sa odporúča reštart.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Zakázať Lenovo Vantage</value>
@@ -1645,7 +1664,22 @@ Pohyb kurzoru alebo stlačenie klávesnice zobudí displeje.</value>
   <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
     <value>Keď zapnuté, rovnaká úroveň jasu bude použitá na všetky plány napájania Windows hocikedy ich zmeníte.</value>
   </data>
+  <data name="Notification_UpdateAvailable" xml:space="preserve">
+    <value>Aktualizácia {0} dostupná!</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL" xml:space="preserve">
+    <value>Limit výkonu v špičke</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
+    <value>Limit výkonu APU sPPT</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+	  <value>Vytvoriť</value>
+  </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
 	  <value>Pridať krok</value>
+  </data>
+  <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
+	  <value>Vytvoriť akciu</value>
   </data>
 </root>

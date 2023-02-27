@@ -1708,4 +1708,7 @@ Esta configuração somente terá efeito se o Modo Personalizado estiver ativo.<
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
 	  <value>Adicionar passo</value>
   </data>
+  <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
+	  <value>Criar Ação</value>
+  </data>
 </root>
