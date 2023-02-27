@@ -1640,6 +1640,10 @@ Pohyb kurzoru alebo stlačenie klávesnice zobudí displeje.</value>
   <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
     <value>Predvoľba vlastného režimu</value>
   </data>
+  <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
+    <value>Aktivovať predvoľbu vlastného režimu.
+Nastavenia sú účinne len keď je povolený vlastný režim.</value>
+  </data>
   <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
     <value>Názov predvoľby</value>
   </data>
@@ -1672,6 +1676,9 @@ Pohyb kurzoru alebo stlačenie klávesnice zobudí displeje.</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
     <value>Limit výkonu APU sPPT</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
+    <value>Maximálna teplota GPU, ktorá môže byť dosiahnutá pred znížením frekvencie a príkon.</value>
   </data>
   <data name="Create" xml:space="preserve">
 	  <value>Vytvoriť</value>
