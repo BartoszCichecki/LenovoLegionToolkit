@@ -106,4 +106,10 @@
   <data name="DisplayOffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
 		<value>当显示器关闭时</value>
 	</data>
+  <data name="LidOpenedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>打开盖子时</value>
+	</data>
+  <data name="LidClosedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>合上盖子时</value>
+	</data>
 </root>

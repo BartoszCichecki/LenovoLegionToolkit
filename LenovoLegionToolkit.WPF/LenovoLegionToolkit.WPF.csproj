@@ -5,7 +5,7 @@
 		<OutputType>WinExe</OutputType>
 		<ApplicationIcon>Assets/icon.ico</ApplicationIcon>
 		<AssemblyName>Lenovo Legion Toolkit</AssemblyName>
-		<Copyright>© 2022 Bartosz Cichecki</Copyright>
+		<Copyright>© 2023 Bartosz Cichecki</Copyright>
 		<FileVersion>0.0.1</FileVersion>
 		<Version>0.0.1</Version>
 		<Nullable>enable</Nullable>

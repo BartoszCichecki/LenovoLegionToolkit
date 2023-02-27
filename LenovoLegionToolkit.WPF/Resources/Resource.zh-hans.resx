@@ -627,6 +627,9 @@
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
     <value>独显直连模式</value>
   </data>
+  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
+    <value>核显与独显都将启用，系统将自动决定使用哪一个。</value>
+  </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>混合模式</value>
   </data>
@@ -688,22 +691,22 @@
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
     <value>警告！
-一些笔记本可以使用更高的功耗限制，但【一定小心】，这个选项可能会导致未知后果！除非你【准确的知道你在做什么】，否则请保持这个选项为0。</value>
+一些笔记本可以使用更高的功耗限制，但【一定小心】，这个选项可能会导致未知后果！除非你了解【此选项的准确意义】，否则请保持这个选项为0。</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
     <value>最大功耗限制偏移量</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
-    <value>不要修改下面的选项除非你准确的知道你在做什么</value>
+    <value>请谨慎修改下方选项！在你不知道下方选项的准确意义前，请勿修改！</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_Title" xml:space="preserve">
     <value>高级选项</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_CrossLoading" xml:space="preserve">
-    <value>长时睿频功耗限制 (Cross Loading)</value>
+    <value>长时负载功耗限制 (Cross Loading)</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_LongTermPL" xml:space="preserve">
-    <value>长时睿频功耗限制 (PL1)</value>
+    <value>长时负载功耗限制 (PL1)</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_ShortTermPL" xml:space="preserve">
     <value>短时睿频功耗限制 (PL2)</value>
@@ -728,8 +731,8 @@
   </data>
   <data name="GodModeSettingsWindow_Fans_Max_Message" xml:space="preserve">
     <value>警告！
-长时间使风扇保持满转速将会减少其寿命。
-我认真的╰（‵□′）╯，谨慎使用此选项！</value>
+风扇处于长时间满转速的情况下将会减少其寿命。
+【请谨慎使用此选项！】</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Max_Title" xml:space="preserve">
     <value>使风扇满转速</value>
@@ -783,6 +786,9 @@
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>键盘背光</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>由于 Lenovo Vantage 或其服务正在运行导致冲突，无法在此控制键盘背光。</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage似乎已启用。</value>
@@ -1192,7 +1198,7 @@
     <value>主题色</value>
   </data>
   <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>不要修改下面的选项，除非你准确地知道你在做什么。</value>
+    <value>请谨慎修改下方选项！在你不知道下方选项的准确意义前，请勿修改！</value>
   </data>
   <data name="SettingsPage_Advanced_Title" xml:space="preserve">
     <value>高级设置</value>
@@ -1213,6 +1219,10 @@
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
     <value>无法禁用 Legion Zone</value>
   </data>
+  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
+    <value>禁用 Legion Zone 服务且无需卸载。
+修改此项后推荐重启电脑。</value>
+  </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
     <value>禁用 Legion Zone</value>
   </data>
@@ -1222,6 +1232,11 @@
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>无法禁用 Lenovo Hotkeys</value>
   </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
+    <value>禁用 Lenovo Hotkeys 且无需卸载。
+禁用后本应用将接管 Fn 快捷功能。
+修改此项后建议重启电脑。</value>
+  </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>禁用 Lenovo Hotkeys</value>
   </data>
@@ -1230,6 +1245,10 @@
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
     <value>无法禁用 Lenovo Vantage</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
+    <value>禁用 Lenovo Vantage 及其服务且无需卸载。
+修改此项后推荐重启电脑。</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>禁用 Lenovo Vantage</value>
@@ -1668,10 +1687,10 @@
     <value>APU 慢速功耗追踪限制（sPPT）</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_LongTermPL_Description" xml:space="preserve">
-    <value>CPU持续功耗限制。</value>
+    <value>CPU 持续负载功耗限制。</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_ShortTermPL_Description" xml:space="preserve">
-    <value>CPU短时峰值功耗限制。</value>
+    <value>CPU 短时峰值功耗限制。</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_PeakPL_Description" xml:space="preserve">
     <value>CPU瞬时功耗限制。</value>
@@ -1680,13 +1699,13 @@
     <value>当CPU与GPU同时最大负载时，CPU的最大功耗限制。</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_APUsPPT_PL_Description" xml:space="preserve">
-    <value>在一定延迟内CPU的峰值功耗限制。</value>
+    <value>CPU 在一定的延迟后可以达到的最大功耗限制。</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
-    <value>在降频前，CPU的温度限制。</value>
+    <value>在降频之前 CPU 的温度限制。</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
-    <value>基于CPU的功耗，可以分配给GPU的额外最大功率。</value>
+    <value>基于 CPU 的功耗，最大可以借用给 GPU 的额外功率。</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
     <value>在基本功耗的基础上，可以分配给GPU的额外功率量。</value>
@@ -1699,5 +1718,8 @@
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
 	  <value>添加步骤</value>
+  </data>
+  <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
+	  <value>新建</value>
   </data>
 </root>
