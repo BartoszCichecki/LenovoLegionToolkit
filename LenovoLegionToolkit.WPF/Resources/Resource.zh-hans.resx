@@ -691,7 +691,7 @@
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
     <value>警告！
-一些笔记本可以使用更高的功耗限制，但【一定小心】，这个选项可能会导致未知后果！除非你【准确的知道你在做什么】，否则请保持这个选项为0。</value>
+一些笔记本可以使用更高的功耗限制，但【一定小心】，这个选项可能会导致未知后果！除非你了解【此选项的准确意义】，否则请保持这个选项为0。</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
     <value>最大功耗限制偏移量</value>
@@ -1702,10 +1702,10 @@
     <value>CPU 在一定的延迟后可以达到的最大功耗限制。</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
-    <value>在降频前，CPU的温度限制。</value>
+    <value>在降频之前 CPU 的温度限制。</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
-    <value>基于CPU的功耗，可以分配给GPU的额外最大功率。</value>
+    <value>基于 CPU 的功耗，最大可以借用给 GPU 的额外功率。</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
     <value>在基本功耗的基础上，可以分配给GPU的额外功率量。</value>
