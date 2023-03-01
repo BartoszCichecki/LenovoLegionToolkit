@@ -38,7 +38,7 @@ public class CPUBoostModeController
                 var settings = await GetCpuBoostSettingsAsync(powerPlan, cpuBoostModes).ConfigureAwait(false);
 
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Perfboostmodes settings retrieved for power plan {settings.PowerPlan.Name} [powerPlan.instanceID={settings.PowerPlan.InstanceId}, {string.Join(",", settings.CPUBoostModes.Select(cbm => $"{{{cbm.Name}:{cbm.Value}}}"))}, acSettingsValue={settings.ACSettingValue}, dcSettingValue={settings.DCSettingValue}]");
+                    Log.Instance.Trace($"Perfboostmodes settings retrieved for power plan {settings.PowerPlan.Name} [powerPlan.instanceID={settings.PowerPlan.InstanceId}, {string.Join(", ", settings.CPUBoostModes.Select(cbm => $"{{{cbm.Name}:{cbm.Value}}}"))}, acSettingsValue={settings.ACSettingValue}, dcSettingValue={settings.DCSettingValue}]");
 
                 result.Add(settings);
             }

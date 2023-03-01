@@ -1183,6 +1183,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Default.
+        /// </summary>
+        public static string Default {
+            get {
+                return ResourceManager.GetString("Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add delay before running next step..
         /// </summary>
         public static string DelayAutomationStepControl_Message {
@@ -2033,6 +2042,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Short Term Power Limit Duration.
+        /// </summary>
+        public static string GodModeSettingsWindow_CPU_PL1Tau {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_CPU_PL1Tau", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The amount of time the CPU is allowed to boost and use Short Term Power Limit for. When Tau expires, Long Term Power Limit is used..
+        /// </summary>
+        public static string GodModeSettingsWindow_CPU_PL1Tau_Description {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_CPU_PL1Tau_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Short Term Power Limit.
         /// </summary>
         public static string GodModeSettingsWindow_CPU_ShortTermPL {
@@ -2224,6 +2251,26 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Total Processor Power Target In AC.
+        /// </summary>
+        public static string GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" +
+                        "", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The point at which the CPU triggers dynamic power consumption adjustment for the GPU..
+        /// </summary>
+        public static string GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" +
+                        "_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Custom Mode Settings.
         /// </summary>
         public static string GodModeSettingsWindow_Title {
@@ -2339,6 +2386,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string KeyboardBacklightPage_Title {
             get {
                 return ResourceManager.GetString("KeyboardBacklightPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Load.
+        /// </summary>
+        public static string Load {
+            get {
+                return ResourceManager.GetString("Load", resourceCulture);
             }
         }
         
@@ -3451,15 +3507,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string Rename {
             get {
                 return ResourceManager.GetString("Rename", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Reset.
-        /// </summary>
-        public static string Reset {
-            get {
-                return ResourceManager.GetString("Reset", resourceCulture);
             }
         }
         

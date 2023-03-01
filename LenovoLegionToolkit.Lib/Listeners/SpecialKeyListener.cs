@@ -12,7 +12,7 @@ namespace LenovoLegionToolkit.Lib.Listeners;
 
 public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
 {
-    private readonly ThrottleFirstDispatcher _refreshRateDispatcher = new(TimeSpan.FromSeconds(2), "refreshRate");
+    private readonly ThrottleFirstDispatcher _refreshRateDispatcher = new(TimeSpan.FromSeconds(2), nameof(SpecialKeyListener));
 
     private readonly ApplicationSettings _settings;
     private readonly FnKeys _fnKeys;
@@ -125,10 +125,10 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
 
             if (Log.Instance.IsTraceEnabled)
             {
-                Log.Instance.Trace($"Refresh rates: [all={string.Join(",", all.Select(r => r.Frequency))}]");
-                Log.Instance.Trace($" - All: {string.Join(",", all.Select(r => r.Frequency))}");
-                Log.Instance.Trace($" - Excluded: {string.Join(",", excluded.Select(r => r.Frequency))}");
-                Log.Instance.Trace($" - Filtered: {string.Join(",", filtered.Select(r => r.Frequency))}");
+                Log.Instance.Trace($"Refresh rates: [all={string.Join(", ", all.Select(r => r.Frequency))}]");
+                Log.Instance.Trace($" - All: {string.Join(", ", all.Select(r => r.Frequency))}");
+                Log.Instance.Trace($" - Excluded: {string.Join(", ", excluded.Select(r => r.Frequency))}");
+                Log.Instance.Trace($" - Filtered: {string.Join(", ", filtered.Select(r => r.Frequency))}");
             }
 
             if (filtered.Length < 2)

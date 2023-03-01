@@ -155,20 +155,20 @@ public partial class SpectrumKeyboardBacklightControl
         foreach (var button in buttons)
             button.IsChecked = false;
 
-        var currentLayout = _settings.Store.KeyboardLayout;
-        var layout = currentLayout switch
+        var currentKeyboardLayout = _settings.Store.KeyboardLayout;
+        var keyboardLayout = currentKeyboardLayout switch
         {
             KeyboardLayout.Ansi => KeyboardLayout.Iso,
             KeyboardLayout.Iso => KeyboardLayout.Ansi,
-            _ => throw new ArgumentException(nameof(currentLayout))
+            _ => throw new ArgumentException(nameof(currentKeyboardLayout))
         };
 
-        _settings.Store.KeyboardLayout = layout;
+        _settings.Store.KeyboardLayout = keyboardLayout;
         _settings.SynchronizeStore();
 
-        var (_, keys) = await _controller.GetKeyboardLayoutAsync();
+        var (spectrumLayout, _, keys) = await _controller.GetKeyboardLayoutAsync();
 
-        _device.SetLayout(layout, keys);
+        _device.SetLayout(spectrumLayout, keyboardLayout, keys);
 
         if (IsVisible)
             await StartAnimationAsync();
@@ -268,19 +268,19 @@ public partial class SpectrumKeyboardBacklightControl
 
         _vantageWarningCard.Visibility = Visibility.Collapsed;
 
-        var (layout, keys) = await _controller.GetKeyboardLayoutAsync();
+        var (spectrumLayout, keyboardLayout, keys) = await _controller.GetKeyboardLayoutAsync();
 
         if (!_settings.Store.KeyboardLayout.HasValue)
         {
-            _settings.Store.KeyboardLayout = layout;
+            _settings.Store.KeyboardLayout = keyboardLayout;
             _settings.SynchronizeStore();
         }
         else
         {
-            layout = _settings.Store.KeyboardLayout.Value;
+            keyboardLayout = _settings.Store.KeyboardLayout.Value;
         }
 
-        _device.SetLayout(layout, keys);
+        _device.SetLayout(spectrumLayout, keyboardLayout, keys);
 
         _content.IsEnabled = true;
 

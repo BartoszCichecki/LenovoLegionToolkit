@@ -268,8 +268,6 @@ internal struct LENOVO_SPECTRUM_GET_KEYCOUNT_RESPONSE
     public byte Parameter;
     public byte Indexes;
     public byte KeysPerIndex;
-
-    public bool IsExtended => Indexes == 0x09 && KeysPerIndex == 0x16;
 }
 
 [StructLayout(LayoutKind.Sequential, Size = 960)]

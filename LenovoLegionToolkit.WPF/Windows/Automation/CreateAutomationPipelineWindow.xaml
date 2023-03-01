@@ -59,20 +59,10 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
             <wpfui:Button
-                x:Name="_createButton"
                 Grid.Column="1"
-                MinWidth="100"
-                Margin="8,0,0,0"
-                Appearance="Primary"
-                Click="CreateButton_Click"
-                Content="{x:Static resources:Resource.Create}" />
-
-            <wpfui:Button
-                Grid.Column="2"
                 MinWidth="100"
                 Margin="8,0,0,0"
                 Click="CancelButton_Click"

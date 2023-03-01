@@ -1556,7 +1556,7 @@ ATENÇÃO: Esta ação não irá executar corretamente se o ecrã interno estive
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Personalizar Dashboard</value>
   </data>
-  <data name="Reset" xml:space="preserve">
+  <data name="Load" xml:space="preserve">
     <value>Reiniciar</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">

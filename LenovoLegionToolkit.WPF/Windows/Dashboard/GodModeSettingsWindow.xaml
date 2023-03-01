@@ -9,10 +9,10 @@
     xmlns:utils="clr-namespace:LenovoLegionToolkit.WPF.Utils"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="{x:Static resources:Resource.GodModeSettingsWindow_Title}"
-    Width="750"
+    Width="800"
     Height="700"
-    MinWidth="700"
-    MinHeight="400"
+    MinWidth="800"
+    MinHeight="500"
     FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
     IsVisibleChanged="GodModeSettingsWindow_IsVisibleChanged"
     Loaded="GodModeSettingsWindow_Loaded"
@@ -58,6 +58,26 @@
             IndicatorVerticalAlignment="Center">
             <wpfui:DynamicScrollViewer>
                 <StackPanel Margin="0,0,16,0">
+
+                    <wpfui:CardControl
+                        x:Name="_vantageRunningWarningInfoBar"
+                        Margin="0,0,0,16"
+                        Icon="Warning24">
+                        <wpfui:CardControl.Header>
+                            <TextBlock Text="Custom Mode settings will not be applied correctly when Lenovo Vantage is running." TextWrapping="Wrap" />
+                        </wpfui:CardControl.Header>
+                        <wpfui:Button Click="VantageRunningWarningInfoBarDismissButton_Click" Icon="Dismiss24" />
+                    </wpfui:CardControl>
+
+                    <wpfui:CardControl
+                        x:Name="_legionZoneRunningWarningInfoBar"
+                        Margin="0,0,0,16"
+                        Icon="Warning24">
+                        <wpfui:CardControl.Header>
+                            <TextBlock Text="Custom Mode settings will not be applied correctly when LegionZone is running." TextWrapping="Wrap" />
+                        </wpfui:CardControl.Header>
+                        <wpfui:Button Click="LegionZoneRunningWarningInfoBarDismissButton_Click" Icon="Dismiss24" />
+                    </wpfui:CardControl>
 
                     <TextBlock
                         Margin="0,16,0,24"
@@ -111,7 +131,7 @@
                         FontWeight="Medium"
                         Text="{x:Static resources:Resource.GodModeSettingsWindow_CPU_Title}" />
 
-                    <godMode:GodModeSliderControl
+                    <godMode:GodModeValueControl
                         x:Name="_cpuLongTermPowerLimitControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_LongTermPL}"
                         Margin="0,0,0,8"
@@ -119,7 +139,7 @@
                         Unit="W"
                         ValueChanged="CpuLongTermPowerLimitSlider_ValueChanged" />
 
-                    <godMode:GodModeSliderControl
+                    <godMode:GodModeValueControl
                         x:Name="_cpuShortTermPowerLimitControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_ShortTermPL}"
                         Margin="0,0,0,8"
@@ -127,28 +147,35 @@
                         Unit="W"
                         ValueChanged="CpuShortTermPowerLimitSlider_ValueChanged" />
 
-                    <godMode:GodModeSliderControl
+                    <godMode:GodModeValueControl
                         x:Name="_cpuPeakPowerLimitControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_PeakPL}"
                         Margin="0,0,0,8"
                         Description="{x:Static resources:Resource.GodModeSettingsWindow_CPU_PeakPL_Description}"
                         Unit="W" />
 
-                    <godMode:GodModeSliderControl
+                    <godMode:GodModeValueControl
                         x:Name="_cpuCrossLoadingLimitControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_CrossLoading}"
                         Margin="0,0,0,8"
                         Description="{x:Static resources:Resource.GodModeSettingsWindow_CPU_CrossLoading_Description}"
                         Unit="W" />
 
-                    <godMode:GodModeSliderControl
+                    <godMode:GodModeValueControl
+                        x:Name="_cpuPL1TauControl"
+                        Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_PL1Tau}"
+                        Margin="0,0,0,8"
+                        Description="{x:Static resources:Resource.GodModeSettingsWindow_CPU_PL1Tau_Description}"
+                        Unit="s" />
+
+                    <godMode:GodModeValueControl
                         x:Name="_apuSPPTPowerLimitControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_APUsPPT_PL}"
                         Margin="0,0,0,8"
                         Description="{x:Static resources:Resource.GodModeSettingsWindow_CPU_APUsPPT_PL_Description}"
                         Unit="W" />
 
-                    <godMode:GodModeSliderControl
+                    <godMode:GodModeValueControl
                         x:Name="_cpuTemperatureLimitControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_TempLimit}"
                         Margin="0,0,0,8"
@@ -162,28 +189,36 @@
                         FontWeight="Medium"
                         Text="{x:Static resources:Resource.GodModeSettingsWindow_GPU_Title}" />
 
-                    <godMode:GodModeSliderControl
+                    <godMode:GodModeValueControl
                         x:Name="_gpuPowerBoostControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_GPU_DynamicBoost}"
                         Margin="0,0,0,8"
                         Description="{x:Static resources:Resource.GodModeSettingsWindow_GPU_DynamicBoost_Description}"
                         Unit="W" />
 
-                    <godMode:GodModeSliderControl
+                    <godMode:GodModeValueControl
                         x:Name="_gpuConfigurableTGPControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_GPU_CTGP}"
                         Margin="0,0,0,8"
                         Description="{x:Static resources:Resource.GodModeSettingsWindow_GPU_CTGP_Description}"
                         Unit="W" />
 
-                    <godMode:GodModeSliderControl
+                    <godMode:GodModeValueControl
                         x:Name="_gpuTemperatureLimitControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_GPU_TempLimit}"
                         Margin="0,0,0,8"
                         Description="{x:Static resources:Resource.GodModeSettingsWindow_GPU_TempLimit_Description}"
                         Unit="°C" />
 
+                    <godMode:GodModeValueControl
+                        x:Name="_gpuTotalProcessingPowerTargetOnAcOffsetFromBaselineControl"
+                        Title="{x:Static resources:Resource.GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl}"
+                        Margin="0,0,0,8"
+                        Description="{x:Static resources:Resource.GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description}"
+                        Unit="W" />
+
                     <TextBlock
+                        x:Name="_fanSectionTitle"
                         Margin="0,16,0,24"
                         FontSize="24"
                         FontWeight="Medium"
@@ -193,18 +228,21 @@
                         <wpfui:CardControl.Header>
                             <StackPanel>
                                 <controls:CardHeaderControl Title="{x:Static resources:Resource.GodModeSettingsWindow_Fans_Curve_Title}" Subtitle="{x:Static resources:Resource.GodModeSettingsWindow_Fans_Curve_Message}" />
-                                <controls:FanCurveControl x:Name="_fanCurveControl" Margin="0,32,0,0" />
+                                <controls:FanCurveControl
+                                    x:Name="_fanCurveControl"
+                                    MaxWidth="700"
+                                    Margin="0,32,0,0" />
                                 <wpfui:Button
                                     MinWidth="120"
                                     HorizontalAlignment="Right"
-                                    Click="ResetFanCurve_Click"
-                                    Content="{x:Static resources:Resource.Reset}"
+                                    Click="DefaultFanCurve_Click"
+                                    Content="{x:Static resources:Resource.Default}"
                                     Icon="ArrowClockwise24" />
                             </StackPanel>
                         </wpfui:CardControl.Header>
                     </wpfui:CardControl>
 
-                    <wpfui:CardControl Margin="0,0,0,8">
+                    <wpfui:CardControl x:Name="_fanFullSpeedCardControl" Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
                             <controls:CardHeaderControl Title="{x:Static resources:Resource.GodModeSettingsWindow_Fans_Max_Title}" Subtitle="{x:Static resources:Resource.GodModeSettingsWindow_Fans_Max_Message}" />
                         </wpfui:CardControl.Header>
@@ -215,23 +253,26 @@
                     </wpfui:CardControl>
 
                     <TextBlock
+                        x:Name="_advancedSectionTitle"
                         Margin="0,16,0,8"
                         FontSize="24"
                         FontWeight="Medium"
                         Text="{x:Static resources:Resource.GodModeSettingsWindow_Advanced_Title}" />
 
                     <TextBlock
+                        x:Name="_advancedSectionMessage"
                         Margin="0,0,0,24"
                         FontSize="12"
                         Text="{x:Static resources:Resource.GodModeSettingsWindow_Advanced_Message}" />
 
-                    <wpfui:CardControl Margin="0,0,0,8">
+                    <wpfui:CardControl x:Name="_maxValueOffsetCardControl" Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
                             <controls:CardHeaderControl Title="{x:Static resources:Resource.GodModeSettingsWindow_Advanced_MaxOffset_Title}" Subtitle="{x:Static resources:Resource.GodModeSettingsWindow_Advanced_MaxOffset_Message}" />
                         </wpfui:CardControl.Header>
                         <wpfui:NumberBox
                             x:Name="_maxValueOffsetNumberBox"
                             Width="120"
+                            Margin="32,0,0,0"
                             ClearButtonEnabled="False"
                             IntegersOnly="True"
                             Max="100"
@@ -242,24 +283,39 @@
             </wpfui:DynamicScrollViewer>
         </controls:LoadableControl>
 
-        <StackPanel
+        <Grid
             x:Name="_buttonsStackPanel"
             Grid.Row="2"
             Margin="12"
-            HorizontalAlignment="Right"
-            Orientation="Horizontal"
             Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
             <wpfui:Button
+                x:Name="_loadButton"
+                Grid.Column="0"
+                MinWidth="120"
+                Click="LoadButton_Click"
+                Content="{x:Static resources:Resource.Load}"
+                Icon="ChevronDown24" />
+
+            <wpfui:Button
+                Grid.Column="2"
                 MinWidth="120"
                 Click="SaveButton_Click"
                 Content="{x:Static resources:Resource.Save}" />
             <wpfui:Button
+                Grid.Column="3"
                 MinWidth="120"
                 Margin="12,0,0,0"
                 Appearance="Primary"
                 Click="SaveAndCloseButton_Click"
                 Content="{x:Static resources:Resource.SaveAndClose}" />
-        </StackPanel>
+        </Grid>
 
         <wpfui:Snackbar
             x:Name="_snackBar"

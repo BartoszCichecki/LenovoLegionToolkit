@@ -6,8 +6,6 @@ namespace LenovoLegionToolkit.Lib.Utils;
 
 public class ThrottleLastDispatcher
 {
-    private readonly object _lock = new();
-
     private readonly TimeSpan _interval;
     private readonly string? _tag;
 

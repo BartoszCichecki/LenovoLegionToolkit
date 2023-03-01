@@ -15,4 +15,9 @@ public static class DictionaryExtensions
         foreach (var keyValuePair in items)
             source.Add(keyValuePair.Key, keyValuePair.Value);
     }
+
+    public static TValue? GetValueOrNull<TKey, TValue>(this IReadOnlyDictionary<TKey, TValue> dictionary, TKey key) where TValue : struct
+    {
+        return !dictionary.TryGetValue(key, out var obj) ? null : obj;
+    }
 }

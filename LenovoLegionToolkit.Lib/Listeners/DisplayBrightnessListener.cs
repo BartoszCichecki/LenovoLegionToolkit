@@ -14,7 +14,7 @@ public class DisplayBrightnessListener : AbstractWMIListener<Brightness>
 
     private readonly ApplicationSettings _settings;
 
-    private readonly ThrottleLastDispatcher _dispatcher = new(TimeSpan.FromSeconds(2));
+    private readonly ThrottleLastDispatcher _dispatcher = new(TimeSpan.FromSeconds(2), nameof(DisplayBrightnessListener));
 
     public DisplayBrightnessListener(ApplicationSettings settings) : base("ROOT\\WMI", "WmiMonitorBrightnessEvent")
     {
