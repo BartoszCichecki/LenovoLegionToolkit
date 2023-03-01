@@ -523,9 +523,6 @@ ATENȚIE: Această acțiune nu va rula corect dacă afișajul intern este oprit 
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Garanție</value>
   </data>
-  <data name="Active" xml:space="preserve">
-    <value>Activ</value>
-  </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Dezactivare</value>
   </data>
@@ -536,9 +533,6 @@ ATENȚIE: Această acțiune nu va rula corect dacă afișajul intern este oprit 
   </data>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>GPU-ul nVidia nu este activ.</value>
-  </data>
-  <data name="Inactive" xml:space="preserve">
-    <value>Inactiv</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Închidere aplicații</value>
@@ -1558,9 +1552,6 @@ ATENȚIE: Această acțiune nu va rula corect dacă afișajul încorporat este o
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Personalizare bord</value>
   </data>
-  <data name="Load" xml:space="preserve">
-    <value>Resetare</value>
-  </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
     <value>Creați grupare</value>
   </data>
@@ -1687,7 +1678,7 @@ Aceste setări au efect doar atunci când modul Personalizat este activat.</valu
     <value>Temperatura maximă care poate fi atinsă de GPU înainte ca frecvența și puterea să fie reduse.</value>
   </data>
   <data name="Create" xml:space="preserve">
-	  <value>Creare</value>
+    <value>Creare</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
 	  <value>Adăugați pas</value>
