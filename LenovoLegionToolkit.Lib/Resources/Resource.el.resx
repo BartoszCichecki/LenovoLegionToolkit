@@ -146,7 +146,7 @@
     <value>Υψηλή απόδοση</value>
   </data>
   <data name="PowerModeState_Quiet" xml:space="preserve">
-    <value>Ήρεμη</value>
+    <value>Αθόρυβη</value>
   </data>
   <data name="RBGKeyboardBacklightSpeed_Fast" xml:space="preserve">
     <value>Γρήγορη</value>
