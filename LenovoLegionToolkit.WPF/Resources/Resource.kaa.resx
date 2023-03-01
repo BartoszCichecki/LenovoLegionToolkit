@@ -510,17 +510,11 @@ DIQQAT: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bul
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Kepillik</value>
   </data>
-  <data name="DiscreteGPUControl_Active" xml:space="preserve">
-    <value>Aktiv</value>
-  </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Óshiriw</value>
   </data>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>nVidia grafikalıq processorı aktiv emes.</value>
-  </data>
-  <data name="DiscreteGPUControl_Inactive" xml:space="preserve">
-    <value>Aktiv emes</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Proceslerdi juwmaqlaw</value>
@@ -1452,9 +1446,6 @@ ESLETPE: Eger ishki displey óshirilgen bolsa, bul ámel durıs orınlanbaydı.<
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Bas betti sazlaw</value>
   </data>
-  <data name="Reset" xml:space="preserve">
-    <value>Qayta ornatıw</value>
-  </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
     <value>Topar jaratıw</value>
   </data>
@@ -1535,7 +1526,7 @@ Tıshqanshanı qozǵaw yamasa klaviaturanı basıw displeydi iske túsiredi.</va
     <value>Quwatlılıqtıń eń joqarǵı shegarası</value>
   </data>
   <data name="Create" xml:space="preserve">
-	  <value>Jaratıw</value>
+    <value>Jaratıw</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
 	  <value>Adım qosıw</value>

@@ -1687,9 +1687,21 @@ Aceste setări au efect doar atunci când modul Personalizat este activat.</valu
     <value>Temperatura maximă care poate fi atinsă de GPU înainte ca frecvența și puterea să fie reduse.</value>
   </data>
   <data name="Create" xml:space="preserve">
-	  <value>Creare</value>
+    <value>Creare</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
 	  <value>Adăugați pas</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+	  <value>GPU dedicat</value>
+  </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+	  <value>Baterie</value>
+  </data>
+  <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
+	  <value>Rată de descărcare</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+	  <value>Actualizare disponibilă!</value>
   </data>
 </root>

@@ -1559,7 +1559,7 @@ CẢNH BÁO! Hành động sẽ không chạy nếu màn hình laptop tắt.</va
     <value>Tùy biến trang chủ</value>
   </data>
   <data name="Load" xml:space="preserve">
-    <value>Đặt lại</value>
+    <value>Tải</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
     <value>Tạo nhóm</value>
@@ -1618,5 +1618,20 @@ Di chuyển chuột hoặc bấm phím bất kỳ trên bàn phím để bật m
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
 	  <value>Thêm hành động</value>
+  </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+	  <value>Chế độ</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+	  <value>GPU rời</value>
+  </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+	  <value>Pin</value>
+  </data>
+  <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
+	  <value>Tốc độ sạc/xả</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+	  <value>Có cập nhật mới!</value>
   </data>
 </root>

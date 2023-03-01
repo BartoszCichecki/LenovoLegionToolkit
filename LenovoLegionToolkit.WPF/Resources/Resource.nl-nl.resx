@@ -1558,9 +1558,6 @@ WAARSCHUWING: Deze actie wordt niet correct uitgevoerd als het interne beeldsche
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Dashboard aanpassen</value>
   </data>
-  <data name="Load" xml:space="preserve">
-    <value>Reset</value>
-  </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
     <value>Groep aanmaken</value>
   </data>
@@ -1618,5 +1615,20 @@ Als u de muis beweegt of op het toetsenbord drukt, worden de schermen gewekt.</v
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
 	  <value>Stap toevoegen</value>
+  </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+	  <value>Energiemodus</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+	  <value>Discrete GPU</value>
+  </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+	  <value>Batterij</value>
+  </data>
+  <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
+	  <value>Ontlading snelheid</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+	  <value>Update beschikbaar!</value>
   </data>
 </root>

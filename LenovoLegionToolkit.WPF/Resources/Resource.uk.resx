@@ -1702,13 +1702,31 @@
   <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
     <value>Максимальна температура, яка може бути досягнути ГП до зниження частоти та потужності.</value>
   </data>
+  <data name="Default" xml:space="preserve">
+    <value>За замовчуванням</value>
+  </data>
   <data name="Create" xml:space="preserve">
-	  <value>Створити</value>
+    <value>Створити</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
 	  <value>Додати крок</value>
   </data>
   <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
 	  <value>Створити дію</value>
+  </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+	  <value>Режим живлення</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+	  <value>Дискретна ГП</value>
+  </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+	  <value>Батарея</value>
+  </data>
+  <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
+	  <value>Швидкість розряджання</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+	  <value>Доступне оновлення!</value>
   </data>
 </root>

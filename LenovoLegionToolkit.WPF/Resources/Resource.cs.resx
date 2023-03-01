@@ -1577,9 +1577,6 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je interní displej vypnutý.
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Přizpůsobit přehled</value>
   </data>
-  <data name="Load" xml:space="preserve">
-    <value>Resetovat</value>
-  </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
     <value>Vytvořit skupinu</value>
   </data>
@@ -1706,12 +1703,27 @@ Toto nastavení se aplikuje jen když je zapnutý vlastní režim.</value>
     <value>Maximalní teplota GPU předtím, než se limituje frekvence a spotřeba.</value>
   </data>
   <data name="Create" xml:space="preserve">
-	  <value>Vytvořit</value>
+    <value>Vytvořit</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
 	  <value>Přidat krok</value>
   </data>
   <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
 	  <value>Vytvořit akci</value>
+  </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+	  <value>Režim výkonu</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+	  <value>Dedikované GPU</value>
+  </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+	  <value>Baterie</value>
+  </data>
+  <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
+	  <value>Rychlost vybíjení</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+	  <value>Aktualizace k dispozici!</value>
   </data>
 </root>

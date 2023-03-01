@@ -1620,4 +1620,19 @@ Spostare il mouse o premere il tasto sulla tastiera per risvegliarli.</value>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
 	  <value>Aggiungi azione</value>
   </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+	  <value>Modalità di alimentazione</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+	  <value>GPU dedicata</value>
+  </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+	  <value>Batteria</value>
+  </data>
+  <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
+	  <value>Tasso di scarica</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+	  <value>Aggiornamento disponibile!</value>
+  </data>
 </root>
