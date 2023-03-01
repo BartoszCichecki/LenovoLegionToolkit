@@ -523,9 +523,6 @@
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Гарантия</value>
   </data>
-  <data name="Active" xml:space="preserve">
-    <value>Активен</value>
-  </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Деактивировать</value>
   </data>
@@ -536,9 +533,6 @@
   </data>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>Графический процессор nVidia не активен.</value>
-  </data>
-  <data name="Inactive" xml:space="preserve">
-    <value>Неактивен</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Завершить процессы</value>
@@ -1577,9 +1571,6 @@
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Настроить домашнюю страницу</value>
   </data>
-  <data name="Load" xml:space="preserve">
-    <value>Сброс</value>
-  </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
     <value>Создать группу</value>
   </data>
@@ -1706,7 +1697,7 @@
     <value>Максимальная температура, которая может быть достигнута графическим процессором до снижения частоты и мощности.</value>
   </data>
   <data name="Create" xml:space="preserve">
-	  <value>Создать</value>
+    <value>Создать</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
 	  <value>Добавить шаг</value>
