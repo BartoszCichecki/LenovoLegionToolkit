@@ -523,9 +523,6 @@ CẢNH BÁO: Hành động sẽ không chạy đúng nếu màn hình laptop kh�
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Bảo hành</value>
   </data>
-  <data name="Active" xml:space="preserve">
-    <value>Kích hoạt</value>
-  </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Ngắt kích hoạt</value>
   </data>
@@ -536,9 +533,6 @@ Một số ứng dụng có thể dừng đột ngột nếu thực hiện.</val
   </data>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>GPU rời không hoạt động.</value>
-  </data>
-  <data name="Inactive" xml:space="preserve">
-    <value>Không hoạt động</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Tắt app dùng GPU rời</value>
@@ -1557,9 +1551,6 @@ CẢNH BÁO! Hành động sẽ không chạy nếu màn hình laptop tắt.</va
   </data>
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Tùy biến trang chủ</value>
-  </data>
-  <data name="Load" xml:space="preserve">
-    <value>Đặt lại</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
     <value>Tạo nhóm</value>
