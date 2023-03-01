@@ -1677,6 +1677,33 @@ Nastavenia sú účinne len keď je povolený vlastný režim.</value>
   <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
     <value>Limit výkonu APU sPPT</value>
   </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL_Description" xml:space="preserve">
+    <value>Stála spotreba CPU, ktorá môže byť dosiahnutá.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL_Description" xml:space="preserve">
+    <value>Spotreba CPU v špičke, ktorá môže byť dosiahnutá na krátku dobu.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL_Description" xml:space="preserve">
+    <value>Maximálna okamžitá spotreba CPU, ktorá môže byť dosiahnutá.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_CrossLoading_Description" xml:space="preserve">
+    <value>Maximálna spotreba, ktorá môže byť dosiahnutá CPU, keď sú obe CPU aj GPU plne vyťažené.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL_Description" xml:space="preserve">
+    <value>Spotreba CPU v špičke, ktorá môže byť dosiahnutá s malým oneskorením.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
+    <value>Maximálna teplota CPU, ktorá môže byť dosiahnutá pred znížením frekvencie a príkonu.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
+    <value>Maximálny dodatočný výkon, ktorý môže byť pridelený GPU na základe spotreby CPU.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
+    <value>Dodatočný výkon, ktorý môže byť pridelený GPU nad základnú spotrebu.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
+    <value>Maximálna teplota GPU, ktorá môže byť dosiahnutá pred znížením frekvencie a príkonu.</value>
+  </data>
   <data name="Create" xml:space="preserve">
 	  <value>Vytvoriť</value>
   </data>
