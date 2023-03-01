@@ -522,6 +522,9 @@ WAARSCHUWING: Deze actie wordt niet correct uitgevoerd als het interne display i
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Garantie</value>
   </data>
+  <data name="Active" xml:space="preserve">
+    <value>Actief</value>
+  </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Deactiveren</value>
   </data>
@@ -532,6 +535,9 @@ Houd er rekening mee dat sommige programma's kunnen crashen als u dit doet.</val
   </data>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>nvidia GPU is niet actief.</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>inactief</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Apps stoppen</value>
@@ -1609,5 +1615,20 @@ Als u de muis beweegt of op het toetsenbord drukt, worden de schermen gewekt.</v
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
 	  <value>Stap toevoegen</value>
+  </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+	  <value>Energiemodus</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+	  <value>Discrete GPU</value>
+  </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+	  <value>Batterij</value>
+  </data>
+  <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
+	  <value>Ontlading snelheid</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+	  <value>Update beschikbaar!</value>
   </data>
 </root>
