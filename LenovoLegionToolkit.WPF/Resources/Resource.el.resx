@@ -523,9 +523,6 @@
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Εγγύηση</value>
   </data>
-  <data name="Active" xml:space="preserve">
-    <value>Ενεργή</value>
-  </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Απενεργοποίηση</value>
   </data>
@@ -536,9 +533,6 @@
   </data>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>Η nVidia GPU δεν είναι ενεργή.</value>
-  </data>
-  <data name="Inactive" xml:space="preserve">
-    <value>Αδρανής</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Τερματισμός εφαρμογών</value>
@@ -1440,9 +1434,6 @@
   <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
     <value>Εμφάνιση μόνο ενημερώσεων</value>
   </data>
-  <data name="Reset" xml:space="preserve">
-    <value>Επαναφορά</value>
-  </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
     <value>Δημιουργία ομάδας</value>
   </data>
@@ -1489,7 +1480,7 @@
     <value>Η ενημέρωση {0} είναι διαθέσιμη!</value>
   </data>
   <data name="Create" xml:space="preserve">
-	  <value>Δημιουργία</value>
+    <value>Δημιουργία</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
 	  <value>Προσθήκη βήματος</value>
