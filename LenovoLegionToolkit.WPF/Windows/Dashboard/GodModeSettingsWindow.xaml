@@ -296,11 +296,11 @@
             </Grid.ColumnDefinitions>
 
             <wpfui:Button
-                x:Name="_resetButton"
+                x:Name="_loadButton"
                 Grid.Column="0"
                 MinWidth="120"
-                Click="ResetButton_Click"
-                Content="{x:Static resources:Resource.Reset}"
+                Click="LoadButton_Click"
+                Content="{x:Static resources:Resource.Load}"
                 Icon="ChevronDown24" />
 
             <wpfui:Button

@@ -97,7 +97,7 @@
                 Margin="12,0,0,0"
                 Appearance="Secondary"
                 Click="ResetButton_Click"
-                Content="{x:Static resources:Resource.Reset}" />
+                Content="{x:Static resources:Resource.Load}" />
             <wpfui:Button
                 Grid.Column="3"
                 MinWidth="120"

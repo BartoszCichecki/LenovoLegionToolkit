@@ -72,7 +72,7 @@ public partial class GodModeSettingsWindow
 
             await loadingTask;
 
-            _resetButton.Visibility = _defaults.Any() ? Visibility.Visible : Visibility.Collapsed;
+            _loadButton.Visibility = _defaults.Any() ? Visibility.Visible : Visibility.Collapsed;
             _buttonsStackPanel.Visibility = Visibility.Visible;
             _loader.IsLoading = false;
         }
@@ -392,11 +392,11 @@ public partial class GodModeSettingsWindow
         _fanCurveControl.SetFanTableInfo(defaultFanTableInfo);
     }
 
-    private void ResetButton_Click(object sender, RoutedEventArgs e)
+    private void LoadButton_Click(object sender, RoutedEventArgs e)
     {
         if (_defaults is null || _defaults.IsEmpty())
         {
-            _resetButton.Visibility = Visibility.Collapsed;
+            _loadButton.Visibility = Visibility.Collapsed;
             return;
         }
 
@@ -411,15 +411,15 @@ public partial class GodModeSettingsWindow
 
         var contextMenu = new ContextMenu
         {
-            PlacementTarget = _resetButton,
+            PlacementTarget = _loadButton,
             Placement = PlacementMode.Bottom,
         };
 
         foreach (var menuItem in menuItems)
             contextMenu.Items.Add(menuItem);
 
-        _resetButton.ContextMenu = contextMenu;
-        _resetButton.ContextMenu.IsOpen = true;
+        _loadButton.ContextMenu = contextMenu;
+        _loadButton.ContextMenu.IsOpen = true;
     }
 
     private async void SaveAndCloseButton_Click(object sender, RoutedEventArgs e)

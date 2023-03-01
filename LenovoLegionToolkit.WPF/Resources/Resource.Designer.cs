@@ -2390,6 +2390,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Load.
+        /// </summary>
+        public static string Load {
+            get {
+                return ResourceManager.GetString("Load", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
         public static string MainWindow_NavigationItem_About {
@@ -3498,15 +3507,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string Rename {
             get {
                 return ResourceManager.GetString("Rename", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Reset.
-        /// </summary>
-        public static string Reset {
-            get {
-                return ResourceManager.GetString("Reset", resourceCulture);
             }
         }
         
