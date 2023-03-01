@@ -523,6 +523,9 @@ ATENÇÃO: Esta ação não irá correr corretamente se o ecrã interno estiver 
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Garantia</value>
   </data>
+  <data name="Active" xml:space="preserve">
+    <value>Ativo</value>
+  </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Desativado</value>
   </data>
@@ -532,6 +535,9 @@ Lembra-te que alguns programas podem crashar se o fizeres.</value>
   </data>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>A GPU da nVidia não está ativa.</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>Inativa</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Fechar apps</value>
@@ -1550,6 +1556,9 @@ ATENÇÃO: Esta ação não irá executar corretamente se o ecrã interno estive
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Personalizar Dashboard</value>
   </data>
+  <data name="Load" xml:space="preserve">
+    <value>Reiniciar</value>
+  </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
     <value>Criar grupo</value>
   </data>
@@ -1605,7 +1614,25 @@ Mover o rato ou clicar no teclado vai ligar os ecrãs.</value>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>É recomendado reiniciar</value>
   </data>
+  <data name="Default" xml:space="preserve">
+    <value>Padrão</value>
+  </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
 	  <value>Adicionar etapa</value>
+  </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+	  <value>Esquema de energia</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+	  <value>GPU discreta</value>
+  </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+	  <value>Bateria</value>
+  </data>
+  <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
+	  <value>Taxa de descarregamento</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+	  <value>Atualização disponível!</value>
   </data>
 </root>
