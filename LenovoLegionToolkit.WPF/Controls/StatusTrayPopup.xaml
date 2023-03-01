@@ -6,8 +6,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:system="clr-namespace:System;assembly=System.Runtime"
+    xmlns:utils="clr-namespace:LenovoLegionToolkit.WPF.Utils"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     MinWidth="300"
+    FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
     IsVisibleChanged="StatusTrayPopup_IsVisibleChanged"
     mc:Ignorable="d">
     <UserControl.Resources>
@@ -35,6 +37,7 @@
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -50,16 +53,16 @@
                     Grid.Column="1"
                     Margin="8,0,0,0"
                     VerticalContentAlignment="Center"
-                    Content="Power Mode"
+                    Content="{x:Static resources:Resource.StatusTrayPopup_PowerMode}"
                     FontSize="{StaticResource PrimaryFontSize}"
                     FontWeight="Medium"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                 <Label
                     x:Name="_powerModeValueLabel"
                     Grid.Row="0"
-                    Grid.Column="2"
+                    Grid.Column="3"
                     Margin="16,0,0,0"
-                    HorizontalContentAlignment="Right"
+                    HorizontalAlignment="Right"
                     VerticalContentAlignment="Center"
                     FontSize="{StaticResource PrimaryFontSize}"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
@@ -70,16 +73,16 @@
                     Grid.Column="1"
                     Margin="8,4,0,0"
                     VerticalContentAlignment="Center"
-                    Content="Preset"
+                    Content="{x:Static resources:Resource.StatusTrayPopup_Preset}"
                     FontSize="{StaticResource SecondaryFontSize}"
                     FontWeight="Medium"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
                 <Label
                     x:Name="_powerModePresetValueLabel"
                     Grid.Row="1"
-                    Grid.Column="2"
+                    Grid.Column="3"
                     Margin="16,4,0,0"
-                    HorizontalContentAlignment="Right"
+                    HorizontalAlignment="Right"
                     FontSize="{StaticResource SecondaryFontSize}"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
             </Grid>
@@ -89,6 +92,7 @@
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -105,14 +109,14 @@
                     Grid.Column="1"
                     Margin="8,0,0,0"
                     VerticalContentAlignment="Center"
-                    Content="Discrete GPU"
+                    Content="{x:Static resources:Resource.StatusTrayPopup_DiscreteGPU}"
                     FontSize="{StaticResource PrimaryFontSize}"
                     FontWeight="Medium"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                 <StackPanel
                     x:Name="_gpuActive"
                     Grid.Row="0"
-                    Grid.Column="2"
+                    Grid.Column="3"
                     Margin="16,0,0,0"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
@@ -132,7 +136,7 @@
                 <StackPanel
                     x:Name="_gpuInactive"
                     Grid.Row="0"
-                    Grid.Column="2"
+                    Grid.Column="3"
                     Margin="16,0,0,0"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
@@ -155,16 +159,16 @@
                     Grid.Column="1"
                     Margin="8,4,0,0"
                     VerticalContentAlignment="Center"
-                    Content="Power State"
+                    Content="{x:Static resources:Resource.StatusTrayPopup_PowerState}"
                     FontSize="{StaticResource SecondaryFontSize}"
                     FontWeight="Medium"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
                 <Label
                     x:Name="_gpuPowerStateValueLabel"
                     Grid.Row="1"
-                    Grid.Column="2"
+                    Grid.Column="3"
                     Margin="16,4,0,0"
-                    HorizontalContentAlignment="Right"
+                    HorizontalAlignment="Right"
                     FontSize="{StaticResource SecondaryFontSize}"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
             </Grid>
@@ -174,6 +178,7 @@
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -192,17 +197,18 @@
                     Grid.Column="1"
                     Margin="8,0,0,0"
                     VerticalContentAlignment="Center"
-                    Content="Battery"
+                    Content="{x:Static resources:Resource.StatusTrayPopup_Battery}"
                     FontSize="{StaticResource PrimaryFontSize}"
                     FontWeight="Medium"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                 <Label
                     x:Name="_batteryValueLabel"
                     Grid.Row="0"
-                    Grid.Column="2"
+                    Grid.Column="3"
                     Margin="16,0,0,0"
-                    HorizontalContentAlignment="Right"
+                    HorizontalAlignment="Right"
                     VerticalContentAlignment="Center"
+                    FlowDirection="LeftToRight"
                     FontSize="{StaticResource PrimaryFontSize}"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
 
@@ -211,16 +217,16 @@
                     Grid.Column="1"
                     Margin="8,4,0,0"
                     VerticalContentAlignment="Center"
-                    Content="Mode"
+                    Content="{x:Static resources:Resource.StatusTrayPopup_Mode}"
                     FontSize="{StaticResource SecondaryFontSize}"
                     FontWeight="Medium"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
                 <Label
                     x:Name="_batteryModeValueLabel"
                     Grid.Row="1"
-                    Grid.Column="2"
+                    Grid.Column="3"
                     Margin="16,4,0,0"
-                    HorizontalContentAlignment="Right"
+                    HorizontalAlignment="Right"
                     FontSize="{StaticResource SecondaryFontSize}"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
@@ -229,16 +235,17 @@
                     Grid.Column="1"
                     Margin="8,4,0,0"
                     VerticalContentAlignment="Center"
-                    Content="Discharge rate"
+                    Content="{x:Static resources:Resource.StatusTrayPopup_DischargeRate}"
                     FontSize="{StaticResource SecondaryFontSize}"
                     FontWeight="Medium"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
                 <Label
                     x:Name="_batteryDischargeValueLabel"
                     Grid.Row="2"
-                    Grid.Column="2"
+                    Grid.Column="3"
                     Margin="16,4,0,0"
-                    HorizontalContentAlignment="Right"
+                    HorizontalAlignment="Right"
+                    FlowDirection="LeftToRight"
                     FontSize="{StaticResource SecondaryFontSize}"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
             </Grid>
@@ -257,7 +264,7 @@
                     <TextBlock
                         FontSize="{StaticResource SecondaryFontSize}"
                         Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                        Text="Update available!" />
+                        Text="{x:Static resources:Resource.StatusTrayPopup_UpdateAvailable}" />
                 </StackPanel>
             </Border>
 

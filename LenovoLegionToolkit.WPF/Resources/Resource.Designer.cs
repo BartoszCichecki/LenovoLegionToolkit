@@ -4445,6 +4445,78 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Battery.
+        /// </summary>
+        public static string StatusTrayPopup_Battery {
+            get {
+                return ResourceManager.GetString("StatusTrayPopup_Battery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Discharge rate.
+        /// </summary>
+        public static string StatusTrayPopup_DischargeRate {
+            get {
+                return ResourceManager.GetString("StatusTrayPopup_DischargeRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Discrete GPU.
+        /// </summary>
+        public static string StatusTrayPopup_DiscreteGPU {
+            get {
+                return ResourceManager.GetString("StatusTrayPopup_DiscreteGPU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mode.
+        /// </summary>
+        public static string StatusTrayPopup_Mode {
+            get {
+                return ResourceManager.GetString("StatusTrayPopup_Mode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Power Mode.
+        /// </summary>
+        public static string StatusTrayPopup_PowerMode {
+            get {
+                return ResourceManager.GetString("StatusTrayPopup_PowerMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Power State.
+        /// </summary>
+        public static string StatusTrayPopup_PowerState {
+            get {
+                return ResourceManager.GetString("StatusTrayPopup_PowerState", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preset.
+        /// </summary>
+        public static string StatusTrayPopup_Preset {
+            get {
+                return ResourceManager.GetString("StatusTrayPopup_Preset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update available!.
+        /// </summary>
+        public static string StatusTrayPopup_UpdateAvailable {
+            get {
+                return ResourceManager.GetString("StatusTrayPopup_UpdateAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sunrise.
         /// </summary>
         public static string TimeWindow_Sunrise {
