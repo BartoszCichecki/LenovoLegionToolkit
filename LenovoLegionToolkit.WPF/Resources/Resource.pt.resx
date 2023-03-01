@@ -523,9 +523,6 @@ ATENÇÃO: Esta ação não irá correr corretamente se o ecrã interno estiver 
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Garantia</value>
   </data>
-  <data name="Active" xml:space="preserve">
-    <value>Ativo</value>
-  </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Desativado</value>
   </data>
@@ -535,9 +532,6 @@ Lembra-te que alguns programas podem crashar se o fizeres.</value>
   </data>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>A GPU da nVidia não está ativa.</value>
-  </data>
-  <data name="Inactive" xml:space="preserve">
-    <value>Inativa</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Fechar apps</value>
@@ -1555,9 +1549,6 @@ ATENÇÃO: Esta ação não irá executar corretamente se o ecrã interno estive
   </data>
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Personalizar Dashboard</value>
-  </data>
-  <data name="Load" xml:space="preserve">
-    <value>Reiniciar</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
     <value>Criar grupo</value>
