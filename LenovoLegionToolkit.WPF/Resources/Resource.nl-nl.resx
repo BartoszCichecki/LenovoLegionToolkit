@@ -522,9 +522,6 @@ WAARSCHUWING: Deze actie wordt niet correct uitgevoerd als het interne display i
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Garantie</value>
   </data>
-  <data name="Active" xml:space="preserve">
-    <value>Actief</value>
-  </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Deactiveren</value>
   </data>
@@ -535,9 +532,6 @@ Houd er rekening mee dat sommige programma's kunnen crashen als u dit doet.</val
   </data>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>nvidia GPU is niet actief.</value>
-  </data>
-  <data name="Inactive" xml:space="preserve">
-    <value>inactief</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Apps stoppen</value>
@@ -1557,9 +1551,6 @@ WAARSCHUWING: Deze actie wordt niet correct uitgevoerd als het interne beeldsche
   </data>
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Dashboard aanpassen</value>
-  </data>
-  <data name="Load" xml:space="preserve">
-    <value>Reset</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
     <value>Groep aanmaken</value>
