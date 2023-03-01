@@ -522,9 +522,6 @@ VAROVANIE: Táto akcia neprebehne správne, ak je displej notebooku vypnutý, al
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Záruka</value>
   </data>
-  <data name="Active" xml:space="preserve">
-    <value>Aktívna</value>
-  </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Deaktivovať</value>
   </data>
@@ -535,9 +532,6 @@ Pamätajte, niektoré programy môžu spadnúť, ak to urobíte.</value>
   </data>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>nVidia GPU je neaktívna.</value>
-  </data>
-  <data name="Inactive" xml:space="preserve">
-    <value>Neaktívna</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Ukončiť aplikácie</value>
@@ -1576,9 +1570,6 @@ VAROVANIE: Táto akcia neprebehne správne, ak je zabudovaný displej vypnutý.<
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Prispôsobiť prehľad</value>
   </data>
-  <data name="Load" xml:space="preserve">
-    <value>Reset</value>
-  </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
     <value>Vytvoriť skupinu</value>
   </data>
@@ -1705,7 +1696,7 @@ Nastavenia sú účinne len keď je povolený vlastný režim.</value>
     <value>Maximálna teplota GPU, ktorá môže byť dosiahnutá pred znížením frekvencie a príkonu.</value>
   </data>
   <data name="Create" xml:space="preserve">
-	  <value>Vytvoriť</value>
+    <value>Vytvoriť</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
 	  <value>Pridať krok</value>
