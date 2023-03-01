@@ -23,7 +23,7 @@ public class GPUController
         Inactive,
     }
 
-    public class RefreshedEventArgs : EventArgs
+    public readonly struct GPUStatus
     {
         public bool IsActive { get; }
         public bool CanBeDeactivated { get; }
@@ -32,7 +32,7 @@ public class GPUController
         public List<Process> Processes { get; }
         public int ProcessCount => Processes.Count;
 
-        public RefreshedEventArgs(bool isActive, bool canBeDeactivated, Status status, string? performanceState, List<Process> processes)
+        public GPUStatus(bool isActive, bool canBeDeactivated, Status status, string? performanceState, List<Process> processes)
         {
             IsActive = isActive;
             CanBeDeactivated = canBeDeactivated;
@@ -52,11 +52,11 @@ public class GPUController
     private string? _gpuInstanceId;
     private string? _performanceState;
 
-    public bool IsActive => _status is Status.MonitorsConnected or Status.DeactivatePossible;
-    public bool CanBeDeactivated => _status == Status.DeactivatePossible;
+    private bool IsActive => _status is Status.MonitorsConnected or Status.DeactivatePossible;
+    private bool CanBeDeactivated => _status == Status.DeactivatePossible;
 
     public event EventHandler? WillRefresh;
-    public event EventHandler<RefreshedEventArgs>? Refreshed;
+    public event EventHandler<GPUStatus>? Refreshed;
 
     public bool IsSupported()
     {
@@ -79,12 +79,12 @@ public class GPUController
         }
     }
 
-    public async Task<bool> CanBeDeactivatedAsync()
+    public async Task<GPUStatus> RefreshNowAsync()
     {
         using (await _lock.LockAsync().ConfigureAwait(false))
         {
             await RefreshLoopAsync(0, 0, CancellationToken.None);
-            return CanBeDeactivated;
+            return new GPUStatus(IsActive, CanBeDeactivated, _status, _performanceState, _processes);
         }
     }
 
@@ -208,7 +208,7 @@ public class GPUController
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Refreshed");
 
-                    Refreshed?.Invoke(this, new RefreshedEventArgs(IsActive, CanBeDeactivated, _status, _performanceState, _processes));
+                    Refreshed?.Invoke(this, new GPUStatus(IsActive, CanBeDeactivated, _status, _performanceState, _processes));
                 }
 
                 if (interval > 0)

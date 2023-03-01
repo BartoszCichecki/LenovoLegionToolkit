@@ -57,7 +57,7 @@ public partial class DiscreteGPUControl
         await _gpuController.StopAsync();
     }
 
-    private void GpuController_Refreshed(object? sender, GPUController.RefreshedEventArgs e) => Dispatcher.Invoke(() =>
+    private void GpuController_Refreshed(object? sender, GPUController.GPUStatus e) => Dispatcher.Invoke(() =>
     {
         var tooltipStringBuilder = new StringBuilder(Resource.DiscreteGPUControl_PerformanceState);
         tooltipStringBuilder.AppendLine().Append(e.PerformanceState ?? Resource.DiscreteGPUControl_PerformanceState_Unknown).AppendLine().AppendLine();
