@@ -58,6 +58,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccentColorSource_Custom" xml:space="preserve">
+    <value>Προσαρμοσμένη</value>
+  </data>
+  <data name="AccentColorSource_System" xml:space="preserve">
+    <value>Σύστημα</value>
+  </data>
   <data name="AlwaysOnUSBState_Off" xml:space="preserve">
     <value>Ανενεργό</value>
   </data>
@@ -103,6 +109,33 @@
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
     <value>Υβριδική-iGPU</value>
   </data>
+  <data name="NotificationPosition_BottomCenter" xml:space="preserve">
+    <value>Κάτω κέντρο</value>
+  </data>
+  <data name="NotificationPosition_BottomLeft" xml:space="preserve">
+    <value>Κάτω αριστερά</value>
+  </data>
+  <data name="NotificationPosition_BottomRight" xml:space="preserve">
+    <value>Κάτω δεξιά</value>
+  </data>
+  <data name="NotificationPosition_Center" xml:space="preserve">
+    <value>Κέντρο</value>
+  </data>
+  <data name="NotificationPosition_CenterLeft" xml:space="preserve">
+    <value>Κέντρο αριστερά</value>
+  </data>
+  <data name="NotificationPosition_CenterRight" xml:space="preserve">
+    <value>Κέντρο δεξιά</value>
+  </data>
+  <data name="NotificationPosition_TopCenter" xml:space="preserve">
+    <value>Πάνω κέντρο</value>
+  </data>
+  <data name="NotificationPosition_TopLeft" xml:space="preserve">
+    <value>Πάνω αριστερά</value>
+  </data>
+  <data name="NotificationPosition_TopRight" xml:space="preserve">
+    <value>Πάνω δεξιά</value>
+  </data>
   <data name="PowerModeState_Balance" xml:space="preserve">
     <value>Ισορροπημένη</value>
   </data>
@@ -115,6 +148,39 @@
   <data name="PowerModeState_Quiet" xml:space="preserve">
     <value>Ήρεμη</value>
   </data>
+  <data name="RBGKeyboardBacklightSpeed_Fast" xml:space="preserve">
+    <value>Γρήγορη</value>
+  </data>
+  <data name="RBGKeyboardBacklightSpeed_Fastest" xml:space="preserve">
+    <value>Ταχύτατη</value>
+  </data>
+  <data name="RBGKeyboardBacklightSpeed_Slow" xml:space="preserve">
+    <value>Αργή</value>
+  </data>
+  <data name="RBGKeyboardBacklightSpeed_Slowest" xml:space="preserve">
+    <value>Πιο αργή</value>
+  </data>
+  <data name="RGBKeyboardBacklightBrightness_High" xml:space="preserve">
+    <value>Υψηλή</value>
+  </data>
+  <data name="RGBKeyboardBacklightBrightness_Low" xml:space="preserve">
+    <value>Χαμηλή</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_Breath" xml:space="preserve">
+    <value>Αναπνοή</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_Smooth" xml:space="preserve">
+    <value>Ομαλή</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_Static" xml:space="preserve">
+    <value>Στατική</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_WaveLTR" xml:space="preserve">
+    <value>Κύμα Αριστερά</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_WaveRTL" xml:space="preserve">
+    <value>Κύμα Δεξιά</value>
+  </data>
   <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
     <value>Ανενεργό</value>
   </data>
@@ -126,6 +192,63 @@
   </data>
   <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
     <value>Προεπιλογή 2</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightness_High" xml:space="preserve">
+    <value>Υψηλή</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightness_Low" xml:space="preserve">
+    <value>Χαμηλή</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightness_Medium" xml:space="preserve">
+    <value>Μέτρια</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightness_Off" xml:space="preserve">
+    <value>Ανενεργή</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_BottomToTop" xml:space="preserve">
+    <value>Από κάτω προς τα πάνω</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_Clockwise" xml:space="preserve">
+    <value>Δεξιόστροφα</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_CounterClockwise" xml:space="preserve">
+    <value>Αριστερόστροφα</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_LeftToRight" xml:space="preserve">
+    <value>Αριστερά προς Δεξιά</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_RightToLeft" xml:space="preserve">
+    <value>Δεξιά προς Αριστερά</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_TopToBottom" xml:space="preserve">
+    <value>Από πάνω προς τα κάτω</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Always" xml:space="preserve">
+    <value>Πάντα</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Rain" xml:space="preserve">
+    <value>Βροχή</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_RainbowWave" xml:space="preserve">
+    <value>Κυματισμός Ουράνιου Τόξου</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Ripple" xml:space="preserve">
+    <value>Κυματισμός</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Smooth" xml:space="preserve">
+    <value>Ομαλή</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Type" xml:space="preserve">
+    <value>Τύπος</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed1" xml:space="preserve">
+    <value>Αργή</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed2" xml:space="preserve">
+    <value>Μέτρια</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed3" xml:space="preserve">
+    <value>Γρήγορη</value>
   </data>
   <data name="Theme_Dark" xml:space="preserve">
     <value>Σκοτεινό</value>
