@@ -524,6 +524,9 @@
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>保修信息</value>
   </data>
+  <data name="Active" xml:space="preserve">
+    <value>活动中</value>
+  </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>强制休眠显卡</value>
   </data>
@@ -534,6 +537,9 @@
   </data>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>英伟达显卡休眠中</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>休眠中</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>关闭占用应用</value>
@@ -1578,6 +1584,9 @@
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>自定义控制台</value>
   </data>
+  <data name="Load" xml:space="preserve">
+    <value>重置</value>
+  </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
     <value>新建组</value>
   </data>
@@ -1704,6 +1713,9 @@
   <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
     <value>在降频前，GPU的温度限制。</value>
   </data>
+  <data name="Default" xml:space="preserve">
+    <value>默认</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>创建</value>
   </data>
@@ -1712,5 +1724,20 @@
   </data>
   <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
 	  <value>新建</value>
+  </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+	  <value>性能模式</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+	  <value>独立显卡</value>
+  </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+	  <value>电池</value>
+  </data>
+  <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
+	  <value>电池充放电功率</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+	  <value>新版本可用！</value>
   </data>
 </root>
