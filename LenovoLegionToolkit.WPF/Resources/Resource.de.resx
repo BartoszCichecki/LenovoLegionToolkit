@@ -522,6 +522,9 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Garantie</value>
   </data>
+  <data name="Active" xml:space="preserve">
+    <value>Aktiv</value>
+  </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Deaktivieren</value>
   </data>
@@ -532,6 +535,9 @@ Beachten Sie, dass einige Programme dabei abstürzen könnten.</value>
   </data>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>nVidia GPU ist nicht aktiv.</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>Inaktiv</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Anwendungen schließen</value>
@@ -1551,6 +1557,9 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Übersicht anpassen</value>
   </data>
+  <data name="Load" xml:space="preserve">
+    <value>Zurücksetzen</value>
+  </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
     <value>Gruppe erstellen</value>
   </data>
@@ -1608,5 +1617,20 @@ Mausbewegung oder Tastendruck weckt die Bildschirme auf.</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
 	  <value>Schritt hinzufügen</value>
+  </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+	  <value>Leistungsmodus</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+	  <value>Diskrete GPU</value>
+  </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+	  <value>Akku</value>
+  </data>
+  <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
+	  <value>Entladungsrate</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+	  <value>Update verfügbar!</value>
   </data>
 </root>
