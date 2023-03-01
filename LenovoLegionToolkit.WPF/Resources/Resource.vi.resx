@@ -523,6 +523,9 @@ CẢNH BÁO: Hành động sẽ không chạy đúng nếu màn hình laptop kh�
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Bảo hành</value>
   </data>
+  <data name="Active" xml:space="preserve">
+    <value>Kích hoạt</value>
+  </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Ngắt kích hoạt</value>
   </data>
@@ -533,6 +536,9 @@ Một số ứng dụng có thể dừng đột ngột nếu thực hiện.</val
   </data>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>GPU rời không hoạt động.</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>Không hoạt động</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Tắt app dùng GPU rời</value>
@@ -1552,6 +1558,9 @@ CẢNH BÁO! Hành động sẽ không chạy nếu màn hình laptop tắt.</va
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Tùy biến trang chủ</value>
   </data>
+  <data name="Load" xml:space="preserve">
+    <value>Tải</value>
+  </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
     <value>Tạo nhóm</value>
   </data>
@@ -1609,5 +1618,20 @@ Di chuyển chuột hoặc bấm phím bất kỳ trên bàn phím để bật m
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
 	  <value>Thêm hành động</value>
+  </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+	  <value>Chế độ</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+	  <value>GPU rời</value>
+  </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+	  <value>Pin</value>
+  </data>
+  <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
+	  <value>Tốc độ sạc/xả</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+	  <value>Có cập nhật mới!</value>
   </data>
 </root>
