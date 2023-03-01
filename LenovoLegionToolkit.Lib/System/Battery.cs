@@ -18,7 +18,6 @@ public static class Battery
         var batteryTag = GetBatteryTag();
         var information = GetBatteryInformation(batteryTag);
         var status = GetBatteryStatus(batteryTag);
-        var onBatterySince = GetOnBatterySince();
 
         double? temperatureC = null;
         DateTime? manufactureDate = null;
@@ -43,7 +42,6 @@ public static class Battery
         {
             IsCharging = powerStatus.ACLineStatus == 1,
             BatteryPercentage = powerStatus.BatteryLifePercent,
-            OnBatterySince = onBatterySince,
             BatteryLifeRemaining = (int)powerStatus.BatteryLifeTime,
             FullBatteryLifeRemaining = (int)powerStatus.BatteryFullLifeTime,
             DischargeRate = status.Rate,
@@ -55,6 +53,43 @@ public static class Battery
             ManufactureDate = manufactureDate,
             FirstUseDate = firstUseDate
         };
+    }
+
+    public static DateTime? GetOnBatterySince()
+    {
+        try
+        {
+            var logs = new List<(DateTime Date, bool IsACOnline)>();
+
+            var query = new EventLogQuery("System", PathType.LogName, "*[System[EventID=105]]");
+            using var logReader = new EventLogReader(query);
+            using var propertySelector = new EventLogPropertySelector(new[] { "Event/EventData/Data[@Name='AcOnline']" });
+
+            while (logReader.ReadEvent() is EventLogRecord record)
+            {
+                var date = record.TimeCreated;
+                var isAcOnline = record.GetPropertyValues(propertySelector)[0] as bool?;
+
+                if (date is null || isAcOnline is null)
+                    continue;
+
+                logs.Add((date.Value, isAcOnline.Value));
+            }
+
+            if (logs.Count < 1)
+                return null;
+
+            var (dateTime, isACOnline) = logs.MaxBy(l => l.Date);
+            if (!isACOnline)
+                return dateTime;
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Failed to get event.", ex);
+        }
+
+        return null;
     }
 
     private static SYSTEM_POWER_STATUS GetSystemPowerStatus()
@@ -148,42 +183,6 @@ public static class Battery
             PInvokeExtensions.ThrowIfWin32Error("DeviceIoControl, 0x83102138");
 
         return bi;
-    }
-    private static DateTime? GetOnBatterySince()
-    {
-        try
-        {
-            var logs = new List<(DateTime Date, bool IsACOnline)>();
-
-            var query = new EventLogQuery("System", PathType.LogName, "*[System[EventID=105]]");
-            using var logReader = new EventLogReader(query);
-            using var propertySelector = new EventLogPropertySelector(new[] { "Event/EventData/Data[@Name='AcOnline']" });
-
-            while (logReader.ReadEvent() is EventLogRecord record)
-            {
-                var date = record.TimeCreated;
-                var isAcOnline = record.GetPropertyValues(propertySelector)[0] as bool?;
-
-                if (date is null || isAcOnline is null)
-                    continue;
-
-                logs.Add((date.Value, isAcOnline.Value));
-            }
-
-            if (logs.Count < 1)
-                return null;
-
-            var (dateTime, isACOnline) = logs.MaxBy(l => l.Date);
-            if (!isACOnline)
-                return dateTime;
-        }
-        catch (Exception ex)
-        {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Failed to get event.", ex);
-        }
-
-        return null;
     }
 
     private static DateTime? DecodeDateTime(ushort s)

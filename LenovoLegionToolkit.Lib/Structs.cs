@@ -15,7 +15,6 @@ public readonly struct BatteryInformation
 {
     public bool IsCharging { get; init; }
     public int BatteryPercentage { get; init; }
-    public DateTime? OnBatterySince { get; init; }
     public int BatteryLifeRemaining { get; init; }
     public int FullBatteryLifeRemaining { get; init; }
     public int DischargeRate { get; init; }

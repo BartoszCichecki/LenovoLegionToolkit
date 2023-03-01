@@ -21,7 +21,9 @@ public class DeactivateGPUAutomationStep : IAutomationStep<DeactivateGPUAutomati
         if (!_controller.IsSupported())
             return;
 
-        if (!await _controller.CanBeDeactivatedAsync().ConfigureAwait(false))
+        var status = await _controller.RefreshNowAsync().ConfigureAwait(false);
+
+        if (!status.CanBeDeactivated)
             return;
 
         switch (State)

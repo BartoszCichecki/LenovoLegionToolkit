@@ -519,7 +519,7 @@
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>الضمان</value>
   </data>
-  <data name="DiscreteGPUControl_Active" xml:space="preserve">
+  <data name="Active" xml:space="preserve">
     <value>مفعل</value>
   </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
@@ -532,7 +532,7 @@
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>بطاقة نفيديا لا تعمل.</value>
   </data>
-  <data name="DiscreteGPUControl_Inactive" xml:space="preserve">
+  <data name="Inactive" xml:space="preserve">
     <value>غير مفعل</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">

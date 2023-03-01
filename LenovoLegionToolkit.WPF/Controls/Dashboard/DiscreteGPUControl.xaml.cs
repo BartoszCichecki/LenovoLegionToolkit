@@ -57,7 +57,7 @@ public partial class DiscreteGPUControl
         await _gpuController.StopAsync();
     }
 
-    private void GpuController_Refreshed(object? sender, GPUController.RefreshedEventArgs e) => Dispatcher.Invoke(() =>
+    private void GpuController_Refreshed(object? sender, GPUController.GPUStatus e) => Dispatcher.Invoke(() =>
     {
         var tooltipStringBuilder = new StringBuilder(Resource.DiscreteGPUControl_PerformanceState);
         tooltipStringBuilder.AppendLine().Append(e.PerformanceState ?? Resource.DiscreteGPUControl_PerformanceState_Unknown).AppendLine().AppendLine();
@@ -96,7 +96,7 @@ public partial class DiscreteGPUControl
 
             _discreteGPUStatusActiveIndicator.Visibility = Visibility.Visible;
             _discreteGPUStatusInactiveIndicator.Visibility = Visibility.Collapsed;
-            _discreteGPUStatusDescription.Content = Resource.DiscreteGPUControl_Active;
+            _discreteGPUStatusDescription.Content = Resource.Active;
             _gpuInfoButton.ToolTip = tooltipStringBuilder.Append(processesStringBuilder).ToString();
             _gpuInfoButton.IsEnabled = true;
         }
@@ -104,7 +104,7 @@ public partial class DiscreteGPUControl
         {
             _discreteGPUStatusActiveIndicator.Visibility = Visibility.Collapsed;
             _discreteGPUStatusInactiveIndicator.Visibility = Visibility.Visible;
-            _discreteGPUStatusDescription.Content = Resource.DiscreteGPUControl_Inactive;
+            _discreteGPUStatusDescription.Content = Resource.Inactive;
             _gpuInfoButton.ToolTip = tooltipStringBuilder.Append(Resource.DiscreteGPUControl_GPUIsNotActive).ToString();
             _gpuInfoButton.IsEnabled = true;
         }

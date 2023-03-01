@@ -62,7 +62,8 @@ public partial class BatteryPage
                 {
                     var batteryInfo = Battery.GetBatteryInformation();
                     var powerAdapterStatus = await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false);
-                    Dispatcher.Invoke(() => Set(batteryInfo, powerAdapterStatus));
+                    var onBatterySince = Battery.GetOnBatterySince();
+                    Dispatcher.Invoke(() => Set(batteryInfo, powerAdapterStatus, onBatterySince));
 
                     await Task.Delay(TimeSpan.FromSeconds(2), token);
                 }
@@ -79,7 +80,7 @@ public partial class BatteryPage
         }, token);
     }
 
-    private void Set(BatteryInformation batteryInfo, PowerAdapterStatus powerAdapterStatus)
+    private void Set(BatteryInformation batteryInfo, PowerAdapterStatus powerAdapterStatus, DateTime? onBatterySince)
     {
         var number = (int)Math.Round(batteryInfo.BatteryPercentage / 10.0);
         _batteryIcon.Symbol = number switch
@@ -106,11 +107,11 @@ public partial class BatteryPage
         else
             _batteryTemperatureCardControl.Visibility = Visibility.Collapsed;
 
-        if (!batteryInfo.IsCharging && batteryInfo.OnBatterySince.HasValue)
+        if (!batteryInfo.IsCharging && onBatterySince.HasValue)
         {
-            var onBatterySince = batteryInfo.OnBatterySince.Value;
-            var dateText = onBatterySince.ToString("G", Resource.Culture);
-            var duration = DateTime.Now.Subtract(onBatterySince);
+            var onBatterySinceValue = onBatterySince.Value;
+            var dateText = onBatterySinceValue.ToString("G", Resource.Culture);
+            var duration = DateTime.Now.Subtract(onBatterySinceValue);
             _onBatterySinceText.Text = $"{dateText} ({duration.Humanize(2, Resource.Culture, minUnit: TimeUnit.Second)})";
         }
         else

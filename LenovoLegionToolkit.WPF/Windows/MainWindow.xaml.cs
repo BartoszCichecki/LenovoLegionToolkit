@@ -7,6 +7,7 @@ using System.Windows.Input;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Controls;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Pages;
 using LenovoLegionToolkit.WPF.Resources;
@@ -50,8 +51,11 @@ public partial class MainWindow
         _contextMenuHelper.BringToForeground = BringToForeground;
         _contextMenuHelper.Close = App.Current.ShutdownAsync;
 
-        _trayIcon.TrayLeftMouseUp += (_, _) => BringToForeground();
+        _trayIcon.TrayToolTip = new StatusTrayPopup();
+        _trayIcon.TrayToolTipResolved.Style = null;
+
         _trayIcon.ContextMenu = _contextMenuHelper.ContextMenu;
+        _trayIcon.TrayLeftMouseUp += (_, _) => BringToForeground();
     }
 
     private void MainWindow_SourceInitialized(object? sender, EventArgs e) => RestoreSize();

@@ -524,7 +524,7 @@
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>保修信息</value>
   </data>
-  <data name="DiscreteGPUControl_Active" xml:space="preserve">
+  <data name="Active" xml:space="preserve">
     <value>活动中</value>
   </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
@@ -538,7 +538,7 @@
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>英伟达显卡休眠中</value>
   </data>
-  <data name="DiscreteGPUControl_Inactive" xml:space="preserve">
+  <data name="Inactive" xml:space="preserve">
     <value>休眠中</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">

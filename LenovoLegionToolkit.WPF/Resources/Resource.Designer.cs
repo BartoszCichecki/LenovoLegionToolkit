@@ -169,6 +169,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Active.
+        /// </summary>
+        public static string Active {
+            get {
+                return ResourceManager.GetString("Active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
         public static string Add {
@@ -1345,15 +1354,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Active.
-        /// </summary>
-        public static string DiscreteGPUControl_Active {
-            get {
-                return ResourceManager.GetString("DiscreteGPUControl_Active", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Deactivate.
         /// </summary>
         public static string DiscreteGPUControl_Deactivate {
@@ -1379,15 +1379,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string DiscreteGPUControl_GPUIsNotActive {
             get {
                 return ResourceManager.GetString("DiscreteGPUControl_GPUIsNotActive", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Inactive.
-        /// </summary>
-        public static string DiscreteGPUControl_Inactive {
-            get {
-                return ResourceManager.GetString("DiscreteGPUControl_Inactive", resourceCulture);
             }
         }
         
@@ -2332,6 +2323,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string Import {
             get {
                 return ResourceManager.GetString("Import", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inactive.
+        /// </summary>
+        public static string Inactive {
+            get {
+                return ResourceManager.GetString("Inactive", resourceCulture);
             }
         }
         
@@ -4441,6 +4441,78 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string SpectrumKeyboardEffectControl_Description_Zones {
             get {
                 return ResourceManager.GetString("SpectrumKeyboardEffectControl_Description_Zones", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Battery.
+        /// </summary>
+        public static string StatusTrayPopup_Battery {
+            get {
+                return ResourceManager.GetString("StatusTrayPopup_Battery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Discharge rate.
+        /// </summary>
+        public static string StatusTrayPopup_DischargeRate {
+            get {
+                return ResourceManager.GetString("StatusTrayPopup_DischargeRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Discrete GPU.
+        /// </summary>
+        public static string StatusTrayPopup_DiscreteGPU {
+            get {
+                return ResourceManager.GetString("StatusTrayPopup_DiscreteGPU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mode.
+        /// </summary>
+        public static string StatusTrayPopup_Mode {
+            get {
+                return ResourceManager.GetString("StatusTrayPopup_Mode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Power Mode.
+        /// </summary>
+        public static string StatusTrayPopup_PowerMode {
+            get {
+                return ResourceManager.GetString("StatusTrayPopup_PowerMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Power State.
+        /// </summary>
+        public static string StatusTrayPopup_PowerState {
+            get {
+                return ResourceManager.GetString("StatusTrayPopup_PowerState", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preset.
+        /// </summary>
+        public static string StatusTrayPopup_Preset {
+            get {
+                return ResourceManager.GetString("StatusTrayPopup_Preset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update available!.
+        /// </summary>
+        public static string StatusTrayPopup_UpdateAvailable {
+            get {
+                return ResourceManager.GetString("StatusTrayPopup_UpdateAvailable", resourceCulture);
             }
         }
         

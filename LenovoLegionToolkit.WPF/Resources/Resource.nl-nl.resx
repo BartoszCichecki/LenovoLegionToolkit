@@ -522,7 +522,7 @@ WAARSCHUWING: Deze actie wordt niet correct uitgevoerd als het interne display i
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Garantie</value>
   </data>
-  <data name="DiscreteGPUControl_Active" xml:space="preserve">
+  <data name="Active" xml:space="preserve">
     <value>Actief</value>
   </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
@@ -536,7 +536,7 @@ Houd er rekening mee dat sommige programma's kunnen crashen als u dit doet.</val
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>nvidia GPU is niet actief.</value>
   </data>
-  <data name="DiscreteGPUControl_Inactive" xml:space="preserve">
+  <data name="Inactive" xml:space="preserve">
     <value>inactief</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">

@@ -522,7 +522,7 @@
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Гарантія</value>
   </data>
-  <data name="DiscreteGPUControl_Active" xml:space="preserve">
+  <data name="Active" xml:space="preserve">
     <value>Діє</value>
   </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
@@ -536,7 +536,7 @@
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>Відеокарта nVidia не активна.</value>
   </data>
-  <data name="DiscreteGPUControl_Inactive" xml:space="preserve">
+  <data name="Inactive" xml:space="preserve">
     <value>Неактивно</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
