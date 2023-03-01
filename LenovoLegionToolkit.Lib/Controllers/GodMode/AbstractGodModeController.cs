@@ -26,6 +26,16 @@ public abstract class AbstractGodModeController : IGodModeController
 
     public abstract Task<bool> NeedsLegionZoneDisabledAsync();
 
+    public Task<string?> GetActivePresetNameAsync()
+    {
+        var store = Settings.Store;
+        var name = store.Presets
+            .Where(p => p.Key == store.ActivePresetId)
+            .Select(p => p.Value.Name)
+            .FirstOrDefault();
+        return Task.FromResult(name);
+    }
+
     public async Task<GodModeState> GetStateAsync()
     {
         if (Log.Instance.IsTraceEnabled)

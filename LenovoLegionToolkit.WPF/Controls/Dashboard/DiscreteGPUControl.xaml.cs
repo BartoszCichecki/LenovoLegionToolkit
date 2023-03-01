@@ -96,7 +96,7 @@ public partial class DiscreteGPUControl
 
             _discreteGPUStatusActiveIndicator.Visibility = Visibility.Visible;
             _discreteGPUStatusInactiveIndicator.Visibility = Visibility.Collapsed;
-            _discreteGPUStatusDescription.Content = Resource.DiscreteGPUControl_Active;
+            _discreteGPUStatusDescription.Content = Resource.Active;
             _gpuInfoButton.ToolTip = tooltipStringBuilder.Append(processesStringBuilder).ToString();
             _gpuInfoButton.IsEnabled = true;
         }
@@ -104,7 +104,7 @@ public partial class DiscreteGPUControl
         {
             _discreteGPUStatusActiveIndicator.Visibility = Visibility.Collapsed;
             _discreteGPUStatusInactiveIndicator.Visibility = Visibility.Visible;
-            _discreteGPUStatusDescription.Content = Resource.DiscreteGPUControl_Inactive;
+            _discreteGPUStatusDescription.Content = Resource.Inactive;
             _gpuInfoButton.ToolTip = tooltipStringBuilder.Append(Resource.DiscreteGPUControl_GPUIsNotActive).ToString();
             _gpuInfoButton.IsEnabled = true;
         }

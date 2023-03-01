@@ -523,7 +523,7 @@ CẢNH BÁO: Hành động sẽ không chạy đúng nếu màn hình laptop kh�
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Bảo hành</value>
   </data>
-  <data name="DiscreteGPUControl_Active" xml:space="preserve">
+  <data name="Active" xml:space="preserve">
     <value>Kích hoạt</value>
   </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
@@ -537,7 +537,7 @@ Một số ứng dụng có thể dừng đột ngột nếu thực hiện.</val
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>GPU rời không hoạt động.</value>
   </data>
-  <data name="DiscreteGPUControl_Inactive" xml:space="preserve">
+  <data name="Inactive" xml:space="preserve">
     <value>Không hoạt động</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">

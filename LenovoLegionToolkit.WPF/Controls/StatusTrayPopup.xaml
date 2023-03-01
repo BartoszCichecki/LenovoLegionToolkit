@@ -62,7 +62,7 @@
                     HorizontalContentAlignment="Right"
                     VerticalContentAlignment="Center"
                     FontSize="{StaticResource PrimaryFontSize}"
-                    Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                    Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
 
                 <Label
                     x:Name="_powerModePresetLabel"
@@ -109,15 +109,46 @@
                     FontSize="{StaticResource PrimaryFontSize}"
                     FontWeight="Medium"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-                <Label
-                    x:Name="_gpuValueLabel"
+                <StackPanel
+                    x:Name="_gpuActive"
                     Grid.Row="0"
                     Grid.Column="2"
                     Margin="16,0,0,0"
-                    HorizontalContentAlignment="Right"
-                    VerticalContentAlignment="Center"
-                    FontSize="{StaticResource PrimaryFontSize}"
-                    Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal"
+                    Visibility="Collapsed">
+                    <Ellipse
+                        Width="12"
+                        Height="12"
+                        Fill="#FF8BC34A" />
+                    <Label
+                        Margin="8,0,0,0"
+                        VerticalContentAlignment="Center"
+                        Content="{x:Static resources:Resource.Active}"
+                        FontSize="{StaticResource PrimaryFontSize}"
+                        Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                </StackPanel>
+                <StackPanel
+                    x:Name="_gpuInactive"
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Margin="16,0,0,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal"
+                    Visibility="Collapsed">
+                    <Ellipse
+                        Width="12"
+                        Height="12"
+                        Fill="#BF360C" />
+                    <Label
+                        Margin="8,0,0,0"
+                        VerticalContentAlignment="Center"
+                        Content="{x:Static resources:Resource.Inactive}"
+                        FontSize="{StaticResource PrimaryFontSize}"
+                        Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                </StackPanel>
 
                 <Label
                     Grid.Row="1"
@@ -173,7 +204,7 @@
                     HorizontalContentAlignment="Right"
                     VerticalContentAlignment="Center"
                     FontSize="{StaticResource PrimaryFontSize}"
-                    Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                    Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
 
                 <Label
                     Grid.Row="1"

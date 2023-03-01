@@ -169,6 +169,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Active.
+        /// </summary>
+        public static string Active {
+            get {
+                return ResourceManager.GetString("Active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
         public static string Add {
@@ -1345,15 +1354,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Active.
-        /// </summary>
-        public static string DiscreteGPUControl_Active {
-            get {
-                return ResourceManager.GetString("DiscreteGPUControl_Active", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Deactivate.
         /// </summary>
         public static string DiscreteGPUControl_Deactivate {
@@ -1379,15 +1379,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string DiscreteGPUControl_GPUIsNotActive {
             get {
                 return ResourceManager.GetString("DiscreteGPUControl_GPUIsNotActive", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Inactive.
-        /// </summary>
-        public static string DiscreteGPUControl_Inactive {
-            get {
-                return ResourceManager.GetString("DiscreteGPUControl_Inactive", resourceCulture);
             }
         }
         
@@ -2332,6 +2323,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string Import {
             get {
                 return ResourceManager.GetString("Import", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inactive.
+        /// </summary>
+        public static string Inactive {
+            get {
+                return ResourceManager.GetString("Inactive", resourceCulture);
             }
         }
         

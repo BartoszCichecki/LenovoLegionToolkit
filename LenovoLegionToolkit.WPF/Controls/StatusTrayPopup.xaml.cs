@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -10,6 +9,7 @@ using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Utils;
 using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls;
@@ -21,12 +21,15 @@ public partial class StatusTrayPopup
     private readonly GodModeController _godModeController = IoCContainer.Resolve<GodModeController>();
     private readonly GPUController _gpuController = IoCContainer.Resolve<GPUController>();
     private readonly UpdateChecker _updateChecker = IoCContainer.Resolve<UpdateChecker>();
+    private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
 
     private CancellationTokenSource? _cts;
 
     public StatusTrayPopup()
     {
         InitializeComponent();
+
+        _themeManager.ThemeApplied += (_, _) => Resources = Application.Current.Resources;
     }
 
     private void StatusTrayPopup_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -57,8 +60,9 @@ public partial class StatusTrayPopup
         _powerModePresetLabel.Visibility = Visibility.Collapsed;
         _powerModePresetValueLabel.Visibility = Visibility.Collapsed;
 
-        _gpuValueLabel.Content = null;
         _gpuPowerStateValueLabel.Content = null;
+        _gpuActive.Visibility = Visibility.Collapsed;
+        _gpuInactive.Visibility = Visibility.Collapsed;
 
         _batteryIcon.Symbol = SymbolRegular.Battery024;
         _batteryValueLabel.Content = null;
@@ -88,12 +92,7 @@ public partial class StatusTrayPopup
                 return;
             }
 
-            var state = await _godModeController.GetStateAsync();
-
-            _powerModePresetValueLabel.Content = state.Presets
-                .Where(p => p.Key == state.ActivePresetId)
-                .Select(p => p.Value.Name)
-                .FirstOrDefault();
+            _powerModePresetValueLabel.Content = await _godModeController.GetActivePresetNameAsync() ?? "-";
 
             _powerModePresetLabel.Visibility = Visibility.Visible;
             _powerModePresetValueLabel.Visibility = Visibility.Visible;
@@ -118,8 +117,10 @@ public partial class StatusTrayPopup
 
             var status = t.Result;
 
-            _gpuValueLabel.Content = status.IsActive ? "Active" : "Inactive";
             _gpuPowerStateValueLabel.Content = status.PerformanceState ?? "-";
+
+            _gpuActive.Visibility = status.IsActive ? Visibility.Visible : Visibility.Collapsed;
+            _gpuInactive.Visibility = status.IsActive ? Visibility.Collapsed : Visibility.Visible;
 
             _gpuGrid.Visibility = Visibility.Visible;
         }, TaskScheduler.FromCurrentSynchronizationContext());

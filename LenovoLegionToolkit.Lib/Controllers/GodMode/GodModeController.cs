@@ -7,8 +7,8 @@ namespace LenovoLegionToolkit.Lib.Controllers.GodMode;
 
 public class GodModeController : IGodModeController
 {
-    private readonly GodModeControllerV1 _controllerV1;
-    private readonly GodModeControllerV2 _controllerV2;
+    private readonly IGodModeController _controllerV1;
+    private readonly IGodModeController _controllerV2;
 
     public GodModeController(GodModeControllerV1 controllerV1, GodModeControllerV2 controllerV2)
     {
@@ -26,6 +26,12 @@ public class GodModeController : IGodModeController
     {
         var controller = await GetControllerAsync().ConfigureAwait(false);
         return await controller.NeedsLegionZoneDisabledAsync().ConfigureAwait(false);
+    }
+
+    public async Task<string?> GetActivePresetNameAsync()
+    {
+        var controller = await GetControllerAsync().ConfigureAwait(false);
+        return await controller.GetActivePresetNameAsync().ConfigureAwait(false);
     }
 
     public async Task<GodModeState> GetStateAsync()
