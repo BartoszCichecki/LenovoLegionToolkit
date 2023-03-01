@@ -41,7 +41,12 @@ public partial class GodModeValueControl
         {
             if (_slider.Visibility == Visibility.Visible)
             {
-                var newValue = Math.Clamp(MathExtensions.RoundNearest(value, (int)_slider.TickFrequency), _slider.Minimum, _slider.Maximum);
+                double newValue = value;
+
+                if (_defaultValue.HasValue && (newValue < _slider.Minimum || newValue > _slider.Maximum))
+                    newValue = _defaultValue.Value;
+
+                newValue = Math.Clamp(MathExtensions.RoundNearest((int)newValue, (int)_slider.TickFrequency), _slider.Minimum, _slider.Maximum);
                 _slider.Value = newValue;
                 return;
             }

@@ -286,7 +286,7 @@ Somente ações que correspondem com o estado atual serão executadas.</value>
     <value>Sem nome</value>
   </data>
   <data name="BalanceModeSettingsWindow_AIEngine_Message" xml:space="preserve">
-    <value>Detecta automaticamente quando certos jogos estão sendo executados e configura o desempenho da CPU e GPU. As temperaturas e os níveis de ruído das coolers podem aumentar.</value>
+    <value>Detecta automaticamente quando certos jogos estão sendo executados e configura o desempenho da CPU e GPU. As temperaturas e os níveis de ruído dos coolers podem aumentar.</value>
   </data>
   <data name="BalanceModeSettingsWindow_AIEngine_Title" xml:space="preserve">
     <value>Ativar mecanismo de IA</value>
@@ -1577,7 +1577,7 @@ AVISO: Esta ação não será executada corretamente se a tela integrada estiver
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Personalizar painel</value>
   </data>
-  <data name="Reset" xml:space="preserve">
+  <data name="Load" xml:space="preserve">
     <value>Redefinir</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
@@ -1698,6 +1698,9 @@ Esta configuração somente terá efeito se o Modo Personalizado estiver ativo.<
   </data>
   <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
     <value>A potência máxima adicional que pode ser alocada para a GPU com base no consumo de energia da CPU.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
+    <value>A potência máxima adicional que pode ser alocada para a GPU com base no consumo de energia.</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
     <value>A temperatura máxima que pode ser alcançada pela GPU antes que a frequência e a potência sejam reduzidas.</value>

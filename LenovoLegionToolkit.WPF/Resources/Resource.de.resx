@@ -1557,7 +1557,7 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Übersicht anpassen</value>
   </data>
-  <data name="Reset" xml:space="preserve">
+  <data name="Load" xml:space="preserve">
     <value>Zurücksetzen</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">

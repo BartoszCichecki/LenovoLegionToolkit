@@ -1553,7 +1553,7 @@ ATTENZIONE: questa azione non verrà eseguita correttamente se il display intern
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Personalizza Dashboard</value>
   </data>
-  <data name="Reset" xml:space="preserve">
+  <data name="Load" xml:space="preserve">
     <value>Ripristina</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">

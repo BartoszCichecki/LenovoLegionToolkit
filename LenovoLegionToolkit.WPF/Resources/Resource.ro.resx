@@ -1558,7 +1558,7 @@ ATENȚIE: Această acțiune nu va rula corect dacă afișajul încorporat este o
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Personalizare bord</value>
   </data>
-  <data name="Reset" xml:space="preserve">
+  <data name="Load" xml:space="preserve">
     <value>Resetare</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
