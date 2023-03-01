@@ -53,17 +53,17 @@ public partial class StatusTrayPopup
 
     private void Clear()
     {
-        _powerModePresetValueLabel.Content = "-";
+        _powerModePresetValueLabel.Content = null;
         _powerModePresetLabel.Visibility = Visibility.Collapsed;
         _powerModePresetValueLabel.Visibility = Visibility.Collapsed;
 
-        _gpuValueLabel.Content = "-";
-        _gpuPowerStateValueLabel.Content = "-";
+        _gpuValueLabel.Content = null;
+        _gpuPowerStateValueLabel.Content = null;
 
         _batteryIcon.Symbol = SymbolRegular.Battery024;
-        _batteryValueLabel.Content = "-";
-        _batteryModeValueLabel.Content = "-";
-        _batteryDischargeValueLabel.Content = "-";
+        _batteryValueLabel.Content = null;
+        _batteryModeValueLabel.Content = null;
+        _batteryDischargeValueLabel.Content = null;
 
         _updateIndicator.Visibility = Visibility.Collapsed;
     }
