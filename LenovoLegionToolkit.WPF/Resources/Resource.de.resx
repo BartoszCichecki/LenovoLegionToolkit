@@ -522,9 +522,6 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Garantie</value>
   </data>
-  <data name="Active" xml:space="preserve">
-    <value>Aktiv</value>
-  </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Deaktivieren</value>
   </data>
@@ -535,9 +532,6 @@ Beachten Sie, dass einige Programme dabei abstürzen könnten.</value>
   </data>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>nVidia GPU ist nicht aktiv.</value>
-  </data>
-  <data name="Inactive" xml:space="preserve">
-    <value>Inaktiv</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Anwendungen schließen</value>
@@ -1556,9 +1550,6 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
   </data>
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Übersicht anpassen</value>
-  </data>
-  <data name="Load" xml:space="preserve">
-    <value>Zurücksetzen</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
     <value>Gruppe erstellen</value>
