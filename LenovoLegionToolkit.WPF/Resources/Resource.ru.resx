@@ -523,6 +523,9 @@
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Гарантия</value>
   </data>
+  <data name="Active" xml:space="preserve">
+    <value>Активен</value>
+  </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Деактивировать</value>
   </data>
@@ -533,6 +536,9 @@
   </data>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>Графический процессор nVidia не активен.</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>Неактивен</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Завершить процессы</value>
@@ -1571,6 +1577,9 @@
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Настроить домашнюю страницу</value>
   </data>
+  <data name="Load" xml:space="preserve">
+    <value>Сброс</value>
+  </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
     <value>Создать группу</value>
   </data>
@@ -1696,6 +1705,9 @@
   <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
     <value>Максимальная температура, которая может быть достигнута графическим процессором до снижения частоты и мощности.</value>
   </data>
+  <data name="Default" xml:space="preserve">
+    <value>По умолчанию</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Создать</value>
   </data>
@@ -1704,5 +1716,20 @@
   </data>
   <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
 	  <value>Создать действие</value>
+  </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+	  <value>Режим питания</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+	  <value>Дискретный граф. процессор</value>
+  </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+	  <value>Батарея</value>
+  </data>
+  <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
+	  <value>Мгновенная мощность при разрядке</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+	  <value>Доступно обновление!</value>
   </data>
 </root>
