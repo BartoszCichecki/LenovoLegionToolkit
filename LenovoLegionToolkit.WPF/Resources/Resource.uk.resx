@@ -522,9 +522,6 @@
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Гарантія</value>
   </data>
-  <data name="Active" xml:space="preserve">
-    <value>Діє</value>
-  </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Деактивовано</value>
   </data>
@@ -535,9 +532,6 @@
   </data>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>Відеокарта nVidia не активна.</value>
-  </data>
-  <data name="Inactive" xml:space="preserve">
-    <value>Неактивно</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Примусово закрити застосунки</value>
@@ -1574,9 +1568,6 @@
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Налаштування панелі керування</value>
   </data>
-  <data name="Load" xml:space="preserve">
-    <value>Скидання</value>
-  </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
     <value>Створити групу</value>
   </data>
@@ -1703,7 +1694,7 @@
     <value>Максимальна температура, яка може бути досягнути ГП до зниження частоти та потужності.</value>
   </data>
   <data name="Create" xml:space="preserve">
-	  <value>Створити</value>
+    <value>Створити</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
 	  <value>Додати крок</value>
