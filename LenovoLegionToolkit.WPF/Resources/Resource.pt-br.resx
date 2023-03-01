@@ -523,9 +523,6 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Garantia</value>
   </data>
-  <data name="Active" xml:space="preserve">
-    <value>Ativa</value>
-  </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Desativar</value>
   </data>
@@ -536,9 +533,6 @@ Lembre-se, alguns programas podem apresentar problemas se você fizer isso.</val
   </data>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>A GPU nVidia não está ativa.</value>
-  </data>
-  <data name="Inactive" xml:space="preserve">
-    <value>Inativa</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Encerrar Aplicativos</value>
@@ -1577,9 +1571,6 @@ AVISO: Esta ação não será executada corretamente se a tela integrada estiver
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Personalizar painel</value>
   </data>
-  <data name="Load" xml:space="preserve">
-    <value>Redefinir</value>
-  </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
     <value>Criar grupo</value>
   </data>
@@ -1706,7 +1697,7 @@ Esta configuração somente terá efeito se o Modo Personalizado estiver ativo.<
     <value>A temperatura máxima que pode ser alcançada pela GPU antes que a frequência e a potência sejam reduzidas.</value>
   </data>
   <data name="Create" xml:space="preserve">
-	  <value>Criar</value>
+    <value>Criar</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
 	  <value>Adicionar passo</value>
