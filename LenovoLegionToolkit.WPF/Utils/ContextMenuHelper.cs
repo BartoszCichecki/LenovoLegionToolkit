@@ -103,11 +103,6 @@ public class ContextMenuHelper
             ContextMenu.Items.Insert(0, item);
     }
 
-    public async Task RefreshAutomationMenuItemsAsync()
-    {
-        await RefreshAutomationMenuItemsAsync(await _automationProcessor.GetPipelinesAsync());
-    }
-
     private async Task RefreshAutomationMenuItemsAsync(List<AutomationPipeline> pipelines)
     {
         using (await _refreshLock.LockAsync())
@@ -122,9 +117,13 @@ public class ContextMenuHelper
 
             foreach (var menuPipeline in pipelines.Where(p => p.Trigger is null))
             {
+                var icon = SymbolRegular.Play24;
+                if (Enum.TryParse<SymbolRegular>(menuPipeline.IconName, out var iconParsed))
+                    icon = iconParsed;
+
                 var item = new MenuItem
                 {
-                    SymbolIcon = SymbolRegular.Play24,
+                    SymbolIcon = icon,
                     Header = menuPipeline.Name ?? Resource.Unnamed,
                     Tag = QUICK_ACTIONS_TAG,
                 };

@@ -849,7 +849,7 @@ Daima doğru paketleri kurduğunuzdan emin olun.</value>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Şuraya indir</value>
   </data>
-  <data name="PackagesPage_Filter" xml:space="preserve">
+  <data name="Filter" xml:space="preserve">
     <value>Filtre...</value>
   </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
