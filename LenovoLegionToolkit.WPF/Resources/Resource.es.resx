@@ -996,7 +996,7 @@ Asegúrese de instalar siempre los paquetes correctos.</value>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Descargar en</value>
   </data>
-  <data name="PackagesPage_Filter" xml:space="preserve">
+  <data name="Filter" xml:space="preserve">
     <value>Filtro...</value>
   </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">

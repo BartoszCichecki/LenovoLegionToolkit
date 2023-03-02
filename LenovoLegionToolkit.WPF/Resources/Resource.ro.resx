@@ -989,7 +989,7 @@ Asigurați-vă întotdeauna că instalați pachetele corecte.</value>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Descărcați la</value>
   </data>
-  <data name="PackagesPage_Filter" xml:space="preserve">
+  <data name="Filter" xml:space="preserve">
     <value>Filtru...</value>
   </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">

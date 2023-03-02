@@ -970,7 +970,7 @@
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>التحميل إلى</value>
   </data>
-  <data name="PackagesPage_Filter" xml:space="preserve">
+  <data name="Filter" xml:space="preserve">
     <value>جارٍ التصفية...</value>
   </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">

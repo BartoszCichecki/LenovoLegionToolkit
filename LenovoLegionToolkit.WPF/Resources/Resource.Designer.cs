@@ -351,6 +351,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change icon.
+        /// </summary>
+        public static string AutomationPage_ChangeIcon {
+            get {
+                return ResourceManager.GetString("AutomationPage_ChangeIcon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No Quick Actions defined. Click &quot;Add new&quot; to create new Quick Action..
         /// </summary>
         public static string AutomationPage_QuickActions_Empty {
@@ -1824,6 +1833,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Filter....
+        /// </summary>
+        public static string Filter {
+            get {
+                return ResourceManager.GetString("Filter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Turn on the laptop when you open the lid..
         /// </summary>
         public static string FlipToStartAutomationStepControl_Message {
@@ -3153,15 +3171,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string PackagesPage_DownloadTo {
             get {
                 return ResourceManager.GetString("PackagesPage_DownloadTo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Filter....
-        /// </summary>
-        public static string PackagesPage_Filter {
-            get {
-                return ResourceManager.GetString("PackagesPage_Filter", resourceCulture);
             }
         }
         
@@ -4513,6 +4522,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string StatusTrayPopup_UpdateAvailable {
             get {
                 return ResourceManager.GetString("StatusTrayPopup_UpdateAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select icon.
+        /// </summary>
+        public static string SymbolRegularPicker_Title {
+            get {
+                return ResourceManager.GetString("SymbolRegularPicker_Title", resourceCulture);
             }
         }
         

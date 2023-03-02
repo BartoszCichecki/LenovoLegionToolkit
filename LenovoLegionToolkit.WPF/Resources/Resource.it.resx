@@ -984,7 +984,7 @@ Assicurati sempre di installare i pacchetti corretti.</value>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Scarica in</value>
   </data>
-  <data name="PackagesPage_Filter" xml:space="preserve">
+  <data name="Filter" xml:space="preserve">
     <value>Filtra...</value>
   </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">

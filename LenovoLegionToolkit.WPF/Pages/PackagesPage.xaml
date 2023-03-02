@@ -212,7 +212,7 @@
                                 Grid.Column="0"
                                 Icon="Search24"
                                 PlaceholderEnabled="True"
-                                PlaceholderText="{x:Static resources:Resource.PackagesPage_Filter}"
+                                PlaceholderText="{x:Static resources:Resource.Filter}"
                                 TextChanged="FilterTextBox_TextChanged" />
 
                             <CheckBox
