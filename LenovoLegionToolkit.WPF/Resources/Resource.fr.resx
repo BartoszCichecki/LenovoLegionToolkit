@@ -1578,6 +1578,9 @@ ATTENTION : Cette action ne fonctionnera pas correctement, si l'écran interne e
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Tableau de bord personnalisé</value>
   </data>
+  <data name="Load" xml:space="preserve">
+    <value>Réinitialiser</value>
+  </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
     <value>Créer un groupe</value>
   </data>
@@ -1702,6 +1705,15 @@ Ce paramètre ne prend effet que lorsque le mode personnalisé est activé.</val
   </data>
   <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
     <value>La température maximale que peut atteindre le GPU avant que la fréquence et la puissance ne soient réduites.</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Par défaut</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
+    <value>Durée de la limite de puissance à court terme</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau_Description" xml:space="preserve">
+    <value>Le temps pendant lequel le CPU est autorisé à booster et à utiliser la limite de puissance à court terme. Lorsque le temps expire, la limite de puissance à long terme est utilisée.</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
     <value>Objectif de puissance totale du processeur en AC</value>
