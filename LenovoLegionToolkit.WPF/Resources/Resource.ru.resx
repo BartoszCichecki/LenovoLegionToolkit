@@ -1708,6 +1708,15 @@
   <data name="Default" xml:space="preserve">
     <value>По умолчанию</value>
   </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
+    <value>Срок краткосрочного ограничения мощности</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau_Description" xml:space="preserve">
+    <value>Количество времени, в течение которого процессору разрешено увеличивать и использовать краткосрочное ограничение мощности. Когда Тау истекает, используется долгосрочное ограничение мощности.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
+    <value>Точка при которой процессор запускает динамическую регулировку энергопотребления для GPU.</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Создать</value>
   </data>
@@ -1720,11 +1729,20 @@
   <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
 	  <value>Режим питания</value>
   </data>
+  <data name="StatusTrayPopup_Preset" xml:space="preserve">
+	  <value>Пресет</value>
+  </data>
   <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
 	  <value>Дискретный граф. процессор</value>
   </data>
+  <data name="StatusTrayPopup_PowerState" xml:space="preserve">
+	  <value>Состояние питания</value>
+  </data>
   <data name="StatusTrayPopup_Battery" xml:space="preserve">
 	  <value>Батарея</value>
+  </data>
+  <data name="StatusTrayPopup_Mode" xml:space="preserve">
+	  <value>Режим</value>
   </data>
   <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
 	  <value>Мгновенная мощность при разрядке</value>
