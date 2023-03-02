@@ -1703,6 +1703,12 @@ Ce paramètre ne prend effet que lorsque le mode personnalisé est activé.</val
   <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
     <value>La température maximale que peut atteindre le GPU avant que la fréquence et la puissance ne soient réduites.</value>
   </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
+    <value>Objectif de puissance totale du processeur en AC</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
+    <value>Le moment à partir duquel le CPU déclenche l'ajustement dynamique de la consommation d'énergie pour le GPU.</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Créer</value>
   </data>
@@ -1715,11 +1721,20 @@ Ce paramètre ne prend effet que lorsque le mode personnalisé est activé.</val
   <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
 	  <value>Mode d'alimentation</value>
   </data>
+  <data name="StatusTrayPopup_Preset" xml:space="preserve">
+	  <value>Préréglage</value>
+  </data>
   <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
 	  <value>GPU dédié</value>
   </data>
+  <data name="StatusTrayPopup_PowerState" xml:space="preserve">
+	  <value>Etat d'alimentation</value>
+  </data>
   <data name="StatusTrayPopup_Battery" xml:space="preserve">
 	  <value>Batterie</value>
+  </data>
+  <data name="StatusTrayPopup_Mode" xml:space="preserve">
+	  <value>Mode</value>
   </data>
   <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
 	  <value>Vitesse de charge/décharge</value>
