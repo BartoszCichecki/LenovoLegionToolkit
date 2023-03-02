@@ -53,8 +53,17 @@ public partial class MainWindow
 
         _trayIcon.TrayToolTip = new StatusTrayPopup();
         _trayIcon.TrayToolTipResolved.Style = null;
+        _trayIcon.TrayToolTipResolved.VerticalOffset = -8;
+
+        _trayIcon.ToolTipText = Resource.AppName;
 
         _trayIcon.ContextMenu = _contextMenuHelper.ContextMenu;
+        _trayIcon.TrayContextMenuOpen += (_, _) =>
+        {
+            if (_trayIcon.TrayToolTipResolved is { } tooltip)
+                tooltip.IsOpen = false;
+        };
+
         _trayIcon.TrayLeftMouseUp += (_, _) => BringToForeground();
     }
 

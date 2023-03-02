@@ -11,6 +11,7 @@ using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Utils;
 using Wpf.Ui.Common;
+using Application = System.Windows.Application;
 
 namespace LenovoLegionToolkit.WPF.Controls;
 
@@ -80,7 +81,11 @@ public partial class StatusTrayPopup
                 return;
 
             if (!t.IsCompletedSuccessfully)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Failed to refresh Power Mode.", t.Exception?.InnerException);
                 return;
+            }
 
             var powerMode = t.Result;
             _powerModeValueLabel.Content = powerMode.GetDisplayName();
@@ -113,7 +118,11 @@ public partial class StatusTrayPopup
                 return;
 
             if (!t.IsCompletedSuccessfully)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Failed to refresh Discrete GPU.", t.Exception?.InnerException);
                 return;
+            }
 
             var status = t.Result;
 
@@ -137,7 +146,11 @@ public partial class StatusTrayPopup
                 return;
 
             if (!t.IsCompletedSuccessfully)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Failed to refresh battery.", t.Exception?.InnerException);
                 return;
+            }
 
             var batteryInfo = batteryInformationTask.Result;
             var batteryState = batteryStateTask.Result;
@@ -180,6 +193,7 @@ public partial class StatusTrayPopup
 
             var hasUpdate = t.Result is not null;
             _updateIndicator.Visibility = hasUpdate ? Visibility.Visible : Visibility.Collapsed;
+            _updateIndicator.Visibility = Visibility.Collapsed;
         }, TaskScheduler.FromCurrentSynchronizationContext());
     }
 }

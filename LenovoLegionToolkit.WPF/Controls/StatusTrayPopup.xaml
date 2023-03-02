@@ -22,7 +22,7 @@
     <Border
         Background="{DynamicResource SystemFillColorSolidNeutralBackgroundBrush}"
         BorderBrush="{DynamicResource MenuBorderColorDefaultBrush}"
-        BorderThickness="1"
+        BorderThickness="0.5"
         CornerRadius="8">
         <StackPanel>
 
