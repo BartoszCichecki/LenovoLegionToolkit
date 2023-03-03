@@ -49,6 +49,7 @@ public static class Battery
             DesignCapacity = (int)information.DesignedCapacity,
             FullChargeCapacity = (int)information.FullChargedCapacity,
             CycleCount = (int)information.CycleCount,
+            IsLowBattery = powerStatus.ACLineStatus == 0 && information.DefaultAlert2 >= status.Capacity,
             BatteryTemperatureC = temperatureC,
             ManufactureDate = manufactureDate,
             FirstUseDate = firstUseDate

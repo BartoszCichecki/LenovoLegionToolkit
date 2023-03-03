@@ -22,6 +22,7 @@ public readonly struct BatteryInformation
     public int DesignCapacity { get; init; }
     public int FullChargeCapacity { get; init; }
     public int CycleCount { get; init; }
+    public bool IsLowBattery { get; init; }
     public double? BatteryTemperatureC { get; init; }
     public DateTime? ManufactureDate { get; init; }
     public DateTime? FirstUseDate { get; init; }

@@ -69,6 +69,7 @@ public partial class StatusTrayPopup
 
         _batteryIcon.Symbol = SymbolRegular.Battery024;
         _batteryValueLabel.Content = null;
+        _batteryValueLabel.SetResourceReference(ForegroundProperty, "TextFillColorPrimaryBrush");
         _batteryModeValueLabel.Content = null;
         _batteryDischargeValueLabel.Content = null;
 
@@ -181,6 +182,9 @@ public partial class StatusTrayPopup
 
             if (batteryInfo.IsCharging)
                 symbol = batteryState == BatteryState.Conservation ? SymbolRegular.BatterySaver24 : SymbolRegular.BatteryCharge24;
+
+            if (batteryInfo.IsLowBattery)
+                _batteryValueLabel.SetResourceReference(ForegroundProperty, "SystemFillColorCautionBrush");
 
             _batteryIcon.Symbol = symbol;
             _batteryValueLabel.Content = $"{batteryInfo.BatteryPercentage}%";

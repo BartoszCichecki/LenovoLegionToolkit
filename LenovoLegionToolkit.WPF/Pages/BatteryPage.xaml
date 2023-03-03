@@ -40,6 +40,13 @@
                     FontWeight="Medium"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
                 <TextBlock
+                    x:Name="_lowBattery"
+                    Margin="0,0,0,2"
+                    FontSize="14"
+                    Foreground="{DynamicResource SystemFillColorCautionBrush}"
+                    Text="{x:Static resources:Resource.BatteryPage_LowLevel}"
+                    Visibility="Hidden" />
+                <TextBlock
                     x:Name="_lowWattageCharger"
                     FontSize="14"
                     Foreground="{DynamicResource SystemFillColorCautionBrush}"
