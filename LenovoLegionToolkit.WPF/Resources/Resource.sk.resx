@@ -994,9 +994,6 @@ Vždy sa uistite, že inštalujete správne balíky.</value>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Stiahnuť do</value>
   </data>
-  <data name="Filter" xml:space="preserve">
-    <value>Filter...</value>
-  </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
     <value>Typ zariadenia</value>
   </data>
