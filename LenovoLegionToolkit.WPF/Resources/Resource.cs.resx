@@ -995,9 +995,6 @@ Vždy se ujisti, že instaluješ správné balíčky.</value>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Stáhnout do</value>
   </data>
-  <data name="Filter" xml:space="preserve">
-    <value>Filtr...</value>
-  </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
     <value>Typ zařízení</value>
   </data>
