@@ -992,9 +992,6 @@
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Завантажити до</value>
   </data>
-  <data name="Filter" xml:space="preserve">
-    <value>Фільтр...</value>
-  </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
     <value>Тип пристроя</value>
   </data>
