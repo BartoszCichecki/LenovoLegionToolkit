@@ -989,9 +989,6 @@ Confirma sempre que estás a instalar o pacotes corretos.</value>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Transferir para</value>
   </data>
-  <data name="Filter" xml:space="preserve">
-    <value>Filtro...</value>
-  </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
     <value>Tipo de Dispositivo</value>
   </data>
