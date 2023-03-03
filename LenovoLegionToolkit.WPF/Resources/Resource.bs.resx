@@ -589,9 +589,6 @@ Uvijek provjerite da li instalirate ispravne pakete.</value>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Preuzmite na</value>
   </data>
-  <data name="Filter" xml:space="preserve">
-    <value>Filtriraj...</value>
-  </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
     <value>Tip uređaja</value>
   </data>
