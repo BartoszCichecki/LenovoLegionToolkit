@@ -995,9 +995,6 @@ Sempre certifique-se de estar instalando os pacotes corretos.</value>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Salvar em</value>
   </data>
-  <data name="Filter" xml:space="preserve">
-    <value>Filtro...</value>
-  </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
     <value>Tipo de máquina</value>
   </data>
