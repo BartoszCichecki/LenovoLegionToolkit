@@ -1435,7 +1435,7 @@ ESLETPE: Eger ishki displey óshirilgen bolsa, bul ámel durıs orınlanbaydı.<
     <value>Arqa jaqtılıqtı qosıw yamasa óshiriw.</value>
   </data>
   <data name="PackagesPage_NoMatchingDownloads" xml:space="preserve">
-    <value>Mas júklemeler tabılmadı</value>
+    <value>Sáykes júklemeler tabılmadı</value>
   </data>
   <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
     <value>Tek jańalanıwlardı kórsetiw</value>
