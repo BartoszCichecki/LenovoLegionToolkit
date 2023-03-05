@@ -992,6 +992,9 @@
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Завантажити до</value>
   </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Фільтр...</value>
+  </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
     <value>Тип пристроя</value>
   </data>
@@ -1001,8 +1004,14 @@
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Початкове (рекомендовано)</value>
   </data>
+  <data name="PackagesPage_PrimarySource_Message" xml:space="preserve">
+    <value>Те саме, що й в Lenovo Vantage</value>
+  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Додаткове</value>
+  </data>
+  <data name="PackagesPage_SecondarySource_Message" xml:space="preserve">
+    <value>Те саме, що й в підтримці ПК Lenovo</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Категорія</value>
@@ -1696,6 +1705,18 @@
   <data name="Default" xml:space="preserve">
     <value>За замовчуванням</value>
   </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
+    <value>Короткострокове обмеження потужності</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau_Description" xml:space="preserve">
+    <value>Кількість доступного часу для ЦП для прискорення і використання короткострокового обмеження потужності. Коли Tau закінчується, довгострокове обмеження буде використане.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
+    <value>Загальна потужність ЦП в змінному струмі</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
+    <value>Точка з якої ЦП запускає динамічне регулювання енергоспоживання ГП.</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Створити</value>
   </data>
@@ -1708,16 +1729,34 @@
   <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
 	  <value>Режим живлення</value>
   </data>
+  <data name="StatusTrayPopup_Preset" xml:space="preserve">
+	  <value>Шаблон</value>
+  </data>
   <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
 	  <value>Дискретна ГП</value>
   </data>
+  <data name="StatusTrayPopup_PowerState" xml:space="preserve">
+	  <value>Стан живлення</value>
+  </data>
   <data name="StatusTrayPopup_Battery" xml:space="preserve">
 	  <value>Батарея</value>
+  </data>
+  <data name="StatusTrayPopup_Mode" xml:space="preserve">
+	  <value>Режим</value>
   </data>
   <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
 	  <value>Швидкість розряджання</value>
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
 	  <value>Доступне оновлення!</value>
+  </data>
+  <data name="SymbolRegularPicker_Title" xml:space="preserve">
+	  <value>Вибрати іконку</value>
+  </data>
+  <data name="AutomationPage_ChangeIcon" xml:space="preserve">
+	  <value>Змінити іконку</value>
+  </data>
+  <data name="BatteryPage_LowLevel" xml:space="preserve">
+	  <value>Низький рівень заряду батареї</value>
   </data>
 </root>
