@@ -995,6 +995,9 @@
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Место загрузки</value>
   </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Фильтр...</value>
+  </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
     <value>Тип модели устройства</value>
   </data>
@@ -1711,6 +1714,9 @@
   <data name="GodModeSettingsWindow_CPU_PL1Tau_Description" xml:space="preserve">
     <value>Количество времени, в течение которого процессору разрешено увеличивать и использовать краткосрочное ограничение мощности. Когда Тау истекает, используется долгосрочное ограничение мощности.</value>
   </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
+    <value>Общая целевая мощность процессора в сети переменного тока</value>
+  </data>
   <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
     <value>Точка при которой процессор запускает динамическую регулировку энергопотребления для GPU.</value>
   </data>
@@ -1746,5 +1752,14 @@
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
 	  <value>Доступно обновление!</value>
+  </data>
+  <data name="SymbolRegularPicker_Title" xml:space="preserve">
+	  <value>Выбрать значок</value>
+  </data>
+  <data name="AutomationPage_ChangeIcon" xml:space="preserve">
+	  <value>Изменить значок</value>
+  </data>
+  <data name="BatteryPage_LowLevel" xml:space="preserve">
+	  <value>Низкий уровень заряда батареи</value>
   </data>
 </root>
