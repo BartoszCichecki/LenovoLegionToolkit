@@ -110,4 +110,9 @@ MonitorFromPoint
 GetMonitorInfoW
 GetDpiForMonitor
 
+HKEY_CURRENT_USER
+
+RegOpenKey
+RegNotifyChangeKeyValue
+
 SendMessage
