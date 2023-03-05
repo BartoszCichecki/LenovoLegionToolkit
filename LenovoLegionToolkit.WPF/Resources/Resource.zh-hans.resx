@@ -1001,9 +1001,6 @@
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>下载到</value>
   </data>
-  <data name="Filter" xml:space="preserve">
-    <value>搜索...</value>
-  </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
     <value>设备代号</value>
   </data>

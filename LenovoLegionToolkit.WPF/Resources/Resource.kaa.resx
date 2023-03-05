@@ -835,11 +835,11 @@ DIQQAT: Eger ishki displey óshirilgen bolsa, bul háreket durıs orınlanbaydı
     <value>Caps Lock hám Num Lock</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>Fn túymesiniń mikrofon dawısın óshiriw sıyaqlı háreketleri haqqındaǵı xabarnamalardı óshiredi
+    <value>Fn túymesiniń mikrofon dawısın óshiriw sıyaqlı háreketleri haqqındaǵı xabarlamalardı óshiredi
 Eger de tolıq ekranlı baǵdarlamalar menen mashqalalar bolsa, bul varianttı qosıń.</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
-    <value>Xabarnamalardı kórsetpew</value>
+    <value>Xabarlamalardı kórsetpew</value>
   </data>
   <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
     <value>Fn Lock</value>
@@ -863,7 +863,7 @@ Eger de tolıq ekranlı baǵdarlamalar menen mashqalalar bolsa, bul varianttı q
     <value>Aqıllı túyme</value>
   </data>
   <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
-    <value>Xabarnamalar</value>
+    <value>Xabarlamalar</value>
   </data>
   <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
     <value>Sensorlı panel bloklanıwı</value>
@@ -928,9 +928,6 @@ Durıs paketlerdi ornatıp atırǵanıńızǵa isenim kámil etiń.</value>
   </data>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Júklew ornı</value>
-  </data>
-  <data name="PackagesPage_Filter" xml:space="preserve">
-    <value>Filtr...</value>
   </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
     <value>Qurılma modeliniń túri</value>
@@ -1178,10 +1175,10 @@ Bul varianttı ózgertkennen keyin, qayta iske túsiriw usınıs etiledi.</value
     <value>Til</value>
   </data>
   <data name="SettingsPage_Notifications_Message" xml:space="preserve">
-    <value>Qanday xabarnamalar kórsetiliwin sazlań.</value>
+    <value>Qanday xabarlamalar kórsetiliwin sazlań.</value>
   </data>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
-    <value>Xabarnamalar</value>
+    <value>Xabarlamalar</value>
   </data>
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Quwatlıq jobaları</value>
@@ -1438,7 +1435,7 @@ ESLETPE: Eger ishki displey óshirilgen bolsa, bul ámel durıs orınlanbaydı.<
     <value>Arqa jaqtılıqtı qosıw yamasa óshiriw.</value>
   </data>
   <data name="PackagesPage_NoMatchingDownloads" xml:space="preserve">
-    <value>Mas júklemeler tabılmadı</value>
+    <value>Sáykes júklemeler tabılmadı</value>
   </data>
   <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
     <value>Tek jańalanıwlardı kórsetiw</value>
