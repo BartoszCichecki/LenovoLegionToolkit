@@ -994,6 +994,9 @@ Vždy sa uistite, že inštalujete správne balíky.</value>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Stiahnuť do</value>
   </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filter...</value>
+  </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
     <value>Typ zariadenia</value>
   </data>
@@ -1704,6 +1707,9 @@ Nastavenia sú účinne len keď je povolený vlastný režim.</value>
   <data name="Default" xml:space="preserve">
     <value>Predvolený</value>
   </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
+    <value>Dĺžka krátkodobého obmedzenia výkonu</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Vytvoriť</value>
   </data>
@@ -1716,16 +1722,34 @@ Nastavenia sú účinne len keď je povolený vlastný režim.</value>
   <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
 	  <value>Režim výkonu</value>
   </data>
+  <data name="StatusTrayPopup_Preset" xml:space="preserve">
+	  <value>Predvoľba</value>
+  </data>
   <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
 	  <value>Dedikovaná GPU</value>
   </data>
+  <data name="StatusTrayPopup_PowerState" xml:space="preserve">
+	  <value>Stav napájania</value>
+  </data>
   <data name="StatusTrayPopup_Battery" xml:space="preserve">
 	  <value>Batéria</value>
+  </data>
+  <data name="StatusTrayPopup_Mode" xml:space="preserve">
+	  <value>Režim</value>
   </data>
   <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
 	  <value>Rýchlosť vybíjania</value>
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
 	  <value>Aktualizácia k dispozícii!</value>
+  </data>
+  <data name="SymbolRegularPicker_Title" xml:space="preserve">
+	  <value>Vybrať ikonu</value>
+  </data>
+  <data name="AutomationPage_ChangeIcon" xml:space="preserve">
+	  <value>Zmeniť ikonu</value>
+  </data>
+  <data name="BatteryPage_LowLevel" xml:space="preserve">
+	  <value>Úroveň batérie nízka</value>
   </data>
 </root>
