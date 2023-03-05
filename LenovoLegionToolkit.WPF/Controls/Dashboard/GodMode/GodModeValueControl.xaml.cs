@@ -94,7 +94,7 @@ public partial class GodModeValueControl
             _comboBox.Visibility = Visibility.Collapsed;
 
             _slider.Minimum = value.Min;
-            _slider.Maximum = value.Max + (maxValueOffset ?? 0);
+            _slider.Maximum = value.Max;
             _slider.TickFrequency = value.Step;
             _slider.Value = value.Value;
 

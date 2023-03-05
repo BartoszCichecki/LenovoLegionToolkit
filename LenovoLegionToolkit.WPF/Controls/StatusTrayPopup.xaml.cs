@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Controllers.GodMode;
@@ -58,6 +59,7 @@ public partial class StatusTrayPopup
     private void Clear()
     {
         _powerModePresetValueLabel.Content = null;
+        _powerModeValueIndicator.Fill = null;
         _powerModePresetLabel.Visibility = Visibility.Collapsed;
         _powerModePresetValueLabel.Visibility = Visibility.Collapsed;
 
@@ -67,6 +69,7 @@ public partial class StatusTrayPopup
 
         _batteryIcon.Symbol = SymbolRegular.Battery024;
         _batteryValueLabel.Content = null;
+        _batteryValueLabel.SetResourceReference(ForegroundProperty, "TextFillColorPrimaryBrush");
         _batteryModeValueLabel.Content = null;
         _batteryDischargeValueLabel.Content = null;
 
@@ -89,6 +92,13 @@ public partial class StatusTrayPopup
 
             var powerMode = t.Result;
             _powerModeValueLabel.Content = powerMode.GetDisplayName();
+            _powerModeValueIndicator.Fill = new SolidColorBrush(powerMode switch
+            {
+                PowerModeState.Quiet => Color.FromRgb(53, 123, 242),
+                PowerModeState.Performance => Color.FromRgb(212, 51, 51),
+                PowerModeState.GodMode => Color.FromRgb(99, 52, 227),
+                _ => Colors.White
+            });
 
             if (powerMode != PowerModeState.GodMode)
             {
@@ -172,6 +182,9 @@ public partial class StatusTrayPopup
 
             if (batteryInfo.IsCharging)
                 symbol = batteryState == BatteryState.Conservation ? SymbolRegular.BatterySaver24 : SymbolRegular.BatteryCharge24;
+
+            if (batteryInfo.IsLowBattery)
+                _batteryValueLabel.SetResourceReference(ForegroundProperty, "SystemFillColorCautionBrush");
 
             _batteryIcon.Symbol = symbol;
             _batteryValueLabel.Content = $"{batteryInfo.BatteryPercentage}%";

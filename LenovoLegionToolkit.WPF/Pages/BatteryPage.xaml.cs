@@ -100,7 +100,8 @@ public partial class BatteryPage
 
         _percentRemaining.Text = $"{batteryInfo.BatteryPercentage}%";
         _status.Text = GetStatusText(batteryInfo);
-        _lowWattageCharger.Visibility = powerAdapterStatus == PowerAdapterStatus.ConnectedLowWattage ? Visibility.Visible : Visibility.Hidden;
+        _lowBattery.Visibility = batteryInfo.IsLowBattery ? Visibility.Visible : Visibility.Collapsed;
+        _lowWattageCharger.Visibility = powerAdapterStatus == PowerAdapterStatus.ConnectedLowWattage ? Visibility.Visible : Visibility.Collapsed;
 
         if (batteryInfo.BatteryTemperatureC is not null)
             _batteryTemperatureText.Text = GetTemperatureText(batteryInfo.BatteryTemperatureC);

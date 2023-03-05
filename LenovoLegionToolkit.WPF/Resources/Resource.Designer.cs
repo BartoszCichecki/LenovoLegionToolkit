@@ -837,6 +837,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Battery level low.
+        /// </summary>
+        public static string BatteryPage_LowLevel {
+            get {
+                return ResourceManager.GetString("BatteryPage_LowLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Low wattage charger connected.
         /// </summary>
         public static string BatteryPage_LowWattageChargerConnected {

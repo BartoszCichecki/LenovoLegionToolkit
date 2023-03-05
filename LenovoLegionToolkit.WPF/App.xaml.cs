@@ -42,6 +42,8 @@ public partial class App
 
     private async void Application_Startup(object sender, StartupEventArgs e)
     {
+        AppDomain.CurrentDomain.UnhandledException += AppDomain_UnhandledException;
+
         EnsureSingleInstance();
 
         await LocalizationHelper.SetLanguageAsync(true);
@@ -177,10 +179,24 @@ public partial class App
         Shutdown();
     }
 
+    private void AppDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+    {
+        var exception = e.ExceptionObject as Exception;
+
+        Log.Instance.ErrorReport(exception ?? new Exception($"Unknown exception caught: {e.ExceptionObject}"));
+        Log.Instance.Trace($"Unhandled exception occurred.", exception);
+
+        MessageBox.Show(string.Format(Resource.UnexpectedException, exception?.Message ?? "Unknown exception.", Constants.BugReportUri),
+            "Error",
+            MessageBoxButton.OK,
+            MessageBoxImage.Error);
+        Shutdown(1);
+    }
+
     private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
     {
-        Log.Instance.Trace($"Unhandled exception occurred.", e.Exception);
         Log.Instance.ErrorReport(e.Exception);
+        Log.Instance.Trace($"Unhandled exception occurred.", e.Exception);
 
         MessageBox.Show(string.Format(Resource.UnexpectedException, e.Exception.Message, Constants.BugReportUri),
             "Error",

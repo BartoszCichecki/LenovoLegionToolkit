@@ -1759,4 +1759,7 @@ This settings takes effect only when Custom Mode is enabled.</value>
   <data name="AutomationPage_ChangeIcon" xml:space="preserve">
 	  <value>Change icon</value>
   </data>
+  <data name="BatteryPage_LowLevel" xml:space="preserve">
+	  <value>Battery level low</value>
+  </data>
 </root>
