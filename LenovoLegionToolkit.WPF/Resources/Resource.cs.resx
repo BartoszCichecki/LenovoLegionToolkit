@@ -995,6 +995,9 @@ Vždy se ujisti, že instaluješ správné balíčky.</value>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Stáhnout do</value>
   </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filtr...</value>
+  </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
     <value>Typ zařízení</value>
   </data>
@@ -1574,6 +1577,9 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je interní displej vypnutý.
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Přizpůsobit přehled</value>
   </data>
+  <data name="Load" xml:space="preserve">
+    <value>Resetovat</value>
+  </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
     <value>Vytvořit skupinu</value>
   </data>
@@ -1699,6 +1705,21 @@ Toto nastavení se aplikuje jen když je zapnutý vlastní režim.</value>
   <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
     <value>Maximalní teplota GPU předtím, než se limituje frekvence a spotřeba.</value>
   </data>
+  <data name="Default" xml:space="preserve">
+    <value>Výchozí</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
+    <value>Doba krátkodobého limitu výkonu</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau_Description" xml:space="preserve">
+    <value>Doba, po kterou může CPU zvýšit a používat krátkodobý limit výkonu. Když čas vyprší, použije se dlouhodobý limit výkonu.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
+    <value>Cíl celkového výkonu procesoru v AC</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
+    <value>Bod, ve kterém CPU spouští dynamickou úpravu spotřeby energie pro GPU.</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Vytvořit</value>
   </data>
@@ -1711,16 +1732,34 @@ Toto nastavení se aplikuje jen když je zapnutý vlastní režim.</value>
   <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
 	  <value>Režim výkonu</value>
   </data>
+  <data name="StatusTrayPopup_Preset" xml:space="preserve">
+	  <value>Předvolba</value>
+  </data>
   <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
 	  <value>Dedikované GPU</value>
   </data>
+  <data name="StatusTrayPopup_PowerState" xml:space="preserve">
+	  <value>Stav napájení</value>
+  </data>
   <data name="StatusTrayPopup_Battery" xml:space="preserve">
 	  <value>Baterie</value>
+  </data>
+  <data name="StatusTrayPopup_Mode" xml:space="preserve">
+	  <value>Režim</value>
   </data>
   <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
 	  <value>Rychlost vybíjení</value>
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
 	  <value>Aktualizace k dispozici!</value>
+  </data>
+  <data name="SymbolRegularPicker_Title" xml:space="preserve">
+	  <value>Zvol ikonu</value>
+  </data>
+  <data name="AutomationPage_ChangeIcon" xml:space="preserve">
+	  <value>Změnit ikonu</value>
+  </data>
+  <data name="BatteryPage_LowLevel" xml:space="preserve">
+	  <value>Baterie je slabá</value>
   </data>
 </root>
