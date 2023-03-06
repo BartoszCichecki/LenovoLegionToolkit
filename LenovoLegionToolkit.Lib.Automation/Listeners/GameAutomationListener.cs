@@ -11,16 +11,29 @@ namespace LenovoLegionToolkit.Lib.Automation.Listeners;
 
 public class GameAutomationListener : IListener<bool>
 {
+    private class ProcessEqualityComparer : IEqualityComparer<Process>
+    {
+        public bool Equals(Process? x, Process? y)
+        {
+            if (ReferenceEquals(x, y)) return true;
+            if (ReferenceEquals(x, null)) return false;
+            if (ReferenceEquals(y, null)) return false;
+            if (x.GetType() != y.GetType()) return false;
+            return x.Id == y.Id;
+        }
+
+        public int GetHashCode(Process obj) => obj.Id;
+    }
+
     private static readonly object _lock = new();
 
     public event EventHandler<bool>? Changed;
 
     private readonly GameDetector _gameDetector;
     private readonly InstanceEventListener _instanceCreationListener;
-    private readonly InstanceEventListener _instanceDeletionListener;
 
     private readonly HashSet<ProcessInfo> _detectedGamePathsCache = new();
-    private readonly HashSet<int> _runningGamesCache = new();
+    private readonly HashSet<Process> _processCache = new(new ProcessEqualityComparer());
 
     public GameAutomationListener()
     {
@@ -29,9 +42,6 @@ public class GameAutomationListener : IListener<bool>
 
         _instanceCreationListener = new InstanceEventListener(ProcessEventInfoType.Started, "Win32_ProcessStartTrace");
         _instanceCreationListener.Changed += InstanceCreationListener_Changed;
-
-        _instanceDeletionListener = new InstanceEventListener(ProcessEventInfoType.Stopped, "Win32_ProcessStopTrace");
-        _instanceDeletionListener.Changed += InstanceDeletionListener_Changed;
     }
 
     public async Task StartAsync()
@@ -45,7 +55,6 @@ public class GameAutomationListener : IListener<bool>
         await _gameDetector.StartAsync().ConfigureAwait(false);
 
         await _instanceCreationListener.StartAsync().ConfigureAwait(false);
-        await _instanceDeletionListener.StartAsync().ConfigureAwait(false);
     }
 
     public async Task StopAsync()
@@ -53,12 +62,14 @@ public class GameAutomationListener : IListener<bool>
         await _gameDetector.StopAsync().ConfigureAwait(false);
 
         await _instanceCreationListener.StopAsync().ConfigureAwait(false);
-        await _instanceDeletionListener.StopAsync().ConfigureAwait(false);
 
         lock (_lock)
         {
+            foreach (var process in _processCache)
+                Detach(process);
+
+            _processCache.Clear();
             _detectedGamePathsCache.Clear();
-            _runningGamesCache.Clear();
         }
     }
 
@@ -67,13 +78,11 @@ public class GameAutomationListener : IListener<bool>
         lock (_lock)
         {
             _detectedGamePathsCache.Clear();
-            foreach (var game in e.Games)
-                _detectedGamePathsCache.Add(game);
-
-            var foundRunning = false;
 
             foreach (var game in e.Games)
             {
+                _detectedGamePathsCache.Add(game);
+
                 foreach (var process in Process.GetProcessesByName(game.Name))
                 {
                     try
@@ -82,8 +91,13 @@ public class GameAutomationListener : IListener<bool>
                         if (game.ExecutablePath is null || !game.ExecutablePath.Equals(processPath, StringComparison.CurrentCultureIgnoreCase))
                             continue;
 
-                        _runningGamesCache.Add(process.Id);
-                        foundRunning = true;
+                        if (!_processCache.Contains(process))
+                        {
+                            Attach(process);
+                            _processCache.Add(process);
+                        }
+
+                        Changed?.Invoke(this, true);
                     }
                     catch (Exception)
                     {
@@ -92,11 +106,6 @@ public class GameAutomationListener : IListener<bool>
                     }
                 }
             }
-
-            if (!foundRunning)
-                return;
-
-            Changed?.Invoke(this, true);
         }
     }
 
@@ -110,62 +119,79 @@ public class GameAutomationListener : IListener<bool>
             if (!_detectedGamePathsCache.Any(p => e.processName.Equals(p.Name, StringComparison.CurrentCultureIgnoreCase)))
                 return;
 
-            string? processPath = null;
             try
             {
-                processPath = Process.GetProcessById(e.processId).MainModule?.FileName;
+                var process = Process.GetProcessById(e.processId);
+                var processPath = process.MainModule?.FileName;
+
+                if (processPath is null)
+                    return;
+
+                var processInfo = ProcessInfo.FromPath(processPath);
+                if (!_detectedGamePathsCache.Contains(processInfo))
+                    return;
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Game {processInfo} is running. [processId={e.processId}]");
+
+                Attach(process);
+                _processCache.Add(process);
+
+                Changed?.Invoke(this, true);
             }
             catch (Exception)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Can't get process {e.processName} details.");
+                    Log.Instance.Trace($"Can't get process {e.processName} details. [processId={e.processId}]");
             }
-
-            if (processPath is null)
-                return;
-
-            var processInfo = ProcessInfo.FromPath(processPath);
-            if (!_detectedGamePathsCache.Contains(processInfo))
-                return;
-
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Game {processInfo} is running. [processId={e.processId}]");
-
-            _runningGamesCache.Add(e.processId);
-
-            if (_runningGamesCache.Count > 1)
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Notify for game {processInfo} skipped. Total of {_runningGamesCache.Count} games are running. [processId={e.processId}]");
-
-                return;
-            }
-
-            Changed?.Invoke(this, true);
         }
     }
 
+    private void Attach(Process process)
+    {
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Attaching to process {process.Id}...");
 
-    private void InstanceDeletionListener_Changed(object? sender, (ProcessEventInfoType type, int processId, string processName) e)
+        process.EnableRaisingEvents = true;
+        process.Exited += Process_Exited;
+    }
+
+    private void Detach(Process process)
+    {
+        process.EnableRaisingEvents = false;
+        process.Exited -= Process_Exited;
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Detached from process {process.Id}.");
+    }
+
+    private void Process_Exited(object? o, EventArgs args)
     {
         lock (_lock)
         {
-            if (e.processId < 0)
-                return;
-
-            if (!_runningGamesCache.Remove(e.processId))
+            if (o is not Process process)
                 return;
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Game with process ID {e.processId} stopped.");
+                Log.Instance.Trace($"Process {process.Id} exited.");
 
-            if (_runningGamesCache.Count > 0)
+            var staleProcesses = _processCache.RemoveWhere(p => p.HasExited);
+            if (staleProcesses > 1)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Notify for game with process ID {e.processId} skipped. Total of {_runningGamesCache.Count} games are running. [processId={e.processId}]");
+                    Log.Instance.Trace($"Removed {staleProcesses} stale processes.");
+            }
+
+            if (_processCache.Any())
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"More games are running...");
 
                 return;
             }
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"No more games are running.");
 
             Changed?.Invoke(this, false);
         }
