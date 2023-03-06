@@ -3,7 +3,6 @@ using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Controllers.GodMode;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
-using LenovoLegionToolkit.Lib.GameDetection;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.PackageDownloader;
 using LenovoLegionToolkit.Lib.Settings;
@@ -103,8 +102,6 @@ public class IoCModule : Module
         builder.Register<PCSupportPackageDownloader>();
         builder.Register<VantagePackageDownloader>();
         builder.Register<PackageDownloaderFactory>();
-
-        builder.Register<GameDetector>();
 
         builder.Register<SunriseSunset>();
     }

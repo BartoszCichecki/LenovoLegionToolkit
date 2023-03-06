@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
@@ -10,20 +9,20 @@ using Windows.Win32;
 using Windows.Win32.Foundation;
 using Windows.Win32.System.Registry;
 
-namespace LenovoLegionToolkit.Lib.GameDetection;
+namespace LenovoLegionToolkit.Lib.Automation.GameDetection;
 
-public class GameDetector
+internal class GameDetector
 {
     private const string GAME_CONFIG_STORE_PATH = @"System\GameConfigStore\Children";
     private const string MATCHED_EXE_FULL_PATH_KEY_NAME = "MatchedExeFullPath";
 
     public class GameDetectedEventArgs : EventArgs
     {
-        public HashSet<string> Paths { get; }
+        public HashSet<string> GamePaths { get; }
 
-        public GameDetectedEventArgs(HashSet<string> paths)
+        public GameDetectedEventArgs(HashSet<string> gamePaths)
         {
-            Paths = paths;
+            GamePaths = gamePaths;
         }
     }
 
@@ -52,7 +51,7 @@ public class GameDetector
         _listenTask = null;
     }
 
-    public HashSet<string> GetDetectedGamePaths()
+    public static HashSet<string> GetDetectedGamePaths()
     {
         var result = new HashSet<string>();
 
@@ -98,7 +97,7 @@ public class GameDetector
 
                 var newPaths = GetDetectedGamePaths();
 
-                if (newPaths.Except(lastPaths, StringComparer.CurrentCultureIgnoreCase).Any())
+                if (!newPaths.SetEquals(lastPaths))
                     GamesDetected?.Invoke(this, new(newPaths));
 
                 lastPaths = newPaths;
