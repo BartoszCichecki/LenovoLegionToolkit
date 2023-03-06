@@ -18,11 +18,11 @@ internal class GameDetector
 
     public class GameDetectedEventArgs : EventArgs
     {
-        public HashSet<string> GamePaths { get; }
+        public HashSet<ProcessInfo> Games { get; }
 
-        public GameDetectedEventArgs(HashSet<string> gamePaths)
+        public GameDetectedEventArgs(HashSet<ProcessInfo> games)
         {
-            GamePaths = gamePaths;
+            Games = games;
         }
     }
 
@@ -51,12 +51,24 @@ internal class GameDetector
         _listenTask = null;
     }
 
-    public static HashSet<string> GetDetectedGamePaths()
+    public static HashSet<ProcessInfo> GetDetectedGamePaths()
     {
-        var result = new HashSet<string>();
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Finding detected games...");
+
+        var result = new HashSet<ProcessInfo>();
 
         var key = Registry.CurrentUser.OpenSubKey(GAME_CONFIG_STORE_PATH);
-        var subKeyNames = key?.GetSubKeyNames() ?? Array.Empty<string>();
+
+        if (key is null)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Couldn't open {GAME_CONFIG_STORE_PATH} key.");
+
+            return new();
+        }
+
+        var subKeyNames = key.GetSubKeyNames();
 
         foreach (var subKeyName in subKeyNames)
         {
@@ -64,7 +76,14 @@ internal class GameDetector
             if (exePath is null)
                 continue;
 
-            result.Add(exePath);
+            result.Add(ProcessInfo.FromPath(exePath));
+        }
+
+        if (Log.Instance.IsTraceEnabled)
+        {
+            Log.Instance.Trace($"Detected games:");
+            foreach (var r in result)
+                Log.Instance.Trace($" - {r}");
         }
 
         return result;
@@ -94,6 +113,9 @@ internal class GameDetector
 
                 WaitHandle.WaitAny(new[] { resetEvent, token.WaitHandle });
                 token.ThrowIfCancellationRequested();
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Games changed.");
 
                 var newPaths = GetDetectedGamePaths();
 

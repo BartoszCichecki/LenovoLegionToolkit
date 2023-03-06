@@ -1,4 +1,5 @@
-﻿using System.Management;
+﻿using System.IO;
+using System.Management;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Listeners;
 
@@ -17,10 +18,10 @@ internal class InstanceEventListener : AbstractWMIListener<(ProcessEventInfoType
     protected override (ProcessEventInfoType, int, string) GetValue(PropertyDataCollection properties)
     {
         var processName = properties["ProcessName"].Value?.ToString() ?? string.Empty;
-        if (!int.TryParse(properties["ProcessID"].Value?.ToString(), out int processID))
-            processID = -1;
+        if (!int.TryParse(properties["ProcessID"].Value?.ToString(), out var processId))
+            processId = -1;
 
-        return (_type, processID, processName);
+        return (_type, processId, Path.GetFileNameWithoutExtension(processName));
     }
 
     protected override Task OnChangedAsync((ProcessEventInfoType, int, string) value) => Task.CompletedTask;

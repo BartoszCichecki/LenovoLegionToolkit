@@ -16,6 +16,11 @@ public readonly struct PowerModeAutomationEvent : IAutomationEvent
     public PowerModeState PowerModeState { get; init; }
 }
 
+public readonly struct GameAutomationEvent : IAutomationEvent
+{
+    public bool Started { get; init; }
+}
+
 public readonly struct ProcessAutomationEvent : IAutomationEvent
 {
     public ProcessEventInfo ProcessEventInfo { get; init; }

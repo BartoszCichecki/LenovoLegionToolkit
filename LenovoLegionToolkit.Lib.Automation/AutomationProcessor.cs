@@ -19,6 +19,7 @@ public class AutomationProcessor
     private readonly NativeWindowsMessageListener _nativeWindowsMessageListener;
     private readonly PowerStateListener _powerStateListener;
     private readonly PowerModeListener _powerModeListener;
+    private readonly GameAutomationListener _gameAutomationListener;
     private readonly ProcessAutomationListener _processListener;
     private readonly TimeAutomationListener _timeListener;
 
@@ -36,6 +37,7 @@ public class AutomationProcessor
         NativeWindowsMessageListener nativeWindowsMessageListener,
         PowerStateListener powerStateListener,
         PowerModeListener powerModeListener,
+        GameAutomationListener gameAutomationListener,
         ProcessAutomationListener processListener,
         TimeAutomationListener timeListener)
     {
@@ -43,6 +45,7 @@ public class AutomationProcessor
         _nativeWindowsMessageListener = nativeWindowsMessageListener ?? throw new ArgumentNullException(nameof(nativeWindowsMessageListener));
         _powerStateListener = powerStateListener ?? throw new ArgumentNullException(nameof(powerStateListener));
         _powerModeListener = powerModeListener ?? throw new ArgumentNullException(nameof(powerModeListener));
+        _gameAutomationListener = gameAutomationListener ?? throw new ArgumentNullException(nameof(gameAutomationListener));
         _processListener = processListener ?? throw new ArgumentNullException(nameof(processListener));
         _timeListener = timeListener ?? throw new ArgumentNullException(nameof(timeListener));
     }
@@ -56,6 +59,7 @@ public class AutomationProcessor
             _nativeWindowsMessageListener.Changed += NativeWindowsMessageListener_Changed;
             _powerStateListener.Changed += PowerStateListener_Changed;
             _powerModeListener.Changed += PowerModeListenerOnChanged;
+            _gameAutomationListener.Changed += GameAutomationListener_Changed;
             _processListener.Changed += ProcessListener_Changed;
             _timeListener.Changed += TimeListener_Changed;
 
@@ -256,6 +260,12 @@ public class AutomationProcessor
         await ProcessEvent(e).ConfigureAwait(false);
     }
 
+    private async void GameAutomationListener_Changed(object? sender, bool started)
+    {
+        var e = new GameAutomationEvent { Started = started };
+        await ProcessEvent(e).ConfigureAwait(false);
+    }
+
     private async void ProcessListener_Changed(object? sender, ProcessEventInfo processEventInfo)
     {
         var e = new ProcessAutomationEvent { ProcessEventInfo = processEventInfo };
@@ -329,6 +339,25 @@ public class AutomationProcessor
         await RunAsync(e).ConfigureAwait(false);
     }
 
+    private async Task ProcessEvent(GameAutomationEvent e)
+    {
+        var potentialMatch = _pipelines.Select(p => p.Trigger)
+            .Where(t => t is not null)
+            .Where(t => t is IGameAutomationPipelineTrigger)
+            .Select(async t => await t!.IsSatisfiedAsync(e).ConfigureAwait(false))
+            .Select(t => t.Result)
+            .Where(t => t)
+            .Any();
+
+        if (!potentialMatch)
+            return;
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Processing game event. [started={e.Started}]");
+
+        await RunAsync(e).ConfigureAwait(false);
+    }
+
     private async Task ProcessEvent(ProcessAutomationEvent e)
     {
         var potentialMatch = _pipelines.Select(p => p.Trigger)
@@ -376,8 +405,9 @@ public class AutomationProcessor
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Stopping listeners...");
 
-        await _timeListener.StopAsync().ConfigureAwait(false);
+        await _gameAutomationListener.StopAsync().ConfigureAwait(false);
         await _processListener.StopAsync().ConfigureAwait(false);
+        await _timeListener.StopAsync().ConfigureAwait(false);
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Stopped listeners...");
@@ -393,6 +423,14 @@ public class AutomationProcessor
             Log.Instance.Trace($"Starting listeners...");
 
         var triggers = _pipelines.Select(p => p.Trigger).ToArray();
+
+        if (triggers.OfType<IGameAutomationPipelineTrigger>().Any())
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Starting process listener...");
+
+            await _gameAutomationListener.StartAsync().ConfigureAwait(false);
+        }
 
         if (triggers.OfType<IProcessesAutomationPipelineTrigger>().Any())
         {

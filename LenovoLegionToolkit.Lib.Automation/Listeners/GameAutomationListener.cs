@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Automation.GameDetection;
 using LenovoLegionToolkit.Lib.Listeners;
@@ -19,7 +19,7 @@ public class GameAutomationListener : IListener<bool>
     private readonly InstanceEventListener _instanceCreationListener;
     private readonly InstanceEventListener _instanceDeletionListener;
 
-    private readonly HashSet<string> _detectedGamePathsCache = new();
+    private readonly HashSet<ProcessInfo> _detectedGamePathsCache = new();
     private readonly HashSet<int> _runningGamesCache = new();
 
     public GameAutomationListener()
@@ -66,80 +66,84 @@ public class GameAutomationListener : IListener<bool>
     {
         lock (_lock)
         {
-            foreach (var gamePath in e.GamePaths)
+            _detectedGamePathsCache.Clear();
+            foreach (var game in e.Games)
+                _detectedGamePathsCache.Add(game);
+
+            var foundRunning = false;
+
+            foreach (var game in e.Games)
             {
-                _detectedGamePathsCache.Add(gamePath);
-
-                var filename = Path.GetFileNameWithoutExtension(gamePath);
-                var processes = Process.GetProcessesByName(filename);
-
-                foreach (var process in processes)
+                foreach (var process in Process.GetProcessesByName(game.Name))
                 {
                     try
                     {
                         var processPath = process.MainModule?.FileName;
-                        if (!gamePath.Equals(processPath, StringComparison.CurrentCultureIgnoreCase))
+                        if (game.ExecutablePath is null || !game.ExecutablePath.Equals(processPath, StringComparison.CurrentCultureIgnoreCase))
                             continue;
 
                         _runningGamesCache.Add(process.Id);
-                        Changed?.Invoke(this, true);
-                        return;
+                        foundRunning = true;
                     }
                     catch (Exception)
                     {
                         if (Log.Instance.IsTraceEnabled)
-                            Log.Instance.Trace($"Can't get process {gamePath} details, fallback to ID only.");
+                            Log.Instance.Trace($"Can't get game \"{game}\" details.");
                     }
                 }
             }
+
+            if (foundRunning)
+                Changed?.Invoke(this, true);
         }
     }
 
-    private void InstanceCreationListener_Changed(object? sender, (ProcessEventInfoType type, int processID, string processName) e)
+    private void InstanceCreationListener_Changed(object? sender, (ProcessEventInfoType type, int processId, string processName) e)
     {
         lock (_lock)
         {
-            if (string.IsNullOrWhiteSpace(e.processName))
+            if (e.processId < 0)
                 return;
 
-            if (e.processID < 0)
+            if (!_detectedGamePathsCache.Any(p => e.processName.Equals(p.Name, StringComparison.CurrentCultureIgnoreCase)))
                 return;
 
             string? processPath = null;
             try
             {
-                processPath = Process.GetProcessById(e.processID).MainModule?.FileName;
+                processPath = Process.GetProcessById(e.processId).MainModule?.FileName;
             }
             catch (Exception)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Can't get process {e.processName} details, fallback to ID only.");
+                    Log.Instance.Trace($"Can't get process {e.processName} details.");
             }
 
-            if (processPath is null || !_detectedGamePathsCache.Contains(processPath))
+            if (processPath is null || !_detectedGamePathsCache.Contains(ProcessInfo.FromPath(processPath)))
                 return;
 
-            _runningGamesCache.Add(e.processID);
+            _runningGamesCache.Add(e.processId);
+
+            if (_runningGamesCache.Count > 1)
+                return;
 
             Changed?.Invoke(this, true);
         }
     }
 
 
-    private void InstanceDeletionListener_Changed(object? sender, (ProcessEventInfoType type, int processID, string processName) e)
+    private void InstanceDeletionListener_Changed(object? sender, (ProcessEventInfoType type, int processId, string processName) e)
     {
         lock (_lock)
         {
-            if (string.IsNullOrWhiteSpace(e.processName))
+            if (e.processId < 0)
                 return;
 
-            if (e.processID < 0)
+            if (!_runningGamesCache.Remove(e.processId))
                 return;
 
-            if (!_runningGamesCache.Contains(e.processID))
+            if (_runningGamesCache.Any())
                 return;
-
-            _runningGamesCache.Remove(e.processID);
 
             Changed?.Invoke(this, false);
         }

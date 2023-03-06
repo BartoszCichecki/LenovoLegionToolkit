@@ -28,6 +28,8 @@ public interface IPowerModeAutomationPipelineTrigger
     IAutomationPipelineTrigger DeepCopy(PowerModeState powerModeState);
 }
 
+public interface IGameAutomationPipelineTrigger { }
+
 public interface IProcessesAutomationPipelineTrigger
 {
     ProcessInfo[] Processes { get; }
