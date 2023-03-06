@@ -510,11 +510,17 @@ DIQQAT: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bul
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Kepillik</value>
   </data>
+  <data name="Active" xml:space="preserve">
+    <value>Aktiv</value>
+  </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Óshiriw</value>
   </data>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>nVidia grafikalıq processorı aktiv emes.</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>Aktiv emes</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Proceslerdi juwmaqlaw</value>
@@ -928,6 +934,9 @@ Durıs paketlerdi ornatıp atırǵanıńızǵa isenim kámil etiń.</value>
   </data>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Júklew ornı</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filtr...</value>
   </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
     <value>Qurılma modeliniń túri</value>
@@ -1443,6 +1452,9 @@ ESLETPE: Eger ishki displey óshirilgen bolsa, bul ámel durıs orınlanbaydı.<
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Bas betti sazlaw</value>
   </data>
+  <data name="Load" xml:space="preserve">
+    <value>Júklew</value>
+  </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
     <value>Topar jaratıw</value>
   </data>
@@ -1530,5 +1542,20 @@ Tıshqanshanı qozǵaw yamasa klaviaturanı basıw displeydi iske túsiredi.</va
   </data>
   <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
 	  <value>Xáreket jaratıw</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+	  <value>Bólekli grafikalıq processor</value>
+  </data>
+  <data name="StatusTrayPopup_PowerState" xml:space="preserve">
+	  <value>Quwatlılıq jaǵdayı</value>
+  </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+	  <value>Batareya</value>
+  </data>
+  <data name="StatusTrayPopup_Mode" xml:space="preserve">
+	  <value>Rejim</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+	  <value>Jańalanıw bar!</value>
   </data>
 </root>
