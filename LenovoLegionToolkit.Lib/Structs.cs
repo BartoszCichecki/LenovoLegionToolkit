@@ -437,6 +437,8 @@ public readonly struct ProcessInfo : IComparable
         ExecutablePath = executablePath;
     }
 
+    public override string ToString() => $"{nameof(Name)}: {Name}, {nameof(ExecutablePath)}: {ExecutablePath}";
+
     #region Equality
 
     public int CompareTo(object? obj)

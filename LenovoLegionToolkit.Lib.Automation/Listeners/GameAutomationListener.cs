@@ -93,8 +93,10 @@ public class GameAutomationListener : IListener<bool>
                 }
             }
 
-            if (foundRunning)
-                Changed?.Invoke(this, true);
+            if (!foundRunning)
+                return;
+
+            Changed?.Invoke(this, true);
         }
     }
 
@@ -119,13 +121,25 @@ public class GameAutomationListener : IListener<bool>
                     Log.Instance.Trace($"Can't get process {e.processName} details.");
             }
 
-            if (processPath is null || !_detectedGamePathsCache.Contains(ProcessInfo.FromPath(processPath)))
+            if (processPath is null)
                 return;
+
+            var processInfo = ProcessInfo.FromPath(processPath);
+            if (!_detectedGamePathsCache.Contains(processInfo))
+                return;
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Game {processInfo} is running. [processId={e.processId}]");
 
             _runningGamesCache.Add(e.processId);
 
             if (_runningGamesCache.Count > 1)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Notify for game {processInfo} skipped. Total of {_runningGamesCache.Count} games are running. [processId={e.processId}]");
+
                 return;
+            }
 
             Changed?.Invoke(this, true);
         }
@@ -142,8 +156,16 @@ public class GameAutomationListener : IListener<bool>
             if (!_runningGamesCache.Remove(e.processId))
                 return;
 
-            if (_runningGamesCache.Any())
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Game with process ID {e.processId} stopped.");
+
+            if (_runningGamesCache.Count > 0)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Notify for game with process ID {e.processId} skipped. Total of {_runningGamesCache.Count} games are running. [processId={e.processId}]");
+
                 return;
+            }
 
             Changed?.Invoke(this, false);
         }
