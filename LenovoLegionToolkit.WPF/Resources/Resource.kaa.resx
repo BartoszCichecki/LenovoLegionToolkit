@@ -1534,6 +1534,12 @@ Tıshqanshanı qozǵaw yamasa klaviaturanı basıw displeydi iske túsiredi.</va
   <data name="GodModeSettingsWindow_CPU_PeakPL" xml:space="preserve">
     <value>Quwatlılıqtıń eń joqarǵı shegarası</value>
   </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL_Description" xml:space="preserve">
+    <value>Processor tárepinen úzliksiz paydalanıw múmkin bolǵan quwatlılıq.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL_Description" xml:space="preserve">
+    <value>Qısqa waqıt ishinde processor tárepinen paydalanıw múmkin bolǵan eń joqarǵı quwatlılıq.</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Jaratıw</value>
   </data>
@@ -1542,6 +1548,9 @@ Tıshqanshanı qozǵaw yamasa klaviaturanı basıw displeydi iske túsiredi.</va
   </data>
   <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
 	  <value>Xáreket jaratıw</value>
+  </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+	  <value>Quwatlılıq rejimi</value>
   </data>
   <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
 	  <value>Bólekli grafikalıq processor</value>
