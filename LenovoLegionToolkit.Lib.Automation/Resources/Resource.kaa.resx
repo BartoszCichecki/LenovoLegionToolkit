@@ -112,4 +112,7 @@
   <data name="LidClosedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
 		<value>Noutbuk qaqpaǵı jawıldı</value>
 	</data>
+  <data name="GamesStopAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Oyın jabılǵanda</value>
+	</data>
 </root>
