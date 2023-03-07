@@ -44,11 +44,11 @@ internal readonly struct RegistryKeyValuePackageRule : IPackageRule
         if (hive is null || string.IsNullOrEmpty(path))
             return Task.FromResult(false);
 
-        var keyExists = Registry.KeyExists(hive, path, KeyName);
+        var keyExists = Registry.ValueExists(hive, path, KeyName);
         if (!keyExists)
             return Task.FromResult(true);
 
-        var versionString = Registry.Read(hive, path, KeyName, string.Empty);
+        var versionString = Registry.GetValue(hive, path, KeyName, string.Empty);
 
         if (!Version.TryParse(versionString, out var version))
             return Task.FromResult(false);
@@ -65,11 +65,11 @@ internal readonly struct RegistryKeyValuePackageRule : IPackageRule
         if (hive is null || string.IsNullOrEmpty(path))
             return Task.FromResult(false);
 
-        var keyExists = Registry.KeyExists(hive, path, KeyName);
+        var keyExists = Registry.ValueExists(hive, path, KeyName);
         if (!keyExists)
             return Task.FromResult(true);
 
-        var versionString = Registry.Read(hive, path, KeyName, string.Empty);
+        var versionString = Registry.GetValue(hive, path, KeyName, string.Empty);
 
         if (!Version.TryParse(versionString, out var version))
             return Task.FromResult(false);

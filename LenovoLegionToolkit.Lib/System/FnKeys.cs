@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace LenovoLegionToolkit.Lib.System;
@@ -13,13 +14,13 @@ public class FnKeys : SoftwareDisabler
     public override async Task EnableAsync()
     {
         await base.EnableAsync().ConfigureAwait(false);
-        Registry.SetUwpStartup("LenovoUtility", "LenovoUtilityID", true);
+        SetUwpStartup("LenovoUtility", "LenovoUtilityID", true);
     }
 
     public override async Task DisableAsync()
     {
         await base.DisableAsync().ConfigureAwait(false);
-        Registry.SetUwpStartup("LenovoUtility", "LenovoUtilityID", false);
+        SetUwpStartup("LenovoUtility", "LenovoUtilityID", false);
     }
 
     protected override bool AreProcessesRunning()
@@ -70,5 +71,18 @@ public class FnKeys : SoftwareDisabler
         catch
         {
         }
+    }
+
+    private static void SetUwpStartup(string appPattern, string subKeyName, bool enabled)
+    {
+        const string hive = "HKEY_CURRENT_USER";
+        const string subKey = @"Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\SystemAppData";
+        const string valueName = "State";
+
+        var startupKey = Registry.GetSubKeys(hive, subKey).FirstOrDefault(s => s.Contains(appPattern, StringComparison.CurrentCultureIgnoreCase));
+        if (startupKey is null)
+            return;
+
+        Registry.SetValue(hive, startupKey, valueName, enabled ? 0x2 : 0x1);
     }
 }

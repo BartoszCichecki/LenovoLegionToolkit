@@ -86,7 +86,7 @@ public class BatteryFeature : AbstractDriverFeature<BatteryState>
 
     private static BatteryState? GetStateFromRegistry()
     {
-        var batteryModeString = Registry.Read(BATTERY_CHARGE_MODE_HIVE, BATTERY_CHARGE_MODE_PATH, BATTERY_CHARGE_MODE_KEY, string.Empty);
+        var batteryModeString = Registry.GetValue(BATTERY_CHARGE_MODE_HIVE, BATTERY_CHARGE_MODE_PATH, BATTERY_CHARGE_MODE_KEY, string.Empty);
         return batteryModeString switch
         {
             BATTERY_CHARGE_MODE_NORMAL => BatteryState.Normal,
@@ -109,6 +109,6 @@ public class BatteryFeature : AbstractDriverFeature<BatteryState>
         if (batteryModeString is null)
             return;
 
-        Registry.Write(BATTERY_CHARGE_MODE_HIVE, BATTERY_CHARGE_MODE_PATH, BATTERY_CHARGE_MODE_KEY, batteryModeString);
+        Registry.SetValue(BATTERY_CHARGE_MODE_HIVE, BATTERY_CHARGE_MODE_PATH, BATTERY_CHARGE_MODE_KEY, batteryModeString);
     }
 }

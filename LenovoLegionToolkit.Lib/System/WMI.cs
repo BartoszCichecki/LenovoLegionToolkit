@@ -4,28 +4,12 @@ using System.Linq;
 using System.Management;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.System;
 
 public static class WMI
 {
-    private class DisposableListener : IDisposable
-    {
-        private ManagementEventWatcher? _watcher;
-
-        public DisposableListener(ManagementEventWatcher watcher)
-        {
-            _watcher = watcher;
-        }
-
-        public void Dispose()
-        {
-            _watcher?.Stop();
-            _watcher?.Dispose();
-            _watcher = null;
-        }
-    }
-
     public static async Task<bool> ExistsAsync(string scope, FormattableString query)
     {
         try
@@ -47,7 +31,12 @@ public static class WMI
         var watcher = new ManagementEventWatcher(scope, queryFormatted);
         watcher.EventArrived += (_, e) => handler(e.NewEvent.Properties);
         watcher.Start();
-        return new DisposableListener(watcher);
+
+        return new LambdaDisposable(() =>
+        {
+            watcher.Stop();
+            watcher.Dispose();
+        });
     }
 
     public static async Task<IEnumerable<T>> ReadAsync<T>(string scope, FormattableString query, Func<PropertyDataCollection, T> converter)

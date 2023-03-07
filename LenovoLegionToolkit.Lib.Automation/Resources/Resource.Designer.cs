@@ -151,6 +151,24 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to When game is running.
+        /// </summary>
+        public static string GamesAreRunningAutomationPipelineTrigger_DisplayName {
+            get {
+                return ResourceManager.GetString("GamesAreRunningAutomationPipelineTrigger_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When game closes.
+        /// </summary>
+        public static string GamesStopAutomationPipelineTrigger_DisplayName {
+            get {
+                return ResourceManager.GetString("GamesStopAutomationPipelineTrigger_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lid closed.
         /// </summary>
         public static string LidClosedAutomationPipelineTrigger_DisplayName {

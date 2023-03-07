@@ -13,29 +13,31 @@ public interface IAutomationPipelineTrigger
     IAutomationPipelineTrigger DeepCopy();
 }
 
-public interface IDisallowDuplicatesAutomationPipelineTrigger { }
+public interface IDisallowDuplicatesAutomationPipelineTrigger : IAutomationPipelineTrigger { }
 
-public interface INativeWindowsMessagePipelineTrigger { }
+public interface INativeWindowsMessagePipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger { }
 
-public interface IOnStartupAutomationPipelineTrigger { }
+public interface IOnStartupAutomationPipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger { }
 
-public interface IPowerStateAutomationPipelineTrigger { }
+public interface IPowerStateAutomationPipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger { }
 
-public interface IPowerModeAutomationPipelineTrigger
+public interface IPowerModeAutomationPipelineTrigger : IAutomationPipelineTrigger
 {
     PowerModeState PowerModeState { get; }
 
     IAutomationPipelineTrigger DeepCopy(PowerModeState powerModeState);
 }
 
-public interface IProcessesAutomationPipelineTrigger
+public interface IGameAutomationPipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger { }
+
+public interface IProcessesAutomationPipelineTrigger : IAutomationPipelineTrigger
 {
     ProcessInfo[] Processes { get; }
 
     IAutomationPipelineTrigger DeepCopy(ProcessInfo[] processes);
 }
 
-public interface ITimeAutomationPipelineTrigger
+public interface ITimeAutomationPipelineTrigger : IAutomationPipelineTrigger
 {
     bool IsSunrise { get; }
     bool IsSunset { get; }

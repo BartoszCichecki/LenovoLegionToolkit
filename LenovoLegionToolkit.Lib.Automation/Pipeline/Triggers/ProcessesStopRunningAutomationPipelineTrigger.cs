@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 
-public class ProcessesStopRunningAutomationPipelineTrigger : IAutomationPipelineTrigger, IProcessesAutomationPipelineTrigger
+public class ProcessesStopRunningAutomationPipelineTrigger : IProcessesAutomationPipelineTrigger
 {
     public string DisplayName => Resource.ProcessesStopRunningAutomationPipelineTrigger_DisplayName;
 
@@ -52,4 +52,6 @@ public class ProcessesStopRunningAutomationPipelineTrigger : IAutomationPipeline
     }
 
     public override int GetHashCode() => HashCode.Combine(Processes);
+
+    public override string ToString() => $"{nameof(Processes)}: {string.Join(", ", Processes)}";
 }

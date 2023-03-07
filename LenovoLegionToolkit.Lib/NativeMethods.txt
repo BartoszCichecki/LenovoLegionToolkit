@@ -110,4 +110,6 @@ MonitorFromPoint
 GetMonitorInfoW
 GetDpiForMonitor
 
+RegNotifyChangeKeyValue
+
 SendMessage

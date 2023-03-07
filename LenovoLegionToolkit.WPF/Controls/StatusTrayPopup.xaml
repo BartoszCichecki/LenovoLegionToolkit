@@ -86,7 +86,8 @@
                     Content="{x:Static resources:Resource.StatusTrayPopup_Preset}"
                     FontSize="{StaticResource SecondaryFontSize}"
                     FontWeight="Medium"
-                    Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                    Visibility="Collapsed" />
                 <Label
                     x:Name="_powerModePresetValueLabel"
                     Grid.Row="1"
@@ -94,7 +95,8 @@
                     Margin="16,4,0,0"
                     HorizontalAlignment="Right"
                     FontSize="{StaticResource SecondaryFontSize}"
-                    Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                    Visibility="Collapsed" />
             </Grid>
 
             <Grid x:Name="_gpuGrid" Margin="16,16,16,0">
@@ -266,7 +268,8 @@
                 x:Name="_updateIndicator"
                 Padding="8,4,8,4"
                 Background="{DynamicResource SystemFillColorSuccessBrush}"
-                CornerRadius="0,0,8,8">
+                CornerRadius="0,0,8,8"
+                Visibility="Collapsed">
                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                     <wpfui:SymbolIcon
                         Margin="0,0,4,0"

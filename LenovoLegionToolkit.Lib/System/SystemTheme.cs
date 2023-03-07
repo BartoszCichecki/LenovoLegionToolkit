@@ -16,7 +16,7 @@ public static class SystemTheme
 
     public static bool IsDarkMode()
     {
-        var registryValue = Registry.Read(REGISTRY_HIVE, PERSONALIZE_REGISTRY_PATH, APPS_USE_LIGHT_THEME_REGISTRY_KEY, -1);
+        var registryValue = Registry.GetValue(REGISTRY_HIVE, PERSONALIZE_REGISTRY_PATH, APPS_USE_LIGHT_THEME_REGISTRY_KEY, -1);
         if (registryValue == -1)
             throw new InvalidOperationException($"Couldn't read the {APPS_USE_LIGHT_THEME_REGISTRY_KEY} setting.");
 
@@ -25,7 +25,7 @@ public static class SystemTheme
 
     public static RGBColor GetColorizationColor()
     {
-        var registryValue = Registry.Read(REGISTRY_HIVE, DWM_REGISTRY_PATH, DWM_COLORIZATION_COLOR_REGISTRY_KEY, -1);
+        var registryValue = Registry.GetValue(REGISTRY_HIVE, DWM_REGISTRY_PATH, DWM_COLORIZATION_COLOR_REGISTRY_KEY, -1);
         if (registryValue == -1)
             throw new InvalidOperationException($"Couldn't read the {DWM_COLORIZATION_COLOR_REGISTRY_KEY} setting.");
 
@@ -56,11 +56,15 @@ public static class SystemTheme
         return new(r, g, b);
     }
 
-    internal static IDisposable GetDarkModeListener(Action callback) =>
-        Registry.Listen(REGISTRY_HIVE, PERSONALIZE_REGISTRY_PATH, APPS_USE_LIGHT_THEME_REGISTRY_KEY, callback);
+    internal static IDisposable GetDarkModeListener(Action callback)
+    {
+        return Registry.ObserveValue(REGISTRY_HIVE, PERSONALIZE_REGISTRY_PATH, APPS_USE_LIGHT_THEME_REGISTRY_KEY, callback);
+    }
 
-    internal static IDisposable GetColorizationColorListener(Action callback) =>
-        Registry.Listen(REGISTRY_HIVE, DWM_REGISTRY_PATH, DWM_COLORIZATION_COLOR_REGISTRY_KEY, callback);
+    internal static IDisposable GetColorizationColorListener(Action callback)
+    {
+        return Registry.ObserveValue(REGISTRY_HIVE, DWM_REGISTRY_PATH, DWM_COLORIZATION_COLOR_REGISTRY_KEY, callback);
+    }
 
     #region Native
 

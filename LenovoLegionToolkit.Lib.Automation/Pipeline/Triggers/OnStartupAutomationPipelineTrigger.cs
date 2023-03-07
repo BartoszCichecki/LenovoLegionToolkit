@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 
-public class OnStartupAutomationPipelineTrigger : IAutomationPipelineTrigger, IOnStartupAutomationPipelineTrigger, IDisallowDuplicatesAutomationPipelineTrigger
+public class OnStartupAutomationPipelineTrigger : IOnStartupAutomationPipelineTrigger
 {
     [JsonIgnore]
     public string DisplayName => Resource.OnStartupAutomationPipelineTrigger_DisplayName;

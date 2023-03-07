@@ -112,4 +112,10 @@
 	<data name="LidClosedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
 		<value>Lid closed</value>
 	</data>
+	<data name="GamesStopAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>When game closes</value>
+	</data>
+	<data name="GamesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>When game is running</value>
+	</data>
 </root>
