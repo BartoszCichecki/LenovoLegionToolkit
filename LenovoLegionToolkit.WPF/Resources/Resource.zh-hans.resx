@@ -691,7 +691,7 @@
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
     <value>警告！
-一些笔记本可以使用更高的功耗限制，但【一定小心】，这个选项可能会导致未知后果！除非你了解【此选项的准确意义】，否则请保持这个选项为0。</value>
+一些笔记本可以使用更高的功耗限制，但【一定小心】，这个选项可能会导致未知后果！除非你了解【此选项的准确意义】，否则请保持这个选项为 0。</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
     <value>最大功耗限制偏移量</value>
@@ -1000,6 +1000,9 @@
   </data>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>下载到</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>搜索...</value>
   </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
     <value>设备代号</value>
@@ -1693,7 +1696,7 @@
     <value>CPU瞬时功耗限制。</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_CrossLoading_Description" xml:space="preserve">
-    <value>当CPU与GPU同时最大负载时，CPU的最大功耗限制。</value>
+    <value>当 CPU 与 GPU 同时最大负载时，CPU 的最大功耗限制。</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_APUsPPT_PL_Description" xml:space="preserve">
     <value>CPU 在一定的延迟后可以达到的最大功耗限制。</value>
@@ -1705,13 +1708,25 @@
     <value>基于 CPU 的功耗，最大可以借用给 GPU 的额外功率。</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
-    <value>在基本功耗的基础上，可以分配给GPU的额外功率量。</value>
+    <value>在基本功耗的基础上，可以分配给 GPU的额外功率量。 </value>
   </data>
   <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
-    <value>在降频前，GPU的温度限制。</value>
+    <value>在降频前，GPU 的温度限制。</value>
   </data>
   <data name="Default" xml:space="preserve">
     <value>默认</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
+    <value>短时睿频功耗限制</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau_Description" xml:space="preserve">
+    <value>CPU 被允许使用短期功率限制进行加速的时间量。当 Tau 过期时，将使用长期功率限制。</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
+    <value>插电情况下总处理器功耗目标。</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
+    <value>CPU 触发 GPU 动态功耗调整的点。</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>创建</value>
@@ -1725,16 +1740,34 @@
   <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
 	  <value>性能模式</value>
   </data>
+  <data name="StatusTrayPopup_Preset" xml:space="preserve">
+	  <value>预设</value>
+  </data>
   <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
 	  <value>独立显卡</value>
   </data>
+  <data name="StatusTrayPopup_PowerState" xml:space="preserve">
+	  <value>性能状态</value>
+  </data>
   <data name="StatusTrayPopup_Battery" xml:space="preserve">
 	  <value>电池</value>
+  </data>
+  <data name="StatusTrayPopup_Mode" xml:space="preserve">
+	  <value>充电模式</value>
   </data>
   <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
 	  <value>电池充放电功率</value>
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
 	  <value>新版本可用！</value>
+  </data>
+  <data name="SymbolRegularPicker_Title" xml:space="preserve">
+	  <value>选择图标</value>
+  </data>
+  <data name="AutomationPage_ChangeIcon" xml:space="preserve">
+	  <value>更改图标</value>
+  </data>
+  <data name="BatteryPage_LowLevel" xml:space="preserve">
+	  <value>电池电量低</value>
   </data>
 </root>
