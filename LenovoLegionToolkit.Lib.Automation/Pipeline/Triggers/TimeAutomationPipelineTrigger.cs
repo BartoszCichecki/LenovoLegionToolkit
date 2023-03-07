@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 
-public class TimeAutomationPipelineTrigger : IAutomationPipelineTrigger, ITimeAutomationPipelineTrigger
+public class TimeAutomationPipelineTrigger : ITimeAutomationPipelineTrigger
 {
     public bool IsSunrise { get; }
 
@@ -58,4 +58,6 @@ public class TimeAutomationPipelineTrigger : IAutomationPipelineTrigger, ITimeAu
     }
 
     public override int GetHashCode() => HashCode.Combine(IsSunrise, IsSunset, Time);
+
+    public override string ToString() => $"{nameof(IsSunrise)}: {IsSunrise}, {nameof(IsSunset)}: {IsSunset}, {nameof(Time)}: {Time}";
 }

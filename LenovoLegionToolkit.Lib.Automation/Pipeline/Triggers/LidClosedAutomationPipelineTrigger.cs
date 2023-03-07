@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 
-public class LidClosedAutomationPipelineTrigger : IAutomationPipelineTrigger, INativeWindowsMessagePipelineTrigger, IDisallowDuplicatesAutomationPipelineTrigger
+public class LidClosedAutomationPipelineTrigger : INativeWindowsMessagePipelineTrigger
 {
     [JsonIgnore]
     public string DisplayName => Resource.LidClosedAutomationPipelineTrigger_DisplayName;

@@ -3,7 +3,7 @@ using LenovoLegionToolkit.Lib.Automation.Resources;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 
-public class GamesAreRunningAutomationPipelineTrigger : IAutomationPipelineTrigger, IGameAutomationPipelineTrigger, IDisallowDuplicatesAutomationPipelineTrigger
+public class GamesAreRunningAutomationPipelineTrigger : IGameAutomationPipelineTrigger
 {
     public string DisplayName => Resource.GamesAreRunningAutomationPipelineTrigger_DisplayName;
 

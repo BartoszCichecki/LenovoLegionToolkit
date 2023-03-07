@@ -3,7 +3,7 @@ using LenovoLegionToolkit.Lib.Automation.Resources;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 
-public class GamesStopAutomationPipelineTrigger : IAutomationPipelineTrigger, IGameAutomationPipelineTrigger, IDisallowDuplicatesAutomationPipelineTrigger
+public class GamesStopAutomationPipelineTrigger : IGameAutomationPipelineTrigger
 {
     public string DisplayName => Resource.GamesStopAutomationPipelineTrigger_DisplayName;
 

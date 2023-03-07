@@ -63,7 +63,7 @@ public class AutomationProcessor
             _processListener.Changed += ProcessListener_Changed;
             _timeListener.Changed += TimeListener_Changed;
 
-            _pipelines = _settings.Store.Pipelines;
+            _pipelines = _settings.Store.Pipelines.ToList();
 
             RaisePipelinesChanged();
 
@@ -129,7 +129,7 @@ public class AutomationProcessor
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Pipeline run on startup pending...");
 
-        Task.Run(() => RunAsync(new StartupAutomationEvent()));
+        Task.Run(() => ProcessEvent(new StartupAutomationEvent()));
     }
 
     public async Task RunNowAsync(AutomationPipeline pipeline)
@@ -282,11 +282,10 @@ public class AutomationProcessor
 
     #region Event processing
 
-    private async Task ProcessEvent(NativeWindowsMessageEvent e)
+    private async Task ProcessEvent(IAutomationEvent e)
     {
         var potentialMatch = _pipelines.Select(p => p.Trigger)
             .Where(t => t is not null)
-            .Where(t => t is INativeWindowsMessagePipelineTrigger)
             .Select(async t => await t!.IsSatisfiedAsync(e).ConfigureAwait(false))
             .Select(t => t.Result)
             .Where(t => t)
@@ -296,102 +295,7 @@ public class AutomationProcessor
             return;
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Processing power state event.");
-
-        await RunAsync(e).ConfigureAwait(false);
-    }
-
-    private async Task ProcessEvent(PowerStateAutomationEvent e)
-    {
-        var potentialMatch = _pipelines.Select(p => p.Trigger)
-            .Where(t => t is not null)
-            .Where(t => t is IPowerStateAutomationPipelineTrigger)
-            .Select(async t => await t!.IsSatisfiedAsync(e).ConfigureAwait(false))
-            .Select(t => t.Result)
-            .Where(t => t)
-            .Any();
-
-        if (!potentialMatch)
-            return;
-
-        if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Processing power state event.");
-
-        await RunAsync(e).ConfigureAwait(false);
-    }
-
-    private async Task ProcessEvent(PowerModeAutomationEvent e)
-    {
-        var potentialMatch = _pipelines.Select(p => p.Trigger)
-            .Where(t => t is not null)
-            .Where(t => t is IPowerModeAutomationPipelineTrigger)
-            .Select(async t => await t!.IsSatisfiedAsync(e).ConfigureAwait(false))
-            .Select(t => t.Result)
-            .Where(t => t)
-            .Any();
-
-        if (!potentialMatch)
-            return;
-
-        if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Processing power mode event. [powerModeState={e.PowerModeState}]");
-
-        await RunAsync(e).ConfigureAwait(false);
-    }
-
-    private async Task ProcessEvent(GameAutomationEvent e)
-    {
-        var potentialMatch = _pipelines.Select(p => p.Trigger)
-            .Where(t => t is not null)
-            .Where(t => t is IGameAutomationPipelineTrigger)
-            .Select(async t => await t!.IsSatisfiedAsync(e).ConfigureAwait(false))
-            .Select(t => t.Result)
-            .Where(t => t)
-            .Any();
-
-        if (!potentialMatch)
-            return;
-
-        if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Processing game event. [started={e.Started}]");
-
-        await RunAsync(e).ConfigureAwait(false);
-    }
-
-    private async Task ProcessEvent(ProcessAutomationEvent e)
-    {
-        var potentialMatch = _pipelines.Select(p => p.Trigger)
-            .Where(t => t is not null)
-            .Where(t => t is IProcessesAutomationPipelineTrigger)
-            .Select(async t => await t!.IsSatisfiedAsync(e).ConfigureAwait(false))
-            .Select(t => t.Result)
-            .Where(t => t)
-            .Any();
-
-        if (!potentialMatch)
-            return;
-
-        if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Processing process event. [process.Name={e.ProcessEventInfo.Process.Name}, type={e.ProcessEventInfo.Type}]");
-
-        await RunAsync(e).ConfigureAwait(false);
-    }
-
-    private async Task ProcessEvent(TimeAutomationEvent e)
-    {
-        var potentialMatch = _pipelines.Select(p => p.Trigger)
-            .Where(t => t is not null)
-            .Where(t => t is TimeAutomationPipelineTrigger)
-            .Select(async t => await t!.IsSatisfiedAsync(e).ConfigureAwait(false))
-            .Select(t => t.Result)
-            .Where(t => t)
-            .Any();
-
-        if (!potentialMatch)
-            return;
-
-        if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Processing time event. [time={e.Time.Hour}:{e.Time.Minute}]");
+            Log.Instance.Trace($"Processing event {e}... [type={e.GetType().Name}]");
 
         await RunAsync(e).ConfigureAwait(false);
     }
