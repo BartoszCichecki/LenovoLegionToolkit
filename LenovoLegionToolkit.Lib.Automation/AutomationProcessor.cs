@@ -331,7 +331,7 @@ public class AutomationProcessor
         if (triggers.OfType<IGameAutomationPipelineTrigger>().Any())
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Starting process listener...");
+                Log.Instance.Trace($"Starting game listener...");
 
             await _gameAutomationListener.StartAsync().ConfigureAwait(false);
         }

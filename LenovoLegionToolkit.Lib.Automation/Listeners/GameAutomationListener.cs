@@ -139,10 +139,10 @@ public class GameAutomationListener : IListener<bool>
 
                 Changed?.Invoke(this, true);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Can't get process {e.processName} details. [processId={e.processId}]");
+                    Log.Instance.Trace($"Failed to attach to {e.processName}. [processId={e.processId}]", ex);
             }
         }
     }
