@@ -1486,9 +1486,9 @@
     <value>Δημιουργία</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
-	  <value>Προσθήκη βήματος</value>
+    <value>Προσθήκη βήματος</value>
   </data>
   <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
-	  <value>Δημιουργία Ενέργειας</value>
+    <value>Δημιουργία Ενέργειας</value>
   </data>
 </root>
