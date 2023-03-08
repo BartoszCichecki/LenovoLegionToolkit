@@ -1,6 +1,7 @@
 ﻿using System.Collections;
+using System.Windows.Controls;
 
-namespace System.Windows.Controls;
+namespace LenovoLegionToolkit.WPF.Extensions;
 
 public static class ItemCollectionExtensions
 {

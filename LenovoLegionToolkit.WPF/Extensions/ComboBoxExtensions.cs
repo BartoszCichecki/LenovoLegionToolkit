@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Controls;
 
-namespace System.Windows.Controls;
+namespace LenovoLegionToolkit.WPF.Extensions;
 
 public static class ComboBoxExtensions
 {
