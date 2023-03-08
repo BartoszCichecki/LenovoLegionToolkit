@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Automation.GameDetection;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
 
@@ -122,17 +123,22 @@ public class GameAutomationListener : IListener<bool>
             try
             {
                 var process = Process.GetProcessById(e.processId);
-                var processPath = process.MainModule?.FileName;
+                var processPath = process.GetFileName();
 
-                if (processPath is null)
+                if (string.IsNullOrEmpty(processPath))
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Can't get path for {e.processName}. [processId={e.processId}]");
+
                     return;
+                }
 
                 var processInfo = ProcessInfo.FromPath(processPath);
                 if (!_detectedGamePathsCache.Contains(processInfo))
                     return;
 
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Game {processInfo} is running. [processId={e.processId}]");
+                    Log.Instance.Trace($"Game {processInfo} is running. [processId={e.processId}, processPath={processPath}]");
 
                 Attach(process);
                 _processCache.Add(process);

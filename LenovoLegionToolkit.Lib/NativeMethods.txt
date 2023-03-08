@@ -113,3 +113,5 @@ GetDpiForMonitor
 RegNotifyChangeKeyValue
 
 SendMessage
+
+K32GetModuleFileNameExW

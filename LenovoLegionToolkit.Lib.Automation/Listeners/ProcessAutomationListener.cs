@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
 
@@ -81,15 +82,15 @@ public class ProcessAutomationListener : IListener<ProcessEventInfo>
             string? processPath = null;
             try
             {
-                processPath = Process.GetProcessById(e.processId).MainModule?.FileName;
+                processPath = Process.GetProcessById(e.processId).GetFileName();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Can't get process {e.processName} details, fallback to ID only.");
+                    Log.Instance.Trace($"Can't get process {e.processName} details.", ex);
             }
 
-            if (processPath is not null && _ignoredPaths.Any(p => processPath.StartsWith(p, StringComparison.InvariantCultureIgnoreCase)))
+            if (!string.IsNullOrEmpty(processPath) && _ignoredPaths.Any(p => processPath.StartsWith(p, StringComparison.InvariantCultureIgnoreCase)))
                 return;
 
             var processInfo = new ProcessInfo(e.processName, processPath);
