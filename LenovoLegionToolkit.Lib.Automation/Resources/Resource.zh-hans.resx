@@ -112,4 +112,10 @@
   <data name="LidClosedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
 		<value>合上盖子时</value>
 	</data>
+  <data name="GamesStopAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>当关闭游戏后</value>
+	</data>
+  <data name="GamesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>当打开游戏时</value>
+	</data>
 </root>
