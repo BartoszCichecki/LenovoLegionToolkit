@@ -112,4 +112,10 @@
   <data name="LidClosedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
 		<value>Víko zavřeno</value>
 	</data>
+  <data name="GamesStopAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Když se hra ukončí</value>
+	</data>
+  <data name="GamesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Když hra běží</value>
+	</data>
 </root>
