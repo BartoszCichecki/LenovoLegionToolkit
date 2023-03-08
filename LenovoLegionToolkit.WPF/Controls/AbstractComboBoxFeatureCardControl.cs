@@ -119,6 +119,9 @@ public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshing
         }
         catch (Exception ex)
         {
+            if (oldValue.HasValue)
+                comboBox.SelectItem(oldValue.Value);
+
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Failed to change state. [feature={GetType().Name}]", ex);
         }

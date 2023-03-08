@@ -38,6 +38,9 @@ public class PowerModeFeature : AbstractLenovoGamezoneWmiFeature<PowerModeState>
         if (!allStates.Contains(state))
             throw new InvalidOperationException($"Unsupported power mode {state}.");
 
+        if (state is PowerModeState.Performance or PowerModeState.GodMode && await Power.IsPowerAdapterConnectedAsync() is PowerAdapterStatus.Disconnected)
+            throw new InvalidOperationException($"Can't switch to {state} power mode on battery."); ;
+
         var currentState = await GetStateAsync().ConfigureAwait(false);
 
         await _aiModeController.StopAsync(currentState).ConfigureAwait(false);

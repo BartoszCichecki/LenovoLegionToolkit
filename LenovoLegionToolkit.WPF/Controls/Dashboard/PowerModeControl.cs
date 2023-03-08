@@ -8,7 +8,6 @@ using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Resources;
-using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Dashboard;
 using Wpf.Ui.Common;
 using Button = Wpf.Ui.Controls.Button;
@@ -74,37 +73,24 @@ public class PowerModeControl : AbstractComboBoxFeatureCardControl<PowerModeStat
 
     protected override async Task OnStateChange(ComboBox comboBox, IFeature<PowerModeState> feature, PowerModeState? newValue, PowerModeState? oldValue)
     {
-        try
+        await base.OnStateChange(comboBox, feature, newValue, oldValue);
+
+        var mi = await Compatibility.GetMachineInformationAsync();
+
+        switch (newValue)
         {
-            await base.OnStateChange(comboBox, feature, newValue, oldValue);
-
-            if (!comboBox.TryGetSelectedItem(out PowerModeState state))
-                return;
-
-            var mi = await Compatibility.GetMachineInformationAsync();
-
-            switch (state)
-            {
-                case PowerModeState.Balance when mi.Properties.SupportsIntelligentSubMode:
-                    _configButton.ToolTip = Resource.PowerModeControl_Settings;
-                    _configButton.Visibility = Visibility.Visible;
-                    break;
-                case PowerModeState.GodMode:
-                    _configButton.ToolTip = Resource.PowerModeControl_Settings;
-                    _configButton.Visibility = Visibility.Visible;
-                    break;
-                default:
-                    _configButton.ToolTip = null;
-                    _configButton.Visibility = Visibility.Collapsed;
-                    break;
-            }
-        }
-        catch (InvalidOperationException ex)
-        {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"State change failed.", ex);
-
-            await SnackbarHelper.ShowAsync(Resource.PowerModeControl_ChangeError, ex.Message, true);
+            case PowerModeState.Balance when mi.Properties.SupportsIntelligentSubMode:
+                _configButton.ToolTip = Resource.PowerModeControl_Settings;
+                _configButton.Visibility = Visibility.Visible;
+                break;
+            case PowerModeState.GodMode:
+                _configButton.ToolTip = Resource.PowerModeControl_Settings;
+                _configButton.Visibility = Visibility.Visible;
+                break;
+            default:
+                _configButton.ToolTip = null;
+                _configButton.Visibility = Visibility.Collapsed;
+                break;
         }
     }
 
