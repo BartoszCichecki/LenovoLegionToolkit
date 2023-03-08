@@ -1611,21 +1611,21 @@ Di chuyển chuột hoặc bấm phím bất kỳ trên bàn phím để bật m
     <value>Khuyến nghị khởi động lại</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
-	  <value>Thêm hành động</value>
+    <value>Thêm hành động</value>
   </data>
   <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
-	  <value>Chế độ</value>
+    <value>Chế độ</value>
   </data>
   <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
-	  <value>GPU rời</value>
+    <value>GPU rời</value>
   </data>
   <data name="StatusTrayPopup_Battery" xml:space="preserve">
-	  <value>Pin</value>
+    <value>Pin</value>
   </data>
   <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
-	  <value>Tốc độ sạc/xả</value>
+    <value>Tốc độ sạc/xả</value>
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
-	  <value>Có cập nhật mới!</value>
+    <value>Có cập nhật mới!</value>
   </data>
 </root>
