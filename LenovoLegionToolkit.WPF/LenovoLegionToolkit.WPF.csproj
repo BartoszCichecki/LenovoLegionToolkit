@@ -2,6 +2,7 @@
 	<PropertyGroup>
 		<TargetFramework>net6.0-windows</TargetFramework>
 		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+		<Platforms>x64</Platforms>
 		<OutputType>WinExe</OutputType>
 		<ApplicationIcon>Assets/icon.ico</ApplicationIcon>
 		<AssemblyName>Lenovo Legion Toolkit</AssemblyName>
