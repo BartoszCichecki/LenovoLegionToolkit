@@ -980,9 +980,6 @@ Durıs paketlerdi ornatıp atırǵanıńızǵa isenim kámil etiń.</value>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Quwatlılıq rejimi</value>
   </data>
-  <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>Quwatlılıq rejimin ózgertiw ámelge aspadı</value>
-  </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>Islew rejimin saylań.
 Rejimdi Fn+Q járdeminde ózgerte alasız.</value>
@@ -1544,27 +1541,27 @@ Tıshqanshanı qozǵaw yamasa klaviaturanı basıw displeydi iske túsiredi.</va
     <value>Jaratıw</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
-	  <value>Adım qosıw</value>
+    <value>Adım qosıw</value>
   </data>
   <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
-	  <value>Xáreket jaratıw</value>
+    <value>Xáreket jaratıw</value>
   </data>
   <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
-	  <value>Quwatlılıq rejimi</value>
+    <value>Quwatlılıq rejimi</value>
   </data>
   <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
-	  <value>Bólekli grafikalıq processor</value>
+    <value>Bólekli grafikalıq processor</value>
   </data>
   <data name="StatusTrayPopup_PowerState" xml:space="preserve">
-	  <value>Quwatlılıq jaǵdayı</value>
+    <value>Quwatlılıq jaǵdayı</value>
   </data>
   <data name="StatusTrayPopup_Battery" xml:space="preserve">
-	  <value>Batareya</value>
+    <value>Batareya</value>
   </data>
   <data name="StatusTrayPopup_Mode" xml:space="preserve">
-	  <value>Rejim</value>
+    <value>Rejim</value>
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
-	  <value>Jańalanıw bar!</value>
+    <value>Jańalanıw bar!</value>
   </data>
 </root>
