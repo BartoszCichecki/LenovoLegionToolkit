@@ -3337,15 +3337,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Couldn&apos;t change Power Mode.
-        /// </summary>
-        public static string PowerModeControl_ChangeError {
-            get {
-                return ResourceManager.GetString("PowerModeControl_ChangeError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Select performance mode.
         ///You can switch mode with Fn+Q..
         /// </summary>

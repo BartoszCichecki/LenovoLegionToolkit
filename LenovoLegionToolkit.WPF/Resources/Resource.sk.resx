@@ -1042,9 +1042,6 @@ Vždy sa uistite, že inštalujete správne balíky.</value>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Režim výkonu</value>
   </data>
-  <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>Nepodarilo sa zmeniť Režim výkonu</value>
-  </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>Výber výkonostného režimu.
 Môžete prepnúť pomocou Fn+Q.</value>

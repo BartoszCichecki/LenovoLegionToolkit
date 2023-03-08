@@ -888,9 +888,6 @@ Daima doğru paketleri kurduğunuzdan emin olun.</value>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Güç Modu</value>
   </data>
-  <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>Güç Modu değiştirilemedi</value>
-  </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>Performans modunu seçin.
 Fn+Q ile modu değiştirebilirsiniz.</value>

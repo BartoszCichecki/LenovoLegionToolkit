@@ -1040,9 +1040,6 @@
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Режим живлення</value>
   </data>
-  <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>Не вдалося змінити режим живлення</value>
-  </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>Оберіть режим потужності.
 Ви можете перемикатися між режимами використовуючи Fn+Q.</value>

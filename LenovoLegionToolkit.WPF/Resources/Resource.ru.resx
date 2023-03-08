@@ -1043,9 +1043,6 @@
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Режим питания</value>
   </data>
-  <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>Не удалось изменить режим питания</value>
-  </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>Выберите режим работы.
 Переключение режима осуществляется с помощью Fn+Q. </value>

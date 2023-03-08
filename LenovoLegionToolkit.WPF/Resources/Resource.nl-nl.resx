@@ -1036,9 +1036,6 @@ Zorg er altijd voor dat u de juiste pakketten installeert.</value>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Energiemodus</value>
   </data>
-  <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>Kan de energiemodus niet wijzigen</value>
-  </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>Selecteer prestatiemodus.
 U kunt van modus wisselen met Fn+Q.</value>

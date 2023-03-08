@@ -1034,9 +1034,6 @@ Luôn kiểm tra rằng bạn cài đặt đúng gói cài đặt mong muốn.</
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Chế độ</value>
   </data>
-  <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>Không thể đổi Chế độ</value>
-  </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>Chuyển đổi các Chế độ hiệu năng.
 Bạn có thể chuyển đổi giữa các Chế độ với Fn+Q.</value>

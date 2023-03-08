@@ -1033,9 +1033,6 @@ Stellen Sie immer sicher, dass Sie die richtigen Pakete installieren.</value>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Leistungsmodus</value>
   </data>
-  <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>Leistungsmodus konnte nicht geändert werden</value>
-  </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>Auswahl des Leistungsmodus.
 Sie können den Modus mit Fn+Q wechseln.</value>

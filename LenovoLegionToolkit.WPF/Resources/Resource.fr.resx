@@ -1041,9 +1041,6 @@ Assurez-vous toujours que vous installez les paquets appropriés.</value>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Mode d'alimentation</value>
   </data>
-  <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>Impossible de changer le mode d'alimentation</value>
-  </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>Sélectionnez le mode de performances.
 Vous pouvez changer de mode avec Fn+Q.</value>

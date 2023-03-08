@@ -1040,9 +1040,6 @@ Sempre certifique-se de estar instalando os pacotes corretos.</value>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Plano de Energia</value>
   </data>
-  <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>Não foi possível alterar o plano de energia</value>
-  </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>Selecione o modo de desempenho.
 Você pode alternar entre os modos pressionando Fn+Q.</value>

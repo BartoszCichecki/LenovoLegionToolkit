@@ -1015,9 +1015,6 @@
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>وضع الطاقة</value>
   </data>
-  <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>تعذر تغيير وضع الطاقة</value>
-  </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>حدد وضع الأداء.
 يمكنك تبديل الوضع باستخدام Fn + Q.</value>

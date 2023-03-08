@@ -625,9 +625,6 @@ Uvijek provjerite da li instalirate ispravne pakete.</value>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Režim rada</value>
   </data>
-  <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>Nije moguće promijeniti režim rada</value>
-  </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
     <value>Postavke</value>
   </data>

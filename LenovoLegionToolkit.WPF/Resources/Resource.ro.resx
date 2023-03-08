@@ -1034,9 +1034,6 @@ Asigurați-vă întotdeauna că instalați pachetele corecte.</value>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Mod putere</value>
   </data>
-  <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>Nu s-a putut schimba modul de putere</value>
-  </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>Selectați modul de performanță.
 Puteți schimba modul apăsând Fn+Q.</value>
