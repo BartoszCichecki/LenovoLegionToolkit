@@ -1610,21 +1610,21 @@ Mausbewegung oder Tastendruck weckt die Bildschirme auf.</value>
     <value>Neustart empfohlen</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
-	  <value>Schritt hinzufügen</value>
+    <value>Schritt hinzufügen</value>
   </data>
   <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
-	  <value>Leistungsmodus</value>
+    <value>Leistungsmodus</value>
   </data>
   <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
-	  <value>Diskrete GPU</value>
+    <value>Diskrete GPU</value>
   </data>
   <data name="StatusTrayPopup_Battery" xml:space="preserve">
-	  <value>Akku</value>
+    <value>Akku</value>
   </data>
   <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
-	  <value>Entladungsrate</value>
+    <value>Entladungsrate</value>
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
-	  <value>Update verfügbar!</value>
+    <value>Update verfügbar!</value>
   </data>
 </root>
