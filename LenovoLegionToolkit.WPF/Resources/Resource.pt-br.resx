@@ -1699,6 +1699,9 @@ Esta configuração somente terá efeito se o Modo Personalizado estiver ativo.<
   <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
     <value>A temperatura máxima que pode ser alcançada pela GPU antes que a frequência e a potência sejam reduzidas.</value>
   </data>
+  <data name="Default" xml:space="preserve">
+    <value>Padrão</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Criar</value>
   </data>
