@@ -888,6 +888,6 @@ Logiranje će biti automatski omogućeno, ukoliko izaberete da nastavite.</value
     <value>Da</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
-	  <value>Dodaj korak</value>
+    <value>Dodaj korak</value>
   </data>
 </root>

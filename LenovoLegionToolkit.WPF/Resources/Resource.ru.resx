@@ -1721,42 +1721,42 @@
     <value>Создать</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
-	  <value>Добавить шаг</value>
+    <value>Добавить шаг</value>
   </data>
   <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
-	  <value>Создать действие</value>
+    <value>Создать действие</value>
   </data>
   <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
-	  <value>Режим питания</value>
+    <value>Режим питания</value>
   </data>
   <data name="StatusTrayPopup_Preset" xml:space="preserve">
-	  <value>Пресет</value>
+    <value>Пресет</value>
   </data>
   <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
-	  <value>Дискретный граф. процессор</value>
+    <value>Дискретный граф. процессор</value>
   </data>
   <data name="StatusTrayPopup_PowerState" xml:space="preserve">
-	  <value>Состояние питания</value>
+    <value>Состояние питания</value>
   </data>
   <data name="StatusTrayPopup_Battery" xml:space="preserve">
-	  <value>Батарея</value>
+    <value>Батарея</value>
   </data>
   <data name="StatusTrayPopup_Mode" xml:space="preserve">
-	  <value>Режим</value>
+    <value>Режим</value>
   </data>
   <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
-	  <value>Мгновенная мощность при разрядке</value>
+    <value>Мгновенная мощность при разрядке</value>
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
-	  <value>Доступно обновление!</value>
+    <value>Доступно обновление!</value>
   </data>
   <data name="SymbolRegularPicker_Title" xml:space="preserve">
-	  <value>Выбрать значок</value>
+    <value>Выбрать значок</value>
   </data>
   <data name="AutomationPage_ChangeIcon" xml:space="preserve">
-	  <value>Изменить значок</value>
+    <value>Изменить значок</value>
   </data>
   <data name="BatteryPage_LowLevel" xml:space="preserve">
-	  <value>Низкий уровень заряда батареи</value>
+    <value>Низкий уровень заряда батареи</value>
   </data>
 </root>

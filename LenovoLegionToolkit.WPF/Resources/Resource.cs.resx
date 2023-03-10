@@ -1721,42 +1721,42 @@ Toto nastavení se aplikuje jen když je zapnutý vlastní režim.</value>
     <value>Vytvořit</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
-	  <value>Přidat krok</value>
+    <value>Přidat krok</value>
   </data>
   <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
-	  <value>Vytvořit akci</value>
+    <value>Vytvořit akci</value>
   </data>
   <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
-	  <value>Režim výkonu</value>
+    <value>Režim výkonu</value>
   </data>
   <data name="StatusTrayPopup_Preset" xml:space="preserve">
-	  <value>Předvolba</value>
+    <value>Předvolba</value>
   </data>
   <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
-	  <value>Dedikované GPU</value>
+    <value>Dedikované GPU</value>
   </data>
   <data name="StatusTrayPopup_PowerState" xml:space="preserve">
-	  <value>Stav napájení</value>
+    <value>Stav napájení</value>
   </data>
   <data name="StatusTrayPopup_Battery" xml:space="preserve">
-	  <value>Baterie</value>
+    <value>Baterie</value>
   </data>
   <data name="StatusTrayPopup_Mode" xml:space="preserve">
-	  <value>Režim</value>
+    <value>Režim</value>
   </data>
   <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
-	  <value>Rychlost vybíjení</value>
+    <value>Rychlost vybíjení</value>
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
-	  <value>Aktualizace k dispozici!</value>
+    <value>Aktualizace k dispozici!</value>
   </data>
   <data name="SymbolRegularPicker_Title" xml:space="preserve">
-	  <value>Zvol ikonu</value>
+    <value>Zvol ikonu</value>
   </data>
   <data name="AutomationPage_ChangeIcon" xml:space="preserve">
-	  <value>Změnit ikonu</value>
+    <value>Změnit ikonu</value>
   </data>
   <data name="BatteryPage_LowLevel" xml:space="preserve">
-	  <value>Baterie je slabá</value>
+    <value>Baterie je slabá</value>
   </data>
 </root>
