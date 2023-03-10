@@ -27,6 +27,7 @@
         <StackPanel>
 
             <TextBlock
+                x:Name="_title"
                 Margin="16,16,16,0"
                 FontSize="{StaticResource TertiaryFontSize}"
                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"

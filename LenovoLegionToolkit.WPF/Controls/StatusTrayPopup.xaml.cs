@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -32,6 +33,16 @@ public partial class StatusTrayPopup
         InitializeComponent();
 
         _themeManager.ThemeApplied += (_, _) => Resources = Application.Current.Resources;
+
+        if (Assembly.GetEntryAssembly()?.GetName().Version == new Version(0, 0, 1, 0))
+            _title.Text += " [BETA]";
+
+#if DEBUG
+        _title.Text += " [DEBUG]";
+#endif
+
+        if (Log.Instance.IsTraceEnabled)
+            _title.Text += " [LOGGING ENABLED]";
     }
 
     private void StatusTrayPopup_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
