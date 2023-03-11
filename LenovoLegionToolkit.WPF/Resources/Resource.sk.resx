@@ -1711,42 +1711,42 @@ Nastavenia sú účinne len keď je povolený vlastný režim.</value>
     <value>Vytvoriť</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
-	  <value>Pridať krok</value>
+    <value>Pridať krok</value>
   </data>
   <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
-	  <value>Vytvoriť akciu</value>
+    <value>Vytvoriť akciu</value>
   </data>
   <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
-	  <value>Režim výkonu</value>
+    <value>Režim výkonu</value>
   </data>
   <data name="StatusTrayPopup_Preset" xml:space="preserve">
-	  <value>Predvoľba</value>
+    <value>Predvoľba</value>
   </data>
   <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
-	  <value>Dedikovaná GPU</value>
+    <value>Dedikovaná GPU</value>
   </data>
   <data name="StatusTrayPopup_PowerState" xml:space="preserve">
-	  <value>Stav napájania</value>
+    <value>Stav napájania</value>
   </data>
   <data name="StatusTrayPopup_Battery" xml:space="preserve">
-	  <value>Batéria</value>
+    <value>Batéria</value>
   </data>
   <data name="StatusTrayPopup_Mode" xml:space="preserve">
-	  <value>Režim</value>
+    <value>Režim</value>
   </data>
   <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
-	  <value>Rýchlosť vybíjania</value>
+    <value>Rýchlosť vybíjania</value>
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
-	  <value>Aktualizácia k dispozícii!</value>
+    <value>Aktualizácia k dispozícii!</value>
   </data>
   <data name="SymbolRegularPicker_Title" xml:space="preserve">
-	  <value>Vybrať ikonu</value>
+    <value>Vybrať ikonu</value>
   </data>
   <data name="AutomationPage_ChangeIcon" xml:space="preserve">
-	  <value>Zmeniť ikonu</value>
+    <value>Zmeniť ikonu</value>
   </data>
   <data name="BatteryPage_LowLevel" xml:space="preserve">
-	  <value>Úroveň batérie nízka</value>
+    <value>Úroveň batérie nízka</value>
   </data>
 </root>

@@ -1629,21 +1629,21 @@ Als u de muis beweegt of op het toetsenbord drukt, worden de schermen gewekt.</v
     <value>Het punt waarbij de CPU de dynamische stroom consumptie wijziging triggered voor de GPU.</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
-	  <value>Stap toevoegen</value>
+    <value>Stap toevoegen</value>
   </data>
   <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
-	  <value>Energiemodus</value>
+    <value>Energiemodus</value>
   </data>
   <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
-	  <value>Discrete GPU</value>
+    <value>Discrete GPU</value>
   </data>
   <data name="StatusTrayPopup_Battery" xml:space="preserve">
-	  <value>Batterij</value>
+    <value>Batterij</value>
   </data>
   <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
-	  <value>Ontlading snelheid</value>
+    <value>Ontlading snelheid</value>
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
-	  <value>Update beschikbaar!</value>
+    <value>Update beschikbaar!</value>
   </data>
 </root>
