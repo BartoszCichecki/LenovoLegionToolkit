@@ -1537,6 +1537,9 @@ Tıshqanshanı qozǵaw yamasa klaviaturanı basıw displeydi iske túsiredi.</va
   <data name="GodModeSettingsWindow_CPU_ShortTermPL_Description" xml:space="preserve">
     <value>Qısqa waqıt ishinde processor tárepinen paydalanıw múmkin bolǵan eń joqarǵı quwatlılıq.</value>
   </data>
+  <data name="Default" xml:space="preserve">
+    <value>Aldınnan ornatılǵan</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Jaratıw</value>
   </data>
