@@ -31,7 +31,7 @@ public class ThermalModeListener : AbstractWMIListener<ThermalModeState>
             case ThermalModeState.Quiet:
                 await Power.ActivatePowerPlanAsync(PowerModeState.Quiet).ConfigureAwait(false);
                 break;
-            case ThermalModeState.Balanced:
+            case ThermalModeState.Balance:
                 await Power.ActivatePowerPlanAsync(PowerModeState.Balance).ConfigureAwait(false);
                 break;
             case ThermalModeState.Performance:

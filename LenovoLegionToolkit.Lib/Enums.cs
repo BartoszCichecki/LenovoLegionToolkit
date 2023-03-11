@@ -446,7 +446,7 @@ public enum ThermalModeState
 {
     Unknown,
     Quiet,
-    Balanced,
+    Balance,
     Performance,
     GodMode = 255
 }
