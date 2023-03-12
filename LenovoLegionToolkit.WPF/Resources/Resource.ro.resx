@@ -625,6 +625,9 @@ Mulțumesc anticipat!</value>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
     <value>Mod dGPU</value>
   </data>
+  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
+    <value>Sunt activate atât GPU-ul integrat, cât și cel dedicat. Sistemul va comuta automat între ele în funcție de nevoile sale.</value>
+  </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Mod Hibrid</value>
   </data>
@@ -779,6 +782,9 @@ ATENȚIE: Această acțiune nu va rula corect dacă afișajul incorporat este op
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Iluminare tastatură</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>Iluminarea tastaturii nu poate fi controlată aici când Vantage sau serviciile sale rulează.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage pare să fie activat</value>
@@ -988,6 +994,9 @@ Asigurați-vă întotdeauna că instalați pachetele corecte.</value>
   </data>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Descărcați la</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filtru...</value>
   </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
     <value>Tip sistem</value>
@@ -1200,6 +1209,10 @@ Asigurați-vă mai întâi că scriptul rulează corect.</value>
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
     <value>Nu s-a putut dezactiva Legion Zone</value>
   </data>
+  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
+    <value>Dezactivați Legion Zone și serviciul său fără a-l dezinstala.
+Se recomandă repornirea după modificarea acestei opțiuni.</value>
+  </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
     <value>Dezactivare Legion Zone</value>
   </data>
@@ -1209,6 +1222,11 @@ Asigurați-vă mai întâi că scriptul rulează corect.</value>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Nu s-a putut dezactiva Lenovo Hotkeys</value>
   </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
+    <value>Dezactivați Lenovo Hotkeys și serviciul său fără a-l dezinstala.
+Daca este dezactivat, această aplicație va gestiona în schimb comenzile rapide cu tasta Fn.
+Se recomandă repornirea după modificarea acestei opțiuni.</value>
+  </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Dezactivare Lenovo Hotkeys</value>
   </data>
@@ -1217,6 +1235,10 @@ Asigurați-vă mai întâi că scriptul rulează corect.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
     <value>Nu s-a putut dezactiva Vantage</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
+    <value>Dezactivați Lenovo Vantage și serviciul său fără a-l dezinstala.
+Se recomandă repornirea după modificarea acestei opțiuni.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Dezactivare Lenovo Vantage</value>
@@ -1680,22 +1702,61 @@ Aceste setări au efect doar atunci când modul Personalizat este activat.</valu
   <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
     <value>Temperatura maximă care poate fi atinsă de GPU înainte ca frecvența și puterea să fie reduse.</value>
   </data>
+  <data name="Default" xml:space="preserve">
+    <value>Implicit</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
+    <value>Durată limită de putere pe termen scurt</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau_Description" xml:space="preserve">
+    <value>Perioada de timp pentru care procesorului i se permite să facă boost și să utilizeze limita de putere pe termen scurt. Când Tau expiră, se utilizează Limita de putere pe termen lung.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
+    <value>Puterea totală a procesorului pe alimentator</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
+    <value>Punctul în care CPU declanșează ajustarea dinamică a consumului de energie pentru GPU.</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Creare</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
     <value>Adăugați pas</value>
   </data>
+  <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
+    <value>Creați o acțiune</value>
+  </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+    <value>Mod putere</value>
+  </data>
+  <data name="StatusTrayPopup_Preset" xml:space="preserve">
+    <value>Profil</value>
+  </data>
   <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
     <value>GPU dedicat</value>
   </data>
+  <data name="StatusTrayPopup_PowerState" xml:space="preserve">
+    <value>Stare putere</value>
+  </data>
   <data name="StatusTrayPopup_Battery" xml:space="preserve">
     <value>Baterie</value>
+  </data>
+  <data name="StatusTrayPopup_Mode" xml:space="preserve">
+    <value>Mod</value>
   </data>
   <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
     <value>Rată de descărcare</value>
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
     <value>Actualizare disponibilă!</value>
+  </data>
+  <data name="SymbolRegularPicker_Title" xml:space="preserve">
+    <value>Selectare iconiță</value>
+  </data>
+  <data name="AutomationPage_ChangeIcon" xml:space="preserve">
+    <value>Schimbare iconiță</value>
+  </data>
+  <data name="BatteryPage_LowLevel" xml:space="preserve">
+    <value>Nivelul bateriei este scăzut</value>
   </data>
 </root>
