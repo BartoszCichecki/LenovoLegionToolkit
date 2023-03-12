@@ -32,7 +32,7 @@ public class RefreshRateFeature : IFeature<RefreshRate>
         var currentSettings = display.CurrentSetting;
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Current built in display settings: {currentSettings}");
+            Log.Instance.Trace($"Current built in display settings: {currentSettings.Resolution} {(currentSettings.IsInterlaced ? "Interlaced" : "Progressive")} {currentSettings.Frequency}hz @ {currentSettings.ColorDepth} @ {currentSettings.Position} {currentSettings.Orientation} {currentSettings.OutputScalingMode}");
 
         var result = display.GetPossibleSettings()
             .Where(dps => Match(dps, currentSettings))
@@ -83,6 +83,9 @@ public class RefreshRateFeature : IFeature<RefreshRate>
 
         var currentSettings = display.CurrentSetting;
 
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Current built in display settings: {currentSettings.Resolution} {(currentSettings.IsInterlaced ? "Interlaced" : "Progressive")} {currentSettings.Frequency}hz @ {currentSettings.ColorDepth} @ {currentSettings.Position} {currentSettings.Orientation} {currentSettings.OutputScalingMode}");
+
         if (currentSettings.Frequency == state.Frequency)
         {
             if (Log.Instance.IsTraceEnabled)
@@ -94,8 +97,9 @@ public class RefreshRateFeature : IFeature<RefreshRate>
         var possibleSettings = display.GetPossibleSettings();
         var newSettings = possibleSettings
             .Where(dps => Match(dps, currentSettings))
+            .Where(dps => dps.Frequency == state.Frequency)
             .Select(dps => new DisplaySetting(dps, currentSettings.Position, currentSettings.Orientation, currentSettings.OutputScalingMode))
-            .FirstOrDefault(dps => dps.Frequency == state.Frequency);
+            .FirstOrDefault();
 
         if (newSettings is not null)
         {

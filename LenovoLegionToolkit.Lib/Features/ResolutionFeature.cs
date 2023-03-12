@@ -32,7 +32,7 @@ public class ResolutionFeature : IFeature<Resolution>
         var currentSettings = display.CurrentSetting;
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Current built in display settings: {currentSettings}");
+            Log.Instance.Trace($"Current built in display settings: {currentSettings.Resolution} {(currentSettings.IsInterlaced ? "Interlaced" : "Progressive")} {currentSettings.Frequency}hz @ {currentSettings.ColorDepth} @ {currentSettings.Position} {currentSettings.Orientation} {currentSettings.OutputScalingMode}");
 
         var result = display.GetPossibleSettings()
             .Where(dps => Match(dps, currentSettings))
@@ -92,10 +92,15 @@ public class ResolutionFeature : IFeature<Resolution>
         }
 
         var possibleSettings = display.GetPossibleSettings();
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Current built in display settings: {currentSettings.Resolution} {(currentSettings.IsInterlaced ? "Interlaced" : "Progressive")} {currentSettings.Frequency}hz @ {currentSettings.ColorDepth} @ {currentSettings.Position} {currentSettings.Orientation} {currentSettings.OutputScalingMode}");
+
         var newSettings = possibleSettings
             .Where(dps => Match(dps, currentSettings))
+            .Where(dps => dps.Resolution == state)
             .Select(dps => new DisplaySetting(dps, currentSettings.Position, currentSettings.Orientation, currentSettings.OutputScalingMode))
-            .FirstOrDefault(dps => dps.Resolution == state);
+            .FirstOrDefault();
 
         if (newSettings is not null)
         {
