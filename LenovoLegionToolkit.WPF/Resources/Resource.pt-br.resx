@@ -995,6 +995,9 @@ Sempre certifique-se de estar instalando os pacotes corretos.</value>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Salvar em</value>
   </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filtro...</value>
+  </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
     <value>Tipo de máquina</value>
   </data>
@@ -1702,6 +1705,18 @@ Esta configuração somente terá efeito se o Modo Personalizado estiver ativo.<
   <data name="Default" xml:space="preserve">
     <value>Padrão</value>
   </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
+    <value>Power Limit de Curto Prazo</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau_Description" xml:space="preserve">
+    <value>A quantidade de tempo que a CPU pode aumentar e usar o limite de energia de curto prazo. Quando Tau expira, o limite de potência de longo prazo é usado.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
+    <value>Alvo de energia total do processador em CA</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
+    <value>O ponto em que a CPU aciona o ajuste dinâmico de consumo de energia para a GPU.</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Criar</value>
   </data>
@@ -1714,16 +1729,34 @@ Esta configuração somente terá efeito se o Modo Personalizado estiver ativo.<
   <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
     <value>Plano de Energia</value>
   </data>
+  <data name="StatusTrayPopup_Preset" xml:space="preserve">
+    <value>Predefinição</value>
+  </data>
   <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
     <value>GPU dedicada</value>
   </data>
+  <data name="StatusTrayPopup_PowerState" xml:space="preserve">
+    <value>Estado da Energia</value>
+  </data>
   <data name="StatusTrayPopup_Battery" xml:space="preserve">
     <value>Bateria</value>
+  </data>
+  <data name="StatusTrayPopup_Mode" xml:space="preserve">
+    <value>Modo</value>
   </data>
   <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
     <value>Taxa de descarga</value>
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
     <value>Atualização disponível!</value>
+  </data>
+  <data name="SymbolRegularPicker_Title" xml:space="preserve">
+    <value>Selecionar ícone</value>
+  </data>
+  <data name="AutomationPage_ChangeIcon" xml:space="preserve">
+    <value>Alterar ícone</value>
+  </data>
+  <data name="BatteryPage_LowLevel" xml:space="preserve">
+    <value>Nível de bateria baixo</value>
   </data>
 </root>
