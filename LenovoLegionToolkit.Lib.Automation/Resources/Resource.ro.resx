@@ -112,4 +112,10 @@
   <data name="LidClosedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
 		<value>Capac închis</value>
 	</data>
+  <data name="GamesStopAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Când jocul se închide</value>
+	</data>
+  <data name="GamesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Când jocul rulează</value>
+	</data>
 </root>
