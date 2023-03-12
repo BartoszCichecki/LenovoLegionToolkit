@@ -112,4 +112,10 @@
   <data name="LidClosedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
 		<value>Capot fermé</value>
 	</data>
+  <data name="GamesStopAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>À la fermeture du jeu</value>
+	</data>
+  <data name="GamesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Pendant l'exécution du jeu</value>
+	</data>
 </root>
