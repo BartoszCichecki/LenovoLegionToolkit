@@ -59,10 +59,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Quwatlaw blogı jalǵanǵanda</value>
+    <value>Quwatlaw adapteri jalǵanǵanda</value>
   </data>
   <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>AC quwatlıq adapteri úzilgende</value>
+    <value>Quwatlaw adapteri úzilgende</value>
   </data>
   <data name="DeactivateGPUAutomationStepState_KillApps" xml:space="preserve">
     <value>Proceslerdi juwmaqlaw</value>
@@ -114,5 +114,8 @@
 	</data>
   <data name="GamesStopAutomationPipelineTrigger_DisplayName" xml:space="preserve">
 		<value>Oyın jabılǵanda</value>
+	</data>
+  <data name="GamesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Oyın iske túsirilgende</value>
 	</data>
 </root>

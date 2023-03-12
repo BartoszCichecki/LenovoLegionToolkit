@@ -95,9 +95,27 @@
     <value>Zur bestimmten Zeit</value>
   </data>
   <data name="ExternalDisplayConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-		<value>Wenn ein externes Display angeschlossen ist</value>
+		<value>Wenn ein externer Monitor angeschlossen wird</value>
 	</data>
   <data name="ExternalDisplayDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-		<value>Wenn kein externes Display angeschlossen ist</value>
+		<value>Wenn ein externer Monitor getrennt wird</value>
+	</data>
+  <data name="DisplayOnAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Wenn Bildschirme eingeschaltet werden</value>
+	</data>
+  <data name="DisplayOffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Wenn Bildschirme ausgeschaltet werden</value>
+	</data>
+  <data name="LidOpenedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Deckel geöffnet</value>
+	</data>
+  <data name="LidClosedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Deckel geschlossen</value>
+	</data>
+  <data name="GamesStopAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Wenn das Spiel beendet wird</value>
+	</data>
+  <data name="GamesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Wenn das Spiel ausgeführt wird</value>
 	</data>
 </root>
