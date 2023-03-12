@@ -526,9 +526,6 @@ AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está
   <data name="Active" xml:space="preserve">
     <value>Activo</value>
   </data>
-  <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
-    <value>Desactivado</value>
-  </data>
   <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
     <value>Se puede desactivar la GPU nVidia.
 
@@ -591,9 +588,6 @@ Haga clic en el logotipo de PayPal que aparece a continuación, o escanee el có
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Editar</value>
-  </data>
-  <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
-    <value>Desmarcar las tasas de actualización que no desea utilizar cuando use las teclas Fn+R.</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>Asegúrese de que la pantalla del portátil está encendida. Lenovo Legion Toolkit no puede cargar las tasas de refresco de una pantalla que no está encendida.</value>
@@ -682,9 +676,6 @@ El sistema alternará automáticamente entre ellas, en función de sus necesidad
   </data>
   <data name="FnLockControl_Message" xml:space="preserve">
     <value>Utilizar las funciones secundarias de las teclas F1-F12 sin pulsar la tecla Fn.</value>
-  </data>
-  <data name="FnLockControl_Title" xml:space="preserve">
-    <value>Bloqueo Fn</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
     <value>¡AVISO!
@@ -1491,9 +1482,6 @@ El registro de sucesos se activará automáticamente, si decide continuar.</valu
   <data name="WhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
     <value>Retroiluminación del teclado</value>
   </data>
-  <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
-    <value>Puede cambiar el brillo con Fn+Espacio</value>
-  </data>
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Retroiluminación del teclado</value>
   </data>
@@ -1659,9 +1647,6 @@ Esta configuración sólo tiene efecto si el modo personalizado está activado.<
   <data name="AboutPage_Temp" xml:space="preserve">
     <value>Temperatura</value>
   </data>
-  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
-    <value>Brillo de la pantalla única</value>
-  </data>
   <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
     <value>Si está activado, se aplicará el mismo nivel de brillo a todos los planes de energía de Windows cada vez que lo cambie.</value>
   </data>
@@ -1682,9 +1667,6 @@ Esta configuración sólo tiene efecto si el modo personalizado está activado.<
   </data>
   <data name="GodModeSettingsWindow_CPU_PeakPL_Description" xml:space="preserve">
     <value>El consumo máximo instantáneo que puede alcanzar la tarjeta gráfica.</value>
-  </data>
-  <data name="GodModeSettingsWindow_CPU_CrossLoading_Description" xml:space="preserve">
-    <value>El consumo máximo de energía que puede alcanzar la unidad central de procesamiento (CPU), si ésta y la tarjeta gráfica (GPU) se utilizan al máximo.</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_APUsPPT_PL_Description" xml:space="preserve">
     <value>El consumo máximo de energía que puede alcanzar la unidad central de procesamiento con un retardo menor.</value>
