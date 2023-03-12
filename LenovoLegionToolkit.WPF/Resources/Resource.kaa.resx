@@ -120,6 +120,9 @@
   <data name="AboutPage_AppName" xml:space="preserve">
     <value>Lenovo Legion Toolkit</value>
   </data>
+  <data name="AboutPage_Build" xml:space="preserve">
+    <value>Qurıw</value>
+  </data>
   <data name="AboutPage_LatestReleaseOnGitHub" xml:space="preserve">
     <value>GitHubdaǵı sońǵı versiya</value>
   </data>
@@ -200,6 +203,9 @@ Tek ámeldegi jaǵdayǵa sáykes keletuǵın háreketler orınlanadı.</value>
   </data>
   <data name="AutomationPage_QuickActions_Empty" xml:space="preserve">
     <value>Tez háreketler anıqlanbaǵan. Jańa operativ háreket jaratıw ushın "Jańasın qosıw" túymesin basıń.</value>
+  </data>
+  <data name="AutomationPage_QuickActions_Message" xml:space="preserve">
+    <value>Tez háreketler xabarlamalar maydanındaǵı tıshqanshanıń oń túymesi belgisi menyuinde bar.</value>
   </data>
   <data name="AutomationPage_QuickActions_Title" xml:space="preserve">
     <value>Tez háreketler</value>
@@ -282,6 +288,9 @@ Tek ámeldegi jaǵdayǵa sáykes keletuǵın háreketler orınlanadı.</value>
   <data name="BalanceModeSettingsWindow_AIEngine_Message" xml:space="preserve">
     <value>Belgili oyınlar iske túskenin avtomatikalıq anıqlaydı, CPU hám GPU iskerligin ózgertedi. Temperatura hám samallatqısh shawqımı artıwı múmkin.</value>
   </data>
+  <data name="BalanceModeSettingsWindow_AIEngine_Title" xml:space="preserve">
+    <value>AI Enginedı qosıw</value>
+  </data>
   <data name="BalanceModeSettingsWindow_Title" xml:space="preserve">
     <value>Teńlesiw rejimi sazlawları</value>
   </data>
@@ -363,6 +372,9 @@ Tek ámeldegi jaǵdayǵa sáykes keletuǵın háreketler orınlanadı.</value>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
     <value>Noutbuk aqırǵı márte tarmaqqa jalǵanǵannan beri waqıt.
 Eger noutbuk uyqı rejiminde yamasa óshirilgen waqıtta zaryadlanǵan bolsa, bul waqıt anıq bolmawı múmkin.</value>
+  </data>
+  <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
+    <value>Batareyada</value>
   </data>
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Batareya</value>
@@ -516,6 +528,10 @@ DIQQAT: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bul
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Óshiriw</value>
   </data>
+  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
+    <value>nVidia grafikalıq processorı óshiriliwi múmkin.
+Itibar berıń, eger siz bunı isleneńiz ayrım baǵdarlamalar islemey qalıwı múmkin.</value>
+  </data>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>nVidia grafikalıq processorı aktiv emes.</value>
   </data>
@@ -549,6 +565,12 @@ DIQQAT: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bul
   <data name="DiscreteGPUControl_Title" xml:space="preserve">
     <value>Bólekli grafikalıq processor</value>
   </data>
+  <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
+    <value>Ornatılǵan displeydiń jarıqlıǵın ózgertiń. 
+Ayırım qurılmalarda quwatlıq rejimleri jarıqlıqtı ózgertedi. Eger bir nárse kerekli dárejede durıs islemese, bul qádem aqırǵısı ekenine isenim kámil etiń.
+
+ESLETPE: Eger ishki displey óshirilgen bolsa, bul háreket durıs islemeydi.</value>
+  </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>Displey jarıqlıǵı</value>
   </data>
@@ -568,6 +590,9 @@ Aldınnan raxmet!</value>
   <data name="Edit" xml:space="preserve">
     <value>Ózgertiw</value>
   </data>
+  <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
+    <value>Fn+R túymelerin qollanǵanda, esapqa alıw kerek emes bolǵan jańalanıw tezliklerinen belgini alıp taslań.</value>
+  </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>Noutbuk displeyi qosılǵanına isenim kámil etiń. Lenova Legion Toolkit qosılmaǵan displey ushın jańalanıw tezligin júkley almaydı.</value>
   </data>
@@ -582,6 +607,9 @@ Aldınnan raxmet!</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>Eksportlaw</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
+    <value>Batareyada islegende tek biriktirilgen videokartanı qollanıw hám quwatlaw adapteri jalǵanǵanda ornatılǵan hám bólekli videokartanı qollanıw. Standart emes quwatlaw adapterin qollanǵanda, sistema biriktirilgen videokartanı qollanıp gibrid rejimge ózgeredi (Hybrid-iGPU Only Mode).</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
     <value>Gibrid-Avto rejim</value>
@@ -606,6 +634,9 @@ Aldınnan raxmet!</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Message" xml:space="preserve">
     <value>Tek ornatılǵan videokartanı paydalanıw. Bul rejim zaryadsızlanıwdı hám shawqımdı azaytadı.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_IGPU_Title" xml:space="preserve">
+    <value>Gibrid rejimi biriktirilgen videokartanı qollanıp</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Title" xml:space="preserve">
     <value>Grafikalıq processordıń islew rejimleri haqqında</value>
@@ -757,6 +788,9 @@ DIQQAT: Eger ishki displey óshirilgen bolsa, bul háreket durıs orınlanbaydı
   </data>
   <data name="MainWindow_NavigationItem_Battery" xml:space="preserve">
     <value>Batareya</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Dashboard" xml:space="preserve">
+    <value>Basqarıw paneli</value>
   </data>
   <data name="MainWindow_NavigationItem_Donate" xml:space="preserve">
     <value>Qollap-quwatlaw</value>
@@ -927,6 +961,9 @@ Eger de tolıq ekranlı baǵdarlamalar menen mashqalalar bolsa, bul varianttı q
   <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
     <value>Jańalanıw bar!</value>
   </data>
+  <data name="PackageControl_OldPackageWarning" xml:space="preserve">
+    <value>Bul paket bir jıldan asqan.</value>
+  </data>
   <data name="PackageControl_Version" xml:space="preserve">
     <value>Versiya</value>
   </data>
@@ -939,6 +976,9 @@ Durıs paketlerdi ornatıp atırǵanıńızǵa isenim kámil etiń.</value>
   </data>
   <data name="PackagesPage_DownloadFailed_Title" xml:space="preserve">
     <value>Qanday da bir qátelik boldı</value>
+  </data>
+  <data name="PackagesPage_DownloadInProgress_Message" xml:space="preserve">
+    <value>Sortlawdı ózgertiw, nátiyjelerdi filtrlew, paketlerdi jasırıw yamasa dizimdi jańalaw júklep alıwdı toqtatadı. Dawam etiwdi qáleysiz be?</value>
   </data>
   <data name="PackagesPage_DownloadInProgress_Title" xml:space="preserve">
     <value>Júklenbekte</value>
@@ -1010,6 +1050,9 @@ Rejimdi Fn+Q járdeminde ózgerte alasız.</value>
   <data name="PowerModeWindow_Title" xml:space="preserve">
     <value>Quwatlılıq rejimi</value>
   </data>
+  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
+    <value>Lenovo Vantage islep turǵanda hám noutbugıńız quwat rejelerin ózgertkende, bul parametrdi qosıw kútilmegen aqıbetlerge alıp keliwi múmkin.</value>
+  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Isenimińiz kámil me?</value>
   </data>
@@ -1022,11 +1065,17 @@ Rejimdi Fn+Q járdeminde ózgerte alasız.</value>
   <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
     <value>Aldınnan ornatılǵan</value>
   </data>
+  <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
+    <value>Islew rejimi</value>
+  </data>
   <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
     <value>Tınısh rejimi</value>
   </data>
   <data name="PowerPlansWindow_Title" xml:space="preserve">
     <value>Quwatlılıq jobaları</value>
+  </data>
+  <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Klaviaturnıń arqa jaqtılıǵın aldınnan sazlawdı ornatıń.</value>
   </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
     <value>Klaviaturanıń arqa jaqtılıǵı</value>
@@ -1242,6 +1291,9 @@ Bul varianttı ózgertkennen keyin, qayta iske túsiriw usınıs etiledi.</value
   <data name="SettingsPage_Title" xml:space="preserve">
     <value>Sazlawlar</value>
   </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Message" xml:space="preserve">
+    <value>Klaviaturnıń arqa jaqtılıǵı jarıqlıǵın sazlań.</value>
+  </data>
   <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Off" xml:space="preserve">
     <value>Óshik</value>
   </data>
@@ -1260,6 +1312,9 @@ Bul varianttı ózgertkennen keyin, qayta iske túsiriw usınıs etiledi.</value
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Jarıqlıq</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_DeselectAll_ToolTip" xml:space="preserve">
+    <value>Barlıq zonalardıń belgilengenin alıp taslaw</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
     <value>Effektler</value>
   </data>
@@ -1277,6 +1332,9 @@ Bul varianttı ózgertkennen keyin, qayta iske túsiriw usınıs etiledi.</value
   </data>
   <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
     <value>Effektler qosılmaǵan.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip" xml:space="preserve">
+    <value>Aldınnan sazlawdı qayta ornatıw</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
     <value>Barlıq zonalardı tańlaw</value>
@@ -1372,6 +1430,13 @@ Qayta iske túsiriw talap etiledi.</value>
   <data name="Unnamed" xml:space="preserve">
     <value>Atı atalmaǵan</value>
   </data>
+  <data name="UnsupportedWindow_Disclaimer" xml:space="preserve">
+    <value>Siz ózińizdi qáwipke qoyıp dawam etiwdi tańlawıńız múmkin, bıraq este saqlań, ayırım funkciyalar bolmawı hám/yamasa durıs islemewi múmkin.
+Eger siz dawam etiwdi tańlasańız, jurnaldı júrgiziw avtomatikalıq qosıladı.</value>
+  </data>
+  <data name="UnsupportedWindow_Disclaimer_GitHub" xml:space="preserve">
+    <value>Qosımsha maǵlıwmat alıw ushın GitHubdaǵi joybar betin tekseriń.</value>
+  </data>
   <data name="UnsupportedWindow_Disclaimer_Logs" xml:space="preserve">
     <value>Jurnallar papkası</value>
   </data>
@@ -1429,8 +1494,14 @@ Qayta iske túsiriw talap etiledi.</value>
   <data name="MicrophoneControl_Title" xml:space="preserve">
     <value>Mikrofon</value>
   </data>
+  <data name="MicrophoneControl_Message" xml:space="preserve">
+    <value>Óshirilgende, mikrofonlar dawısı óshiriledi.</value>
+  </data>
   <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
     <value>Mikrofon</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
+    <value>Óshirilgende, mikrofonlar dawısı óshiriledi.</value>
   </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
     <value>Kólem</value>
@@ -1493,6 +1564,9 @@ ESLETPE: Eger ishki displey óshirilgen bolsa, bul ámel durıs orınlanbaydı.<
   <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
     <value>Ataması</value>
   </data>
+  <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
+    <value>Qurılmańız halatı hám sazlawlarına qarap ayırım funkciyalar Ásbaplar panelinde kórinbewi múmkin.</value>
+  </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>Sazlaw</value>
   </data>
@@ -1508,6 +1582,9 @@ Tıshqanshanı qozǵaw yamasa klaviaturanı basıw displeydi iske túsiredi.</va
   </data>
   <data name="TurnOffMonitorsAutomationStepControl_Title" xml:space="preserve">
     <value>Displeylerdi óshiriw</value>
+  </data>
+  <data name="TurnOffMonitorsAutomationStepControl_Message" xml:space="preserve">
+    <value>Ámeldegi barlıq ekranlardı óshiriw.</value>
   </data>
   <data name="EditDashboardGroupControl_EditGroup_Title" xml:space="preserve">
     <value>Topar atamasın ózgertiw</value>
