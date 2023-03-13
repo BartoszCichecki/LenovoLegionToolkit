@@ -1550,7 +1550,7 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn der interne Bildschir
 WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn der interne Bildschirm ausgeschaltet ist.</value>
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
-    <value>Display</value>
+    <value>Bildschirm</value>
   </data>
   <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Tastaturbeleuchtung</value>
