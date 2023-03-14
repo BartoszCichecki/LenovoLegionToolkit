@@ -21,7 +21,7 @@ using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
 using MenuItem = Wpf.Ui.Controls.MenuItem;
 
-namespace LenovoLegionToolkit.WPF.Controls.Automation.Pipeline;
+namespace LenovoLegionToolkit.WPF.Controls.Automation;
 
 public class AutomationPipelineControl : UserControl
 {
@@ -241,8 +241,8 @@ public class AutomationPipelineControl : UserControl
         if (!string.IsNullOrWhiteSpace(AutomationPipeline.Name) && AutomationPipeline.Trigger is not null)
             result += $" | {AutomationPipeline.Trigger.DisplayName}";
 
-        if (AutomationPipeline.Trigger is IPowerModeAutomationPipelineTrigger p)
-            result += $" | {Resource.AutomationPipelineControl_SubtitlePart_PowerMode}: {p.PowerModeState.GetDisplayName()}";
+        if (AutomationPipeline.Trigger is IPowerModeAutomationPipelineTrigger pm)
+            result += $" | {Resource.AutomationPipelineControl_SubtitlePart_PowerMode}: {pm.PowerModeState.GetDisplayName()}";
 
         if (AutomationPipeline.Trigger is IProcessesAutomationPipelineTrigger pt && pt.Processes.Any())
             result += $" | {Resource.AutomationPipelineControl_SubtitlePart_Apps}: {string.Join(", ", pt.Processes.Select(p => p.Name))}";
