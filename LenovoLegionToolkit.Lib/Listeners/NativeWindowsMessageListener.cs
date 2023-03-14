@@ -60,7 +60,10 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         _consoleDisplayStateNotificationHandle = RegisterPowerNotification(PInvoke.GUID_CONSOLE_DISPLAY_STATE);
         _lidSwitchStateChangeNotificationHandle = RegisterPowerNotification(PInvoke.GUID_LIDSWITCH_STATE_CHANGE);
 
-        return Task.WhenAll(_isMonitorOnTaskCompletionSource.Task, _isLidOpenTaskCompletionSource.Task);
+        return Task.WhenAll(
+            _isMonitorOnTaskCompletionSource.Task,
+            _isLidOpenTaskCompletionSource.Task
+        );
     }
 
     public unsafe Task StopAsync()
