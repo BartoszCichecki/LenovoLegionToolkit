@@ -308,10 +308,10 @@
     <value>充电模式</value>
   </data>
   <data name="BatteryPage_ACAdapterConnectedAndCharging" xml:space="preserve">
-    <value>已插入充电器，充电中...</value>
+    <value>已插入电源适配器，充电中...</value>
   </data>
   <data name="BatteryPage_ACAdapterConnectedNotCharging" xml:space="preserve">
-    <value>已插入充电器，未充电...</value>
+    <value>已插入电源适配器，未充电...</value>
   </data>
   <data name="BatteryPage_BatteryTemperature_Message" xml:space="preserve">
     <value>当前电池温度。</value>
@@ -362,7 +362,7 @@
     <value>满电容量</value>
   </data>
   <data name="BatteryPage_LowWattageChargerConnected" xml:space="preserve">
-    <value>已插入低功率充电器</value>
+    <value>已插入较低功率电源适配器</value>
   </data>
   <data name="BatteryPage_ManufactureDate_Message" xml:space="preserve">
     <value>电池的生产日期。</value>
@@ -371,7 +371,7 @@
     <value>生产日期</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-    <value>笔记本上次充电距离现在的时间。
+    <value>笔记本断开电源适配器的时间。
 如果在关机或休眠时充电，可能会导致此时间不准确。</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
@@ -384,7 +384,7 @@
     <value>使用电池时</value>
   </data>
   <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>插入充电器时</value>
+    <value>插入电源适配器时</value>
   </data>
   <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
     <value>性能计划</value>
@@ -613,7 +613,7 @@
     <value>导出</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
-    <value>使用电池时只使用核显，连接充电器时同时使用核显与独显。当连接非标准充电器时，系统会切换到混合核显模式。</value>
+    <value>使用电池时只使用核显，连接电源适配器时同时使用核显与独显。当连接非标准（较低功率）电源适配器时，系统会切换到混合核显模式。</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
     <value>混合自动模式</value>
@@ -833,13 +833,13 @@
     <value>否</value>
   </data>
   <data name="Notification_ACAdapterConnected" xml:space="preserve">
-    <value>充电器 已插入</value>
+    <value>电源适配器 已插入</value>
   </data>
   <data name="Notification_ACAdapterConnectedLowWattage" xml:space="preserve">
-    <value>充电器 已插入（低功率）</value>
+    <value>电源适配器（较低功率） 已插入</value>
   </data>
   <data name="Notification_ACAdapterDisconnected" xml:space="preserve">
-    <value>充电器 已拔出</value>
+    <value>电源适配器 已拔出</value>
   </data>
   <data name="Notification_CameraOff" xml:space="preserve">
     <value>摄像头 关</value>
@@ -890,7 +890,7 @@
     <value>背光 {0}</value>
   </data>
   <data name="NotificationsSettingsWindow_ACAdapter" xml:space="preserve">
-    <value>充电器</value>
+    <value>电源适配器</value>
   </data>
   <data name="NotificationsSettingsWindow_Camera" xml:space="preserve">
     <value>摄像头</value>
@@ -1060,7 +1060,7 @@
     <value>性能模式</value>
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
-    <value>在未插入充电器的情况下，性能模式可能无法正常生效。</value>
+    <value>在未插入电源适配器的情况下，性能模式可能无法正常生效。</value>
   </data>
   <data name="PowerModeWindow_Title" xml:space="preserve">
     <value>性能模式</value>
