@@ -85,14 +85,6 @@ public partial class AutomationPage
             pipelines.AddRange(automaticPipelines);
             pipelines.AddRange(manualPipelines);
 
-            var ap = new AutomationPipeline(new AndAutomationPipelineTrigger(new IAutomationPipelineTrigger[]
-            {
-                new ACAdapterDisconnectedAutomationPipelineTrigger(),
-                new PowerModeAutomationPipelineTrigger(PowerModeState.Quiet),
-            }));
-            ap.Steps.Add(new SpectrumKeyboardBacklightBrightnessAutomationStep(1));
-            // pipelines.Add(ap);
-
             await _automationProcessor.ReloadPipelinesAsync(pipelines);
             await RefreshAsync();
 
