@@ -152,7 +152,7 @@ public partial class CreateAutomationPipelineWindow
             Margin = new(0, 8, 0, 0),
         };
 
-        if (trigger is IDisallowDuplicatesAutomationPipelineTrigger)
+        if (!_multiSelect && trigger is IDisallowDuplicatesAutomationPipelineTrigger)
             control.IsEnabled = !_existingTriggerTypes.Contains(trigger.GetType());
 
         control.Click += (_, _) =>
