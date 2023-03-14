@@ -9,13 +9,13 @@ namespace LenovoLegionToolkit.Lib.System;
 
 public static class Autorun
 {
-    private const string TaskName = "LenovoLegionToolkit_Autorun_6efcc882-924c-4cbc-8fec-f45c25696f98";
+    private const string TASK_NAME = "LenovoLegionToolkit_Autorun_6efcc882-924c-4cbc-8fec-f45c25696f98";
 
     public static AutorunState State
     {
         get
         {
-            var task = TaskService.Instance.GetTask(TaskName);
+            var task = TaskService.Instance.GetTask(TASK_NAME);
             if (task is null)
                 return AutorunState.Disabled;
 
@@ -29,7 +29,7 @@ public static class Autorun
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Validating autorun...");
 
-        var currentTask = TaskService.Instance.GetTask(TaskName);
+        var currentTask = TaskService.Instance.GetTask(TASK_NAME);
         if (currentTask is null)
         {
             if (Log.Instance.IsTraceEnabled)
@@ -103,7 +103,7 @@ public static class Autorun
         td.Actions.Add($"\"{filename}\"", "--minimized");
         td.Settings.DisallowStartIfOnBatteries = false;
         td.Settings.StopIfGoingOnBatteries = false;
-        ts.RootFolder.RegisterTaskDefinition(TaskName, td);
+        ts.RootFolder.RegisterTaskDefinition(TASK_NAME, td);
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Autorun enabled");
@@ -113,7 +113,7 @@ public static class Autorun
     {
         try
         {
-            TaskService.Instance.RootFolder.DeleteTask(TaskName);
+            TaskService.Instance.RootFolder.DeleteTask(TASK_NAME);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Autorun disabled");

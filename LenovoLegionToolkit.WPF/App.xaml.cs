@@ -2,14 +2,10 @@
 using LenovoLegionToolkit.Lib.System;
 #endif
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Threading;
@@ -42,18 +38,17 @@ public partial class App
 
     private async void Application_Startup(object sender, StartupEventArgs e)
     {
+        var flags = new Flags(e.Args);
+
+        Log.Instance.IsTraceEnabled = flags.IsTraceEnabled;
+
         AppDomain.CurrentDomain.UnhandledException += AppDomain_UnhandledException;
 
         EnsureSingleInstance();
 
         await LocalizationHelper.SetLanguageAsync(true);
 
-        var args = e.Args.Concat(LoadExternalArgs()).ToArray();
-
-        if (IsTraceEnabled(args))
-            Log.Instance.IsTraceEnabled = true;
-
-        if (!ShouldByPassCompatibilityCheck(args))
+        if (!flags.SkipCompatibilityCheck)
         {
             await CheckBasicCompatibilityAsync();
             await CheckCompatibilityAsync();
@@ -71,11 +66,9 @@ public partial class App
             new IoCModule()
         );
 
-        if (ShouldForceDisableRGBKeyboardSupport(args))
-            IoCContainer.Resolve<RGBKeyboardBacklightController>().ForceDisable = true;
-
-        if (ShouldForceDisableSpectrumKeyboardSupport(args))
-            IoCContainer.Resolve<SpectrumKeyboardBacklightController>().ForceDisable = true;
+        IoCContainer.Resolve<PowerModeFeature>().AllowAllPowerModesOnBattery = flags.AllowAllPowerModesOnBattery;
+        IoCContainer.Resolve<RGBKeyboardBacklightController>().ForceDisable = flags.ForceDisableRgbKeyboardSupport;
+        IoCContainer.Resolve<SpectrumKeyboardBacklightController>().ForceDisable = flags.ForceDisableSpectrumKeyboardSupport;
 
         await InitPowerModeFeatureAsync();
         await InitBatteryFeatureAsync();
@@ -84,7 +77,7 @@ public partial class App
         await InitAutomationProcessorAsync();
 
 #if !DEBUG
-            Autorun.Validate();
+        Autorun.Validate();
 #endif
 
         var mainWindow = new MainWindow
@@ -95,7 +88,7 @@ public partial class App
 
         IoCContainer.Resolve<ThemeManager>().Apply();
 
-        if (ShouldStartMinimized(args))
+        if (flags.Minimized)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Sending MainWindow to tray...");
@@ -445,70 +438,4 @@ public partial class App
                 Log.Instance.Trace($"Couldn't start Aurora if needed.", ex);
         }
     }
-
-    #region Arguments
-
-    private static string[] LoadExternalArgs()
-    {
-        try
-        {
-            var argsFile = Path.Combine(Folders.AppData, "args.txt");
-            return !File.Exists(argsFile) ? Array.Empty<string>() : File.ReadAllLines(argsFile);
-        }
-        catch
-        {
-            return Array.Empty<string>();
-        }
-    }
-
-    private static bool ShouldForceDisableRGBKeyboardSupport(IEnumerable<string> args)
-    {
-        var result = args.Contains("--force-disable-rgbkb");
-        if (result && Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Argument present");
-        return result;
-    }
-
-    private static bool ShouldForceDisableSpectrumKeyboardSupport(IEnumerable<string> args)
-    {
-        var result = args.Contains("--force-disable-spectrumkb");
-        if (result && Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Argument present");
-        return result;
-    }
-
-    private static bool ShouldByPassCompatibilityCheck(IEnumerable<string> args)
-    {
-        var result = args.Contains("--skip-compat-check");
-        if (result && Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Argument present");
-        return result;
-    }
-
-    private static bool ShouldStartMinimized(IEnumerable<string> args)
-    {
-        var result = args.Contains("--minimized");
-        if (result && Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Argument present");
-        return result;
-    }
-
-    private static bool IsTraceEnabled(IEnumerable<string> args)
-    {
-        var result = args.Contains("--trace");
-        if (result && Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Argument present");
-
-        if (!result && Keyboard.IsKeyDown(Key.LeftShift) && Keyboard.IsKeyDown(Key.LeftCtrl))
-        {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"LeftShift+LeftCtrl down.");
-
-            result = true;
-        }
-
-        return result;
-    }
-
-    #endregion
 }
