@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Automation.Listeners;
 using LenovoLegionToolkit.Lib.Automation.Resources;
-using NotImplementedException = System.NotImplementedException;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 
@@ -16,7 +16,9 @@ public class GamesStopAutomationPipelineTrigger : IGameAutomationPipelineTrigger
 
     public Task<bool> IsMatchingState()
     {
-        throw new NotImplementedException();
+        var listener = IoCContainer.Resolve<GameAutomationListener>();
+        var result = !listener.AreGamesRunning();
+        return Task.FromResult(result);
     }
 
     public IAutomationPipelineTrigger DeepCopy() => new GamesStopAutomationPipelineTrigger();

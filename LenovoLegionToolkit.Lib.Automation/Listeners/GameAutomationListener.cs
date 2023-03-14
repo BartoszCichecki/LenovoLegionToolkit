@@ -74,6 +74,14 @@ public class GameAutomationListener : IListener<bool>
         }
     }
 
+    public bool AreGamesRunning()
+    {
+        lock (_lock)
+        {
+            return _processCache.Any();
+        }
+    }
+
     private void GameDetector_GamesDetected(object? sender, GameDetector.GameDetectedEventArgs e)
     {
         lock (_lock)

@@ -17,7 +17,7 @@ public interface IAutomationPipelineTrigger
 
 public interface IDisallowDuplicatesAutomationPipelineTrigger : IAutomationPipelineTrigger { }
 
-public interface ICompositeAutomationPipelineTrigger
+public interface ICompositeAutomationPipelineTrigger : IAutomationPipelineTrigger
 {
     public IAutomationPipelineTrigger[] Triggers { get; }
 }

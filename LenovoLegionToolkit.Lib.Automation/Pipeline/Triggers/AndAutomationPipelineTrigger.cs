@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 
-public class AndAutomationPipelineTrigger : IAutomationPipelineTrigger, ICompositeAutomationPipelineTrigger
+public class AndAutomationPipelineTrigger : ICompositeAutomationPipelineTrigger
 {
     public string DisplayName => string.Join(Environment.NewLine, Triggers.Select(t => t.DisplayName));
 

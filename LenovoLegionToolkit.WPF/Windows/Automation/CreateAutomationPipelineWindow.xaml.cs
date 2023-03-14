@@ -168,8 +168,8 @@ public partial class CreateAutomationPipelineWindow
             }
             else
             {
-            _createPipeline(trigger);
-            Close();
+                _createPipeline(trigger);
+                Close();
             }
         };
 
