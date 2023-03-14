@@ -59,10 +59,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>当充电器插入时</value>
+    <value>当电源适配器插入时</value>
   </data>
   <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>当充电器断开时</value>
+    <value>当电源适配器断开时</value>
   </data>
   <data name="DeactivateGPUAutomationStepState_KillApps" xml:space="preserve">
     <value>强制关闭应用</value>
@@ -77,7 +77,7 @@
     <value>{0} 秒</value>
   </data>
   <data name="LowWattageACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>当低功率充电器插入时</value>
+    <value>当较低功率电源适配器插入时</value>
   </data>
   <data name="OnStartupAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>当开机时</value>
@@ -99,5 +99,23 @@
 	</data>
   <data name="ExternalDisplayDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
 		<value>当断开了外置屏幕后</value>
+	</data>
+  <data name="DisplayOnAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>当显示器打开时</value>
+	</data>
+  <data name="DisplayOffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>当显示器关闭时</value>
+	</data>
+  <data name="LidOpenedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>打开盖子时</value>
+	</data>
+  <data name="LidClosedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>合上盖子时</value>
+	</data>
+  <data name="GamesStopAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>当关闭游戏后</value>
+	</data>
+  <data name="GamesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>当打开游戏时</value>
 	</data>
 </root>

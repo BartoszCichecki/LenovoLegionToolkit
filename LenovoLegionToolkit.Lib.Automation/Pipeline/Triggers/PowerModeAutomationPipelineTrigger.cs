@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 
-public class PowerModeAutomationPipelineTrigger : IAutomationPipelineTrigger, IPowerModeAutomationPipelineTrigger
+public class PowerModeAutomationPipelineTrigger : IPowerModeAutomationPipelineTrigger
 {
     public string DisplayName => Resource.PowerModeAutomationPipelineTrigger_DisplayName;
 
@@ -43,4 +43,6 @@ public class PowerModeAutomationPipelineTrigger : IAutomationPipelineTrigger, IP
     }
 
     public override int GetHashCode() => HashCode.Combine(PowerModeState);
+
+    public override string ToString() => $"{nameof(PowerModeState)}: {PowerModeState}";
 }

@@ -42,13 +42,17 @@ public class NotificationWindow : UiWindow
         VerticalContentAlignment = VerticalAlignment.Center,
     };
 
-    public NotificationWindow(SymbolRegular symbol, SymbolRegular? overlaySymbol, Action<SymbolIcon>? symbolTransform, string text, NotificationPosition position)
+    public NotificationWindow(SymbolRegular symbol, SymbolRegular? overlaySymbol, Action<SymbolIcon>? symbolTransform, string text, Action? clickAction, NotificationPosition position)
     {
         InitializeStyle();
         InitializeContent(symbol, overlaySymbol, symbolTransform, text);
 
         SourceInitialized += (_, _) => InitializePosition(position);
-        MouseDown += (_, _) => Close();
+        MouseDown += (_, _) =>
+        {
+            Close();
+            clickAction?.Invoke();
+        };
     }
 
     public void Show(int closeAfter)
@@ -82,8 +86,8 @@ public class NotificationWindow : UiWindow
 
         _mainGrid.Measure(new Size(double.PositiveInfinity, 80));
 
-        Width = MinWidth = Math.Max(_mainGrid.DesiredSize.Width, 300);
-        Height = MinHeight = _mainGrid.DesiredSize.Height;
+        Width = MaxWidth = MinWidth = Math.Max(_mainGrid.DesiredSize.Width, 300);
+        Height = MaxHeight = MinHeight = _mainGrid.DesiredSize.Height;
 
         const int margin = 16;
 

@@ -7,6 +7,7 @@ using System.Windows.Input;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Controls;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Pages;
 using LenovoLegionToolkit.WPF.Resources;
@@ -50,8 +51,20 @@ public partial class MainWindow
         _contextMenuHelper.BringToForeground = BringToForeground;
         _contextMenuHelper.Close = App.Current.ShutdownAsync;
 
-        _trayIcon.TrayLeftMouseUp += (_, _) => BringToForeground();
+        _trayIcon.TrayToolTip = new StatusTrayPopup();
+        _trayIcon.TrayToolTipResolved.Style = null;
+        _trayIcon.TrayToolTipResolved.VerticalOffset = -8;
+
+        _trayIcon.ToolTipText = Resource.AppName;
+
         _trayIcon.ContextMenu = _contextMenuHelper.ContextMenu;
+        _trayIcon.TrayContextMenuOpen += (_, _) =>
+        {
+            if (_trayIcon.TrayToolTipResolved is { } tooltip)
+                tooltip.IsOpen = false;
+        };
+
+        _trayIcon.TrayLeftMouseUp += (_, _) => BringToForeground();
     }
 
     private void MainWindow_SourceInitialized(object? sender, EventArgs e) => RestoreSize();
@@ -145,11 +158,7 @@ public partial class MainWindow
         window.ShowDialog();
     }
 
-    private void UpdateIndicator_Click(object sender, RoutedEventArgs e)
-    {
-        var window = new UpdateWindow { Owner = this };
-        window.ShowDialog();
-    }
+    private void UpdateIndicator_Click(object sender, RoutedEventArgs e) => ShowUpdateWindow();
 
     private void LoadDeviceInfo()
     {
@@ -170,12 +179,16 @@ public partial class MainWindow
                 if (result is null)
                 {
                     _updateIndicator.Visibility = Visibility.Collapsed;
+                    return;
                 }
-                else
-                {
-                    _updateIndicatorText.Text = string.Format(Resource.MainWindow_UpdateAvailableWithVersion, result.ToString(3));
-                    _updateIndicator.Visibility = Visibility.Visible;
-                }
+
+                var versionNumber = result.ToString(3);
+
+                _updateIndicatorText.Text = string.Format(Resource.MainWindow_UpdateAvailableWithVersion, versionNumber);
+                _updateIndicator.Visibility = Visibility.Visible;
+
+                if (WindowState == WindowState.Minimized)
+                    MessagingCenter.Publish(new Notification(NotificationType.UpdateAvailable, NotificationDuration.Long, versionNumber));
             }, TaskScheduler.FromCurrentSynchronizationContext());
     }
 
@@ -207,5 +220,11 @@ public partial class MainWindow
     {
         Hide();
         ShowInTaskbar = false;
+    }
+
+    public void ShowUpdateWindow()
+    {
+        var window = new UpdateWindow { Owner = this };
+        window.ShowDialog();
     }
 }

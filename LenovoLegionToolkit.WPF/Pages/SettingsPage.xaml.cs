@@ -101,6 +101,7 @@ public partial class SettingsPage
 
         _notificationsCard.Visibility = fnKeysStatus != SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
         _excludeRefreshRatesCard.Visibility = fnKeysStatus != SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
+        _synchronizeBrightnessToAllPowerPlansToggle.IsChecked = _settings.Store.SynchronizeBrightnessToAllPowerPlans;
 
         _powerPlansCard.Visibility = await _powerModeFeature.IsSupportedAsync() ? Visibility.Visible : Visibility.Collapsed;
 
@@ -112,6 +113,7 @@ public partial class SettingsPage
         _vantageToggle.Visibility = Visibility.Visible;
         _legionZoneToggle.Visibility = Visibility.Visible;
         _fnKeysToggle.Visibility = Visibility.Visible;
+        _synchronizeBrightnessToAllPowerPlansToggle.Visibility = Visibility.Visible;
 
         _isRefreshing = false;
     }
@@ -435,6 +437,19 @@ public partial class SettingsPage
 
         var window = new ExcludeRefreshRatesWindow { Owner = Window.GetWindow(this) };
         window.ShowDialog();
+    }
+
+    private void SynchronizeBrightnessToAllPowerPlansToggle_Click(object sender, RoutedEventArgs e)
+    {
+        if (_isRefreshing)
+            return;
+
+        var state = _synchronizeBrightnessToAllPowerPlansToggle.IsChecked;
+        if (state is null)
+            return;
+
+        _settings.Store.SynchronizeBrightnessToAllPowerPlans = state.Value;
+        _settings.SynchronizeStore();
     }
 
     private void PowerPlans_Click(object sender, RoutedEventArgs e)

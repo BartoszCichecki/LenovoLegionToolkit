@@ -56,7 +56,7 @@
                             Margin="0,16,0,16"
                             HorizontalAlignment="Center"
                             FontWeight="Medium"
-                            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                             Text="{x:Static resources:Resource.AutomationPage_Actions_Empty}" />
 
                         <StackPanel x:Name="_automaticPipelinesStackPanel" />
@@ -68,7 +68,6 @@
                                 Appearance="Primary"
                                 Click="NewAutomaticPipelineButton_Click"
                                 Content="{x:Static resources:Resource.AddNew}" />
-
                         </StackPanel>
 
                     </StackPanel>
@@ -96,7 +95,7 @@
                             Margin="0,16,0,16"
                             HorizontalAlignment="Center"
                             FontWeight="Medium"
-                            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                             Text="{x:Static resources:Resource.AutomationPage_QuickActions_Empty}" />
 
                         <StackPanel x:Name="_manualPipelinesStackPanel" />

@@ -100,4 +100,10 @@
   <data name="ExternalDisplayDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
 		<value>Quando il display esterno è scollegato</value>
 	</data>
+  <data name="DisplayOnAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Quando lo schermo si accende</value>
+	</data>
+  <data name="DisplayOffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Quando lo schermo si spegne</value>
+	</data>
 </root>

@@ -72,11 +72,8 @@
                     Grid.Row="1"
                     Grid.Column="0"
                     FontSize="12"
-                    TextTrimming="CharacterEllipsis">
-                    <TextBlock.Foreground>
-                        <SolidColorBrush Color="{DynamicResource TextFillColorTertiary}" />
-                    </TextBlock.Foreground>
-                </TextBlock>
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                    TextTrimming="CharacterEllipsis" />
 
                 <TextBlock
                     x:Name="_categoryTextBlock"
@@ -84,11 +81,8 @@
                     Grid.Column="0"
                     Margin="0,4,0,8"
                     FontWeight="Medium"
-                    MouseRightButtonUp="CopyToClipboard_MouseRightButtonUp">
-                    <TextBlock.Foreground>
-                        <SolidColorBrush Color="{DynamicResource TextFillColorTertiary}" />
-                    </TextBlock.Foreground>
-                </TextBlock>
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                    MouseRightButtonUp="CopyToClipboard_MouseRightButtonUp" />
 
                 <TextBlock
                     x:Name="_titleTextBlock"
@@ -105,24 +99,18 @@
                     Grid.Column="0"
                     Margin="0,8,0,8"
                     FontSize="13"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                     MouseRightButtonUp="CopyToClipboard_MouseRightButtonUp"
-                    TextWrapping="Wrap">
-                    <TextBlock.Foreground>
-                        <SolidColorBrush Color="{DynamicResource TextFillColorSecondary}" />
-                    </TextBlock.Foreground>
-                </TextBlock>
+                    TextWrapping="Wrap" />
 
                 <TextBlock
                     x:Name="_detailTextBlock"
                     Grid.Row="5"
                     Grid.Column="0"
                     Margin="0,4,0,0"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                     MouseRightButtonUp="CopyToClipboard_MouseRightButtonUp"
-                    TextTrimming="CharacterEllipsis">
-                    <TextBlock.Foreground>
-                        <SolidColorBrush Color="{DynamicResource TextFillColorTertiary}" />
-                    </TextBlock.Foreground>
-                </TextBlock>
+                    TextTrimming="CharacterEllipsis" />
 
                 <TextBlock
                     x:Name="_warningTextBlock"

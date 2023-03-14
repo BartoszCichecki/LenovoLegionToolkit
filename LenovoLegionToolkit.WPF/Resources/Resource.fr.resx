@@ -524,7 +524,7 @@ ATTENTION : Cette action ne fonctionnera pas correctement, si l'écran intégré
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Garantie</value>
   </data>
-  <data name="DiscreteGPUControl_Active" xml:space="preserve">
+  <data name="Active" xml:space="preserve">
     <value>Actif</value>
   </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
@@ -538,7 +538,7 @@ Souvenez-vous, que certains logiciels peuvent s'arrêter si vous le faites.</val
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>nVidia GPU n'est pas actif.</value>
   </data>
-  <data name="DiscreteGPUControl_Inactive" xml:space="preserve">
+  <data name="Inactive" xml:space="preserve">
     <value>Inactif</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
@@ -996,7 +996,7 @@ Assurez-vous toujours que vous installez les paquets appropriés.</value>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Télécharger vers</value>
   </data>
-  <data name="PackagesPage_Filter" xml:space="preserve">
+  <data name="Filter" xml:space="preserve">
     <value>Filtrer...</value>
   </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
@@ -1043,9 +1043,6 @@ Assurez-vous toujours que vous installez les paquets appropriés.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Mode d'alimentation</value>
-  </data>
-  <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>Impossible de changer le mode d'alimentation</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>Sélectionnez le mode de performances.
@@ -1578,7 +1575,7 @@ ATTENTION : Cette action ne fonctionnera pas correctement, si l'écran interne e
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Tableau de bord personnalisé</value>
   </data>
-  <data name="Reset" xml:space="preserve">
+  <data name="Load" xml:space="preserve">
     <value>Réinitialiser</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
@@ -1635,5 +1632,132 @@ En déplaçant la souris ou en appuyant sur le clavier, les écrans se réveille
   </data>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>Redémarrage recommandé</value>
+  </data>
+  <data name="SaveAndClose" xml:space="preserve">
+    <value>Enregistrer et fermer</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
+    <value>Préréglage du mode personnalisé</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
+    <value>Active le préréglage du mode personnalisé.
+Ce paramètre ne prend effet que lorsque le mode personnalisé est activé.</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
+    <value>Nom du pré-réglage</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Message" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="GodModeSettingsWindow_ActivePreset_Title" xml:space="preserve">
+    <value>Préréglage actuel</value>
+  </data>
+  <data name="AboutPage_ApplicationFolders" xml:space="preserve">
+    <value>Dossiers de l'application</value>
+  </data>
+  <data name="AboutPage_Data" xml:space="preserve">
+    <value>Données</value>
+  </data>
+  <data name="AboutPage_Temp" xml:space="preserve">
+    <value>Temp</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
+    <value>Luminosité unique de l'écran</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
+    <value>Activé, le même niveau de luminosité sera appliqué à tous les plans d'alimentation de Windows chaque fois que vous le modifiez.</value>
+  </data>
+  <data name="Notification_UpdateAvailable" xml:space="preserve">
+    <value>La mise à jour {0} est disponible !</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL" xml:space="preserve">
+    <value>Limite de puissance de crête</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
+    <value>Limite de puissance de l'APU sPPT</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL_Description" xml:space="preserve">
+    <value>La consommation d'énergie qui peut être atteinte en continu par le CPU.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL_Description" xml:space="preserve">
+    <value>La consommation d'énergie maximale qui peut être atteinte par le CPU dans un court laps de temps.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL_Description" xml:space="preserve">
+    <value>La consommation d'énergie instantanée maximale qui peut être atteinte par le CPU.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_CrossLoading_Description" xml:space="preserve">
+    <value>La consommation d'énergie maximale qui peut être atteinte par le CPU lorsque le CPU et le GPU sont tous deux pleinement utilisés.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL_Description" xml:space="preserve">
+    <value>La consommation d'énergie maximale qui peut être atteinte par le CPU avec un délai mineur.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
+    <value>La température maximale que peut atteindre le CPU avant que la fréquence et la puissance ne soient réduites.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
+    <value>La puissance maximale supplémentaire qui peut être allouée au GPU en fonction de la consommation d'énergie du CPU.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
+    <value>La quantité supplémentaire de puissance qui peut être allouée au GPU en plus de la consommation de base.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
+    <value>La température maximale que peut atteindre le GPU avant que la fréquence et la puissance ne soient réduites.</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Par défaut</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
+    <value>Durée de la limite de puissance à court terme</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau_Description" xml:space="preserve">
+    <value>Le temps pendant lequel le CPU est autorisé à booster et à utiliser la limite de puissance à court terme. Lorsque le temps expire, la limite de puissance à long terme est utilisée.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
+    <value>Objectif de puissance totale du processeur en AC</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
+    <value>Le moment à partir duquel le CPU déclenche l'ajustement dynamique de la consommation d'énergie pour le GPU.</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Créer</value>
+  </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+    <value>Ajouter étape</value>
+  </data>
+  <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
+    <value>Créer une action</value>
+  </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+    <value>Mode d'alimentation</value>
+  </data>
+  <data name="StatusTrayPopup_Preset" xml:space="preserve">
+    <value>Préréglage</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+    <value>GPU dédié</value>
+  </data>
+  <data name="StatusTrayPopup_PowerState" xml:space="preserve">
+    <value>Etat d'alimentation</value>
+  </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+    <value>Batterie</value>
+  </data>
+  <data name="StatusTrayPopup_Mode" xml:space="preserve">
+    <value>Mode</value>
+  </data>
+  <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
+    <value>Vitesse de charge/décharge</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+    <value>Mise à jour disponible !</value>
+  </data>
+  <data name="SymbolRegularPicker_Title" xml:space="preserve">
+    <value>Choisir une icône</value>
+  </data>
+  <data name="AutomationPage_ChangeIcon" xml:space="preserve">
+    <value>Changer l’icône</value>
+  </data>
+  <data name="BatteryPage_LowLevel" xml:space="preserve">
+    <value>Batterie faible</value>
   </data>
 </root>

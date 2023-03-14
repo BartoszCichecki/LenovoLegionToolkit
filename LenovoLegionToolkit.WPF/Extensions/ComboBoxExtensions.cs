@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Controls;
 
-namespace System.Windows.Controls;
+namespace LenovoLegionToolkit.WPF.Extensions;
 
 public static class ComboBoxExtensions
 {
@@ -79,9 +81,6 @@ public static class ComboBoxExtensions
 
         public override int GetHashCode() => HashCode.Combine(Value);
 
-        public override string ToString()
-        {
-            return _displayString?.Invoke(Value).ToString() ?? Value?.ToString() ?? "";
-        }
+        public override string ToString() => _displayString?.Invoke(Value).ToString() ?? Value?.ToString() ?? "";
     }
 }

@@ -100,4 +100,22 @@
   <data name="ExternalDisplayDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
 		<value>Pri odpojení externého displeja</value>
 	</data>
+  <data name="DisplayOnAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Keď sa zapnú displeje</value>
+	</data>
+  <data name="DisplayOffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Keď sa vypnú displeje</value>
+	</data>
+  <data name="LidOpenedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Kryt otvorený</value>
+	</data>
+  <data name="LidClosedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Kryt zatvorený</value>
+	</data>
+  <data name="GamesStopAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Pri zatvorení hry</value>
+	</data>
+  <data name="GamesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Keď je hra spustená</value>
+	</data>
 </root>

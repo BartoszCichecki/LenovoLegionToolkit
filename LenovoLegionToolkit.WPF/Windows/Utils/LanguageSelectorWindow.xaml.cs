@@ -4,8 +4,8 @@ using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using Humanizer;
+using LenovoLegionToolkit.WPF.Extensions;
 
 namespace LenovoLegionToolkit.WPF.Windows.Utils;
 

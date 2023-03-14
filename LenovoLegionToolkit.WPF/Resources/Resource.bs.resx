@@ -428,14 +428,8 @@ Ovo vrijeme možda neće biti tačno ako je laptop bio napunjen dok je spavao il
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Garancija</value>
   </data>
-  <data name="DiscreteGPUControl_Active" xml:space="preserve">
-    <value>Aktivna</value>
-  </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Deaktiviraj</value>
-  </data>
-  <data name="DiscreteGPUControl_Inactive" xml:space="preserve">
-    <value>Neaktivna</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>Monitor je spojen na nVidia grafičku.</value>
@@ -463,9 +457,6 @@ Ovo vrijeme možda neće biti tačno ako je laptop bio napunjen dok je spavao il
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
     <value>Hibridno-Auto režim</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
-    <value>Integrisana i diskretna grafička su omogućene. Sistem će automatski prebacivati između njih na osnovnu svojih potreba.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Hibridni režim</value>
@@ -598,9 +589,6 @@ Uvijek provjerite da li instalirate ispravne pakete.</value>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Preuzmite na</value>
   </data>
-  <data name="PackagesPage_Filter" xml:space="preserve">
-    <value>Filtriraj...</value>
-  </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
     <value>Tip uređaja</value>
   </data>
@@ -636,9 +624,6 @@ Uvijek provjerite da li instalirate ispravne pakete.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Režim rada</value>
-  </data>
-  <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>Nije moguće promijeniti režim rada</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
     <value>Postavke</value>
@@ -740,10 +725,6 @@ Startup is delayed by 30 seconds for compatibility reasons.</value>
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
     <value>Nije moguće onemogućiti Legion Zone</value>
   </data>
-  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
-    <value>Onemogući Legion Zone i njene servise bez deinstalacije.
-Restart je preporučen nakon promijene ove opcije.</value>
-  </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
     <value>Onemogući Legion Zone</value>
   </data>
@@ -761,10 +742,6 @@ Restart je preporučen nakon promijene ove opcije.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
     <value>Nije moguće onemogućiti Vantage</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>Onemogući Lenovo Vantage i njene servise bez deinstalacije.
-Restart je preporučen nakon promijene ove opcije.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Onemogući Lenovo Vantage</value>
@@ -909,5 +886,8 @@ Logiranje će biti automatski omogućeno, ukoliko izaberete da nastavite.</value
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Da</value>
+  </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+    <value>Dodaj korak</value>
   </data>
 </root>

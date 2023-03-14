@@ -2,10 +2,11 @@
 	<PropertyGroup>
 		<TargetFramework>net6.0-windows</TargetFramework>
 		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+		<Platforms>x64</Platforms>
 		<OutputType>WinExe</OutputType>
 		<ApplicationIcon>Assets/icon.ico</ApplicationIcon>
 		<AssemblyName>Lenovo Legion Toolkit</AssemblyName>
-		<Copyright>© 2022 Bartosz Cichecki</Copyright>
+		<Copyright>© 2023 Bartosz Cichecki</Copyright>
 		<FileVersion>0.0.1</FileVersion>
 		<Version>0.0.1</Version>
 		<Nullable>enable</Nullable>
@@ -33,10 +34,10 @@
 	  <DebugType>embedded</DebugType>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Autofac" Version="6.5.0" />
+		<PackageReference Include="Autofac" Version="7.0.0" />
 		<PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
 		<PackageReference Include="Humanizer" Version="2.14.1" />
-		<PackageReference Include="Markdig" Version="0.30.4" />
+		<PackageReference Include="Markdig" Version="0.31.0" />
 		<PackageReference Include="Markdig.Wpf" Version="0.5.0.1" />
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
 		<PackageReference Include="PixiEditor.ColorPicker" Version="3.3.1" />

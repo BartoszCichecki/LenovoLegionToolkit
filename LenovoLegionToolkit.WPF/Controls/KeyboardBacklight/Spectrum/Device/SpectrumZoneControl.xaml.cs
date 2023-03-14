@@ -1,8 +1,8 @@
 ﻿using System.Windows.Media;
 
-namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum;
+namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum.Device;
 
-public partial class SpectrumKeyboardButtonControl
+public partial class SpectrumZoneControl
 {
     public ushort KeyCode { get; set; }
 
@@ -26,7 +26,7 @@ public partial class SpectrumKeyboardButtonControl
         set => _button.IsChecked = value;
     }
 
-    public SpectrumKeyboardButtonControl()
+    public SpectrumZoneControl()
     {
         InitializeComponent();
     }

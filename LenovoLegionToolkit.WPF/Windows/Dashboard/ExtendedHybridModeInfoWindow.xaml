@@ -56,7 +56,7 @@
                     Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_Hybrid_Title}" />
                 <TextBlock
                     Margin="0,4,0,0"
-                    Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                     Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_Hybrid_Message}"
                     TextWrapping="Wrap" />
 
@@ -67,13 +67,13 @@
                     Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_IGPU_Title}" />
                 <TextBlock
                     Margin="0,4,0,0"
-                    Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                     Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_IGPU_Message}"
                     TextWrapping="Wrap" />
                 <TextBlock
                     Margin="0,4,0,0"
                     FontWeight="Medium"
-                    Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                     Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_IGPU_Disclaimer}"
                     TextWrapping="Wrap" />
 
@@ -84,7 +84,7 @@
                     Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_Auto_Title}" />
                 <TextBlock
                     Margin="0,4,0,0"
-                    Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                     Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_Auto_Message}"
                     TextWrapping="Wrap" />
 
@@ -95,13 +95,13 @@
                     Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_DGPU_Title}" />
                 <TextBlock
                     Margin="0,4,0,0"
-                    Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                     Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_DGPU_Message}"
                     TextWrapping="Wrap" />
                 <TextBlock
                     Margin="0,4,0,0"
                     FontWeight="Medium"
-                    Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                     Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_DGPU_Disclaimer}"
                     TextWrapping="Wrap" />
 

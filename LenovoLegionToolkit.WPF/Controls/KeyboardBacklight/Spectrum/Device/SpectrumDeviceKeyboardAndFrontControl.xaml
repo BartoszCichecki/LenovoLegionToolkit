@@ -1,0 +1,66 @@
+﻿<UserControl
+    x:Class="LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum.Device.SpectrumDeviceKeyboardAndFrontControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum.Device"
+    FlowDirection="LeftToRight">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="24" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <!--  Keyboard  -->
+        <controls:SpectrumKeyboardControl
+            x:Name="_keyboard"
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="6"
+            Padding="0,0,0,16" />
+
+        <!--  Front  -->
+        <controls:SpectrumZoneControl
+            Grid.Row="1"
+            Grid.Column="0"
+            Margin="2"
+            KeyCode="0x01F5" />
+        <controls:SpectrumZoneControl
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="2"
+            KeyCode="0x01F6" />
+        <controls:SpectrumZoneControl
+            Grid.Row="1"
+            Grid.Column="2"
+            Margin="2"
+            KeyCode="0x01F7" />
+        <controls:SpectrumZoneControl
+            Grid.Row="1"
+            Grid.Column="3"
+            Margin="2"
+            KeyCode="0x01F8" />
+        <controls:SpectrumZoneControl
+            Grid.Row="1"
+            Grid.Column="4"
+            Margin="2"
+            KeyCode="0x01F9" />
+        <controls:SpectrumZoneControl
+            Grid.Row="1"
+            Grid.Column="5"
+            Margin="2"
+            KeyCode="0x01FA" />
+
+    </Grid>
+
+</UserControl>

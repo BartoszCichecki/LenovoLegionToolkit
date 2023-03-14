@@ -150,7 +150,7 @@ public class CardHeaderControl : UserControl
         if (IsEnabled)
         {
             _titleTextBlock.SetResourceReference(ForegroundProperty, "TextFillColorPrimaryBrush");
-            _subtitleTextBlock.SetResourceReference(ForegroundProperty, "TextFillColorTertiaryBrush");
+            _subtitleTextBlock.SetResourceReference(ForegroundProperty, "TextFillColorSecondaryBrush");
             _warningTextBlock.SetResourceReference(ForegroundProperty, "SystemFillColorCautionBrush");
         }
         else

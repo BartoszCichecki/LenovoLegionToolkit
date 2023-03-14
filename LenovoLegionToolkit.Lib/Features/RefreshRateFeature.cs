@@ -5,6 +5,7 @@ using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using WindowsDisplayAPI;
+using WindowsDisplayAPI.Native.DeviceContext;
 
 namespace LenovoLegionToolkit.Lib.Features;
 
@@ -32,7 +33,7 @@ public class RefreshRateFeature : IFeature<RefreshRate>
         var currentSettings = display.CurrentSetting;
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Current built in display settings: {currentSettings}");
+            Log.Instance.Trace($"Current built in display settings: {currentSettings.ToExtendedString()}");
 
         var result = display.GetPossibleSettings()
             .Where(dps => Match(dps, currentSettings))
@@ -66,7 +67,7 @@ public class RefreshRateFeature : IFeature<RefreshRate>
         var result = new RefreshRate(currentSettings.Frequency);
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Current refresh rate is {result} [currentSettings={currentSettings}]");
+            Log.Instance.Trace($"Current refresh rate is {result} [currentSettings={currentSettings.ToExtendedString()}]");
 
         return Task.FromResult(result);
     }
@@ -83,6 +84,9 @@ public class RefreshRateFeature : IFeature<RefreshRate>
 
         var currentSettings = display.CurrentSetting;
 
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Current built in display settings: {currentSettings.ToExtendedString()}");
+
         if (currentSettings.Frequency == state.Frequency)
         {
             if (Log.Instance.IsTraceEnabled)
@@ -94,18 +98,19 @@ public class RefreshRateFeature : IFeature<RefreshRate>
         var possibleSettings = display.GetPossibleSettings();
         var newSettings = possibleSettings
             .Where(dps => Match(dps, currentSettings))
-            .Select(dps => new DisplaySetting(dps, currentSettings.Position, currentSettings.Orientation, currentSettings.OutputScalingMode))
-            .FirstOrDefault(dps => dps.Frequency == state.Frequency);
+            .Where(dps => dps.Frequency == state.Frequency)
+            .Select(dps => new DisplaySetting(dps, currentSettings.Position, currentSettings.Orientation, DisplayFixedOutput.Default))
+            .FirstOrDefault();
 
         if (newSettings is not null)
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Setting display to {newSettings}...");
+                Log.Instance.Trace($"Setting display to {newSettings.ToExtendedString()}...");
 
             display.SetSettings(newSettings, true);
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Display set to {newSettings}");
+                Log.Instance.Trace($"Display set to {newSettings.ToExtendedString()}");
         }
         else
         {

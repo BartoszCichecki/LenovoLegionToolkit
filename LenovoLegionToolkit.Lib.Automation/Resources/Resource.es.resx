@@ -77,8 +77,7 @@
     <value>{0} segundos</value>
   </data>
   <data name="LowWattageACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Al conectar el adaptador de corriente alterna de bajo consumo
-</value>
+    <value>Al conectar el adaptador de corriente alterna a baja potencia</value>
   </data>
   <data name="OnStartupAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Al iniciar</value>
@@ -100,5 +99,23 @@
 	</data>
   <data name="ExternalDisplayDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
 		<value>Cuando se desconecta una pantalla externa</value>
+	</data>
+  <data name="DisplayOnAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Al encender las pantallas</value>
+	</data>
+  <data name="DisplayOffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Al apagar las pantallas</value>
+	</data>
+  <data name="LidOpenedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Tapa abierta</value>
+	</data>
+  <data name="LidClosedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Tapa cerrada</value>
+	</data>
+  <data name="GamesStopAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Al cerrar el juego</value>
+	</data>
+  <data name="GamesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Cuando el juego está en marcha</value>
 	</data>
 </root>

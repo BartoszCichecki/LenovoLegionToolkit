@@ -511,7 +511,7 @@ UYARI: Dahili ekran kapalıysa veya Hibrit modu etkin değilse bu eylem düzgün
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Garanti</value>
   </data>
-  <data name="DiscreteGPUControl_Active" xml:space="preserve">
+  <data name="Active" xml:space="preserve">
     <value>Aktif</value>
   </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
@@ -525,7 +525,7 @@ Bunu yaparsanız bazı programların çökebileceğini unutmayın.</value>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>nVidia GPU etkin değil.</value>
   </data>
-  <data name="DiscreteGPUControl_Inactive" xml:space="preserve">
+  <data name="Inactive" xml:space="preserve">
     <value>Aktif değil</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
@@ -600,9 +600,6 @@ PayPal ile bağış yapmak için aşağıdaki PayPal logosuna tıklayın veya QR
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
     <value>dGPU Modu</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
-    <value>Hem tümleşik hem de ayrı GPU etkinleştirilmiştir. Sistem, ihtiyaçlarına göre bunlar arasında otomatik olarak geçiş yapacaktır.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Hibrit Kipi</value>
@@ -739,9 +736,6 @@ Cidden, bu seçeneğe dikkat edin!</value>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Klavye Işığı</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Vantage veya servisleri çalışırken klavye arka ışığı burada kontrol edilemez.</value>
-  </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage açık görünüyor</value>
   </data>
@@ -762,6 +756,9 @@ Cidden, bu seçeneğe dikkat edin!</value>
   </data>
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
     <value>Klavye</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
+    <value>İndirilenler</value>
   </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Ayarlar</value>
@@ -852,9 +849,6 @@ Daima doğru paketleri kurduğunuzdan emin olun.</value>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Şuraya indir</value>
   </data>
-  <data name="PackagesPage_Filter" xml:space="preserve">
-    <value>Filtre...</value>
-  </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
     <value>Cihaz Tipi</value>
   </data>
@@ -893,9 +887,6 @@ Daima doğru paketleri kurduğunuzdan emin olun.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Güç Modu</value>
-  </data>
-  <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>Güç Modu değiştirilemedi</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>Performans modunu seçin.
@@ -1045,10 +1036,6 @@ UYARI: Yerleşik ekran kapalıysa bu eylem düzgün çalışmayacaktır.</value>
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
     <value>Legion Zone devre dışı bırakılamadı</value>
   </data>
-  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
-    <value>Legion Zone'u ve hizmetini kaldırmadan devre dışı bırakın.
-Bu seçeneği değiştirdikten sonra yeniden başlatma önerilir.</value>
-  </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
     <value>Legion Zone'u devre dışı bırak</value>
   </data>
@@ -1066,10 +1053,6 @@ Bu seçeneği değiştirdikten sonra yeniden başlatma önerilir.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
     <value>Vantage devre dışı bırakılamadı</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>Lenovo Vantage'ı ve hizmetini kaldırmadan devre dışı bırakın.
-Bu seçeneği değiştirdikten sonra yeniden başlatma önerilir.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Lenovo Vantage'ı devre dışı bırakın</value>
@@ -1229,5 +1212,8 @@ Devam etmeyi seçerseniz, kayıt etme otomatik olarak etkinleştirilecektir.</va
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Evet</value>
+  </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+    <value>Adım ekle</value>
   </data>
 </root>

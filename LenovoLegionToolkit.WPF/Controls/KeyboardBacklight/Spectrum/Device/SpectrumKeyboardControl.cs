@@ -2,11 +2,14 @@
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 
-namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum;
+namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum.Device;
 
 public class SpectrumKeyboardControl : UserControl
 {
-    private readonly SpectrumKeyboardANSIControl _ansi = new();
+    private readonly SpectrumKeyboardANSIControl _ansi = new()
+    {
+        Visibility = Visibility.Collapsed
+    };
 
     private readonly SpectrumKeyboardISOControl _iso = new()
     {
@@ -21,9 +24,9 @@ public class SpectrumKeyboardControl : UserControl
         Content = stackPanel;
     }
 
-    public void SetLayout(KeyboardLayout layout)
+    public void SetLayout(KeyboardLayout keyboardLayout)
     {
-        switch (layout)
+        switch (keyboardLayout)
         {
             case KeyboardLayout.Ansi:
                 _ansi.Visibility = Visibility.Visible;

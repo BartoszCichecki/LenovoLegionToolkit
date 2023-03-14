@@ -31,7 +31,6 @@
             x:Name="_trayIcon"
             IconSource="/Assets/icon.ico"
             MenuActivation="RightClick"
-            ToolTipText="{x:Static resources:Resource.AppName}"
             Visibility="Visible" />
 
         <wpfui:TitleBar Grid.Row="0" />
@@ -164,16 +163,12 @@
             Grid.Row="2"
             Padding="8,4,8,4"
             HorizontalContentAlignment="Center"
+            Background="{DynamicResource SystemFillColorSuccessBrush}"
             Cursor="Hand"
+            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
             MouseLeftButtonDown="UpdateIndicator_Click"
             MouseRightButtonDown="UpdateIndicator_Click"
             Visibility="Collapsed">
-            <Label.Foreground>
-                <SolidColorBrush Color="{DynamicResource TextFillColorPrimary}" />
-            </Label.Foreground>
-            <Label.Background>
-                <SolidColorBrush Opacity="0.8" Color="{DynamicResource SystemFillColorSuccess}" />
-            </Label.Background>
             <StackPanel Orientation="Horizontal">
                 <wpfui:SymbolIcon Margin="0,0,4,0" Symbol="ArrowSync24" />
                 <TextBlock x:Name="_updateIndicatorText" Text="{x:Static resources:Resource.MainWindow_UpdateAvailable}" />

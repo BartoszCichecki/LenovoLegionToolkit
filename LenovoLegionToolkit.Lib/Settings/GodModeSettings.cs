@@ -14,14 +14,18 @@ public class GodModeSettings : AbstractSettings<GodModeSettings.GodModeSettingsS
             public string Name { get; init; } = string.Empty;
             public StepperValue? CPULongTermPowerLimit { get; init; }
             public StepperValue? CPUShortTermPowerLimit { get; init; }
+            public StepperValue? CPUPeakPowerLimit { get; init; }
             public StepperValue? CPUCrossLoadingPowerLimit { get; init; }
+            public StepperValue? CPUPL1Tau { get; init; }
+            public StepperValue? APUsPPTPowerLimit { get; init; }
             public StepperValue? CPUTemperatureLimit { get; init; }
             public StepperValue? GPUPowerBoost { get; init; }
             public StepperValue? GPUConfigurableTGP { get; init; }
             public StepperValue? GPUTemperatureLimit { get; init; }
+            public StepperValue? GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline { get; init; }
             public FanTable? FanTable { get; init; }
-            public bool FanFullSpeed { get; init; }
-            public int MaxValueOffset { get; init; }
+            public bool? FanFullSpeed { get; init; }
+            public int? MaxValueOffset { get; init; }
         }
 
         public Guid ActivePresetId { get; set; }

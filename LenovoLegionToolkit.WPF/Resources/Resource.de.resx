@@ -139,7 +139,7 @@
     <value>Über</value>
   </data>
   <data name="AboutPage_TranslationCredit" xml:space="preserve">
-    <value>German translation by cureter &amp; Sko-Induktor &amp; Running_Dead89.</value>
+    <value>Deutsche Übersetzung von cureter &amp; Sko-Induktor &amp; Running_Dead89.</value>
     <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
   </data>
   <data name="AboutPage_Version" xml:space="preserve">
@@ -522,7 +522,7 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Garantie</value>
   </data>
-  <data name="DiscreteGPUControl_Active" xml:space="preserve">
+  <data name="Active" xml:space="preserve">
     <value>Aktiv</value>
   </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
@@ -536,7 +536,7 @@ Beachten Sie, dass einige Programme dabei abstürzen könnten.</value>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>nVidia GPU ist nicht aktiv.</value>
   </data>
-  <data name="DiscreteGPUControl_Inactive" xml:space="preserve">
+  <data name="Inactive" xml:space="preserve">
     <value>Inaktiv</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
@@ -567,10 +567,10 @@ Beachten Sie, dass einige Programme dabei abstürzen könnten.</value>
     <value>Diskrete GPU</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-    <value>Ändert die Display-Helligkeit des eingebauten Displays.
+    <value>Ändert die Display-Helligkeit des integrierten Bildschirms.
 Bei einigen Geräten ändert der Energiemodus die Helligkeit. Stellen Sie sicher, dass dieser Schritt zuletzt ausgeführt wird, wenn etwas nicht richtig funktioniert.
 
-WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display ausgeschaltet ist.</value>
+WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn der interne Bildschirm ausgeschaltet ist.</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>Bildschirmhelligkeit</value>
@@ -751,9 +751,9 @@ Ernsthaft, seien Sie vorsichtig mit dieser Option!</value>
     <value>Benutzerdefinierter Modus Einstellungen</value>
   </data>
   <data name="HDRAutomationStepControl_Message" xml:space="preserve">
-    <value>Aktiviere High Dynamic Range (HDR) des integrierten Displays.
+    <value>Aktiviere High Dynamic Range (HDR) des integrierten Bildschirms.
 
-WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display ausgeschaltet ist.</value>
+WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn der interne Bildschirm ausgeschaltet ist.</value>
   </data>
   <data name="HDRAutomationStepControl_Title" xml:space="preserve">
     <value>HDR</value>
@@ -783,7 +783,7 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
     <value>Tastaturbeleuchtung</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Die Tastaturbeleuchtung kann hier nicht gesteuert werden, wenn Vantage oder seine Dienste ausgeführt werden.</value>
+    <value>Die Tastaturbeleuchtung kann nicht gesteuert werden, wenn Vantage oder dessen Dienste ausgeführt werden.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage scheint aktiviert zu sein</value>
@@ -934,13 +934,13 @@ Aktiviere diese Option, wenn Konflikte mit Vollbildanwendungen auftreten.</value
     <value>Öffnen</value>
   </data>
   <data name="OverDriveAutomationStepControl_Message" xml:space="preserve">
-    <value>Verbessert die Reaktionszeit des eingebauten Displays.</value>
+    <value>Verbessert die Reaktionszeit des integrierten Bildschirms.</value>
   </data>
   <data name="OverDriveAutomationStepControl_Title" xml:space="preserve">
     <value>Over Drive</value>
   </data>
   <data name="OverDriveControl_Message" xml:space="preserve">
-    <value>Verbessert die Reaktionszeit des eingebauten Displays.</value>
+    <value>Verbessert die Reaktionszeit des integrierten Bildschirms.</value>
   </data>
   <data name="OverDriveControl_Title" xml:space="preserve">
     <value>Over Drive</value>
@@ -994,7 +994,7 @@ Stellen Sie immer sicher, dass Sie die richtigen Pakete installieren.</value>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Speichern unter</value>
   </data>
-  <data name="PackagesPage_Filter" xml:space="preserve">
+  <data name="Filter" xml:space="preserve">
     <value>Filter...</value>
   </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
@@ -1042,9 +1042,6 @@ Stellen Sie immer sicher, dass Sie die richtigen Pakete installieren.</value>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Leistungsmodus</value>
   </data>
-  <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>Leistungsmodus konnte nicht geändert werden</value>
-  </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>Auswahl des Leistungsmodus.
 Sie können den Modus mit Fn+Q wechseln.</value>
@@ -1086,7 +1083,7 @@ Sie können den Modus mit Fn+Q wechseln.</value>
     <value>Energiesparpläne</value>
   </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
-    <value>Voreinstellung der Tastaturbeleuchtung einstellen.</value>
+    <value>Vorlage der Tastaturbeleuchtung einstellen.</value>
   </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
     <value>Tastaturbeleuchtung</value>
@@ -1095,13 +1092,13 @@ Sie können den Modus mit Fn+Q wechseln.</value>
     <value>Helligkeit</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Preset1" xml:space="preserve">
-    <value>Voreinstellung 1</value>
+    <value>Vorlage 1</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Preset2" xml:space="preserve">
-    <value>Voreinstellung 2</value>
+    <value>Vorlage 2</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Preset3" xml:space="preserve">
-    <value>Voreinstellung 3</value>
+    <value>Vorlage 3</value>
   </data>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>Aus</value>
@@ -1131,15 +1128,15 @@ Sie können den Modus mit Fn+Q wechseln.</value>
     <value>Aktualisieren</value>
   </data>
   <data name="RefreshRateAutomationStepControl_Message" xml:space="preserve">
-    <value>Ändert die Bildwiederholrate des eingebauten Displays.
+    <value>Ändert die Bildwiederholrate des integrierten Bildschirms.
 
-WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display ausgeschaltet ist.</value>
+WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn der interne Bildschirm ausgeschaltet ist.</value>
   </data>
   <data name="RefreshRateAutomationStepControl_Title" xml:space="preserve">
     <value>Bildwiederholrate</value>
   </data>
   <data name="RefreshRateControl_Message" xml:space="preserve">
-    <value>Ändert die Bildwiederholrate des eingebauten Displays.</value>
+    <value>Ändert die Bildwiederholrate des integrierten Bildschirms.</value>
   </data>
   <data name="RefreshRateControl_Title" xml:space="preserve">
     <value>Bildwiederholrate</value>
@@ -1528,32 +1525,32 @@ Die Protokollierung wird automatisch aktiviert, wenn Sie fortfahren möchten.</v
     <value>Auflösung</value>
   </data>
   <data name="ResolutionControl_Message" xml:space="preserve">
-    <value>Ändert die Auflösung des eingebauten Displays.</value>
+    <value>Ändert die Auflösung des integrierten Bildschirms.</value>
   </data>
   <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
     <value>Auflösung</value>
   </data>
   <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
-    <value>Ändert die Auflösung des eingebauten Displays.
+    <value>Ändert die Auflösung des integrierten Bildschirms.
 
-WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display ausgeschaltet ist.</value>
+WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn der interne Bildschirm ausgeschaltet ist.</value>
   </data>
   <data name="DpiScaleControl_Title" xml:space="preserve">
     <value>DPI</value>
   </data>
   <data name="DpiScaleControl_Message" xml:space="preserve">
-    <value>Ändert die Skalierung des eingebauten Displays.</value>
+    <value>Ändert die Skalierung des integrierten Bildschirms.</value>
   </data>
   <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
     <value>DPI</value>
   </data>
   <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
-    <value>Ändert die Skalierung des eingebauten Displays.
+    <value>Ändert die Skalierung des integrierten Bildschirms.
 
-WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display ausgeschaltet ist.</value>
+WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn der interne Bildschirm ausgeschaltet ist.</value>
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
-    <value>Display</value>
+    <value>Bildschirm</value>
   </data>
   <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Tastaturbeleuchtung</value>
@@ -1576,7 +1573,7 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Übersicht anpassen</value>
   </data>
-  <data name="Reset" xml:space="preserve">
+  <data name="Load" xml:space="preserve">
     <value>Zurücksetzen</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
@@ -1633,5 +1630,132 @@ Mausbewegung oder Tastendruck weckt die Bildschirme auf.</value>
   </data>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>Neustart empfohlen</value>
+  </data>
+  <data name="SaveAndClose" xml:space="preserve">
+    <value>Speichern &amp; Schließen</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
+    <value>Vorlage Benutzerdefinierter Modus</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
+    <value>Aktiviere Vorlage Benutzerdefinierter Modus.
+Diese Einstellung wird nur wirksam, wenn der benutzerdefinierte Modus aktiviert ist.</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
+    <value>Vorlagenname</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Message" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="GodModeSettingsWindow_ActivePreset_Title" xml:space="preserve">
+    <value>Aktive Vorlage</value>
+  </data>
+  <data name="AboutPage_ApplicationFolders" xml:space="preserve">
+    <value>Anwendungsordner</value>
+  </data>
+  <data name="AboutPage_Data" xml:space="preserve">
+    <value>Werte</value>
+  </data>
+  <data name="AboutPage_Temp" xml:space="preserve">
+    <value>Temperatur</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
+    <value>Einzelne Display-Helligkeit</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
+    <value>Wenn diese Option aktiviert ist, wird die gleiche Helligkeitsstufe auf alle Windows-Energiepläne angewendet, sobald Sie sie ändern.</value>
+  </data>
+  <data name="Notification_UpdateAvailable" xml:space="preserve">
+    <value>Update {0} verfügbar!</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL" xml:space="preserve">
+    <value>Spitzenleistungsgrenze</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
+    <value>APU sPPT-Leistungsgrenze</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL_Description" xml:space="preserve">
+    <value>Die kontinuierliche Leistungsaufnahme, die von der CPU erreicht werden kann.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL_Description" xml:space="preserve">
+    <value>Die maximale Leistungsaufnahme, die von der CPU innerhalb eines kurzen Zeitraums erreicht werden kann.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL_Description" xml:space="preserve">
+    <value>Die maximale sofortige Leistungsaufnahme, die von der CPU erreicht werden kann.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_CrossLoading_Description" xml:space="preserve">
+    <value>Der maximale Stromverbrauch, der von der CPU erreicht werden kann, wenn sowohl CPU als auch GPU voll ausgelastet sind.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL_Description" xml:space="preserve">
+    <value>Die maximale Leistungsaufnahme, die von der CPU mit einer geringen Verzögerung erreicht werden kann.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
+    <value>Die maximale Temperatur, die von der CPU erreicht werden kann, bevor Frequenz und Leistung reduziert werden.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
+    <value>Die zusätzliche maximale Leistung, die der GPU auf der Grundlage des Stromverbrauchs der CPU zugewiesen werden kann.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
+    <value>Die zusätzliche Energiemenge, die der GPU zusätzlich zum Basisstromverbrauch zugewiesen werden kann.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
+    <value>Die maximale Temperatur, die von der GPU erreicht werden kann, bevor Frequenz und Leistung reduziert werden.</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
+    <value>Dauer des kurzzeitigen Leistungslimits</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau_Description" xml:space="preserve">
+    <value>Die Zeitspanne, für die die CPU das kurzfristige Leistungslimit erhöhen und verwenden darf. Wenn die Zeit abläuft, wird das langfristige Leistungslimit verwendet.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
+    <value>Gesamtes Prozessorleistungsziel bei eingestecktem Netzteil</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
+    <value>Der Punkt, an dem die CPU die dynamische Anpassung des Stromverbrauchs für die GPU auslöst.</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Erstellen</value>
+  </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+    <value>Schritt hinzufügen</value>
+  </data>
+  <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
+    <value>Aktion erstellen</value>
+  </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+    <value>Leistungsmodus</value>
+  </data>
+  <data name="StatusTrayPopup_Preset" xml:space="preserve">
+    <value>Vorlage</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+    <value>Diskrete GPU</value>
+  </data>
+  <data name="StatusTrayPopup_PowerState" xml:space="preserve">
+    <value>Energie-Status</value>
+  </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+    <value>Akku</value>
+  </data>
+  <data name="StatusTrayPopup_Mode" xml:space="preserve">
+    <value>Modus</value>
+  </data>
+  <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
+    <value>Entladungsrate</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+    <value>Update verfügbar!</value>
+  </data>
+  <data name="SymbolRegularPicker_Title" xml:space="preserve">
+    <value>Symbol auswählen</value>
+  </data>
+  <data name="AutomationPage_ChangeIcon" xml:space="preserve">
+    <value>Symbol ändern</value>
+  </data>
+  <data name="BatteryPage_LowLevel" xml:space="preserve">
+    <value>Akkustand niedrig</value>
   </data>
 </root>

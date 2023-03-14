@@ -58,12 +58,9 @@
 
                 <TextBlock
                     Margin="32,4,0,0"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                     Text="{x:Static resources:Resource.BalanceModeSettingsWindow_AIEngine_Message}"
-                    TextWrapping="Wrap">
-                    <TextBlock.Foreground>
-                        <SolidColorBrush Color="{DynamicResource TextFillColorTertiary}" />
-                    </TextBlock.Foreground>
-                </TextBlock>
+                    TextWrapping="Wrap" />
             </StackPanel>
 
             <Grid Grid.Row="1" Margin="0,8,0,0">

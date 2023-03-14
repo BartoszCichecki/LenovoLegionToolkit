@@ -5,6 +5,7 @@ using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using WindowsDisplayAPI;
+using WindowsDisplayAPI.Native.DeviceContext;
 
 namespace LenovoLegionToolkit.Lib.Features;
 
@@ -32,7 +33,7 @@ public class ResolutionFeature : IFeature<Resolution>
         var currentSettings = display.CurrentSetting;
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Current built in display settings: {currentSettings}");
+            Log.Instance.Trace($"Current built in display settings: {currentSettings.ToExtendedString()}");
 
         var result = display.GetPossibleSettings()
             .Where(dps => Match(dps, currentSettings))
@@ -66,7 +67,7 @@ public class ResolutionFeature : IFeature<Resolution>
         var result = new Resolution(currentSettings.Resolution);
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Current resolution is {result} [currentSettings={currentSettings}]");
+            Log.Instance.Trace($"Current resolution is {result} [currentSettings={currentSettings.ToExtendedString()}]");
 
         return Task.FromResult(result);
     }
@@ -92,17 +93,25 @@ public class ResolutionFeature : IFeature<Resolution>
         }
 
         var possibleSettings = display.GetPossibleSettings();
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Current built in display settings: {currentSettings.ToExtendedString()}");
+
         var newSettings = possibleSettings
             .Where(dps => Match(dps, currentSettings))
-            .Select(dps => new DisplaySetting(dps, currentSettings.Position, currentSettings.Orientation, currentSettings.OutputScalingMode))
-            .FirstOrDefault(dps => dps.Resolution == state);
+            .Where(dps => dps.Resolution == state)
+            .Select(dps => new DisplaySetting(dps, currentSettings.Position, currentSettings.Orientation, DisplayFixedOutput.Default))
+            .FirstOrDefault();
 
         if (newSettings is not null)
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Setting display to {newSettings}");
+                Log.Instance.Trace($"Setting display to {newSettings.ToExtendedString()}");
 
             display.SetSettings(newSettings, true);
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Display set to {newSettings.ToExtendedString()}");
         }
         else
         {

@@ -120,11 +120,27 @@
   <data name="AboutPage_AppName" xml:space="preserve">
     <value>Lenovo Legion Toolkit</value>
   </data>
+  <data name="AboutPage_Build" xml:space="preserve">
+    <value>Qurıw</value>
+  </data>
+  <data name="AboutPage_LatestReleaseOnGitHub" xml:space="preserve">
+    <value>GitHubdaǵı sońǵı versiya</value>
+  </data>
   <data name="AboutPage_Links" xml:space="preserve">
     <value>Siltemeler</value>
   </data>
+  <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
+    <value>GitHubtaǵı jobanıń veb-saytı</value>
+  </data>
+  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
+    <value>Sırtqı kitapxanalar</value>
+  </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>Baǵdarlama haqqında</value>
+  </data>
+  <data name="AboutPage_TranslationCredit" xml:space="preserve">
+    <value>Awdarmalar birlespe tárepinen támiyinlendi.</value>
+    <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
   </data>
   <data name="AboutPage_Version" xml:space="preserve">
     <value>Versiya</value>
@@ -135,17 +151,79 @@
   <data name="AddNew" xml:space="preserve">
     <value>Jańadan qosıw</value>
   </data>
+  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
+    <value>Vantage qosılǵan bolsa da quwatlılıq jobasın aktivlestiriń.
+Bul parametr tek bir neshe quwatlılıq jobaları menen támiyinlenbegen qurılmalar ushın mólsherlengen.</value>
+  </data>
+  <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
+    <value>Hámiyshe Windows quwatlılıq jobasın aktivlestiriw</value>
+  </data>
+  <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
+    <value>Kompyuter óshirilgen, gibernaciya yamasa uyqı rejiminde bolǵanda qurılmalardı USB arqalı zaryadlaw.</value>
+  </data>
+  <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
+    <value>Hámiyshe USBden quwatlanıw</value>
+  </data>
+  <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
+    <value>Kompyuter óshirilgen, gibernaciya yamasa uyqı rejiminde bolǵanda qurılmalardı USB arqalı zaryadlaw.</value>
+  </data>
+  <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
+    <value>Hámiyshe USBden quwatlanıw</value>
+  </data>
   <data name="AppName" xml:space="preserve">
     <value>Lenovo Legion Toolkit</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Qollanıw</value>
+  </data>
+  <data name="ApplyAndClose" xml:space="preserve">
+    <value>Qollanıw hám jabıw</value>
+  </data>
+  <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
+    <value>Avtomatikalıq háreketlerdiń orınlanıwı ushın Lenovo Legion Toolkit iske túsirilgen bolıwı kerek.</value>
   </data>
   <data name="AutomationPage_ActionsEnabled_Title" xml:space="preserve">
     <value>Iske túsiriw</value>
   </data>
+  <data name="AutomationPage_Actions_Empty" xml:space="preserve">
+    <value>Háreketler anıqlanbaǵan. Jańa háreket jaratıw ushın "Jańadan qosıw" túymesin basıń.</value>
+  </data>
+  <data name="AutomationPage_Actions_Message" xml:space="preserve">
+    <value>Eger qosılǵan bolsa, bul háreketler avtomatikalıq ámelge asırıladı. Jaǵday ózgergende, barlıq háreketler joqarıdan tómenge qaray bahalanadı.
+Tek ámeldegi jaǵdayǵa sáykes keletuǵın háreketler orınlanadı.</value>
+  </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>Háreketler</value>
   </data>
+  <data name="AutomationPage_AddManualPipeline_Placeholder" xml:space="preserve">
+    <value>Ataması...</value>
+  </data>
+  <data name="AutomationPage_AddManualPipeline_Title" xml:space="preserve">
+    <value>Jańasın qosıw</value>
+  </data>
+  <data name="AutomationPage_QuickActions_Empty" xml:space="preserve">
+    <value>Tez háreketler anıqlanbaǵan. Jańa operativ háreket jaratıw ushın "Jańasın qosıw" túymesin basıń.</value>
+  </data>
+  <data name="AutomationPage_QuickActions_Message" xml:space="preserve">
+    <value>Tez háreketler xabarlamalar maydanındaǵı tıshqanshanıń oń túymesi belgisi menyuinde bar.</value>
+  </data>
+  <data name="AutomationPage_QuickActions_Title" xml:space="preserve">
+    <value>Tez háreketler</value>
+  </data>
+  <data name="AutomationPage_RenamePipeline_Placeholder" xml:space="preserve">
+    <value>Ataması...</value>
+  </data>
   <data name="AutomationPage_RenamePipeline_Title" xml:space="preserve">
     <value>Qayta ataw</value>
+  </data>
+  <data name="AutomationPage_Reverted_Message" xml:space="preserve">
+    <value>Barlıq ózgerisler biykarlandı!</value>
+  </data>
+  <data name="AutomationPage_Reverted_Title" xml:space="preserve">
+    <value>Izge qaytarıldı</value>
+  </data>
+  <data name="AutomationPage_Saved_Message" xml:space="preserve">
+    <value>Ózgerisler tabıslı saqlandı!</value>
   </data>
   <data name="AutomationPage_Saved_Title" xml:space="preserve">
     <value>Saqlandı</value>
@@ -153,8 +231,35 @@
   <data name="AutomationPage_Title" xml:space="preserve">
     <value>Avtomatizaciya</value>
   </data>
+  <data name="AutomationPipelineControl_AddStep" xml:space="preserve">
+    <value>Adım qosıw</value>
+  </data>
   <data name="AutomationPipelineControl_Configure" xml:space="preserve">
     <value>Sazlaw</value>
+  </data>
+  <data name="AutomationPipelineControl_Exclusive" xml:space="preserve">
+    <value>Esaptan tısqarı</value>
+  </data>
+  <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
+    <value>Usı háreket baslanǵanda, basqa ámellerdi orınlamań.</value>
+  </data>
+  <data name="AutomationPipelineControl_RunNow" xml:space="preserve">
+    <value>Házir orınlaw</value>
+  </data>
+  <data name="AutomationPipelineControl_RunNow_Error_Message" xml:space="preserve">
+    <value>Qátelikler menen juwmaqlandı.</value>
+  </data>
+  <data name="AutomationPipelineControl_RunNow_Error_Title" xml:space="preserve">
+    <value>Házir orınlaw</value>
+  </data>
+  <data name="AutomationPipelineControl_RunNow_Success_Message" xml:space="preserve">
+    <value>Tabıslı juwmaqlandı!</value>
+  </data>
+  <data name="AutomationPipelineControl_RunNow_Success_Title" xml:space="preserve">
+    <value>Házir orınlaw</value>
+  </data>
+  <data name="AutomationPipelineControl_Running" xml:space="preserve">
+    <value>Orınlanbaqta...</value>
   </data>
   <data name="AutomationPipelineControl_Step" xml:space="preserve">
     <value>{0} adım</value>
@@ -173,6 +278,121 @@
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_AtTime" xml:space="preserve">
     <value>{0:D2}:{1:D2}</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_PowerMode" xml:space="preserve">
+    <value>Quwatlılıq rejimi</value>
+  </data>
+  <data name="AutomationPipelineControl_Unnamed" xml:space="preserve">
+    <value>Atı atalmaǵan</value>
+  </data>
+  <data name="BalanceModeSettingsWindow_AIEngine_Message" xml:space="preserve">
+    <value>Belgili oyınlar iske túskenin avtomatikalıq anıqlaydı, CPU hám GPU iskerligin ózgertedi. Temperatura hám samallatqısh shawqımı artıwı múmkin.</value>
+  </data>
+  <data name="BalanceModeSettingsWindow_AIEngine_Title" xml:space="preserve">
+    <value>AI Enginedı qosıw</value>
+  </data>
+  <data name="BalanceModeSettingsWindow_Title" xml:space="preserve">
+    <value>Teńlesiw rejimi sazlawları</value>
+  </data>
+  <data name="BatteryAutomationStepControl_Message" xml:space="preserve">
+    <value>Batareyanı zaryadlaw usılın tańlaw.</value>
+  </data>
+  <data name="BatteryAutomationStepControl_Title" xml:space="preserve">
+    <value>Batareya rejimi</value>
+  </data>
+  <data name="BatteryModeControl_Message" xml:space="preserve">
+    <value>Batareyanı zaryadlaw usılın tańlaw.</value>
+  </data>
+  <data name="BatteryModeControl_Title" xml:space="preserve">
+    <value>Batareya rejimi</value>
+  </data>
+  <data name="BatteryPage_ACAdapterConnectedAndCharging" xml:space="preserve">
+    <value>Jalǵanǵan, zaryadlanbaqta...</value>
+  </data>
+  <data name="BatteryPage_ACAdapterConnectedNotCharging" xml:space="preserve">
+    <value>Jalǵanǵan, zaryadlanbay atır</value>
+  </data>
+  <data name="BatteryPage_BatteryTemperature_Message" xml:space="preserve">
+    <value>Batareyanıń házirgi temperaturası.</value>
+  </data>
+  <data name="BatteryPage_BatteryTemperature_Title" xml:space="preserve">
+    <value>Batareya temperaturası</value>
+  </data>
+  <data name="BatteryPage_CurrentCapacity_Message" xml:space="preserve">
+    <value>Házirgi batareya quwatlıǵı.</value>
+  </data>
+  <data name="BatteryPage_CurrentCapacity_Title" xml:space="preserve">
+    <value>Házirgi quwatlılıq</value>
+  </data>
+  <data name="BatteryPage_CycleCount_Message" xml:space="preserve">
+    <value>Zaryadlanıw/zaryadsızlanıw cikl sanı.</value>
+  </data>
+  <data name="BatteryPage_CycleCount_Title" xml:space="preserve">
+    <value>Cikl sanı</value>
+  </data>
+  <data name="BatteryPage_DesignCapacity_Message" xml:space="preserve">
+    <value>Batareyanıń dáslepki quwatlıǵı.</value>
+  </data>
+  <data name="BatteryPage_DesignCapacity_Title" xml:space="preserve">
+    <value>Shamalıq quwat</value>
+  </data>
+  <data name="BatteryPage_DischargeRate_Message" xml:space="preserve">
+    <value>Batareyanıń zaryadlanıw (+) hám zaryadsızlanıw (-) tezligi.</value>
+  </data>
+  <data name="BatteryPage_DischargeRate_Title" xml:space="preserve">
+    <value>Zaryadsızlanıw tezligi</value>
+  </data>
+  <data name="BatteryPage_EstimatedBatteryLifeRemaining" xml:space="preserve">
+    <value>Shama menen qalǵan waqıt: {0}</value>
+  </data>
+  <data name="BatteryPage_EstimatingBatteryLife" xml:space="preserve">
+    <value>Waqıt esaplanbaqta...</value>
+  </data>
+  <data name="BatteryPage_FirstUseDate_Title" xml:space="preserve">
+    <value>Birinshi paydalanıw sánesi</value>
+  </data>
+  <data name="BatteryPage_FirstUse_Message" xml:space="preserve">
+    <value>Batareya birinshi isletilgen waqıt.</value>
+  </data>
+  <data name="BatteryPage_FullChargeCapacity_Message" xml:space="preserve">
+    <value>Tolıq zaryadlanǵanda batareya quwatlıǵı.</value>
+  </data>
+  <data name="BatteryPage_FullChargeCapacity_Title" xml:space="preserve">
+    <value>Tolıq zaryadlaw quwatlıǵı</value>
+  </data>
+  <data name="BatteryPage_LowWattageChargerConnected" xml:space="preserve">
+    <value>Kem quwatlı zaryadlawshı jalǵanǵan</value>
+  </data>
+  <data name="BatteryPage_ManufactureDate_Message" xml:space="preserve">
+    <value>Batareya islep shıǵarılǵan waqıt.</value>
+  </data>
+  <data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
+    <value>Islep shıǵarılǵan sáne</value>
+  </data>
+  <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
+    <value>Noutbuk aqırǵı márte tarmaqqa jalǵanǵannan beri waqıt.
+Eger noutbuk uyqı rejiminde yamasa óshirilgen waqıtta zaryadlanǵan bolsa, bul waqıt anıq bolmawı múmkin.</value>
+  </data>
+  <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
+    <value>Batareyada</value>
+  </data>
+  <data name="BatteryPage_Title" xml:space="preserve">
+    <value>Batareya</value>
+  </data>
+  <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
+    <value>Batareyadan</value>
+  </data>
+  <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
+    <value>Jalǵanǵan</value>
+  </data>
+  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
+    <value>Quwatlılıq jobaları</value>
+  </data>
+  <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
+    <value>Tolıq maǵlıwmat microsoft.comda</value>
+  </data>
+  <data name="CPUBoostModesWindow_Title" xml:space="preserve">
+    <value>Oraylıq processordı tezlestiriw rejimleri</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Biykarlaw</value>
@@ -201,6 +421,27 @@
   <data name="Color_Red" xml:space="preserve">
     <value>Qızıl</value>
   </data>
+  <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
+    <value>Kompyuterińizden qalay paydalanıw hám quwatlılıq jaǵdayına qarap videokartanıń is rejimin tańlań. Rejimlerdi almastırıw ushın qayta iske túsiriw talap qılınıwı múmkin.</value>
+  </data>
+  <data name="ComboBoxHybridModeControl_RestartRequired_Message" xml:space="preserve">
+    <value>{0}ǵa ózgertiw ushın qayta iske túsiriw kerek. Házir qayta iske túsiriwdi qáleysiz be?</value>
+  </data>
+  <data name="ComboBoxHybridModeControl_RestartRequired_Title" xml:space="preserve">
+    <value>Qayta iske túsiriw talap etiledi</value>
+  </data>
+  <data name="ComboBoxHybridModeControl_Title" xml:space="preserve">
+    <value>Videokartanıń jumıs rejimi</value>
+  </data>
+  <data name="ContextMenu_QuickActions" xml:space="preserve">
+    <value>Tez háreketler</value>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Dawam etiw</value>
+  </data>
+  <data name="CopyAll" xml:space="preserve">
+    <value>Barlıǵın kóshirip alıw</value>
+  </data>
   <data name="DashboardPage_Graphics_Title" xml:space="preserve">
     <value>Grafika</value>
   </data>
@@ -213,11 +454,31 @@
   <data name="DashboardPage_Title" xml:space="preserve">
     <value>Bas bet</value>
   </data>
+  <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
+    <value>Eger bólekli grafikalıq processor zarúr bolmasa da qosılǵan bolsa, onı óshiriw
+
+DIQQAT: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bul háreket durıs orınlanbaydı.</value>
+  </data>
+  <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
+    <value>Grafikalıq processordı óshiriw</value>
+  </data>
+  <data name="DelayAutomationStepControl_Message" xml:space="preserve">
+    <value>Keyingi qádemdi orınlawdan aldın iskilisti qosıw.</value>
+  </data>
+  <data name="DelayAutomationStepControl_Title" xml:space="preserve">
+    <value>Irkilis</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Óshiriw</value>
   </data>
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>BIOS versiyası</value>
+  </data>
+  <data name="CopiedToClipboard_Message" xml:space="preserve">
+    <value>Tekst almasıw buferine kóshirip alındı.</value>
+  </data>
+  <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
+    <value>{0} almasıw buferine kóshirip alındı.</value>
   </data>
   <data name="CopiedToClipboard_Title" xml:space="preserve">
     <value>Kóshirip alındı!</value>
@@ -225,23 +486,169 @@
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
     <value>Qurılma</value>
   </data>
+  <data name="DeviceInformationWindow_InWarranty" xml:space="preserve">
+    <value>Kepillikte</value>
+  </data>
+  <data name="DeviceInformationWindow_LenovoSupport" xml:space="preserve">
+    <value>Lenovo qollap-quwatlaw xizmeti</value>
+  </data>
+  <data name="DeviceInformationWindow_MachineType_Title" xml:space="preserve">
+    <value>Qurılma modeliniń túri</value>
+  </data>
+  <data name="DeviceInformationWindow_Manufacturer_Title" xml:space="preserve">
+    <value>Islep shıǵarıwshı</value>
+  </data>
   <data name="DeviceInformationWindow_Model_Title" xml:space="preserve">
     <value>Model</value>
+  </data>
+  <data name="DeviceInformationWindow_OutOfWarranty" xml:space="preserve">
+    <value>Kepillik múddeti tawsılǵan</value>
+  </data>
+  <data name="DeviceInformationWindow_SerialNumber_Title" xml:space="preserve">
+    <value>Seriyalı nomer</value>
   </data>
   <data name="DeviceInformationWindow_Title" xml:space="preserve">
     <value>Qurılmańız haqqında</value>
   </data>
+  <data name="DeviceInformationWindow_WarrantyEndDate_Title" xml:space="preserve">
+    <value>Kepillik tawsılıw sánesi</value>
+  </data>
+  <data name="DeviceInformationWindow_WarrantyStartDate_Title" xml:space="preserve">
+    <value>Kepillik baslanıw sánesi</value>
+  </data>
+  <data name="DeviceInformationWindow_WarrantyStatus_Title" xml:space="preserve">
+    <value>Jaǵday</value>
+  </data>
+  <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
+    <value>Kepillik</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Aktiv</value>
+  </data>
+  <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
+    <value>Óshiriw</value>
+  </data>
+  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
+    <value>nVidia grafikalıq processorı óshiriliwi múmkin.
+Itibar berıń, eger siz bunı isleneńiz ayrım baǵdarlamalar islemey qalıwı múmkin.</value>
+  </data>
+  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
+    <value>nVidia grafikalıq processorı aktiv emes.</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>Aktiv emes</value>
+  </data>
+  <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
+    <value>Proceslerdi juwmaqlaw</value>
+  </data>
+  <data name="DiscreteGPUControl_Message" xml:space="preserve">
+    <value>Eger bólekli grafikalıq processor zarúr bolmasa da qosılǵan bolsa, onı óshiriw.</value>
+  </data>
+  <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
+    <value>Monitor nVidia grafikalıq processorına jalǵanǵan.</value>
+  </data>
+  <data name="DiscreteGPUControl_NoProcesses" xml:space="preserve">
+    <value>Processler joq</value>
+  </data>
+  <data name="DiscreteGPUControl_PerformanceState" xml:space="preserve">
+    <value>Ónimdarlıq jaǵdayı</value>
+  </data>
+  <data name="DiscreteGPUControl_PerformanceState_Unknown" xml:space="preserve">
+    <value>Belgisiz</value>
+  </data>
+  <data name="DiscreteGPUControl_Processes" xml:space="preserve">
+    <value>Processler</value>
+  </data>
   <data name="DiscreteGPUControl_RestartGPU" xml:space="preserve">
     <value>Grafikalıq processordı qayta iske qosıw</value>
+  </data>
+  <data name="DiscreteGPUControl_Title" xml:space="preserve">
+    <value>Bólekli grafikalıq processor</value>
+  </data>
+  <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
+    <value>Ornatılǵan displeydiń jarıqlıǵın ózgertiń. 
+Ayırım qurılmalarda quwatlıq rejimleri jarıqlıqtı ózgertedi. Eger bir nárse kerekli dárejede durıs islemese, bul qádem aqırǵısı ekenine isenim kámil etiń.
+
+ESLETPE: Eger ishki displey óshirilgen bolsa, bul háreket durıs islemeydi.</value>
+  </data>
+  <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
+    <value>Displey jarıqlıǵı</value>
+  </data>
+  <data name="DonatePage_DonateWith" xml:space="preserve">
+    <value>Járdeminde qollap-quwatlaw</value>
+  </data>
+  <data name="DonatePage_Message" xml:space="preserve">
+    <value>Lenovo Legion Toolkitti rawajlandırıw hám turaqlı islewin támiyinlew ushın kóp waqıt ketedi. Eger sizge bul baǵdarlamanı qollanıw unasa, siz qálegen summańız benen onıń keleshegin qollap-quwatlawıńız múmkin.
+
+PayPal arqalı qollap-quwatlaw ushın PayPal logotibine basıń yamasa tómendegi QR-kodtı tekseriń.
+
+Aldınnan raxmet!</value>
+  </data>
+  <data name="DonatePage_Title" xml:space="preserve">
+    <value>Qollap-quwatlaw</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Ózgertiw</value>
   </data>
+  <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
+    <value>Fn+R túymelerin qollanǵanda, esapqa alıw kerek emes bolǵan jańalanıw tezliklerinen belgini alıp taslań.</value>
+  </data>
+  <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
+    <value>Noutbuk displeyi qosılǵanına isenim kámil etiń. Lenova Legion Toolkit qosılmaǵan displey ushın jańalanıw tezligin júkley almaydı.</value>
+  </data>
+  <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Title" xml:space="preserve">
+    <value>Jańalanıw tezligi anıqlanbadı</value>
+  </data>
+  <data name="ExcludeRefreshRatesWindow_Title" xml:space="preserve">
+    <value>Jańalanıw tezligin esaptan tısqarı qılıw</value>
+  </data>
   <data name="Exit" xml:space="preserve">
     <value>Shıǵıw</value>
   </data>
+  <data name="Export" xml:space="preserve">
+    <value>Eksportlaw</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
+    <value>Batareyada islegende tek biriktirilgen videokartanı qollanıw hám quwatlaw adapteri jalǵanǵanda ornatılǵan hám bólekli videokartanı qollanıw. Standart emes quwatlaw adapterin qollanǵanda, sistema biriktirilgen videokartanı qollanıp gibrid rejimge ózgeredi (Hybrid-iGPU Only Mode).</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
+    <value>Gibrid-Avto rejim</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_DGPU_Disclaimer" xml:space="preserve">
+    <value>Bul rejimdi almastırıw qayta iske túsiriwdi talap etedi.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_DGPU_Message" xml:space="preserve">
+    <value>Tek ǵana bólekli grafikalıq processordı paydalanıw. Bul rejim eń jaqsı ónimdarlıqtı beredi, biraq zaryadsızlanıwdı kúsheytedi.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
+    <value>Bólekli videokarta rejimi</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
+    <value>Ornatılǵan hám bólekli videokarta qosıladı. Sistema olardıń arasında zárúrlikke qarap avtomatikalıq ózgerip turadı.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
+    <value>Gibrid rejimi</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_IGPU_Disclaimer" xml:space="preserve">
+    <value>Bul rejim tek ǵana bólekli videokarta islemey turǵanda iske túsiriledi.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_IGPU_Message" xml:space="preserve">
+    <value>Tek ornatılǵan videokartanı paydalanıw. Bul rejim zaryadsızlanıwdı hám shawqımdı azaytadı.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_IGPU_Title" xml:space="preserve">
+    <value>Gibrid rejimi biriktirilgen videokartanı qollanıp</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Title" xml:space="preserve">
+    <value>Grafikalıq processordıń islew rejimleri haqqında</value>
+  </data>
   <data name="Fahrenheit" xml:space="preserve">
     <value>°F</value>
+  </data>
+  <data name="FanCurveControl_CPU" xml:space="preserve">
+    <value>Oraylıq processor</value>
+  </data>
+  <data name="FanCurveControl_CPUSensor" xml:space="preserve">
+    <value>OP sensorı</value>
   </data>
   <data name="FanCurveControl_FanSpeed" xml:space="preserve">
     <value>Samallatqıshtıń tezligi</value>
@@ -249,14 +656,70 @@
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>Grafikalıq processor</value>
   </data>
+  <data name="FanCurveControl_RPM" xml:space="preserve">
+    <value>aylanıw/min</value>
+  </data>
+  <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
+    <value>Qaqpaqtı ashqanda noutbuktı qosıw.</value>
+  </data>
+  <data name="FlipToStartAutomationStepControl_Title" xml:space="preserve">
+    <value>Baslaw ushın aylandırıń</value>
+  </data>
+  <data name="FlipToStartControl_Message" xml:space="preserve">
+    <value>Qaqpaqtı ashqanda noutbuktı qosıw.</value>
+  </data>
+  <data name="FlipToStartControl_Title" xml:space="preserve">
+    <value>Baslaw ushın aylandırıń</value>
+  </data>
+  <data name="FnLockAutomationStepControl_Message" xml:space="preserve">
+    <value>Fn túymesin uslap turmay F1-F12 túymeleriniń ekilemshi funkciyalarınan paydalanıw.</value>
+  </data>
   <data name="FnLockAutomationStepControl_Title" xml:space="preserve">
     <value>Fn Lock</value>
+  </data>
+  <data name="FnLockControl_Message" xml:space="preserve">
+    <value>Fn túymesin uslap turmay F1-F12 túymeleriniń ekilemshi funkciyalarınan paydalanıw.</value>
   </data>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Fn Lock</value>
   </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
+    <value>Maksimal quwatlılıq sheginiń jıljıwı</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
+    <value>Eger ne islep atırǵanıńızdı bilmeseńiz, tómendegi variantlardı ózgertpeń.</value>
+  </data>
   <data name="GodModeSettingsWindow_Advanced_Title" xml:space="preserve">
     <value>Qosımsha sazlawlar</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_CrossLoading" xml:space="preserve">
+    <value>Uzaq múddetli quwatlılıq shegi (ján-jaqqa júklew)</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL" xml:space="preserve">
+    <value>Uzaq múddetli quwatlılıq shegi</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL" xml:space="preserve">
+    <value>Qısqa múddetli quwatlılıq shegi</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_TempLimit" xml:space="preserve">
+    <value>Oraylıq processor temperaturasınıń shegi</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_Title" xml:space="preserve">
+    <value>Oraylıq processor</value>
+  </data>
+  <data name="GodModeSettingsWindow_Error_Apply_Title" xml:space="preserve">
+    <value>Sazlawlardı qollanıw ámelge aspadı</value>
+  </data>
+  <data name="GodModeSettingsWindow_Error_Load_Title" xml:space="preserve">
+    <value>Sazlawlardı júklew ámelge aspadı.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Fans_Curve_Title" xml:space="preserve">
+    <value>Samallatqıshtıń qıysıqlıǵı</value>
+  </data>
+  <data name="GodModeSettingsWindow_Fans_Max_Message" xml:space="preserve">
+    <value>DIQQAT!
+Bul varianttı kóp waqıt qollanıw samallatqısh iskerliginiń tómenlewine alıp keledi hám onıń xızmet kórsetiw waqtın azaytadı.
+Rasında da, bul variant penen abaylı bolıń!</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Max_Title" xml:space="preserve">
     <value>Samallatqıshtıń maksimal tezligi</value>
@@ -264,20 +727,58 @@
   <data name="GodModeSettingsWindow_Fans_Title" xml:space="preserve">
     <value>Samallatqıshlar</value>
   </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP" xml:space="preserve">
+    <value>Sazlanatuǵın TGP</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_DynamicBoost" xml:space="preserve">
+    <value>Dynamic Boost</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TempLimit" xml:space="preserve">
+    <value>GPU temperaturasınıń shegi</value>
+  </data>
   <data name="GodModeSettingsWindow_GPU_Title" xml:space="preserve">
     <value>Grafikalıq processor</value>
+  </data>
+  <data name="GodModeSettingsWindow_Title" xml:space="preserve">
+    <value>Arnawlı rejim sazlawları</value>
+  </data>
+  <data name="HDRAutomationStepControl_Message" xml:space="preserve">
+    <value>Ornatılǵan displeyde High Dynamic Range (HDR)dı qosıw.
+
+DIQQAT: Eger ishki displey óshirilgen bolsa, bul háreket durıs orınlanbaydı.</value>
   </data>
   <data name="HDRAutomationStepControl_Title" xml:space="preserve">
     <value>HDR</value>
   </data>
+  <data name="HDRControl_Message" xml:space="preserve">
+    <value>Ornatılǵan displeyde High Dynamic Range (HDR)dı qosıw.</value>
+  </data>
   <data name="HDRControl_Title" xml:space="preserve">
     <value>HDR</value>
+  </data>
+  <data name="HDRControl_Warning" xml:space="preserve">
+    <value>HDRdan paydalanıw Windows sazlawları tárepinen bloklanǵan.</value>
   </data>
   <data name="Import" xml:space="preserve">
     <value>Importlaw</value>
   </data>
+  <data name="IncompatibleDevice_Message" xml:space="preserve">
+    <value>Bul qurılma Lenovo Legion Toolkit penen mas kelmeydi.</value>
+  </data>
   <data name="IncompatibleDevice_Title" xml:space="preserve">
     <value>Lenovo Legion Toolkit</value>
+  </data>
+  <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
+    <value>Mas klaviatura tabılmadı</value>
+  </data>
+  <data name="KeyboardBacklightPage_Title" xml:space="preserve">
+    <value>Klaviaturanıń arqa jaqtılıǵı</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>Vantage yamasa onıń xızmetleri islep turǵanda, klaviaturanıń arqa jaqtılıǵın bul jerde basqarıw múmkin emes.</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
+    <value>Lenovo Vantage iske túsirilgenge uqsaydı</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Baǵdarlama haqqında</value>
@@ -288,6 +789,12 @@
   <data name="MainWindow_NavigationItem_Battery" xml:space="preserve">
     <value>Batareya</value>
   </data>
+  <data name="MainWindow_NavigationItem_Dashboard" xml:space="preserve">
+    <value>Basqarıw paneli</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Donate" xml:space="preserve">
+    <value>Qollap-quwatlaw</value>
+  </data>
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
     <value>Klaviatura</value>
   </data>
@@ -296,6 +803,12 @@
   </data>
   <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
     <value>Sazlawlar</value>
+  </data>
+  <data name="MainWindow_UpdateAvailable" xml:space="preserve">
+    <value>Jańalanıw bar!</value>
+  </data>
+  <data name="MainWindow_UpdateAvailableWithVersion" xml:space="preserve">
+    <value>{0} Jańalanıw bar!</value>
   </data>
   <data name="MoveDown" xml:space="preserve">
     <value>Tómenge kóshiriw</value>
@@ -306,8 +819,65 @@
   <data name="No" xml:space="preserve">
     <value>Yaq</value>
   </data>
+  <data name="Notification_ACAdapterConnected" xml:space="preserve">
+    <value>Quwatlaw blogı jalǵanǵan</value>
+  </data>
+  <data name="Notification_ACAdapterConnectedLowWattage" xml:space="preserve">
+    <value>Quwatlaw apadteri jalǵanǵan (Kem quwatlılıq)</value>
+  </data>
+  <data name="Notification_ACAdapterDisconnected" xml:space="preserve">
+    <value>Quwatlaw blogı jalǵanbaǵan</value>
+  </data>
+  <data name="Notification_CameraOff" xml:space="preserve">
+    <value>Kamera óshirilgen</value>
+  </data>
+  <data name="Notification_CameraOn" xml:space="preserve">
+    <value>Kamera qosıwlı</value>
+  </data>
+  <data name="Notification_CapsLockOff" xml:space="preserve">
+    <value>Caps Lock óshirildi</value>
+  </data>
+  <data name="Notification_CapsLockOn" xml:space="preserve">
+    <value>Caps Lock qosıldı</value>
+  </data>
+  <data name="Notification_FnLockOff" xml:space="preserve">
+    <value>Fn Lock óshirildi</value>
+  </data>
+  <data name="Notification_FnLockOn" xml:space="preserve">
+    <value>Fn Lock qosıldı</value>
+  </data>
+  <data name="Notification_MicrophoneOff" xml:space="preserve">
+    <value>Mikrofon óshirildi</value>
+  </data>
+  <data name="Notification_MicrophoneOn" xml:space="preserve">
+    <value>Mikrofon qosıldı</value>
+  </data>
+  <data name="Notification_NumLockOff" xml:space="preserve">
+    <value>Num Lock óshirildi</value>
+  </data>
+  <data name="Notification_NumLockOn" xml:space="preserve">
+    <value>Num Lock qosıldı</value>
+  </data>
+  <data name="Notification_SpectrumKeyboardBacklight_Backlight" xml:space="preserve">
+    <value>Arqa jaqtılıq {0}</value>
+  </data>
+  <data name="Notification_SpectrumKeyboardBacklight_Brightness" xml:space="preserve">
+    <value>Jarıqlıq {0}</value>
+  </data>
   <data name="Notification_SpectrumKeyboardBacklight_Profile" xml:space="preserve">
     <value>Profil {0}</value>
+  </data>
+  <data name="Notification_TouchpadOff" xml:space="preserve">
+    <value>Sensorlı panel óshirildi</value>
+  </data>
+  <data name="Notification_TouchpadOn" xml:space="preserve">
+    <value>Sensorlı panel qosıldı</value>
+  </data>
+  <data name="Notification_WhiteKeyboardBacklight" xml:space="preserve">
+    <value>Arqa jaqtılıq {0}</value>
+  </data>
+  <data name="NotificationsSettingsWindow_ACAdapter" xml:space="preserve">
+    <value>Quwatlaw blogı</value>
   </data>
   <data name="NotificationsSettingsWindow_Camera" xml:space="preserve">
     <value>Kamera</value>
@@ -315,11 +885,39 @@
   <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
     <value>Caps Lock hám Num Lock</value>
   </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
+    <value>Fn túymesiniń mikrofon dawısın óshiriw sıyaqlı háreketleri haqqındaǵı xabarlamalardı óshiredi
+Eger de tolıq ekranlı baǵdarlamalar menen mashqalalar bolsa, bul varianttı qosıń.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
+    <value>Xabarlamalardı kórsetpew</value>
+  </data>
   <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
     <value>Fn Lock</value>
   </data>
+  <data name="NotificationsSettingsWindow_KeyboardBacklight" xml:space="preserve">
+    <value>Klaviaturanıń arqa jaqtılıǵı</value>
+  </data>
   <data name="NotificationsSettingsWindow_Microphone" xml:space="preserve">
     <value>Mikrofon</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationPosition_Title" xml:space="preserve">
+    <value>Orın</value>
+  </data>
+  <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
+    <value>Quwatlılıq rejimi</value>
+  </data>
+  <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
+    <value>Jańalanıw tezligi</value>
+  </data>
+  <data name="NotificationsSettingsWindow_SmartKey" xml:space="preserve">
+    <value>Aqıllı túyme</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
+    <value>Xabarlamalar</value>
+  </data>
+  <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
+    <value>Sensorlı panel bloklanıwı</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>Yaqshı</value>
@@ -327,8 +925,14 @@
   <data name="Open" xml:space="preserve">
     <value>Ashıw</value>
   </data>
+  <data name="OverDriveAutomationStepControl_Message" xml:space="preserve">
+    <value>Ornatılǵan displeydiń juwap waqtın jaqsılaw.</value>
+  </data>
   <data name="OverDriveAutomationStepControl_Title" xml:space="preserve">
     <value>Over Drive</value>
+  </data>
+  <data name="OverDriveControl_Message" xml:space="preserve">
+    <value>Ornatılǵan displeydiń juwap waqtın jaqsılaw.</value>
   </data>
   <data name="OverDriveControl_Title" xml:space="preserve">
     <value>Over Drive</value>
@@ -336,11 +940,57 @@
   <data name="PackageControl_DownloadComplete_Message" xml:space="preserve">
     <value>{0} júklendi!</value>
   </data>
+  <data name="PackageControl_DownloadComplete_Title" xml:space="preserve">
+    <value>Júklew juwmaqlandı</value>
+  </data>
+  <data name="PackageControl_GeneralError_Title" xml:space="preserve">
+    <value>Qanday da bir qátelik boldı</value>
+  </data>
+  <data name="PackageControl_Http404Error_Message" xml:space="preserve">
+    <value>Server 404 qátelik kodın qaytardı.</value>
+  </data>
+  <data name="PackageControl_Http404Error_Title" xml:space="preserve">
+    <value>Fayl joq bolǵanǵa qusaydı</value>
+  </data>
+  <data name="PackageControl_HttpGeneralError_Message" xml:space="preserve">
+    <value>Internet baylanısı islep turǵanın tekseriń.</value>
+  </data>
+  <data name="PackageControl_HttpGeneralError_Title" xml:space="preserve">
+    <value>Qanday da bir qátelik boldı</value>
+  </data>
+  <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
+    <value>Jańalanıw bar!</value>
+  </data>
+  <data name="PackageControl_OldPackageWarning" xml:space="preserve">
+    <value>Bul paket bir jıldan asqan.</value>
+  </data>
   <data name="PackageControl_Version" xml:space="preserve">
     <value>Versiya</value>
   </data>
-  <data name="PackagesPage_Filter" xml:space="preserve">
+  <data name="PackagesPage_Disclaimer_Message" xml:space="preserve">
+    <value>Tómende noutbukıńızǵa mas dep belgilengen baǵdarlamalıq paketler dizimi keltirilgen. 
+Durıs paketlerdi ornatıp atırǵanıńızǵa isenim kámil etiń.</value>
+  </data>
+  <data name="PackagesPage_DownloadFailed_Message" xml:space="preserve">
+    <value>Qurılma modeliniń túri hám OS durıs kórsetilgenin tekseriń.</value>
+  </data>
+  <data name="PackagesPage_DownloadFailed_Title" xml:space="preserve">
+    <value>Qanday da bir qátelik boldı</value>
+  </data>
+  <data name="PackagesPage_DownloadInProgress_Message" xml:space="preserve">
+    <value>Sortlawdı ózgertiw, nátiyjelerdi filtrlew, paketlerdi jasırıw yamasa dizimdi jańalaw júklep alıwdı toqtatadı. Dawam etiwdi qáleysiz be?</value>
+  </data>
+  <data name="PackagesPage_DownloadInProgress_Title" xml:space="preserve">
+    <value>Júklenbekte</value>
+  </data>
+  <data name="PackagesPage_DownloadTo" xml:space="preserve">
+    <value>Júklew ornı</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
     <value>Filtr...</value>
+  </data>
+  <data name="PackagesPage_MachineType" xml:space="preserve">
+    <value>Qurılma modeliniń túri</value>
   </data>
   <data name="PackagesPage_OperatingSystem" xml:space="preserve">
     <value>Operacion sistema</value>
@@ -354,11 +1004,17 @@
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Ekilemshi</value>
   </data>
+  <data name="PackagesPage_SecondarySource_Message" xml:space="preserve">
+    <value>Lenovo PC qollap-quwatlawı menen birdey</value>
+  </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Kategoriya</value>
   </data>
   <data name="PackagesPage_Sort_Date" xml:space="preserve">
     <value>Sáne</value>
+  </data>
+  <data name="PackagesPage_Sort_Name" xml:space="preserve">
+    <value>Ataması</value>
   </data>
   <data name="PackagesPage_Source" xml:space="preserve">
     <value>Derek</value>
@@ -366,8 +1022,21 @@
   <data name="PackagesPage_Title" xml:space="preserve">
     <value>Júklengenler</value>
   </data>
+  <data name="Paste" xml:space="preserve">
+    <value>Ornalastırıw</value>
+  </data>
   <data name="PickProcessesWindow_Title" xml:space="preserve">
     <value>Baǵdarlamalar</value>
+  </data>
+  <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
+    <value>Islew rejimin tańlań.</value>
+  </data>
+  <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
+    <value>Quwatlılıq rejimi</value>
+  </data>
+  <data name="PowerModeControl_Message" xml:space="preserve">
+    <value>Islew rejimin saylań.
+Rejimdi Fn+Q járdeminde ózgerte alasız.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
     <value>Sazlawlar</value>
@@ -375,11 +1044,56 @@
   <data name="PowerModeControl_Title" xml:space="preserve">
     <value>Quwatlılıq rejimi</value>
   </data>
+  <data name="PowerModeControl_Warning" xml:space="preserve">
+    <value>Quwatlaw blogı qosılmasa, saylanǵan quwatlılıq rejimi durıs islemewi múmkin.</value>
+  </data>
   <data name="PowerModeWindow_Title" xml:space="preserve">
     <value>Quwatlılıq rejimi</value>
   </data>
+  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
+    <value>Lenovo Vantage islep turǵanda hám noutbugıńız quwat rejelerin ózgertkende, bul parametrdi qosıw kútilmegen aqıbetlerge alıp keliwi múmkin.</value>
+  </data>
+  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
+    <value>Isenimińiz kámil me?</value>
+  </data>
+  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
+    <value>Teńlestirilgen rejim</value>
+  </data>
+  <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
+    <value>Arnawlı rejim</value>
+  </data>
+  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
+    <value>Aldınnan ornatılǵan</value>
+  </data>
+  <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
+    <value>Islew rejimi</value>
+  </data>
+  <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
+    <value>Tınısh rejimi</value>
+  </data>
+  <data name="PowerPlansWindow_Title" xml:space="preserve">
+    <value>Quwatlılıq jobaları</value>
+  </data>
+  <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Klaviaturnıń arqa jaqtılıǵın aldınnan sazlawdı ornatıń.</value>
+  </data>
+  <data name="RGBKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Klaviaturanıń arqa jaqtılıǵı</value>
+  </data>
   <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
     <value>Jarıqlıq</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Preset1" xml:space="preserve">
+    <value>Sazlawlar jıyındısı 1</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Preset2" xml:space="preserve">
+    <value>Sazlawlar jıyındısı 2</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Preset3" xml:space="preserve">
+    <value>Sazlawlar jıyındısı 3</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
+    <value>Óshirilgen</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Zone1" xml:space="preserve">
     <value>Zona 1</value>
@@ -393,11 +1107,31 @@
   <data name="RGBKeyboardBacklightControl_Zone4" xml:space="preserve">
     <value>Zona 4</value>
   </data>
+  <data name="RGBKeyboardBacklightEffectCardControl_Title" xml:space="preserve">
+    <value>Effekt</value>
+  </data>
   <data name="RGBKeyboardBacklightSpeedCardControl_Title" xml:space="preserve">
     <value>Tezlik</value>
   </data>
+  <data name="ReadmeWindow_Title" xml:space="preserve">
+    <value>Maǵlıwmat</value>
+  </data>
   <data name="Refresh" xml:space="preserve">
     <value>Jańalaw</value>
+  </data>
+  <data name="RefreshRateAutomationStepControl_Message" xml:space="preserve">
+    <value>Ornatılǵan displeydiń jańalanıw tezligin ózgertiw.
+
+ESLETPE: Eger ishki displey óshirilgen bolsa, bul ámel durıs orınlanbaydı.</value>
+  </data>
+  <data name="RefreshRateAutomationStepControl_Title" xml:space="preserve">
+    <value>Jańalanıw tezligi</value>
+  </data>
+  <data name="RefreshRateControl_Message" xml:space="preserve">
+    <value>Ornatılǵan displeydiń jańalanıw tezligin ózgertiw.</value>
+  </data>
+  <data name="RefreshRateControl_Title" xml:space="preserve">
+    <value>Jańalanıw tezligi</value>
   </data>
   <data name="Rename" xml:space="preserve">
     <value>Qayta ataw</value>
@@ -405,8 +1139,24 @@
   <data name="RestartLater" xml:space="preserve">
     <value>Keyinirek qayta iske qosaman</value>
   </data>
+  <data name="RestartNow" xml:space="preserve">
+    <value>Házir qayta iske qosıw</value>
+  </data>
   <data name="Revert" xml:space="preserve">
     <value>Izge qaytarıw</value>
+  </data>
+  <data name="RunAutomationStepControl_ExeArguments" xml:space="preserve">
+    <value>Argumentler</value>
+  </data>
+  <data name="RunAutomationStepControl_ExePath" xml:space="preserve">
+    <value>Orınlanatuǵın faylǵa jol</value>
+  </data>
+  <data name="RunAutomationStepControl_Message" xml:space="preserve">
+    <value>Skript yamasa baǵdarlamanı iske túsiriń.
+Siziń skriptińiz durıs orınlanıp atırǵanına isenim kámil etiń.</value>
+  </data>
+  <data name="RunAutomationStepControl_Title" xml:space="preserve">
+    <value>Orınlaw</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Saqlaw</value>
@@ -414,14 +1164,96 @@
   <data name="Saving" xml:space="preserve">
     <value>Saqlanbaqta...</value>
   </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Description" xml:space="preserve">
+    <value>Izbe-iz orınlanıw ushın bir yamasa bir neshe tez háreketlerdi tańlaw</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
+    <value>Tez háreketler anıqlanbaǵan.</value>
+  </data>
   <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
     <value>Bul baǵdarlamanı kórsetiw</value>
+  </data>
+  <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
+    <value>Baǵdarlamanıń sáykes reńin ózgertiw.</value>
+  </data>
+  <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
+    <value>Sáykes reń</value>
+  </data>
+  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
+    <value>Eger ne islep atırǵanıńızdı bilmeseńiz, tómendegi variantlardı ózgertpeń.</value>
   </data>
   <data name="SettingsPage_Advanced_Title" xml:space="preserve">
     <value>Qosımsha sazlawlar</value>
   </data>
+  <data name="SettingsPage_Autorun_Title" xml:space="preserve">
+    <value>Avtomatikalıq iske túsiriw</value>
+  </data>
+  <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
+    <value>Oraylıq processordı tezlestiriw rejimleri</value>
+  </data>
+  <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
+    <value>Legion Zone nadurıs óshirilgen bolıwı múmkin</value>
+  </data>
+  <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
+    <value>Legion Zonedi óshiriw ámelge aspadı</value>
+  </data>
+  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
+    <value>Legion Zone hám onıń xızmetleriniń iskerligin toqtatıp, ózin óshirmew.
+Bul varianttı ózgertkennen keyin, qayta iske túsiriw usınıs etiledi.</value>
+  </data>
+  <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
+    <value>Legion Zonedi óshiriw</value>
+  </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Error_Message" xml:space="preserve">
+    <value>Legion Hotkeys nadurıs óshirilgen bolıwı múmkin</value>
+  </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
+    <value>Lenovo Hotkeysti óshiriw ámelge aspadı</value>
+  </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
+    <value>Lenovo Hotkeystiń ózin óshirmesten, onıń xızmetlerin óshiriw.
+Eger óshirilgen bolsa, bul baǵdarlama Fn tez túymelerin orınlaydı.
+Bul varianttı ózgertkennen keyin qayta iske túsiriw usınıs etiledi.</value>
+  </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
+    <value>Lenovo Hotkeysti óshiriw</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
+    <value>Vantage nadurıs óshirilgen bolıwı múmkin</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
+    <value>Vantagedi óshiriw ámelge aspadı</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
+    <value>Lenovo Vantagediń ózin óshirmesten, onıń xızmetlerin óshiriw.
+Bul varianttı ózgertkennen keyin, qayta iske túsiriw usınıs etiledi.</value>
+  </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Lenovo Vantagedi óshiriw</value>
+  </data>
+  <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
+    <value>Legion Zone nadurıs iske túsirilgen bolıwı múmkin</value>
+  </data>
+  <data name="SettingsPage_EnableLegionZone_Error_Title" xml:space="preserve">
+    <value>Legion Zonedi iske túsiriw ámelge aspadı</value>
+  </data>
+  <data name="SettingsPage_EnableLenovoHotkeys_Error_Message" xml:space="preserve">
+    <value>Lenovo Hotkeys nadurıs iske túsirilgen bolıwı múmkin</value>
+  </data>
+  <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
+    <value>Lenovo Hotkeystiń túymelerin iske túsiriw ámelge aspadı</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+    <value>Vantage nadurıs iske túsirilgen bolıwı múmkin</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+    <value>Vantagedi iske túsiriw ámelge aspadı</value>
+  </data>
+  <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
+    <value>Fn+R túymelerin paydalıraq qılıw ushın, siz jańalanıw tezligin esaptan tısqarı qılıwıńız múmkin</value>
+  </data>
+  <data name="SettingsPage_ExcludeRefreshRates_Title" xml:space="preserve">
+    <value>Jańalanıw tezligin esaptan tısqarı qılıw</value>
   </data>
   <data name="SettingsPage_Language_Message" xml:space="preserve">
     <value>Tildi saylań.</value>
@@ -429,29 +1261,89 @@
   <data name="SettingsPage_Language_Title" xml:space="preserve">
     <value>Til</value>
   </data>
+  <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
+    <value>Jawǵanda jıynaw</value>
+  </data>
+  <data name="SettingsPage_Notifications_Message" xml:space="preserve">
+    <value>Qanday xabarlamalar kórsetiliwin sazlań.</value>
+  </data>
+  <data name="SettingsPage_Notifications_Title" xml:space="preserve">
+    <value>Xabarlamalar</value>
+  </data>
+  <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
+    <value>Quwatlılıq jobaları</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
+    <value>Fn+F9 túymelerin eki márte basıw ushın tez háreketti belgileń.</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">
+    <value>Aqıllı túymeniń ekilemshi háreketi</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
+    <value>Fn+F9 túymelerin bir márte basıw ushın tez háreketti belgileń.</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
+    <value>Aqıllı túyme háreketi</value>
+  </data>
+  <data name="SettingsPage_Theme_Description" xml:space="preserve">
+    <value>Jaqtı temanı, qaranǵı temanı ornatıw yamasa sistema sazlawlarına ámel etiw.</value>
+  </data>
   <data name="SettingsPage_Theme_Title" xml:space="preserve">
     <value>Tema</value>
   </data>
   <data name="SettingsPage_Title" xml:space="preserve">
     <value>Sazlawlar</value>
   </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Message" xml:space="preserve">
+    <value>Klaviaturnıń arqa jaqtılıǵı jarıqlıǵın sazlań.</value>
+  </data>
   <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Off" xml:space="preserve">
     <value>Óshik</value>
   </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Title" xml:space="preserve">
+    <value>Klaviaturnıń arqa jaqtılıǵınıń jarıqlıǵı</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_AddEffect" xml:space="preserve">
+    <value>Effekt qosıw</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
+    <value>Profildi qollanıw ámelge aspadı</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
+    <value>Arqa jaqtılıqtıń profilın qollanıw ámelge aspadı.</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>Jarıqlıq</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_DeselectAll_ToolTip" xml:space="preserve">
+    <value>Barlıq zonalardıń belgilengenin alıp taslaw</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
     <value>Effektler</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Message" xml:space="preserve">
-    <value>Profildi eksport qılıp bolmadı</value>
+    <value>Profildi eksport qılıw ámelge aspadı</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Title" xml:space="preserve">
+    <value>Profildi eksport qılıw ámelge aspadı</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Message" xml:space="preserve">
-    <value>Profildi import qılıp bolmadı</value>
+    <value>Profildi import qılıw ámelge aspadı</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Title" xml:space="preserve">
+    <value>Profildi import qılıw ámelge aspadı</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
     <value>Effektler qosılmaǵan.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip" xml:space="preserve">
+    <value>Aldınnan sazlawdı qayta ornatıw</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
+    <value>Barlıq zonalardı tańlaw</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_SwitchKeyboardLayout_ToolTip" xml:space="preserve">
+    <value>Klaviatura jaylasıw tártibin ózgertiw</value>
   </data>
   <data name="SpectrumKeyboardBacklightEditEffectWindow_ClockwiseDirection_Title" xml:space="preserve">
     <value>Baǵdar</value>
@@ -480,6 +1372,12 @@
   <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Edit" xml:space="preserve">
     <value>Effektti ózgertiw</value>
   </data>
+  <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Message" xml:space="preserve">
+    <value>Klaviatura arqa jaqtılıǵınıń profilin sazlaw.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Title" xml:space="preserve">
+    <value>Klaviatura arqa jaqtılıǵınıń profili</value>
+  </data>
   <data name="SpectrumKeyboardEffectControl_Description_AllZones" xml:space="preserve">
     <value>Bárshe túymeler</value>
   </data>
@@ -498,11 +1396,58 @@
   <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
     <value>Waqıt</value>
   </data>
+  <data name="ToggleHybridModeControl_Message" xml:space="preserve">
+    <value>Ornatılǵan hám bólekli grafikalıq processor arasında ózgertiw imkániyatın beredi.
+Qayta iske túsiriw talap etiledi.</value>
+  </data>
+  <data name="ToggleHybridModeControl_RestartRequired_Message" xml:space="preserve">
+    <value>Gibrid rejimin ózgertiw qayta iske túsiriwdi talap etedi. Házir qayta iske túsiriwdi qáleysiz be?</value>
+  </data>
+  <data name="ToggleHybridModeControl_RestartRequired_Title" xml:space="preserve">
+    <value>Qayta iske túsiriw talap etiledi</value>
+  </data>
+  <data name="ToggleHybridModeControl_Title" xml:space="preserve">
+    <value>Gibrid rejim</value>
+  </data>
+  <data name="TouchpadLockAutomationStepControl_Message" xml:space="preserve">
+    <value>Sensorlı paneldi óshiriw.</value>
+  </data>
+  <data name="TouchpadLockAutomationStepControl_Title" xml:space="preserve">
+    <value>Sensorlı panel bloklanıwı</value>
+  </data>
+  <data name="TouchpadLockControl_Message" xml:space="preserve">
+    <value>Sensorlı paneldi óshiriw.</value>
+  </data>
+  <data name="TouchpadLockControl_Title" xml:space="preserve">
+    <value>Sensorlı panel bloklanıwı</value>
+  </data>
   <data name="TryAgain" xml:space="preserve">
     <value>Qayta urınıp kóriń</value>
   </data>
+  <data name="UnexpectedException" xml:space="preserve">
+    <value>Kútilmegen esaptan tıs háreket júz berdi:
+{0}
+
+Ótinish, mashqala haqqında {1}ǵa xabar beriń.</value>
+  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>Atı atalmaǵan</value>
+  </data>
+  <data name="UnsupportedWindow_Disclaimer" xml:space="preserve">
+    <value>Siz ózińizdi qáwipke qoyıp dawam etiwdi tańlawıńız múmkin, bıraq este saqlań, ayırım funkciyalar bolmawı hám/yamasa durıs islemewi múmkin.
+Eger siz dawam etiwdi tańlasańız, jurnaldı júrgiziw avtomatikalıq qosıladı.</value>
+  </data>
+  <data name="UnsupportedWindow_Disclaimer_GitHub" xml:space="preserve">
+    <value>Qosımsha maǵlıwmat alıw ushın GitHubdaǵi joybar betin tekseriń.</value>
+  </data>
+  <data name="UnsupportedWindow_Disclaimer_Logs" xml:space="preserve">
+    <value>Jurnallar papkası</value>
+  </data>
+  <data name="UnsupportedWindow_MachineType" xml:space="preserve">
+    <value>Qurılma modeliniń túri</value>
+  </data>
+  <data name="UnsupportedWindow_Message" xml:space="preserve">
+    <value>Lenovo Legion Toolkit siziń qurılmańızda tekserilmedi.</value>
   </data>
   <data name="UnsupportedWindow_Model" xml:space="preserve">
     <value>Model</value>
@@ -516,11 +1461,35 @@
   <data name="Update" xml:space="preserve">
     <value>Jańalaw</value>
   </data>
+  <data name="UpdateWindow_Title" xml:space="preserve">
+    <value>Jańalanıw bar</value>
+  </data>
   <data name="UpdateWindow_WhatsNew" xml:space="preserve">
     <value>Ne jańalıq?</value>
   </data>
+  <data name="WhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Klaviaturnıń arqa jaqtılıǵınıń jarıqlıǵın sazlaw.</value>
+  </data>
+  <data name="WhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Klaviaturanıń arqa jaqtılıǵı</value>
+  </data>
+  <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
+    <value>Siz jarıqlıqtı Fn+Space járdeminde ózgerte alasız</value>
+  </data>
+  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Klaviaturanıń arqa jaqtılıǵı</value>
+  </data>
+  <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
+    <value>Windows túymesin jaǵıw yamasa óshiriw.</value>
+  </data>
   <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
     <value>Windows túymesi</value>
+  </data>
+  <data name="WinKeyControl_Message" xml:space="preserve">
+    <value>Tek ǵana ornatılǵan klaviaturada isleydi.</value>
+  </data>
+  <data name="WinKeyControl_Title" xml:space="preserve">
+    <value>Windows túymesin bloklaw</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Awa</value>
@@ -528,16 +1497,232 @@
   <data name="MicrophoneControl_Title" xml:space="preserve">
     <value>Mikrofon</value>
   </data>
+  <data name="MicrophoneControl_Message" xml:space="preserve">
+    <value>Óshirilgende, mikrofonlar dawısı óshiriledi.</value>
+  </data>
   <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
     <value>Mikrofon</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
+    <value>Óshirilgende, mikrofonlar dawısı óshiriledi.</value>
+  </data>
+  <data name="ResolutionControl_Title" xml:space="preserve">
+    <value>Kólem</value>
+  </data>
+  <data name="ResolutionControl_Message" xml:space="preserve">
+    <value>Ornatılǵan displeydiń kólemin ózgertiw.</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
+    <value>Kólem</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
+    <value>Ornatılǵan displey kólemin ózgertiw.
+
+ESLETPE: Eger ishki displey óshirilgen bolsa, bul ámel durıs orınlanbaydı.</value>
   </data>
   <data name="DpiScaleControl_Title" xml:space="preserve">
     <value>DPI</value>
   </data>
+  <data name="DpiScaleControl_Message" xml:space="preserve">
+    <value>Ornatılǵan displeydiń kólemin ózgertiw.</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
+    <value>DPI</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
+    <value>Ornatılǵan displey kólemin ózgertiw.
+
+ESLETPE: Eger ishki displey óshirilgen bolsa, bul ámel durıs orınlanbaydı.</value>
+  </data>
+  <data name="DashboardPage_Display_Title" xml:space="preserve">
+    <value>Displey</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Klaviaturanıń arqa jaqtılıǵı</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
+    <value>Arqa jaqtılıqtı Fn+Space járdeminde qosıwıńız yamasa óshiriwińiz múmkin.</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Klaviaturanıń arqa jaqtılıǵı</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Arqa jaqtılıqtı qosıw yamasa óshiriw.</value>
+  </data>
+  <data name="PackagesPage_NoMatchingDownloads" xml:space="preserve">
+    <value>Sáykes júklemeler tabılmadı</value>
+  </data>
   <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
     <value>Tek jańalanıwlardı kórsetiw</value>
   </data>
+  <data name="EditDashboardWindow_Title" xml:space="preserve">
+    <value>Bas betti sazlaw</value>
+  </data>
+  <data name="Load" xml:space="preserve">
+    <value>Júklew</value>
+  </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
     <value>Topar jaratıw</value>
+  </data>
+  <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
+    <value>Ataması</value>
+  </data>
+  <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
+    <value>Qurılmańız halatı hám sazlawlarına qarap ayırım funkciyalar Ásbaplar panelinde kórinbewi múmkin.</value>
+  </data>
+  <data name="DashboardPage_Customize" xml:space="preserve">
+    <value>Sazlaw</value>
+  </data>
+  <data name="TurnOffMonitorsControl_Title" xml:space="preserve">
+    <value>Displeylerdi óshiriw</value>
+  </data>
+  <data name="TurnOffMonitorsControl_Message" xml:space="preserve">
+    <value>Barlıq displeylerdi óshiriw.
+Tıshqanshanı qozǵaw yamasa klaviaturanı basıw displeydi iske túsiredi.</value>
+  </data>
+  <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
+    <value>Óshiriw</value>
+  </data>
+  <data name="TurnOffMonitorsAutomationStepControl_Title" xml:space="preserve">
+    <value>Displeylerdi óshiriw</value>
+  </data>
+  <data name="TurnOffMonitorsAutomationStepControl_Message" xml:space="preserve">
+    <value>Ámeldegi barlıq ekranlardı óshiriw.</value>
+  </data>
+  <data name="EditDashboardGroupControl_EditGroup_Title" xml:space="preserve">
+    <value>Topar atamasın ózgertiw</value>
+  </data>
+  <data name="EditDashboardGroupControl_EditGroup_Message" xml:space="preserve">
+    <value>Ataması</value>
+  </data>
+  <data name="Notification_PanelLogoLightingOn" xml:space="preserve">
+    <value>Logotip Legion qosıwlı</value>
+  </data>
+  <data name="Notification_PanelLogoLightingOff" xml:space="preserve">
+    <value>Logotip Legion óshirilgen</value>
+  </data>
+  <data name="Notification_PortLightingOn" xml:space="preserve">
+    <value>Portlardıń arqa jaqtılıǵı qosıwlı</value>
+  </data>
+  <data name="Notification_PortLightingOff" xml:space="preserve">
+    <value>Portlardıń arqa jaqtılıǵı óshirilgen</value>
+  </data>
+  <data name="PackageControl_RebootRequired" xml:space="preserve">
+    <value>Qayta iske túsiriw talap etiledi</value>
+  </data>
+  <data name="PackageControl_ShutdownRequired" xml:space="preserve">
+    <value>Óshiriw talap etiledi</value>
+  </data>
+  <data name="PackageControl_RebootRecommended" xml:space="preserve">
+    <value>Qayta iske túsiriw usınıs etiledi</value>
+  </data>
+  <data name="SaveAndClose" xml:space="preserve">
+    <value>Saqlaw hám jabıw</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
+    <value>Arnawlı sazlawlar jıyındısı rejimi</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
+    <value>Arnawlı sazlawlar jıyındısı rejimin aktivlestiredi.
+Bul sazlaw tek arnawlı rejim qosılǵanda nátiyje beredi.</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
+    <value>Sazlawlar jıyındısınıń ataması</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Message" xml:space="preserve">
+    <value>Ataması</value>
+  </data>
+  <data name="GodModeSettingsWindow_ActivePreset_Title" xml:space="preserve">
+    <value>Aktiv sazlawlar jıyındısı</value>
+  </data>
+  <data name="AboutPage_ApplicationFolders" xml:space="preserve">
+    <value>Baǵdarlama papkaları</value>
+  </data>
+  <data name="AboutPage_Data" xml:space="preserve">
+    <value>Maǵlıwmatlar</value>
+  </data>
+  <data name="AboutPage_Temp" xml:space="preserve">
+    <value>Waqtınshalıq fayllar</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
+    <value>Bir displeydıń jarıqlıǵı</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
+    <value>Qosılǵanda hám hár ózgertilgende, barlıq Windows quwatlılıq rejelerine birdey jarıqlıq dárejesi qollanıladı.</value>
+  </data>
+  <data name="Notification_UpdateAvailable" xml:space="preserve">
+    <value>{0} Jańalanıw bar!</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL" xml:space="preserve">
+    <value>Quwatlılıqtıń eń joqarǵı shegi</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
+    <value>APU sPPT quwatlılıq shegi</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL_Description" xml:space="preserve">
+    <value>Processor tárepinen úzliksiz paydalanıw múmkin bolǵan quwatlılıq.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL_Description" xml:space="preserve">
+    <value>Qısqa waqıt ishinde processor tárepinen paydalanıw múmkin bolǵan eń joqarı quwatlılıq.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL_Description" xml:space="preserve">
+    <value>Processor tárepinen jetiwi múmkin bolǵan quwatlılıqtan paydalanıwdıń eń joqarı dárejesi.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL_Description" xml:space="preserve">
+    <value>Azǵana irkilis penen processor tárepinen paydalanıw múmkin bolǵan eń joqarı quwatlılıq.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
+    <value>Quwatlılıq hám tezlik páseyiwi aldınan, processor tárepinen jetiwi múmkin bolǵan eń joqarı temperatura.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
+    <value>Quwatlılıq hám tezlik páseyiwi aldınan, grafikalıq processor tárepinen jetiwi múmkin bolǵan eń joqarı temperatura.</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Aldınnan ornatılǵan</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
+    <value>Qısqa múddetli quwatlılıq sheginiń dawamlılıǵı</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Jaratıw</value>
+  </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+    <value>Adım qosıw</value>
+  </data>
+  <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
+    <value>Xáreket jaratıw</value>
+  </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+    <value>Quwatlılıq rejimi</value>
+  </data>
+  <data name="StatusTrayPopup_Preset" xml:space="preserve">
+    <value>Sazlawlar jıyındısı</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+    <value>Bólekli grafikalıq processor</value>
+  </data>
+  <data name="StatusTrayPopup_PowerState" xml:space="preserve">
+    <value>Quwatlılıq jaǵdayı</value>
+  </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+    <value>Batareya</value>
+  </data>
+  <data name="StatusTrayPopup_Mode" xml:space="preserve">
+    <value>Rejim</value>
+  </data>
+  <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
+    <value>Zaryadsızlanıw tezligi</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+    <value>Jańalanıw bar!</value>
+  </data>
+  <data name="SymbolRegularPicker_Title" xml:space="preserve">
+    <value>Tańbanı tańlaw</value>
+  </data>
+  <data name="AutomationPage_ChangeIcon" xml:space="preserve">
+    <value>Tańbanı ózgertiw</value>
+  </data>
+  <data name="BatteryPage_LowLevel" xml:space="preserve">
+    <value>Batareyanıń quwatlılıq dárejesi tómen</value>
   </data>
 </root>

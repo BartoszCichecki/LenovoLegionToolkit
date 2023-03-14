@@ -7,6 +7,7 @@ public class ApplicationSettings : AbstractSettings<ApplicationSettings.Applicat
 {
     public class Notifications
     {
+        public bool UpdateAvailable { get; set; } = true;
         public bool CapsNumLock { get; set; }
         public bool FnLock { get; set; }
         public bool TouchpadLock { get; set; } = true;
@@ -38,6 +39,7 @@ public class ApplicationSettings : AbstractSettings<ApplicationSettings.Applicat
         public Guid? SmartKeyDoublePressActionId { get; set; }
         public List<Guid> SmartKeySinglePressActionList { get; set; } = new();
         public List<Guid> SmartKeyDoublePressActionList { get; set; } = new();
+        public bool SynchronizeBrightnessToAllPowerPlans { get; set; }
     }
 
     public ApplicationSettings() : base("settings.json") { }

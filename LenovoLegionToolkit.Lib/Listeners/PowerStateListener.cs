@@ -77,7 +77,15 @@ public class PowerStateListener : IListener<EventArgs>
                     await _iGpuModeFeature.NotifyAsync().ConfigureAwait(false);
                 }
             });
+        }
 
+        if (e.Mode is PowerModes.StatusChange && newState is PowerAdapterStatus.Connected)
+        {
+            _ = Task.Run(async () =>
+            {
+                if (await _powerModeFeature.IsSupportedAsync().ConfigureAwait(false))
+                    await _powerModeFeature.EnsureGodModeStateIsAppliedAsync().ConfigureAwait(false);
+            });
         }
 
         if (newState == _lastState)

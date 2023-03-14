@@ -13,6 +13,8 @@ public class AutomationPipeline
 {
     public Guid Id { get; set; } = Guid.NewGuid();
 
+    public string? IconName { get; set; }
+
     public string? Name { get; set; }
 
     public IAutomationPipelineTrigger? Trigger { get; set; }
@@ -86,6 +88,7 @@ public class AutomationPipeline
     public AutomationPipeline DeepCopy() => new()
     {
         Id = Id,
+        IconName = IconName,
         Name = Name,
         Trigger = Trigger?.DeepCopy(),
         Steps = Steps.Select(s => s.DeepCopy()).ToList(),

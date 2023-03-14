@@ -61,7 +61,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AC Adapter connected.
+        ///   Looks up a localized string similar to When AC power adapter is connected.
         /// </summary>
         public static string ACAdapterConnectedAutomationPipelineTrigger_DisplayName {
             get {
@@ -70,7 +70,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AC Adapter disconnected.
+        ///   Looks up a localized string similar to When AC power adapter is disconnected.
         /// </summary>
         public static string ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName {
             get {
@@ -115,7 +115,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Display turns off.
+        ///   Looks up a localized string similar to When displays turn off.
         /// </summary>
         public static string DisplayOffAutomationPipelineTrigger_DisplayName {
             get {
@@ -124,7 +124,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Display turns on.
+        ///   Looks up a localized string similar to When displays turn on.
         /// </summary>
         public static string DisplayOnAutomationPipelineTrigger_DisplayName {
             get {
@@ -133,7 +133,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to External Display connected.
+        ///   Looks up a localized string similar to When external display is connected.
         /// </summary>
         public static string ExternalDisplayConnectedAutomationPipelineTrigger_DisplayName {
             get {
@@ -142,7 +142,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to External Display disconnected.
+        ///   Looks up a localized string similar to When external display is disconnected.
         /// </summary>
         public static string ExternalDisplayDisconnectedAutomationPipelineTrigger_DisplayName {
             get {
@@ -151,7 +151,43 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AC Adapter connected (Low Power).
+        ///   Looks up a localized string similar to When game is running.
+        /// </summary>
+        public static string GamesAreRunningAutomationPipelineTrigger_DisplayName {
+            get {
+                return ResourceManager.GetString("GamesAreRunningAutomationPipelineTrigger_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When game closes.
+        /// </summary>
+        public static string GamesStopAutomationPipelineTrigger_DisplayName {
+            get {
+                return ResourceManager.GetString("GamesStopAutomationPipelineTrigger_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lid closed.
+        /// </summary>
+        public static string LidClosedAutomationPipelineTrigger_DisplayName {
+            get {
+                return ResourceManager.GetString("LidClosedAutomationPipelineTrigger_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lid opened.
+        /// </summary>
+        public static string LidOpenedAutomationPipelineTrigger_DisplayName {
+            get {
+                return ResourceManager.GetString("LidOpenedAutomationPipelineTrigger_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When low wattage AC power adapter is connected.
         /// </summary>
         public static string LowWattageACAdapterConnectedAutomationPipelineTrigger_DisplayName {
             get {
@@ -169,7 +205,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Power Mode changed.
+        ///   Looks up a localized string similar to When power mode is changed.
         /// </summary>
         public static string PowerModeAutomationPipelineTrigger_DisplayName {
             get {
@@ -178,7 +214,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Application runs.
+        ///   Looks up a localized string similar to When app starts.
         /// </summary>
         public static string ProcessesAreRunningAutomationPipelineTrigger_DisplayName {
             get {
@@ -187,7 +223,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Application stops.
+        ///   Looks up a localized string similar to When app closes.
         /// </summary>
         public static string ProcessesStopRunningAutomationPipelineTrigger_DisplayName {
             get {
@@ -196,7 +232,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to At the specified time.
+        ///   Looks up a localized string similar to At specified time.
         /// </summary>
         public static string TimeAutomationPipelineTrigger_DisplayName {
             get {

@@ -11,9 +11,11 @@ using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 using LenovoLegionToolkit.Lib.Automation.Steps;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.WPF.Controls.Automation.Pipeline;
+using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Automation;
+using LenovoLegionToolkit.WPF.Windows.Utils;
 using Wpf.Ui.Common;
 using MenuItem = Wpf.Ui.Controls.MenuItem;
 
@@ -51,7 +53,7 @@ public partial class AutomationPage
             .Select(c => c.AutomationPipeline.Trigger)
             .Where(t => t is not null)
             .Select(t => t!.GetType())
-        .ToHashSet();
+            .ToHashSet();
 
         var window = new CreateAutomationPipelineWindow(existingTriggersTypes, AddAutomaticPipeline) { Owner = Window.GetWindow(this) };
         window.ShowDialog();
@@ -244,6 +246,13 @@ public partial class AutomationPage
         renameMenuItem.Click += async (_, _) => await RenamePipelineAsync(control);
         menuItems.Add(renameMenuItem);
 
+        if (control.AutomationPipeline.Trigger is null)
+        {
+            var changeIconMenuItem = new MenuItem { SymbolIcon = SymbolRegular.Edit24, Header = Resource.AutomationPage_ChangeIcon };
+            changeIconMenuItem.Click += async (_, _) => await ChangePipelineIconAsync(control);
+            menuItems.Add(changeIconMenuItem);
+        }
+
         var deleteMenuItem = new MenuItem { SymbolIcon = SymbolRegular.Delete24, Header = Resource.Delete };
         deleteMenuItem.Click += (_, _) => DeletePipeline(control, stackPanel);
         menuItems.Add(deleteMenuItem);
@@ -301,7 +310,24 @@ public partial class AutomationPage
             Resource.AutomationPage_RenamePipeline_Placeholder,
             name,
             allowEmpty: true);
+
+        if (string.IsNullOrEmpty(newName))
+            return;
+
         control.SetName(newName);
+    }
+
+    private async Task ChangePipelineIconAsync(AutomationPipelineControl control)
+    {
+        try
+        {
+            var window = new SymbolRegularPicker { Owner = Window.GetWindow(this) };
+            window.ShowDialog();
+
+            var icon = await window.SymbolRegularTask;
+            control.SetIcon(icon);
+        }
+        catch (TaskCanceledException) { }
     }
 
     private void DeletePipeline(AutomationPipelineControl control, StackPanel stackPanel)

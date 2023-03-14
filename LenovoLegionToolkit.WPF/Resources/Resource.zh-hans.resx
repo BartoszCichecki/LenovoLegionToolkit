@@ -308,10 +308,10 @@
     <value>充电模式</value>
   </data>
   <data name="BatteryPage_ACAdapterConnectedAndCharging" xml:space="preserve">
-    <value>已插入充电器，充电中...</value>
+    <value>已插入电源适配器，充电中...</value>
   </data>
   <data name="BatteryPage_ACAdapterConnectedNotCharging" xml:space="preserve">
-    <value>已插入充电器，未充电...</value>
+    <value>已插入电源适配器，未充电...</value>
   </data>
   <data name="BatteryPage_BatteryTemperature_Message" xml:space="preserve">
     <value>当前电池温度。</value>
@@ -362,7 +362,7 @@
     <value>满电容量</value>
   </data>
   <data name="BatteryPage_LowWattageChargerConnected" xml:space="preserve">
-    <value>已插入低功率充电器</value>
+    <value>已插入较低功率电源适配器</value>
   </data>
   <data name="BatteryPage_ManufactureDate_Message" xml:space="preserve">
     <value>电池的生产日期。</value>
@@ -371,7 +371,7 @@
     <value>生产日期</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-    <value>笔记本上次充电距离现在的时间。
+    <value>笔记本断开电源适配器的时间。
 如果在关机或休眠时充电，可能会导致此时间不准确。</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
@@ -384,7 +384,7 @@
     <value>使用电池时</value>
   </data>
   <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>插入充电器时</value>
+    <value>插入电源适配器时</value>
   </data>
   <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
     <value>性能计划</value>
@@ -524,7 +524,7 @@
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>保修信息</value>
   </data>
-  <data name="DiscreteGPUControl_Active" xml:space="preserve">
+  <data name="Active" xml:space="preserve">
     <value>活动中</value>
   </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
@@ -538,7 +538,7 @@
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>英伟达显卡休眠中</value>
   </data>
-  <data name="DiscreteGPUControl_Inactive" xml:space="preserve">
+  <data name="Inactive" xml:space="preserve">
     <value>休眠中</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
@@ -613,7 +613,7 @@
     <value>导出</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
-    <value>使用电池时只使用核显，连接充电器时同时使用核显与独显。当连接非标准充电器时，系统会切换到混合核显模式。</value>
+    <value>使用电池时只使用核显，连接电源适配器时同时使用核显与独显。当连接非标准（较低功率）电源适配器时，系统会切换到混合核显模式。</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
     <value>混合自动模式</value>
@@ -691,22 +691,22 @@
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
     <value>警告！
-一些笔记本可以使用更高的功耗限制，但【一定小心】，这个选项可能会导致未知后果！除非你【准确的知道你在做什么】，否则请保持这个选项为0。</value>
+一些笔记本可以使用更高的功耗限制，但【一定小心】，这个选项可能会导致未知后果！除非你了解【此选项的准确意义】，否则请保持这个选项为 0。</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
     <value>最大功耗限制偏移量</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
-    <value>不要修改下面的选项除非你准确的知道你在做什么</value>
+    <value>请谨慎修改下方选项！在你不知道下方选项的准确意义前，请勿修改！</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_Title" xml:space="preserve">
     <value>高级选项</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_CrossLoading" xml:space="preserve">
-    <value>长时睿频功耗限制 (Cross Loading)</value>
+    <value>长时负载功耗限制 (Cross Loading)</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_LongTermPL" xml:space="preserve">
-    <value>长时睿频功耗限制 (PL1)</value>
+    <value>长时负载功耗限制 (PL1)</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_ShortTermPL" xml:space="preserve">
     <value>短时睿频功耗限制 (PL2)</value>
@@ -731,8 +731,8 @@
   </data>
   <data name="GodModeSettingsWindow_Fans_Max_Message" xml:space="preserve">
     <value>警告！
-长时间使风扇保持满转速将会减少其寿命。
-我认真的╰（‵□′）╯，谨慎使用此选项！</value>
+风扇处于长时间满转速的情况下将会减少其寿命。
+【请谨慎使用此选项！】</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Max_Title" xml:space="preserve">
     <value>使风扇满转速</value>
@@ -788,7 +788,7 @@
     <value>键盘背光</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>由于Vantage或其服务正在运行导致冲突，无法在此控制键盘背光。</value>
+    <value>由于 Lenovo Vantage 或其服务正在运行导致冲突，无法在此控制键盘背光。</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage似乎已启用。</value>
@@ -833,13 +833,13 @@
     <value>否</value>
   </data>
   <data name="Notification_ACAdapterConnected" xml:space="preserve">
-    <value>充电器 已插入</value>
+    <value>电源适配器 已插入</value>
   </data>
   <data name="Notification_ACAdapterConnectedLowWattage" xml:space="preserve">
-    <value>充电器 已插入（低功率）</value>
+    <value>电源适配器（较低功率） 已插入</value>
   </data>
   <data name="Notification_ACAdapterDisconnected" xml:space="preserve">
-    <value>充电器 已拔出</value>
+    <value>电源适配器 已拔出</value>
   </data>
   <data name="Notification_CameraOff" xml:space="preserve">
     <value>摄像头 关</value>
@@ -890,7 +890,7 @@
     <value>背光 {0}</value>
   </data>
   <data name="NotificationsSettingsWindow_ACAdapter" xml:space="preserve">
-    <value>充电器</value>
+    <value>电源适配器</value>
   </data>
   <data name="NotificationsSettingsWindow_Camera" xml:space="preserve">
     <value>摄像头</value>
@@ -1001,7 +1001,7 @@
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>下载到</value>
   </data>
-  <data name="PackagesPage_Filter" xml:space="preserve">
+  <data name="Filter" xml:space="preserve">
     <value>搜索...</value>
   </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
@@ -1049,9 +1049,6 @@
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>性能模式</value>
   </data>
-  <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>无法更改性能模式</value>
-  </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>选择性能模式
 你可以通过快捷键 Fn+Q 快速更改。</value>
@@ -1063,7 +1060,7 @@
     <value>性能模式</value>
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
-    <value>在未插入充电器的情况下，性能模式可能无法正常生效。</value>
+    <value>在未插入电源适配器的情况下，性能模式可能无法正常生效。</value>
   </data>
   <data name="PowerModeWindow_Title" xml:space="preserve">
     <value>性能模式</value>
@@ -1198,7 +1195,7 @@
     <value>主题色</value>
   </data>
   <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>不要修改下面的选项，除非你准确地知道你在做什么。</value>
+    <value>请谨慎修改下方选项！在你不知道下方选项的准确意义前，请勿修改！</value>
   </data>
   <data name="SettingsPage_Advanced_Title" xml:space="preserve">
     <value>高级设置</value>
@@ -1220,7 +1217,7 @@
     <value>无法禁用 Legion Zone</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
-    <value>禁用 Legion Zone 服务，而不卸载。
+    <value>禁用 Legion Zone 服务且无需卸载。
 修改此项后推荐重启电脑。</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
@@ -1233,7 +1230,7 @@
     <value>无法禁用 Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
-    <value>禁用 Lenovo Hotkeys，并且无需卸载。
+    <value>禁用 Lenovo Hotkeys 且无需卸载。
 禁用后本应用将接管 Fn 快捷功能。
 修改此项后建议重启电脑。</value>
   </data>
@@ -1247,7 +1244,7 @@
     <value>无法禁用 Lenovo Vantage</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>禁用 Lenovo Vantage，而不卸载。
+    <value>禁用 Lenovo Vantage 及其服务且无需卸载。
 修改此项后推荐重启电脑。</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
@@ -1584,7 +1581,7 @@
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>自定义控制台</value>
   </data>
-  <data name="Reset" xml:space="preserve">
+  <data name="Load" xml:space="preserve">
     <value>重置</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
@@ -1642,5 +1639,132 @@
   </data>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>推荐重启</value>
+  </data>
+  <data name="SaveAndClose" xml:space="preserve">
+    <value>保存并关闭</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
+    <value>自定义模式预设</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
+    <value>切换至自定义模式的某个预设。
+该设置只有在启用自定义模式时才会生效。</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
+    <value>预设名称</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Message" xml:space="preserve">
+    <value>点此输入名称</value>
+  </data>
+  <data name="GodModeSettingsWindow_ActivePreset_Title" xml:space="preserve">
+    <value>预设</value>
+  </data>
+  <data name="AboutPage_ApplicationFolders" xml:space="preserve">
+    <value>应用数据文件夹</value>
+  </data>
+  <data name="AboutPage_Data" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="AboutPage_Temp" xml:space="preserve">
+    <value>Temp</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
+    <value>固定显示亮度</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
+    <value>启用后在不同电源计划间切换将保持亮度不变。</value>
+  </data>
+  <data name="Notification_UpdateAvailable" xml:space="preserve">
+    <value>发现新版本 {0}！</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL" xml:space="preserve">
+    <value>峰值功耗限制</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
+    <value>APU 慢速功耗追踪限制（sPPT）</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL_Description" xml:space="preserve">
+    <value>CPU 持续负载功耗限制。</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL_Description" xml:space="preserve">
+    <value>CPU 短时峰值功耗限制。</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL_Description" xml:space="preserve">
+    <value>CPU瞬时功耗限制。</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_CrossLoading_Description" xml:space="preserve">
+    <value>当 CPU 与 GPU 同时最大负载时，CPU 的最大功耗限制。</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL_Description" xml:space="preserve">
+    <value>CPU 在一定的延迟后可以达到的最大功耗限制。</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
+    <value>在降频之前 CPU 的温度限制。</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
+    <value>基于 CPU 的功耗，最大可以借用给 GPU 的额外功率。</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
+    <value>在基本功耗的基础上，可以分配给 GPU的额外功率量。 </value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
+    <value>在降频前，GPU 的温度限制。</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>默认</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
+    <value>短时睿频功耗限制</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau_Description" xml:space="preserve">
+    <value>CPU 被允许使用短期功率限制进行加速的时间量。当 Tau 过期时，将使用长期功率限制。</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
+    <value>插电情况下总处理器功耗目标。</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
+    <value>CPU 触发 GPU 动态功耗调整的点。</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>创建</value>
+  </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+    <value>添加步骤</value>
+  </data>
+  <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
+    <value>新建</value>
+  </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+    <value>性能模式</value>
+  </data>
+  <data name="StatusTrayPopup_Preset" xml:space="preserve">
+    <value>预设</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+    <value>独立显卡</value>
+  </data>
+  <data name="StatusTrayPopup_PowerState" xml:space="preserve">
+    <value>性能状态</value>
+  </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+    <value>电池</value>
+  </data>
+  <data name="StatusTrayPopup_Mode" xml:space="preserve">
+    <value>充电模式</value>
+  </data>
+  <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
+    <value>电池充放电功率</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+    <value>新版本可用！</value>
+  </data>
+  <data name="SymbolRegularPicker_Title" xml:space="preserve">
+    <value>选择图标</value>
+  </data>
+  <data name="AutomationPage_ChangeIcon" xml:space="preserve">
+    <value>更改图标</value>
+  </data>
+  <data name="BatteryPage_LowLevel" xml:space="preserve">
+    <value>电池电量低</value>
   </data>
 </root>

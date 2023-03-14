@@ -40,4 +40,27 @@ public class ThrottleFirstDispatcher
             return task();
         }
     }
+
+    public void Dispatch(Action task)
+    {
+        lock (_lock)
+        {
+            var now = DateTime.UtcNow;
+            var diff = now - _lastEvent;
+            _lastEvent = now;
+
+            if (diff < _interval)
+            {
+                if (_tag is not null && Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Throttling... [tag={_tag}, diff={diff.TotalMilliseconds}ms]");
+
+                return;
+            }
+
+            if (_tag is not null && Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Allowing... [tag={_tag}, diff={diff.TotalMilliseconds}ms]");
+
+            task();
+        }
+    }
 }

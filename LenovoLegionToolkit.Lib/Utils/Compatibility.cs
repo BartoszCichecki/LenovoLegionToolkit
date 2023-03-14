@@ -20,6 +20,7 @@ public static class Compatibility
         "16ARH",
         "16IAH",
         "16IAX",
+        "16IRX",
         "16ITH",
 
         "15ACH",
@@ -77,7 +78,8 @@ public static class Compatibility
                 BiosVersion = biosVersion,
                 Properties = new()
                 {
-                    SupportsGodMode = GetSupportsGodMode(biosVersion),
+                    SupportsGodModeV1 = GetSupportsGodModeV1(biosVersion),
+                    SupportsGodModeV2 = GetSupportsGodModeV2(biosVersion),
                     SupportsExtendedHybridMode = await GetSupportsExtendedHybridModeAsync().ConfigureAwait(false),
                     SupportsIntelligentSubMode = await GetSupportsIntelligentSubModeAsync().ConfigureAwait(false),
                     HasPerformanceModeSwitchingBug = GetHasPerformanceModeSwitchingBug(biosVersion)
@@ -91,7 +93,8 @@ public static class Compatibility
                 Log.Instance.Trace($" * Machine Type: '{machineInformation.MachineType}'");
                 Log.Instance.Trace($" * Model: '{machineInformation.Model}'");
                 Log.Instance.Trace($" * BIOS: '{machineInformation.BiosVersion}'");
-                Log.Instance.Trace($" * SupportsGodMode: '{machineInformation.Properties.SupportsGodMode}'");
+                Log.Instance.Trace($" * SupportsGodModeV1: '{machineInformation.Properties.SupportsGodModeV1}'");
+                Log.Instance.Trace($" * SupportsGodModeV2: '{machineInformation.Properties.SupportsGodModeV2}'");
                 Log.Instance.Trace($" * SupportsExtendedHybridMode: '{machineInformation.Properties.SupportsExtendedHybridMode}'");
                 Log.Instance.Trace($" * SupportsIntelligentSubMode: '{machineInformation.Properties.SupportsIntelligentSubMode}'");
             }
@@ -102,7 +105,7 @@ public static class Compatibility
         return _machineInformation.Value;
     }
 
-    private static bool GetSupportsGodMode(string currentBiosVersionString)
+    private static bool GetSupportsGodModeV1(string currentBiosVersionString)
     {
         (string, int)[] supportedBiosVersions =
         {
@@ -119,6 +122,20 @@ public static class Compatibility
             ("JYCN", 39)
         };
 
+        return GetSupportsGodMode(currentBiosVersionString, supportedBiosVersions);
+    }
+
+    private static bool GetSupportsGodModeV2(string currentBiosVersionString)
+    {
+        (string, int)[] supportedBiosVersions =
+        {
+            ("KWCN", 28)
+        };
+
+        return GetSupportsGodMode(currentBiosVersionString, supportedBiosVersions);
+    }
+    private static bool GetSupportsGodMode(string currentBiosVersionString, (string, int)[] supportedBiosVersions)
+    {
         var prefixRegex = new Regex("^[A-Z0-9]{4}");
         var versionRegex = new Regex("[0-9]{2}");
 

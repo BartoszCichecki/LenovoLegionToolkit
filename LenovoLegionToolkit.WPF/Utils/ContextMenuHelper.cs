@@ -18,9 +18,9 @@ namespace LenovoLegionToolkit.WPF.Utils;
 
 public class ContextMenuHelper
 {
-    private static readonly string StaticTag = "static";
-    private static readonly string NavigationTag = "navigation";
-    private static readonly string QuickActionsTag = "quickActions";
+    private const string STATIC_TAG = "static";
+    private const string NAVIGATION_TAG = "navigation";
+    private const string QUICK_ACTIONS_TAG = "quickActions";
 
     private readonly AutomationProcessor _automationProcessor = IoCContainer.Resolve<AutomationProcessor>();
     private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
@@ -32,6 +32,8 @@ public class ContextMenuHelper
     public Action? BringToForeground { get; set; }
     public Func<Task>? Close { get; set; }
 
+    private bool _runOnce;
+
     public ContextMenuHelper()
     {
         ContextMenu = new ContextMenu
@@ -39,10 +41,10 @@ public class ContextMenuHelper
             FontSize = 14
         };
 
-        var openMenuItem = new MenuItem { Header = Resource.Open, Tag = StaticTag };
+        var openMenuItem = new MenuItem { Header = Resource.Open, Tag = STATIC_TAG };
         openMenuItem.Click += (_, _) => BringToForeground?.Invoke();
 
-        var closeMenuItem = new MenuItem { Header = Resource.Close, Tag = StaticTag };
+        var closeMenuItem = new MenuItem { Header = Resource.Close, Tag = STATIC_TAG };
         closeMenuItem.Click += async (_, _) =>
         {
             if (Close is not null)
@@ -57,36 +59,73 @@ public class ContextMenuHelper
 
     private async void MainContextMenu_Loaded(object sender, RoutedEventArgs e)
     {
+        if (_runOnce)
+            return;
+
+        _runOnce = true;
+
         var pipelines = await _automationProcessor.GetPipelinesAsync();
         await RefreshAutomationMenuItemsAsync(pipelines);
 
         _automationProcessor.PipelinesChanged += async (_, e) => await RefreshAutomationMenuItemsAsync(e);
-        _themeManager.ThemeApplied += async (_, _) =>
+        _themeManager.ThemeApplied += (_, _) => ContextMenu.Resources = Application.Current.Resources;
+    }
+
+    public void SetNavigationItems(NavigationStore navigationStore)
+    {
+        var items = new List<Control>();
+
+        foreach (var item in ContextMenu.Items.ToArray().OfType<Control>().Where(mi => NAVIGATION_TAG.Equals(mi.Tag)))
+            ContextMenu.Items.Remove(item);
+
+        foreach (var item in navigationStore.Items.OfType<NavigationItem>())
         {
-            var pipelines = await _automationProcessor.GetPipelinesAsync();
-            await RefreshAutomationMenuItemsAsync(pipelines);
-        };
+            var menuItem = new MenuItem
+            {
+                SymbolIcon = item.Icon,
+                Header = item.Content,
+                Tag = NAVIGATION_TAG
+            };
+            menuItem.Click += async (_, _) =>
+            {
+                ContextMenu.IsOpen = false;
+                BringToForeground?.Invoke();
+                await Task.Delay(500); // Give window time to come back
+                navigationStore.Navigate(item.PageTag);
+            };
+            items.Insert(0, menuItem);
+        }
+
+        if (items.Any())
+            items.Insert(0, new Separator { Tag = NAVIGATION_TAG });
+
+        foreach (var item in items)
+            ContextMenu.Items.Insert(0, item);
     }
 
     private async Task RefreshAutomationMenuItemsAsync(List<AutomationPipeline> pipelines)
     {
         using (await _refreshLock.LockAsync())
         {
-            foreach (var item in ContextMenu.Items.ToArray().OfType<Control>().Where(mi => QuickActionsTag.Equals(mi.Tag)))
+            foreach (var item in ContextMenu.Items.ToArray().OfType<Control>().Where(mi => QUICK_ACTIONS_TAG.Equals(mi.Tag)))
                 ContextMenu.Items.Remove(item);
 
             var items = new List<Control>
             {
-                new MenuItem { Header = Resource.ContextMenu_QuickActions, Tag = QuickActionsTag, IsEnabled = false }
+                new MenuItem { Header = Resource.ContextMenu_QuickActions, Tag = QUICK_ACTIONS_TAG, IsEnabled = false }
             };
 
             foreach (var menuPipeline in pipelines.Where(p => p.Trigger is null))
             {
+                var icon = SymbolRegular.Play24;
+                if (Enum.TryParse<SymbolRegular>(menuPipeline.IconName, out var iconParsed))
+                    icon = iconParsed;
+
                 var item = new MenuItem
                 {
-                    SymbolIcon = SymbolRegular.Play24,
+                    SymbolIcon = icon,
                     Header = menuPipeline.Name ?? Resource.Unnamed,
-                    Tag = QuickActionsTag,
+                    Tag = QUICK_ACTIONS_TAG,
                 };
                 item.Click += async (_, _) =>
                 {
@@ -100,7 +139,7 @@ public class ContextMenuHelper
                 items.Insert(0, item);
             }
 
-            items.Insert(0, new Separator { Tag = QuickActionsTag });
+            items.Insert(0, new Separator { Tag = QUICK_ACTIONS_TAG });
 
             if (items.Count < 3)
                 return;
@@ -108,37 +147,5 @@ public class ContextMenuHelper
             foreach (var item in items)
                 ContextMenu.Items.Insert(0, item);
         }
-    }
-
-    public void SetNavigationItems(NavigationStore navigationStore)
-    {
-        var items = new List<Control>();
-
-        foreach (var item in ContextMenu.Items.ToArray().OfType<Control>().Where(mi => NavigationTag.Equals(mi.Tag)))
-            ContextMenu.Items.Remove(item);
-
-        foreach (var item in navigationStore.Items.OfType<NavigationItem>())
-        {
-            var menuItem = new MenuItem
-            {
-                SymbolIcon = item.Icon,
-                Header = item.Content,
-                Tag = NavigationTag
-            };
-            menuItem.Click += async (_, _) =>
-            {
-                ContextMenu.IsOpen = false;
-                BringToForeground?.Invoke();
-                await Task.Delay(500); // Give window time to come back
-                navigationStore.Navigate(item.PageTag);
-            };
-            items.Insert(0, menuItem);
-        }
-
-        if (items.Any())
-            items.Insert(0, new Separator { Tag = NavigationTag });
-
-        foreach (var item in items)
-            ContextMenu.Items.Insert(0, item);
     }
 }

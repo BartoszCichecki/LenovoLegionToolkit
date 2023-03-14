@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.Lib.Controllers.GodMode;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
@@ -14,6 +15,8 @@ public class PowerModeFeature : AbstractLenovoGamezoneWmiFeature<PowerModeState>
     private readonly GodModeController _godModeController;
     private readonly PowerModeListener _listener;
 
+    public bool AllowAllPowerModesOnBattery { get; set; }
+
     public PowerModeFeature(AIModeController aiModeController, GodModeController godModeController, PowerModeListener listener)
         : base("SmartFanMode", 1, "IsSupportSmartFan")
     {
@@ -25,10 +28,9 @@ public class PowerModeFeature : AbstractLenovoGamezoneWmiFeature<PowerModeState>
     public override async Task<PowerModeState[]> GetAllStatesAsync()
     {
         var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
-        if (mi.Properties.SupportsGodMode)
-            return new[] { PowerModeState.Quiet, PowerModeState.Balance, PowerModeState.Performance, PowerModeState.GodMode };
-
-        return new[] { PowerModeState.Quiet, PowerModeState.Balance, PowerModeState.Performance };
+        return mi.Properties.SupportsGodMode
+            ? new[] { PowerModeState.Quiet, PowerModeState.Balance, PowerModeState.Performance, PowerModeState.GodMode }
+            : new[] { PowerModeState.Quiet, PowerModeState.Balance, PowerModeState.Performance };
     }
 
     public override async Task SetStateAsync(PowerModeState state)
@@ -36,6 +38,11 @@ public class PowerModeFeature : AbstractLenovoGamezoneWmiFeature<PowerModeState>
         var allStates = await GetAllStatesAsync().ConfigureAwait(false);
         if (!allStates.Contains(state))
             throw new InvalidOperationException($"Unsupported power mode {state}.");
+
+        if (state is PowerModeState.Performance or PowerModeState.GodMode
+            && !AllowAllPowerModesOnBattery
+            && await Power.IsPowerAdapterConnectedAsync() is PowerAdapterStatus.Disconnected)
+            throw new InvalidOperationException($"Can't switch to {state} power mode on battery."); ;
 
         var currentState = await GetStateAsync().ConfigureAwait(false);
 

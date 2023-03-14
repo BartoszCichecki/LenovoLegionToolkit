@@ -522,7 +522,7 @@ Attenzione: Questa azione non funzionerà correttamente se il display è spento 
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Garanzia</value>
   </data>
-  <data name="DiscreteGPUControl_Active" xml:space="preserve">
+  <data name="Active" xml:space="preserve">
     <value>Attivata</value>
   </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
@@ -536,7 +536,7 @@ Ricorda, alcuni programmi potrebbero crashare se la disattivi.</value>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>La GPU Nvidia non è attiva.</value>
   </data>
-  <data name="DiscreteGPUControl_Inactive" xml:space="preserve">
+  <data name="Inactive" xml:space="preserve">
     <value>Disattivata</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
@@ -621,9 +621,6 @@ Clicca il logo PayPal qui sotto oppure scansiona il QR code per donare con PayPa
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
     <value>Modalità GPU dedicata</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
-    <value>Sia la GPU integrata che quella dedicata sono abilitate. Il sistema passerà automaticamente da uno all'altro in base alle sue esigenze.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Modalità ibrida</value>
@@ -777,9 +774,6 @@ ATTENZIONE: questa azione non verrà eseguita correttamente se il display intern
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Retroilluminazione tastiera</value>
-  </data>
-  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>La retroilluminazione della tastiera non può essere controllata qua mentre Vantage o i suoi servizi sono in esecuzione.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage sembra essere abilitato</value>
@@ -990,7 +984,7 @@ Assicurati sempre di installare i pacchetti corretti.</value>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Scarica in</value>
   </data>
-  <data name="PackagesPage_Filter" xml:space="preserve">
+  <data name="Filter" xml:space="preserve">
     <value>Filtra...</value>
   </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
@@ -1037,9 +1031,6 @@ Assicurati sempre di installare i pacchetti corretti.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Modalità energetica</value>
-  </data>
-  <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>Impossibile cambiare modalità energetica</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>Cambia la modalità energetica.
@@ -1207,10 +1198,6 @@ Assicurati prima, che il tuo script funzioni correttamente.</value>
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
     <value>Impossibile disattivare Legion Zone</value>
   </data>
-  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
-    <value>Disabilita Legion Zone e i suoi servizi senza disinstallarli.
-Il riavvio è consigliabile dopo aver cambiato questa impostazione.</value>
-  </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
     <value>Disabilita Legion Zone</value>
   </data>
@@ -1220,11 +1207,6 @@ Il riavvio è consigliabile dopo aver cambiato questa impostazione.</value>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Impossibile disattivare Lenovo Hotkeys</value>
   </data>
-  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
-    <value>Disabilita Lenovo Hotkeys e i suoi servizi senza disinstallarli.
-Se disabilitata questa app gestirà i tasti Fn
-Il riavvio è consigliabile dopo aver cambiato questa impostazione.</value>
-  </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Disabilita Lenovo Hotkeys</value>
   </data>
@@ -1233,10 +1215,6 @@ Il riavvio è consigliabile dopo aver cambiato questa impostazione.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
     <value>Impossibile disattivare Vantage</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>Disabilita Lenovo Vantage e i suoi servizi senza disinstallarli.
-Il riavvio è consigliabile dopo aver cambiato questa impostazione.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Disabilita Lenovo Vantage</value>
@@ -1572,7 +1550,7 @@ ATTENZIONE: questa azione non verrà eseguita correttamente se il display intern
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Personalizza Dashboard</value>
   </data>
-  <data name="Reset" xml:space="preserve">
+  <data name="Load" xml:space="preserve">
     <value>Ripristina</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
@@ -1629,5 +1607,29 @@ Spostare il mouse o premere il tasto sulla tastiera per risvegliarli.</value>
   </data>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>Riavvio consigliato</value>
+  </data>
+  <data name="SaveAndClose" xml:space="preserve">
+    <value>Salva &amp; chiudi</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
+    <value>Quando attivo, lo stesso livello di luminosità verrà applicato a tutti i profili energia.</value>
+  </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+    <value>Aggiungi azione</value>
+  </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+    <value>Modalità di alimentazione</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+    <value>GPU dedicata</value>
+  </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+    <value>Batteria</value>
+  </data>
+  <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
+    <value>Tasso di scarica</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+    <value>Aggiornamento disponibile!</value>
   </data>
 </root>

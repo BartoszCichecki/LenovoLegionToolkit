@@ -72,6 +72,16 @@
                         SelectionChanged="NotificationPositionComboBox_SelectionChanged" />
                 </wpfui:CardControl>
 
+                <wpfui:CardControl x:Name="_updateAvailableCard" Margin="0,0,0,24">
+                    <wpfui:CardControl.Header>
+                        <controls:CardHeaderControl Title="Updates" />
+                    </wpfui:CardControl.Header>
+                    <wpfui:ToggleSwitch
+                        x:Name="_updateAvailableToggle"
+                        Margin="0,0,0,8"
+                        Click="UpdateAvailableToggle_Click" />
+                </wpfui:CardControl>
+
                 <wpfui:CardControl x:Name="_capsNumLockCard" Margin="0,0,0,8">
                     <wpfui:CardControl.Header>
                         <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_CapsAndNumLock}" />

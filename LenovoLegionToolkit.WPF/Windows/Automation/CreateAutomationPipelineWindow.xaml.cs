@@ -21,8 +21,12 @@ public partial class CreateAutomationPipelineWindow
         new LowWattageACAdapterConnectedAutomationPipelineTrigger(),
         new ACAdapterDisconnectedAutomationPipelineTrigger(),
         new PowerModeAutomationPipelineTrigger(PowerModeState.Balance),
+        new GamesAreRunningAutomationPipelineTrigger(),
+        new GamesStopAutomationPipelineTrigger(),
         new ProcessesAreRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()),
         new ProcessesStopRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()),
+        new LidOpenedAutomationPipelineTrigger(),
+        new LidClosedAutomationPipelineTrigger(),
         new DisplayOnAutomationPipelineTrigger(),
         new DisplayOffAutomationPipelineTrigger(),
         new ExternalDisplayConnectedAutomationPipelineTrigger(),
@@ -164,8 +168,8 @@ public partial class CreateAutomationPipelineWindow
             }
             else
             {
-                _createPipeline(trigger);
-                Close();
+            _createPipeline(trigger);
+            Close();
             }
         };
 
@@ -195,6 +199,7 @@ public partial class CreateAutomationPipelineWindow
     {
         IPowerStateAutomationPipelineTrigger => SymbolRegular.BatteryCharge24,
         IPowerModeAutomationPipelineTrigger => SymbolRegular.Gauge24,
+        IGameAutomationPipelineTrigger => SymbolRegular.XboxController24,
         IProcessesAutomationPipelineTrigger => SymbolRegular.WindowConsole20,
         ITimeAutomationPipelineTrigger => SymbolRegular.HourglassHalf24,
         INativeWindowsMessagePipelineTrigger => SymbolRegular.Desktop24,

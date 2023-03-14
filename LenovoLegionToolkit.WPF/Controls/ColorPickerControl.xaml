@@ -22,15 +22,11 @@
             StaysOpen="False"
             VerticalOffset="4">
             <Border
-                BorderThickness="1.5"
+                Background="{DynamicResource ApplicationBackgroundBrush}"
+                BorderBrush="{DynamicResource KeyboardFocusBorderColorBrush}"
+                BorderThickness="0.5"
                 ClipToBounds="True"
                 CornerRadius="8">
-                <Border.BorderBrush>
-                    <SolidColorBrush Color="{DynamicResource KeyboardFocusBorderColor}" />
-                </Border.BorderBrush>
-                <Border.Background>
-                    <SolidColorBrush Color="{DynamicResource ApplicationBackgroundColor}" />
-                </Border.Background>
                 <StackPanel>
                     <cp:SquarePicker
                         x:Name="_colorPicker"

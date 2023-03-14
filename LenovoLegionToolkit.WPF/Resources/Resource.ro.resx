@@ -523,7 +523,7 @@ ATENȚIE: Această acțiune nu va rula corect dacă afișajul intern este oprit 
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Garanție</value>
   </data>
-  <data name="DiscreteGPUControl_Active" xml:space="preserve">
+  <data name="Active" xml:space="preserve">
     <value>Activ</value>
   </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
@@ -537,7 +537,7 @@ ATENȚIE: Această acțiune nu va rula corect dacă afișajul intern este oprit 
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>GPU-ul nVidia nu este activ.</value>
   </data>
-  <data name="DiscreteGPUControl_Inactive" xml:space="preserve">
+  <data name="Inactive" xml:space="preserve">
     <value>Inactiv</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
@@ -626,7 +626,7 @@ Mulțumesc anticipat!</value>
     <value>Mod dGPU</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
-    <value>Sunt activate atât GPU-ul integrat cât și cel dedicat. Sistemul va comuta automat între ele în funcție de nevoile sale.</value>
+    <value>Sunt activate atât GPU-ul integrat, cât și cel dedicat. Sistemul va comuta automat între ele în funcție de nevoile sale.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Mod Hibrid</value>
@@ -784,7 +784,7 @@ ATENȚIE: Această acțiune nu va rula corect dacă afișajul incorporat este op
     <value>Iluminare tastatură</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Iluminarea tastaturii nu poate fi controlată aici, când Vantage și/sau serviciile sale rulează, din cauza conflictelor dintre cele două.</value>
+    <value>Iluminarea tastaturii nu poate fi controlată aici când Vantage sau serviciile sale rulează.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage pare să fie activat</value>
@@ -995,7 +995,7 @@ Asigurați-vă întotdeauna că instalați pachetele corecte.</value>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Descărcați la</value>
   </data>
-  <data name="PackagesPage_Filter" xml:space="preserve">
+  <data name="Filter" xml:space="preserve">
     <value>Filtru...</value>
   </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
@@ -1042,9 +1042,6 @@ Asigurați-vă întotdeauna că instalați pachetele corecte.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Mod putere</value>
-  </data>
-  <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>Nu s-a putut schimba modul de putere</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>Selectați modul de performanță.
@@ -1577,7 +1574,7 @@ ATENȚIE: Această acțiune nu va rula corect dacă afișajul încorporat este o
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Personalizare bord</value>
   </data>
-  <data name="Reset" xml:space="preserve">
+  <data name="Load" xml:space="preserve">
     <value>Resetare</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
@@ -1634,5 +1631,132 @@ Mișcarea mouse-ului sau apăsarea tastaturii va reporni afișajele.</value>
   </data>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>Repornire recomandată</value>
+  </data>
+  <data name="SaveAndClose" xml:space="preserve">
+    <value>Salvare &amp; închidere</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
+    <value>Profil Mod Personalizat</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
+    <value>Activați profil Mod Personalizat.
+Aceste setări au efect doar atunci când modul Personalizat este activat.</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
+    <value>Nume profil</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Message" xml:space="preserve">
+    <value>Nume</value>
+  </data>
+  <data name="GodModeSettingsWindow_ActivePreset_Title" xml:space="preserve">
+    <value>Profil activ</value>
+  </data>
+  <data name="AboutPage_ApplicationFolders" xml:space="preserve">
+    <value>Folderele aplicației</value>
+  </data>
+  <data name="AboutPage_Data" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="AboutPage_Temp" xml:space="preserve">
+    <value>Temporar</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
+    <value>Luminozitate universală afișaj</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
+    <value>Când este activată, același nivel de luminozitate va fi aplicat tuturor planurilor de alimentare Windows ori de câte ori îl schimbați.</value>
+  </data>
+  <data name="Notification_UpdateAvailable" xml:space="preserve">
+    <value>Actualizarea {0} disponibilă!</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL" xml:space="preserve">
+    <value>Limită putere de vârf</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
+    <value>Limită putere APU sPPT</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL_Description" xml:space="preserve">
+    <value>Consumul de energie continuu care poate fi atins de CPU.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL_Description" xml:space="preserve">
+    <value>Consumul maxim de energie care poate fi atins de CPU într-un timp scurt.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL_Description" xml:space="preserve">
+    <value>Consumul maxim instantaneu de energie care poate fi atins de CPU.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_CrossLoading_Description" xml:space="preserve">
+    <value>Consumul maxim de energie care poate fi atins de CPU atunci când CPU și GPU sunt utilizate simultan la maxim.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL_Description" xml:space="preserve">
+    <value>Consumul maxim de energie care poate fi atins de procesor cu o întârziere minoră.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
+    <value>Temperatura maximă care poate fi atinsă de CPU înainte ca frecvența și puterea să fie reduse.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
+    <value>Puterea maximă suplimentară care poate fi alocată GPU-ului în funcție de consumul de energie al CPU-ului.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
+    <value>Cantitatea suplimentară de putere care poate fi alocată GPU-ului pe lângă consumul de energie de bază.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
+    <value>Temperatura maximă care poate fi atinsă de GPU înainte ca frecvența și puterea să fie reduse.</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Implicit</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
+    <value>Durată limită de putere pe termen scurt</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau_Description" xml:space="preserve">
+    <value>Perioada de timp pentru care procesorului i se permite să facă boost și să utilizeze limita de putere pe termen scurt. Când Tau expiră, se utilizează Limita de putere pe termen lung.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
+    <value>Puterea totală a procesorului pe alimentator</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
+    <value>Punctul în care CPU declanșează ajustarea dinamică a consumului de energie pentru GPU.</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Creare</value>
+  </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+    <value>Adăugați pas</value>
+  </data>
+  <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
+    <value>Creați o acțiune</value>
+  </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+    <value>Mod putere</value>
+  </data>
+  <data name="StatusTrayPopup_Preset" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+    <value>GPU dedicat</value>
+  </data>
+  <data name="StatusTrayPopup_PowerState" xml:space="preserve">
+    <value>Stare putere</value>
+  </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+    <value>Baterie</value>
+  </data>
+  <data name="StatusTrayPopup_Mode" xml:space="preserve">
+    <value>Mod</value>
+  </data>
+  <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
+    <value>Rată de descărcare</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+    <value>Actualizare disponibilă!</value>
+  </data>
+  <data name="SymbolRegularPicker_Title" xml:space="preserve">
+    <value>Selectare iconiță</value>
+  </data>
+  <data name="AutomationPage_ChangeIcon" xml:space="preserve">
+    <value>Schimbare iconiță</value>
+  </data>
+  <data name="BatteryPage_LowLevel" xml:space="preserve">
+    <value>Nivelul bateriei este scăzut</value>
   </data>
 </root>

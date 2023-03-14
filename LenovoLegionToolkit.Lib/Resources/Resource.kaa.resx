@@ -58,17 +58,38 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccentColorSource_Custom" xml:space="preserve">
+    <value>Arnawlı</value>
+  </data>
   <data name="AccentColorSource_System" xml:space="preserve">
     <value>Sistema</value>
   </data>
   <data name="AlwaysOnUSBState_Off" xml:space="preserve">
     <value>Òshik</value>
   </data>
+  <data name="AlwaysOnUSBState_OnAlways" xml:space="preserve">
+    <value>Hámiyshe qosıwlı</value>
+  </data>
+  <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
+    <value>Qosıwlı, uyqı rejiminde</value>
+  </data>
+  <data name="AutorunState_Disabled" xml:space="preserve">
+    <value>Óshirilgen</value>
+  </data>
   <data name="AutorunState_Enabled" xml:space="preserve">
     <value>Iske túsirilgen</value>
   </data>
+  <data name="AutorunState_EnabledDelayed" xml:space="preserve">
+    <value>Irkilis penen iske túsirilgen</value>
+  </data>
   <data name="BatteryState_Conservation" xml:space="preserve">
     <value>Saqlaw</value>
+  </data>
+  <data name="BatteryState_Normal" xml:space="preserve">
+    <value>Ádettegidey</value>
+  </data>
+  <data name="BatteryState_RapidCharge" xml:space="preserve">
+    <value>Tez zaryadlaw</value>
   </data>
   <data name="GPUController_PoweredOff" xml:space="preserve">
     <value>Óshirilgen</value>
@@ -76,11 +97,20 @@
   <data name="GPUController_PoweredOn" xml:space="preserve">
     <value>Qosılǵan</value>
   </data>
+  <data name="HybridModeState_Off" xml:space="preserve">
+    <value>Bólekli videokarta</value>
+  </data>
+  <data name="HybridModeState_On" xml:space="preserve">
+    <value>Gibrid rejimi</value>
+  </data>
   <data name="HybridModeState_OnAuto" xml:space="preserve">
     <value>Gibrid-Avto</value>
   </data>
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
     <value>Gibrid-iGPU</value>
+  </data>
+  <data name="NotificationPosition_BottomCenter" xml:space="preserve">
+    <value>Tómende orayda</value>
   </data>
   <data name="NotificationPosition_BottomLeft" xml:space="preserve">
     <value>Tómen shep</value>
@@ -91,8 +121,32 @@
   <data name="NotificationPosition_Center" xml:space="preserve">
     <value>Oray</value>
   </data>
+  <data name="NotificationPosition_CenterLeft" xml:space="preserve">
+    <value>Orayda shepte</value>
+  </data>
+  <data name="NotificationPosition_CenterRight" xml:space="preserve">
+    <value>Orayda ońda</value>
+  </data>
+  <data name="NotificationPosition_TopCenter" xml:space="preserve">
+    <value>Joqarıda orayda</value>
+  </data>
+  <data name="NotificationPosition_TopLeft" xml:space="preserve">
+    <value>Joqarıda shepte</value>
+  </data>
+  <data name="NotificationPosition_TopRight" xml:space="preserve">
+    <value>Joqarıda ońda</value>
+  </data>
+  <data name="PowerModeState_Balance" xml:space="preserve">
+    <value>Teńlestirilgen</value>
+  </data>
   <data name="PowerModeState_GodMode" xml:space="preserve">
     <value>Arnawlı</value>
+  </data>
+  <data name="PowerModeState_Performance" xml:space="preserve">
+    <value>Maksimal ónimdarlıq</value>
+  </data>
+  <data name="PowerModeState_Quiet" xml:space="preserve">
+    <value>Tınısh rejim</value>
   </data>
   <data name="RBGKeyboardBacklightSpeed_Fast" xml:space="preserve">
     <value>Tez</value>
@@ -106,11 +160,26 @@
   <data name="RBGKeyboardBacklightSpeed_Slowest" xml:space="preserve">
     <value>Júdá ásten</value>
   </data>
+  <data name="RGBKeyboardBacklightBrightness_High" xml:space="preserve">
+    <value>Joqarı</value>
+  </data>
   <data name="RGBKeyboardBacklightBrightness_Low" xml:space="preserve">
     <value>Pás</value>
   </data>
+  <data name="RGBKeyboardBacklightEffect_Breath" xml:space="preserve">
+    <value>Nápes</value>
+  </data>
   <data name="RGBKeyboardBacklightEffect_Smooth" xml:space="preserve">
     <value>Tegis</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_Static" xml:space="preserve">
+    <value>Háreketsiz</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_WaveLTR" xml:space="preserve">
+    <value>Tolqın shepke</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_WaveRTL" xml:space="preserve">
+    <value>Tolqın ońǵa</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
     <value>Óshik</value>
@@ -154,11 +223,23 @@
   <data name="SpectrumKeyboardBacklightDirection_TopToBottom" xml:space="preserve">
     <value>Joqarıdan tómenge</value>
   </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Always" xml:space="preserve">
+    <value>Hámiyshe</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_AudioBounce" xml:space="preserve">
+    <value>Shawqım</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_AudioRipple" xml:space="preserve">
+    <value>Dawıs tolqını</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_AuroraSync" xml:space="preserve">
     <value>Aurora Sync</value>
   </data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorChange" xml:space="preserve">
     <value>Reńdi ózgertiw</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_ColorPulse" xml:space="preserve">
+    <value>Reń pulsi</value>
   </data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorWave" xml:space="preserve">
     <value>Reń tolqını</value>
@@ -166,8 +247,20 @@
   <data name="SpectrumKeyboardBacklightEffectType_Rain" xml:space="preserve">
     <value>Jawın</value>
   </data>
+  <data name="SpectrumKeyboardBacklightEffectType_RainbowScrew" xml:space="preserve">
+    <value>Reńli vint</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_RainbowWave" xml:space="preserve">
+    <value>Ayqulaq tolqın</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEffectType_Ripple" xml:space="preserve">
     <value>Tolqın</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Smooth" xml:space="preserve">
+    <value>Tegis</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Type" xml:space="preserve">
+    <value>Túri</value>
   </data>
   <data name="SpectrumKeyboardBacklightSpeed_Speed1" xml:space="preserve">
     <value>Áste</value>
@@ -178,7 +271,22 @@
   <data name="SpectrumKeyboardBacklightSpeed_Speed3" xml:space="preserve">
     <value>Tez</value>
   </data>
+  <data name="Theme_Dark" xml:space="preserve">
+    <value>Qarańǵı</value>
+  </data>
+  <data name="Theme_Light" xml:space="preserve">
+    <value>Jaqtı</value>
+  </data>
+  <data name="Theme_System" xml:space="preserve">
+    <value>Sistema teması</value>
+  </data>
+  <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
+    <value>Joqarı</value>
+  </data>
   <data name="WhiteKeyboardBacklightState_Low" xml:space="preserve">
     <value>Pás</value>
+  </data>
+  <data name="WhiteKeyboardBacklightState_Off" xml:space="preserve">
+    <value>Óshirilgen</value>
   </data>
 </root>

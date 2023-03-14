@@ -36,32 +36,38 @@
                 Grid.Row="0"
                 HorizontalAlignment="Right"
                 VerticalContentAlignment="Center"
-                Content="100%" />
+                Content="100%"
+                Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
             <Label
                 Grid.Row="2"
                 HorizontalAlignment="Right"
                 VerticalContentAlignment="Center"
-                Content="80%" />
+                Content="80%"
+                Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
             <Label
                 Grid.Row="4"
                 HorizontalAlignment="Right"
                 VerticalContentAlignment="Center"
-                Content="60%" />
+                Content="60%"
+                Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
             <Label
                 Grid.Row="6"
                 HorizontalAlignment="Right"
                 VerticalContentAlignment="Center"
-                Content="40%" />
+                Content="40%"
+                Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
             <Label
                 Grid.Row="8"
                 HorizontalAlignment="Right"
                 VerticalContentAlignment="Center"
-                Content="20%" />
+                Content="20%"
+                Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
             <Label
                 Grid.Row="10"
                 HorizontalAlignment="Right"
                 VerticalContentAlignment="Center"
-                Content="{x:Static resources:Resource.FanCurveControl_FanSpeed}" />
+                Content="{x:Static resources:Resource.FanCurveControl_FanSpeed}"
+                Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
         </Grid>
 
         <Border
@@ -108,7 +114,8 @@
                 Grid.Row="1"
                 HorizontalAlignment="Right"
                 VerticalContentAlignment="Center"
-                Content="100 °C" />
+                Content="100 °C"
+                Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
         </Grid>
 
     </Grid>

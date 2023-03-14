@@ -519,9 +519,6 @@
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>الضمان</value>
   </data>
-  <data name="DiscreteGPUControl_Active" xml:space="preserve">
-    <value>مفعل</value>
-  </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>غير مفعل</value>
   </data>
@@ -531,9 +528,6 @@
   </data>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>بطاقة نفيديا لا تعمل.</value>
-  </data>
-  <data name="DiscreteGPUControl_Inactive" xml:space="preserve">
-    <value>غير مفعل</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>قتل التطبيقات</value>
@@ -614,9 +608,6 @@
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
     <value>وضع كرت الشاشة الخارجى</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
-    <value>بطاقتي الشاشة الداخلية و الخارجية قيد العمل. سوف يقوم النظام بالتبديل بينها على حسب حاجته.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>الوضع الهجين</value>
@@ -769,9 +760,6 @@
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>الإضاءة الخلفية للوحة المفاتيح</value>
-  </data>
-  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>لا يمكن التحكم في الإضاءة الخلفية للوحة المفاتيح هنا عند تشغيل Vantage أو خدماتها.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>يبدو أن Lenovo Vantage مفعّل</value>
@@ -982,9 +970,6 @@
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>التحميل إلى</value>
   </data>
-  <data name="PackagesPage_Filter" xml:space="preserve">
-    <value>جارٍ التصفية...</value>
-  </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
     <value>نوع الجهاز أو الآلة</value>
   </data>
@@ -1029,9 +1014,6 @@
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>وضع الطاقة</value>
-  </data>
-  <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>تعذر تغيير وضع الطاقة</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>حدد وضع الأداء.
@@ -1199,10 +1181,6 @@
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
     <value>تعذر تعطيل Legion Zone أو منطقة Legion</value>
   </data>
-  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
-    <value>قم بِتعطيل Legion Zone أو منطقة Legion وخدمتها دون إلغاء تثبيتها.
-يوصى بإعادة التشغيل بعد تغيير هذا الخِيار.</value>
-  </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
     <value>تعطيل Legion Zone أو منطقة Legion</value>
   </data>
@@ -1212,11 +1190,6 @@
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>تعذر تعطيل Legion Zone أو منطقة Legion</value>
   </data>
-  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
-    <value>قم بتعطيل Lenovo Hotkeys و خدماتها دون إلغاء تثبيتها.
-في حالة التعطيل ، سيتعامل هذا التطبيق مع اختصارات Fn.
-يوصى بإعادة التشغيل بعد تغيير هذا الخِيار.</value>
-  </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>تعطيل مفاتيح Lenovo الساخنة</value>
   </data>
@@ -1225,10 +1198,6 @@
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
     <value>تعذر تعطيل "%s"</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>قم بِتعطيل Legion Zone أو منطقة Legion وخدمتها دون إلغاء تثبيتها.
-يوصى بإعادة التشغيل بعد تغيير هذا الخِيار.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>قم بتعطيل Lenovo Vantage</value>
@@ -1478,5 +1447,8 @@
   </data>
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
     <value>الإضاءة الخلفية للوحة المفاتيح</value>
+  </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+    <value>إضافة خطوة</value>
   </data>
 </root>

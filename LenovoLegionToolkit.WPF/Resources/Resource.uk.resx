@@ -522,7 +522,7 @@
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Гарантія</value>
   </data>
-  <data name="DiscreteGPUControl_Active" xml:space="preserve">
+  <data name="Active" xml:space="preserve">
     <value>Діє</value>
   </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
@@ -536,7 +536,7 @@
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>Відеокарта nVidia не активна.</value>
   </data>
-  <data name="DiscreteGPUControl_Inactive" xml:space="preserve">
+  <data name="Inactive" xml:space="preserve">
     <value>Неактивно</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
@@ -992,7 +992,7 @@
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Завантажити до</value>
   </data>
-  <data name="PackagesPage_Filter" xml:space="preserve">
+  <data name="Filter" xml:space="preserve">
     <value>Фільтр...</value>
   </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
@@ -1005,13 +1005,13 @@
     <value>Початкове (рекомендовано)</value>
   </data>
   <data name="PackagesPage_PrimarySource_Message" xml:space="preserve">
-    <value>Так само як Lenovo Vantage</value>
+    <value>Те саме, що й в Lenovo Vantage</value>
   </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Додаткове</value>
   </data>
   <data name="PackagesPage_SecondarySource_Message" xml:space="preserve">
-    <value>Те саме, що й підтримка ПК Lenovo</value>
+    <value>Те саме, що й в підтримці ПК Lenovo</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Категорія</value>
@@ -1039,9 +1039,6 @@
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Режим живлення</value>
-  </data>
-  <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>Не вдалося змінити режим живлення</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>Оберіть режим потужності.
@@ -1574,7 +1571,7 @@
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Налаштування панелі керування</value>
   </data>
-  <data name="Reset" xml:space="preserve">
+  <data name="Load" xml:space="preserve">
     <value>Скидання</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
@@ -1631,5 +1628,132 @@
   </data>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>Рекомендується перезавантаження</value>
+  </data>
+  <data name="SaveAndClose" xml:space="preserve">
+    <value>Зберегти та закрити</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
+    <value>Пресет користувальницького режиму</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
+    <value>Активувати користувацький пресет.
+Ці налаштування працюють тільки, коли включений користувальницький режим.</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
+    <value>Назва пресету</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Message" xml:space="preserve">
+    <value>Назва</value>
+  </data>
+  <data name="GodModeSettingsWindow_ActivePreset_Title" xml:space="preserve">
+    <value>Активувати пресет</value>
+  </data>
+  <data name="AboutPage_ApplicationFolders" xml:space="preserve">
+    <value>Теки застосунку</value>
+  </data>
+  <data name="AboutPage_Data" xml:space="preserve">
+    <value>Дані</value>
+  </data>
+  <data name="AboutPage_Temp" xml:space="preserve">
+    <value>Тимчасові файли</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
+    <value>Спільна яскравість дисплеїв</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
+    <value>Коли увімкнено, однаковий рівень яскравості буде застосований для всіх планів потужності Windows, поки ви не зміните його.</value>
+  </data>
+  <data name="Notification_UpdateAvailable" xml:space="preserve">
+    <value>Доступне оновлення {0}!</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL" xml:space="preserve">
+    <value>Обмеження максимальної потужності</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
+    <value>Обмеження потужності APU sPPT</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL_Description" xml:space="preserve">
+    <value>Пік енергоспоживання, якого може досягти ЦП.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL_Description" xml:space="preserve">
+    <value>Пік енергоспоживання, якого може досягти ЦП за короткий проміжок часу.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL_Description" xml:space="preserve">
+    <value>Максимальне миттєве енергоспоживання, якого може досягти ЦП.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_CrossLoading_Description" xml:space="preserve">
+    <value>Максимальне енергоспоживання, яке може бути досягнуте ЦП, коли обидва ЦП та ГП повністю навантажені.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL_Description" xml:space="preserve">
+    <value>Пік енергоспоживання, якого може досягти ЦП з короткою затримкою.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
+    <value>Максимальна температура, яка може бути досягнута ЦП до зниження частоти та потужності.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
+    <value>Додаткова максимальна потужність, яка може бути виділена ГП на основі енергоспоживання ГП.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
+    <value>Додаткова кількість потужності може бути виділена для ГП на додачу до базового енергоспоживання.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
+    <value>Максимальна температура, яка може бути досягнути ГП до зниження частоти та потужності.</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>За замовчуванням</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
+    <value>Короткострокове обмеження потужності</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau_Description" xml:space="preserve">
+    <value>Кількість доступного часу для ЦП для прискорення і використання короткострокового обмеження потужності. Коли Tau закінчується, довгострокове обмеження буде використане.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
+    <value>Загальна потужність ЦП в змінному струмі</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
+    <value>Точка з якої ЦП запускає динамічне регулювання енергоспоживання ГП.</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Створити</value>
+  </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+    <value>Додати крок</value>
+  </data>
+  <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
+    <value>Створити дію</value>
+  </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+    <value>Режим живлення</value>
+  </data>
+  <data name="StatusTrayPopup_Preset" xml:space="preserve">
+    <value>Шаблон</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+    <value>Дискретна ГП</value>
+  </data>
+  <data name="StatusTrayPopup_PowerState" xml:space="preserve">
+    <value>Стан живлення</value>
+  </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+    <value>Батарея</value>
+  </data>
+  <data name="StatusTrayPopup_Mode" xml:space="preserve">
+    <value>Режим</value>
+  </data>
+  <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
+    <value>Швидкість розряджання</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+    <value>Доступне оновлення!</value>
+  </data>
+  <data name="SymbolRegularPicker_Title" xml:space="preserve">
+    <value>Вибрати іконку</value>
+  </data>
+  <data name="AutomationPage_ChangeIcon" xml:space="preserve">
+    <value>Змінити іконку</value>
+  </data>
+  <data name="BatteryPage_LowLevel" xml:space="preserve">
+    <value>Низький рівень заряду батареї</value>
   </data>
 </root>

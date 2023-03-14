@@ -100,4 +100,22 @@
   <data name="ExternalDisplayDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
 		<value>Quando um monitor externo for desconectado</value>
 	</data>
+  <data name="DisplayOnAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Quando a tela ligar</value>
+	</data>
+  <data name="DisplayOffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Quando a tela desligar</value>
+	</data>
+  <data name="LidOpenedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Tampa aberta</value>
+	</data>
+  <data name="LidClosedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Tampa fechada</value>
+	</data>
+  <data name="GamesStopAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Quando um jogo fechar</value>
+	</data>
+  <data name="GamesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Quando um jogo estiver sendo executado</value>
+	</data>
 </root>

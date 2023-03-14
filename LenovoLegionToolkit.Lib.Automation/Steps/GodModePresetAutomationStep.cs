@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.Lib.Controllers.GodMode;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Utils;
 using Newtonsoft.Json;

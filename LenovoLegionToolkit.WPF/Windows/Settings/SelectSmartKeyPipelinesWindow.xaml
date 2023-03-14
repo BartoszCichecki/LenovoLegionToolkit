@@ -67,7 +67,7 @@
             <TextBlock
                 Grid.Row="1"
                 Margin="0,0,0,8"
-                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                 Text="{x:Static resources:Resource.SelectSmartKeyPipelinesWindow_List_Description}"
                 TextWrapping="Wrap" />
 

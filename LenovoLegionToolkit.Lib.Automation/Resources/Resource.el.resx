@@ -85,10 +85,37 @@
   <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Όταν αλλάξει η κατάσταση τροφοδοσίας</value>
   </data>
+  <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Όταν ξεκινά η εφαρμογή</value>
+  </data>
   <data name="ProcessesStopRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Όταν η εφαρμογή κλείνει</value>
   </data>
   <data name="TimeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Σε καθορισμένο χρόνο</value>
   </data>
+  <data name="ExternalDisplayConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Όταν συνδεθεί εξωτερική οθόνη</value>
+	</data>
+  <data name="ExternalDisplayDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Όταν αποσυνδεθεί εξωτερική οθόνη</value>
+	</data>
+  <data name="DisplayOnAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Όταν ανοίγουν οι οθόνες</value>
+	</data>
+  <data name="DisplayOffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Όταν σβήνουν οι οθόνες</value>
+	</data>
+  <data name="LidOpenedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Όταν ανοίγει το καπάκι</value>
+	</data>
+  <data name="LidClosedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Όταν κλείνει το καπάκι</value>
+	</data>
+  <data name="GamesStopAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Όταν το παιχνίδι κλείνει</value>
+	</data>
+  <data name="GamesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>Όταν το παιχνίδι εκτελείται</value>
+	</data>
 </root>

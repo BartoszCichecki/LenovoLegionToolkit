@@ -522,7 +522,7 @@ WAARSCHUWING: Deze actie wordt niet correct uitgevoerd als het interne display i
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Garantie</value>
   </data>
-  <data name="DiscreteGPUControl_Active" xml:space="preserve">
+  <data name="Active" xml:space="preserve">
     <value>Actief</value>
   </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
@@ -536,7 +536,7 @@ Houd er rekening mee dat sommige programma's kunnen crashen als u dit doet.</val
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>nvidia GPU is niet actief.</value>
   </data>
-  <data name="DiscreteGPUControl_Inactive" xml:space="preserve">
+  <data name="Inactive" xml:space="preserve">
     <value>inactief</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
@@ -623,9 +623,6 @@ Bij voorbaat bedankt!</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
     <value>dGPU Modus</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
-    <value>Zowel geïntegreerde als discrete GPU zijn ingeschakeld. Het systeem schakelt automatisch tussen deze op basis van zijn behoeften.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Hybride modus</value>
@@ -781,9 +778,6 @@ WAARSCHUWING: Deze actie wordt niet correct uitgevoerd als het interne display i
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Toetsenbordverlichting</value>
-  </data>
-  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>De achtergrondverlichting van het toetsenbord kan hier niet worden geregeld wanneer Vantage of zijn services actief zijn.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage lijkt te zijn ingeschakeld</value>
@@ -994,7 +988,7 @@ Zorg er altijd voor dat u de juiste pakketten installeert.</value>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Download naar</value>
   </data>
-  <data name="PackagesPage_Filter" xml:space="preserve">
+  <data name="Filter" xml:space="preserve">
     <value>Filteren...</value>
   </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
@@ -1041,9 +1035,6 @@ Zorg er altijd voor dat u de juiste pakketten installeert.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Energiemodus</value>
-  </data>
-  <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>Kan de energiemodus niet wijzigen</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>Selecteer prestatiemodus.
@@ -1212,10 +1203,6 @@ Zorg ervoor dat uw script eerst correct wordt uitgevoerd.</value>
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
     <value>Kan Legion Zone niet uitschakelen</value>
   </data>
-  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
-    <value>Schakel Legion Zone en zijn service uit zonder het te verwijderen.
-Opnieuw opstarten wordt aanbevolen na het wijzigen van deze optie.</value>
-  </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
     <value>Schakel Legion Zone Uit</value>
   </data>
@@ -1225,11 +1212,6 @@ Opnieuw opstarten wordt aanbevolen na het wijzigen van deze optie.</value>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Kan Legion Zone niet uitschakelen</value>
   </data>
-  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
-    <value>Schakel Lenovo Hotkeys en zijn service uit zonder deze te verwijderen.
-Indien uitgeschakeld, verwerkt deze app Fn-snelkoppelingen
-Opnieuw opstarten wordt aanbevolen na het wijzigen van deze optie.</value>
-  </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Schakel Lenovo Hotkeys uit</value>
   </data>
@@ -1238,10 +1220,6 @@ Opnieuw opstarten wordt aanbevolen na het wijzigen van deze optie.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
     <value>Kan Vantage niet uitschakelen</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>Schakel Lenovo Vantage en zijn service uit zonder het te verwijderen.
-Opnieuw opstarten wordt aanbevolen na het wijzigen van deze optie.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Lenovo Vantage uitschakelen</value>
@@ -1577,7 +1555,7 @@ WAARSCHUWING: Deze actie wordt niet correct uitgevoerd als het interne beeldsche
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Dashboard aanpassen</value>
   </data>
-  <data name="Reset" xml:space="preserve">
+  <data name="Load" xml:space="preserve">
     <value>Reset</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
@@ -1634,5 +1612,38 @@ Als u de muis beweegt of op het toetsenbord drukt, worden de schermen gewekt.</v
   </data>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>Herstart aanbevolen</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Standaard</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
+    <value>Vermogenslimiet op korte termijn</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau_Description" xml:space="preserve">
+    <value>De hoeveelheid tijd die de CPU mag boosten en de Korte Termijn Vermogenslimiet mag gebruiken. Als Tau verloopt, wordt Lange Termijn Vermogenslimiet gebruikt.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
+    <value>Totaal streefvermogen processor in AC</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
+    <value>Het punt waarbij de CPU de dynamische stroom consumptie wijziging triggered voor de GPU.</value>
+  </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+    <value>Stap toevoegen</value>
+  </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+    <value>Energiemodus</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+    <value>Discrete GPU</value>
+  </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+    <value>Batterij</value>
+  </data>
+  <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
+    <value>Ontlading snelheid</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+    <value>Update beschikbaar!</value>
   </data>
 </root>

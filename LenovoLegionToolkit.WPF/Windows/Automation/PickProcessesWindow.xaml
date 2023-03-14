@@ -130,9 +130,7 @@
                     Content="{x:Static resources:Resource.Cancel}" />
 
             </Grid>
-
         </Grid>
-
     </Grid>
 
 </local:BaseWindow>

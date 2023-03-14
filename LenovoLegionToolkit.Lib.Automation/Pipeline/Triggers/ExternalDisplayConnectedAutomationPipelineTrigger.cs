@@ -8,7 +8,7 @@ using WindowsDisplayAPI;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 
-public class ExternalDisplayConnectedAutomationPipelineTrigger : IAutomationPipelineTrigger, INativeWindowsMessagePipelineTrigger, IDisallowDuplicatesAutomationPipelineTrigger
+public class ExternalDisplayConnectedAutomationPipelineTrigger : INativeWindowsMessagePipelineTrigger
 {
     [JsonIgnore]
     public string DisplayName => Resource.ExternalDisplayConnectedAutomationPipelineTrigger_DisplayName;

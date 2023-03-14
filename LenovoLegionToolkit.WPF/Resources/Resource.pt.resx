@@ -523,7 +523,7 @@ ATENÇÃO: Esta ação não irá correr corretamente se o ecrã interno estiver 
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Garantia</value>
   </data>
-  <data name="DiscreteGPUControl_Active" xml:space="preserve">
+  <data name="Active" xml:space="preserve">
     <value>Ativo</value>
   </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
@@ -536,7 +536,7 @@ Lembra-te que alguns programas podem crashar se o fizeres.</value>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>A GPU da nVidia não está ativa.</value>
   </data>
-  <data name="DiscreteGPUControl_Inactive" xml:space="preserve">
+  <data name="Inactive" xml:space="preserve">
     <value>Inativa</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
@@ -624,9 +624,6 @@ Obrigado desde já!</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
     <value>Modo dGPU</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
-    <value>Tanto a GPU integrada como a discreta estão ativadas. O sistema irá alterar entre elas consoante as necessidades.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Modo Híbrido</value>
@@ -782,9 +779,6 @@ ATENÇÃO: Está ação não irá executar corretamente se o ecrã interno estiv
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Luz do teclado</value>
-  </data>
-  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Não podes controlar a luz do teclado aqui enquanto os serviços do Vantage estão ativos.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>O Lenovo Vantage parece estar ativo</value>
@@ -995,7 +989,7 @@ Confirma sempre que estás a instalar o pacotes corretos.</value>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Transferir para</value>
   </data>
-  <data name="PackagesPage_Filter" xml:space="preserve">
+  <data name="Filter" xml:space="preserve">
     <value>Filtro...</value>
   </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
@@ -1042,9 +1036,6 @@ Confirma sempre que estás a instalar o pacotes corretos.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Modo de energia</value>
-  </data>
-  <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>Não foi possível alterar o esquema de energia</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>Seleciona o esquema de energia.
@@ -1212,10 +1203,6 @@ Certifica-te que o script executa corretamente primeiro.</value>
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
     <value>Não foi possível desativar o Legion Zone</value>
   </data>
-  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
-    <value>Desativa o Legion Zone e os seus serviços sem o desinstalar.
-É recomendado reiniciar depois de alterar estas opções.</value>
-  </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
     <value>Desativar o Legion Zone</value>
   </data>
@@ -1225,11 +1212,6 @@ Certifica-te que o script executa corretamente primeiro.</value>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Não foi possível desativar o Lenovo Hotkeys</value>
   </data>
-  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
-    <value>Desativa o Lenovo Hotkeys e os seus serviços sem o desinstalar.
-Se desativado, esta app irá executar os atalhos Fn.
-É recomendado reiniciar depois de alterar esta opção.</value>
-  </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Desativar Lenovo Hotkeys</value>
   </data>
@@ -1238,10 +1220,6 @@ Se desativado, esta app irá executar os atalhos Fn.
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
     <value>Não foi possível desativar o Vantage</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>Desativa o Lenovo Vantage e os seus serviços sem o desinstalar.
-É recomendado reiniciar depois de alterar estas opções.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Desativar Lenovo Vantage</value>
@@ -1575,7 +1553,7 @@ ATENÇÃO: Esta ação não irá executar corretamente se o ecrã interno estive
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Personalizar Dashboard</value>
   </data>
-  <data name="Reset" xml:space="preserve">
+  <data name="Load" xml:space="preserve">
     <value>Reiniciar</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
@@ -1632,5 +1610,26 @@ Mover o rato ou clicar no teclado vai ligar os ecrãs.</value>
   </data>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>É recomendado reiniciar</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Padrão</value>
+  </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+    <value>Adicionar etapa</value>
+  </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+    <value>Esquema de energia</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+    <value>GPU discreta</value>
+  </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+    <value>Bateria</value>
+  </data>
+  <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
+    <value>Taxa de descarregamento</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+    <value>Atualização disponível!</value>
   </data>
 </root>

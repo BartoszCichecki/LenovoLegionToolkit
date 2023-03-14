@@ -202,7 +202,7 @@ public partial class PickProcessesWindow
 
             ToolTipService.SetToolTip(_pathTextBox, Process.ExecutablePath);
 
-            _pathTextBox.SetResourceReference(ForegroundProperty, "TextFillColorTertiaryBrush");
+            _pathTextBox.SetResourceReference(ForegroundProperty, "TextFillColorSecondaryBrush");
 
             _deleteButton.Click += (_, _) => OnDelete?.Invoke(this, EventArgs.Empty);
 

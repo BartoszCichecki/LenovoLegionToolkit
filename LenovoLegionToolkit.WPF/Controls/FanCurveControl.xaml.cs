@@ -120,7 +120,10 @@ public partial class FanCurveControl
         if (_sliders.Count < 10)
             return;
 
-        if (sender is not Slider { IsMouseCaptureWithin: true } currentSlider)
+        if (sender is not Slider currentSlider)
+            return;
+
+        if (currentSlider is { IsKeyboardFocusWithin: false, IsMouseCaptureWithin: false })
             return;
 
         var index = (int)currentSlider.Tag;
@@ -200,10 +203,10 @@ public partial class FanCurveControl
 
         // Fill
 
-        var pointCollection = new PointCollection { new(points[0].X, _canvas.ActualHeight) };
+        var pointCollection = new PointCollection { new(points[0].X, _canvas.ActualHeight - 1) };
         foreach (var point in points)
             pointCollection.Add(point);
-        pointCollection.Add(new(points[^1].X, _canvas.ActualHeight));
+        pointCollection.Add(new(points[^1].X, _canvas.ActualHeight - 1));
 
         var polygon = new Polygon
         {

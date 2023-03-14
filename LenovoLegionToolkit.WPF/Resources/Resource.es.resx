@@ -523,11 +523,11 @@ AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Garantía</value>
   </data>
-  <data name="DiscreteGPUControl_Active" xml:space="preserve">
+  <data name="Active" xml:space="preserve">
     <value>Activo</value>
   </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
-    <value>Desactivado</value>
+    <value>Desactivada</value>
   </data>
   <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
     <value>Se puede desactivar la GPU nVidia.
@@ -537,7 +537,7 @@ Recuerde que algunos programas pueden bloquearse si lo hace.</value>
   <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
     <value>La GPU nVidia no está activa.</value>
   </data>
-  <data name="DiscreteGPUControl_Inactive" xml:space="preserve">
+  <data name="Inactive" xml:space="preserve">
     <value>Inactiva</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
@@ -582,7 +582,7 @@ AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está
   <data name="DonatePage_Message" xml:space="preserve">
     <value>El desarrollo y mantenimiento de Lenovo Legion Toolkit lleva mucho tiempo. Si le gusta este programa, puede apoyar su futuro, donando la cantidad que desee.
 
-Haga clic en el logotipo de PayPal que aparece a continuación o escanee el código QR para donar con PayPal.
+Haga clic en el logotipo de PayPal que aparece a continuación, o escanee el código QR para donar con PayPal.
 
 ¡Gracias anticipadas!</value>
   </data>
@@ -593,7 +593,7 @@ Haga clic en el logotipo de PayPal que aparece a continuación o escanee el cód
     <value>Editar</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
-    <value>Desmarcar las tasas de actualización que no desea utilizar cuando use las teclas Fn+R.</value>
+    <value>Desmarcar las tasas de actualización que no desea utilizar al usar las teclas Fn+R.</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>Asegúrese de que la pantalla del portátil está encendida. Lenovo Legion Toolkit no puede cargar las tasas de refresco de una pantalla que no está encendida.</value>
@@ -626,7 +626,8 @@ Haga clic en el logotipo de PayPal que aparece a continuación o escanee el cód
     <value>Modo dGPU</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
-    <value>La GPU integrada y la externa están activadas. El sistema alternará automáticamente entre ellas, en función de sus necesidades.</value>
+    <value>La GPU integrada y la externa están activadas.
+El sistema alternará automáticamente entre ellas, en función de sus necesidades.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Modo híbrido</value>
@@ -683,7 +684,7 @@ Haga clic en el logotipo de PayPal que aparece a continuación o escanee el cód
     <value>Utilizar las funciones secundarias de las teclas F1-F12 sin pulsar la tecla Fn.</value>
   </data>
   <data name="FnLockControl_Title" xml:space="preserve">
-    <value>Bloqueo Fn</value>
+    <value>Bloqueo de la tecla Fn</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
     <value>¡AVISO!
@@ -995,7 +996,7 @@ Asegúrese de instalar siempre los paquetes correctos.</value>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Descargar en</value>
   </data>
-  <data name="PackagesPage_Filter" xml:space="preserve">
+  <data name="Filter" xml:space="preserve">
     <value>Filtro...</value>
   </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
@@ -1042,9 +1043,6 @@ Asegúrese de instalar siempre los paquetes correctos.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Modo de alimentación</value>
-  </data>
-  <data name="PowerModeControl_ChangeError" xml:space="preserve">
-    <value>No se puede cambiar el modo de alimentación</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>Seleccionar el modo de rendimiento.
@@ -1213,7 +1211,7 @@ Asegúrese primero de que su script se ejecuta correctamente.</value>
     <value>No se puede desactivar Legion Zone</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
-    <value>Desactivar Legion Zone y su servicio, sin desinstalarlo.
+    <value>Desactivar Legión Zone y su servicio, sin desinstalarlo.
 Se recomienda reiniciar después de cambiar esta opción.</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
@@ -1494,7 +1492,7 @@ El registro de sucesos se activará automáticamente, si decide continuar.</valu
     <value>Retroiluminación del teclado</value>
   </data>
   <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
-    <value>Puede cambiar el brillo con Fn+Espacio</value>
+    <value>Puede cambiar el brillo usando Fn+Espacio</value>
   </data>
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Retroiluminación del teclado</value>
@@ -1560,6 +1558,9 @@ AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está
   <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Retroiluminación del teclado</value>
   </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
+    <value>Puede encender o apagar la retroiluminación usando Fn+Espacio.</value>
+  </data>
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
     <value>Retroiluminación del teclado</value>
   </data>
@@ -1575,8 +1576,8 @@ AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>Personalizar el panel de control</value>
   </data>
-  <data name="Reset" xml:space="preserve">
-    <value>Restablecer</value>
+  <data name="Load" xml:space="preserve">
+    <value>Cargar</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
     <value>Crear un grupo</value>
@@ -1632,5 +1633,132 @@ Al mover el ratón o pulsar el teclado se activarán las pantallas.</value>
   </data>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>Se recomienda un reinicio</value>
+  </data>
+  <data name="SaveAndClose" xml:space="preserve">
+    <value>Guardar y cerrar</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
+    <value>Preajuste de modo personalizado</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
+    <value>Activa el preajuste del modo personalizado.
+Esta configuración sólo tiene efecto si el modo personalizado está activado.</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
+    <value>Nombre del preajuste</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Message" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="GodModeSettingsWindow_ActivePreset_Title" xml:space="preserve">
+    <value>Preajuste activo</value>
+  </data>
+  <data name="AboutPage_ApplicationFolders" xml:space="preserve">
+    <value>Carpetas de aplicaciones</value>
+  </data>
+  <data name="AboutPage_Data" xml:space="preserve">
+    <value>Datos</value>
+  </data>
+  <data name="AboutPage_Temp" xml:space="preserve">
+    <value>Temperatura</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
+    <value>Único brillo de pantalla </value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
+    <value>Si está activado, se aplicará el mismo nivel de brillo a todos los planes de energía de Windows cada vez que lo cambie.</value>
+  </data>
+  <data name="Notification_UpdateAvailable" xml:space="preserve">
+    <value>¡Actualización {0} disponible!</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL" xml:space="preserve">
+    <value>Límite de potencia máxima</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
+    <value>Límite de potencia APU sPPT</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL_Description" xml:space="preserve">
+    <value>El consumo continuo de energía que puede alcanzar la tarjeta gráfica.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL_Description" xml:space="preserve">
+    <value>El consumo máximo de energía que puede alcanzar la tarjeta gráfica en un breve espacio de tiempo.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL_Description" xml:space="preserve">
+    <value>El consumo máximo instantáneo que puede alcanzar la tarjeta gráfica.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_CrossLoading_Description" xml:space="preserve">
+    <value>El consumo máximo de energía que puede alcanzar la CPU, si ésta y la GPU se utilizan al máximo.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL_Description" xml:space="preserve">
+    <value>El consumo máximo de energía que puede alcanzar la CPU con un retardo menor.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
+    <value>La temperatura máxima que puede alcanzar la CPU antes de que se reduzca la frecuencia y la potencia.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
+    <value>La potencia máxima adicional que puede asignarse a la GPU, en función del consumo de energía de la CPU.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
+    <value>La cantidad adicional de energía que puede asignarse a la GPU además del consumo básico.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
+    <value>La temperatura máxima que puede alcanzar la GPU antes de que se reduzca la frecuencia y la potencia.</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Predefinido</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
+    <value>Duración límite de potencia a corto plazo</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau_Description" xml:space="preserve">
+    <value>La cantidad de tiempo que se permite a la CPU aumentar y utilizar el límite de potencia a corto plazo. Cuando Tau expira, se utiliza el límite de potencia a largo plazo.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
+    <value>Potencia total del procesador en corriente alterna</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
+    <value>Punto en el que la CPU activa el ajuste dinámico de consumo de energía de la GPU.</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Crear</value>
+  </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+    <value>Añadir paso</value>
+  </data>
+  <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
+    <value>Crear acción</value>
+  </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+    <value>Modo de alimentación</value>
+  </data>
+  <data name="StatusTrayPopup_Preset" xml:space="preserve">
+    <value>Preestablecido</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+    <value>GPU externa</value>
+  </data>
+  <data name="StatusTrayPopup_PowerState" xml:space="preserve">
+    <value>Estado de energía</value>
+  </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+    <value>Batería</value>
+  </data>
+  <data name="StatusTrayPopup_Mode" xml:space="preserve">
+    <value>Modo</value>
+  </data>
+  <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
+    <value>Índice de descarga</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+    <value>¡Actualización disponible!</value>
+  </data>
+  <data name="SymbolRegularPicker_Title" xml:space="preserve">
+    <value>Seleccionar icono</value>
+  </data>
+  <data name="AutomationPage_ChangeIcon" xml:space="preserve">
+    <value>Cambiar icono</value>
+  </data>
+  <data name="BatteryPage_LowLevel" xml:space="preserve">
+    <value>Nivel bajo de batería</value>
   </data>
 </root>
