@@ -83,7 +83,7 @@ public class PowerModeControl : AbstractComboBoxFeatureCardControl<PowerModeStat
                 _configButton.ToolTip = Resource.PowerModeControl_Settings;
                 _configButton.Visibility = Visibility.Visible;
                 break;
-            case PowerModeState.GodMode:
+            case PowerModeState.GodMode when mi.Properties.SupportsGodMode:
                 _configButton.ToolTip = Resource.PowerModeControl_Settings;
                 _configButton.Visibility = Visibility.Visible;
                 break;
@@ -113,16 +113,20 @@ public class PowerModeControl : AbstractComboBoxFeatureCardControl<PowerModeStat
         if (!TryGetSelectedItem(out var state))
             return;
 
-        if (state == PowerModeState.Balance)
+        switch (state)
         {
-            var window = new BalanceModeSettingsWindow { Owner = Window.GetWindow(this) };
-            window.ShowDialog();
-        }
-
-        if (state == PowerModeState.GodMode)
-        {
-            var window = new GodModeSettingsWindow { Owner = Window.GetWindow(this) };
-            window.ShowDialog();
+            case PowerModeState.Balance:
+                {
+                    var window = new BalanceModeSettingsWindow { Owner = Window.GetWindow(this) };
+                    window.ShowDialog();
+                    break;
+                }
+            case PowerModeState.GodMode:
+                {
+                    var window = new GodModeSettingsWindow { Owner = Window.GetWindow(this) };
+                    window.ShowDialog();
+                    break;
+                }
         }
     }
 }
