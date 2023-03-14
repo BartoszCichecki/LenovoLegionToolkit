@@ -164,15 +164,15 @@ public partial class GodModeSettingsWindow
 
         var maxValueOffset = preset.MaxValueOffset;
 
-        _cpuLongTermPowerLimitControl.Set(preset.CPULongTermPowerLimit, maxValueOffset);
-        _cpuShortTermPowerLimitControl.Set(preset.CPUShortTermPowerLimit, maxValueOffset);
-        _cpuPeakPowerLimitControl.Set(preset.CPUPeakPowerLimit, maxValueOffset);
-        _cpuCrossLoadingLimitControl.Set(preset.CPUCrossLoadingPowerLimit, maxValueOffset);
+        _cpuLongTermPowerLimitControl.Set(preset.CPULongTermPowerLimit);
+        _cpuShortTermPowerLimitControl.Set(preset.CPUShortTermPowerLimit);
+        _cpuPeakPowerLimitControl.Set(preset.CPUPeakPowerLimit);
+        _cpuCrossLoadingLimitControl.Set(preset.CPUCrossLoadingPowerLimit);
         _cpuPL1TauControl.Set(preset.CPUPL1Tau);
-        _apuSPPTPowerLimitControl.Set(preset.APUsPPTPowerLimit, maxValueOffset);
+        _apuSPPTPowerLimitControl.Set(preset.APUsPPTPowerLimit);
         _cpuTemperatureLimitControl.Set(preset.CPUTemperatureLimit);
-        _gpuPowerBoostControl.Set(preset.GPUPowerBoost, maxValueOffset);
-        _gpuConfigurableTGPControl.Set(preset.GPUConfigurableTGP, maxValueOffset);
+        _gpuPowerBoostControl.Set(preset.GPUPowerBoost);
+        _gpuConfigurableTGPControl.Set(preset.GPUConfigurableTGP);
         _gpuTemperatureLimitControl.Set(preset.GPUTemperatureLimit);
         _gpuTotalProcessingPowerTargetOnAcOffsetFromBaselineControl.Set(preset.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline);
 

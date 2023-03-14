@@ -10,7 +10,7 @@ namespace LenovoLegionToolkit.Lib.System;
 
 public static class Power
 {
-    private static readonly Dictionary<PowerModeState, string> defaultPowerModes = new()
+    private static readonly Dictionary<PowerModeState, string> DefaultPowerModes = new()
     {
         { PowerModeState.Quiet , "16edbccd-dee9-4ec4-ace5-2f0b5f2a8975"},
         { PowerModeState.Balance , "85d583c5-cf2e-4197-80fd-3789a227a72c"},
@@ -121,7 +121,7 @@ public static class Power
 
     public static PowerModeState[] GetMatchingPowerModes(string powerPlanId)
     {
-        var powerModes = new Dictionary<PowerModeState, string>(defaultPowerModes);
+        var powerModes = new Dictionary<PowerModeState, string>(DefaultPowerModes);
 
         foreach (var kv in Settings.Store.PowerPlans)
         {
@@ -218,7 +218,7 @@ public static class Power
 
     private static string GetDefaultPowerPlanId(PowerModeState state)
     {
-        if (defaultPowerModes.TryGetValue(state, out var powerPlanId))
+        if (DefaultPowerModes.TryGetValue(state, out var powerPlanId))
             return powerPlanId;
 
         throw new InvalidOperationException("Unknown state");
