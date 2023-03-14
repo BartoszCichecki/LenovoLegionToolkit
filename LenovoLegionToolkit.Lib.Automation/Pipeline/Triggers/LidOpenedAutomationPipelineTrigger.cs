@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Automation.Resources;
+using LenovoLegionToolkit.Lib.Listeners;
 using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
@@ -18,7 +19,9 @@ public class LidOpenedAutomationPipelineTrigger : INativeWindowsMessagePipelineT
 
     public Task<bool> IsMatchingState()
     {
-        throw new NotImplementedException();
+        var listener = IoCContainer.Resolve<NativeWindowsMessageListener>();
+        var result = listener.IsLidOpen;
+        return Task.FromResult(result);
     }
 
     public IAutomationPipelineTrigger DeepCopy() => new LidOpenedAutomationPipelineTrigger();

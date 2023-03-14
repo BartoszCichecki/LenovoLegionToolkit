@@ -18,11 +18,17 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
 
     private readonly HOOKPROC _kbProc;
 
+    private readonly TaskCompletionSource _isMonitorOnTaskCompletionSource = new();
+    private readonly TaskCompletionSource _isLidOpenTaskCompletionSource = new();
+
     private unsafe void* _displayArrivalHandle;
     private unsafe void* _devInterfaceMonitorHandle;
     private HPOWERNOTIFY _consoleDisplayStateNotificationHandle;
     private HPOWERNOTIFY _lidSwitchStateChangeNotificationHandle;
     private HHOOK _kbHook;
+
+    public bool IsMonitorOn { get; private set; }
+    public bool IsLidOpen { get; private set; }
 
     public event EventHandler<NativeWindowsMessage>? Changed;
 
@@ -54,7 +60,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         _consoleDisplayStateNotificationHandle = RegisterPowerNotification(PInvoke.GUID_CONSOLE_DISPLAY_STATE);
         _lidSwitchStateChangeNotificationHandle = RegisterPowerNotification(PInvoke.GUID_LIDSWITCH_STATE_CHANGE);
 
-        return Task.CompletedTask;
+        return Task.WhenAll(_isMonitorOnTaskCompletionSource.Task, _isLidOpenTaskCompletionSource.Task);
     }
 
     public unsafe Task StopAsync()
@@ -151,21 +157,33 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
 
     private void OnMonitorOn()
     {
+        IsMonitorOn = true;
+        _isMonitorOnTaskCompletionSource.TrySetResult();
+
         Changed?.Invoke(this, NativeWindowsMessage.MonitorOn);
     }
 
     private void OnMonitorOff()
     {
+        IsMonitorOn = false;
+        _isMonitorOnTaskCompletionSource.TrySetResult();
+
         Changed?.Invoke(this, NativeWindowsMessage.MonitorOff);
     }
 
     private void OnLidOpened()
     {
+        IsLidOpen = true;
+        _isLidOpenTaskCompletionSource.TrySetResult();
+
         Changed?.Invoke(this, NativeWindowsMessage.LidOpened);
     }
 
     private void OnLidClosed()
     {
+        IsLidOpen = false;
+        _isLidOpenTaskCompletionSource.TrySetResult();
+
         Changed?.Invoke(this, NativeWindowsMessage.LidClosed);
     }
 

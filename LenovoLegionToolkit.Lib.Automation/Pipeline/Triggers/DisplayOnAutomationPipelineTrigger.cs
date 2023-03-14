@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Automation.Resources;
+using LenovoLegionToolkit.Lib.Listeners;
 using Newtonsoft.Json;
-using WindowsDisplayAPI;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 
@@ -20,10 +19,8 @@ public class DisplayOnAutomationPipelineTrigger : INativeWindowsMessagePipelineT
 
     public Task<bool> IsMatchingState()
     {
-        var result = DisplayAdapter.GetDisplayAdapters()
-            .SelectMany(da => da.GetDisplayDevices())
-            .Where(dd => dd.IsAvailable)
-            .Any();
+        var listener = IoCContainer.Resolve<NativeWindowsMessageListener>();
+        var result = listener.IsMonitorOn;
         return Task.FromResult(result);
     }
 
