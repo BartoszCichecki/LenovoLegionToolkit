@@ -265,85 +265,34 @@ public class AutomationPipelineControl : UserControl
 
     private UIElement? GenerateAccessory()
     {
-        if (AutomationPipeline.Trigger is IPowerModeAutomationPipelineTrigger pmt)
+        if (!AutomationPipelineTriggerConfigurationWindow.IsValid(AutomationPipeline.AllTriggers))
+            return null;
+
+        var button = new Button
         {
-            var button = new Button
-            {
-                Content = Resource.AutomationPipelineControl_Configure,
-                Margin = new(16, 0, 16, 0),
-                MinWidth = 120,
-            };
-            button.Click += (_, _) =>
-            {
-                var window = new PowerModeWindow(pmt.PowerModeState) { Owner = Window.GetWindow(this) };
-                window.OnSave += (_, e) =>
-                {
-                    AutomationPipeline.Trigger = pmt.DeepCopy(e);
-                    _cardHeaderControl.Subtitle = GenerateSubtitle();
-                    _cardHeaderControl.Accessory = GenerateAccessory();
-                    _cardHeaderControl.SubtitleToolTip = _cardHeaderControl.Subtitle;
-                    OnChanged?.Invoke(this, EventArgs.Empty);
-                };
-                window.ShowDialog();
-            };
-            return button;
-        }
-
-        if (AutomationPipeline.Trigger is IProcessesAutomationPipelineTrigger pt)
+            Content = Resource.AutomationPipelineControl_Configure,
+            Margin = new(16, 0, 16, 0),
+            MinWidth = 120,
+        };
+        button.Click += (_, _) =>
         {
-            var button = new Button
+            var window = new AutomationPipelineTriggerConfigurationWindow(AutomationPipeline.AllTriggers) { Owner = Window.GetWindow(this) };
+            window.OnSave += (_, e) =>
             {
-                Content = Resource.AutomationPipelineControl_Configure,
-                Margin = new(16, 0, 16, 0),
-                MinWidth = 120,
+                AutomationPipeline.Trigger = e;
+                _cardHeaderControl.Subtitle = GenerateSubtitle();
+                _cardHeaderControl.Accessory = GenerateAccessory();
+                _cardHeaderControl.SubtitleToolTip = _cardHeaderControl.Subtitle;
+                OnChanged?.Invoke(this, EventArgs.Empty);
             };
-            button.Click += (_, _) =>
-            {
-                var window = new PickProcessesWindow(pt.Processes) { Owner = Window.GetWindow(this) };
-                window.OnSave += (_, e) =>
-                {
-                    AutomationPipeline.Trigger = pt.DeepCopy(e);
-                    _cardHeaderControl.Subtitle = GenerateSubtitle();
-                    _cardHeaderControl.Accessory = GenerateAccessory();
-                    _cardHeaderControl.SubtitleToolTip = _cardHeaderControl.Subtitle;
-                    OnChanged?.Invoke(this, EventArgs.Empty);
-                };
-                window.ShowDialog();
-            };
-            return button;
-        }
-
-        if (AutomationPipeline.Trigger is ITimeAutomationPipelineTrigger tt)
-        {
-
-            var button = new Button
-            {
-                Content = Resource.AutomationPipelineControl_Configure,
-                Margin = new(16, 0, 16, 0),
-                MinWidth = 120,
-            };
-            button.Click += (_, _) =>
-            {
-                var window = new TimeWindow(tt.IsSunrise, tt.IsSunset, tt.Time) { Owner = Window.GetWindow(this) };
-                window.OnSave += (_, e) =>
-                {
-                    AutomationPipeline.Trigger = tt.DeepCopy(e.Item1, e.Item2, e.Item3);
-                    _cardHeaderControl.Subtitle = GenerateSubtitle();
-                    _cardHeaderControl.Accessory = GenerateAccessory();
-                    _cardHeaderControl.SubtitleToolTip = _cardHeaderControl.Subtitle;
-                    OnChanged?.Invoke(this, EventArgs.Empty);
-                };
-                window.ShowDialog();
-            };
-            return button;
-        }
-
-        return null;
+            window.ShowDialog();
+        };
+        return button;
     }
 
-    private AbstractAutomationStepControl GenerateStepControl(IAutomationStep step)
+    private AbstractAutomationStepControl GenerateStepControl(IAutomationStep automationStep)
     {
-        AbstractAutomationStepControl control = step switch
+        AbstractAutomationStepControl control = automationStep switch
         {
             AlwaysOnUsbAutomationStep s => new AlwaysOnUsbAutomationStepControl(s),
             BatteryAutomationStep s => new BatteryAutomationStepControl(s),
