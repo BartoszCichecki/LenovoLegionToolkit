@@ -26,13 +26,13 @@ public partial class AutomationPipelineTriggerConfigurationWindow
     {
         foreach (var trigger in _triggers)
         {
-            var item = Create(trigger);
-            if (item.HasValue)
+            var content = Create(trigger);
+            if (content is not null)
             {
                 _tabControl.Items.Add(new TabItem
                 {
-                    Header = item.Value.header,
-                    Content = item.Value.content
+                    Header = trigger.DisplayName,
+                    Content = content
                 });
             }
             else
@@ -76,10 +76,10 @@ public partial class AutomationPipelineTriggerConfigurationWindow
         _ => false
     };
 
-    private static (string header, IAutomationPipelineTriggerTabItemContent<IAutomationPipelineTrigger> content)? Create(IAutomationPipelineTrigger trigger) => trigger switch
+    private static IAutomationPipelineTriggerTabItemContent<IAutomationPipelineTrigger>? Create(IAutomationPipelineTrigger trigger) => trigger switch
     {
-        IPowerModeAutomationPipelineTrigger pmt => ("Power Mode", new PowerModeAutomationPipelineTriggerTabItemContent(pmt)),
-        ITimeAutomationPipelineTrigger tt => ("Time", new TimeAutomationPipelineTriggerTabItemContent(tt)),
+        IPowerModeAutomationPipelineTrigger pmt => new PowerModeAutomationPipelineTriggerTabItemContent(pmt),
+        ITimeAutomationPipelineTrigger tt => new TimeAutomationPipelineTriggerTabItemContent(tt),
         _ => null
     };
 }
