@@ -8,13 +8,13 @@ using LenovoLegionToolkit.Lib.Features;
 
 namespace LenovoLegionToolkit.WPF.Windows.Automation.TabItemContent;
 
-public partial class PowerModeTabItemContent : IAutomationPipelineTriggerTabItemContent<IPowerModeAutomationPipelineTrigger>
+public partial class PowerModeAutomationPipelineTriggerTabItemContent : IAutomationPipelineTriggerTabItemContent<IPowerModeAutomationPipelineTrigger>
 {
     private readonly PowerModeFeature _feature = IoCContainer.Resolve<PowerModeFeature>();
 
     private readonly PowerModeState _powerModeState;
 
-    public PowerModeTabItemContent(IPowerModeAutomationPipelineTrigger trigger)
+    public PowerModeAutomationPipelineTriggerTabItemContent(IPowerModeAutomationPipelineTrigger trigger)
     {
         _powerModeState = trigger.PowerModeState;
 

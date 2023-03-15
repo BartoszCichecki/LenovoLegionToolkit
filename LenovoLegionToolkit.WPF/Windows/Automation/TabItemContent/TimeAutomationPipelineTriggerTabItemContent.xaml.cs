@@ -6,13 +6,13 @@ using LenovoLegionToolkit.Lib.Extensions;
 
 namespace LenovoLegionToolkit.WPF.Windows.Automation.TabItemContent;
 
-public partial class TimeTabItemContent : IAutomationPipelineTriggerTabItemContent<ITimeAutomationPipelineTrigger>
+public partial class TimeAutomationPipelineTriggerTabItemContent : IAutomationPipelineTriggerTabItemContent<ITimeAutomationPipelineTrigger>
 {
     private readonly bool _isSunrise;
     private readonly bool _isSunset;
     private readonly Time? _time;
 
-    public TimeTabItemContent(ITimeAutomationPipelineTrigger trigger)
+    public TimeAutomationPipelineTriggerTabItemContent(ITimeAutomationPipelineTrigger trigger)
     {
         _isSunrise = trigger.IsSunrise;
         _isSunset = trigger.IsSunset;

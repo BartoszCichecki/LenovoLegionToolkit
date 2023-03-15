@@ -67,7 +67,7 @@ public partial class AutomationPipelineTriggerConfigurationWindow
         Close();
     }
 
-    public static bool IsValid(IEnumerable<IAutomationPipelineTrigger> triggers) => triggers.Where(IsValid).Any();
+    public static bool IsValid(IEnumerable<IAutomationPipelineTrigger> triggers) => triggers.Any(IsValid);
 
     private static bool IsValid(IAutomationPipelineTrigger trigger) => trigger switch
     {
@@ -78,8 +78,8 @@ public partial class AutomationPipelineTriggerConfigurationWindow
 
     private static (string header, IAutomationPipelineTriggerTabItemContent<IAutomationPipelineTrigger> content)? Create(IAutomationPipelineTrigger trigger) => trigger switch
     {
-        IPowerModeAutomationPipelineTrigger pmt => ("Power Mode", new PowerModeTabItemContent(pmt)),
-        ITimeAutomationPipelineTrigger tt => ("Time", new TimeTabItemContent(tt)),
+        IPowerModeAutomationPipelineTrigger pmt => ("Power Mode", new PowerModeAutomationPipelineTriggerTabItemContent(pmt)),
+        ITimeAutomationPipelineTrigger tt => ("Time", new TimeAutomationPipelineTriggerTabItemContent(tt)),
         _ => null
     };
 }
