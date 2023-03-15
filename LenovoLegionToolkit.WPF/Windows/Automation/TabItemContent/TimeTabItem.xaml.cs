@@ -4,15 +4,15 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 using LenovoLegionToolkit.Lib.Extensions;
 
-namespace LenovoLegionToolkit.WPF.Windows.Automation.TabItem;
+namespace LenovoLegionToolkit.WPF.Windows.Automation.TabItemContent;
 
-public partial class TimeTabItem : IAutomationPipelineTriggerTabItem<ITimeAutomationPipelineTrigger>
+public partial class TimeTabItemContent : IAutomationPipelineTriggerTabItemContent<ITimeAutomationPipelineTrigger>
 {
     private readonly bool _isSunrise;
     private readonly bool _isSunset;
     private readonly Time? _time;
 
-    public TimeTabItem(ITimeAutomationPipelineTrigger trigger)
+    public TimeTabItemContent(ITimeAutomationPipelineTrigger trigger)
     {
         _isSunrise = trigger.IsSunrise;
         _isSunset = trigger.IsSunset;

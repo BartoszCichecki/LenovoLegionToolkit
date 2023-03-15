@@ -6,15 +6,15 @@ using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 
-namespace LenovoLegionToolkit.WPF.Windows.Automation.TabItem;
+namespace LenovoLegionToolkit.WPF.Windows.Automation.TabItemContent;
 
-public partial class PowerModeTabItem : IAutomationPipelineTriggerTabItem<IPowerModeAutomationPipelineTrigger>
+public partial class PowerModeTabItemContent : IAutomationPipelineTriggerTabItemContent<IPowerModeAutomationPipelineTrigger>
 {
     private readonly PowerModeFeature _feature = IoCContainer.Resolve<PowerModeFeature>();
 
     private readonly PowerModeState _powerModeState;
 
-    public PowerModeTabItem(IPowerModeAutomationPipelineTrigger trigger)
+    public PowerModeTabItemContent(IPowerModeAutomationPipelineTrigger trigger)
     {
         _powerModeState = trigger.PowerModeState;
 

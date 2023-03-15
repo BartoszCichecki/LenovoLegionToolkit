@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
-using LenovoLegionToolkit.WPF.Windows.Automation.TabItem;
+using LenovoLegionToolkit.WPF.Windows.Automation.TabItemContent;
 
 namespace LenovoLegionToolkit.WPF.Windows.Automation;
 
@@ -28,7 +29,7 @@ public partial class AutomationPipelineTriggerConfigurationWindow
             var item = Create(trigger);
             if (item.HasValue)
             {
-                _tabControl.Items.Add(new System.Windows.Controls.TabItem
+                _tabControl.Items.Add(new TabItem
                 {
                     Header = item.Value.header,
                     Content = item.Value.content
@@ -44,9 +45,9 @@ public partial class AutomationPipelineTriggerConfigurationWindow
     private void SaveButton_Click(object sender, RoutedEventArgs e)
     {
         var triggers = _tabControl.Items
-            .OfType<System.Windows.Controls.TabItem>()
+            .OfType<TabItem>()
             .Select(c => c.Content)
-            .OfType<IAutomationPipelineTriggerTabItem<IAutomationPipelineTrigger>>()
+            .OfType<IAutomationPipelineTriggerTabItemContent<IAutomationPipelineTrigger>>()
             .Select(c => c.GetTrigger())
             .Union(_otherTriggers)
             .ToArray();
@@ -75,10 +76,10 @@ public partial class AutomationPipelineTriggerConfigurationWindow
         _ => false
     };
 
-    private static (string header, IAutomationPipelineTriggerTabItem<IAutomationPipelineTrigger> content)? Create(IAutomationPipelineTrigger trigger) => trigger switch
+    private static (string header, IAutomationPipelineTriggerTabItemContent<IAutomationPipelineTrigger> content)? Create(IAutomationPipelineTrigger trigger) => trigger switch
     {
-        IPowerModeAutomationPipelineTrigger pmt => ("Power Mode", new PowerModeTabItem(pmt)),
-        ITimeAutomationPipelineTrigger tt => ("Time", new TimeTabItem(tt)),
+        IPowerModeAutomationPipelineTrigger pmt => ("Power Mode", new PowerModeTabItemContent(pmt)),
+        ITimeAutomationPipelineTrigger tt => ("Time", new TimeTabItemContent(tt)),
         _ => null
     };
 }
