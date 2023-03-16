@@ -612,6 +612,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Configure.
+        /// </summary>
+        public static string AutomationPipelineTriggerConfigurationWindow_Title {
+            get {
+                return ResourceManager.GetString("AutomationPipelineTriggerConfigurationWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Automatically detects when certain games are running and tweaks CPU and GPU performance. Temperatures and fan noise might increase..
         /// </summary>
         public static string BalanceModeSettingsWindow_AIEngine_Message {

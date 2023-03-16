@@ -4,16 +4,71 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     d:DesignHeight="450"
     d:DesignWidth="800"
     Initialized="ProcessAutomationPipelineTriggerTabItemControl_Initialized"
     mc:Ignorable="d">
-    <wpfui:DynamicScrollViewer Margin="16">
-        <ItemsControl
-            x:Name="_list"
-            Margin="8,8,16,0"
-            HorizontalContentAlignment="Stretch"
-            ScrollViewer.HorizontalScrollBarVisibility="Disabled" />
-    </wpfui:DynamicScrollViewer>
+    <Grid Margin="16,16,0,16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <wpfui:DynamicScrollViewer Grid.Row="0">
+            <ItemsControl
+                x:Name="_list"
+                Margin="0,0,16,8"
+                HorizontalContentAlignment="Stretch"
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled" />
+        </wpfui:DynamicScrollViewer>
+
+        <Border
+            Grid.Row="1"
+            Margin="0,8,16,0"
+            BorderBrush="{DynamicResource KeyboardFocusBorderColorBrush}"
+            BorderThickness="0,1,0,0">
+            <Grid Margin="0,16,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <wpfui:Button
+                    Grid.Column="1"
+                    Click="AddButton_Click"
+                    FontSize="18"
+                    Icon="Add24"
+                    ToolTip="{x:Static resources:Resource.Add}" />
+
+                <wpfui:Button
+                    Grid.Column="2"
+                    Margin="8,0,0,0"
+                    Click="DeleteAllButton_Click"
+                    FontSize="18"
+                    Icon="Delete24"
+                    ToolTip="{x:Static resources:Resource.Delete}" />
+
+                <wpfui:Button
+                    Grid.Column="3"
+                    Margin="8,0,0,0"
+                    Click="CopyShortcut"
+                    FontSize="18"
+                    Icon="Copy24"
+                    ToolTip="{x:Static resources:Resource.CopyAll}" />
+
+                <wpfui:Button
+                    Grid.Column="4"
+                    Margin="8,0,0,0"
+                    Click="PasteShortcut"
+                    FontSize="18"
+                    Icon="ClipboardPaste24"
+                    ToolTip="{x:Static resources:Resource.Paste}" />
+            </Grid>
+        </Border>
+    </Grid>
 </UserControl>
