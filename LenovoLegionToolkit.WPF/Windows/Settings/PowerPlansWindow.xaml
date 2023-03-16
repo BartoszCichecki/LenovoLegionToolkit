@@ -8,8 +8,9 @@
     xmlns:utils="clr-namespace:LenovoLegionToolkit.WPF.Utils"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="{x:Static resources:Resource.PowerPlansWindow_Title}"
+    Width="600"
     MinWidth="500"
-    MaxWidth="500"
+    MaxWidth="800"
     FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
     IsVisibleChanged="PowerPlansWindow_IsVisibleChanged"
     Loaded="PowerPlansWindow_Loaded"
@@ -58,13 +59,23 @@
             <wpfui:DynamicScrollViewer>
                 <StackPanel Margin="0,0,16,0">
 
+                    <wpfui:CardControl
+                        x:Name="_aoAcWarningCard"
+                        Margin="0,0,0,24"
+                        Icon="Warning24"
+                        Visibility="Collapsed">
+                        <wpfui:CardControl.Header>
+                            <controls:CardHeaderControl Title="{x:Static resources:Resource.PowerPlansWindow_AoAcWarning_Title}" Subtitle="{x:Static resources:Resource.PowerPlansWindow_AoAcWarning_Message}" />
+                        </wpfui:CardControl.Header>
+                    </wpfui:CardControl>
+
                     <wpfui:CardControl Margin="0,0,0,8">
                         <wpfui:CardControl.Header>
                             <controls:CardHeaderControl Title="{x:Static resources:Resource.PowerPlansWindow_QuietMode}" />
                         </wpfui:CardControl.Header>
                         <ComboBox
                             x:Name="_quietModeComboBox"
-                            Width="200"
+                            MinWidth="200"
                             Margin="0,0,0,8"
                             MaxDropDownHeight="Auto"
                             SelectionChanged="QuietModeComboBox_SelectionChanged" />
@@ -76,7 +87,7 @@
                         </wpfui:CardControl.Header>
                         <ComboBox
                             x:Name="_balanceModeComboBox"
-                            Width="200"
+                            MinWidth="200"
                             Margin="0,0,0,8"
                             MaxDropDownHeight="Auto"
                             SelectionChanged="BalanceModeComboBox_SelectionChanged" />
@@ -88,7 +99,7 @@
                         </wpfui:CardControl.Header>
                         <ComboBox
                             x:Name="_performanceModeComboBox"
-                            Width="200"
+                            MinWidth="200"
                             Margin="0,0,0,8"
                             MaxDropDownHeight="Auto"
                             SelectionChanged="PerformanceModeComboBox_SelectionChanged" />
@@ -100,13 +111,13 @@
                         </wpfui:CardControl.Header>
                         <ComboBox
                             x:Name="_godModeComboBox"
-                            Width="200"
+                            MinWidth="200"
                             Margin="0,0,0,8"
                             MaxDropDownHeight="Auto"
                             SelectionChanged="GodModeComboBox_SelectionChanged" />
                     </wpfui:CardControl>
 
-                    <wpfui:CardControl Margin="0,0,0,8">
+                    <wpfui:CardControl Margin="0,16,0,16">
                         <wpfui:CardControl.Header>
                             <controls:CardHeaderControl Title="{x:Static resources:Resource.AlwaysActivatePowerPlans_Title}" Subtitle="{x:Static resources:Resource.AlwaysActivatePowerPlans_Message}" />
                         </wpfui:CardControl.Header>

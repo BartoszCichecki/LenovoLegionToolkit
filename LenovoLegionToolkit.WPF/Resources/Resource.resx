@@ -1759,4 +1759,10 @@ This settings takes effect only when Custom Mode is enabled.</value>
   <data name="BatteryPage_LowLevel" xml:space="preserve">
     <value>Battery level low</value>
   </data>
+  <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
+	  <value>S0 Lower Power Model detected</value>
+  </data>
+  <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
+	  <value>Windows reports that this device supports Modern Standby. Using power plans other than Balanced may cause unexpected behavior.</value>
+  </data>
 </root>

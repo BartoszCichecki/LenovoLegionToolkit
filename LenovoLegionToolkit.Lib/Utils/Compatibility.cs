@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.System;
+using Windows.Win32;
+using Windows.Win32.Foundation;
+using Windows.Win32.System.Power;
 
 namespace LenovoLegionToolkit.Lib.Utils;
 
@@ -78,6 +82,7 @@ public static class Compatibility
                 BiosVersion = biosVersion,
                 Properties = new()
                 {
+                    SupportsAlwaysOnAc = GetAlwaysOnAcStatus(),
                     SupportsGodModeV1 = GetSupportsGodModeV1(biosVersion),
                     SupportsGodModeV2 = GetSupportsGodModeV2(biosVersion),
                     SupportsExtendedHybridMode = await GetSupportsExtendedHybridModeAsync().ConfigureAwait(false),
@@ -93,6 +98,7 @@ public static class Compatibility
                 Log.Instance.Trace($" * Machine Type: '{machineInformation.MachineType}'");
                 Log.Instance.Trace($" * Model: '{machineInformation.Model}'");
                 Log.Instance.Trace($" * BIOS: '{machineInformation.BiosVersion}'");
+                Log.Instance.Trace($" * SupportsAlwaysOnAc: '{machineInformation.Properties.SupportsAlwaysOnAc.status}, {machineInformation.Properties.SupportsAlwaysOnAc.connectivity}'");
                 Log.Instance.Trace($" * SupportsGodModeV1: '{machineInformation.Properties.SupportsGodModeV1}'");
                 Log.Instance.Trace($" * SupportsGodModeV2: '{machineInformation.Properties.SupportsGodModeV2}'");
                 Log.Instance.Trace($" * SupportsExtendedHybridMode: '{machineInformation.Properties.SupportsExtendedHybridMode}'");
@@ -103,6 +109,21 @@ public static class Compatibility
         }
 
         return _machineInformation.Value;
+    }
+
+    private static unsafe (bool status, bool connectivity) GetAlwaysOnAcStatus()
+    {
+        var capabilities = new SYSTEM_POWER_CAPABILITIES();
+        var result = PInvoke.CallNtPowerInformation(POWER_INFORMATION_LEVEL.SystemPowerCapabilities,
+            null,
+            0,
+            &capabilities,
+            (uint)Marshal.SizeOf<SYSTEM_POWER_CAPABILITIES>());
+
+        if (result.SeverityCode == NTSTATUS.Severity.Success)
+            return (false, false);
+
+        return (capabilities.AoAc, capabilities.AoAcConnectivitySupported);
     }
 
     private static bool GetSupportsGodModeV1(string currentBiosVersionString)
@@ -134,6 +155,7 @@ public static class Compatibility
 
         return GetSupportsGodMode(currentBiosVersionString, supportedBiosVersions);
     }
+
     private static bool GetSupportsGodMode(string currentBiosVersionString, (string, int)[] supportedBiosVersions)
     {
         var prefixRegex = new Regex("^[A-Z0-9]{4}");

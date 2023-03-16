@@ -49,6 +49,8 @@ DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE
 
 LOCALE_SSHORTDATE
 
+SYSTEM_POWER_CAPABILITIES
+
 GetLocaleInfoEx
 
 CreateFile
@@ -113,5 +115,7 @@ GetDpiForMonitor
 RegNotifyChangeKeyValue
 
 SendMessage
+
+CallNtPowerInformation
 
 K32GetModuleFileNameExW
