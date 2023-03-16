@@ -15,6 +15,6 @@ public static class AutomationPipelineTriggerExtensions
         ITimeAutomationPipelineTrigger => SymbolRegular.HourglassHalf24,
         INativeWindowsMessagePipelineTrigger => SymbolRegular.Desktop24,
         IOnStartupAutomationPipelineTrigger => SymbolRegular.Flash24,
-        _ => throw new ArgumentException(nameof(trigger))
+        _ => throw new ArgumentException($"Unsupported trigger {trigger.GetType().Name}.")
     };
 }

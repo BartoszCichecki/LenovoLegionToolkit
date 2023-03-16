@@ -62,10 +62,7 @@ public static class WMI
             var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
             var mos = new ManagementObjectSearcher(scope, queryFormatted);
             var managementObjects = await mos.GetAsync().ConfigureAwait(false);
-            var managementObject = managementObjects.FirstOrDefault();
-
-            if (managementObject is null)
-                throw new InvalidOperationException("No results in query");
+            var managementObject = managementObjects.FirstOrDefault() ?? throw new InvalidOperationException("No results in query");
 
             var mo = (ManagementObject)managementObject;
             var methodParamsObject = mo.GetMethodParameters(methodName);
@@ -88,10 +85,7 @@ public static class WMI
 
             var mos = new ManagementObjectSearcher(scope, queryFormatted);
             var managementObjects = await mos.GetAsync().ConfigureAwait(false);
-            var managementObject = managementObjects.FirstOrDefault();
-
-            if (managementObject is null)
-                throw new InvalidOperationException("No results in query");
+            var managementObject = managementObjects.FirstOrDefault() ?? throw new InvalidOperationException("No results in query");
 
             var mo = (ManagementObject)managementObject;
             var methodParamsObject = mo.GetMethodParameters(methodName);
