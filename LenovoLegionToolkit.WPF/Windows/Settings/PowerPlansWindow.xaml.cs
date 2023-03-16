@@ -7,6 +7,7 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
@@ -36,7 +37,12 @@ public partial class PowerPlansWindow
 
         var loadingTask = Task.Delay(500);
 
-        var powerPlans = (await Power.GetPowerPlansAsync()).OrderBy(x => x.Name);
+        var compatibility = await Compatibility.GetMachineInformationAsync();
+        _aoAcWarningCard.Visibility = compatibility.Properties.SupportsAlwaysOnAc.status
+            ? Visibility.Visible
+            : Visibility.Collapsed;
+
+        var powerPlans = (await Power.GetPowerPlansAsync()).OrderBy(x => x.Name).ToArray();
         Refresh(_quietModeComboBox, powerPlans, PowerModeState.Quiet);
         Refresh(_balanceModeComboBox, powerPlans, PowerModeState.Balance);
         Refresh(_performanceModeComboBox, powerPlans, PowerModeState.Performance);

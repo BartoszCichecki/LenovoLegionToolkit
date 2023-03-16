@@ -15,7 +15,7 @@ public static class Power
         { PowerModeState.Quiet , "16edbccd-dee9-4ec4-ace5-2f0b5f2a8975"},
         { PowerModeState.Balance , "85d583c5-cf2e-4197-80fd-3789a227a72c"},
         { PowerModeState.Performance , "52521609-efc9-4268-b9ba-67dea73f18b2"},
-        { PowerModeState.GodMode , "52521609-efc9-4268-b9ba-67dea73f18b2"},
+        { PowerModeState.GodMode , "85d583c5-cf2e-4197-80fd-3789a227a72c"},
     };
 
     private static ApplicationSettings Settings => IoCContainer.Resolve<ApplicationSettings>();

@@ -3392,6 +3392,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Windows reports that this device supports Modern Standby. Using power plans other than Balanced may cause unexpected behavior..
+        /// </summary>
+        public static string PowerPlansWindow_AoAcWarning_Message {
+            get {
+                return ResourceManager.GetString("PowerPlansWindow_AoAcWarning_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to S0 Lower Power Model detected.
+        /// </summary>
+        public static string PowerPlansWindow_AoAcWarning_Title {
+            get {
+                return ResourceManager.GetString("PowerPlansWindow_AoAcWarning_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Balance mode.
         /// </summary>
         public static string PowerPlansWindow_BalanceMode {
