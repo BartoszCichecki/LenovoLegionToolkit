@@ -265,7 +265,11 @@ public class AutomationPipelineControl : UserControl
 
     private UIElement? GenerateAccessory()
     {
-        if (!AutomationPipelineTriggerConfigurationWindow.IsValid(AutomationPipeline.AllTriggers))
+        var triggers = AutomationPipeline.AllTriggers
+            .Where(t => t is not ICompositeAutomationPipelineTrigger)
+            .ToArray();
+
+        if (!AutomationPipelineTriggerConfigurationWindow.IsValid(triggers))
             return null;
 
         var button = new Button
@@ -276,7 +280,7 @@ public class AutomationPipelineControl : UserControl
         };
         button.Click += (_, _) =>
         {
-            var window = new AutomationPipelineTriggerConfigurationWindow(AutomationPipeline.AllTriggers) { Owner = Window.GetWindow(this) };
+            var window = new AutomationPipelineTriggerConfigurationWindow(triggers) { Owner = Window.GetWindow(this) };
             window.OnSave += (_, e) =>
             {
                 AutomationPipeline.Trigger = e;

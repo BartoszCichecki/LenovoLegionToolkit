@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Windows.Automation.TabItemContent;
 using Wpf.Ui.Controls;
@@ -12,7 +13,6 @@ namespace LenovoLegionToolkit.WPF.Windows.Automation;
 
 public partial class AutomationPipelineTriggerConfigurationWindow
 {
-    private readonly List<IAutomationPipelineTrigger> _otherTriggers = new();
     private readonly IEnumerable<IAutomationPipelineTrigger> _triggers;
 
     public event EventHandler<IAutomationPipelineTrigger>? OnSave;
@@ -43,19 +43,35 @@ public partial class AutomationPipelineTriggerConfigurationWindow
             }
             else
             {
-                _otherTriggers.Add(trigger);
+                _tabControl.Items.Add(new TabItem
+                {
+                    Visibility = Visibility.Collapsed,
+                    Tag = trigger
+                });
             }
         }
+
+        if (_tabControl.Items.Count < 2)
+            return;
+
+        _tabControl.SelectedIndex = (_tabControl.Items[0] as TabItem)?.Content is null ? 1 : 0;
     }
 
     private void SaveButton_Click(object sender, RoutedEventArgs e)
     {
         var triggers = _tabControl.Items
             .OfType<TabItem>()
-            .Select(c => c.Content)
-            .OfType<IAutomationPipelineTriggerTabItemContent<IAutomationPipelineTrigger>>()
-            .Select(c => c.GetTrigger())
-            .Union(_otherTriggers)
+            .Select(c =>
+            {
+                if (c.Content is IAutomationPipelineTriggerTabItemContent<IAutomationPipelineTrigger> content)
+                    return content.GetTrigger();
+
+                if (c.Tag is IAutomationPipelineTrigger trigger)
+                    return trigger;
+
+                return null;
+            })
+            .OfType<IAutomationPipelineTrigger>()
             .ToArray();
 
         var result = triggers.Length > 1
