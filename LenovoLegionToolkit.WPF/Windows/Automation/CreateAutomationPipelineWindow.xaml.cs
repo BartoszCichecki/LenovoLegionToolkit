@@ -8,6 +8,7 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.WPF.Controls;
+using LenovoLegionToolkit.WPF.Extensions;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 
@@ -40,7 +41,8 @@ public partial class CreateAutomationPipelineWindow
 
     private bool _multiSelect;
 
-    public CreateAutomationPipelineWindow(HashSet<Type> existingTriggerTypes, Action<IAutomationPipelineTrigger> createPipeline)
+    public CreateAutomationPipelineWindow(HashSet<Type> existingTriggerTypes,
+        Action<IAutomationPipelineTrigger> createPipeline)
     {
         _existingTriggerTypes = existingTriggerTypes;
         _createPipeline = createPipeline;
@@ -143,7 +145,7 @@ public partial class CreateAutomationPipelineWindow
 
         var control = new CardControl
         {
-            Icon = IconForTrigger(trigger),
+            Icon = trigger.Icon(),
             Header = new CardHeaderControl
             {
                 Title = trigger.DisplayName,
@@ -194,16 +196,4 @@ public partial class CreateAutomationPipelineWindow
 
         _createButton.IsEnabled = anyChecked;
     }
-
-    private static SymbolRegular IconForTrigger(IAutomationPipelineTrigger trigger) => trigger switch
-    {
-        IPowerStateAutomationPipelineTrigger => SymbolRegular.BatteryCharge24,
-        IPowerModeAutomationPipelineTrigger => SymbolRegular.Gauge24,
-        IGameAutomationPipelineTrigger => SymbolRegular.XboxController24,
-        IProcessesAutomationPipelineTrigger => SymbolRegular.WindowConsole20,
-        ITimeAutomationPipelineTrigger => SymbolRegular.HourglassHalf24,
-        INativeWindowsMessagePipelineTrigger => SymbolRegular.Desktop24,
-        IOnStartupAutomationPipelineTrigger => SymbolRegular.Flash24,
-        _ => throw new ArgumentException(nameof(trigger))
-    };
 }

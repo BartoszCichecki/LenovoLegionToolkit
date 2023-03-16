@@ -4,7 +4,9 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
+using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Windows.Automation.TabItemContent;
+using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Windows.Automation;
 
@@ -29,9 +31,13 @@ public partial class AutomationPipelineTriggerConfigurationWindow
             var content = Create(trigger);
             if (content is not null)
             {
+                var header = new StackPanel { Orientation = Orientation.Horizontal };
+                header.Children.Add(new SymbolIcon { Symbol = trigger.Icon(), Margin = new(8, 0, 0, 0) });
+                header.Children.Add(new TextBlock { Text = trigger.DisplayName, Margin = new(4, 0, 8, 0) });
+
                 _tabControl.Items.Add(new TabItem
                 {
-                    Header = trigger.DisplayName,
+                    Header = header,
                     Content = content
                 });
             }
