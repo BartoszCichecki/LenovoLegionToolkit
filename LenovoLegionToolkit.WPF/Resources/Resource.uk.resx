@@ -1031,9 +1031,6 @@
   <data name="Paste" xml:space="preserve">
     <value>Вставити</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Застосунки</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>Обрати режим потужності.</value>
   </data>
@@ -1052,9 +1049,6 @@
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Обраний режим живлення може не працювати справно без підключеного блоку живлення.</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>Режим живлення</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>Увімкнення цієї опції під час роботи Lenovo Vantage і зміна планів енергоспоживання на ноутбуці може призвести до непередбачуваної поведінки.</value>
@@ -1396,16 +1390,13 @@
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} зон</value>
   </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>Світанок</value>
   </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
     <value>Світанок</value>
   </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Час</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Час</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">

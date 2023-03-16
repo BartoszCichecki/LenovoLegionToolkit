@@ -1034,9 +1034,6 @@ Sempre certifique-se de estar instalando os pacotes corretos.</value>
   <data name="Paste" xml:space="preserve">
     <value>Colar</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Aplicativos</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>Selecione o modo de desempenho.</value>
   </data>
@@ -1055,9 +1052,6 @@ Você pode alternar entre os modos pressionando Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>O modo de energia selecionado pode não funcionar corretamente sem o carregador conectado.</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>Plano de Energia</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>Ativando esta opção quando o Lenovo Vantage está em execução e alterar os planos de energia do seu notebook podem resultar em um comportamento inesperado.</value>
@@ -1399,16 +1393,13 @@ A reinicialização é recomendada após alterar esta opção.</value>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} zonas</value>
   </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>Nascer do Sol</value>
   </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
     <value>Nascer do Sol</value>
   </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Hora</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Hora</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">

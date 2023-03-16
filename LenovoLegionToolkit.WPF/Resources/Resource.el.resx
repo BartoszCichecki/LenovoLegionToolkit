@@ -1020,9 +1020,6 @@
   <data name="Paste" xml:space="preserve">
     <value>Επικόλληση</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Εφαρμογές</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>Επιλογή λειτουργίας απόδοσης.</value>
   </data>
@@ -1041,9 +1038,6 @@
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Η επιλεγμένη κατάσταση τροφοδοσίας ενδέχεται να μη λειτουργεί σωστά χωρίς συνδεδεμένο φορτιστή.</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>Λειτουργία Ισχύος</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>Ενεργοποιώντας αυτή την επιλογής όταν εκτελείται το Lenovo Vantage και αλλάζει τα σχέδια παροχής ενέργειας στον υπολογιστή σας μπορεί να οδηγήσει σε απροσδόκητη συμπεριφορά.</value>
@@ -1379,16 +1373,13 @@
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>Ζώνη {0}</value>
   </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>Ανατολή ηλίου</value>
   </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
     <value>Ανατολή ηλίου</value>
   </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Ώρα</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Ώρα</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">

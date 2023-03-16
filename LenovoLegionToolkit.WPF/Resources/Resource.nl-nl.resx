@@ -1027,9 +1027,6 @@ Zorg er altijd voor dat u de juiste pakketten installeert.</value>
   <data name="Paste" xml:space="preserve">
     <value>Plakken</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Applicaties</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>Selecteer prestatiemodus.</value>
   </data>
@@ -1048,9 +1045,6 @@ U kunt van modus wisselen met Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>De geselecteerde energiemodus werkt mogelijk niet correct als de netadapter niet is aangesloten.</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>Energiemodus</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>Als u deze optie inschakelt wanneer Lenovo Vantage actief is en het energiebeheerschema op uw laptop verandert, kan dit leiden tot onverwacht gedrag.</value>
@@ -1380,16 +1374,13 @@ Zorg ervoor dat uw script eerst correct wordt uitgevoerd.</value>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} zones</value>
   </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>Zonsopgang</value>
   </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
     <value>Zonsopgang</value>
   </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Tijd</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Tijd</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">

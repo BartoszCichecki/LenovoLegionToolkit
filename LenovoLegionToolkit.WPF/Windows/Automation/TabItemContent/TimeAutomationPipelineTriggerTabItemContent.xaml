@@ -15,19 +15,19 @@
             x:Name="_sunriseRadioButton"
             Margin="0,0,0,8"
             Click="RadioButton_Click"
-            Content="{x:Static resources:Resource.TimeWindow_Sunrise}"
+            Content="{x:Static resources:Resource.TimeAutomationPipelineTriggerTabItemContent_Sunrise}"
             GroupName="A" />
         <RadioButton
             x:Name="_sunsetRadioButton"
             Margin="0,0,0,8"
             Click="RadioButton_Click"
-            Content="{x:Static resources:Resource.TimeWindow_Sunset}"
+            Content="{x:Static resources:Resource.TimeAutomationPipelineTriggerTabItemContent_Sunset}"
             GroupName="A" />
         <RadioButton
             x:Name="_timeRadioButton"
             Margin="0,0,0,8"
             Click="RadioButton_Click"
-            Content="{x:Static resources:Resource.TimeWindow_Time}"
+            Content="{x:Static resources:Resource.TimeAutomationPipelineTriggerTabItemContent_Time}"
             GroupName="A" />
 
         <StackPanel

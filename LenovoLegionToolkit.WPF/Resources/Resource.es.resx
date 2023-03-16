@@ -1035,9 +1035,6 @@ Asegúrese de instalar siempre los paquetes correctos.</value>
   <data name="Paste" xml:space="preserve">
     <value>Pegar</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Aplicaciones</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>Seleccionar modo de rendimiento.</value>
   </data>
@@ -1056,9 +1053,6 @@ Puede cambiar de modo con Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>El modo de alimentación seleccionado puede no funcionar correctamente sin el adaptador de corriente alterna conectado.</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>Modo de alimentación</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>Activar esta opción cuando Lenovo Vantage se está ejecutando y cambia los planes de energía en su portátil podría dar lugar a un comportamiento inesperado.</value>
@@ -1401,16 +1395,13 @@ Se recomienda reiniciar después de cambiar esta opción.</value>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} zonas</value>
   </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>Al amanecer</value>
   </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
     <value>Al amanecer</value>
   </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Hora</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Hora</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">

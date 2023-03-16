@@ -3319,15 +3319,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Apps.
-        /// </summary>
-        public static string PickProcessesWindow_Title {
-            get {
-                return ResourceManager.GetString("PickProcessesWindow_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Select performance mode..
         /// </summary>
         public static string PowerModeAutomationStepControl_Message {
@@ -3379,15 +3370,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string PowerModeControl_Warning {
             get {
                 return ResourceManager.GetString("PowerModeControl_Warning", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Power Mode.
-        /// </summary>
-        public static string PowerModeWindow_Title {
-            get {
-                return ResourceManager.GetString("PowerModeWindow_Title", resourceCulture);
             }
         }
         
@@ -4546,36 +4528,27 @@ namespace LenovoLegionToolkit.WPF.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Sunrise.
         /// </summary>
-        public static string TimeWindow_Sunrise {
+        public static string TimeAutomationPipelineTriggerTabItemContent_Sunrise {
             get {
-                return ResourceManager.GetString("TimeWindow_Sunrise", resourceCulture);
+                return ResourceManager.GetString("TimeAutomationPipelineTriggerTabItemContent_Sunrise", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Sunrise.
         /// </summary>
-        public static string TimeWindow_Sunset {
+        public static string TimeAutomationPipelineTriggerTabItemContent_Sunset {
             get {
-                return ResourceManager.GetString("TimeWindow_Sunset", resourceCulture);
+                return ResourceManager.GetString("TimeAutomationPipelineTriggerTabItemContent_Sunset", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Time.
         /// </summary>
-        public static string TimeWindow_Time {
+        public static string TimeAutomationPipelineTriggerTabItemContent_Time {
             get {
-                return ResourceManager.GetString("TimeWindow_Time", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Time.
-        /// </summary>
-        public static string TimeWindow_TimeWindow_Title {
-            get {
-                return ResourceManager.GetString("TimeWindow_TimeWindow_Title", resourceCulture);
+                return ResourceManager.GetString("TimeAutomationPipelineTriggerTabItemContent_Time", resourceCulture);
             }
         }
         

@@ -1034,9 +1034,6 @@ Always make sure that you are installing correct packages.</value>
   <data name="Paste" xml:space="preserve">
     <value>Paste</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Apps</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>Select performance mode.</value>
   </data>
@@ -1055,9 +1052,6 @@ You can switch mode with Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Selected power mode may not work correctly without AC adapter connected.</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>Power Mode</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>Enabling this option when Lenovo Vantage is running and it changes power plans on your laptop might result in unexpected behavior.</value>
@@ -1399,16 +1393,13 @@ Restart is recommended after changing this option.</value>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} zones</value>
   </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>Sunrise</value>
   </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
     <value>Sunrise</value>
   </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Time</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Time</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">

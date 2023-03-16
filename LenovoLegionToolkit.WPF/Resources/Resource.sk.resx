@@ -1033,9 +1033,6 @@ Vždy sa uistite, že inštalujete správne balíky.</value>
   <data name="Paste" xml:space="preserve">
     <value>Vložiť</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Aplikácie</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>Zvoliť výkonný režim.</value>
   </data>
@@ -1054,9 +1051,6 @@ Môžete prepnúť pomocou Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Vybraný režim výkonu nemusí pracovať správne bez pripojeného sieťového adaptéra.</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>Režim výkonu</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>Povolenie tejto možnosti, keď beží Lenovo Vantage a zmení napájací plán na vašom notebooku, môže spôsobiť neočakávané správanie.</value>
@@ -1398,16 +1392,13 @@ Po zmene tejto možnosti sa odporúča reštart.</value>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} zón</value>
   </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>Úsvit</value>
   </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
     <value>Úsvit</value>
   </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Čas</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Čas</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">

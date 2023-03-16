@@ -1040,9 +1040,6 @@
   <data name="Paste" xml:space="preserve">
     <value>粘贴</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>应用列表</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>选择性能模式</value>
   </data>
@@ -1061,9 +1058,6 @@
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>在未插入电源适配器的情况下，性能模式可能无法正常生效。</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>性能模式</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>当Lenovo Vantage运行时启用该选项并修改笔记本上的电源计划可能会导致意外情况。</value>
@@ -1406,16 +1400,13 @@
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} 键区</value>
   </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>日出</value>
   </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
     <value>日落</value>
   </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>时间</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>时间</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
