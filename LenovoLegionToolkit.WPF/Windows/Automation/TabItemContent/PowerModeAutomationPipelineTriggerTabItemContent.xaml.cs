@@ -12,10 +12,12 @@ public partial class PowerModeAutomationPipelineTriggerTabItemContent : IAutomat
 {
     private readonly PowerModeFeature _feature = IoCContainer.Resolve<PowerModeFeature>();
 
+    private readonly IPowerModeAutomationPipelineTrigger _trigger;
     private readonly PowerModeState _powerModeState;
 
     public PowerModeAutomationPipelineTriggerTabItemContent(IPowerModeAutomationPipelineTrigger trigger)
     {
+        _trigger = trigger;
         _powerModeState = trigger.PowerModeState;
 
         InitializeComponent();
@@ -29,7 +31,7 @@ public partial class PowerModeAutomationPipelineTriggerTabItemContent : IAutomat
             .Select(r => (PowerModeState)r.Tag)
             .DefaultIfEmpty(PowerModeState.Balance)
             .FirstOrDefault();
-        return new PowerModeAutomationPipelineTrigger(state);
+        return _trigger.DeepCopy(state);
     }
 
     private async void PowerModeTabItem_Initialized(object? sender, EventArgs eventArgs)

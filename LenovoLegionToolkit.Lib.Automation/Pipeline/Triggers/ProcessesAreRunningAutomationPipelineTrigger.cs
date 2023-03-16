@@ -49,7 +49,7 @@ public class ProcessesAreRunningAutomationPipelineTrigger : IProcessesAutomation
 
     public IAutomationPipelineTrigger DeepCopy() => new ProcessesAreRunningAutomationPipelineTrigger(Processes);
 
-    public IAutomationPipelineTrigger DeepCopy(ProcessInfo[] processes) => new ProcessesAreRunningAutomationPipelineTrigger(processes);
+    public IProcessesAutomationPipelineTrigger DeepCopy(ProcessInfo[] processes) => new ProcessesAreRunningAutomationPipelineTrigger(processes);
 
     public override bool Equals(object? obj)
     {

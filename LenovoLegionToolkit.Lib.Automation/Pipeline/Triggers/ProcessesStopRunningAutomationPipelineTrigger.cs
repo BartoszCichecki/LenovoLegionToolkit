@@ -50,7 +50,7 @@ public class ProcessesStopRunningAutomationPipelineTrigger : IProcessesAutomatio
 
     public IAutomationPipelineTrigger DeepCopy() => new ProcessesStopRunningAutomationPipelineTrigger(Processes);
 
-    public IAutomationPipelineTrigger DeepCopy(ProcessInfo[] processes) => new ProcessesStopRunningAutomationPipelineTrigger(processes);
+    public IProcessesAutomationPipelineTrigger DeepCopy(ProcessInfo[] processes) => new ProcessesStopRunningAutomationPipelineTrigger(processes);
 
     public override bool Equals(object? obj)
     {

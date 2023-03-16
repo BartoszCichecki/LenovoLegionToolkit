@@ -94,6 +94,7 @@ public partial class AutomationPipelineTriggerConfigurationWindow
     private static bool IsValid(IAutomationPipelineTrigger trigger) => trigger switch
     {
         IPowerModeAutomationPipelineTrigger => true,
+        IProcessesAutomationPipelineTrigger => true,
         ITimeAutomationPipelineTrigger => true,
         _ => false
     };
@@ -101,6 +102,7 @@ public partial class AutomationPipelineTriggerConfigurationWindow
     private static IAutomationPipelineTriggerTabItemContent<IAutomationPipelineTrigger>? Create(IAutomationPipelineTrigger trigger) => trigger switch
     {
         IPowerModeAutomationPipelineTrigger pmt => new PowerModeAutomationPipelineTriggerTabItemContent(pmt),
+        IProcessesAutomationPipelineTrigger pt => new ProcessAutomationPipelineTriggerTabItemControl(pt),
         ITimeAutomationPipelineTrigger tt => new TimeAutomationPipelineTriggerTabItemContent(tt),
         _ => null
     };

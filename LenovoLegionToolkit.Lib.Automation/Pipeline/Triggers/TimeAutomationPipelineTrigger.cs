@@ -64,9 +64,9 @@ public class TimeAutomationPipelineTrigger : ITimeAutomationPipelineTrigger
         return false;
     }
 
-    public IAutomationPipelineTrigger DeepCopy(bool isSunrise, bool isSunset, Time? time) => new TimeAutomationPipelineTrigger(isSunrise, isSunset, time);
-
     public IAutomationPipelineTrigger DeepCopy() => new TimeAutomationPipelineTrigger(IsSunrise, IsSunset, Time);
+
+    public ITimeAutomationPipelineTrigger DeepCopy(bool isSunrise, bool isSunset, Time? time) => new TimeAutomationPipelineTrigger(isSunrise, isSunset, time);
 
     public override bool Equals(object? obj)
     {

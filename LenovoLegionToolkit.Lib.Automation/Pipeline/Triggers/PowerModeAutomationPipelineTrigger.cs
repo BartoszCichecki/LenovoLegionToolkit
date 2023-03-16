@@ -35,7 +35,7 @@ public class PowerModeAutomationPipelineTrigger : IPowerModeAutomationPipelineTr
 
     public IAutomationPipelineTrigger DeepCopy() => new PowerModeAutomationPipelineTrigger(PowerModeState);
 
-    public IAutomationPipelineTrigger DeepCopy(PowerModeState powerModeState) => new PowerModeAutomationPipelineTrigger(powerModeState);
+    public IPowerModeAutomationPipelineTrigger DeepCopy(PowerModeState powerModeState) => new PowerModeAutomationPipelineTrigger(powerModeState);
 
     public override bool Equals(object? obj)
     {

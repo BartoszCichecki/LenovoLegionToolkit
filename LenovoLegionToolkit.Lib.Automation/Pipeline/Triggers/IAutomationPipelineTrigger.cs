@@ -32,7 +32,7 @@ public interface IPowerModeAutomationPipelineTrigger : IAutomationPipelineTrigge
 {
     PowerModeState PowerModeState { get; }
 
-    IAutomationPipelineTrigger DeepCopy(PowerModeState powerModeState);
+    IPowerModeAutomationPipelineTrigger DeepCopy(PowerModeState powerModeState);
 }
 
 public interface IGameAutomationPipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger { }
@@ -41,7 +41,7 @@ public interface IProcessesAutomationPipelineTrigger : IAutomationPipelineTrigge
 {
     ProcessInfo[] Processes { get; }
 
-    IAutomationPipelineTrigger DeepCopy(ProcessInfo[] processes);
+    IProcessesAutomationPipelineTrigger DeepCopy(ProcessInfo[] processes);
 }
 
 public interface ITimeAutomationPipelineTrigger : IAutomationPipelineTrigger
@@ -49,5 +49,6 @@ public interface ITimeAutomationPipelineTrigger : IAutomationPipelineTrigger
     bool IsSunrise { get; }
     bool IsSunset { get; }
     Time? Time { get; }
-    IAutomationPipelineTrigger DeepCopy(bool isSunrise, bool isSunset, Time? time);
+
+    ITimeAutomationPipelineTrigger DeepCopy(bool isSunrise, bool isSunset, Time? time);
 }

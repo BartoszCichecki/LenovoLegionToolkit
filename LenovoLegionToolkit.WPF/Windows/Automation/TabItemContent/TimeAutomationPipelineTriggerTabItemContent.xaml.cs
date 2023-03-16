@@ -8,12 +8,14 @@ namespace LenovoLegionToolkit.WPF.Windows.Automation.TabItemContent;
 
 public partial class TimeAutomationPipelineTriggerTabItemContent : IAutomationPipelineTriggerTabItemContent<ITimeAutomationPipelineTrigger>
 {
+    private readonly ITimeAutomationPipelineTrigger _trigger;
     private readonly bool _isSunrise;
     private readonly bool _isSunset;
     private readonly Time? _time;
 
     public TimeAutomationPipelineTriggerTabItemContent(ITimeAutomationPipelineTrigger trigger)
     {
+        _trigger = trigger;
         _isSunrise = trigger.IsSunrise;
         _isSunset = trigger.IsSunset;
         _time = trigger.Time;
@@ -47,7 +49,7 @@ public partial class TimeAutomationPipelineTriggerTabItemContent : IAutomationPi
             Hour = utc.Hour,
             Minute = utc.Minute,
         } : null;
-        return new TimeAutomationPipelineTrigger(isSunrise, isSunset, time);
+        return _trigger.DeepCopy(isSunrise, isSunset, time);
     }
 
     private void RadioButton_Click(object sender, RoutedEventArgs e)
