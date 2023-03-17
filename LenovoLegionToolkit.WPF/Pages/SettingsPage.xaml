@@ -188,11 +188,5 @@
             </wpfui:CardAction.Content>
         </wpfui:CardAction>
 
-        <wpfui:CardAction Margin="0,0,0,8" Click="CPUBoostModes_Click">
-            <wpfui:CardAction.Content>
-                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_CPUBoostModes_Title}" />
-            </wpfui:CardAction.Content>
-        </wpfui:CardAction>
-
     </StackPanel>
 </wpfui:UiPage>

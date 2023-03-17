@@ -378,21 +378,6 @@
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>البطارية</value>
   </data>
-  <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
-    <value>على البطارية</value>
-  </data>
-  <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>متصل بالشاحن</value>
-  </data>
-  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
-    <value>اوضاع الطاقة</value>
-  </data>
-  <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
-    <value>اعرف المزيد على microsoft.com</value>
-  </data>
-  <data name="CPUBoostModesWindow_Title" xml:space="preserve">
-    <value>أوضاع تعزيز المعالج</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>الغاء</value>
   </data>
@@ -1171,9 +1156,6 @@
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>تشغيل تلقائي</value>
-  </data>
-  <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>أوضاع تعزيز وحدة المعالجة المركزية للصور</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
     <value>ربما لم يتم تعطيل Legion Zone أو منطقة Legion بشكل صحيح</value>

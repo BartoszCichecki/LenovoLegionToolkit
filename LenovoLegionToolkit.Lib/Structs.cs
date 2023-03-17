@@ -35,34 +35,6 @@ public readonly struct Brightness
     public static implicit operator Brightness(byte value) => new() { Value = value };
 }
 
-public readonly struct CPUBoostMode
-{
-    public int Value { get; }
-    public string Name { get; }
-
-    public CPUBoostMode(int value, string name)
-    {
-        Value = value;
-        Name = name;
-    }
-}
-
-public readonly struct CPUBoostModeSettings
-{
-    public PowerPlan PowerPlan { get; }
-    public List<CPUBoostMode> CPUBoostModes { get; }
-    public int ACSettingValue { get; }
-    public int DCSettingValue { get; }
-
-    public CPUBoostModeSettings(PowerPlan powerPlan, List<CPUBoostMode> cpuBoostModes, int acSettingValue, int dcSettingValue)
-    {
-        PowerPlan = powerPlan;
-        CPUBoostModes = cpuBoostModes;
-        ACSettingValue = acSettingValue;
-        DCSettingValue = dcSettingValue;
-    }
-}
-
 public readonly struct DisplayAdvancedColorInfo
 {
     public bool AdvancedColorSupported { get; }

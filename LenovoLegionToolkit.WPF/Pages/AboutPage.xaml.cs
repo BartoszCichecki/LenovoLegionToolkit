@@ -1,9 +1,11 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Globalization;
 using System.Reflection;
 using System.Windows;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
 
 namespace LenovoLegionToolkit.WPF.Pages;
@@ -45,13 +47,7 @@ public partial class AboutPage
         _translationCredit.Visibility = Resource.Culture.Equals(new CultureInfo("en")) ? Visibility.Collapsed : Visibility.Visible;
     }
 
-    private void OpenApplicationDataFolder_Click(object sender, RoutedEventArgs e)
-    {
-        Process.Start("explorer", Folders.AppData);
-    }
+    private void OpenApplicationDataFolder_Click(object sender, RoutedEventArgs e) => new Uri(Folders.AppData).Open();
 
-    private void OpenApplicationTempFolder_Click(object sender, RoutedEventArgs e)
-    {
-        Process.Start("explorer", Folders.Temp);
-    }
+    private void OpenApplicationTempFolder_Click(object sender, RoutedEventArgs e) => new Uri(Folders.Temp).Open();
 }

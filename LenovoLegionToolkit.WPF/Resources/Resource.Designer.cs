@@ -1073,51 +1073,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to On battery.
-        /// </summary>
-        public static string CPUBoostModeControl_OnBattery {
-            get {
-                return ResourceManager.GetString("CPUBoostModeControl_OnBattery", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Plugged in.
-        /// </summary>
-        public static string CPUBoostModeControl_PluggedIn {
-            get {
-                return ResourceManager.GetString("CPUBoostModeControl_PluggedIn", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Power plans.
-        /// </summary>
-        public static string CPUBoostModeControl_PowerPlans {
-            get {
-                return ResourceManager.GetString("CPUBoostModeControl_PowerPlans", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Learn more at microsoft.com.
-        /// </summary>
-        public static string CPUBoostModesWindow_LearnMore {
-            get {
-                return ResourceManager.GetString("CPUBoostModesWindow_LearnMore", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to CPU Boost Modes.
-        /// </summary>
-        public static string CPUBoostModesWindow_Title {
-            get {
-                return ResourceManager.GetString("CPUBoostModesWindow_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Create.
         /// </summary>
         public static string Create {
@@ -3861,15 +3816,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string SettingsPage_Autorun_Title {
             get {
                 return ResourceManager.GetString("SettingsPage_Autorun_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to CPU Boost Modes.
-        /// </summary>
-        public static string SettingsPage_CPUBoostModes_Title {
-            get {
-                return ResourceManager.GetString("SettingsPage_CPUBoostModes_Title", resourceCulture);
             }
         }
         

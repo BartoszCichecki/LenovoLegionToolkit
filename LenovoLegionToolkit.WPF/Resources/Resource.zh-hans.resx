@@ -380,21 +380,6 @@
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>电池</value>
   </data>
-  <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
-    <value>使用电池时</value>
-  </data>
-  <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>插入电源适配器时</value>
-  </data>
-  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
-    <value>性能计划</value>
-  </data>
-  <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
-    <value>访问 microsoft.com 以了解更多</value>
-  </data>
-  <data name="CPUBoostModesWindow_Title" xml:space="preserve">
-    <value>处理器性能提升（睿频）模式</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>取消</value>
   </data>
@@ -1206,9 +1191,6 @@
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>开机启动</value>
-  </data>
-  <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>处理器性能提升（睿频）模式</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone 可能没有被正确禁用。</value>

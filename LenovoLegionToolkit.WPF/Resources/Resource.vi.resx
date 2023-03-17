@@ -379,21 +379,6 @@ Thời gian có thể không chính xác nếu laptop được sạc khi Ngủ h
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Pin</value>
   </data>
-  <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
-    <value>Chạy trên Pin</value>
-  </data>
-  <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>Kết nối với nguồn điện</value>
-  </data>
-  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
-    <value>Power plans</value>
-  </data>
-  <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
-    <value>Tìm hiểu thêm tại microsoft.com</value>
-  </data>
-  <data name="CPUBoostModesWindow_Title" xml:space="preserve">
-    <value>Các chế độ CPU Boost</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Hủy</value>
   </data>
@@ -1190,9 +1175,6 @@ Hãy đảm bảo chương trình hoặc script của bạn chạy đúng trư�
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Tự động chạy</value>
-  </data>
-  <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>Các chế độ CPU Boost</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone có thể đã được ngắt kích hoạt không đúng</value>

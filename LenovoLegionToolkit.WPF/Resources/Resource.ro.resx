@@ -379,21 +379,6 @@ Este posibil ca acest timp să nu fie precis dacă laptopul a fost încărcat î
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Baterie</value>
   </data>
-  <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
-    <value>Pe baterie</value>
-  </data>
-  <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>Alimentat</value>
-  </data>
-  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
-    <value>Planuri de alimentare</value>
-  </data>
-  <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
-    <value>Aflați mai multe la microsoft.com</value>
-  </data>
-  <data name="CPUBoostModesWindow_Title" xml:space="preserve">
-    <value>Moduri boost CPU</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Anulare</value>
   </data>
@@ -1199,9 +1184,6 @@ Asigurați-vă mai întâi că scriptul rulează corect.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Pornire automată</value>
-  </data>
-  <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>Moduri boost CPU</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
     <value>Este posibil ca Legion Zone să nu fi fost dezactivat corect</value>

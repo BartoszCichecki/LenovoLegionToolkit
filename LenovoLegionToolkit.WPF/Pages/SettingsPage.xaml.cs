@@ -460,13 +460,4 @@ public partial class SettingsPage
         var window = new PowerPlansWindow { Owner = Window.GetWindow(this) };
         window.ShowDialog();
     }
-
-    private void CPUBoostModes_Click(object sender, RoutedEventArgs e)
-    {
-        if (_isRefreshing)
-            return;
-
-        var window = new CPUBoostModesWindow { Owner = Window.GetWindow(this) };
-        window.ShowDialog();
-    }
 }
