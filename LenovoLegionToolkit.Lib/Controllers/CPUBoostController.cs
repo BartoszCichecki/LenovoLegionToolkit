@@ -14,6 +14,13 @@ public class CPUBoostModeController
     private const string PROCESSOR_POWER_MANAGEMENT_SUBGROUP_GUID = "54533251-82be-4824-96c1-47b60b740d00";
     private const string POWER_SETTING_GUID = "be337238-0d82-4146-a960-4f3749d470c7";
 
+    private readonly PowerPlanController _powerPlanController;
+
+    public CPUBoostModeController(PowerPlanController powerPlanController)
+    {
+        _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController));
+    }
+
     public async Task<List<CPUBoostModeSettings>> GetSettingsAsync()
     {
         if (Log.Instance.IsTraceEnabled)
@@ -24,7 +31,7 @@ public class CPUBoostModeController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting power plans...");
 
-        var powerPlans = await Power.GetPowerPlansAsync().ConfigureAwait(false);
+        var powerPlans = await _powerPlanController.GetPowerPlansAsync().ConfigureAwait(false);
         var cpuBoostModes = await GetCpuBoostModesAsync().ConfigureAwait(false);
 
         var result = new List<CPUBoostModeSettings>();

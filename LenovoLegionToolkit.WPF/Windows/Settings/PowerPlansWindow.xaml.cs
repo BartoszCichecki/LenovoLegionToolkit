@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Settings;
-using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
@@ -18,6 +18,7 @@ public partial class PowerPlansWindow
 {
     private static readonly object DefaultValue = Resource.PowerPlansWindow_DefaultPowerPlan;
 
+    private readonly PowerPlanController _powerPlanController = IoCContainer.Resolve<PowerPlanController>();
     private readonly PowerModeFeature _powerModeFeature = IoCContainer.Resolve<PowerModeFeature>();
     private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
 
@@ -42,7 +43,7 @@ public partial class PowerPlansWindow
             ? Visibility.Visible
             : Visibility.Collapsed;
 
-        var powerPlans = (await Power.GetPowerPlansAsync()).OrderBy(x => x.Name).ToArray();
+        var powerPlans = (await _powerPlanController.GetPowerPlansAsync()).OrderBy(x => x.Name).ToArray();
         Refresh(_quietModeComboBox, powerPlans, PowerModeState.Quiet);
         Refresh(_balanceModeComboBox, powerPlans, PowerModeState.Balance);
         Refresh(_performanceModeComboBox, powerPlans, PowerModeState.Performance);
@@ -60,10 +61,10 @@ public partial class PowerPlansWindow
         _loader.IsLoading = false;
     }
 
-    private void Refresh(ComboBox comboBox, IEnumerable<PowerPlan> powerPlans, PowerModeState powerModeState)
+    private void Refresh(ComboBox comboBox, PowerPlan[] powerPlans, PowerModeState powerModeState)
     {
-        var settingsPowerPlanInstanceID = _settings.Store.PowerPlans.GetValueOrDefault(powerModeState);
-        var selectedValue = powerPlans.FirstOrDefault(pp => pp.InstanceId == settingsPowerPlanInstanceID);
+        var settingsPowerPlanInstanceId = _settings.Store.PowerPlans.GetValueOrDefault(powerModeState);
+        var selectedValue = powerPlans.FirstOrDefault(pp => pp.InstanceId == settingsPowerPlanInstanceId);
 
         comboBox.Items.Clear();
         comboBox.Items.Add(DefaultValue);

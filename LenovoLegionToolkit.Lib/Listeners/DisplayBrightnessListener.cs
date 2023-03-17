@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Management;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
@@ -12,13 +13,15 @@ public class DisplayBrightnessListener : AbstractWMIListener<Brightness>
     private const string DISPLAY_SUBGROUP_GUID = "7516b95f-f776-4464-8c53-06167f40cc99";
     private const string DISPLAY_BRIGHTNESS_SETTING_GUID = "aded5e82-b909-4619-9949-f5d71dac0bcb";
 
+    private readonly PowerPlanController _powerPlanController;
     private readonly ApplicationSettings _settings;
 
     private readonly ThrottleLastDispatcher _dispatcher = new(TimeSpan.FromSeconds(2), nameof(DisplayBrightnessListener));
 
-    public DisplayBrightnessListener(ApplicationSettings settings) : base("ROOT\\WMI", "WmiMonitorBrightnessEvent")
+    public DisplayBrightnessListener(PowerPlanController powerPlanController, ApplicationSettings settings) : base("ROOT\\WMI", "WmiMonitorBrightnessEvent")
     {
-        _settings = settings;
+        _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController));
+        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
     }
 
     protected override Brightness GetValue(PropertyDataCollection properties) => Convert.ToByte(properties["Brightness"].Value);
@@ -36,14 +39,14 @@ public class DisplayBrightnessListener : AbstractWMIListener<Brightness>
         await _dispatcher.DispatchAsync(() => SetBrightnessForAllPowerPlansAsync(value)).ConfigureAwait(false);
     }
 
-    private static async Task SetBrightnessForAllPowerPlansAsync(Brightness brightness)
+    private async Task SetBrightnessForAllPowerPlansAsync(Brightness brightness)
     {
         try
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Setting brightness to {brightness.Value}...");
 
-            var powerPlans = await Power.GetPowerPlansAsync().ConfigureAwait(false);
+            var powerPlans = await _powerPlanController.GetPowerPlansAsync().ConfigureAwait(false);
 
             foreach (var powerPlan in powerPlans)
             {

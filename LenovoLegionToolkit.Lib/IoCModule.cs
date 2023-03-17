@@ -15,16 +15,16 @@ public class IoCModule : Module
 {
     protected override void Load(ContainerBuilder builder)
     {
-        builder.Register<Vantage>();
         builder.Register<FnKeys>();
         builder.Register<LegionZone>();
+        builder.Register<Vantage>();
 
         builder.Register<ApplicationSettings>();
-        builder.Register<RGBKeyboardSettings>();
-        builder.Register<SpectrumKeyboardSettings>();
         builder.Register<BalanceModeSettings>();
         builder.Register<GodModeSettings>();
         builder.Register<PackageDownloaderSettings>();
+        builder.Register<RGBKeyboardSettings>();
+        builder.Register<SpectrumKeyboardSettings>();
         builder.Register<SunriseSunsetSettings>();
 
         builder.Register<AlwaysOnUSBFeature>();
@@ -32,8 +32,9 @@ public class IoCModule : Module
         builder.Register<DpiScaleFeature>();
         builder.Register<FlipToStartFeature>();
         builder.Register<FnLockFeature>();
-        builder.Register<HybridModeFeature>();
         builder.Register<GSyncFeature>();
+        builder.Register<HDRFeature>();
+        builder.Register<HybridModeFeature>();
         builder.Register<IGPUModeFeature>();
         builder.Register<MicrophoneFeature>();
         builder.Register<OneLevelWhiteKeyboardBacklightFeature>();
@@ -41,60 +42,34 @@ public class IoCModule : Module
         builder.Register<PowerModeFeature>();
         builder.Register<RefreshRateFeature>();
         builder.Register<ResolutionFeature>();
-        builder.Register<HDRFeature>();
         builder.Register<TouchpadLockFeature>();
         builder.Register<WhiteKeyboardBacklightFeature>();
         builder.Register<WinKeyFeature>();
 
-        builder.Register<NativeWindowsMessageListener>()
-            .OnActivating(e => e.Instance.StartAsync().AsValueTask())
-            .AutoActivate();
-        builder.Register<PowerStateListener>()
-            .OnActivating(e => e.Instance.StartAsync().AsValueTask())
-            .AutoActivate();
-        builder.Register<PowerModeListener>()
-            .OnActivating(e => e.Instance.StartAsync().AsValueTask())
-            .AutoActivate();
-        builder.Register<ThermalModeListener>()
-            .OnActivating(e => e.Instance.StartAsync().AsValueTask())
-            .AutoActivate();
-        builder.Register<DisplayConfigurationListener>()
-            .OnActivating(e => e.Instance.StartAsync().AsValueTask())
-            .AutoActivate();
-        builder.Register<DriverKeyListener>()
-            .OnActivating(e => e.Instance.StartAsync().AsValueTask())
-            .AutoActivate();
-        builder.Register<PowerPlanListener>()
-            .OnActivating(e => e.Instance.StartAsync().AsValueTask())
-            .AutoActivate();
-        builder.Register<RGBKeyboardBacklightListener>()
-            .OnActivating(e => e.Instance.StartAsync().AsValueTask())
-            .AutoActivate();
-        builder.Register<SpecialKeyListener>()
-            .OnActivating(e => e.Instance.StartAsync().AsValueTask())
-            .AutoActivate();
-        builder.Register<LightingChangeListener>()
-            .OnActivating(e => e.Instance.StartAsync().AsValueTask())
-            .AutoActivate();
-        builder.Register<WinKeyListener>()
-            .OnActivating(e => e.Instance.StartAsync().AsValueTask())
-            .AutoActivate();
-        builder.Register<DisplayBrightnessListener>()
-            .OnActivating(e => e.Instance.StartAsync().AsValueTask())
-            .AutoActivate();
-        builder.Register<SystemThemeListener>()
-            .OnActivating(e => e.Instance.StartAsync().AsValueTask())
-            .AutoActivate();
+        builder.Register<DisplayBrightnessListener>().AutoActivateListener();
+        builder.Register<DisplayConfigurationListener>().AutoActivateListener();
+        builder.Register<DriverKeyListener>().AutoActivateListener();
+        builder.Register<LightingChangeListener>().AutoActivateListener();
+        builder.Register<NativeWindowsMessageListener>().AutoActivateListener();
+        builder.Register<PowerModeListener>().AutoActivateListener();
+        builder.Register<PowerPlanListener>().AutoActivateListener();
+        builder.Register<PowerStateListener>().AutoActivateListener();
+        builder.Register<RGBKeyboardBacklightListener>().AutoActivateListener();
+        builder.Register<SpecialKeyListener>().AutoActivateListener();
+        builder.Register<SystemThemeListener>().AutoActivateListener();
+        builder.Register<ThermalModeListener>().AutoActivateListener();
+        builder.Register<WinKeyListener>().AutoActivateListener();
 
-        builder.Register<GPUController>();
+        builder.Register<AIModeController>();
         builder.Register<CPUBoostModeController>();
-        builder.Register<SpectrumKeyboardBacklightController>();
-        builder.Register<RGBKeyboardBacklightController>();
+        builder.Register<DisplayBrightnessController>();
         builder.Register<GodModeController>();
         builder.Register<GodModeControllerV1>();
         builder.Register<GodModeControllerV2>();
-        builder.Register<DisplayBrightnessController>();
-        builder.Register<AIModeController>();
+        builder.Register<GPUController>();
+        builder.Register<PowerPlanController>();
+        builder.Register<RGBKeyboardBacklightController>();
+        builder.Register<SpectrumKeyboardBacklightController>();
 
         builder.Register<UpdateChecker>();
         builder.Register<WarrantyChecker>();
