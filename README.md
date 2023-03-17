@@ -102,7 +102,7 @@ LLT currently does not support installation for multiple users, so if you need t
 The app allows to:
 
 - Change settings like power mode, battery charging mode, etc. that are available only through Vantage.
-- Access to Custom Mode available only in Legion Zone, including Fan Control on 2022 models.
+- Access to Custom Mode available only in Legion Zone, including Fan Control on 2022 and newer models.
 - Spectrum RGB and White backlight keyboards support.
 - Change display refresh rate (built-in display only).
 - Deactivate discrete GPU (nVidia only).
@@ -121,6 +121,7 @@ Custom Mode is supported on following BIOS versions:
 * K1CN31WW and higher
 * K9CN34WW and higher
 * KFCN32WW and higher
+* KWCN28WW and higher
 * J2CN40WW and higher
 * JUCN51WW and higher
 * JYCN39WW and higher
