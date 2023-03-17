@@ -121,6 +121,7 @@ Custom Mode is supported on following BIOS versions:
 * K1CN31WW and higher
 * K9CN34WW and higher
 * KFCN32WW and higher
+* KWCN28WW and higher
 * J2CN40WW and higher
 * JUCN51WW and higher
 * JYCN39WW and higher
