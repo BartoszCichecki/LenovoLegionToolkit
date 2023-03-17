@@ -32,7 +32,8 @@ public partial class MainWindow
     {
         InitializeComponent();
 
-        if (Assembly.GetEntryAssembly()?.GetName().Version == new Version(0, 0, 1, 0))
+        var version = Assembly.GetEntryAssembly()?.GetName().Version;
+        if (version == new Version(0, 0, 1, 0) || version?.Minor == 99)
             _title.Text += " [BETA]";
 
 #if DEBUG
