@@ -217,7 +217,7 @@ To disable RGB:
 
 #### Can you add fan control to other models?
 
-If you have a 2022 Legion that does not support it make a ticket and we'll try to add suport for it. Older models will not be supported due to technical limitations.
+If you have a 2022 or newer Legion that does not support it make a ticket and we'll try to add suport for it. Older models will not be supported due to technical limitations.
 
 #### Why is my Fn lock is flipped?
 
