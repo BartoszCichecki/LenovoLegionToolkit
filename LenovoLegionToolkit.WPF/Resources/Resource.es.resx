@@ -1761,4 +1761,10 @@ Esta configuración sólo tiene efecto si el modo personalizado está activado.<
   <data name="BatteryPage_LowLevel" xml:space="preserve">
     <value>Nivel bajo de batería</value>
   </data>
+  <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
+	  <value>S0 Modelo de menor potencia detectado</value>
+  </data>
+  <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
+	  <value>Windows informa de que este dispositivo soporta Modern Standby. El uso de planes de energía distintos a Equilibrado puede provocar un comportamiento inesperado.</value>
+  </data>
 </root>
