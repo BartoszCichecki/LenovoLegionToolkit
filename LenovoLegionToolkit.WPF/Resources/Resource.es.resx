@@ -1174,12 +1174,6 @@ Asegúrese primero de que su script se ejecuta correctamente.</value>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Color característico</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>No cambiar las opciones siguientes a menos que sepa realmente lo que está haciendo.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Avanzado</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Minimizar en la bandeja al iniciar la sesión de Windows.</value>
   </data>

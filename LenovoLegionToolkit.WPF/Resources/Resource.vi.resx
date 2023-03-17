@@ -1164,12 +1164,6 @@ Hãy đảm bảo chương trình hoặc script của bạn chạy đúng trư�
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Màu chủ đề</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>ĐỪNG THAY ĐỔI BẤT KỲ GIÁ TRỊ NÀO DƯỚI ĐÂY TRỪ PHI BẠN BIẾT BẠN ĐANG LÀM GÌ!</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Nâng cao</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Chạy trong nền ngay khi khởi động Windows.</value>
   </data>

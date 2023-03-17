@@ -1162,12 +1162,6 @@ Assicurati prima, che il tuo script funzioni correttamente.</value>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Colore</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Non modificare le opzioni seguenti a meno che tu non sappia davvero cosa stai facendo.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Avanzate</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Inizia ridotto a icona quando accedi a Windows.</value>
   </data>

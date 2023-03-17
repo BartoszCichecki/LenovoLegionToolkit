@@ -1000,12 +1000,6 @@ UYARI: Yerleşik ekran kapalıysa bu eylem düzgün çalışmayacaktır.</value>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Renk</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Ne yaptığınızı gerçekten bilmiyorsanız aşağıdaki seçenekler ile oynamayın.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Gelişmiş</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Windows'ta oturum açtığınızda küçültülmüş halde başlatın.</value>
   </data>

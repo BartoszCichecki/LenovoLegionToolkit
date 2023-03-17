@@ -1179,12 +1179,6 @@
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>主题色</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>请谨慎修改下方选项！在你不知道下方选项的准确意义前，请勿修改！</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>高级设置</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>开启自启并最小化到托盘。
 如遇到无法控制等问题请选择【延迟启动】以等待联想服务完全加载。</value>

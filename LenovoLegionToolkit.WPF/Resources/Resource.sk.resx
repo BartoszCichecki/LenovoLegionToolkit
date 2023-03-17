@@ -1172,12 +1172,6 @@ Prv sa uistite, že váš skript beží správne.</value>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Odtieň</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Nemeňte dole uvedené možnosti pokiaľ naozaj neviete čo robíte.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Pokročilé</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Spustiť minimalizované na panely úloh pri prihlásení.</value>
   </data>

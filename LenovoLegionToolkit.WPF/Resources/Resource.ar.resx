@@ -1145,12 +1145,6 @@
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>لون المظهر</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>لا تغير الخيارات في الأسفل إلا إذا كنت تعلم ماذا تفعل.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>إعدادات متقدمة</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>شغل مصغرا للمعروضات عند تسجيل الدخول لنظام التشغيل أو الويندوز.</value>
   </data>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
@@ -459,5 +460,10 @@ public partial class SettingsPage
 
         var window = new PowerPlansWindow { Owner = Window.GetWindow(this) };
         window.ShowDialog();
+    }
+
+    private void PowerPlansControlPanel_Click(object sender, RoutedEventArgs e)
+    {
+        Process.Start("control", "/name Microsoft.PowerOptions");
     }
 }

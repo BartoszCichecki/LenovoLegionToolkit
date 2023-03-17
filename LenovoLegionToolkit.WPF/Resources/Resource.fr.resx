@@ -1174,12 +1174,6 @@ Assurez-vous d'abord que votre script s'exécute correctement.</value>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Couleur d'accentuation</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Ne modifiez pas les options ci-dessous à moins que vous ne sachiez vraiment ce que vous faites.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Avancé</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Démarrer l'application dans la barre des taches lors de la connexion a Windows.</value>
   </data>

@@ -1172,12 +1172,6 @@ Stellen Sie zunächst sicher, dass Ihr Skript korrekt ausgeführt wird.</value>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Akzentfarbe</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Ändern Sie die folgenden Optionen nur, wenn Sie wirklich wissen, was Sie tun.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Erweitert</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Startet minimiert in der Taskleiste, wenn Sie sich bei Windows anmelden.</value>
   </data>

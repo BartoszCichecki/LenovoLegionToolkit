@@ -1173,12 +1173,6 @@ Asigurați-vă mai întâi că scriptul rulează corect.</value>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Culoare de accent</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Nu modificați opțiunile de mai jos decât dacă știți cu adevărat ce faceți.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Avansat</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Pornire minimizată în tray atunci când vă conectați la Windows.</value>
   </data>

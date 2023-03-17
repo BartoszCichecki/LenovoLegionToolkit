@@ -1156,12 +1156,6 @@
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Χρώμα έμφασης</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Μην αλλάξετε τις παρακάτω επιλογές εκτός και αν γνωρίζετε πραγματικά τι κάνετε.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Για προχωρημένους</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Εκκίνηση εφαρμογής ελαχιστοποιημένης στη γραμμή εικονιδίων όταν συνδεθείτε στα Windows.</value>
   </data>

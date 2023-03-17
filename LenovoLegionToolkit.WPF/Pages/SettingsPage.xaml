@@ -168,25 +168,28 @@
 
         <TextBlock
             Grid.Row="0"
-            Margin="0,16,0,0"
+            Margin="0,16,0,24"
             FontSize="24"
             FontWeight="Medium"
-            Text="{x:Static resources:Resource.SettingsPage_Advanced_Title}" />
-
-        <TextBlock
-            Grid.Row="0"
-            Margin="0,8,0,24"
-            FontSize="12"
-            Text="{x:Static resources:Resource.SettingsPage_Advanced_Message}" />
+            Text="{x:Static resources:Resource.SettingsPage_Power_Title}" />
 
         <wpfui:CardAction
             x:Name="_powerPlansCard"
             Margin="0,0,0,8"
             Click="PowerPlans_Click">
             <wpfui:CardAction.Content>
-                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_PowerPlans_Title}" />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_PowerPlans_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_PowerPlans_Message}" />
             </wpfui:CardAction.Content>
         </wpfui:CardAction>
 
+        <wpfui:CardControl Margin="0,0,0,8" Click="PowerPlansControlPanel_Click">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_PowerPlansControlPanel_Title}" />
+            </wpfui:CardControl.Header>
+            <wpfui:SymbolIcon
+                Margin="4,0,0,0"
+                FontSize="20"
+                Symbol="Open24" />
+        </wpfui:CardControl>
     </StackPanel>
 </wpfui:UiPage>

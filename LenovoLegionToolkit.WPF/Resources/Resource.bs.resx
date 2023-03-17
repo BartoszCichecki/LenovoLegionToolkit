@@ -700,12 +700,6 @@ Uvijek provjerite da li instalirate ispravne pakete.</value>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Akcentna boja</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Nemojte mijenjati opcije ispod osim ako stvarno znate šta radite.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Napredno</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Start minimized to tray when you log in to Windows.
 Startup is delayed by 30 seconds for compatibility reasons.</value>

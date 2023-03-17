@@ -1173,12 +1173,6 @@ Certifique-se de que seu script seja executado corretamente primeiro.</value>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Cor de destaque</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Não mude as opções abaixo caso você não saiba o que está fazendo.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Avançado</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Iniciar minizado na bandeja de notificações quando logar no Windows.</value>
   </data>

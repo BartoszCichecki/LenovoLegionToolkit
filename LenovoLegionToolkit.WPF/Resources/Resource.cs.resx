@@ -1173,12 +1173,6 @@ Nejprve se ujisti, že tvůj skript běží správně.</value>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Barva aplikace</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Neměň níže uvedené možnosti, pokud opravdu nevíš, co děláš.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Pokročilé</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Zapnout minimalizované v liště, když se přihlásiš do windowsu.</value>
   </data>

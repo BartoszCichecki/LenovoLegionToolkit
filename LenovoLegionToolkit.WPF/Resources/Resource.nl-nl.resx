@@ -1167,12 +1167,6 @@ Zorg ervoor dat uw script eerst correct wordt uitgevoerd.</value>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Accentkleur</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Wijzig deze instellingen alleen als u weet wat u doet.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Geavanceerd</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Start geminimaliseerd naar lade wanneer u zich aanmeldt bij Windows.</value>
   </data>
