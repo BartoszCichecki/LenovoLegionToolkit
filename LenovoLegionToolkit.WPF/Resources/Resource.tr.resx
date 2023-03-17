@@ -879,9 +879,6 @@ Daima doğru paketleri kurduğunuzdan emin olun.</value>
   <data name="Paste" xml:space="preserve">
     <value>Yapıştır</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Uygulamalar</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>Performans modunu seçin.</value>
   </data>
@@ -896,9 +893,6 @@ Fn+Q ile modu değiştirebilirsiniz.</value>
     <value>Ayarlar</value>
   </data>
   <data name="PowerModeControl_Title" xml:space="preserve">
-    <value>Güç Modu</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
     <value>Güç Modu</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
@@ -1105,16 +1099,13 @@ UYARI: Yerleşik ekran kapalıysa bu eylem düzgün çalışmayacaktır.</value>
   <data name="SettingsPage_Title" xml:space="preserve">
     <value>Ayarlar</value>
   </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>Gündoğumu</value>
   </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
     <value>Gündoğumu</value>
   </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Zaman</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Zaman</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">

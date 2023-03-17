@@ -7,7 +7,7 @@
     xmlns:utils="clr-namespace:LenovoLegionToolkit.WPF.Utils"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="{x:Static resources:Resource.CreateAutomationPipelineWindow_Title}"
-    Width="500"
+    Width="600"
     Height="570"
     MinWidth="500"
     MinHeight="400"
@@ -59,10 +59,20 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
             <wpfui:Button
+                x:Name="_createButton"
                 Grid.Column="1"
+                MinWidth="100"
+                Margin="8,0,0,0"
+                Appearance="Primary"
+                Click="CreateButton_Click"
+                Content="{x:Static resources:Resource.Create}" />
+
+            <wpfui:Button
+                Grid.Column="2"
                 MinWidth="100"
                 Margin="8,0,0,0"
                 Click="CancelButton_Click"

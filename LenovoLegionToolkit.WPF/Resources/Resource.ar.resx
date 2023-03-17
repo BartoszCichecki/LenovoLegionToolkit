@@ -1006,9 +1006,6 @@
   <data name="Paste" xml:space="preserve">
     <value>لصق</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>التطبيقات</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>اختر وضع الأداء.</value>
   </data>
@@ -1027,9 +1024,6 @@
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>قد لا يعمل وضع الطاقة المحدد بشكل صحيح بِدون توصيل محول التيار المتردد.</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>وضع الطاقة</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>قد يؤدي تمكين هذا الخِيار عند تشغيل Lenovo Vantage وتغييره لِخطط الطاقة على الكمبيوتر المحمول إلى سلوك غير متوقع.</value>
@@ -1334,16 +1328,13 @@
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>المناطق {0}</value>
   </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>الشروق</value>
   </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
     <value>الشروق</value>
   </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>الوقت</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>الوقت</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">

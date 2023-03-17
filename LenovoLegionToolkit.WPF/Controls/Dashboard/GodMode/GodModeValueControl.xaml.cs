@@ -77,7 +77,7 @@ public partial class GodModeValueControl
 
     public GodModeValueControl() => InitializeComponent();
 
-    public void Set(StepperValue? stepperValue, int? maxValueOffset = 0)
+    public void Set(StepperValue? stepperValue)
     {
         if (!stepperValue.HasValue)
         {

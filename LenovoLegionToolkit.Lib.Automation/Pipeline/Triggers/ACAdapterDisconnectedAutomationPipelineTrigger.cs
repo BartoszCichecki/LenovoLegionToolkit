@@ -11,12 +11,19 @@ public class ACAdapterDisconnectedAutomationPipelineTrigger : IPowerStateAutomat
     [JsonIgnore]
     public string DisplayName => Resource.ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName;
 
-    public async Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent)
+    public async Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
     {
         if (automationEvent is not (PowerStateAutomationEvent or StartupAutomationEvent))
             return false;
 
-        return await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false) == PowerAdapterStatus.Disconnected;
+        var status = await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false);
+        return status == PowerAdapterStatus.Disconnected;
+    }
+
+    public async Task<bool> IsMatchingState()
+    {
+        var status = await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false);
+        return status == PowerAdapterStatus.Disconnected;
     }
 
     public IAutomationPipelineTrigger DeepCopy() => new ACAdapterDisconnectedAutomationPipelineTrigger();

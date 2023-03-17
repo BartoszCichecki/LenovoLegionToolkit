@@ -1023,9 +1023,6 @@ Assicurati sempre di installare i pacchetti corretti.</value>
   <data name="Paste" xml:space="preserve">
     <value>Incolla</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Applicazioni</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>Cambia la modalità energetica.</value>
   </data>
@@ -1044,9 +1041,6 @@ Puoi anche usare la scorciatoia Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>La modalità di alimentazione selezionata potrebbe non funzionare correttamente senza un alimentatore collegato.</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>Modalità energetica</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>L'abilitazione di questa opzione quando Lenovo Vantage è in esecuzione e cambia i piani di alimentazione sul laptop potrebbe causare un comportamento imprevisto.</value>
@@ -1375,16 +1369,13 @@ Assicurati prima, che il tuo script funzioni correttamente.</value>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} zone</value>
   </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>Alba</value>
   </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
     <value>Alba</value>
   </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Orario</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Orario</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">

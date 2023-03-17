@@ -23,6 +23,19 @@ public class AutomationPipeline
 
     public bool IsExclusive { get; set; } = true;
 
+    public IEnumerable<IAutomationPipelineTrigger> AllTriggers
+    {
+        get
+        {
+            if (Trigger is not null)
+                yield return Trigger;
+
+            if (Trigger is ICompositeAutomationPipelineTrigger compositeTrigger)
+                foreach (var trigger in compositeTrigger.Triggers)
+                    yield return trigger;
+        }
+    }
+
     public AutomationPipeline() { }
 
     public AutomationPipeline(string name) => Name = name;

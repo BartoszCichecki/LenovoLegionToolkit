@@ -619,9 +619,6 @@ Uvijek provjerite da li instalirate ispravne pakete.</value>
   <data name="Paste" xml:space="preserve">
     <value>Zalijepi</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Aplikacije</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Režim rada</value>
   </data>
@@ -629,9 +626,6 @@ Uvijek provjerite da li instalirate ispravne pakete.</value>
     <value>Postavke</value>
   </data>
   <data name="PowerModeControl_Title" xml:space="preserve">
-    <value>Režim rada</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
     <value>Režim rada</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
@@ -785,16 +779,13 @@ Startup is delayed by 30 seconds for compatibility reasons.</value>
   <data name="SettingsPage_Title" xml:space="preserve">
     <value>Postavke</value>
   </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>Izlazak sunca</value>
   </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
     <value>Zalazak sunca</value>
   </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Vrijeme</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Vrijeme</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">

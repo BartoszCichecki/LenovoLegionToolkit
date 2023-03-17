@@ -16,7 +16,7 @@ public static class InternalDisplay
 {
     private readonly struct DisplayHolder
     {
-        public static DisplayHolder Empty = new();
+        public static readonly DisplayHolder Empty = new();
 
         private readonly Display? _display;
 

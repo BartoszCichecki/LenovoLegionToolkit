@@ -1034,9 +1034,6 @@ Asigurați-vă întotdeauna că instalați pachetele corecte.</value>
   <data name="Paste" xml:space="preserve">
     <value>Lipire</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Aplicații</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>Selectați modul de performanță.</value>
   </data>
@@ -1055,9 +1052,6 @@ Puteți schimba modul apăsând Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Este posibil ca modul de putere selectat să nu funcționeze corect fără alimentator.</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>Mod putere</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>Activarea acestei opțiuni atunci când Lenovo Vantage rulează și modifică planurile de alimentare de pe laptop poate duce la un comportament neașteptat.</value>
@@ -1399,16 +1393,13 @@ Se recomandă repornirea după modificarea acestei opțiuni.</value>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} zone</value>
   </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>Răsărit</value>
   </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
     <value>Apus</value>
   </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Timp</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Timp</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
