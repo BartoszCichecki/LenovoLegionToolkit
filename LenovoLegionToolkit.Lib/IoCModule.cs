@@ -73,9 +73,9 @@ public class IoCModule : Module
         builder.Register<UpdateChecker>();
         builder.Register<WarrantyChecker>();
 
+        builder.Register<PackageDownloaderFactory>();
         builder.Register<PCSupportPackageDownloader>();
         builder.Register<VantagePackageDownloader>();
-        builder.Register<PackageDownloaderFactory>();
 
         builder.Register<SunriseSunset>();
     }
