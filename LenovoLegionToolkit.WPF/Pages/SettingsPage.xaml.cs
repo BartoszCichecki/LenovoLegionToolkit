@@ -36,17 +36,14 @@ public partial class SettingsPage
     {
         InitializeComponent();
 
-        Loaded += SettingsPage_Loaded;
         IsVisibleChanged += SettingsPage_IsVisibleChanged;
 
         _themeManager.ThemeApplied += ThemeManager_ThemeApplied;
     }
 
-    private async void SettingsPage_Loaded(object sender, RoutedEventArgs e) => await RefreshAsync();
-
     private async void SettingsPage_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
     {
-        if (IsLoaded && IsVisible)
+        if (IsVisible)
             await RefreshAsync();
     }
 
@@ -60,7 +57,7 @@ public partial class SettingsPage
     {
         _isRefreshing = true;
 
-        var loadingTask = Task.Delay(250);
+        var loadingTask = Task.Delay(TimeSpan.FromMilliseconds(500));
 
         var languages = LocalizationHelper.Languages.OrderBy(ci => ci.Name, StringComparer.InvariantCultureIgnoreCase).ToArray();
         var language = await LocalizationHelper.GetLanguageAsync();

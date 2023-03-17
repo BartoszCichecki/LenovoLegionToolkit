@@ -27,17 +27,11 @@ public partial class BatteryPage
     {
         InitializeComponent();
 
-        Loaded += BatteryPage_Loaded;
         IsVisibleChanged += BatteryPage_IsVisibleChanged;
     }
 
-    private void BatteryPage_Loaded(object sender, RoutedEventArgs e) => Refresh();
-
     private void BatteryPage_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
     {
-        if (!IsLoaded)
-            return;
-
         if (IsVisible)
             Refresh();
         else

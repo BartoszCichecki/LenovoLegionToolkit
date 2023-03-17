@@ -15,7 +15,6 @@
     MinHeight="500"
     FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
     IsVisibleChanged="GodModeSettingsWindow_IsVisibleChanged"
-    Loaded="GodModeSettingsWindow_Loaded"
     ResizeMode="CanMinimize"
     ShowInTaskbar="False"
     WindowStartupLocation="CenterOwner">

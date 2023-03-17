@@ -86,18 +86,14 @@ public abstract class AbstractAutomationStepControl : UserControl
         Content = _cardControl;
     }
 
-    private async void RefreshingControl_Loaded(object sender, RoutedEventArgs e)
+    private void RefreshingControl_Loaded(object sender, RoutedEventArgs e)
     {
-        var loadingTask = Task.Delay(250);
-        await RefreshAsync();
-        await loadingTask;
-
         OnFinishedLoading();
     }
 
     private async void RefreshingControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
     {
-        if (IsLoaded && IsVisible)
+        if (IsVisible)
             await RefreshAsync();
     }
 

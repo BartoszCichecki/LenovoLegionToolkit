@@ -21,11 +21,9 @@ public partial class AddAutomationStepWindow
         InitializeComponent();
     }
 
-    private async void AddAutomationStepWindow_Loaded(object _1, RoutedEventArgs _2) => await RefreshAsync();
-
     private async void AddAutomationStepWindow_IsVisibleChanged(object _1, DependencyPropertyChangedEventArgs _2)
     {
-        if (IsLoaded && IsVisible)
+        if (IsVisible)
             await RefreshAsync();
     }
 

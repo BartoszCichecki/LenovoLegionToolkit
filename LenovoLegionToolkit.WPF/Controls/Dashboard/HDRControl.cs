@@ -48,7 +48,7 @@ public class HDRControl : AbstractToggleFeatureCardControl<HDRState>
 
     private void Listener_Changed(object? sender, EventArgs e) => Dispatcher.Invoke(async () =>
     {
-        if (IsLoaded)
+        if (IsLoaded && IsVisible)
             await RefreshAsync();
     });
 }

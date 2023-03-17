@@ -246,19 +246,13 @@
 
             </Grid>
 
-            <controls:LoadableControl
-                x:Name="_effectsLoader"
-                Margin="0,8,0,16"
-                IndicatorHeight="32"
-                IndicatorWidth="32">
-                <StackPanel>
-                    <TextBlock
-                        x:Name="_noEffectsText"
-                        Margin="0,8,0,32"
-                        Text="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_NoEffects_Text}" />
-                    <StackPanel x:Name="_effects" />
-                </StackPanel>
-            </controls:LoadableControl>
+            <StackPanel Margin="0,8,0,16">
+                <TextBlock
+                    x:Name="_noEffectsText"
+                    Margin="0,8,0,32"
+                    Text="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_NoEffects_Text}" />
+                <StackPanel x:Name="_effects" />
+            </StackPanel>
 
         </StackPanel>
 
