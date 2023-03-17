@@ -3,17 +3,18 @@ using System.Management;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
-using LenovoLegionToolkit.Lib.System;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
 public class PowerModeListener : AbstractWMIListener<PowerModeState>, INotifyingListener<PowerModeState>
 {
     private readonly AIModeController _aiModeController;
+    private readonly PowerPlanController _powerPlanController;
 
-    public PowerModeListener(AIModeController aiModeController) : base("ROOT\\WMI", "LENOVO_GAMEZONE_SMART_FAN_MODE_EVENT")
+    public PowerModeListener(AIModeController aiModeController, PowerPlanController powerPlanController) : base("ROOT\\WMI", "LENOVO_GAMEZONE_SMART_FAN_MODE_EVENT")
     {
         _aiModeController = aiModeController ?? throw new ArgumentNullException(nameof(aiModeController));
+        _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController)); ;
     }
 
     protected override PowerModeState GetValue(PropertyDataCollection properties)
@@ -39,8 +40,7 @@ public class PowerModeListener : AbstractWMIListener<PowerModeState>, INotifying
     private async Task ChangeDependenciesAsync(PowerModeState value)
     {
         await _aiModeController.StartAsync(value).ConfigureAwait(false);
-
-        await Power.ActivatePowerPlanAsync(value).ConfigureAwait(false);
+        await _powerPlanController.ActivatePowerPlanAsync(value).ConfigureAwait(false);
     }
 
     private static void PublishNotification(PowerModeState value)

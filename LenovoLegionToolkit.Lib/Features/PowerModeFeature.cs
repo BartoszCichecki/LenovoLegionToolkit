@@ -13,15 +13,17 @@ public class PowerModeFeature : AbstractLenovoGamezoneWmiFeature<PowerModeState>
 {
     private readonly AIModeController _aiModeController;
     private readonly GodModeController _godModeController;
+    private readonly PowerPlanController _powerPlanController;
     private readonly PowerModeListener _listener;
 
     public bool AllowAllPowerModesOnBattery { get; set; }
 
-    public PowerModeFeature(AIModeController aiModeController, GodModeController godModeController, PowerModeListener listener)
+    public PowerModeFeature(AIModeController aiModeController, GodModeController godModeController, PowerPlanController powerPlanController, PowerModeListener listener)
         : base("SmartFanMode", 1, "IsSupportSmartFan")
     {
         _aiModeController = aiModeController ?? throw new ArgumentNullException(nameof(aiModeController));
         _godModeController = godModeController ?? throw new ArgumentNullException(nameof(godModeController));
+        _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController)); ;
         _listener = listener ?? throw new ArgumentNullException(nameof(listener));
     }
 
@@ -63,7 +65,7 @@ public class PowerModeFeature : AbstractLenovoGamezoneWmiFeature<PowerModeState>
     public async Task EnsureCorrectPowerPlanIsSetAsync()
     {
         var state = await GetStateAsync().ConfigureAwait(false);
-        await Power.ActivatePowerPlanAsync(state, true).ConfigureAwait(false);
+        await _powerPlanController.ActivatePowerPlanAsync(state, true).ConfigureAwait(false);
     }
 
     public async Task EnsureGodModeStateIsAppliedAsync()

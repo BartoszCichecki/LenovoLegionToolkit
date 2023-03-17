@@ -1750,4 +1750,10 @@ Esta configuração somente terá efeito se o Modo Personalizado estiver ativo.<
   <data name="BatteryPage_LowLevel" xml:space="preserve">
     <value>Nível de bateria baixo</value>
   </data>
+  <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
+	  <value>Modelo de Baixa Energia S0 detectado</value>
+  </data>
+  <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
+	  <value>Esta versão do Windows suporta o modo de espera moderno. Usar planos de energia diferentes do Balanceado pode causar comportamentos inesperados.</value>
+  </data>
 </root>

@@ -52,7 +52,7 @@ internal static class NVAPI
 
     private class PhysicalGPUEqualityComparer : IEqualityComparer<PhysicalGPU>
     {
-        public static PhysicalGPUEqualityComparer Instance = new();
+        public static readonly PhysicalGPUEqualityComparer Instance = new();
 
         private PhysicalGPUEqualityComparer() { }
 
