@@ -13,7 +13,6 @@
     MaxWidth="800"
     FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
     IsVisibleChanged="PowerPlansWindow_IsVisibleChanged"
-    Loaded="PowerPlansWindow_Loaded"
     ResizeMode="CanMinimize"
     ShowInTaskbar="False"
     SizeToContent="Height"

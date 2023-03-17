@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,8 +25,6 @@ public class DashboardGroupControl : UserControl
     {
         var stackPanel = new StackPanel { Margin = new(0, 0, 16, 0) };
 
-        var initializedTasks = new List<Task>();
-
         stackPanel.Children.Add(new TextBlock
         {
             Text = _dashboardGroup.GetName(),
@@ -42,12 +39,9 @@ public class DashboardGroupControl : UserControl
         foreach (var control in controls.SelectMany(c => c))
         {
             stackPanel.Children.Add(control);
-            initializedTasks.Add(control.InitializedTask);
         }
 
         Content = stackPanel;
-
-        await Task.WhenAll(initializedTasks);
 
         _initializedTaskCompletionSource.TrySetResult();
     }

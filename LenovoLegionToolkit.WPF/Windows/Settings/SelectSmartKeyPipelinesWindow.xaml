@@ -13,7 +13,6 @@
     MinHeight="500"
     FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
     IsVisibleChanged="SelectSmartKeyPipelinesWindow_IsVisibleChanged"
-    Loaded="SelectSmartKeyPipelinesWindow_Loaded"
     ResizeMode="CanMinimize"
     ShowInTaskbar="False"
     WindowStartupLocation="CenterOwner">

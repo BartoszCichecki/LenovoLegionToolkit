@@ -31,11 +31,9 @@ public partial class GodModeSettingsWindow
 
     public GodModeSettingsWindow() => InitializeComponent();
 
-    private async void GodModeSettingsWindow_Loaded(object sender, RoutedEventArgs e) => await RefreshAsync();
-
     private async void GodModeSettingsWindow_IsVisibleChanged(object _1, DependencyPropertyChangedEventArgs _2)
     {
-        if (IsLoaded && IsVisible)
+        if (IsVisible)
             await RefreshAsync();
     }
 
@@ -48,7 +46,7 @@ public partial class GodModeSettingsWindow
             _loader.IsLoading = true;
             _buttonsStackPanel.Visibility = Visibility.Hidden;
 
-            var loadingTask = Task.Delay(500);
+            var loadingTask = Task.Delay(TimeSpan.FromMilliseconds(500));
 
             _vantageRunningWarningInfoBar.Visibility = await _godModeController.NeedsVantageDisabledAsync()
                                                        && await _vantage.GetStatusAsync() == SoftwareStatus.Enabled

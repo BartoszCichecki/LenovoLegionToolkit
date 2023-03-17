@@ -13,7 +13,6 @@
     MinHeight="400"
     FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
     IsVisibleChanged="CreateAutomationPipelineWindow_IsVisibleChanged"
-    Loaded="CreateAutomationPipelineWindow_Loaded"
     ResizeMode="CanMinimize"
     ShowInTaskbar="False"
     WindowStartupLocation="CenterOwner">

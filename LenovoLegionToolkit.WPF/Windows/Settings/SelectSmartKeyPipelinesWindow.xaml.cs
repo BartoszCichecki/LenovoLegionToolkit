@@ -45,11 +45,9 @@ public partial class SelectSmartKeyPipelinesWindow
             : Resource.SettingsPage_SmartKeySinglePressAction_Title;
     }
 
-    private async void SelectSmartKeyPipelinesWindow_Loaded(object sender, RoutedEventArgs e) => await RefreshAsync();
-
     private async void SelectSmartKeyPipelinesWindow_IsVisibleChanged(object _1, DependencyPropertyChangedEventArgs _2)
     {
-        if (IsLoaded && IsVisible)
+        if (IsVisible)
             await RefreshAsync();
     }
 

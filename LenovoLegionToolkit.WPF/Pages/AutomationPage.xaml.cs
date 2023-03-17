@@ -111,7 +111,7 @@ public partial class AutomationPage
         _loaderAutomatic.IsLoading = true;
         _loaderManual.IsLoading = true;
 
-        var initializedTasks = new List<Task> { Task.Delay(TimeSpan.FromMilliseconds(500)) };
+        var initializedTasks = new List<Task> { Task.Delay(TimeSpan.FromSeconds(1)) };
 
         _enableAutomaticPipelinesToggle.IsChecked = _automationProcessor.IsEnabled;
 

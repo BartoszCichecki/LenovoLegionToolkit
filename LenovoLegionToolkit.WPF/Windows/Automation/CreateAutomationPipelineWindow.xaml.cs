@@ -50,11 +50,9 @@ public partial class CreateAutomationPipelineWindow
         InitializeComponent();
     }
 
-    private async void CreateAutomationPipelineWindow_Loaded(object _1, RoutedEventArgs _2) => await RefreshAsync();
-
     private async void CreateAutomationPipelineWindow_IsVisibleChanged(object _1, DependencyPropertyChangedEventArgs _2)
     {
-        if (IsLoaded && IsVisible)
+        if (IsVisible)
             await RefreshAsync();
     }
 

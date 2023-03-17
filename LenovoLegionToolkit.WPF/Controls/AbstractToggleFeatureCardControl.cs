@@ -80,12 +80,11 @@ public abstract class AbstractToggleFeatureCardControl<T> : AbstractRefreshingCo
             throw new NotSupportedException();
 
         _toggle.IsChecked = OnState.Equals(await Feature.GetStateAsync());
+        _toggle.Visibility = Visibility.Visible;
     }
 
     protected override void OnFinishedLoading()
     {
-        _toggle.Visibility = Visibility.Visible;
-
         MessagingCenter.Subscribe<T>(this, () => Dispatcher.InvokeTask(RefreshAsync));
     }
 

@@ -12,11 +12,9 @@ public partial class CPUBoostModesWindow
 
     public CPUBoostModesWindow() => InitializeComponent();
 
-    private async void CPUBoostModesWindow_Loaded(object sender, RoutedEventArgs e) => await RefreshAsync();
-
     private async void CPUBoostModesWindow_IsVisibleChanged(object _1, DependencyPropertyChangedEventArgs _2)
     {
-        if (IsLoaded && IsVisible)
+        if (IsVisible)
             await RefreshAsync();
     }
 

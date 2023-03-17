@@ -14,7 +14,6 @@
     MinHeight="600"
     FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
     IsVisibleChanged="CPUBoostModesWindow_IsVisibleChanged"
-    Loaded="CPUBoostModesWindow_Loaded"
     ResizeMode="CanMinimize"
     ShowInTaskbar="False"
     WindowStartupLocation="CenterOwner">
