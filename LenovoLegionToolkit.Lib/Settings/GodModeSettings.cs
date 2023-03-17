@@ -68,7 +68,7 @@ public class GodModeSettings : AbstractSettings<GodModeSettings.GodModeSettingsS
     }
 }
 
-class LegacyGodModeSettings : AbstractSettings<LegacyGodModeSettings.LegacyGodModeSettingsStore>
+internal class LegacyGodModeSettings : AbstractSettings<LegacyGodModeSettings.LegacyGodModeSettingsStore>  // Introduced in 2.10.0
 {
     public class LegacyGodModeSettingsStore
     {

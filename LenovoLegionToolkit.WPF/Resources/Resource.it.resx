@@ -378,21 +378,6 @@ l'orario indicato potrebbe non essere corretto se il laptop è stato caricato me
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Batteria</value>
   </data>
-  <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
-    <value>Utilizzando batteria</value>
-  </data>
-  <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>Alimentato</value>
-  </data>
-  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
-    <value>Piani energetici</value>
-  </data>
-  <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
-    <value>Ulteriori informazioni su microsoft.com</value>
-  </data>
-  <data name="CPUBoostModesWindow_Title" xml:space="preserve">
-    <value>Modalità Boost CPU</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Annulla</value>
   </data>
@@ -1171,20 +1156,11 @@ Assicurati prima, che il tuo script funzioni correttamente.</value>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Colore</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Non modificare le opzioni seguenti a meno che tu non sappia davvero cosa stai facendo.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Avanzate</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Inizia ridotto a icona quando accedi a Windows.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Esecuzione automatica</value>
-  </data>
-  <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>Modalità Boost CPU</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone potrebbe non essere disabilitato correttamente</value>

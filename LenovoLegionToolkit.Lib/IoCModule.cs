@@ -61,7 +61,6 @@ public class IoCModule : Module
         builder.Register<WinKeyListener>().AutoActivateListener();
 
         builder.Register<AIModeController>();
-        builder.Register<CPUBoostModeController>();
         builder.Register<DisplayBrightnessController>();
         builder.Register<GodModeController>();
         builder.Register<GodModeControllerV1>();

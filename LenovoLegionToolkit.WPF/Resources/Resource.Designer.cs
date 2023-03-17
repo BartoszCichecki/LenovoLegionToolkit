@@ -1082,51 +1082,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to On battery.
-        /// </summary>
-        public static string CPUBoostModeControl_OnBattery {
-            get {
-                return ResourceManager.GetString("CPUBoostModeControl_OnBattery", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Plugged in.
-        /// </summary>
-        public static string CPUBoostModeControl_PluggedIn {
-            get {
-                return ResourceManager.GetString("CPUBoostModeControl_PluggedIn", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Power plans.
-        /// </summary>
-        public static string CPUBoostModeControl_PowerPlans {
-            get {
-                return ResourceManager.GetString("CPUBoostModeControl_PowerPlans", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Learn more at microsoft.com.
-        /// </summary>
-        public static string CPUBoostModesWindow_LearnMore {
-            get {
-                return ResourceManager.GetString("CPUBoostModesWindow_LearnMore", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to CPU Boost Modes.
-        /// </summary>
-        public static string CPUBoostModesWindow_Title {
-            get {
-                return ResourceManager.GetString("CPUBoostModesWindow_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Create.
         /// </summary>
         public static string Create {
@@ -3820,24 +3775,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do not change options below unless you really know what you are doing..
-        /// </summary>
-        public static string SettingsPage_Advanced_Message {
-            get {
-                return ResourceManager.GetString("SettingsPage_Advanced_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Advanced.
-        /// </summary>
-        public static string SettingsPage_Advanced_Title {
-            get {
-                return ResourceManager.GetString("SettingsPage_Advanced_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Start minimized to tray when you log in to Windows..
         /// </summary>
         public static string SettingsPage_Autorun_Message {
@@ -3852,15 +3789,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string SettingsPage_Autorun_Title {
             get {
                 return ResourceManager.GetString("SettingsPage_Autorun_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to CPU Boost Modes.
-        /// </summary>
-        public static string SettingsPage_CPUBoostModes_Title {
-            get {
-                return ResourceManager.GetString("SettingsPage_CPUBoostModes_Title", resourceCulture);
             }
         }
         
@@ -4103,11 +4031,38 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Power.
+        /// </summary>
+        public static string SettingsPage_Power_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_Power_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Windows Power Plans to apply when Power Mode changes..
+        /// </summary>
+        public static string SettingsPage_PowerPlans_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_PowerPlans_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Power plans.
         /// </summary>
         public static string SettingsPage_PowerPlans_Title {
             get {
                 return ResourceManager.GetString("SettingsPage_PowerPlans_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Power Plan options in Windows Control Panel.
+        /// </summary>
+        public static string SettingsPage_PowerPlansControlPanel_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_PowerPlansControlPanel_Title", resourceCulture);
             }
         }
         

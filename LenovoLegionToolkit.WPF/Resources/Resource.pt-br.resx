@@ -379,21 +379,6 @@ Este tempo pode não ser exato caso o equipamento for carregado em estado de sus
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Bateria</value>
   </data>
-  <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
-    <value>Na bateria</value>
-  </data>
-  <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>Conectado</value>
-  </data>
-  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
-    <value>Planos de Energia</value>
-  </data>
-  <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
-    <value>Mais informações em microsoft.com</value>
-  </data>
-  <data name="CPUBoostModesWindow_Title" xml:space="preserve">
-    <value>Modos de desempenho da CPU</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancelar</value>
   </data>
@@ -1182,20 +1167,11 @@ Certifique-se de que seu script seja executado corretamente primeiro.</value>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Cor de destaque</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Não mude as opções abaixo caso você não saiba o que está fazendo.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Avançado</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Iniciar minizado na bandeja de notificações quando logar no Windows.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Execução automática</value>
-  </data>
-  <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>Modos de desempenho da CPU</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
     <value>O Legion Zone pode não ter sido desabilitado corretamente</value>

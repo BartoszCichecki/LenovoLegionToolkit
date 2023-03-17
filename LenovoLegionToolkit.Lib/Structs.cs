@@ -35,34 +35,6 @@ public readonly struct Brightness
     public static implicit operator Brightness(byte value) => new() { Value = value };
 }
 
-public readonly struct CPUBoostMode
-{
-    public int Value { get; }
-    public string Name { get; }
-
-    public CPUBoostMode(int value, string name)
-    {
-        Value = value;
-        Name = name;
-    }
-}
-
-public readonly struct CPUBoostModeSettings
-{
-    public PowerPlan PowerPlan { get; }
-    public List<CPUBoostMode> CPUBoostModes { get; }
-    public int ACSettingValue { get; }
-    public int DCSettingValue { get; }
-
-    public CPUBoostModeSettings(PowerPlan powerPlan, List<CPUBoostMode> cpuBoostModes, int acSettingValue, int dcSettingValue)
-    {
-        PowerPlan = powerPlan;
-        CPUBoostModes = cpuBoostModes;
-        ACSettingValue = acSettingValue;
-        DCSettingValue = dcSettingValue;
-    }
-}
-
 public readonly struct DisplayAdvancedColorInfo
 {
     public bool AdvancedColorSupported { get; }
@@ -396,14 +368,13 @@ public readonly struct Notification
 
 public readonly struct PowerPlan
 {
-    public string InstanceId { get; }
+    public Guid Guid { get; }
     public string Name { get; }
     public bool IsActive { get; }
-    public string Guid => InstanceId.Split("\\").Last().Replace("{", "").Replace("}", "");
 
-    public PowerPlan(string instanceId, string name, bool isActive)
+    public PowerPlan(Guid guid, string name, bool isActive)
     {
-        InstanceId = instanceId;
+        Guid = guid;
         Name = name;
         IsActive = isActive;
     }

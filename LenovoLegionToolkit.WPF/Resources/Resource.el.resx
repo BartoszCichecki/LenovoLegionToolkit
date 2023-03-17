@@ -379,21 +379,6 @@
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Μπαταρία</value>
   </data>
-  <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
-    <value>Λειτουργία με την μπαταρία</value>
-  </data>
-  <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>Στην πρίζα</value>
-  </data>
-  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
-    <value>Προφίλ παροχής ενέργειας</value>
-  </data>
-  <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
-    <value>Μάθετε περισσότερα στο microsoft.com</value>
-  </data>
-  <data name="CPUBoostModesWindow_Title" xml:space="preserve">
-    <value>Λειτουργίες ενίσχυσης CPU</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Ακύρωση</value>
   </data>
@@ -1165,20 +1150,11 @@
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Χρώμα έμφασης</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Μην αλλάξετε τις παρακάτω επιλογές εκτός και αν γνωρίζετε πραγματικά τι κάνετε.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Για προχωρημένους</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Εκκίνηση εφαρμογής ελαχιστοποιημένης στη γραμμή εικονιδίων όταν συνδεθείτε στα Windows.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Αυτόματη εκτέλεση</value>
-  </data>
-  <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>Λειτουργίες ενίσχυσης CPU</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
     <value>Το Legion Zone μπορεί να μην απενεργοποιήθηκε σωστά</value>

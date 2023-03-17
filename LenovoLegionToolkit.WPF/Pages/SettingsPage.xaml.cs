@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
@@ -458,12 +459,8 @@ public partial class SettingsPage
         window.ShowDialog();
     }
 
-    private void CPUBoostModes_Click(object sender, RoutedEventArgs e)
+    private void PowerPlansControlPanel_Click(object sender, RoutedEventArgs e)
     {
-        if (_isRefreshing)
-            return;
-
-        var window = new CPUBoostModesWindow { Owner = Window.GetWindow(this) };
-        window.ShowDialog();
+        Process.Start("control", "/name Microsoft.PowerOptions");
     }
 }
