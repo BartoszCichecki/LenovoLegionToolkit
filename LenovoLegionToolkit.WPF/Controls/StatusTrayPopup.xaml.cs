@@ -35,7 +35,7 @@ public partial class StatusTrayPopup
         _themeManager.ThemeApplied += (_, _) => Resources = Application.Current.Resources;
 
         var version = Assembly.GetEntryAssembly()?.GetName().Version;
-        if (version == new Version(0, 0, 1, 0) || version?.Minor == 99)
+        if (version == new Version(0, 0, 1, 0) || version?.Build == 99)
             _title.Text += " [BETA]";
 
 #if DEBUG
