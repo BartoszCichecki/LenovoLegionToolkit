@@ -248,15 +248,6 @@ To collect logs:
 6. Again, in `Run` (Win+R) type `"%LOCALAPPDATA%\LenovoLegionToolkit\log"`
 7. You should see at least one file. Theses are the logs you should attach to the issue.
 
-
-On version 2.6.0 or higher, you can also enable logs in a quicker way:
-
-1. Make sure that Lenovo Legion Toolkit is not running (also gone from tray area).
-2. Hold down Left Ctrl and Left Shift
-3. Double click Lenovo Legion Toolkit icon
-4. LLT will start and in the title bar you should see: `[LOGGING ENABLED]` you will also see an orange link to open the log file.
-
-
 ## Contribution
 
 I appreciate any feedback that you have, so please do not hesitate to report issues.
