@@ -47,7 +47,7 @@ public class PowerPlanListener : AbstractEventLogListener
             return;
         }
 
-        var powerPlans = await _powerPlanController.GetPowerPlansAsync().ConfigureAwait(false);
+        var powerPlans = _powerPlanController.GetPowerPlans().ToArray();
         var activePowerPlan = powerPlans.First(pp => pp.IsActive);
 
         var powerModes = _powerPlanController.GetMatchingPowerModes(activePowerPlan.Guid);

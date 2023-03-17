@@ -43,7 +43,7 @@ public partial class PowerPlansWindow
             ? Visibility.Visible
             : Visibility.Collapsed;
 
-        var powerPlans = (await _powerPlanController.GetPowerPlansAsync()).OrderBy(x => x.Name).ToArray();
+        var powerPlans = _powerPlanController.GetPowerPlans().OrderBy(x => x.Name).ToArray();
         Refresh(_quietModeComboBox, powerPlans, PowerModeState.Quiet);
         Refresh(_balanceModeComboBox, powerPlans, PowerModeState.Balance);
         Refresh(_performanceModeComboBox, powerPlans, PowerModeState.Performance);
@@ -63,8 +63,8 @@ public partial class PowerPlansWindow
 
     private void Refresh(ComboBox comboBox, PowerPlan[] powerPlans, PowerModeState powerModeState)
     {
-        var settingsPowerPlanInstanceId = _settings.Store.PowerPlans.GetValueOrDefault(powerModeState);
-        var selectedValue = powerPlans.FirstOrDefault(pp => pp.InstanceId == settingsPowerPlanInstanceId);
+        var settingsPowerPlanGuid = _settings.Store.PowerPlans.GetValueOrDefault(powerModeState);
+        var selectedValue = powerPlans.FirstOrDefault(pp => pp.Guid == settingsPowerPlanGuid);
 
         comboBox.Items.Clear();
         comboBox.Items.Add(DefaultValue);
@@ -75,7 +75,7 @@ public partial class PowerPlansWindow
     private async Task PowerPlanChangedAsync(object value, PowerModeState powerModeState)
     {
         if (value is PowerPlan powerPlan)
-            _settings.Store.PowerPlans[powerModeState] = powerPlan.InstanceId;
+            _settings.Store.PowerPlans[powerModeState] = powerPlan.Guid;
         if (value is string)
             _settings.Store.PowerPlans.Remove(powerModeState);
         _settings.SynchronizeStore();

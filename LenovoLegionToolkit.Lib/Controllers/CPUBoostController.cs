@@ -31,7 +31,7 @@ public class CPUBoostModeController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting power plans...");
 
-        var powerPlans = await _powerPlanController.GetPowerPlansAsync().ConfigureAwait(false);
+        var powerPlans = _powerPlanController.GetPowerPlans();
         var cpuBoostModes = await GetCpuBoostModesAsync().ConfigureAwait(false);
 
         var result = new List<CPUBoostModeSettings>();
@@ -40,12 +40,12 @@ public class CPUBoostModeController
             try
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Getting perfboostmodes for power plan {powerPlan.Name}... [powerPlan.instanceID={powerPlan.InstanceId}]");
+                    Log.Instance.Trace($"Getting perfboostmodes for power plan {powerPlan.Name}... [powerPlan.Guid={powerPlan.Guid}]");
 
                 var settings = await GetCpuBoostSettingsAsync(powerPlan, cpuBoostModes).ConfigureAwait(false);
 
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Perfboostmodes settings retrieved for power plan {settings.PowerPlan.Name} [powerPlan.instanceID={settings.PowerPlan.InstanceId}, {string.Join(", ", settings.CPUBoostModes.Select(cbm => $"{{{cbm.Name}:{cbm.Value}}}"))}, acSettingsValue={settings.ACSettingValue}, dcSettingValue={settings.DCSettingValue}]");
+                    Log.Instance.Trace($"Perfboostmodes settings retrieved for power plan {settings.PowerPlan.Name} [powerPlan.Guid={settings.PowerPlan.Guid}, {string.Join(", ", settings.CPUBoostModes.Select(cbm => $"{{{cbm.Name}:{cbm.Value}}}"))}, acSettingsValue={settings.ACSettingValue}, dcSettingValue={settings.DCSettingValue}]");
 
                 result.Add(settings);
             }
@@ -65,13 +65,13 @@ public class CPUBoostModeController
     public async Task SetSettingAsync(PowerPlan powerPlan, CPUBoostMode cpuBoostMode, bool isAc)
     {
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Setting perfboostmode to {cpuBoostMode.Name}... [powerPlan.name={powerPlan.Name}, powerPlan.instanceID={powerPlan.InstanceId}, cpuBoostMode.value={cpuBoostMode.Value}, isAc={isAc}]");
+            Log.Instance.Trace($"Setting perfboostmode to {cpuBoostMode.Name}... [powerPlan.name={powerPlan.Name}, powerPlan.Guid={powerPlan.Guid}, cpuBoostMode.value={cpuBoostMode.Value}, isAc={isAc}]");
 
         var option = isAc ? "/SETACVALUEINDEX" : "/SETDCVALUEINDEX";
         await CMD.RunAsync("powercfg", $"{option} {powerPlan.Guid} {PROCESSOR_POWER_MANAGEMENT_SUBGROUP_GUID} {POWER_SETTING_GUID} {cpuBoostMode.Value}").ConfigureAwait(false);
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Perfboostmode set to {cpuBoostMode.Name} [powerPlan.name={powerPlan.Name}, powerPlan.instanceID={powerPlan.InstanceId}, cpuBoostMode.value={cpuBoostMode.Value}, isAc={isAc}]");
+            Log.Instance.Trace($"Perfboostmode set to {cpuBoostMode.Name} [powerPlan.name={powerPlan.Name}, powerPlan.Guid={powerPlan.Guid}, cpuBoostMode.value={cpuBoostMode.Value}, isAc={isAc}]");
     }
 
     private async Task EnsureAttributeVisibleAsync()

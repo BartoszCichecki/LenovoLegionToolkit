@@ -396,14 +396,13 @@ public readonly struct Notification
 
 public readonly struct PowerPlan
 {
-    public string InstanceId { get; }
+    public Guid Guid { get; }
     public string Name { get; }
     public bool IsActive { get; }
-    public string Guid => InstanceId.Split("\\").Last().Replace("{", "").Replace("}", "");
 
-    public PowerPlan(string instanceId, string name, bool isActive)
+    public PowerPlan(Guid guid, string name, bool isActive)
     {
-        InstanceId = instanceId;
+        Guid = guid;
         Name = name;
         IsActive = isActive;
     }
