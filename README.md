@@ -201,6 +201,18 @@ If you downloaded the installer from this projects website, you shouldn't worry 
 
 Sometimes new motherboard does not contain correct model numbers and serial numbers. You should try [this tutorial](https://laptopwiki.eu/index.php/guides-and-tutorials/important-bios-related-guides/recover-original-model-sku-values/) to try and recover them. If that method does not succeed, you can workaround by going to `%LOCALAPPDATA%\LenovoLegionToolkit` and creating an `args.txt` file. Inside that file paste `--skip-compat-check`. This will disable all compatibility checks in LLT. Use this workaround only if correct model number, serial number etc. can't be restored.
 
+#### Why I can't switch to Performance or Custom Power Mode on battery?
+
+Starting with version 2.11.0, LLT's behavior was aligned with Vantage and Legion Zone and it does not allow using them without an appropriate power source.
+
+If for whatever reason you want to use these modes on battery anyway, you can use `--allow-all-power-modes-on-battery` argument. Note that Power Limits and other settings are not applied correctly on most devices when laptop is not connected to full power AC adapter and unpredictable and weird behavior is expected.
+
+You have been warned, but here are the steps to allow all power modes without AC adapter:
+1. Go to `%LOCALAPPDATA%\LenovoLegionToolkit`
+2. Create `args.txt` file in there (if you already have it edit)
+3. Paste `--allow-all-power-modes-on-battery`
+4. Start LLT
+
 #### Will iCue RGB keyboards be supported?
 
 No. Check out [OpenRGB](https://openrgb.org/) project.
@@ -244,7 +256,6 @@ In Windows 10 and 11, Microsoft did plenty of changes to the tray, breaking a lo
 ## How to collect logs?
 
 In some cases it will be super useful if you can provide logs that this app can create. This helps with debugging and other issue solving.
-
 
 To collect logs:
 

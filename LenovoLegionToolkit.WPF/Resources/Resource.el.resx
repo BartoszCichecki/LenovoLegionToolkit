@@ -976,7 +976,7 @@
     <value>Λειτουργικό σύστημα</value>
   </data>
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
-    <value>Κύριο (Συνιστάται)</value>
+    <value>Κύρια (Συνιστάται)</value>
   </data>
   <data name="PackagesPage_PrimarySource_Message" xml:space="preserve">
     <value>Ίδιο με το Lenovo Vantage</value>
