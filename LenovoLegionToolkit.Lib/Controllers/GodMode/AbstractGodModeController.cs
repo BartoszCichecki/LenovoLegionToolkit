@@ -109,8 +109,6 @@ public abstract class AbstractGodModeController : IGodModeController
 
     protected abstract Task<GodModePreset> GetDefaultStateAsync();
 
-    protected bool IsValidStore(GodModeSettings.GodModeSettingsStore store) => store.Presets.Any() && store.Presets.ContainsKey(store.ActivePresetId);
-
     protected async Task<GodModeSettings.GodModeSettingsStore.Preset> GetActivePresetAsync()
     {
         if (!IsValidStore(Settings.Store))
@@ -131,7 +129,9 @@ public abstract class AbstractGodModeController : IGodModeController
         throw new InvalidOperationException($"Preset with ID {activePresetId} not found.");
     }
 
-    protected GodModeState LoadStateFromStore(GodModeSettings.GodModeSettingsStore store, GodModePreset defaultState)
+    private bool IsValidStore(GodModeSettings.GodModeSettingsStore store) => store.Presets.Any() && store.Presets.ContainsKey(store.ActivePresetId);
+
+    private GodModeState LoadStateFromStore(GodModeSettings.GodModeSettingsStore store, GodModePreset defaultState)
     {
         var states = new Dictionary<Guid, GodModePreset>();
 
@@ -164,7 +164,7 @@ public abstract class AbstractGodModeController : IGodModeController
         };
     }
 
-    protected static StepperValue? CreateStepperValue(StepperValue? state, StepperValue? store = null, int? maxValueOffset = 0)
+    private static StepperValue? CreateStepperValue(StepperValue? state, StepperValue? store = null, int? maxValueOffset = 0)
     {
         if (state is not { } stateValue)
             return null;
