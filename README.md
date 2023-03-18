@@ -79,6 +79,14 @@ Or install using [winget](https://github.com/microsoft/winget-cli):
 
 `winget install BartoszCichecki.LenovoLegionToolkit`
 
+#### Problems with .NET?
+
+If for whatever reason LLT installer did not setup .NET properly:
+1. Go to https://dotnet.microsoft.com/en-us/download/dotnet/6.0
+2. Find section ".NET Desktop Runtime"
+3. Download x64 Windows installer
+4. Run the installer
+
 #### Want to help with testing?
 
 Join the [Legion Series Discord](https://discord.com/invite/legionseries) and head to `#legion-toolkit` channel. Beta versions of future releases are posted there frequently!
