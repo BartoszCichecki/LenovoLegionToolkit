@@ -28,13 +28,7 @@ public class GodModeControllerV1 : AbstractGodModeController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Applying state...");
 
-        var activePresetId = Settings.Store.ActivePresetId;
-        var presets = Settings.Store.Presets;
-
-        if (!presets.ContainsKey(activePresetId))
-            throw new InvalidOperationException($"Preset with ID {activePresetId} not found.");
-
-        var preset = presets[activePresetId];
+        var preset = await GetActivePresetAsync().ConfigureAwait(false);
 
         var cpuLongTermPowerLimit = preset.CPULongTermPowerLimit;
         var cpuShortTermPowerLimit = preset.CPUShortTermPowerLimit;

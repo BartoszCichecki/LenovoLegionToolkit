@@ -79,6 +79,10 @@ Or install using [winget](https://github.com/microsoft/winget-cli):
 
 `winget install BartoszCichecki.LenovoLegionToolkit`
 
+#### Want to help with testing?
+
+Join the [Legion Series Discord](https://discord.com/invite/legionseries) and head to `#legion-toolkit` channel. Beta versions of future releases are posted there frequently!
+
 ## Compatibility
 
 Lenovo Legion Toolkit is made for Lenovo Legion laptops released in 2020 or later.
@@ -217,7 +221,7 @@ To disable RGB:
 
 #### Can you add fan control to other models?
 
-If you have a 2022 Legion that does not support it make a ticket and we'll try to add suport for it. Older models will not be supported due to technical limitations.
+If you have a 2022 or newer Legion that does not support it make a ticket and we'll try to add suport for it. Older models will not be supported due to technical limitations.
 
 #### Why is my Fn lock is flipped?
 
@@ -233,6 +237,10 @@ Game detection feature is built on top of Windows' game detection, meaning LLT w
 
 Windows probably doesn't recognize all games properly, but you can mark any program as game in Xbox Game Bar settings (Win+G). You can find list of recognized games in registry: `HKEY_CURRENT_USER\System\GameConfigStore\Children`.
 
+#### Why don't I see the custom tooltip when I hover LLT icon in tray?
+
+In Windows 10 and 11, Microsoft did plenty of changes to the tray, breaking a lot of things on the way. As a results custom tooltips not always work properly. Solution? Update your Windows and keep fingers crossed.
+
 ## How to collect logs?
 
 In some cases it will be super useful if you can provide logs that this app can create. This helps with debugging and other issue solving.
@@ -247,15 +255,6 @@ To collect logs:
 5. Close LLT (also make sure it's gone from tray area)
 6. Again, in `Run` (Win+R) type `"%LOCALAPPDATA%\LenovoLegionToolkit\log"`
 7. You should see at least one file. Theses are the logs you should attach to the issue.
-
-
-On version 2.6.0 or higher, you can also enable logs in a quicker way:
-
-1. Make sure that Lenovo Legion Toolkit is not running (also gone from tray area).
-2. Hold down Left Ctrl and Left Shift
-3. Double click Lenovo Legion Toolkit icon
-4. LLT will start and in the title bar you should see: `[LOGGING ENABLED]` you will also see an orange link to open the log file.
-
 
 ## Contribution
 
