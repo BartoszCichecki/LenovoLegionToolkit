@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -34,12 +33,12 @@ public partial class StatusTrayPopup
 
         _themeManager.ThemeApplied += (_, _) => Resources = Application.Current.Resources;
 
+#if DEBUG
+        _title.Text += " [DEBUG]";
+#else
         var version = Assembly.GetEntryAssembly()?.GetName().Version;
         if (version == new Version(0, 0, 1, 0) || version?.Build == 99)
             _title.Text += " [BETA]";
-
-#if DEBUG
-        _title.Text += " [DEBUG]";
 #endif
 
         if (Log.Instance.IsTraceEnabled)

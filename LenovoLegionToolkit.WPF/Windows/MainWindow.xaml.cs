@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -32,13 +31,14 @@ public partial class MainWindow
     {
         InitializeComponent();
 
+#if DEBUG
+        _title.Text += " [DEBUG]";
+#else
         var version = Assembly.GetEntryAssembly()?.GetName().Version;
         if (version == new Version(0, 0, 1, 0) || version?.Build == 99)
             _title.Text += " [BETA]";
-
-#if DEBUG
-        _title.Text += " [DEBUG]";
 #endif
+
 
         if (Log.Instance.IsTraceEnabled)
         {
