@@ -14,17 +14,24 @@ public class PowerModeFeature : AbstractLenovoGamezoneWmiFeature<PowerModeState>
     private readonly AIModeController _aiModeController;
     private readonly GodModeController _godModeController;
     private readonly PowerPlanController _powerPlanController;
-    private readonly PowerModeListener _listener;
+    private readonly ThermalModeListener _thermalModeListener;
+    private readonly PowerModeListener _powerModeListener;
 
     public bool AllowAllPowerModesOnBattery { get; set; }
 
-    public PowerModeFeature(AIModeController aiModeController, GodModeController godModeController, PowerPlanController powerPlanController, PowerModeListener listener)
-        : base("SmartFanMode", 1, "IsSupportSmartFan")
+    public PowerModeFeature(
+        AIModeController aiModeController,
+        GodModeController godModeController,
+        PowerPlanController powerPlanController,
+        ThermalModeListener thermalModeListener,
+        PowerModeListener powerModeListener
+        ) : base("SmartFanMode", 1, "IsSupportSmartFan")
     {
         _aiModeController = aiModeController ?? throw new ArgumentNullException(nameof(aiModeController));
         _godModeController = godModeController ?? throw new ArgumentNullException(nameof(godModeController));
-        _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController)); ;
-        _listener = listener ?? throw new ArgumentNullException(nameof(listener));
+        _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController));
+        _thermalModeListener = thermalModeListener ?? throw new ArgumentNullException(nameof(thermalModeListener));
+        _powerModeListener = powerModeListener ?? throw new ArgumentNullException(nameof(powerModeListener));
     }
 
     public override async Task<PowerModeState[]> GetAllStatesAsync()
@@ -52,11 +59,15 @@ public class PowerModeFeature : AbstractLenovoGamezoneWmiFeature<PowerModeState>
 
         var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
         if (mi.Properties.HasPerformanceModeSwitchingBug && currentState == PowerModeState.Quiet && state == PowerModeState.Performance)
+        {
+            _thermalModeListener.SuppressNext();
             await base.SetStateAsync(PowerModeState.Balance).ConfigureAwait(false);
+        }
 
+        _thermalModeListener.SuppressNext();
         await base.SetStateAsync(state).ConfigureAwait(false);
 
-        await _listener.NotifyAsync(state).ConfigureAwait(false);
+        await _powerModeListener.NotifyAsync(state).ConfigureAwait(false);
 
         if (state == PowerModeState.GodMode)
             await _godModeController.ApplyStateAsync().ConfigureAwait(false);
