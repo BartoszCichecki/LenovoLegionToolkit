@@ -1510,16 +1510,16 @@ Die Protokollierung wird automatisch aktiviert, wenn Sie fortfahren möchten.</v
     <value>Ja</value>
   </data>
   <data name="MicrophoneControl_Title" xml:space="preserve">
-    <value>Mikrofon-Stummschaltung</value>
+    <value>Mikrofon</value>
   </data>
   <data name="MicrophoneControl_Message" xml:space="preserve">
-    <value>Alle verfügbaren Mikrofone stumm schalten.</value>
+    <value>Wenn ausgeschaltet, werden Mikrofone stummgeschaltet.</value>
   </data>
   <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
-    <value>Mikrofon-Stummschaltung</value>
+    <value>Mikrofon</value>
   </data>
   <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
-    <value>Alle verfügbaren Mikrofone stumm schalten.</value>
+    <value>Wenn ausgeschaltet, werden Mikrofone stummgeschaltet.</value>
   </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
     <value>Auflösung</value>
