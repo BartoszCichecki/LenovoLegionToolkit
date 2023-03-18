@@ -59,10 +59,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccentColorSource_Custom" xml:space="preserve">
-    <value>Προσαρμοσμένη</value>
+    <value>Προσαρμοσμένο</value>
   </data>
   <data name="AccentColorSource_System" xml:space="preserve">
-    <value>Σύστημα</value>
+    <value>Συστήματος</value>
   </data>
   <data name="AlwaysOnUSBState_Off" xml:space="preserve">
     <value>Ανενεργό</value>
@@ -158,7 +158,7 @@
     <value>Αργή</value>
   </data>
   <data name="RBGKeyboardBacklightSpeed_Slowest" xml:space="preserve">
-    <value>Πιο αργή</value>
+    <value>Πολύ αργή</value>
   </data>
   <data name="RGBKeyboardBacklightBrightness_High" xml:space="preserve">
     <value>Υψηλή</value>
@@ -170,10 +170,10 @@
     <value>Αναπνοή</value>
   </data>
   <data name="RGBKeyboardBacklightEffect_Smooth" xml:space="preserve">
-    <value>Ομαλή</value>
+    <value>Ομαλό</value>
   </data>
   <data name="RGBKeyboardBacklightEffect_Static" xml:space="preserve">
-    <value>Στατική</value>
+    <value>Στατικό</value>
   </data>
   <data name="RGBKeyboardBacklightEffect_WaveLTR" xml:space="preserve">
     <value>Κύμα Αριστερά</value>
