@@ -79,6 +79,10 @@ Or install using [winget](https://github.com/microsoft/winget-cli):
 
 `winget install BartoszCichecki.LenovoLegionToolkit`
 
+#### Want to help with testing?
+
+Join the [Legion Series Discord](https://discord.com/invite/legionseries) and head to `#legion-toolkit` channel. Beta versions of future releases are posted there frequently!
+
 ## Compatibility
 
 Lenovo Legion Toolkit is made for Lenovo Legion laptops released in 2020 or later.
