@@ -111,6 +111,26 @@ public abstract class AbstractGodModeController : IGodModeController
 
     protected bool IsValidStore(GodModeSettings.GodModeSettingsStore store) => store.Presets.Any() && store.Presets.ContainsKey(store.ActivePresetId);
 
+    protected async Task<GodModeSettings.GodModeSettingsStore.Preset> GetActivePresetAsync()
+    {
+        if (!IsValidStore(Settings.Store))
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Invalid store, generating default one.");
+
+            var state = await GetStateAsync().ConfigureAwait(false);
+            await SetStateAsync(state).ConfigureAwait(false);
+        }
+
+        var activePresetId = Settings.Store.ActivePresetId;
+        var presets = Settings.Store.Presets;
+
+        if (presets.TryGetValue(activePresetId, out var activePreset))
+            return activePreset;
+
+        throw new InvalidOperationException($"Preset with ID {activePresetId} not found.");
+    }
+
     protected GodModeState LoadStateFromStore(GodModeSettings.GodModeSettingsStore store, GodModePreset defaultState)
     {
         var states = new Dictionary<Guid, GodModePreset>();
