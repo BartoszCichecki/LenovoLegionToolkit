@@ -1,6 +1,4 @@
-#define public Dependency_NoExampleSetup
-
-#include "InnoDependencies\CodeDependencies.iss"
+#include "InnoDependencies\install_dotnet.iss"
 
 #define MyAppName "Lenovo Legion Toolkit"
 #define MyAppNameCompact "LenovoLegionToolkit"
@@ -36,7 +34,7 @@ ArchitecturesInstallIn64BitMode=x64
 [Code]
 function InitializeSetup: Boolean;
 begin
-  Dependency_AddDotNet60Desktop;
+  InstallDotNet6DesktopRuntime;
   Result := True;
 end;
 
@@ -66,7 +64,6 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 [Files]
 Source: "build\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "LICENSE"; DestDir: "{app}"; Flags: ignoreversion
-Source: "InnoDependencies\netcorecheck_x64.exe";  DestDir: "{app}"; Flags: ignoreversion deleteafterinstall
 
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
