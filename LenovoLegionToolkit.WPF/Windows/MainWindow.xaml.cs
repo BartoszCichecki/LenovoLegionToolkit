@@ -34,7 +34,7 @@ public partial class MainWindow
 #if DEBUG
         _title.Text += " [DEBUG]";
 #else
-        var version = Assembly.GetEntryAssembly()?.GetName().Version;
+        var version = System.Reflection.Assembly.GetEntryAssembly()?.GetName().Version;
         if (version == new Version(0, 0, 1, 0) || version?.Build == 99)
             _title.Text += " [BETA]";
 #endif
