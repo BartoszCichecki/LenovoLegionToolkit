@@ -21,23 +21,22 @@ public class AndAutomationPipelineTrigger : ICompositeAutomationPipelineTrigger
     {
         foreach (var trigger in Triggers)
         {
-            if (await trigger.IsMatchingEvent(automationEvent).ConfigureAwait(false) && await IsMatchingState().ConfigureAwait(false))
-                return true;
+            if (!await trigger.IsMatchingEvent(automationEvent).ConfigureAwait(false))
+                continue;
+
+            foreach (var otherTrigger in Triggers.Where(t => !ReferenceEquals(t, trigger)))
+            {
+                if (!await otherTrigger.IsMatchingState().ConfigureAwait(false))
+                    return false;
+            }
+
+            return true;
         }
 
         return false;
     }
 
-    public async Task<bool> IsMatchingState()
-    {
-        foreach (var trigger in Triggers)
-        {
-            if (!await trigger.IsMatchingState().ConfigureAwait(false))
-                return false;
-        }
-
-        return true;
-    }
+    public Task<bool> IsMatchingState() => Task.FromResult(false);
 
     public IAutomationPipelineTrigger DeepCopy() => new AndAutomationPipelineTrigger(Triggers);
 }

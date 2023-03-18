@@ -325,7 +325,7 @@ public class AutomationProcessor
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Starting listeners...");
 
-        var triggers = _pipelines.Select(p => p.Trigger).ToArray();
+        var triggers = _pipelines.SelectMany(p => p.AllTriggers).ToArray();
 
         if (triggers.OfType<IGameAutomationPipelineTrigger>().Any())
         {

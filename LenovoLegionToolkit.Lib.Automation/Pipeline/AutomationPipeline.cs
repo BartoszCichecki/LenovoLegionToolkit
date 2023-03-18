@@ -27,7 +27,7 @@ public class AutomationPipeline
     {
         get
         {
-            if (Trigger is not null)
+            if (Trigger is not null && Trigger is not ICompositeAutomationPipelineTrigger)
                 yield return Trigger;
 
             if (Trigger is ICompositeAutomationPipelineTrigger compositeTrigger)

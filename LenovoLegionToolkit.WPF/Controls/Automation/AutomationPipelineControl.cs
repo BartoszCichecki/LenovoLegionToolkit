@@ -266,7 +266,6 @@ public class AutomationPipelineControl : UserControl
     private UIElement? GenerateAccessory()
     {
         var triggers = AutomationPipeline.AllTriggers
-            .Where(t => t is not ICompositeAutomationPipelineTrigger)
             .ToArray();
 
         if (!AutomationPipelineTriggerConfigurationWindow.IsValid(triggers))
