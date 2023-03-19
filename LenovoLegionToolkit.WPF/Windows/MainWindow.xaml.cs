@@ -198,8 +198,8 @@ public partial class MainWindow
         if (!_applicationSettings.Store.WindowSize.HasValue)
             return;
 
-        Width = _applicationSettings.Store.WindowSize.Value.Width;
-        Height = _applicationSettings.Store.WindowSize.Value.Height;
+        Width = Math.Max(MinWidth, _applicationSettings.Store.WindowSize.Value.Width);
+        Height = Math.Max(MinHeight, _applicationSettings.Store.WindowSize.Value.Height);
 
         var desktopWorkingArea = ScreenHelper.GetPrimaryDesktopWorkingArea();
 
