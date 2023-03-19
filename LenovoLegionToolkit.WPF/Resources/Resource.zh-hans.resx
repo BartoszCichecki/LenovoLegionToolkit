@@ -973,7 +973,7 @@
     <value>什么地方出错了(っ °Д °;)っ</value>
   </data>
   <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
-    <value>新版本可用！</value>
+    <value>有新版本可更新！</value>
   </data>
   <data name="PackageControl_OldPackageWarning" xml:space="preserve">
     <value>此驱动包的发布日期距今已超过一年</value>
@@ -1638,7 +1638,7 @@
     <value>需要关机</value>
   </data>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
-    <value>推荐重启</value>
+    <value>需要重启以更新</value>
   </data>
   <data name="SaveAndClose" xml:space="preserve">
     <value>保存并关闭</value>
