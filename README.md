@@ -34,7 +34,21 @@ It runs no background services, uses less memory, uses virtually no CPU, and con
 
 Join the Legion Series Discord: https://discord.com/invite/legionseries!
 
-<img src="assets/screenshot.png" width="700" alt="PayPal QR code" />
+<img src="assets/screenshot_main.png" width="700" />
+
+<detail>
+
+<summary>More screenshots...</summary>
+
+| **Keyboard**                            | **Battery**                             | **Actions**                                |
+| --------------------------------------- | --------------------------------------- | ------------------------------------------ |
+| <img src="assets/screenshot_kb.png" />  | <img src="assets/screenshot_bat.png" /> | <img src="assets/screenshot_actions.png"/> |
+| **Custom Mode**                         | **Custom Mode**                         | **Downloads**                              |
+| <img src="assets/screenshot_cm1.png" /> | <img src="assets/screenshot_cm2.png" /> | <img src="assets/screenshot_pkg.png" />    |
+
+</detail>
+
+
 
 
 # Table of Contents
