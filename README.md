@@ -36,20 +36,22 @@ Join the Legion Series Discord: https://discord.com/invite/legionseries!
 
 <img src="assets/screenshot_main.png" width="700" />
 
-<detail>
+<details>
+<summary><b><i>Click here for more screenshots...</i></b></summary>
 
-<summary>More screenshots...</summary>
+| **Keyboard**                            | **Battery**                                 |
+| --------------------------------------- | ------------------------------------------- |
+| <img src="assets/screenshot_kb.png" />  | <img src="assets/screenshot_bat.png" />     |
 
-| **Keyboard**                            | **Battery**                             | **Actions**                                |
-| --------------------------------------- | --------------------------------------- | ------------------------------------------ |
-| <img src="assets/screenshot_kb.png" />  | <img src="assets/screenshot_bat.png" /> | <img src="assets/screenshot_actions.png"/> |
-| **Custom Mode**                         | **Custom Mode**                         | **Downloads**                              |
-| <img src="assets/screenshot_cm1.png" /> | <img src="assets/screenshot_cm2.png" /> | <img src="assets/screenshot_pkg.png" />    |
+| **Actions**                                | **Downloads**                           |
+| ------------------------------------------ | --------------------------------------- |
+| <img src="assets/screenshot_actions.png"/> | <img src="assets/screenshot_pkg.png" /> |
 
-</detail>
+| **Custom Mode**                         | **Custom Mode**                         |
+| --------------------------------------- | ----------------------------------------|
+| <img src="assets/screenshot_cm1.png" /> | <img src="assets/screenshot_cm2.png" /> |
 
-
-
+</details>
 
 # Table of Contents
   - [Disclaimer](#disclaimer)
