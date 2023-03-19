@@ -39,24 +39,24 @@ begin
 end;
 
 [Languages]
-Name: "english"; MessagesFile: "compiler:Default.isl"
-Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\BrazilianPortuguese.isl" 
-Name: "czech"; MessagesFile: "compiler:Languages\Czech.isl" 
-Name: "dutch"; MessagesFile: "compiler:Languages\Dutch.isl"
-Name: "french"; MessagesFile: "compiler:Languages\French.isl"
-Name: "german"; MessagesFile: "compiler:Languages\German.isl"
-Name: "italian"; MessagesFile: "compiler:Languages\Italian.isl"
-Name: "portuguese"; MessagesFile: "compiler:Languages\Portuguese.isl"
-Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
-Name: "slovak"; MessagesFile: "compiler:Languages\Slovak.isl"
-Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl"
-Name: "turkish"; MessagesFile: "compiler:Languages\Turkish.isl"
-Name: "ukrainian"; MessagesFile: "compiler:Languages\Ukrainian.isl"
-Name: "arabic"; MessagesFile: "InnoDependencies\Arabic.isl"
-Name: "chinesesimplified"; MessagesFile: "InnoDependencies\ChineseSimplified.isl"
-Name: "greek"; MessagesFile: "InnoDependencies\Greek.isl"
-Name: "romanian"; MessagesFile: "InnoDependencies\Romanian.isl"
-Name: "vietnamese"; MessagesFile: "InnoDependencies\Vietnamese.isl"
+Name: "en";      MessagesFile: "compiler:Default.isl"
+Name: "ptbr";   MessagesFile: "compiler:Languages\BrazilianPortuguese.isl" 
+Name: "cs";      MessagesFile: "compiler:Languages\Czech.isl" 
+Name: "nlnl";   MessagesFile: "compiler:Languages\Dutch.isl"
+Name: "fr";      MessagesFile: "compiler:Languages\French.isl"
+Name: "de";      MessagesFile: "compiler:Languages\German.isl"
+Name: "it";      MessagesFile: "compiler:Languages\Italian.isl"
+Name: "pt";      MessagesFile: "compiler:Languages\Portuguese.isl"
+Name: "ru";      MessagesFile: "compiler:Languages\Russian.isl"
+Name: "sk";      MessagesFile: "compiler:Languages\Slovak.isl"
+Name: "es";      MessagesFile: "compiler:Languages\Spanish.isl"
+Name: "tr";      MessagesFile: "compiler:Languages\Turkish.isl"
+Name: "ukr";     MessagesFile: "compiler:Languages\Ukrainian.isl"
+Name: "ar";      MessagesFile: "InnoDependencies\Arabic.isl"
+Name: "zhhans"; MessagesFile: "InnoDependencies\ChineseSimplified.isl"
+Name: "el";      MessagesFile: "InnoDependencies\Greek.isl"
+Name: "ro";      MessagesFile: "InnoDependencies\Romanian.isl"
+Name: "vi";      MessagesFile: "InnoDependencies\Vietnamese.isl"
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
@@ -73,7 +73,7 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: de
 Type: filesandordirs; Name: "{app}"
 
 [Run]
-Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: runascurrentuser nowait postinstall skipifsilent
+Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: runascurrentuser nowait postinstall
 
 [UninstallDelete]
 Type: filesandordirs; Name: "{localappdata}\{#MyAppNameCompact}"

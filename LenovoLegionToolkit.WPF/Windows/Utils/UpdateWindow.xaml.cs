@@ -7,6 +7,7 @@ using System.Windows;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
+using LenovoLegionToolkit.WPF.Resources;
 
 namespace LenovoLegionToolkit.WPF.Windows.Utils;
 
@@ -51,7 +52,7 @@ public partial class UpdateWindow : IProgress<float>
 
             _downloadCancellationTokenSource = null;
 
-            Process.Start(path);
+            Process.Start(path, $"/SILENT /RESTARTAPPLICATIONS /LANG={Resource.Culture.Name.Replace("-", "")}");
             await App.Current.ShutdownAsync();
         }
         catch (OperationCanceledException)
