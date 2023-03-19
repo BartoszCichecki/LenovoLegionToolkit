@@ -277,6 +277,14 @@ Windows probably doesn't recognize all games properly, but you can mark any prog
 
 In Windows 10 and 11, Microsoft did plenty of changes to the tray, breaking a lot of things on the way. As a results custom tooltips not always work properly. Solution? Update your Windows and keep fingers crossed.
 
+#### Where can I find CPU Boost Mode settings?
+
+Shortly speaking, in Windows Control Panel. This option was removed from LLT since it was quite annoying to maintain and it's available inside Windows Control Panel. In LLT's Settings you can find a link directly to the power plan setttings page in Control Panel where you can easily edit CPU Boost Mode settings as well as other settings of Windows power plans.
+
+By default this setting is hidden, but can be revealed by running `powercfg.exe -attributes sub_processor perfboostmode -attrib_hide` in Terminal.
+
+I also recommend other apps that make it very easy to manage settings across multiple power plans: [PowerSettingsExplorer](https://forums.guru3d.com/threads/windows-power-plan-settings-explorer-utility.416058/) and [QuickCPU](https://coderbag.com/product/quickcpu).
+
 ## How to collect logs?
 
 In some cases it will be super useful if you can provide logs that this app can create. This helps with debugging and other issue solving.
