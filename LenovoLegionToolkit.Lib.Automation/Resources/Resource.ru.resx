@@ -112,4 +112,10 @@
   <data name="LidClosedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
 		<value>Крышка ноутбука закрыта</value>
 	</data>
+  <data name="GamesStopAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>При закрытии игры</value>
+	</data>
+  <data name="GamesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+		<value>При запущенной игре</value>
+	</data>
 </root>
