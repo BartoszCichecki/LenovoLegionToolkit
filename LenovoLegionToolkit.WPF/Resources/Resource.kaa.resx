@@ -1725,4 +1725,7 @@ Bul sazlaw tek arnawlı rejim qosılǵanda nátiyje beredi.</value>
   <data name="BatteryPage_LowLevel" xml:space="preserve">
     <value>Batareyanıń quwatlılıq dárejesi tómen</value>
   </data>
+  <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
+	  <value>S0 tómen quwatlılıq modeli anıqlandı</value>
+  </data>
 </root>
