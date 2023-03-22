@@ -63,6 +63,7 @@
                 Appearance="Primary"
                 Click="DeactivateGPUButton_Click"
                 IsEnabled="False"
+                ToolTipService.InitialShowDelay="0"
                 ToolTipService.ShowOnDisabled="True">
                 <wpfui:Button.Content>
                     <Grid>
