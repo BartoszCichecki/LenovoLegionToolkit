@@ -1668,6 +1668,9 @@ Bul sazlaw tek arnawlı rejim qosılǵanda nátiyje beredi.</value>
   <data name="GodModeSettingsWindow_CPU_PeakPL_Description" xml:space="preserve">
     <value>Processor tárepinen jetiwi múmkin bolǵan quwatlılıqtan paydalanıwdıń eń joqarı dárejesi.</value>
   </data>
+  <data name="GodModeSettingsWindow_CPU_CrossLoading_Description" xml:space="preserve">
+    <value>CPU hám GPUdı tolıq qollanǵanda, CPU tárepinen jetiwi múmkin bolǵan quwatlılıqtan paydalanıwdıń eń joqarı dárejesi.</value>
+  </data>
   <data name="GodModeSettingsWindow_CPU_APUsPPT_PL_Description" xml:space="preserve">
     <value>Azǵana irkilis penen processor tárepinen paydalanıw múmkin bolǵan eń joqarı quwatlılıq.</value>
   </data>
@@ -1727,5 +1730,8 @@ Bul sazlaw tek arnawlı rejim qosılǵanda nátiyje beredi.</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
 	  <value>S0 tómen quwatlılıq modeli anıqlandı</value>
+  </data>
+  <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
+	  <value>Bul qurılma Modern Standbydı qollap-quwatlaytuǵının Windows xabarlaydı. Teńlestirilgen quwatlılıq jobasınan basqasın qollanıw kútilmegen háreketke alıp keliwi múmkin.</value>
   </data>
 </root>
