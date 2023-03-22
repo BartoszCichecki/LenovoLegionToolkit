@@ -87,7 +87,7 @@ public static class Compatibility
                     SupportsGodModeV2 = GetSupportsGodModeV2(biosVersion),
                     SupportsExtendedHybridMode = await GetSupportsExtendedHybridModeAsync().ConfigureAwait(false),
                     SupportsIntelligentSubMode = await GetSupportsIntelligentSubModeAsync().ConfigureAwait(false),
-                    HasPerformanceModeSwitchingBug = GetHasPerformanceModeSwitchingBug(biosVersion)
+                    HasQuietToPerformanceModeSwitchingBug = GetHasQuietToPerformanceModeSwitchingBug(biosVersion)
                 }
             };
 
@@ -103,6 +103,7 @@ public static class Compatibility
                 Log.Instance.Trace($" * SupportsGodModeV2: '{machineInformation.Properties.SupportsGodModeV2}'");
                 Log.Instance.Trace($" * SupportsExtendedHybridMode: '{machineInformation.Properties.SupportsExtendedHybridMode}'");
                 Log.Instance.Trace($" * SupportsIntelligentSubMode: '{machineInformation.Properties.SupportsIntelligentSubMode}'");
+                Log.Instance.Trace($" * HasQuietToPerformanceModeSwitchingBug: '{machineInformation.Properties.HasQuietToPerformanceModeSwitchingBug}'");
             }
 
             _machineInformation = machineInformation;
@@ -233,7 +234,7 @@ public static class Compatibility
         return result.First();
     }
 
-    private static bool GetHasPerformanceModeSwitchingBug(string biosVersion)
+    private static bool GetHasQuietToPerformanceModeSwitchingBug(string biosVersion)
     {
         (string, int?)[] affectedBiosList =
         {

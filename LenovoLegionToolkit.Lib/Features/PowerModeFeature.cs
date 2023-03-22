@@ -58,7 +58,7 @@ public class PowerModeFeature : AbstractLenovoGamezoneWmiFeature<PowerModeState>
         await _aiModeController.StopAsync(currentState).ConfigureAwait(false);
 
         var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
-        if (mi.Properties.HasPerformanceModeSwitchingBug && currentState == PowerModeState.Quiet && state == PowerModeState.Performance)
+        if (mi.Properties.HasQuietToPerformanceModeSwitchingBug && currentState == PowerModeState.Quiet && state == PowerModeState.Performance)
         {
             _thermalModeListener.SuppressNext();
             await base.SetStateAsync(PowerModeState.Balance).ConfigureAwait(false);
@@ -68,6 +68,9 @@ public class PowerModeFeature : AbstractLenovoGamezoneWmiFeature<PowerModeState>
         await base.SetStateAsync(state).ConfigureAwait(false);
 
         await _powerModeListener.NotifyAsync(state).ConfigureAwait(false);
+
+        if (currentState == PowerModeState.GodMode)
+            await _godModeController.RestoreDefaultsInOtherPowerModeAsync(state).ConfigureAwait(false);
 
         if (state == PowerModeState.GodMode)
             await _godModeController.ApplyStateAsync().ConfigureAwait(false);
