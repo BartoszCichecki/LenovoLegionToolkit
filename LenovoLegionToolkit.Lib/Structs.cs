@@ -299,7 +299,8 @@ public readonly struct MachineInformation
         public bool SupportsGodModeV2 { get; init; }
         public bool SupportsExtendedHybridMode { get; init; }
         public bool SupportsIntelligentSubMode { get; init; }
-        public bool HasPerformanceModeSwitchingBug { get; init; }
+        public bool HasQuietToPerformanceModeSwitchingBug { get; init; }
+        public bool HasPowerLimitRestoreBug { get; init; }
     }
 
     public string Vendor { get; init; }

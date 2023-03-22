@@ -186,6 +186,8 @@ public class GodModeControllerV2 : AbstractGodModeController
         }
     }
 
+    public override Task RestoreDefaultsInOtherPowerModeAsync(PowerModeState _) => Task.CompletedTask;
+
     protected override async Task<GodModePreset> GetDefaultStateAsync()
     {
         var allCapabilityData = (await GetCapabilityDataAsync().ConfigureAwait(false)).ToArray();
@@ -314,7 +316,7 @@ public class GodModeControllerV2 : AbstractGodModeController
 
     #region Fan Table
 
-    protected static async Task<FanTableData[]?> GetFanTableDataAsync(PowerModeState powerModeState = PowerModeState.GodMode)
+    private static async Task<FanTableData[]?> GetFanTableDataAsync(PowerModeState powerModeState = PowerModeState.GodMode)
     {
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Reading fan table data...");
@@ -382,7 +384,7 @@ public class GodModeControllerV2 : AbstractGodModeController
         return fanTableData;
     }
 
-    protected static Task SetFanTable(FanTable fanTable) => WMI.CallAsync("root\\WMI",
+    private static Task SetFanTable(FanTable fanTable) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_FAN_METHOD",
         "Fan_Set_Table",
         new() { { "FanTable", fanTable.GetBytes() } });
@@ -391,7 +393,7 @@ public class GodModeControllerV2 : AbstractGodModeController
 
     #region Fan Full Speed
 
-    protected static Task<bool> GetFanFullSpeedAsync()
+    private static Task<bool> GetFanFullSpeedAsync()
     {
         const uint id = 0x04020000;
         return WMI.CallAsync("root\\WMI",
@@ -401,7 +403,7 @@ public class GodModeControllerV2 : AbstractGodModeController
             pdc => Convert.ToInt32(pdc["Value"].Value) == 1);
     }
 
-    protected static Task SetFanFullSpeedAsync(bool enabled)
+    private static Task SetFanFullSpeedAsync(bool enabled)
     {
         const uint id = 0x04020000;
         return WMI.CallAsync("root\\WMI",
