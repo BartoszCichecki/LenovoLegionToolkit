@@ -66,7 +66,7 @@ LLT works best when it's running in the background, so go to Settings and enable
 
 If you close LLT completely some functions will not work, like synchronizing power plans with current Power Mode (Fn+Q) or Actions.
 
-Also, check out also the Compatibility section below!
+Also, check out the [Compatibility](#compatibility) section below!
 
 #### Problems with .NET?
 
