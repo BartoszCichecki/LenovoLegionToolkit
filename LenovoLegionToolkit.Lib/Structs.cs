@@ -300,6 +300,7 @@ public readonly struct MachineInformation
         public bool SupportsExtendedHybridMode { get; init; }
         public bool SupportsIntelligentSubMode { get; init; }
         public bool HasQuietToPerformanceModeSwitchingBug { get; init; }
+        public bool HasPowerLimitRestoreBug { get; init; }
     }
 
     public string Vendor { get; init; }
