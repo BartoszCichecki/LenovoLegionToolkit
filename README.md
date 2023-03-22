@@ -79,6 +79,14 @@ Or install using [winget](https://github.com/microsoft/winget-cli):
 
 `winget install BartoszCichecki.LenovoLegionToolkit`
 
+#### Next steps
+
+LLT works best when it's running in the background, so go to Settings and enable _Autorun_ and _Minimize on close_. Next thing is to either disable Vantage and Hotkeys or just uninstall them. After that LLT will always run on startup and will take over all functions that were handled by Vantage and Hotkeys.
+
+If you close LLT completely some functions will not work, like synchronizing power plans with current Power Mode (Fn+Q) or Actions.
+
+Also, check out also the Compatibility section below!
+
 #### Problems with .NET?
 
 If for whatever reason LLT installer did not setup .NET properly:
