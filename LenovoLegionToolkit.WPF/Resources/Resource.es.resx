@@ -1662,9 +1662,6 @@ Esta configuración sólo tiene efecto si el modo personalizado está activado.<
   <data name="AboutPage_Temp" xml:space="preserve">
     <value>Temperatura</value>
   </data>
-  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
-    <value>Único brillo de pantalla </value>
-  </data>
   <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
     <value>Si está activado, se aplicará el mismo nivel de brillo a todos los planes de energía de Windows cada vez que lo cambie.</value>
   </data>
