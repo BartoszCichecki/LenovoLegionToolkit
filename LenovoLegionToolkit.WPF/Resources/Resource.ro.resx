@@ -1369,6 +1369,9 @@ Se recomandă repornirea după modificarea acestei opțiuni.</value>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>Răsărit</value>
   </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
+    <value>Apus</value>
+  </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Timp</value>
   </data>
