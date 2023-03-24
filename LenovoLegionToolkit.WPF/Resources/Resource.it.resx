@@ -1575,8 +1575,14 @@ Spostare il mouse o premere il tasto sulla tastiera per risvegliarli.</value>
   <data name="SaveAndClose" xml:space="preserve">
     <value>Salva &amp; chiudi</value>
   </data>
+  <data name="GodModeSettingsWindow_EditPreset_Message" xml:space="preserve">
+    <value>Nome</value>
+  </data>
   <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
     <value>Quando attivo, lo stesso livello di luminosità verrà applicato a tutti i profili energia.</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Predefinito</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
     <value>Aggiungi azione</value>
@@ -1595,6 +1601,9 @@ Spostare il mouse o premere il tasto sulla tastiera per risvegliarli.</value>
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
     <value>Aggiornamento disponibile!</value>
+  </data>
+  <data name="SettingsPage_Power_Title" xml:space="preserve">
+    <value>Alimentazione</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Spento</value>
