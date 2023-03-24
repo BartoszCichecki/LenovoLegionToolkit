@@ -1366,15 +1366,6 @@ Se recomandă repornirea după modificarea acestei opțiuni.</value>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} zone</value>
   </data>
-  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
-    <value>Răsărit</value>
-  </data>
-  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
-    <value>Apus</value>
-  </data>
-  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
-    <value>Timp</value>
-  </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
     <value>Permite comutarea între GPU integrat și cel dedicat.
 Necesită repornirea.</value>
@@ -1722,8 +1713,5 @@ Aceste setări au efect doar atunci când modul Personalizat este activat.</valu
   </data>
   <data name="BatteryPage_LowLevel" xml:space="preserve">
     <value>Nivelul bateriei este scăzut</value>
-  </data>
-  <data name="PoweredOff" xml:space="preserve">
-	  <value>Oprit</value>
   </data>
 </root>
