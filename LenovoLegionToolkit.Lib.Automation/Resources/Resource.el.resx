@@ -141,6 +141,9 @@
   <data name="OnStartupAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Κατά την εκκίνηση</value>
   </data>
+  <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Όταν αλλάξει η κατάσταση τροφοδοσίας</value>
+  </data>
   <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Όταν ξεκινά η εφαρμογή</value>
   </data>

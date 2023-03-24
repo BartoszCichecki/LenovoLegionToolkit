@@ -141,6 +141,9 @@
   <data name="OnStartupAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>La pornire</value>
   </data>
+  <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Când modul de putere este schimbat</value>
+  </data>
   <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Când pornește aplicația</value>
   </data>

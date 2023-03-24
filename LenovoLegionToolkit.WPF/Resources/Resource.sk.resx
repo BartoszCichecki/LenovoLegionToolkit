@@ -1713,6 +1713,12 @@ Nastavenia sú účinne len keď je povolený vlastný režim.</value>
   <data name="BatteryPage_LowLevel" xml:space="preserve">
     <value>Úroveň batérie nízka</value>
   </data>
+  <data name="AutomationPipelineTriggerConfigurationWindow_Title" xml:space="preserve">
+    <value>Konfigurovať</value>
+  </data>
+  <data name="SettingsPage_Power_Title" xml:space="preserve">
+    <value>Napájanie</value>
+  </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Vypnutý</value>
   </data>

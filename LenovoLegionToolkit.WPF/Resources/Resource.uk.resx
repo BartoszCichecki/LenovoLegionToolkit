@@ -1720,6 +1720,12 @@
   <data name="BatteryPage_LowLevel" xml:space="preserve">
     <value>Низький рівень заряду батареї</value>
   </data>
+  <data name="AutomationPipelineTriggerConfigurationWindow_Title" xml:space="preserve">
+    <value>Налаштування</value>
+  </data>
+  <data name="SettingsPage_Power_Title" xml:space="preserve">
+    <value>Потужність</value>
+  </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Вимкнений</value>
   </data>

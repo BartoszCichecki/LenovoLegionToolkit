@@ -1731,11 +1731,17 @@
   <data name="BatteryPage_LowLevel" xml:space="preserve">
     <value>电池电量低</value>
   </data>
+  <data name="AutomationPipelineTriggerConfigurationWindow_Title" xml:space="preserve">
+    <value>配置</value>
+  </data>
   <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
     <value>检测到 S0 低功耗空闲模型</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>检测到本设备支持新式待机（Modern Standby）。使用 “平衡” 以外的电源计划可能会导致意外问题。</value>
+  </data>
+  <data name="SettingsPage_Power_Title" xml:space="preserve">
+    <value>电源</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>关闭</value>

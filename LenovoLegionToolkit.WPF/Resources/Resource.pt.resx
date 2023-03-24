@@ -1575,6 +1575,9 @@ Mover o rato ou clicar no teclado vai ligar os ecrãs.</value>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>É recomendado reiniciar</value>
   </data>
+  <data name="GodModeSettingsWindow_EditPreset_Message" xml:space="preserve">
+    <value>Nome</value>
+  </data>
   <data name="Default" xml:space="preserve">
     <value>Padrão</value>
   </data>
@@ -1595,6 +1598,9 @@ Mover o rato ou clicar no teclado vai ligar os ecrãs.</value>
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
     <value>Atualização disponível!</value>
+  </data>
+  <data name="AutomationPipelineTriggerConfigurationWindow_Title" xml:space="preserve">
+    <value>Configurar</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Desligada</value>
