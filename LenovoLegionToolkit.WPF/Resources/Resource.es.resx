@@ -379,21 +379,6 @@ Esta hora puede no ser correcta si el portátil se ha cargado mientras estaba su
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Batería</value>
   </data>
-  <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
-    <value>Con batería</value>
-  </data>
-  <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>Conectada</value>
-  </data>
-  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
-    <value>Planes de alimentación</value>
-  </data>
-  <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
-    <value>Más información en microsoft.com</value>
-  </data>
-  <data name="CPUBoostModesWindow_Title" xml:space="preserve">
-    <value>Modos de mejora de la CPU</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancelar</value>
   </data>
@@ -533,9 +518,6 @@ AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está
     <value>Se puede desactivar la GPU nVidia.
 
 Recuerde que algunos programas pueden bloquearse si lo hace.</value>
-  </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>La GPU nVidia no está activa.</value>
   </data>
   <data name="Inactive" xml:space="preserve">
     <value>Inactiva</value>
@@ -1035,9 +1017,6 @@ Asegúrese de instalar siempre los paquetes correctos.</value>
   <data name="Paste" xml:space="preserve">
     <value>Pegar</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Aplicaciones</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>Seleccionar modo de rendimiento.</value>
   </data>
@@ -1056,9 +1035,6 @@ Puede cambiar de modo con Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>El modo de alimentación seleccionado puede no funcionar correctamente sin el adaptador de corriente alterna conectado.</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>Modo de alimentación</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>Activar esta opción cuando Lenovo Vantage se está ejecutando y cambia los planes de energía en su portátil podría dar lugar a un comportamiento inesperado.</value>
@@ -1189,20 +1165,11 @@ Asegúrese primero de que su script se ejecuta correctamente.</value>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Color característico</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>No cambiar las opciones siguientes a menos que sepa realmente lo que está haciendo.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Avanzado</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Minimizar en la bandeja al iniciar la sesión de Windows.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Ejecución automática</value>
-  </data>
-  <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>Modos de mejora de la CPU</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
     <value>Es posible que Legion Zone no se haya desactivado correctamente</value>
@@ -1400,18 +1367,6 @@ Se recomienda reiniciar después de cambiar esta opción.</value>
   </data>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} zonas</value>
-  </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
-    <value>Al amanecer</value>
-  </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
-    <value>Al amanecer</value>
-  </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Hora</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
-    <value>Hora</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
     <value>Permitir cambiar entre la GPU integrada y la GPU externa.
@@ -1762,9 +1717,9 @@ Esta configuración sólo tiene efecto si el modo personalizado está activado.<
     <value>Nivel bajo de batería</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
-	  <value>S0 Modelo de menor potencia detectado</value>
+    <value>S0 Modelo de menor potencia detectado</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-	  <value>Windows informa de que este dispositivo soporta Modern Standby. El uso de planes de energía distintos a Equilibrado puede provocar un comportamiento inesperado.</value>
+    <value>Windows informa de que este dispositivo soporta Modern Standby. El uso de planes de energía distintos a Equilibrado puede provocar un comportamiento inesperado.</value>
   </data>
 </root>
