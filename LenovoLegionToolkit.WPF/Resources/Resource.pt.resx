@@ -518,9 +518,6 @@ ATENÇÃO: Esta ação não irá correr corretamente se o ecrã interno estiver 
     <value>A GPU da nVidia pode ser desligada.
 Lembra-te que alguns programas podem crashar se o fizeres.</value>
   </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>A GPU da nVidia não está ativa.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Inativa</value>
   </data>
@@ -1598,5 +1595,8 @@ Mover o rato ou clicar no teclado vai ligar os ecrãs.</value>
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
     <value>Atualização disponível!</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>Desligada</value>
   </data>
 </root>

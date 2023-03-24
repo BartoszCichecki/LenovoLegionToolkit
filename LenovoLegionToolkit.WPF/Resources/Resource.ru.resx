@@ -519,9 +519,6 @@
 
 Обратите внимание, что некоторые программы могут выйти из строя, если вы это сделаете.</value>
   </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>Графический процессор nVidia не активен.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Неактивен</value>
   </data>
@@ -1731,5 +1728,8 @@
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
 	  <value>Windows сообщает, что это устройство поддерживает Modern Standby. Применение планов питания, отличных от сбалансированного, может привести к неожиданному поведению.</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>Отключен</value>
   </data>
 </root>

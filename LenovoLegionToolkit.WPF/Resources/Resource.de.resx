@@ -518,9 +518,6 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
 
 Beachten Sie, dass einige Programme dabei abstürzen könnten.</value>
   </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>nVidia GPU ist nicht aktiv.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Inaktiv</value>
   </data>
@@ -1730,5 +1727,8 @@ Diese Einstellung wird nur wirksam, wenn der benutzerdefinierte Modus aktiviert 
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
 	  <value>Windows meldet, dass dieses Gerät den modernen Standby-Modus unterstützt. Die Verwendung anderer Energiesparpläne als "Ausbalanciert" kann zu unerwartetem Verhalten führen.</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>Ausgeschaltet</value>
   </data>
 </root>

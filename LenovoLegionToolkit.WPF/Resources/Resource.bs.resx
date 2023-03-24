@@ -866,4 +866,7 @@ Logiranje će biti automatski omogućeno, ukoliko izaberete da nastavite.</value
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
     <value>Dodaj korak</value>
   </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>Isključeno</value>
+  </data>
 </root>

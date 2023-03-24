@@ -518,9 +518,6 @@ WAARSCHUWING: Deze actie wordt niet correct uitgevoerd als het interne display i
 
 Houd er rekening mee dat sommige programma's kunnen crashen als u dit doet.</value>
   </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>nvidia GPU is niet actief.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>inactief</value>
   </data>
@@ -1612,5 +1609,8 @@ Als u de muis beweegt of op het toetsenbord drukt, worden de schermen gewekt.</v
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
     <value>Update beschikbaar!</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>Uitgeschakeld</value>
   </data>
 </root>

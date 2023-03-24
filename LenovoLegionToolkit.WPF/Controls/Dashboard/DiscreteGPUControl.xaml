@@ -32,6 +32,13 @@
                     Grid.Column="0"
                     Width="12"
                     Height="12"
+                    Fill="#F2A541"
+                    Visibility="Collapsed" />
+                <Ellipse
+                    x:Name="_discreteGPUStatusPoweredOffIndicator"
+                    Grid.Column="0"
+                    Width="12"
+                    Height="12"
                     Fill="#BF360C"
                     Visibility="Collapsed" />
                 <Label

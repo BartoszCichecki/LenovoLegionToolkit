@@ -519,9 +519,6 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
 
 Lembre-se, alguns programas podem apresentar problemas se você fizer isso.</value>
   </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>A GPU nVidia não está ativa.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Inativa</value>
   </data>
@@ -1731,5 +1728,8 @@ Esta configuração somente terá efeito se o Modo Personalizado estiver ativo.<
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
 	  <value>Esta versão do Windows suporta o modo de espera moderno. Usar planos de energia diferentes do Balanceado pode causar comportamentos inesperados.</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>Desligado</value>
   </data>
 </root>

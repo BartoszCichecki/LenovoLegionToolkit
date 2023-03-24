@@ -519,9 +519,6 @@ WARNING: This action will not run correctly, if internal display is off or Hybri
 
 Remember, that some programs might crash if you do it.</value>
   </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>nVidia GPU is not active.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Inactive</value>
   </data>
@@ -1727,21 +1724,24 @@ This settings takes effect only when Custom Mode is enabled.</value>
     <value>Battery level low</value>
   </data>
   <data name="AutomationPipelineTriggerConfigurationWindow_Title" xml:space="preserve">
-	  <value>Configure</value>
+    <value>Configure</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
-	  <value>S0 Lower Power Model detected</value>
+    <value>S0 Lower Power Model detected</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-	  <value>Windows reports that this device supports Modern Standby. Using power plans other than Balanced may cause unexpected behavior.</value>
+    <value>Windows reports that this device supports Modern Standby. Using power plans other than Balanced may cause unexpected behavior.</value>
   </data>
   <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
-	  <value>Select Windows Power Plans to apply when Power Mode changes.</value>
+    <value>Select Windows Power Plans to apply when Power Mode changes.</value>
   </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
-	  <value>Power</value>
+    <value>Power</value>
   </data>
   <data name="SettingsPage_PowerPlansControlPanel_Title" xml:space="preserve">
-	  <value>Power Plan options in Windows Control Panel</value>
+    <value>Power Plan options in Windows Control Panel</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+    <value>Powered Off</value>
   </data>
 </root>

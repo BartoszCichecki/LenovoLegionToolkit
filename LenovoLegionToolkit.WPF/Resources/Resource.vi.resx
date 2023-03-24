@@ -519,9 +519,6 @@ CẢNH BÁO: Hành động sẽ không chạy đúng nếu màn hình laptop kh�
 
 Một số ứng dụng có thể dừng đột ngột nếu thực hiện.</value>
   </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>GPU rời không hoạt động.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Không hoạt động</value>
   </data>
@@ -1594,5 +1591,8 @@ Di chuyển chuột hoặc bấm phím bất kỳ trên bàn phím để bật m
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
     <value>Có cập nhật mới!</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>Ngắt kích hoạt</value>
   </data>
 </root>

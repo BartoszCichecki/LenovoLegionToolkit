@@ -147,10 +147,36 @@ public partial class StatusTrayPopup
 
             var status = t.Result;
 
-            _gpuPowerStateValueLabel.Content = status.PerformanceState ?? "-";
+            if (status.IsActive)
+            {
+                _gpuPowerStateValueLabel.Content = status.PerformanceState ?? "-";
 
-            _gpuActive.Visibility = status.IsActive ? Visibility.Visible : Visibility.Collapsed;
-            _gpuInactive.Visibility = status.IsActive ? Visibility.Collapsed : Visibility.Visible;
+                _gpuActive.Visibility = Visibility.Visible;
+                _gpuInactive.Visibility = Visibility.Collapsed;
+                _gpuPoweredOff.Visibility = Visibility.Collapsed;
+                _gpuPowerStateValue.Visibility = Visibility.Visible;
+                _gpuPowerStateValueLabel.Visibility = Visibility.Visible;
+            }
+            else if (status.IsPoweredOff)
+            {
+                _gpuPowerStateValueLabel.Content = null;
+
+                _gpuActive.Visibility = Visibility.Collapsed;
+                _gpuInactive.Visibility = Visibility.Collapsed;
+                _gpuPoweredOff.Visibility = Visibility.Visible;
+                _gpuPowerStateValue.Visibility = Visibility.Collapsed;
+                _gpuPowerStateValueLabel.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                _gpuPowerStateValueLabel.Content = status.PerformanceState ?? "-";
+
+                _gpuActive.Visibility = Visibility.Collapsed;
+                _gpuInactive.Visibility = Visibility.Visible;
+                _gpuPoweredOff.Visibility = Visibility.Collapsed;
+                _gpuPowerStateValue.Visibility = Visibility.Visible;
+                _gpuPowerStateValueLabel.Visibility = Visibility.Visible;
+            }
 
             _gpuGrid.Visibility = Visibility.Visible;
         }, TaskScheduler.FromCurrentSynchronizationContext());

@@ -520,9 +520,6 @@ ATTENTION : Cette action ne fonctionnera pas correctement, si l'écran intégré
 
 Souvenez-vous, que certains logiciels peuvent s'arrêter si vous le faites.</value>
   </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>nVidia GPU n'est pas actif.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Inactif</value>
   </data>
@@ -1732,5 +1729,8 @@ Ce paramètre ne prend effet que lorsque le mode personnalisé est activé.</val
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
 	  <value>Windows signale que ce périphérique prend en charge la mise en veille moderne. L'utilisation de plans d'alimentation autres qu'équilibré peut entraîner un comportement inattendu.</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>Désactiver</value>
   </data>
 </root>

@@ -1356,15 +1356,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to nVidia GPU is not active..
-        /// </summary>
-        public static string DiscreteGPUControl_GPUIsNotActive {
-            get {
-                return ResourceManager.GetString("DiscreteGPUControl_GPUIsNotActive", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Kill apps.
         /// </summary>
         public static string DiscreteGPUControl_KillApps {
@@ -3270,6 +3261,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string Paste {
             get {
                 return ResourceManager.GetString("Paste", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Powered Off.
+        /// </summary>
+        public static string PoweredOff {
+            get {
+                return ResourceManager.GetString("PoweredOff", resourceCulture);
             }
         }
         

@@ -519,9 +519,6 @@
 
 Προσοχή, ορισμένα προγράμματα ενδέχεται να σταματήσουν με αυτή την ενέργεια.</value>
   </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>Η nVidia GPU δεν είναι ενεργή.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Αδρανής</value>
   </data>
@@ -1685,5 +1682,8 @@
   </data>
   <data name="BatteryPage_LowLevel" xml:space="preserve">
     <value>Χαμηλό επίπεδο μπαταρίας</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>Απενεργοποίηση</value>
   </data>
 </root>

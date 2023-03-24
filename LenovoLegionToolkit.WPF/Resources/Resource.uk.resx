@@ -518,9 +518,6 @@
 
 Пам'ятайте, що деякі застосунки можуть зламатися, якщо ви це зробите.</value>
   </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>Відеокарта nVidia не активна.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Неактивно</value>
   </data>
@@ -1722,5 +1719,8 @@
   </data>
   <data name="BatteryPage_LowLevel" xml:space="preserve">
     <value>Низький рівень заряду батареї</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>Вимкнений</value>
   </data>
 </root>

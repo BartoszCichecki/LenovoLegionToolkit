@@ -519,9 +519,6 @@ AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está
 
 Recuerde que algunos programas pueden bloquearse si lo hace.</value>
   </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>La GPU nVidia no está activa.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Inactiva</value>
   </data>
@@ -1733,5 +1730,8 @@ Esta configuración sólo tiene efecto si el modo personalizado está activado.<
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
 	  <value>Windows informa de que este dispositivo soporta Modern Standby. El uso de planes de energía distintos a Equilibrado puede provocar un comportamiento inesperado.</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>Desactivado</value>
   </data>
 </root>

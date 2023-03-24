@@ -518,9 +518,6 @@ Attenzione: Questa azione non funzionerà correttamente se il display è spento 
 
 Ricorda, alcuni programmi potrebbero crashare se la disattivi.</value>
   </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>La GPU Nvidia non è attiva.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Disattivata</value>
   </data>
@@ -1598,5 +1595,8 @@ Spostare il mouse o premere il tasto sulla tastiera per risvegliarli.</value>
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
     <value>Aggiornamento disponibile!</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>Spento</value>
   </data>
 </root>

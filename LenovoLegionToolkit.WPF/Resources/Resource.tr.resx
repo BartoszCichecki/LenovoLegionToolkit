@@ -507,9 +507,6 @@ UYARI: Dahili ekran kapalıysa veya Hibrit modu etkin değilse bu eylem düzgün
 
 Bunu yaparsanız bazı programların çökebileceğini unutmayın.</value>
   </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>nVidia GPU etkin değil.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Aktif değil</value>
   </data>
@@ -1182,5 +1179,8 @@ Devam etmeyi seçerseniz, kayıt etme otomatik olarak etkinleştirilecektir.</va
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
     <value>Adım ekle</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>Kapatıldı</value>
   </data>
 </root>

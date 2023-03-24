@@ -520,9 +520,6 @@
 
 谨记，如果强制休眠可能导致一些应用崩溃。</value>
   </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>英伟达显卡休眠中</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>休眠中</value>
   </data>
@@ -1739,5 +1736,8 @@
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
 	  <value>检测到本设备支持新式待机（Modern Standby）。使用 “平衡” 以外的电源计划可能会导致意外问题。</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>关闭</value>
   </data>
 </root>

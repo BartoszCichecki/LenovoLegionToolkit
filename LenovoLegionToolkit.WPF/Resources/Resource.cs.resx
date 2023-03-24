@@ -519,9 +519,6 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je displej notebooku vypnutý
 
 Pamatuj, nějaké programy se mohou zhroutit, pokud to uděláš.</value>
   </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>nVidia GPU není aktivní.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Neaktivní</value>
   </data>
@@ -1725,5 +1722,8 @@ Toto nastavení se aplikuje jen když je zapnutý vlastní režim.</value>
   </data>
   <data name="BatteryPage_LowLevel" xml:space="preserve">
     <value>Baterie je slabá</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>Vypnut</value>
   </data>
 </root>
