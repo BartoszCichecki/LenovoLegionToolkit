@@ -378,21 +378,6 @@ Diese Zeit ist möglicherweise nicht genau, wenn der Laptop im Schlaf oder im au
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Akku</value>
   </data>
-  <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
-    <value>Auf Akku</value>
-  </data>
-  <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>Angeschlossen</value>
-  </data>
-  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
-    <value>Energiesparpläne</value>
-  </data>
-  <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
-    <value>Weitere Informationen auf microsoft.com</value>
-  </data>
-  <data name="CPUBoostModesWindow_Title" xml:space="preserve">
-    <value>CPU-Boost Modi</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Abbrechen</value>
   </data>
@@ -532,9 +517,6 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
     <value>nVidia GPU kann deaktiviert werden.
 
 Beachten Sie, dass einige Programme dabei abstürzen könnten.</value>
-  </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>nVidia GPU ist nicht aktiv.</value>
   </data>
   <data name="Inactive" xml:space="preserve">
     <value>Inaktiv</value>
@@ -1033,9 +1015,6 @@ Stellen Sie immer sicher, dass Sie die richtigen Pakete installieren.</value>
   <data name="Paste" xml:space="preserve">
     <value>Einfügen</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Anwendungen</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>Auswahl des Leistungsmodus.</value>
   </data>
@@ -1054,9 +1033,6 @@ Sie können den Modus mit Fn+Q wechseln.</value>
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Der gewählte Leistungsmodus funktioniert möglicherweise nicht richtig, wenn kein Netzteil angeschlossen ist.</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>Leistungsmodus</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>Aktivieren dieser Option, während Lenovo Vantage ausgeführt wird und den Energiesparplan Ihres Laptops ändert, kann zu unerwartetem Verhalten führen.</value>
@@ -1187,20 +1163,11 @@ Stellen Sie zunächst sicher, dass Ihr Skript korrekt ausgeführt wird.</value>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Akzentfarbe</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Ändern Sie die folgenden Optionen nur, wenn Sie wirklich wissen, was Sie tun.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Erweitert</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Startet minimiert in der Taskleiste, wenn Sie sich bei Windows anmelden.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Autostart</value>
-  </data>
-  <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>CPU-Boost Modi</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone wurde möglicherweise nicht korrekt deaktiviert</value>
@@ -1397,18 +1364,6 @@ Nach dem Ändern dieser Option wird ein Neustart empfohlen.</value>
   </data>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} Bereiche</value>
-  </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
-    <value>Sonnenaufgang</value>
-  </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
-    <value>Sonnenaufgang</value>
-  </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Uhrzeit</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
-    <value>Uhrzeit</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
     <value>Ermöglicht den Wechsel zwischen integrierter und diskreter GPU.
@@ -1759,9 +1714,9 @@ Diese Einstellung wird nur wirksam, wenn der benutzerdefinierte Modus aktiviert 
     <value>Akkustand niedrig</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
-	  <value>S0 Low Power Idle-Modell erkannt</value>
+    <value>S0 Low Power Idle-Modell erkannt</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-	  <value>Windows meldet, dass dieses Gerät den modernen Standby-Modus unterstützt. Die Verwendung anderer Energiesparpläne als "Ausbalanciert" kann zu unerwartetem Verhalten führen.</value>
+    <value>Windows meldet, dass dieses Gerät den modernen Standby-Modus unterstützt. Die Verwendung anderer Energiesparpläne als "Ausbalanciert" kann zu unerwartetem Verhalten führen.</value>
   </data>
 </root>
