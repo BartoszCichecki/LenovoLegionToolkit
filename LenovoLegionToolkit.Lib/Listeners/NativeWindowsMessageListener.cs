@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.Utils;
 using Windows.Win32;
 using Windows.Win32.Foundation;
 using Windows.Win32.System.Power;
@@ -95,16 +96,34 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
                 var devBroadcastDeviceInterface = Marshal.PtrToStructure<DEV_BROADCAST_DEVICEINTERFACE_W>(m.LParam);
                 if (devBroadcastDeviceInterface.dbcc_classguid == PInvoke.GUID_DISPLAY_DEVICE_ARRIVAL)
                 {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Event received: Display Device Arrival");
+
                     OnDisplayDeviceArrival();
                 }
 
                 if (devBroadcastDeviceInterface.dbcc_classguid == PInvoke.GUID_DEVINTERFACE_MONITOR)
                 {
-                    if (m.WParam.ToInt32() == PInvoke.DBT_DEVICEARRIVAL)
-                        OnMonitorConnected();
+                    var state = (uint)m.WParam.ToInt32();
+                    switch (state)
+                    {
+                        case PInvoke.DBT_DEVICEARRIVAL:
+                            {
+                                if (Log.Instance.IsTraceEnabled)
+                                    Log.Instance.Trace($"Event received: Monitor Connected");
 
-                    if (m.WParam.ToInt32() == PInvoke.DBT_DEVICEREMOVECOMPLETE)
-                        OnMonitorDisconnected();
+                                OnMonitorConnected();
+                                break;
+                            }
+                        case PInvoke.DBT_DEVICEREMOVECOMPLETE:
+                            {
+                                if (Log.Instance.IsTraceEnabled)
+                                    Log.Instance.Trace($"Event received: Monitor Disconnected");
+
+                                OnMonitorDisconnected();
+                                break;
+                            }
+                    }
                 }
             }
         }
@@ -119,11 +138,21 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
                 switch (state)
                 {
                     case PInvokeExtensions.CONSOLE_DISPLAY_STATE.On:
-                        OnMonitorOn();
-                        break;
+                        {
+                            if (Log.Instance.IsTraceEnabled)
+                                Log.Instance.Trace($"Event received: Monitor On");
+
+                            OnMonitorOn();
+                            break;
+                        }
                     case PInvokeExtensions.CONSOLE_DISPLAY_STATE.Off:
-                        OnMonitorOff();
-                        break;
+                        {
+                            if (Log.Instance.IsTraceEnabled)
+                                Log.Instance.Trace($"Event received: Monitor Off");
+
+                            OnMonitorOff();
+                            break;
+                        }
                 }
             }
 
@@ -131,26 +160,18 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
             {
                 var isOpened = str.Data[0] != 0;
                 if (isOpened)
-                    OnLidOpened();
-                else
-                    OnLidClosed();
-            }
-        }
-
-        if (m.Msg == PInvoke.WM_POWERBROADCAST && m.WParam == (IntPtr)PInvoke.PBT_POWERSETTINGCHANGE && m.LParam != IntPtr.Zero)
-        {
-            var str = Marshal.PtrToStructure<POWERBROADCAST_SETTING>(m.LParam);
-            if (str.PowerSetting == PInvoke.GUID_CONSOLE_DISPLAY_STATE)
-            {
-                var state = (PInvokeExtensions.CONSOLE_DISPLAY_STATE)str.Data[0];
-                switch (state)
                 {
-                    case PInvokeExtensions.CONSOLE_DISPLAY_STATE.On:
-                        OnMonitorOn();
-                        break;
-                    case PInvokeExtensions.CONSOLE_DISPLAY_STATE.Off:
-                        OnMonitorOff();
-                        break;
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Event received: Lid Opened");
+
+                    OnLidOpened();
+                }
+                else
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Event received: Lid Closed");
+
+                    OnLidClosed();
                 }
             }
         }
