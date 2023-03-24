@@ -1759,4 +1759,10 @@ Toto nastavení se aplikuje jen když je zapnutý vlastní režim.</value>
   <data name="BatteryPage_LowLevel" xml:space="preserve">
     <value>Baterie je slabá</value>
   </data>
+  <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
+	  <value>Byl zjištěn model S0 s nižším výkonem</value>
+  </data>
+  <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
+	  <value>Systém Windows hlásí, že toto zařízení podporuje moderní úsporný režim. Použití jiných plán napájení než Rovnováha může způsobit neočekávané chování.</value>
+  </data>
 </root>
