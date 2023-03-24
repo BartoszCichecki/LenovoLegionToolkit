@@ -1366,6 +1366,15 @@ Po změně této možnosti se doporučuje restartovat.</value>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} zón</value>
   </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
+    <value>Východ slunce</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
+    <value>Východ slunce</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
+    <value>Čas</value>
+  </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
     <value>Umožnit přepínání mezi integrovaným a dedikovaným GPU.
 Vyžaduje restart.</value>
@@ -1719,5 +1728,8 @@ Toto nastavení se aplikuje jen když je zapnutý vlastní režim.</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Systém Windows hlásí, že toto zařízení podporuje moderní úsporný režim. Použití jiných plán napájení než Rovnováha může způsobit neočekávané chování.</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+    <value>Vypnut</value>
   </data>
 </root>
