@@ -141,6 +141,9 @@
   <data name="OnStartupAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Khi khởi động</value>
   </data>
+  <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Khi đổi chế độ hoạt động</value>
+  </data>
   <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Khi chạy ứng dụng</value>
   </data>
