@@ -379,21 +379,6 @@
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Μπαταρία</value>
   </data>
-  <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
-    <value>Λειτουργία με την μπαταρία</value>
-  </data>
-  <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>Στην πρίζα</value>
-  </data>
-  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
-    <value>Προφίλ παροχής ενέργειας</value>
-  </data>
-  <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
-    <value>Μάθετε περισσότερα στο microsoft.com</value>
-  </data>
-  <data name="CPUBoostModesWindow_Title" xml:space="preserve">
-    <value>Λειτουργίες ενίσχυσης CPU</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Ακύρωση</value>
   </data>
@@ -533,9 +518,6 @@
     <value>Η nVidia GPU μπορεί να απενεργοποιηθεί.
 
 Προσοχή, ορισμένα προγράμματα ενδέχεται να σταματήσουν με αυτή την ενέργεια.</value>
-  </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>Η nVidia GPU δεν είναι ενεργή.</value>
   </data>
   <data name="Inactive" xml:space="preserve">
     <value>Αδρανής</value>
@@ -1020,9 +1002,6 @@
   <data name="Paste" xml:space="preserve">
     <value>Επικόλληση</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Εφαρμογές</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>Επιλογή λειτουργίας απόδοσης.</value>
   </data>
@@ -1041,9 +1020,6 @@
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Η επιλεγμένη κατάσταση τροφοδοσίας ενδέχεται να μη λειτουργεί σωστά χωρίς συνδεδεμένο φορτιστή.</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>Λειτουργία Ισχύος</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>Ενεργοποιώντας αυτή την επιλογής όταν εκτελείται το Lenovo Vantage και αλλάζει τα σχέδια παροχής ενέργειας στον υπολογιστή σας μπορεί να οδηγήσει σε απροσδόκητη συμπεριφορά.</value>
@@ -1171,20 +1147,11 @@
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Χρώμα έμφασης</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Μην αλλάξετε τις παρακάτω επιλογές εκτός και αν γνωρίζετε πραγματικά τι κάνετε.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Για προχωρημένους</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Εκκίνηση εφαρμογής ελαχιστοποιημένης στη γραμμή εικονιδίων όταν συνδεθείτε στα Windows.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Αυτόματη εκτέλεση</value>
-  </data>
-  <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>Λειτουργίες ενίσχυσης CPU</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
     <value>Το Legion Zone μπορεί να μην απενεργοποιήθηκε σωστά</value>
@@ -1378,18 +1345,6 @@
   </data>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>Ζώνη {0}</value>
-  </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
-    <value>Ανατολή ηλίου</value>
-  </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
-    <value>Ανατολή ηλίου</value>
-  </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Ώρα</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
-    <value>Ώρα</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
     <value>Επιτρέψτε την εναλλαγή μεταξύ ενσωματωμένης και διακριτής GPU.
