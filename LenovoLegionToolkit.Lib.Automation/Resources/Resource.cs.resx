@@ -141,6 +141,9 @@
   <data name="OnStartupAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Při spuštění</value>
   </data>
+  <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Když je změněn režim výkonu</value>
+  </data>
   <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Při spuštění aplikace</value>
   </data>
