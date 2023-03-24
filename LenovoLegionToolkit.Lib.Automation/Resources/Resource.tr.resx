@@ -141,6 +141,9 @@
   <data name="OnStartupAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Başlangıçta</value>
   </data>
+  <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Performans modu değiştiğinde</value>
+  </data>
   <data name="ProcessesStopRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Uygulama kapandığında</value>
   </data>
