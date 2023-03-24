@@ -1368,9 +1368,6 @@ Nach dem Ändern dieser Option wird ein Neustart empfohlen.</value>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>Sonnenaufgang</value>
   </data>
-  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
-    <value>Sonnenaufgang</value>
-  </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Uhrzeit</value>
   </data>
