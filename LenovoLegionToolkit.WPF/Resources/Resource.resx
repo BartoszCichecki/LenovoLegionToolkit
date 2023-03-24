@@ -1370,7 +1370,7 @@ Restart is recommended after changing this option.</value>
     <value>Sunrise</value>
   </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
-    <value>Sunrise</value>
+    <value>Sunset</value>
   </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Time</value>

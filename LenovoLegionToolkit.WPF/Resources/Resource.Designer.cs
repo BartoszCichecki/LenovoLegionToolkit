@@ -4508,7 +4508,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sunrise.
+        ///   Looks up a localized string similar to Sunset.
         /// </summary>
         public static string TimeAutomationPipelineTriggerTabItemContent_Sunset {
             get {
