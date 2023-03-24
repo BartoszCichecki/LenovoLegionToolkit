@@ -1345,6 +1345,9 @@ Assicurati prima, che il tuo script funzioni correttamente.</value>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>Alba</value>
   </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
+    <value>Tramonto</value>
+  </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Orario</value>
   </data>
