@@ -1627,7 +1627,7 @@ Esta configuración sólo tiene efecto si el modo personalizado está activado.<
     <value>Temperatura</value>
   </data>
   <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
-    <value>Único brillo de pantalla </value>
+    <value>Un solo brillo de pantalla</value>
   </data>
   <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
     <value>Si está activado, se aplicará el mismo nivel de brillo a todos los planes de energía de Windows cada vez que lo cambie.</value>
@@ -1726,10 +1726,13 @@ Esta configuración sólo tiene efecto si el modo personalizado está activado.<
     <value>Nivel bajo de batería</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
-	  <value>S0 Modelo de menor potencia detectado</value>
+    <value>S0 Modelo de menor potencia detectado</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-	  <value>Windows informa de que este dispositivo soporta Modern Standby. El uso de planes de energía distintos a Equilibrado puede provocar un comportamiento inesperado.</value>
+    <value>Windows informa de que este dispositivo soporta Modern Standby. El uso de planes de energía distintos a Equilibrado puede provocar un comportamiento inesperado.</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+    <value>Desactivado</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
 	  <value>Desactivado</value>

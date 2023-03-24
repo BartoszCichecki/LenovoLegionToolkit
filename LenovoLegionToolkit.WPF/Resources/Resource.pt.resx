@@ -1597,6 +1597,6 @@ Mover o rato ou clicar no teclado vai ligar os ecrãs.</value>
     <value>Atualização disponível!</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
-	  <value>Desligada</value>
+    <value>Desligada</value>
   </data>
 </root>

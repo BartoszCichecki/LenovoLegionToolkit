@@ -146,7 +146,7 @@
     <value>Rendimiento</value>
   </data>
   <data name="PowerModeState_Quiet" xml:space="preserve">
-    <value>Silencioso</value>
+    <value>Tranquilo</value>
   </data>
   <data name="RBGKeyboardBacklightSpeed_Fast" xml:space="preserve">
     <value>Rápido</value>

@@ -1724,10 +1724,13 @@
     <value>Низкий уровень заряда батареи</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
-	  <value>Обнаружена модель низкой мощности S0</value>
+    <value>Обнаружена модель низкой мощности S0</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-	  <value>Windows сообщает, что это устройство поддерживает Modern Standby. Применение планов питания, отличных от сбалансированного, может привести к неожиданному поведению.</value>
+    <value>Windows сообщает, что это устройство поддерживает Modern Standby. Применение планов питания, отличных от сбалансированного, может привести к неожиданному поведению.</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+    <value>Отключен</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
 	  <value>Отключен</value>

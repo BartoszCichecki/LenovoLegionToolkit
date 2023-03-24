@@ -1723,10 +1723,13 @@ Diese Einstellung wird nur wirksam, wenn der benutzerdefinierte Modus aktiviert 
     <value>Akkustand niedrig</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
-	  <value>S0 Low Power Idle-Modell erkannt</value>
+    <value>S0 Low Power Idle-Modell erkannt</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-	  <value>Windows meldet, dass dieses Gerät den modernen Standby-Modus unterstützt. Die Verwendung anderer Energiesparpläne als "Ausbalanciert" kann zu unerwartetem Verhalten führen.</value>
+    <value>Windows meldet, dass dieses Gerät den modernen Standby-Modus unterstützt. Die Verwendung anderer Energiesparpläne als "Ausbalanciert" kann zu unerwartetem Verhalten führen.</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+    <value>Ausgeschaltet</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
 	  <value>Ausgeschaltet</value>
