@@ -1365,15 +1365,6 @@ Po zmene tejto možnosti sa odporúča reštart.</value>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} zón</value>
   </data>
-  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
-    <value>Úsvit</value>
-  </data>
-  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
-    <value>Úsvit</value>
-  </data>
-  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
-    <value>Čas</value>
-  </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
     <value>Umožniť prepínanie medzi integrovanou a dedikovanou GPU.
 Vyžaduje reštart.</value>
@@ -1712,8 +1703,5 @@ Nastavenia sú účinne len keď je povolený vlastný režim.</value>
   </data>
   <data name="BatteryPage_LowLevel" xml:space="preserve">
     <value>Úroveň batérie nízka</value>
-  </data>
-  <data name="PoweredOff" xml:space="preserve">
-	  <value>Vypnutý</value>
   </data>
 </root>
