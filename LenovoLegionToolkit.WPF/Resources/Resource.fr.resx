@@ -1724,11 +1724,17 @@ Ce paramètre ne prend effet que lorsque le mode personnalisé est activé.</val
   <data name="BatteryPage_LowLevel" xml:space="preserve">
     <value>Batterie faible</value>
   </data>
+  <data name="AutomationPipelineTriggerConfigurationWindow_Title" xml:space="preserve">
+    <value>Configurer</value>
+  </data>
   <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
     <value>S0 Modèle de puissance inférieure détectée</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Windows signale que ce périphérique prend en charge la mise en veille moderne. L'utilisation de plans d'alimentation autres qu'équilibré peut entraîner un comportement inattendu.</value>
+  </data>
+  <data name="SettingsPage_Power_Title" xml:space="preserve">
+    <value>Alimentation</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Désactiver</value>
