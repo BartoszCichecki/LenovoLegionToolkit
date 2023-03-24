@@ -1347,6 +1347,15 @@ Certifica-te que o script executa corretamente primeiro.</value>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} zonas</value>
   </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
+    <value>Nascer do Sol</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
+    <value>Pôr do Sol</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
+    <value>Hora</value>
+  </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
     <value>Permite trocar entre a GPU discreta e integrada. Reinício necessário.</value>
   </data>
@@ -1586,5 +1595,8 @@ Mover o rato ou clicar no teclado vai ligar os ecrãs.</value>
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
     <value>Atualização disponível!</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+    <value>Desligada</value>
   </data>
 </root>
