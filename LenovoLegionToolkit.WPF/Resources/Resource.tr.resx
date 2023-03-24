@@ -1072,15 +1072,6 @@ UYARI: Yerleşik ekran kapalıysa bu eylem düzgün çalışmayacaktır.</value>
   <data name="SettingsPage_Title" xml:space="preserve">
     <value>Ayarlar</value>
   </data>
-  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
-    <value>Gündoğumu</value>
-  </data>
-  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
-    <value>Gündoğumu</value>
-  </data>
-  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
-    <value>Zaman</value>
-  </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
     <value>Entegre ve harici GPU arasında geçişe izin verin.
 Yeniden başlatma gerektirir.</value>
@@ -1179,8 +1170,5 @@ Devam etmeyi seçerseniz, kayıt etme otomatik olarak etkinleştirilecektir.</va
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
     <value>Adım ekle</value>
-  </data>
-  <data name="PoweredOff" xml:space="preserve">
-	  <value>Kapatıldı</value>
   </data>
 </root>
