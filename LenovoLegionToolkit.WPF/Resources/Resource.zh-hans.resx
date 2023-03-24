@@ -380,21 +380,6 @@
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>电池</value>
   </data>
-  <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
-    <value>使用电池时</value>
-  </data>
-  <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>插入电源适配器时</value>
-  </data>
-  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
-    <value>性能计划</value>
-  </data>
-  <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
-    <value>访问 microsoft.com 以了解更多</value>
-  </data>
-  <data name="CPUBoostModesWindow_Title" xml:space="preserve">
-    <value>处理器性能提升（睿频）模式</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>取消</value>
   </data>
@@ -534,9 +519,6 @@
     <value>手动强制休眠英伟达显卡
 
 谨记，如果强制休眠可能导致一些应用崩溃。</value>
-  </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>英伟达显卡休眠中</value>
   </data>
   <data name="Inactive" xml:space="preserve">
     <value>休眠中</value>
@@ -1040,9 +1022,6 @@
   <data name="Paste" xml:space="preserve">
     <value>粘贴</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>应用列表</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>选择性能模式</value>
   </data>
@@ -1061,9 +1040,6 @@
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>在未插入电源适配器的情况下，性能模式可能无法正常生效。</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>性能模式</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>当Lenovo Vantage运行时启用该选项并修改笔记本上的电源计划可能会导致意外情况。</value>
@@ -1194,21 +1170,12 @@
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>主题色</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>请谨慎修改下方选项！在你不知道下方选项的准确意义前，请勿修改！</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>高级设置</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>开启自启并最小化到托盘。
 如遇到无法控制等问题请选择【延迟启动】以等待联想服务完全加载。</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>开机启动</value>
-  </data>
-  <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>处理器性能提升（睿频）模式</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone 可能没有被正确禁用。</value>
@@ -1406,16 +1373,13 @@
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} 键区</value>
   </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>日出</value>
   </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
     <value>日落</value>
   </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>时间</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>时间</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
@@ -1768,9 +1732,12 @@
     <value>电池电量低</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
-	  <value>检测到 S0 低功耗空闲模型</value>
+    <value>检测到 S0 低功耗空闲模型</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-	  <value>检测到本设备支持新式待机（Modern Standby）。使用 “平衡” 以外的电源计划可能会导致意外问题。</value>
+    <value>检测到本设备支持新式待机（Modern Standby）。使用 “平衡” 以外的电源计划可能会导致意外问题。</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+    <value>关闭</value>
   </data>
 </root>
