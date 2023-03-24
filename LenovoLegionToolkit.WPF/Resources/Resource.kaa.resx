@@ -1689,4 +1689,7 @@ Bul sazlaw tek arnawlı rejim qosılǵanda nátiyje beredi.</value>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Bul qurılma Modern Standbydı qollap-quwatlaytuǵının Windows xabarlaydı. Teńlestirilgen quwatlılıq jobasınan basqasın qollanıw kútilmegen háreketke alıp keliwi múmkin.</value>
   </data>
+  <data name="PoweredOff" xml:space="preserve">
+    <value>Óshirilgen</value>
+  </data>
 </root>
