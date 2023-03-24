@@ -1732,7 +1732,4 @@
   <data name="PoweredOff" xml:space="preserve">
     <value>Отключен</value>
   </data>
-  <data name="PoweredOff" xml:space="preserve">
-	  <value>Отключен</value>
-  </data>
 </root>

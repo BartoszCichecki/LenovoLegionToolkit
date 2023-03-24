@@ -1733,7 +1733,4 @@ Ce paramètre ne prend effet que lorsque le mode personnalisé est activé.</val
   <data name="PoweredOff" xml:space="preserve">
     <value>Désactiver</value>
   </data>
-  <data name="PoweredOff" xml:space="preserve">
-	  <value>Désactiver</value>
-  </data>
 </root>

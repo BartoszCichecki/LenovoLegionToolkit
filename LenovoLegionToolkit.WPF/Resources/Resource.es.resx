@@ -1734,7 +1734,4 @@ Esta configuración sólo tiene efecto si el modo personalizado está activado.<
   <data name="PoweredOff" xml:space="preserve">
     <value>Desactivado</value>
   </data>
-  <data name="PoweredOff" xml:space="preserve">
-	  <value>Desactivado</value>
-  </data>
 </root>

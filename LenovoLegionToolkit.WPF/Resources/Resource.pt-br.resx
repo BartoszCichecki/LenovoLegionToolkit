@@ -1732,7 +1732,4 @@ Esta configuração somente terá efeito se o Modo Personalizado estiver ativo.<
   <data name="PoweredOff" xml:space="preserve">
     <value>Desligado</value>
   </data>
-  <data name="PoweredOff" xml:space="preserve">
-	  <value>Desligado</value>
-  </data>
 </root>

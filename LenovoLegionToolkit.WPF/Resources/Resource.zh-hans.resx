@@ -1740,7 +1740,4 @@
   <data name="PoweredOff" xml:space="preserve">
     <value>关闭</value>
   </data>
-  <data name="PoweredOff" xml:space="preserve">
-	  <value>关闭</value>
-  </data>
 </root>
