@@ -378,21 +378,6 @@
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>البطارية</value>
   </data>
-  <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
-    <value>على البطارية</value>
-  </data>
-  <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>متصل بالشاحن</value>
-  </data>
-  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
-    <value>اوضاع الطاقة</value>
-  </data>
-  <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
-    <value>اعرف المزيد على microsoft.com</value>
-  </data>
-  <data name="CPUBoostModesWindow_Title" xml:space="preserve">
-    <value>أوضاع تعزيز المعالج</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>الغاء</value>
   </data>
@@ -525,9 +510,6 @@
   <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
     <value>بطاقة نفيديا يكمن أن تغلق.
 تذكر أن بعد البرامج ممكن أن تتوقف عن العمل لو قمت بهذا.</value>
-  </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>بطاقة نفيديا لا تعمل.</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>قتل التطبيقات</value>
@@ -1006,9 +988,6 @@
   <data name="Paste" xml:space="preserve">
     <value>لصق</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>التطبيقات</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>اختر وضع الأداء.</value>
   </data>
@@ -1027,9 +1006,6 @@
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>قد لا يعمل وضع الطاقة المحدد بشكل صحيح بِدون توصيل محول التيار المتردد.</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>وضع الطاقة</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>قد يؤدي تمكين هذا الخِيار عند تشغيل Lenovo Vantage وتغييره لِخطط الطاقة على الكمبيوتر المحمول إلى سلوك غير متوقع.</value>
@@ -1160,20 +1136,11 @@
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>لون المظهر</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>لا تغير الخيارات في الأسفل إلا إذا كنت تعلم ماذا تفعل.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>إعدادات متقدمة</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>شغل مصغرا للمعروضات عند تسجيل الدخول لنظام التشغيل أو الويندوز.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>تشغيل تلقائي</value>
-  </data>
-  <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>أوضاع تعزيز وحدة المعالجة المركزية للصور</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
     <value>ربما لم يتم تعطيل Legion Zone أو منطقة Legion بشكل صحيح</value>
@@ -1334,16 +1301,13 @@
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>المناطق {0}</value>
   </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>الشروق</value>
   </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
     <value>الشروق</value>
   </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>الوقت</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>الوقت</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
@@ -1450,5 +1414,8 @@
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
     <value>إضافة خطوة</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>مغلق</value>
   </data>
 </root>

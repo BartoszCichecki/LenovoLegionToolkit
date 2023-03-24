@@ -60,9 +60,9 @@ public partial class DiscreteGPUControl
     private void GpuController_Refreshed(object? sender, GPUController.GPUStatus e) => Dispatcher.Invoke(() =>
     {
         var tooltipStringBuilder = new StringBuilder(Resource.DiscreteGPUControl_PerformanceState);
-        tooltipStringBuilder.AppendLine().Append(e.PerformanceState ?? Resource.DiscreteGPUControl_PerformanceState_Unknown).AppendLine().AppendLine();
+        tooltipStringBuilder.AppendLine().Append(" · ").Append(e.PerformanceState ?? Resource.DiscreteGPUControl_PerformanceState_Unknown);
 
-        if (e.Status is GPUController.Status.Unknown or GPUController.Status.NVIDIAGPUNotFound)
+        if (e.Status is GPUController.Status.Unknown or GPUController.Status.NvidiaGpuNotFound)
         {
             _discreteGPUStatusActiveIndicator.Visibility = Visibility.Collapsed;
             _discreteGPUStatusInactiveIndicator.Visibility = Visibility.Collapsed;
@@ -96,16 +96,27 @@ public partial class DiscreteGPUControl
 
             _discreteGPUStatusActiveIndicator.Visibility = Visibility.Visible;
             _discreteGPUStatusInactiveIndicator.Visibility = Visibility.Collapsed;
+            _discreteGPUStatusPoweredOffIndicator.Visibility = Visibility.Collapsed;
             _discreteGPUStatusDescription.Content = Resource.Active;
-            _gpuInfoButton.ToolTip = tooltipStringBuilder.Append(processesStringBuilder).ToString();
+            _gpuInfoButton.ToolTip = tooltipStringBuilder.AppendLine().AppendLine().Append(processesStringBuilder).ToString();
+            _gpuInfoButton.IsEnabled = true;
+        }
+        else if (e.IsPoweredOff)
+        {
+            _discreteGPUStatusActiveIndicator.Visibility = Visibility.Collapsed;
+            _discreteGPUStatusInactiveIndicator.Visibility = Visibility.Collapsed;
+            _discreteGPUStatusPoweredOffIndicator.Visibility = Visibility.Visible;
+            _discreteGPUStatusDescription.Content = Resource.PoweredOff;
+            _gpuInfoButton.ToolTip = tooltipStringBuilder.ToString();
             _gpuInfoButton.IsEnabled = true;
         }
         else
         {
             _discreteGPUStatusActiveIndicator.Visibility = Visibility.Collapsed;
             _discreteGPUStatusInactiveIndicator.Visibility = Visibility.Visible;
+            _discreteGPUStatusPoweredOffIndicator.Visibility = Visibility.Collapsed;
             _discreteGPUStatusDescription.Content = Resource.Inactive;
-            _gpuInfoButton.ToolTip = tooltipStringBuilder.Append(Resource.DiscreteGPUControl_GPUIsNotActive).ToString();
+            _gpuInfoButton.ToolTip = tooltipStringBuilder.ToString();
             _gpuInfoButton.IsEnabled = true;
         }
 
@@ -126,7 +137,6 @@ public partial class DiscreteGPUControl
         {
             GPUController.Status.MonitorsConnected => Resource.DiscreteGPUControl_MonitorConnected,
             GPUController.Status.DeactivatePossible => Resource.DiscreteGPUControl_DisablePossible,
-            GPUController.Status.Inactive => Resource.DiscreteGPUControl_GPUIsNotActive,
             _ => null,
         };
 

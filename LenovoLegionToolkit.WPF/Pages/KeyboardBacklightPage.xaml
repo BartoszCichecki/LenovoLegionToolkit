@@ -23,15 +23,13 @@
             Text="{x:Static resources:Resource.KeyboardBacklightPage_Title}" />
 
         <controls:LoadableControl x:Name="_loader" InidicatorMargin="0,64,0,0">
-            <StackPanel>
+            <StackPanel x:Name="_content" Margin="0,0,8,0">
                 <TextBlock
                     x:Name="_noKeyboardsText"
                     FontSize="14"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                    Text="{x:Static resources:Resource.KeyboardBacklightPage_NoCompatibleKeyboardsFound}" />
-
-                <spectrum:SpectrumKeyboardBacklightControl x:Name="_spectrumKeyboardBacklightControl" Margin="0,0,8,0" />
-                <rgb:RGBKeyboardBacklightControl x:Name="_rgbKeyboardBacklightControl" Margin="0,0,8,0" />
+                    Text="{x:Static resources:Resource.KeyboardBacklightPage_NoCompatibleKeyboardsFound}"
+                    Visibility="Collapsed" />
             </StackPanel>
         </controls:LoadableControl>
 

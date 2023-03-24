@@ -379,21 +379,6 @@ Tento čas nemusí být přesný, pokud byl notebook nabíjen ve spánku nebo ve
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Baterie</value>
   </data>
-  <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
-    <value>Na baterii</value>
-  </data>
-  <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>Připojen</value>
-  </data>
-  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
-    <value>Plány napájení</value>
-  </data>
-  <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
-    <value>Zjisti více na microsoft.com</value>
-  </data>
-  <data name="CPUBoostModesWindow_Title" xml:space="preserve">
-    <value>Režimy zesílení CPU</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Zrušit</value>
   </data>
@@ -533,9 +518,6 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je displej notebooku vypnutý
     <value>nVidia GPU může být deaktivováno.
 
 Pamatuj, nějaké programy se mohou zhroutit, pokud to uděláš.</value>
-  </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>nVidia GPU není aktivní.</value>
   </data>
   <data name="Inactive" xml:space="preserve">
     <value>Neaktivní</value>
@@ -1034,9 +1016,6 @@ Vždy se ujisti, že instaluješ správné balíčky.</value>
   <data name="Paste" xml:space="preserve">
     <value>Vložit</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Aplikace</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>Vyber režim výkonu.</value>
   </data>
@@ -1055,9 +1034,6 @@ Režim můžeš přepínat pomocí Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Vybraný režim výkonu nemusí fungovat správně bez připojené nabíječky.</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>Režim výkonu</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>Povolení této možnosti, když je spuštěn Lenovo Vantage a mění plány napájení tvého notebooku, může vést k neočekávanému chování.</value>
@@ -1188,20 +1164,11 @@ Nejprve se ujisti, že tvůj skript běží správně.</value>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Barva aplikace</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Neměň níže uvedené možnosti, pokud opravdu nevíš, co děláš.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Pokročilé</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Zapnout minimalizované v liště, když se přihlásiš do windowsu.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Automatické spuštění</value>
-  </data>
-  <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>Režimy zesílení CPU</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone možná nebyla správně deaktivována</value>
@@ -1399,16 +1366,13 @@ Po změně této možnosti se doporučuje restartovat.</value>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} zón</value>
   </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>Východ slunce</value>
   </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
     <value>Východ slunce</value>
   </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Čas</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Čas</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
@@ -1758,5 +1722,8 @@ Toto nastavení se aplikuje jen když je zapnutý vlastní režim.</value>
   </data>
   <data name="BatteryPage_LowLevel" xml:space="preserve">
     <value>Baterie je slabá</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>Vypnut</value>
   </data>
 </root>

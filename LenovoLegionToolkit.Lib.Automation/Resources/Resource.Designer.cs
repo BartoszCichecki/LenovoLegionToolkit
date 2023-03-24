@@ -205,7 +205,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When power mode is changed.
+        ///   Looks up a localized string similar to When Power Mode is changed.
         /// </summary>
         public static string PowerModeAutomationPipelineTrigger_DisplayName {
             get {

@@ -379,21 +379,6 @@
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Батарея</value>
   </data>
-  <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
-    <value>От батареи</value>
-  </data>
-  <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>От сети</value>
-  </data>
-  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
-    <value>Схемы питания</value>
-  </data>
-  <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
-    <value>Подробнее на сайте microsoft.com</value>
-  </data>
-  <data name="CPUBoostModesWindow_Title" xml:space="preserve">
-    <value>Режимы ускорения процессора</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Отмена</value>
   </data>
@@ -533,9 +518,6 @@
     <value>Графический процессор nVidia может быть отключен.
 
 Обратите внимание, что некоторые программы могут выйти из строя, если вы это сделаете.</value>
-  </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>Графический процессор nVidia не активен.</value>
   </data>
   <data name="Inactive" xml:space="preserve">
     <value>Неактивен</value>
@@ -1034,9 +1016,6 @@
   <data name="Paste" xml:space="preserve">
     <value>Вставить</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Приложения</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>Выбрать режим работы.</value>
   </data>
@@ -1055,9 +1034,6 @@
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Выбранный режим питания может работать некорректно, если блок питания не подключен.</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>Режим питания</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>Включение этой опции во время работы Lenovo Vantage и изменения планов электропитания на ноутбуке может привести к неожиданным последствиям.</value>
@@ -1188,20 +1164,11 @@
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Контрастный цвет</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Не изменяйте указанные ниже параметры, если вы не знаете, что делаете.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Доп. настройки</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Запускать свернутым при входе в Windows.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Автозагрузка</value>
-  </data>
-  <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>Режимы ускорения процессора</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
     <value>Возможно, Legion Zone был неверно отключен</value>
@@ -1399,16 +1366,13 @@
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} зон(ы)</value>
   </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>Рассвет</value>
   </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
     <value>Закат</value>
   </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Время</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Время</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
@@ -1764,5 +1728,8 @@
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
 	  <value>Windows сообщает, что это устройство поддерживает Modern Standby. Применение планов питания, отличных от сбалансированного, может привести к неожиданному поведению.</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>Отключен</value>
   </data>
 </root>

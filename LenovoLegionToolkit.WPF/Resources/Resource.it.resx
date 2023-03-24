@@ -378,21 +378,6 @@ l'orario indicato potrebbe non essere corretto se il laptop è stato caricato me
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Batteria</value>
   </data>
-  <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
-    <value>Utilizzando batteria</value>
-  </data>
-  <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>Alimentato</value>
-  </data>
-  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
-    <value>Piani energetici</value>
-  </data>
-  <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
-    <value>Ulteriori informazioni su microsoft.com</value>
-  </data>
-  <data name="CPUBoostModesWindow_Title" xml:space="preserve">
-    <value>Modalità Boost CPU</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Annulla</value>
   </data>
@@ -532,9 +517,6 @@ Attenzione: Questa azione non funzionerà correttamente se il display è spento 
     <value>La GPU Nvidia può essere disattivata.
 
 Ricorda, alcuni programmi potrebbero crashare se la disattivi.</value>
-  </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>La GPU Nvidia non è attiva.</value>
   </data>
   <data name="Inactive" xml:space="preserve">
     <value>Disattivata</value>
@@ -1023,9 +1005,6 @@ Assicurati sempre di installare i pacchetti corretti.</value>
   <data name="Paste" xml:space="preserve">
     <value>Incolla</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Applicazioni</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>Cambia la modalità energetica.</value>
   </data>
@@ -1044,9 +1023,6 @@ Puoi anche usare la scorciatoia Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>La modalità di alimentazione selezionata potrebbe non funzionare correttamente senza un alimentatore collegato.</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>Modalità energetica</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>L'abilitazione di questa opzione quando Lenovo Vantage è in esecuzione e cambia i piani di alimentazione sul laptop potrebbe causare un comportamento imprevisto.</value>
@@ -1177,20 +1153,11 @@ Assicurati prima, che il tuo script funzioni correttamente.</value>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Colore</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Non modificare le opzioni seguenti a meno che tu non sappia davvero cosa stai facendo.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Avanzate</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Inizia ridotto a icona quando accedi a Windows.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Esecuzione automatica</value>
-  </data>
-  <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>Modalità Boost CPU</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone potrebbe non essere disabilitato correttamente</value>
@@ -1375,16 +1342,13 @@ Assicurati prima, che il tuo script funzioni correttamente.</value>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} zone</value>
   </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>Alba</value>
   </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
     <value>Alba</value>
   </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Orario</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Orario</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
@@ -1631,5 +1595,8 @@ Spostare il mouse o premere il tasto sulla tastiera per risvegliarli.</value>
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
     <value>Aggiornamento disponibile!</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>Spento</value>
   </data>
 </root>

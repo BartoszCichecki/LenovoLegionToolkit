@@ -8,5 +8,9 @@ public class LambdaDisposable : IDisposable
 
     public LambdaDisposable(Action action) => _action = action;
 
-    public void Dispose() => _action();
+    public void Dispose()
+    {
+        GC.SuppressFinalize(this);
+        _action();
+    }
 }

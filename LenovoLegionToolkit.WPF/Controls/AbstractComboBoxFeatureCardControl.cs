@@ -91,12 +91,11 @@ public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshing
 
         _comboBox.SetItems(items, selectedItem, ComboBoxItemDisplayName);
         _comboBox.IsEnabled = items.Any();
+        _comboBox.Visibility = Visibility.Visible;
     }
 
     protected override void OnFinishedLoading()
     {
-        _comboBox.Visibility = Visibility.Visible;
-
         MessagingCenter.Subscribe<T>(this, () => Dispatcher.InvokeTask(RefreshAsync));
     }
 

@@ -12,4 +12,5 @@ public interface IGodModeController
     Task SetStateAsync(GodModeState state);
     Task ApplyStateAsync();
     Task<Dictionary<PowerModeState, GodModeDefaults>> GetDefaultsInOtherPowerModesAsync();
+    Task RestoreDefaultsInOtherPowerModeAsync(PowerModeState state);
 }

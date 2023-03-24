@@ -14,7 +14,6 @@
     MinHeight="500"
     FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
     IsVisibleChanged="PickProcessesWindow_IsVisibleChanged"
-    Loaded="PickProcessesWindow_Loaded"
     ResizeMode="CanMinimize"
     ShowInTaskbar="False"
     WindowStartupLocation="CenterOwner">

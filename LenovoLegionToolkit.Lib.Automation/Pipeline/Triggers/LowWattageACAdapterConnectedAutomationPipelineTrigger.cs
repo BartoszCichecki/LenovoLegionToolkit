@@ -11,12 +11,19 @@ public class LowWattageACAdapterConnectedAutomationPipelineTrigger : IPowerState
     [JsonIgnore]
     public string DisplayName => Resource.LowWattageACAdapterConnectedAutomationPipelineTrigger_DisplayName;
 
-    public async Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent)
+    public async Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
     {
         if (automationEvent is not (PowerStateAutomationEvent or StartupAutomationEvent))
             return false;
 
-        return await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false) == PowerAdapterStatus.ConnectedLowWattage;
+        var result = await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false);
+        return result == PowerAdapterStatus.ConnectedLowWattage;
+    }
+
+    public async Task<bool> IsMatchingState()
+    {
+        var result = await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false);
+        return result == PowerAdapterStatus.ConnectedLowWattage;
     }
 
     public IAutomationPipelineTrigger DeepCopy() => new LowWattageACAdapterConnectedAutomationPipelineTrigger();

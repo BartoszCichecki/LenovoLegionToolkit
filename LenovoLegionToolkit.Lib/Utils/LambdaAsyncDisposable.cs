@@ -9,5 +9,9 @@ public class LambdaAsyncDisposable : IAsyncDisposable
 
     public LambdaAsyncDisposable(Func<Task> action) => _action = action;
 
-    public async ValueTask DisposeAsync() => await _action();
+    public async ValueTask DisposeAsync()
+    {
+        GC.SuppressFinalize(this);
+        await _action();
+    }
 }

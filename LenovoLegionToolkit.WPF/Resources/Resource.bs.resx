@@ -338,15 +338,6 @@ Ovo vrijeme možda neće biti tačno ako je laptop bio napunjen dok je spavao il
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Baterija</value>
   </data>
-  <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
-    <value>Na bateriji</value>
-  </data>
-  <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>Priključeno</value>
-  </data>
-  <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
-    <value>Saznajte više na microsoft.com</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Otkaži</value>
   </data>
@@ -619,9 +610,6 @@ Uvijek provjerite da li instalirate ispravne pakete.</value>
   <data name="Paste" xml:space="preserve">
     <value>Zalijepi</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Aplikacije</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Režim rada</value>
   </data>
@@ -629,9 +617,6 @@ Uvijek provjerite da li instalirate ispravne pakete.</value>
     <value>Postavke</value>
   </data>
   <data name="PowerModeControl_Title" xml:space="preserve">
-    <value>Režim rada</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
     <value>Režim rada</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
@@ -709,12 +694,6 @@ Uvijek provjerite da li instalirate ispravne pakete.</value>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Akcentna boja</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Nemojte mijenjati opcije ispod osim ako stvarno znate šta radite.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Napredno</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Start minimized to tray when you log in to Windows.
 Startup is delayed by 30 seconds for compatibility reasons.</value>
@@ -785,16 +764,13 @@ Startup is delayed by 30 seconds for compatibility reasons.</value>
   <data name="SettingsPage_Title" xml:space="preserve">
     <value>Postavke</value>
   </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>Izlazak sunca</value>
   </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
     <value>Zalazak sunca</value>
   </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Vrijeme</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Vrijeme</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
@@ -889,5 +865,8 @@ Logiranje će biti automatski omogućeno, ukoliko izaberete da nastavite.</value
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
     <value>Dodaj korak</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>Isključeno</value>
   </data>
 </root>

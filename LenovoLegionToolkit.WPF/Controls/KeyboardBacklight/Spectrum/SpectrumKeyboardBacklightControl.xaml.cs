@@ -55,10 +55,14 @@ public partial class SpectrumKeyboardBacklightControl
 
     private async void SpectrumKeyboardBacklightControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
     {
-        if (IsVisible)
-            await StartAnimationAsync();
-        else
+        if (!IsVisible)
+        {
             await StopAnimationAsync();
+            _effects.Children.Clear();
+            return;
+        }
+
+        await StartAnimationAsync();
     }
 
     private void SpectrumKeyboardBacklightControl_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -123,8 +127,6 @@ public partial class SpectrumKeyboardBacklightControl
 
         if (await _controller.GetProfileAsync() != profile)
         {
-            ShowProfileDescriptionLoader();
-
             await _controller.SetProfileAsync(profile);
             await RefreshProfileDescriptionAsync();
         }
@@ -261,8 +263,6 @@ public partial class SpectrumKeyboardBacklightControl
             _vantageWarningCard.Visibility = Visibility.Visible;
             _content.IsEnabled = false;
             _noEffectsText.Visibility = Visibility.Collapsed;
-            StopProfileDescriptionLoader();
-
             return;
         }
 
@@ -286,6 +286,8 @@ public partial class SpectrumKeyboardBacklightControl
 
         await RefreshBrightnessAsync();
         await RefreshProfileAsync();
+
+        await StartAnimationAsync();
     }
 
     protected override void OnFinishedLoading() { }
@@ -345,6 +347,9 @@ public partial class SpectrumKeyboardBacklightControl
     {
         var buttons = _device.GetVisibleButtons().ToArray();
 
+        if (buttons.Length < 1)
+            return;
+
         try
         {
             while (true)
@@ -362,7 +367,7 @@ public partial class SpectrumKeyboardBacklightControl
                         continue;
                     }
 
-                    if (rgb.R < 1 && rgb.G < 1 && rgb.B < 1)
+                    if (rgb is { R: < 1, G: < 1, B: < 1 })
                     {
                         button.Color = null;
                         continue;
@@ -404,23 +409,8 @@ public partial class SpectrumKeyboardBacklightControl
         await RefreshProfileDescriptionAsync();
     }
 
-    private void ShowProfileDescriptionLoader()
-    {
-        if (!_effectsLoader.IsLoading)
-            _effectsLoader.IsLoading = true;
-    }
-
-    private void StopProfileDescriptionLoader()
-    {
-        _effectsLoader.IsLoading = false;
-    }
-
     private async Task RefreshProfileDescriptionAsync()
     {
-        ShowProfileDescriptionLoader();
-
-        var delay = Task.Delay(TimeSpan.FromMilliseconds(500));
-
         var profile = await _controller.GetProfileAsync();
         var (_, effects) = await _controller.GetProfileDescriptionAsync(profile);
 
@@ -433,10 +423,6 @@ public partial class SpectrumKeyboardBacklightControl
         }
 
         _noEffectsText.Visibility = effects.IsEmpty() ? Visibility.Visible : Visibility.Collapsed;
-
-        await delay;
-
-        StopProfileDescriptionLoader();
     }
 
     private async Task ApplyProfileAsync()
@@ -461,7 +447,6 @@ public partial class SpectrumKeyboardBacklightControl
 
     private async Task ResetToDefaultAsync()
     {
-        ShowProfileDescriptionLoader();
         DeselectAllButtons();
 
         var profile = await _controller.GetProfileAsync();
@@ -488,7 +473,6 @@ public partial class SpectrumKeyboardBacklightControl
 
     private async Task AddEffect(SpectrumKeyboardBacklightEffect effect)
     {
-        ShowProfileDescriptionLoader();
         DeselectAllButtons();
 
         if (effect.Keys.All)
@@ -512,7 +496,6 @@ public partial class SpectrumKeyboardBacklightControl
 
     private async Task ReplaceEffectAsync(SpectrumKeyboardEffectControl effectControl, SpectrumKeyboardBacklightEffect effect)
     {
-        ShowProfileDescriptionLoader();
         DeselectAllButtons();
 
         var control = new SpectrumKeyboardEffectControl(effect);
@@ -536,8 +519,6 @@ public partial class SpectrumKeyboardBacklightControl
 
     private async Task DeleteEffectAsync(SpectrumKeyboardEffectControl effectControl)
     {
-        ShowProfileDescriptionLoader();
-
         _effects.Children.Remove(effectControl);
 
         await ApplyProfileAsync();

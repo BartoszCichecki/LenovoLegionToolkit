@@ -49,7 +49,7 @@ public class GodModeControllerV1 : AbstractGodModeController
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Applying CPU Long Term Power Limit: {cpuLongTermPowerLimit}");
 
-                await SetCPULongTermPowerLimitAsync(cpuLongTermPowerLimit.Value).ConfigureAwait(false);
+                await SetCPULongTermPowerLimitAsync(cpuLongTermPowerLimit.Value.Value).ConfigureAwait(false);
             }
             catch (Exception ex)
             {
@@ -66,7 +66,7 @@ public class GodModeControllerV1 : AbstractGodModeController
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Applying CPU Short Term Power Limit: {cpuShortTermPowerLimit}");
 
-                await SetCPUShortTermPowerLimitAsync(cpuShortTermPowerLimit.Value).ConfigureAwait(false);
+                await SetCPUShortTermPowerLimitAsync(cpuShortTermPowerLimit.Value.Value).ConfigureAwait(false);
             }
             catch (Exception ex)
             {
@@ -83,7 +83,7 @@ public class GodModeControllerV1 : AbstractGodModeController
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Applying CPU Peak Power Limit: {cpuPeakPowerLimit}");
 
-                await SetCPUPeakPowerLimitAsync(cpuPeakPowerLimit.Value).ConfigureAwait(false);
+                await SetCPUPeakPowerLimitAsync(cpuPeakPowerLimit.Value.Value).ConfigureAwait(false);
             }
             catch (Exception ex)
             {
@@ -100,7 +100,7 @@ public class GodModeControllerV1 : AbstractGodModeController
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Applying CPU Cross Loading Power Limit: {cpuCrossLoadingPowerLimit}");
 
-                await SetCPUCrossLoadingPowerLimitAsync(cpuCrossLoadingPowerLimit.Value).ConfigureAwait(false);
+                await SetCPUCrossLoadingPowerLimitAsync(cpuCrossLoadingPowerLimit.Value.Value).ConfigureAwait(false);
             }
             catch (Exception ex)
             {
@@ -117,7 +117,7 @@ public class GodModeControllerV1 : AbstractGodModeController
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Applying APU sPPT Power Limit: {apuSPPTPowerLimit}");
 
-                await SetAPUSPPTPowerLimitAsync(apuSPPTPowerLimit.Value).ConfigureAwait(false);
+                await SetAPUSPPTPowerLimitAsync(apuSPPTPowerLimit.Value.Value).ConfigureAwait(false);
             }
             catch (Exception ex)
             {
@@ -134,7 +134,7 @@ public class GodModeControllerV1 : AbstractGodModeController
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Applying CPU Temperature Limit: {cpuTemperatureLimit}");
 
-                await SetCPUTemperatureLimitAsync(cpuTemperatureLimit.Value).ConfigureAwait(false);
+                await SetCPUTemperatureLimitAsync(cpuTemperatureLimit.Value.Value).ConfigureAwait(false);
             }
             catch (Exception ex)
             {
@@ -151,7 +151,7 @@ public class GodModeControllerV1 : AbstractGodModeController
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Applying GPU Power Boost: {gpuPowerBoost}");
 
-                await SetGPUPowerBoostAsync(gpuPowerBoost.Value).ConfigureAwait(false);
+                await SetGPUPowerBoostAsync(gpuPowerBoost.Value.Value).ConfigureAwait(false);
             }
             catch (Exception ex)
             {
@@ -168,7 +168,7 @@ public class GodModeControllerV1 : AbstractGodModeController
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Applying GPU Configurable TGP: {gpuConfigurableTgp}");
 
-                await SetGPUConfigurableTGPAsync(gpuConfigurableTgp.Value).ConfigureAwait(false);
+                await SetGPUConfigurableTGPAsync(gpuConfigurableTgp.Value.Value).ConfigureAwait(false);
             }
             catch (Exception ex)
             {
@@ -185,7 +185,7 @@ public class GodModeControllerV1 : AbstractGodModeController
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Applying GPU Temperature Limit: {gpuTemperatureLimit}");
 
-                await SetGPUTemperatureLimitAsync(gpuTemperatureLimit.Value).ConfigureAwait(false);
+                await SetGPUTemperatureLimitAsync(gpuTemperatureLimit.Value.Value).ConfigureAwait(false);
             }
             catch (Exception ex)
             {
@@ -285,6 +285,170 @@ public class GodModeControllerV1 : AbstractGodModeController
         }
     }
 
+    public override async Task RestoreDefaultsInOtherPowerModeAsync(PowerModeState state)
+    {
+        try
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Restoring defaults for {state}...");
+
+            var defaultValues = await GetDefaultValuesInDifferentModeAsync().ConfigureAwait(false);
+            var result = defaultValues
+                .Where(d => d.powerMode is PowerModeState.Quiet or PowerModeState.Balance or PowerModeState.Performance)
+                .DistinctBy(d => d.powerMode)
+                .ToDictionary(d => d.powerMode, d => d.defaults);
+
+            if (!result.TryGetValue(state, out var defaults))
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Defaults for {state} not found. Skipping...");
+
+                return;
+            }
+
+            if (defaults.CPULongTermPowerLimit is not null)
+            {
+                try
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Applying CPU Long Term Power Limit: {defaults.CPULongTermPowerLimit}");
+
+                    await SetCPULongTermPowerLimitAsync(defaults.CPULongTermPowerLimit.Value).ConfigureAwait(false);
+                }
+                catch (Exception ex)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Apply failed. [setting=cpuLongTermPowerLimit]", ex);
+                    throw;
+                }
+            }
+
+            if (defaults.CPUShortTermPowerLimit is not null)
+            {
+                try
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Applying CPU Short Term Power Limit: {defaults.CPUShortTermPowerLimit}");
+
+                    await SetCPUShortTermPowerLimitAsync(defaults.CPUShortTermPowerLimit.Value).ConfigureAwait(false);
+                }
+                catch (Exception ex)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Apply failed. [setting=cpuShortTermPowerLimit]", ex);
+                    throw;
+                }
+            }
+
+            if (defaults.CPUPeakPowerLimit is not null)
+            {
+                try
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Applying CPU Peak Power Limit: {defaults.CPUPeakPowerLimit}");
+
+                    await SetCPUPeakPowerLimitAsync(defaults.CPUPeakPowerLimit.Value).ConfigureAwait(false);
+                }
+                catch (Exception ex)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Apply failed. [setting=cpuPeakPowerLimit]", ex);
+                    throw;
+                }
+            }
+
+            if (defaults.CPUCrossLoadingPowerLimit is not null)
+            {
+                try
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Applying CPU Cross Loading Power Limit: {defaults.CPUCrossLoadingPowerLimit}");
+
+                    await SetCPUCrossLoadingPowerLimitAsync(defaults.CPUCrossLoadingPowerLimit.Value).ConfigureAwait(false);
+                }
+                catch (Exception ex)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Apply failed. [setting=cpuCrossLoadingPowerLimit]", ex);
+                    throw;
+                }
+            }
+
+            if (defaults.APUsPPTPowerLimit is not null)
+            {
+                try
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Applying APU sPPT Power Limit: {defaults.APUsPPTPowerLimit}");
+
+                    await SetAPUSPPTPowerLimitAsync(defaults.APUsPPTPowerLimit.Value).ConfigureAwait(false);
+                }
+                catch (Exception ex)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Apply failed. [setting=apuSPPTPowerLimit]", ex);
+                    throw;
+                }
+            }
+
+            if (defaults.CPUTemperatureLimit is not null)
+            {
+                try
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Applying CPU Temperature Limit: {defaults.CPUTemperatureLimit}");
+
+                    await SetCPUTemperatureLimitAsync(defaults.CPUTemperatureLimit.Value).ConfigureAwait(false);
+                }
+                catch (Exception ex)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Apply failed. [setting=cpuTemperatureLimit]", ex);
+                    throw;
+                }
+            }
+
+            if (defaults.GPUPowerBoost is not null)
+            {
+                try
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Applying GPU Power Boost: {defaults.GPUPowerBoost}");
+
+                    await SetGPUPowerBoostAsync(defaults.GPUPowerBoost.Value).ConfigureAwait(false);
+                }
+                catch (Exception ex)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Apply failed. [setting=gpuPowerBoost]", ex);
+                    throw;
+                }
+            }
+
+            if (defaults.GPUConfigurableTGP is not null)
+            {
+                try
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Applying GPU Configurable TGP: {defaults.GPUConfigurableTGP}");
+
+                    await SetGPUConfigurableTGPAsync(defaults.GPUConfigurableTGP.Value).ConfigureAwait(false);
+                }
+                catch (Exception ex)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Apply failed. [setting=gpuConfigurableTgp]", ex);
+                    throw;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Failed to restore defaults for {state}.", ex);
+        }
+    }
+
     protected override async Task<GodModePreset> GetDefaultStateAsync()
     {
         var fanTableData = await GetFanTableDataAsync().ConfigureAwait(false);
@@ -339,10 +503,10 @@ public class GodModeControllerV1 : AbstractGodModeController
         return stepperValue;
     }
 
-    private static Task SetCPULongTermPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
+    private static Task SetCPULongTermPowerLimitAsync(int value) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_CPU_METHOD",
         "CPU_Set_LongTerm_PowerLimit",
-        new() { { "value", $"{value.Value}" } });
+        new() { { "value", $"{value}" } });
 
     #endregion
 
@@ -373,10 +537,10 @@ public class GodModeControllerV1 : AbstractGodModeController
         return stepperValue;
     }
 
-    private static Task SetCPUShortTermPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
+    private static Task SetCPUShortTermPowerLimitAsync(int value) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_CPU_METHOD",
         "CPU_Set_ShortTerm_PowerLimit",
-        new() { { "value", $"{value.Value}" } });
+        new() { { "value", $"{value}" } });
 
     #endregion
 
@@ -397,10 +561,10 @@ public class GodModeControllerV1 : AbstractGodModeController
             return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
         });
 
-    private static Task SetCPUPeakPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
+    private static Task SetCPUPeakPowerLimitAsync(int value) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_CPU_METHOD",
         "CPU_Set_Peak_PowerLimit",
-        new() { { "CurrentPeakPowerLimit", $"{value.Value}" } });
+        new() { { "CurrentPeakPowerLimit", $"{value}" } });
 
     #endregion
 
@@ -421,10 +585,10 @@ public class GodModeControllerV1 : AbstractGodModeController
             return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
         });
 
-    private static Task SetCPUCrossLoadingPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
+    private static Task SetCPUCrossLoadingPowerLimitAsync(int value) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_CPU_METHOD",
         "CPU_Set_Cross_Loading_PowerLimit",
-        new() { { "CurrentCpuCrossLoading", $"{value.Value}" } });
+        new() { { "CurrentCpuCrossLoading", $"{value}" } });
 
     #endregion
 
@@ -445,10 +609,10 @@ public class GodModeControllerV1 : AbstractGodModeController
             return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
         });
 
-    private static Task SetAPUSPPTPowerLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
+    private static Task SetAPUSPPTPowerLimitAsync(int value) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_CPU_METHOD",
         "Set_APU_sPPT_PowerLimit",
-        new() { { "CurrentAPUsPPTPowerLimit", $"{value.Value}" } });
+        new() { { "CurrentAPUsPPTPowerLimit", $"{value}" } });
 
     #endregion
 
@@ -469,10 +633,10 @@ public class GodModeControllerV1 : AbstractGodModeController
             return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
         });
 
-    private static Task SetCPUTemperatureLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
+    private static Task SetCPUTemperatureLimitAsync(int value) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_CPU_METHOD",
         "CPU_Set_Temperature_Control",
-        new() { { "CurrentTemperatureControl", $"{value.Value}" } });
+        new() { { "CurrentTemperatureControl", $"{value}" } });
 
     #endregion
 
@@ -503,10 +667,10 @@ public class GodModeControllerV1 : AbstractGodModeController
         return stepperValue;
     }
 
-    private static Task SetGPUConfigurableTGPAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
+    private static Task SetGPUConfigurableTGPAsync(int value) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_GPU_METHOD",
         "GPU_Set_cTGP_PowerLimit",
-        new() { { "value", $"{value.Value}" } });
+        new() { { "value", $"{value}" } });
 
     #endregion
 
@@ -537,10 +701,10 @@ public class GodModeControllerV1 : AbstractGodModeController
         return stepperValue;
     }
 
-    private static Task SetGPUPowerBoostAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
+    private static Task SetGPUPowerBoostAsync(int value) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_GPU_METHOD",
         "GPU_Set_PPAB_PowerLimit",
-        new() { { "value", $"{value.Value}" } });
+        new() { { "value", $"{value}" } });
 
     #endregion
 
@@ -561,10 +725,10 @@ public class GodModeControllerV1 : AbstractGodModeController
             return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
         });
 
-    private static Task SetGPUTemperatureLimitAsync(StepperValue value) => WMI.CallAsync("root\\WMI",
+    private static Task SetGPUTemperatureLimitAsync(int value) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_GPU_METHOD",
         "GPU_Set_Temperature_Limit",
-        new() { { "CurrentTemperatureLimit", $"{value.Value}" } });
+        new() { { "CurrentTemperatureLimit", $"{value}" } });
 
     #endregion
 

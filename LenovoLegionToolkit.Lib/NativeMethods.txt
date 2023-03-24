@@ -119,3 +119,8 @@ SendMessage
 CallNtPowerInformation
 
 K32GetModuleFileNameExW
+
+PowerEnumerate
+PowerReadFriendlyName
+PowerGetActiveScheme
+PowerSetActiveScheme

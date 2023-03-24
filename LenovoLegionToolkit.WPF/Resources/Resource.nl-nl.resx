@@ -378,21 +378,6 @@ Deze tijd is mogelijk niet nauwkeurig als de laptop is opgeladen tijdens het sla
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Batterij</value>
   </data>
-  <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
-    <value>Op batterij</value>
-  </data>
-  <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>Aangesloten</value>
-  </data>
-  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
-    <value>Energieschema's</value>
-  </data>
-  <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
-    <value>Meer informatie op microsoft.com</value>
-  </data>
-  <data name="CPUBoostModesWindow_Title" xml:space="preserve">
-    <value>CPU Boost Modus</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Annuleren</value>
   </data>
@@ -532,9 +517,6 @@ WAARSCHUWING: Deze actie wordt niet correct uitgevoerd als het interne display i
     <value>nVidia GPU kan worden uitgeschakeld.
 
 Houd er rekening mee dat sommige programma's kunnen crashen als u dit doet.</value>
-  </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>nvidia GPU is niet actief.</value>
   </data>
   <data name="Inactive" xml:space="preserve">
     <value>inactief</value>
@@ -1027,9 +1009,6 @@ Zorg er altijd voor dat u de juiste pakketten installeert.</value>
   <data name="Paste" xml:space="preserve">
     <value>Plakken</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Applicaties</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>Selecteer prestatiemodus.</value>
   </data>
@@ -1048,9 +1027,6 @@ U kunt van modus wisselen met Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>De geselecteerde energiemodus werkt mogelijk niet correct als de netadapter niet is aangesloten.</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>Energiemodus</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>Als u deze optie inschakelt wanneer Lenovo Vantage actief is en het energiebeheerschema op uw laptop verandert, kan dit leiden tot onverwacht gedrag.</value>
@@ -1182,20 +1158,11 @@ Zorg ervoor dat uw script eerst correct wordt uitgevoerd.</value>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Accentkleur</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Wijzig deze instellingen alleen als u weet wat u doet.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Geavanceerd</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Start geminimaliseerd naar lade wanneer u zich aanmeldt bij Windows.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Automatisch uitvoeren</value>
-  </data>
-  <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>CPU Boost Modus</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone is mogelijk niet correct uitgeschakeld</value>
@@ -1380,16 +1347,13 @@ Zorg ervoor dat uw script eerst correct wordt uitgevoerd.</value>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} zones</value>
   </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>Zonsopgang</value>
   </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
     <value>Zonsopgang</value>
   </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Tijd</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Tijd</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
@@ -1645,5 +1609,8 @@ Als u de muis beweegt of op het toetsenbord drukt, worden de schermen gewekt.</v
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
     <value>Update beschikbaar!</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>Uitgeschakeld</value>
   </data>
 </root>

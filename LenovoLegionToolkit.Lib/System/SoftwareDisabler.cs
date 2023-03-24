@@ -175,7 +175,7 @@ public abstract class SoftwareDisabler
                 service.Close();
             }
         }
-        catch (InvalidOperationException ex) when ((ex.InnerException as Win32Exception)?.NativeErrorCode == 1060)
+        catch (InvalidOperationException ex) when (ex.InnerException is Win32Exception { NativeErrorCode: 1060 })
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Service {serviceName} could not be set to {enabled}");

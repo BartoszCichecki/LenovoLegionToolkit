@@ -379,21 +379,6 @@ Este posibil ca acest timp să nu fie precis dacă laptopul a fost încărcat î
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Baterie</value>
   </data>
-  <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
-    <value>Pe baterie</value>
-  </data>
-  <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>Alimentat</value>
-  </data>
-  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
-    <value>Planuri de alimentare</value>
-  </data>
-  <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
-    <value>Aflați mai multe la microsoft.com</value>
-  </data>
-  <data name="CPUBoostModesWindow_Title" xml:space="preserve">
-    <value>Moduri boost CPU</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Anulare</value>
   </data>
@@ -533,9 +518,6 @@ ATENȚIE: Această acțiune nu va rula corect dacă afișajul intern este oprit 
     <value>GPU-ul nVidia poate fi dezactivat.
 
 Țineți cont că unele programe se pot bloca dacă o faceți.</value>
-  </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>GPU-ul nVidia nu este activ.</value>
   </data>
   <data name="Inactive" xml:space="preserve">
     <value>Inactiv</value>
@@ -1034,9 +1016,6 @@ Asigurați-vă întotdeauna că instalați pachetele corecte.</value>
   <data name="Paste" xml:space="preserve">
     <value>Lipire</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Aplicații</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>Selectați modul de performanță.</value>
   </data>
@@ -1055,9 +1034,6 @@ Puteți schimba modul apăsând Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Este posibil ca modul de putere selectat să nu funcționeze corect fără alimentator.</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>Mod putere</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>Activarea acestei opțiuni atunci când Lenovo Vantage rulează și modifică planurile de alimentare de pe laptop poate duce la un comportament neașteptat.</value>
@@ -1188,20 +1164,11 @@ Asigurați-vă mai întâi că scriptul rulează corect.</value>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Culoare de accent</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Nu modificați opțiunile de mai jos decât dacă știți cu adevărat ce faceți.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Avansat</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Pornire minimizată în tray atunci când vă conectați la Windows.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Pornire automată</value>
-  </data>
-  <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>Moduri boost CPU</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
     <value>Este posibil ca Legion Zone să nu fi fost dezactivat corect</value>
@@ -1399,16 +1366,13 @@ Se recomandă repornirea după modificarea acestei opțiuni.</value>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} zone</value>
   </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>Răsărit</value>
   </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
     <value>Apus</value>
   </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Timp</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Timp</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
@@ -1758,5 +1722,8 @@ Aceste setări au efect doar atunci când modul Personalizat este activat.</valu
   </data>
   <data name="BatteryPage_LowLevel" xml:space="preserve">
     <value>Nivelul bateriei este scăzut</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>Oprit</value>
   </data>
 </root>

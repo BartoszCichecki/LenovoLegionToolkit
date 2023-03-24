@@ -27,11 +27,9 @@ public partial class EditDashboardWindow
         InitializeComponent();
     }
 
-    private async void EditDashboardWindow_Loaded(object _1, RoutedEventArgs _2) => await RefreshAsync();
-
     private async void EditDashboardWindow_IsVisibleChanged(object _1, DependencyPropertyChangedEventArgs _2)
     {
-        if (IsLoaded && IsVisible)
+        if (IsVisible)
             await RefreshAsync();
     }
 
@@ -41,7 +39,7 @@ public partial class EditDashboardWindow
         _infoBar.Visibility = Visibility.Hidden;
         _applyRevertStackPanel.Visibility = Visibility.Hidden;
 
-        var loadingTask = Task.Delay(500);
+        var loadingTask = Task.Delay(TimeSpan.FromMilliseconds(500));
 
         var groups = _groups;
 
@@ -72,7 +70,7 @@ public partial class EditDashboardWindow
         _groupsStackPanel.Children.Add(CreateGroupControl(new(DashboardGroupType.Custom, result)));
     }
 
-    private async void ResetButton_Click(object sender, RoutedEventArgs e)
+    private async void DefaultButton_Click(object sender, RoutedEventArgs e)
     {
         _groups = DashboardGroup.DefaultGroups;
 
@@ -97,11 +95,6 @@ public partial class EditDashboardWindow
     private void CancelButton_Click(object sender, RoutedEventArgs e)
     {
         Close();
-    }
-
-    private void InfoBarDismissButton_Click(object sender, RoutedEventArgs e)
-    {
-        _infoBar.Visibility = Visibility.Collapsed;
     }
 
     private IEnumerable<DashboardItem> GetAllItems() =>

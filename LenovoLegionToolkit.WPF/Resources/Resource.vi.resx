@@ -379,21 +379,6 @@ Thời gian có thể không chính xác nếu laptop được sạc khi Ngủ h
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Pin</value>
   </data>
-  <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
-    <value>Chạy trên Pin</value>
-  </data>
-  <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>Kết nối với nguồn điện</value>
-  </data>
-  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
-    <value>Power plans</value>
-  </data>
-  <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
-    <value>Tìm hiểu thêm tại microsoft.com</value>
-  </data>
-  <data name="CPUBoostModesWindow_Title" xml:space="preserve">
-    <value>Các chế độ CPU Boost</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Hủy</value>
   </data>
@@ -533,9 +518,6 @@ CẢNH BÁO: Hành động sẽ không chạy đúng nếu màn hình laptop kh�
     <value>GPU rời có thể được ngắt kích hoạt.
 
 Một số ứng dụng có thể dừng đột ngột nếu thực hiện.</value>
-  </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>GPU rời không hoạt động.</value>
   </data>
   <data name="Inactive" xml:space="preserve">
     <value>Không hoạt động</value>
@@ -1025,9 +1007,6 @@ Luôn kiểm tra rằng bạn cài đặt đúng gói cài đặt mong muốn.</
   <data name="Paste" xml:space="preserve">
     <value>Dán</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Ứng Dụng</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>Lựa chọn Chế độ.</value>
   </data>
@@ -1046,9 +1025,6 @@ Bạn có thể chuyển đổi giữa các Chế độ với Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Chế độ được lựa chọn có thể không hoạt động nếu không được kết nối nguồn điện ngoài.</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>Chế độ</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>Bật tùy chọn này khi Lenovo Vantage đang chạy và nếu có xung đột với lựa chọn Power plan, có thể gây ra lỗi.</value>
@@ -1179,20 +1155,11 @@ Hãy đảm bảo chương trình hoặc script của bạn chạy đúng trư�
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Màu chủ đề</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>ĐỪNG THAY ĐỔI BẤT KỲ GIÁ TRỊ NÀO DƯỚI ĐÂY TRỪ PHI BẠN BIẾT BẠN ĐANG LÀM GÌ!</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Nâng cao</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Chạy trong nền ngay khi khởi động Windows.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Tự động chạy</value>
-  </data>
-  <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>Các chế độ CPU Boost</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone có thể đã được ngắt kích hoạt không đúng</value>
@@ -1377,16 +1344,13 @@ Hãy đảm bảo chương trình hoặc script của bạn chạy đúng trư�
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} vùng</value>
   </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>Bình minh</value>
   </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
     <value>Bình minh</value>
   </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Thời gian</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Thời gian</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
@@ -1627,5 +1591,8 @@ Di chuyển chuột hoặc bấm phím bất kỳ trên bàn phím để bật m
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
     <value>Có cập nhật mới!</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>Ngắt kích hoạt</value>
   </data>
 </root>

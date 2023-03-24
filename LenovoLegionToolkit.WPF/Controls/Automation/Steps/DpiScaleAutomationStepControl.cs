@@ -29,7 +29,7 @@ public class DpiScaleAutomationStepControl : AbstractComboBoxAutomationStepCardC
 
     private void Listener_Changed(object? sender, EventArgs e) => Dispatcher.Invoke(async () =>
     {
-        if (IsLoaded && IsVisible)
+        if (IsLoaded)
             await RefreshAsync();
     });
 }

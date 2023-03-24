@@ -90,7 +90,7 @@ public class ContextMenuHelper
             {
                 ContextMenu.IsOpen = false;
                 BringToForeground?.Invoke();
-                await Task.Delay(500); // Give window time to come back
+                await Task.Delay(TimeSpan.FromMilliseconds(500)); // Give window time to come back
                 navigationStore.Navigate(item.PageTag);
             };
             items.Insert(0, menuItem);

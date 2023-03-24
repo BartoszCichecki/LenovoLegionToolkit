@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Automation.Resources;
+using LenovoLegionToolkit.Lib.Listeners;
 using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
@@ -10,9 +11,16 @@ public class DisplayOnAutomationPipelineTrigger : INativeWindowsMessagePipelineT
     [JsonIgnore]
     public string DisplayName => Resource.DisplayOnAutomationPipelineTrigger_DisplayName;
 
-    public Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent)
+    public Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
     {
         var result = automationEvent is NativeWindowsMessageEvent { Message: NativeWindowsMessage.MonitorOn };
+        return Task.FromResult(result);
+    }
+
+    public Task<bool> IsMatchingState()
+    {
+        var listener = IoCContainer.Resolve<NativeWindowsMessageListener>();
+        var result = listener.IsMonitorOn;
         return Task.FromResult(result);
     }
 
