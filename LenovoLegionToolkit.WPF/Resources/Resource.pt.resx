@@ -379,21 +379,6 @@ Este tempo pode não estar correto se o dispositivo foi carregado quando estava 
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Bateria</value>
   </data>
-  <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
-    <value>Em bateria</value>
-  </data>
-  <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>Conectado</value>
-  </data>
-  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
-    <value>Esquemas de energia</value>
-  </data>
-  <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
-    <value>Aprende mais em microsoft.com</value>
-  </data>
-  <data name="CPUBoostModesWindow_Title" xml:space="preserve">
-    <value>Modos de boost do CPU</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancelar</value>
   </data>
@@ -532,9 +517,6 @@ ATENÇÃO: Esta ação não irá correr corretamente se o ecrã interno estiver 
   <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
     <value>A GPU da nVidia pode ser desligada.
 Lembra-te que alguns programas podem crashar se o fizeres.</value>
-  </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>A GPU da nVidia não está ativa.</value>
   </data>
   <data name="Inactive" xml:space="preserve">
     <value>Inativa</value>
@@ -1028,9 +1010,6 @@ Confirma sempre que estás a instalar o pacotes corretos.</value>
   <data name="Paste" xml:space="preserve">
     <value>Colar</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Apps</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>Selecionar modo de desempenho.</value>
   </data>
@@ -1049,9 +1028,6 @@ Podes mudar com Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>O esquema de energia selecionado pode não funcionar corretamente sem o carregador conectado.</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>Esquema de energia</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>Habilitar esta opção enquanto o Lenovo Vantage está a ser executado e mudar o esquema de energia pode resultar num comportamento inesperado.</value>
@@ -1182,20 +1158,11 @@ Certifica-te que o script executa corretamente primeiro.</value>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Cor de destaque</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Não alteres as opções abaixo a menos que saibas o que estás a fazer.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Avançado</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Iniciar minimizado na área de notificações quando fazes login no Windows.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Iniciar automaticamente</value>
-  </data>
-  <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>Modos de boost do CPU</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
     <value>O Legion Zone pode não ter sido desabilitado corretamente</value>
@@ -1379,18 +1346,6 @@ Certifica-te que o script executa corretamente primeiro.</value>
   </data>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} zonas</value>
-  </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
-    <value>Nascer do Sol</value>
-  </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
-    <value>Pôr do Sol</value>
-  </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Hora</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
-    <value>Hora</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
     <value>Permite trocar entre a GPU discreta e integrada. Reinício necessário.</value>
