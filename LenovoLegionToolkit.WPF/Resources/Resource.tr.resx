@@ -379,21 +379,6 @@ Dizüstü bilgisayar uyurken veya kapalıyken şarj edildiyse bu süre doğru ol
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Pil / Batarya</value>
   </data>
-  <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
-    <value>Pil devrede</value>
-  </data>
-  <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>Prize takılı</value>
-  </data>
-  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
-    <value>Güç planları</value>
-  </data>
-  <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
-    <value>microsoft.com'da daha fazla bilgi edinin</value>
-  </data>
-  <data name="CPUBoostModesWindow_Title" xml:space="preserve">
-    <value>CPU Boost Modları</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>İptal</value>
   </data>
@@ -521,9 +506,6 @@ UYARI: Dahili ekran kapalıysa veya Hibrit modu etkin değilse bu eylem düzgün
     <value>nVidia GPU devre dışı bırakılabilir.
 
 Bunu yaparsanız bazı programların çökebileceğini unutmayın.</value>
-  </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>nVidia GPU etkin değil.</value>
   </data>
   <data name="Inactive" xml:space="preserve">
     <value>Aktif değil</value>
@@ -879,9 +861,6 @@ Daima doğru paketleri kurduğunuzdan emin olun.</value>
   <data name="Paste" xml:space="preserve">
     <value>Yapıştır</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Uygulamalar</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>Performans modunu seçin.</value>
   </data>
@@ -896,9 +875,6 @@ Fn+Q ile modu değiştirebilirsiniz.</value>
     <value>Ayarlar</value>
   </data>
   <data name="PowerModeControl_Title" xml:space="preserve">
-    <value>Güç Modu</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
     <value>Güç Modu</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
@@ -1015,20 +991,11 @@ UYARI: Yerleşik ekran kapalıysa bu eylem düzgün çalışmayacaktır.</value>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Renk</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Ne yaptığınızı gerçekten bilmiyorsanız aşağıdaki seçenekler ile oynamayın.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Gelişmiş</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Windows'ta oturum açtığınızda küçültülmüş halde başlatın.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Otomatik Çalıştırma</value>
-  </data>
-  <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>CPU Boost Modları</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone düzgün bir şekilde devre dışı bırakılmamış olabilir</value>
@@ -1104,18 +1071,6 @@ UYARI: Yerleşik ekran kapalıysa bu eylem düzgün çalışmayacaktır.</value>
   </data>
   <data name="SettingsPage_Title" xml:space="preserve">
     <value>Ayarlar</value>
-  </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
-    <value>Gündoğumu</value>
-  </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
-    <value>Gündoğumu</value>
-  </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Zaman</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
-    <value>Zaman</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
     <value>Entegre ve harici GPU arasında geçişe izin verin.
