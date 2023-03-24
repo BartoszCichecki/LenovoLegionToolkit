@@ -379,21 +379,6 @@ Eger noutbuk uyqı rejiminde yamasa óshirilgen waqıtta zaryadlanǵan bolsa, bu
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Batareya</value>
   </data>
-  <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
-    <value>Batareyadan</value>
-  </data>
-  <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>Jalǵanǵan</value>
-  </data>
-  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
-    <value>Quwatlılıq jobaları</value>
-  </data>
-  <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
-    <value>Tolıq maǵlıwmat microsoft.comda</value>
-  </data>
-  <data name="CPUBoostModesWindow_Title" xml:space="preserve">
-    <value>Oraylıq processordı tezlestiriw rejimleri</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Biykarlaw</value>
   </data>
@@ -531,9 +516,6 @@ DIQQAT: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bul
   <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
     <value>nVidia grafikalıq processorı óshiriliwi múmkin.
 Itibar berıń, eger siz bunı isleneńiz ayrım baǵdarlamalar islemey qalıwı múmkin.</value>
-  </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>nVidia grafikalıq processorı aktiv emes.</value>
   </data>
   <data name="Inactive" xml:space="preserve">
     <value>Aktiv emes</value>
@@ -1025,9 +1007,6 @@ Durıs paketlerdi ornatıp atırǵanıńızǵa isenim kámil etiń.</value>
   <data name="Paste" xml:space="preserve">
     <value>Ornalastırıw</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Baǵdarlamalar</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>Islew rejimin tańlań.</value>
   </data>
@@ -1046,9 +1025,6 @@ Rejimdi Fn+Q járdeminde ózgerte alasız.</value>
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Quwatlaw blogı qosılmasa, saylanǵan quwatlılıq rejimi durıs islemewi múmkin.</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>Quwatlılıq rejimi</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>Lenovo Vantage islep turǵanda hám noutbugıńız quwat rejelerin ózgertkende, bul parametrdi qosıw kútilmegen aqıbetlerge alıp keliwi múmkin.</value>
@@ -1179,17 +1155,8 @@ Siziń skriptińiz durıs orınlanıp atırǵanına isenim kámil etiń.</value>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Sáykes reń</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Eger ne islep atırǵanıńızdı bilmeseńiz, tómendegi variantlardı ózgertpeń.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Qosımsha sazlawlar</value>
-  </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Avtomatikalıq iske túsiriw</value>
-  </data>
-  <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>Oraylıq processordı tezlestiriw rejimleri</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone nadurıs óshirilgen bolıwı múmkin</value>
@@ -1383,18 +1350,6 @@ Bul varianttı ózgertkennen keyin, qayta iske túsiriw usınıs etiledi.</value
   </data>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} zona</value>
-  </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
-    <value>Tań azan</value>
-  </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
-    <value>Tań azan</value>
-  </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Waqıt</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
-    <value>Waqıt</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
     <value>Ornatılǵan hám bólekli grafikalıq processor arasında ózgertiw imkániyatın beredi.
@@ -1729,9 +1684,9 @@ Bul sazlaw tek arnawlı rejim qosılǵanda nátiyje beredi.</value>
     <value>Batareyanıń quwatlılıq dárejesi tómen</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
-	  <value>S0 tómen quwatlılıq modeli anıqlandı</value>
+    <value>S0 tómen quwatlılıq modeli anıqlandı</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-	  <value>Bul qurılma Modern Standbydı qollap-quwatlaytuǵının Windows xabarlaydı. Teńlestirilgen quwatlılıq jobasınan basqasın qollanıw kútilmegen háreketke alıp keliwi múmkin.</value>
+    <value>Bul qurılma Modern Standbydı qollap-quwatlaytuǵının Windows xabarlaydı. Teńlestirilgen quwatlılıq jobasınan basqasın qollanıw kútilmegen háreketke alıp keliwi múmkin.</value>
   </data>
 </root>
