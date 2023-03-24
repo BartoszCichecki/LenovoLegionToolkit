@@ -1346,6 +1346,12 @@
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>Ζώνη {0}</value>
   </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
+    <value>Ανατολή ηλίου</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
+    <value>Ηλιοβασίλεμα</value>
+  </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
     <value>Επιτρέψτε την εναλλαγή μεταξύ ενσωματωμένης και διακριτής GPU.
 Απαιτεί επανεκκίνηση.</value>
