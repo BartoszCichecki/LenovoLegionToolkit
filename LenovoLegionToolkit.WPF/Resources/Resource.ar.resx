@@ -1421,6 +1421,9 @@
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
     <value>الإضاءة الخلفية للوحة المفاتيح</value>
   </data>
+  <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
+    <value>الاسم</value>
+  </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
     <value>إضافة خطوة</value>
   </data>
