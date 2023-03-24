@@ -277,7 +277,6 @@ public class GPUController
         }
 
         var processNames = NVAPIExtensions.GetActiveProcesses(gpu);
-        processNames.Clear();
         if (processNames.Count < 1)
         {
             _status = Status.Inactive;
