@@ -1366,6 +1366,15 @@ A reinicialização é recomendada após alterar esta opção.</value>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} zonas</value>
   </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
+    <value>Nascer do Sol</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
+    <value>Nascer do Sol</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
+    <value>Hora</value>
+  </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
     <value>Permite alternar entre as GPU's integrada e dedicada.
 Requer reinicialização.</value>
@@ -1719,5 +1728,8 @@ Esta configuração somente terá efeito se o Modo Personalizado estiver ativo.<
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Esta versão do Windows suporta o modo de espera moderno. Usar planos de energia diferentes do Balanceado pode causar comportamentos inesperados.</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+    <value>Desligado</value>
   </data>
 </root>
