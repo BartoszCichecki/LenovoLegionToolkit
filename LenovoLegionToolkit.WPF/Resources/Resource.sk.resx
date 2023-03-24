@@ -1365,6 +1365,12 @@ Po zmene tejto možnosti sa odporúča reštart.</value>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} zón</value>
   </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
+    <value>Úsvit</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
+    <value>Súmrak</value>
+  </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
     <value>Umožniť prepínanie medzi integrovanou a dedikovanou GPU.
 Vyžaduje reštart.</value>
