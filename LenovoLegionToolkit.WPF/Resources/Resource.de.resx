@@ -1731,4 +1731,7 @@ Diese Einstellung wird nur wirksam, wenn der benutzerdefinierte Modus aktiviert 
   <data name="PoweredOff" xml:space="preserve">
     <value>Ausgeschaltet</value>
   </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>Ausgeschaltet</value>
+  </data>
 </root>

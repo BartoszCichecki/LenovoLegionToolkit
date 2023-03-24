@@ -1344,6 +1344,15 @@ Hãy đảm bảo chương trình hoặc script của bạn chạy đúng trư�
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} vùng</value>
   </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
+    <value>Bình minh</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
+    <value>Bình minh</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
+    <value>Thời gian</value>
+  </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
     <value>Cho phép đổi giữa GPU tích hợp và GPU rời.
 Yêu cầu khởi động lại.</value>
@@ -1582,5 +1591,8 @@ Di chuyển chuột hoặc bấm phím bất kỳ trên bàn phím để bật m
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
     <value>Có cập nhật mới!</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>Ngắt kích hoạt</value>
   </data>
 </root>

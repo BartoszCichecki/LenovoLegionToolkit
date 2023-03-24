@@ -30,11 +30,9 @@ public class HDRFeature : IFeature<HDRState>
         return Task.FromResult(isSupported);
     }
 
-    public Task<bool> IsHDRBlockedAsync()
+    public Task<bool> IsHdrBlockedAsync()
     {
-        var display = InternalDisplay.Get();
-        if (display is null)
-            throw new InvalidOperationException("Built in display not found");
+        var display = InternalDisplay.Get() ?? throw new InvalidOperationException("Built in display not found");
 
         var result = display.GetAdvancedColorInfo().AdvancedColorForceDisabled;
         return Task.FromResult(result);
@@ -47,9 +45,7 @@ public class HDRFeature : IFeature<HDRState>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting current HDR state...");
 
-        var display = InternalDisplay.Get();
-        if (display is null)
-            throw new InvalidOperationException("Built in display not found");
+        var display = InternalDisplay.Get() ?? throw new InvalidOperationException("Built in display not found");
 
         var result = display.GetAdvancedColorInfo().AdvancedColorEnabled ? HDRState.On : HDRState.Off;
 
@@ -70,9 +66,7 @@ public class HDRFeature : IFeature<HDRState>
             return;
         }
 
-        var display = InternalDisplay.Get();
-        if (display is null)
-            throw new InvalidOperationException("Built in display not found");
+        var display = InternalDisplay.Get() ?? throw new InvalidOperationException("Built in display not found");
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Setting display HDR to {state}");

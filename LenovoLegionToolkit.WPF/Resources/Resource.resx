@@ -379,21 +379,6 @@ This time might not be accurate if laptop was charged when sleeping or off.</val
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Battery</value>
   </data>
-  <data name="CPUBoostModeControl_OnBattery" xml:space="preserve">
-    <value>On battery</value>
-  </data>
-  <data name="CPUBoostModeControl_PluggedIn" xml:space="preserve">
-    <value>Plugged in</value>
-  </data>
-  <data name="CPUBoostModeControl_PowerPlans" xml:space="preserve">
-    <value>Power plans</value>
-  </data>
-  <data name="CPUBoostModesWindow_LearnMore" xml:space="preserve">
-    <value>Learn more at microsoft.com</value>
-  </data>
-  <data name="CPUBoostModesWindow_Title" xml:space="preserve">
-    <value>CPU Boost Modes</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
@@ -533,9 +518,6 @@ WARNING: This action will not run correctly, if internal display is off or Hybri
     <value>nVidia GPU can be disabled.
 
 Remember, that some programs might crash if you do it.</value>
-  </data>
-  <data name="DiscreteGPUControl_GPUIsNotActive" xml:space="preserve">
-    <value>nVidia GPU is not active.</value>
   </data>
   <data name="Inactive" xml:space="preserve">
     <value>Inactive</value>
@@ -1034,9 +1016,6 @@ Always make sure that you are installing correct packages.</value>
   <data name="Paste" xml:space="preserve">
     <value>Paste</value>
   </data>
-  <data name="PickProcessesWindow_Title" xml:space="preserve">
-    <value>Apps</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>Select performance mode.</value>
   </data>
@@ -1055,9 +1034,6 @@ You can switch mode with Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Selected power mode may not work correctly without AC adapter connected.</value>
-  </data>
-  <data name="PowerModeWindow_Title" xml:space="preserve">
-    <value>Power Mode</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>Enabling this option when Lenovo Vantage is running and it changes power plans on your laptop might result in unexpected behavior.</value>
@@ -1188,20 +1164,11 @@ Make sure that your script runs correctly first.</value>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Accent color</value>
   </data>
-  <data name="SettingsPage_Advanced_Message" xml:space="preserve">
-    <value>Do not change options below unless you really know what you are doing.</value>
-  </data>
-  <data name="SettingsPage_Advanced_Title" xml:space="preserve">
-    <value>Advanced</value>
-  </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>Start minimized to tray when you log in to Windows.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Autorun</value>
-  </data>
-  <data name="SettingsPage_CPUBoostModes_Title" xml:space="preserve">
-    <value>CPU Boost Modes</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone may have not been disabled correctly</value>
@@ -1399,16 +1366,13 @@ Restart is recommended after changing this option.</value>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} zones</value>
   </data>
-  <data name="TimeWindow_Sunrise" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>Sunrise</value>
   </data>
-  <data name="TimeWindow_Sunset" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
     <value>Sunrise</value>
   </data>
-  <data name="TimeWindow_Time" xml:space="preserve">
-    <value>Time</value>
-  </data>
-  <data name="TimeWindow_TimeWindow_Title" xml:space="preserve">
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Time</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
@@ -1759,10 +1723,25 @@ This settings takes effect only when Custom Mode is enabled.</value>
   <data name="BatteryPage_LowLevel" xml:space="preserve">
     <value>Battery level low</value>
   </data>
+  <data name="AutomationPipelineTriggerConfigurationWindow_Title" xml:space="preserve">
+    <value>Configure</value>
+  </data>
   <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
-	  <value>S0 Lower Power Model detected</value>
+    <value>S0 Lower Power Model detected</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-	  <value>Windows reports that this device supports Modern Standby. Using power plans other than Balanced may cause unexpected behavior.</value>
+    <value>Windows reports that this device supports Modern Standby. Using power plans other than Balanced may cause unexpected behavior.</value>
+  </data>
+  <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
+    <value>Select Windows Power Plans to apply when Power Mode changes.</value>
+  </data>
+  <data name="SettingsPage_Power_Title" xml:space="preserve">
+    <value>Power</value>
+  </data>
+  <data name="SettingsPage_PowerPlansControlPanel_Title" xml:space="preserve">
+    <value>Power Plan options in Windows Control Panel</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+    <value>Powered Off</value>
   </data>
 </root>

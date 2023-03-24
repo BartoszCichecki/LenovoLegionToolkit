@@ -87,7 +87,8 @@ public static class Compatibility
                     SupportsGodModeV2 = GetSupportsGodModeV2(biosVersion),
                     SupportsExtendedHybridMode = await GetSupportsExtendedHybridModeAsync().ConfigureAwait(false),
                     SupportsIntelligentSubMode = await GetSupportsIntelligentSubModeAsync().ConfigureAwait(false),
-                    HasPerformanceModeSwitchingBug = GetHasPerformanceModeSwitchingBug(biosVersion)
+                    HasQuietToPerformanceModeSwitchingBug = GetHasQuietToPerformanceModeSwitchingBug(biosVersion),
+                    HasPowerLimitRestoreBug = GetHasPowerLimitRestoreBug(biosVersion),
                 }
             };
 
@@ -98,11 +99,13 @@ public static class Compatibility
                 Log.Instance.Trace($" * Machine Type: '{machineInformation.MachineType}'");
                 Log.Instance.Trace($" * Model: '{machineInformation.Model}'");
                 Log.Instance.Trace($" * BIOS: '{machineInformation.BiosVersion}'");
-                Log.Instance.Trace($" * SupportsAlwaysOnAc: '{machineInformation.Properties.SupportsAlwaysOnAc.status}, {machineInformation.Properties.SupportsAlwaysOnAc.connectivity}'");
-                Log.Instance.Trace($" * SupportsGodModeV1: '{machineInformation.Properties.SupportsGodModeV1}'");
-                Log.Instance.Trace($" * SupportsGodModeV2: '{machineInformation.Properties.SupportsGodModeV2}'");
-                Log.Instance.Trace($" * SupportsExtendedHybridMode: '{machineInformation.Properties.SupportsExtendedHybridMode}'");
-                Log.Instance.Trace($" * SupportsIntelligentSubMode: '{machineInformation.Properties.SupportsIntelligentSubMode}'");
+                Log.Instance.Trace($" * Properties.SupportsAlwaysOnAc: '{machineInformation.Properties.SupportsAlwaysOnAc.status}, {machineInformation.Properties.SupportsAlwaysOnAc.connectivity}'");
+                Log.Instance.Trace($" * Properties.SupportsGodModeV1: '{machineInformation.Properties.SupportsGodModeV1}'");
+                Log.Instance.Trace($" * Properties.SupportsGodModeV2: '{machineInformation.Properties.SupportsGodModeV2}'");
+                Log.Instance.Trace($" * Properties.SupportsExtendedHybridMode: '{machineInformation.Properties.SupportsExtendedHybridMode}'");
+                Log.Instance.Trace($" * Properties.SupportsIntelligentSubMode: '{machineInformation.Properties.SupportsIntelligentSubMode}'");
+                Log.Instance.Trace($" * Properties.HasQuietToPerformanceModeSwitchingBug: '{machineInformation.Properties.HasQuietToPerformanceModeSwitchingBug}'");
+                Log.Instance.Trace($" * Properties.HasPowerLimitRestoreBug: '{machineInformation.Properties.HasPowerLimitRestoreBug}'");
             }
 
             _machineInformation = machineInformation;
@@ -128,7 +131,7 @@ public static class Compatibility
 
     private static bool GetSupportsGodModeV1(string currentBiosVersionString)
     {
-        (string, int)[] supportedBiosVersions =
+        (string, int?)[] supportedBiosVersions =
         {
             ("GKCN", 49),
             ("G9CN", 30),
@@ -143,37 +146,17 @@ public static class Compatibility
             ("JYCN", 39)
         };
 
-        return GetSupportsGodMode(currentBiosVersionString, supportedBiosVersions);
+        return IsBiosVersionMatch(currentBiosVersionString, supportedBiosVersions);
     }
 
     private static bool GetSupportsGodModeV2(string currentBiosVersionString)
     {
-        (string, int)[] supportedBiosVersions =
+        (string, int?)[] supportedBiosVersions =
         {
             ("KWCN", 28)
         };
 
-        return GetSupportsGodMode(currentBiosVersionString, supportedBiosVersions);
-    }
-
-    private static bool GetSupportsGodMode(string currentBiosVersionString, (string, int)[] supportedBiosVersions)
-    {
-        var prefixRegex = new Regex("^[A-Z0-9]{4}");
-        var versionRegex = new Regex("[0-9]{2}");
-
-        var currentPrefix = prefixRegex.Match(currentBiosVersionString).Value;
-        var currentVersionString = versionRegex.Match(currentBiosVersionString).Value;
-
-        if (!int.TryParse(versionRegex.Match(currentVersionString).Value, out var currentVersion))
-            return false;
-
-        foreach (var (prefix, minimumVersion) in supportedBiosVersions)
-        {
-            if (currentPrefix.Equals(prefix, StringComparison.InvariantCultureIgnoreCase) && currentVersion >= minimumVersion)
-                return true;
-        }
-
-        return false;
+        return IsBiosVersionMatch(currentBiosVersionString, supportedBiosVersions);
     }
 
     private static async Task<bool> GetSupportsExtendedHybridModeAsync()
@@ -233,17 +216,40 @@ public static class Compatibility
         return result.First();
     }
 
-    private static bool GetHasPerformanceModeSwitchingBug(string biosVersion)
+    private static bool GetHasQuietToPerformanceModeSwitchingBug(string biosVersion)
     {
         (string, int?)[] affectedBiosList =
         {
             ("J2CN", null)
         };
 
-        foreach (var (biosPrefix, maximumVersion) in affectedBiosList)
+        return IsBiosVersionMatch(biosVersion, affectedBiosList);
+    }
+
+    private static bool GetHasPowerLimitRestoreBug(string biosVersion)
+    {
+        (string, int?)[] affectedBiosList =
         {
-            if (biosVersion.StartsWith(biosPrefix)
-                && (maximumVersion == null || int.TryParse(biosVersion.Replace(biosPrefix, null).Replace("WW", null), out var rev) && rev <= maximumVersion))
+            ("K1CN", null)
+        };
+
+        return IsBiosVersionMatch(biosVersion, affectedBiosList);
+    }
+
+    private static bool IsBiosVersionMatch(string currentBiosVersionString, (string, int?)[] biosVersions)
+    {
+        var prefixRegex = new Regex("^[A-Z0-9]{4}");
+        var versionRegex = new Regex("[0-9]{2}");
+
+        var currentPrefix = prefixRegex.Match(currentBiosVersionString).Value;
+        var currentVersionString = versionRegex.Match(currentBiosVersionString).Value;
+
+        if (!int.TryParse(versionRegex.Match(currentVersionString).Value, out var currentVersion))
+            return false;
+
+        foreach (var (prefix, minimumVersion) in biosVersions)
+        {
+            if (currentPrefix.Equals(prefix, StringComparison.InvariantCultureIgnoreCase) && currentVersion >= (minimumVersion ?? 0))
                 return true;
         }
 

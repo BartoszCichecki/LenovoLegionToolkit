@@ -31,11 +31,9 @@ public partial class GodModeSettingsWindow
 
     public GodModeSettingsWindow() => InitializeComponent();
 
-    private async void GodModeSettingsWindow_Loaded(object sender, RoutedEventArgs e) => await RefreshAsync();
-
     private async void GodModeSettingsWindow_IsVisibleChanged(object _1, DependencyPropertyChangedEventArgs _2)
     {
-        if (IsLoaded && IsVisible)
+        if (IsVisible)
             await RefreshAsync();
     }
 
@@ -48,7 +46,7 @@ public partial class GodModeSettingsWindow
             _loader.IsLoading = true;
             _buttonsStackPanel.Visibility = Visibility.Hidden;
 
-            var loadingTask = Task.Delay(500);
+            var loadingTask = Task.Delay(TimeSpan.FromMilliseconds(500));
 
             _vantageRunningWarningInfoBar.Visibility = await _godModeController.NeedsVantageDisabledAsync()
                                                        && await _vantage.GetStatusAsync() == SoftwareStatus.Enabled
@@ -164,15 +162,15 @@ public partial class GodModeSettingsWindow
 
         var maxValueOffset = preset.MaxValueOffset;
 
-        _cpuLongTermPowerLimitControl.Set(preset.CPULongTermPowerLimit, maxValueOffset);
-        _cpuShortTermPowerLimitControl.Set(preset.CPUShortTermPowerLimit, maxValueOffset);
-        _cpuPeakPowerLimitControl.Set(preset.CPUPeakPowerLimit, maxValueOffset);
-        _cpuCrossLoadingLimitControl.Set(preset.CPUCrossLoadingPowerLimit, maxValueOffset);
+        _cpuLongTermPowerLimitControl.Set(preset.CPULongTermPowerLimit);
+        _cpuShortTermPowerLimitControl.Set(preset.CPUShortTermPowerLimit);
+        _cpuPeakPowerLimitControl.Set(preset.CPUPeakPowerLimit);
+        _cpuCrossLoadingLimitControl.Set(preset.CPUCrossLoadingPowerLimit);
         _cpuPL1TauControl.Set(preset.CPUPL1Tau);
-        _apuSPPTPowerLimitControl.Set(preset.APUsPPTPowerLimit, maxValueOffset);
+        _apuSPPTPowerLimitControl.Set(preset.APUsPPTPowerLimit);
         _cpuTemperatureLimitControl.Set(preset.CPUTemperatureLimit);
-        _gpuPowerBoostControl.Set(preset.GPUPowerBoost, maxValueOffset);
-        _gpuConfigurableTGPControl.Set(preset.GPUConfigurableTGP, maxValueOffset);
+        _gpuPowerBoostControl.Set(preset.GPUPowerBoost);
+        _gpuConfigurableTGPControl.Set(preset.GPUConfigurableTGP);
         _gpuTemperatureLimitControl.Set(preset.GPUTemperatureLimit);
         _gpuTotalProcessingPowerTargetOnAcOffsetFromBaselineControl.Set(preset.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline);
 

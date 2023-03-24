@@ -58,6 +58,12 @@ public class GodModeController : IGodModeController
         return await controller.GetDefaultsInOtherPowerModesAsync().ConfigureAwait(false);
     }
 
+    public async Task RestoreDefaultsInOtherPowerModeAsync(PowerModeState state)
+    {
+        var controller = await GetControllerAsync().ConfigureAwait(false);
+        await controller.RestoreDefaultsInOtherPowerModeAsync(state).ConfigureAwait(false);
+    }
+
     private async Task<IGodModeController> GetControllerAsync()
     {
         var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);

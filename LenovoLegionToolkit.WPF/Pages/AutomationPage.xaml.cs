@@ -10,7 +10,7 @@ using LenovoLegionToolkit.Lib.Automation.Pipeline;
 using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 using LenovoLegionToolkit.Lib.Automation.Steps;
 using LenovoLegionToolkit.Lib.Extensions;
-using LenovoLegionToolkit.WPF.Controls.Automation.Pipeline;
+using LenovoLegionToolkit.WPF.Controls.Automation;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
@@ -111,7 +111,7 @@ public partial class AutomationPage
         _loaderAutomatic.IsLoading = true;
         _loaderManual.IsLoading = true;
 
-        var initializedTasks = new List<Task> { Task.Delay(TimeSpan.FromMilliseconds(500)) };
+        var initializedTasks = new List<Task> { Task.Delay(TimeSpan.FromSeconds(1)) };
 
         _enableAutomaticPipelinesToggle.IsChecked = _automationProcessor.IsEnabled;
 

@@ -13,7 +13,6 @@
     MinHeight="400"
     FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
     IsVisibleChanged="AddAutomationStepWindow_IsVisibleChanged"
-    Loaded="AddAutomationStepWindow_Loaded"
     ResizeMode="CanMinimize"
     ShowInTaskbar="False"
     WindowStartupLocation="CenterOwner">

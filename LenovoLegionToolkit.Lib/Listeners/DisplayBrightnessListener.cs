@@ -46,7 +46,7 @@ public class DisplayBrightnessListener : AbstractWMIListener<Brightness>
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Setting brightness to {brightness.Value}...");
 
-            var powerPlans = await _powerPlanController.GetPowerPlansAsync().ConfigureAwait(false);
+            var powerPlans = _powerPlanController.GetPowerPlans();
 
             foreach (var powerPlan in powerPlans)
             {

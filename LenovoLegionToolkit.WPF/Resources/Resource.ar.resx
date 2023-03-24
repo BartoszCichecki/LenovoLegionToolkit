@@ -1301,6 +1301,15 @@
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>المناطق {0}</value>
   </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
+    <value>الشروق</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
+    <value>الشروق</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
+    <value>الوقت</value>
+  </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
     <value>السماح بالتبديل بين وحدة معالجة الرسومات المدمجة والمنفصلة.
 يتطلب إعادة التشغيل.</value>
@@ -1405,5 +1414,8 @@
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
     <value>إضافة خطوة</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>مغلق</value>
   </data>
 </root>

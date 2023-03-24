@@ -32,7 +32,7 @@ public class HDRControl : AbstractToggleFeatureCardControl<HDRState>
 
         try
         {
-            var isHdrBlocked = await ((HDRFeature)Feature).IsHDRBlockedAsync();
+            var isHdrBlocked = await ((HDRFeature)Feature).IsHdrBlockedAsync();
 
             IsToggleEnabled = !isHdrBlocked;
             Warning = isHdrBlocked ? Resource.HDRControl_Warning : string.Empty;

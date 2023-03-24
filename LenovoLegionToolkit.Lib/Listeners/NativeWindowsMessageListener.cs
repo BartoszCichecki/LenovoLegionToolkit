@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.Utils;
 using Windows.Win32;
 using Windows.Win32.Foundation;
 using Windows.Win32.System.Power;
@@ -18,11 +19,17 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
 
     private readonly HOOKPROC _kbProc;
 
+    private readonly TaskCompletionSource _isMonitorOnTaskCompletionSource = new();
+    private readonly TaskCompletionSource _isLidOpenTaskCompletionSource = new();
+
     private unsafe void* _displayArrivalHandle;
     private unsafe void* _devInterfaceMonitorHandle;
     private HPOWERNOTIFY _consoleDisplayStateNotificationHandle;
     private HPOWERNOTIFY _lidSwitchStateChangeNotificationHandle;
     private HHOOK _kbHook;
+
+    public bool IsMonitorOn { get; private set; }
+    public bool IsLidOpen { get; private set; }
 
     public event EventHandler<NativeWindowsMessage>? Changed;
 
@@ -54,7 +61,10 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         _consoleDisplayStateNotificationHandle = RegisterPowerNotification(PInvoke.GUID_CONSOLE_DISPLAY_STATE);
         _lidSwitchStateChangeNotificationHandle = RegisterPowerNotification(PInvoke.GUID_LIDSWITCH_STATE_CHANGE);
 
-        return Task.CompletedTask;
+        return Task.WhenAll(
+            _isMonitorOnTaskCompletionSource.Task,
+            _isLidOpenTaskCompletionSource.Task
+        );
     }
 
     public unsafe Task StopAsync()
@@ -86,16 +96,34 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
                 var devBroadcastDeviceInterface = Marshal.PtrToStructure<DEV_BROADCAST_DEVICEINTERFACE_W>(m.LParam);
                 if (devBroadcastDeviceInterface.dbcc_classguid == PInvoke.GUID_DISPLAY_DEVICE_ARRIVAL)
                 {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Event received: Display Device Arrival");
+
                     OnDisplayDeviceArrival();
                 }
 
                 if (devBroadcastDeviceInterface.dbcc_classguid == PInvoke.GUID_DEVINTERFACE_MONITOR)
                 {
-                    if (m.WParam.ToInt32() == PInvoke.DBT_DEVICEARRIVAL)
-                        OnMonitorConnected();
+                    var state = (uint)m.WParam.ToInt32();
+                    switch (state)
+                    {
+                        case PInvoke.DBT_DEVICEARRIVAL:
+                            {
+                                if (Log.Instance.IsTraceEnabled)
+                                    Log.Instance.Trace($"Event received: Monitor Connected");
 
-                    if (m.WParam.ToInt32() == PInvoke.DBT_DEVICEREMOVECOMPLETE)
-                        OnMonitorDisconnected();
+                                OnMonitorConnected();
+                                break;
+                            }
+                        case PInvoke.DBT_DEVICEREMOVECOMPLETE:
+                            {
+                                if (Log.Instance.IsTraceEnabled)
+                                    Log.Instance.Trace($"Event received: Monitor Disconnected");
+
+                                OnMonitorDisconnected();
+                                break;
+                            }
+                    }
                 }
             }
         }
@@ -110,11 +138,21 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
                 switch (state)
                 {
                     case PInvokeExtensions.CONSOLE_DISPLAY_STATE.On:
-                        OnMonitorOn();
-                        break;
+                        {
+                            if (Log.Instance.IsTraceEnabled)
+                                Log.Instance.Trace($"Event received: Monitor On");
+
+                            OnMonitorOn();
+                            break;
+                        }
                     case PInvokeExtensions.CONSOLE_DISPLAY_STATE.Off:
-                        OnMonitorOff();
-                        break;
+                        {
+                            if (Log.Instance.IsTraceEnabled)
+                                Log.Instance.Trace($"Event received: Monitor Off");
+
+                            OnMonitorOff();
+                            break;
+                        }
                 }
             }
 
@@ -122,9 +160,19 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
             {
                 var isOpened = str.Data[0] != 0;
                 if (isOpened)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Event received: Lid Opened");
+
                     OnLidOpened();
+                }
                 else
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Event received: Lid Closed");
+
                     OnLidClosed();
+                }
             }
         }
 
@@ -133,21 +181,33 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
 
     private void OnMonitorOn()
     {
+        IsMonitorOn = true;
+        _isMonitorOnTaskCompletionSource.TrySetResult();
+
         Changed?.Invoke(this, NativeWindowsMessage.MonitorOn);
     }
 
     private void OnMonitorOff()
     {
+        IsMonitorOn = false;
+        _isMonitorOnTaskCompletionSource.TrySetResult();
+
         Changed?.Invoke(this, NativeWindowsMessage.MonitorOff);
     }
 
     private void OnLidOpened()
     {
+        IsLidOpen = true;
+        _isLidOpenTaskCompletionSource.TrySetResult();
+
         Changed?.Invoke(this, NativeWindowsMessage.LidOpened);
     }
 
     private void OnLidClosed()
     {
+        IsLidOpen = false;
+        _isLidOpenTaskCompletionSource.TrySetResult();
+
         Changed?.Invoke(this, NativeWindowsMessage.LidClosed);
     }
 

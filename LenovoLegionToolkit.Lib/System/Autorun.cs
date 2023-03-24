@@ -80,18 +80,9 @@ public static class Autorun
     {
         Disable();
 
-        var mainModule = Process.GetCurrentProcess().MainModule;
-        if (mainModule is null)
-            throw new InvalidOperationException("Main Module cannot be null");
-
-        var filename = mainModule.FileName;
-        if (filename is null)
-            throw new InvalidOperationException("Current process file name cannot be null");
-
-        var fileVersion = mainModule.FileVersionInfo.FileVersion;
-        if (fileVersion is null)
-            throw new InvalidOperationException("Current process file version cannot be null");
-
+        var mainModule = Process.GetCurrentProcess().MainModule ?? throw new InvalidOperationException("Main Module cannot be null");
+        var filename = mainModule.FileName ?? throw new InvalidOperationException("Current process file name cannot be null");
+        var fileVersion = mainModule.FileVersionInfo.FileVersion ?? throw new InvalidOperationException("Current process file version cannot be null");
         var currentUser = WindowsIdentity.GetCurrent().Name;
 
         var ts = TaskService.Instance;

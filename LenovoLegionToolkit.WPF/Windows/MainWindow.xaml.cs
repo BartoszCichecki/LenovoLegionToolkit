@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -32,12 +31,14 @@ public partial class MainWindow
     {
         InitializeComponent();
 
-        if (Assembly.GetEntryAssembly()?.GetName().Version == new Version(0, 0, 1, 0))
-            _title.Text += " [BETA]";
-
 #if DEBUG
         _title.Text += " [DEBUG]";
+#else
+        var version = System.Reflection.Assembly.GetEntryAssembly()?.GetName().Version;
+        if (version == new Version(0, 0, 1, 0) || version?.Build == 99)
+            _title.Text += " [BETA]";
 #endif
+
 
         if (Log.Instance.IsTraceEnabled)
         {
@@ -197,8 +198,8 @@ public partial class MainWindow
         if (!_applicationSettings.Store.WindowSize.HasValue)
             return;
 
-        Width = _applicationSettings.Store.WindowSize.Value.Width;
-        Height = _applicationSettings.Store.WindowSize.Value.Height;
+        Width = Math.Max(MinWidth, _applicationSettings.Store.WindowSize.Value.Width);
+        Height = Math.Max(MinHeight, _applicationSettings.Store.WindowSize.Value.Height);
 
         var desktopWorkingArea = ScreenHelper.GetPrimaryDesktopWorkingArea();
 

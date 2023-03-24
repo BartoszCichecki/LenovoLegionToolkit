@@ -10,10 +10,12 @@ public class OnStartupAutomationPipelineTrigger : IOnStartupAutomationPipelineTr
     [JsonIgnore]
     public string DisplayName => Resource.OnStartupAutomationPipelineTrigger_DisplayName;
 
-    public Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent)
+    public Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
     {
         return Task.FromResult(automationEvent is StartupAutomationEvent);
     }
+
+    public Task<bool> IsMatchingState() => Task.FromResult(false);
 
     public IAutomationPipelineTrigger DeepCopy() => new OnStartupAutomationPipelineTrigger();
 

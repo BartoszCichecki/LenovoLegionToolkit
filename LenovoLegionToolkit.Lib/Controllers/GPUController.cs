@@ -17,25 +17,25 @@ public class GPUController
     public enum Status
     {
         Unknown,
-        NVIDIAGPUNotFound,
+        NvidiaGpuNotFound,
         MonitorsConnected,
         DeactivatePossible,
         Inactive,
+        PoweredOff
     }
 
     public readonly struct GPUStatus
     {
-        public bool IsActive { get; }
-        public bool CanBeDeactivated { get; }
         public Status Status { get; }
         public string? PerformanceState { get; }
         public List<Process> Processes { get; }
         public int ProcessCount => Processes.Count;
+        public bool IsActive => Status is Status.MonitorsConnected or Status.DeactivatePossible;
+        public bool IsPoweredOff => Status is Status.PoweredOff;
+        public bool CanBeDeactivated => Status == Status.DeactivatePossible;
 
-        public GPUStatus(bool isActive, bool canBeDeactivated, Status status, string? performanceState, List<Process> processes)
+        public GPUStatus(Status status, string? performanceState, List<Process> processes)
         {
-            IsActive = isActive;
-            CanBeDeactivated = canBeDeactivated;
             Status = status;
             PerformanceState = performanceState;
             Processes = processes;
@@ -55,7 +55,6 @@ public class GPUController
     private bool IsActive => _status is Status.MonitorsConnected or Status.DeactivatePossible;
     private bool CanBeDeactivated => _status == Status.DeactivatePossible;
 
-    public event EventHandler? WillRefresh;
     public event EventHandler<GPUStatus>? Refreshed;
 
     public bool IsSupported()
@@ -84,7 +83,7 @@ public class GPUController
         using (await _lock.LockAsync().ConfigureAwait(false))
         {
             await RefreshLoopAsync(0, 0, CancellationToken.None);
-            return new GPUStatus(IsActive, CanBeDeactivated, _status, _performanceState, _processes);
+            return new GPUStatus(_status, _performanceState, _processes);
         }
     }
 
@@ -202,13 +201,12 @@ public class GPUController
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Will refresh...");
 
-                    WillRefresh?.Invoke(this, EventArgs.Empty);
                     await RefreshStateAsync().ConfigureAwait(false);
 
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Refreshed");
 
-                    Refreshed?.Invoke(this, new GPUStatus(IsActive, CanBeDeactivated, _status, _performanceState, _processes));
+                    Refreshed?.Invoke(this, new GPUStatus(_status, _performanceState, _processes));
                 }
 
                 if (interval > 0)
@@ -249,7 +247,7 @@ public class GPUController
         var gpu = NVAPI.GetGPU();
         if (gpu is null)
         {
-            _status = Status.NVIDIAGPUNotFound;
+            _status = Status.NvidiaGpuNotFound;
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"GPU present [status={_status}, processes.Count={_processes.Count}, gpuInstanceId={_gpuInstanceId}]");
@@ -263,11 +261,12 @@ public class GPUController
             _performanceState = Resource.GPUController_PoweredOn;
             if (!string.IsNullOrWhiteSpace(stateId))
                 _performanceState += $", {stateId}";
-
         }
         catch (Exception ex) when (ex.Message == "NVAPI_GPU_NOT_POWERED")
         {
+            _status = Status.PoweredOff;
             _performanceState = Resource.GPUController_PoweredOff;
+            return;
         }
         catch (Exception ex)
         {

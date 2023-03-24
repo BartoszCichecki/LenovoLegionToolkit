@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Automation.Resources;
+using LenovoLegionToolkit.Lib.Listeners;
 using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
@@ -10,9 +11,16 @@ public class LidClosedAutomationPipelineTrigger : INativeWindowsMessagePipelineT
     [JsonIgnore]
     public string DisplayName => Resource.LidClosedAutomationPipelineTrigger_DisplayName;
 
-    public Task<bool> IsSatisfiedAsync(IAutomationEvent automationEvent)
+    public Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
     {
         var result = automationEvent is NativeWindowsMessageEvent { Message: NativeWindowsMessage.LidClosed };
+        return Task.FromResult(result);
+    }
+
+    public Task<bool> IsMatchingState()
+    {
+        var listener = IoCContainer.Resolve<NativeWindowsMessageListener>();
+        var result = !listener.IsLidOpen;
         return Task.FromResult(result);
     }
 

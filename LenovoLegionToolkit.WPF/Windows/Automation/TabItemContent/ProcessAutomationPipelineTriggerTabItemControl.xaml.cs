@@ -1,32 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 using Microsoft.Win32;
 using Wpf.Ui.Common;
 using Button = Wpf.Ui.Controls.Button;
-using Image = System.Windows.Controls.Image;
 
-namespace LenovoLegionToolkit.WPF.Windows.Automation;
+namespace LenovoLegionToolkit.WPF.Windows.Automation.TabItemContent;
 
-public partial class PickProcessesWindow
+public partial class ProcessAutomationPipelineTriggerTabItemControl : IAutomationPipelineTriggerTabItemContent<IProcessesAutomationPipelineTrigger>
 {
-    public List<ProcessInfo> Processes { get; }
+    private readonly IProcessesAutomationPipelineTrigger _trigger;
+    private readonly List<ProcessInfo> _processes;
 
-    public event EventHandler<ProcessInfo[]>? OnSave;
-
-    public PickProcessesWindow(ProcessInfo[] processes)
+    public ProcessAutomationPipelineTriggerTabItemControl(IProcessesAutomationPipelineTrigger trigger)
     {
-        Processes = processes.ToList();
+        _trigger = trigger;
+        _processes = trigger.Processes.ToList();
 
         InitializeComponent();
+    }
 
+    public IProcessesAutomationPipelineTrigger GetTrigger() => _trigger.DeepCopy(_processes.ToArray());
+
+    private void ProcessAutomationPipelineTriggerTabItemControl_Initialized(object? sender, EventArgs e)
+    {
         var copyCommand = new RoutedCommand();
         copyCommand.InputGestures.Add(new KeyGesture(Key.C, ModifierKeys.Control));
         CommandBindings.Add(new CommandBinding(copyCommand, CopyShortcut));
@@ -34,27 +38,20 @@ public partial class PickProcessesWindow
         var pasteCommand = new RoutedCommand();
         pasteCommand.InputGestures.Add(new KeyGesture(Key.V, ModifierKeys.Control));
         CommandBindings.Add(new CommandBinding(pasteCommand, PasteShortcut));
+
+        Refresh();
     }
 
-    private async void PickProcessesWindow_Loaded(object sender, RoutedEventArgs e) => await RefreshAsync();
-
-    private async void PickProcessesWindow_IsVisibleChanged(object _1, DependencyPropertyChangedEventArgs _2)
-    {
-        if (IsLoaded && IsVisible)
-            await RefreshAsync();
-    }
-
-    private async void Item_OnDelete(object? sender, EventArgs e)
+    private void Item_OnDelete(object? sender, EventArgs e)
     {
         if (sender is not ListItem listItem)
             return;
 
-        Processes.Remove(listItem.Process);
-
-        await RefreshAsync();
+        _processes.Remove(listItem.Process);
+        Refresh();
     }
 
-    private async void AddButton_Click(object sender, RoutedEventArgs e)
+    private void AddButton_Click(object sender, RoutedEventArgs e)
     {
         var ofd = new OpenFileDialog
         {
@@ -68,37 +65,24 @@ public partial class PickProcessesWindow
             return;
 
         var processInfo = ProcessInfo.FromPath(ofd.FileName);
-        if (Processes.Contains(processInfo))
+        if (_processes.Contains(processInfo))
             return;
 
-        Processes.Add(processInfo);
-
-        await RefreshAsync();
+        _processes.Add(processInfo);
+        Refresh();
     }
 
-    private async void DeleteAllButton_Click(object sender, RoutedEventArgs e)
+    private void DeleteAllButton_Click(object sender, RoutedEventArgs e)
     {
-        Processes.Clear();
-
-        await RefreshAsync();
-    }
-
-    private void SaveButton_Click(object sender, RoutedEventArgs e)
-    {
-        OnSave?.Invoke(this, Processes.ToArray());
-        Close();
-    }
-
-    private void CancelButton_Click(object sender, RoutedEventArgs e)
-    {
-        Close();
+        _processes.Clear();
+        Refresh();
     }
 
     private void CopyShortcut(object sender, RoutedEventArgs e)
     {
         try
         {
-            ClipboardExtensions.SetProcesses(Processes);
+            ClipboardExtensions.SetProcesses(_processes);
         }
         catch (Exception ex)
         {
@@ -107,16 +91,18 @@ public partial class PickProcessesWindow
         }
     }
 
-    private async void PasteShortcut(object sender, RoutedEventArgs e)
+    private void PasteShortcut(object sender, RoutedEventArgs e)
     {
         try
         {
-            var processes = ClipboardExtensions.GetProcesses().Where(p => !Processes.Contains(p));
+            var processes = ClipboardExtensions.GetProcesses()
+                .Where(p => !_processes.Contains(p))
+                .ToArray();
             if (!processes.Any())
                 return;
 
-            Processes.AddRange(processes);
-            await RefreshAsync();
+            _processes.AddRange(processes);
+            Refresh();
         }
         catch (Exception ex)
         {
@@ -125,19 +111,15 @@ public partial class PickProcessesWindow
         }
     }
 
-    private Task RefreshAsync()
+    private void Refresh()
     {
-        var processes = Processes;
-
         _list.Items.Clear();
-        foreach (var process in processes.OrderBy(p => p))
+        foreach (var process in _processes.OrderBy(p => p))
         {
             var item = new ListItem(process);
             item.OnDelete += Item_OnDelete;
             _list.Items.Add(item);
         }
-
-        return Task.CompletedTask;
     }
 
     private class ListItem : UserControl

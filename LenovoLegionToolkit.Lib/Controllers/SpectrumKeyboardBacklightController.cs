@@ -276,10 +276,8 @@ public class SpectrumKeyboardBacklightController
     public async Task ImportProfileDescription(int profile, string jsonPath)
     {
         var json = await File.ReadAllTextAsync(jsonPath).ConfigureAwait(false);
-        var effects = JsonConvert.DeserializeObject<SpectrumKeyboardBacklightEffect[]>(json);
-
-        if (effects is null)
-            throw new InvalidOperationException("Couldn't deserialize effects");
+        var effects = JsonConvert.DeserializeObject<SpectrumKeyboardBacklightEffect[]>(json)
+                      ?? throw new InvalidOperationException("Couldn't deserialize effects");
 
         await SetProfileDescriptionAsync(profile, effects).ConfigureAwait(false);
     }

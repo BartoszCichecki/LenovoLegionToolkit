@@ -107,6 +107,8 @@ public abstract class AbstractGodModeController : IGodModeController
 
     public abstract Task<Dictionary<PowerModeState, GodModeDefaults>> GetDefaultsInOtherPowerModesAsync();
 
+    public abstract Task RestoreDefaultsInOtherPowerModeAsync(PowerModeState state);
+
     protected abstract Task<GodModePreset> GetDefaultStateAsync();
 
     protected async Task<GodModeSettings.GodModeSettingsStore.Preset> GetActivePresetAsync()

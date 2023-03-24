@@ -764,6 +764,15 @@ Startup is delayed by 30 seconds for compatibility reasons.</value>
   <data name="SettingsPage_Title" xml:space="preserve">
     <value>Postavke</value>
   </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
+    <value>Izlazak sunca</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
+    <value>Zalazak sunca</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
+    <value>Vrijeme</value>
+  </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
     <value>Omogućava promjenu između integrisane i diskretne grafičke.
 Zahtijeva ponovno pokretanje.</value>
@@ -856,5 +865,8 @@ Logiranje će biti automatski omogućeno, ukoliko izaberete da nastavite.</value
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
     <value>Dodaj korak</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+	  <value>Isključeno</value>
   </data>
 </root>

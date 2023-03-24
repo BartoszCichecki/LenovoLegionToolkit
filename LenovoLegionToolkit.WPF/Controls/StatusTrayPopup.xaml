@@ -160,7 +160,7 @@
                         Width="12"
                         Height="12"
                         Margin="0,0,0,2"
-                        Fill="#BF360C" />
+                        Fill="#F2A541" />
                     <Label
                         Margin="8,0,0,0"
                         VerticalContentAlignment="Center"
@@ -168,8 +168,30 @@
                         FontSize="{StaticResource PrimaryFontSize}"
                         Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                 </StackPanel>
+                <StackPanel
+                    x:Name="_gpuPoweredOff"
+                    Grid.Row="0"
+                    Grid.Column="3"
+                    Margin="16,0,0,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal"
+                    Visibility="Collapsed">
+                    <Ellipse
+                        Width="12"
+                        Height="12"
+                        Margin="0,0,0,2"
+                        Fill="#BF360C" />
+                    <Label
+                        Margin="8,0,0,0"
+                        VerticalContentAlignment="Center"
+                        Content="{x:Static resources:Resource.PoweredOff}"
+                        FontSize="{StaticResource PrimaryFontSize}"
+                        Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                </StackPanel>
 
                 <Label
+                    x:Name="_gpuPowerStateValue"
                     Grid.Row="1"
                     Grid.Column="1"
                     Margin="8,4,0,0"
