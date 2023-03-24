@@ -55,10 +55,10 @@ Join the Legion Series Discord: https://discord.com/invite/legionseries!
 
 # Table of Contents
   - [Disclaimer](#disclaimer)
-  - [Donate](#donate)
   - [Download](#download)
   - [Compatibility](#compatibility)
   - [Features](#features)
+  - [Donate](#donate)
   - [Credits](#credits)
   - [FAQ](#faq)
   - [How to collect logs?](#how-to-collect-logs)
@@ -68,32 +68,21 @@ Join the Legion Series Discord: https://discord.com/invite/legionseries!
 
 **The tool comes with no warranty. Use at your own risk.**
 
-This is a hobby project. I want to make it available on more devices, but it will take some time, so please be patient and read through this readme carefully.
-
-## Donate
-
-If you enjoy using the Lenovo Legion Toolkit, consider donating.
-
-[Donate with PayPal](https://www.paypal.com/donate/?hosted_button_id=22AZE2NBP3HTL)
-
-<img src="LenovoLegionToolkit.WPF/Assets/Donate/paypal_qr.png" width="200" alt="PayPal QR code" />
-
-
-#### Donate from China
-
-If you live in China, you can also donate in Chinese Yuan using Stripe (supports UnionPay and AliPay):
-
-[Donate with Stripe](https://donate.stripe.com/14k8yM94I980f3q7ss)
-
-<img src="LenovoLegionToolkit.WPF/Assets/Donate/stripe_cny_qr.png" width="200" alt="Stripe (CNY) QR code" />
+Please be patient and read through this readme carefully - it contains important information.
 
 ## Download
 
-You can download the installer from the [Releases page](https://github.com/BartoszCichecki/LenovoLegionToolkit/releases/latest).
-
-Or install using [winget](https://github.com/microsoft/winget-cli):
+You can download the installer from the [Releases page](https://github.com/BartoszCichecki/LenovoLegionToolkit/releases/latest) or install using [winget](https://github.com/microsoft/winget-cli):
 
 `winget install BartoszCichecki.LenovoLegionToolkit`
+
+#### Next steps
+
+LLT works best when it's running in the background, so go to Settings and enable _Autorun_ and _Minimize on close_. Next thing is to either disable Vantage and Hotkeys or just uninstall them. After that LLT will always run on startup and will take over all functions that were handled by Vantage and Hotkeys.
+
+If you close LLT completely some functions will not work, like synchronizing power plans with current Power Mode (Fn+Q) or Actions.
+
+Also, check out the [Compatibility](#compatibility) section below!
 
 #### Problems with .NET?
 
@@ -175,13 +164,24 @@ Lenovo Legion Toolkit will automatically switch Windows power plans when Power M
 
 On some laptops though, Lenovo Vantage never switched power plans. If you have one of the laptops where Lenovo Vantage does not change Windows power plans automatically you can override this behavior in Settings. This will allow Toolkit to always change Windows power plans, even if Lenovo Vantage is running in the background.
 
-##### CPU Boost Modes
+Laptops that have S0 Low Power mode enabled, also known as Modern Standby, do not work well with mutliple power plans, especially with performance power plans.
 
-This allows modifying the hidden setting of Windows Power Plans called *Processor performance boost mode*. It is a little bit cryptic what these options do, but the best explanation is provided here:
+## Donate
 
-[Power and performance tuning @microsoft.com](https://docs.microsoft.com/en-us/windows-server/administration/performance-tuning/hardware/power/power-performance-tuning#processor-performance-boost-mode)
+If you enjoy using the Lenovo Legion Toolkit, consider donating.
 
-[ProcessorPerformanceBoostMode @microsoft.com](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windows.eventtracing.power.processorperformanceboostmode?view=trace-processor-dotnet-1.0)
+[Donate with PayPal](https://www.paypal.com/donate/?hosted_button_id=22AZE2NBP3HTL)
+
+<img src="LenovoLegionToolkit.WPF/Assets/Donate/paypal_qr.png" width="200" alt="PayPal QR code" />
+
+
+#### Donate from China
+
+If you live in China, you can also donate in Chinese Yuan using Stripe (supports UnionPay and AliPay):
+
+[Donate with Stripe](https://donate.stripe.com/14k8yM94I980f3q7ss)
+
+<img src="LenovoLegionToolkit.WPF/Assets/Donate/stripe_cny_qr.png" width="200" alt="Stripe (CNY) QR code" />
 
 ## Credits
 
