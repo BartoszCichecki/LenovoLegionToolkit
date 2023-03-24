@@ -1376,9 +1376,6 @@
   <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>日出</value>
   </data>
-  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
-    <value>日落</value>
-  </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>时间</value>
   </data>
