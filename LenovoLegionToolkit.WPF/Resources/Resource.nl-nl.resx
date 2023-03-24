@@ -1351,7 +1351,7 @@ Zorg ervoor dat uw script eerst correct wordt uitgevoerd.</value>
     <value>Zonsopgang</value>
   </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
-    <value>Zonsopgang</value>
+    <value>Zonsondergang</value>
   </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Tijd</value>
@@ -1611,6 +1611,6 @@ Als u de muis beweegt of op het toetsenbord drukt, worden de schermen gewekt.</v
     <value>Update beschikbaar!</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
-	  <value>Uitgeschakeld</value>
+    <value>Uitgeschakeld</value>
   </data>
 </root>

@@ -1370,7 +1370,7 @@ Po změně této možnosti se doporučuje restartovat.</value>
     <value>Východ slunce</value>
   </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
-    <value>Východ slunce</value>
+    <value>Západ slunce</value>
   </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Čas</value>

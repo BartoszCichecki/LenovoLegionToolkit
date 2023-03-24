@@ -831,6 +831,9 @@ Daima doğru paketleri kurduğunuzdan emin olun.</value>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Şuraya indir</value>
   </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filtre...</value>
+  </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
     <value>Cihaz Tipi</value>
   </data>
@@ -1076,7 +1079,7 @@ UYARI: Yerleşik ekran kapalıysa bu eylem düzgün çalışmayacaktır.</value>
     <value>Gündoğumu</value>
   </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
-    <value>Gündoğumu</value>
+    <value>Gün batımı</value>
   </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Zaman</value>
@@ -1181,6 +1184,6 @@ Devam etmeyi seçerseniz, kayıt etme otomatik olarak etkinleştirilecektir.</va
     <value>Adım ekle</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
-	  <value>Kapatıldı</value>
+    <value>Kapatıldı</value>
   </data>
 </root>

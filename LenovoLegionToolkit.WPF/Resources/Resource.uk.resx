@@ -1367,7 +1367,7 @@
     <value>Світанок</value>
   </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
-    <value>Світанок</value>
+    <value>Захід</value>
   </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Час</value>
@@ -1721,6 +1721,6 @@
     <value>Низький рівень заряду батареї</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
-	  <value>Вимкнений</value>
+    <value>Вимкнений</value>
   </data>
 </root>

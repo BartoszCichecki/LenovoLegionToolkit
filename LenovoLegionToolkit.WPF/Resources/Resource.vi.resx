@@ -971,6 +971,9 @@ Luôn kiểm tra rằng bạn cài đặt đúng gói cài đặt mong muốn.</
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>Vị trí tải về</value>
   </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Lọc...</value>
+  </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
     <value>Mã máy</value>
   </data>
@@ -1348,7 +1351,7 @@ Hãy đảm bảo chương trình hoặc script của bạn chạy đúng trư�
     <value>Bình minh</value>
   </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
-    <value>Bình minh</value>
+    <value>Hoàng hôn</value>
   </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Thời gian</value>
@@ -1593,6 +1596,6 @@ Di chuyển chuột hoặc bấm phím bất kỳ trên bàn phím để bật m
     <value>Có cập nhật mới!</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
-	  <value>Ngắt kích hoạt</value>
+    <value>Ngắt kích hoạt</value>
   </data>
 </root>

@@ -504,12 +504,18 @@
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>الضمان</value>
   </data>
+  <data name="Active" xml:space="preserve">
+    <value>مفعل</value>
+  </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>غير مفعل</value>
   </data>
   <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
     <value>بطاقة نفيديا يكمن أن تغلق.
 تذكر أن بعد البرامج ممكن أن تتوقف عن العمل لو قمت بهذا.</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>غير مفعل</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>قتل التطبيقات</value>
@@ -952,6 +958,9 @@
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>التحميل إلى</value>
   </data>
+  <data name="Filter" xml:space="preserve">
+    <value>جارٍ التصفية...</value>
+  </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
     <value>نوع الجهاز أو الآلة</value>
   </data>
@@ -1305,7 +1314,7 @@
     <value>الشروق</value>
   </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
-    <value>الشروق</value>
+    <value>الغروب</value>
   </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>الوقت</value>
@@ -1416,6 +1425,6 @@
     <value>إضافة خطوة</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
-	  <value>مغلق</value>
+    <value>مغلق</value>
   </data>
 </root>

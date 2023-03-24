@@ -1724,6 +1724,6 @@ Aceste setări au efect doar atunci când modul Personalizat este activat.</valu
     <value>Nivelul bateriei este scăzut</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
-	  <value>Oprit</value>
+    <value>Oprit</value>
   </data>
 </root>

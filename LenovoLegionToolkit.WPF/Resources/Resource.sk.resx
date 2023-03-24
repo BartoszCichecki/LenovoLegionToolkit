@@ -1369,7 +1369,7 @@ Po zmene tejto možnosti sa odporúča reštart.</value>
     <value>Úsvit</value>
   </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
-    <value>Úsvit</value>
+    <value>Súmrak</value>
   </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Čas</value>
@@ -1714,6 +1714,6 @@ Nastavenia sú účinne len keď je povolený vlastný režim.</value>
     <value>Úroveň batérie nízka</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
-	  <value>Vypnutý</value>
+    <value>Vypnutý</value>
   </data>
 </root>

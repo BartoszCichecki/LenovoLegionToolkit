@@ -1350,7 +1350,7 @@
     <value>Ανατολή ηλίου</value>
   </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
-    <value>Ανατολή ηλίου</value>
+    <value>Ηλιοβασίλεμα</value>
   </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Ώρα</value>
@@ -1684,6 +1684,6 @@
     <value>Χαμηλό επίπεδο μπαταρίας</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
-	  <value>Απενεργοποίηση</value>
+    <value>Απενεργοποίηση</value>
   </data>
 </root>
