@@ -1350,6 +1350,9 @@ Hãy đảm bảo chương trình hoặc script của bạn chạy đúng trư�
   <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>Bình minh</value>
   </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
+    <value>Hoàng hôn</value>
+  </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Thời gian</value>
   </data>
