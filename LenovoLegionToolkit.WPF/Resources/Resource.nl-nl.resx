@@ -1610,4 +1610,7 @@ Als u de muis beweegt of op het toetsenbord drukt, worden de schermen gewekt.</v
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
     <value>Update beschikbaar!</value>
   </data>
+  <data name="PoweredOff" xml:space="preserve">
+    <value>Uitgeschakeld</value>
+  </data>
 </root>
