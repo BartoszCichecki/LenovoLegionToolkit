@@ -1367,6 +1367,15 @@ Un redémarrage est recommandé après avoir modifié cette option.</value>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} zones</value>
   </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
+    <value>Lever du soleil</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
+    <value>Coucher du soleil</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
+    <value>Heure spécifique</value>
+  </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
     <value>Permet le changement entre le GPU intégré et dédié.
 Nécessite un redémarrage.</value>
@@ -1720,5 +1729,8 @@ Ce paramètre ne prend effet que lorsque le mode personnalisé est activé.</val
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Windows signale que ce périphérique prend en charge la mise en veille moderne. L'utilisation de plans d'alimentation autres qu'équilibré peut entraîner un comportement inattendu.</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+    <value>Désactiver</value>
   </data>
 </root>
