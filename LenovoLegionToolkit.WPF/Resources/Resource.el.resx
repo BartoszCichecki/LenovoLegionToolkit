@@ -1346,15 +1346,6 @@
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>Ζώνη {0}</value>
   </data>
-  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
-    <value>Ανατολή ηλίου</value>
-  </data>
-  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
-    <value>Ανατολή ηλίου</value>
-  </data>
-  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
-    <value>Ώρα</value>
-  </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
     <value>Επιτρέψτε την εναλλαγή μεταξύ ενσωματωμένης και διακριτής GPU.
 Απαιτεί επανεκκίνηση.</value>
@@ -1682,8 +1673,5 @@
   </data>
   <data name="BatteryPage_LowLevel" xml:space="preserve">
     <value>Χαμηλό επίπεδο μπαταρίας</value>
-  </data>
-  <data name="PoweredOff" xml:space="preserve">
-	  <value>Απενεργοποίηση</value>
   </data>
 </root>
