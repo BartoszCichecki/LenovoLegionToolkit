@@ -1363,15 +1363,6 @@
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} зон</value>
   </data>
-  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
-    <value>Світанок</value>
-  </data>
-  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
-    <value>Світанок</value>
-  </data>
-  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
-    <value>Час</value>
-  </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
     <value>Дозволяти перемикатися між інтегрованим та дискретним ГП.
 Потребує перезавантаження.</value>
@@ -1719,8 +1710,5 @@
   </data>
   <data name="BatteryPage_LowLevel" xml:space="preserve">
     <value>Низький рівень заряду батареї</value>
-  </data>
-  <data name="PoweredOff" xml:space="preserve">
-	  <value>Вимкнений</value>
   </data>
 </root>
