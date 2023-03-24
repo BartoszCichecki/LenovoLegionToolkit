@@ -1368,6 +1368,15 @@ Se recomienda reiniciar después de cambiar esta opción.</value>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} zonas</value>
   </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
+    <value>Al amanecer</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
+    <value>Al amanecer</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
+    <value>Hora</value>
+  </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
     <value>Permitir cambiar entre la GPU integrada y la GPU externa.
 Requiere un reinicio.</value>
@@ -1721,5 +1730,8 @@ Esta configuración sólo tiene efecto si el modo personalizado está activado.<
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Windows informa de que este dispositivo soporta Modern Standby. El uso de planes de energía distintos a Equilibrado puede provocar un comportamiento inesperado.</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+    <value>Desactivado</value>
   </data>
 </root>
