@@ -1577,6 +1577,9 @@ Di chuyển chuột hoặc bấm phím bất kỳ trên bàn phím để bật m
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>Khuyến nghị khởi động lại</value>
   </data>
+  <data name="GodModeSettingsWindow_EditPreset_Message" xml:space="preserve">
+    <value>Tên</value>
+  </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
     <value>Thêm hành động</value>
   </data>
@@ -1594,6 +1597,9 @@ Di chuyển chuột hoặc bấm phím bất kỳ trên bàn phím để bật m
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
     <value>Có cập nhật mới!</value>
+  </data>
+  <data name="SettingsPage_Power_Title" xml:space="preserve">
+    <value>Nguồn</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Ngắt kích hoạt</value>
