@@ -14,7 +14,7 @@
 
 本软件不运行后台服务，使用较少的内存，几乎不使用 CPU ，并且不收集用户信息。本程序仅适用于 Windows 。
 
-**加入拯救者工具箱中文交流反馈 QQ 频道，第一时间推送正式版/测试版更新并附带国内高速下载链接，用中文反馈问题并与其他用户交流。https://pd.qq.com/s/jj0737**
+**中文用户可加入[拯救者工具箱 QQ 频道](https://pd.qq.com/s/jj0737)，频道内推送正式版/测试版更新并附带国内镜像加速下载来链接。**
 
 加入 Legion Series Discord: https://discord.com/invite/legionseries!
 
@@ -23,10 +23,10 @@
 
 # 目录
   - [免责声明](#免责声明)
-  - [赞助](#赞助)
   - [下载](#下载)
   - [兼容性](#兼容性)
   - [功能介绍](#功能介绍)
+  - [赞助](#赞助)
   - [贡献者](#贡献者)
   - [FAQ](#faq)
   - [如何开启记录Log](#如何开启记录Log)
@@ -36,28 +36,36 @@
 
 **本软件非联想官方出品软件，使用需要自担风险。**
 
-这是我的业余时间做的项目，我想让它适配更多的设备，但需要一些时间，所以请耐心等待并仔细阅读此自述文件。
-
-## 赞助
-
-开发不易，如果你觉得拯救者工具箱不错的话，可以考虑赞助以支持开发。
-
-[使用PayPal赞助](https://www.paypal.com/donate/?hosted_button_id=22AZE2NBP3HTL)
-
-<img src="LenovoLegionToolkit.WPF/Assets/Donate/paypal_qr.png" width="200" alt="PayPal QR code" />
-
-
-#### 中国用户赞助
-
-如果你居住在中国，可以使用Stripe来赞助。（支持支付宝与银联）
-
-[使用Stripe赞助](https://donate.stripe.com/14k8yM94I980f3q7ss)
-
-<img src="LenovoLegionToolkit.WPF/Assets/Donate/stripe_cny_qr.png" width="200" alt="Stripe (CNY) QR code" />
+请仔细耐心地阅读本文档，以便了解关于本软件的一些重要信息。
 
 ## 下载
 
-你可以在这里下载最新版本：[发行版页面 Releases page](https://github.com/BartoszCichecki/LenovoLegionToolkit/releases/latest)。
+你可以在这里下载最新版本：[发行版页面 Releases page](https://github.com/BartoszCichecki/LenovoLegionToolkit/releases/latest)。或者使用 [winget](https://github.com/microsoft/winget-cli)：
+
+`winget install BartoszCichecki.LenovoLegionToolkit`
+
+#### 接下来的步骤
+
+拯救者工具箱在后台运行时效果最好，所以去设置中启用_开机启动_和_关闭时最小化_。接下载就是在设置中禁用 Lenovo Vantage, Legion Zone 与 Lenovo Hotkeys，或者你也可以直接卸载他们。之后，拯救者工具箱将会在开机后自启并在后台一直保持运行，并接管 Lenovo Vantage, Legion Zone 与 Lenovo Hotkeys 的功能。
+
+另，如果你完全关闭拯救者工具箱，一些功能将无法正常工作。例如同步不同的性能模式（Fn + Q）与电源计划，自动化功能的运行。
+
+另外，请查看下方的 [兼容性](#兼容性) 部分。
+
+#### 在安装 .NET 依赖时出现问题？
+
+如果拯救者工具箱安装程序没有正确安装 .NET 依赖，则请按照以下步骤手动安装：
+
+1. 打开 https://dotnet.microsoft.com/zh-cn/download/dotnet/6.0；
+2. 找到 “.NET 桌面运行时” 一栏；
+3. 点击安装程序下的“X64”一栏下载安装程序；
+4. 运行安装程序并按照指引进行安装。
+
+#### 想要帮助我们测试？
+
+中文用户可加入 [拯救者工具箱 QQ 频道](https://pd.qq.com/s/jj0737) 并前往 `#测试版更新💻` 子频道，Beta 测试版将会经常在那里发布。
+
+或直接加入 [Legion Series Discord](https://discord.com/invite/legionseries) 并前往 `#legion-toolkit` 子频道，Beta 测试版与未来更新将会在那里频繁更新。
 
 ## 兼容性
 
@@ -82,7 +90,7 @@
 拯救者工具箱可以做到：
 
 - 改变诸如性能模式、充电模式等只有通过 Lenovo Vantage、联想电脑管家才能更改的设置。
-- 使用仅在 Legion Zone 中可用的自定义模式，包括 2022 款的调节风扇曲线和功耗控制。
+- 使用仅在 Legion Zone 中可用的自定义模式，包括 2022 款与更新的机型的调节风扇曲线和功耗控制。
 - 支持调节 Spectrum RGB 键盘和白色背光的键盘。
 - 改变显示器刷新率（仅内置显示器）。
 - 强制休眠独立显卡（仅限英伟达显卡）。
@@ -101,6 +109,7 @@
 * K1CN31WW 和更高
 * K9CN34WW 和更高
 * KFCN32WW 和更高
+* KWCN28WW 和更高
 * J2CN40WW 和更高
 * JUCN51WW 和更高
 * JYCN39WW 和更高
@@ -128,11 +137,24 @@
 
 ##### CPU 睿频模式
 
-此选项可以修改 Windows 电源计划中隐藏的调度设置—— CPU 睿频模式。这些选项很难看懂，但你可以查看微软的文档了解详情。
+启用了 S0 低功率模式（又名现代待机）的笔记本电脑，在多个电源计划的情况下会导致许多小问题，特别是性能电源计划。
 
-[处理器性能提升模式 @microsoft.com](https://docs.microsoft.com/zh-cn/windows-server/administration/performance-tuning/hardware/power/power-performance-tuning#processor-performance-boost-mode)
+## 赞助
 
-[ProcessorPerformanceBoostMode @microsoft.com](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.windows.eventtracing.power.processorperformanceboostmode?view=trace-processor-dotnet-1.0)
+开发不易，如果你觉得拯救者工具箱不错的话，可以考虑赞助以支持开发。
+
+[使用PayPal赞助](https://www.paypal.com/donate/?hosted_button_id=22AZE2NBP3HTL)
+
+<img src="LenovoLegionToolkit.WPF/Assets/Donate/paypal_qr.png" width="200" alt="PayPal QR code" />
+
+
+#### 中国用户赞助
+
+如果你居住在中国，可以使用Stripe来赞助。（支持支付宝与银联）
+
+[使用Stripe赞助](https://donate.stripe.com/14k8yM94I980f3q7ss)
+
+<img src="LenovoLegionToolkit.WPF/Assets/Donate/stripe_cny_qr.png" width="200" alt="Stripe (CNY) QR code" />
 
 ## 贡献者
 
@@ -173,6 +195,22 @@
 
 有时新主板内的机型和序列号信息出错，你可以尝试 [这篇教程](https://laptopwiki.eu/index.php/guides-and-tutorials/important-bios-related-guides/recover-original-model-sku-values/) 来恢复。如果这不起作用你可以尝试打开 `%LOCALAPPDATA%\LenovoLegionToolkit` 并创建一个名为 `args.txt` 的文件并打开文件后呼入 `--skip-compat-check` ，这会禁用拯救者工具箱的兼容性检查。我们建议你在无法正确恢复型号、序列号等信息的情况下再使用这个办法。
 
+
+#### 为什么我无法在使用电池供电时切换到野兽与自定义模式？
+
+在 2.11.0 版本后，拯救者工具箱与 Lenovo Vantage 与 Legion Zone 的行为保持一致，将不再允许在没有插入适当电源适配器的情况下启用野兽与自定义模式。
+
+If for whatever reason you want to use these modes on battery anyway, you can use `--allow-all-power-modes-on-battery` argument. Note that Power Limits and other settings are not applied correctly on most devices when laptop is not connected to full power AC adapter and unpredictable and weird behavior is expected.
+
+如果出于某种原因，你想在电池供电的情况下使用这些模式，你可以使用`--allow-all-power-modes-on-battery`参数来启用。请注意，当笔记本电脑没有连接到全功率的电源适配器时，功耗限制与其他设置在大多数设备上无法正常应用，同时可能会出现一些未知的问题。
+
+我已经警告过你了，这是在无需全功率电源适配器便可强制启用全部性能模式的步骤：
+
+1. 打开 `%LOCALAPPDATA%\LenovoLegionToolkit`；
+2. 创建名为 `args.txt` 的文件（如果已经有了则编辑它）；
+3. 在文件内粘贴 `--allow-all-power-modes-on-battery`；
+4. 重启拯救者工具箱。
+
 #### 支持 iCue RGB 键盘吗？
 
 不支持，我推荐你看看 [OpenRGB](https://openrgb.org/) 这个项目。
@@ -193,7 +231,7 @@
 
 #### 2022 款之前的机器能否自定义调节风扇曲线？
 
-如果你是 2022 款的拯救者不支持自定义风扇曲线请提交 Issue，我们会尝试适配。2022 款之前的机型由于技术原因无法支持。
+如果你是 2022 款与更新的机型的拯救者，但不支持自定义风扇曲线的话，请提交 Issue，我们会尝试适配。2022 款之前的机型由于技术原因无法支持。
 
 #### 为什么我锁定 Fn 键后的效果是反的？
 
@@ -202,6 +240,16 @@
 #### 为啥在启用 Legion AI 引擎后切换性能模式看起来似乎有些问题？
 
 貌似有些 BIOS 版本在使用 Fn+Q 快捷键时有一个奇怪的问题，你可以试试更新 BIOS，除此之外只能等联想修复它了。
+
+#### 为何即使自动化配置正确，游戏检测仍无法正常触发？
+
+拯救者工具箱的游戏检测功能是基于 Windows 游戏检测的。这意味着游戏检测功能仅能被 Windows 认为是游戏的 EXE 文件触发。同时如果你删除了 Xbox Game Bar，此功能大概率将无法正常工作。
+
+Windows 可能无法正确识别所有的游戏，但你可以在 Xbox Game Bar (Win + G) 设置中将任何程序标记为游戏。你可以在注册表中找到可识别的游戏列表：`HKEY_CURRENT_USER\System\GameConfigStore\Children`。
+
+#### 为什么将鼠标悬停在拯救者工具箱托盘图标上却看不到自定义工具提示？
+
+在 Windows 10 和 11 中，微软对托盘做了大量的修改，修改导致了很多东西产生了变化，从而导致许多东西无法正常工作。因此，自定义工具提示有时会无法正常工作。你可以试试更新你的 Windows，除此之外没什么好办法了。
 
 ## 如何开启记录Log
 
@@ -216,15 +264,6 @@
 5. 关闭拯救者工具箱 （同样记得关掉后台）；
 6. 然后打开 `运行` （使用 Win + R 打开）然后输入 `"%LOCALAPPDATA%\LenovoLegionToolkit\log"` ；
 7. 这里就是存放日志文件的地方了，提 Issue 时记得一并提交。
-
-
-在 2.6.0 及以上版本有更快的开启记录日志的办法：
-
-1. 确保拯救者工具箱已关闭（后台也记得关掉）；
-2. 按住键盘左侧的 Ctrl 和 Shift；
-3. 双击拯救者工具箱图标；
-4. 拯救者工具箱将会启动并且可以在左上角能看到 `[LOGGING ENABLED]` 同时你会看到一个橙色的链接用来打开日志文件。
-
 
 ## 贡献此项目
 
