@@ -1351,6 +1351,15 @@ Bul varianttı ózgertkennen keyin, qayta iske túsiriw usınıs etiledi.</value
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} zona</value>
   </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
+    <value>Quyash shıǵıwı</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
+    <value>Quyash batıwı</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
+    <value>Waqıt</value>
+  </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
     <value>Ornatılǵan hám bólekli grafikalıq processor arasında ózgertiw imkániyatın beredi.
 Qayta iske túsiriw talap etiledi.</value>
@@ -1683,11 +1692,17 @@ Bul sazlaw tek arnawlı rejim qosılǵanda nátiyje beredi.</value>
   <data name="BatteryPage_LowLevel" xml:space="preserve">
     <value>Batareyanıń quwatlılıq dárejesi tómen</value>
   </data>
+  <data name="AutomationPipelineTriggerConfigurationWindow_Title" xml:space="preserve">
+    <value>Sazlaw</value>
+  </data>
   <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
     <value>S0 tómen quwatlılıq modeli anıqlandı</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Bul qurılma Modern Standbydı qollap-quwatlaytuǵının Windows xabarlaydı. Teńlestirilgen quwatlılıq jobasınan basqasın qollanıw kútilmegen háreketke alıp keliwi múmkin.</value>
+  </data>
+  <data name="SettingsPage_Power_Title" xml:space="preserve">
+    <value>Quwatlılıq</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Óshirilgen</value>
