@@ -1734,8 +1734,14 @@ Esta configuración sólo tiene efecto si el modo personalizado está activado.<
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Windows informa de que este dispositivo soporta Modern Standby. El uso de planes de energía distintos a Equilibrado puede provocar un comportamiento inesperado.</value>
   </data>
+  <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
+    <value>Seleccione Planes de energía de Windows para aplicar al cambiar el modo de energía.</value>
+  </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Alimentación</value>
+  </data>
+  <data name="SettingsPage_PowerPlansControlPanel_Title" xml:space="preserve">
+    <value>Opciones del Plan de energía en el Panel de Control de Windows</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Desactivado</value>

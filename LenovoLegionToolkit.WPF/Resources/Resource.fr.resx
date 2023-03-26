@@ -1629,7 +1629,7 @@ Ce paramètre ne prend effet que lorsque le mode personnalisé est activé.</val
     <value>Luminosité unique de l'écran</value>
   </data>
   <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
-    <value>Activé, le même niveau de luminosité sera appliqué à tous les plans d'alimentation de Windows chaque fois que vous le modifiez.</value>
+    <value>Activé, le même niveau de luminosité sera appliqué à tous les modes de gestion d'alimentation de Windows chaque fois que vous le modifiez.</value>
   </data>
   <data name="Notification_UpdateAvailable" xml:space="preserve">
     <value>La mise à jour {0} est disponible !</value>
@@ -1731,10 +1731,16 @@ Ce paramètre ne prend effet que lorsque le mode personnalisé est activé.</val
     <value>S0 Modèle de puissance inférieure détectée</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-    <value>Windows signale que ce périphérique prend en charge la mise en veille moderne. L'utilisation de plans d'alimentation autres qu'équilibré peut entraîner un comportement inattendu.</value>
+    <value>Windows signale que ce périphérique prend en charge la mise en veille moderne. L'utilisation de modes de gestion d'alimentation autres qu'équilibré peut entraîner un comportement inattendu.</value>
+  </data>
+  <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
+    <value>Sélectionnez les modes de gestion d'alimentation Windows à appliquer lorsque le mode d'alimentation change.</value>
   </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Alimentation</value>
+  </data>
+  <data name="SettingsPage_PowerPlansControlPanel_Title" xml:space="preserve">
+    <value>Options du mode de gestion d'alimentation dans le panneau de configuration de Windows</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Désactiver</value>
