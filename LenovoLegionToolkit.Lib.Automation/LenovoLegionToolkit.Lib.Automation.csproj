@@ -5,6 +5,7 @@
 		<Platforms>x64</Platforms>
 		<Nullable>enable</Nullable>
 		<Copyright>© 2023 Bartosz Cichecki</Copyright>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<NeutralLanguage>en</NeutralLanguage>
 	</PropertyGroup>
 	<ItemGroup>

@@ -51,6 +51,8 @@ LOCALE_SSHORTDATE
 
 SYSTEM_POWER_CAPABILITIES
 
+EFFECTIVE_POWER_MODE_V2 
+
 GetLocaleInfoEx
 
 CreateFile
@@ -124,3 +126,5 @@ PowerEnumerate
 PowerReadFriendlyName
 PowerGetActiveScheme
 PowerSetActiveScheme
+PowerRegisterForEffectivePowerModeNotifications
+PowerUnregisterFromEffectivePowerModeNotifications

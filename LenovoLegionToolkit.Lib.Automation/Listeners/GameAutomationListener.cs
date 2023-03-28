@@ -32,9 +32,12 @@ public class GameAutomationListener : IListener<bool>
 
     private readonly GameDetector _gameDetector;
     private readonly InstanceEventListener _instanceCreationListener;
+    private readonly EffectiveGameModeListener _effectiveGameModeListener;
 
     private readonly HashSet<ProcessInfo> _detectedGamePathsCache = new();
     private readonly HashSet<Process> _processCache = new(new ProcessEqualityComparer());
+
+    private bool _lastState;
 
     public GameAutomationListener()
     {
@@ -43,6 +46,9 @@ public class GameAutomationListener : IListener<bool>
 
         _instanceCreationListener = new InstanceEventListener(ProcessEventInfoType.Started, "Win32_ProcessStartTrace");
         _instanceCreationListener.Changed += InstanceCreationListener_Changed;
+
+        _effectiveGameModeListener = new EffectiveGameModeListener();
+        _effectiveGameModeListener.Changed += EffectiveGameModeListenerChanged;
     }
 
     public async Task StartAsync()
@@ -56,6 +62,7 @@ public class GameAutomationListener : IListener<bool>
         await _gameDetector.StartAsync().ConfigureAwait(false);
 
         await _instanceCreationListener.StartAsync().ConfigureAwait(false);
+        await _effectiveGameModeListener.StartAsync().ConfigureAwait(false);
     }
 
     public async Task StopAsync()
@@ -63,6 +70,7 @@ public class GameAutomationListener : IListener<bool>
         await _gameDetector.StopAsync().ConfigureAwait(false);
 
         await _instanceCreationListener.StopAsync().ConfigureAwait(false);
+        await _effectiveGameModeListener.StopAsync().ConfigureAwait(false);
 
         lock (_lock)
         {
@@ -71,6 +79,7 @@ public class GameAutomationListener : IListener<bool>
 
             _processCache.Clear();
             _detectedGamePathsCache.Clear();
+            _lastState = false;
         }
     }
 
@@ -78,7 +87,7 @@ public class GameAutomationListener : IListener<bool>
     {
         lock (_lock)
         {
-            return _processCache.Any();
+            return _lastState;
         }
     }
 
@@ -106,7 +115,7 @@ public class GameAutomationListener : IListener<bool>
                             _processCache.Add(process);
                         }
 
-                        Changed?.Invoke(this, true);
+                        RaiseChangedIfNeeded(true);
                     }
                     catch (Exception)
                     {
@@ -151,13 +160,41 @@ public class GameAutomationListener : IListener<bool>
                 Attach(process);
                 _processCache.Add(process);
 
-                Changed?.Invoke(this, true);
+                RaiseChangedIfNeeded(true);
             }
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Failed to attach to {e.processName}. [processId={e.processId}]", ex);
             }
+        }
+    }
+
+    private void EffectiveGameModeListenerChanged(object? sender, bool e)
+    {
+        lock (_lock)
+        {
+            if (_processCache.Any())
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Ignoring, process cache is not empty.");
+                return;
+            }
+
+            RaiseChangedIfNeeded(e);
+        }
+    }
+
+    private void RaiseChangedIfNeeded(bool newState)
+    {
+        lock (_lock)
+        {
+            if (newState == _lastState)
+                return;
+
+            _lastState = newState;
+
+            Changed?.Invoke(this, newState);
         }
     }
 
@@ -207,7 +244,7 @@ public class GameAutomationListener : IListener<bool>
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"No more games are running.");
 
-            Changed?.Invoke(this, false);
+            RaiseChangedIfNeeded(false);
         }
     }
 }
