@@ -34,10 +34,10 @@ public class Log
         _logPath = Path.Combine(_folderPath, $"log_{DateTime.UtcNow:yyyy_MM_dd_HH_mm_ss}.txt");
     }
 
-    public void ErrorReport(Exception ex)
+    public void ErrorReport(string header, Exception ex)
     {
         var errorReportPath = Path.Combine(_folderPath, $"error_{DateTime.UtcNow:yyyy_MM_dd_HH_mm_ss}.txt");
-        File.AppendAllLines(errorReportPath, new[] { Serialize(ex) });
+        File.AppendAllLines(errorReportPath, new[] { header, Serialize(ex) });
     }
 
     public void Trace(FormattableString message,

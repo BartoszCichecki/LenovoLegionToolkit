@@ -176,7 +176,7 @@ public partial class App
     {
         var exception = e.ExceptionObject as Exception;
 
-        Log.Instance.ErrorReport(exception ?? new Exception($"Unknown exception caught: {e.ExceptionObject}"));
+        Log.Instance.ErrorReport("AppDomain_UnhandledException", exception ?? new Exception($"Unknown exception caught: {e.ExceptionObject}"));
         Log.Instance.Trace($"Unhandled exception occurred.", exception);
 
         MessageBox.Show(string.Format(Resource.UnexpectedException, exception?.Message ?? "Unknown exception.", Constants.BugReportUri),
@@ -188,7 +188,7 @@ public partial class App
 
     private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
     {
-        Log.Instance.ErrorReport(e.Exception);
+        Log.Instance.ErrorReport("Application_DispatcherUnhandledException", e.Exception);
         Log.Instance.Trace($"Unhandled exception occurred.", e.Exception);
 
         MessageBox.Show(string.Format(Resource.UnexpectedException, e.Exception.Message, Constants.BugReportUri),
