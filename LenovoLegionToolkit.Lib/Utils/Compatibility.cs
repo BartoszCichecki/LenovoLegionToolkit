@@ -88,7 +88,7 @@ public static class Compatibility
                     SupportsExtendedHybridMode = await GetSupportsExtendedHybridModeAsync().ConfigureAwait(false),
                     SupportsIntelligentSubMode = await GetSupportsIntelligentSubModeAsync().ConfigureAwait(false),
                     HasQuietToPerformanceModeSwitchingBug = GetHasQuietToPerformanceModeSwitchingBug(biosVersion),
-                    HasPowerLimitRestoreBug = GetHasPowerLimitRestoreBug(biosVersion),
+                    HasGodModeToBalancedModeSwitchingBug = GetHasGodModeToBalancedModeSwitchingBug(biosVersion),
                 }
             };
 
@@ -105,7 +105,7 @@ public static class Compatibility
                 Log.Instance.Trace($" * Properties.SupportsExtendedHybridMode: '{machineInformation.Properties.SupportsExtendedHybridMode}'");
                 Log.Instance.Trace($" * Properties.SupportsIntelligentSubMode: '{machineInformation.Properties.SupportsIntelligentSubMode}'");
                 Log.Instance.Trace($" * Properties.HasQuietToPerformanceModeSwitchingBug: '{machineInformation.Properties.HasQuietToPerformanceModeSwitchingBug}'");
-                Log.Instance.Trace($" * Properties.HasPowerLimitRestoreBug: '{machineInformation.Properties.HasPowerLimitRestoreBug}'");
+                Log.Instance.Trace($" * Properties.HasGodModeToBalancedModeSwitchingBug: '{machineInformation.Properties.HasGodModeToBalancedModeSwitchingBug}'");
             }
 
             _machineInformation = machineInformation;
@@ -226,7 +226,7 @@ public static class Compatibility
         return IsBiosVersionMatch(biosVersion, affectedBiosList);
     }
 
-    private static bool GetHasPowerLimitRestoreBug(string biosVersion)
+    private static bool GetHasGodModeToBalancedModeSwitchingBug(string biosVersion)
     {
         (string, int?)[] affectedBiosList =
         {
