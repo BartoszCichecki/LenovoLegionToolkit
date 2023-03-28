@@ -65,7 +65,15 @@ public partial class MainWindow
                 tooltip.IsOpen = false;
         };
 
-        _trayIcon.TrayLeftMouseUp += (_, _) => BringToForeground();
+        _trayIcon.TrayLeftMouseUp += (_, _) =>
+        {
+            if (_trayIcon.TrayToolTipResolved is { } tooltip)
+                tooltip.IsOpen = false;
+
+            BringToForeground();
+        };
+
+        _trayIcon.NoLeftClickDelay = true;
     }
 
     private void MainWindow_SourceInitialized(object? sender, EventArgs e) => RestoreSize();
