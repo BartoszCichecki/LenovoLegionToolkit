@@ -31,7 +31,7 @@ public partial class StatusTrayPopup
     {
         InitializeComponent();
 
-        _themeManager.ThemeApplied += (_, _) => Application.Current.Resources;
+        _themeManager.ThemeApplied += (_, _) => Resources = Application.Current.Resources;
 
 #if DEBUG
         _title.Text += " [DEBUG]";
