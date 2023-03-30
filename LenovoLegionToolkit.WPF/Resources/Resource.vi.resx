@@ -607,6 +607,9 @@ Xin chân thành cảm ơn!</value>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
     <value>GPU rời</value>
   </data>
+  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
+    <value>Cả hai GPU sẽ được kích hoạt. Hệ thống sẽ tự đổi giữa hai GPU tùy vào sử dụng.</value>
+  </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Hybrid</value>
   </data>
@@ -761,6 +764,9 @@ CẢNH BÁO: Hành động sẽ không chạy nếu màn hình laptop tắt.</va
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Đèn nền bàn phím</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>Đèn nền bàn phím không thể được tùy chỉnh nếu Lenovo vantage hoặc các chương trình con của nó đang chạy.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Dường như Lenovo Vantage đang chạy</value>
@@ -1170,6 +1176,10 @@ Hãy đảm bảo chương trình hoặc script của bạn chạy đúng trư�
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
     <value>Không thể ngắt kích hoạt Legion Zone</value>
   </data>
+  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
+    <value>Ngắt kích hoạt Legion Zone và các dịch vụ con mà không cần gỡ cài đặt.
+Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
+  </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
     <value>Ngắt kích hoạt Legion Zone</value>
   </data>
@@ -1179,6 +1189,11 @@ Hãy đảm bảo chương trình hoặc script của bạn chạy đúng trư�
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Không thể ngắt kích hoạt Lenovo Hotkeys</value>
   </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
+    <value>Ngắt kích hoạt Lenovo Hotkeys và các dịch vụ con mà không cần gỡ cài đặt.
+Nếu ngắt kích hoạt, Legion Toolkit sẽ xử lý các phím tắt Fn.
+Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
+  </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Ngắt kích hoạt Lenovo Hotkeys</value>
   </data>
@@ -1187,6 +1202,10 @@ Hãy đảm bảo chương trình hoặc script của bạn chạy đúng trư�
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
     <value>Không thể ngắt kích hoạt Lenovo Vantage</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
+    <value>Ngắt kích hoạt Lenovo Vantage và các dịch vụ con mà không cần gỡ cài đặt.
+Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Ngắt kích hoạt Lenovo Vantage</value>
@@ -1577,20 +1596,117 @@ Di chuyển chuột hoặc bấm phím bất kỳ trên bàn phím để bật m
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>Khuyến nghị khởi động lại</value>
   </data>
+  <data name="SaveAndClose" xml:space="preserve">
+    <value>Lưu &amp; Đóng</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
+    <value>Thiết lập sẵn chế độ tùy chỉnh</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
+    <value>Kích hoạt thiết lập sẵn trong chế độ tùy chỉnh.
+Chỉ hoạt động khi chế độ tùy chỉnh đã đang chạy.</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
+    <value>Tên thiết lập sẵn</value>
+  </data>
   <data name="GodModeSettingsWindow_EditPreset_Message" xml:space="preserve">
     <value>Tên</value>
+  </data>
+  <data name="GodModeSettingsWindow_ActivePreset_Title" xml:space="preserve">
+    <value>Thiết lập đang được sử dụng</value>
+  </data>
+  <data name="AboutPage_ApplicationFolders" xml:space="preserve">
+    <value>Thư mục ứng dụng</value>
+  </data>
+  <data name="AboutPage_Data" xml:space="preserve">
+    <value>Dữ liệu</value>
+  </data>
+  <data name="AboutPage_Temp" xml:space="preserve">
+    <value>Nhiệt độ</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
+    <value>Độ sáng màn hình hợp nhất</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
+    <value>Khi kích hoạt, màn hình sẽ giữ nguyên độ sáng khi chuyển giữa các Power Plan.</value>
+  </data>
+  <data name="Notification_UpdateAvailable" xml:space="preserve">
+    <value>Bản cập nhật {0} đã có sẵn!</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL" xml:space="preserve">
+    <value>Giới hạn điện năng đỉnh</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
+    <value>Giới hạn điện năng cho APU sPPT</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL_Description" xml:space="preserve">
+    <value>Lượng điện năng tối ta CPU có thể sử dụng liên tục.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL_Description" xml:space="preserve">
+    <value>Lượng điện năng tiêu thụ CPU có thể sử dụng trong thời gian ngắn.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL_Description" xml:space="preserve">
+    <value>Lượng điện năng tối đa CPU có thể sử dụng tức thì.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_CrossLoading_Description" xml:space="preserve">
+    <value>Lượng điện năng tối đa CPU có thể sử dụng khi cả CPU và GPU cùng được sử dụng hết công suất.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL_Description" xml:space="preserve">
+    <value>Lượng điện năng tiêu thụ CPU có thể sử dụng với một độ trễ nhất định.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
+    <value>Nhiệt độ tối đa CPU có thể đạt trước khi giảm xung và giảm điện năng tiêu thụ.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
+    <value>Lượng điện năng có thể được sử dụng bởi GPU trên ngưỡng công suất tối đa tùy thuộc vào tiêu thụ tiện của CPU.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
+    <value>Lượng điện năng tối đa GPU có thể sử dụng trên ngưỡng cơ bản.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
+    <value>Nhiệt độ tối đa GPU có thể đạt trước khi giảm xung và giảm điện năng tiêu thụ.</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Mặc định</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
+    <value>Giới hạn công suất thời gian ngắn</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau_Description" xml:space="preserve">
+    <value>Thời gian mà CPU được sử dụng công suất tối đa trong thời gian ngắn. Khi quá hạn, CPU sẽ dùng công suất tối đa trong thời gian dài.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
+    <value>Công suất tối đa khi có nguồn điện AC</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
+    <value>Điểm kích hoạt việc chia sẻ công suất tối đa giữa CPU và GPU.</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Tạo</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
     <value>Thêm hành động</value>
   </data>
+  <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
+    <value>- Tạo hành động -</value>
+  </data>
   <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
     <value>Chế độ</value>
+  </data>
+  <data name="StatusTrayPopup_Preset" xml:space="preserve">
+    <value>Thiết lập sẵn</value>
   </data>
   <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
     <value>GPU rời</value>
   </data>
+  <data name="StatusTrayPopup_PowerState" xml:space="preserve">
+    <value>Trạng thái nguồn điện</value>
+  </data>
   <data name="StatusTrayPopup_Battery" xml:space="preserve">
     <value>Pin</value>
+  </data>
+  <data name="StatusTrayPopup_Mode" xml:space="preserve">
+    <value>Chế độ</value>
   </data>
   <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
     <value>Tốc độ sạc/xả</value>
@@ -1598,8 +1714,32 @@ Di chuyển chuột hoặc bấm phím bất kỳ trên bàn phím để bật m
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
     <value>Có cập nhật mới!</value>
   </data>
+  <data name="SymbolRegularPicker_Title" xml:space="preserve">
+    <value>Chọn biểu tượng</value>
+  </data>
+  <data name="AutomationPage_ChangeIcon" xml:space="preserve">
+    <value>Đổi biểu tượng</value>
+  </data>
+  <data name="BatteryPage_LowLevel" xml:space="preserve">
+    <value>Mức pin yếu</value>
+  </data>
+  <data name="AutomationPipelineTriggerConfigurationWindow_Title" xml:space="preserve">
+    <value>Tùy chỉnh</value>
+  </data>
+  <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
+    <value>Phát hiện chế độ ngủ S0 Low Power</value>
+  </data>
+  <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
+    <value>Windows báo rằng thiết bị này hỗ trợ Modern Standby. Dùng power plan khác ngoài Balance có thể gây ra lỗi ngoài ý muốn.</value>
+  </data>
+  <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
+    <value>Chọn Windows Power Plan được sử dụng khi đổi chế độ.</value>
+  </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Nguồn</value>
+  </data>
+  <data name="SettingsPage_PowerPlansControlPanel_Title" xml:space="preserve">
+    <value>Tùy chỉnh Power Plan trong Windows Control Panel</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Ngắt kích hoạt</value>

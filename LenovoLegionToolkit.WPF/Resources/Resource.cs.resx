@@ -1732,8 +1732,14 @@ Toto nastavení se aplikuje jen když je zapnutý vlastní režim.</value>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Systém Windows hlásí, že toto zařízení podporuje moderní úsporný režim. Použití jiných plán napájení než Rovnováha může způsobit neočekávané chování.</value>
   </data>
+  <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
+    <value>Vyber plány napájení, které se změní, když se změní režim výkonu.</value>
+  </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Napájení</value>
+  </data>
+  <data name="SettingsPage_PowerPlansControlPanel_Title" xml:space="preserve">
+    <value>Nastavení plánu napájení v ovládacím panelu windows</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Vypnut</value>
