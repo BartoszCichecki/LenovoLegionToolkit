@@ -665,6 +665,10 @@ Aldınnan raxmet!</value>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Fn Lock</value>
   </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
+    <value>DIQQAT!
+Abaylı bolıń, ayrım noutbuklar kórsetkinen de joqarılaw quwatlılıq shegine jetiwi múmkin. Bul variant kutilmegen háreketke alıp keliwi múmkin, sonlıqtan, ne qılıp atırǵanıńızdı bilmeseńiz, 0 mánisin qaldırıń.</value>
+  </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
     <value>Maksimal quwatlılıq sheginiń jıljıwı</value>
   </data>
@@ -694,6 +698,9 @@ Aldınnan raxmet!</value>
   </data>
   <data name="GodModeSettingsWindow_Error_Load_Title" xml:space="preserve">
     <value>Sazlawlardı júklew ámelge aspadı.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Fans_Curve_Message" xml:space="preserve">
+    <value>Samallatqıshtıń aylanıw tezligi bir ǵana temperatura sensorı járdeminde anıqlanbaydı. Ol CPU, GPU hám radiator arasındaǵı eń joqarı sensorǵa qarap tezlikti kóbeytedi yamasa azaytadı. Hár bir qádemge tısqanshanıń kórsetkishin alıp barǵanıńızda anıq múǵdarlar kórsetiledi.</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Curve_Title" xml:space="preserve">
     <value>Samallatqıshtıń qıysıqlıǵı</value>
@@ -1155,6 +1162,9 @@ Siziń skriptińiz durıs orınlanıp atırǵanına isenim kámil etiń.</value>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Sáykes reń</value>
   </data>
+  <data name="SettingsPage_Autorun_Message" xml:space="preserve">
+    <value>Windowsǵa kirgende kishireytilgen kóriniste iske túsiriw.</value>
+  </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Avtomatikalıq iske túsiriw</value>
   </data>
@@ -1227,6 +1237,9 @@ Bul varianttı ózgertkennen keyin, qayta iske túsiriw usınıs etiledi.</value
   </data>
   <data name="SettingsPage_Language_Title" xml:space="preserve">
     <value>Til</value>
+  </data>
+  <data name="SettingsPage_MinimizeOnClose_Message" xml:space="preserve">
+    <value>Hámiyshe xabarlamalar maydanına kishireytiw. Xabarlamalar maydanındaǵı tańbada tıshqanshanıń oń túymesin basıw járdeminde jabıw.</value>
   </data>
   <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
     <value>Jawǵanda jıynaw</value>
@@ -1641,6 +1654,12 @@ Bul sazlaw tek arnawlı rejim qosılǵanda nátiyje beredi.</value>
   <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
     <value>Quwatlılıq hám tezlik páseyiwi aldınan, processor tárepinen jetiwi múmkin bolǵan eń joqarı temperatura.</value>
   </data>
+  <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
+    <value>CPUdıń quwatlılıqtan paydalanıwı tiykarında GPUǵa ajıratıw múmkin bolǵan qosımsha maksimal quwatlılıq.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
+    <value>GPU ushın tiykarǵı quwatlılıqtan tısqarı ajratıw múmkin bolǵan qosımsha quwatlılıq muǵdarı.</value>
+  </data>
   <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
     <value>Quwatlılıq hám tezlik páseyiwi aldınan, grafikalıq processor tárepinen jetiwi múmkin bolǵan eń joqarı temperatura.</value>
   </data>
@@ -1649,6 +1668,15 @@ Bul sazlaw tek arnawlı rejim qosılǵanda nátiyje beredi.</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
     <value>Qısqa múddetli quwatlılıq sheginiń dawamlılıǵı</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau_Description" xml:space="preserve">
+    <value>Processorǵa qısqa múddetli quwatlılıqtı sheklew hám kóbeytiw ushın ruqsat berilgen waqıt muǵdarı. Taw múddeti ótkennen keyin, uzaq múddetli quwatlılıqtı sheklew qollanıladı.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
+    <value>Ózgermeli toktaǵı processordıń ulıwmalıq quwatlılıǵı</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
+    <value>CPU - GPU ushın ózgeriwsheń quwatlılıqtan paydalanıw sazlawın iske túsiretuǵın orın.</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>Jaratıw</value>
@@ -1701,8 +1729,14 @@ Bul sazlaw tek arnawlı rejim qosılǵanda nátiyje beredi.</value>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Bul qurılma Modern Standbydı qollap-quwatlaytuǵının Windows xabarlaydı. Teńlestirilgen quwatlılıq jobasınan basqasın qollanıw kútilmegen háreketke alıp keliwi múmkin.</value>
   </data>
+  <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
+    <value>Quwatlılıq rejimi ózgergende qollanılatuǵın Windows quwatlılıq jobaların tańlań.</value>
+  </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Quwatlılıq</value>
+  </data>
+  <data name="SettingsPage_PowerPlansControlPanel_Title" xml:space="preserve">
+    <value>Windows basqarıw panelindegi quwatlılıq jobası variantları</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Óshirilgen</value>
