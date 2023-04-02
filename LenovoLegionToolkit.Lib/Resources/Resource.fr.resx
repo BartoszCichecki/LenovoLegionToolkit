@@ -68,10 +68,10 @@
     <value>Éteint</value>
   </data>
   <data name="AlwaysOnUSBState_OnAlways" xml:space="preserve">
-    <value>On, tout le temps</value>
+    <value>Allumé, toujours</value>
   </data>
   <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
-    <value>On, quand en veille</value>
+    <value>Allumé, en veille</value>
   </data>
   <data name="AutorunState_Disabled" xml:space="preserve">
     <value>Désactivé</value>
@@ -167,7 +167,7 @@
     <value>Faible</value>
   </data>
   <data name="RGBKeyboardBacklightEffect_Breath" xml:space="preserve">
-    <value>Haleine</value>
+    <value>Respiration</value>
   </data>
   <data name="RGBKeyboardBacklightEffect_Smooth" xml:space="preserve">
     <value>Lisse</value>

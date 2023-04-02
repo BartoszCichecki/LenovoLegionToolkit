@@ -124,13 +124,13 @@
     <value>Build</value>
   </data>
   <data name="AboutPage_LatestReleaseOnGitHub" xml:space="preserve">
-    <value>La dernière version sur GitHub</value>
+    <value>Dernière version sur GitHub</value>
   </data>
   <data name="AboutPage_Links" xml:space="preserve">
     <value>Liens</value>
   </data>
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
-    <value>Le site web du projet sur GitHub</value>
+    <value>Site web du projet sur GitHub</value>
   </data>
   <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
     <value>Bibliothèques tierces</value>
@@ -139,7 +139,7 @@
     <value>À propos</value>
   </data>
   <data name="AboutPage_TranslationCredit" xml:space="preserve">
-    <value>Traductions fournies par la communauté.</value>
+    <value>Traductions en français fournies par EliotAku, Georges de Massol, Rigbone et ZeroDegree.</value>
     <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
   </data>
   <data name="AboutPage_Version" xml:space="preserve">
@@ -159,13 +159,13 @@ Cette option est destinée uniquement aux appareils qui ne sont pas livrés avec
     <value>Toujours activer les modes de gestion d'alimentation de Windows</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>Charger périphériques USB, lorsque l'appareil est éteint ou mise en veille ou mise en veille prolongée.</value>
+    <value>Charger les périphériques USB, lorsque l'appareil est éteint ou en veille ou en veille prolongée.</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>Always on USB</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-    <value>Charger périphériques USB, lorsque l'appareil est éteint ou mise en veille ou mise en veille prolongée.</value>
+    <value>Charger les périphériques USB, lorsque l'appareil est éteint ou en veille ou en veille prolongée.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>Always on USB</value>
@@ -174,13 +174,13 @@ Cette option est destinée uniquement aux appareils qui ne sont pas livrés avec
     <value>Lenovo Legion Toolkit</value>
   </data>
   <data name="Apply" xml:space="preserve">
-    <value>Confirmer</value>
+    <value>Appliquer</value>
   </data>
   <data name="ApplyAndClose" xml:space="preserve">
-    <value>Confirmer et fermer</value>
+    <value>Appliquer et fermer</value>
   </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
-    <value>Lenovo Legion Outils doit être en cours d'exécution pour que les actions automatiques fonctionnent.</value>
+    <value>Lenovo Legion Toolkit doit être en cours d'exécution pour que les actions automatiques fonctionnent.</value>
   </data>
   <data name="AutomationPage_ActionsEnabled_Title" xml:space="preserve">
     <value>Activer</value>
@@ -205,7 +205,7 @@ Seules les actions qui correspondent à l'état actuel seront exécutées.</valu
     <value>Aucune Action Rapide définie. Cliquer sur "Ajouter une Action" pour créer une nouvelle Action Rapide.</value>
   </data>
   <data name="AutomationPage_QuickActions_Message" xml:space="preserve">
-    <value>Actions rapides sont disponibles dans le menu du clic droit de l'icône de la barre des taches.</value>
+    <value>Les actions rapides sont disponibles dans le menu du clic droit de l'icône de la barre des taches.</value>
   </data>
   <data name="AutomationPage_QuickActions_Title" xml:space="preserve">
     <value>Actions rapides</value>
@@ -217,13 +217,13 @@ Seules les actions qui correspondent à l'état actuel seront exécutées.</valu
     <value>Renommer</value>
   </data>
   <data name="AutomationPage_Reverted_Message" xml:space="preserve">
-    <value>Toutes les modifications sont réinitialisées!</value>
+    <value>Toutes les modifications ont été rétablies !</value>
   </data>
   <data name="AutomationPage_Reverted_Title" xml:space="preserve">
     <value>Réinitialisée</value>
   </data>
   <data name="AutomationPage_Saved_Message" xml:space="preserve">
-    <value>Les modifications ont été sauvegardées avec succès!</value>
+    <value>Les modifications ont été enregistrées avec succès !</value>
   </data>
   <data name="AutomationPage_Saved_Title" xml:space="preserve">
     <value>Sauvegardé</value>
@@ -232,7 +232,7 @@ Seules les actions qui correspondent à l'état actuel seront exécutées.</valu
     <value>Automatisation</value>
   </data>
   <data name="AutomationPipelineControl_AddStep" xml:space="preserve">
-    <value>Ajouter étape</value>
+    <value>Ajouter une étape</value>
   </data>
   <data name="AutomationPipelineControl_Configure" xml:space="preserve">
     <value>Configurer</value>
@@ -241,7 +241,7 @@ Seules les actions qui correspondent à l'état actuel seront exécutées.</valu
     <value>Exclusif</value>
   </data>
   <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
-    <value>Ne pas exécuter d'autres actions lorsque cette action est exécuté.</value>
+    <value>Ne pas exécuter d'autres actions lorsque cette action est exécutée.</value>
   </data>
   <data name="AutomationPipelineControl_RunNow" xml:space="preserve">
     <value>Exécuter maintenant</value>
@@ -262,7 +262,7 @@ Seules les actions qui correspondent à l'état actuel seront exécutées.</valu
     <value>En cours...</value>
   </data>
   <data name="AutomationPipelineControl_Step" xml:space="preserve">
-    <value>Étape {0}</value>
+    <value>{0} étape</value>
   </data>
   <data name="AutomationPipelineControl_Step_Many" xml:space="preserve">
     <value>{0} étapes</value>
@@ -286,11 +286,11 @@ Seules les actions qui correspondent à l'état actuel seront exécutées.</valu
     <value>Sans nom</value>
   </data>
   <data name="BalanceModeSettingsWindow_AIEngine_Message" xml:space="preserve">
-    <value>Détecte automatiquement lorsque certains jeux sont en cours et ajuster la performance du CPU et GPU. 
+    <value>Détecte automatiquement lorsque certains jeux sont en cours et ajuste les performances du CPU et du GPU. 
 La température et le bruit des ventilateurs peuvent augmenter.</value>
   </data>
   <data name="BalanceModeSettingsWindow_AIEngine_Title" xml:space="preserve">
-    <value>Activer le moteur d'IA</value>
+    <value>Activer l'AI Engine</value>
   </data>
   <data name="BalanceModeSettingsWindow_Title" xml:space="preserve">
     <value>Paramètres de mode équilibré</value>
@@ -329,7 +329,7 @@ La température et le bruit des ventilateurs peuvent augmenter.</value>
     <value>Nombre des cycles de charge/décharge.</value>
   </data>
   <data name="BatteryPage_CycleCount_Title" xml:space="preserve">
-    <value>Comptage de cycles</value>
+    <value>Nombre de cycles</value>
   </data>
   <data name="BatteryPage_DesignCapacity_Message" xml:space="preserve">
     <value>Capacité de la batterie annoncée par le fabricant.</value>
@@ -359,7 +359,7 @@ La température et le bruit des ventilateurs peuvent augmenter.</value>
     <value>Capacité de la batterie pleinement chargée.</value>
   </data>
   <data name="BatteryPage_FullChargeCapacity_Title" xml:space="preserve">
-    <value>Capacité pleine charge</value>
+    <value>Capacité à pleine charge</value>
   </data>
   <data name="BatteryPage_LowWattageChargerConnected" xml:space="preserve">
     <value>Chargeur de faible puissance connecté</value>
@@ -372,7 +372,7 @@ La température et le bruit des ventilateurs peuvent augmenter.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
     <value>Temps écoulé depuis la dernière connexion au secteur.
-Cette donnée peut être imprécise si l'appareil a été chargé en veille ou éteint.</value>
+Cette valeur peut être imprécise si l'appareil a été chargé en veille ou éteint.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
     <value>Sur batterie depuis</value>
@@ -456,7 +456,7 @@ ATTENTION : Cette action ne fonctionnera pas correctement, si l'écran intégré
     <value>Délai</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Effacer</value>
+    <value>Supprimer</value>
   </data>
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>Version du BIOS</value>
@@ -474,7 +474,7 @@ ATTENTION : Cette action ne fonctionnera pas correctement, si l'écran intégré
     <value>Appareil</value>
   </data>
   <data name="DeviceInformationWindow_InWarranty" xml:space="preserve">
-    <value>En garantie</value>
+    <value>Sous garantie</value>
   </data>
   <data name="DeviceInformationWindow_LenovoSupport" xml:space="preserve">
     <value>Support Lenovo</value>
@@ -504,7 +504,7 @@ ATTENTION : Cette action ne fonctionnera pas correctement, si l'écran intégré
     <value>Date de début </value>
   </data>
   <data name="DeviceInformationWindow_WarrantyStatus_Title" xml:space="preserve">
-    <value>Etat</value>
+    <value>État</value>
   </data>
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Garantie</value>
@@ -518,7 +518,7 @@ ATTENTION : Cette action ne fonctionnera pas correctement, si l'écran intégré
   <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
     <value>Le GPU nVidia peut être désactivé.
 
-Souvenez-vous, que certains logiciels peuvent s'arrêter si vous le faites.</value>
+Certains programmes peuvent planter si vous le faites.</value>
   </data>
   <data name="Inactive" xml:space="preserve">
     <value>Inactif</value>
@@ -527,10 +527,10 @@ Souvenez-vous, que certains logiciels peuvent s'arrêter si vous le faites.</val
     <value>Fermer les applications</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-    <value>Désactiver le GPU dédié si actif inutilement.</value>
+    <value>Désactive le GPU dédié s'il est actif inutilement.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
-    <value>Un moniteur est connecté au GPU Nvidia.</value>
+    <value>Un écran est connecté au GPU nVidia.</value>
   </data>
   <data name="DiscreteGPUControl_NoProcesses" xml:space="preserve">
     <value>Pas de processus</value>
@@ -545,7 +545,7 @@ Souvenez-vous, que certains logiciels peuvent s'arrêter si vous le faites.</val
     <value>Processus</value>
   </data>
   <data name="DiscreteGPUControl_RestartGPU" xml:space="preserve">
-    <value>Redémarrer GPU</value>
+    <value>Redémarrer le GPU</value>
   </data>
   <data name="DiscreteGPUControl_Title" xml:space="preserve">
     <value>GPU dédié</value>
@@ -554,7 +554,7 @@ Souvenez-vous, que certains logiciels peuvent s'arrêter si vous le faites.</val
     <value>Modifie la luminosité de l'écran intégré.
 Les modes d'alimentation peuvent modifier la luminosité sur certains appareils. Assurez-vous d'effectuer cette étape en dernier, si cela ne fonctionne pas. 
 
-ATTENTION : Cette action ne fonctionnera pas, si l'écran intégré est éteint.</value>
+ATTENTION : Cette action ne fonctionnera pas si l'écran intégré est éteint.</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>Luminosité de l'écran</value>
@@ -579,7 +579,7 @@ Merci par avance !</value>
     <value>Décochez les taux de rafraîchissement que vous ne souhaitez pas utiliser lorsque le raccourci Fn+R est utilisé.</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
-    <value>Assurez-vous que l'écran intégré est actif. Lenovo Legion Toolkit ne peut charger les taux de rafraîchissement d'un écran éteint.</value>
+    <value>Assurez-vous que l'écran intégré est allumé. Lenovo Legion Toolkit ne peut afficher les taux de rafraîchissement d'un écran éteint.</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Title" xml:space="preserve">
     <value>Aucun taux de rafraîchissement trouvé</value>
@@ -645,13 +645,13 @@ Merci par avance !</value>
     <value>Tr/min</value>
   </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
-    <value>Démarrer le PC portable quand vous soulevez l'écran.</value>
+    <value>Allume l'ordinateur à l'ouverture de l'écran.</value>
   </data>
   <data name="FlipToStartAutomationStepControl_Title" xml:space="preserve">
     <value>Démarrer à l'ouverture</value>
   </data>
   <data name="FlipToStartControl_Message" xml:space="preserve">
-    <value>Démarrer le PC portable quand vous soulevez l'écran.</value>
+    <value>Allume l'ordinateur à l'ouverture de l'écran.</value>
   </data>
   <data name="FlipToStartControl_Title" xml:space="preserve">
     <value>Démarrer à l'ouverture</value>
@@ -761,7 +761,7 @@ AVERTISSEMENT : Cette action ne fonctionnera pas correctement si l'affichage int
     <value>Lenovo Legion Toolkit</value>
   </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
-    <value>Aucuns claviers compatibles trouvés</value>
+    <value>Aucun clavier compatible trouvé</value>
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Rétroéclairage du clavier</value>
@@ -803,10 +803,10 @@ AVERTISSEMENT : Cette action ne fonctionnera pas correctement si l'affichage int
     <value>La mise à jour {0} est disponible !</value>
   </data>
   <data name="MoveDown" xml:space="preserve">
-    <value>Vers le bas</value>
+    <value>Descendre</value>
   </data>
   <data name="MoveUp" xml:space="preserve">
-    <value>Vers le haut</value>
+    <value>Monter</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>Non</value>
@@ -1106,18 +1106,18 @@ Vous pouvez changer de mode avec Fn+Q.</value>
     <value>Actualiser</value>
   </data>
   <data name="RefreshRateAutomationStepControl_Message" xml:space="preserve">
-    <value>Modifier la fréquence d'actualisation de l'écran intégré.
+    <value>Modifie la fréquence d'actualisation de l'écran intégré.
 
-ATTENTION : Cette action ne fonctionnera pas correctement, si l'écran interne est éteint.</value>
+ATTENTION : Cette action ne fonctionnera pas correctement si l'écran intégré est éteint.</value>
   </data>
   <data name="RefreshRateAutomationStepControl_Title" xml:space="preserve">
-    <value>Fréquence d'actualisation</value>
+    <value>Taux de rafraîchissement</value>
   </data>
   <data name="RefreshRateControl_Message" xml:space="preserve">
     <value>Modifier la fréquence d'actualisation de l'écran intégré.</value>
   </data>
   <data name="RefreshRateControl_Title" xml:space="preserve">
-    <value>Fréquence d'actualisation</value>
+    <value>Taux de rafraîchissement</value>
   </data>
   <data name="Rename" xml:space="preserve">
     <value>Renommer</value>
@@ -1166,7 +1166,7 @@ Assurez-vous d'abord que votre script s'exécute correctement.</value>
     <value>Couleur d'accentuation</value>
   </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
-    <value>Démarrer l'application dans la barre des taches lors de la connexion a Windows.</value>
+    <value>Lancer l'application dans la barre des tâches lors de la connexion a Windows.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Démarrage auto</value>
@@ -1269,7 +1269,7 @@ Un redémarrage est recommandé après avoir modifié cette option.</value>
     <value>Action Smart Key</value>
   </data>
   <data name="SettingsPage_Theme_Description" xml:space="preserve">
-    <value>Définissez un thème clair, un thème sombre ou suivez les paramètres du système.</value>
+    <value>Choisir un thème clair, un thème sombre ou suivre les paramètres du système.</value>
   </data>
   <data name="SettingsPage_Theme_Title" xml:space="preserve">
     <value>Thème</value>
@@ -1686,7 +1686,7 @@ Ce paramètre ne prend effet que lorsque le mode personnalisé est activé.</val
     <value>Créer</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
-    <value>Ajouter étape</value>
+    <value>Ajouter une étape</value>
   </data>
   <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
     <value>Créer une action</value>

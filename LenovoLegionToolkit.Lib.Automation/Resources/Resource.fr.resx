@@ -127,7 +127,7 @@
     <value>Tuer les applications</value>
   </data>
   <data name="DeactivateGPUAutomationStepState_RestartGPU" xml:space="preserve">
-    <value>Redémarrer GPU</value>
+    <value>Redémarrer le GPU</value>
   </data>
   <data name="Delay_Second" xml:space="preserve">
     <value>{0} seconde</value>
@@ -148,7 +148,7 @@
     <value>Quand l'application démarre</value>
   </data>
   <data name="ProcessesStopRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Pendant la fermeture de l’application</value>
+    <value>Lors de la fermeture d'une application</value>
   </data>
   <data name="TimeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>À l’heure spécifiée</value>
