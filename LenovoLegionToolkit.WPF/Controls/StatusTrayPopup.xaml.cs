@@ -61,10 +61,19 @@ public partial class StatusTrayPopup
 
     private void Refresh(CancellationToken token)
     {
-        RefreshPowerMode(token);
-        RefreshDiscreteGpu(token);
-        RefreshBattery(token);
-        RefreshUpdate(token);
+        try
+        {
+            RefreshPowerMode(token);
+            RefreshDiscreteGpu(token);
+            RefreshBattery(token);
+            RefreshUpdate(token);
+        }
+        catch (TaskCanceledException) { }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Error refreshing popup.", ex);
+        }
     }
 
     private void Clear()
@@ -91,37 +100,46 @@ public partial class StatusTrayPopup
     {
         _powerModeFeature.GetStateAsync().ContinueWith(async t =>
         {
-            if (token.IsCancellationRequested)
-                return;
+            try
+            {
+                if (token.IsCancellationRequested)
+                    return;
 
-            if (!t.IsCompletedSuccessfully)
+                if (!t.IsCompletedSuccessfully)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Failed to refresh Power Mode.", t.Exception?.InnerException);
+                    return;
+                }
+
+                var powerMode = t.Result;
+                _powerModeValueLabel.Content = powerMode.GetDisplayName();
+                _powerModeValueIndicator.Fill = new SolidColorBrush(powerMode switch
+                {
+                    PowerModeState.Quiet => Color.FromRgb(53, 123, 242),
+                    PowerModeState.Performance => Color.FromRgb(212, 51, 51),
+                    PowerModeState.GodMode => Color.FromRgb(99, 52, 227),
+                    _ => Colors.White
+                });
+
+                if (powerMode != PowerModeState.GodMode)
+                {
+                    _powerModePresetLabel.Visibility = Visibility.Collapsed;
+                    _powerModePresetValueLabel.Visibility = Visibility.Collapsed;
+                    return;
+                }
+
+                _powerModePresetValueLabel.Content = await _godModeController.GetActivePresetNameAsync() ?? "-";
+
+                _powerModePresetLabel.Visibility = Visibility.Visible;
+                _powerModePresetValueLabel.Visibility = Visibility.Visible;
+            }
+            catch (TaskCanceledException) { }
+            catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Failed to refresh Power Mode.", t.Exception?.InnerException);
-                return;
+                    Log.Instance.Trace($"Error continuing on power mode refresh.", ex);
             }
-
-            var powerMode = t.Result;
-            _powerModeValueLabel.Content = powerMode.GetDisplayName();
-            _powerModeValueIndicator.Fill = new SolidColorBrush(powerMode switch
-            {
-                PowerModeState.Quiet => Color.FromRgb(53, 123, 242),
-                PowerModeState.Performance => Color.FromRgb(212, 51, 51),
-                PowerModeState.GodMode => Color.FromRgb(99, 52, 227),
-                _ => Colors.White
-            });
-
-            if (powerMode != PowerModeState.GodMode)
-            {
-                _powerModePresetLabel.Visibility = Visibility.Collapsed;
-                _powerModePresetValueLabel.Visibility = Visibility.Collapsed;
-                return;
-            }
-
-            _powerModePresetValueLabel.Content = await _godModeController.GetActivePresetNameAsync() ?? "-";
-
-            _powerModePresetLabel.Visibility = Visibility.Visible;
-            _powerModePresetValueLabel.Visibility = Visibility.Visible;
         }, TaskScheduler.FromCurrentSynchronizationContext());
     }
 
@@ -135,99 +153,116 @@ public partial class StatusTrayPopup
 
         _gpuController.RefreshNowAsync().ContinueWith(t =>
         {
-            if (token.IsCancellationRequested)
-                return;
+            try
+            {
+                if (token.IsCancellationRequested)
+                    return;
 
-            if (!t.IsCompletedSuccessfully)
+                if (!t.IsCompletedSuccessfully)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Failed to refresh Discrete GPU.", t.Exception?.InnerException);
+                    return;
+                }
+
+                var status = t.Result;
+
+                if (status.IsActive)
+                {
+                    _gpuPowerStateValueLabel.Content = status.PerformanceState ?? "-";
+
+                    _gpuActive.Visibility = Visibility.Visible;
+                    _gpuInactive.Visibility = Visibility.Collapsed;
+                    _gpuPoweredOff.Visibility = Visibility.Collapsed;
+                    _gpuPowerStateValue.Visibility = Visibility.Visible;
+                    _gpuPowerStateValueLabel.Visibility = Visibility.Visible;
+                }
+                else if (status.IsPoweredOff)
+                {
+                    _gpuPowerStateValueLabel.Content = null;
+
+                    _gpuActive.Visibility = Visibility.Collapsed;
+                    _gpuInactive.Visibility = Visibility.Collapsed;
+                    _gpuPoweredOff.Visibility = Visibility.Visible;
+                    _gpuPowerStateValue.Visibility = Visibility.Collapsed;
+                    _gpuPowerStateValueLabel.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    _gpuPowerStateValueLabel.Content = status.PerformanceState ?? "-";
+
+                    _gpuActive.Visibility = Visibility.Collapsed;
+                    _gpuInactive.Visibility = Visibility.Visible;
+                    _gpuPoweredOff.Visibility = Visibility.Collapsed;
+                    _gpuPowerStateValue.Visibility = Visibility.Visible;
+                    _gpuPowerStateValueLabel.Visibility = Visibility.Visible;
+                }
+
+                _gpuGrid.Visibility = Visibility.Visible;
+            }
+            catch (TaskCanceledException) { }
+            catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Failed to refresh Discrete GPU.", t.Exception?.InnerException);
-                return;
+                    Log.Instance.Trace($"Error continuing on GPU refresh.", ex);
             }
-
-            var status = t.Result;
-
-            if (status.IsActive)
-            {
-                _gpuPowerStateValueLabel.Content = status.PerformanceState ?? "-";
-
-                _gpuActive.Visibility = Visibility.Visible;
-                _gpuInactive.Visibility = Visibility.Collapsed;
-                _gpuPoweredOff.Visibility = Visibility.Collapsed;
-                _gpuPowerStateValue.Visibility = Visibility.Visible;
-                _gpuPowerStateValueLabel.Visibility = Visibility.Visible;
-            }
-            else if (status.IsPoweredOff)
-            {
-                _gpuPowerStateValueLabel.Content = null;
-
-                _gpuActive.Visibility = Visibility.Collapsed;
-                _gpuInactive.Visibility = Visibility.Collapsed;
-                _gpuPoweredOff.Visibility = Visibility.Visible;
-                _gpuPowerStateValue.Visibility = Visibility.Collapsed;
-                _gpuPowerStateValueLabel.Visibility = Visibility.Collapsed;
-            }
-            else
-            {
-                _gpuPowerStateValueLabel.Content = status.PerformanceState ?? "-";
-
-                _gpuActive.Visibility = Visibility.Collapsed;
-                _gpuInactive.Visibility = Visibility.Visible;
-                _gpuPoweredOff.Visibility = Visibility.Collapsed;
-                _gpuPowerStateValue.Visibility = Visibility.Visible;
-                _gpuPowerStateValueLabel.Visibility = Visibility.Visible;
-            }
-
-            _gpuGrid.Visibility = Visibility.Visible;
         }, TaskScheduler.FromCurrentSynchronizationContext());
     }
 
     private void RefreshBattery(CancellationToken token)
     {
-        var batteryInformationTask = Task.Run(Battery.GetBatteryInformation);
+        var batteryInformationTask = Task.Run(Battery.GetBatteryInformation, token);
         var batteryStateTask = _batteryFeature.GetStateAsync();
 
         Task.WhenAll(batteryInformationTask, batteryStateTask).ContinueWith(t =>
         {
-            if (token.IsCancellationRequested)
-                return;
+            try
+            {
+                if (token.IsCancellationRequested)
+                    return;
 
-            if (!t.IsCompletedSuccessfully)
+                if (!t.IsCompletedSuccessfully)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Failed to refresh battery.", t.Exception?.InnerException);
+                    return;
+                }
+
+                var batteryInfo = batteryInformationTask.Result;
+                var batteryState = batteryStateTask.Result;
+
+                var symbol = (int)Math.Round(batteryInfo.BatteryPercentage / 10.0) switch
+                {
+                    10 => SymbolRegular.Battery1024,
+                    9 => SymbolRegular.Battery924,
+                    8 => SymbolRegular.Battery824,
+                    7 => SymbolRegular.Battery724,
+                    6 => SymbolRegular.Battery624,
+                    5 => SymbolRegular.Battery524,
+                    4 => SymbolRegular.Battery424,
+                    3 => SymbolRegular.Battery324,
+                    2 => SymbolRegular.Battery224,
+                    1 => SymbolRegular.Battery124,
+                    _ => SymbolRegular.Battery024,
+                };
+
+                if (batteryInfo.IsCharging)
+                    symbol = batteryState == BatteryState.Conservation ? SymbolRegular.BatterySaver24 : SymbolRegular.BatteryCharge24;
+
+                if (batteryInfo.IsLowBattery)
+                    _batteryValueLabel.SetResourceReference(ForegroundProperty, "SystemFillColorCautionBrush");
+
+                _batteryIcon.Symbol = symbol;
+                _batteryValueLabel.Content = $"{batteryInfo.BatteryPercentage}%";
+                _batteryModeValueLabel.Content = batteryState.GetDisplayName();
+                _batteryDischargeValueLabel.Content = $"{batteryInfo.DischargeRate / 1000.0:+0.00;-0.00;0.00} W";
+            }
+            catch (TaskCanceledException) { }
+            catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Failed to refresh battery.", t.Exception?.InnerException);
-                return;
+                    Log.Instance.Trace($"Error continuing on battery refresh.", ex);
             }
-
-            var batteryInfo = batteryInformationTask.Result;
-            var batteryState = batteryStateTask.Result;
-
-            var symbol = (int)Math.Round(batteryInfo.BatteryPercentage / 10.0) switch
-            {
-                10 => SymbolRegular.Battery1024,
-                9 => SymbolRegular.Battery924,
-                8 => SymbolRegular.Battery824,
-                7 => SymbolRegular.Battery724,
-                6 => SymbolRegular.Battery624,
-                5 => SymbolRegular.Battery524,
-                4 => SymbolRegular.Battery424,
-                3 => SymbolRegular.Battery324,
-                2 => SymbolRegular.Battery224,
-                1 => SymbolRegular.Battery124,
-                _ => SymbolRegular.Battery024,
-            };
-
-            if (batteryInfo.IsCharging)
-                symbol = batteryState == BatteryState.Conservation ? SymbolRegular.BatterySaver24 : SymbolRegular.BatteryCharge24;
-
-            if (batteryInfo.IsLowBattery)
-                _batteryValueLabel.SetResourceReference(ForegroundProperty, "SystemFillColorCautionBrush");
-
-            _batteryIcon.Symbol = symbol;
-            _batteryValueLabel.Content = $"{batteryInfo.BatteryPercentage}%";
-            _batteryModeValueLabel.Content = batteryState.GetDisplayName();
-            _batteryDischargeValueLabel.Content = $"{batteryInfo.DischargeRate / 1000.0:+0.00;-0.00;0.00} W";
-
         }, TaskScheduler.FromCurrentSynchronizationContext());
     }
 
@@ -235,15 +270,24 @@ public partial class StatusTrayPopup
     {
         _updateChecker.Check().ContinueWith(t =>
         {
-            if (token.IsCancellationRequested)
-                return;
+            try
+            {
+                if (token.IsCancellationRequested)
+                    return;
 
-            if (!t.IsCompletedSuccessfully)
-                return;
+                if (!t.IsCompletedSuccessfully)
+                    return;
 
-            var hasUpdate = t.Result is not null;
-            _updateIndicator.Visibility = hasUpdate ? Visibility.Visible : Visibility.Collapsed;
-            _updateIndicator.Visibility = Visibility.Collapsed;
+                var hasUpdate = t.Result is not null;
+                _updateIndicator.Visibility = hasUpdate ? Visibility.Visible : Visibility.Collapsed;
+                _updateIndicator.Visibility = Visibility.Collapsed;
+            }
+            catch (TaskCanceledException) { }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Error continuing on update refresh.", ex);
+            }
         }, TaskScheduler.FromCurrentSynchronizationContext());
     }
 }
