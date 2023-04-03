@@ -1731,8 +1731,14 @@ Diese Einstellung wird nur wirksam, wenn der benutzerdefinierte Modus aktiviert 
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Windows meldet, dass dieses Gerät den modernen Standby-Modus unterstützt. Die Verwendung anderer Energiesparpläne als "Ausbalanciert" kann zu unerwartetem Verhalten führen.</value>
   </data>
+  <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
+    <value>Wählen Sie Windows-Energiepläne aus, die bei einer Änderung des Energiemodus angewendet werden sollen.</value>
+  </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Energie</value>
+  </data>
+  <data name="SettingsPage_PowerPlansControlPanel_Title" xml:space="preserve">
+    <value>Energieplanoptionen in der Windows-Systemsteuerung</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Ausgeschaltet</value>
