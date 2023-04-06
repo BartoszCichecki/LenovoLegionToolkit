@@ -92,6 +92,16 @@ If for whatever reason LLT installer did not setup .NET properly:
 3. Download x64 Windows installer
 4. Run the installer
 
+After following these steps, you can open Terminal and type: `dotnet --info`. In the output look for section `.NET runtimes installed`, in this section you should see something like:
+
+`Microsoft.NETCore.App 6.0.15 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]`
+
+and
+
+`Microsoft.WindowsDesktop.App 6.0.15 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]`
+
+The exact version number can be different, but as long as it is `6.x.x` it should be fine. If after these steps LLT still shows an error on startup that .NET couldn't be found or similar, the problem is on your machine and not with LLT.
+
 #### Want to help with testing?
 
 Join the [Legion Series Discord](https://discord.com/invite/legionseries) and head to `#legion-toolkit` channel. Beta versions of future releases are posted there frequently!
