@@ -5,8 +5,11 @@ WM_SYSCOMMAND
 
 SC_MONITORPOWER
 
+DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS
+
 POWERBROADCAST_SETTING
 PBT_POWERSETTINGCHANGE
+PBT_APMRESUMEAUTOMATIC
 
 HC_ACTION
 
@@ -128,3 +131,5 @@ PowerGetActiveScheme
 PowerSetActiveScheme
 PowerRegisterForEffectivePowerModeNotifications
 PowerUnregisterFromEffectivePowerModeNotifications
+PowerRegisterSuspendResumeNotification
+PowerUnregisterSuspendResumeNotification

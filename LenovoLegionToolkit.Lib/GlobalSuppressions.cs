@@ -6,3 +6,4 @@
 using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("Performance", "CA1822:Mark members as static")]
+[assembly: SuppressMessage("Interoperability", "CA1416:Validate platform compatibility")]
