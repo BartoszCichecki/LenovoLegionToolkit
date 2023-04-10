@@ -1743,6 +1743,6 @@ Ce paramètre ne prend effet que lorsque le mode personnalisé est activé.</val
     <value>Options du mode de gestion d'alimentation dans le panneau de configuration de Windows</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
-    <value>Désactiver</value>
+    <value>Désactivé</value>
   </data>
 </root>
