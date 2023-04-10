@@ -106,7 +106,7 @@ public class PowerStateListener : IListener<EventArgs>
         if (!mi.Properties.SupportsAlwaysOnAc.status)
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Ignoring, always on AC is enabled...");
+                Log.Instance.Trace($"Ignoring, AO AC not enabled...");
 
             return;
         }
