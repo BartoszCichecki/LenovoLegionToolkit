@@ -61,11 +61,22 @@
 3. 点击安装程序下的“X64”一栏下载安装程序；
 4. 运行安装程序并按照指引进行安装。
 
+
+在完成这些步骤后，你可以打开终端并输入： `dotnet --info`。在输出中寻找 "已安装的.NET运行时 "部分，你应该能看到类似的内容：
+
+`Microsoft.NETCore.App 6.0.15 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]`
+
+和
+
+`Microsoft.WindowsDesktop.App 6.0.15 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]`
+
+确切的版本号可能不同，但只要是`6.x.x`就应该没问题。如果经过上述步骤确认后，拯救者工具箱在启动时仍然报错提示找不到.NET之类的信息，那么就是你的机器或系统的问题，而不是拯救者工具箱的问题。
+
 #### 想要帮助我们测试？
 
-中文用户可加入 [拯救者工具箱 QQ 频道](https://pd.qq.com/s/jj0737) 并前往 `#测试版更新💻` 子频道，Beta 测试版将会经常在那里发布。
+加入 [Legion Series Discord](https://discord.com/invite/legionseries) 并前往 `#legion-toolkit` 子频道，Beta 测试版与未来更新将会在那里频繁更新。
 
-或直接加入 [Legion Series Discord](https://discord.com/invite/legionseries) 并前往 `#legion-toolkit` 子频道，Beta 测试版与未来更新将会在那里频繁更新。
+中文用户可加入 [拯救者工具箱 QQ 频道](https://pd.qq.com/s/jj0737) 并前往 `#测试版更新💻` 子频道，Beta 测试版将会经常在那里同步发布。
 
 ## 兼容性
 
@@ -199,8 +210,6 @@
 #### 为什么我无法在使用电池供电时切换到野兽与自定义模式？
 
 在 2.11.0 版本后，拯救者工具箱与 Lenovo Vantage 与 Legion Zone 的行为保持一致，将不再允许在没有插入适当电源适配器的情况下启用野兽与自定义模式。
-
-If for whatever reason you want to use these modes on battery anyway, you can use `--allow-all-power-modes-on-battery` argument. Note that Power Limits and other settings are not applied correctly on most devices when laptop is not connected to full power AC adapter and unpredictable and weird behavior is expected.
 
 如果出于某种原因，你想在电池供电的情况下使用这些模式，你可以使用`--allow-all-power-modes-on-battery`参数来启用。请注意，当笔记本电脑没有连接到全功率的电源适配器时，功耗限制与其他设置在大多数设备上无法正常应用，同时可能会出现一些未知的问题。
 
