@@ -1671,6 +1671,15 @@ Nastavenia sú účinne len keď je povolený vlastný režim.</value>
   <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
     <value>Dĺžka krátkodobého obmedzenia výkonu</value>
   </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau_Description" xml:space="preserve">
+    <value>Množstvo času kedy má CPU povolené posilniť výkon a použiť krátkodobý výkonový limit. Keď Tau vyprší použije sa dlhodobý výkonový limit.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
+    <value>Celkový cieľ výkonu procesora na sieťovom napájaní</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
+    <value>Bod pri ktorom CPU spustí dynamickú úpravu spotreby výkonu pre GPU.</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Vytvoriť</value>
   </data>
@@ -1716,8 +1725,20 @@ Nastavenia sú účinne len keď je povolený vlastný režim.</value>
   <data name="AutomationPipelineTriggerConfigurationWindow_Title" xml:space="preserve">
     <value>Konfigurovať</value>
   </data>
+  <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
+    <value>Zistený S0 s nižšou spotrebou</value>
+  </data>
+  <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
+    <value>Windows hlási, že toto zariadenie podporuje moderný pohotovostný režim. Použitie iného ako vyváženého plánu napájania môže spôsobiť neočakávané chovanie.</value>
+  </data>
+  <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
+    <value>Vyberte, ktoré plány napájania Windows použiť pri zmene režimu výkonu.</value>
+  </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Napájanie</value>
+  </data>
+  <data name="SettingsPage_PowerPlansControlPanel_Title" xml:space="preserve">
+    <value>Možnosti plánu napájanie v ovládacom paneli Windows</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Vypnutý</value>
