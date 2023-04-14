@@ -44,6 +44,7 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
 
                         <Grid.ColumnDefinitions>
@@ -54,25 +55,39 @@
                         <Label
                             Grid.Row="0"
                             Grid.Column="0"
-                            Margin="0,0,16,8"
+                            Margin="0,0,16,24"
                             VerticalContentAlignment="Center"
-                            Content="{x:Static resources:Resource.Color_Red}" />
+                            Content="Hex" />
                         <Label
                             Grid.Row="1"
                             Grid.Column="0"
                             Margin="0,0,16,8"
                             VerticalContentAlignment="Center"
-                            Content="{x:Static resources:Resource.Color_Green}" />
+                            Content="{x:Static resources:Resource.Color_Red}" />
                         <Label
                             Grid.Row="2"
                             Grid.Column="0"
                             Margin="0,0,16,8"
                             VerticalContentAlignment="Center"
+                            Content="{x:Static resources:Resource.Color_Green}" />
+                        <Label
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            Margin="0,0,16,8"
+                            VerticalContentAlignment="Center"
                             Content="{x:Static resources:Resource.Color_Blue}" />
 
+                        <wpfui:TextBox
+                            x:Name="_hexTextBox"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Margin="0,0,0,24"
+                            HorizontalContentAlignment="Right"
+                            ClearButtonEnabled="False"
+                            TextChanged="HexTextBox_TextChanged" />
                         <wpfui:NumberBox
                             x:Name="_redNumberBox"
-                            Grid.Row="0"
+                            Grid.Row="1"
                             Grid.Column="1"
                             Margin="0,0,0,8"
                             ClearButtonEnabled="False"
@@ -83,7 +98,7 @@
                             TextChanged="NumberBox_TextChanged" />
                         <wpfui:NumberBox
                             x:Name="_greenNumberBox"
-                            Grid.Row="1"
+                            Grid.Row="2"
                             Grid.Column="1"
                             Margin="0,0,0,8"
                             ClearButtonEnabled="False"
@@ -94,7 +109,7 @@
                             TextChanged="NumberBox_TextChanged" />
                         <wpfui:NumberBox
                             x:Name="_blueNumberBox"
-                            Grid.Row="2"
+                            Grid.Row="3"
                             Grid.Column="1"
                             Margin="0,0,0,8"
                             ClearButtonEnabled="False"
