@@ -27,9 +27,13 @@ public partial class SymbolRegularPicker
 
     private void SymbolRegularPicker_Closing(object? sender, CancelEventArgs e) => _tcs.TrySetCanceled();
 
-    private void FilterTextBox_TextChanged(object sender, TextChangedEventArgs e)
+    private async void FilterTextBox_TextChanged(object sender, TextChangedEventArgs e)
     {
-        _throttleDispatcher.Dispatch(() => Dispatcher.Invoke(Refresh));
+        await _throttleDispatcher.DispatchAsync(() =>
+        {
+            Dispatcher.Invoke(Refresh);
+            return Task.CompletedTask;
+        });
     }
 
     private void ItemButton_Click(object sender, RoutedEventArgs e)
