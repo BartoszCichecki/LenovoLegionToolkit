@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
+using NeoSmart.AsyncLock;
 
 namespace LenovoLegionToolkit.Lib.Utils;
 
 public class ThrottleFirstDispatcher
 {
-    private readonly object _lock = new();
+    private readonly AsyncLock _lock = new();
 
     private readonly TimeSpan _interval;
     private readonly string? _tag;
@@ -18,36 +19,11 @@ public class ThrottleFirstDispatcher
         _tag = tag;
     }
 
-    public Task DispatchAsync(Func<Task> task)
+    public async Task DispatchAsync(Func<Task> task)
     {
-        lock (_lock)
+        using (await _lock.LockAsync())
         {
-            var now = DateTime.UtcNow;
-            var diff = now - _lastEvent;
-            _lastEvent = now;
-
-            if (diff < _interval)
-            {
-                if (_tag is not null && Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Throttling... [tag={_tag}, diff={diff.TotalMilliseconds}ms]");
-
-                return Task.CompletedTask;
-            }
-
-            if (_tag is not null && Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Allowing... [tag={_tag}, diff={diff.TotalMilliseconds}ms]");
-
-            return task();
-        }
-    }
-
-    public void Dispatch(Action task)
-    {
-        lock (_lock)
-        {
-            var now = DateTime.UtcNow;
-            var diff = now - _lastEvent;
-            _lastEvent = now;
+            var diff = DateTime.UtcNow - _lastEvent;
 
             if (diff < _interval)
             {
@@ -60,7 +36,9 @@ public class ThrottleFirstDispatcher
             if (_tag is not null && Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Allowing... [tag={_tag}, diff={diff.TotalMilliseconds}ms]");
 
-            task();
+            await task();
+
+            _lastEvent = DateTime.UtcNow;
         }
     }
 }
