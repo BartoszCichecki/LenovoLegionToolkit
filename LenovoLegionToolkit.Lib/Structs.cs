@@ -238,6 +238,7 @@ public readonly struct GodModePreset
     public StepperValue? GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline { get; init; }
     public FanTableInfo? FanTableInfo { get; init; }
     public bool? FanFullSpeed { get; init; }
+    public int? MinValueOffset { get; init; }
     public int? MaxValueOffset { get; init; }
 
     public override string ToString() =>
@@ -255,6 +256,7 @@ public readonly struct GodModePreset
         $" {nameof(GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline)}: {GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline}," +
         $" {nameof(FanTableInfo)}: {FanTableInfo}," +
         $" {nameof(FanFullSpeed)}: {FanFullSpeed}," +
+        $" {nameof(MinValueOffset)}: {MinValueOffset}," +
         $" {nameof(MaxValueOffset)}: {MaxValueOffset}";
 }
 
