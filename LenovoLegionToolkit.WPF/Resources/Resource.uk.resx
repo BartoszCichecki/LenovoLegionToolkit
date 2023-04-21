@@ -664,13 +664,6 @@
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Блокування Fn</value>
   </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>УВАГА!
-Деякі ноутбуки можуть приймати вищі ліміти потужності, ніж вони показують, тому будьте обережні. Ці налаштування можуть призвести до непередбачуваної поведінки, тому якщо ви не впевнені, залишите це на 0.</value>
-  </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
-    <value>Максимальний ліміт потужності</value>
-  </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>Не змінюйте налаштування знизу, поки ви дійсно не зрозумієте, що вони роблять.</value>
   </data>
