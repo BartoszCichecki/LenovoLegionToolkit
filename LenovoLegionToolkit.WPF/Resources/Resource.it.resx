@@ -661,13 +661,6 @@ Clicca il logo PayPal qui sotto oppure scansiona il QR code per donare con PayPa
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Fn Lock</value>
   </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>ATTENZIONE!
-Alcuni portatili potrebbero accettare dei limiti di potenza superiori di quelli indicati, quindi stai attento. Questa opzione può creare comportamenti imprevisti, se non sai cosa stai facendo lascia questo valore a 0.</value>
-  </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
-    <value>Offset del limite di potenza massimo</value>
-  </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>Non modificare le opzioni seguenti a meno che tu non sappia davvero cosa stai facendo.</value>
   </data>
