@@ -663,13 +663,6 @@ Bij voorbaat bedankt!</value>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Fn Lock</value>
   </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>WAARSCHUWING!
-Sommige laptops accepteren mogelijk hogere vermogenslimieten dan ze aangeven, maar wees voorzichtig. Deze optie kan leiden tot onvoorspelbaar gedrag, dus als u niet zeker weet wat u doet, laat dit dan op 0 staan.</value>
-  </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
-    <value>Maximale vermogenslimiet offset</value>
-  </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>Wijzig deze instellingen alleen als u weet wat u doet.</value>
   </data>
