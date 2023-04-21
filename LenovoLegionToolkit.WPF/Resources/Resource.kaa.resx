@@ -665,13 +665,6 @@ Aldınnan raxmet!</value>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Fn Lock</value>
   </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>DIQQAT!
-Abaylı bolıń, ayrım noutbuklar kórsetkinen de joqarılaw quwatlılıq shegine jetiwi múmkin. Bul variant kutilmegen háreketke alıp keliwi múmkin, sonlıqtan, ne qılıp atırǵanıńızdı bilmeseńiz, 0 mánisin qaldırıń.</value>
-  </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
-    <value>Maksimal quwatlılıq sheginiń jıljıwı</value>
-  </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>Eger ne islep atırǵanıńızdı bilmeseńiz, tómendegi variantlardı ózgertpeń.</value>
   </data>
