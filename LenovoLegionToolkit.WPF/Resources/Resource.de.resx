@@ -666,13 +666,6 @@ Vielen Dank im Voraus!</value>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Fn Lock</value>
   </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>WARNUNG!
-Einige Laptops können höhere Leistungsgrenzen akzeptieren, als sie angeben, aber seien Sie vorsichtig. Diese Option kann zu unvorhersehbarem Verhalten führen. Wenn Sie also nicht sicher sind, was Sie tun, lassen Sie diese Option auf 0.</value>
-  </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
-    <value>Offset der maximalen Leistungsgrenze</value>
-  </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>Ändern Sie die folgenden Optionen nur, wenn Sie wirklich wissen, was Sie tun.</value>
   </data>
