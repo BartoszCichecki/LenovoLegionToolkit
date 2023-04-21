@@ -118,6 +118,7 @@ public partial class GodModeSettingsWindow
                 FanTableInfo = preset.FanTableInfo is not null ? _fanCurveControl.GetFanTableInfo() : null,
                 FanFullSpeed = preset.FanFullSpeed is not null ? _fanFullSpeedToggle.IsChecked : null,
                 MaxValueOffset = preset.MaxValueOffset is not null ? (int)_maxValueOffsetNumberBox.Value : null,
+                MinValueOffset = preset.MinValueOffset is not null ? (int)_minValueOffsetNumberBox.Value : null
             };
 
             var newPresets = new Dictionary<Guid, GodModePreset>(presets)
@@ -160,7 +161,6 @@ public partial class GodModeSettingsWindow
         _addPresetsButton.IsEnabled = state.Presets.Count < 5;
         _deletePresetsButton.IsEnabled = state.Presets.Count > 1;
 
-        var maxValueOffset = preset.MaxValueOffset;
 
         _cpuLongTermPowerLimitControl.Set(preset.CPULongTermPowerLimit);
         _cpuShortTermPowerLimitControl.Set(preset.CPUShortTermPowerLimit);
@@ -192,10 +192,17 @@ public partial class GodModeSettingsWindow
             _fanFullSpeedCardControl.Visibility = Visibility.Collapsed;
         }
 
+        var maxValueOffset = preset.MaxValueOffset;
         if (maxValueOffset.HasValue)
             _maxValueOffsetNumberBox.Text = $"{maxValueOffset}";
         else
             _maxValueOffsetCardControl.Visibility = Visibility.Collapsed;
+
+        var minValueOffset = preset.MinValueOffset;
+        if (minValueOffset.HasValue)
+            _minValueOffsetNumberBox.Text = $"{minValueOffset}";
+        else
+            _minValueOffsetCardControl.Visibility = Visibility.Collapsed;
 
         var cpuSectionVisible = new[]
         {
@@ -219,10 +226,14 @@ public partial class GodModeSettingsWindow
         var fanSectionVisible = new[]
         {
             _fanCurveCardControl,
-            _fanFullSpeedCardControl,
+            _fanFullSpeedCardControl
         }.Any(v => v.Visibility == Visibility.Visible);
 
-        var advancedSectionVisible = _maxValueOffsetCardControl.Visibility == Visibility.Visible;
+        var advancedSectionVisible = new[]
+        {
+            _maxValueOffsetCardControl,
+            _minValueOffsetCardControl
+        }.Any(v => v.Visibility == Visibility.Visible);
 
         _cpuSectionTitle.Visibility = cpuSectionVisible ? Visibility.Visible : Visibility.Collapsed;
         _gpuSectionTitle.Visibility = gpuSectionVisible ? Visibility.Visible : Visibility.Collapsed;
@@ -284,6 +295,9 @@ public partial class GodModeSettingsWindow
 
         if (_maxValueOffsetCardControl.Visibility == Visibility.Visible)
             _maxValueOffsetNumberBox.Text = $"{0}";
+
+        if (_minValueOffsetCardControl.Visibility == Visibility.Visible)
+            _minValueOffsetNumberBox.Text = $"{0}";
     }
 
     private void PresetsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

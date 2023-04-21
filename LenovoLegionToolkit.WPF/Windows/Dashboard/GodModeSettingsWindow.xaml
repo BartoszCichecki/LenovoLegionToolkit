@@ -278,6 +278,20 @@
                             Min="0" />
                     </wpfui:CardControl>
 
+                    <wpfui:CardControl x:Name="_minValueOffsetCardControl" Margin="0,0,0,8">
+                        <wpfui:CardControl.Header>
+                            <controls:CardHeaderControl Title="{x:Static resources:Resource.GodModeSettingsWindow_Advanced_MinOffset_Title}" Subtitle="{x:Static resources:Resource.GodModeSettingsWindow_Advanced_MinOffset_Message}" />
+                        </wpfui:CardControl.Header>
+                        <wpfui:NumberBox
+                            x:Name="_minValueOffsetNumberBox"
+                            Width="120"
+                            Margin="32,0,0,0"
+                            ClearButtonEnabled="False"
+                            IntegersOnly="True"
+                            Max="0"
+                            Min="-100" />
+                    </wpfui:CardControl>
+
                 </StackPanel>
             </wpfui:DynamicScrollViewer>
         </controls:LoadableControl>

@@ -89,6 +89,7 @@ public abstract class AbstractGodModeController : IGodModeController
                 GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline = preset.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline,
                 FanTable = preset.FanTableInfo?.Table,
                 FanFullSpeed = preset.FanFullSpeed,
+                MinValueOffset = preset.MinValueOffset,
                 MaxValueOffset = preset.MaxValueOffset,
             });
         }
@@ -142,20 +143,24 @@ public abstract class AbstractGodModeController : IGodModeController
             states.Add(id, new GodModePreset
             {
                 Name = preset.Name,
-                CPULongTermPowerLimit = CreateStepperValue(defaultState.CPULongTermPowerLimit, preset.CPULongTermPowerLimit, preset.MaxValueOffset),
-                CPUShortTermPowerLimit = CreateStepperValue(defaultState.CPUShortTermPowerLimit, preset.CPUShortTermPowerLimit, preset.MaxValueOffset),
-                CPUPeakPowerLimit = CreateStepperValue(defaultState.CPUPeakPowerLimit, preset.CPUPeakPowerLimit, preset.MaxValueOffset),
-                CPUCrossLoadingPowerLimit = CreateStepperValue(defaultState.CPUCrossLoadingPowerLimit, preset.CPUCrossLoadingPowerLimit, preset.MaxValueOffset),
-                CPUPL1Tau = CreateStepperValue(defaultState.CPUPL1Tau, preset.CPUPL1Tau, preset.MaxValueOffset),
-                APUsPPTPowerLimit = CreateStepperValue(defaultState.APUsPPTPowerLimit, preset.APUsPPTPowerLimit, preset.MaxValueOffset),
-                CPUTemperatureLimit = CreateStepperValue(defaultState.CPUTemperatureLimit, preset.CPUTemperatureLimit, preset.MaxValueOffset),
-                GPUPowerBoost = CreateStepperValue(defaultState.GPUPowerBoost, preset.GPUPowerBoost, preset.MaxValueOffset),
-                GPUConfigurableTGP = CreateStepperValue(defaultState.GPUConfigurableTGP, preset.GPUConfigurableTGP, preset.MaxValueOffset),
-                GPUTemperatureLimit = CreateStepperValue(defaultState.GPUTemperatureLimit, preset.GPUTemperatureLimit, preset.MaxValueOffset),
-                GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline = CreateStepperValue(defaultState.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline, preset.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline, preset.MaxValueOffset),
+                CPULongTermPowerLimit = CreateStepperValue(defaultState.CPULongTermPowerLimit, preset.CPULongTermPowerLimit, preset.MinValueOffset, preset.MaxValueOffset),
+                CPUShortTermPowerLimit = CreateStepperValue(defaultState.CPUShortTermPowerLimit, preset.CPUShortTermPowerLimit, preset.MinValueOffset, preset.MaxValueOffset),
+                CPUPeakPowerLimit = CreateStepperValue(defaultState.CPUPeakPowerLimit, preset.CPUPeakPowerLimit, preset.MinValueOffset, preset.MaxValueOffset),
+                CPUCrossLoadingPowerLimit = CreateStepperValue(defaultState.CPUCrossLoadingPowerLimit, preset.CPUCrossLoadingPowerLimit, preset.MinValueOffset, preset.MaxValueOffset),
+                CPUPL1Tau = CreateStepperValue(defaultState.CPUPL1Tau, preset.CPUPL1Tau, preset.MinValueOffset, preset.MaxValueOffset),
+                APUsPPTPowerLimit = CreateStepperValue(defaultState.APUsPPTPowerLimit, preset.APUsPPTPowerLimit, preset.MinValueOffset, preset.MaxValueOffset),
+                CPUTemperatureLimit = CreateStepperValue(defaultState.CPUTemperatureLimit, preset.CPUTemperatureLimit, preset.MinValueOffset, preset.MaxValueOffset),
+                GPUPowerBoost = CreateStepperValue(defaultState.GPUPowerBoost, preset.GPUPowerBoost, preset.MinValueOffset, preset.MaxValueOffset),
+                GPUConfigurableTGP = CreateStepperValue(defaultState.GPUConfigurableTGP, preset.GPUConfigurableTGP, preset.MinValueOffset, preset.MaxValueOffset),
+                GPUTemperatureLimit = CreateStepperValue(defaultState.GPUTemperatureLimit, preset.GPUTemperatureLimit, preset.MinValueOffset, preset.MaxValueOffset),
+                GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline = CreateStepperValue(defaultState.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline,
+                    preset.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline,
+                    preset.MinValueOffset,
+                    preset.MaxValueOffset),
                 FanTableInfo = GetFanTableInfo(preset, defaultState.FanTableInfo?.Data),
                 FanFullSpeed = preset.FanFullSpeed,
-                MaxValueOffset = preset.MaxValueOffset
+                MinValueOffset = preset.MinValueOffset ?? defaultState.MinValueOffset,
+                MaxValueOffset = preset.MaxValueOffset ?? defaultState.MaxValueOffset
             });
         }
 
@@ -166,7 +171,7 @@ public abstract class AbstractGodModeController : IGodModeController
         };
     }
 
-    private static StepperValue? CreateStepperValue(StepperValue? state, StepperValue? store = null, int? maxValueOffset = 0)
+    private static StepperValue? CreateStepperValue(StepperValue? state, StepperValue? store = null, int? minValueOffset = 0, int? maxValueOffset = 0)
     {
         if (state is not { } stateValue)
             return null;
@@ -174,7 +179,7 @@ public abstract class AbstractGodModeController : IGodModeController
         if (stateValue.Step > 0)
         {
             var value = store?.Value ?? stateValue.Value;
-            var min = stateValue.Min;
+            var min = Math.Max(0, stateValue.Min + (minValueOffset ?? 0));
             var max = stateValue.Max + (maxValueOffset ?? 0);
             var step = stateValue.Step;
             var defaultValue = stateValue.DefaultValue;
