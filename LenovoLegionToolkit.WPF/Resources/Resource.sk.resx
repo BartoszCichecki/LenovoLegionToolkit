@@ -666,13 +666,6 @@ Vopred vďaka!</value>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Zámok Fn klávesy</value>
   </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>VAROVANIE!
-Niektoré notebooky môžu akceptovať vyššie limity výkonu ako uvádzajú, ale buďte opatrný. Táto možnosť môže mať za následok nepredvídateľné správanie, takže ak si nie ste istý čo robíte nechajte to na 0.</value>
-  </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
-    <value>Posun maximálneho limitu výkonu</value>
-  </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>Nemeňte dole uvedené možnosti pokiaľ naozaj neviete čo robíte.</value>
   </data>
