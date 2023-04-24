@@ -654,13 +654,6 @@
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Fn قفل ال</value>
   </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>تحذير! 
-بعض الأجهزة تقبل حدود طاقه اعلي من المعلن, كن حذرا. هذا الخِيار قد يؤديا لي نتائج غير متوقعه, لذا إن كنت غير متيقِّن ماذا تفعل, اتركها بقيمه 0.</value>
-  </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
-    <value>اقصي حد للطاقه متغير</value>
-  </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>لا تغير الخيارات في الأسفل إلا إذا كنت تعلم ماذا تفعل.</value>
   </data>

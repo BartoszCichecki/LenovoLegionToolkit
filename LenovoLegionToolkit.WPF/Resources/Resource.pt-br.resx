@@ -667,13 +667,6 @@ Desde já, obrigado!</value>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Bloqueio da tecla Fn</value>
   </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>AVISO!
-Alguns notebooks podem aceitar limites de energia maiores do que indicado, mas tenha cuidado! Esta opção pode resultar em comportamentos imprevisíveis, então caso não tenha certeza do que está fazendo, deixe em 0.</value>
-  </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
-    <value>Deslocamento do Limite de Potência Máximo (Power)</value>
-  </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>Não mude as opções abaixo caso você não saiba o que está fazendo.</value>
   </data>

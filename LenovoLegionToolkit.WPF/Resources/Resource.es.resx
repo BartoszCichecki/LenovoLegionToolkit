@@ -668,13 +668,6 @@ El sistema alternará automáticamente entre ellas, en función de sus necesidad
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Bloqueo de la tecla Fn</value>
   </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>¡AVISO!
-Algunos portátiles pueden aceptar límites de potencia más altos de lo que indican, pero tenga cuidado. Esta opción puede dar lugar a un comportamiento imprevisible, así que si no está seguro de lo que está haciendo, déjelo en 0.</value>
-  </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
-    <value>Compensación del límite de potencia máxima</value>
-  </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>No cambiar las opciones siguientes a menos que sepa realmente lo que está haciendo.</value>
   </data>
