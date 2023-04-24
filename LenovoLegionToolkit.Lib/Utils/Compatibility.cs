@@ -153,7 +153,8 @@ public static class Compatibility
     {
         (string, int?)[] supportedBiosVersions =
         {
-            ("KWCN", 28)
+            ("KWCN", 28),
+            ("LPCN", 27)
         };
 
         return IsBiosVersionMatch(currentBiosVersionString, supportedBiosVersions);
