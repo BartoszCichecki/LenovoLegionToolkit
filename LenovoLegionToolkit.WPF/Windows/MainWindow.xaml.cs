@@ -61,21 +61,9 @@ public partial class MainWindow
             _trayIcon.TrayToolTipResolved.VerticalOffset = -8;
         };
 
-        _trayIcon.PreviewTrayContextMenuOpen += (_, _) =>
-        {
-            if (_trayIcon.TrayToolTipResolved is { IsOpen: true } tooltip)
-                tooltip.IsOpen = false;
+        _trayIcon.PreviewTrayContextMenuOpen += (_, _) => _trayIcon.ContextMenu ??= _contextMenuHelper.ContextMenu;
 
-            _trayIcon.ContextMenu ??= _contextMenuHelper.ContextMenu;
-        };
-
-        _trayIcon.TrayLeftMouseUp += (_, _) =>
-        {
-            if (_trayIcon.TrayToolTipResolved is { IsOpen: true } tooltip)
-                tooltip.IsOpen = false;
-
-            BringToForeground();
-        };
+        _trayIcon.TrayLeftMouseUp += (_, _) => BringToForeground();
 
         _trayIcon.NoLeftClickDelay = true;
     }
