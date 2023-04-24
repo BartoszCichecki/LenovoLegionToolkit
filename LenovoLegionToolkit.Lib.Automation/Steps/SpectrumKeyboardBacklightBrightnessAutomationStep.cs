@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
+using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
@@ -13,6 +14,7 @@ public class SpectrumKeyboardBacklightBrightnessAutomationStep : IAutomationStep
 
     public int State { get; }
 
+    [JsonConstructor]
     public SpectrumKeyboardBacklightBrightnessAutomationStep(int state) => State = state;
 
     public Task<int[]> GetAllStatesAsync() => Task.FromResult(_allStates);

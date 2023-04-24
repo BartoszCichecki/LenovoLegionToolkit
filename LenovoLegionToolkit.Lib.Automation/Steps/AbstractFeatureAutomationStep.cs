@@ -9,7 +9,7 @@ public abstract class AbstractFeatureAutomationStep<T> : IAutomationStep<T> wher
 
     public T State { get; }
 
-    public AbstractFeatureAutomationStep(T state) => State = state;
+    protected AbstractFeatureAutomationStep(T state) => State = state;
 
     public Task<bool> IsSupportedAsync() => _feature.IsSupportedAsync();
 

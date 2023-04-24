@@ -4401,6 +4401,33 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Import and apply backlight configuration to the current profile..
+        /// </summary>
+        public static string SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Path.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Import keyboard backlight profile.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Adjust keyboard backlight profile..
         /// </summary>
         public static string SpectrumKeyboardBacklightProfileAutomationStepControl_Message {

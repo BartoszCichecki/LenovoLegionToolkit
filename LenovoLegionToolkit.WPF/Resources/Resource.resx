@@ -1751,4 +1751,13 @@ This settings takes effect only when Custom Mode is enabled.</value>
   <data name="PoweredOff" xml:space="preserve">
     <value>Powered Off</value>
   </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
+	  <value>Import keyboard backlight profile</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message" xml:space="preserve">
+	  <value>Import and apply backlight configuration to the current profile.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
+	  <value>Path</value>
+  </data>
 </root>
