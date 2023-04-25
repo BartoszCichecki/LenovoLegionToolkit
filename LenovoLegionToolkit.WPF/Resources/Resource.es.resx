@@ -668,6 +668,20 @@ El sistema alternará automáticamente entre ellas, en función de sus necesidad
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Bloqueo de la tecla Fn</value>
   </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
+    <value>¡ATENCIÓN!
+Algunos portátiles pueden aceptar valores más bajos de los indicados, pero tenga cuidado. Esta opción puede dar lugar a un comportamiento impredecible, así que si no está seguro de lo que está haciendo, déjelo en 0.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
+    <value>Desplazamiento mínimo</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
+    <value>¡ATENCIÓN!
+Algunos portátiles pueden aceptar valores más altos de los indicados, pero tenga cuidado. Esta opción puede dar lugar a un comportamiento impredecible, así que si no está seguro de lo que está haciendo, déjelo en 0.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
+    <value>Desplazamiento máximo </value>
+  </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>No cambiar las opciones siguientes a menos que sepa realmente lo que está haciendo.</value>
   </data>
@@ -1738,5 +1752,14 @@ Esta configuración sólo tiene efecto si el modo personalizado está activado.<
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Desactivado</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
+	  <value>Importar perfil de retroiluminación del teclado</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message" xml:space="preserve">
+	  <value>Importar y aplicar la configuración de retroiluminación al perfil actual.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
+	  <value>Ruta</value>
   </data>
 </root>

@@ -665,6 +665,10 @@ Aldınnan raxmet!</value>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Fn Lock</value>
   </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
+    <value>DIQQAT!
+Ayrim noutbuklar o'zleri ko'rsetken quwatliliqtan to'menlewin qabillawi mu'mkin, biraq abayli bolin'. Bul tan'law ku'tilmegen na'tiyje beriwi mu'mkin, sonliqtan eger ne islep atirg'anin'izdi bilmesen'iz, buni 0 de qaldirin'.</value>
+  </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>Eger ne islep atırǵanıńızdı bilmeseńiz, tómendegi variantlardı ózgertpeń.</value>
   </data>
