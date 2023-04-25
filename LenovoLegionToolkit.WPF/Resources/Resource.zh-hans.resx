@@ -1759,4 +1759,13 @@
   <data name="PoweredOff" xml:space="preserve">
     <value>关闭</value>
   </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
+	  <value>导入键盘背光主题。</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message" xml:space="preserve">
+	  <value>导入并应用键盘背光配置到当前的主题。</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
+	  <value>路径</value>
+  </data>
 </root>
