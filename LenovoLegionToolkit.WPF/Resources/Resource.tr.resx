@@ -640,13 +640,6 @@ PayPal ile bağış yapmak için aşağıdaki PayPal logosuna tıklayın veya QR
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Fn Kilidi</value>
   </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>UYARI!
-Bazı bilgisayarlar, belirtilenden daha yüksek güç sınırlarını kabul edebilir, ancak dikkatli olun. Bu seçenek öngörülemeyen davranışlara neden olabilir, bu nedenle ne yaptığınızdan emin değilseniz, bunu 0'da bırakın.</value>
-  </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
-    <value>Maksimum Güç Sınırı ofseti</value>
-  </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>Ne yaptığınızı gerçekten bilmiyorsanız aşağıdaki seçenekler ile oynamayın.</value>
   </data>

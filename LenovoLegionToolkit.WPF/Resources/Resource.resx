@@ -667,12 +667,19 @@ Thanks in advance!</value>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Fn Lock</value>
   </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
+    <value>WARNING!
+Some laptops may accept lower values than they indicate, but be careful. This option may result in unpredictable behavior, so if you are not sure what are you doing, leave this at 0.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
+    <value>Minimum offset</value>
+  </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
     <value>WARNING!
-Some laptops may accept higher power limits than they indicate, but be careful. This option may result in unpredictable behavior, so if you are not sure what are you doing, leave this at 0.</value>
+Some laptops may accept higher values than they indicate, but be careful. This option may result in unpredictable behavior, so if you are not sure what are you doing, leave this at 0.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
-    <value>Maximum Power Limit offset</value>
+    <value>Maximum offset</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>Do not change options below unless you really know what you are doing.</value>
@@ -1743,5 +1750,14 @@ This settings takes effect only when Custom Mode is enabled.</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Powered Off</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
+	  <value>Import keyboard backlight profile</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message" xml:space="preserve">
+	  <value>Import and apply backlight configuration to the current profile.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
+	  <value>Path</value>
   </data>
 </root>

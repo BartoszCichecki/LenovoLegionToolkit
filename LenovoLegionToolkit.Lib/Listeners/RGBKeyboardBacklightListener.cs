@@ -36,11 +36,6 @@ public class RGBKeyboardBacklightListener : AbstractWMIListener<RGBKeyboardBackl
             await _controller.SetLightControlOwnerAsync(true).ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Ownership set, waiting 500ms...");
-
-            await Task.Delay(500).ConfigureAwait(false);
-
-            if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Setting next preset set...");
 
             var preset = await _controller.SetNextPresetAsync().ConfigureAwait(false);

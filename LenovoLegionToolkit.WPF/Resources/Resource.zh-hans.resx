@@ -191,7 +191,7 @@
     <value>当前没有自动化脚本，请点击 “新建” 来新建一项。</value>
   </data>
   <data name="AutomationPage_Actions_Message" xml:space="preserve">
-    <value>启用自动化后，当计算机的状态发生改变时，工具箱将会从上到下检查各项任务是否符合条件，并执行相关任务。</value>
+    <value>启用自动化后，当设备的状态发生改变时，本应用将会按顺序检查各项自动化是否符合条件后，执行相关操作。</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>自动化</value>
@@ -203,13 +203,13 @@
     <value>新建</value>
   </data>
   <data name="AutomationPage_QuickActions_Empty" xml:space="preserve">
-    <value>没有快捷方式，请点击 “新建” 来新建快捷方式。</value>
+    <value>没有快捷操作，请点击 “新建” 来新建快捷操作。</value>
   </data>
   <data name="AutomationPage_QuickActions_Message" xml:space="preserve">
-    <value>你可以在系统托盘中本应用的右键菜单里使用快捷方式。</value>
+    <value>你可以在系统托盘中本应用的右键菜单里使用快捷操作。</value>
   </data>
   <data name="AutomationPage_QuickActions_Title" xml:space="preserve">
-    <value>快捷方式</value>
+    <value>快捷操作</value>
   </data>
   <data name="AutomationPage_RenamePipeline_Placeholder" xml:space="preserve">
     <value>点此输入名称</value>
@@ -421,7 +421,7 @@
     <value>显卡工作模式</value>
   </data>
   <data name="ContextMenu_QuickActions" xml:space="preserve">
-    <value>快捷方式</value>
+    <value>快捷操作</value>
   </data>
   <data name="Continue" xml:space="preserve">
     <value>继续</value>
@@ -670,6 +670,13 @@
   </data>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>锁定 Fn 键</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
+    <value>警告！
+一些笔记本可以使用更低的功耗限制，但【一定小心】，这个选项可能会导致未知后果！除非你了解【此选项的准确意义】，否则请保持这个选项为 0。</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
+    <value>最小功耗限制偏移量</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
     <value>警告！
@@ -1156,10 +1163,10 @@
     <value>保存中...</value>
   </data>
   <data name="SelectSmartKeyPipelinesWindow_List_Description" xml:space="preserve">
-    <value>选择单个或多个快捷方式来循环执行。</value>
+    <value>选择单个或多个快捷操作来循环执行。</value>
   </data>
   <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
-    <value>暂无快捷方式。</value>
+    <value>暂无快捷操作。</value>
   </data>
   <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
     <value>显示本应用</value>
@@ -1263,13 +1270,13 @@
     <value>电源计划</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
-    <value>选择双击 Fn + F9 触发的快捷方式。</value>
+    <value>选择双击 Fn + F9 触发的快捷操作。</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">
     <value>Smart Key 第二快捷动作</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
-    <value>选择单击 Fn + F9 触发的快捷方式。</value>
+    <value>选择单击 Fn + F9 触发的快捷操作。</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
     <value>Smart Key 快捷动作</value>
@@ -1751,5 +1758,14 @@
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>关闭</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
+	  <value>导入键盘背光主题。</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message" xml:space="preserve">
+	  <value>导入并应用键盘背光配置到当前的主题。</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
+	  <value>路径</value>
   </data>
 </root>

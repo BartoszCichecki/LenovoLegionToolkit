@@ -27,6 +27,7 @@ public class GodModeSettings : AbstractSettings<GodModeSettings.GodModeSettingsS
             public StepperValue? GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline { get; init; }
             public FanTable? FanTable { get; init; }
             public bool? FanFullSpeed { get; init; }
+            public int? MinValueOffset { get; init; }
             public int? MaxValueOffset { get; init; }
         }
 
@@ -71,6 +72,7 @@ public class GodModeSettings : AbstractSettings<GodModeSettings.GodModeSettingsS
                 GPUTemperatureLimit = legacyStore.GPUTemperatureLimit,
                 FanTable = legacyStore.FanTable,
                 FanFullSpeed = legacyStore.FanFullSpeed ?? false,
+                MinValueOffset = null,
                 MaxValueOffset = legacyStore.MaxValueOffset
             };
 

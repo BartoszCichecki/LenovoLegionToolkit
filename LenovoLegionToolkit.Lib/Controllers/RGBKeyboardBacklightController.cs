@@ -130,11 +130,26 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
                 var selectedPreset = state.SelectedPreset;
 
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Selected preset: {selectedPreset}");
+
                 LENOVO_RGB_KEYBOARD_STATE str;
                 if (selectedPreset == RGBKeyboardBacklightPreset.Off)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Creating off state.");
+
                     str = CreateOffState();
+                }
                 else
-                    str = Convert(state.Presets[selectedPreset]);
+                {
+                    var presetDescription = state.Presets[selectedPreset];
+
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Creating state: {presetDescription}");
+
+                    str = Convert(presetDescription);
+                }
 
                 await SendToDevice(str).ConfigureAwait(false);
             }
@@ -156,9 +171,26 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 _settings.Store.State = new(preset, presets);
                 _settings.SynchronizeStore();
 
-                var str = preset == RGBKeyboardBacklightPreset.Off
-                    ? CreateOffState()
-                    : Convert(state.Presets[preset]);
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Preset is {preset}.");
+
+                LENOVO_RGB_KEYBOARD_STATE str;
+                if (preset == RGBKeyboardBacklightPreset.Off)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Creating off state.");
+
+                    str = CreateOffState();
+                }
+                else
+                {
+                    var presetDescription = state.Presets[preset];
+
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Creating state: {presetDescription}");
+
+                    str = Convert(presetDescription);
+                }
 
                 await SendToDevice(str).ConfigureAwait(false);
             }
@@ -182,11 +214,26 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 _settings.Store.State = new(newPreset, presets);
                 _settings.SynchronizeStore();
 
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"New preset is {newPreset}.");
+
                 LENOVO_RGB_KEYBOARD_STATE str;
                 if (newPreset == RGBKeyboardBacklightPreset.Off)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Creating off state.");
+
                     str = CreateOffState();
+                }
                 else
-                    str = Convert(state.Presets[newPreset]);
+                {
+                    var presetDescription = state.Presets[newPreset];
+
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Creating state: {presetDescription}");
+
+                    str = Convert(presetDescription);
+                }
 
                 await SendToDevice(str).ConfigureAwait(false);
 
@@ -208,11 +255,26 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
                 var preset = state.SelectedPreset;
 
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Current preset is {preset}.");
+
                 LENOVO_RGB_KEYBOARD_STATE str;
                 if (preset == RGBKeyboardBacklightPreset.Off)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Creating off state.");
+
                     str = CreateOffState();
+                }
                 else
-                    str = Convert(state.Presets[preset]);
+                {
+                    var presetDescription = state.Presets[preset];
+
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Creating state: {presetDescription}");
+
+                    str = Convert(presetDescription);
+                }
 
                 await SendToDevice(str).ConfigureAwait(false);
             }

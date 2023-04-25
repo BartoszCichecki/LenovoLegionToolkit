@@ -667,12 +667,19 @@ Desde já, obrigado!</value>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Bloqueio da tecla Fn</value>
   </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
+    <value>AVISO!
+Alguns notebooks podem aceitar limites de energia menores do que indicado, mas tenha cuidado! Esta opção pode resultar em comportamentos imprevisíveis, então caso não tenha certeza do que está fazendo, deixe em 0.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
+    <value>Deslocamento mínimo</value>
+  </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
     <value>AVISO!
 Alguns notebooks podem aceitar limites de energia maiores do que indicado, mas tenha cuidado! Esta opção pode resultar em comportamentos imprevisíveis, então caso não tenha certeza do que está fazendo, deixe em 0.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
-    <value>Deslocamento do Limite de Potência Máximo (Power)</value>
+    <value>Deslocamento máximo</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>Não mude as opções abaixo caso você não saiba o que está fazendo.</value>
@@ -1732,10 +1739,25 @@ Esta configuração somente terá efeito se o Modo Personalizado estiver ativo.<
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Esta versão do Windows suporta o modo de espera moderno. Usar planos de energia diferentes do Balanceado pode causar comportamentos inesperados.</value>
   </data>
+  <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
+    <value>Selecione Planos de energia do Windows a serem aplicados quando o Modo de energia for alterado.</value>
+  </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Energia</value>
   </data>
+  <data name="SettingsPage_PowerPlansControlPanel_Title" xml:space="preserve">
+    <value>Opções do plano de energia no painel de controle do Windows</value>
+  </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Desligado</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
+	  <value>Importar perfil de iluminação do teclado</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message" xml:space="preserve">
+	  <value>Importar e aplicar iluminação do teclado no perfil atual.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
+	  <value>Caminho</value>
   </data>
 </root>

@@ -82,7 +82,8 @@ public partial class App
 
         var mainWindow = new MainWindow
         {
-            WindowStartupLocation = WindowStartupLocation.CenterScreen
+            WindowStartupLocation = WindowStartupLocation.CenterScreen,
+            TrayTooltipEnabled = !flags.DisableTrayTooltip
         };
         MainWindow = mainWindow;
 

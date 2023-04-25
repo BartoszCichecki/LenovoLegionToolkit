@@ -78,8 +78,9 @@ public partial class StatusTrayPopup
 
     private void Clear()
     {
-        _powerModePresetValueLabel.Content = null;
+        _powerModeValueLabel.Content = null;
         _powerModeValueIndicator.Fill = null;
+        _powerModePresetValueLabel.Content = null;
         _powerModePresetLabel.Visibility = Visibility.Collapsed;
         _powerModePresetValueLabel.Visibility = Visibility.Collapsed;
 

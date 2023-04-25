@@ -668,13 +668,6 @@ Merci par avance !</value>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Verrouillage de Fn</value>
   </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>ATTENTION !
-Certaines machines peuvent accepter des limites de puissance supérieures à ce qu'ils indiquent, mais soyez prudents. Cette option peut engendrer un comportement imprévisible, si vous n'êtes pas sûr de ce que vous faites, laissez cette valeur à 0. </value>
-  </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
-    <value>Offset de la limite de puissance maximale</value>
-  </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>Ne modifiez pas les options ci-dessous à moins que vous ne sachiez vraiment ce que vous faites.</value>
   </data>
@@ -1743,6 +1736,6 @@ Ce paramètre ne prend effet que lorsque le mode personnalisé est activé.</val
     <value>Options du mode de gestion d'alimentation dans le panneau de configuration de Windows</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
-    <value>Désactiver</value>
+    <value>Désactivé</value>
   </data>
 </root>

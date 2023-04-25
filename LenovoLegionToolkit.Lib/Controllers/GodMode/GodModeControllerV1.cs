@@ -467,6 +467,7 @@ public class GodModeControllerV1 : AbstractGodModeController
             GPUTemperatureLimit = await GetGPUTemperatureLimitAsync().OrNull().ConfigureAwait(false),
             FanTableInfo = fanTableData is null ? null : new FanTableInfo(fanTableData, FanTable.Default),
             FanFullSpeed = await GetFanFullSpeedAsync().ConfigureAwait(false),
+            MinValueOffset = 0,
             MaxValueOffset = 0
         };
 

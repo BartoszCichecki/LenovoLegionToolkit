@@ -1907,7 +1907,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to WARNING!
-        ///Some laptops may accept higher power limits than they indicate, but be careful. This option may result in unpredictable behavior, so if you are not sure what are you doing, leave this at 0..
+        ///Some laptops may accept higher values than they indicate, but be careful. This option may result in unpredictable behavior, so if you are not sure what are you doing, leave this at 0..
         /// </summary>
         public static string GodModeSettingsWindow_Advanced_MaxOffset_Message {
             get {
@@ -1916,7 +1916,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Maximum Power Limit offset.
+        ///   Looks up a localized string similar to Maximum offset.
         /// </summary>
         public static string GodModeSettingsWindow_Advanced_MaxOffset_Title {
             get {
@@ -1930,6 +1930,25 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string GodModeSettingsWindow_Advanced_Message {
             get {
                 return ResourceManager.GetString("GodModeSettingsWindow_Advanced_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WARNING!
+        ///Some laptops may accept lower values than they indicate, but be careful. This option may result in unpredictable behavior, so if you are not sure what are you doing, leave this at 0..
+        /// </summary>
+        public static string GodModeSettingsWindow_Advanced_MinOffset_Message {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_Advanced_MinOffset_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimum offset.
+        /// </summary>
+        public static string GodModeSettingsWindow_Advanced_MinOffset_Title {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_Advanced_MinOffset_Title", resourceCulture);
             }
         }
         
@@ -4378,6 +4397,33 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string SpectrumKeyboardBacklightEditEffectWindow_Title_Edit {
             get {
                 return ResourceManager.GetString("SpectrumKeyboardBacklightEditEffectWindow_Title_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Import and apply backlight configuration to the current profile..
+        /// </summary>
+        public static string SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Path.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Import keyboard backlight profile.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title", resourceCulture);
             }
         }
         

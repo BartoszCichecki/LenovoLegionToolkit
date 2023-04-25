@@ -23,6 +23,8 @@ public partial class MainWindow
 
     private readonly ContextMenuHelper _contextMenuHelper = new();
 
+    public bool TrayTooltipEnabled { get; init; } = true;
+
     public bool SuppressClosingEventHandler { get; set; }
 
     public Snackbar Snackbar => _snackbar;
@@ -54,29 +56,18 @@ public partial class MainWindow
 
         _trayIcon.ToolTipText = Resource.AppName;
 
-        _trayIcon.PreviewTrayToolTipOpen += (_, _) =>
+        if (TrayTooltipEnabled)
         {
-            _trayIcon.TrayToolTip ??= new StatusTrayPopup();
-            _trayIcon.TrayToolTipResolved.Style = null;
-            _trayIcon.TrayToolTipResolved.VerticalOffset = -8;
-        };
+            _trayIcon.PreviewTrayToolTipOpen += (_, _) =>
+            {
+                _trayIcon.TrayToolTip ??= new StatusTrayPopup();
+                _trayIcon.TrayToolTipResolved.Style = null;
+                _trayIcon.TrayToolTipResolved.VerticalOffset = -8;
+            };
+        }
 
-        _trayIcon.PreviewTrayContextMenuOpen += (_, _) =>
-        {
-            if (_trayIcon.TrayToolTipResolved is { IsOpen: true } tooltip)
-                tooltip.IsOpen = false;
-
-            _trayIcon.ContextMenu ??= _contextMenuHelper.ContextMenu;
-        };
-
-        _trayIcon.TrayLeftMouseUp += (_, _) =>
-        {
-            if (_trayIcon.TrayToolTipResolved is { IsOpen: true } tooltip)
-                tooltip.IsOpen = false;
-
-            BringToForeground();
-        };
-
+        _trayIcon.PreviewTrayContextMenuOpen += (_, _) => _trayIcon.ContextMenu ??= _contextMenuHelper.ContextMenu;
+        _trayIcon.TrayLeftMouseUp += (_, _) => BringToForeground();
         _trayIcon.NoLeftClickDelay = true;
     }
 

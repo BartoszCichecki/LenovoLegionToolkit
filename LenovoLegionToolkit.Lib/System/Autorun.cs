@@ -94,6 +94,7 @@ public static class Autorun
         td.Actions.Add($"\"{filename}\"", "--minimized");
         td.Settings.DisallowStartIfOnBatteries = false;
         td.Settings.StopIfGoingOnBatteries = false;
+        td.Settings.ExecutionTimeLimit = TimeSpan.Zero;
         ts.RootFolder.RegisterTaskDefinition(TASK_NAME, td);
 
         if (Log.Instance.IsTraceEnabled)

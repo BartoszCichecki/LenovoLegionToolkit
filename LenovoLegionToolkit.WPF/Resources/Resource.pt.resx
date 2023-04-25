@@ -664,13 +664,6 @@ Obrigado desde já!</value>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Fn Lock</value>
   </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>ATENÇÃO!
-Alguns portáteis podem aceitar limites de energia maiores do que indicam, mas tem cuidado. Esta opção pode resultar num comportamento desconhecido, portanto se não tiveres a certeza do que estás a fazer, deixa isto em 0.</value>
-  </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
-    <value>Offset do limite de energia máximo </value>
-  </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>Não alteres as opções abaixo a menos que saibas mesmo o que estás a fazer.</value>
   </data>

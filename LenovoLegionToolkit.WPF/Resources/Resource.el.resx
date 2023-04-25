@@ -664,13 +664,6 @@
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Κλείδωμα Fn</value>
   </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>ΠΡΟΕΙΔΟΠΟΙΗΣΗ!
-Ορισμένοι υπολογιστές ενδέχεται να δέχονται υψηλότερα όρια ισχύος από αυτά που υποδεικνύουν, αλλά να είστε προσεκτικοί. Αυτή η επιλογή μπορεί να οδηγήσει σε απρόβλεπτη συμπεριφορά, οπότε αν δεν είστε σίγουροι τι κάνετε, αφήστε τη στο 0.</value>
-  </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
-    <value>Μετατόπιση ορίου μέγιστης ισχύος</value>
-  </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>Μην αλλάξετε τις παρακάτω επιλογές εκτός και αν γνωρίζετε πραγματικά τι κάνετε.</value>
   </data>

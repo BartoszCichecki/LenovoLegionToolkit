@@ -667,13 +667,6 @@ Mulțumesc anticipat!</value>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Blocare Fn</value>
   </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>ATENȚIE!
-Unele laptop-uri pot accepta limite de putere mai mari decât indică, dar aveți grijă. Această opțiune poate duce la un comportament imprevizibil, așa că dacă nu știți ce faceți, lăsați setarea pe 0.</value>
-  </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
-    <value>Ridicare limită maximă de putere</value>
-  </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>Nu modificați opțiunile de mai jos decât dacă știți cu adevărat ce faceți.</value>
   </data>

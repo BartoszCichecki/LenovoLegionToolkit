@@ -667,13 +667,6 @@ Xin chân thành cảm ơn!</value>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Khóa phím Fn</value>
   </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>CẢNH BÁO!
-Một số laptop có thể nhận mức TDP cao hơn cho phép, nhưng hãy cẩn thận. Chức năng có thể dẫn đến laptop hoạt động không ổn định. Nếu bạn không biết bạn đang làm gì, giữ nguyên giá trị này tại 0.</value>
-  </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
-    <value>Offset cho TDP</value>
-  </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>KHÔNG THAY ĐỔI BẤT CỨ GIÁ TRỊ NÀO DƯỚI ĐÂY NẾU BẠN KHÔNG BIẾT CÔNG DỤNG CỦA CHÚNG!</value>
   </data>

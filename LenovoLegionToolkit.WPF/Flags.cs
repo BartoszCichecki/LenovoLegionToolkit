@@ -11,6 +11,7 @@ public class Flags
     public bool IsTraceEnabled { get; }
     public bool Minimized { get; }
     public bool SkipCompatibilityCheck { get; }
+    public bool DisableTrayTooltip { get; }
     public bool AllowAllPowerModesOnBattery { get; }
     public bool ForceDisableRgbKeyboardSupport { get; }
     public bool ForceDisableSpectrumKeyboardSupport { get; }
@@ -22,6 +23,7 @@ public class Flags
         IsTraceEnabled = args.Contains("--trace");
         Minimized = args.Contains("--minimized");
         SkipCompatibilityCheck = args.Contains("--skip-compat-check");
+        DisableTrayTooltip = args.Contains("--disable-tray-tooltip");
         AllowAllPowerModesOnBattery = args.Contains("--allow-all-power-modes-on-battery");
         ForceDisableRgbKeyboardSupport = args.Contains("--force-disable-rgbkb");
         ForceDisableSpectrumKeyboardSupport = args.Contains("--force-disable-spectrumkb");

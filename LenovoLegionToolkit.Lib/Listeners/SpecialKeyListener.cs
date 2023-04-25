@@ -150,7 +150,7 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
 
             await _refreshRateFeature.SetStateAsync(next).ConfigureAwait(false);
 
-            _ = Task.Delay(TimeSpan.FromSeconds(2)).ContinueWith(_ =>
+            _ = Task.Delay(TimeSpan.FromSeconds(1)).ContinueWith(_ =>
             {
                 MessagingCenter.Publish(new Notification(NotificationType.RefreshRate, NotificationDuration.Long, next.DisplayName));
             });
