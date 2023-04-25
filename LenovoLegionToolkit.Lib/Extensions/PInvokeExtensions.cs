@@ -26,6 +26,8 @@ public static class PInvokeExtensions
     public const uint VARIABLE_ATTRIBUTE_NON_VOLATILE = 1;
     public const uint VARIABLE_ATTRIBUTE_RUNTIME_ACCESS = 7;
 
+    public const uint DEVICE_NOTIFY_CALLBACK = 2;
+
     public static unsafe bool DeviceIoControl<TIn, TOut>(SafeFileHandle hDevice, uint dwIoControlCode, TIn inVal, out TOut outVal) where TIn : struct where TOut : struct
     {
         var lpInBuffer = IntPtr.Zero;
