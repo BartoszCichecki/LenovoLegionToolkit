@@ -51,12 +51,12 @@ public partial class GodModeSettingsWindow
             _vantageRunningWarningInfoBar.Visibility = await _godModeController.NeedsVantageDisabledAsync()
                                                        && await _vantage.GetStatusAsync() == SoftwareStatus.Enabled
                 ? Visibility.Visible
-                : Visibility.Collapsed;
+                : Visibility.Visible;
 
             _legionZoneRunningWarningInfoBar.Visibility = await _godModeController.NeedsLegionZoneDisabledAsync()
                                                           && await _legionZone.GetStatusAsync() == SoftwareStatus.Enabled
                 ? Visibility.Visible
-                : Visibility.Collapsed;
+                : Visibility.Visible;
 
             _state = await _godModeController.GetStateAsync();
             _defaults = await _godModeController.GetDefaultsInOtherPowerModesAsync();
@@ -468,15 +468,5 @@ public partial class GodModeSettingsWindow
     private void FanFullSpeedToggle_Click(object sender, RoutedEventArgs e)
     {
         _fanCurveCardControl.IsEnabled = !(_fanFullSpeedToggle.IsChecked ?? false);
-    }
-
-    private void VantageRunningWarningInfoBarDismissButton_Click(object sender, RoutedEventArgs e)
-    {
-        _vantageRunningWarningInfoBar.Visibility = Visibility.Collapsed;
-    }
-
-    private void LegionZoneRunningWarningInfoBarDismissButton_Click(object sender, RoutedEventArgs e)
-    {
-        _legionZoneRunningWarningInfoBar.Visibility = Visibility.Collapsed;
     }
 }
