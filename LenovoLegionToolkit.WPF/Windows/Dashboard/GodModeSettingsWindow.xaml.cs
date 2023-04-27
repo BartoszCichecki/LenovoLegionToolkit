@@ -51,12 +51,12 @@ public partial class GodModeSettingsWindow
             _vantageRunningWarningInfoBar.Visibility = await _godModeController.NeedsVantageDisabledAsync()
                                                        && await _vantage.GetStatusAsync() == SoftwareStatus.Enabled
                 ? Visibility.Visible
-                : Visibility.Visible;
+                : Visibility.Collapsed;
 
             _legionZoneRunningWarningInfoBar.Visibility = await _godModeController.NeedsLegionZoneDisabledAsync()
                                                           && await _legionZone.GetStatusAsync() == SoftwareStatus.Enabled
                 ? Visibility.Visible
-                : Visibility.Visible;
+                : Visibility.Collapsed;
 
             _state = await _godModeController.GetStateAsync();
             _defaults = await _godModeController.GetDefaultsInOtherPowerModesAsync();
