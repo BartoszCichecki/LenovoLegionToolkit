@@ -684,10 +684,7 @@ public readonly struct SpectrumKeyboardBacklightEffect
         Direction = direction;
         ClockwiseDirection = clockwiseDirection;
         Colors = colors;
-        Keys = keys;
-
-        if (Type.IsAllLightsEffect())
-            Keys = Array.Empty<ushort>();
+        Keys = type.IsAllLightsEffect() ? Array.Empty<ushort>() : keys;
     }
 }
 
