@@ -695,15 +695,18 @@ public class SpectrumKeyboardBacklightController
 
     private static SpectrumKeyboardBacklightEffect[] Compress(SpectrumKeyboardBacklightEffect[] effects)
     {
-        if (effects.Any(e => e.Keys.All))
-            return new[] { effects.Last(e => e.Keys.All) };
+        if (effects.Any(e => e.Type.IsAllLightsEffect()))
+            return new[] { effects.Last(e => e.Type.IsAllLightsEffect()) };
 
         var usedKeyCodes = new HashSet<ushort>();
         var newEffects = new List<SpectrumKeyboardBacklightEffect>();
 
         foreach (var effect in effects.Reverse())
         {
-            var newKeyCodes = effect.Keys.KeyCodes.Except(usedKeyCodes).ToArray();
+            if (effect.Type.IsWholeKeyboardEffect() && usedKeyCodes.Intersect(effect.Keys).Any())
+                continue;
+
+            var newKeyCodes = effect.Keys.Except(usedKeyCodes).ToArray();
 
             foreach (var keyCode in newKeyCodes)
                 usedKeyCodes.Add(keyCode);
@@ -716,11 +719,12 @@ public class SpectrumKeyboardBacklightController
                 effect.Direction,
                 effect.ClockwiseDirection,
                 effect.Colors,
-                SpectrumKeyboardBacklightKeys.SomeKeys(newKeyCodes));
+                newKeyCodes);
 
             newEffects.Add(newEffect);
         }
 
+        newEffects.Reverse();
         return newEffects.ToArray();
     }
 
@@ -777,11 +781,9 @@ public class SpectrumKeyboardBacklightController
 
         var colors = effect.Colors.Select(c => new RGBColor(c.R, c.G, c.B)).ToArray();
 
-        SpectrumKeyboardBacklightKeys keys;
+        var keys = effect.KeyCodes;
         if (effect.KeyCodes.Length == 1 && effect.KeyCodes[0] == 0x65)
-            keys = SpectrumKeyboardBacklightKeys.AllKeys();
-        else
-            keys = SpectrumKeyboardBacklightKeys.SomeKeys(effect.KeyCodes);
+            keys = Array.Empty<ushort>();
 
         return new(effectType, speed, direction, clockwiseDirection, colors, keys);
     }
@@ -860,7 +862,7 @@ public class SpectrumKeyboardBacklightController
 
         var header = new LENOVO_SPECTRUM_EFFECT_HEADER(effectType, speed, direction, clockwiseDirection, colorMode);
         var colors = effect.Colors.Select(c => new LENOVO_SPECTRUM_COLOR(c.R, c.G, c.B)).ToArray();
-        var keys = effect.Keys.All ? new ushort[] { 0x65 } : effect.Keys.KeyCodes;
+        var keys = effect.Type.IsAllLightsEffect() ? new ushort[] { 0x65 } : effect.Keys;
         var result = new LENOVO_SPECTRUM_EFFECT(header, index + 1, colors, keys);
         return result;
     }
