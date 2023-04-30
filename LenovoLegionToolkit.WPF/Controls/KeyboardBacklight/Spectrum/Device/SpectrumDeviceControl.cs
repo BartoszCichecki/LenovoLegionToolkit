@@ -52,5 +52,13 @@ public class SpectrumDeviceControl : UserControl
         GetButtons().Where(b => b.Visibility == Visibility.Visible);
 
     private IEnumerable<SpectrumZoneControl> GetButtons() =>
-        this.GetVisibleChildrenOfType<SpectrumZoneControl>().Where(b => b.KeyCode > 0);
+        this.GetVisibleChildrenOfType<SpectrumZoneControl>()
+            .Where(b => b.KeyCode > 0);
+
+    public IEnumerable<SpectrumZoneControl> GetVisibleKeyboardButtons() =>
+        GetKeyboardButtons().Where(b => b.Visibility == Visibility.Visible);
+
+    private IEnumerable<SpectrumZoneControl> GetKeyboardButtons() =>
+        this.GetVisibleChildrenOfType<SpectrumZoneControl>()
+            .Where(b => b.KeyCode is > 0 and < 0x100);
 }

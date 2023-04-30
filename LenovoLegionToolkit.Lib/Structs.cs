@@ -663,22 +663,6 @@ public readonly struct Resolution : IDisplayName, IEquatable<Resolution>, ICompa
 
 }
 
-public readonly struct SpectrumKeyboardBacklightKeys
-{
-    public bool All { get; }
-    public ushort[] KeyCodes { get; }
-
-    [JsonConstructor]
-    private SpectrumKeyboardBacklightKeys(bool all, ushort[] keyCodes)
-    {
-        All = all;
-        KeyCodes = keyCodes;
-    }
-
-    public static SpectrumKeyboardBacklightKeys AllKeys() => new(true, Array.Empty<ushort>());
-    public static SpectrumKeyboardBacklightKeys SomeKeys(ushort[] keyCodes) => new(false, keyCodes);
-}
-
 public readonly struct SpectrumKeyboardBacklightEffect
 {
     public SpectrumKeyboardBacklightEffectType Type { get; }
@@ -686,21 +670,21 @@ public readonly struct SpectrumKeyboardBacklightEffect
     public SpectrumKeyboardBacklightDirection Direction { get; }
     public SpectrumKeyboardBacklightClockwiseDirection ClockwiseDirection { get; }
     public RGBColor[] Colors { get; }
-    public SpectrumKeyboardBacklightKeys Keys { get; }
+    public ushort[] Keys { get; }
 
     public SpectrumKeyboardBacklightEffect(SpectrumKeyboardBacklightEffectType type,
         SpectrumKeyboardBacklightSpeed speed,
         SpectrumKeyboardBacklightDirection direction,
         SpectrumKeyboardBacklightClockwiseDirection clockwiseDirection,
         RGBColor[] colors,
-        SpectrumKeyboardBacklightKeys keys)
+        ushort[] keys)
     {
         Type = type;
         Speed = speed;
         Direction = direction;
         ClockwiseDirection = clockwiseDirection;
         Colors = colors;
-        Keys = keys;
+        Keys = type.IsAllLightsEffect() ? Array.Empty<ushort>() : keys;
     }
 }
 
