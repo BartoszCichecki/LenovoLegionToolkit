@@ -23,10 +23,10 @@ public partial class SpectrumKeyboardEffectControl
         _cardHeaderControl.Title = effect.Type.GetDisplayName();
 
         var subtitle = string.Empty;
-        if (effect.Keys.All)
+        if (effect.Type.IsAllLightsEffect())
             subtitle += Resource.SpectrumKeyboardEffectControl_Description_AllZones;
         else
-            subtitle += string.Format(Resource.SpectrumKeyboardEffectControl_Description_Zones, effect.Keys.KeyCodes.Length);
+            subtitle += string.Format(Resource.SpectrumKeyboardEffectControl_Description_Zones, effect.Keys.Length);
         _cardHeaderControl.Subtitle = subtitle;
     }
 

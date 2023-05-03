@@ -469,14 +469,4 @@ public partial class GodModeSettingsWindow
     {
         _fanCurveCardControl.IsEnabled = !(_fanFullSpeedToggle.IsChecked ?? false);
     }
-
-    private void VantageRunningWarningInfoBarDismissButton_Click(object sender, RoutedEventArgs e)
-    {
-        _vantageRunningWarningInfoBar.Visibility = Visibility.Collapsed;
-    }
-
-    private void LegionZoneRunningWarningInfoBarDismissButton_Click(object sender, RoutedEventArgs e)
-    {
-        _legionZoneRunningWarningInfoBar.Visibility = Visibility.Collapsed;
-    }
 }

@@ -13,12 +13,14 @@ namespace LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum;
 public partial class SpectrumKeyboardBacklightEditEffectWindow
 {
     private readonly ushort[] _keyCodes;
+    private readonly ushort[] _allKeyboardKeyCodes;
 
     public event EventHandler<SpectrumKeyboardBacklightEffect>? Apply;
 
-    public SpectrumKeyboardBacklightEditEffectWindow(ushort[] keyCodes)
+    public SpectrumKeyboardBacklightEditEffectWindow(ushort[] keyCodes, ushort[] allKeyboardKeyCodes)
     {
         _keyCodes = keyCodes;
+        _allKeyboardKeyCodes = allKeyboardKeyCodes;
 
         InitializeComponent();
 
@@ -28,9 +30,10 @@ public partial class SpectrumKeyboardBacklightEditEffectWindow
         RefreshVisibility();
     }
 
-    public SpectrumKeyboardBacklightEditEffectWindow(SpectrumKeyboardBacklightEffect effect, ushort[] keyCodes)
+    public SpectrumKeyboardBacklightEditEffectWindow(SpectrumKeyboardBacklightEffect effect, ushort[] keyCodes, ushort[] allKeyboardKeyCodes)
     {
-        _keyCodes = effect.Keys.All ? keyCodes : effect.Keys.KeyCodes;
+        _keyCodes = effect.Type.IsAllLightsEffect() ? keyCodes : effect.Keys;
+        _allKeyboardKeyCodes = allKeyboardKeyCodes;
 
         InitializeComponent();
 
@@ -78,9 +81,12 @@ public partial class SpectrumKeyboardBacklightEditEffectWindow
         if (_multiColors.Visibility == Visibility.Visible)
             colors = _multiColorPicker.SelectedColors.Select(c => c.ToRGBColor()).ToArray();
 
-        var keys = IsWholeKeyboardEffect(effectType)
-            ? SpectrumKeyboardBacklightKeys.AllKeys()
-            : SpectrumKeyboardBacklightKeys.SomeKeys(_keyCodes);
+        var keys = _keyCodes;
+
+        if (effectType.IsAllLightsEffect())
+            keys = Array.Empty<ushort>();
+        if (effectType.IsWholeKeyboardEffect())
+            keys = _allKeyboardKeyCodes;
 
         var effect = new SpectrumKeyboardBacklightEffect(effectType,
             speed,
@@ -172,7 +178,7 @@ public partial class SpectrumKeyboardBacklightEditEffectWindow
         if (!_effectTypeComboBox.TryGetSelectedItem(out SpectrumKeyboardBacklightEffectType effect))
             return;
 
-        _effectTypeCardHeader.Warning = IsWholeKeyboardEffect(effect)
+        _effectTypeCardHeader.Warning = effect.IsAllLightsEffect() || effect.IsWholeKeyboardEffect()
             ? Resource.SpectrumKeyboardBacklightEditEffectWindow_Effect_Warning
             : string.Empty;
 
@@ -221,13 +227,4 @@ public partial class SpectrumKeyboardBacklightEditEffectWindow
             _ => Visibility.Collapsed
         };
     }
-
-    private static bool IsWholeKeyboardEffect(SpectrumKeyboardBacklightEffectType effectType) => effectType switch
-    {
-        SpectrumKeyboardBacklightEffectType.AudioBounce => true,
-        SpectrumKeyboardBacklightEffectType.AudioRipple => true,
-        SpectrumKeyboardBacklightEffectType.Ripple => true,
-        SpectrumKeyboardBacklightEffectType.AuroraSync => true,
-        _ => false
-    };
 }
