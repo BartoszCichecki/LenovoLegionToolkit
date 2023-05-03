@@ -930,7 +930,7 @@ Eger de tolıq ekranlı baǵdarlamalar menen mashqalalar bolsa, bul varianttı q
     <value>Júklew juwmaqlandı</value>
   </data>
   <data name="PackageControl_GeneralError_Title" xml:space="preserve">
-    <value>Qanday da bir qátelik boldı</value>
+    <value>Qátelik júz berdi</value>
   </data>
   <data name="PackageControl_Http404Error_Message" xml:space="preserve">
     <value>Server 404 qátelik kodın qaytardı.</value>
@@ -942,7 +942,7 @@ Eger de tolıq ekranlı baǵdarlamalar menen mashqalalar bolsa, bul varianttı q
     <value>Internet baylanısı islep turǵanın tekseriń.</value>
   </data>
   <data name="PackageControl_HttpGeneralError_Title" xml:space="preserve">
-    <value>Qanday da bir qátelik boldı</value>
+    <value>Qátelik júz berdi</value>
   </data>
   <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
     <value>Jańalanıw bar!</value>
@@ -961,7 +961,7 @@ Durıs paketlerdi ornatıp atırǵanıńızǵa isenim kámil etiń.</value>
     <value>Qurılma modeliniń túri hám OS durıs kórsetilgenin tekseriń.</value>
   </data>
   <data name="PackagesPage_DownloadFailed_Title" xml:space="preserve">
-    <value>Qanday da bir qátelik boldı</value>
+    <value>Qátelik júz berdi</value>
   </data>
   <data name="PackagesPage_DownloadInProgress_Message" xml:space="preserve">
     <value>Sortlawdı ózgertiw, nátiyjelerdi filtrlew, paketlerdi jasırıw yamasa dizimdi jańalaw júklep alıwdı toqtatadı. Dawam etiwdi qáleysiz be?</value>
