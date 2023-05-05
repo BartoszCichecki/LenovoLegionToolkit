@@ -158,9 +158,6 @@ Esta opción está pensada sólo para dispositivos que no vienen con múltiples 
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Activar siempre el plan de energía de Windows</value>
   </data>
-  <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>Cargar dispositivos USB, cuando el equipo esté apagado o en modo de suspensión/ hibernación.</value>
-  </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>USB siempre encendido</value>
   </data>
@@ -1069,9 +1066,6 @@ Puede cambiar de modo con Fn+Q.</value>
   </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Ajustar la retroiluminación predefinida del teclado. </value>
-  </data>
-  <data name="RGBKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
-    <value>Retroiluminación  del teclado</value>
   </data>
   <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
     <value>Brillo</value>
