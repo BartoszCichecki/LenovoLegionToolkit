@@ -61,10 +61,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         _consoleDisplayStateNotificationHandle = RegisterPowerNotification(PInvoke.GUID_CONSOLE_DISPLAY_STATE);
         _lidSwitchStateChangeNotificationHandle = RegisterPowerNotification(PInvoke.GUID_LIDSWITCH_STATE_CHANGE);
 
-        return Task.WhenAll(
-            _isMonitorOnTaskCompletionSource.Task,
-            _isLidOpenTaskCompletionSource.Task
-        );
+        return WaitForInit();
     }
 
     public unsafe Task StopAsync()
@@ -177,6 +174,23 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         }
 
         base.WndProc(ref m);
+    }
+
+    private async Task WaitForInit()
+    {
+        var delayTask = Task.Delay(TimeSpan.FromSeconds(3));
+        var task = Task.WhenAll(
+            _isMonitorOnTaskCompletionSource.Task,
+            _isLidOpenTaskCompletionSource.Task
+        );
+
+        var completed = await Task.WhenAny(task, delayTask).ConfigureAwait(false);
+
+        if (completed == delayTask)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Delay expired, state might be inconsistent! [IsMonitorOn={IsMonitorOn}, IsLidOpen={IsLidOpen}]");
+        }
     }
 
     private void OnMonitorOn()
