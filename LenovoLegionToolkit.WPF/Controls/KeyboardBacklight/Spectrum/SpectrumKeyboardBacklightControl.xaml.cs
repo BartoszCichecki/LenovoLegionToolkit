@@ -82,7 +82,7 @@ public partial class SpectrumKeyboardBacklightControl
         if (!IsLoaded || !IsVisible)
             return;
 
-        if (!await _controller.IsSupportedAsync().ConfigureAwait(false))
+        if (!await _controller.IsSupportedAsync())
             return;
 
         if (await _vantage.GetStatusAsync() == SoftwareStatus.Enabled)
