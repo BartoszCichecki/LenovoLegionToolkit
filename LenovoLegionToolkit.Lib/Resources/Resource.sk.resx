@@ -91,12 +91,6 @@
   <data name="BatteryState_RapidCharge" xml:space="preserve">
     <value>Rýchle nabíjanie</value>
   </data>
-  <data name="GPUController_PoweredOff" xml:space="preserve">
-    <value>Vypnutý</value>
-  </data>
-  <data name="GPUController_PoweredOn" xml:space="preserve">
-    <value>Zapnuté</value>
-  </data>
   <data name="HybridModeState_Off" xml:space="preserve">
     <value>dGPU</value>
   </data>
