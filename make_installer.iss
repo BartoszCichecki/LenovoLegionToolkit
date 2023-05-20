@@ -40,7 +40,8 @@ end;
 
 [Languages]
 Name: "en";      MessagesFile: "compiler:Default.isl"
-Name: "ptbr";    MessagesFile: "compiler:Languages\BrazilianPortuguese.isl" 
+Name: "ptbr";    MessagesFile: "compiler:Languages\BrazilianPortuguese.isl"
+Name: "bg";      MessagesFile: "compiler:Languages\Bulgarian.isl" 
 Name: "cs";      MessagesFile: "compiler:Languages\Czech.isl" 
 Name: "nlnl";    MessagesFile: "compiler:Languages\Dutch.isl"
 Name: "fr";      MessagesFile: "compiler:Languages\French.isl"

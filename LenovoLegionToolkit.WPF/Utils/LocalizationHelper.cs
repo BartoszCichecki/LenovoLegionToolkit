@@ -24,6 +24,7 @@ public static class LocalizationHelper
     public static readonly CultureInfo[] Languages = {
         DefaultLanguage,
         new("ar"),
+        new("bg"),
         new("cs"),
         new("de"),
         new("el"),
