@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using Humanizer;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
@@ -60,13 +59,11 @@ public partial class SettingsPage
 
         var loadingTask = Task.Delay(TimeSpan.FromMilliseconds(500));
 
-        var languages = LocalizationHelper.Languages.OrderBy(ci => ci.Name, StringComparer.InvariantCultureIgnoreCase).ToArray();
+        var languages = LocalizationHelper.Languages.OrderBy(LocalizationHelper.LanguageDisplayName, StringComparer.InvariantCultureIgnoreCase).ToArray();
         var language = await LocalizationHelper.GetLanguageAsync();
         if (languages.Length > 1)
         {
-            _langComboBox.SetItems(languages,
-                language,
-                cc => LocalizationHelper.ForceLeftToRight(cc.NativeName.Transform(cc, To.TitleCase)));
+            _langComboBox.SetItems(languages, language, LocalizationHelper.LanguageDisplayName);
             _langComboBox.Visibility = Visibility.Visible;
         }
         else

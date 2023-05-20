@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using Humanizer;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Windows.Utils;
@@ -39,6 +40,8 @@ public static class LocalizationHelper
         new("uk"),
         new("vi"),
         new("zh-hans"),
+        // HACK: Karakalpak is not a recognized culture by msbuild, so we use this one as workaround instead.
+        new("uz-latn-uz")
     };
 
     public static FlowDirection Direction => Resource.Culture?.TextInfo.IsRightToLeft ?? false
@@ -57,6 +60,16 @@ public static class LocalizationHelper
             _dateFormat = GetSystemShortDateFormat() ?? "dd/M/yyyy";
             return _dateFormat;
         }
+    }
+
+    public static string LanguageDisplayName(CultureInfo culture)
+    {
+        var name = culture.NativeName.Transform(culture, To.TitleCase);
+
+        if (culture.IetfLanguageTag.Equals("uz-latn-uz", StringComparison.InvariantCultureIgnoreCase))
+            name = "Karakalpak";
+
+        return ForceLeftToRight(name);
     }
 
     public static string ForceLeftToRight(string str)
