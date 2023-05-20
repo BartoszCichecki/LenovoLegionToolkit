@@ -58,4 +58,235 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccentColorSource_Custom" xml:space="preserve">
+    <value>Избран от потребителя</value>
+  </data>
+  <data name="AccentColorSource_System" xml:space="preserve">
+    <value>Системен</value>
+  </data>
+  <data name="AlwaysOnUSBState_Off" xml:space="preserve">
+    <value>Изключен</value>
+  </data>
+  <data name="AlwaysOnUSBState_OnAlways" xml:space="preserve">
+    <value>Включен, винаги</value>
+  </data>
+  <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
+    <value>Включен, в режим на заспиване</value>
+  </data>
+  <data name="AutorunState_Disabled" xml:space="preserve">
+    <value>Деактивиран</value>
+  </data>
+  <data name="AutorunState_Enabled" xml:space="preserve">
+    <value>Активиран</value>
+  </data>
+  <data name="AutorunState_EnabledDelayed" xml:space="preserve">
+    <value>Активиран, със закъснение</value>
+  </data>
+  <data name="BatteryState_Conservation" xml:space="preserve">
+    <value>Запазване на енергия</value>
+  </data>
+  <data name="BatteryState_Normal" xml:space="preserve">
+    <value>Обикновен</value>
+  </data>
+  <data name="BatteryState_RapidCharge" xml:space="preserve">
+    <value>Бързо зареждане</value>
+  </data>
+  <data name="GPUController_PoweredOff" xml:space="preserve">
+    <value>Изключен</value>
+  </data>
+  <data name="GPUController_PoweredOn" xml:space="preserve">
+    <value>Включен</value>
+  </data>
+  <data name="HybridModeState_Off" xml:space="preserve">
+    <value>Допълнителна видео карта</value>
+  </data>
+  <data name="HybridModeState_On" xml:space="preserve">
+    <value>Хибриден</value>
+  </data>
+  <data name="HybridModeState_OnAuto" xml:space="preserve">
+    <value>Хибриден - автоматичен</value>
+  </data>
+  <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
+    <value>Hybrid-iGPU</value>
+  </data>
+  <data name="NotificationPosition_BottomCenter" xml:space="preserve">
+    <value>Долу в средата</value>
+  </data>
+  <data name="NotificationPosition_BottomLeft" xml:space="preserve">
+    <value>Долу вляво</value>
+  </data>
+  <data name="NotificationPosition_BottomRight" xml:space="preserve">
+    <value>Долу вдясно</value>
+  </data>
+  <data name="NotificationPosition_Center" xml:space="preserve">
+    <value>По средата</value>
+  </data>
+  <data name="NotificationPosition_CenterLeft" xml:space="preserve">
+    <value>Вляво от средата</value>
+  </data>
+  <data name="NotificationPosition_CenterRight" xml:space="preserve">
+    <value>Вдясно от средата</value>
+  </data>
+  <data name="NotificationPosition_TopCenter" xml:space="preserve">
+    <value>Горе в средата</value>
+  </data>
+  <data name="NotificationPosition_TopLeft" xml:space="preserve">
+    <value>Горе вляво</value>
+  </data>
+  <data name="NotificationPosition_TopRight" xml:space="preserve">
+    <value>Горе вдясно</value>
+  </data>
+  <data name="PowerModeState_Balance" xml:space="preserve">
+    <value>Балансиран</value>
+  </data>
+  <data name="PowerModeState_GodMode" xml:space="preserve">
+    <value>Избран от потребителя</value>
+  </data>
+  <data name="PowerModeState_Performance" xml:space="preserve">
+    <value>Производителен</value>
+  </data>
+  <data name="PowerModeState_Quiet" xml:space="preserve">
+    <value>Тих</value>
+  </data>
+  <data name="RBGKeyboardBacklightSpeed_Fast" xml:space="preserve">
+    <value>Бърза</value>
+  </data>
+  <data name="RBGKeyboardBacklightSpeed_Fastest" xml:space="preserve">
+    <value>Най-бърза</value>
+  </data>
+  <data name="RBGKeyboardBacklightSpeed_Slow" xml:space="preserve">
+    <value>Бавна</value>
+  </data>
+  <data name="RBGKeyboardBacklightSpeed_Slowest" xml:space="preserve">
+    <value>Най-бавна</value>
+  </data>
+  <data name="RGBKeyboardBacklightBrightness_High" xml:space="preserve">
+    <value>Висока</value>
+  </data>
+  <data name="RGBKeyboardBacklightBrightness_Low" xml:space="preserve">
+    <value>Ниска</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_Breath" xml:space="preserve">
+    <value>Дишане</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_Smooth" xml:space="preserve">
+    <value>Гладък</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_Static" xml:space="preserve">
+    <value>Статичен</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_WaveLTR" xml:space="preserve">
+    <value>Вълня наляво</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffect_WaveRTL" xml:space="preserve">
+    <value>Вълна надясно</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Off" xml:space="preserve">
+    <value>Изключена</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_One" xml:space="preserve">
+    <value>Предварително зададена 1</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Three" xml:space="preserve">
+    <value>Предварително зададена 2</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
+    <value>Предварително зададена 3</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightness_High" xml:space="preserve">
+    <value>Висока</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightness_Low" xml:space="preserve">
+    <value>Ниска</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightness_Medium" xml:space="preserve">
+    <value>Средна</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightness_Off" xml:space="preserve">
+    <value>Изключена</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_BottomToTop" xml:space="preserve">
+    <value>От долу нагоре</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_Clockwise" xml:space="preserve">
+    <value>По часовниковата стрелка</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_CounterClockwise" xml:space="preserve">
+    <value>Обратно на часовниковата стрелка</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_LeftToRight" xml:space="preserve">
+    <value>От ляво надясно</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_RightToLeft" xml:space="preserve">
+    <value>От дясно наляво</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_TopToBottom" xml:space="preserve">
+    <value>От горе надолу</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Always" xml:space="preserve">
+    <value>Винаги</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_AudioBounce" xml:space="preserve">
+    <value>Аудио отскачане</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_AudioRipple" xml:space="preserve">
+    <value>Аудио кръгове</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_AuroraSync" xml:space="preserve">
+    <value>Aurora Sync</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_ColorChange" xml:space="preserve">
+    <value>Сменящ се цвят</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_ColorPulse" xml:space="preserve">
+    <value>Пулсиращ цвят</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_ColorWave" xml:space="preserve">
+    <value>Цветна вълна</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Rain" xml:space="preserve">
+    <value>Дъжд</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_RainbowScrew" xml:space="preserve">
+    <value>Rainbow Screw</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_RainbowWave" xml:space="preserve">
+    <value>Вълна от дъга</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Ripple" xml:space="preserve">
+    <value>Водни кръгове</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Smooth" xml:space="preserve">
+    <value>Гладък</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Type" xml:space="preserve">
+    <value>Вид</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed1" xml:space="preserve">
+    <value>Бавен</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed2" xml:space="preserve">
+    <value>Среден</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed3" xml:space="preserve">
+    <value>Бърз</value>
+  </data>
+  <data name="Theme_Dark" xml:space="preserve">
+    <value>Тъмна</value>
+  </data>
+  <data name="Theme_Light" xml:space="preserve">
+    <value>Светла</value>
+  </data>
+  <data name="Theme_System" xml:space="preserve">
+    <value>Системна</value>
+  </data>
+  <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
+    <value>Висока</value>
+  </data>
+  <data name="WhiteKeyboardBacklightState_Low" xml:space="preserve">
+    <value>Ниска</value>
+  </data>
+  <data name="WhiteKeyboardBacklightState_Off" xml:space="preserve">
+    <value>Изключена</value>
+  </data>
 </root>
