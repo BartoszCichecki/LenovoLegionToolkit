@@ -86,9 +86,18 @@ public partial class PackagesPage : IProgress<float>
     {
         try
         {
-            Process.Start("explorer.exe", GetDownloadLocation());
+            var location = GetDownloadLocation();
+
+            if (!Directory.Exists(location))
+                return;
+
+            Process.Start("explorer", location);
         }
-        catch { }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Failed to open download location.", ex);
+        }
     }
 
     private void DownloadToButton_Click(object sender, RoutedEventArgs e)
