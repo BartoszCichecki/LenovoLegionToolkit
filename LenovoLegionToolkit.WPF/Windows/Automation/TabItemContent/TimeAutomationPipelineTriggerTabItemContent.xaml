@@ -28,7 +28,7 @@
             Margin="0,0,0,8"
             Click="RadioButton_Click"
             Content="{x:Static resources:Resource.TimeAutomationPipelineTriggerTabItemContent_Time}"
-            GroupName="A" />
+            GroupName="A" Checked="_timeRadioButton_Checked" />
 
         <StackPanel
             x:Name="_timePickerPanel"
@@ -49,6 +49,55 @@
                 Content=":" />
             <ui:NumberBox
                 x:Name="_timePickerMinutes"
+                ClearButtonEnabled="False"
+                IntegersOnly="True"
+                Max="59"
+                Min="0"
+                Step="1" />
+            <Label
+                Margin="8,0,0,0"
+                VerticalContentAlignment="Center"
+                Content="(HH:MM)" />
+        </StackPanel>
+        <RadioButton
+            x:Name="_dateRadioButton"
+            Margin="0,0,0,8"
+            Click="RadioButton_Click"
+            Content="{x:Static resources:Resource.TimeAutomationPipelineTriggerTabItemContent_DayOfWeek}"
+            GroupName="A" Checked="_dateRadioButton_Checked" />
+        <StackPanel
+            x:Name="_datePickerPanel"
+            Margin="28,0,0,0"
+            VerticalAlignment="Center"
+            IsEnabled="False"
+            Orientation="Horizontal">
+            <ComboBox 
+                x:Name="_datePickerDayOfWeek">
+                <ComboBoxItem Content="Monday" />
+                <ComboBoxItem Content="Tuesday" />
+                <ComboBoxItem Content="Wednesday" />
+                <ComboBoxItem Content="Thursday" />
+                <ComboBoxItem Content="Friday" />
+                <ComboBoxItem Content="Saturday" />
+                <ComboBoxItem Content="Sunday" />
+            </ComboBox>
+            <Label
+                Margin="8,0,0,0"
+                VerticalContentAlignment="Center"
+                Content=" " />
+            <ui:NumberBox
+                x:Name="_datePickerHours"
+                ClearButtonEnabled="False"
+                IntegersOnly="True"
+                Max="23"
+                Min="0"
+                Step="1" />
+            <Label
+                Margin="4,0,4,0"
+                VerticalContentAlignment="Center"
+                Content=":" />
+            <ui:NumberBox
+                x:Name="_datePickerMinutes"
                 ClearButtonEnabled="False"
                 IntegersOnly="True"
                 Max="59"

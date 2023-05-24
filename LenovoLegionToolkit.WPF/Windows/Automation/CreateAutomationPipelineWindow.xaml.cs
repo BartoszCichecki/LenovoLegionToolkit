@@ -32,7 +32,7 @@ public partial class CreateAutomationPipelineWindow
         new DisplayOffAutomationPipelineTrigger(),
         new ExternalDisplayConnectedAutomationPipelineTrigger(),
         new ExternalDisplayDisconnectedAutomationPipelineTrigger(),
-        new TimeAutomationPipelineTrigger(false, false, null),
+        new TimeAutomationPipelineTrigger(false, false, null, null),
         new OnStartupAutomationPipelineTrigger()
     };
 

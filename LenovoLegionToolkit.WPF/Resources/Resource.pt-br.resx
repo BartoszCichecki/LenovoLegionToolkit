@@ -1386,6 +1386,9 @@ A reinicialização é recomendada após alterar esta opção.</value>
     <value>Permite alternar entre as GPU's integrada e dedicada.
 Requer reinicialização.</value>
   </data>
+  <data name="ToggleHybridModeControl_RestartRequired_Message" xml:space="preserve">
+    <value>Mudar o modo hibrido requer uma reinicialização. Deseja reiniciar o computador agora?</value>
+  </data>
   <data name="ToggleHybridModeControl_RestartRequired_Title" xml:space="preserve">
     <value>Reinicialização necessária</value>
   </data>

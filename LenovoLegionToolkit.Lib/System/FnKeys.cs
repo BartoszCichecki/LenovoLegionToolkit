@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -83,8 +82,6 @@ public class FnKeys : SoftwareDisabler
         var startupKey = Registry.GetSubKeys(hive, subKey).FirstOrDefault(s => s.Contains(appPattern, StringComparison.CurrentCultureIgnoreCase));
         if (startupKey is null)
             return;
-
-        startupKey = Path.Combine(startupKey, subKeyName);
 
         Registry.SetValue(hive, startupKey, valueName, enabled ? 0x2 : 0x1);
     }

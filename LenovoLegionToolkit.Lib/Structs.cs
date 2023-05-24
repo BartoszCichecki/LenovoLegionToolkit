@@ -723,6 +723,15 @@ public readonly struct Time
     public int Hour { get; init; }
     public int Minute { get; init; }
 
+    public static Time FromDay(Day day)
+    {
+        return new Time
+        {
+            Hour = day.Hour,
+            Minute = day.Minute
+        };
+    }
+
     #region Equality
 
     public override bool Equals(object? obj) => obj is Time time && Hour == time.Hour && Minute == time.Minute;
@@ -732,6 +741,26 @@ public readonly struct Time
     public static bool operator ==(Time left, Time right) => left.Equals(right);
 
     public static bool operator !=(Time left, Time right) => !(left == right);
+
+    #endregion
+}
+
+public readonly struct Day
+{
+    public int Hour { get; init; }
+    public int Minute { get; init; }
+
+    public DayOfWeek DayOfWeek { get; init; }
+
+    #region Equality
+
+    public override bool Equals(object? obj) => obj is Day day && Hour == day.Hour && Minute == day.Minute && DayOfWeek == day.DayOfWeek;
+
+    public override int GetHashCode() => HashCode.Combine(Hour, Minute, DayOfWeek);
+
+    public static bool operator ==(Day left, Day right) => left.Equals(right);
+
+    public static bool operator !=(Day left, Day right) => !(left == right);
 
     #endregion
 }
