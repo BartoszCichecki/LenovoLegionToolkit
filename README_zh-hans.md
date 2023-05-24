@@ -56,7 +56,7 @@
 
 如果拯救者工具箱安装程序没有正确安装 .NET 依赖，则请按照以下步骤手动安装：
 
-1. 打开 https://dotnet.microsoft.com/zh-cn/download/dotnet/6.0；
+1. 打开 https://dotnet.microsoft.com/zh-cn/download/dotnet/6.0
 2. 找到 “.NET 桌面运行时” 一栏；
 3. 点击安装程序下的“X64”一栏下载安装程序；
 4. 运行安装程序并按照指引进行安装。
