@@ -39,7 +39,7 @@ public class GodModeControllerV1 : AbstractGodModeController
         var gpuPowerBoost = preset.GPUPowerBoost;
         var gpuConfigurableTgp = preset.GPUConfigurableTGP;
         var gpuTemperatureLimit = preset.GPUTemperatureLimit;
-        var fanTable = preset.FanTable ?? FanTable.Default;
+        var fanTable = preset.FanTable ?? await GetDefaultFanTableAsync().ConfigureAwait(false);
         var fanFullSpeed = preset.FanFullSpeed ?? false;
 
         if (cpuLongTermPowerLimit is not null)
@@ -233,12 +233,12 @@ public class GodModeControllerV1 : AbstractGodModeController
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Applying Fan Table {fanTable}...");
 
-                if (!fanTable.IsValid())
+                if (!await IsValidFanTableAsync(fanTable).ConfigureAwait(false))
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Fan table invalid, replacing with default...");
 
-                    fanTable = FanTable.Default;
+                    fanTable = await GetDefaultFanTableAsync().ConfigureAwait(false);
                 }
 
                 await SetFanTable(fanTable).ConfigureAwait(false);
@@ -253,6 +253,12 @@ public class GodModeControllerV1 : AbstractGodModeController
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"State applied.");
+    }
+
+    public override Task<FanTable> GetMinimumFanTableAsync()
+    {
+        var fanTable = new FanTable(new ushort[] { 0, 0, 0, 0, 0, 0, 0, 1, 3, 5 });
+        return Task.FromResult(fanTable);
     }
 
     public override async Task<Dictionary<PowerModeState, GodModeDefaults>> GetDefaultsInOtherPowerModesAsync()
@@ -465,7 +471,7 @@ public class GodModeControllerV1 : AbstractGodModeController
             GPUPowerBoost = await GetGPUPowerBoost().OrNull().ConfigureAwait(false),
             GPUConfigurableTGP = await GetGPUConfigurableTGPAsync().OrNull().ConfigureAwait(false),
             GPUTemperatureLimit = await GetGPUTemperatureLimitAsync().OrNull().ConfigureAwait(false),
-            FanTableInfo = fanTableData is null ? null : new FanTableInfo(fanTableData, FanTable.Default),
+            FanTableInfo = fanTableData is null ? null : new FanTableInfo(fanTableData, await GetDefaultFanTableAsync().ConfigureAwait(false)),
             FanFullSpeed = await GetFanFullSpeedAsync().ConfigureAwait(false),
             MinValueOffset = 0,
             MaxValueOffset = 0
@@ -823,27 +829,33 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     #region Default values
 
-    private static Task<IEnumerable<(PowerModeState powerMode, GodModeDefaults defaults)>> GetDefaultValuesInDifferentModeAsync() => WMI.ReadAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_DEFAULT_VALUE_IN_DIFFERENT_MODE_DATA ",
-        pdc =>
-        {
-            var mode = Convert.ToInt32(pdc["mode"].Value) - 1;
+    private async Task<IEnumerable<(PowerModeState powerMode, GodModeDefaults defaults)>> GetDefaultValuesInDifferentModeAsync()
+    {
+        var defaultFanTableAsync = await GetDefaultFanTableAsync().ConfigureAwait(false);
 
-            return ((PowerModeState)mode, new GodModeDefaults
+        var result = await WMI.ReadAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_DEFAULT_VALUE_IN_DIFFERENT_MODE_DATA ",
+            pdc =>
             {
-                CPULongTermPowerLimit = Convert.ToInt32(pdc["DefaultLongTermPowerlimit"].Value),
-                CPUShortTermPowerLimit = Convert.ToInt32(pdc["DefaultShortTermPowerlimit"].Value),
-                CPUPeakPowerLimit = Convert.ToInt32(pdc["DefaultPeakPowerLimit"].Value),
-                CPUCrossLoadingPowerLimit = Convert.ToInt32(pdc["DefaultCpuCrossLoading"].Value),
-                APUsPPTPowerLimit = Convert.ToInt32(pdc["DefaultAPUsPPTPowerLimit"].Value),
-                CPUTemperatureLimit = Convert.ToInt32(pdc["DefaultTemperatueControl"].Value),
-                GPUPowerBoost = Convert.ToInt32(pdc["Default_PPAB_Powerlimit"].Value),
-                GPUConfigurableTGP = Convert.ToInt32(pdc["Default_cTGP_Powerlimit"].Value),
-                GPUTemperatureLimit = Convert.ToInt32(pdc["DefaultTemperatueLimit"].Value),
-                FanTable = FanTable.Default,
-                FanFullSpeed = false
-            });
-        });
+                var mode = (PowerModeState)Convert.ToInt32(pdc["mode"].Value) - 1;
+
+                return (mode, new GodModeDefaults
+                {
+                    CPULongTermPowerLimit = Convert.ToInt32(pdc["DefaultLongTermPowerlimit"].Value),
+                    CPUShortTermPowerLimit = Convert.ToInt32(pdc["DefaultShortTermPowerlimit"].Value),
+                    CPUPeakPowerLimit = Convert.ToInt32(pdc["DefaultPeakPowerLimit"].Value),
+                    CPUCrossLoadingPowerLimit = Convert.ToInt32(pdc["DefaultCpuCrossLoading"].Value),
+                    APUsPPTPowerLimit = Convert.ToInt32(pdc["DefaultAPUsPPTPowerLimit"].Value),
+                    CPUTemperatureLimit = Convert.ToInt32(pdc["DefaultTemperatueControl"].Value),
+                    GPUPowerBoost = Convert.ToInt32(pdc["Default_PPAB_Powerlimit"].Value),
+                    GPUConfigurableTGP = Convert.ToInt32(pdc["Default_cTGP_Powerlimit"].Value),
+                    GPUTemperatureLimit = Convert.ToInt32(pdc["DefaultTemperatueLimit"].Value),
+                    FanTable = defaultFanTableAsync,
+                    FanFullSpeed = false
+                });
+            }).ConfigureAwait(false);
+        return result;
+    }
 
     #endregion
 

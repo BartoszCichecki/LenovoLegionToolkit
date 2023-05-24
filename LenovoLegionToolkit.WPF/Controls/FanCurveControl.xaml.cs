@@ -19,6 +19,7 @@ public partial class FanCurveControl
     private readonly InfoTooltip _customToolTip = new();
 
     private FanTableData[]? _tableData;
+    private FanTable? _minimumFanTable;
 
     public FanCurveControl()
     {
@@ -39,7 +40,7 @@ public partial class FanCurveControl
         return size;
     }
 
-    public void SetFanTableInfo(FanTableInfo fanTableInfo)
+    public void SetFanTableInfo(FanTableInfo fanTableInfo, FanTable minimumFanTable)
     {
         _sliders.Clear();
         _slidersGrid.Children.Clear();
@@ -55,6 +56,7 @@ public partial class FanCurveControl
         }
 
         _tableData = fanTableInfo.Data;
+        _minimumFanTable = minimumFanTable;
 
         Dispatcher.InvokeAsync(DrawGraph, DispatcherPriority.Render);
     }
@@ -126,13 +128,16 @@ public partial class FanCurveControl
         if (currentSlider is { IsKeyboardFocusWithin: false, IsMouseCaptureWithin: false })
             return;
 
-        var index = (int)currentSlider.Tag;
-        var minimum = FanTable.Minimum.GetTable();
-
-        if (currentSlider.Value < minimum[index])
+        if (_minimumFanTable.HasValue)
         {
-            currentSlider.Value = minimum[index];
-            return;
+            var index = (int)currentSlider.Tag;
+            var minimum = _minimumFanTable.Value.GetTable();
+
+            if (currentSlider.Value < minimum[index])
+            {
+                currentSlider.Value = minimum[index];
+                return;
+            }
         }
 
         VerifyValues(currentSlider);
