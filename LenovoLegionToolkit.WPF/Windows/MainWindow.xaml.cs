@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -147,7 +149,10 @@ public partial class MainWindow
     {
         try
         {
-            new Uri(Log.Instance.LogPath).Open();
+            if (!Directory.Exists(Folders.AppData))
+                return;
+
+            Process.Start("explorer", Log.Instance.LogPath);
         }
         catch (Exception ex)
         {

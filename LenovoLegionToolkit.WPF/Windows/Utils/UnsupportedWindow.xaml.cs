@@ -44,7 +44,7 @@ public partial class UnsupportedWindow
     {
         var logsDirectory = Path.Combine(Folders.AppData, "log");
         Directory.CreateDirectory(logsDirectory);
-        Process.Start("explorer.exe", logsDirectory);
+        Process.Start("explorer", logsDirectory);
     }
 
     private void Continue_Click(object sender, RoutedEventArgs e)
