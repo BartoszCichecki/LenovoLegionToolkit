@@ -203,6 +203,7 @@ Special thanks to:
 * [Mario Bălănică](https://github.com/mariobalanica), for all contributions
 
 Translations provided by:
+* Bulgarian - [Ekscentricitet](https://github.com/Ekscentricitet)
 * Chinese - [凌卡Karl](https://github.com/KarlLee830)
 * Czech - J0sef
 * Dutch - Melm, [JarneStaalPXL](https://github.com/JarneStaalPXL)
@@ -210,6 +211,7 @@ Translations provided by:
 * German - Sko-Inductor, Running_Dead89
 * Greek - GreatApo
 * Italian - [Lampadina17](https://github.com/Lampadina17)
+* Karakalpak - KarLin, Gulnaz, Niyazbek Tolibaev, Shingis Joldasbaev
 * Romanian - [Mario Bălănică](https://github.com/mariobalanica)
 * Slovak - Mitschud, Newbie414
 * Spanish - M.A.G.
