@@ -142,7 +142,8 @@ public abstract class AbstractGodModeController : IGodModeController
 
     protected async Task<bool> IsValidFanTableAsync(FanTable fanTable)
     {
-        var minimum = (await GetMinimumFanTableAsync().ConfigureAwait(false)).GetTable();
+        var minimumFanTable = await GetMinimumFanTableAsync().ConfigureAwait(false);
+        var minimum = minimumFanTable.GetTable();
         return fanTable.GetTable().Where((t, i) => t < minimum[i] || t > 10u).IsEmpty();
     }
 
