@@ -22,6 +22,7 @@ public static class Compatibility
 
         "16ACH",
         "16ARH",
+        "16ARX",
         "16IAH",
         "16IAX",
         "16IRX",
