@@ -43,7 +43,10 @@ public static class Compatibility
         // Limited compatibility
         "17IR",
         "15IR",
-        "15ICH"
+        "15ICH",
+        
+        // GeekPro Laptops
+        "82XV" // Lenovo GeekPro G5000 (Checked - Full compatibility)
     };
 
     private static MachineInformation? _machineInformation;
