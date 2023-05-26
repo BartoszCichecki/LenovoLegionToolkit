@@ -4545,11 +4545,11 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Day Of The Week.
+        ///   Looks up a localized string similar to Day.
         /// </summary>
-        public static string TimeAutomationPipelineTriggerTabItemContent_DayOfWeek {
+        public static string TimeAutomationPipelineTriggerTabItemContent_Day {
             get {
-                return ResourceManager.GetString("TimeAutomationPipelineTriggerTabItemContent_DayOfWeek", resourceCulture);
+                return ResourceManager.GetString("TimeAutomationPipelineTriggerTabItemContent_Day", resourceCulture);
             }
         }
         

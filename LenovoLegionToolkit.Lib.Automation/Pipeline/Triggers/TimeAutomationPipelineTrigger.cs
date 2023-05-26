@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using LenovoLegionToolkit.Lib.Automation.Resources;
 using LenovoLegionToolkit.Lib.Utils;
 using Newtonsoft.Json;
@@ -16,19 +14,19 @@ public class TimeAutomationPipelineTrigger : ITimeAutomationPipelineTrigger
 
     public Time? Time { get; }
     
-    public Day? Day { get; }
+    public DayOfWeek[] Days { get; }
 
     public string DisplayName => Resource.TimeAutomationPipelineTrigger_DisplayName;
 
     private readonly SunriseSunset _sunriseSunset = IoCContainer.Resolve<SunriseSunset>();
 
     [JsonConstructor]
-    public TimeAutomationPipelineTrigger(bool isSunrise, bool isSunset, Time? time, Day? day)
+    public TimeAutomationPipelineTrigger(bool isSunrise, bool isSunset, Time? time, DayOfWeek[] days)
     {
         IsSunrise = isSunrise;
         IsSunset = isSunset;
         Time = time;
-        Day = day;
+        Days = days;
     }
 
     public async Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
@@ -36,38 +34,27 @@ public class TimeAutomationPipelineTrigger : ITimeAutomationPipelineTrigger
         if (automationEvent is not TimeAutomationEvent e)
             return false;
 
-
-        if (e.CurrentDay == Day)
-            return true;
-
-        var time = new Time { Hour = e.CurrentDay.Hour, Minute = e.CurrentDay.Minute };
-
-        if (Time == time)
-            return true;
-
-        var (sunrise, sunset) = await _sunriseSunset.GetSunriseSunsetAsync().ConfigureAwait(false);
-
-        if (IsSunrise && sunrise == time)
-            return true;
-
-        if (IsSunset && sunset == time)
-            return true;
-
-        return false;
+        return await IsMatching(e.Time, e.Day).ConfigureAwait(false);
     }
 
     public async Task<bool> IsMatchingState()
     {
         var now = DateTime.UtcNow;
-        var day = new Day { Hour = now.Hour, Minute = now.Minute, DayOfWeek = now.DayOfWeek };
+        var day = now.DayOfWeek;
+        var time = new Time { Hour = now.Hour, Minute = now.Minute };
 
-        if (Day == day)
-            return true;
+        return await IsMatching(time, day).ConfigureAwait(false);
+    }
 
-        var time = Lib.Time.FromDay(day);
-
+    private async Task<bool> IsMatching(Time time, DayOfWeek dayOfWeek)
+    {
         if (Time == time)
-            return true;
+        {
+            if (Days.Length == 0)
+                return true;
+            if (Array.IndexOf(Days, dayOfWeek) > -1)
+                return true;
+        }
 
         var (sunrise, sunset) = await _sunriseSunset.GetSunriseSunsetAsync().ConfigureAwait(false);
 
@@ -79,10 +66,9 @@ public class TimeAutomationPipelineTrigger : ITimeAutomationPipelineTrigger
 
         return false;
     }
+    public IAutomationPipelineTrigger DeepCopy() => new TimeAutomationPipelineTrigger(IsSunrise, IsSunset, Time, Days);
 
-    public IAutomationPipelineTrigger DeepCopy() => new TimeAutomationPipelineTrigger(IsSunrise, IsSunset, Time, Day);
-
-    public ITimeAutomationPipelineTrigger DeepCopy(bool isSunrise, bool isSunset, Time? time, Day? day) => new TimeAutomationPipelineTrigger(isSunrise, isSunset, time, day);
+    public ITimeAutomationPipelineTrigger DeepCopy(bool isSunrise, bool isSunset, Time? time, DayOfWeek[] days) => new TimeAutomationPipelineTrigger(isSunrise, isSunset, time, days);
 
     public override bool Equals(object? obj)
     {
@@ -90,10 +76,10 @@ public class TimeAutomationPipelineTrigger : ITimeAutomationPipelineTrigger
                IsSunrise == t.IsSunrise &&
                IsSunset == t.IsSunset &&
                Time == t.Time &&
-               Day == t.Day;
+               Days == t.Days;
     }
 
-    public override int GetHashCode() => HashCode.Combine(IsSunrise, IsSunset, Time, Day);
+    public override int GetHashCode() => HashCode.Combine(IsSunrise, IsSunset, Time, Days);
 
-    public override string ToString() => $"{nameof(IsSunrise)}: {IsSunrise}, {nameof(IsSunset)}: {IsSunset}, {nameof(Time)}: {Time}, {nameof(Day)}: {Day}";
+    public override string ToString() => $"{nameof(IsSunrise)}: {IsSunrise}, {nameof(IsSunset)}: {IsSunset}, {nameof(Time)}: {Time}, {nameof(Days)}: {Days}";
 }

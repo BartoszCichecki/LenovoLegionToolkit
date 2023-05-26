@@ -60,33 +60,24 @@
                 Content="(HH:MM)" />
         </StackPanel>
         <RadioButton
-            x:Name="_dateRadioButton"
+            x:Name="_dayRadioButton"
             Margin="0,0,0,8"
             Click="RadioButton_Click"
-            Content="{x:Static resources:Resource.TimeAutomationPipelineTriggerTabItemContent_DayOfWeek}"
-            GroupName="A" Checked="_dateRadioButton_Checked" />
+            Content="{x:Static resources:Resource.TimeAutomationPipelineTriggerTabItemContent_Day}"
+            GroupName="A" Checked="_dayRadioButton_Checked" />
         <StackPanel
-            x:Name="_datePickerPanel"
+            x:Name="_dayPickerPanel"
             Margin="28,0,0,0"
             VerticalAlignment="Center"
             IsEnabled="False"
             Orientation="Horizontal">
-            <ComboBox 
-                x:Name="_datePickerDayOfWeek">
-                <ComboBoxItem Content="Monday" />
-                <ComboBoxItem Content="Tuesday" />
-                <ComboBoxItem Content="Wednesday" />
-                <ComboBoxItem Content="Thursday" />
-                <ComboBoxItem Content="Friday" />
-                <ComboBoxItem Content="Saturday" />
-                <ComboBoxItem Content="Sunday" />
-            </ComboBox>
+            <StackPanel x:Name="_checkboxContainer" />
             <Label
                 Margin="8,0,0,0"
                 VerticalContentAlignment="Center"
                 Content=" " />
             <ui:NumberBox
-                x:Name="_datePickerHours"
+                x:Name="_dayPickerHours"
                 ClearButtonEnabled="False"
                 IntegersOnly="True"
                 Max="23"
@@ -97,7 +88,7 @@
                 VerticalContentAlignment="Center"
                 Content=":" />
             <ui:NumberBox
-                x:Name="_datePickerMinutes"
+                x:Name="_dayPickerMinutes"
                 ClearButtonEnabled="False"
                 IntegersOnly="True"
                 Max="59"

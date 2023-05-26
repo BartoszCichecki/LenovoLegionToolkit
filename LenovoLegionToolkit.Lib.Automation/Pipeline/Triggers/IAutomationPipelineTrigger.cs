@@ -50,6 +50,6 @@ public interface ITimeAutomationPipelineTrigger : IAutomationPipelineTrigger
     bool IsSunrise { get; }
     bool IsSunset { get; }
     Time? Time { get; }
-    Day? Day { get; }
-    ITimeAutomationPipelineTrigger DeepCopy(bool isSunrise, bool isSunset, Time? time, Day? day);
+    DayOfWeek[] Days { get; }
+    ITimeAutomationPipelineTrigger DeepCopy(bool isSunrise, bool isSunset, Time? time, DayOfWeek[] day);
 }

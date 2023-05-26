@@ -1760,8 +1760,8 @@ This settings takes effect only when Custom Mode is enabled.</value>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
     <value>Path</value>
   </data>
-  <data name="TimeAutomationPipelineTriggerTabItemContent_DayOfWeek" xml:space="preserve">
-    <value>Day Of The Week</value>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Day" xml:space="preserve">
+    <value>Day</value>
     <comment>Used to prompt the user to enter a day of the week for an "At specified time" Action.</comment>
   </data>
 </root>
