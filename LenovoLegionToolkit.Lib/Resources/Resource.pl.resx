@@ -58,4 +58,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AutorunState_Disabled" xml:space="preserve">
+    <value>Wyłączone</value>
+  </data>
+  <data name="AutorunState_Enabled" xml:space="preserve">
+    <value>Włączone</value>
+  </data>
+  <data name="AutorunState_EnabledDelayed" xml:space="preserve">
+    <value>Włączone (z opóźnieniem)</value>
+  </data>
 </root>
