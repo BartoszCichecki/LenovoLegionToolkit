@@ -413,9 +413,24 @@ public partial class App
             if (await controller.IsSupportedAsync())
             {
                 if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Starting inactivity timer if needed...");
+
+                var result = await controller.RestartInactivityTimerIfNeededAsync();
+                if (result)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Inactivity timer started.");
+                }
+                else
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Inactivity timer not needed.");
+                }
+
+                if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Starting Aurora if needed...");
 
-                var result = await controller.StartAuroraIfNeededAsync();
+                result = await controller.StartAuroraIfNeededAsync();
                 if (result)
                 {
                     if (Log.Instance.IsTraceEnabled)

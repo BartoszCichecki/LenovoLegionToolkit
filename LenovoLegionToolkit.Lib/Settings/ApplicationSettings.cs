@@ -41,6 +41,7 @@ public class ApplicationSettings : AbstractSettings<ApplicationSettings.Applicat
         public List<Guid> SmartKeySinglePressActionList { get; set; } = new();
         public List<Guid> SmartKeyDoublePressActionList { get; set; } = new();
         public bool SynchronizeBrightnessToAllPowerPlans { get; set; }
+        public int KeyboardInactivityTimeoutSeconds { get; set; } = -1;
     }
 
     public ApplicationSettings() : base("settings.json")
