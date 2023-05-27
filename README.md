@@ -151,6 +151,7 @@ Custom Mode is supported on following BIOS versions:
 * J2CN40WW and higher
 * JUCN51WW and higher
 * JYCN39WW and higher
+* M3CN32WW and higher
 
 Not all features of Custom Mode are supported by all devices.
 
