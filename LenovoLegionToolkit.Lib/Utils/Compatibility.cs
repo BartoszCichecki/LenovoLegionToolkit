@@ -43,7 +43,9 @@ public static class Compatibility
         // Limited compatibility
         "17IR",
         "15IR",
-        "15ICH"
+        "15ICH",
+        
+        "IRH8" // Fixed G5000's Model Prefix
     };
 
     private static MachineInformation? _machineInformation;
