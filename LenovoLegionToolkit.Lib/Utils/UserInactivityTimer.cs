@@ -38,7 +38,7 @@ public class UserInactivityTimer : NativeWindow
     {
         CreateHandle(new CreateParams
         {
-            Caption = "LenovoLegionToolkit_InactivityTimerWindow",
+            Caption = "LenovoLegionToolkit_UserInactivityTimerWindow",
             Parent = new IntPtr(-3)
         });
 
