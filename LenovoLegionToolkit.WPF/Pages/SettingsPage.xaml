@@ -166,8 +166,20 @@
                 Visibility="Hidden" />
         </wpfui:CardControl>
 
+        <wpfui:CardControl Margin="0,0,0,8">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="Keyboard backlight timeout" Subtitle="Turn off keyboard backlight after a selected timeout." />
+            </wpfui:CardControl.Header>
+            <ComboBox
+                x:Name="_keyboardBacklightTimeoutComboBox"
+                MinWidth="160"
+                Margin="0,0,0,8"
+                MaxDropDownHeight="Auto"
+                SelectionChanged="KeyboardBacklightTimeout_SelectionChanged"
+                Visibility="Hidden" />
+        </wpfui:CardControl>
+
         <TextBlock
-            Grid.Row="0"
             Margin="0,16,0,24"
             FontSize="24"
             FontWeight="Medium"

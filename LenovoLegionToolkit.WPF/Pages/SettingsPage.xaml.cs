@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using Humanizer;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
@@ -97,6 +98,9 @@ public partial class SettingsPage
         _notificationsCard.Visibility = fnKeysStatus != SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
         _excludeRefreshRatesCard.Visibility = fnKeysStatus != SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
         _synchronizeBrightnessToAllPowerPlansToggle.IsChecked = _settings.Store.SynchronizeBrightnessToAllPowerPlans;
+        _keyboardBacklightTimeoutComboBox.SetItems(new[] { -1, 10, 30, 60, 120, 300 },
+            _settings.Store.KeyboardInactivityTimeoutSeconds,
+            t => t < 0 ? "Never" : TimeSpan.FromSeconds(t).Humanize(culture: Resource.Culture));
 
         _powerPlansCard.Visibility = await _powerModeFeature.IsSupportedAsync() ? Visibility.Visible : Visibility.Collapsed;
 
@@ -109,6 +113,7 @@ public partial class SettingsPage
         _legionZoneToggle.Visibility = Visibility.Visible;
         _fnKeysToggle.Visibility = Visibility.Visible;
         _synchronizeBrightnessToAllPowerPlansToggle.Visibility = Visibility.Visible;
+        _keyboardBacklightTimeoutComboBox.Visibility = Visibility.Visible;
 
         _isRefreshing = false;
     }
@@ -445,6 +450,10 @@ public partial class SettingsPage
 
         _settings.Store.SynchronizeBrightnessToAllPowerPlans = state.Value;
         _settings.SynchronizeStore();
+    }
+
+    private void KeyboardBacklightTimeout_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
     }
 
     private void PowerPlans_Click(object sender, RoutedEventArgs e)
