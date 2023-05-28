@@ -1757,10 +1757,6 @@
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
     <value>Път към файла</value>
   </data>
-  <data name="TimeAutomationPipelineTriggerTabItemContent_Day" xml:space="preserve">
-    <value>Ден</value>
-    <comment>Used to prompt the user to enter a day of the week for an "At specified time" Action.</comment>
-  </data>
   <data name="AutomationPipelineControl_SubtitlePart_After" xml:space="preserve">
     <value>След {0}</value>
   </data>

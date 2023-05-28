@@ -4563,15 +4563,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Day.
-        /// </summary>
-        public static string TimeAutomationPipelineTriggerTabItemContent_Day {
-            get {
-                return ResourceManager.GetString("TimeAutomationPipelineTriggerTabItemContent_Day", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Sunrise.
         /// </summary>
         public static string TimeAutomationPipelineTriggerTabItemContent_Sunrise {
