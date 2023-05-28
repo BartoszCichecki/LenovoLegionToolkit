@@ -13,6 +13,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Listeners;
 public class UserInactivityListener : NativeWindow, IListener<(TimeSpan, int)>
 {
     private readonly TimeSpan _timerResolution = TimeSpan.FromSeconds(10);
+    private readonly object _lock = new();
 
     private readonly IMainThreadDispatcher _mainThreadDispatcher;
 
@@ -68,28 +69,34 @@ public class UserInactivityListener : NativeWindow, IListener<(TimeSpan, int)>
 
     private LRESULT HookProc(int nCode, WPARAM wParam, LPARAM lParam)
     {
-        _timer?.Change(_timerResolution, _timerResolution);
-
-        if (_tickCount > 0)
+        lock (_lock)
         {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"User became active.");
+            _timer?.Change(_timerResolution, _timerResolution);
 
-            Changed?.Invoke(this, (_timerResolution, 0));
+            if (_tickCount > 0)
+            {
+                _tickCount = 0;
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"User became active.");
+
+                Changed?.Invoke(this, (_timerResolution, 0));
+            }
         }
-
-        _tickCount = 0;
 
         return PInvoke.CallNextHookEx(HHOOK.Null, nCode, wParam, lParam);
     }
 
     private void TimerCallback(object? state)
     {
-        _tickCount++;
+        lock (_lock)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"User is not active [time={_timerResolution * _tickCount}]");
 
-        if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"User is not active [time={_timerResolution * _tickCount}]");
+            _tickCount++;
 
-        Changed?.Invoke(this, (_timerResolution, 0));
+            Changed?.Invoke(this, (_timerResolution, 0));
+        }
     }
 }
