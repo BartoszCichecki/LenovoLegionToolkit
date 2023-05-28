@@ -1751,12 +1751,12 @@ Nastavenia sú účinne len keď je povolený vlastný režim.</value>
     <value>Vypnutý</value>
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
-	  <value>Importovať profily podsvietenia klávesnice</value>
+    <value>Importovať profily podsvietenia klávesnice</value>
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message" xml:space="preserve">
-	  <value>Importovať a použiť nastavenie podsvietenia pre aktuálny profil.</value>
+    <value>Importovať a použiť nastavenie podsvietenia pre aktuálny profil.</value>
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
-	  <value>Cesta</value>
+    <value>Cesta</value>
   </data>
 </root>

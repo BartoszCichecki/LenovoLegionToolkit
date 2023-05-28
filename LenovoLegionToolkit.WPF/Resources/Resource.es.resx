@@ -1754,12 +1754,12 @@ Esta configuración sólo tiene efecto si el modo personalizado está activado.<
     <value>Desactivado</value>
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
-	  <value>Importar perfil de retroiluminación del teclado</value>
+    <value>Importar perfil de retroiluminación del teclado</value>
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message" xml:space="preserve">
-	  <value>Importar y aplicar la configuración de retroiluminación al perfil actual.</value>
+    <value>Importar y aplicar la configuración de retroiluminación al perfil actual.</value>
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
-	  <value>Ruta</value>
+    <value>Ruta</value>
   </data>
 </root>

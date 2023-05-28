@@ -177,4 +177,10 @@
   <data name="GamesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>По време на игра</value>
   </data>
+  <data name="UserInactivityAutomationPipelineTrigger_DisplayName_Zero" xml:space="preserve">
+	  <value>Когато потребителят стане активен</value>
+  </data>
+  <data name="UserInactivityAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+	  <value>Когато потребителят стане неактивен</value>
+  </data>
 </root>
