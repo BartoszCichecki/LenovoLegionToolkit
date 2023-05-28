@@ -282,7 +282,7 @@ public class AutomationProcessor
         await ProcessEvent(e).ConfigureAwait(false);
     }
 
-    private async void UserInactivityListener_Changed(object? sender, (TimeSpan resolution, int tickCount) inactivityInfo)
+    private async void UserInactivityListener_Changed(object? sender, (TimeSpan resolution, uint tickCount) inactivityInfo)
     {
         var e = new UserInactivityAutomationEvent
         {

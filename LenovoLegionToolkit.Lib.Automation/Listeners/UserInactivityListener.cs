@@ -10,7 +10,7 @@ using Timer = System.Threading.Timer;
 
 namespace LenovoLegionToolkit.Lib.Automation.Listeners;
 
-public class UserInactivityListener : NativeWindow, IListener<(TimeSpan, int)>
+public class UserInactivityListener : NativeWindow, IListener<(TimeSpan, uint)>
 {
     private readonly TimeSpan _timerResolution = TimeSpan.FromSeconds(10);
     private readonly object _lock = new();
@@ -25,7 +25,9 @@ public class UserInactivityListener : NativeWindow, IListener<(TimeSpan, int)>
     private HHOOK _kbHook;
     private HHOOK _mouseHook;
 
-    public event EventHandler<(TimeSpan, int)>? Changed;
+    public TimeSpan InactivityTimeSpan => _timerResolution * _tickCount;
+
+    public event EventHandler<(TimeSpan, uint)>? Changed;
 
     public UserInactivityListener(IMainThreadDispatcher mainThreadDispatcher)
     {
@@ -76,34 +78,38 @@ public class UserInactivityListener : NativeWindow, IListener<(TimeSpan, int)>
 
     private LRESULT HookProc(int nCode, WPARAM wParam, LPARAM lParam)
     {
+        Reset();
+        return PInvoke.CallNextHookEx(HHOOK.Null, nCode, wParam, lParam);
+    }
+
+    private void Reset()
+    {
         lock (_lock)
         {
             _timer?.Change(_timerResolution, _timerResolution);
 
-            if (_tickCount > 0)
-            {
-                _tickCount = 0;
+            if (_tickCount < 1)
+                return;
 
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"User became active.");
+            _tickCount = 0;
 
-                Changed?.Invoke(this, (_timerResolution, 0));
-            }
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"User became active.");
+
+            Changed?.Invoke(this, (_timerResolution, 0));
         }
-
-        return PInvoke.CallNextHookEx(HHOOK.Null, nCode, wParam, lParam);
     }
 
     private void TimerCallback(object? state)
     {
         lock (_lock)
         {
+            _tickCount++;
+
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"User is not active [time={_timerResolution * _tickCount}]");
 
-            _tickCount++;
-
-            Changed?.Invoke(this, (_timerResolution, 0));
+            Changed?.Invoke(this, (_timerResolution, _tickCount));
         }
     }
 }
