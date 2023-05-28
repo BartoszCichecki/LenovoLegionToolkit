@@ -1760,4 +1760,7 @@ This settings takes effect only when Custom Mode is enabled.</value>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
 	  <value>Path</value>
   </data>
+  <data name="AutomationPipelineControl_SubtitlePart_After" xml:space="preserve">
+	  <value>After {0}</value>
+  </data>
 </root>

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
@@ -51,4 +52,11 @@ public interface ITimeAutomationPipelineTrigger : IAutomationPipelineTrigger
     Time? Time { get; }
 
     ITimeAutomationPipelineTrigger DeepCopy(bool isSunrise, bool isSunset, Time? time);
+}
+
+public interface IUserInactivityPipelineTrigger : IAutomationPipelineTrigger
+{
+    TimeSpan InactivityTimeSpan { get; }
+
+    IUserInactivityPipelineTrigger DeepCopy(TimeSpan timeSpan);
 }

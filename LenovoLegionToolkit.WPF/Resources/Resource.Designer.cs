@@ -558,6 +558,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to After {0}.
+        /// </summary>
+        public static string AutomationPipelineControl_SubtitlePart_After {
+            get {
+                return ResourceManager.GetString("AutomationPipelineControl_SubtitlePart_After", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Apps.
         /// </summary>
         public static string AutomationPipelineControl_SubtitlePart_Apps {

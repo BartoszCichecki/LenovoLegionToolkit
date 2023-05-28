@@ -12,6 +12,7 @@ public static class AutomationPipelineTriggerExtensions
         IPowerModeAutomationPipelineTrigger => SymbolRegular.Gauge24,
         IGameAutomationPipelineTrigger => SymbolRegular.XboxController24,
         IProcessesAutomationPipelineTrigger => SymbolRegular.WindowConsole20,
+        IUserInactivityPipelineTrigger => SymbolRegular.ClockAlarm24,
         ITimeAutomationPipelineTrigger => SymbolRegular.HourglassHalf24,
         INativeWindowsMessagePipelineTrigger => SymbolRegular.Desktop24,
         IOnStartupAutomationPipelineTrigger => SymbolRegular.Flash24,
