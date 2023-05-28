@@ -15,4 +15,20 @@ public class DateTimeExtensions
         var now = DateTime.Now;
         return new(now.Year, now.Month, now.Day, hours, minutes, 0, DateTimeKind.Local);
     }
+
+    public static DateTime UtcDayFrom(DayOfWeek targetDay, int hours, int minutes)
+    {
+        var now = DateTime.UtcNow;
+        var date = new DateTime(now.Year, now.Month, now.Day, hours, minutes, now.Second, DateTimeKind.Utc);
+        int daysUntilDayOfWeek = ((int)targetDay - (int)date.DayOfWeek + 7) % 7;
+        return date.AddDays(daysUntilDayOfWeek);
+    }
+
+    public static DateTime LocalDayFrom(DayOfWeek targetDay, int hours, int minutes)
+    {
+        var now = DateTime.Now;
+        var date = new DateTime(now.Year, now.Month, now.Day, hours, minutes, now.Second, DateTimeKind.Local);
+        int daysUntilDayOfWeek = ((int)targetDay - (int)date.DayOfWeek + 7) % 7;
+        return date.AddDays(daysUntilDayOfWeek);
+    }
 }

@@ -276,9 +276,10 @@ public class AutomationProcessor
         await ProcessEvent(e).ConfigureAwait(false);
     }
 
-    private async void TimeListener_Changed(object? sender, Time time)
+    private async void TimeListener_Changed(object? sender, (Time, DayOfWeek) timeDayTouple)
     {
-        var e = new TimeAutomationEvent { Time = time };
+        var (time, day) = timeDayTouple;
+        var e = new TimeAutomationEvent { Time = time, Day = day};
         await ProcessEvent(e).ConfigureAwait(false);
     }
 

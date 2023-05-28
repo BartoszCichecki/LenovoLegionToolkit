@@ -13,17 +13,20 @@ public class TimeAutomationPipelineTrigger : ITimeAutomationPipelineTrigger
     public bool IsSunset { get; }
 
     public Time? Time { get; }
+    
+    public DayOfWeek[] Days { get; }
 
     public string DisplayName => Resource.TimeAutomationPipelineTrigger_DisplayName;
 
     private readonly SunriseSunset _sunriseSunset = IoCContainer.Resolve<SunriseSunset>();
 
     [JsonConstructor]
-    public TimeAutomationPipelineTrigger(bool isSunrise, bool isSunset, Time? time)
+    public TimeAutomationPipelineTrigger(bool isSunrise, bool isSunset, Time? time, DayOfWeek[] days)
     {
         IsSunrise = isSunrise;
         IsSunset = isSunset;
         Time = time;
+        Days = days;
     }
 
     public async Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
@@ -31,27 +34,27 @@ public class TimeAutomationPipelineTrigger : ITimeAutomationPipelineTrigger
         if (automationEvent is not TimeAutomationEvent e)
             return false;
 
-        if (Time == e.Time)
-            return true;
-
-        var (sunrise, sunset) = await _sunriseSunset.GetSunriseSunsetAsync().ConfigureAwait(false);
-
-        if (IsSunrise && sunrise == e.Time)
-            return true;
-
-        if (IsSunset && sunset == e.Time)
-            return true;
-
-        return false;
+        return await IsMatching(e.Time, e.Day).ConfigureAwait(false);
     }
 
     public async Task<bool> IsMatchingState()
     {
         var now = DateTime.UtcNow;
+        var day = now.DayOfWeek;
         var time = new Time { Hour = now.Hour, Minute = now.Minute };
 
+        return await IsMatching(time, day).ConfigureAwait(false);
+    }
+
+    private async Task<bool> IsMatching(Time time, DayOfWeek dayOfWeek)
+    {
         if (Time == time)
-            return true;
+        {
+            if (Days.Length == 0)
+                return true;
+            if (Array.IndexOf(Days, dayOfWeek) > -1)
+                return true;
+        }
 
         var (sunrise, sunset) = await _sunriseSunset.GetSunriseSunsetAsync().ConfigureAwait(false);
 
@@ -63,20 +66,20 @@ public class TimeAutomationPipelineTrigger : ITimeAutomationPipelineTrigger
 
         return false;
     }
+    public IAutomationPipelineTrigger DeepCopy() => new TimeAutomationPipelineTrigger(IsSunrise, IsSunset, Time, Days);
 
-    public IAutomationPipelineTrigger DeepCopy() => new TimeAutomationPipelineTrigger(IsSunrise, IsSunset, Time);
-
-    public ITimeAutomationPipelineTrigger DeepCopy(bool isSunrise, bool isSunset, Time? time) => new TimeAutomationPipelineTrigger(isSunrise, isSunset, time);
+    public ITimeAutomationPipelineTrigger DeepCopy(bool isSunrise, bool isSunset, Time? time, DayOfWeek[] days) => new TimeAutomationPipelineTrigger(isSunrise, isSunset, time, days);
 
     public override bool Equals(object? obj)
     {
         return obj is TimeAutomationPipelineTrigger t &&
                IsSunrise == t.IsSunrise &&
                IsSunset == t.IsSunset &&
-               Time == t.Time;
+               Time == t.Time &&
+               Days == t.Days;
     }
 
-    public override int GetHashCode() => HashCode.Combine(IsSunrise, IsSunset, Time);
+    public override int GetHashCode() => HashCode.Combine(IsSunrise, IsSunset, Time, Days);
 
-    public override string ToString() => $"{nameof(IsSunrise)}: {IsSunrise}, {nameof(IsSunset)}: {IsSunset}, {nameof(Time)}: {Time}";
+    public override string ToString() => $"{nameof(IsSunrise)}: {IsSunrise}, {nameof(IsSunset)}: {IsSunset}, {nameof(Time)}: {Time}, {nameof(Days)}: {Days}";
 }

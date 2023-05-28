@@ -31,6 +31,7 @@ public readonly struct ProcessAutomationEvent : IAutomationEvent
 public readonly struct TimeAutomationEvent : IAutomationEvent
 {
     public Time Time { get; init; }
+    public DayOfWeek Day { get; init; }
 }
 
 public readonly struct UserInactivityAutomationEvent : IAutomationEvent

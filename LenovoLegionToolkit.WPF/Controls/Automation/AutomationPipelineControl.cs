@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -257,7 +258,15 @@ public class AutomationPipelineControl : UserControl
             if (tt.Time is not null)
             {
                 var local = DateTimeExtensions.UtcFrom(tt.Time.Value.Hour, tt.Time.Value.Minute).ToLocalTime();
-                result += $" | {string.Format(Resource.AutomationPipelineControl_SubtitlePart_AtTime, local.Hour, local.Minute)}";
+                if (tt.Days.Length > 0)
+                {
+                    var localizedDayStrings = tt.Days
+                        .Select(day => DateTimeFormatInfo.CurrentInfo.GetDayName(day));
+                    var concatenatedDays = string.Join(", ", localizedDayStrings);
+                    result += $" | {concatenatedDays} {string.Format(Resource.AutomationPipelineControl_SubtitlePart_AtTime.ToLower(), local.Hour, local.Minute)}";
+                }
+                else
+                    result += $" | {string.Format(Resource.AutomationPipelineControl_SubtitlePart_AtTime, local.Hour, local.Minute)}";
             }
         }
 

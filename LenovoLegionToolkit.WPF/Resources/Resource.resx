@@ -1752,13 +1752,17 @@ This settings takes effect only when Custom Mode is enabled.</value>
     <value>Powered Off</value>
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
-	  <value>Import keyboard backlight profile</value>
+    <value>Import keyboard backlight profile</value>
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message" xml:space="preserve">
-	  <value>Import and apply backlight configuration to the current profile.</value>
+    <value>Import and apply backlight configuration to the current profile.</value>
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
-	  <value>Path</value>
+    <value>Path</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Day" xml:space="preserve">
+    <value>Day</value>
+    <comment>Used to prompt the user to enter a day of the week for an "At specified time" Action.</comment>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_After" xml:space="preserve">
 	  <value>After {0}</value>
