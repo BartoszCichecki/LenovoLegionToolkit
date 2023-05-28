@@ -1752,12 +1752,12 @@
     <value>Отключен</value>
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
-	  <value>Импортировать профиль подсветки клавиатуры</value>
+    <value>Импортировать профиль подсветки клавиатуры</value>
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message" xml:space="preserve">
-	  <value>Импортировать и применить конфигурации подсветки к текущему профилю.</value>
+    <value>Импортировать и применить конфигурации подсветки к текущему профилю.</value>
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
-	  <value>Путь</value>
+    <value>Путь</value>
   </data>
 </root>
