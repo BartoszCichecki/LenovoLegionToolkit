@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Timers;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Listeners;
 
 namespace LenovoLegionToolkit.Lib.Automation.Listeners;
@@ -35,8 +36,6 @@ public class TimeAutomationListener : IListener<(Time, DayOfWeek)>
 
     private void Timer_Elapsed(object? sender, ElapsedEventArgs e)
     {
-        var now = DateTime.UtcNow;
-        var timeAndDayTouple = (new Time { Hour = now.Hour, Minute = now.Minute }, now.DayOfWeek);
-        Changed?.Invoke(this, timeAndDayTouple);
+        Changed?.Invoke(this, (TimeExtensions.UtcNow, DateTime.UtcNow.DayOfWeek));
     }
 }

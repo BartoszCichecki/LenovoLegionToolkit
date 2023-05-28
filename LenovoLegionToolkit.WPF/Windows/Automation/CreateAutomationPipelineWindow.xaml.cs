@@ -35,7 +35,7 @@ public partial class CreateAutomationPipelineWindow
         new DisplayOffAutomationPipelineTrigger(),
         new ExternalDisplayConnectedAutomationPipelineTrigger(),
         new ExternalDisplayDisconnectedAutomationPipelineTrigger(),
-        new TimeAutomationPipelineTrigger(false, false, null, Array.Empty<DayOfWeek>()),
+        new TimeAutomationPipelineTrigger(false, false, TimeExtensions.UtcNow, Enum.GetValues<DayOfWeek>()),
         new OnStartupAutomationPipelineTrigger()
     };
 

@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     d:DesignHeight="450"
     d:DesignWidth="800"
@@ -17,67 +18,29 @@
             Click="RadioButton_Click"
             Content="{x:Static resources:Resource.TimeAutomationPipelineTriggerTabItemContent_Sunrise}"
             GroupName="A" />
+
         <RadioButton
             x:Name="_sunsetRadioButton"
             Margin="0,0,0,8"
             Click="RadioButton_Click"
             Content="{x:Static resources:Resource.TimeAutomationPipelineTriggerTabItemContent_Sunset}"
             GroupName="A" />
+
         <RadioButton
             x:Name="_timeRadioButton"
             Margin="0,0,0,8"
             Click="RadioButton_Click"
             Content="{x:Static resources:Resource.TimeAutomationPipelineTriggerTabItemContent_Time}"
             GroupName="A" />
-
         <StackPanel
             x:Name="_timePickerPanel"
             Margin="28,0,0,0"
             VerticalAlignment="Center"
             IsEnabled="False"
-            Orientation="Horizontal">
-            <ui:NumberBox
-                x:Name="_timePickerHours"
-                ClearButtonEnabled="False"
-                IntegersOnly="True"
-                Max="23"
-                Min="0"
-                Step="1" />
-            <Label
-                Margin="4,0,4,0"
-                VerticalContentAlignment="Center"
-                Content=":" />
-            <ui:NumberBox
-                x:Name="_timePickerMinutes"
-                ClearButtonEnabled="False"
-                IntegersOnly="True"
-                Max="59"
-                Min="0"
-                Step="1" />
-            <Label
-                Margin="8,0,0,0"
-                VerticalContentAlignment="Center"
-                Content="(HH:MM)" />
-        </StackPanel>
-        <RadioButton
-            x:Name="_dayRadioButton"
-            Margin="0,0,0,8"
-            Click="RadioButton_Click"
-            Content="{x:Static resources:Resource.TimeAutomationPipelineTriggerTabItemContent_Day}"
-            GroupName="A" />
-        <StackPanel
-            x:Name="_dayPickerPanel"
-            Margin="28,0,0,0"
-            IsEnabled="False"
-            Orientation="Horizontal">
-            <StackPanel x:Name="_checkboxContainer" />
-            <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
-                <Label
-                    Margin="8,0,0,0"
-                    VerticalContentAlignment="Center"
-                    Content=" " />
+            Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
                 <ui:NumberBox
-                    x:Name="_dayPickerHours"
+                    x:Name="_timePickerHours"
                     ClearButtonEnabled="False"
                     IntegersOnly="True"
                     Max="23"
@@ -88,7 +51,7 @@
                     VerticalContentAlignment="Center"
                     Content=":" />
                 <ui:NumberBox
-                    x:Name="_dayPickerMinutes"
+                    x:Name="_timePickerMinutes"
                     ClearButtonEnabled="False"
                     IntegersOnly="True"
                     Max="59"
@@ -98,6 +61,15 @@
                     Margin="8,0,0,0"
                     VerticalContentAlignment="Center"
                     Content="(HH:MM)" />
+            </StackPanel>
+            <StackPanel x:Name="_daysOfWeekPanel" Margin="0,16,0,0">
+                <CheckBox Click="DayOfWeekCheckBox_OnClick" Tag="{x:Static system:DayOfWeek.Monday}" />
+                <CheckBox Click="DayOfWeekCheckBox_OnClick" Tag="{x:Static system:DayOfWeek.Tuesday}" />
+                <CheckBox Click="DayOfWeekCheckBox_OnClick" Tag="{x:Static system:DayOfWeek.Wednesday}" />
+                <CheckBox Click="DayOfWeekCheckBox_OnClick" Tag="{x:Static system:DayOfWeek.Thursday}" />
+                <CheckBox Click="DayOfWeekCheckBox_OnClick" Tag="{x:Static system:DayOfWeek.Friday}" />
+                <CheckBox Click="DayOfWeekCheckBox_OnClick" Tag="{x:Static system:DayOfWeek.Saturday}" />
+                <CheckBox Click="DayOfWeekCheckBox_OnClick" Tag="{x:Static system:DayOfWeek.Sunday}" />
             </StackPanel>
         </StackPanel>
     </StackPanel>

@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
+using LenovoLegionToolkit.Lib.Automation.Resources;
 using LenovoLegionToolkit.Lib.Extensions;
 
 namespace LenovoLegionToolkit.WPF.Windows.Automation.TabItemContent;
@@ -24,31 +24,15 @@ public partial class TimeAutomationPipelineTriggerTabItemContent : IAutomationPi
         _isSunset = trigger.IsSunset;
         _time = trigger.Time;
         _days = trigger.Days;
+
         InitializeComponent();
-        CreateCheckBoxes();
+        UpdateCheckBoxes();
     }
 
-    private void CreateCheckBoxes()
+    private void UpdateCheckBoxes()
     {
-        var dateTimeFormat = CultureInfo.CurrentCulture.DateTimeFormat;
-        var localizedAvailableDays = new List<string>();
-        var firstDayOfWeekIndex = (int)dateTimeFormat.FirstDayOfWeek;
-
-        for (var i = firstDayOfWeekIndex; localizedAvailableDays.Count < 7; i++)
-        {
-            var day = (DayOfWeek)(i % 7);
-            var localizedDay = dateTimeFormat.GetDayName(day);
-            localizedAvailableDays.Add(localizedDay);
-        }
-
-        foreach (var localizedAvailableDay in localizedAvailableDays)
-        {
-            var dayCheckBox = new CheckBox
-            {
-                Content = localizedAvailableDay
-            };
-            _checkboxContainer.Children.Add(dayCheckBox);
-        }
+        foreach (var checkBox in _daysOfWeekPanel.Children.OfType<CheckBox>())
+            checkBox.Content = Resource.Culture.DateTimeFormat.GetDayName((DayOfWeek)checkBox.Tag);
     }
 
     private void TimeTabItem_Initialized(object? sender, EventArgs e)
@@ -63,14 +47,15 @@ public partial class TimeAutomationPipelineTriggerTabItemContent : IAutomationPi
         _timePickerHours.Value = local.Hour;
         _timePickerMinutes.Value = local.Minute;
 
-        _dayPickerHours.Value = local.Hour;
-        _dayPickerMinutes.Value = local.Minute;
-
         _timeRadioButton.IsChecked = _time is not null;
-        _timePickerPanel.IsEnabled = _time is not null && _days.Length == 0;
+        _timePickerPanel.IsEnabled = _time is not null;
 
-        _dayRadioButton.IsChecked = _days is not null;
-        _dayPickerPanel.IsEnabled = _days is not null;
+        var daysOfWeek = _days.Any() ? _days : Enum.GetValues<DayOfWeek>();
+        foreach (var daysOfWeekCheckbox in _daysOfWeekPanel.Children.OfType<CheckBox>())
+        {
+            if (daysOfWeek.Contains((DayOfWeek)daysOfWeekCheckbox.Tag))
+                daysOfWeekCheckbox.IsChecked = true;
+        }
     }
 
     public ITimeAutomationPipelineTrigger GetTrigger()
@@ -78,49 +63,55 @@ public partial class TimeAutomationPipelineTriggerTabItemContent : IAutomationPi
         var isSunrise = _sunriseRadioButton.IsChecked ?? false;
         var isSunset = _sunsetRadioButton.IsChecked ?? false;
         var time = GetSelectedTime();
-        DayOfWeek[] days = _dayPickerPanel.IsEnabled ? GetSelectedDays() : new DayOfWeek[0];
+        var days = GetSelectedDays();
+
         return _trigger.DeepCopy(isSunrise, isSunset, time, days);
     }
 
     private Time? GetSelectedTime()
     {
-        if (!_timePickerPanel.IsEnabled && !_dayPickerPanel.IsEnabled)
+        if (!_timePickerPanel.IsEnabled)
             return null;
-        int pickedHour, pickedMinute;
-        if (_timePickerPanel.IsEnabled == true)
-        {
-            pickedHour = (int)_timePickerHours.Value;
-            pickedMinute = (int)_timePickerMinutes.Value;
-        }
-        else
-        {
-            pickedHour = (int)_dayPickerHours.Value;
-            pickedMinute = (int)_dayPickerMinutes.Value;
-        }
-        var utc = DateTimeExtensions
-                .LocalFrom(pickedHour, pickedMinute)
-                .ToUniversalTime();
+
+        var pickedHour = (int)_timePickerHours.Value;
+        var pickedMinute = (int)_timePickerMinutes.Value;
+
+        var utc = DateTimeExtensions.LocalFrom(pickedHour, pickedMinute).ToUniversalTime();
         return new Time { Hour = utc.Hour, Minute = utc.Minute };
     }
 
     private DayOfWeek[] GetSelectedDays()
     {
-        var selectedDays = new List<DayOfWeek>();
-        foreach (CheckBox dayCheckBox in _checkboxContainer.Children)
-        {
-            var dateTimeFormat = CultureInfo.CurrentCulture.DateTimeFormat;
-            if (dayCheckBox.IsChecked == true)
-            {
-                var day = (DayOfWeek)Array.IndexOf(dateTimeFormat.DayNames, dayCheckBox.Content.ToString());
-                selectedDays.Add(day);
-            }
-        }
-        return selectedDays.ToArray();
+        var days = _daysOfWeekPanel.Children
+            .OfType<CheckBox>()
+            .Where(c => c.IsChecked == true)
+            .Select(c => c.Tag)
+            .Cast<DayOfWeek>()
+            .ToArray();
+
+        if (days.IsEmpty())
+            days = Enum.GetValues<DayOfWeek>();
+
+        return days;
     }
 
     private void RadioButton_Click(object sender, RoutedEventArgs e)
     {
         _timePickerPanel.IsEnabled = _timeRadioButton.IsChecked ?? false;
-        _dayPickerPanel.IsEnabled = _dayRadioButton.IsChecked ?? false;
+    }
+
+    private void DayOfWeekCheckBox_OnClick(object sender, RoutedEventArgs e)
+    {
+        if (sender is not CheckBox checkBox)
+            return;
+
+        var anySelected = _daysOfWeekPanel.Children
+            .OfType<CheckBox>()
+            .Any(c => c.IsChecked == true);
+
+        if (anySelected)
+            return;
+
+        checkBox.IsChecked = true;
     }
 }
