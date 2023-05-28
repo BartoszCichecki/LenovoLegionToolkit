@@ -9,6 +9,7 @@ using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.WPF.Controls;
 using LenovoLegionToolkit.WPF.Extensions;
+using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 
@@ -100,12 +101,13 @@ public partial class CreateAutomationPipelineWindow
 
     private UIElement CreateMultipleSelectCardControl()
     {
+        var localizedDisplayName = Resource.MultipleTriggersAutomationPipelineTrigger_DisplayName;
         var control = new CardControl
         {
             Icon = SymbolRegular.SquareMultiple24,
             Header = new CardHeaderControl
             {
-                Title = "Multiple triggers...",
+                Title = localizedDisplayName,
                 Accessory = new SymbolIcon { Symbol = SymbolRegular.ChevronRight24 }
             },
             Margin = new(0, 8, 0, 0),

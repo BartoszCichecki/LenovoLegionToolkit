@@ -2553,6 +2553,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Multiple triggers....
+        /// </summary>
+        public static string MultipleTriggersAutomationPipelineTrigger_DisplayName {
+            get {
+                return ResourceManager.GetString("MultipleTriggersAutomationPipelineTrigger_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No.
         /// </summary>
         public static string No {

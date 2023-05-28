@@ -1765,6 +1765,10 @@ This settings takes effect only when Custom Mode is enabled.</value>
     <comment>Used to prompt the user to enter a day of the week for an "At specified time" Action.</comment>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_After" xml:space="preserve">
-	  <value>After {0}</value>
+    <value>After {0}</value>
+  </data>
+  <data name="MultipleTriggersAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Multiple triggers...</value>
+    <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
   </data>
 </root>
