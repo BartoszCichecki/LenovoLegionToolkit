@@ -33,16 +33,20 @@ public partial class TimeAutomationPipelineTriggerTabItemContent : IAutomationPi
         var dateTimeFormat = CultureInfo.CurrentCulture.DateTimeFormat;
         var localizedAvailableDays = new List<string>();
         var firstDayOfWeekIndex = (int)dateTimeFormat.FirstDayOfWeek;
-        for (int i = firstDayOfWeekIndex; localizedAvailableDays.Count < 7; i++)
+
+        for (var i = firstDayOfWeekIndex; localizedAvailableDays.Count < 7; i++)
         {
             var day = (DayOfWeek)(i % 7);
             var localizedDay = dateTimeFormat.GetDayName(day);
             localizedAvailableDays.Add(localizedDay);
         }
-        foreach (string localizedAvailableDay in localizedAvailableDays)
+
+        foreach (var localizedAvailableDay in localizedAvailableDays)
         {
-            CheckBox dayCheckBox = new CheckBox();
-            dayCheckBox.Content = localizedAvailableDay;
+            var dayCheckBox = new CheckBox
+            {
+                Content = localizedAvailableDay
+            };
             _checkboxContainer.Children.Add(dayCheckBox);
         }
     }

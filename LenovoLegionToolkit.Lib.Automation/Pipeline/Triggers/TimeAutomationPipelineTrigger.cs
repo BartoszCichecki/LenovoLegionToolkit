@@ -23,12 +23,12 @@ public class TimeAutomationPipelineTrigger : ITimeAutomationPipelineTrigger
     private readonly SunriseSunset _sunriseSunset = IoCContainer.Resolve<SunriseSunset>();
 
     [JsonConstructor]
-    public TimeAutomationPipelineTrigger(bool isSunrise, bool isSunset, Time? time, DayOfWeek[] days)
+    public TimeAutomationPipelineTrigger(bool isSunrise, bool isSunset, Time? time, DayOfWeek[]? days)
     {
         IsSunrise = isSunrise;
         IsSunset = isSunset;
         Time = time;
-        Days = days;
+        Days = days ?? Array.Empty<DayOfWeek>();
     }
 
     public async Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
