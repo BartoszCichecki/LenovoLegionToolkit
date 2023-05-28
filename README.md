@@ -296,6 +296,10 @@ By default this setting is hidden, but can be revealed by running `powercfg.exe 
 
 I also recommend other apps that make it very easy to manage settings across multiple power plans: [PowerSettingsExplorer](https://forums.guru3d.com/threads/windows-power-plan-settings-explorer-utility.416058/) and [QuickCPU](https://coderbag.com/product/quickcpu).
 
+#### Can I customize hotkeys?
+
+You can customize Fn+F9 hotkey in LLT settings. Other hotkeys can't be customized.
+
 ## How to collect logs?
 
 In some cases it will be super useful if you can provide logs that this app can create. This helps with debugging and other issue solving.
