@@ -29,7 +29,7 @@ public class UserInactivityListener : NativeWindow, IListener<(TimeSpan, int)>
 
     public UserInactivityListener(IMainThreadDispatcher mainThreadDispatcher)
     {
-        _mainThreadDispatcher = mainThreadDispatcher;
+        _mainThreadDispatcher = mainThreadDispatcher ?? throw new ArgumentNullException(nameof(mainThreadDispatcher));
 
         _hookProc = HookProc;
     }
