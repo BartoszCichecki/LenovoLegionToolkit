@@ -257,7 +257,7 @@ public class AutomationPipelineControl : UserControl
             if (tt.Time is not null)
             {
                 var local = DateTimeExtensions.UtcFrom(tt.Time.Value.Hour, tt.Time.Value.Minute).ToLocalTime();
-                if (tt.Days.OrderBy(x => x).SequenceEqual(Enum.GetValues<DayOfWeek>()))
+                if (tt.Days.IsEmpty() || tt.Days.OrderBy(x => x).SequenceEqual(Enum.GetValues<DayOfWeek>()))
                 {
                     result += $" | {string.Format(Resource.AutomationPipelineControl_SubtitlePart_AtTime, local.Hour, local.Minute)}";
                 }
