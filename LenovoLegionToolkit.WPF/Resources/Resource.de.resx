@@ -1760,6 +1760,6 @@ Diese Einstellung wird nur wirksam, wenn der benutzerdefinierte Modus aktiviert 
     <value>Pfad</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_After" xml:space="preserve">
-	  <value>Nach {0}</value>
+    <value>Nach {0}</value>
   </data>
 </root>
