@@ -158,8 +158,14 @@
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Винаги активирай Планът за захранване на Windows</value>
   </data>
+  <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
+    <value>Зареждане на USB устройства при изключен компютър, в спящ режим или в режим на хибернация.</value>
+  </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>Винаги включен USB</value>
+  </data>
+  <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
+    <value>Зареждане на USB устройства при изключен компютър, в спящ режим или в режим на хибернация.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>Винаги включен USB</value>
@@ -181,6 +187,9 @@
   </data>
   <data name="AutomationPage_Actions_Empty" xml:space="preserve">
     <value>Нямате дефинирани Действия. Натиснете "Добави ново", за да създадете ново Действие.</value>
+  </data>
+  <data name="AutomationPage_Actions_Message" xml:space="preserve">
+    <value>Действия ще бъдат изпълнени автоматично, ако функцията е активирана. При промяна в състоянието, всички те ще бъдат проверени от горе надолу. Само тези, които съвпадат с настоящото състояние, ще бъдат изпълнени.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>Действия</value>
@@ -314,8 +323,14 @@
   <data name="BatteryPage_CurrentCapacity_Title" xml:space="preserve">
     <value>Текущ капацитет</value>
   </data>
+  <data name="BatteryPage_CycleCount_Message" xml:space="preserve">
+    <value>Колко пъти батерията е преминала през цикъл на разреждане и зареждане.</value>
+  </data>
   <data name="BatteryPage_CycleCount_Title" xml:space="preserve">
     <value>Брой на циклите</value>
+  </data>
+  <data name="BatteryPage_DesignCapacity_Message" xml:space="preserve">
+    <value>Капацитет на батерията по спецификация.</value>
   </data>
   <data name="BatteryPage_DesignCapacity_Title" xml:space="preserve">
     <value>Фабричен капацитет</value>
@@ -338,6 +353,12 @@
   <data name="BatteryPage_FirstUse_Message" xml:space="preserve">
     <value>Кога батерията е била използвана за първи път.</value>
   </data>
+  <data name="BatteryPage_FullChargeCapacity_Message" xml:space="preserve">
+    <value>Капацитет на батерията, когато е напълно заредена.</value>
+  </data>
+  <data name="BatteryPage_FullChargeCapacity_Title" xml:space="preserve">
+    <value>Пълен капацитет</value>
+  </data>
   <data name="BatteryPage_LowWattageChargerConnected" xml:space="preserve">
     <value>Беше свързано зарядно с ниска мощност</value>
   </data>
@@ -346,6 +367,10 @@
   </data>
   <data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
     <value>Дата на производство</value>
+  </data>
+  <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
+    <value>Изминалото време от последното свързване на зарядното.
+Възможни са неточности, ако лаптопът е бил зареждан по време на спящ режим или докато е бил изключен.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
     <value>На батерия от</value>
@@ -617,8 +642,14 @@
   <data name="FanCurveControl_RPM" xml:space="preserve">
     <value>Обороти в минута</value>
   </data>
+  <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
+    <value>Стартира лаптопа при отваряне на капака.</value>
+  </data>
   <data name="FlipToStartAutomationStepControl_Title" xml:space="preserve">
     <value>Flip To Start</value>
+  </data>
+  <data name="FlipToStartControl_Message" xml:space="preserve">
+    <value>Стартира лаптопа при отваряне на капака.</value>
   </data>
   <data name="FlipToStartControl_Title" xml:space="preserve">
     <value>Flip To Start</value>
@@ -626,8 +657,14 @@
   <data name="FnLockAutomationStepControl_Message" xml:space="preserve">
     <value>Използвайте второстепенните функции на клавишите F1-F12 без да задържате клавиша Fn.</value>
   </data>
+  <data name="FnLockAutomationStepControl_Title" xml:space="preserve">
+    <value>Заключен клавиш Fn</value>
+  </data>
   <data name="FnLockControl_Message" xml:space="preserve">
     <value>Използвайте второстепенните функции на клавишите F1-F12 без да задържате клавиша Fn.</value>
+  </data>
+  <data name="FnLockControl_Title" xml:space="preserve">
+    <value>Заключен клавиш Fn</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
     <value>ВНИМАНИ!
@@ -803,6 +840,9 @@
   <data name="Notification_FnLockOff" xml:space="preserve">
     <value>Отключване на клваиша Fn</value>
   </data>
+  <data name="Notification_FnLockOn" xml:space="preserve">
+    <value>Заключен клавиш Fn</value>
+  </data>
   <data name="Notification_MicrophoneOff" xml:space="preserve">
     <value>Микрофонът е изключен</value>
   </data>
@@ -849,6 +889,9 @@
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Не показвай известия</value>
   </data>
+  <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
+    <value>Заключен клавиш Fn</value>
+  </data>
   <data name="NotificationsSettingsWindow_KeyboardBacklight" xml:space="preserve">
     <value>Подсветка на клавиатурата</value>
   </data>
@@ -869,6 +912,9 @@
   </data>
   <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
     <value>Известия</value>
+  </data>
+  <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
+    <value>Заключен тъчпад</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>Добре</value>
@@ -1348,6 +1394,18 @@
   <data name="ToggleHybridModeControl_Title" xml:space="preserve">
     <value>Хибриден режим</value>
   </data>
+  <data name="TouchpadLockAutomationStepControl_Message" xml:space="preserve">
+    <value>Деактивира тъчпада.</value>
+  </data>
+  <data name="TouchpadLockAutomationStepControl_Title" xml:space="preserve">
+    <value>Заключен тъчпад</value>
+  </data>
+  <data name="TouchpadLockControl_Message" xml:space="preserve">
+    <value>Деактивира тъчпада.</value>
+  </data>
+  <data name="TouchpadLockControl_Title" xml:space="preserve">
+    <value>Заключен тъчпад</value>
+  </data>
   <data name="TryAgain" xml:space="preserve">
     <value>Опитайте отново</value>
   </data>
@@ -1416,14 +1474,23 @@
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>Работи само на вградената клавиатура.</value>
   </data>
+  <data name="WinKeyControl_Title" xml:space="preserve">
+    <value>Заключен клавиш Windows</value>
+  </data>
   <data name="Yes" xml:space="preserve">
     <value>Да</value>
   </data>
   <data name="MicrophoneControl_Title" xml:space="preserve">
     <value>Микрофон</value>
   </data>
+  <data name="MicrophoneControl_Message" xml:space="preserve">
+    <value>Микрофонът ще бъде заглушен, ако настройката не е активирана.</value>
+  </data>
   <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
     <value>Микрофон</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
+    <value>Микрофонът ще бъде заглушен, ако настройката не е активирана.</value>
   </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
     <value>Разделителна способност</value>
@@ -1492,6 +1559,10 @@
   </data>
   <data name="TurnOffMonitorsControl_Title" xml:space="preserve">
     <value>Изключи екраните</value>
+  </data>
+  <data name="TurnOffMonitorsControl_Message" xml:space="preserve">
+    <value>Изключва наличните екрани.
+Те ще бъдат събудени ако мръднете мишката или натиснете клавиш от клавиатурата.</value>
   </data>
   <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
     <value>Изключи</value>
@@ -1692,5 +1763,9 @@
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_After" xml:space="preserve">
     <value>След {0}</value>
+  </data>
+  <data name="MultipleTriggersAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Няколко условия...</value>
+    <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
   </data>
 </root>
