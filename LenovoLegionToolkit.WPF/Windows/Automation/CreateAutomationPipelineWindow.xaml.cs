@@ -101,13 +101,12 @@ public partial class CreateAutomationPipelineWindow
 
     private UIElement CreateMultipleSelectCardControl()
     {
-        var localizedDisplayName = Resource.MultipleTriggersAutomationPipelineTrigger_DisplayName;
         var control = new CardControl
         {
             Icon = SymbolRegular.SquareMultiple24,
             Header = new CardHeaderControl
             {
-                Title = localizedDisplayName,
+                Title = Resource.MultipleTriggersAutomationPipelineTrigger_DisplayName,
                 Accessory = new SymbolIcon { Symbol = SymbolRegular.ChevronRight24 }
             },
             Margin = new(0, 8, 0, 0),
