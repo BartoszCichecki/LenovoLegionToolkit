@@ -45,16 +45,23 @@ public class UserInactivityListener : NativeWindow, IListener<(TimeSpan, int)>
         _kbHook = PInvoke.SetWindowsHookEx(WINDOWS_HOOK_ID.WH_KEYBOARD_LL, _hookProc, HINSTANCE.Null, 0);
         _mouseHook = PInvoke.SetWindowsHookEx(WINDOWS_HOOK_ID.WH_MOUSE_LL, _hookProc, HINSTANCE.Null, 0);
 
-        _timer = new Timer(TimerCallback, null, _timerResolution, _timerResolution);
-        _tickCount = 0;
+        lock (_lock)
+        {
+            _timer = new Timer(TimerCallback, null, _timerResolution, _timerResolution);
+            _tickCount = 0;
+        }
 
         return Task.CompletedTask;
     });
 
     public Task StopAsync() => _mainThreadDispatcher.DispatchAsync(() =>
     {
-        _timer?.Dispose();
-        _timer = null;
+        lock (_lock)
+        {
+            _timer?.Dispose();
+            _timer = null;
+            _tickCount = 0;
+        }
 
         PInvoke.UnhookWindowsHookEx(_kbHook);
         PInvoke.UnhookWindowsHookEx(_mouseHook);
