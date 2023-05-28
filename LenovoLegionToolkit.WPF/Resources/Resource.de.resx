@@ -666,6 +666,20 @@ Vielen Dank im Voraus!</value>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Fn Lock</value>
   </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
+    <value>WARNUNG!
+Einige Laptops können niedrigere Werte akzeptieren, als sie angeben, aber seien Sie vorsichtig. Diese Option kann zu unvorhersehbarem Verhalten führen. Wenn Sie also nicht sicher sind, was Sie tun, lassen Sie diese Option auf 0.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
+    <value>Minimaler Offset</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
+    <value>WARNUNG!
+Einige Laptops können höhere Werte akzeptieren, als sie angeben, aber seien Sie vorsichtig. Diese Option kann zu unvorhersehbarem Verhalten führen. Wenn Sie also nicht sicher sind, was Sie tun, lassen Sie diese Option auf 0.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
+    <value>Maximaler Offset</value>
+  </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>Ändern Sie die folgenden Optionen nur, wenn Sie wirklich wissen, was Sie tun.</value>
   </data>
@@ -1611,10 +1625,10 @@ Diese Einstellung wird nur wirksam, wenn der benutzerdefinierte Modus aktiviert 
     <value>Anwendungsordner</value>
   </data>
   <data name="AboutPage_Data" xml:space="preserve">
-    <value>Werte</value>
+    <value>Daten</value>
   </data>
   <data name="AboutPage_Temp" xml:space="preserve">
-    <value>Temperatur</value>
+    <value>Temporär</value>
   </data>
   <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
     <value>Einzelne Display-Helligkeit</value>
@@ -1735,5 +1749,17 @@ Diese Einstellung wird nur wirksam, wenn der benutzerdefinierte Modus aktiviert 
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Ausgeschaltet</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
+    <value>Importiere das Profil der Tastaturbeleuchtung</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message" xml:space="preserve">
+    <value>Importiere das Profil der Tastaturbeleuchtung und wende es auf die aktuelle Konfiguration an.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
+    <value>Pfad</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_After" xml:space="preserve">
+	  <value>Nach {0}</value>
   </data>
 </root>
