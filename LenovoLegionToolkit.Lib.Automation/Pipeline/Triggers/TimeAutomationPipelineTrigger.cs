@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Automation.Resources;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Utils;
 using Newtonsoft.Json;
 
@@ -13,7 +15,7 @@ public class TimeAutomationPipelineTrigger : ITimeAutomationPipelineTrigger
     public bool IsSunset { get; }
 
     public Time? Time { get; }
-    
+
     public DayOfWeek[] Days { get; }
 
     public string DisplayName => Resource.TimeAutomationPipelineTrigger_DisplayName;
@@ -40,21 +42,16 @@ public class TimeAutomationPipelineTrigger : ITimeAutomationPipelineTrigger
     public async Task<bool> IsMatchingState()
     {
         var now = DateTime.UtcNow;
-        var day = now.DayOfWeek;
         var time = new Time { Hour = now.Hour, Minute = now.Minute };
+        var day = now.DayOfWeek;
 
         return await IsMatching(time, day).ConfigureAwait(false);
     }
 
     private async Task<bool> IsMatching(Time time, DayOfWeek dayOfWeek)
     {
-        if (Time == time)
-        {
-            if (Days.Length == 0)
-                return true;
-            if (Array.IndexOf(Days, dayOfWeek) > -1)
-                return true;
-        }
+        if (Time == time && (Days.IsEmpty() || Days.Contains(dayOfWeek)))
+            return true;
 
         var (sunrise, sunset) = await _sunriseSunset.GetSunriseSunsetAsync().ConfigureAwait(false);
 

@@ -20,7 +20,7 @@ public class DateTimeExtensions
     {
         var now = DateTime.UtcNow;
         var date = new DateTime(now.Year, now.Month, now.Day, hours, minutes, now.Second, DateTimeKind.Utc);
-        int daysUntilDayOfWeek = ((int)targetDay - (int)date.DayOfWeek + 7) % 7;
+        var daysUntilDayOfWeek = ((int)targetDay - (int)date.DayOfWeek + 7) % 7;
         return date.AddDays(daysUntilDayOfWeek);
     }
 
@@ -28,7 +28,7 @@ public class DateTimeExtensions
     {
         var now = DateTime.Now;
         var date = new DateTime(now.Year, now.Month, now.Day, hours, minutes, now.Second, DateTimeKind.Local);
-        int daysUntilDayOfWeek = ((int)targetDay - (int)date.DayOfWeek + 7) % 7;
+        var daysUntilDayOfWeek = ((int)targetDay - (int)date.DayOfWeek + 7) % 7;
         return date.AddDays(daysUntilDayOfWeek);
     }
 }

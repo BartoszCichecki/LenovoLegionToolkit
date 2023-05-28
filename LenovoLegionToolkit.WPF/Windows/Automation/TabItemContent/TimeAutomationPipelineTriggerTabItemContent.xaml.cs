@@ -97,7 +97,7 @@ public partial class TimeAutomationPipelineTriggerTabItemContent : IAutomationPi
                 .LocalFrom(pickedHour, pickedMinute)
                 .ToUniversalTime();
         return new Time { Hour = utc.Hour, Minute = utc.Minute };
-    }   
+    }
 
     private DayOfWeek[] GetSelectedDays()
     {
@@ -118,15 +118,5 @@ public partial class TimeAutomationPipelineTriggerTabItemContent : IAutomationPi
     {
         _timePickerPanel.IsEnabled = _timeRadioButton.IsChecked ?? false;
         _dayPickerPanel.IsEnabled = _dayRadioButton.IsChecked ?? false;
-    }
-
-    private void _timeRadioButton_Checked(object sender, RoutedEventArgs e)
-    {
-
-    }
-
-        private void _dayRadioButton_Checked(object sender, RoutedEventArgs e)
-    {
-
     }
 }

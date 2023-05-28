@@ -15,6 +15,7 @@ public static class Compatibility
     private static readonly string _allowedVendor = "LENOVO";
 
     private static readonly string[] _allowedModelsPrefix = {
+        // Worldwide variants
         "17ACH",
         "17ARH",
         "17ITH",
@@ -35,6 +36,8 @@ public static class Compatibility
         "15IMH",
         "15ITH",
 
+        // Chinese variants
+        "IRH8",
         "R9000",
         "R7000",
         "Y9000",
@@ -43,9 +46,7 @@ public static class Compatibility
         // Limited compatibility
         "17IR",
         "15IR",
-        "15ICH",
-        
-        "IRH8" // Fixed G5000's Model Prefix
+        "15ICH"
     };
 
     private static MachineInformation? _machineInformation;

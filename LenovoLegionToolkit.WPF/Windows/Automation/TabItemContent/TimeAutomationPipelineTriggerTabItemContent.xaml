@@ -28,7 +28,7 @@
             Margin="0,0,0,8"
             Click="RadioButton_Click"
             Content="{x:Static resources:Resource.TimeAutomationPipelineTriggerTabItemContent_Time}"
-            GroupName="A" Checked="_timeRadioButton_Checked" />
+            GroupName="A" />
 
         <StackPanel
             x:Name="_timePickerPanel"
@@ -64,40 +64,41 @@
             Margin="0,0,0,8"
             Click="RadioButton_Click"
             Content="{x:Static resources:Resource.TimeAutomationPipelineTriggerTabItemContent_Day}"
-            GroupName="A" Checked="_dayRadioButton_Checked" />
+            GroupName="A" />
         <StackPanel
             x:Name="_dayPickerPanel"
             Margin="28,0,0,0"
-            VerticalAlignment="Center"
             IsEnabled="False"
             Orientation="Horizontal">
             <StackPanel x:Name="_checkboxContainer" />
-            <Label
-                Margin="8,0,0,0"
-                VerticalContentAlignment="Center"
-                Content=" " />
-            <ui:NumberBox
-                x:Name="_dayPickerHours"
-                ClearButtonEnabled="False"
-                IntegersOnly="True"
-                Max="23"
-                Min="0"
-                Step="1" />
-            <Label
-                Margin="4,0,4,0"
-                VerticalContentAlignment="Center"
-                Content=":" />
-            <ui:NumberBox
-                x:Name="_dayPickerMinutes"
-                ClearButtonEnabled="False"
-                IntegersOnly="True"
-                Max="59"
-                Min="0"
-                Step="1" />
-            <Label
-                Margin="8,0,0,0"
-                VerticalContentAlignment="Center"
-                Content="(HH:MM)" />
+            <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+                <Label
+                    Margin="8,0,0,0"
+                    VerticalContentAlignment="Center"
+                    Content=" " />
+                <ui:NumberBox
+                    x:Name="_dayPickerHours"
+                    ClearButtonEnabled="False"
+                    IntegersOnly="True"
+                    Max="23"
+                    Min="0"
+                    Step="1" />
+                <Label
+                    Margin="4,0,4,0"
+                    VerticalContentAlignment="Center"
+                    Content=":" />
+                <ui:NumberBox
+                    x:Name="_dayPickerMinutes"
+                    ClearButtonEnabled="False"
+                    IntegersOnly="True"
+                    Max="59"
+                    Min="0"
+                    Step="1" />
+                <Label
+                    Margin="8,0,0,0"
+                    VerticalContentAlignment="Center"
+                    Content="(HH:MM)" />
+            </StackPanel>
         </StackPanel>
     </StackPanel>
 </UserControl>
