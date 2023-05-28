@@ -177,4 +177,10 @@
   <data name="GamesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>When game is running</value>
   </data>
+  <data name="UserInactivityAutomationPipelineTrigger_DisplayName_Zero" xml:space="preserve">
+	  <value>When user becomes active</value>
+  </data>
+  <data name="UserInactivityAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+	  <value>When user becomes inactive</value>
+  </data>
 </root>

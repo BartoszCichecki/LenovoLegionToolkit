@@ -129,9 +129,8 @@ LLT currently does not support installation for multiple users, so if you need t
 The app allows to:
 
 - Change settings like power mode, battery charging mode, etc. that are available only through Vantage.
-- Access to Custom Mode available only in Legion Zone, including Fan Control on 2022 and newer models.
-- Spectrum RGB and White backlight keyboards support.
-- Change display refresh rate (built-in display only).
+- Access to Custom Mode, including Fan Control on 2022 and newer models.
+- Spectrum RGB, 4-zone RGB and White backlight keyboards support.
 - Deactivate discrete GPU (nVidia only).
 - View battery statistics.
 - Download software updates.
@@ -152,6 +151,7 @@ Custom Mode is supported on following BIOS versions:
 * J2CN40WW and higher
 * JUCN51WW and higher
 * JYCN39WW and higher
+* M3CN32WW and higher
 
 Not all features of Custom Mode are supported by all devices.
 
@@ -203,6 +203,7 @@ Special thanks to:
 * [Mario Bălănică](https://github.com/mariobalanica), for all contributions
 
 Translations provided by:
+* Bulgarian - [Ekscentricitet](https://github.com/Ekscentricitet)
 * Chinese - [凌卡Karl](https://github.com/KarlLee830)
 * Czech - J0sef
 * Dutch - Melm, [JarneStaalPXL](https://github.com/JarneStaalPXL)
@@ -210,6 +211,7 @@ Translations provided by:
 * German - Sko-Inductor, Running_Dead89
 * Greek - GreatApo
 * Italian - [Lampadina17](https://github.com/Lampadina17)
+* Karakalpak - KarLin, Gulnaz, Niyazbek Tolibaev, Shingis Joldasbaev
 * Romanian - [Mario Bălănică](https://github.com/mariobalanica)
 * Slovak - Mitschud, Newbie414
 * Spanish - M.A.G.
@@ -294,6 +296,10 @@ Shortly speaking, in Windows Control Panel. This option was removed from LLT sin
 By default this setting is hidden, but can be revealed by running `powercfg.exe -attributes sub_processor perfboostmode -attrib_hide` in Terminal.
 
 I also recommend other apps that make it very easy to manage settings across multiple power plans: [PowerSettingsExplorer](https://forums.guru3d.com/threads/windows-power-plan-settings-explorer-utility.416058/) and [QuickCPU](https://coderbag.com/product/quickcpu).
+
+#### Can I customize hotkeys?
+
+You can customize Fn+F9 hotkey in LLT settings. Other hotkeys can't be customized.
 
 ## How to collect logs?
 

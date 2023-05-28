@@ -52,6 +52,18 @@ public class GodModeController : IGodModeController
         await controller.ApplyStateAsync().ConfigureAwait(false);
     }
 
+    public async Task<FanTable> GetDefaultFanTableAsync()
+    {
+        var controller = await GetControllerAsync().ConfigureAwait(false);
+        return await controller.GetDefaultFanTableAsync().ConfigureAwait(false);
+    }
+
+    public async Task<FanTable> GetMinimumFanTableAsync()
+    {
+        var controller = await GetControllerAsync().ConfigureAwait(false);
+        return await controller.GetMinimumFanTableAsync().ConfigureAwait(false);
+    }
+
     public async Task<Dictionary<PowerModeState, GodModeDefaults>> GetDefaultsInOtherPowerModesAsync()
     {
         var controller = await GetControllerAsync().ConfigureAwait(false);

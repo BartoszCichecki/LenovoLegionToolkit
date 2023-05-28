@@ -51,5 +51,13 @@ public interface ITimeAutomationPipelineTrigger : IAutomationPipelineTrigger
     bool IsSunset { get; }
     Time? Time { get; }
     DayOfWeek[] Days { get; }
+
     ITimeAutomationPipelineTrigger DeepCopy(bool isSunrise, bool isSunset, Time? time, DayOfWeek[] day);
+}
+
+public interface IUserInactivityPipelineTrigger : IAutomationPipelineTrigger
+{
+    TimeSpan InactivityTimeSpan { get; }
+
+    IUserInactivityPipelineTrigger DeepCopy(TimeSpan timeSpan);
 }

@@ -296,14 +296,8 @@
   <data name="BatteryAutomationStepControl_Message" xml:space="preserve">
     <value>Изберете как да се зарежда батерията.</value>
   </data>
-  <data name="BatteryAutomationStepControl_Title" xml:space="preserve">
-    <value>Режим на батерия</value>
-  </data>
   <data name="BatteryModeControl_Message" xml:space="preserve">
     <value>Изберете как да се зарежда батерията.</value>
-  </data>
-  <data name="BatteryModeControl_Title" xml:space="preserve">
-    <value>Режим на батерия</value>
   </data>
   <data name="BatteryPage_ACAdapterConnectedAndCharging" xml:space="preserve">
     <value>Свързано, зарежда батерията...</value>

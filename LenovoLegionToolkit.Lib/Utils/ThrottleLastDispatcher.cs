@@ -26,17 +26,13 @@ public class ThrottleLastDispatcher
 
             var token = _cancellationTokenSource.Token;
 
-            await Task.Delay(_interval, token)
-                .ContinueWith(async t =>
-                {
-                    if (!t.IsCompletedSuccessfully)
-                        return;
+            await Task.Delay(_interval, token);
+            token.ThrowIfCancellationRequested();
 
-                    if (_tag is not null && Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Allowing... [tag={_tag}]");
+            if (_tag is not null && Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Allowing... [tag={_tag}]");
 
-                    await task();
-                }, token);
+            await task();
         }
         catch (TaskCanceledException)
         {

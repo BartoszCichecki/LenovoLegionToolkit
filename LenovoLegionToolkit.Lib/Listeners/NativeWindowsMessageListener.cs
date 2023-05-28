@@ -15,6 +15,7 @@ namespace LenovoLegionToolkit.Lib.Listeners;
 
 public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindowsMessage>
 {
+    private readonly IMainThreadDispatcher _mainThreadDispatcher;
     private readonly IGPUModeFeature _igpuModeFeature;
 
     private readonly HOOKPROC _kbProc;
@@ -33,8 +34,9 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
 
     public event EventHandler<NativeWindowsMessage>? Changed;
 
-    public NativeWindowsMessageListener(IGPUModeFeature igpuModeFeature)
+    public NativeWindowsMessageListener(IMainThreadDispatcher mainThreadDispatcher, IGPUModeFeature igpuModeFeature)
     {
+        _mainThreadDispatcher = mainThreadDispatcher ?? throw new ArgumentNullException(nameof(mainThreadDispatcher)); ;
         _igpuModeFeature = igpuModeFeature ?? throw new ArgumentNullException(nameof(igpuModeFeature));
 
         _kbProc = LowLevelKeyboardProc;
@@ -46,7 +48,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         PInvoke.SendMessage(new HWND(Handle), PInvoke.WM_SYSCOMMAND, new WPARAM(PInvoke.SC_MONITORPOWER), new LPARAM(2));
     }
 
-    public unsafe Task StartAsync()
+    public unsafe Task StartAsync() => _mainThreadDispatcher.DispatchAsync(() =>
     {
         CreateHandle(new CreateParams
         {
@@ -62,9 +64,9 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         _lidSwitchStateChangeNotificationHandle = RegisterPowerNotification(PInvoke.GUID_LIDSWITCH_STATE_CHANGE);
 
         return WaitForInit();
-    }
+    });
 
-    public unsafe Task StopAsync()
+    public unsafe Task StopAsync() => _mainThreadDispatcher.DispatchAsync(() =>
     {
         PInvoke.UnhookWindowsHookEx(_kbHook);
 
@@ -81,7 +83,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         ReleaseHandle();
 
         return Task.CompletedTask;
-    }
+    });
 
     protected override void WndProc(ref Message m)
     {

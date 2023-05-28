@@ -20,7 +20,7 @@ public class PowerModeControl : AbstractComboBoxFeatureCardControl<PowerModeStat
     private readonly PowerModeListener _powerModeListener = IoCContainer.Resolve<PowerModeListener>();
     private readonly PowerPlanListener _powerPlanListener = IoCContainer.Resolve<PowerPlanListener>();
 
-    private readonly ThrottleFirstDispatcher _throttleDispatcher = new(TimeSpan.FromSeconds(1), nameof(PowerModeControl));
+    private readonly ThrottleLastDispatcher _throttleDispatcher = new(TimeSpan.FromMilliseconds(500), nameof(PowerModeControl));
 
     private readonly Button _configButton = new()
     {

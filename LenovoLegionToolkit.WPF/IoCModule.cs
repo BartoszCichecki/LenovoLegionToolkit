@@ -9,6 +9,8 @@ public class IoCModule : Module
 {
     protected override void Load(ContainerBuilder builder)
     {
+        builder.Register<MainThreadDispatcher>();
+
         builder.Register<SpectrumScreenCapture>();
 
         builder.Register<ThemeManager>().AutoActivate();

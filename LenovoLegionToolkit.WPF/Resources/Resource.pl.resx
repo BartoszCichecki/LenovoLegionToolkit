@@ -117,4 +117,196 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutPage_AppName" xml:space="preserve">
+    <value>Lenovo Legion Toolkit</value>
+  </data>
+  <data name="AboutPage_Build" xml:space="preserve">
+    <value>Build</value>
+  </data>
+  <data name="AboutPage_LatestReleaseOnGitHub" xml:space="preserve">
+    <value>Ostatnia wersja na GitHub</value>
+  </data>
+  <data name="AboutPage_Links" xml:space="preserve">
+    <value>Linki</value>
+  </data>
+  <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
+    <value>Strona projektu na GitHub</value>
+  </data>
+  <data name="AboutPage_Title" xml:space="preserve">
+    <value>O programie</value>
+  </data>
+  <data name="AboutPage_TranslationCredit" xml:space="preserve">
+    <value>Tłumaczenia tworzone są przez społeczność.</value>
+    <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
+  </data>
+  <data name="AboutPage_Version" xml:space="preserve">
+    <value>Wersja</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
+  <data name="AddNew" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
+  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
+    <value>Aktywuj plan zasilania, nawet jeśli Vantage działa w tle.
+Ta opcja powinna być używana tylko na urządzeniach, które nie miały dodatkowych planów zasilania.</value>
+  </data>
+  <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
+    <value>Zawsze aktywuj plan zasilania Windows</value>
+  </data>
+  <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
+    <value>Ładuj urządzenia USB gdy komputer jest wyłączony, uśpiony lub zahibernowany.</value>
+  </data>
+  <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
+    <value>Ładuj urządzenia USB gdy komputer jest wyłączony, uśpiony lub zahibernowany.</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Lenovo Legion Toolkit</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Zastosuj</value>
+  </data>
+  <data name="ApplyAndClose" xml:space="preserve">
+    <value>Zastosuj i zamknij</value>
+  </data>
+  <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
+    <value>Akcje będą działać, tylko gdy Lenovo Legion Toolkit jest uruchomiony.</value>
+  </data>
+  <data name="AutomationPage_ActionsEnabled_Title" xml:space="preserve">
+    <value>Włącz</value>
+  </data>
+  <data name="AutomationPage_Actions_Empty" xml:space="preserve">
+    <value>Nie zdefiniowano akcji. Kliknij dodaj, aby utworzyć nową akcję.</value>
+  </data>
+  <data name="AutomationPage_Actions_Title" xml:space="preserve">
+    <value>Akcje</value>
+  </data>
+  <data name="AutomationPage_AddManualPipeline_Placeholder" xml:space="preserve">
+    <value>Nazwa...</value>
+  </data>
+  <data name="AutomationPage_AddManualPipeline_Title" xml:space="preserve">
+    <value>Dodaj nową</value>
+  </data>
+  <data name="AutomationPage_RenamePipeline_Placeholder" xml:space="preserve">
+    <value>Nazwa...</value>
+  </data>
+  <data name="AutomationPipelineControl_Configure" xml:space="preserve">
+    <value>Konfiguruj</value>
+  </data>
+  <data name="BatteryPage_CycleCount_Title" xml:space="preserve">
+    <value>Ilość cykli</value>
+  </data>
+  <data name="BatteryPage_EstimatingBatteryLife" xml:space="preserve">
+    <value>Estymowanie czasu...</value>
+  </data>
+  <data name="BatteryPage_FirstUseDate_Title" xml:space="preserve">
+    <value>Data pierwszego użycia</value>
+  </data>
+  <data name="BatteryPage_Title" xml:space="preserve">
+    <value>Bateria</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anuluj</value>
+  </data>
+  <data name="Celsius" xml:space="preserve">
+    <value>°C</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Zamknij</value>
+  </data>
+  <data name="ColorCardControl_Blue" xml:space="preserve">
+    <value>Niebieski</value>
+  </data>
+  <data name="ColorCardControl_Green" xml:space="preserve">
+    <value>Zielony</value>
+  </data>
+  <data name="ColorCardControl_Red" xml:space="preserve">
+    <value>Czerwony</value>
+  </data>
+  <data name="Color_Blue" xml:space="preserve">
+    <value>Niebieski</value>
+  </data>
+  <data name="Color_Green" xml:space="preserve">
+    <value>Zielony</value>
+  </data>
+  <data name="Color_Red" xml:space="preserve">
+    <value>Czerwony</value>
+  </data>
+  <data name="ComboBoxHybridModeControl_RestartRequired_Title" xml:space="preserve">
+    <value>Wymagane ponowne uruchomienie</value>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Kontynuuj</value>
+  </data>
+  <data name="CopyAll" xml:space="preserve">
+    <value>Kopiuj wszystkie</value>
+  </data>
+  <data name="DashboardPage_Graphics_Title" xml:space="preserve">
+    <value>Grafika</value>
+  </data>
+  <data name="DashboardPage_Other_Title" xml:space="preserve">
+    <value>Inne</value>
+  </data>
+  <data name="DashboardPage_Power_Title" xml:space="preserve">
+    <value>Zasilanie</value>
+  </data>
+  <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
+    <value>Deaktywuj GPU</value>
+  </data>
+  <data name="DelayAutomationStepControl_Title" xml:space="preserve">
+    <value>Opóźnienie</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Usuń</value>
+  </data>
+  <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
+    <value>Wersja BIOS</value>
+  </data>
+  <data name="CopiedToClipboard_Message" xml:space="preserve">
+    <value>Tekst skopiowano do schowka.</value>
+  </data>
+  <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
+    <value>"{0}" skopiowano do schowka.</value>
+  </data>
+  <data name="CopiedToClipboard_Title" xml:space="preserve">
+    <value>Skopiowano!</value>
+  </data>
+  <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
+    <value>Urządzenie</value>
+  </data>
+  <data name="DeviceInformationWindow_Manufacturer_Title" xml:space="preserve">
+    <value>Producent</value>
+  </data>
+  <data name="DeviceInformationWindow_Model_Title" xml:space="preserve">
+    <value>Modal</value>
+  </data>
+  <data name="DeviceInformationWindow_SerialNumber_Title" xml:space="preserve">
+    <value>Numer seryjny</value>
+  </data>
+  <data name="DeviceInformationWindow_Title" xml:space="preserve">
+    <value>O urządzeniu</value>
+  </data>
+  <data name="DiscreteGPUControl_Processes" xml:space="preserve">
+    <value>Procesy</value>
+  </data>
+  <data name="DonatePage_Message" xml:space="preserve">
+    <value>Tworzenie i utrzymywanie Lenovo Legion Toolkit zajmuje bardzo dużo czasu. Jeżeli lubisz używać tego programu, możesz wesprzeć jego rozwój przekazują darowiznę.
+
+Kliknij logo poniżej lub zeskanuj kod QR, żeby przekazać darowiznę poprzez PayPal.
+
+Z góry dziękuję!</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edytuj</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Zamknij</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Eksportuj</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
+    <value>Klawiatura</value>
+  </data>
 </root>

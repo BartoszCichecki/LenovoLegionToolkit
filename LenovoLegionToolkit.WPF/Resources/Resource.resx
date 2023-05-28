@@ -1764,4 +1764,7 @@ This settings takes effect only when Custom Mode is enabled.</value>
     <value>Day</value>
     <comment>Used to prompt the user to enter a day of the week for an "At specified time" Action.</comment>
   </data>
+  <data name="AutomationPipelineControl_SubtitlePart_After" xml:space="preserve">
+	  <value>After {0}</value>
+  </data>
 </root>

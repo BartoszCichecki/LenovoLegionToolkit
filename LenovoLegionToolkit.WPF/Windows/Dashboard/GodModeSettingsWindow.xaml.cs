@@ -67,7 +67,7 @@ public partial class GodModeSettingsWindow
             if (_defaults is null)
                 throw new InvalidOperationException($"{nameof(_defaults)} are null.");
 
-            SetState(_state.Value);
+            await SetStateAsync(_state.Value);
 
             await loadingTask;
 
@@ -151,7 +151,7 @@ public partial class GodModeSettingsWindow
         }
     }
 
-    private void SetState(GodModeState state)
+    private async Task SetStateAsync(GodModeState state)
     {
         var activePresetId = state.ActivePresetId;
         var preset = state.Presets[activePresetId];
@@ -176,9 +176,14 @@ public partial class GodModeSettingsWindow
 
         var fanTableInfo = preset.FanTableInfo;
         if (fanTableInfo.HasValue)
-            _fanCurveControl.SetFanTableInfo(fanTableInfo.Value);
+        {
+            var minimum = await _godModeController.GetMinimumFanTableAsync();
+            _fanCurveControl.SetFanTableInfo(fanTableInfo.Value, minimum);
+        }
         else
+        {
             _fanCurveCardControl.Visibility = Visibility.Collapsed;
+        }
 
         var fanFullSpeed = preset.FanFullSpeed;
         if (fanFullSpeed.HasValue)
@@ -286,7 +291,8 @@ public partial class GodModeSettingsWindow
             if (data is not null)
             {
                 var defaultFanTableInfo = new FanTableInfo(data, fanTable);
-                _fanCurveControl.SetFanTableInfo(defaultFanTableInfo);
+                var minimum = await _godModeController.GetMinimumFanTableAsync();
+                _fanCurveControl.SetFanTableInfo(defaultFanTableInfo, minimum);
             }
         }
 
@@ -300,7 +306,7 @@ public partial class GodModeSettingsWindow
             _minValueOffsetNumberBox.Text = $"{0}";
     }
 
-    private void PresetsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    private async void PresetsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         if (!_state.HasValue)
             return;
@@ -312,7 +318,7 @@ public partial class GodModeSettingsWindow
             return;
 
         _state = _state.Value with { ActivePresetId = item.Key };
-        SetState(_state.Value);
+        await SetStateAsync(_state.Value);
     }
 
     private async void EditPresetsButton_Click(object sender, RoutedEventArgs e)
@@ -333,10 +339,10 @@ public partial class GodModeSettingsWindow
             [activePresetId] = preset with { Name = result }
         };
         _state = _state.Value with { Presets = newPresets.AsReadOnlyDictionary() };
-        SetState(_state.Value);
+        await SetStateAsync(_state.Value);
     }
 
-    private void DeletePresetsButton_Click(object sender, RoutedEventArgs e)
+    private async void DeletePresetsButton_Click(object sender, RoutedEventArgs e)
     {
         if (!_state.HasValue)
             return;
@@ -358,7 +364,7 @@ public partial class GodModeSettingsWindow
             ActivePresetId = newActivePresetId,
             Presets = newPresets.AsReadOnlyDictionary()
         };
-        SetState(_state.Value);
+        await SetStateAsync(_state.Value);
     }
 
     private async void AddPresetsButton_Click(object sender, RoutedEventArgs e)
@@ -389,7 +395,8 @@ public partial class GodModeSettingsWindow
             ActivePresetId = newActivePresetId,
             Presets = newPresets.AsReadOnlyDictionary()
         };
-        SetState(_state.Value);
+
+        await SetStateAsync(_state.Value);
     }
 
     private async void DefaultFanCurve_Click(object sender, RoutedEventArgs e)
@@ -401,8 +408,10 @@ public partial class GodModeSettingsWindow
         if (data is null)
             return;
 
-        var defaultFanTableInfo = new FanTableInfo(data, FanTable.Default);
-        _fanCurveControl.SetFanTableInfo(defaultFanTableInfo);
+        var defaultFanTable = await _godModeController.GetDefaultFanTableAsync();
+        var defaultFanTableInfo = new FanTableInfo(data, defaultFanTable);
+        var minimum = await _godModeController.GetMinimumFanTableAsync();
+        _fanCurveControl.SetFanTableInfo(defaultFanTableInfo, minimum);
     }
 
     private void LoadButton_Click(object sender, RoutedEventArgs e)

@@ -22,6 +22,7 @@ public static class Compatibility
 
         "16ACH",
         "16ARH",
+        "16ARX",
         "16IAH",
         "16IAX",
         "16IRX",
@@ -42,7 +43,9 @@ public static class Compatibility
         // Limited compatibility
         "17IR",
         "15IR",
-        "15ICH"
+        "15ICH",
+        
+        "IRH8" // Fixed G5000's Model Prefix
     };
 
     private static MachineInformation? _machineInformation;
@@ -154,7 +157,8 @@ public static class Compatibility
         (string, int?)[] supportedBiosVersions =
         {
             ("KWCN", 28),
-            ("LPCN", 27)
+            ("LPCN", 27),
+            ("M3CN", 32)
         };
 
         return IsBiosVersionMatch(currentBiosVersionString, supportedBiosVersions);

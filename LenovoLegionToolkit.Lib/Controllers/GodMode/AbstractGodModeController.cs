@@ -60,7 +60,7 @@ public abstract class AbstractGodModeController : IGodModeController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Loading state from store...");
 
-        return LoadStateFromStore(store, defaultState);
+        return await LoadStateFromStoreAsync(store, defaultState).ConfigureAwait(false);
     }
 
     public Task SetStateAsync(GodModeState state)
@@ -106,6 +106,14 @@ public abstract class AbstractGodModeController : IGodModeController
 
     public abstract Task ApplyStateAsync();
 
+    public Task<FanTable> GetDefaultFanTableAsync()
+    {
+        var fanTable = new FanTable(new ushort[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
+        return Task.FromResult(fanTable);
+    }
+
+    public abstract Task<FanTable> GetMinimumFanTableAsync();
+
     public abstract Task<Dictionary<PowerModeState, GodModeDefaults>> GetDefaultsInOtherPowerModesAsync();
 
     public abstract Task RestoreDefaultsInOtherPowerModeAsync(PowerModeState state);
@@ -132,9 +140,16 @@ public abstract class AbstractGodModeController : IGodModeController
         throw new InvalidOperationException($"Preset with ID {activePresetId} not found.");
     }
 
+    protected async Task<bool> IsValidFanTableAsync(FanTable fanTable)
+    {
+        var minimumFanTable = await GetMinimumFanTableAsync().ConfigureAwait(false);
+        var minimum = minimumFanTable.GetTable();
+        return fanTable.GetTable().Where((t, i) => t < minimum[i] || t > 10u).IsEmpty();
+    }
+
     private bool IsValidStore(GodModeSettings.GodModeSettingsStore store) => store.Presets.Any() && store.Presets.ContainsKey(store.ActivePresetId);
 
-    private GodModeState LoadStateFromStore(GodModeSettings.GodModeSettingsStore store, GodModePreset defaultState)
+    private async Task<GodModeState> LoadStateFromStoreAsync(GodModeSettings.GodModeSettingsStore store, GodModePreset defaultState)
     {
         var states = new Dictionary<Guid, GodModePreset>();
 
@@ -157,7 +172,7 @@ public abstract class AbstractGodModeController : IGodModeController
                     preset.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline,
                     preset.MinValueOffset,
                     preset.MaxValueOffset),
-                FanTableInfo = GetFanTableInfo(preset, defaultState.FanTableInfo?.Data),
+                FanTableInfo = await GetFanTableInfoAsync(preset, defaultState.FanTableInfo?.Data).ConfigureAwait(false),
                 FanFullSpeed = preset.FanFullSpeed,
                 MinValueOffset = preset.MinValueOffset ?? defaultState.MinValueOffset,
                 MaxValueOffset = preset.MaxValueOffset ?? defaultState.MaxValueOffset
@@ -210,7 +225,7 @@ public abstract class AbstractGodModeController : IGodModeController
         return null;
     }
 
-    private FanTableInfo? GetFanTableInfo(GodModeSettings.GodModeSettingsStore.Preset preset, FanTableData[]? fanTableData)
+    private async Task<FanTableInfo?> GetFanTableInfoAsync(GodModeSettings.GodModeSettingsStore.Preset preset, FanTableData[]? fanTableData)
     {
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting fan table info...");
@@ -225,17 +240,17 @@ public abstract class AbstractGodModeController : IGodModeController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Fan table data retrieved: {fanTableData}");
 
-        var fanTable = preset.FanTable ?? FanTable.Default;
+        var fanTable = preset.FanTable ?? await GetDefaultFanTableAsync().ConfigureAwait(false);
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Fan table retrieved: {fanTable}");
 
-        if (!fanTable.IsValid())
+        if (!await IsValidFanTableAsync(fanTable).ConfigureAwait(false))
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Fan table invalid, replacing with default...");
 
-            fanTable = FanTable.Default;
+            fanTable = await GetDefaultFanTableAsync().ConfigureAwait(false);
         }
 
         return new FanTableInfo(fanTableData, fanTable);

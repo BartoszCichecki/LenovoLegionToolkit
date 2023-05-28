@@ -26,6 +26,8 @@ public partial class CreateAutomationPipelineWindow
         new GamesStopAutomationPipelineTrigger(),
         new ProcessesAreRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()),
         new ProcessesStopRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()),
+        new UserInactivityAutomationPipelineTrigger(TimeSpan.Zero),
+        new UserInactivityAutomationPipelineTrigger(TimeSpan.FromMinutes(1)),
         new LidOpenedAutomationPipelineTrigger(),
         new LidClosedAutomationPipelineTrigger(),
         new DisplayOnAutomationPipelineTrigger(),
