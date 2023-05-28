@@ -296,8 +296,14 @@
   <data name="BatteryAutomationStepControl_Message" xml:space="preserve">
     <value>Изберете как да се зарежда батерията.</value>
   </data>
+  <data name="BatteryAutomationStepControl_Title" xml:space="preserve">
+    <value>Режим на батерията</value>
+  </data>
   <data name="BatteryModeControl_Message" xml:space="preserve">
     <value>Изберете как да се зарежда батерията.</value>
+  </data>
+  <data name="BatteryModeControl_Title" xml:space="preserve">
+    <value>Режим на батерията</value>
   </data>
   <data name="BatteryPage_ACAdapterConnectedAndCharging" xml:space="preserve">
     <value>Свързано, зарежда батерията...</value>
@@ -1743,12 +1749,19 @@
     <value>Изключена</value>
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
-	  <value>Импортирай профил за подсветката на клавиатурата</value>
+    <value>Импортирай профил за подсветката на клавиатурата</value>
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message" xml:space="preserve">
-	  <value>Импортирай и приложи настройките за подсветка към настоящия профил.</value>
+    <value>Импортирай и приложи настройките за подсветка към настоящия профил.</value>
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
-	  <value>Път към файла</value>
+    <value>Път към файла</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Day" xml:space="preserve">
+    <value>Ден</value>
+    <comment>Used to prompt the user to enter a day of the week for an "At specified time" Action.</comment>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_After" xml:space="preserve">
+	  <value>След {0}</value>
   </data>
 </root>
