@@ -1759,7 +1759,15 @@ Diese Einstellung wird nur wirksam, wenn der benutzerdefinierte Modus aktiviert 
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
     <value>Pfad</value>
   </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Day" xml:space="preserve">
+    <value>Tag</value>
+    <comment>Used to prompt the user to enter a day of the week for an "At specified time" Action.</comment>
+  </data>
   <data name="AutomationPipelineControl_SubtitlePart_After" xml:space="preserve">
-	  <value>Nach {0}</value>
+    <value>Nach {0}</value>
+  </data>
+  <data name="MultipleTriggersAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Mehrere Auslöser...</value>
+    <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
   </data>
 </root>

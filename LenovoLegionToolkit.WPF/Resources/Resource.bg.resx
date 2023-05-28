@@ -159,13 +159,13 @@
     <value>Винаги активирай Планът за захранване на Windows</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>Зареждане на USB устройства, при изключен компютър, в спящ режим или в режим на хибернация.</value>
+    <value>Зареждане на USB устройства при изключен компютър, в спящ режим или в режим на хибернация.</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>Винаги включен USB</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-    <value>Зареждане на USB устройства, при изключен компютър, в спящ режим или в режим на хибернация.</value>
+    <value>Зареждане на USB устройства при изключен компютър, в спящ режим или в режим на хибернация.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>Винаги включен USB</value>
@@ -189,7 +189,7 @@
     <value>Нямате дефинирани Действия. Натиснете "Добави ново", за да създадете ново Действие.</value>
   </data>
   <data name="AutomationPage_Actions_Message" xml:space="preserve">
-    <value>Ако са активирани, тези действия ще бъдат изпълнени автоматично. При промяна в състоянието, всички действия ще бъдат проверени от горе надолу. Само действия, които съвпадат с настоящото състояние, ще бъдат изпълнени.</value>
+    <value>Действия ще бъдат изпълнени автоматично, ако функцията е активирана. При промяна в състоянието, всички те ще бъдат проверени от горе надолу. Само тези, които съвпадат с настоящото състояние, ще бъдат изпълнени.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>Действия</value>
@@ -324,13 +324,13 @@
     <value>Текущ капацитет</value>
   </data>
   <data name="BatteryPage_CycleCount_Message" xml:space="preserve">
-    <value>Брой на циклите зареждане/разреждане.</value>
+    <value>Колко пъти батерията е преминала през цикъл на разреждане и зареждане.</value>
   </data>
   <data name="BatteryPage_CycleCount_Title" xml:space="preserve">
     <value>Брой на циклите</value>
   </data>
   <data name="BatteryPage_DesignCapacity_Message" xml:space="preserve">
-    <value>Фабричен капацитет.</value>
+    <value>Капацитет на батерията по спецификация.</value>
   </data>
   <data name="BatteryPage_DesignCapacity_Title" xml:space="preserve">
     <value>Фабричен капацитет</value>
@@ -354,10 +354,10 @@
     <value>Кога батерията е била използвана за първи път.</value>
   </data>
   <data name="BatteryPage_FullChargeCapacity_Message" xml:space="preserve">
-    <value>Капацитет на батерията при пълно зареждане.</value>
+    <value>Капацитет на батерията, когато е напълно заредена.</value>
   </data>
   <data name="BatteryPage_FullChargeCapacity_Title" xml:space="preserve">
-    <value>Капацитет на батерията при пълно зареждане</value>
+    <value>Пълен капацитет</value>
   </data>
   <data name="BatteryPage_LowWattageChargerConnected" xml:space="preserve">
     <value>Беше свързано зарядно с ниска мощност</value>
@@ -369,8 +369,8 @@
     <value>Дата на производство</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-    <value>Изминало време, от както лаптопът е бил включен в зарядно за последен път.
-Времето може да не е измерено точно ако лаптопът е бил зареждан по време на спящ режим или докато е бил изключен.</value>
+    <value>Изминалото време от последното свързване на зарядното.
+Възможни са неточности, ако лаптопът е бил зареждан по време на спящ режим или докато е бил изключен.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
     <value>На батерия от</value>
@@ -643,13 +643,13 @@
     <value>Обороти в минута</value>
   </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
-    <value>Стартиране на лаптопа при отваряне на капака.</value>
+    <value>Стартира лаптопа при отваряне на капака.</value>
   </data>
   <data name="FlipToStartAutomationStepControl_Title" xml:space="preserve">
     <value>Flip To Start</value>
   </data>
   <data name="FlipToStartControl_Message" xml:space="preserve">
-    <value>Стартиране на лаптопа при отваряне на капака.</value>
+    <value>Стартира лаптопа при отваряне на капака.</value>
   </data>
   <data name="FlipToStartControl_Title" xml:space="preserve">
     <value>Flip To Start</value>
@@ -658,13 +658,13 @@
     <value>Използвайте второстепенните функции на клавишите F1-F12 без да задържате клавиша Fn.</value>
   </data>
   <data name="FnLockAutomationStepControl_Title" xml:space="preserve">
-    <value>Заключване на клавиша Fn</value>
+    <value>Заключен клавиш Fn</value>
   </data>
   <data name="FnLockControl_Message" xml:space="preserve">
     <value>Използвайте второстепенните функции на клавишите F1-F12 без да задържате клавиша Fn.</value>
   </data>
   <data name="FnLockControl_Title" xml:space="preserve">
-    <value>Заключване на клавиша Fn</value>
+    <value>Заключен клавиш Fn</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
     <value>ВНИМАНИ!
@@ -841,7 +841,7 @@
     <value>Отключване на клваиша Fn</value>
   </data>
   <data name="Notification_FnLockOn" xml:space="preserve">
-    <value>Заключване на клавиша Fn</value>
+    <value>Заключен клавиш Fn</value>
   </data>
   <data name="Notification_MicrophoneOff" xml:space="preserve">
     <value>Микрофонът е изключен</value>
@@ -890,7 +890,7 @@
     <value>Не показвай известия</value>
   </data>
   <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
-    <value>Заключване на клавиша Fn</value>
+    <value>Заключен клавиш Fn</value>
   </data>
   <data name="NotificationsSettingsWindow_KeyboardBacklight" xml:space="preserve">
     <value>Подсветка на клавиатурата</value>
@@ -914,7 +914,7 @@
     <value>Известия</value>
   </data>
   <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
-    <value>Заключете тъчпада</value>
+    <value>Заключен тъчпад</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>Добре</value>
@@ -1395,16 +1395,16 @@
     <value>Хибриден режим</value>
   </data>
   <data name="TouchpadLockAutomationStepControl_Message" xml:space="preserve">
-    <value>Изключете тъчпада.</value>
+    <value>Деактивира тъчпада.</value>
   </data>
   <data name="TouchpadLockAutomationStepControl_Title" xml:space="preserve">
-    <value>Заключете тъчпада</value>
+    <value>Заключен тъчпад</value>
   </data>
   <data name="TouchpadLockControl_Message" xml:space="preserve">
-    <value>Изключете тъчпада.</value>
+    <value>Деактивира тъчпада.</value>
   </data>
   <data name="TouchpadLockControl_Title" xml:space="preserve">
-    <value>Заключете тъчпада</value>
+    <value>Заключен тъчпад</value>
   </data>
   <data name="TryAgain" xml:space="preserve">
     <value>Опитайте отново</value>
@@ -1475,7 +1475,7 @@
     <value>Работи само на вградената клавиатура.</value>
   </data>
   <data name="WinKeyControl_Title" xml:space="preserve">
-    <value>Заключете клавиша Windows</value>
+    <value>Заключен клавиш Windows</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Да</value>
@@ -1484,13 +1484,13 @@
     <value>Микрофон</value>
   </data>
   <data name="MicrophoneControl_Message" xml:space="preserve">
-    <value>Когато е неизбрано, микрофонът ще бъде заглушен.</value>
+    <value>Микрофонът ще бъде заглушен, ако настройката не е активирана.</value>
   </data>
   <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
     <value>Микрофон</value>
   </data>
   <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
-    <value>Когато е неизбрано, микрофонът ще бъде заглушен.</value>
+    <value>Микрофонът ще бъде заглушен, ако настройката не е активирана.</value>
   </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
     <value>Разделителна способност</value>
@@ -1561,8 +1561,8 @@
     <value>Изключи екраните</value>
   </data>
   <data name="TurnOffMonitorsControl_Message" xml:space="preserve">
-    <value>Изключи наличните екрани.
-Ако мръднете мишката или натиснете клавиш от клавиатурата, това ще събуди екраните.</value>
+    <value>Изключва наличните екрани.
+Те ще бъдат събудени ако мръднете мишката или натиснете клавиш от клавиатурата.</value>
   </data>
   <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
     <value>Изключи</value>
@@ -1762,6 +1762,10 @@
     <comment>Used to prompt the user to enter a day of the week for an "At specified time" Action.</comment>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_After" xml:space="preserve">
-	  <value>След {0}</value>
+    <value>След {0}</value>
+  </data>
+  <data name="MultipleTriggersAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Няколко условия...</value>
+    <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
   </data>
 </root>

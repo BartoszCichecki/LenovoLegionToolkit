@@ -71,7 +71,7 @@
     <value>Включен, винаги</value>
   </data>
   <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
-    <value>Включен, в режим на заспиване</value>
+    <value>Включен, в спящ режим</value>
   </data>
   <data name="AutorunState_Disabled" xml:space="preserve">
     <value>Деактивиран</value>
@@ -83,7 +83,7 @@
     <value>Активиран, със закъснение</value>
   </data>
   <data name="BatteryState_Conservation" xml:space="preserve">
-    <value>Запазване на енергия</value>
+    <value>Удължаване на живота</value>
   </data>
   <data name="BatteryState_Normal" xml:space="preserve">
     <value>Обикновен</value>
