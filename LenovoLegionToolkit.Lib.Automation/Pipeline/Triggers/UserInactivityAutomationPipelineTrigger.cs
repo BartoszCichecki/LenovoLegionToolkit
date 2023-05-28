@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Automation.Listeners;
+using LenovoLegionToolkit.Lib.Automation.Resources;
 using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 
 public class UserInactivityAutomationPipelineTrigger : IUserInactivityPipelineTrigger
 {
-    public string DisplayName => InactivityTimeSpan == TimeSpan.Zero ? "When user becomes active" : "When user becomes inactive";
+    public string DisplayName => InactivityTimeSpan == TimeSpan.Zero
+        ? Resource.UserInactivityAutomationPipelineTrigger_DisplayName_Zero
+        : Resource.UserInactivityAutomationPipelineTrigger_DisplayName;
 
     public TimeSpan InactivityTimeSpan { get; }
 

@@ -40,7 +40,7 @@ public class UserInactivityListener : NativeWindow, IListener<(TimeSpan, uint)>
     {
         CreateHandle(new CreateParams
         {
-            Caption = "LenovoLegionToolkit_UserInactivityTimerWindow",
+            Caption = "LenovoLegionToolkit_UserInactivityListenerWindow",
             Parent = new IntPtr(-3)
         });
 

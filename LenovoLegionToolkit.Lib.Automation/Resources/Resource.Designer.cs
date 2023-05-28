@@ -239,5 +239,23 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
                 return ResourceManager.GetString("TimeAutomationPipelineTrigger_DisplayName", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When user becomes inactive.
+        /// </summary>
+        public static string UserInactivityAutomationPipelineTrigger_DisplayName {
+            get {
+                return ResourceManager.GetString("UserInactivityAutomationPipelineTrigger_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When user becomes active.
+        /// </summary>
+        public static string UserInactivityAutomationPipelineTrigger_DisplayName_Zero {
+            get {
+                return ResourceManager.GetString("UserInactivityAutomationPipelineTrigger_DisplayName_Zero", resourceCulture);
+            }
+        }
     }
 }

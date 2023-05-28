@@ -262,7 +262,7 @@ public class AutomationPipelineControl : UserControl
         }
 
         if (AutomationPipeline.Trigger is IUserInactivityPipelineTrigger ut && ut.InactivityTimeSpan > TimeSpan.Zero)
-            result += $" | After {ut.InactivityTimeSpan.Humanize(culture: Resource.Culture)}";
+            result += $" | {string.Format(Resource.AutomationPipelineControl_SubtitlePart_After, ut.InactivityTimeSpan.Humanize(culture: Resource.Culture))}";
 
         return result;
     }
