@@ -7,7 +7,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Listeners;
-using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32.SafeHandles;
@@ -48,8 +47,6 @@ public class SpectrumKeyboardBacklightController
 
     private readonly TimeSpan _auroraRefreshInterval = TimeSpan.FromMilliseconds(60);
 
-    private readonly IMainThreadDispatcher _mainThreadDispatcher;
-    private readonly ApplicationSettings _settings;
     private readonly SpecialKeyListener _listener;
     private readonly Vantage _vantage;
     private readonly IScreenCapture _screenCapture;
@@ -61,15 +58,10 @@ public class SpectrumKeyboardBacklightController
 
     private readonly JsonSerializerSettings _jsonSerializerSettings;
 
-    private UserInactivityTimer? _userInactivityTimer;
-    private int? _lastKnownBrightness;
-
     public bool ForceDisable { get; set; }
 
-    public SpectrumKeyboardBacklightController(IMainThreadDispatcher mainThreadDispatcher, ApplicationSettings settings, SpecialKeyListener listener, Vantage vantage, IScreenCapture screenCapture)
+    public SpectrumKeyboardBacklightController(SpecialKeyListener listener, Vantage vantage, IScreenCapture screenCapture)
     {
-        _mainThreadDispatcher = mainThreadDispatcher ?? throw new ArgumentNullException(nameof(mainThreadDispatcher));
-        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
         _listener = listener ?? throw new ArgumentNullException(nameof(listener));
         _vantage = vantage ?? throw new ArgumentNullException(nameof(vantage));
         _screenCapture = screenCapture ?? throw new ArgumentNullException(nameof(screenCapture));
@@ -98,15 +90,6 @@ public class SpectrumKeyboardBacklightController
 
         switch (e)
         {
-
-            case SpecialKey.SpectrumBacklightOff
-                or SpecialKey.SpectrumBacklight1
-                or SpecialKey.SpectrumBacklight2
-                or SpecialKey.SpectrumBacklight3:
-                {
-                    await RestartInactivityTimerIfNeededAsync().ConfigureAwait(false);
-                    break;
-                }
             case SpecialKey.SpectrumPreset1
                 or SpecialKey.SpectrumPreset2
                 or SpecialKey.SpectrumPreset3
@@ -114,7 +97,6 @@ public class SpectrumKeyboardBacklightController
                 or SpecialKey.SpectrumPreset5
                 or SpecialKey.SpectrumPreset6:
                 {
-                    await RestartInactivityTimerIfNeededAsync().ConfigureAwait(false);
                     await StartAuroraIfNeededAsync().ConfigureAwait(false);
                     break;
                 }
@@ -305,22 +287,6 @@ public class SpectrumKeyboardBacklightController
         var (_, effects) = await GetProfileDescriptionAsync(profile).ConfigureAwait(false);
         var json = JsonConvert.SerializeObject(effects, _jsonSerializerSettings);
         await File.WriteAllTextAsync(jsonPath, json).ConfigureAwait(false);
-    }
-
-    public async Task<bool> RestartInactivityTimerIfNeededAsync()
-    {
-        await OnUserActiveAsync().ConfigureAwait(false);
-
-        _userInactivityTimer?.Stop();
-
-        var timeout = _settings.Store.KeyboardInactivityTimeoutSeconds;
-        if (timeout < 0)
-            return false;
-
-        _userInactivityTimer = new UserInactivityTimer(_mainThreadDispatcher, TimeSpan.FromSeconds(timeout), OnUserActiveAsync, OnUserInactiveAsync);
-        _userInactivityTimer.Start();
-
-        return true;
     }
 
     public async Task<bool> StartAuroraIfNeededAsync(int? profile = null)
@@ -899,20 +865,5 @@ public class SpectrumKeyboardBacklightController
         var keys = effect.Type.IsAllLightsEffect() ? new ushort[] { 0x65 } : effect.Keys;
         var result = new LENOVO_SPECTRUM_EFFECT(header, index + 1, colors, keys);
         return result;
-    }
-
-    private async Task OnUserActiveAsync()
-    {
-        if (!_lastKnownBrightness.HasValue)
-            return;
-
-        await SetBrightnessAsync(_lastKnownBrightness.Value).ConfigureAwait(false);
-        _lastKnownBrightness = null;
-    }
-
-    private async Task OnUserInactiveAsync()
-    {
-        _lastKnownBrightness = await GetBrightnessAsync().ConfigureAwait(false);
-        await SetBrightnessAsync(0).ConfigureAwait(false);
     }
 }
