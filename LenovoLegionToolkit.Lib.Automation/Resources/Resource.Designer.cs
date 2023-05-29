@@ -97,6 +97,15 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Deactivate GPU.
+        /// </summary>
+        public static string DeactivateGpuQuickAction_Title {
+            get {
+                return ResourceManager.GetString("DeactivateGpuQuickAction_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} second.
         /// </summary>
         public static string Delay_Second {

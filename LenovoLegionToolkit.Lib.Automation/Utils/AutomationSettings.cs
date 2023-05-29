@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
 using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
+using LenovoLegionToolkit.Lib.Automation.Resources;
 using LenovoLegionToolkit.Lib.Automation.Steps;
 using LenovoLegionToolkit.Lib.Settings;
 
@@ -31,7 +32,7 @@ public class AutomationSettings : AbstractSettings<AutomationSettings.Automation
             },
             new AutomationPipeline
             {
-                Name = "Deactivate GPU",
+                Name = Resource.DeactivateGpuQuickAction_Title,
                 Steps = { new DeactivateGPUAutomationStep(DeactivateGPUAutomationStepState.KillApps) },
             },
         },
