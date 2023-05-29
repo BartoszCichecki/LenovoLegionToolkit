@@ -39,20 +39,20 @@ public class WarrantyChecker
     private WarrantyInfo LocalWarrantyInfo(WarrantyInfo currentInfo)
     {
         var updatedStatus = GetWarrantyStatus(currentInfo.End);
-        if (updatedStatus != currentInfo.Status)
-        {
-            var locallyUpdatedWarrantyInfo = new WarrantyInfo 
-            { 
-                Start = currentInfo.Start,
-                End = currentInfo.End,
-                Link = currentInfo.Link,
-                Status = updatedStatus 
-            };
-            _settings.Store.WarrantyInfo = locallyUpdatedWarrantyInfo;
-            _settings.SynchronizeStore();
-            return locallyUpdatedWarrantyInfo;
-        }
-        return currentInfo;
+
+        if (updatedStatus == currentInfo.Status)
+            return currentInfo;
+
+        var locallyUpdatedWarrantyInfo = new WarrantyInfo 
+        { 
+            Start = currentInfo.Start,
+            End = currentInfo.End,
+            Link = currentInfo.Link,
+            Status = updatedStatus 
+        };
+        _settings.Store.WarrantyInfo = locallyUpdatedWarrantyInfo;
+        _settings.SynchronizeStore();
+        return locallyUpdatedWarrantyInfo;
     }
 
     private string GetWarrantyStatus(DateTime? endDate)
