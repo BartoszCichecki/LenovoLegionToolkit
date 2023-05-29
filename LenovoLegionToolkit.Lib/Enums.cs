@@ -53,25 +53,33 @@ public enum FanTableType
 
 public enum FlipToStartState
 {
+    [Display(ResourceType = typeof(Resource), Name = "FlipToStartState_Off")]
     Off,
+    [Display(ResourceType = typeof(Resource), Name = "FlipToStartState_On")]
     On
 }
 
 public enum FnLockState
 {
+    [Display(ResourceType = typeof(Resource), Name = "FnLockState_Off")]
     Off,
+    [Display(ResourceType = typeof(Resource), Name = "FnLockState_On")]
     On
 }
 
 public enum GSyncState
 {
+    [Display(ResourceType = typeof(Resource), Name = "GSyncState_On")]
     On,
+    [Display(ResourceType = typeof(Resource), Name = "GSyncState_Off")]
     Off
 }
 
 public enum HDRState
 {
+    [Display(ResourceType = typeof(Resource), Name = "HDRState_Off")]
     Off,
+    [Display(ResourceType = typeof(Resource), Name = "HDRState_On")]
     On
 }
 
@@ -118,7 +126,9 @@ public enum LightingChangeState
 
 public enum MicrophoneState
 {
+    [Display(ResourceType = typeof(Resource), Name = "MicrophoneState_Off")]
     Off,
+    [Display(ResourceType = typeof(Resource), Name = "MicrophoneState_On")]
     On
 }
 
@@ -201,7 +211,9 @@ public enum NotificationPosition
 
 public enum OneLevelWhiteKeyboardBacklightState
 {
+    [Display(ResourceType = typeof(Resource), Name = "OneLevelWhiteKeyboardBacklightState_Off")]
     Off,
+    [Display(ResourceType = typeof(Resource), Name = "OneLevelWhiteKeyboardBacklightState_On")]
     On
 }
 
@@ -219,7 +231,9 @@ public enum OS
 
 public enum OverDriveState
 {
+    [Display(ResourceType = typeof(Resource), Name = "OverdriveState_Off")]
     Off,
+    [Display(ResourceType = typeof(Resource), Name = "OverdriveState_On")]
     On
 }
 
@@ -453,7 +467,9 @@ public enum ThermalModeState
 
 public enum TouchpadLockState
 {
+    [Display(ResourceType = typeof(Resource), Name = "TouchpadLockState_Off")]
     Off,
+    [Display(ResourceType = typeof(Resource), Name = "TouchpadLockState_On")]
     On
 }
 
@@ -469,7 +485,9 @@ public enum WhiteKeyboardBacklightState
 
 public enum WinKeyState
 {
+    [Display(ResourceType = typeof(Resource), Name = "WinKeyState_Off")]
     Off,
+    [Display(ResourceType = typeof(Resource), Name = "WinKeyState_On")]
     On
 }
 
