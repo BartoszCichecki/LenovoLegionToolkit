@@ -646,13 +646,13 @@
     <value>Стартира лаптопа при отваряне на капака.</value>
   </data>
   <data name="FlipToStartAutomationStepControl_Title" xml:space="preserve">
-    <value>Flip To Start</value>
+    <value>Разгъни за стартиране</value>
   </data>
   <data name="FlipToStartControl_Message" xml:space="preserve">
     <value>Стартира лаптопа при отваряне на капака.</value>
   </data>
   <data name="FlipToStartControl_Title" xml:space="preserve">
-    <value>Flip To Start</value>
+    <value>Разгъни за стартиране</value>
   </data>
   <data name="FnLockAutomationStepControl_Message" xml:space="preserve">
     <value>Използвайте второстепенните функции на клавишите F1-F12 без да задържате клавиша Fn.</value>
@@ -917,7 +917,7 @@
     <value>Заключен тъчпад</value>
   </data>
   <data name="OK" xml:space="preserve">
-    <value>Добре</value>
+    <value>Добави</value>
   </data>
   <data name="Open" xml:space="preserve">
     <value>Отвори</value>
@@ -993,13 +993,13 @@
     <value>Операционна система</value>
   </data>
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
-    <value>Основна (препоръчано)</value>
+    <value>Основен (препоръчано)</value>
   </data>
   <data name="PackagesPage_PrimarySource_Message" xml:space="preserve">
     <value>Както Lenovo Vantage</value>
   </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
-    <value>Второстепенна</value>
+    <value>Второстепенен</value>
   </data>
   <data name="PackagesPage_SecondarySource_Message" xml:space="preserve">
     <value>Както Lenovo PC Support</value>
@@ -1113,7 +1113,7 @@
   <data name="RefreshRateAutomationStepControl_Message" xml:space="preserve">
     <value>Променете честотата на опресняване на вградения дисплей.
 
-ВНИМАНИЕ: Това действие може да не бъде изпълнено правилно ако вграденият дисплей е изключен.</value>
+ВНИМАНИЕ: Това действие може да не бъде изпълнено правилно, ако вграденият дисплей е изключен.</value>
   </data>
   <data name="RefreshRateAutomationStepControl_Title" xml:space="preserve">
     <value>Честота на опресняване</value>
@@ -1171,7 +1171,7 @@
     <value>Цвят на акцента</value>
   </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
-    <value>Стартирайте приложението минимизирано в лентата на задачите, когато влезете в Windows.</value>
+    <value>Приложението ще бъде стартирано заедно с компютъра. Ще може да го откриете в лентата на задачите.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Автоматично стартиране</value>
@@ -1247,7 +1247,7 @@
     <value>Език</value>
   </data>
   <data name="SettingsPage_MinimizeOnClose_Message" xml:space="preserve">
-    <value>Винаги минимизирай в лентата на задачите. Може да затворите приложението от менюто, което се отваря при натискането на десен бутон върху иконата на приложението.</value>
+    <value>Приложението се минимизира в лентата на задачите, когато затворите основния прозорец. Може да го спрете от менюто, което се отваря при натискането на десен бутон върху иконката му.</value>
   </data>
   <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
     <value>Минимизирай приложението при затваряне на прозореца</value>
@@ -1514,9 +1514,9 @@
     <value>Точки на инч (DPI)</value>
   </data>
   <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
-    <value>Променете честотата на опресняване на вградения дисплей.
+    <value>Променете мащаба на вградения дисплей.
 
-ВНИМАНИЕ: Това действие може да не бъде изпълнено правилно ако вграденият дисплей е изключен.</value>
+ВНИМАНИЕ: Това действие може да не бъде изпълнено правилно, ако вграденият дисплей е изключен.</value>
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>Екран</value>
@@ -1629,10 +1629,10 @@
     <value>Папка за временни файлове</value>
   </data>
   <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
-    <value>Яркост на единичния дисплей</value>
+    <value>Една и съща яркост на дисплея</value>
   </data>
   <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
-    <value>Когато е активирано, една и съща настройка на яркостта ще бъде приложена за всички планове за захранване на Windows, когато я промените.</value>
+    <value>Когато е активирано, една и съща настройка на яркостта ще бъде приложена за всички планове за захранване на Windows.</value>
   </data>
   <data name="Notification_UpdateAvailable" xml:space="preserve">
     <value>Актуализация {0} е налична!</value>
