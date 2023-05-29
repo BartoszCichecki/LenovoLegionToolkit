@@ -178,9 +178,13 @@
     <value>Wenn das Spiel ausgeführt wird</value>
   </data>
   <data name="UserInactivityAutomationPipelineTrigger_DisplayName_Zero" xml:space="preserve">
-	  <value>Wenn ein Benutzer aktiv wird</value>
+    <value>Wenn ein Benutzer aktiv wird</value>
   </data>
   <data name="UserInactivityAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Wenn ein Benutzer inaktiv wird</value>
+    <value>Wenn ein Benutzer inaktiv wird</value>
+  </data>
+  <data name="DeactivateGpuQuickAction_Title" xml:space="preserve">
+    <value>Deaktiviere GPU</value>
+    <comment>The display name of the default Quick Action that is presented to the user upon first installation.</comment>
   </data>
 </root>
