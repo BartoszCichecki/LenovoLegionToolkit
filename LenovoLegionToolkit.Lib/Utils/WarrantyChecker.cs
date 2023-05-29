@@ -50,8 +50,10 @@ public class WarrantyChecker
             Link = currentInfo.Link,
             Status = updatedStatus 
         };
+
         _settings.Store.WarrantyInfo = locallyUpdatedWarrantyInfo;
         _settings.SynchronizeStore();
+
         return locallyUpdatedWarrantyInfo;
     }
 
