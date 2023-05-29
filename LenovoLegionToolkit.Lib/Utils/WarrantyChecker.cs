@@ -20,7 +20,10 @@ public class WarrantyChecker
     public async Task<WarrantyInfo?> GetWarrantyInfo(MachineInformation machineInformation, bool forceRefresh = false, CancellationToken token = default)
     {
         if (!forceRefresh && _settings.Store.WarrantyInfo.HasValue)
-            return _settings.Store.WarrantyInfo.Value;
+        {
+            var currentInfo = _settings.Store.WarrantyInfo.Value;
+            return LocalWarrantyInfo(currentInfo);
+        }
 
         using var httpClient = new HttpClient();
 
@@ -31,6 +34,36 @@ public class WarrantyChecker
         _settings.SynchronizeStore();
 
         return warrantyInfo;
+    }
+
+    private WarrantyInfo LocalWarrantyInfo(WarrantyInfo currentInfo)
+    {
+        var updatedStatus = GetWarrantyStatus(currentInfo.End);
+
+        if (updatedStatus == currentInfo.Status)
+            return currentInfo;
+
+        var locallyUpdatedWarrantyInfo = new WarrantyInfo 
+        { 
+            Start = currentInfo.Start,
+            End = currentInfo.End,
+            Link = currentInfo.Link,
+            Status = updatedStatus 
+        };
+
+        _settings.Store.WarrantyInfo = locallyUpdatedWarrantyInfo;
+        _settings.SynchronizeStore();
+
+        return locallyUpdatedWarrantyInfo;
+    }
+
+    private string GetWarrantyStatus(DateTime? endDate)
+    {
+        var status = "In Warranty";
+        var now = DateTime.Now;
+        if (now > endDate)
+            status = "Out of Warranty";
+        return status;
     }
 
     private async Task<WarrantyInfo?> GetStandardWarrantyInfo(HttpClient httpClient, MachineInformation machineInformation,
@@ -86,10 +119,7 @@ public class WarrantyChecker
         DateTime? startDate = startDateString is null ? null : DateTime.Parse(startDateString);
         DateTime? endDate = endDateString is null ? null : DateTime.Parse(endDateString);
 
-        var status = "In Warranty";
-        var now = DateTime.Now;
-        if (now > endDate)
-            status = "Out of Warranty";
+        var status = GetWarrantyStatus(endDate);
 
         var link = new Uri($"https://newsupport.lenovo.com.cn/deviceGuarantee.html?fromsource=deviceGuarantee&selname={machineInformation.SerialNumber}");
 
