@@ -69,10 +69,10 @@ public enum FnLockState
 
 public enum GSyncState
 {
-    [Display(ResourceType = typeof(Resource), Name = "GSyncState_Off")]
-    Off,
     [Display(ResourceType = typeof(Resource), Name = "GSyncState_On")]
-    On
+    On,
+    [Display(ResourceType = typeof(Resource), Name = "GSyncState_Off")]
+    Off
 }
 
 public enum HDRState
