@@ -1768,4 +1768,11 @@
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
     <value>路径</value>
   </data>
+  <data name="AutomationPipelineControl_SubtitlePart_After" xml:space="preserve">
+    <value>在 {0} 之后</value>
+  </data>
+  <data name="MultipleTriggersAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>多个触发器...</value>
+    <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
+  </data>
 </root>
