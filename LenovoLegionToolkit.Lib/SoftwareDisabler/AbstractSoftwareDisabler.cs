@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
@@ -12,34 +13,47 @@ namespace LenovoLegionToolkit.Lib.SoftwareDisabler;
 
 public class SoftwareDisablerException : Exception
 {
-    public SoftwareDisablerException(string message) : base(message) { }
+    public SoftwareDisablerException(string message, Exception innerException) : base(message, innerException) { }
 }
 
 public abstract class AbstractSoftwareDisabler
 {
-    protected abstract string[] ScheduledTasksPaths { get; }
-    protected abstract string[] ServiceNames { get; }
-    protected abstract string[] ProcessNames { get; }
+    protected abstract IEnumerable<string> ScheduledTasksPaths { get; }
+    protected abstract IEnumerable<string> ServiceNames { get; }
+    protected abstract IEnumerable<string> ProcessNames { get; }
 
     public Task<SoftwareStatus> GetStatusAsync() => Task.Run(() =>
     {
-        SoftwareStatus status;
+        bool isEnabled;
+        bool isInstalled;
 
         try
         {
             var areServicesEnabled = AreServicesEnabled();
             var areProcessesRunning = AreProcessesRunning();
-            status = areServicesEnabled || areProcessesRunning ? SoftwareStatus.Enabled : SoftwareStatus.Disabled;
+
+            isEnabled = areServicesEnabled || areProcessesRunning;
+            isInstalled = IsInstalled();
         }
-        catch (SoftwareDisablerException)
+        catch (Exception ex)
         {
-            status = SoftwareStatus.NotFound;
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Exception while getting status. [type={GetType().Name}]", ex);
+
+            isEnabled = false;
+            isInstalled = false;
         }
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Status: {status} [type={GetType().Name}]");
+            Log.Instance.Trace($"Status: {isEnabled},{isInstalled} [type={GetType().Name}]");
 
-        return status;
+        if (isEnabled)
+            return SoftwareStatus.Enabled;
+
+        if (!isInstalled)
+            return SoftwareStatus.NotFound;
+
+        return SoftwareStatus.Disabled;
     });
 
     public virtual Task EnableAsync() => Task.Run(() =>
@@ -66,6 +80,44 @@ public abstract class AbstractSoftwareDisabler
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Disabled [type={GetType().Name}]");
     });
+
+    private bool IsInstalled() => ServiceController.GetServices().Any(s => ServiceNames.Contains(s.ServiceName));
+
+    private bool AreServicesEnabled() => ServiceNames.Aggregate(false, (current, serviceName) => current | IsServiceEnabled(serviceName));
+
+    protected virtual bool AreProcessesRunning()
+    {
+        foreach (var process in Process.GetProcesses())
+            foreach (var processName in ProcessNames)
+            {
+                try
+                {
+                    if (process.ProcessName.StartsWith(processName, StringComparison.InvariantCultureIgnoreCase))
+                        return true;
+                }
+                catch
+                {
+                }
+            }
+
+        return false;
+    }
+
+    private static bool IsServiceEnabled(string serviceName)
+    {
+        try
+        {
+            if (!ServiceController.GetServices().Any(s => s.ServiceName == serviceName))
+                return false;
+
+            var service = new ServiceController(serviceName);
+            return service.Status is not ServiceControllerStatus.Stopped;
+        }
+        catch (InvalidOperationException)
+        {
+            return false;
+        }
+    }
 
     private void SetScheduledTasksEnabled(bool enabled)
     {
@@ -100,26 +152,8 @@ public abstract class AbstractSoftwareDisabler
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Failed to register changes on task {task.Name} in {task.Path}.", ex);
 
-                throw new SoftwareDisablerException($"Failed to register changes on task {task.Name} in {task.Path}. [type={GetType().Name}]");
+                throw new SoftwareDisablerException($"Failed to register changes on task {task.Name} in {task.Path}. [type={GetType().Name}]", ex);
             }
-        }
-    }
-
-    private bool AreServicesEnabled() => ServiceNames.Aggregate(false, (current, serviceName) => current | IsServiceEnabled(serviceName));
-
-    private static bool IsServiceEnabled(string serviceName)
-    {
-        try
-        {
-            if (!ServiceController.GetServices().Any(s => s.ServiceName == serviceName))
-                return false;
-
-            var service = new ServiceController(serviceName);
-            return service.Status is not ServiceControllerStatus.Stopped;
-        }
-        catch (InvalidOperationException)
-        {
-            throw new SoftwareDisablerException(serviceName);
         }
     }
 
@@ -186,26 +220,8 @@ public abstract class AbstractSoftwareDisabler
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Service {serviceName} could not be set to {enabled}");
 
-            throw new SoftwareDisablerException(serviceName);
+            throw new SoftwareDisablerException(serviceName, ex);
         }
-    }
-
-    protected virtual bool AreProcessesRunning()
-    {
-        foreach (var process in Process.GetProcesses())
-            foreach (var processName in ProcessNames)
-            {
-                try
-                {
-                    if (process.ProcessName.StartsWith(processName, StringComparison.InvariantCultureIgnoreCase))
-                        return true;
-                }
-                catch
-                {
-                }
-            }
-
-        return false;
     }
 
     protected virtual async Task KillProcessesAsync()
