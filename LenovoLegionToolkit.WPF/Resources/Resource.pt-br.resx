@@ -1757,4 +1757,11 @@ Esta configuração somente terá efeito se o Modo Personalizado estiver ativo.<
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
     <value>Caminho</value>
   </data>
+  <data name="AutomationPipelineControl_SubtitlePart_After" xml:space="preserve">
+    <value>Após {0}</value>
+  </data>
+  <data name="MultipleTriggersAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Gatilhos múltiplos...</value>
+    <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
+  </data>
 </root>
