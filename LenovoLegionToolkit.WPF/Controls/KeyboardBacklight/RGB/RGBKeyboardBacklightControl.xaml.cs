@@ -6,7 +6,7 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Listeners;
-using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.WPF.Extensions;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
@@ -23,7 +23,7 @@ public partial class RGBKeyboardBacklightControl
 
     private readonly RGBKeyboardBacklightController _controller = IoCContainer.Resolve<RGBKeyboardBacklightController>();
     private readonly RGBKeyboardBacklightListener _listener = IoCContainer.Resolve<RGBKeyboardBacklightListener>();
-    private readonly Vantage _vantage = IoCContainer.Resolve<Vantage>();
+    private readonly VantageDisabler _vantageDisabler = IoCContainer.Resolve<VantageDisabler>();
 
     protected override bool DisablesWhileRefreshing => false;
 
@@ -90,7 +90,7 @@ public partial class RGBKeyboardBacklightControl
         if (!await _controller.IsSupportedAsync())
             throw new InvalidOperationException("RGB Keyboard does not seem to be supported");
 
-        var vantageStatus = await _vantage.GetStatusAsync();
+        var vantageStatus = await _vantageDisabler.GetStatusAsync();
         if (vantageStatus == SoftwareStatus.Enabled)
         {
             _vantageWarningCard.Visibility = Visibility.Visible;

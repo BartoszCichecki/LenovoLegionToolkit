@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Management;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
@@ -8,11 +9,11 @@ namespace LenovoLegionToolkit.Lib.Listeners;
 
 public class LightingChangeListener : AbstractWMIListener<LightingChangeState>
 {
-    private readonly FnKeys _fnKeys;
+    private readonly FnKeysDisabler _fnKeysDisabler;
 
-    public LightingChangeListener(FnKeys fnKeys) : base("ROOT\\WMI", "LENOVO_LIGHTING_EVENT")
+    public LightingChangeListener(FnKeysDisabler fnKeysDisabler) : base("ROOT\\WMI", "LENOVO_LIGHTING_EVENT")
     {
-        _fnKeys = fnKeys;
+        _fnKeysDisabler = fnKeysDisabler;
     }
 
     protected override LightingChangeState GetValue(PropertyDataCollection properties)
@@ -29,7 +30,7 @@ public class LightingChangeListener : AbstractWMIListener<LightingChangeState>
 
     protected override async Task OnChangedAsync(LightingChangeState value)
     {
-        if (await _fnKeys.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+        if (await _fnKeysDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Ignoring, FnKeys are enabled.");

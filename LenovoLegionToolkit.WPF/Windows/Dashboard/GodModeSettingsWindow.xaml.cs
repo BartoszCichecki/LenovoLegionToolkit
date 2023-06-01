@@ -9,7 +9,7 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers.GodMode;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
-using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
@@ -22,8 +22,8 @@ public partial class GodModeSettingsWindow
     private readonly PowerModeFeature _powerModeFeature = IoCContainer.Resolve<PowerModeFeature>();
     private readonly GodModeController _godModeController = IoCContainer.Resolve<GodModeController>();
 
-    private readonly Vantage _vantage = IoCContainer.Resolve<Vantage>();
-    private readonly LegionZone _legionZone = IoCContainer.Resolve<LegionZone>();
+    private readonly VantageDisabler _vantageDisabler = IoCContainer.Resolve<VantageDisabler>();
+    private readonly LegionZoneDisabler _legionZoneDisabler = IoCContainer.Resolve<LegionZoneDisabler>();
 
     private GodModeState? _state;
     private Dictionary<PowerModeState, GodModeDefaults>? _defaults;
@@ -49,12 +49,12 @@ public partial class GodModeSettingsWindow
             var loadingTask = Task.Delay(TimeSpan.FromMilliseconds(500));
 
             _vantageRunningWarningInfoBar.Visibility = await _godModeController.NeedsVantageDisabledAsync()
-                                                       && await _vantage.GetStatusAsync() == SoftwareStatus.Enabled
+                                                       && await _vantageDisabler.GetStatusAsync() == SoftwareStatus.Enabled
                 ? Visibility.Visible
                 : Visibility.Collapsed;
 
             _legionZoneRunningWarningInfoBar.Visibility = await _godModeController.NeedsLegionZoneDisabledAsync()
-                                                          && await _legionZone.GetStatusAsync() == SoftwareStatus.Enabled
+                                                          && await _legionZoneDisabler.GetStatusAsync() == SoftwareStatus.Enabled
                 ? Visibility.Visible
                 : Visibility.Collapsed;
 

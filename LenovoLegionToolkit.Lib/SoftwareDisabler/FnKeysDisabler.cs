@@ -3,10 +3,11 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.System;
 
-namespace LenovoLegionToolkit.Lib.System;
+namespace LenovoLegionToolkit.Lib.SoftwareDisabler;
 
-public class FnKeys : SoftwareDisabler
+public class FnKeysDisabler : AbstractSoftwareDisabler
 {
     protected override string[] ScheduledTasksPaths => Array.Empty<string>();
     protected override string[] ServiceNames => new[] { "LenovoFnAndFunctionKeys" };

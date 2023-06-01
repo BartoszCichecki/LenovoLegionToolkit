@@ -6,7 +6,7 @@ using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.PackageDownloader;
 using LenovoLegionToolkit.Lib.Settings;
-using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib;
@@ -15,9 +15,9 @@ public class IoCModule : Module
 {
     protected override void Load(ContainerBuilder builder)
     {
-        builder.Register<FnKeys>();
-        builder.Register<LegionZone>();
-        builder.Register<Vantage>();
+        builder.Register<FnKeysDisabler>();
+        builder.Register<LegionZoneDisabler>();
+        builder.Register<VantageDisabler>();
 
         builder.Register<ApplicationSettings>();
         builder.Register<BalanceModeSettings>();

@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace LenovoLegionToolkit.Lib.System;
+namespace LenovoLegionToolkit.Lib.SoftwareDisabler;
 
-public class LegionZone : SoftwareDisabler
+public class LegionZoneDisabler : AbstractSoftwareDisabler
 {
     protected override string[] ScheduledTasksPaths => Array.Empty<string>();
     protected override string[] ServiceNames => new[] { "LZService" };

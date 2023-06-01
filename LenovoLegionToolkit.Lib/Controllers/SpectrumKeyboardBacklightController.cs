@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32.SafeHandles;
@@ -48,7 +49,7 @@ public class SpectrumKeyboardBacklightController
     private readonly TimeSpan _auroraRefreshInterval = TimeSpan.FromMilliseconds(60);
 
     private readonly SpecialKeyListener _listener;
-    private readonly Vantage _vantage;
+    private readonly VantageDisabler _vantageDisabler;
     private readonly IScreenCapture _screenCapture;
 
     private SafeFileHandle? _deviceHandle;
@@ -60,10 +61,10 @@ public class SpectrumKeyboardBacklightController
 
     public bool ForceDisable { get; set; }
 
-    public SpectrumKeyboardBacklightController(SpecialKeyListener listener, Vantage vantage, IScreenCapture screenCapture)
+    public SpectrumKeyboardBacklightController(SpecialKeyListener listener, VantageDisabler vantageDisabler, IScreenCapture screenCapture)
     {
         _listener = listener ?? throw new ArgumentNullException(nameof(listener));
-        _vantage = vantage ?? throw new ArgumentNullException(nameof(vantage));
+        _vantageDisabler = vantageDisabler ?? throw new ArgumentNullException(nameof(vantageDisabler));
         _screenCapture = screenCapture ?? throw new ArgumentNullException(nameof(screenCapture));
 
         _jsonSerializerSettings = new()
@@ -85,7 +86,7 @@ public class SpectrumKeyboardBacklightController
         if (!await IsSupportedAsync().ConfigureAwait(false))
             return;
 
-        if (await _vantage.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+        if (await _vantageDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
             return;
 
         switch (e)
@@ -358,7 +359,7 @@ public class SpectrumKeyboardBacklightController
 
     private async Task ThrowIfVantageEnabled()
     {
-        var vantageStatus = await _vantage.GetStatusAsync().ConfigureAwait(false);
+        var vantageStatus = await _vantageDisabler.GetStatusAsync().ConfigureAwait(false);
         if (vantageStatus == SoftwareStatus.Enabled)
             throw new InvalidOperationException("Can't manage Spectrum keyboard with Vantage enabled.");
     }

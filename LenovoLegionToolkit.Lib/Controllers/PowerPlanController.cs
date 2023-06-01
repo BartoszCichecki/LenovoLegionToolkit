@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Settings;
-using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.Utils;
 using Windows.Win32;
 using Windows.Win32.Foundation;
@@ -25,12 +25,12 @@ public class PowerPlanController
 
     private readonly ApplicationSettings _settings;
 
-    private readonly Vantage _vantage;
+    private readonly VantageDisabler _vantageDisabler;
 
-    public PowerPlanController(ApplicationSettings settings, Vantage vantage)
+    public PowerPlanController(ApplicationSettings settings, VantageDisabler vantageDisabler)
     {
         _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-        _vantage = vantage ?? throw new ArgumentNullException(nameof(vantage));
+        _vantageDisabler = vantageDisabler ?? throw new ArgumentNullException(nameof(vantageDisabler));
     }
 
     public IEnumerable<PowerPlan> GetPowerPlans()
@@ -140,7 +140,7 @@ public class PowerPlanController
             return true;
         }
 
-        var status = await _vantage.GetStatusAsync().ConfigureAwait(false);
+        var status = await _vantageDisabler.GetStatusAsync().ConfigureAwait(false);
         if (status is SoftwareStatus.NotFound or SoftwareStatus.Disabled)
         {
             if (Log.Instance.IsTraceEnabled)

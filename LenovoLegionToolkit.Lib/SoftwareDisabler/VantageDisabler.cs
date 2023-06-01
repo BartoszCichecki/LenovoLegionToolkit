@@ -1,6 +1,6 @@
-﻿namespace LenovoLegionToolkit.Lib.System;
+﻿namespace LenovoLegionToolkit.Lib.SoftwareDisabler;
 
-public class Vantage : SoftwareDisabler
+public class VantageDisabler : AbstractSoftwareDisabler
 {
     protected override string[] ScheduledTasksPaths => new[]
     {

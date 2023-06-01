@@ -15,6 +15,7 @@ using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
@@ -70,6 +71,7 @@ public partial class App
         IoCContainer.Resolve<RGBKeyboardBacklightController>().ForceDisable = flags.ForceDisableRgbKeyboardSupport;
         IoCContainer.Resolve<SpectrumKeyboardBacklightController>().ForceDisable = flags.ForceDisableSpectrumKeyboardSupport;
 
+        await LogSoftwareStatusAsync();
         await InitPowerModeFeatureAsync();
         await InitBatteryFeatureAsync();
         await InitRGBKeyboardControllerAsync();
@@ -286,6 +288,21 @@ public partial class App
         {
             IsBackground = true
         }.Start();
+    }
+
+    private static async Task LogSoftwareStatusAsync()
+    {
+        if (!Log.Instance.IsTraceEnabled)
+            return;
+
+        var vantageStatus = await IoCContainer.Resolve<VantageDisabler>().GetStatusAsync();
+        Log.Instance.Trace($"Vantage status: {vantageStatus}");
+
+        var legionZoneStatus = await IoCContainer.Resolve<LegionZoneDisabler>().GetStatusAsync();
+        Log.Instance.Trace($"LegionZone status: {legionZoneStatus}");
+
+        var fnKeysStatus = await IoCContainer.Resolve<FnKeysDisabler>().GetStatusAsync();
+        Log.Instance.Trace($"FnKeys status: {fnKeysStatus}");
     }
 
     private static async Task InitAutomationProcessorAsync()

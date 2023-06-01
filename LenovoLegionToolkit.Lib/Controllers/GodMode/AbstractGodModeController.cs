@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Settings;
-using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Controllers.GodMode;
@@ -12,14 +12,14 @@ namespace LenovoLegionToolkit.Lib.Controllers.GodMode;
 public abstract class AbstractGodModeController : IGodModeController
 {
     protected readonly GodModeSettings Settings;
-    protected readonly Vantage Vantage;
-    protected readonly LegionZone LegionZone;
+    protected readonly VantageDisabler VantageDisabler;
+    protected readonly LegionZoneDisabler LegionZoneDisabler;
 
-    protected AbstractGodModeController(GodModeSettings settings, Vantage vantage, LegionZone legionZone)
+    protected AbstractGodModeController(GodModeSettings settings, VantageDisabler vantageDisabler, LegionZoneDisabler legionZoneDisabler)
     {
         Settings = settings ?? throw new ArgumentNullException(nameof(settings));
-        Vantage = vantage ?? throw new ArgumentNullException(nameof(vantage));
-        LegionZone = legionZone ?? throw new ArgumentNullException(nameof(legionZone));
+        VantageDisabler = vantageDisabler ?? throw new ArgumentNullException(nameof(vantageDisabler));
+        LegionZoneDisabler = legionZoneDisabler ?? throw new ArgumentNullException(nameof(legionZoneDisabler));
     }
 
     public abstract Task<bool> NeedsVantageDisabledAsync();

@@ -10,7 +10,7 @@ using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Settings;
-using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
@@ -25,7 +25,7 @@ public partial class SpectrumKeyboardBacklightControl
 
     private readonly SpectrumKeyboardBacklightController _controller = IoCContainer.Resolve<SpectrumKeyboardBacklightController>();
     private readonly SpecialKeyListener _listener = IoCContainer.Resolve<SpecialKeyListener>();
-    private readonly Vantage _vantage = IoCContainer.Resolve<Vantage>();
+    private readonly VantageDisabler _vantageDisabler = IoCContainer.Resolve<VantageDisabler>();
     private readonly SpectrumKeyboardSettings _settings = IoCContainer.Resolve<SpectrumKeyboardSettings>();
 
     private CancellationTokenSource? _refreshStateCancellationTokenSource;
@@ -85,7 +85,7 @@ public partial class SpectrumKeyboardBacklightControl
         if (!await _controller.IsSupportedAsync())
             return;
 
-        if (await _vantage.GetStatusAsync() == SoftwareStatus.Enabled)
+        if (await _vantageDisabler.GetStatusAsync() == SoftwareStatus.Enabled)
             return;
 
         switch (e)
@@ -261,7 +261,7 @@ public partial class SpectrumKeyboardBacklightControl
         if (!await _controller.IsSupportedAsync())
             throw new InvalidOperationException("Spectrum Keyboard does not seem to be supported");
 
-        var vantageStatus = await _vantage.GetStatusAsync();
+        var vantageStatus = await _vantageDisabler.GetStatusAsync();
         if (vantageStatus == SoftwareStatus.Enabled)
         {
             _vantageWarningCard.Visibility = Visibility.Visible;

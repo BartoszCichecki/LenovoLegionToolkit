@@ -5,7 +5,7 @@ using System.Management;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Settings;
-using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
@@ -15,13 +15,13 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
     private readonly ThrottleFirstDispatcher _refreshRateDispatcher = new(TimeSpan.FromSeconds(2), nameof(SpecialKeyListener));
 
     private readonly ApplicationSettings _settings;
-    private readonly FnKeys _fnKeys;
+    private readonly FnKeysDisabler _fnKeysDisabler;
     private readonly RefreshRateFeature _refreshRateFeature;
 
-    public SpecialKeyListener(ApplicationSettings settings, FnKeys fnKeys, RefreshRateFeature feature) : base("ROOT\\WMI", "LENOVO_UTILITY_EVENT")
+    public SpecialKeyListener(ApplicationSettings settings, FnKeysDisabler fnKeysDisabler, RefreshRateFeature feature) : base("ROOT\\WMI", "LENOVO_UTILITY_EVENT")
     {
         _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-        _fnKeys = fnKeys ?? throw new ArgumentNullException(nameof(fnKeys));
+        _fnKeysDisabler = fnKeysDisabler ?? throw new ArgumentNullException(nameof(fnKeysDisabler));
         _refreshRateFeature = feature ?? throw new ArgumentNullException(nameof(feature));
     }
 
@@ -61,7 +61,7 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
     {
         try
         {
-            if (await _fnKeys.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+            if (await _fnKeysDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Ignoring, FnKeys are enabled.");
@@ -82,7 +82,7 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
     {
         try
         {
-            if (await _fnKeys.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+            if (await _fnKeysDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Ignoring, FnKeys are enabled.");
@@ -103,7 +103,7 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
     {
         try
         {
-            if (await _fnKeys.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+            if (await _fnKeysDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Ignoring, FnKeys are enabled.");
@@ -169,7 +169,7 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
     {
         try
         {
-            if (await _fnKeys.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+            if (await _fnKeysDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Ignoring, FnKeys are enabled.");
@@ -189,7 +189,7 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
     {
         try
         {
-            if (await _fnKeys.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+            if (await _fnKeysDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Ignoring, FnKeys are enabled.");
@@ -210,7 +210,7 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
     {
         try
         {
-            if (await _fnKeys.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+            if (await _fnKeysDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Ignoring, FnKeys are enabled.");
@@ -241,7 +241,7 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
     {
         try
         {
-            if (await _fnKeys.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+            if (await _fnKeysDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Ignoring, FnKeys are enabled.");

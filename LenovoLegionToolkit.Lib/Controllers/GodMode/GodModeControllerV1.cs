@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Settings;
+using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
@@ -11,14 +12,14 @@ namespace LenovoLegionToolkit.Lib.Controllers.GodMode;
 
 public class GodModeControllerV1 : AbstractGodModeController
 {
-    public GodModeControllerV1(GodModeSettings settings, Vantage vantage, LegionZone legionZone) : base(settings, vantage, legionZone) { }
+    public GodModeControllerV1(GodModeSettings settings, VantageDisabler vantageDisabler, LegionZoneDisabler legionZoneDisabler) : base(settings, vantageDisabler, legionZoneDisabler) { }
 
     public override Task<bool> NeedsVantageDisabledAsync() => Task.FromResult(false);
     public override Task<bool> NeedsLegionZoneDisabledAsync() => Task.FromResult(true);
 
     public override async Task ApplyStateAsync()
     {
-        if (await LegionZone.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+        if (await LegionZoneDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Can't correctly apply state when Legion Zone is running.");

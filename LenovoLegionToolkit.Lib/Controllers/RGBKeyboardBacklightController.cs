@@ -9,6 +9,7 @@ using LenovoLegionToolkit.Lib.System;
 using NeoSmart.AsyncLock;
 using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32.SafeHandles;
+using LenovoLegionToolkit.Lib.SoftwareDisabler;
 
 #if !MOCK_RGB
 using System.Runtime.InteropServices;
@@ -22,7 +23,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         private readonly RGBKeyboardSettings _settings;
 
-        private readonly Vantage _vantage;
+        private readonly VantageDisabler _vantageDisabler;
 
         private SafeFileHandle? _deviceHandle;
 
@@ -40,10 +41,10 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         public bool ForceDisable { get; set; }
 
-        public RGBKeyboardBacklightController(RGBKeyboardSettings settings, Vantage vantage)
+        public RGBKeyboardBacklightController(RGBKeyboardSettings settings, VantageDisabler vantageDisabler)
         {
             _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-            _vantage = vantage ?? throw new ArgumentNullException(nameof(vantage));
+            _vantageDisabler = vantageDisabler ?? throw new ArgumentNullException(nameof(vantageDisabler));
         }
 
         public Task<bool> IsSupportedAsync()
@@ -282,7 +283,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         private async Task ThrowIfVantageEnabled()
         {
-            var vantageStatus = await _vantage.GetStatusAsync().ConfigureAwait(false);
+            var vantageStatus = await _vantageDisabler.GetStatusAsync().ConfigureAwait(false);
             if (vantageStatus == SoftwareStatus.Enabled)
                 throw new InvalidOperationException("Can't manage RGB keyboard with Vantage enabled.");
         }

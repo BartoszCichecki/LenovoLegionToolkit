@@ -7,7 +7,7 @@ using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Settings;
-using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.WPF.Utils;
@@ -20,7 +20,7 @@ internal class SmartKeyHelper
     private CancellationTokenSource? _smartKeyDoublePressCancellationTokenSource;
 
     private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
-    private readonly FnKeys _fnKeys = IoCContainer.Resolve<FnKeys>();
+    private readonly FnKeysDisabler _fnKeysDisabler = IoCContainer.Resolve<FnKeysDisabler>();
     private readonly SpecialKeyListener _specialKeyListener = IoCContainer.Resolve<SpecialKeyListener>();
     private readonly AutomationProcessor _automationProcessor = IoCContainer.Resolve<AutomationProcessor>();
 
@@ -40,7 +40,7 @@ internal class SmartKeyHelper
         if (e != SpecialKey.FnF9)
             return;
 
-        if (await _fnKeys.GetStatusAsync() == SoftwareStatus.Enabled)
+        if (await _fnKeysDisabler.GetStatusAsync() == SoftwareStatus.Enabled)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Ignoring Fn+F9 FnKeys are enabled.");

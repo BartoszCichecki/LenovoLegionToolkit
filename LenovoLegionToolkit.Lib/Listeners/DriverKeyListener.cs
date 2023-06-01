@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using Windows.Win32;
@@ -14,7 +15,7 @@ public class DriverKeyListener : IListener<DriverKey>
 {
     public event EventHandler<DriverKey>? Changed;
 
-    private readonly FnKeys _fnKeys;
+    private readonly FnKeysDisabler _fnKeysDisabler;
     private readonly MicrophoneFeature _microphoneFeature;
     private readonly TouchpadLockFeature _touchpadLockFeature;
     private readonly WhiteKeyboardBacklightFeature _whiteKeyboardBacklightFeature;
@@ -22,9 +23,9 @@ public class DriverKeyListener : IListener<DriverKey>
     private CancellationTokenSource? _cancellationTokenSource;
     private Task? _listenTask;
 
-    public DriverKeyListener(FnKeys fnKeys, MicrophoneFeature microphoneFeature, TouchpadLockFeature touchpadLockFeature, WhiteKeyboardBacklightFeature whiteKeyboardBacklightFeature)
+    public DriverKeyListener(FnKeysDisabler fnKeysDisabler, MicrophoneFeature microphoneFeature, TouchpadLockFeature touchpadLockFeature, WhiteKeyboardBacklightFeature whiteKeyboardBacklightFeature)
     {
-        _fnKeys = fnKeys ?? throw new ArgumentNullException(nameof(fnKeys));
+        _fnKeysDisabler = fnKeysDisabler ?? throw new ArgumentNullException(nameof(fnKeysDisabler));
         _microphoneFeature = microphoneFeature ?? throw new ArgumentNullException(nameof(microphoneFeature));
         _touchpadLockFeature = touchpadLockFeature ?? throw new ArgumentNullException(nameof(touchpadLockFeature));
         _whiteKeyboardBacklightFeature = whiteKeyboardBacklightFeature ?? throw new ArgumentNullException(nameof(whiteKeyboardBacklightFeature));
@@ -67,7 +68,7 @@ public class DriverKeyListener : IListener<DriverKey>
 
                 token.ThrowIfCancellationRequested();
 
-                if (await _fnKeys.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+                if (await _fnKeysDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Ignoring, FnKeys are enabled.");

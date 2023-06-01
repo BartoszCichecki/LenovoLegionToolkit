@@ -43,12 +43,12 @@ public class WarrantyChecker
         if (updatedStatus == currentInfo.Status)
             return currentInfo;
 
-        var locallyUpdatedWarrantyInfo = new WarrantyInfo 
-        { 
+        var locallyUpdatedWarrantyInfo = new WarrantyInfo
+        {
             Start = currentInfo.Start,
             End = currentInfo.End,
             Link = currentInfo.Link,
-            Status = updatedStatus 
+            Status = updatedStatus
         };
 
         _settings.Store.WarrantyInfo = locallyUpdatedWarrantyInfo;

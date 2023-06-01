@@ -10,6 +10,7 @@ using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Settings;
+using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
@@ -23,9 +24,9 @@ public partial class SettingsPage
 {
     private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
 
-    private readonly Vantage _vantage = IoCContainer.Resolve<Vantage>();
-    private readonly LegionZone _legionZone = IoCContainer.Resolve<LegionZone>();
-    private readonly FnKeys _fnKeys = IoCContainer.Resolve<FnKeys>();
+    private readonly VantageDisabler _vantageDisabler = IoCContainer.Resolve<VantageDisabler>();
+    private readonly LegionZoneDisabler _legionZoneDisabler = IoCContainer.Resolve<LegionZoneDisabler>();
+    private readonly FnKeysDisabler _fnKeysDisabler = IoCContainer.Resolve<FnKeysDisabler>();
     private readonly PowerModeFeature _powerModeFeature = IoCContainer.Resolve<PowerModeFeature>();
     private readonly RGBKeyboardBacklightController _rgbKeyboardBacklightController = IoCContainer.Resolve<RGBKeyboardBacklightController>();
     private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
@@ -79,15 +80,15 @@ public partial class SettingsPage
         _autorunComboBox.SetItems(Enum.GetValues<AutorunState>(), Autorun.State, t => t.GetDisplayName());
         _minimizeOnCloseToggle.IsChecked = _settings.Store.MinimizeOnClose;
 
-        var vantageStatus = await _vantage.GetStatusAsync();
+        var vantageStatus = await _vantageDisabler.GetStatusAsync();
         _vantageCard.Visibility = vantageStatus != SoftwareStatus.NotFound ? Visibility.Visible : Visibility.Collapsed;
         _vantageToggle.IsChecked = vantageStatus == SoftwareStatus.Disabled;
 
-        var legionZoneStatus = await _legionZone.GetStatusAsync();
+        var legionZoneStatus = await _legionZoneDisabler.GetStatusAsync();
         _legionZoneCard.Visibility = legionZoneStatus != SoftwareStatus.NotFound ? Visibility.Visible : Visibility.Collapsed;
         _legionZoneToggle.IsChecked = legionZoneStatus == SoftwareStatus.Disabled;
 
-        var fnKeysStatus = await _fnKeys.GetStatusAsync();
+        var fnKeysStatus = await _fnKeysDisabler.GetStatusAsync();
         _fnKeysCard.Visibility = fnKeysStatus != SoftwareStatus.NotFound ? Visibility.Visible : Visibility.Collapsed;
         _fnKeysToggle.IsChecked = fnKeysStatus == SoftwareStatus.Disabled;
 
@@ -233,7 +234,7 @@ public partial class SettingsPage
         {
             try
             {
-                await _vantage.DisableAsync();
+                await _vantageDisabler.DisableAsync();
             }
             catch
             {
@@ -321,7 +322,7 @@ public partial class SettingsPage
 
             try
             {
-                await _vantage.EnableAsync();
+                await _vantageDisabler.EnableAsync();
             }
             catch
             {
@@ -348,7 +349,7 @@ public partial class SettingsPage
         {
             try
             {
-                await _legionZone.DisableAsync();
+                await _legionZoneDisabler.DisableAsync();
             }
             catch
             {
@@ -360,7 +361,7 @@ public partial class SettingsPage
         {
             try
             {
-                await _legionZone.EnableAsync();
+                await _legionZoneDisabler.EnableAsync();
             }
             catch
             {
@@ -387,7 +388,7 @@ public partial class SettingsPage
         {
             try
             {
-                await _fnKeys.DisableAsync();
+                await _fnKeysDisabler.DisableAsync();
             }
             catch
             {
@@ -399,7 +400,7 @@ public partial class SettingsPage
         {
             try
             {
-                await _fnKeys.EnableAsync();
+                await _fnKeysDisabler.EnableAsync();
             }
             catch
             {
