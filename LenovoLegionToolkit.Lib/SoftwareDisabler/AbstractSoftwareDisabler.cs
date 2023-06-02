@@ -50,6 +50,9 @@ public abstract class AbstractSoftwareDisabler
         if (isEnabled)
             return SoftwareStatus.Enabled;
 
+        if (!isInstalled)
+            return SoftwareStatus.NotFound;
+
         return SoftwareStatus.Disabled;
     });
 
