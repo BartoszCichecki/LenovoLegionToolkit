@@ -50,9 +50,6 @@ public abstract class AbstractSoftwareDisabler
         if (isEnabled)
             return SoftwareStatus.Enabled;
 
-        if (!isInstalled)
-            return SoftwareStatus.NotFound;
-
         return SoftwareStatus.Disabled;
     });
 
@@ -169,6 +166,14 @@ public abstract class AbstractSoftwareDisabler
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Setting service {serviceName} to {enabled}. [type={GetType().Name}]");
+
+            if (!ServiceController.GetServices().Any(s => s.ServiceName == serviceName))
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Service {serviceName} not found. [type={GetType().Name}]");
+
+                return;
+            }
 
             var service = new ServiceController(serviceName);
 
