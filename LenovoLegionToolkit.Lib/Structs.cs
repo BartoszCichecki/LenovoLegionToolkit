@@ -309,6 +309,7 @@ public struct Package
     public string Category { get; init; }
     public string FileName { get; init; }
     public string FileSize { get; init; }
+    public string? FileCrc { get; init; }
     public DateTime ReleaseDate { get; init; }
     public string? Readme { get; init; }
     public string FileLocation { get; init; }

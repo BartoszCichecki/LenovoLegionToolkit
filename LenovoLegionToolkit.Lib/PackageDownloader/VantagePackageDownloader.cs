@@ -98,6 +98,7 @@ public class VantagePackageDownloader : AbstractPackageDownloader
         var title = document.SelectSingleNode("/Package/Title/Desc")!.InnerText;
         var version = document.SelectSingleNode("/Package/@version")!.InnerText;
         var fileName = document.SelectSingleNode("/Package/Files/Installer/File/Name")!.InnerText;
+        var fileCrc = document.SelectSingleNode("/Package/Files/Installer/File/CRC")?.InnerText;
         var fileSizeBytes = int.Parse(document.SelectSingleNode("/Package/Files/Installer/File/Size")!.InnerText);
         var fileSize = $"{fileSizeBytes / 1024.0 / 1024.0:0.00} MB";
         var releaseDateString = document.SelectSingleNode("/Package/ReleaseDate")!.InnerText;
@@ -130,6 +131,7 @@ public class VantagePackageDownloader : AbstractPackageDownloader
             Category = packageDefinition.Category,
             FileName = fileName,
             FileSize = fileSize,
+            FileCrc = fileCrc,
             ReleaseDate = releaseDate,
             Readme = readme,
             FileLocation = fileLocation,

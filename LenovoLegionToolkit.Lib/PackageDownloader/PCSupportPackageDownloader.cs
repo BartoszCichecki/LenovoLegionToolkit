@@ -60,13 +60,10 @@ public class PCSupportPackageDownloader : AbstractPackageDownloader
         var version = downloadNode["SummaryInfo"]!["Version"]!.ToString();
 
         var mainFileNode = downloadNode["Files"]!.AsArray().FirstOrDefault(n => n!["TypeString"]!.ToString() == "EXE")!;
-
-        if (mainFileNode is null)
-            return null;
-
         var fileLocation = mainFileNode["URL"]!.ToString();
         var fileName = fileLocation[(fileLocation.LastIndexOf('/') + 1)..];
         var fileSize = mainFileNode["Size"]!.ToString();
+        var fileCrc = mainFileNode["SHA256"]?.ToString();
         var releaseDateUnix = long.Parse(mainFileNode["Date"]!["Unix"]!.ToString());
         var releaseDate = DateTimeOffset.FromUnixTimeMilliseconds(releaseDateUnix).DateTime;
 
@@ -87,6 +84,7 @@ public class PCSupportPackageDownloader : AbstractPackageDownloader
             Category = category,
             FileName = fileName,
             FileSize = fileSize,
+            FileCrc = fileCrc,
             ReleaseDate = releaseDate,
             Readme = readme,
             FileLocation = fileLocation,
