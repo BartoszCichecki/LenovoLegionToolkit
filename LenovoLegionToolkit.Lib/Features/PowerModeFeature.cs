@@ -115,6 +115,9 @@ public class PowerModeFeature : AbstractLenovoGamezoneWmiFeature<PowerModeState>
 
     public async Task EnsureGPUOverclockIsAppliedAsync()
     {
+        if (!_gpuOverclockController.IsSupported())
+            return;
+
         var state = await GetStateAsync().ConfigureAwait(false);
         _gpuOverclockController.ApplyState(state);
     }
