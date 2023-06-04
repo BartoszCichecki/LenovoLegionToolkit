@@ -6,7 +6,7 @@
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:utils="clr-namespace:LenovoLegionToolkit.WPF.Utils"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Performance Mode Settings"
+    Title="{x:Static resources:Resource.PerformanceModeSettingsWindow_Title}"
     MinWidth="400"
     MinHeight="320"
     MaxWidth="400"
@@ -43,7 +43,7 @@
                 VerticalAlignment="Center"
                 FontSize="12"
                 IsHitTestVisible="False"
-                Text="Performance Mode Settings" />
+                Text="{x:Static resources:Resource.PerformanceModeSettingsWindow_Title}" />
 
         </Grid>
 
@@ -59,7 +59,7 @@
                 Grid.Row="0"
                 Margin="0,0,8,0"
                 Checked="EnableGpuOcCheckbox_Checked"
-                Content="Enable GPU Overclocking"
+                Content="{x:Static resources:Resource.PerformanceModeSettingsWindow_EnableGpuOvervclocking_Title}"
                 Unchecked="EnableGpuOcCheckbox_Checked" />
 
             <Grid
@@ -82,7 +82,7 @@
                     Grid.Row="0"
                     Grid.Column="0"
                     Grid.ColumnSpan="3"
-                    Content="Core Frequency Offset" />
+                    Content="{x:Static resources:Resource.PerformanceModeSettingsWindow_CoreFrequencyOffset_Title}" />
                 <Slider
                     x:Name="_coreSlider"
                     Grid.Row="1"
@@ -106,7 +106,7 @@
                     Grid.Column="0"
                     Grid.ColumnSpan="3"
                     Margin="0,16,0,0"
-                    Content="Memory Frequency Offset" />
+                    Content="{x:Static resources:Resource.PerformanceModeSettingsWindow_MemoryFrequencyOffset_Title}" />
                 <Slider
                     x:Name="_memorySlider"
                     Grid.Row="3"

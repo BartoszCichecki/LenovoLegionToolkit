@@ -18,9 +18,14 @@ public partial class PerformanceModeSettingsWindow
 
         _enableGpuOcCheckbox.IsChecked = info is not null;
         _gpuOcGrid.IsEnabled = info is not null;
+        _coreSlider.Minimum = -GPUOverclockController.MAX_CORE_DELTA_MHZ;
+        _coreSlider.Maximum = GPUOverclockController.MAX_CORE_DELTA_MHZ;
         _coreSlider.Value = info?.CoreDeltaMhz ?? 0;
+        _memorySlider.Minimum = -GPUOverclockController.MAX_MEMORY_DELTA_MHZ;
+        _memorySlider.Maximum = GPUOverclockController.MAX_MEMORY_DELTA_MHZ;
         _memorySlider.Value = info?.MemoryDeltaMhz ?? 0;
     }
+
     private void EnableGpuOcCheckbox_Checked(object sender, RoutedEventArgs e)
     {
         _gpuOcGrid.IsEnabled = _enableGpuOcCheckbox.IsChecked == true;

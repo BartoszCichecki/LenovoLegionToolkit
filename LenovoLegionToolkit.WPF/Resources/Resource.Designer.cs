@@ -3302,6 +3302,42 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Core Frequency Offset.
+        /// </summary>
+        public static string PerformanceModeSettingsWindow_CoreFrequencyOffset_Title {
+            get {
+                return ResourceManager.GetString("PerformanceModeSettingsWindow_CoreFrequencyOffset_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable GPU Overclocking.
+        /// </summary>
+        public static string PerformanceModeSettingsWindow_EnableGpuOvervclocking_Title {
+            get {
+                return ResourceManager.GetString("PerformanceModeSettingsWindow_EnableGpuOvervclocking_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Memory Frequency Offset.
+        /// </summary>
+        public static string PerformanceModeSettingsWindow_MemoryFrequencyOffset_Title {
+            get {
+                return ResourceManager.GetString("PerformanceModeSettingsWindow_MemoryFrequencyOffset_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Performance Mode Settings.
+        /// </summary>
+        public static string PerformanceModeSettingsWindow_Title {
+            get {
+                return ResourceManager.GetString("PerformanceModeSettingsWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Powered Off.
         /// </summary>
         public static string PoweredOff {

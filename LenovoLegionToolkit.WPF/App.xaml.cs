@@ -365,6 +365,23 @@ public partial class App
             if (await feature.IsSupportedAsync())
             {
                 if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Ensuring GPU overclock is applied...");
+
+                await feature.EnsureGPUOverclockIsAppliedAsync();
+            }
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Couldn't ensure GPU overclock.", ex);
+        }
+
+        try
+        {
+            var feature = IoCContainer.Resolve<PowerModeFeature>();
+            if (await feature.IsSupportedAsync())
+            {
+                if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Ensuring correct power plan is set...");
 
                 await feature.EnsureCorrectPowerPlanIsSetAsync();

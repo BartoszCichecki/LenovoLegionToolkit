@@ -1767,4 +1767,16 @@ This settings takes effect only when Custom Mode is enabled.</value>
     <value>Multiple triggers...</value>
     <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
   </data>
+  <data name="PerformanceModeSettingsWindow_Title" xml:space="preserve">
+	  <value>Performance Mode Settings</value>
+  </data>
+  <data name="PerformanceModeSettingsWindow_EnableGpuOvervclocking_Title" xml:space="preserve">
+	  <value>Enable GPU Overclocking</value>
+  </data>
+  <data name="PerformanceModeSettingsWindow_CoreFrequencyOffset_Title" xml:space="preserve">
+	  <value>Core Frequency Offset</value>
+  </data>
+  <data name="PerformanceModeSettingsWindow_MemoryFrequencyOffset_Title" xml:space="preserve">
+	  <value>Memory Frequency Offset</value>
+  </data>
 </root>
