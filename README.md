@@ -15,10 +15,7 @@
 
 ![Ukrainian Flag](assets/ukraine_flag_bar.png)
 
-Support the Armed Forces of Ukraine and People Affected by Russia’s Aggression:
-
-* Humanitarian Aid: https://bank.gov.ua/en/about/humanitarian-aid-to-ukraine
-* Support Armed Forces of Ukraine: https://bank.gov.ua/en/about/support-the-armed-forces
+Support the Armed Forces of Ukraine and People Affected by Russia’s Aggression on UNITED24, the official fundraising platform of Ukraine: https://u24.gov.ua.
 
 **Слава Україні!**
 
