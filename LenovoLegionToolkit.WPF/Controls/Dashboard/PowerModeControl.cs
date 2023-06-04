@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.System;
@@ -19,6 +20,7 @@ public class PowerModeControl : AbstractComboBoxFeatureCardControl<PowerModeStat
     private readonly ThermalModeListener _thermalModeListener = IoCContainer.Resolve<ThermalModeListener>();
     private readonly PowerModeListener _powerModeListener = IoCContainer.Resolve<PowerModeListener>();
     private readonly PowerPlanListener _powerPlanListener = IoCContainer.Resolve<PowerPlanListener>();
+    private readonly GPUOverclockController _gpuOverclockController = IoCContainer.Resolve<GPUOverclockController>();
 
     private readonly ThrottleLastDispatcher _throttleDispatcher = new(TimeSpan.FromMilliseconds(500), nameof(PowerModeControl));
 
@@ -80,9 +82,7 @@ public class PowerModeControl : AbstractComboBoxFeatureCardControl<PowerModeStat
         switch (newValue)
         {
             case PowerModeState.Balance when mi.Properties.SupportsIntelligentSubMode:
-                _configButton.ToolTip = Resource.PowerModeControl_Settings;
-                _configButton.Visibility = Visibility.Visible;
-                break;
+            case PowerModeState.Performance when _gpuOverclockController.IsSupported():
             case PowerModeState.GodMode when mi.Properties.SupportsGodMode:
                 _configButton.ToolTip = Resource.PowerModeControl_Settings;
                 _configButton.Visibility = Visibility.Visible;
@@ -118,6 +118,12 @@ public class PowerModeControl : AbstractComboBoxFeatureCardControl<PowerModeStat
             case PowerModeState.Balance:
                 {
                     var window = new BalanceModeSettingsWindow { Owner = Window.GetWindow(this) };
+                    window.ShowDialog();
+                    break;
+                }
+            case PowerModeState.Performance:
+                {
+                    var window = new PerformanceModeSettingsWindow { Owner = Window.GetWindow(this) };
                     window.ShowDialog();
                     break;
                 }

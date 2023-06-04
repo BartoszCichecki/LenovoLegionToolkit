@@ -8,11 +8,13 @@ namespace LenovoLegionToolkit.Lib.Listeners;
 
 public class PowerModeListener : AbstractWMIListener<PowerModeState>, INotifyingListener<PowerModeState>
 {
+    private readonly GPUOverclockController _gpuOverclockController;
     private readonly AIModeController _aiModeController;
     private readonly PowerPlanController _powerPlanController;
 
-    public PowerModeListener(AIModeController aiModeController, PowerPlanController powerPlanController) : base("ROOT\\WMI", "LENOVO_GAMEZONE_SMART_FAN_MODE_EVENT")
+    public PowerModeListener(GPUOverclockController gpuOverclockController, AIModeController aiModeController, PowerPlanController powerPlanController) : base("ROOT\\WMI", "LENOVO_GAMEZONE_SMART_FAN_MODE_EVENT")
     {
+        _gpuOverclockController = gpuOverclockController ?? throw new ArgumentNullException(nameof(gpuOverclockController));
         _aiModeController = aiModeController ?? throw new ArgumentNullException(nameof(aiModeController));
         _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController)); ;
     }
@@ -39,6 +41,9 @@ public class PowerModeListener : AbstractWMIListener<PowerModeState>, INotifying
 
     private async Task ChangeDependenciesAsync(PowerModeState value)
     {
+        if (_gpuOverclockController.IsSupported())
+            _gpuOverclockController.ApplyState(value);
+
         await _aiModeController.StartAsync(value).ConfigureAwait(false);
         await _powerPlanController.ActivatePowerPlanAsync(value).ConfigureAwait(false);
     }

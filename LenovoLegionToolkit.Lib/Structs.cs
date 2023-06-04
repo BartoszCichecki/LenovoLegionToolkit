@@ -170,6 +170,17 @@ public readonly struct FanTableInfo
         $"{nameof(Data)}: [{string.Join(", ", Data)}]," +
         $" {nameof(Table)}: {Table}";
 }
+public struct GPUOverclockInfo
+{
+    public static readonly GPUOverclockInfo Zero = new();
+
+    public int CoreDeltaMhz { get; init; }
+    public int MemoryDeltaMhz { get; init; }
+
+    public override bool Equals(object? obj) => obj is GPUOverclockInfo other && CoreDeltaMhz == other.CoreDeltaMhz && MemoryDeltaMhz == other.MemoryDeltaMhz;
+
+    public override int GetHashCode() => HashCode.Combine(CoreDeltaMhz, MemoryDeltaMhz);
+}
 
 public readonly struct GodModeDefaults
 {
