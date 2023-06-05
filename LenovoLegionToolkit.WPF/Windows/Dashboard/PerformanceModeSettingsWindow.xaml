@@ -90,8 +90,7 @@
                     Grid.ColumnSpan="2"
                     Margin="0,16,8,0"
                     IsSnapToTickEnabled="True"
-                    Maximum="250"
-                    Minimum="-250"
+                    Minimum="0"
                     TickFrequency="1" />
                 <Label
                     Grid.Row="1"
@@ -114,8 +113,7 @@
                     Grid.ColumnSpan="2"
                     Margin="0,16,8,0"
                     IsSnapToTickEnabled="True"
-                    Maximum="250"
-                    Minimum="-250"
+                    Minimum="0"
                     TickFrequency="1" />
                 <Label
                     Grid.Row="3"

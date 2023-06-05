@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Settings;
+using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.Utils;
 using NvAPIWrapper.Native;
 using NvAPIWrapper.Native.GPU;
 using NvAPIWrapper.Native.GPU.Structures;
@@ -10,66 +14,97 @@ namespace LenovoLegionToolkit.Lib.Controllers;
 public class GPUOverclockController
 {
     public const int MAX_CORE_DELTA_MHZ = 250;
-    public const int MAX_MEMORY_DELTA_MHZ = 250;
+    public const int MAX_MEMORY_DELTA_MHZ = 500;
 
     private readonly GPUOverclockSettings _settings;
+    private readonly VantageDisabler _vantageDisabler;
+    private readonly LegionZoneDisabler _legionZoneDisabler;
 
-    public GPUOverclockController(GPUOverclockSettings settings)
+    public GPUOverclockController(GPUOverclockSettings settings, VantageDisabler vantageDisabler, LegionZoneDisabler legionZoneDisabler)
     {
         _settings = settings ?? throw new ArgumentNullException(nameof(settings));
+        _vantageDisabler = vantageDisabler ?? throw new ArgumentNullException(nameof(vantageDisabler));
+        _legionZoneDisabler = legionZoneDisabler ?? throw new ArgumentNullException(nameof(legionZoneDisabler));
     }
 
-    public bool IsSupported()
+    public async Task<bool> IsSupportedAsync()
     {
+        var isSupported = false;
+
         try
         {
-            NVAPI.Initialize();
-            return NVAPI.GetGPU() is not null;
+            isSupported = await WMI.CallAsync("ROOT\\WMI",
+            $"SELECT * FROM LENOVO_GAMEZONE_DATA",
+            "IsSupportGpuOC",
+            new Dictionary<string, object>(),
+            pdc => !pdc["Data"].Value.Equals(0)).ConfigureAwait(false);
         }
         catch
         {
-            return false;
+            isSupported = false;
         }
-        finally
+
+        if (isSupported)
         {
-            try { NVAPI.Unload(); } catch { /* Ignored */ }
+            try
+            {
+                NVAPI.Initialize();
+                isSupported = NVAPI.GetGPU() is not null;
+            }
+            catch
+            {
+                isSupported = false;
+            }
+            finally
+            {
+                try { NVAPI.Unload(); } catch { /* Ignored */ }
+            }
         }
+
+        if (!isSupported)
+        {
+            _settings.Store.Enabled = false;
+            _settings.Store.Info = GPUOverclockInfo.Zero;
+            _settings.SynchronizeStore();
+        }
+
+        return isSupported;
     }
 
-    public GPUOverclockInfo? GetState(PowerModeState powerMode)
+    public (bool, GPUOverclockInfo) GetState() => (_settings.Store.Enabled, _settings.Store.Info);
+
+    public void SaveState(bool enabled, GPUOverclockInfo info)
     {
-        if (powerMode == PowerModeState.Performance)
-            return _settings.Store.PerformanceModeGpuOverclockInfo;
-
-        return null;
-    }
-
-    public void SaveState(GPUOverclockInfo? info, PowerModeState powerMode)
-    {
-        if (powerMode == PowerModeState.Performance)
-            _settings.Store.PerformanceModeGpuOverclockInfo = info;
-
+        _settings.Store.Enabled = enabled;
+        _settings.Store.Info = info;
         _settings.SynchronizeStore();
     }
 
-    public void ApplyState(PowerModeState powerMode)
+    public async Task ApplyStateAsync()
     {
-        GPUOverclockInfo? info = null;
-
-        if (powerMode == PowerModeState.Performance)
+        if (await _vantageDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
         {
-            info = _settings.Store.PerformanceModeGpuOverclockInfo;
-
-            if (!info.HasValue && !GPUOverclockInfo.Zero.Equals(GetCurrentState()))
-                info = GPUOverclockInfo.Zero;
-        }
-        else if (_settings.Store.PerformanceModeGpuOverclockInfo.HasValue)
-        {
-            info = GPUOverclockInfo.Zero;
-        }
-
-        if (!info.HasValue)
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Can't correctly apply state when Vantage is running.");
             return;
+        }
+
+        if (await _legionZoneDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Can't correctly apply state when Legion Zone is running.");
+            return;
+        }
+
+        var enabled = _settings.Store.Enabled;
+        var info = _settings.Store.Info;
+
+        if (!enabled)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Not enabled.");
+            return;
+        }
 
         try
         {
@@ -79,8 +114,8 @@ public class GPUOverclockController
             if (gpu is null)
                 return;
 
-            var coreDelta = Math.Clamp(info.Value.CoreDeltaMhz, -MAX_CORE_DELTA_MHZ, MAX_CORE_DELTA_MHZ);
-            var memoryDelta = Math.Clamp(info.Value.MemoryDeltaMhz, -MAX_MEMORY_DELTA_MHZ, MAX_MEMORY_DELTA_MHZ);
+            var coreDelta = Math.Clamp(info.CoreDeltaMhz, 0, MAX_CORE_DELTA_MHZ);
+            var memoryDelta = Math.Clamp(info.MemoryDeltaMhz, 0, MAX_MEMORY_DELTA_MHZ);
 
             var clockEntries = new[]
             {
@@ -98,6 +133,7 @@ public class GPUOverclockController
             try { NVAPI.Unload(); } catch { /* Ignored */ }
         }
     }
+
     private GPUOverclockInfo? GetCurrentState()
     {
         try

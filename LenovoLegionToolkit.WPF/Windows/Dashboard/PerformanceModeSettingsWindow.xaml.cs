@@ -14,16 +14,14 @@ public partial class PerformanceModeSettingsWindow
     {
         InitializeComponent();
 
-        var info = _gpuOverclockController.GetState(PowerModeState.Performance);
+        var (enabled, info) = _gpuOverclockController.GetState();
 
-        _enableGpuOcCheckbox.IsChecked = info is not null;
-        _gpuOcGrid.IsEnabled = info is not null;
-        _coreSlider.Minimum = -GPUOverclockController.MAX_CORE_DELTA_MHZ;
+        _enableGpuOcCheckbox.IsChecked = enabled;
+        _gpuOcGrid.IsEnabled = enabled;
         _coreSlider.Maximum = GPUOverclockController.MAX_CORE_DELTA_MHZ;
-        _coreSlider.Value = info?.CoreDeltaMhz ?? 0;
-        _memorySlider.Minimum = -GPUOverclockController.MAX_MEMORY_DELTA_MHZ;
+        _coreSlider.Value = info.CoreDeltaMhz;
         _memorySlider.Maximum = GPUOverclockController.MAX_MEMORY_DELTA_MHZ;
-        _memorySlider.Value = info?.MemoryDeltaMhz ?? 0;
+        _memorySlider.Value = info.MemoryDeltaMhz;
     }
 
     private void EnableGpuOcCheckbox_Checked(object sender, RoutedEventArgs e)
@@ -33,14 +31,13 @@ public partial class PerformanceModeSettingsWindow
 
     private async void SaveButton_Click(object sender, RoutedEventArgs e)
     {
-        GPUOverclockInfo? info = _enableGpuOcCheckbox.IsChecked == true
+        var enabled = _enableGpuOcCheckbox.IsChecked == true;
+        var info = enabled
             ? new GPUOverclockInfo { CoreDeltaMhz = (int)_coreSlider.Value, MemoryDeltaMhz = (int)_memorySlider.Value }
-            : null;
+            : GPUOverclockInfo.Zero;
 
-        _gpuOverclockController.SaveState(info, PowerModeState.Performance);
-        _gpuOverclockController.ApplyState(PowerModeState.Performance);
-
-        await _powerModeFeature.SetStateAsync(PowerModeState.Performance);
+        _gpuOverclockController.SaveState(enabled, info);
+        await _gpuOverclockController.ApplyStateAsync();
 
         Close();
     }

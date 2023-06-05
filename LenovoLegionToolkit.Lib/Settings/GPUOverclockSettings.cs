@@ -6,7 +6,8 @@ public class GPUOverclockSettings : AbstractSettings<GPUOverclockSettingsStore>
 {
     public class GPUOverclockSettingsStore
     {
-        public GPUOverclockInfo? PerformanceModeGpuOverclockInfo { get; set; }
+        public bool Enabled { get; set; }
+        public GPUOverclockInfo Info { get; set; } = GPUOverclockInfo.Zero;
     }
 
     public GPUOverclockSettings() : base("gpuoc.json") { }

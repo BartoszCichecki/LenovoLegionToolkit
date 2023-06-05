@@ -82,7 +82,6 @@ public class PowerModeControl : AbstractComboBoxFeatureCardControl<PowerModeStat
         switch (newValue)
         {
             case PowerModeState.Balance when mi.Properties.SupportsIntelligentSubMode:
-            case PowerModeState.Performance when _gpuOverclockController.IsSupported():
             case PowerModeState.GodMode when mi.Properties.SupportsGodMode:
                 _configButton.ToolTip = Resource.PowerModeControl_Settings;
                 _configButton.Visibility = Visibility.Visible;
@@ -118,12 +117,6 @@ public class PowerModeControl : AbstractComboBoxFeatureCardControl<PowerModeStat
             case PowerModeState.Balance:
                 {
                     var window = new BalanceModeSettingsWindow { Owner = Window.GetWindow(this) };
-                    window.ShowDialog();
-                    break;
-                }
-            case PowerModeState.Performance:
-                {
-                    var window = new PerformanceModeSettingsWindow { Owner = Window.GetWindow(this) };
                     window.ShowDialog();
                     break;
                 }

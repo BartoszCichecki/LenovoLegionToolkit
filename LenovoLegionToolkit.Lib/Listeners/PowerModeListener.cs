@@ -41,9 +41,6 @@ public class PowerModeListener : AbstractWMIListener<PowerModeState>, INotifying
 
     private async Task ChangeDependenciesAsync(PowerModeState value)
     {
-        if (_gpuOverclockController.IsSupported())
-            _gpuOverclockController.ApplyState(value);
-
         await _aiModeController.StartAsync(value).ConfigureAwait(false);
         await _powerPlanController.ActivatePowerPlanAsync(value).ConfigureAwait(false);
     }

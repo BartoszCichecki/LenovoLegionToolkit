@@ -180,6 +180,8 @@ public struct GPUOverclockInfo
     public override bool Equals(object? obj) => obj is GPUOverclockInfo other && CoreDeltaMhz == other.CoreDeltaMhz && MemoryDeltaMhz == other.MemoryDeltaMhz;
 
     public override int GetHashCode() => HashCode.Combine(CoreDeltaMhz, MemoryDeltaMhz);
+
+    public override string ToString() => $"{nameof(CoreDeltaMhz)}: {CoreDeltaMhz}, {nameof(MemoryDeltaMhz)}: {MemoryDeltaMhz}";
 }
 
 public readonly struct GodModeDefaults
