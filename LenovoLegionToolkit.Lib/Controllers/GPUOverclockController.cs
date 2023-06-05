@@ -30,7 +30,7 @@ public class GPUOverclockController
 
     public async Task<bool> IsSupportedAsync()
     {
-        var isSupported = false;
+        bool isSupported;
 
         try
         {
