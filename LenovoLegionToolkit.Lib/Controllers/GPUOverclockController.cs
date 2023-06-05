@@ -5,6 +5,7 @@ using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
+using NvAPIWrapper.GPU;
 using NvAPIWrapper.Native;
 using NvAPIWrapper.Native.GPU;
 using NvAPIWrapper.Native.GPU.Structures;
@@ -63,6 +64,9 @@ public class GPUOverclockController
 
         if (!isSupported)
         {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Not supported, clearing settings.");
+
             _settings.Store.Enabled = false;
             _settings.Store.Info = GPUOverclockInfo.Zero;
             _settings.SynchronizeStore();
@@ -106,27 +110,31 @@ public class GPUOverclockController
             return;
         }
 
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Applying overclock: {info}.");
+
         try
         {
             NVAPI.Initialize();
 
             var gpu = NVAPI.GetGPU();
             if (gpu is null)
-                return;
-
-            var coreDelta = Math.Clamp(info.CoreDeltaMhz, 0, MAX_CORE_DELTA_MHZ);
-            var memoryDelta = Math.Clamp(info.MemoryDeltaMhz, 0, MAX_MEMORY_DELTA_MHZ);
-
-            var clockEntries = new[]
             {
-                new PerformanceStates20ClockEntryV1(PublicClockDomain.Graphics, new PerformanceStates20ParameterDelta(coreDelta * 1000)),
-                new PerformanceStates20ClockEntryV1(PublicClockDomain.Memory, new PerformanceStates20ParameterDelta(memoryDelta * 1000))
-            };
-            var voltageEntries = Array.Empty<PerformanceStates20BaseVoltageEntryV1>();
-            var performanceStateInfo = new[] { new PerformanceStates20InfoV1.PerformanceState20(PerformanceStateId.P0_3DPerformance, clockEntries, voltageEntries) };
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"dGPU not found.");
 
-            var overclock = new PerformanceStates20InfoV1(performanceStateInfo, 2, 0);
-            GPUApi.SetPerformanceStates20(gpu.Handle, overclock);
+                return;
+            }
+
+            SetOverclockInfo(gpu, info);
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Applied overclock: {info}, current: {GetOverclockInfo(gpu)}.");
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Failed to apply overclock: {info}.", ex);
         }
         finally
         {
@@ -134,24 +142,28 @@ public class GPUOverclockController
         }
     }
 
-    private GPUOverclockInfo? GetCurrentState()
+    private static void SetOverclockInfo(PhysicalGPU gpu, GPUOverclockInfo info)
     {
-        try
-        {
-            NVAPI.Initialize();
+        var coreDelta = Math.Clamp(info.CoreDeltaMhz, 0, MAX_CORE_DELTA_MHZ);
+        var memoryDelta = Math.Clamp(info.MemoryDeltaMhz, 0, MAX_MEMORY_DELTA_MHZ);
 
-            var gpu = NVAPI.GetGPU();
-            if (gpu is null)
-                return null;
-
-            var states = GPUApi.GetPerformanceStates20(gpu.Handle);
-            var core = states.Clocks[PerformanceStateId.P0_3DPerformance][0].FrequencyDeltaInkHz.DeltaValue / 1000;
-            var memory = states.Clocks[PerformanceStateId.P0_3DPerformance][1].FrequencyDeltaInkHz.DeltaValue / 1000;
-            return new() { CoreDeltaMhz = core, MemoryDeltaMhz = memory };
-        }
-        finally
+        var clockEntries = new[]
         {
-            try { NVAPI.Unload(); } catch { /* Ignored */ }
-        }
+            new PerformanceStates20ClockEntryV1(PublicClockDomain.Graphics, new PerformanceStates20ParameterDelta(coreDelta * 1000)),
+            new PerformanceStates20ClockEntryV1(PublicClockDomain.Memory, new PerformanceStates20ParameterDelta(memoryDelta * 1000))
+        };
+        var voltageEntries = Array.Empty<PerformanceStates20BaseVoltageEntryV1>();
+        var performanceStateInfo = new[] { new PerformanceStates20InfoV1.PerformanceState20(PerformanceStateId.P0_3DPerformance, clockEntries, voltageEntries) };
+
+        var overclock = new PerformanceStates20InfoV1(performanceStateInfo, 2, 0);
+        GPUApi.SetPerformanceStates20(gpu.Handle, overclock);
+    }
+
+    private static GPUOverclockInfo GetOverclockInfo(PhysicalGPU gpu)
+    {
+        var states = GPUApi.GetPerformanceStates20(gpu.Handle);
+        var core = states.Clocks[PerformanceStateId.P0_3DPerformance][0].FrequencyDeltaInkHz.DeltaValue / 1000;
+        var memory = states.Clocks[PerformanceStateId.P0_3DPerformance][1].FrequencyDeltaInkHz.DeltaValue / 1000;
+        return new() { CoreDeltaMhz = core, MemoryDeltaMhz = memory };
     }
 }
