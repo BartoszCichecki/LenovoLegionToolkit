@@ -176,6 +176,9 @@ Bu ayar cihazın içinde güç planları gelmeyenler için amaçlanmıştır.</v
   <data name="Apply" xml:space="preserve">
     <value>Uygula</value>
   </data>
+  <data name="ApplyAndClose" xml:space="preserve">
+    <value>Uygula ve kapat</value>
+  </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
     <value>Otomatik eylemlerin çalışması için Lenovo Legion Toolkit'in çalışması gerekir.</value>
   </data>
