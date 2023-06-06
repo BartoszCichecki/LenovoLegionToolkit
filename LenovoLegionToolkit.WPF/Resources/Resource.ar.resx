@@ -176,9 +176,6 @@
   <data name="Apply" xml:space="preserve">
     <value>تطبيق</value>
   </data>
-  <data name="ApplyAndClose" xml:space="preserve">
-    <value>تطبيق وإغلاق</value>
-  </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
     <value>البرنامج يجب انا يكون مفتوحا حتى يعمل الأجراءات التلقائية.</value>
   </data>
