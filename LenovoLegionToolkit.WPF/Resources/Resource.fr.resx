@@ -176,6 +176,9 @@ Cette option est destinée uniquement aux appareils qui ne sont pas livrés avec
   <data name="Apply" xml:space="preserve">
     <value>Appliquer</value>
   </data>
+  <data name="ApplyAndClose" xml:space="preserve">
+    <value>Appliquer et fermer</value>
+  </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
     <value>Lenovo Legion Toolkit doit être en cours d'exécution pour que les actions automatiques fonctionnent.</value>
   </data>
