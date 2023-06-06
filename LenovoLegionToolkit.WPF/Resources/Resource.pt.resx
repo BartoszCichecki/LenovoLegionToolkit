@@ -175,6 +175,9 @@
   <data name="Apply" xml:space="preserve">
     <value>Aplicar</value>
   </data>
+  <data name="ApplyAndClose" xml:space="preserve">
+    <value>Aplicar e fechar</value>
+  </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
     <value>O Lenovo Legion Toolkit tem que estar a rodar para as ações automáticas funcionarem.</value>
   </data>
