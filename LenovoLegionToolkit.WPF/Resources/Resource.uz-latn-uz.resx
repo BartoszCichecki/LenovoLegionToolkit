@@ -176,6 +176,9 @@ Bul parametr tek bir neshe quwatlılıq jobaları menen támiyinlenbegen qurılm
   <data name="Apply" xml:space="preserve">
     <value>Qollanıw</value>
   </data>
+  <data name="ApplyAndClose" xml:space="preserve">
+    <value>Qollanıw hám jabıw</value>
+  </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
     <value>Avtomatikalıq háreketlerdiń orınlanıwı ushın Lenovo Legion Toolkit iske túsirilgen bolıwı kerek.</value>
   </data>
