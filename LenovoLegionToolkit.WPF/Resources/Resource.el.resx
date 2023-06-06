@@ -176,9 +176,6 @@
   <data name="Apply" xml:space="preserve">
     <value>Εφαρμογή</value>
   </data>
-  <data name="ApplyAndClose" xml:space="preserve">
-    <value>Εφαρμογή και κλείσιμο</value>
-  </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
     <value>Το Lenovo Legion Toolkit πρέπει να εκτελείται για να λειτουργήσουν οι αυτόματες ενέργειες.</value>
   </data>
