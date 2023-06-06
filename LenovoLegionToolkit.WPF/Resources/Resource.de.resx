@@ -176,9 +176,6 @@ Diese Option ist nur für Geräte gedacht, die nicht mit mehreren Energiesparpl�
   <data name="Apply" xml:space="preserve">
     <value>Anwenden</value>
   </data>
-  <data name="ApplyAndClose" xml:space="preserve">
-    <value>Anwenden und schließen</value>
-  </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
     <value>Lenovo Legion Toolkit muss ausgeführt werden, damit die automatischen Aktionen funktionieren.</value>
   </data>
