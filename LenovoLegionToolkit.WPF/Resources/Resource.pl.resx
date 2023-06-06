@@ -167,6 +167,9 @@ Ta opcja powinna być używana tylko na urządzeniach, które nie miały dodatko
   <data name="Apply" xml:space="preserve">
     <value>Zastosuj</value>
   </data>
+  <data name="ApplyAndClose" xml:space="preserve">
+    <value>Zastosuj i zamknij</value>
+  </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
     <value>Akcje będą działać, tylko gdy Lenovo Legion Toolkit jest uruchomiony.</value>
   </data>
