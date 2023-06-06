@@ -177,7 +177,7 @@ Diese Option ist nur für Geräte gedacht, die nicht mit mehreren Energiesparpl�
     <value>Anwenden</value>
   </data>
   <data name="ApplyAndClose" xml:space="preserve">
-    <value>Anwenden und schließen</value>
+    <value>Anwenden &amp; Schließen</value>
   </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
     <value>Lenovo Legion Toolkit muss ausgeführt werden, damit die automatischen Aktionen funktionieren.</value>
@@ -1765,5 +1765,28 @@ Diese Einstellung wird nur wirksam, wenn der benutzerdefinierte Modus aktiviert 
   <data name="MultipleTriggersAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Mehrere Auslöser...</value>
     <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_Title" xml:space="preserve">
+	  <value>Einstellungen der GPU-Übertaktung</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title" xml:space="preserve">
+	  <value>Kernfrequenz-Offset</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title" xml:space="preserve">
+	  <value>Speicherfrequenz-Offset</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Title" xml:space="preserve">
+	  <value>GPU übertakten</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
+	  <value>Steigern Sie die Leistung durch Übertaktung der diskreten GPU.</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
+	  <value>GPU übertakten</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
+	  <value>Steigern Sie die Leistung durch Übertaktung der diskreten GPU.
+
+WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn keine diskrete GPU verfügbar ist.</value>
   </data>
 </root>
