@@ -19,7 +19,7 @@ public class PowerPlanListener : AbstractEventLogListener
     public PowerPlanListener(PowerPlanController powerPlanController, ApplicationSettings settings, VantageDisabler vantageDisabler, PowerModeFeature feature)
         : base("System", "*[System[Provider[@Name='Microsoft-Windows-UserModePowerService'] and EventID=12]]")
     {
-        _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController)); ;
+        _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController));
         _settings = settings ?? throw new ArgumentNullException(nameof(settings));
         _vantageDisabler = vantageDisabler ?? throw new ArgumentNullException(nameof(vantageDisabler));
         _feature = feature ?? throw new ArgumentNullException(nameof(feature));

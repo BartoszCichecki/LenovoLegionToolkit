@@ -5,6 +5,9 @@ using Windows.Win32;
 
 namespace LenovoLegionToolkit.Lib.Extensions;
 
+// ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
+
 public static class PInvokeExtensions
 {
     public enum CONSOLE_DISPLAY_STATE

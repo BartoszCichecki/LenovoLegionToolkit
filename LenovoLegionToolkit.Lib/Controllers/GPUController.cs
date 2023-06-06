@@ -74,7 +74,7 @@ public class GPUController
             {
                 NVAPI.Unload();
             }
-            catch { }
+            catch { /* Ignored. */ }
         }
     }
 

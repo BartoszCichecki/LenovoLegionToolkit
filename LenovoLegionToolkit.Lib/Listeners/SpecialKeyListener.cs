@@ -75,7 +75,7 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
             if (value == SpecialKey.CameraOff)
                 MessagingCenter.Publish(new Notification(NotificationType.CameraOff, NotificationDuration.Short));
         }
-        catch { }
+        catch { /* Ignored. */ }
     }
 
     private async Task NotifyFnLockState(SpecialKey value)
@@ -96,7 +96,7 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
             if (value == SpecialKey.FnLockOff)
                 MessagingCenter.Publish(new Notification(NotificationType.FnLockOff, NotificationDuration.Short));
         }
-        catch { }
+        catch { /* Ignored. */ }
     }
 
     private Task ToggleRefreshRateAsync() => _refreshRateDispatcher.DispatchAsync(async () =>
@@ -182,7 +182,7 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
 
             Process.Start("explorer", "ms-screenclip:");
         }
-        catch { }
+        catch { /* Ignored. */ }
     }
 
     private async Task NotifyPanelLogoLighting(SpecialKey value)
@@ -203,7 +203,7 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
             if (value == SpecialKey.PanelLogoLightingOff)
                 MessagingCenter.Publish(new Notification(NotificationType.PanelLogoLightingOff, NotificationDuration.Short));
         }
-        catch { }
+        catch { /* Ignored. */ }
     }
 
     private async Task NotifySpectrumBacklight(int value)
@@ -234,7 +234,7 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
                     break;
             }
         }
-        catch { }
+        catch { /* Ignored. */ }
     }
 
     private async Task NotifySpectrumPreset(int value)
@@ -251,6 +251,6 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
 
             MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightPresetChanged, NotificationDuration.Short, value));
         }
-        catch { }
+        catch { /* Ignored. */ }
     }
 }

@@ -162,7 +162,7 @@ public partial class RGBKeyboardBacklightControl
         _brightnessControl.SetItems(Enum.GetValues<RGBKeyboardBacklightBrightness>(), preset.Brightness, v => v.GetDisplayName());
         _effectControl.SetItems(Enum.GetValues<RGBKeyboardBacklightEffect>(), preset.Effect, v => v.GetDisplayName());
         if (speedEnabled)
-            _speedControl.SetItems(Enum.GetValues<RBGKeyboardBacklightSpeed>(), preset.Speed, v => v.GetDisplayName());
+            _speedControl.SetItems(Enum.GetValues<RGBKeyboardBacklightSpeed>(), preset.Speed, v => v.GetDisplayName());
 
         if (zonesEnabled)
         {

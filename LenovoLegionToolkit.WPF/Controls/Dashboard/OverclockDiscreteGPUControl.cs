@@ -113,7 +113,7 @@ public class OverclockDiscreteGPUControl : AbstractRefreshingControl
     private void ConfigButton_Click(object sender, RoutedEventArgs e)
     {
         var window = new OverclockDiscreteGPUSettingsWindow { Owner = Window.GetWindow(this) };
-        window.Closed += async (o, e) => await RefreshAsync();
+        window.Closed += async (_, _) => await RefreshAsync();
         window.ShowDialog();
     }
 }

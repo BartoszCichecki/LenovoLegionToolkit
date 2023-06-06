@@ -17,7 +17,9 @@ internal class InstanceEventListener : AbstractWMIListener<(ProcessEventInfoType
 
     protected override (ProcessEventInfoType, int, string) GetValue(PropertyDataCollection properties)
     {
+        // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
         var processName = properties["ProcessName"].Value?.ToString() ?? string.Empty;
+        // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
         if (!int.TryParse(properties["ProcessID"].Value?.ToString(), out var processId))
             processId = -1;
 

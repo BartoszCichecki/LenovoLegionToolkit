@@ -148,16 +148,16 @@
   <data name="PowerModeState_Quiet" xml:space="preserve">
     <value>Im Lặng</value>
   </data>
-  <data name="RBGKeyboardBacklightSpeed_Fast" xml:space="preserve">
+  <data name="RGBKeyboardBacklightSpeed_Fast" xml:space="preserve">
     <value>Nhanh</value>
   </data>
-  <data name="RBGKeyboardBacklightSpeed_Fastest" xml:space="preserve">
+  <data name="RGBKeyboardBacklightSpeed_Fastest" xml:space="preserve">
     <value>Nhanh hơn</value>
   </data>
-  <data name="RBGKeyboardBacklightSpeed_Slow" xml:space="preserve">
+  <data name="RGBKeyboardBacklightSpeed_Slow" xml:space="preserve">
     <value>Chậm</value>
   </data>
-  <data name="RBGKeyboardBacklightSpeed_Slowest" xml:space="preserve">
+  <data name="RGBKeyboardBacklightSpeed_Slowest" xml:space="preserve">
     <value>Chậm hơn</value>
   </data>
   <data name="RGBKeyboardBacklightBrightness_High" xml:space="preserve">

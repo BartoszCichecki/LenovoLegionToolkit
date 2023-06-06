@@ -77,9 +77,9 @@ public class WarrantyChecker
         if (dataNode is null)
             return null;
 
-        var warrantyStatus = dataNode?["warrantyStatus"]?.ToString();
-        var startDateString = dataNode?["startDate"]?.ToString();
-        var endDateString = dataNode?["endDate"]?.ToString();
+        var warrantyStatus = dataNode["warrantyStatus"]?.ToString();
+        var startDateString = dataNode["startDate"]?.ToString();
+        var endDateString = dataNode["endDate"]?.ToString();
 
         DateTime? startDate = startDateString is null ? null : DateTime.Parse(startDateString);
         DateTime? endDate = endDateString is null ? null : DateTime.Parse(endDateString);

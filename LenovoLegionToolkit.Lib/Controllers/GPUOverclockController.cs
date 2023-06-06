@@ -34,10 +34,10 @@ public class GPUOverclockController
         try
         {
             isSupported = await WMI.CallAsync("ROOT\\WMI",
-            $"SELECT * FROM LENOVO_GAMEZONE_DATA",
-            "IsSupportGpuOC",
-            new(),
-            pdc => !pdc["Data"].Value.Equals(0)).ConfigureAwait(false);
+                $"SELECT * FROM LENOVO_GAMEZONE_DATA",
+                "IsSupportGpuOC",
+                new(),
+                pdc => !pdc["Data"].Value.Equals(0)).ConfigureAwait(false);
         }
         catch
         {

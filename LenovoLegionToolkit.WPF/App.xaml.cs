@@ -141,7 +141,7 @@ public partial class App
             if (IoCContainer.TryResolve<PowerModeFeature>() is { } powerModeFeature)
                 await powerModeFeature.EnsureAiModeIsOffAsync();
         }
-        catch { }
+        catch {  /* Ignored. */ }
 
         try
         {
@@ -151,7 +151,7 @@ public partial class App
                     await rgbKeyboardBacklightController.SetLightControlOwnerAsync(false);
             }
         }
-        catch { }
+        catch {  /* Ignored. */ }
 
         try
         {
@@ -161,7 +161,7 @@ public partial class App
                     await spectrumKeyboardBacklightController.StopAuroraIfNeededAsync();
             }
         }
-        catch { }
+        catch {  /* Ignored. */ }
 
         try
         {
@@ -170,7 +170,7 @@ public partial class App
                 await nativeMessageWindowListener.StopAsync();
             }
         }
-        catch { }
+        catch {  /* Ignored. */ }
 
 
         Shutdown();

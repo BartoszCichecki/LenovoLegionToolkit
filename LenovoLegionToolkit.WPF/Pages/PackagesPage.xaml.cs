@@ -376,7 +376,7 @@ public partial class PackagesPage : IProgress<float>
             {
                 Icon = SymbolRegular.Eye24,
                 Content = "Show hidden downloads",
-                HorizontalAlignment = System.Windows.HorizontalAlignment.Right,
+                HorizontalAlignment = HorizontalAlignment.Right,
             };
             clearHidden.Click += (_, _) =>
             {

@@ -49,7 +49,7 @@ public static class LocalizationHelper
         ? FlowDirection.RightToLeft
         : FlowDirection.LeftToRight;
 
-    private static string? _dateFormat = null;
+    private static string? _dateFormat;
 
     public static string ShortDateFormat
     {

@@ -95,9 +95,7 @@ public abstract class AbstractSoftwareDisabler
                     if (process.ProcessName.StartsWith(processName, StringComparison.InvariantCultureIgnoreCase))
                         return true;
                 }
-                catch
-                {
-                }
+                catch {  /* Ignored. */ }
             }
 
         return false;

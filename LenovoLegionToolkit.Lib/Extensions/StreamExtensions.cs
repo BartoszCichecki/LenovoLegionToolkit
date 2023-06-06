@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 
 namespace LenovoLegionToolkit.Lib.Extensions;
 
+// ReSharper disable LocalizableElement
+
 public static class StreamExtensions
 {
     public static async Task CopyToAsync(this Stream source, Stream destination, int bufferSize, IProgress<long>? progress = null, CancellationToken cancellationToken = default)
@@ -13,6 +15,7 @@ public static class StreamExtensions
             throw new ArgumentNullException(nameof(source));
         if (!source.CanRead)
             throw new ArgumentException("Has to be readable", nameof(source));
+
         if (destination is null)
             throw new ArgumentNullException(nameof(destination));
         if (!destination.CanWrite)

@@ -104,7 +104,7 @@ public class DriverKeyListener : IListener<DriverKey>
     {
         try
         {
-            if (value.HasFlag(DriverKey.Fn_F4))
+            if (value.HasFlag(DriverKey.FnF4))
             {
                 if (await _microphoneFeature.IsSupportedAsync().ConfigureAwait(false))
                 {
@@ -122,7 +122,7 @@ public class DriverKeyListener : IListener<DriverKey>
                 }
             }
 
-            if (value.HasFlag(DriverKey.Fn_F8))
+            if (value.HasFlag(DriverKey.FnF8))
             {
                 Process.Start(new ProcessStartInfo
                 {
@@ -134,7 +134,7 @@ public class DriverKeyListener : IListener<DriverKey>
                 });
             }
 
-            if (value.HasFlag(DriverKey.Fn_F10))
+            if (value.HasFlag(DriverKey.FnF10))
             {
                 if (await _touchpadLockFeature.IsSupportedAsync().ConfigureAwait(false))
                 {
@@ -145,7 +145,7 @@ public class DriverKeyListener : IListener<DriverKey>
                 }
             }
 
-            if (value.HasFlag(DriverKey.Fn_Space))
+            if (value.HasFlag(DriverKey.FnSpace))
             {
                 if (await _whiteKeyboardBacklightFeature.IsSupportedAsync().ConfigureAwait(false))
                 {

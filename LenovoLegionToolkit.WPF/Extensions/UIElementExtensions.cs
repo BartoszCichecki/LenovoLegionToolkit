@@ -15,14 +15,19 @@ public static class UIElementExtensions
         {
             var child = VisualTreeHelper.GetChild(depObj, i);
 
-            if (child is T value)
+            switch (child)
             {
-                yield return value;
-            }
-            else if (child is UIElement element)
-            {
-                foreach (var sub in GetVisibleChildrenOfType<T>(element))
-                    yield return sub;
+                case T value:
+                    {
+                        yield return value;
+                        break;
+                    }
+                case UIElement element:
+                    {
+                        foreach (var sub in GetVisibleChildrenOfType<T>(element))
+                            yield return sub;
+                        break;
+                    }
             }
         }
     }

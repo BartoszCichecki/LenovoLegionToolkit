@@ -36,7 +36,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
 
     public NativeWindowsMessageListener(IMainThreadDispatcher mainThreadDispatcher, IGPUModeFeature igpuModeFeature)
     {
-        _mainThreadDispatcher = mainThreadDispatcher ?? throw new ArgumentNullException(nameof(mainThreadDispatcher)); ;
+        _mainThreadDispatcher = mainThreadDispatcher ?? throw new ArgumentNullException(nameof(mainThreadDispatcher));
         _igpuModeFeature = igpuModeFeature ?? throw new ArgumentNullException(nameof(igpuModeFeature));
 
         _kbProc = LowLevelKeyboardProc;

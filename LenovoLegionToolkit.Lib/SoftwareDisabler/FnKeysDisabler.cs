@@ -45,9 +45,7 @@ public class FnKeysDisabler : AbstractSoftwareDisabler
                     return true;
             }
         }
-        catch
-        {
-        }
+        catch {  /* Ignored. */ }
 
         return false;
     }
@@ -71,9 +69,7 @@ public class FnKeysDisabler : AbstractSoftwareDisabler
                 await process.WaitForExitAsync().ConfigureAwait(false);
             }
         }
-        catch
-        {
-        }
+        catch {  /* Ignored. */ }
     }
 
     private static void SetUwpStartup(string appPattern, string subKeyName, bool enabled)

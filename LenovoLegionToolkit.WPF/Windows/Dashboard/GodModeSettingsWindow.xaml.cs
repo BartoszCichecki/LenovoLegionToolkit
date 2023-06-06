@@ -269,8 +269,8 @@ public partial class GodModeSettingsWindow
         if (_cpuPL1TauControl.Visibility == Visibility.Visible && defaults.CPUPL1Tau is { } cpuPL1Tau)
             _cpuPL1TauControl.Value = cpuPL1Tau;
 
-        if (_apuSPPTPowerLimitControl.Visibility == Visibility.Visible && defaults.APUsPPTPowerLimit is { } _apuSPPTPowerLimit)
-            _apuSPPTPowerLimitControl.Value = _apuSPPTPowerLimit;
+        if (_apuSPPTPowerLimitControl.Visibility == Visibility.Visible && defaults.APUsPPTPowerLimit is { } apuSPPTPowerLimit)
+            _apuSPPTPowerLimitControl.Value = apuSPPTPowerLimit;
 
         if (_cpuTemperatureLimitControl.Visibility == Visibility.Visible && defaults.CPUTemperatureLimit is { } cpuTemperatureLimit)
             _cpuTemperatureLimitControl.Value = cpuTemperatureLimit;

@@ -19,10 +19,9 @@ public partial class PackageControl : IProgress<float>
 {
     private readonly IPackageDownloader _packageDownloader;
     private readonly Package _package;
+    private readonly Func<string> _getDownloadPath;
 
     private CancellationTokenSource? _downloadPackageTokenSource;
-
-    public Func<string> _getDownloadPath;
 
     public bool IsDownloading { get; private set; }
 

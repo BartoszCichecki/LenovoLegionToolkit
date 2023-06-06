@@ -107,6 +107,7 @@
         <wpfui:CardControl
             x:Name="_zone1Control"
             Grid.Row="5"
+            Grid.Column="0"
             Margin="0,0,8,8"
             VerticalAlignment="Top"
             Icon="Color24">
@@ -115,6 +116,7 @@
             </wpfui:CardControl.Header>
             <wpfui:CardControl.ContextMenu>
                 <ContextMenu>
+                    <!--  ReSharper disable once Xaml.RedundantResource  -->
                     <wpfui:MenuItem
                         Click="SynchroniseZonesMenuItem_Click"
                         Header="Synchronise zones"
@@ -127,6 +129,7 @@
         <wpfui:CardControl
             x:Name="_zone2Control"
             Grid.Row="5"
+            Grid.Column="1"
             Margin="0,0,8,8"
             VerticalAlignment="Top"
             Icon="Color24">
@@ -135,6 +138,7 @@
             </wpfui:CardControl.Header>
             <wpfui:CardControl.ContextMenu>
                 <ContextMenu>
+                    <!--  ReSharper disable once Xaml.RedundantResource  -->
                     <wpfui:MenuItem
                         Click="SynchroniseZonesMenuItem_Click"
                         Header="Synchronise zones"
@@ -147,6 +151,7 @@
         <wpfui:CardControl
             x:Name="_zone3Control"
             Grid.Row="5"
+            Grid.Column="2"
             Margin="0,0,8,8"
             VerticalAlignment="Top"
             Icon="Color24">
@@ -155,6 +160,7 @@
             </wpfui:CardControl.Header>
             <wpfui:CardControl.ContextMenu>
                 <ContextMenu>
+                    <!--  ReSharper disable once Xaml.RedundantResource  -->
                     <wpfui:MenuItem
                         Click="SynchroniseZonesMenuItem_Click"
                         Header="Synchronise zones"
@@ -167,6 +173,7 @@
         <wpfui:CardControl
             x:Name="_zone4Control"
             Grid.Row="5"
+            Grid.Column="3"
             Margin="0,0,8,8"
             VerticalAlignment="Top"
             Icon="Color24">
@@ -175,6 +182,7 @@
             </wpfui:CardControl.Header>
             <wpfui:CardControl.ContextMenu>
                 <ContextMenu>
+                    <!--  ReSharper disable once Xaml.RedundantResource  -->
                     <wpfui:MenuItem
                         Click="SynchroniseZonesMenuItem_Click"
                         Header="Synchronise zones"

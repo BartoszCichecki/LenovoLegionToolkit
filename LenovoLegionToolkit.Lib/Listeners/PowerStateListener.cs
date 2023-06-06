@@ -24,6 +24,7 @@ public class PowerStateListener : IListener<EventArgs>
     }
 
     private readonly SafeHandle _recipientHandle;
+    // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
     private readonly PDEVICE_NOTIFY_CALLBACK_ROUTINE _callback;
 
     private readonly PowerModeFeature _powerModeFeature;

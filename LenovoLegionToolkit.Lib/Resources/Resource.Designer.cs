@@ -457,42 +457,6 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fast.
-        /// </summary>
-        public static string RBGKeyboardBacklightSpeed_Fast {
-            get {
-                return ResourceManager.GetString("RBGKeyboardBacklightSpeed_Fast", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Fastest.
-        /// </summary>
-        public static string RBGKeyboardBacklightSpeed_Fastest {
-            get {
-                return ResourceManager.GetString("RBGKeyboardBacklightSpeed_Fastest", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Slow.
-        /// </summary>
-        public static string RBGKeyboardBacklightSpeed_Slow {
-            get {
-                return ResourceManager.GetString("RBGKeyboardBacklightSpeed_Slow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Slowest.
-        /// </summary>
-        public static string RBGKeyboardBacklightSpeed_Slowest {
-            get {
-                return ResourceManager.GetString("RBGKeyboardBacklightSpeed_Slowest", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to High.
         /// </summary>
         public static string RGBKeyboardBacklightBrightness_High {
@@ -588,6 +552,42 @@ namespace LenovoLegionToolkit.Lib.Resources {
         public static string RGBKeyboardBacklightPreset_Two {
             get {
                 return ResourceManager.GetString("RGBKeyboardBacklightPreset_Two", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fast.
+        /// </summary>
+        public static string RGBKeyboardBacklightSpeed_Fast {
+            get {
+                return ResourceManager.GetString("RGBKeyboardBacklightSpeed_Fast", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fastest.
+        /// </summary>
+        public static string RGBKeyboardBacklightSpeed_Fastest {
+            get {
+                return ResourceManager.GetString("RGBKeyboardBacklightSpeed_Fastest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slow.
+        /// </summary>
+        public static string RGBKeyboardBacklightSpeed_Slow {
+            get {
+                return ResourceManager.GetString("RGBKeyboardBacklightSpeed_Slow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slowest.
+        /// </summary>
+        public static string RGBKeyboardBacklightSpeed_Slowest {
+            get {
+                return ResourceManager.GetString("RGBKeyboardBacklightSpeed_Slowest", resourceCulture);
             }
         }
         

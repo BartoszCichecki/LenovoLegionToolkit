@@ -67,7 +67,7 @@ public class ContextMenuHelper
         var pipelines = await _automationProcessor.GetPipelinesAsync();
         await RefreshAutomationMenuItemsAsync(pipelines);
 
-        _automationProcessor.PipelinesChanged += async (_, e) => await RefreshAutomationMenuItemsAsync(e);
+        _automationProcessor.PipelinesChanged += async (_, e2) => await RefreshAutomationMenuItemsAsync(e2);
         _themeManager.ThemeApplied += (_, _) => ContextMenu.Resources = Application.Current.Resources;
     }
 
@@ -133,7 +133,7 @@ public class ContextMenuHelper
                     {
                         await _automationProcessor.RunNowAsync(menuPipeline);
                     }
-                    catch (Exception) { }
+                    catch {  /* Ignored. */ }
                 };
 
                 items.Insert(0, item);

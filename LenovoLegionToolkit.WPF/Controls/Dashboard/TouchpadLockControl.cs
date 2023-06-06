@@ -37,7 +37,7 @@ public class TouchpadLockControl : AbstractToggleFeatureCardControl<TouchpadLock
         if (!IsLoaded || !IsVisible)
             return;
 
-        if (e.HasFlag(DriverKey.Fn_F10))
+        if (e.HasFlag(DriverKey.FnF10))
             await RefreshAsync();
     });
 }
