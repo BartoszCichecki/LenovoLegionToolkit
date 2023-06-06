@@ -9,7 +9,7 @@ public class OverclockDiscreteGPUAutomationStepControl : AbstractComboBoxAutomat
 {
     public OverclockDiscreteGPUAutomationStepControl(IAutomationStep<OverclockDiscreteGPUAutomationStepState> step) : base(step)
     {
-        Icon = SymbolRegular.DeveloperBoardLightningToolbox20;
+        Icon = SymbolRegular.DeveloperBoardLightning20;
         Title = Resource.OverclockDiscreteGPUAutomationStepControl_Title;
         Subtitle = Resource.OverclockDiscreteGPUAutomationStepControl_Message;
     }

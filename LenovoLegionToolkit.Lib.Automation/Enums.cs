@@ -13,8 +13,8 @@ public enum DeactivateGPUAutomationStepState
 
 public enum OverclockDiscreteGPUAutomationStepState
 {
-    [Display(ResourceType = typeof(Resource), Name = "OverclockDiscreteGPUAutomationStepState_On")]
-    On,
     [Display(ResourceType = typeof(Resource), Name = "OverclockDiscreteGPUAutomationStepState_Off")]
-    Off
+    Off,
+    [Display(ResourceType = typeof(Resource), Name = "OverclockDiscreteGPUAutomationStepState_On")]
+    On
 }

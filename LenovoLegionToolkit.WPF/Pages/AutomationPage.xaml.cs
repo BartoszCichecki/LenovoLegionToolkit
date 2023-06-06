@@ -168,6 +168,7 @@ public partial class AutomationPage
             new HDRAutomationStep(default),
             new MicrophoneAutomationStep(default),
             new OneLevelWhiteKeyboardBacklightAutomationStep(default),
+            new OverclockDiscreteGPUAutomationStep(default),
             new OverDriveAutomationStep(default),
             new PowerModeAutomationStep(default),
             new RefreshRateAutomationStep(default),
