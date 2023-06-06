@@ -157,9 +157,6 @@
   <data name="Apply" xml:space="preserve">
     <value>Primijeni</value>
   </data>
-  <data name="ApplyAndClose" xml:space="preserve">
-    <value>Primijeni i zatvori</value>
-  </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
     <value>Lenovo Legion Toolkit mora biti pokrenut da bi automatske akcije radile.</value>
   </data>
