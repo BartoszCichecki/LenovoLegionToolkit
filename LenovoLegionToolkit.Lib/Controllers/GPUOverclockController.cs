@@ -45,6 +45,9 @@ public class GPUOverclockController
             isSupported = false;
         }
 
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"IsSupportGpuOC={isSupported}");
+
         if (isSupported)
         {
             try
@@ -61,6 +64,9 @@ public class GPUOverclockController
                 try { NVAPI.Unload(); } catch { /* Ignored */ }
             }
         }
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"NVAPI={isSupported}");
 
         if (!isSupported)
         {
