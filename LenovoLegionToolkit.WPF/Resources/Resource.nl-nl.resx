@@ -175,9 +175,6 @@
   <data name="Apply" xml:space="preserve">
     <value>Toepassen</value>
   </data>
-  <data name="ApplyAndClose" xml:space="preserve">
-    <value>Opslaan &amp; sluiten</value>
-  </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
     <value>Lenovo Legion Toolkit moet actief zijn om automatische acties te laten werken.</value>
   </data>
