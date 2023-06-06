@@ -91,11 +91,43 @@
   <data name="BatteryState_RapidCharge" xml:space="preserve">
     <value>快充</value>
   </data>
+  <data name="FlipToStartState_Off" xml:space="preserve">
+    <value>关</value>
+    <comment>Informs the user that Flip to Start is or will be turned off.</comment>
+  </data>
+  <data name="FlipToStartState_On" xml:space="preserve">
+    <value>开</value>
+    <comment>Informs the user that Flip to Start is or will be turned on.</comment>
+  </data>
+  <data name="FnLockState_Off" xml:space="preserve">
+    <value>关</value>
+    <comment>Informs the user that Fn Lock is or will be turned off.</comment>
+  </data>
+  <data name="FnLockState_On" xml:space="preserve">
+    <value>开</value>
+    <comment>Informs the user that Fn Lock is or will be turned on.</comment>
+  </data>
   <data name="GPUController_PoweredOff" xml:space="preserve">
     <value>关闭</value>
   </data>
   <data name="GPUController_PoweredOn" xml:space="preserve">
     <value>启用</value>
+  </data>
+  <data name="GSyncState_Off" xml:space="preserve">
+    <value>关</value>
+    <comment>Informs the user that GSync is or will be turned off.</comment>
+  </data>
+  <data name="GSyncState_On" xml:space="preserve">
+    <value>开</value>
+    <comment>Informs the user that GSync is or will be turned on.</comment>
+  </data>
+  <data name="HDRState_Off" xml:space="preserve">
+    <value>关</value>
+    <comment>Informs the user that HDR is or will be turned off.</comment>
+  </data>
+  <data name="HDRState_On" xml:space="preserve">
+    <value>开</value>
+    <comment>Informs the user that HDR is or will be turned on.</comment>
   </data>
   <data name="HybridModeState_Off" xml:space="preserve">
     <value>独显直连模式</value>
@@ -108,6 +140,14 @@
   </data>
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
     <value>混合核显模式</value>
+  </data>
+  <data name="MicrophoneState_Off" xml:space="preserve">
+    <value>关</value>
+    <comment>Informs the user that the microphone is or will be turned off.</comment>
+  </data>
+  <data name="MicrophoneState_On" xml:space="preserve">
+    <value>开</value>
+    <comment>Informs the user that the microphone is or will be turned on.</comment>
   </data>
   <data name="NotificationPosition_BottomCenter" xml:space="preserve">
     <value>底部居中</value>
@@ -135,6 +175,22 @@
   </data>
   <data name="NotificationPosition_TopRight" xml:space="preserve">
     <value>右上角</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightState_Off" xml:space="preserve">
+    <value>关</value>
+    <comment>Informs the user that One Level White Keyboard Backlight is or will be turned off.</comment>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightState_On" xml:space="preserve">
+    <value>开</value>
+    <comment>Informs the user that One Level White Keyboard Backlight is or will be turned on.</comment>
+  </data>
+  <data name="OverdriveState_Off" xml:space="preserve">
+    <value>关</value>
+    <comment>Informs the user that Overdrive is or will be turned off.</comment>
+  </data>
+  <data name="OverdriveState_On" xml:space="preserve">
+    <value>开</value>
+    <comment>Informs the user that Overdrive is or will be turned on.</comment>
   </data>
   <data name="PowerModeState_Balance" xml:space="preserve">
     <value>均衡模式</value>
@@ -280,6 +336,14 @@
   <data name="Theme_System" xml:space="preserve">
     <value>跟随系统</value>
   </data>
+  <data name="TouchpadLockState_Off" xml:space="preserve">
+    <value>关</value>
+    <comment>Informs the user that Touchpad Lock is or will be turned off.</comment>
+  </data>
+  <data name="TouchpadLockState_On" xml:space="preserve">
+    <value>开</value>
+    <comment>Informs the user that Touchpad Lock is or will be turned on.</comment>
+  </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
     <value>高亮度</value>
   </data>
@@ -288,5 +352,13 @@
   </data>
   <data name="WhiteKeyboardBacklightState_Off" xml:space="preserve">
     <value>关闭</value>
+  </data>
+  <data name="WinKeyState_Off" xml:space="preserve">
+    <value>关</value>
+    <comment>Informs the user that WinLock is or will be turned on.</comment>
+  </data>
+  <data name="WinKeyState_On" xml:space="preserve">
+    <value>开</value>
+    <comment>Informs the user that WinLock is or will be turned on.</comment>
   </data>
 </root>

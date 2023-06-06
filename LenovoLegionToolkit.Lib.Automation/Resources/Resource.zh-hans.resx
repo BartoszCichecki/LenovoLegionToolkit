@@ -178,10 +178,10 @@
     <value>当打开游戏时</value>
   </data>
   <data name="UserInactivityAutomationPipelineTrigger_DisplayName_Zero" xml:space="preserve">
-    <value>当用户处于活动状态</value>
+    <value>当用户重新开始操作电脑后</value>
   </data>
   <data name="UserInactivityAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>当用户处于非活动状态</value>
+    <value>当用户长时间未操作电脑后</value>
   </data>
   <data name="DeactivateGpuQuickAction_Title" xml:space="preserve">
     <value>强制休眠独显</value>

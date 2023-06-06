@@ -1769,4 +1769,27 @@ Esta configuración sólo tiene efecto si el modo personalizado está activado.<
     <value>Múltiples activadores...</value>
     <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
   </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_Title" xml:space="preserve">
+	  <value>Ajustes de overclocking de la GPU</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title" xml:space="preserve">
+	  <value>Desviación de frecuencia del núcleo</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title" xml:space="preserve">
+	  <value>Desviación de frecuencia de la memoria</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Title" xml:space="preserve">
+	  <value>Overclock de la GPU</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
+	  <value>Aumentar el rendimiento haciendo overclocking en la GPU externa.</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
+	  <value>Overclock de la GPU</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
+	  <value>Aumentar el rendimiento haciendo overclocking en la GPU externa.
+
+AVISO: Esta acción no se ejecutará correctamente si no se dispone de una GPU externa.</value>
+  </data>
 </root>
