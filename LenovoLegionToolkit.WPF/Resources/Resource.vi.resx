@@ -176,9 +176,6 @@ Lựa chọn này chỉ dành cho thiết bị không đi kèm với nhiều Pow
   <data name="Apply" xml:space="preserve">
     <value>Áp dụng</value>
   </data>
-  <data name="ApplyAndClose" xml:space="preserve">
-    <value>Áp dụng và đóng</value>
-  </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
     <value>Lenovo Legion Toolkit phải chạy trong nền để các Hành động làm việc.</value>
   </data>
