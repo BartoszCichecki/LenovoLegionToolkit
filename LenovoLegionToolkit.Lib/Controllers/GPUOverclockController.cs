@@ -155,6 +155,16 @@ public class GPUOverclockController
         }
     }
 
+    public async Task<bool> EnsureOverclockIsAppliedAsync()
+    {
+        var (enabled, _) = GetState();
+        if (!enabled)
+            return false;
+
+        await ApplyStateAsync().ConfigureAwait(false);
+        return true;
+    }
+
     private static void SetOverclockInfo(PhysicalGPU gpu, GPUOverclockInfo info)
     {
         var coreDelta = Math.Clamp(info.CoreDeltaMhz, 0, MAX_CORE_DELTA_MHZ);
