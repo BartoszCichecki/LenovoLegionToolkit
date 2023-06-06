@@ -22,6 +22,9 @@ public partial class OverclockDiscreteGPUSettingsWindow
         _coreSlider.Value = info.CoreDeltaMhz;
         _memorySlider.Maximum = GPUOverclockController.MAX_MEMORY_DELTA_MHZ;
         _memorySlider.Value = info.MemoryDeltaMhz;
+
+        _coreLabel.Content = $"{(int)_coreSlider.Value:+0;-0;0} Mhz";
+        _memoryLabel.Content = $"{(int)_memorySlider.Value:+0;-0;0} Mhz";
     }
 
     private void CoreSlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) => _coreLabel.Content = $"{(int)_coreSlider.Value:+0;-0;0} Mhz";
