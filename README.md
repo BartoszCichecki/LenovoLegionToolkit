@@ -298,6 +298,13 @@ I also recommend other apps that make it very easy to manage settings across mul
 
 You can customize Fn+F9 hotkey in LLT settings. Other hotkeys can't be customized.
 
+#### What if I overclocked my GPU too much?
+
+If you end up in a situation where your GPU is not stable and you can't boot into Windows, there are two things you can do:
+
+1. Go into BIOS and try to find and option similar to "Enabled GPU Overclocking" and disable it.
+2. Start Windows in Safe Mode, and delete `gpuoc.json` file under LLT settings, which are located in `"%LOCALAPPDATA%\LenovoLegionToolkit`.
+
 ## How to collect logs?
 
 In some cases it will be super useful if you can provide logs that this app can create. This helps with debugging and other issue solving.
