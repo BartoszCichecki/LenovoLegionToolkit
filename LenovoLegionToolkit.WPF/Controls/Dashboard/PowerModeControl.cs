@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
-using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.System;
@@ -20,7 +19,6 @@ public class PowerModeControl : AbstractComboBoxFeatureCardControl<PowerModeStat
     private readonly ThermalModeListener _thermalModeListener = IoCContainer.Resolve<ThermalModeListener>();
     private readonly PowerModeListener _powerModeListener = IoCContainer.Resolve<PowerModeListener>();
     private readonly PowerPlanListener _powerPlanListener = IoCContainer.Resolve<PowerPlanListener>();
-    private readonly GPUOverclockController _gpuOverclockController = IoCContainer.Resolve<GPUOverclockController>();
 
     private readonly ThrottleLastDispatcher _throttleDispatcher = new(TimeSpan.FromMilliseconds(500), nameof(PowerModeControl));
 

@@ -16,6 +16,7 @@ public enum DashboardItem
     AlwaysOnUsb,
     HybridMode,
     DiscreteGpu,
+    OverclockDiscreteGpu,
     Resolution,
     RefreshRate,
     DpiScale,

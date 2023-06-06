@@ -84,7 +84,7 @@ public class GPUOverclockController
         _settings.SynchronizeStore();
     }
 
-    public async Task ApplyStateAsync()
+    public async Task ApplyStateAsync(bool force = false)
     {
         if (await _vantageDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
         {
@@ -102,6 +102,15 @@ public class GPUOverclockController
 
         var enabled = _settings.Store.Enabled;
         var info = _settings.Store.Info;
+
+        if (force)
+        {
+            info = enabled ? info : GPUOverclockInfo.Zero;
+            enabled = true;
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Forcing... [enabled=true, info={info}]");
+        }
 
         if (!enabled)
         {
@@ -134,7 +143,11 @@ public class GPUOverclockController
         catch (Exception ex)
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Failed to apply overclock: {info}.", ex);
+                Log.Instance.Trace($"Failed to apply overclock: {info}, clearing settings...", ex);
+
+            _settings.Store.Enabled = false;
+            _settings.Store.Info = GPUOverclockInfo.Zero;
+            _settings.SynchronizeStore();
         }
         finally
         {

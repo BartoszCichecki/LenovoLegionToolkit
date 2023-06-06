@@ -8,7 +8,7 @@ public readonly struct DashboardGroup
     public static readonly DashboardGroup[] DefaultGroups =
     {
         new(DashboardGroupType.Power, null, DashboardItem.PowerMode, DashboardItem.BatteryMode, DashboardItem.AlwaysOnUsb),
-        new(DashboardGroupType.Graphics, null, DashboardItem.HybridMode, DashboardItem.DiscreteGpu),
+        new(DashboardGroupType.Graphics, null, DashboardItem.HybridMode, DashboardItem.DiscreteGpu, DashboardItem.OverclockDiscreteGpu),
         new(DashboardGroupType.Display, null, DashboardItem.Resolution, DashboardItem.RefreshRate, DashboardItem.DpiScale, DashboardItem.Hdr, DashboardItem.OverDrive, DashboardItem.TurnOffMonitors),
         new(DashboardGroupType.Other, null, DashboardItem.Microphone, DashboardItem.WhiteKeyboardBacklight, DashboardItem.FlipToStart, DashboardItem.TouchpadLock, DashboardItem.FnLock, DashboardItem.WinKeyLock)
     };

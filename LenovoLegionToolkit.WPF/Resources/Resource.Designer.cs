@@ -269,7 +269,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Apply &amp; close.
+        ///   Looks up a localized string similar to Apply &amp; Close.
         /// </summary>
         public static string ApplyAndClose {
             get {
@@ -2968,6 +2968,51 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Increase performance by overclocking discrete GPU..
+        /// </summary>
+        public static string OverclockDiscreteGPUControl_Message {
+            get {
+                return ResourceManager.GetString("OverclockDiscreteGPUControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overclock GPU.
+        /// </summary>
+        public static string OverclockDiscreteGPUControl_Title {
+            get {
+                return ResourceManager.GetString("OverclockDiscreteGPUControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Core Frequency Offset.
+        /// </summary>
+        public static string OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title {
+            get {
+                return ResourceManager.GetString("OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Memory Frequency Offset.
+        /// </summary>
+        public static string OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title {
+            get {
+                return ResourceManager.GetString("OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overclock GPU Settings.
+        /// </summary>
+        public static string OverclockDiscreteGPUSettingsWindow_Title {
+            get {
+                return ResourceManager.GetString("OverclockDiscreteGPUSettingsWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Improve response time of the built-in display..
         /// </summary>
         public static string OverDriveAutomationStepControl_Message {
@@ -3298,42 +3343,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string Paste {
             get {
                 return ResourceManager.GetString("Paste", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Core Frequency Offset.
-        /// </summary>
-        public static string PerformanceModeSettingsWindow_CoreFrequencyOffset_Title {
-            get {
-                return ResourceManager.GetString("PerformanceModeSettingsWindow_CoreFrequencyOffset_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Enable GPU Overclocking.
-        /// </summary>
-        public static string PerformanceModeSettingsWindow_EnableGpuOvervclocking_Title {
-            get {
-                return ResourceManager.GetString("PerformanceModeSettingsWindow_EnableGpuOvervclocking_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Memory Frequency Offset.
-        /// </summary>
-        public static string PerformanceModeSettingsWindow_MemoryFrequencyOffset_Title {
-            get {
-                return ResourceManager.GetString("PerformanceModeSettingsWindow_MemoryFrequencyOffset_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Performance Mode Settings.
-        /// </summary>
-        public static string PerformanceModeSettingsWindow_Title {
-            get {
-                return ResourceManager.GetString("PerformanceModeSettingsWindow_Title", resourceCulture);
             }
         }
         

@@ -8,13 +8,11 @@ namespace LenovoLegionToolkit.Lib.Listeners;
 
 public class PowerModeListener : AbstractWMIListener<PowerModeState>, INotifyingListener<PowerModeState>
 {
-    private readonly GPUOverclockController _gpuOverclockController;
     private readonly AIModeController _aiModeController;
     private readonly PowerPlanController _powerPlanController;
 
-    public PowerModeListener(GPUOverclockController gpuOverclockController, AIModeController aiModeController, PowerPlanController powerPlanController) : base("ROOT\\WMI", "LENOVO_GAMEZONE_SMART_FAN_MODE_EVENT")
+    public PowerModeListener(AIModeController aiModeController, PowerPlanController powerPlanController) : base("ROOT\\WMI", "LENOVO_GAMEZONE_SMART_FAN_MODE_EVENT")
     {
-        _gpuOverclockController = gpuOverclockController ?? throw new ArgumentNullException(nameof(gpuOverclockController));
         _aiModeController = aiModeController ?? throw new ArgumentNullException(nameof(aiModeController));
         _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController)); ;
     }

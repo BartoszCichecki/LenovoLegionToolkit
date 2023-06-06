@@ -100,7 +100,6 @@ public abstract class AbstractToggleFeatureCardControl<T> : AbstractRefreshingCo
                 return;
 
             await feature.SetStateAsync(state);
-
         }
         catch (Exception ex)
         {
