@@ -10,7 +10,7 @@ namespace LenovoLegionToolkit.Lib.PackageDownloader.Detectors.Rules;
 
 internal readonly struct CpuAddressWidthPackageRule : IPackageRule
 {
-    private int AddressWidth { get; init; }
+    private int Value { get; init; }
 
     public static bool TryCreate(XmlNode? node, out CpuAddressWidthPackageRule value)
     {
@@ -22,7 +22,7 @@ internal readonly struct CpuAddressWidthPackageRule : IPackageRule
             return false;
         }
 
-        value = new CpuAddressWidthPackageRule { AddressWidth = addressWidth };
+        value = new CpuAddressWidthPackageRule { Value = addressWidth };
         return true;
     }
 
@@ -32,20 +32,18 @@ internal readonly struct CpuAddressWidthPackageRule : IPackageRule
 
     private async Task<bool> CheckCpuAddressWidthAsync()
     {
-        var addressWidths = await WMI.ReadAsync("root\\CIMV2", $"SELECT * FROM Win32_Processor", pdc =>
+        var results = await WMI.ReadAsync("root\\CIMV2", $"SELECT * FROM Win32_Processor", pdc =>
         {
-            var addressWidthString = pdc["AddressWidth"].Value.ToString();
+            var str = pdc["AddressWidth"].Value.ToString();
 
             var addressWidth = 0;
-            if (int.TryParse(addressWidthString, out var bn))
+            if (int.TryParse(str, out var bn))
                 addressWidth = bn;
 
             return addressWidth;
         }).ConfigureAwait(false);
 
-        var addressWidth = addressWidths.FirstOrDefault();
-
-        var result = AddressWidth == addressWidth;
+        var result = Value == results.FirstOrDefault();
         return result;
     }
 }
