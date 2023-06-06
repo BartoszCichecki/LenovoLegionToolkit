@@ -176,9 +176,6 @@ Questa opzione è serve solo ai dispositivi che non possiedono modalità energet
   <data name="Apply" xml:space="preserve">
     <value>Salva</value>
   </data>
-  <data name="ApplyAndClose" xml:space="preserve">
-    <value>Salva ed esci</value>
-  </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
     <value>Lenovo Legion Toolkit deve rimanere in esecuzione per far funzionare le azioni automatizzate.</value>
   </data>
