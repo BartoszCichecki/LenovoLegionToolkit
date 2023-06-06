@@ -165,6 +165,15 @@ Deactivate button will be enabled when dGPU is active, you have Hybrid mode enab
 
 Keep in mind that some apps may not like this feature and crash when you deactivate dGPU.
 
+<!--
+#### Overclock discrete nVidia GPUs
+
+The overclock option is intended for simple overclocking, similar to the one available in Vantage. It is not intended to replace tools like Afterburner. Here are some points to keep in mind:
+* Make sure GPU overclocking is enabled in BIOS, if your laptop has such option.
+* Overclocking does not work with Vantage or LegionZone running in the background.
+* It is not recommended to use the option while using other tools like Afterburner.
+* If you edited your Dashboard, you might need to add the control manually.
+-->
 ##### Windows Power Plans
 
 Lenovo Legion Toolkit will automatically switch Windows power plans when Power Mode changes *and* when Lenovo Vantage is disabled.
