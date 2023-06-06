@@ -269,7 +269,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Apply &amp; close.
+        ///   Looks up a localized string similar to Apply &amp; Close.
         /// </summary>
         public static string ApplyAndClose {
             get {
@@ -2964,6 +2964,71 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string Open {
             get {
                 return ResourceManager.GetString("Open", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Increase performance by overclocking discrete GPU.
+        ///
+        ///WARNING: This action will not run correctly, if discrete GPU is not available..
+        /// </summary>
+        public static string OverclockDiscreteGPUAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("OverclockDiscreteGPUAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overclock GPU.
+        /// </summary>
+        public static string OverclockDiscreteGPUAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("OverclockDiscreteGPUAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Increase performance by overclocking discrete GPU..
+        /// </summary>
+        public static string OverclockDiscreteGPUControl_Message {
+            get {
+                return ResourceManager.GetString("OverclockDiscreteGPUControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overclock GPU.
+        /// </summary>
+        public static string OverclockDiscreteGPUControl_Title {
+            get {
+                return ResourceManager.GetString("OverclockDiscreteGPUControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Core Frequency Offset.
+        /// </summary>
+        public static string OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title {
+            get {
+                return ResourceManager.GetString("OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Memory Frequency Offset.
+        /// </summary>
+        public static string OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title {
+            get {
+                return ResourceManager.GetString("OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overclock GPU Settings.
+        /// </summary>
+        public static string OverclockDiscreteGPUSettingsWindow_Title {
+            get {
+                return ResourceManager.GetString("OverclockDiscreteGPUSettingsWindow_Title", resourceCulture);
             }
         }
         

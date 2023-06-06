@@ -56,9 +56,8 @@
                     x:Name="_gpuInfoButton"
                     Grid.Column="2"
                     Margin="8,0,0,0"
-                    Padding="6,4,6,4"
                     ClickMode="Hover"
-                    FontSize="18"
+                    FontSize="20"
                     Icon="QuestionCircle24"
                     ToolTipService.InitialShowDelay="0" />
 

@@ -152,7 +152,7 @@ Custom Mode is supported on following BIOS versions:
 
 Not all features of Custom Mode are supported by all devices.
 
-##### Deactivate discrete GPU
+##### Deactivate discrete nVidia GPU
 
 Sometimes discrete GPU stays active even when it should not. This can happen for example, if you work with an external screen and you disconnect it - some processes will keep running on discrete GPU keeping it alive and shortening battery life.
 
@@ -297,6 +297,13 @@ I also recommend other apps that make it very easy to manage settings across mul
 #### Can I customize hotkeys?
 
 You can customize Fn+F9 hotkey in LLT settings. Other hotkeys can't be customized.
+
+#### What if I overclocked my GPU too much?
+
+If you end up in a situation where your GPU is not stable and you can't boot into Windows, there are two things you can do:
+
+1. Go into BIOS and try to find and option similar to "Enabled GPU Overclocking" and disable it, start Windows, and toggle the BIOS option again to Enabled.
+2. Start Windows in Safe Mode, and delete `gpu_oc.json` file under LLT settings, which are located in `"%LOCALAPPDATA%\LenovoLegionToolkit`.
 
 ## How to collect logs?
 

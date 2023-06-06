@@ -22,6 +22,7 @@ public class IoCModule : Module
         builder.Register<ApplicationSettings>();
         builder.Register<BalanceModeSettings>();
         builder.Register<GodModeSettings>();
+        builder.Register<GPUOverclockSettings>();
         builder.Register<PackageDownloaderSettings>();
         builder.Register<RGBKeyboardSettings>();
         builder.Register<SpectrumKeyboardSettings>();
@@ -66,6 +67,7 @@ public class IoCModule : Module
         builder.Register<GodModeControllerV1>();
         builder.Register<GodModeControllerV2>();
         builder.Register<GPUController>();
+        builder.Register<GPUOverclockController>();
         builder.Register<PowerPlanController>();
         builder.Register<RGBKeyboardBacklightController>();
         builder.Register<SpectrumKeyboardBacklightController>();

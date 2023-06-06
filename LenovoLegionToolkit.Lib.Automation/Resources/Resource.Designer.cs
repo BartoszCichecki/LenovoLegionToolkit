@@ -214,6 +214,24 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Off.
+        /// </summary>
+        public static string OverclockDiscreteGPUAutomationStepState_Off {
+            get {
+                return ResourceManager.GetString("OverclockDiscreteGPUAutomationStepState_Off", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to On.
+        /// </summary>
+        public static string OverclockDiscreteGPUAutomationStepState_On {
+            get {
+                return ResourceManager.GetString("OverclockDiscreteGPUAutomationStepState_On", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to When Power Mode is changed.
         /// </summary>
         public static string PowerModeAutomationPipelineTrigger_DisplayName {

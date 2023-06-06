@@ -74,8 +74,9 @@ public partial class App
         await LogSoftwareStatusAsync();
         await InitPowerModeFeatureAsync();
         await InitBatteryFeatureAsync();
-        await InitRGBKeyboardControllerAsync();
+        await InitRgbKeyboardControllerAsync();
         await InitSpectrumKeyboardControllerAsync();
+        await InitGpuOverclockControllerAsync();
         await InitAutomationProcessorAsync();
 
 #if !DEBUG
@@ -397,7 +398,7 @@ public partial class App
         }
     }
 
-    private static async Task InitRGBKeyboardControllerAsync()
+    private static async Task InitRgbKeyboardControllerAsync()
     {
         try
         {
@@ -454,6 +455,41 @@ public partial class App
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Couldn't start Aurora if needed.", ex);
+        }
+    }
+
+    private static async Task InitGpuOverclockControllerAsync()
+    {
+        try
+        {
+            var controller = IoCContainer.Resolve<GPUOverclockController>();
+            if (await controller.IsSupportedAsync())
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Ensuring GPU overclock is applied...");
+
+                var result = await controller.EnsureOverclockIsAppliedAsync().ConfigureAwait(false);
+                if (result)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"GPU overclock applied.");
+                }
+                else
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"GPU overclock not needed.");
+                }
+            }
+            else
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"GPU overclock is not supported.");
+            }
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Couldn't overclock GPU.", ex);
         }
     }
 }
