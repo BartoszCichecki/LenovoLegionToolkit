@@ -2968,6 +2968,26 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Increase performance by overclocking discrete GPU.
+        ///
+        ///WARNING: This action will not run correctly, if discrete GPU is not available..
+        /// </summary>
+        public static string OverclockDiscreteGPUAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("OverclockDiscreteGPUAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overclock GPU.
+        /// </summary>
+        public static string OverclockDiscreteGPUAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("OverclockDiscreteGPUAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Increase performance by overclocking discrete GPU..
         /// </summary>
         public static string OverclockDiscreteGPUControl_Message {
