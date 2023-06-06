@@ -176,9 +176,6 @@
   <data name="Apply" xml:space="preserve">
     <value>Приложи</value>
   </data>
-  <data name="ApplyAndClose" xml:space="preserve">
-    <value>Приложи и затвори</value>
-  </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
     <value>Lenovo Legion Toolkit трябва да работи, за да може автоматичните действия да бъдат изпълнени.</value>
   </data>
