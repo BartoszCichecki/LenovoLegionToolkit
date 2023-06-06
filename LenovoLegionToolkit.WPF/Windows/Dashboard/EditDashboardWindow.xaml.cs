@@ -25,9 +25,11 @@ public partial class EditDashboardWindow
         _groups = _dashboardSettings.Store.Groups;
 
         InitializeComponent();
+
+        IsVisibleChanged += EditDashboardWindow_IsVisibleChanged;
     }
 
-    private async void EditDashboardWindow_IsVisibleChanged(object _1, DependencyPropertyChangedEventArgs _2)
+    private async void EditDashboardWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
     {
         if (IsVisible)
             await RefreshAsync();

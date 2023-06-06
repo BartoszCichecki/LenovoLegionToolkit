@@ -29,9 +29,14 @@ public partial class GodModeSettingsWindow
     private Dictionary<PowerModeState, GodModeDefaults>? _defaults;
     private bool _isRefreshing;
 
-    public GodModeSettingsWindow() => InitializeComponent();
+    public GodModeSettingsWindow()
+    {
+        InitializeComponent();
 
-    private async void GodModeSettingsWindow_IsVisibleChanged(object _1, DependencyPropertyChangedEventArgs _2)
+        IsVisibleChanged += GodModeSettingsWindow_IsVisibleChanged;
+    }
+
+    private async void GodModeSettingsWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
     {
         if (IsVisible)
             await RefreshAsync();

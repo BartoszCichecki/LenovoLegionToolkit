@@ -16,9 +16,14 @@ public partial class ExcludeRefreshRatesWindow
     private readonly RefreshRateFeature _feature = IoCContainer.Resolve<RefreshRateFeature>();
     private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
 
-    public ExcludeRefreshRatesWindow() => InitializeComponent();
+    public ExcludeRefreshRatesWindow()
+    {
+        InitializeComponent();
 
-    private async void PickProcessesWindow_IsVisibleChanged(object _1, DependencyPropertyChangedEventArgs _2)
+        IsVisibleChanged += PickProcessesWindow_IsVisibleChanged;
+    }
+
+    private async void PickProcessesWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
     {
         if (IsVisible)
             await RefreshAsync();

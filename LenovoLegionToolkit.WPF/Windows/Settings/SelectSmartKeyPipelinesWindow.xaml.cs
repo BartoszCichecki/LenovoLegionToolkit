@@ -43,9 +43,11 @@ public partial class SelectSmartKeyPipelinesWindow
         Title = _title.Text = isDoublePress
             ? Resource.SettingsPage_SmartKeyDoublePressAction_Title
             : Resource.SettingsPage_SmartKeySinglePressAction_Title;
+
+        IsVisibleChanged += SelectSmartKeyPipelinesWindow_IsVisibleChanged;
     }
 
-    private async void SelectSmartKeyPipelinesWindow_IsVisibleChanged(object _1, DependencyPropertyChangedEventArgs _2)
+    private async void SelectSmartKeyPipelinesWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
     {
         if (IsVisible)
             await RefreshAsync();

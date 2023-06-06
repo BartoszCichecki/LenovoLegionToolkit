@@ -171,18 +171,34 @@ public readonly struct FanTableInfo
         $" {nameof(Table)}: {Table}";
 }
 
-public struct GPUOverclockInfo
+public readonly struct GPUOverclockInfo
 {
     public static readonly GPUOverclockInfo Zero = new();
 
     public int CoreDeltaMhz { get; init; }
     public int MemoryDeltaMhz { get; init; }
 
-    public override bool Equals(object? obj) => obj is GPUOverclockInfo other && CoreDeltaMhz == other.CoreDeltaMhz && MemoryDeltaMhz == other.MemoryDeltaMhz;
 
-    public override int GetHashCode() => HashCode.Combine(CoreDeltaMhz, MemoryDeltaMhz);
+    #region Equality
+
+    public override bool Equals(object? obj)
+    {
+        return obj is GPUOverclockInfo other && Equals(other);
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(CoreDeltaMhz, MemoryDeltaMhz);
+    }
+
+    public static bool operator ==(GPUOverclockInfo left, GPUOverclockInfo right) => left.Equals(right);
+
+    public static bool operator !=(GPUOverclockInfo left, GPUOverclockInfo right) => !left.Equals(right);
+
+    #endregion
 
     public override string ToString() => $"{nameof(CoreDeltaMhz)}: {CoreDeltaMhz}, {nameof(MemoryDeltaMhz)}: {MemoryDeltaMhz}";
+
 }
 
 public readonly struct GodModeDefaults
@@ -267,9 +283,7 @@ public readonly struct HardwareId
     public string Device { get; init; }
     public string SubSystem { get; init; }
 
-    public static bool operator ==(HardwareId left, HardwareId right) => left.Equals(right);
-
-    public static bool operator !=(HardwareId left, HardwareId right) => !left.Equals(right);
+    #region Equality
 
     public override bool Equals(object? obj)
     {
@@ -289,6 +303,12 @@ public readonly struct HardwareId
     }
 
     public override int GetHashCode() => HashCode.Combine(Vendor, Device, SubSystem);
+
+    public static bool operator ==(HardwareId left, HardwareId right) => left.Equals(right);
+
+    public static bool operator !=(HardwareId left, HardwareId right) => !left.Equals(right);
+
+    #endregion
 }
 
 public readonly struct MachineInformation
@@ -462,6 +482,8 @@ public readonly struct RGBColor
         B = b;
     }
 
+    #region Equality
+
     public override bool Equals(object? obj)
     {
         return obj is RGBColor color && R == color.R && G == color.G && B == color.B;
@@ -472,6 +494,8 @@ public readonly struct RGBColor
     public static bool operator ==(RGBColor left, RGBColor right) => left.Equals(right);
 
     public static bool operator !=(RGBColor left, RGBColor right) => !left.Equals(right);
+
+    #endregion
 
     public override string ToString() => $"{nameof(R)}: {R}, {nameof(G)}: {G}, {nameof(B)}: {B}";
 }

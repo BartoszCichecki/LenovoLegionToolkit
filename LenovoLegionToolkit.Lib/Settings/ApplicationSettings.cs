@@ -64,10 +64,10 @@ internal class LegacyPowerPlanInstanceIdToGuidConverter : JsonConverter // Intro
         const string prefix = "Microsoft:PowerPlan\\{";
         const string suffix = "}";
 
-        var prefixIndex = value.IndexOf(prefix, StringComparison.InvariantCulture);
+        var prefixIndex = value.Contains(prefix, StringComparison.InvariantCulture);
         var suffixIndex = value.IndexOf(suffix, StringComparison.InvariantCulture);
 
-        if (prefixIndex >= 0 && suffixIndex > 0)
+        if (prefixIndex && suffixIndex > 0)
         {
             value = value[..suffixIndex];
             value = value[prefix.Length..];

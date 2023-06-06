@@ -35,6 +35,12 @@ public partial class MainWindow
     {
         InitializeComponent();
 
+        Closing += MainWindow_Closing;
+        IsVisibleChanged += MainWindow_IsVisibleChanged;
+        Loaded += MainWindow_Loaded;
+        SourceInitialized += MainWindow_SourceInitialized;
+        StateChanged += MainWindow_StateChanged;
+
 #if DEBUG
         _title.Text += " [DEBUG]";
 #else
@@ -137,7 +143,7 @@ public partial class MainWindow
         }
     }
 
-    private void MainWindow_IsVisibleChanged(object _1, DependencyPropertyChangedEventArgs _2)
+    private void MainWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
     {
         if (!IsVisible)
             return;

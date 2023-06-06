@@ -19,9 +19,11 @@ public partial class AddAutomationStepWindow
         _addStepControl = addStepControl;
 
         InitializeComponent();
+
+        IsVisibleChanged += AddAutomationStepWindow_IsVisibleChanged;
     }
 
-    private async void AddAutomationStepWindow_IsVisibleChanged(object _1, DependencyPropertyChangedEventArgs _2)
+    private async void AddAutomationStepWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
     {
         if (IsVisible)
             await RefreshAsync();
