@@ -491,6 +491,5 @@ public partial class App
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Couldn't overclock GPU.", ex);
         }
-
     }
 }

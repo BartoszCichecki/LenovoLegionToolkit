@@ -10,5 +10,5 @@ public class GPUOverclockSettings : AbstractSettings<GPUOverclockSettingsStore>
         public GPUOverclockInfo Info { get; set; } = GPUOverclockInfo.Zero;
     }
 
-    public GPUOverclockSettings() : base("gpuoc.json") { }
+    public GPUOverclockSettings() : base("gpu_oc.json") { }
 }

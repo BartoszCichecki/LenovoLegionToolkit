@@ -318,6 +318,6 @@ public class GPUController
         var results = await WMI.ReadAsync("root\\CIMV2",
             $"SELECT * FROM Win32_PnpEntity WHERE DeviceID LIKE '{pnpDeviceId}%'",
             pdc => (string)pdc["DeviceID"].Value).ConfigureAwait(false);
-        return results?.FirstOrDefault();
+        return results.FirstOrDefault();
     }
 }

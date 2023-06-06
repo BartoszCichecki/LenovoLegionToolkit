@@ -170,6 +170,7 @@ public readonly struct FanTableInfo
         $"{nameof(Data)}: [{string.Join(", ", Data)}]," +
         $" {nameof(Table)}: {Table}";
 }
+
 public struct GPUOverclockInfo
 {
     public static readonly GPUOverclockInfo Zero = new();

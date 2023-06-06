@@ -13,7 +13,6 @@ public class PowerModeFeature : AbstractLenovoGamezoneWmiFeature<PowerModeState>
 {
     private readonly AIModeController _aiModeController;
     private readonly GodModeController _godModeController;
-    private readonly GPUOverclockController _gpuOverclockController;
     private readonly PowerPlanController _powerPlanController;
     private readonly ThermalModeListener _thermalModeListener;
     private readonly PowerModeListener _powerModeListener;
@@ -23,14 +22,12 @@ public class PowerModeFeature : AbstractLenovoGamezoneWmiFeature<PowerModeState>
     public PowerModeFeature(
         AIModeController aiModeController,
         GodModeController godModeController,
-        GPUOverclockController gpuOverclockController,
         PowerPlanController powerPlanController,
         ThermalModeListener thermalModeListener,
         PowerModeListener powerModeListener) : base("SmartFanMode", 1, "IsSupportSmartFan")
     {
         _aiModeController = aiModeController ?? throw new ArgumentNullException(nameof(aiModeController));
         _godModeController = godModeController ?? throw new ArgumentNullException(nameof(godModeController));
-        _gpuOverclockController = gpuOverclockController ?? throw new ArgumentNullException(nameof(gpuOverclockController));
         _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController));
         _thermalModeListener = thermalModeListener ?? throw new ArgumentNullException(nameof(thermalModeListener));
         _powerModeListener = powerModeListener ?? throw new ArgumentNullException(nameof(powerModeListener));

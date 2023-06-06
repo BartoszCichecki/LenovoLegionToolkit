@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.SoftwareDisabler;
@@ -37,7 +36,7 @@ public class GPUOverclockController
             isSupported = await WMI.CallAsync("ROOT\\WMI",
             $"SELECT * FROM LENOVO_GAMEZONE_DATA",
             "IsSupportGpuOC",
-            new Dictionary<string, object>(),
+            new(),
             pdc => !pdc["Data"].Value.Equals(0)).ConfigureAwait(false);
         }
         catch
