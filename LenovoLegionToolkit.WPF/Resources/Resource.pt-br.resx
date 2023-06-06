@@ -176,6 +176,9 @@ Esta opção destina-se apenas a dispositivos que não possuem vários planos de
   <data name="Apply" xml:space="preserve">
     <value>Aplicar</value>
   </data>
+  <data name="ApplyAndClose" xml:space="preserve">
+    <value>Aplicar ao fechar</value>
+  </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
     <value>O Lenovo Legion Toolkit deve estar sendo executado para rodar tarefas automatizadas.</value>
   </data>
