@@ -178,9 +178,6 @@
   <data name="Apply" xml:space="preserve">
     <value>应用</value>
   </data>
-  <data name="ApplyAndClose" xml:space="preserve">
-    <value>应用并关闭</value>
-  </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
     <value>只有在本程序运行时，自动化才可生效。</value>
   </data>
