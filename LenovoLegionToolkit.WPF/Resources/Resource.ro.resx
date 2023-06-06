@@ -176,6 +176,9 @@ Această opțiune este destinată numai dispozitivelor care nu au mai multe plan
   <data name="Apply" xml:space="preserve">
     <value>Aplicare</value>
   </data>
+  <data name="ApplyAndClose" xml:space="preserve">
+    <value>Aplicare &amp; închidere</value>
+  </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
     <value>Lenovo Legion Toolkit trebuie să ruleze pentru ca acțiunile automate să funcționeze.</value>
   </data>
