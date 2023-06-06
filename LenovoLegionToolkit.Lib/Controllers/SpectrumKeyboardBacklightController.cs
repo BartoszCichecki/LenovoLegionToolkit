@@ -140,7 +140,7 @@ public class SpectrumKeyboardBacklightController
             Log.Instance.Trace($"Getting keyboard brightness...");
 
         var input = new LENOVO_SPECTRUM_GET_BRIGHTNESS_REQUEST();
-        SetAndGetFeature(handle, input, out LENOVO_SPECTRUM_GET_BRIGTHNESS_RESPONSE output);
+        SetAndGetFeature(handle, input, out LENOVO_SPECTRUM_GET_BRIGHTNESS_RESPONSE output);
         var result = output.Brightness;
 
         if (Log.Instance.IsTraceEnabled)
@@ -160,7 +160,7 @@ public class SpectrumKeyboardBacklightController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Setting keyboard brightness to: {brightness}.");
 
-        var input = new LENOVO_SPECTRUM_SET_BRIGHTHNESS_REQUEST((byte)brightness);
+        var input = new LENOVO_SPECTRUM_SET_BRIGHTNESS_REQUEST((byte)brightness);
         SetFeature(handle, input);
 
         if (Log.Instance.IsTraceEnabled)
@@ -389,8 +389,8 @@ public class SpectrumKeyboardBacklightController
                 return KeyMap.Empty;
 
             SetAndGetFeature(handle,
-                new LENOVO_SPECTRUM_GET_KEYCOUNT_REQUEST(),
-                out LENOVO_SPECTRUM_GET_KEYCOUNT_RESPONSE keyCountResponse);
+                new LENOVO_SPECTRUM_GET_KEY_COUNT_REQUEST(),
+                out LENOVO_SPECTRUM_GET_KEY_COUNT_RESPONSE keyCountResponse);
 
             var width = keyCountResponse.KeysPerIndex;
             var height = keyCountResponse.Indexes;
@@ -401,16 +401,16 @@ public class SpectrumKeyboardBacklightController
             for (var y = 0; y < height; y++)
             {
                 SetAndGetFeature(handle,
-                    new LENOVO_SPECTRUM_GET_KEYPAGE_REQUEST((byte)y),
-                    out LENOVO_SPECTRUM_GET_KEYPAGE_RESPONSE keyPageResponse);
+                    new LENOVO_SPECTRUM_GET_KEY_PAGE_REQUEST((byte)y),
+                    out LENOVO_SPECTRUM_GET_KEY_PAGE_RESPONSE keyPageResponse);
 
                 for (var x = 0; x < width; x++)
                     keyCodes[x, y] = keyPageResponse.Items[x].KeyCode;
             }
 
             SetAndGetFeature(handle,
-                new LENOVO_SPECTRUM_GET_KEYPAGE_REQUEST(0, true),
-                out LENOVO_SPECTRUM_GET_KEYPAGE_RESPONSE secondaryKeyPageResponse);
+                new LENOVO_SPECTRUM_GET_KEY_PAGE_REQUEST(0, true),
+                out LENOVO_SPECTRUM_GET_KEY_PAGE_RESPONSE secondaryKeyPageResponse);
 
             for (var x = 0; x < width; x++)
                 additionalKeyCodes[x] = secondaryKeyPageResponse.Items[x].KeyCode;
@@ -441,7 +441,7 @@ public class SpectrumKeyboardBacklightController
             var height = keyMap.Height;
             var colorBuffer = new RGBColor[width, height];
 
-            SetFeature(handle, new LENOVO_SPECTRUM_AURORA_STARTSTOP_REQUEST(true, (byte)profile));
+            SetFeature(handle, new LENOVO_SPECTRUM_AURORA_START_STOP_REQUEST(true, (byte)profile));
 
             while (!token.IsCancellationRequested)
             {
@@ -505,7 +505,7 @@ public class SpectrumKeyboardBacklightController
             if (handle is not null)
             {
                 var currentProfile = await GetProfileAsync();
-                SetFeature(handle, new LENOVO_SPECTRUM_AURORA_STARTSTOP_REQUEST(false, (byte)currentProfile));
+                SetFeature(handle, new LENOVO_SPECTRUM_AURORA_START_STOP_REQUEST(false, (byte)currentProfile));
             }
 
             if (Log.Instance.IsTraceEnabled)
