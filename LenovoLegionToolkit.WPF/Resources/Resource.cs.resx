@@ -176,9 +176,6 @@ Tato možnost je určena pouze pro zařízení, která nebyla dodána s více re
   <data name="Apply" xml:space="preserve">
     <value>Použít</value>
   </data>
-  <data name="ApplyAndClose" xml:space="preserve">
-    <value>Použít a zavřít</value>
-  </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
     <value>Lenovo Legion Toolkit musí být zapnut, aby fungovaly automatické akce.</value>
   </data>
