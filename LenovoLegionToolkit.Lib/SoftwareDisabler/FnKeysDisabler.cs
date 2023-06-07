@@ -26,12 +26,9 @@ public class FnKeysDisabler : AbstractSoftwareDisabler
         SetUwpStartup("LenovoUtility", "LenovoUtilityID", false);
     }
 
-    protected override bool AreProcessesRunning()
+    protected override IEnumerable<string> RunningProcesses()
     {
-        var result = base.AreProcessesRunning();
-
-        if (result)
-            return true;
+        var result = base.RunningProcesses().ToList();
 
         try
         {
@@ -42,12 +39,12 @@ public class FnKeysDisabler : AbstractSoftwareDisabler
                     continue;
 
                 if (description.Equals("Lenovo Hotkeys", StringComparison.InvariantCultureIgnoreCase))
-                    return true;
+                    result.Add(process.ProcessName);
             }
         }
         catch {  /* Ignored. */ }
 
-        return false;
+        return result;
     }
 
     protected override async Task KillProcessesAsync()

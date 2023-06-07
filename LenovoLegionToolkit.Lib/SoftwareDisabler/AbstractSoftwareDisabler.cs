@@ -29,10 +29,16 @@ public abstract class AbstractSoftwareDisabler
 
         try
         {
-            var areServicesEnabled = AreServicesEnabled();
-            var areProcessesRunning = AreProcessesRunning();
+            var services = RunningServices().ToArray();
+            var processes = RunningProcesses().ToArray();
 
-            isEnabled = areServicesEnabled || areProcessesRunning;
+            if (Log.Instance.IsTraceEnabled)
+            {
+                Log.Instance.Trace($"Running services count: {services.Length}. [type={GetType().Name}, services={string.Join(",", services)}]");
+                Log.Instance.Trace($"Running processes count: {processes.Length}. [type={GetType().Name}, processes={string.Join(",", processes)}]");
+            }
+
+            isEnabled = services.Any() || processes.Any();
             isInstalled = IsInstalled();
         }
         catch (Exception ex)
@@ -83,32 +89,42 @@ public abstract class AbstractSoftwareDisabler
 
     private bool IsInstalled() => ServiceController.GetServices().Any(s => ServiceNames.Contains(s.ServiceName));
 
-    private bool AreServicesEnabled() => ServiceNames.Aggregate(false, (current, serviceName) => current | IsServiceEnabled(serviceName));
-
-    protected virtual bool AreProcessesRunning()
+    private IEnumerable<string> RunningServices()
     {
-        foreach (var process in Process.GetProcesses())
-            foreach (var processName in ProcessNames)
-            {
-                try
-                {
-                    if (process.ProcessName.StartsWith(processName, StringComparison.InvariantCultureIgnoreCase))
-                        return true;
-                }
-                catch {  /* Ignored. */ }
-            }
-
-        return false;
+        var services = ServiceController.GetServices();
+        return ServiceNames.Where(s => IsServiceEnabled(s, services));
     }
 
-    private static bool IsServiceEnabled(string serviceName)
+    protected virtual IEnumerable<string> RunningProcesses()
+    {
+        foreach (var process in Process.GetProcesses())
+        {
+            foreach (var processName in ProcessNames)
+            {
+                var name = string.Empty;
+
+                try
+                {
+                    name = process.ProcessName;
+                    if (!name.StartsWith(processName, StringComparison.InvariantCultureIgnoreCase))
+                        continue;
+                }
+                catch {  /* Ignored. */ }
+
+                if (!string.IsNullOrEmpty(name))
+                    yield return name;
+            }
+        }
+    }
+
+    private static bool IsServiceEnabled(string serviceName, IEnumerable<ServiceController> services)
     {
         try
         {
-            if (!ServiceController.GetServices().Any(s => s.ServiceName == serviceName))
+            var service = services.FirstOrDefault(s => s.ServiceName == serviceName);
+            if (service is null)
                 return false;
 
-            var service = new ServiceController(serviceName);
             return service.Status is not ServiceControllerStatus.Stopped;
         }
         catch (InvalidOperationException)
