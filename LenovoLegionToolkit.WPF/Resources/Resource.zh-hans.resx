@@ -1775,4 +1775,27 @@
     <value>多个触发器...</value>
     <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
   </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_Title" xml:space="preserve">
+	  <value>独立显卡超频设置</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title" xml:space="preserve">
+	  <value>核心频率偏移量</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title" xml:space="preserve">
+	  <value>显存频率偏移量</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Title" xml:space="preserve">
+	  <value>超频独立显卡</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
+	  <value>超频独立显卡以提升性能。</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
+	  <value>超频独立显卡</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
+	  <value>超频独立显卡以提升性能。
+
+警告：当独立显卡弹出后此操作将不起作用。</value>
+  </data>
 </root>
