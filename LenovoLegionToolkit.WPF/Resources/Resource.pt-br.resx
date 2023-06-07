@@ -177,7 +177,7 @@ Esta opção destina-se apenas a dispositivos que não possuem vários planos de
     <value>Aplicar</value>
   </data>
   <data name="ApplyAndClose" xml:space="preserve">
-    <value>Aplicar ao fechar</value>
+    <value>Aplicar e Fechar</value>
   </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
     <value>O Lenovo Legion Toolkit deve estar sendo executado para rodar tarefas automatizadas.</value>
@@ -1763,5 +1763,28 @@ Esta configuração somente terá efeito se o Modo Personalizado estiver ativo.<
   <data name="MultipleTriggersAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Gatilhos múltiplos...</value>
     <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_Title" xml:space="preserve">
+	  <value>Configurações de Overclock da GPU</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title" xml:space="preserve">
+	  <value>Compensação de Frequência de Core</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title" xml:space="preserve">
+	  <value>Compensação de Frequência de Memória</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Title" xml:space="preserve">
+	  <value>Overclock da GPU</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
+	  <value>Aumentar performance overclocando a GPU dedicada.</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
+	  <value>Overclock da GPU</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
+	  <value>Aumentar performance overclocando a GPU dedicada.
+
+AVISO: Esta ação não será executada corretamente caso a GPU dedicada não esteja disponível.</value>
   </data>
 </root>
