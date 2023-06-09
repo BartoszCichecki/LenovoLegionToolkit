@@ -204,18 +204,6 @@
   <data name="PowerModeState_Quiet" xml:space="preserve">
     <value>Silenzioso</value>
   </data>
-  <data name="RBGKeyboardBacklightSpeed_Fast" xml:space="preserve">
-    <value>Veloce</value>
-  </data>
-  <data name="RBGKeyboardBacklightSpeed_Fastest" xml:space="preserve">
-    <value>Velocissimo</value>
-  </data>
-  <data name="RBGKeyboardBacklightSpeed_Slow" xml:space="preserve">
-    <value>Lento</value>
-  </data>
-  <data name="RBGKeyboardBacklightSpeed_Slowest" xml:space="preserve">
-    <value>Lentissimo</value>
-  </data>
   <data name="RGBKeyboardBacklightBrightness_High" xml:space="preserve">
     <value>Alto</value>
   </data>
