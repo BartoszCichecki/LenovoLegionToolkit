@@ -15,13 +15,13 @@ public abstract class AbstractWMIListener<T> : IListener<T> where T : struct
 
     public event EventHandler<T>? Changed;
 
-    public AbstractWMIListener(string scope, FormattableString query)
+    protected AbstractWMIListener(string scope, FormattableString query)
     {
         _scope = scope;
         _query = query;
     }
 
-    public AbstractWMIListener(string scope, string eventName)
+    protected AbstractWMIListener(string scope, string eventName)
     {
         _scope = scope;
         _query = $"SELECT * FROM {eventName}";

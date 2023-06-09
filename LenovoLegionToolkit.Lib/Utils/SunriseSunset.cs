@@ -45,7 +45,7 @@ public class SunriseSunset
             var httpClient = new HttpClient();
             var responseJson = await httpClient.GetStringAsync("http://ip-api.com/json?fields=lat,lon", token).ConfigureAwait(false);
             var responseJsonNode = JsonNode.Parse(responseJson);
-            if (double.TryParse(responseJsonNode?["lat"]?.ToString(), out double lat) && double.TryParse(responseJsonNode?["lon"]?.ToString(), out double lon))
+            if (responseJsonNode is not null && double.TryParse(responseJsonNode["lat"]?.ToString(), out var lat) && double.TryParse(responseJsonNode["lon"]?.ToString(), out var lon))
                 return new Coordinate(lat, lon, DateTime.UtcNow);
         }
         catch (Exception ex)

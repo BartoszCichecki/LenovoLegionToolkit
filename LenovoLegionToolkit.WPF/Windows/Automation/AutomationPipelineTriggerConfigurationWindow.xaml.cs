@@ -4,7 +4,6 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
-using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Windows.Automation.TabItemContent;
 using Wpf.Ui.Controls;

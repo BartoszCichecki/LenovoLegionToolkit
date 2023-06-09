@@ -50,6 +50,8 @@ public class VantagePackageDownloader : AbstractPackageDownloader
             packages.Add(package);
 
             count++;
+
+            // ReSharper disable once PossibleLossOfFraction
             progress?.Report(count * 100 / totalCount);
         }
 

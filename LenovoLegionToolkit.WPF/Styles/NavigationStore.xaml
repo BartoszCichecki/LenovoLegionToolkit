@@ -4,6 +4,8 @@
     xmlns:controls="clr-namespace:Wpf.Ui.Controls;assembly=Wpf.Ui"
     xmlns:navigation="clr-namespace:Wpf.Ui.Controls.Navigation;assembly=Wpf.Ui">
 
+    <!--  ReSharper disable Xaml.StaticResourceNotResolved  -->
+
     <!--
         NavigationStoreItem that can accomodate slightly longer text.
         Delete me when fixed in upstream Wpf.Ui
@@ -295,4 +297,7 @@
             <Style BasedOn="{StaticResource NavigationStoreHeader}" TargetType="{x:Type navigation:NavigationHeader}" />
         </Style.Resources>
     </Style>
+
+    <!--  ReSharper restore Xaml.StaticResourceNotResolved  -->
+
 </ResourceDictionary>

@@ -29,9 +29,14 @@ public partial class GodModeSettingsWindow
     private Dictionary<PowerModeState, GodModeDefaults>? _defaults;
     private bool _isRefreshing;
 
-    public GodModeSettingsWindow() => InitializeComponent();
+    public GodModeSettingsWindow()
+    {
+        InitializeComponent();
 
-    private async void GodModeSettingsWindow_IsVisibleChanged(object _1, DependencyPropertyChangedEventArgs _2)
+        IsVisibleChanged += GodModeSettingsWindow_IsVisibleChanged;
+    }
+
+    private async void GodModeSettingsWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
     {
         if (IsVisible)
             await RefreshAsync();
@@ -264,8 +269,8 @@ public partial class GodModeSettingsWindow
         if (_cpuPL1TauControl.Visibility == Visibility.Visible && defaults.CPUPL1Tau is { } cpuPL1Tau)
             _cpuPL1TauControl.Value = cpuPL1Tau;
 
-        if (_apuSPPTPowerLimitControl.Visibility == Visibility.Visible && defaults.APUsPPTPowerLimit is { } _apuSPPTPowerLimit)
-            _apuSPPTPowerLimitControl.Value = _apuSPPTPowerLimit;
+        if (_apuSPPTPowerLimitControl.Visibility == Visibility.Visible && defaults.APUsPPTPowerLimit is { } apuSPPTPowerLimit)
+            _apuSPPTPowerLimitControl.Value = apuSPPTPowerLimit;
 
         if (_cpuTemperatureLimitControl.Visibility == Visibility.Visible && defaults.CPUTemperatureLimit is { } cpuTemperatureLimit)
             _cpuTemperatureLimitControl.Value = cpuTemperatureLimit;

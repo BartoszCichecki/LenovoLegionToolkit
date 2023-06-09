@@ -22,9 +22,14 @@ public partial class PowerPlansWindow
     private readonly PowerModeFeature _powerModeFeature = IoCContainer.Resolve<PowerModeFeature>();
     private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
 
-    public PowerPlansWindow() => InitializeComponent();
+    public PowerPlansWindow()
+    {
+        InitializeComponent();
 
-    private async void PowerPlansWindow_IsVisibleChanged(object _1, DependencyPropertyChangedEventArgs _2)
+        IsVisibleChanged += PowerPlansWindow_IsVisibleChanged;
+    }
+
+    private async void PowerPlansWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
     {
         if (IsVisible)
             await RefreshAsync();

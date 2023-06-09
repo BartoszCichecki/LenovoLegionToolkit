@@ -5,8 +5,6 @@ using LenovoLegionToolkit.Lib.Utils;
 using Windows.Win32;
 using Windows.Win32.Security;
 
-#pragma warning disable CA1416 // Validate platform compatibility
-
 namespace LenovoLegionToolkit.Lib.Features;
 
 public abstract class AbstractUEFIFeature<T> : IFeature<T> where T : struct, Enum, IComparable

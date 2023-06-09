@@ -63,7 +63,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 try
                 {
 #if !MOCK_RGB
-                    var handle = DeviceHandle ?? throw new InvalidOperationException("RGB Keyboard unsupported.");
+                    _ = DeviceHandle ?? throw new InvalidOperationException("RGB Keyboard unsupported.");
 #endif
 
                     await ThrowIfVantageEnabled().ConfigureAwait(false);
@@ -107,7 +107,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             using (await IoLock.LockAsync().ConfigureAwait(false))
             {
 #if !MOCK_RGB
-                var handle = DeviceHandle ?? throw new InvalidOperationException("RGB Keyboard unsupported.");
+                _ = DeviceHandle ?? throw new InvalidOperationException("RGB Keyboard unsupported.");
 #endif
 
                 await ThrowIfVantageEnabled().ConfigureAwait(false);
@@ -121,7 +121,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             using (await IoLock.LockAsync().ConfigureAwait(false))
             {
 #if !MOCK_RGB
-                var handle = DeviceHandle ?? throw new InvalidOperationException("RGB Keyboard unsupported.");
+                _ = DeviceHandle ?? throw new InvalidOperationException("RGB Keyboard unsupported.");
 #endif
 
                 await ThrowIfVantageEnabled().ConfigureAwait(false);
@@ -161,7 +161,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             using (await IoLock.LockAsync().ConfigureAwait(false))
             {
 #if !MOCK_RGB
-                var handle = DeviceHandle ?? throw new InvalidOperationException("RGB Keyboard unsupported.");
+                _ = DeviceHandle ?? throw new InvalidOperationException("RGB Keyboard unsupported.");
 #endif
 
                 await ThrowIfVantageEnabled().ConfigureAwait(false);
@@ -202,7 +202,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             using (await IoLock.LockAsync().ConfigureAwait(false))
             {
 #if !MOCK_RGB
-                var handle = DeviceHandle ?? throw new InvalidOperationException("RGB Keyboard unsupported.");
+                _ = DeviceHandle ?? throw new InvalidOperationException("RGB Keyboard unsupported.");
 #endif
 
                 await ThrowIfVantageEnabled().ConfigureAwait(false);
@@ -247,7 +247,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             using (await IoLock.LockAsync().ConfigureAwait(false))
             {
 #if !MOCK_RGB
-                var handle = DeviceHandle ?? throw new InvalidOperationException("RGB Keyboard unsupported.");
+                _ = DeviceHandle ?? throw new InvalidOperationException("RGB Keyboard unsupported.");
 #endif
 
                 await ThrowIfVantageEnabled().ConfigureAwait(false);
@@ -376,16 +376,16 @@ namespace LenovoLegionToolkit.Lib.Controllers
             {
                 switch (preset.Speed)
                 {
-                    case RBGKeyboardBacklightSpeed.Slowest:
+                    case RGBKeyboardBacklightSpeed.Slowest:
                         result.Speed = 1;
                         break;
-                    case RBGKeyboardBacklightSpeed.Slow:
+                    case RGBKeyboardBacklightSpeed.Slow:
                         result.Speed = 2;
                         break;
-                    case RBGKeyboardBacklightSpeed.Fast:
+                    case RGBKeyboardBacklightSpeed.Fast:
                         result.Speed = 3;
                         break;
-                    case RBGKeyboardBacklightSpeed.Fastest:
+                    case RGBKeyboardBacklightSpeed.Fastest:
                         result.Speed = 4;
                         break;
                 }

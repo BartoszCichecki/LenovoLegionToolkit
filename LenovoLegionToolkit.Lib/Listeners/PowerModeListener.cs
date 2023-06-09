@@ -14,7 +14,7 @@ public class PowerModeListener : AbstractWMIListener<PowerModeState>, INotifying
     public PowerModeListener(AIModeController aiModeController, PowerPlanController powerPlanController) : base("ROOT\\WMI", "LENOVO_GAMEZONE_SMART_FAN_MODE_EVENT")
     {
         _aiModeController = aiModeController ?? throw new ArgumentNullException(nameof(aiModeController));
-        _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController)); ;
+        _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController));
     }
 
     protected override PowerModeState GetValue(PropertyDataCollection properties)

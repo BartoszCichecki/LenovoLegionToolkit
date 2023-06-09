@@ -265,7 +265,10 @@ public partial class SpectrumKeyboardBacklightControl
         if (vantageStatus == SoftwareStatus.Enabled)
         {
             _vantageWarningCard.Visibility = Visibility.Visible;
+
+            _device.SetLayout(SpectrumLayout.Full, KeyboardLayout.Ansi, new());
             _content.IsEnabled = false;
+
             _noEffectsText.Visibility = Visibility.Collapsed;
             return;
         }

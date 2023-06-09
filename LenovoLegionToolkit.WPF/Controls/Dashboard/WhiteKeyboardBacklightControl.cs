@@ -23,7 +23,7 @@ public class WhiteKeyboardBacklightControl : AbstractComboBoxFeatureCardControl<
         if (!IsLoaded || !IsVisible)
             return;
 
-        if (e.HasFlag(DriverKey.Fn_Space))
+        if (e.HasFlag(DriverKey.FnSpace))
             await RefreshAsync();
     });
 }

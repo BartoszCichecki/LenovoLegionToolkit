@@ -9,7 +9,7 @@ namespace LenovoLegionToolkit.Lib.Extensions;
 
 public static class NVAPIExtensions
 {
-    private static readonly string[] _exclusions = new[]
+    private static readonly string[] _exclusions =
     {
         "dwm.exe",
         "explorer.exe",

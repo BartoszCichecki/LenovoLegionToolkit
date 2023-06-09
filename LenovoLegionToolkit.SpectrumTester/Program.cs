@@ -3,6 +3,7 @@ using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System;
 using Windows.Win32;
 
+// ReSharper disable all
 
 Console.WriteLine(@"How to use:
   1. Make sure Vantage and LLT is closed.

@@ -51,9 +51,11 @@ public partial class CreateAutomationPipelineWindow
         _createPipeline = createPipeline;
 
         InitializeComponent();
+
+        IsVisibleChanged += CreateAutomationPipelineWindow_IsVisibleChanged;
     }
 
-    private async void CreateAutomationPipelineWindow_IsVisibleChanged(object _1, DependencyPropertyChangedEventArgs _2)
+    private async void CreateAutomationPipelineWindow_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
     {
         if (IsVisible)
             await RefreshAsync();

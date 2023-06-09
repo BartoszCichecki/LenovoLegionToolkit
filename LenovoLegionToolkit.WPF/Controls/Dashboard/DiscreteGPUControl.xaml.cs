@@ -86,7 +86,7 @@ public partial class DiscreteGPUControl
                     {
                         processesStringBuilder.AppendLine().Append(" · ").Append(p.ProcessName);
                     }
-                    catch { }
+                    catch {  /* Ignored. */ }
                 }
             }
             else

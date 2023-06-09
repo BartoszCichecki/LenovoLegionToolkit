@@ -37,10 +37,10 @@ public enum BatteryState
 [Flags]
 public enum DriverKey
 {
-    Fn_F10 = 32,
-    Fn_F4 = 256,
-    Fn_F8 = 8192,
-    Fn_Space = 4096,
+    FnF10 = 32,
+    FnF4 = 256,
+    FnF8 = 8192,
+    FnSpace = 4096,
 }
 
 public enum FanTableType
@@ -307,15 +307,15 @@ public enum RGBKeyboardBacklightPreset
     Three = 2
 }
 
-public enum RBGKeyboardBacklightSpeed
+public enum RGBKeyboardBacklightSpeed
 {
-    [Display(ResourceType = typeof(Resource), Name = "RBGKeyboardBacklightSpeed_Slowest")]
+    [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardBacklightSpeed_Slowest")]
     Slowest,
-    [Display(ResourceType = typeof(Resource), Name = "RBGKeyboardBacklightSpeed_Slow")]
+    [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardBacklightSpeed_Slow")]
     Slow,
-    [Display(ResourceType = typeof(Resource), Name = "RBGKeyboardBacklightSpeed_Fast")]
+    [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardBacklightSpeed_Fast")]
     Fast,
-    [Display(ResourceType = typeof(Resource), Name = "RBGKeyboardBacklightSpeed_Fastest")]
+    [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardBacklightSpeed_Fastest")]
     Fastest
 }
 

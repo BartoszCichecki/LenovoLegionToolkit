@@ -3,6 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml">
 
+    <!--  ReSharper disable Xaml.StaticResourceNotResolved  -->
+
     <!--
         Always visible scrollbar when mouse is over DynamicScrollViewer
     -->
@@ -137,4 +139,7 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <!--  ReSharper restore Xaml.StaticResourceNotResolved  -->
+
 </ResourceDictionary>

@@ -33,7 +33,7 @@ public class IGPUModeFeature : AbstractLenovoGamezoneWmiFeature<IGPUModeState>
         }
     }
 
-    private Task NotifyDGPUStatusAsync(bool state) => WMI.CallAsync(Scope,
+    private Task NotifyDGPUStatusAsync(bool state) => WMI.CallAsync(SCOPE,
         Query,
         "NotifyDGPUStatus",
         new() { { "Status", state ? "1" : "0" } });
@@ -42,14 +42,14 @@ public class IGPUModeFeature : AbstractLenovoGamezoneWmiFeature<IGPUModeState>
     {
         try
         {
-            return await WMI.CallAsync(Scope,
+            return await WMI.CallAsync(SCOPE,
                 Query,
                 "GetDGPUHWId",
                 new(),
                 pdc =>
                 {
                     var id = pdc["Data"].Value.ToString();
-                    return HardwareIdFromDGPUHWId(id);
+                    return HardwareIdFromDGPUHardwareId(id);
                 }).ConfigureAwait(false);
         }
         catch (Exception)
@@ -127,7 +127,7 @@ public class IGPUModeFeature : AbstractLenovoGamezoneWmiFeature<IGPUModeState>
         return false;
     }
 
-    private static HardwareId HardwareIdFromDGPUHWId(string? gpuHwId)
+    private static HardwareId HardwareIdFromDGPUHardwareId(string? gpuHwId)
     {
         try
         {

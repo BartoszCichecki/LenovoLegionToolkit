@@ -80,6 +80,8 @@ public readonly struct FanTable
 {
     // ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
     // ReSharper disable MemberCanBePrivate.Global
+    // ReSharper disable IdentifierTypo
+    // ReSharper disable InconsistentNaming
 
     public byte FSTM { get; init; }
     public byte FSID { get; init; }
@@ -97,11 +99,14 @@ public readonly struct FanTable
 
     // ReSharper restore AutoPropertyCanBeMadeGetOnly.Global
     // ReSharper restore MemberCanBePrivate.Global
+    // ReSharper restore IdentifierTypo
+    // ReSharper restore InconsistentNaming
 
     public FanTable(ushort[] fanTable)
     {
         if (fanTable.Length != 10)
-            throw new ArgumentException("Length must be 10.", nameof(fanTable));
+            // ReSharper disable once LocalizableElement
+            throw new ArgumentException("Fan table length must be 10.", nameof(fanTable));
 
         FSTM = 1;
         FSID = 0;
@@ -171,18 +176,34 @@ public readonly struct FanTableInfo
         $" {nameof(Table)}: {Table}";
 }
 
-public struct GPUOverclockInfo
+public readonly struct GPUOverclockInfo
 {
     public static readonly GPUOverclockInfo Zero = new();
 
     public int CoreDeltaMhz { get; init; }
     public int MemoryDeltaMhz { get; init; }
 
-    public override bool Equals(object? obj) => obj is GPUOverclockInfo other && CoreDeltaMhz == other.CoreDeltaMhz && MemoryDeltaMhz == other.MemoryDeltaMhz;
 
-    public override int GetHashCode() => HashCode.Combine(CoreDeltaMhz, MemoryDeltaMhz);
+    #region Equality
+
+    public override bool Equals(object? obj)
+    {
+        return obj is GPUOverclockInfo other && Equals(other);
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(CoreDeltaMhz, MemoryDeltaMhz);
+    }
+
+    public static bool operator ==(GPUOverclockInfo left, GPUOverclockInfo right) => left.Equals(right);
+
+    public static bool operator !=(GPUOverclockInfo left, GPUOverclockInfo right) => !left.Equals(right);
+
+    #endregion
 
     public override string ToString() => $"{nameof(CoreDeltaMhz)}: {CoreDeltaMhz}, {nameof(MemoryDeltaMhz)}: {MemoryDeltaMhz}";
+
 }
 
 public readonly struct GodModeDefaults
@@ -267,9 +288,7 @@ public readonly struct HardwareId
     public string Device { get; init; }
     public string SubSystem { get; init; }
 
-    public static bool operator ==(HardwareId left, HardwareId right) => left.Equals(right);
-
-    public static bool operator !=(HardwareId left, HardwareId right) => !left.Equals(right);
+    #region Equality
 
     public override bool Equals(object? obj)
     {
@@ -289,6 +308,12 @@ public readonly struct HardwareId
     }
 
     public override int GetHashCode() => HashCode.Combine(Vendor, Device, SubSystem);
+
+    public static bool operator ==(HardwareId left, HardwareId right) => left.Equals(right);
+
+    public static bool operator !=(HardwareId left, HardwareId right) => !left.Equals(right);
+
+    #endregion
 }
 
 public readonly struct MachineInformation
@@ -462,6 +487,8 @@ public readonly struct RGBColor
         B = b;
     }
 
+    #region Equality
+
     public override bool Equals(object? obj)
     {
         return obj is RGBColor color && R == color.R && G == color.G && B == color.B;
@@ -473,13 +500,15 @@ public readonly struct RGBColor
 
     public static bool operator !=(RGBColor left, RGBColor right) => !left.Equals(right);
 
+    #endregion
+
     public override string ToString() => $"{nameof(R)}: {R}, {nameof(G)}: {G}, {nameof(B)}: {B}";
 }
 
 public readonly struct RGBKeyboardBacklightBacklightPresetDescription
 {
     public RGBKeyboardBacklightEffect Effect { get; } = RGBKeyboardBacklightEffect.Static;
-    public RBGKeyboardBacklightSpeed Speed { get; } = RBGKeyboardBacklightSpeed.Slowest;
+    public RGBKeyboardBacklightSpeed Speed { get; } = RGBKeyboardBacklightSpeed.Slowest;
     public RGBKeyboardBacklightBrightness Brightness { get; } = RGBKeyboardBacklightBrightness.Low;
     public RGBColor Zone1 { get; } = RGBColor.White;
     public RGBColor Zone2 { get; } = RGBColor.White;
@@ -489,7 +518,7 @@ public readonly struct RGBKeyboardBacklightBacklightPresetDescription
     [JsonConstructor]
     public RGBKeyboardBacklightBacklightPresetDescription(
         RGBKeyboardBacklightEffect effect,
-        RBGKeyboardBacklightSpeed speed,
+        RGBKeyboardBacklightSpeed speed,
         RGBKeyboardBacklightBrightness brightness,
         RGBColor zone1,
         RGBColor zone2,

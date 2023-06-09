@@ -148,16 +148,16 @@
   <data name="PowerModeState_Quiet" xml:space="preserve">
     <value>Αθόρυβη</value>
   </data>
-  <data name="RBGKeyboardBacklightSpeed_Fast" xml:space="preserve">
+  <data name="RGBKeyboardBacklightSpeed_Fast" xml:space="preserve">
     <value>Γρήγορη</value>
   </data>
-  <data name="RBGKeyboardBacklightSpeed_Fastest" xml:space="preserve">
+  <data name="RGBKeyboardBacklightSpeed_Fastest" xml:space="preserve">
     <value>Ταχύτατη</value>
   </data>
-  <data name="RBGKeyboardBacklightSpeed_Slow" xml:space="preserve">
+  <data name="RGBKeyboardBacklightSpeed_Slow" xml:space="preserve">
     <value>Αργή</value>
   </data>
-  <data name="RBGKeyboardBacklightSpeed_Slowest" xml:space="preserve">
+  <data name="RGBKeyboardBacklightSpeed_Slowest" xml:space="preserve">
     <value>Πολύ αργή</value>
   </data>
   <data name="RGBKeyboardBacklightBrightness_High" xml:space="preserve">

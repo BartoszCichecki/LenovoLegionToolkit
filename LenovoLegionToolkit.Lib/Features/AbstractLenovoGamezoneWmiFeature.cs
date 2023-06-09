@@ -7,8 +7,8 @@ namespace LenovoLegionToolkit.Lib.Features;
 
 public abstract class AbstractLenovoGamezoneWmiFeature<T> : IFeature<T> where T : struct, Enum, IComparable
 {
-    protected static readonly string Scope = @"root\WMI";
-    protected static readonly FormattableString Query = $"SELECT * FROM LENOVO_GAMEZONE_DATA";
+    protected const string SCOPE = @"root\WMI";
+    protected readonly FormattableString Query = $"SELECT * FROM LENOVO_GAMEZONE_DATA";
 
     private readonly string _methodNameSuffix;
     private readonly int _offset;
@@ -39,7 +39,7 @@ public abstract class AbstractLenovoGamezoneWmiFeature<T> : IFeature<T> where T 
             if (_supportMethodName is null)
                 return true;
 
-            var value = await WMI.CallAsync(Scope,
+            var value = await WMI.CallAsync(SCOPE,
                 Query,
                 _supportMethodName,
                 new(),
@@ -59,7 +59,7 @@ public abstract class AbstractLenovoGamezoneWmiFeature<T> : IFeature<T> where T 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting state... [feature={GetType().Name}]");
 
-        var internalResult = await WMI.CallAsync(Scope,
+        var internalResult = await WMI.CallAsync(SCOPE,
             Query,
             "Get" + _methodNameSuffix,
             new(),
@@ -77,7 +77,7 @@ public abstract class AbstractLenovoGamezoneWmiFeature<T> : IFeature<T> where T 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Setting state to {state}... [feature={GetType().Name}]");
 
-        await WMI.CallAsync(Scope,
+        await WMI.CallAsync(SCOPE,
             Query,
             "Set" + _methodNameSuffix,
             new() { { _inParameterName, ToInternal(state).ToString() } }).ConfigureAwait(false);

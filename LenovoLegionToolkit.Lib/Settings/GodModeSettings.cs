@@ -38,7 +38,7 @@ public class GodModeSettings : AbstractSettings<GodModeSettings.GodModeSettingsS
 
     public GodModeSettings() : base("godmode.json") { }
 
-    public override GodModeSettingsStore? LoadStore()
+    public override GodModeSettingsStore LoadStore()
     {
         var store = base.LoadStore() ?? Default;
 

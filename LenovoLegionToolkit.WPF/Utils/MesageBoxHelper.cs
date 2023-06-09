@@ -124,6 +124,7 @@ public static class MessageBoxHelper
         };
         messageBox.ButtonLeftClick += (_, _) =>
         {
+            // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
             var content = textBox.Text?.Trim();
             var newText = string.IsNullOrWhiteSpace(content) ? null : content;
             if (!allowEmpty && newText is null)

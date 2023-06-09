@@ -106,16 +106,16 @@
   <data name="PowerModeState_Quiet" xml:space="preserve">
     <value>Tiho</value>
   </data>
-  <data name="RBGKeyboardBacklightSpeed_Fast" xml:space="preserve">
+  <data name="RGBKeyboardBacklightSpeed_Fast" xml:space="preserve">
     <value>Brzo</value>
   </data>
-  <data name="RBGKeyboardBacklightSpeed_Fastest" xml:space="preserve">
+  <data name="RGBKeyboardBacklightSpeed_Fastest" xml:space="preserve">
     <value>Najbrže</value>
   </data>
-  <data name="RBGKeyboardBacklightSpeed_Slow" xml:space="preserve">
+  <data name="RGBKeyboardBacklightSpeed_Slow" xml:space="preserve">
     <value>Sporo</value>
   </data>
-  <data name="RBGKeyboardBacklightSpeed_Slowest" xml:space="preserve">
+  <data name="RGBKeyboardBacklightSpeed_Slowest" xml:space="preserve">
     <value>Najsporije</value>
   </data>
   <data name="RGBKeyboardBacklightBrightness_High" xml:space="preserve">

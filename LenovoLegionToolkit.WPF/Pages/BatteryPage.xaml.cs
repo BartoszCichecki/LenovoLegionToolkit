@@ -12,8 +12,6 @@ using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using Wpf.Ui.Common;
 
-#pragma warning disable IDE0052 // Remove unread private members
-
 namespace LenovoLegionToolkit.WPF.Pages;
 
 public partial class BatteryPage
@@ -30,12 +28,18 @@ public partial class BatteryPage
         IsVisibleChanged += BatteryPage_IsVisibleChanged;
     }
 
-    private void BatteryPage_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+    private async void BatteryPage_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
     {
         if (IsVisible)
+        {
             Refresh();
-        else
-            _cts?.Cancel();
+            return;
+        }
+
+        _cts?.Cancel();
+        if (_refreshTask is not null)
+            await _refreshTask;
+        _refreshTask = null;
     }
 
     private void Refresh()

@@ -148,16 +148,16 @@
   <data name="PowerModeState_Quiet" xml:space="preserve">
     <value>Tınısh rejim</value>
   </data>
-  <data name="RBGKeyboardBacklightSpeed_Fast" xml:space="preserve">
+  <data name="RGBKeyboardBacklightSpeed_Fast" xml:space="preserve">
     <value>Tez</value>
   </data>
-  <data name="RBGKeyboardBacklightSpeed_Fastest" xml:space="preserve">
+  <data name="RGBKeyboardBacklightSpeed_Fastest" xml:space="preserve">
     <value>Júdá tez</value>
   </data>
-  <data name="RBGKeyboardBacklightSpeed_Slow" xml:space="preserve">
+  <data name="RGBKeyboardBacklightSpeed_Slow" xml:space="preserve">
     <value>Ásten</value>
   </data>
-  <data name="RBGKeyboardBacklightSpeed_Slowest" xml:space="preserve">
+  <data name="RGBKeyboardBacklightSpeed_Slowest" xml:space="preserve">
     <value>Júdá ásten</value>
   </data>
   <data name="RGBKeyboardBacklightBrightness_High" xml:space="preserve">
