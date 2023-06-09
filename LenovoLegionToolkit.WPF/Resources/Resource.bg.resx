@@ -1764,4 +1764,27 @@
     <value>Няколко условия...</value>
     <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
   </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_Title" xml:space="preserve">
+	  <value>Настройки на овърклока на видео картата</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title" xml:space="preserve">
+	  <value>Отместване на честотата на ядрата</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title" xml:space="preserve">
+	  <value>Отместване на честотата на паметта</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Title" xml:space="preserve">
+	  <value>Овърклок на видео картата</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
+	  <value>Увеличете производителността чрез овърклок на допълнителната видео карта.</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
+	  <value>Овърклок на видео картата</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
+	  <value>Увеличете производителността чрез овърклок на допълнителната видео карта.
+
+ВНИМАНИЕ: Това действие няма да бъде изпълнено правилно, ако Вашето устройство не разполага с допълнителна видео карта.</value>
+  </data>
 </root>
