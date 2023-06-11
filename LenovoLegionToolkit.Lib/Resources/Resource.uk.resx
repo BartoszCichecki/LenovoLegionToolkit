@@ -148,6 +148,18 @@
   <data name="PowerModeState_Quiet" xml:space="preserve">
     <value>Тихий</value>
   </data>
+  <data name="RGBKeyboardBacklightSpeed_Fast" xml:space="preserve">
+    <value>Швидка</value>
+  </data>
+  <data name="RGBKeyboardBacklightSpeed_Fastest" xml:space="preserve">
+    <value>Найшвидша</value>
+  </data>
+  <data name="RGBKeyboardBacklightSpeed_Slow" xml:space="preserve">
+    <value>Повільна</value>
+  </data>
+  <data name="RGBKeyboardBacklightSpeed_Slowest" xml:space="preserve">
+    <value>Найповільніша</value>
+  </data>
   <data name="RGBKeyboardBacklightBrightness_High" xml:space="preserve">
     <value>Висока</value>
   </data>
