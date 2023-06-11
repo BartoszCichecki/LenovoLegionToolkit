@@ -148,6 +148,18 @@
   <data name="PowerModeState_Quiet" xml:space="preserve">
     <value>Tichý</value>
   </data>
+  <data name="RGBKeyboardBacklightSpeed_Fast" xml:space="preserve">
+    <value>Rychlý</value>
+  </data>
+  <data name="RGBKeyboardBacklightSpeed_Fastest" xml:space="preserve">
+    <value>Nejrychlejší</value>
+  </data>
+  <data name="RGBKeyboardBacklightSpeed_Slow" xml:space="preserve">
+    <value>Pomalý</value>
+  </data>
+  <data name="RGBKeyboardBacklightSpeed_Slowest" xml:space="preserve">
+    <value>Nejpomalejší</value>
+  </data>
   <data name="RGBKeyboardBacklightBrightness_High" xml:space="preserve">
     <value>Vysoký</value>
   </data>
