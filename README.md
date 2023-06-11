@@ -211,7 +211,8 @@ Special thanks to:
 
 Translations provided by:
 * Bulgarian - [Ekscentricitet](https://github.com/Ekscentricitet)
-* Chinese - [凌卡Karl](https://github.com/KarlLee830)
+* Chinese (Simplified) - [凌卡Karl](https://github.com/KarlLee830)
+* Chinese (Traditional) - flandretw
 * Czech - J0sef
 * Dutch - Melm, [JarneStaalPXL](https://github.com/JarneStaalPXL)
 * French - EliotAku, [Georges de Massol](https://github.com/jojo2massol), Rigbone, ZeroDegree

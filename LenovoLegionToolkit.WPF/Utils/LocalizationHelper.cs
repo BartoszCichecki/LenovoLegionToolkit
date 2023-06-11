@@ -41,6 +41,7 @@ public static class LocalizationHelper
         new("uk"),
         new("vi"),
         new("zh-hans"),
+        new("zh-hant"),
         // HACK: Karakalpak is not a recognized culture by msbuild, so we use this one as workaround instead.
         new("uz-latn-uz")
     };
