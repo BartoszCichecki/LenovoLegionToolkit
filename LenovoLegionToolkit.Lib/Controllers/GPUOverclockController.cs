@@ -33,11 +33,37 @@ public class GPUOverclockController
 
         try
         {
-            isSupported = await WMI.CallAsync("ROOT\\WMI",
-                $"SELECT * FROM LENOVO_GAMEZONE_DATA",
-                "IsSupportGpuOC",
-                new(),
-                pdc => !pdc["Data"].Value.Equals(0)).ConfigureAwait(false);
+            NVAPI.Initialize();
+            isSupported = NVAPI.GetGPU() is not null;
+        }
+        catch
+        {
+            isSupported = false;
+        }
+        finally
+        {
+            try { NVAPI.Unload(); } catch { /* Ignored */ }
+        }
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"NVAPI status: {isSupported}.");
+
+        if (!isSupported)
+            return isSupported;
+
+        try
+        {
+            isSupported = await IsSupportGpuOC().ConfigureAwait(false);
+
+            if (!isSupported)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Clearing settings...");
+
+                _settings.Store.Enabled = false;
+                _settings.Store.Info = GPUOverclockInfo.Zero;
+                _settings.SynchronizeStore();
+            }
         }
         catch
         {
@@ -45,37 +71,7 @@ public class GPUOverclockController
         }
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"IsSupportGpuOC={isSupported}");
-
-        if (isSupported)
-        {
-            try
-            {
-                NVAPI.Initialize();
-                isSupported = NVAPI.GetGPU() is not null;
-            }
-            catch
-            {
-                isSupported = false;
-            }
-            finally
-            {
-                try { NVAPI.Unload(); } catch { /* Ignored */ }
-            }
-        }
-
-        if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"NVAPI={isSupported}");
-
-        if (!isSupported)
-        {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Not supported, clearing settings.");
-
-            _settings.Store.Enabled = false;
-            _settings.Store.Info = GPUOverclockInfo.Zero;
-            _settings.SynchronizeStore();
-        }
+            Log.Instance.Trace($"Supports GPU OC status: {isSupported}");
 
         return isSupported;
     }
@@ -169,6 +165,12 @@ public class GPUOverclockController
         await ApplyStateAsync().ConfigureAwait(false);
         return true;
     }
+
+    private static Task<bool> IsSupportGpuOC() => WMI.CallAsync("ROOT\\WMI",
+        $"SELECT * FROM LENOVO_GAMEZONE_DATA",
+        "IsSupportGpuOC",
+        new(),
+        pdc => !pdc["Data"].Value.Equals(0));
 
     private static void SetOverclockInfo(PhysicalGPU gpu, GPUOverclockInfo info)
     {
