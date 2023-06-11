@@ -148,6 +148,18 @@
   <data name="PowerModeState_Quiet" xml:space="preserve">
     <value>Liniștit</value>
   </data>
+  <data name="RGBKeyboardBacklightSpeed_Fast" xml:space="preserve">
+    <value>Rapid</value>
+  </data>
+  <data name="RGBKeyboardBacklightSpeed_Fastest" xml:space="preserve">
+    <value>Cel mai rapid</value>
+  </data>
+  <data name="RGBKeyboardBacklightSpeed_Slow" xml:space="preserve">
+    <value>Lent</value>
+  </data>
+  <data name="RGBKeyboardBacklightSpeed_Slowest" xml:space="preserve">
+    <value>Cel mai lent</value>
+  </data>
   <data name="RGBKeyboardBacklightBrightness_High" xml:space="preserve">
     <value>Ridicată</value>
   </data>
