@@ -101,9 +101,8 @@
 拯救者工具箱可以做到：
 
 - 改变诸如性能模式、充电模式等只有通过 Lenovo Vantage、联想电脑管家才能更改的设置。
-- 使用仅在 Legion Zone 中可用的自定义模式，包括 2022 款与更新的机型的调节风扇曲线和功耗控制。
-- 支持调节 Spectrum RGB 键盘和白色背光的键盘。
-- 改变显示器刷新率（仅内置显示器）。
+- 使用并修改自定义模式，包括 2022 款及更新的机型的调节风扇曲线功能。
+- 支持调节 Spectrum RGB 键盘、4 分区 RGB键盘和白色背光的键盘。
 - 强制休眠独立显卡（仅限英伟达显卡）。
 - 查看电池统计数据。
 - 下载、更新驱动。
@@ -124,10 +123,12 @@
 * J2CN40WW 和更高
 * JUCN51WW 和更高
 * JYCN39WW 和更高
+<!-- * M3CN32WW 和更高 -->
+<!-- * M0CN27WW 和更高 -->
 
 并非所有设备都支持自定义模式的所有功能。
 
-##### 强制休眠显卡
+##### 强制休眠英伟达显卡
 
 有时独立显卡会一直保持活动状态。例如在你插上外接显示器并断开后，一些进程会继续使用独显上运行，导致续航骤减。
 
@@ -140,6 +141,14 @@
 
 注意，强制休眠显卡可能会导致一些应用崩溃。
 
+<!--
+#### 超频英伟达独立显卡
+此超频选项用于简单的超频，类似于 Legion Zone 与 Vantage 中的超频。它并不打算取代微星小飞机（Afterburner）等工具。同时以下有几点你需要注意：
+* 确保在 BIOS 中开启了 GPU 超频选项（如果你的电脑有的话）。
+* 当 Vantage 或 Legion Zone 运行时，超频无法生效。
+* 不建议在使用微星小飞机（Afterburner）等超频工具时使用此选项。
+* 如果你之前修改过控制台，那么你需要点击“自定义”按钮并添加此选项才能看到此选项。
+-->
 ##### Windows电源计划
 
 当切换性能模式时，拯救者工具箱会在 Lenovo Vantage 禁用的情况下自动切换 Windows 的电源计划。
@@ -177,6 +186,7 @@
 * [Mario Bălănică](https://github.com/mariobalanica) 的所有贡献。
 
 翻译贡献者：
+* 保加利亚语 - [Ekscentricitet](https://github.com/Ekscentricitet)
 * 中文 - [凌卡Karl](https://github.com/KarlLee830)
 * 捷克语 - J0sef
 * 荷兰语 - Melm, [JarneStaalPXL](https://github.com/JarneStaalPXL)
@@ -184,6 +194,7 @@
 * 德语 - Sko-Inductor, Running_Dead89
 * 希腊语 - GreatApo
 * 意大利语 - [Lampadina17](https://github.com/Lampadina17)
+* 卡拉卡尔帕克语 - KarLin, Gulnaz, Niyazbek Tolibaev, Shingis Joldasbaev
 * 罗马尼亚语 - [Mario Bălănică](https://github.com/mariobalanica)
 * 斯洛伐克语 - Mitschud, Newbie414
 * 西班牙语 - M.A.G.
@@ -260,6 +271,26 @@ Windows 可能无法正确识别所有的游戏，但你可以在 Xbox Game Bar 
 
 在 Windows 10 和 11 中，微软对托盘做了大量的修改，修改导致了很多东西产生了变化，从而导致许多东西无法正常工作。因此，自定义工具提示有时会无法正常工作。你可以试试更新你的 Windows，除此之外没什么好办法了。
 
+#### 我在哪里可以找到 CPU 睿频模式的设置？
+
+简而言之，在 Windows 控制面板中。此选项因很难维护已经从拯救者工具箱中删除了。在拯救者工具箱的设置中，你可以找到一个直接跳转到控制面板中电源计划设置页面的按钮，在那里你可以轻松地编辑 CPU 睿频模式设置以及 Windows 电源计划的其他设置。
+
+默认情况下，这个设置是隐藏的，但你也可以通过在终端运行`powercfg.exe -attributes sub_processor perfboostmode -attrib_hide`来重新打开这个选项。
+另外我还推荐其他一些应用程序可以轻松地管理多个电源计划设置：[PowerSettingsExplorer](https://forums.guru3d.com/threads/windows-power-plan-settings-explorer-utility.416058/) 与 [QuickCPU](https://coderbag.com/product/quickcpu)。
+
+#### 我可以自定义快捷键吗？
+
+你可以在拯救者工具箱设置中自定义 Fn + F9（星星键，又名 Lenovo Smart 键） 热键。其他快捷键无法自定义。
+
+<!--
+#### 如果我超频 GPU 超多了怎么办？
+
+如果你超频到 GPU 无法稳定运行，甚至无法启动 Windows 的情况，你可以通过以下两种方法尝试解决：
+
+1. 进入 BIOS，尝试找到类似于 “Enabled GPU Overclocking” 与 “显卡超频”的选项并将其禁用，启动 Windows，修改拯救者工具箱中的超频参数，并将此选项再次启用。
+2. 在安全模式下启动Windows，删除拯救者工具箱设置下的`gpu_oc.json`文件，该文件位于`"%LOCALAPPDATA%\LenovoLegionToolkit`。
+
+-->
 ## 如何开启记录Log
 
 在一些情况下如果你能提交应用记录的日志信息，将会对我调试和解决问题十分十分有用。
