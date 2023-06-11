@@ -204,6 +204,18 @@
   <data name="PowerModeState_Quiet" xml:space="preserve">
     <value>Quiet</value>
   </data>
+  <data name="RGBKeyboardBacklightSpeed_Fast" xml:space="preserve">
+    <value>Schnell</value>
+  </data>
+  <data name="RGBKeyboardBacklightSpeed_Fastest" xml:space="preserve">
+    <value>Am schnellsten</value>
+  </data>
+  <data name="RGBKeyboardBacklightSpeed_Slow" xml:space="preserve">
+    <value>Langsam</value>
+  </data>
+  <data name="RGBKeyboardBacklightSpeed_Slowest" xml:space="preserve">
+    <value>Am langsamsten</value>
+  </data>
   <data name="RGBKeyboardBacklightBrightness_High" xml:space="preserve">
     <value>Hoch</value>
   </data>
