@@ -26,6 +26,7 @@ public static class Compatibility
         "16ARX",
         "16IAH",
         "16IAX",
+        "16IRH",
         "16IRX",
         "16ITH",
 
@@ -159,7 +160,8 @@ public static class Compatibility
         {
             ("KWCN", 28),
             ("LPCN", 27),
-            ("M3CN", 32)
+            ("M3CN", 32),
+            ("M0CN", 27)
         };
 
         return IsBiosVersionMatch(currentBiosVersionString, supportedBiosVersions);
