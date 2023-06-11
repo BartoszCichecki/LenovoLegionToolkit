@@ -68,8 +68,11 @@ public partial class MainWindow
         {
             _trayIcon.PreviewTrayToolTipOpen += (_, _) =>
             {
-                _trayIcon.TrayToolTip ??= new StatusTrayPopup();
-                _trayIcon.TrayToolTipResolved.Style = null;
+                if (_trayIcon.TrayToolTip is not null)
+                    return;
+
+                _trayIcon.TrayToolTip = new StatusTrayPopup();
+                _trayIcon.TrayToolTipResolved.Style = Application.Current.Resources["PlainTooltip"] as Style;
                 _trayIcon.TrayToolTipResolved.VerticalOffset = -8;
             };
         }
