@@ -3970,7 +3970,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vantage may have not been disabled correctly.
+        ///   Looks up a localized string similar to Vantage and/or ImController may have not been disabled correctly.
         /// </summary>
         public static string SettingsPage_DisableVantage_Error_Message {
             get {
@@ -3979,7 +3979,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Couldn&apos;t disable Vantage.
+        ///   Looks up a localized string similar to Couldn&apos;t disable Vantage and/or ImController.
         /// </summary>
         public static string SettingsPage_DisableVantage_Error_Title {
             get {
@@ -3988,7 +3988,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Disable Lenovo Vantage and its service without uninstalling it.
+        ///   Looks up a localized string similar to Disable Lenovo Vantage and ImController without uninstalling them.
         ///Restart is recommended after changing this option..
         /// </summary>
         public static string SettingsPage_DisableVantage_Message {
@@ -3998,7 +3998,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Disable Lenovo Vantage.
+        ///   Looks up a localized string similar to Disable Lenovo Vantage and ImController.
         /// </summary>
         public static string SettingsPage_DisableVantage_Title {
             get {
