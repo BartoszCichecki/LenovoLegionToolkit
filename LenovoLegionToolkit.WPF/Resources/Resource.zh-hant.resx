@@ -117,7 +117,1168 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutPage_AppName" xml:space="preserve">
+    <value>Lenovo Legion 工具套件</value>
+  </data>
+  <data name="AboutPage_Build" xml:space="preserve">
+    <value>構建</value>
+  </data>
+  <data name="AboutPage_LatestReleaseOnGitHub" xml:space="preserve">
+    <value>在 GitHub 上檢視最新版本</value>
+  </data>
+  <data name="AboutPage_Links" xml:space="preserve">
+    <value>連結</value>
+  </data>
+  <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
+    <value>在 GitHub 上檢視專案</value>
+  </data>
+  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
+    <value>第三方庫</value>
+  </data>
+  <data name="AboutPage_Title" xml:space="preserve">
+    <value>關於</value>
+  </data>
+  <data name="AboutPage_TranslationCredit" xml:space="preserve">
+    <value>翻譯由 flandretw 提供，社區校正。</value>
+    <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
+  </data>
+  <data name="AboutPage_Version" xml:space="preserve">
+    <value>版本</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>新增</value>
+  </data>
+  <data name="AddNew" xml:space="preserve">
+    <value>新增新的</value>
+  </data>
+  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
+    <value>當 Lenovo Vantage 啟用時仍然啟用電源計劃。
+此選項僅適用於沒有附帶多種電源計劃的裝置。</value>
+  </data>
+  <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
+    <value>保持啟用 Windows 電源計畫</value>
+  </data>
+  <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
+    <value>標有電池標誌的 USB 受此項控制，在電腦關機、睡眠或休眠時保持 USB 供電。</value>
+  </data>
+  <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
+    <value>保持 USB 供電</value>
+  </data>
+  <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
+    <value>標有電池標誌的 USB 受此項控制，在電腦關機、睡眠或休眠時保持 USB 供電。</value>
+  </data>
+  <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
+    <value>保持 USB 供電</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Lenovo Legion 工具套件</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>套用</value>
+  </data>
   <data name="ApplyAndClose" xml:space="preserve">
     <value>套用 &amp; 關閉</value>
+  </data>
+  <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
+    <value>Lenovo Legion 工具套件必須在執行時才能使自動化操作。</value>
+  </data>
+  <data name="AutomationPage_ActionsEnabled_Title" xml:space="preserve">
+    <value>啟用</value>
+  </data>
+  <data name="AutomationPage_Actions_Empty" xml:space="preserve">
+    <value>尚未定義操作。點擊「新增」以新增新的操作。</value>
+  </data>
+  <data name="AutomationPage_Actions_Message" xml:space="preserve">
+    <value>如果啟用此操作將自動地執行。當狀態變更時，所有操作將按順序檢查各項自動化是否符合條件。</value>
+  </data>
+  <data name="AutomationPage_Actions_Title" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="AutomationPage_AddManualPipeline_Placeholder" xml:space="preserve">
+    <value>名稱……</value>
+  </data>
+  <data name="AutomationPage_AddManualPipeline_Title" xml:space="preserve">
+    <value>新增</value>
+  </data>
+  <data name="AutomationPage_QuickActions_Empty" xml:space="preserve">
+    <value>尚未定一快速操作。點擊「新增」以建立新的快速操作。</value>
+  </data>
+  <data name="AutomationPage_QuickActions_Message" xml:space="preserve">
+    <value>快速操作已可供在工作列中的系統匣使用。</value>
+  </data>
+  <data name="AutomationPage_QuickActions_Title" xml:space="preserve">
+    <value>快速操作</value>
+  </data>
+  <data name="AutomationPage_RenamePipeline_Placeholder" xml:space="preserve">
+    <value>名稱……</value>
+  </data>
+  <data name="AutomationPage_RenamePipeline_Title" xml:space="preserve">
+    <value>重新命名</value>
+  </data>
+  <data name="AutomationPage_Reverted_Message" xml:space="preserve">
+    <value>已重設所有變更！</value>
+  </data>
+  <data name="AutomationPage_Reverted_Title" xml:space="preserve">
+    <value>重設</value>
+  </data>
+  <data name="AutomationPage_Saved_Message" xml:space="preserve">
+    <value>已成功地儲存所有變更！</value>
+  </data>
+  <data name="AutomationPage_Saved_Title" xml:space="preserve">
+    <value>已儲存</value>
+  </data>
+  <data name="AutomationPage_Title" xml:space="preserve">
+    <value>自動化</value>
+  </data>
+  <data name="AutomationPipelineControl_AddStep" xml:space="preserve">
+    <value>新增步驟</value>
+  </data>
+  <data name="AutomationPipelineControl_Configure" xml:space="preserve">
+    <value>配置</value>
+  </data>
+  <data name="AutomationPipelineControl_Exclusive" xml:space="preserve">
+    <value>獨佔此條件</value>
+  </data>
+  <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
+    <value>當此操作執行時，將不會執行其他符合條件的操作。</value>
+  </data>
+  <data name="AutomationPipelineControl_RunNow" xml:space="preserve">
+    <value>立刻執行</value>
+  </data>
+  <data name="AutomationPipelineControl_RunNow_Error_Message" xml:space="preserve">
+    <value>執行時發生錯誤。</value>
+  </data>
+  <data name="AutomationPipelineControl_RunNow_Error_Title" xml:space="preserve">
+    <value>立刻執行</value>
+  </data>
+  <data name="AutomationPipelineControl_RunNow_Success_Message" xml:space="preserve">
+    <value>成功地執行！</value>
+  </data>
+  <data name="AutomationPipelineControl_RunNow_Success_Title" xml:space="preserve">
+    <value>立刻執行</value>
+  </data>
+  <data name="AutomationPipelineControl_Running" xml:space="preserve">
+    <value>執行中……</value>
+  </data>
+  <data name="AutomationPipelineControl_Step" xml:space="preserve">
+    <value>共 {0} 個步驟</value>
+  </data>
+  <data name="AutomationPipelineControl_Step_Many" xml:space="preserve">
+    <value>共 {0} 個步驟</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_Apps" xml:space="preserve">
+    <value>應用程式</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_AtSunrise" xml:space="preserve">
+    <value>日出時</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_AtSunset" xml:space="preserve">
+    <value>日落時</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_AtTime" xml:space="preserve">
+    <value>將在 {0:D2}:{1:D2} 執行</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_PowerMode" xml:space="preserve">
+    <value>電源模式</value>
+  </data>
+  <data name="AutomationPipelineControl_Unnamed" xml:space="preserve">
+    <value>未命名</value>
+  </data>
+  <data name="BalanceModeSettingsWindow_AIEngine_Message" xml:space="preserve">
+    <value>啟用 Legion AI 引擎可自動偵測遊戲並調整 CPU/GPU 效能。電腦溫度和風扇噪音可能增加。</value>
+  </data>
+  <data name="BalanceModeSettingsWindow_AIEngine_Title" xml:space="preserve">
+    <value>啟用 Legion AI 引擎</value>
+  </data>
+  <data name="BalanceModeSettingsWindow_Title" xml:space="preserve">
+    <value>平衡模式設定</value>
+  </data>
+  <data name="BatteryAutomationStepControl_Message" xml:space="preserve">
+    <value>選擇電池充電模式。</value>
+  </data>
+  <data name="BatteryAutomationStepControl_Title" xml:space="preserve">
+    <value>電池模式</value>
+  </data>
+  <data name="BatteryModeControl_Message" xml:space="preserve">
+    <value>選擇電池充電模式。</value>
+  </data>
+  <data name="BatteryModeControl_Title" xml:space="preserve">
+    <value>電池模式</value>
+  </data>
+  <data name="BatteryPage_ACAdapterConnectedAndCharging" xml:space="preserve">
+    <value>已連接，充電中……</value>
+  </data>
+  <data name="BatteryPage_ACAdapterConnectedNotCharging" xml:space="preserve">
+    <value>已連接，但未充電</value>
+  </data>
+  <data name="BatteryPage_BatteryTemperature_Message" xml:space="preserve">
+    <value>目前電池溫度。</value>
+  </data>
+  <data name="BatteryPage_BatteryTemperature_Title" xml:space="preserve">
+    <value>電池溫度</value>
+  </data>
+  <data name="BatteryPage_CurrentCapacity_Message" xml:space="preserve">
+    <value>目前電池容量。</value>
+  </data>
+  <data name="BatteryPage_CurrentCapacity_Title" xml:space="preserve">
+    <value>目前容量</value>
+  </data>
+  <data name="BatteryPage_CycleCount_Message" xml:space="preserve">
+    <value>電池充電/釋放循環次數。</value>
+  </data>
+  <data name="BatteryPage_CycleCount_Title" xml:space="preserve">
+    <value>循環次數</value>
+  </data>
+  <data name="BatteryPage_DesignCapacity_Message" xml:space="preserve">
+    <value>電池設計容量。</value>
+  </data>
+  <data name="BatteryPage_DesignCapacity_Title" xml:space="preserve">
+    <value>設計容量</value>
+  </data>
+  <data name="BatteryPage_DischargeRate_Message" xml:space="preserve">
+    <value>【+】為電池充電，【-】為電池釋放。</value>
+  </data>
+  <data name="BatteryPage_DischargeRate_Title" xml:space="preserve">
+    <value>釋放功率</value>
+  </data>
+  <data name="BatteryPage_EstimatedBatteryLifeRemaining" xml:space="preserve">
+    <value>預估剩餘時間：{0}</value>
+  </data>
+  <data name="BatteryPage_EstimatingBatteryLife" xml:space="preserve">
+    <value>剩餘時間……</value>
+  </data>
+  <data name="BatteryPage_FirstUseDate_Title" xml:space="preserve">
+    <value>初次使用日期</value>
+  </data>
+  <data name="BatteryPage_FirstUse_Message" xml:space="preserve">
+    <value>第一次使用電池。</value>
+  </data>
+  <data name="BatteryPage_FullChargeCapacity_Message" xml:space="preserve">
+    <value>當電池充飽時的容量。</value>
+  </data>
+  <data name="BatteryPage_FullChargeCapacity_Title" xml:space="preserve">
+    <value>充飽容量</value>
+  </data>
+  <data name="BatteryPage_LowWattageChargerConnected" xml:space="preserve">
+    <value>已連接較低功率電源供應器</value>
+  </data>
+  <data name="BatteryPage_ManufactureDate_Message" xml:space="preserve">
+    <value>電池製造日期。</value>
+  </data>
+  <data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
+    <value>製造日期</value>
+  </data>
+  <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
+    <value>自筆記型電腦上次連接到電源供應器以來的時間。
+如果在關機或休眠時充電，可能導致此時間不準確。</value>
+  </data>
+  <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
+    <value>電池使用時間</value>
+  </data>
+  <data name="BatteryPage_Title" xml:space="preserve">
+    <value>電池</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Celsius" xml:space="preserve">
+    <value>°C</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="ColorCardControl_Blue" xml:space="preserve">
+    <value>藍色（B）</value>
+  </data>
+  <data name="ColorCardControl_Green" xml:space="preserve">
+    <value>綠色（G）</value>
+  </data>
+  <data name="ColorCardControl_Red" xml:space="preserve">
+    <value>紅色（R）</value>
+  </data>
+  <data name="Color_Blue" xml:space="preserve">
+    <value>藍色（B）</value>
+  </data>
+  <data name="Color_Green" xml:space="preserve">
+    <value>綠色（G）</value>
+  </data>
+  <data name="Color_Red" xml:space="preserve">
+    <value>紅色（R）</value>
+  </data>
+  <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
+    <value>根據您的使用場景和電源情況選擇顯示卡的執行模式。
+切換模式可能需要重新啟動。</value>
+  </data>
+  <data name="ComboBoxHybridModeControl_RestartRequired_Message" xml:space="preserve">
+    <value>變更為 {0} 需要重新啟動。您想要現在重新啟動嗎？</value>
+  </data>
+  <data name="ComboBoxHybridModeControl_RestartRequired_Title" xml:space="preserve">
+    <value>需要重新啟動</value>
+  </data>
+  <data name="ComboBoxHybridModeControl_Title" xml:space="preserve">
+    <value>GPU 運作模式</value>
+  </data>
+  <data name="ContextMenu_QuickActions" xml:space="preserve">
+    <value>快速操作</value>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>繼續</value>
+  </data>
+  <data name="CopyAll" xml:space="preserve">
+    <value>複製全部</value>
+  </data>
+  <data name="DashboardPage_Graphics_Title" xml:space="preserve">
+    <value>圖形</value>
+  </data>
+  <data name="DashboardPage_Other_Title" xml:space="preserve">
+    <value>其他</value>
+  </data>
+  <data name="DashboardPage_Power_Title" xml:space="preserve">
+    <value>電源</value>
+  </data>
+  <data name="DashboardPage_Title" xml:space="preserve">
+    <value>首頁</value>
+  </data>
+  <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
+    <value>如果 GPU 不需要活動時關閉顯示卡。
+
+警告：如果內部顯示器關閉或混合模式未啟用，則此操作將無法正常執行。</value>
+  </data>
+  <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
+    <value>休眠獨立 GPU</value>
+  </data>
+  <data name="DelayAutomationStepControl_Title" xml:space="preserve">
+    <value>延遲</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>刪除</value>
+  </data>
+  <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
+    <value>BIOS 版本</value>
+  </data>
+  <data name="CopiedToClipboard_Message" xml:space="preserve">
+    <value>已複製文字到剪貼簿。</value>
+  </data>
+  <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
+    <value>已複製「{0}」到剪貼簿。</value>
+  </data>
+  <data name="CopiedToClipboard_Title" xml:space="preserve">
+    <value>已複製！</value>
+  </data>
+  <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
+    <value>裝置</value>
+  </data>
+  <data name="DeviceInformationWindow_InWarranty" xml:space="preserve">
+    <value>保固中</value>
+  </data>
+  <data name="DeviceInformationWindow_LenovoSupport" xml:space="preserve">
+    <value>Lenovo 支援</value>
+  </data>
+  <data name="DeviceInformationWindow_MachineType_Title" xml:space="preserve">
+    <value>裝置類型</value>
+  </data>
+  <data name="DeviceInformationWindow_Manufacturer_Title" xml:space="preserve">
+    <value>製造商</value>
+  </data>
+  <data name="DeviceInformationWindow_Model_Title" xml:space="preserve">
+    <value>型號</value>
+  </data>
+  <data name="DeviceInformationWindow_OutOfWarranty" xml:space="preserve">
+    <value>保固已過期</value>
+  </data>
+  <data name="DeviceInformationWindow_SerialNumber_Title" xml:space="preserve">
+    <value>序列號</value>
+  </data>
+  <data name="DeviceInformationWindow_Title" xml:space="preserve">
+    <value>關於您的裝置</value>
+  </data>
+  <data name="DeviceInformationWindow_WarrantyEndDate_Title" xml:space="preserve">
+    <value>結束日期</value>
+  </data>
+  <data name="DeviceInformationWindow_WarrantyStartDate_Title" xml:space="preserve">
+    <value>開始日期</value>
+  </data>
+  <data name="DeviceInformationWindow_WarrantyStatus_Title" xml:space="preserve">
+    <value>狀態</value>
+  </data>
+  <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
+    <value>保固</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>活動中</value>
+  </data>
+  <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
+    <value>休眠</value>
+  </data>
+  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
+    <value>nVidia GPU 可被關閉。
+
+請記得，如果關閉 GPU 可能造成一些應用程式崩潰。</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>休眠中</value>
+  </data>
+  <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
+    <value>強制關閉應用程式</value>
+  </data>
+  <data name="DiscreteGPUControl_Message" xml:space="preserve">
+    <value>如果 GPU 不需要活動時關閉顯示卡。</value>
+  </data>
+  <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
+    <value>顯示器已連接到 nVidia 顯示卡。</value>
+  </data>
+  <data name="DiscreteGPUControl_NoProcesses" xml:space="preserve">
+    <value>尚無進程</value>
+  </data>
+  <data name="DiscreteGPUControl_PerformanceState" xml:space="preserve">
+    <value>效能狀態</value>
+  </data>
+  <data name="DiscreteGPUControl_PerformanceState_Unknown" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="DiscreteGPUControl_Processes" xml:space="preserve">
+    <value>進程</value>
+  </data>
+  <data name="DiscreteGPUControl_RestartGPU" xml:space="preserve">
+    <value>重新啟動 GPU</value>
+  </data>
+  <data name="DiscreteGPUControl_Title" xml:space="preserve">
+    <value>獨立顯示卡</value>
+  </data>
+  <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
+    <value>變更內部顯示器顯示亮度。
+在一些裝置上，變更電源模式後亮度會發生變化。如果有任何異常，請確保將此步驟放到最後再做。
+
+警告：如果內部顯示器已關閉，則此操作將無法正常執行。</value>
+  </data>
+  <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
+    <value>顯示亮度</value>
+  </data>
+  <data name="DonatePage_DonateWith" xml:space="preserve">
+    <value>贊助於</value>
+  </data>
+  <data name="DonatePage_Message" xml:space="preserve">
+    <value>開發和維護 Lenovo Legion 工具套件需要大量的時間。如果你喜歡這個應用程式，你可以透過捐贈來支持未來應用程式的開發。
+
+點擊下方的 Stripe 圖示或掃描 QR 條碼使用 Stripe 捐贈。
+
+在此十分感謝！</value>
+  </data>
+  <data name="DonatePage_Title" xml:space="preserve">
+    <value>捐贈</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>編輯</value>
+  </data>
+  <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
+    <value>使用 Fn+R 快捷方式時，取消選中您不想使用的更新率。</value>
+  </data>
+  <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
+    <value>請確保筆記型電腦顯示器已開啟。否則 Lenovo Legion Toolkit 無法載入顯示器資訊。</value>
+  </data>
+  <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Title" xml:space="preserve">
+    <value>尚未發現更新率</value>
+  </data>
+  <data name="ExcludeRefreshRatesWindow_Title" xml:space="preserve">
+    <value>排除更新率</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>離開</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>匯出</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
+    <value>使用電池時只使用內建顯示卡，連接電源供應器時使用內建顯示卡和獨立顯示卡。當連接低功率電源供應器時，系統將接換到混合模式。</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
+    <value>混合自動模式</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_DGPU_Disclaimer" xml:space="preserve">
+    <value>切換到此模式需要重新啟動。</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_DGPU_Message" xml:space="preserve">
+    <value>僅使用獨立顯示卡。此模式將提供最佳化的圖形效能，但會顯著地增加功率。</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
+    <value>獨立顯示卡直接連接模式</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
+    <value>內建顯示卡和獨立顯示卡都將啟用。系統將視情況自動地切換它們。</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
+    <value>混合模式</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_IGPU_Disclaimer" xml:space="preserve">
+    <value>此模式僅在獨立顯示卡不運作時生效。</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_IGPU_Message" xml:space="preserve">
+    <value>僅使用內建顯示卡，此模式將消耗最少的電源和最小的風扇噪音。</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_IGPU_Title" xml:space="preserve">
+    <value>混合僅限內建顯示卡模式</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Title" xml:space="preserve">
+    <value>關於 GPU 運作模式</value>
+  </data>
+  <data name="Fahrenheit" xml:space="preserve">
+    <value>°F</value>
+  </data>
+  <data name="FanCurveControl_CPU" xml:space="preserve">
+    <value>CPU</value>
+  </data>
+  <data name="FanCurveControl_CPUSensor" xml:space="preserve">
+    <value>CPU 感應器</value>
+  </data>
+  <data name="FanCurveControl_FanSpeed" xml:space="preserve">
+    <value>風扇轉速</value>
+  </data>
+  <data name="FanCurveControl_GPU" xml:space="preserve">
+    <value>GPU</value>
+  </data>
+  <data name="FanCurveControl_RPM" xml:space="preserve">
+    <value>RPM</value>
+  </data>
+  <data name="FnLockAutomationStepControl_Title" xml:space="preserve">
+    <value>鎖定 Fn 鍵</value>
+  </data>
+  <data name="FnLockControl_Title" xml:space="preserve">
+    <value>鎖定 Fn 鍵</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
+    <value>警告！
+一些筆記型電腦可能接受較低的功率限制。請小心，此選項可能導致未知的後果，因此如果您不確定自己在做什麼，請將其保留為 0。</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
+    <value>警告！
+警告！
+一些筆記型電腦可能接受較高的功率限制。請小心，此選項可能導致未知的後果，因此如果您不確定自己在做什麼，請將其保留為 0。</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_Title" xml:space="preserve">
+    <value>進階</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL" xml:space="preserve">
+    <value>長時間功率限制（PL1）</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL" xml:space="preserve">
+    <value>短時間功率限制（PL2）</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_TempLimit" xml:space="preserve">
+    <value>CPU 溫度限制</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_Title" xml:space="preserve">
+    <value>CPU</value>
+  </data>
+  <data name="GodModeSettingsWindow_Fans_Curve_Message" xml:space="preserve">
+    <value>風扇轉速不僅僅由一個溫度感應器決定的。它根據 CPU、GPU 和散熱器溫度之間的最高值決定轉速。將滑鼠懸停在滑塊上可以查看精確的數值。</value>
+  </data>
+  <data name="GodModeSettingsWindow_Fans_Curve_Title" xml:space="preserve">
+    <value>風扇曲線</value>
+  </data>
+  <data name="GodModeSettingsWindow_Fans_Max_Message" xml:space="preserve">
+    <value>警告！
+長時間使用此選項會降低風扇的效能，從而縮短其使用壽命。
+請謹慎使用此選項！</value>
+  </data>
+  <data name="GodModeSettingsWindow_Fans_Max_Title" xml:space="preserve">
+    <value>最大風扇轉速</value>
+  </data>
+  <data name="GodModeSettingsWindow_Fans_Title" xml:space="preserve">
+    <value>風扇</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP" xml:space="preserve">
+    <value>可配置 TGP</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_DynamicBoost" xml:space="preserve">
+    <value>動態加速</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TempLimit" xml:space="preserve">
+    <value>GPU 溫度限制</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_Title" xml:space="preserve">
+    <value>GPU</value>
+  </data>
+  <data name="HDRAutomationStepControl_Message" xml:space="preserve">
+    <value>啟用高動態範圍（HDR）顯示。
+
+警告：如果內部顯示器已關閉，則此操作將無法正常執行。</value>
+  </data>
+  <data name="HDRAutomationStepControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Message" xml:space="preserve">
+    <value>啟用高動態範圍（HDR）顯示。</value>
+  </data>
+  <data name="HDRControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Warning" xml:space="preserve">
+    <value>Windows 設定已阻擋 HDR 啟用。</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>匯入</value>
+  </data>
+  <data name="IncompatibleDevice_Title" xml:space="preserve">
+    <value>Lenovo Legion 工具套件</value>
+  </data>
+  <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
+    <value>尚未發現相容的鍵盤</value>
+  </data>
+  <data name="KeyboardBacklightPage_Title" xml:space="preserve">
+    <value>鍵盤背光</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>由於 Lenovo Vantage 或其他服務正在執行而導致衝突，無法在此控制鍵盤背光。</value>
+  </data>
+  <data name="MainWindow_NavigationItem_About" xml:space="preserve">
+    <value>關於</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Battery" xml:space="preserve">
+    <value>電池</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Donate" xml:space="preserve">
+    <value>捐贈</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
+    <value>鍵盤</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
+    <value>下載</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="MainWindow_UpdateAvailable" xml:space="preserve">
+    <value>已有可供使用的更新！</value>
+  </data>
+  <data name="MainWindow_UpdateAvailableWithVersion" xml:space="preserve">
+    <value>已有可供使用的更新 {0} ！</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>否</value>
+  </data>
+  <data name="Notification_CameraOff" xml:space="preserve">
+    <value>關閉相機</value>
+  </data>
+  <data name="Notification_CameraOn" xml:space="preserve">
+    <value>開啟相機</value>
+  </data>
+  <data name="Notification_CapsLockOff" xml:space="preserve">
+    <value>關閉 Caps Lock</value>
+  </data>
+  <data name="Notification_CapsLockOn" xml:space="preserve">
+    <value>開啟 Caps Lock</value>
+  </data>
+  <data name="Notification_FnLockOff" xml:space="preserve">
+    <value>關閉鎖定 Fn 鍵</value>
+  </data>
+  <data name="Notification_FnLockOn" xml:space="preserve">
+    <value>開啟鎖定 Fn 鍵</value>
+  </data>
+  <data name="Notification_MicrophoneOff" xml:space="preserve">
+    <value>關閉麥克風</value>
+  </data>
+  <data name="Notification_MicrophoneOn" xml:space="preserve">
+    <value>開啟麥克風</value>
+  </data>
+  <data name="Notification_NumLockOff" xml:space="preserve">
+    <value>關閉 Num Lock</value>
+  </data>
+  <data name="Notification_NumLockOn" xml:space="preserve">
+    <value>開啟 Num Lock</value>
+  </data>
+  <data name="Notification_SpectrumKeyboardBacklight_Backlight" xml:space="preserve">
+    <value>背光 {0}</value>
+  </data>
+  <data name="Notification_SpectrumKeyboardBacklight_Brightness" xml:space="preserve">
+    <value>亮度 {0}</value>
+  </data>
+  <data name="Notification_TouchpadOff" xml:space="preserve">
+    <value>關閉觸控板</value>
+  </data>
+  <data name="Notification_TouchpadOn" xml:space="preserve">
+    <value>開啟觸控板</value>
+  </data>
+  <data name="Notification_WhiteKeyboardBacklight" xml:space="preserve">
+    <value>背光 {0}</value>
+  </data>
+  <data name="NotificationsSettingsWindow_ACAdapter" xml:space="preserve">
+    <value>電源供應器</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Camera" xml:space="preserve">
+    <value>相機</value>
+  </data>
+  <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
+    <value>Caps Lock 和 Num Lock</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
+    <value>停用麥克風靜音等 Fn 鍵操作通知
+如果通知和全螢幕應用程式發生衝突，請啟用此選項。</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
+    <value>不要顯示通知</value>
+  </data>
+  <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
+    <value>鎖定 Fn 鍵</value>
+  </data>
+  <data name="NotificationsSettingsWindow_KeyboardBacklight" xml:space="preserve">
+    <value>鍵盤背光</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Microphone" xml:space="preserve">
+    <value>麥克風</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationPosition_Title" xml:space="preserve">
+    <value>位置</value>
+  </data>
+  <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
+    <value>電源模式</value>
+  </data>
+  <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
+    <value>更新率</value>
+  </data>
+  <data name="NotificationsSettingsWindow_SmartKey" xml:space="preserve">
+    <value>Smart Key</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
+    <value>通知</value>
+  </data>
+  <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
+    <value>觸控板鎖定</value>
+  </data>
+  <data name="OverDriveAutomationStepControl_Title" xml:space="preserve">
+    <value>Over Drive</value>
+  </data>
+  <data name="OverDriveControl_Title" xml:space="preserve">
+    <value>Over Drive</value>
+  </data>
+  <data name="PackageControl_DownloadComplete_Message" xml:space="preserve">
+    <value>已下載 {0}！</value>
+  </data>
+  <data name="PackageControl_DownloadComplete_Title" xml:space="preserve">
+    <value>下載完成</value>
+  </data>
+  <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
+    <value>已有可供使用的更新！</value>
+  </data>
+  <data name="PackagesPage_DownloadFailed_Message" xml:space="preserve">
+    <value>檢查機器類型和系統設定是否正確。</value>
+  </data>
+  <data name="PackagesPage_DownloadFailed_Title" xml:space="preserve">
+    <value>發生了億些錯誤</value>
+  </data>
+  <data name="PackagesPage_DownloadInProgress_Message" xml:space="preserve">
+    <value>變更排序、過濾結果、隱藏套件或更新列表將停止下載。你確定嗎？</value>
+  </data>
+  <data name="PackagesPage_DownloadInProgress_Title" xml:space="preserve">
+    <value>下載進行中</value>
+  </data>
+  <data name="PackagesPage_DownloadTo" xml:space="preserve">
+    <value>下載到</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>過濾……</value>
+  </data>
+  <data name="PackagesPage_Sort_Date" xml:space="preserve">
+    <value>日期</value>
+  </data>
+  <data name="PackagesPage_Title" xml:space="preserve">
+    <value>下載</value>
+  </data>
+  <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
+    <value>選擇效能模式</value>
+  </data>
+  <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
+    <value>電源模式</value>
+  </data>
+  <data name="PowerModeControl_Message" xml:space="preserve">
+    <value>選擇效能模式。
+你可以透過快捷鍵 Fn+Q 快速更改。</value>
+  </data>
+  <data name="PowerModeControl_Settings" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="PowerModeControl_Title" xml:space="preserve">
+    <value>電源模式</value>
+  </data>
+  <data name="PowerModeControl_Warning" xml:space="preserve">
+    <value>尚未連接電源供應器時，效能模式可能無法正確地的運作。</value>
+  </data>
+  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
+    <value>當 Lenovo Vantage 正在執行時啟用此選項，並變更筆記型電腦的電源計畫可能導致未預期的行為。</value>
+  </data>
+  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
+    <value>您確定嗎？</value>
+  </data>
+  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
+    <value>平衡模式</value>
+  </data>
+  <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
+    <value>客製化模式</value>
+  </data>
+  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
+    <value>預設</value>
+  </data>
+  <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
+    <value>效能模式</value>
+  </data>
+  <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
+    <value>安靜模式</value>
+  </data>
+  <data name="PowerPlansWindow_Title" xml:space="preserve">
+    <value>電源計畫</value>
+  </data>
+  <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>調整鍵盤背光預設。</value>
+  </data>
+  <data name="RGBKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>鍵盤背光</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Preset1" xml:space="preserve">
+    <value>預設 1</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Preset2" xml:space="preserve">
+    <value>預設 2</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Preset3" xml:space="preserve">
+    <value>預設 3</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>重新整理</value>
+  </data>
+  <data name="RefreshRateAutomationStepControl_Message" xml:space="preserve">
+    <value>變更內部顯示器更新率。
+
+警告：如果內部顯示器已關閉，則此操作將無法正常執行。</value>
+  </data>
+  <data name="RefreshRateAutomationStepControl_Title" xml:space="preserve">
+    <value>更新率</value>
+  </data>
+  <data name="RefreshRateControl_Message" xml:space="preserve">
+    <value>變更內部顯示器更新率。</value>
+  </data>
+  <data name="RefreshRateControl_Title" xml:space="preserve">
+    <value>更新率</value>
+  </data>
+  <data name="RestartLater" xml:space="preserve">
+    <value>稍後重新啟動</value>
+  </data>
+  <data name="RestartNow" xml:space="preserve">
+    <value>立刻重新啟動</value>
+  </data>
+  <data name="RunAutomationStepControl_Title" xml:space="preserve">
+    <value>執行</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>儲存</value>
+  </data>
+  <data name="Saving" xml:space="preserve">
+    <value>儲存中……</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
+    <value>尚未定義快速操作。</value>
+  </data>
+  <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
+    <value>無法停用 Legion Zone</value>
+  </data>
+  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
+    <value>停用 Legion Zone 服務且不需要解除安裝。
+變更此選項建議重新啟動。</value>
+  </data>
+  <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
+    <value>停用 Legion Zone</value>
+  </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Error_Message" xml:space="preserve">
+    <value>Lenovo Hotkeys 可能沒有被正確地停用</value>
+  </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
+    <value>無法停用 Lenovo Hotkeys</value>
+  </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
+    <value>停用 Lenovo Hotkeys 服務且不需要解除安裝。
+如果停用，此應用程式將處理 Fn 快捷方式。
+變更此選項建議重新啟動。</value>
+  </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
+    <value>停用 Lenovo Hotkeys</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
+    <value>停用 Lenovo Vantage 服務且不需要解除安裝。
+變更此選項建議重新啟動。</value>
+  </data>
+  <data name="SettingsPage_EnableLenovoHotkeys_Error_Message" xml:space="preserve">
+    <value>Lenovo Hotkeys 可能沒有被正確地啟用</value>
+  </data>
+  <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
+    <value>無法啟用 Lenovo Hotkeys</value>
+  </data>
+  <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
+    <value>您可以排除更新率，使用 Fn+R 快捷鍵切換更加實用。</value>
+  </data>
+  <data name="SettingsPage_ExcludeRefreshRates_Title" xml:space="preserve">
+    <value>排除更新率</value>
+  </data>
+  <data name="SettingsPage_Language_Message" xml:space="preserve">
+    <value>選擇語言。</value>
+  </data>
+  <data name="SettingsPage_Language_Title" xml:space="preserve">
+    <value>語言</value>
+  </data>
+  <data name="SettingsPage_Notifications_Title" xml:space="preserve">
+    <value>通知</value>
+  </data>
+  <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
+    <value>電源計畫</value>
+  </data>
+  <data name="SettingsPage_Title" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Message" xml:space="preserve">
+    <value>調整鍵盤背光亮度。</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Off" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Title" xml:space="preserve">
+    <value>鍵盤背光亮度</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
+    <value>亮度</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
+    <value>尚未新增特效。</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip" xml:space="preserve">
+    <value>重設為預設</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_SwitchKeyboardLayout_ToolTip" xml:space="preserve">
+    <value>切換鍵盤布局</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Color_Title" xml:space="preserve">
+    <value>顏色</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Warning" xml:space="preserve">
+    <value>此效果將被套用到整個鍵盤並替換其他效果。</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Message" xml:space="preserve">
+    <value>調整鍵盤背光設定檔。</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Title" xml:space="preserve">
+    <value>鍵盤背光設定檔。</value>
+  </data>
+  <data name="ToggleHybridModeControl_Message" xml:space="preserve">
+    <value>混合模式允許在內建顯示卡和獨立顯示卡之間切換。
+需要重新啟動。</value>
+  </data>
+  <data name="ToggleHybridModeControl_RestartRequired_Message" xml:space="preserve">
+    <value>變更混合模式需要重新啟動。您想要現在重新啟動嗎？</value>
+  </data>
+  <data name="ToggleHybridModeControl_RestartRequired_Title" xml:space="preserve">
+    <value>需要重新啟動</value>
+  </data>
+  <data name="ToggleHybridModeControl_Title" xml:space="preserve">
+    <value>混合模式</value>
+  </data>
+  <data name="TouchpadLockAutomationStepControl_Message" xml:space="preserve">
+    <value>停用觸控板。</value>
+  </data>
+  <data name="TouchpadLockAutomationStepControl_Title" xml:space="preserve">
+    <value>觸控板鎖定</value>
+  </data>
+  <data name="TouchpadLockControl_Message" xml:space="preserve">
+    <value>停用觸控板。</value>
+  </data>
+  <data name="TouchpadLockControl_Title" xml:space="preserve">
+    <value>觸控板鎖定</value>
+  </data>
+  <data name="UnsupportedWindow_Disclaimer_GitHub" xml:space="preserve">
+    <value>在 Github 上查看專案頁面以獲得更多資訊。</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="UpdateWindow_Title" xml:space="preserve">
+    <value>已有可供使用的更新</value>
+  </data>
+  <data name="UpdateWindow_WhatsNew" xml:space="preserve">
+    <value>有什麼新鮮事？</value>
+  </data>
+  <data name="WhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>調整鍵盤背光亮度</value>
+  </data>
+  <data name="WhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>鍵盤背光</value>
+  </data>
+  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>鍵盤背光</value>
+  </data>
+  <data name="MicrophoneControl_Title" xml:space="preserve">
+    <value>麥克風</value>
+  </data>
+  <data name="MicrophoneControl_Message" xml:space="preserve">
+    <value>關閉此選項將會使所有麥克風靜音。</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
+    <value>麥克風</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
+    <value>關閉此選項將會使所有麥克風靜音。</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
+    <value>變更內部顯示器解析度。
+
+警告：如果內部顯示器已關閉，則此操作將無法正常執行。</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
+    <value>變更內部顯示器縮放。
+
+警告：如果內部顯示器已關閉，則此操作將無法正常執行。</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>鍵盤背光</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>鍵盤背光</value>
+  </data>
+  <data name="PackagesPage_NoMatchingDownloads" xml:space="preserve">
+    <value>沒有找到匹配的結果</value>
+  </data>
+  <data name="TurnOffMonitorsControl_Title" xml:space="preserve">
+    <value>關閉顯示器</value>
+  </data>
+  <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="TurnOffMonitorsAutomationStepControl_Title" xml:space="preserve">
+    <value>關閉顯示器</value>
+  </data>
+  <data name="TurnOffMonitorsAutomationStepControl_Message" xml:space="preserve">
+    <value>關閉所有可供使用的顯示器。</value>
+  </data>
+  <data name="Notification_PanelLogoLightingOn" xml:space="preserve">
+    <value>開啟 Legion 圖示燈光</value>
+  </data>
+  <data name="Notification_PanelLogoLightingOff" xml:space="preserve">
+    <value>關閉 Legion 圖示燈光</value>
+  </data>
+  <data name="Notification_PortLightingOn" xml:space="preserve">
+    <value>開啟介面指示燈</value>
+  </data>
+  <data name="Notification_PortLightingOff" xml:space="preserve">
+    <value>關閉介面指示燈</value>
+  </data>
+  <data name="PackageControl_RebootRequired" xml:space="preserve">
+    <value>需要重新啟動</value>
+  </data>
+  <data name="PackageControl_RebootRecommended" xml:space="preserve">
+    <value>建議重新啟動</value>
+  </data>
+  <data name="SaveAndClose" xml:space="preserve">
+    <value>儲存 &amp; 關閉</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
+    <value>切換到客製化模式預設。
+此設定僅在啟用客製化模式時才會生效。</value>
+  </data>
+  <data name="AboutPage_ApplicationFolders" xml:space="preserve">
+    <value>應用程式資料夾</value>
+  </data>
+  <data name="AboutPage_Data" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="AboutPage_Temp" xml:space="preserve">
+    <value>Temp</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
+    <value>固定顯示亮度</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
+    <value>當啟用後，變更 Windows 電源計畫時仍將保持亮度不變。</value>
+  </data>
+  <data name="Notification_UpdateAvailable" xml:space="preserve">
+    <value>已有可供使用的更新 {0} ！</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL" xml:space="preserve">
+    <value>峰值功率限制</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
+    <value>APU 功率限制（SPPT）</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
+    <value>短時間功率持續時間限制</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
+    <value>連接電源時的總處理器功率目標。</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
+    <value>CPU 觸發 GPU 動態功率調整點。</value>
+  </data>
+  <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
+    <value>新增操作</value>
+  </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+    <value>電源模式</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+    <value>獨立 GPU</value>
+  </data>
+  <data name="StatusTrayPopup_PowerState" xml:space="preserve">
+    <value>電源狀態</value>
+  </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+    <value>電池</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+    <value>已有可供使用的更新！</value>
+  </data>
+  <data name="BatteryPage_LowLevel" xml:space="preserve">
+    <value>電池低電量</value>
+  </data>
+  <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
+    <value>偵測到新式待命（S0 Lower Power Model）模型</value>
+  </data>
+  <data name="SettingsPage_Power_Title" xml:space="preserve">
+    <value>電源</value>
+  </data>
+  <data name="SettingsPage_PowerPlansControlPanel_Title" xml:space="preserve">
+    <value>開啟 Windows 控制台中的電源計畫選項</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+    <value>關閉電源</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
+    <value>匯入鍵盤背光設定檔</value>
+  </data>
+  <data name="MultipleTriggersAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>多重觸發器……</value>
+    <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_Title" xml:space="preserve">
+	  <value>GPU 超頻設定</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title" xml:space="preserve">
+	  <value>核心頻率偏移</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title" xml:space="preserve">
+	  <value>記憶體頻率偏移</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Title" xml:space="preserve">
+	  <value>GPU 超頻</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
+	  <value>藉由對獨立 GPU 超頻以提升效能</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
+	  <value>GPU 超頻</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
+	  <value>藉由對獨立 GPU 超頻以提升效能。
+
+警告：如果獨立顯示卡不可供使用，則此操作將無法正常執行。</value>
   </data>
 </root>
