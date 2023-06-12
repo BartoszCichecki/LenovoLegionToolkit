@@ -122,7 +122,7 @@ public class ResolutionFeature : IFeature<Resolution>
         return Task.CompletedTask;
     }
 
-    private static bool Match(DisplayPossibleSetting dps, DisplaySetting ds)
+    private static bool Match(DisplayPossibleSetting dps, DisplayPossibleSetting ds)
     {
         if (dps.IsTooSmall())
             return false;
