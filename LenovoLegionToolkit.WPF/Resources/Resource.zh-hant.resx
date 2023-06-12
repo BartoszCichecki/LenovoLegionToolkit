@@ -558,7 +558,7 @@
     <value>贊助於</value>
   </data>
   <data name="DonatePage_Message" xml:space="preserve">
-    <value>開發和維護 Lenovo Legion 工具套件需要大量的時間。如果你喜歡這個應用程式，你可以透過捐贈來支持未來應用程式的開發。
+    <value>開發和維護 Lenovo Legion 工具套件需要大量的時間。如果你喜歡這個應用程式，您可以透過捐贈來支持未來應用程式的開發。
 
 點擊下方的 Stripe 圖示或掃描 QR 條碼使用 Stripe 捐贈。
 
@@ -870,7 +870,7 @@
     <value>發生了億些錯誤</value>
   </data>
   <data name="PackagesPage_DownloadInProgress_Message" xml:space="preserve">
-    <value>變更排序、過濾結果、隱藏套件或更新列表將停止下載。你確定嗎？</value>
+    <value>變更排序、過濾結果、隱藏套件或更新列表將停止下載。您確定嗎？</value>
   </data>
   <data name="PackagesPage_DownloadInProgress_Title" xml:space="preserve">
     <value>下載進行中</value>
@@ -895,7 +895,7 @@
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>選擇效能模式。
-你可以透過快捷鍵 Fn+Q 快速更改。</value>
+您可以透過快捷鍵 Fn+Q 快速更改。</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
     <value>設定</value>
@@ -1006,10 +1006,6 @@
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>停用 Lenovo Hotkeys</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>停用 Lenovo Vantage 服務且不需要解除安裝。
-變更此選項建議重新啟動。</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Message" xml:space="preserve">
     <value>Lenovo Hotkeys 可能沒有被正確地啟用</value>
@@ -1259,25 +1255,25 @@
     <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
   </data>
   <data name="OverclockDiscreteGPUSettingsWindow_Title" xml:space="preserve">
-	  <value>GPU 超頻設定</value>
+    <value>GPU 超頻設定</value>
   </data>
   <data name="OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title" xml:space="preserve">
-	  <value>核心頻率偏移</value>
+    <value>核心頻率偏移</value>
   </data>
   <data name="OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title" xml:space="preserve">
-	  <value>記憶體頻率偏移</value>
+    <value>記憶體頻率偏移</value>
   </data>
   <data name="OverclockDiscreteGPUControl_Title" xml:space="preserve">
-	  <value>GPU 超頻</value>
+    <value>GPU 超頻</value>
   </data>
   <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
-	  <value>藉由對獨立 GPU 超頻以提升效能</value>
+    <value>藉由對獨立 GPU 超頻以提升效能</value>
   </data>
   <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
-	  <value>GPU 超頻</value>
+    <value>GPU 超頻</value>
   </data>
   <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
-	  <value>藉由對獨立 GPU 超頻以提升效能。
+    <value>藉由對獨立 GPU 超頻以提升效能。
 
 警告：如果獨立顯示卡不可供使用，則此操作將無法正常執行。</value>
   </data>
