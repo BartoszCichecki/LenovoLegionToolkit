@@ -9,7 +9,8 @@ Console.WriteLine(@"How to use:
   1. Make sure Vantage and LLT is closed.
   2. Set the keyboard brightness to maximum.
 
-When ready, press any key to continue...");
+When ready, press any key to continue...
+");
 Console.ReadKey();
 
 var device = Devices.GetSpectrumRGBKeyboard();
@@ -78,11 +79,41 @@ GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE resC58);
 Print(resC58.Bytes);
 Console.WriteLine();
 
-Console.WriteLine(resD1.Bytes[4] == 0 ? "Keyboard is RGB." : "Keyboard is white only.");
-Console.WriteLine(resC47.Bytes[5] == 0x9 && resC47.Bytes[6] == 0x16 ? "Keyboard is extended." : "Keyboard is is not extended.");
-Console.WriteLine();
+Console.WriteLine(resD1.Bytes[4] == 0 ? "Keyboard is RGB." : "Not compatible.");
 
-Console.WriteLine(@"Reading config complete.
+var spectrumLayout = (resC47.Bytes[6], resC47.Bytes[5]) switch
+{
+    (22, 9) => "Full",
+    (20, 8) => "KeyboardAndFront",
+    (20, 7) => "KeyboardOnly",
+    _ => "Unknown"
+};
+Console.WriteLine($"Layout is {spectrumLayout}.");
+Console.WriteLine("Reading config complete.");
+Console.WriteLine();
+Console.ReadKey();
+
+Console.WriteLine(@"*** TEST 1***
+
+This program will now try to control brightness of the keyboard. Keyboard should turn off and then gradually increase brightness and turn off at the end.
+
+When ready, press any key to continue...
+");
+
+var brightnessLevels = new byte[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
+
+foreach (var level in brightnessLevels)
+{
+    Console.WriteLine($"Setting brightness level to {level}...");
+    SetFeature(device, new LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE.Brightness, level, 0));
+    await Task.Delay(250);
+}
+
+Console.WriteLine("Test complete, press any key to continue...");
+Console.WriteLine();
+Console.ReadKey();
+
+Console.WriteLine(@"***TEST 2***
 
 How to find a keycode for a specific key:
   1. Open Vantage
@@ -91,7 +122,8 @@ How to find a keycode for a specific key:
   4. Make sure all other keys don't have any effect set (are off)
   5. Set the keyboard brightness to maximum
 
-When ready, press any key to continue...");
+When ready, press any key to continue...
+");
 Console.ReadKey();
 
 Console.WriteLine("Reading white key keycodes...");
@@ -125,6 +157,7 @@ for (var i = 0; i < Iterations; i++)
 }
 
 Console.WriteLine();
+Console.WriteLine("Test complete.");
 Console.WriteLine("Press any key to exit...");
 Console.ReadLine();
 
