@@ -42,7 +42,7 @@ public partial class MainWindow
         StateChanged += MainWindow_StateChanged;
 
 #if DEBUG
-        _title.Text += " [DEBUG]";
+        _title.Text += Debugger.IsAttached ? " [DEBUG ATTACHED]" : " [DEBUG]";
 #else
         var version = System.Reflection.Assembly.GetEntryAssembly()?.GetName().Version;
         if (version == new Version(0, 0, 1, 0) || version?.Build == 99)

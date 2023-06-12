@@ -2,6 +2,8 @@
 using LenovoLegionToolkit.Lib.System;
 #endif
 using System;
+using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
@@ -39,6 +41,19 @@ public partial class App
 
     private async void Application_Startup(object sender, StartupEventArgs e)
     {
+#if DEBUG
+        if (Debugger.IsAttached)
+        {
+            Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName)
+                .Where(p => p.Id != Environment.ProcessId)
+                .ForEach(p =>
+                {
+                    p.Kill();
+                    p.WaitForExit();
+                });
+        }
+#endif
+
         var flags = new Flags(e.Args);
 
         Log.Instance.IsTraceEnabled = flags.IsTraceEnabled;
