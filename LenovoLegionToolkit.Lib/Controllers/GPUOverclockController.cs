@@ -13,9 +13,6 @@ namespace LenovoLegionToolkit.Lib.Controllers;
 
 public class GPUOverclockController
 {
-    public const int MAX_CORE_DELTA_MHZ = 250;
-    public const int MAX_MEMORY_DELTA_MHZ = 500;
-
     private readonly GPUOverclockSettings _settings;
     private readonly VantageDisabler _vantageDisabler;
     private readonly LegionZoneDisabler _legionZoneDisabler;
@@ -27,6 +24,21 @@ public class GPUOverclockController
         _settings = settings ?? throw new ArgumentNullException(nameof(settings));
         _vantageDisabler = vantageDisabler ?? throw new ArgumentNullException(nameof(vantageDisabler));
         _legionZoneDisabler = legionZoneDisabler ?? throw new ArgumentNullException(nameof(legionZoneDisabler));
+    }
+
+    public static int GetMaxCoreDeltaMhz() => 250;
+
+    public static int GetMaxMemoryDeltaMhz()
+    {
+        try
+        {
+            NVAPI.Initialize();
+            return GetMaxMemoryDeltaMhz(NVAPI.GetGPU());
+        }
+        finally
+        {
+            try { NVAPI.Unload(); } catch { /* Ignored */ }
+        }
     }
 
     public async Task<bool> IsSupportedAsync()
@@ -181,6 +193,12 @@ public class GPUOverclockController
         return true;
     }
 
+    private static int GetMaxMemoryDeltaMhz(PhysicalGPU? gpu) => gpu?.MemoryInformation.RAMMaker switch
+    {
+        GPUMemoryMaker.Samsung => 1000,
+        _ => 500
+    };
+
     private static Task<bool> IsSupportGpuOC() => WMI.CallAsync("ROOT\\WMI",
         $"SELECT * FROM LENOVO_GAMEZONE_DATA",
         "IsSupportGpuOC",
@@ -189,8 +207,8 @@ public class GPUOverclockController
 
     private static void SetOverclockInfo(PhysicalGPU gpu, GPUOverclockInfo info)
     {
-        var coreDelta = Math.Clamp(info.CoreDeltaMhz, 0, MAX_CORE_DELTA_MHZ);
-        var memoryDelta = Math.Clamp(info.MemoryDeltaMhz, 0, MAX_MEMORY_DELTA_MHZ);
+        var coreDelta = Math.Clamp(info.CoreDeltaMhz, 0, GetMaxCoreDeltaMhz());
+        var memoryDelta = Math.Clamp(info.MemoryDeltaMhz, 0, GetMaxMemoryDeltaMhz(gpu));
 
         var clockEntries = new[]
         {
