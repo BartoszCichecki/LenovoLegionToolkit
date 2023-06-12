@@ -1203,19 +1203,6 @@ Po zmene tejto možnosti sa odporúča reštart.</value>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Zakázať Lenovo Hotkeys</value>
   </data>
-  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage možno nebol zakázaný správne</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Nepodarilo sa zakázať Vantage</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>Zakázať Vantage a jeho služby bez odinštalovania.
-Po zmene tejto možnosti sa odporúča reštart.</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
-    <value>Zakázať Lenovo Vantage</value>
-  </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone možno nebol povolený správne</value>
   </data>
