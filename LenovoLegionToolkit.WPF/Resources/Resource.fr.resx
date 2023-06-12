@@ -1191,19 +1191,6 @@ Il est recommandé de redémarrer l'ordinateur après avoir modifié cette optio
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Désactiver Lenovo Hotkeys</value>
   </data>
-  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage n'a peut-être pas été désactivé correctement</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Impossible de désactiver Vantage</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>Désactive Lenovo Vantage et ses services sans les désinstaller.
-Un redémarrage est recommandé après avoir modifié cette option.</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
-    <value>Désactiver Lenovo Vantage</value>
-  </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone n'a peut-être pas été activé correctement</value>
   </data>
