@@ -54,6 +54,7 @@ public class OverclockDiscreteGPUControl : AbstractRefreshingControl
         InitializeComponent();
 
         _nativeWindowsMessageListener.Changed += NativeWindowsMessageListener_Changed;
+        _controller.Changed += Controller_Changed;
     }
 
     private void InitializeComponent()
@@ -90,6 +91,12 @@ public class OverclockDiscreteGPUControl : AbstractRefreshingControl
         Visibility = Visibility.Visible;
         await RefreshAsync();
     }
+
+    private void Controller_Changed(object? sender, EventArgs e) => Dispatcher.Invoke(async () =>
+    {
+        Visibility = Visibility.Visible;
+        await RefreshAsync();
+    });
 
     private async void Toggle_Click(object sender, RoutedEventArgs e)
     {

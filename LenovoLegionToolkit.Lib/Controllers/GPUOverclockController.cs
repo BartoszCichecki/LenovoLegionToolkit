@@ -20,6 +20,8 @@ public class GPUOverclockController
     private readonly VantageDisabler _vantageDisabler;
     private readonly LegionZoneDisabler _legionZoneDisabler;
 
+    public event EventHandler? Changed;
+
     public GPUOverclockController(GPUOverclockSettings settings, VantageDisabler vantageDisabler, LegionZoneDisabler legionZoneDisabler)
     {
         _settings = settings ?? throw new ArgumentNullException(nameof(settings));
@@ -91,6 +93,9 @@ public class GPUOverclockController
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Can't correctly apply state when Vantage is running.");
+
+            Changed?.Invoke(this, EventArgs.Empty);
+
             return;
         }
 
@@ -98,6 +103,9 @@ public class GPUOverclockController
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Can't correctly apply state when Legion Zone is running.");
+
+            Changed?.Invoke(this, EventArgs.Empty);
+
             return;
         }
 
@@ -117,6 +125,9 @@ public class GPUOverclockController
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Not enabled.");
+
+            Changed?.Invoke(this, EventArgs.Empty);
+
             return;
         }
 
@@ -132,6 +143,8 @@ public class GPUOverclockController
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"dGPU not found.");
+
+                Changed?.Invoke(this, EventArgs.Empty);
 
                 return;
             }
@@ -152,6 +165,8 @@ public class GPUOverclockController
         }
         finally
         {
+            Changed?.Invoke(this, EventArgs.Empty);
+
             try { NVAPI.Unload(); } catch { /* Ignored */ }
         }
     }
