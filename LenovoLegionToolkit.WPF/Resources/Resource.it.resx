@@ -1185,19 +1185,6 @@ Il riavvio è consigliabile dopo aver cambiato questa impostazione.</value>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Disabilita Lenovo Hotkeys</value>
   </data>
-  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage potrebbe non essere disabilitato correttamente</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Impossibile disattivare Vantage</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>Disabilita Lenovo Vantage e i suoi servizi senza disinstallarli.
-Il riavvio è consigliabile dopo aver cambiato questa impostazione.</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
-    <value>Disabilita Lenovo Vantage</value>
-  </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone potrebbe non essere abilitato correttamente</value>
   </data>
