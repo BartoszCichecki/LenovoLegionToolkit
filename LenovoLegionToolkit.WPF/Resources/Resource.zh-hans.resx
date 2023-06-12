@@ -1211,19 +1211,6 @@
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>禁用 Lenovo Hotkeys</value>
   </data>
-  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Lenovo Vantage 可能没有被正确禁用。</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>无法禁用 Lenovo Vantage</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>禁用 Lenovo Vantage 及其服务且无需卸载。
-修改此项后推荐重启电脑。</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
-    <value>禁用 Lenovo Vantage</value>
-  </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone 可能没有被正确启用。</value>
   </data>
@@ -1776,25 +1763,25 @@
     <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
   </data>
   <data name="OverclockDiscreteGPUSettingsWindow_Title" xml:space="preserve">
-	  <value>独立显卡超频设置</value>
+    <value>独立显卡超频设置</value>
   </data>
   <data name="OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title" xml:space="preserve">
-	  <value>核心频率偏移量</value>
+    <value>核心频率偏移量</value>
   </data>
   <data name="OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title" xml:space="preserve">
-	  <value>显存频率偏移量</value>
+    <value>显存频率偏移量</value>
   </data>
   <data name="OverclockDiscreteGPUControl_Title" xml:space="preserve">
-	  <value>超频独立显卡</value>
+    <value>超频独立显卡</value>
   </data>
   <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
-	  <value>超频独立显卡以提升性能。</value>
+    <value>超频独立显卡以提升性能。</value>
   </data>
   <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
-	  <value>超频独立显卡</value>
+    <value>超频独立显卡</value>
   </data>
   <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
-	  <value>超频独立显卡以提升性能。
+    <value>超频独立显卡以提升性能。
 
 警告：当独立显卡弹出后此操作将不起作用。</value>
   </data>

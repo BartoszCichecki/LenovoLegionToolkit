@@ -1206,17 +1206,17 @@ Se recomienda reiniciar después de cambiar esta opción.</value>
     <value>Desactivar las teclas de acceso rápido de Lenovo</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Es posible que Vantage no se haya desactivado correctamente</value>
+    <value>Vantage y/o ImController pueden no haber sido desactivados correctamente</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>No se puede desactivar Vantage</value>
+    <value>No se ha podido desactivar Vantage y/o ImController</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>Desactivar Lenovo Vantage y su servicio, sin desinstalarlo.
+    <value>Desactive Lenovo Vantage e ImController sin desinstalarlos.
 Se recomienda reiniciar después de cambiar esta opción.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
-    <value>Desactivar Lenovo Vantage</value>
+    <value>Desactivar Lenovo Vantage e ImController</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Es posible que Legion Zone no se haya activado correctamente</value>
@@ -1770,25 +1770,25 @@ Esta configuración sólo tiene efecto si el modo personalizado está activado.<
     <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
   </data>
   <data name="OverclockDiscreteGPUSettingsWindow_Title" xml:space="preserve">
-	  <value>Ajustes de overclocking de la GPU</value>
+    <value>Ajustes de overclocking de la GPU</value>
   </data>
   <data name="OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title" xml:space="preserve">
-	  <value>Desviación de frecuencia del núcleo</value>
+    <value>Desviación de frecuencia del núcleo</value>
   </data>
   <data name="OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title" xml:space="preserve">
-	  <value>Desviación de frecuencia de la memoria</value>
+    <value>Desviación de frecuencia de la memoria</value>
   </data>
   <data name="OverclockDiscreteGPUControl_Title" xml:space="preserve">
-	  <value>Overclock de la GPU</value>
+    <value>Overclock de la GPU</value>
   </data>
   <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
-	  <value>Aumentar el rendimiento haciendo overclocking en la GPU externa.</value>
+    <value>Aumentar el rendimiento haciendo overclocking en la GPU externa.</value>
   </data>
   <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
-	  <value>Overclock de la GPU</value>
+    <value>Overclock de la GPU</value>
   </data>
   <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
-	  <value>Aumentar el rendimiento haciendo overclocking en la GPU externa.
+    <value>Aumentar el rendimiento haciendo overclocking en la GPU externa.
 
 AVISO: Esta acción no se ejecutará correctamente si no se dispone de una GPU externa.</value>
   </data>

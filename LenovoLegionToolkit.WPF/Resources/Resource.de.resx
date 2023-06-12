@@ -1204,17 +1204,17 @@ Nach dem Ändern dieser Option wird ein Neustart empfohlen.</value>
     <value>Lenovo Hotkeys deaktivieren</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage wurde möglicherweise nicht korrekt deaktiviert</value>
+    <value>Vantage und/oder ImController wurden möglicherweise nicht korrekt deaktiviert</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Vantage konnte nicht deaktiviert werden</value>
+    <value>Vantage und/oder ImController konnten nicht deaktiviert werden</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>Deaktiviert Lenovo Vantage und dessen Dienste ohne es zu deinstallieren.
+    <value>Deaktiviert Lenovo Vantage und ImController, ohne sie zu deinstallieren.
 Nach dem Ändern dieser Option wird ein Neustart empfohlen.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
-    <value>Lenovo Vantage deaktivieren</value>
+    <value>Lenovo Vantage und ImController deaktivieren</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone wurde möglicherweise nicht korrekt aktiviert</value>
@@ -1767,25 +1767,25 @@ Diese Einstellung wird nur wirksam, wenn der benutzerdefinierte Modus aktiviert 
     <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
   </data>
   <data name="OverclockDiscreteGPUSettingsWindow_Title" xml:space="preserve">
-	  <value>Einstellungen der GPU-Übertaktung</value>
+    <value>Einstellungen der GPU-Übertaktung</value>
   </data>
   <data name="OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title" xml:space="preserve">
-	  <value>Kernfrequenz-Offset</value>
+    <value>Kernfrequenz-Offset</value>
   </data>
   <data name="OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title" xml:space="preserve">
-	  <value>Speicherfrequenz-Offset</value>
+    <value>Speicherfrequenz-Offset</value>
   </data>
   <data name="OverclockDiscreteGPUControl_Title" xml:space="preserve">
-	  <value>GPU übertakten</value>
+    <value>GPU übertakten</value>
   </data>
   <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
-	  <value>Steigern Sie die Leistung durch Übertaktung der diskreten GPU.</value>
+    <value>Steigern Sie die Leistung durch Übertaktung der diskreten GPU.</value>
   </data>
   <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
-	  <value>GPU übertakten</value>
+    <value>GPU übertakten</value>
   </data>
   <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
-	  <value>Steigern Sie die Leistung durch Übertaktung der diskreten GPU.
+    <value>Steigern Sie die Leistung durch Übertaktung der diskreten GPU.
 
 WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn keine diskrete GPU verfügbar ist.</value>
   </data>

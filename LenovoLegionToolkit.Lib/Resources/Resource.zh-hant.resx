@@ -196,7 +196,7 @@
     <value>平衡模式</value>
   </data>
   <data name="PowerModeState_GodMode" xml:space="preserve">
-    <value>客製化模式</value>
+    <value>客製化</value>
   </data>
   <data name="PowerModeState_Performance" xml:space="preserve">
     <value>效能</value>

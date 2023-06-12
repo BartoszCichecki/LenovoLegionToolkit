@@ -668,6 +668,10 @@ Merci par avance !</value>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Verrouillage de Fn</value>
   </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
+    <value>ATTENTION !
+Certaines machines peuvent accepter des valeurs plus faibles à celles indiquées, mais soyez prudents. Cette option peut engendrer un comportement imprévisible, si vous n'êtes pas sûr de ce que vous faites, laissez cette valeur à 0.</value>
+  </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>Ne modifiez pas les options ci-dessous à moins que vous ne sachiez vraiment ce que vous faites.</value>
   </data>
@@ -1190,19 +1194,6 @@ Il est recommandé de redémarrer l'ordinateur après avoir modifié cette optio
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Désactiver Lenovo Hotkeys</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage n'a peut-être pas été désactivé correctement</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Impossible de désactiver Vantage</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>Désactive Lenovo Vantage et ses services sans les désinstaller.
-Un redémarrage est recommandé après avoir modifié cette option.</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
-    <value>Désactiver Lenovo Vantage</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone n'a peut-être pas été activé correctement</value>
@@ -1737,5 +1728,11 @@ Ce paramètre ne prend effet que lorsque le mode personnalisé est activé.</val
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Désactivé</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
+    <value>Emplacement</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_After" xml:space="preserve">
+    <value>Après {0}</value>
   </data>
 </root>

@@ -1205,17 +1205,17 @@ A reinicialização é recomendada após alterar esta opção.</value>
     <value>Desativar o Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>O Vantage pode não ter sido desativado corretamente</value>
+    <value>Vantage e/ou ImController podem não ter sido desabilitados corretamente</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Não foi possível desativar o Vantage</value>
+    <value>Não foi possível desativar o Vantage e/ou ImController</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>Desativar o Lenovo Vantage e seu serviço sem desinstalá-lo.
-A reinicialização é recomendada após alterar esta opção.</value>
+    <value>Desative o Lenovo Vantage e o ImController sem desinstalá-los.
+Uma reinicialização é recomendada após alterar esta opção.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
-    <value>Desativar o Lenovo Vantage</value>
+    <value>Desativar Lenovo Vantage e ImController</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>O Legion Zone pode não ter sido ativado corretamente</value>
@@ -1765,25 +1765,25 @@ Esta configuração somente terá efeito se o Modo Personalizado estiver ativo.<
     <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
   </data>
   <data name="OverclockDiscreteGPUSettingsWindow_Title" xml:space="preserve">
-	  <value>Configurações de Overclock da GPU</value>
+    <value>Configurações de Overclock da GPU</value>
   </data>
   <data name="OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title" xml:space="preserve">
-	  <value>Compensação de Frequência de Core</value>
+    <value>Compensação de Frequência de Core</value>
   </data>
   <data name="OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title" xml:space="preserve">
-	  <value>Compensação de Frequência de Memória</value>
+    <value>Compensação de Frequência de Memória</value>
   </data>
   <data name="OverclockDiscreteGPUControl_Title" xml:space="preserve">
-	  <value>Overclock da GPU</value>
+    <value>Overclock da GPU</value>
   </data>
   <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
-	  <value>Aumentar performance overclocando a GPU dedicada.</value>
+    <value>Aumentar performance overclocando a GPU dedicada.</value>
   </data>
   <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
-	  <value>Overclock da GPU</value>
+    <value>Overclock da GPU</value>
   </data>
   <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
-	  <value>Aumentar performance overclocando a GPU dedicada.
+    <value>Aumentar performance overclocando a GPU dedicada.
 
 AVISO: Esta ação não será executada corretamente caso a GPU dedicada não esteja disponível.</value>
   </data>

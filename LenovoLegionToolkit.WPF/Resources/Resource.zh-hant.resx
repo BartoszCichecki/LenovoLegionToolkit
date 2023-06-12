@@ -558,7 +558,7 @@
     <value>贊助於</value>
   </data>
   <data name="DonatePage_Message" xml:space="preserve">
-    <value>開發和維護 Lenovo Legion 工具套件需要大量的時間。如果你喜歡這個應用程式，你可以透過捐贈來支持未來應用程式的開發。
+    <value>開發和維護 Lenovo Legion 工具套件需要大量的時間。如果你喜歡這個應用程式，您可以透過捐贈來支持未來應用程式的開發。
 
 點擊下方的 Stripe 圖示或掃描 QR 條碼使用 Stripe 捐贈。
 
@@ -639,6 +639,18 @@
   <data name="FanCurveControl_RPM" xml:space="preserve">
     <value>RPM</value>
   </data>
+  <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
+    <value>開啟上蓋後自動開啟筆記型電腦。</value>
+  </data>
+  <data name="FlipToStartAutomationStepControl_Title" xml:space="preserve">
+    <value>開蓋啟動</value>
+  </data>
+  <data name="FlipToStartControl_Message" xml:space="preserve">
+    <value>開啟上蓋後自動開啟筆記型電腦。</value>
+  </data>
+  <data name="FlipToStartControl_Title" xml:space="preserve">
+    <value>開蓋啟動</value>
+  </data>
   <data name="FnLockAutomationStepControl_Title" xml:space="preserve">
     <value>鎖定 Fn 鍵</value>
   </data>
@@ -669,6 +681,9 @@
   <data name="GodModeSettingsWindow_CPU_Title" xml:space="preserve">
     <value>CPU</value>
   </data>
+  <data name="GodModeSettingsWindow_Error_Apply_Title" xml:space="preserve">
+    <value>無法套用設定</value>
+  </data>
   <data name="GodModeSettingsWindow_Fans_Curve_Message" xml:space="preserve">
     <value>風扇轉速不僅僅由一個溫度感應器決定的。它根據 CPU、GPU 和散熱器溫度之間的最高值決定轉速。將滑鼠懸停在滑塊上可以查看精確的數值。</value>
   </data>
@@ -697,6 +712,9 @@
   </data>
   <data name="GodModeSettingsWindow_GPU_Title" xml:space="preserve">
     <value>GPU</value>
+  </data>
+  <data name="GodModeSettingsWindow_Title" xml:space="preserve">
+    <value>客製化模式設定</value>
   </data>
   <data name="HDRAutomationStepControl_Message" xml:space="preserve">
     <value>啟用高動態範圍（HDR）顯示。
@@ -730,6 +748,9 @@
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>由於 Lenovo Vantage 或其他服務正在執行而導致衝突，無法在此控制鍵盤背光。</value>
   </data>
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
+    <value>似乎已啟用 Lenovo Vantage。</value>
+  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>關於</value>
   </data>
@@ -738,6 +759,9 @@
   </data>
   <data name="MainWindow_NavigationItem_Battery" xml:space="preserve">
     <value>電池</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Dashboard" xml:space="preserve">
+    <value>控制面板</value>
   </data>
   <data name="MainWindow_NavigationItem_Donate" xml:space="preserve">
     <value>捐贈</value>
@@ -757,8 +781,23 @@
   <data name="MainWindow_UpdateAvailableWithVersion" xml:space="preserve">
     <value>已有可供使用的更新 {0} ！</value>
   </data>
+  <data name="MoveDown" xml:space="preserve">
+    <value>往下移</value>
+  </data>
+  <data name="MoveUp" xml:space="preserve">
+    <value>往上移</value>
+  </data>
   <data name="No" xml:space="preserve">
     <value>否</value>
+  </data>
+  <data name="Notification_ACAdapterConnected" xml:space="preserve">
+    <value>已連接電源供應器</value>
+  </data>
+  <data name="Notification_ACAdapterConnectedLowWattage" xml:space="preserve">
+    <value>已連接電源供應器（較低功率）</value>
+  </data>
+  <data name="Notification_ACAdapterDisconnected" xml:space="preserve">
+    <value>已中斷連接電源供應器</value>
   </data>
   <data name="Notification_CameraOff" xml:space="preserve">
     <value>關閉相機</value>
@@ -795,6 +834,9 @@
   </data>
   <data name="Notification_SpectrumKeyboardBacklight_Brightness" xml:space="preserve">
     <value>亮度 {0}</value>
+  </data>
+  <data name="Notification_SpectrumKeyboardBacklight_Profile" xml:space="preserve">
+    <value>設定檔 {0}</value>
   </data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
     <value>關閉觸控板</value>
@@ -848,6 +890,12 @@
   <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
     <value>觸控板鎖定</value>
   </data>
+  <data name="OK" xml:space="preserve">
+    <value>確認</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>開啟</value>
+  </data>
   <data name="OverDriveAutomationStepControl_Title" xml:space="preserve">
     <value>Over Drive</value>
   </data>
@@ -860,8 +908,27 @@
   <data name="PackageControl_DownloadComplete_Title" xml:space="preserve">
     <value>下載完成</value>
   </data>
+  <data name="PackageControl_GeneralError_Title" xml:space="preserve">
+    <value>發生了億些錯誤</value>
+  </data>
+  <data name="PackageControl_Http404Error_Message" xml:space="preserve">
+    <value>伺服器返回代碼 404。</value>
+  </data>
+  <data name="PackageControl_Http404Error_Title" xml:space="preserve">
+    <value>找不到資料</value>
+  </data>
   <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
     <value>已有可供使用的更新！</value>
+  </data>
+  <data name="PackageControl_OldPackageWarning" xml:space="preserve">
+    <value>此套件發布已超過一年。</value>
+  </data>
+  <data name="PackageControl_Version" xml:space="preserve">
+    <value>版本</value>
+  </data>
+  <data name="PackagesPage_Disclaimer_Message" xml:space="preserve">
+    <value>以下是標記為與您的筆記型電腦相容的套件列表。
+始終確保您正在安裝正確的套件。</value>
   </data>
   <data name="PackagesPage_DownloadFailed_Message" xml:space="preserve">
     <value>檢查機器類型和系統設定是否正確。</value>
@@ -870,7 +937,7 @@
     <value>發生了億些錯誤</value>
   </data>
   <data name="PackagesPage_DownloadInProgress_Message" xml:space="preserve">
-    <value>變更排序、過濾結果、隱藏套件或更新列表將停止下載。你確定嗎？</value>
+    <value>變更排序、過濾結果、隱藏套件或更新列表將停止下載。您確定嗎？</value>
   </data>
   <data name="PackagesPage_DownloadInProgress_Title" xml:space="preserve">
     <value>下載進行中</value>
@@ -881,11 +948,32 @@
   <data name="Filter" xml:space="preserve">
     <value>過濾……</value>
   </data>
+  <data name="PackagesPage_PrimarySource" xml:space="preserve">
+    <value>主要（推薦）</value>
+  </data>
+  <data name="PackagesPage_PrimarySource_Message" xml:space="preserve">
+    <value>與 Lenovo Vantage 相同</value>
+  </data>
+  <data name="PackagesPage_SecondarySource" xml:space="preserve">
+    <value>備用</value>
+  </data>
+  <data name="PackagesPage_SecondarySource_Message" xml:space="preserve">
+    <value>與 Lenovo PC Support 相同</value>
+  </data>
   <data name="PackagesPage_Sort_Date" xml:space="preserve">
     <value>日期</value>
   </data>
+  <data name="PackagesPage_Sort_Name" xml:space="preserve">
+    <value>名稱</value>
+  </data>
+  <data name="PackagesPage_Source" xml:space="preserve">
+    <value>來源</value>
+  </data>
   <data name="PackagesPage_Title" xml:space="preserve">
     <value>下載</value>
+  </data>
+  <data name="Paste" xml:space="preserve">
+    <value>貼上</value>
   </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>選擇效能模式</value>
@@ -895,7 +983,7 @@
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>選擇效能模式。
-你可以透過快捷鍵 Fn+Q 快速更改。</value>
+您可以透過快捷鍵 Fn+Q 快速更改。</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
     <value>設定</value>
@@ -936,6 +1024,9 @@
   <data name="RGBKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
     <value>鍵盤背光</value>
   </data>
+  <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
+    <value>亮度</value>
+  </data>
   <data name="RGBKeyboardBacklightControl_Preset1" xml:space="preserve">
     <value>預設 1</value>
   </data>
@@ -947,6 +1038,27 @@
   </data>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>關閉</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Zone1" xml:space="preserve">
+    <value>區域 1</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Zone2" xml:space="preserve">
+    <value>區域 2</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Zone3" xml:space="preserve">
+    <value>區域 3</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Zone4" xml:space="preserve">
+    <value>區域 4</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffectCardControl_Title" xml:space="preserve">
+    <value>特效</value>
+  </data>
+  <data name="RGBKeyboardBacklightSpeedCardControl_Title" xml:space="preserve">
+    <value>速度</value>
+  </data>
+  <data name="ReadmeWindow_Title" xml:space="preserve">
+    <value>Readme</value>
   </data>
   <data name="Refresh" xml:space="preserve">
     <value>重新整理</value>
@@ -965,11 +1077,18 @@
   <data name="RefreshRateControl_Title" xml:space="preserve">
     <value>更新率</value>
   </data>
+  <data name="Rename" xml:space="preserve">
+    <value>重新命名</value>
+  </data>
   <data name="RestartLater" xml:space="preserve">
     <value>稍後重新啟動</value>
   </data>
   <data name="RestartNow" xml:space="preserve">
     <value>立刻重新啟動</value>
+  </data>
+  <data name="RunAutomationStepControl_Message" xml:space="preserve">
+    <value>執行腳本或應用程式ˋ。
+首先請確保您的腳本能夠正確的執行。</value>
   </data>
   <data name="RunAutomationStepControl_Title" xml:space="preserve">
     <value>執行</value>
@@ -982,6 +1101,18 @@
   </data>
   <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
     <value>尚未定義快速操作。</value>
+  </data>
+  <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
+    <value>變更應用程式的主題色彩。</value>
+  </data>
+  <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
+    <value>主題色彩</value>
+  </data>
+  <data name="SettingsPage_Autorun_Message" xml:space="preserve">
+    <value>開機後最小化到系統匣。</value>
+  </data>
+  <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
+    <value>Legion Zone 可能沒有被正確地停用。</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
     <value>無法停用 Legion Zone</value>
@@ -1007,15 +1138,20 @@
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>停用 Lenovo Hotkeys</value>
   </data>
-  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>停用 Lenovo Vantage 服務且不需要解除安裝。
-變更此選項建議重新啟動。</value>
+  <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
+    <value>Legion Zone 可能沒有被正確地啟用。</value>
+  </data>
+  <data name="SettingsPage_EnableLegionZone_Error_Title" xml:space="preserve">
+    <value>無法啟用 Legion Zone</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Message" xml:space="preserve">
     <value>Lenovo Hotkeys 可能沒有被正確地啟用</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>無法啟用 Lenovo Hotkeys</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+    <value>無法啟用 Lenovo VantageVantage</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>您可以排除更新率，使用 Fn+R 快捷鍵切換更加實用。</value>
@@ -1035,6 +1171,18 @@
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>電源計畫</value>
   </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
+    <value>指派雙重點擊 Fn+F9 的快捷操作。</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
+    <value>指派點擊 Fn+F9 的快捷操作。</value>
+  </data>
+  <data name="SettingsPage_Theme_Description" xml:space="preserve">
+    <value>設定淺色、深色模式，或跟隨系統。</value>
+  </data>
+  <data name="SettingsPage_Theme_Title" xml:space="preserve">
+    <value>主題</value>
+  </data>
   <data name="SettingsPage_Title" xml:space="preserve">
     <value>設定</value>
   </data>
@@ -1047,8 +1195,35 @@
   <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>鍵盤背光亮度</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_AddEffect" xml:space="preserve">
+    <value>新增特效</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
+    <value>無法套用設定檔</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
+    <value>無法套用燈光設定檔。</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>亮度</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_DeselectAll_ToolTip" xml:space="preserve">
+    <value>取消選擇所有區域</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
+    <value>特效</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Message" xml:space="preserve">
+    <value>無法匯出設定檔</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Title" xml:space="preserve">
+    <value>無法匯出設定檔</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Message" xml:space="preserve">
+    <value>無法匯入設定檔</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Title" xml:space="preserve">
+    <value>無法匯入設定檔</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
     <value>尚未新增特效。</value>
@@ -1056,20 +1231,53 @@
   <data name="SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip" xml:space="preserve">
     <value>重設為預設</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
+    <value>選擇所有區域</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_SwitchKeyboardLayout_ToolTip" xml:space="preserve">
     <value>切換鍵盤布局</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_ClockwiseDirection_Title" xml:space="preserve">
+    <value>方向</value>
   </data>
   <data name="SpectrumKeyboardBacklightEditEffectWindow_Color_Title" xml:space="preserve">
     <value>顏色</value>
   </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Colors_Title" xml:space="preserve">
+    <value>顏色</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Direction_Title" xml:space="preserve">
+    <value>方向</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Title" xml:space="preserve">
+    <value>特效</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Warning" xml:space="preserve">
     <value>此效果將被套用到整個鍵盤並替換其他效果。</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Speed_Title" xml:space="preserve">
+    <value>速度</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Add" xml:space="preserve">
+    <value>新增特效</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Edit" xml:space="preserve">
+    <value>編輯特效</value>
   </data>
   <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Message" xml:space="preserve">
     <value>調整鍵盤背光設定檔。</value>
   </data>
   <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Title" xml:space="preserve">
     <value>鍵盤背光設定檔。</value>
+  </data>
+  <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
+    <value>{0} 區</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
+    <value>日出</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
+    <value>日落</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
     <value>混合模式允許在內建顯示卡和獨立顯示卡之間切換。
@@ -1096,6 +1304,9 @@
   <data name="TouchpadLockControl_Title" xml:space="preserve">
     <value>觸控板鎖定</value>
   </data>
+  <data name="Unnamed" xml:space="preserve">
+    <value>未命名</value>
+  </data>
   <data name="UnsupportedWindow_Disclaimer_GitHub" xml:space="preserve">
     <value>在 Github 上查看專案頁面以獲得更多資訊。</value>
   </data>
@@ -1113,6 +1324,9 @@
   </data>
   <data name="WhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
     <value>鍵盤背光</value>
+  </data>
+  <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
+    <value>您可以透過 Fn+Space 變更亮度。</value>
   </data>
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>鍵盤背光</value>
@@ -1139,14 +1353,35 @@
 
 警告：如果內部顯示器已關閉，則此操作將無法正常執行。</value>
   </data>
+  <data name="DashboardPage_Display_Title" xml:space="preserve">
+    <value>顯示</value>
+  </data>
   <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>鍵盤背光</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
+    <value>您可以透過 Fn+Space 開啟或關閉背光。</value>
   </data>
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
     <value>鍵盤背光</value>
   </data>
   <data name="PackagesPage_NoMatchingDownloads" xml:space="preserve">
     <value>沒有找到匹配的結果</value>
+  </data>
+  <data name="EditDashboardWindow_Title" xml:space="preserve">
+    <value>客製化控制面板</value>
+  </data>
+  <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
+    <value>建立群組</value>
+  </data>
+  <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
+    <value>名稱</value>
+  </data>
+  <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
+    <value>根據裝置的狀態和配置，某些功能可能不會出現在控制面板上。</value>
+  </data>
+  <data name="DashboardPage_Customize" xml:space="preserve">
+    <value>客製化</value>
   </data>
   <data name="TurnOffMonitorsControl_Title" xml:space="preserve">
     <value>關閉顯示器</value>
@@ -1159,6 +1394,12 @@
   </data>
   <data name="TurnOffMonitorsAutomationStepControl_Message" xml:space="preserve">
     <value>關閉所有可供使用的顯示器。</value>
+  </data>
+  <data name="EditDashboardGroupControl_EditGroup_Title" xml:space="preserve">
+    <value>編輯群組名稱</value>
+  </data>
+  <data name="EditDashboardGroupControl_EditGroup_Message" xml:space="preserve">
+    <value>名稱</value>
   </data>
   <data name="Notification_PanelLogoLightingOn" xml:space="preserve">
     <value>開啟 Legion 圖示燈光</value>
@@ -1181,9 +1422,21 @@
   <data name="SaveAndClose" xml:space="preserve">
     <value>儲存 &amp; 關閉</value>
   </data>
+  <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
+    <value>客製化模式預設</value>
+  </data>
   <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
     <value>切換到客製化模式預設。
 此設定僅在啟用客製化模式時才會生效。</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
+    <value>預設名稱</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Message" xml:space="preserve">
+    <value>名稱</value>
+  </data>
+  <data name="GodModeSettingsWindow_ActivePreset_Title" xml:space="preserve">
+    <value>活動預設</value>
   </data>
   <data name="AboutPage_ApplicationFolders" xml:space="preserve">
     <value>應用程式資料夾</value>
@@ -1224,6 +1477,9 @@
   <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
     <value>電源模式</value>
   </data>
+  <data name="StatusTrayPopup_Preset" xml:space="preserve">
+    <value>預設</value>
+  </data>
   <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
     <value>獨立 GPU</value>
   </data>
@@ -1242,6 +1498,9 @@
   <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
     <value>偵測到新式待命（S0 Lower Power Model）模型</value>
   </data>
+  <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
+    <value>選擇電源模式變更時要套用的 Windows 電源計劃。</value>
+  </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>電源</value>
   </data>
@@ -1254,30 +1513,36 @@
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
     <value>匯入鍵盤背光設定檔</value>
   </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message" xml:space="preserve">
+    <value>匯入並套用背光配置檔案到目前的設定檔。</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
+    <value>路徑</value>
+  </data>
   <data name="MultipleTriggersAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>多重觸發器……</value>
     <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
   </data>
   <data name="OverclockDiscreteGPUSettingsWindow_Title" xml:space="preserve">
-	  <value>GPU 超頻設定</value>
+    <value>GPU 超頻設定</value>
   </data>
   <data name="OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title" xml:space="preserve">
-	  <value>核心頻率偏移</value>
+    <value>核心頻率偏移</value>
   </data>
   <data name="OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title" xml:space="preserve">
-	  <value>記憶體頻率偏移</value>
+    <value>記憶體頻率偏移</value>
   </data>
   <data name="OverclockDiscreteGPUControl_Title" xml:space="preserve">
-	  <value>GPU 超頻</value>
+    <value>GPU 超頻</value>
   </data>
   <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
-	  <value>藉由對獨立 GPU 超頻以提升效能</value>
+    <value>藉由對獨立 GPU 超頻以提升效能</value>
   </data>
   <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
-	  <value>GPU 超頻</value>
+    <value>GPU 超頻</value>
   </data>
   <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
-	  <value>藉由對獨立 GPU 超頻以提升效能。
+    <value>藉由對獨立 GPU 超頻以提升效能。
 
 警告：如果獨立顯示卡不可供使用，則此操作將無法正常執行。</value>
   </data>

@@ -1187,19 +1187,6 @@
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Вимкнути гарячі клавіші Lenovo</value>
   </data>
-  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage міг бути вимкнений неправильно</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Не вдалося вимкнути Vantage</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>Вимкнути зони Legion та їх сервіси без деінсталяції.
-Перезавантаження рекомендоване після зміни цієї опції.</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
-    <value>Вимкнути Lenovo Vantage</value>
-  </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Зони Legion могли бути увімкнені неправильно</value>
   </data>
