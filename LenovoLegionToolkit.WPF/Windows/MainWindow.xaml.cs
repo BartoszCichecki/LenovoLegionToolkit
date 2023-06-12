@@ -15,6 +15,10 @@ using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Utils;
 using Wpf.Ui.Controls;
+#if !DEBUG
+using System.Reflection;
+using LenovoLegionToolkit.Lib.Extensions;
+#endif
 
 namespace LenovoLegionToolkit.WPF.Windows;
 
@@ -44,8 +48,8 @@ public partial class MainWindow
 #if DEBUG
         _title.Text += Debugger.IsAttached ? " [DEBUG ATTACHED]" : " [DEBUG]";
 #else
-        var version = System.Reflection.Assembly.GetEntryAssembly()?.GetName().Version;
-        if (version == new Version(0, 0, 1, 0) || version?.Build == 99)
+        var version = Assembly.GetEntryAssembly()?.GetName().Version;
+        if (version is not null && version.IsBeta())
             _title.Text += " [BETA]";
 #endif
 

@@ -11,17 +11,21 @@ namespace LenovoLegionToolkit.WPF.Pages;
 
 public partial class AboutPage
 {
-    private string VersionText
+    private static string VersionText
     {
         get
         {
             var version = Assembly.GetEntryAssembly()?.GetName().Version;
-            return version?.ToString(3) ?? "";
+            if (version is null)
+                return "";
+            if (version.IsBeta())
+                return "BETA";
+            return version.ToString(3);
         }
     }
-    private string BuildText => Assembly.GetEntryAssembly()?.GetBuildDateTime()?.ToString("yyyyMMddHHmmss") ?? "";
+    private static string BuildText => Assembly.GetEntryAssembly()?.GetBuildDateTime()?.ToString("yyyyMMddHHmmss") ?? "";
 
-    private string CopyrightText
+    private static string CopyrightText
     {
         get
         {
