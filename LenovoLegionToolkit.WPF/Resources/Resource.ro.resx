@@ -1190,19 +1190,6 @@ Se recomandă repornirea după modificarea acestei opțiuni.</value>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Dezactivare Lenovo Hotkeys</value>
   </data>
-  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Este posibil ca Vantage să nu fi fost dezactivat corect</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Nu s-a putut dezactiva Vantage</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>Dezactivați Lenovo Vantage și serviciul său fără a-l dezinstala.
-Se recomandă repornirea după modificarea acestei opțiuni.</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
-    <value>Dezactivare Lenovo Vantage</value>
-  </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Este posibil ca Legion Zone să nu fi fost activat corect</value>
   </data>
