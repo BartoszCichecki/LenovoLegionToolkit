@@ -1203,19 +1203,6 @@
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Деактивирай приложението Lenovo Hotkeys</value>
   </data>
-  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Възможно е приложението Vantage да не е деактивирано правилно</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Приложението Vantage не можа да бъде деактивирано</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>Деактивирай приложението Vantage и неговите услуги без да бъде деинсталирано.
-Препоръчително е да рестартирате компютъра след тази промяна.</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
-    <value>Деактивирайте приложението Lenovo Vantage</value>
-  </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Възможно е приложението Legion Zone да не е активирано правилно</value>
   </data>
@@ -1765,25 +1752,25 @@
     <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
   </data>
   <data name="OverclockDiscreteGPUSettingsWindow_Title" xml:space="preserve">
-	  <value>Настройки на овърклока на видео картата</value>
+    <value>Настройки на овърклока на видео картата</value>
   </data>
   <data name="OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title" xml:space="preserve">
-	  <value>Отместване на честотата на ядрата</value>
+    <value>Отместване на честотата на ядрата</value>
   </data>
   <data name="OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title" xml:space="preserve">
-	  <value>Отместване на честотата на паметта</value>
+    <value>Отместване на честотата на паметта</value>
   </data>
   <data name="OverclockDiscreteGPUControl_Title" xml:space="preserve">
-	  <value>Овърклок на видео картата</value>
+    <value>Овърклок на видео картата</value>
   </data>
   <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
-	  <value>Увеличете производителността чрез овърклок на допълнителната видео карта.</value>
+    <value>Увеличете производителността чрез овърклок на допълнителната видео карта.</value>
   </data>
   <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
-	  <value>Овърклок на видео картата</value>
+    <value>Овърклок на видео картата</value>
   </data>
   <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
-	  <value>Увеличете производителността чрез овърклок на допълнителната видео карта.
+    <value>Увеличете производителността чрез овърклок на допълнителната видео карта.
 
 ВНИМАНИЕ: Това действие няма да бъде изпълнено правилно, ако Вашето устройство не разполага с допълнителна видео карта.</value>
   </data>
