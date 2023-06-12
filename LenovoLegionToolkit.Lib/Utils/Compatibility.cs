@@ -12,9 +12,9 @@ namespace LenovoLegionToolkit.Lib.Utils;
 
 public static class Compatibility
 {
-    private static readonly string _allowedVendor = "LENOVO";
+    private const string ALLOWED_VENDOR = "LENOVO";
 
-    private static readonly string[] _allowedModelsPrefix = {
+    private static readonly string[] AllowedModelsPrefix = {
         // Worldwide variants
         "17ACH",
         "17ARH",
@@ -61,10 +61,10 @@ public static class Compatibility
         if (!await CheckBasicCompatibilityAsync().ConfigureAwait(false))
             return (false, mi);
 
-        if (!mi.Vendor.Equals(_allowedVendor, StringComparison.InvariantCultureIgnoreCase))
+        if (!mi.Vendor.Equals(ALLOWED_VENDOR, StringComparison.InvariantCultureIgnoreCase))
             return (false, mi);
 
-        foreach (var allowedModel in _allowedModelsPrefix)
+        foreach (var allowedModel in AllowedModelsPrefix)
             if (mi.Model.Contains(allowedModel, StringComparison.InvariantCultureIgnoreCase))
                 return (true, mi);
 

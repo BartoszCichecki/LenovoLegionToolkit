@@ -14,7 +14,7 @@ public static class Drivers
     public const uint IOCTL_KEY_WAIT_HANDLE = 0x831020D8;
     public const uint IOCTL_KEY_VALUE = 0x831020CC;
 
-    private static readonly object _locker = new();
+    private static readonly object Lock = new();
 
     private static SafeFileHandle? _energy;
 
@@ -23,7 +23,7 @@ public static class Drivers
         if (_energy is not null)
             return _energy;
 
-        lock (_locker)
+        lock (Lock)
         {
             if (_energy is not null)
                 return _energy;

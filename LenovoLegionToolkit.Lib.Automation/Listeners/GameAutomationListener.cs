@@ -26,7 +26,7 @@ public class GameAutomationListener : IListener<bool>
         public int GetHashCode(Process obj) => obj.Id;
     }
 
-    private static readonly object _lock = new();
+    private static readonly object Lock = new();
 
     public event EventHandler<bool>? Changed;
 
@@ -53,7 +53,7 @@ public class GameAutomationListener : IListener<bool>
 
     public async Task StartAsync()
     {
-        lock (_lock)
+        lock (Lock)
         {
             foreach (var gamePath in GameDetector.GetDetectedGamePaths())
                 _detectedGamePathsCache.Add(gamePath);
@@ -72,7 +72,7 @@ public class GameAutomationListener : IListener<bool>
         await _instanceCreationListener.StopAsync().ConfigureAwait(false);
         await _effectiveGameModeListener.StopAsync().ConfigureAwait(false);
 
-        lock (_lock)
+        lock (Lock)
         {
             foreach (var process in _processCache)
                 Detach(process);
@@ -85,7 +85,7 @@ public class GameAutomationListener : IListener<bool>
 
     public bool AreGamesRunning()
     {
-        lock (_lock)
+        lock (Lock)
         {
             return _lastState;
         }
@@ -93,7 +93,7 @@ public class GameAutomationListener : IListener<bool>
 
     private void GameDetector_GamesDetected(object? sender, GameDetector.GameDetectedEventArgs e)
     {
-        lock (_lock)
+        lock (Lock)
         {
             _detectedGamePathsCache.Clear();
 
@@ -129,7 +129,7 @@ public class GameAutomationListener : IListener<bool>
 
     private void InstanceCreationListener_Changed(object? sender, (ProcessEventInfoType type, int processId, string processName) e)
     {
-        lock (_lock)
+        lock (Lock)
         {
             if (e.processId < 0)
                 return;
@@ -172,7 +172,7 @@ public class GameAutomationListener : IListener<bool>
 
     private void EffectiveGameModeListenerChanged(object? sender, bool e)
     {
-        lock (_lock)
+        lock (Lock)
         {
             if (_processCache.Any())
             {
@@ -187,7 +187,7 @@ public class GameAutomationListener : IListener<bool>
 
     private void RaiseChangedIfNeeded(bool newState)
     {
-        lock (_lock)
+        lock (Lock)
         {
             if (newState == _lastState)
                 return;
@@ -218,7 +218,7 @@ public class GameAutomationListener : IListener<bool>
 
     private void Process_Exited(object? o, EventArgs args)
     {
-        lock (_lock)
+        lock (Lock)
         {
             if (o is not Process process)
                 return;

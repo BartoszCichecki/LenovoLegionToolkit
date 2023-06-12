@@ -27,12 +27,12 @@ public static class InternalDisplay
         public static implicit operator Display?(DisplayHolder s) => s._display;
     }
 
-    private static readonly object _lock = new();
+    private static readonly object Lock = new();
     private static DisplayHolder? _displayHolder;
 
     public static void SetNeedsRefresh()
     {
-        lock (_lock)
+        lock (Lock)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Resetting holder...");
@@ -43,7 +43,7 @@ public static class InternalDisplay
 
     public static Display? Get()
     {
-        lock (_lock)
+        lock (Lock)
         {
             if (_displayHolder is not null)
                 return _displayHolder;

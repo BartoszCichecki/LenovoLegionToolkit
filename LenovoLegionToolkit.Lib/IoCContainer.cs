@@ -5,13 +5,13 @@ namespace LenovoLegionToolkit.Lib;
 
 public class IoCContainer
 {
-    private static readonly object _lock = new();
+    private static readonly object Lock = new();
 
     private static IContainer? _container;
 
     public static void Initialize(params Module[] modules)
     {
-        lock (_lock)
+        lock (Lock)
         {
             if (_container is not null)
                 throw new InvalidOperationException("IoCContainer already initialized");
@@ -27,7 +27,7 @@ public class IoCContainer
 
     public static T Resolve<T>() where T : notnull
     {
-        lock (_lock)
+        lock (Lock)
         {
             if (_container is null)
                 throw new InvalidOperationException($"IoCContainer must be initialized first. [type={nameof(T)}]");
@@ -37,7 +37,7 @@ public class IoCContainer
 
     public static T? TryResolve<T>() where T : class
     {
-        lock (_lock)
+        lock (Lock)
         {
             if (_container is null)
                 throw new InvalidOperationException($"IoCContainer must be initialized first [type={nameof(T)}]");

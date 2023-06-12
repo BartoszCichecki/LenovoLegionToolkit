@@ -11,9 +11,9 @@ namespace LenovoLegionToolkit.Lib.Automation.Listeners;
 
 public class ProcessAutomationListener : IListener<ProcessEventInfo>
 {
-    private static readonly object _lock = new();
+    private static readonly object Lock = new();
 
-    private static readonly string[] _ignoredNames =
+    private static readonly string[] IgnoredNames =
     {
         "backgroundTaskHost",
         "CompPkgSrv",
@@ -28,7 +28,7 @@ public class ProcessAutomationListener : IListener<ProcessEventInfo>
         "WmiPrvSE"
     };
 
-    private static readonly string[] _ignoredPaths =
+    private static readonly string[] IgnoredPaths =
     {
         Environment.GetFolderPath(Environment.SpecialFolder.Windows),
     };
@@ -60,7 +60,7 @@ public class ProcessAutomationListener : IListener<ProcessEventInfo>
         await _instanceCreationListener.StopAsync().ConfigureAwait(false);
         await _instanceDeletionListener.StopAsync().ConfigureAwait(false);
 
-        lock (_lock)
+        lock (Lock)
         {
             _processCache.Clear();
         }
@@ -68,7 +68,7 @@ public class ProcessAutomationListener : IListener<ProcessEventInfo>
 
     private void InstanceCreationListener_Changed(object? sender, (ProcessEventInfoType type, int processId, string processName) e)
     {
-        lock (_lock)
+        lock (Lock)
         {
             if (e.processId < 0)
                 return;
@@ -76,7 +76,7 @@ public class ProcessAutomationListener : IListener<ProcessEventInfo>
             if (string.IsNullOrWhiteSpace(e.processName))
                 return;
 
-            if (_ignoredNames.Contains(e.processName, StringComparer.InvariantCultureIgnoreCase))
+            if (IgnoredNames.Contains(e.processName, StringComparer.InvariantCultureIgnoreCase))
                 return;
 
             string? processPath = null;
@@ -90,7 +90,7 @@ public class ProcessAutomationListener : IListener<ProcessEventInfo>
                     Log.Instance.Trace($"Can't get process {e.processName} details.", ex);
             }
 
-            if (!string.IsNullOrEmpty(processPath) && _ignoredPaths.Any(p => processPath.StartsWith(p, StringComparison.InvariantCultureIgnoreCase)))
+            if (!string.IsNullOrEmpty(processPath) && IgnoredPaths.Any(p => processPath.StartsWith(p, StringComparison.InvariantCultureIgnoreCase)))
                 return;
 
             var processInfo = new ProcessInfo(e.processName, processPath);
@@ -102,7 +102,7 @@ public class ProcessAutomationListener : IListener<ProcessEventInfo>
 
     private void InstanceDeletionListener_Changed(object? sender, (ProcessEventInfoType type, int processId, string processName) e)
     {
-        lock (_lock)
+        lock (Lock)
         {
             CleanUpCacheIfNecessary();
 
@@ -112,7 +112,7 @@ public class ProcessAutomationListener : IListener<ProcessEventInfo>
             if (string.IsNullOrWhiteSpace(e.processName))
                 return;
 
-            if (_ignoredNames.Contains(e.processName, StringComparer.InvariantCultureIgnoreCase))
+            if (IgnoredNames.Contains(e.processName, StringComparer.InvariantCultureIgnoreCase))
                 return;
 
             if (!_processCache.TryGetValue(e.processId, out var processInfo))

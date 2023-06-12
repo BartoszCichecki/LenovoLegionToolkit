@@ -20,30 +20,13 @@ public class BatteryFeature : AbstractDriverFeature<BatteryState>
 
     protected override Task<uint[]> ToInternalAsync(BatteryState state)
     {
-        uint[] result;
-        switch (state)
+        var result = state switch
         {
-            case BatteryState.Conservation:
-                if (LastState == BatteryState.RapidCharge)
-                    result = new uint[] { 0x8, 0x3 };
-                else
-                    result = new uint[] { 0x3 };
-                break;
-            case BatteryState.Normal:
-                if (LastState == BatteryState.Conservation)
-                    result = new uint[] { 0x5 };
-                else
-                    result = new uint[] { 0x8 };
-                break;
-            case BatteryState.RapidCharge:
-                if (LastState == BatteryState.Conservation)
-                    result = new uint[] { 0x5, 0x7 };
-                else
-                    result = new uint[] { 0x7 };
-                break;
-            default:
-                throw new InvalidOperationException("Invalid state.");
-        }
+            BatteryState.Conservation => LastState == BatteryState.RapidCharge ? new uint[] { 0x8, 0x3 } : new uint[] { 0x3 },
+            BatteryState.Normal => LastState == BatteryState.Conservation ? new uint[] { 0x5 } : new uint[] { 0x8 },
+            BatteryState.RapidCharge => LastState == BatteryState.Conservation ? new uint[] { 0x5, 0x7 } : new uint[] { 0x7 },
+            _ => throw new InvalidOperationException("Invalid state.")
+        };
         return Task.FromResult(result);
     }
 
@@ -51,13 +34,8 @@ public class BatteryFeature : AbstractDriverFeature<BatteryState>
     {
         state = state.ReverseEndianness();
 
-        if (state.GetNthBit(17)) // is charging?
-        {
-            if (state.GetNthBit(26))
-                return Task.FromResult(BatteryState.RapidCharge);
-
-            return Task.FromResult(BatteryState.Normal);
-        }
+        if (state.GetNthBit(17)) // Is charging?
+            return Task.FromResult(state.GetNthBit(26) ? BatteryState.RapidCharge : BatteryState.Normal);
 
         if (state.GetNthBit(29))
             return Task.FromResult(BatteryState.Conservation);

@@ -7,7 +7,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard;
 
 public partial class OverclockDiscreteGPUSettingsWindow
 {
-    private const string Mhz = "MHz";
+    private const string MHZ = "MHz";
 
     private readonly GPUOverclockController _gpuOverclockController = IoCContainer.Resolve<GPUOverclockController>();
 
@@ -25,13 +25,13 @@ public partial class OverclockDiscreteGPUSettingsWindow
         _memorySlider.Maximum = GPUOverclockController.GetMaxMemoryDeltaMhz();
         _memorySlider.Value = info.MemoryDeltaMhz;
 
-        _coreLabel.Content = $"{(int)_coreSlider.Value:+0;-0;0} {Mhz}";
-        _memoryLabel.Content = $"{(int)_memorySlider.Value:+0;-0;0} {Mhz}";
+        _coreLabel.Content = $"{(int)_coreSlider.Value:+0;-0;0} {MHZ}";
+        _memoryLabel.Content = $"{(int)_memorySlider.Value:+0;-0;0} {MHZ}";
     }
 
-    private void CoreSlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) => _coreLabel.Content = $"{(int)_coreSlider.Value:+0;-0;0} {Mhz}";
+    private void CoreSlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) => _coreLabel.Content = $"{(int)_coreSlider.Value:+0;-0;0} {MHZ}";
 
-    private void MemorySlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) => _memoryLabel.Content = $"{(int)_memorySlider.Value:+0;-0;0} {Mhz}";
+    private void MemorySlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) => _memoryLabel.Content = $"{(int)_memorySlider.Value:+0;-0;0} {MHZ}";
 
     private async void ApplyButton_Click(object sender, RoutedEventArgs e)
     {
