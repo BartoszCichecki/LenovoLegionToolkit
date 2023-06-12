@@ -177,4 +177,20 @@
   <data name="GamesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Pendant l'exécution du jeu</value>
   </data>
+  <data name="UserInactivityAutomationPipelineTrigger_DisplayName_Zero" xml:space="preserve">
+    <value>Quand l'utilisateur devient actif</value>
+  </data>
+  <data name="UserInactivityAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Quand l'utilisateur devient inactif</value>
+  </data>
+  <data name="DeactivateGpuQuickAction_Title" xml:space="preserve">
+    <value>Désactiver le GPU</value>
+    <comment>The display name of the default Quick Action that is presented to the user upon first installation.</comment>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepState_Off" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepState_On" xml:space="preserve">
+    <value>On</value>
+  </data>
 </root>
