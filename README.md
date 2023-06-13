@@ -212,7 +212,7 @@ Special thanks to:
 Translations provided by:
 * Bulgarian - [Ekscentricitet](https://github.com/Ekscentricitet)
 * Chinese (Simplified) - [凌卡Karl](https://github.com/KarlLee830)
-* Chinese (Traditional) - flandretw
+* Chinese (Traditional) - [flandretw](https://github.com/flandretw)
 * Czech - J0sef
 * Dutch - Melm, [JarneStaalPXL](https://github.com/JarneStaalPXL)
 * French - EliotAku, [Georges de Massol](https://github.com/jojo2massol), Rigbone, ZeroDegree
