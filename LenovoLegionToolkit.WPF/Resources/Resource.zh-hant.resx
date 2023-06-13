@@ -663,7 +663,6 @@
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
     <value>警告！
-警告！
 一些筆記型電腦可能接受較高的功率限制。請小心，此選項可能導致未知的後果，因此如果您不確定自己在做什麼，請將其保留為 0。</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_Title" xml:space="preserve">
@@ -955,7 +954,7 @@
     <value>與 Lenovo Vantage 相同</value>
   </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
-    <value>備用</value>
+    <value>次要</value>
   </data>
   <data name="PackagesPage_SecondarySource_Message" xml:space="preserve">
     <value>與 Lenovo PC Support 相同</value>
@@ -1349,7 +1348,7 @@
 警告：如果內部顯示器已關閉，則此操作將無法正常執行。</value>
   </data>
   <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
-    <value>變更內部顯示器縮放。
+    <value>變更內部顯示器比例。
 
 警告：如果內部顯示器已關閉，則此操作將無法正常執行。</value>
   </data>
