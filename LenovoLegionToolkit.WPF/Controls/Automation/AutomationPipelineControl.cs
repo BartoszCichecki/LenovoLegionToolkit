@@ -101,6 +101,7 @@ public class AutomationPipelineControl : UserControl
 
     public AutomationPipeline CreateAutomationPipeline() => new()
     {
+        Id = AutomationPipeline.Id,
         IconName = AutomationPipeline.IconName,
         Name = AutomationPipeline.Name,
         Trigger = AutomationPipeline.Trigger,
