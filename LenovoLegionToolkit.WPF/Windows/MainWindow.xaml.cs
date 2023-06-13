@@ -14,6 +14,7 @@ using LenovoLegionToolkit.WPF.Pages;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Utils;
+using Microsoft.Xaml.Behaviors.Core;
 using Wpf.Ui.Controls;
 #if !DEBUG
 using System.Reflection;
@@ -105,6 +106,9 @@ public partial class MainWindow
         CheckForUpdates();
 
         InitializeTray();
+
+        InputBindings.Add(new KeyBinding(new ActionCommand(_navigationStore.NavigateToNext), Key.Tab, ModifierKeys.Control));
+        InputBindings.Add(new KeyBinding(new ActionCommand(_navigationStore.NavigateToPrevious), Key.Tab, ModifierKeys.Control | ModifierKeys.Shift));
     }
 
     private async void MainWindow_Closing(object? sender, CancelEventArgs e)
