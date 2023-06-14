@@ -447,6 +447,9 @@
   <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
     <value>休眠獨立 GPU</value>
   </data>
+  <data name="DelayAutomationStepControl_Message" xml:space="preserve">
+    <value>在執行下一步驟前增加延遲。</value>
+  </data>
   <data name="DelayAutomationStepControl_Title" xml:space="preserve">
     <value>延遲</value>
   </data>
@@ -651,8 +654,14 @@
   <data name="FlipToStartControl_Title" xml:space="preserve">
     <value>開蓋啟動</value>
   </data>
+  <data name="FnLockAutomationStepControl_Message" xml:space="preserve">
+    <value>不需要按住 Fn 鍵即可使用 F1-F12 功能鍵。</value>
+  </data>
   <data name="FnLockAutomationStepControl_Title" xml:space="preserve">
     <value>鎖定 Fn 鍵</value>
+  </data>
+  <data name="FnLockControl_Message" xml:space="preserve">
+    <value>不需要按住 Fn 鍵即可使用 F1-F12 功能鍵。</value>
   </data>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>鎖定 Fn 鍵</value>
@@ -661,12 +670,24 @@
     <value>警告！
 一些筆記型電腦可能接受較低的功率限制。請小心，此選項可能導致未知的後果，因此如果您不確定自己在做什麼，請將其保留為 0。</value>
   </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
+    <value>最小偏移</value>
+  </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
     <value>警告！
 一些筆記型電腦可能接受較高的功率限制。請小心，此選項可能導致未知的後果，因此如果您不確定自己在做什麼，請將其保留為 0。</value>
   </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
+    <value>最大偏移</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
+    <value>除非您真的知道自己在做什麼，否則請不要變更下面的選項。</value>
+  </data>
   <data name="GodModeSettingsWindow_Advanced_Title" xml:space="preserve">
     <value>進階</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_CrossLoading" xml:space="preserve">
+    <value>長時間功率限制（Cross Loading）</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_LongTermPL" xml:space="preserve">
     <value>長時間功率限制（PL1）</value>
@@ -682,6 +703,9 @@
   </data>
   <data name="GodModeSettingsWindow_Error_Apply_Title" xml:space="preserve">
     <value>無法套用設定</value>
+  </data>
+  <data name="GodModeSettingsWindow_Error_Load_Title" xml:space="preserve">
+    <value>無法載入設定。</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Curve_Message" xml:space="preserve">
     <value>風扇轉速不僅僅由一個溫度感應器決定的。它根據 CPU、GPU 和散熱器溫度之間的最高值決定轉速。將滑鼠懸停在滑塊上可以查看精確的數值。</value>
@@ -734,6 +758,9 @@
   </data>
   <data name="Import" xml:space="preserve">
     <value>匯入</value>
+  </data>
+  <data name="IncompatibleDevice_Message" xml:space="preserve">
+    <value>此裝置不相容於 Lenovo Legion Toolkit。</value>
   </data>
   <data name="IncompatibleDevice_Title" xml:space="preserve">
     <value>Lenovo Legion 工具套件</value>
@@ -895,8 +922,14 @@
   <data name="Open" xml:space="preserve">
     <value>開啟</value>
   </data>
+  <data name="OverDriveAutomationStepControl_Message" xml:space="preserve">
+    <value>透過增加電壓超頻以提升內部顯示器反應速度，可能會導致顯示器螢幕過衝產生鬼影。</value>
+  </data>
   <data name="OverDriveAutomationStepControl_Title" xml:space="preserve">
     <value>Over Drive</value>
+  </data>
+  <data name="OverDriveControl_Message" xml:space="preserve">
+    <value>透過增加電壓超頻以提升內部顯示器反應速度，可能會導致顯示器螢幕過衝產生鬼影。</value>
   </data>
   <data name="OverDriveControl_Title" xml:space="preserve">
     <value>Over Drive</value>
@@ -915,6 +948,12 @@
   </data>
   <data name="PackageControl_Http404Error_Title" xml:space="preserve">
     <value>找不到資料</value>
+  </data>
+  <data name="PackageControl_HttpGeneralError_Message" xml:space="preserve">
+    <value>檢查您的網路連接是否正常。</value>
+  </data>
+  <data name="PackageControl_HttpGeneralError_Title" xml:space="preserve">
+    <value>發生了億些錯誤</value>
   </data>
   <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
     <value>已有可供使用的更新！</value>
@@ -947,6 +986,12 @@
   <data name="Filter" xml:space="preserve">
     <value>過濾……</value>
   </data>
+  <data name="PackagesPage_MachineType" xml:space="preserve">
+    <value>裝置類型</value>
+  </data>
+  <data name="PackagesPage_OperatingSystem" xml:space="preserve">
+    <value>作業系統</value>
+  </data>
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>主要（推薦）</value>
   </data>
@@ -958,6 +1003,9 @@
   </data>
   <data name="PackagesPage_SecondarySource_Message" xml:space="preserve">
     <value>與 Lenovo PC Support 相同</value>
+  </data>
+  <data name="PackagesPage_Sort_Category" xml:space="preserve">
+    <value>類別</value>
   </data>
   <data name="PackagesPage_Sort_Date" xml:space="preserve">
     <value>日期</value>
@@ -1085,6 +1133,15 @@
   <data name="RestartNow" xml:space="preserve">
     <value>立刻重新啟動</value>
   </data>
+  <data name="Revert" xml:space="preserve">
+    <value>重設</value>
+  </data>
+  <data name="RunAutomationStepControl_ExeArguments" xml:space="preserve">
+    <value>參數</value>
+  </data>
+  <data name="RunAutomationStepControl_ExePath" xml:space="preserve">
+    <value>執行路徑</value>
+  </data>
   <data name="RunAutomationStepControl_Message" xml:space="preserve">
     <value>執行腳本或應用程式ˋ。
 首先請確保您的腳本能夠正確的執行。</value>
@@ -1098,8 +1155,14 @@
   <data name="Saving" xml:space="preserve">
     <value>儲存中……</value>
   </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Description" xml:space="preserve">
+    <value>選擇一個或更多快捷動作來循環執行。</value>
+  </data>
   <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
     <value>尚未定義快捷操作。</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
+    <value>顯示此應用程式</value>
   </data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
     <value>變更應用程式的主題色彩。</value>
@@ -1109,6 +1172,9 @@
   </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
     <value>開機後最小化到系統匣。</value>
+  </data>
+  <data name="SettingsPage_Autorun_Title" xml:space="preserve">
+    <value>開機啟動</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone 可能沒有被正確地停用。</value>
@@ -1137,6 +1203,19 @@
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>停用 Lenovo Hotkeys</value>
   </data>
+  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
+    <value>Vantage 或 ImController 可能沒有被正確地關閉。</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
+    <value>無法停用 Vantage 或 ImController</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
+    <value>在不解除安裝 Lenovo Vantage 和 ImController 的情況下停用它們。
+推薦變更此選項後重新啟動。</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
+    <value>停用 Lenovo Vantage 和 ImController</value>
+  </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone 可能沒有被正確地啟用。</value>
   </data>
@@ -1148,6 +1227,9 @@
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>無法啟用 Lenovo Hotkeys</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+    <value>Vantage 可能沒有被正確地啟用</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
     <value>無法啟用 Lenovo VantageVantage</value>
@@ -1164,6 +1246,15 @@
   <data name="SettingsPage_Language_Title" xml:space="preserve">
     <value>語言</value>
   </data>
+  <data name="SettingsPage_MinimizeOnClose_Message" xml:space="preserve">
+    <value>總是最小化到系統匣。對系統匣圖示點擊右鍵以關閉應用程式。</value>
+  </data>
+  <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
+    <value>關閉時最小化</value>
+  </data>
+  <data name="SettingsPage_Notifications_Message" xml:space="preserve">
+    <value>配置顯示通知。</value>
+  </data>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>通知</value>
   </data>
@@ -1173,8 +1264,14 @@
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>指派雙重點擊 Fn+F9 的快捷操作。</value>
   </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">
+    <value>Smart Key 次要動作</value>
+  </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
     <value>指派點擊 Fn+F9 的快捷操作。</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
+    <value>Smart Key 動作</value>
   </data>
   <data name="SettingsPage_Theme_Description" xml:space="preserve">
     <value>設定淺色、深色模式，或跟隨系統。</value>
@@ -1269,6 +1366,9 @@
   <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Title" xml:space="preserve">
     <value>鍵盤背光設定檔。</value>
   </data>
+  <data name="SpectrumKeyboardEffectControl_Description_AllZones" xml:space="preserve">
+    <value>所有按鍵區域</value>
+  </data>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} 區</value>
   </data>
@@ -1277,6 +1377,9 @@
   </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
     <value>日落</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
+    <value>時間</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
     <value>混合模式允許在內建顯示卡和獨立顯示卡之間切換。
@@ -1303,11 +1406,43 @@
   <data name="TouchpadLockControl_Title" xml:space="preserve">
     <value>觸控板鎖定</value>
   </data>
+  <data name="TryAgain" xml:space="preserve">
+    <value>再試一次</value>
+  </data>
+  <data name="UnexpectedException" xml:space="preserve">
+    <value>發生異常：
+{0}
+
+請在 {1} 上回報此問題。</value>
+  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>未命名</value>
   </data>
+  <data name="UnsupportedWindow_Disclaimer" xml:space="preserve">
+    <value>您可以選擇繼續，風險自負，但請記住，某些功能可能不可供使用或無法正常工作。
+
+如果您選擇繼續，將自動啟用記錄檔。</value>
+  </data>
   <data name="UnsupportedWindow_Disclaimer_GitHub" xml:space="preserve">
     <value>在 Github 上查看專案頁面以獲得更多資訊。</value>
+  </data>
+  <data name="UnsupportedWindow_Disclaimer_Logs" xml:space="preserve">
+    <value>記錄檔資料夾</value>
+  </data>
+  <data name="UnsupportedWindow_MachineType" xml:space="preserve">
+    <value>裝置類型</value>
+  </data>
+  <data name="UnsupportedWindow_Message" xml:space="preserve">
+    <value>Lenovo Legion Toolkit 尚未在您的裝置上經過測試。</value>
+  </data>
+  <data name="UnsupportedWindow_Model" xml:space="preserve">
+    <value>型號</value>
+  </data>
+  <data name="UnsupportedWindow_Title" xml:space="preserve">
+    <value>尚未受支援的裝置</value>
+  </data>
+  <data name="UnsupportedWindow_Vendor" xml:space="preserve">
+    <value>製造商</value>
   </data>
   <data name="Update" xml:space="preserve">
     <value>更新</value>
@@ -1330,6 +1465,21 @@
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>鍵盤背光</value>
   </data>
+  <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
+    <value>啟用或停用 Windows 鍵。</value>
+  </data>
+  <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
+    <value>Windows 鍵</value>
+  </data>
+  <data name="WinKeyControl_Message" xml:space="preserve">
+    <value>僅在內部鍵盤上作用。</value>
+  </data>
+  <data name="WinKeyControl_Title" xml:space="preserve">
+    <value>鎖定 Windows 鍵</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>是</value>
+  </data>
   <data name="MicrophoneControl_Title" xml:space="preserve">
     <value>麥克風</value>
   </data>
@@ -1342,10 +1492,28 @@
   <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
     <value>關閉此選項將會使所有麥克風靜音。</value>
   </data>
+  <data name="ResolutionControl_Title" xml:space="preserve">
+    <value>解析度</value>
+  </data>
+  <data name="ResolutionControl_Message" xml:space="preserve">
+    <value>變更內部顯示器解析度。</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
+    <value>解析度</value>
+  </data>
   <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
     <value>變更內部顯示器解析度。
 
 警告：如果內部顯示器已關閉，則此操作將無法正常執行。</value>
+  </data>
+  <data name="DpiScaleControl_Title" xml:space="preserve">
+    <value>DPI</value>
+  </data>
+  <data name="DpiScaleControl_Message" xml:space="preserve">
+    <value>變更內部顯示器比例。</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
+    <value>DPI</value>
   </data>
   <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
     <value>變更內部顯示器比例。
@@ -1364,11 +1532,20 @@
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
     <value>鍵盤背光</value>
   </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>開啟或關閉背光。</value>
+  </data>
   <data name="PackagesPage_NoMatchingDownloads" xml:space="preserve">
     <value>沒有找到匹配的結果</value>
   </data>
+  <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
+    <value>僅顯示更新</value>
+  </data>
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>客製化控制面板</value>
+  </data>
+  <data name="Load" xml:space="preserve">
+    <value>重設</value>
   </data>
   <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
     <value>建立群組</value>
@@ -1384,6 +1561,10 @@
   </data>
   <data name="TurnOffMonitorsControl_Title" xml:space="preserve">
     <value>關閉顯示器</value>
+  </data>
+  <data name="TurnOffMonitorsControl_Message" xml:space="preserve">
+    <value>關閉所有可供使用的顯示器。
+移動滑鼠或點擊鍵盤按鍵以喚醒螢幕。</value>
   </data>
   <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
     <value>關閉</value>
@@ -1414,6 +1595,9 @@
   </data>
   <data name="PackageControl_RebootRequired" xml:space="preserve">
     <value>需要重新啟動</value>
+  </data>
+  <data name="PackageControl_ShutdownRequired" xml:space="preserve">
+    <value>需要關機</value>
   </data>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>建議重新啟動</value>
@@ -1461,14 +1645,53 @@
   <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
     <value>APU 功率限制（SPPT）</value>
   </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL_Description" xml:space="preserve">
+    <value>CPU 持續功耗限制。</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL_Description" xml:space="preserve">
+    <value>CPU 短時間峰值功率限制。</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL_Description" xml:space="preserve">
+    <value>CPU 瞬間功率限制。</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_CrossLoading_Description" xml:space="preserve">
+    <value>CPU 和 GPU 達到最大負載時，CPU 可以達到的最大功率。</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL_Description" xml:space="preserve">
+    <value>CPU 在一定的延遲後可以達到的最大功耗限制。</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
+    <value>CPU 降頻前的溫度限制。</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
+    <value>基於 CPU 的功率，最大可以借用 GPU 的額外功率。</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
+    <value>基本功率上，最大可以分配給 GPU 的額外功率。</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
+    <value>GPU 降頻前的溫度限制。</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>預設</value>
+  </data>
   <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
     <value>短時間功率持續時間限制</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau_Description" xml:space="preserve">
+    <value>允許 CPU 使用短時間功率限制進行加速的時間量。當 Tau 到期時，將使用長時間功率限制。</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
     <value>連接電源時的總處理器功率目標。</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
     <value>CPU 觸發 GPU 動態功率調整點。</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>建立</value>
+  </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+    <value>新增步驟</value>
   </data>
   <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
     <value>建立操作</value>
@@ -1488,14 +1711,32 @@
   <data name="StatusTrayPopup_Battery" xml:space="preserve">
     <value>電池</value>
   </data>
+  <data name="StatusTrayPopup_Mode" xml:space="preserve">
+    <value>模式</value>
+  </data>
+  <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
+    <value>釋放功率</value>
+  </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
     <value>已有可供使用的更新！</value>
+  </data>
+  <data name="SymbolRegularPicker_Title" xml:space="preserve">
+    <value>選擇圖示</value>
+  </data>
+  <data name="AutomationPage_ChangeIcon" xml:space="preserve">
+    <value>變更圖示</value>
   </data>
   <data name="BatteryPage_LowLevel" xml:space="preserve">
     <value>電池低電量</value>
   </data>
+  <data name="AutomationPipelineTriggerConfigurationWindow_Title" xml:space="preserve">
+    <value>配置檔案</value>
+  </data>
   <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
     <value>偵測到 S0 Lower Power Model</value>
+  </data>
+  <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
+    <value>Windows 回報裝置支援新式待命（Modern Standby）。使用平衡以外的電源計劃可能導致未預期的行為。</value>
   </data>
   <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
     <value>選擇電源模式變更時要套用的 Windows 電源計劃。</value>
@@ -1517,6 +1758,9 @@
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
     <value>路徑</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_After" xml:space="preserve">
+    <value>在 {0} 之後</value>
   </data>
   <data name="MultipleTriggersAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>多重觸發器……</value>
