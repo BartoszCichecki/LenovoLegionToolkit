@@ -7,6 +7,7 @@
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:utils="clr-namespace:LenovoLegionToolkit.WPF.Utils"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:resources1="clr-namespace:LenovoLegionToolkit.Lib.Automation.Resources;assembly=LenovoLegionToolkit.Lib.Automation"
     Title="{x:Static resources:Resource.NotificationsSettingsWindow_Title}"
     Height="600"
     MinWidth="500"
@@ -74,7 +75,7 @@
 
                 <wpfui:CardControl x:Name="_updateAvailableCard" Margin="0,0,0,24">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="Updates" />
+                        <controls:CardHeaderControl Title="{x:Static resources1:Resource.NotificationsSettingsWindow_Updates_Title}" />
                     </wpfui:CardControl.Header>
                     <wpfui:ToggleSwitch
                         x:Name="_updateAvailableToggle"

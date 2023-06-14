@@ -205,6 +205,15 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Updates.
+        /// </summary>
+        public static string NotificationsSettingsWindow_Updates_Title {
+            get {
+                return ResourceManager.GetString("NotificationsSettingsWindow_Updates_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to On startup.
         /// </summary>
         public static string OnStartupAutomationPipelineTrigger_DisplayName {
