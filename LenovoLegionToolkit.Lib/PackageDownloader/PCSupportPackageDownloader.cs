@@ -26,6 +26,8 @@ public class PCSupportPackageDownloader : AbstractPackageDownloader
 
         using var httpClient = new HttpClient();
 
+        httpClient.DefaultRequestHeaders.Referrer = new Uri("https://pcsupport.lenovo.com/");
+
         progress?.Report(0);
 
         var catalogJson = await httpClient.GetStringAsync($"{_catalogBaseUrl}{machineType}", token).ConfigureAwait(false);
@@ -59,7 +61,12 @@ public class PCSupportPackageDownloader : AbstractPackageDownloader
         var description = downloadNode["Summary"]!.ToString();
         var version = downloadNode["SummaryInfo"]!["Version"]!.ToString();
 
-        var mainFileNode = downloadNode["Files"]!.AsArray().FirstOrDefault(n => n!["TypeString"]!.ToString() == "EXE")!;
+        var filesNode = downloadNode["Files"]!.AsArray();
+        var mainFileNode = filesNode.FirstOrDefault(n => n!["TypeString"]!.ToString() == "EXE") ?? filesNode.FirstOrDefault();
+
+        if (mainFileNode is null)
+            return null;
+
         var fileLocation = mainFileNode["URL"]!.ToString();
         var fileName = fileLocation[(fileLocation.LastIndexOf('/') + 1)..];
         var fileSize = mainFileNode["Size"]!.ToString();
