@@ -423,6 +423,24 @@ namespace LenovoLegionToolkit.Lib.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Off.
         /// </summary>
+        public static string PanelLogoBacklightState_Off {
+            get {
+                return ResourceManager.GetString("PanelLogoBacklightState_Off", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to On.
+        /// </summary>
+        public static string PanelLogoBacklightState_On {
+            get {
+                return ResourceManager.GetString("PanelLogoBacklightState_On", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Off.
+        /// </summary>
         public static string PortsBacklightState_Off {
             get {
                 return ResourceManager.GetString("PortsBacklightState_Off", resourceCulture);

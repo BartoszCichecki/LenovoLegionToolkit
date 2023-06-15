@@ -4,7 +4,7 @@ using LenovoLegionToolkit.Lib.System;
 
 namespace LenovoLegionToolkit.Lib.Features;
 
-public abstract class AbstractLenovoLightingFeature<T> : IFeature<PortsBacklightState>
+public abstract class AbstractLenovoLightingFeature<T> : IFeature<T> where T : struct, Enum, IComparable
 {
     private readonly int _dataType;
     private readonly int _id;
@@ -15,27 +15,47 @@ public abstract class AbstractLenovoLightingFeature<T> : IFeature<PortsBacklight
         _dataType = dataType;
     }
 
-    public Task<bool> IsSupportedAsync() => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_UTILITY_DATA",
-        "GetIfSupportOrVersion",
-        new() { { "datatype", _dataType } },
-        pdc => Convert.ToInt32(pdc["Data"].Value) > 0);
+    public async Task<bool> IsSupportedAsync()
+    {
+        try
+        {
+            var result = await WMI.CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_UTILITY_DATA",
+            "GetIfSupportOrVersion",
+            new() { { "datatype", _dataType } },
+            pdc => Convert.ToInt32(pdc["Data"].Value) > 0).ConfigureAwait(false);
 
-    public Task<PortsBacklightState[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<PortsBacklightState>());
+            if (!result)
+                return false;
 
-    public Task<PortsBacklightState> GetStateAsync() => WMI.CallAsync("root\\WMI",
+            _ = await GetStateAsync().ConfigureAwait(false);
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
+    }
+
+    public Task<T[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<T>());
+
+    public Task<T> GetStateAsync() => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_LIGHTING_METHOD",
         "Get_Lighting_Current_Status",
         new() { { "Lighting_ID", _id } },
-        pdc => (PortsBacklightState)Convert.ToInt32(pdc["Current_State_Type"].Value));
+        pdc => FromInternal(Convert.ToInt32(pdc["Current_State_Type"].Value)));
 
-    public Task SetStateAsync(PortsBacklightState state) => WMI.CallAsync("root\\WMI",
+    public Task SetStateAsync(T state) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_LIGHTING_METHOD",
         "Set_Lighting_Current_Status",
         new()
         {
             { "Lighting_ID", _id },
-            { "Current_State_Type", (int)state },
+            { "Current_State_Type", ToInternal(state) },
             { "Current_Brightness_Level", 1 }
         });
+
+    protected abstract T FromInternal(int value);
+
+    protected abstract int ToInternal(T state);
 }

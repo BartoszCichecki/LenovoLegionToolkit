@@ -367,4 +367,10 @@
 	<data name="PortsBacklightState_On" xml:space="preserve">
 		<value>On</value>
 	</data>
+	<data name="PanelLogoBacklightState_On" xml:space="preserve">
+		<value>On</value>
+	</data>
+	<data name="PanelLogoBacklightState_Off" xml:space="preserve">
+		<value>Off</value>
+	</data>
 </root>

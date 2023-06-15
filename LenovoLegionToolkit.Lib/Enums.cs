@@ -237,6 +237,14 @@ public enum OverDriveState
     On
 }
 
+public enum PanelLogoBacklightState
+{
+    [Display(ResourceType = typeof(Resource), Name = "PanelLogoBacklightState_Off")]
+    Off,
+    [Display(ResourceType = typeof(Resource), Name = "PanelLogoBacklightState_On")]
+    On
+}
+
 public enum PortsBacklightState
 {
     [Display(ResourceType = typeof(Resource), Name = "PortsBacklightState_Off")]

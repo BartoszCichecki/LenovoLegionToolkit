@@ -3358,6 +3358,42 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Turn on or off the backlight on the lid of the laptop..
+        /// </summary>
+        public static string PanelLogoBacklightAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("PanelLogoBacklightAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Panel logo backlight.
+        /// </summary>
+        public static string PanelLogoBacklightAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("PanelLogoBacklightAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turn on or off the backlight on the lid of the laptop..
+        /// </summary>
+        public static string PanelLogoBacklightControl_Message {
+            get {
+                return ResourceManager.GetString("PanelLogoBacklightControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Panel logo backlight.
+        /// </summary>
+        public static string PanelLogoBacklightControl_Title {
+            get {
+                return ResourceManager.GetString("PanelLogoBacklightControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Paste.
         /// </summary>
         public static string Paste {
