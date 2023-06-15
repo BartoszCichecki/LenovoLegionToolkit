@@ -1794,13 +1794,13 @@ WARNING: This action will not run correctly, if discrete GPU is not available.</
 	  <value>Ports backlight</value>
   </data>
   <data name="PortsBacklightControl_Message" xml:space="preserve">
-	  <value>Turn on or off backlight of the ports in the back of the laptop.</value>
+	  <value>Turn on or off backlight of the ports on the back of the laptop.</value>
   </data>
   <data name="PortsBacklightAutomationStepControl_Title" xml:space="preserve">
 	  <value>Ports backlight</value>
   </data>
   <data name="PortsBacklightAutomationStepControl_Message" xml:space="preserve">
-	  <value>Turn on or off the backlight of the ports in the back of the laptop.</value>
+	  <value>Turn on or off the backlight of the ports on the back of the laptop.</value>
   </data>
   <data name="PanelLogoBacklightControl_Title" xml:space="preserve">
 	  <value>Panel logo backlight</value>
