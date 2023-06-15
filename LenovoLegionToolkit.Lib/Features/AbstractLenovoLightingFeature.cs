@@ -7,33 +7,17 @@ namespace LenovoLegionToolkit.Lib.Features;
 
 public abstract class AbstractLenovoLightingFeature<T> : IFeature<T> where T : struct, Enum, IComparable
 {
-    private readonly int _dataType;
     private readonly int _id;
 
-    protected AbstractLenovoLightingFeature(int id, int dataType)
+    protected AbstractLenovoLightingFeature(int id)
     {
         _id = id;
-        _dataType = dataType;
     }
 
     public async Task<bool> IsSupportedAsync()
     {
         try
         {
-            var result = await WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_UTILITY_DATA",
-            "GetIfSupportOrVersion",
-            new() { { "datatype", _dataType } },
-            pdc => Convert.ToInt32(pdc["Data"].Value) > 0).ConfigureAwait(false);
-
-            if (!result)
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Data type not supported [feature={GetType().Name}]");
-
-                return false;
-            }
-
             _ = await GetStateAsync().ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)

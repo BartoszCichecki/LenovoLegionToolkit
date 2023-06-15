@@ -2,7 +2,7 @@
 
 public class PanelLogoBacklightFeature : AbstractLenovoLightingFeature<PanelLogoBacklightState>
 {
-    public PanelLogoBacklightFeature() : base(3, 13) { }
+    public PanelLogoBacklightFeature() : base(3) { }
 
     protected override PanelLogoBacklightState FromInternal(int value) => (PanelLogoBacklightState)value;
 
