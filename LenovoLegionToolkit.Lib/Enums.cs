@@ -237,6 +237,14 @@ public enum OverDriveState
     On
 }
 
+public enum PortsBacklightState
+{
+    [Display(ResourceType = typeof(Resource), Name = "PortsBacklightState_Off")]
+    Off,
+    [Display(ResourceType = typeof(Resource), Name = "PortsBacklightState_On")]
+    On
+}
+
 public enum PowerAdapterStatus
 {
     Connected,

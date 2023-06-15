@@ -3367,6 +3367,42 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Turn on or off the backlight of the ports in the back of the laptop..
+        /// </summary>
+        public static string PortsBacklightAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("PortsBacklightAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ports backlight.
+        /// </summary>
+        public static string PortsBacklightAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("PortsBacklightAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turn on or off backlight of the ports in the back of the laptop..
+        /// </summary>
+        public static string PortsBacklightControl_Message {
+            get {
+                return ResourceManager.GetString("PortsBacklightControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ports backlight.
+        /// </summary>
+        public static string PortsBacklightControl_Title {
+            get {
+                return ResourceManager.GetString("PortsBacklightControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Powered Off.
         /// </summary>
         public static string PoweredOff {

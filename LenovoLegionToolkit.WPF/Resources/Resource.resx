@@ -1790,4 +1790,16 @@ This settings takes effect only when Custom Mode is enabled.</value>
 
 WARNING: This action will not run correctly, if discrete GPU is not available.</value>
   </data>
+  <data name="PortsBacklightControl_Title" xml:space="preserve">
+	  <value>Ports backlight</value>
+  </data>
+  <data name="PortsBacklightControl_Message" xml:space="preserve">
+	  <value>Turn on or off backlight of the ports in the back of the laptop.</value>
+  </data>
+  <data name="PortsBacklightAutomationStepControl_Title" xml:space="preserve">
+	  <value>Ports backlight</value>
+  </data>
+  <data name="PortsBacklightAutomationStepControl_Message" xml:space="preserve">
+	  <value>Turn on or off the backlight of the ports in the back of the laptop.</value>
+  </data>
 </root>

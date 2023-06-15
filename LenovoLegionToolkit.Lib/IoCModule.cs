@@ -40,6 +40,7 @@ public class IoCModule : Module
         builder.Register<MicrophoneFeature>();
         builder.Register<OneLevelWhiteKeyboardBacklightFeature>();
         builder.Register<OverDriveFeature>();
+        builder.Register<PortsBacklightFeature>();
         builder.Register<PowerModeFeature>();
         builder.Register<RefreshRateFeature>();
         builder.Register<ResolutionFeature>();
