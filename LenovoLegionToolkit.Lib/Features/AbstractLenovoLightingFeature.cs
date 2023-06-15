@@ -18,6 +18,18 @@ public abstract class AbstractLenovoLightingFeature<T> : IFeature<T> where T : s
     {
         try
         {
+            var isSupported = await WMI.ExistsAsync(
+                "root\\WMI",
+                $"SELECT * FROM LENOVO_LIGHTING_DATA WHERE Lighting_ID = {_id} AND Control_Interface = 1"
+                ).ConfigureAwait(false);
+
+            if (!isSupported)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Control interface missing [feature={GetType().Name}]");
+                return false;
+            }
+
             _ = await GetStateAsync().ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
@@ -28,7 +40,7 @@ public abstract class AbstractLenovoLightingFeature<T> : IFeature<T> where T : s
         catch (Exception ex)
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Not supported [feature={GetType().Name}]", ex);
+                Log.Instance.Trace($"Failed to check support [feature={GetType().Name}]", ex);
 
             return false;
         }
