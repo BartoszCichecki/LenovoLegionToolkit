@@ -9,7 +9,7 @@ public class PortsBacklightAutomationStepControl : AbstractComboBoxAutomationSte
 {
     public PortsBacklightAutomationStepControl(IAutomationStep<PortsBacklightState> step) : base(step)
     {
-        Icon = SymbolRegular.Lightbulb24;
+        Icon = SymbolRegular.UsbPlug24;
         Title = Resource.PortsBacklightAutomationStepControl_Title;
         Subtitle = Resource.PortsBacklightAutomationStepControl_Message;
     }

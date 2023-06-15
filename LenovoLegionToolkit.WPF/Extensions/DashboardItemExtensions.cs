@@ -23,7 +23,7 @@ public static class DashboardItemExtensions
         DashboardItem.DpiScale => SymbolRegular.TextFontSize24,
         DashboardItem.Hdr => SymbolRegular.Hdr24,
         DashboardItem.OverDrive => SymbolRegular.TopSpeed24,
-        DashboardItem.PortsBacklight => SymbolRegular.Lightbulb24,
+        DashboardItem.PortsBacklight => SymbolRegular.UsbPlug24,
         DashboardItem.TurnOffMonitors => SymbolRegular.Desktop24,
         DashboardItem.Microphone => SymbolRegular.Mic24,
         DashboardItem.FlipToStart => SymbolRegular.Power24,

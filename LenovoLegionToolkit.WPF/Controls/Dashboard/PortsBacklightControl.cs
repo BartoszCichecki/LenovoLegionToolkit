@@ -15,7 +15,7 @@ public class PortsBacklightControl : AbstractToggleFeatureCardControl<PortsBackl
 
     public PortsBacklightControl()
     {
-        Icon = SymbolRegular.Lightbulb24;
+        Icon = SymbolRegular.UsbPlug24;
         Title = Resource.PortsBacklightControl_Title;
         Subtitle = Resource.PortsBacklightControl_Message;
 
