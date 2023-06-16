@@ -361,4 +361,16 @@
     <value>Encendido</value>
     <comment>Informs the user that WinLock is or will be turned on.</comment>
   </data>
+  <data name="PortsBacklightState_Off" xml:space="preserve">
+		<value>Apagado</value>
+	</data>
+  <data name="PortsBacklightState_On" xml:space="preserve">
+		<value>Encendido</value>
+	</data>
+  <data name="PanelLogoBacklightState_On" xml:space="preserve">
+		<value>Encendido</value>
+	</data>
+  <data name="PanelLogoBacklightState_Off" xml:space="preserve">
+		<value>Apagado</value>
+	</data>
 </root>
