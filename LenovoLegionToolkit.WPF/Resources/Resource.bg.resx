@@ -1203,6 +1203,19 @@
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Деактивирай приложението Lenovo Hotkeys</value>
   </data>
+  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
+    <value>Vantage и/или ImController може да не са били деактивирани правилно</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
+    <value>Vantage и/или ImController не можаха да бъдат деактивирани</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
+    <value>Деактивирайте Lenovo Vantage и ImController без да ги деинсталирате.
+Препоръчително е да рестартирате устройство си след промяна в настройката.</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
+    <value>Декативирайте Lenovo Vantage и ImController</value>
+  </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Възможно е приложението Legion Zone да не е активирано правилно</value>
   </data>

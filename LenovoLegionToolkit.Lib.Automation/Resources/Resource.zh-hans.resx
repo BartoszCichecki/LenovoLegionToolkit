@@ -193,4 +193,7 @@
   <data name="OverclockDiscreteGPUAutomationStepState_On" xml:space="preserve">
     <value>开</value>
   </data>
+  <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
+	  <value>新版本更新提醒</value>
+  </data>
 </root>
