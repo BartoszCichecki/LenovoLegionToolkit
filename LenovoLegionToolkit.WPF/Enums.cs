@@ -17,6 +17,8 @@ public enum DashboardItem
     HybridMode,
     DiscreteGpu,
     OverclockDiscreteGpu,
+    PanelLogoBacklight,
+    PortsBacklight,
     Resolution,
     RefreshRate,
     DpiScale,

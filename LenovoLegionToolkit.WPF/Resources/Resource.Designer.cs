@@ -3358,11 +3358,83 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Turn on or off the backlight on the lid of the laptop..
+        /// </summary>
+        public static string PanelLogoBacklightAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("PanelLogoBacklightAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Panel logo backlight.
+        /// </summary>
+        public static string PanelLogoBacklightAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("PanelLogoBacklightAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turn on or off the backlight on the lid of the laptop..
+        /// </summary>
+        public static string PanelLogoBacklightControl_Message {
+            get {
+                return ResourceManager.GetString("PanelLogoBacklightControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Panel logo backlight.
+        /// </summary>
+        public static string PanelLogoBacklightControl_Title {
+            get {
+                return ResourceManager.GetString("PanelLogoBacklightControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Paste.
         /// </summary>
         public static string Paste {
             get {
                 return ResourceManager.GetString("Paste", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turn on or off the backlight of the ports on the back of the laptop..
+        /// </summary>
+        public static string PortsBacklightAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("PortsBacklightAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ports backlight.
+        /// </summary>
+        public static string PortsBacklightAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("PortsBacklightAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turn on or off backlight of the ports on the back of the laptop..
+        /// </summary>
+        public static string PortsBacklightControl_Message {
+            get {
+                return ResourceManager.GetString("PortsBacklightControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ports backlight.
+        /// </summary>
+        public static string PortsBacklightControl_Title {
+            get {
+                return ResourceManager.GetString("PortsBacklightControl_Title", resourceCulture);
             }
         }
         
