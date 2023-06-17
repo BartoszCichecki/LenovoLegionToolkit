@@ -8,7 +8,6 @@ using LenovoLegionToolkit.Lib.Utils;
 using Windows.Win32;
 using Windows.Win32.Foundation;
 using Windows.Win32.System.Power;
-using Windows.Win32.System.SystemServices;
 using Windows.Win32.UI.WindowsAndMessaging;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
@@ -23,8 +22,8 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
     private readonly TaskCompletionSource _isMonitorOnTaskCompletionSource = new();
     private readonly TaskCompletionSource _isLidOpenTaskCompletionSource = new();
 
-    private unsafe void* _displayArrivalHandle;
-    private unsafe void* _devInterfaceMonitorHandle;
+    private HDEVNOTIFY _displayArrivalHandle;
+    private HDEVNOTIFY _devInterfaceMonitorHandle;
     private HPOWERNOTIFY _consoleDisplayStateNotificationHandle;
     private HPOWERNOTIFY _lidSwitchStateChangeNotificationHandle;
     private HHOOK _kbHook;
@@ -48,7 +47,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         PInvoke.SendMessage(new HWND(Handle), PInvoke.WM_SYSCOMMAND, new WPARAM(PInvoke.SC_MONITORPOWER), new LPARAM(2));
     }
 
-    public unsafe Task StartAsync() => _mainThreadDispatcher.DispatchAsync(() =>
+    public Task StartAsync() => _mainThreadDispatcher.DispatchAsync(() =>
     {
         CreateHandle(new CreateParams
         {
@@ -66,7 +65,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         return WaitForInit();
     });
 
-    public unsafe Task StopAsync() => _mainThreadDispatcher.DispatchAsync(() =>
+    public Task StopAsync() => _mainThreadDispatcher.DispatchAsync(() =>
     {
         PInvoke.UnhookWindowsHookEx(_kbHook);
 
@@ -75,10 +74,10 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         PInvoke.UnregisterPowerSettingNotification(_consoleDisplayStateNotificationHandle);
         PInvoke.UnregisterPowerSettingNotification(_lidSwitchStateChangeNotificationHandle);
 
-        _kbHook = HHOOK.Null;
-        _displayArrivalHandle = null;
-        _devInterfaceMonitorHandle = null;
-        _consoleDisplayStateNotificationHandle = HPOWERNOTIFY.Null;
+        _kbHook = default;
+        _displayArrivalHandle = default;
+        _devInterfaceMonitorHandle = default;
+        _consoleDisplayStateNotificationHandle = default;
 
         ReleaseHandle();
 
@@ -270,7 +269,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         return PInvoke.CallNextHookEx(HHOOK.Null, nCode, wParam, lParam);
     }
 
-    private static unsafe void* RegisterDeviceNotification(IntPtr handle, Guid classGuid)
+    private static unsafe HDEVNOTIFY RegisterDeviceNotification(IntPtr handle, Guid classGuid)
     {
         var ptr = IntPtr.Zero;
         try
@@ -281,7 +280,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
             str.dbcc_classguid = classGuid;
             ptr = Marshal.AllocHGlobal(Marshal.SizeOf(str));
             Marshal.StructureToPtr(str, ptr, true);
-            return PInvoke.RegisterDeviceNotification(new HANDLE(handle), ptr.ToPointer(), POWER_SETTING_REGISTER_NOTIFICATION_FLAGS.DEVICE_NOTIFY_WINDOW_HANDLE);
+            return PInvoke.RegisterDeviceNotification(new HANDLE(handle), ptr.ToPointer(), REGISTER_NOTIFICATION_FLAGS.DEVICE_NOTIFY_WINDOW_HANDLE);
         }
         finally
         {

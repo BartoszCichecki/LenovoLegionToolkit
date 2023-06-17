@@ -5,6 +5,7 @@ using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32.SafeHandles;
 using Windows.Win32;
 using Windows.Win32.Devices.DeviceAndDriverInstallation;
+using Windows.Win32.Devices.HumanInterfaceDevice;
 using Windows.Win32.Foundation;
 using Windows.Win32.Storage.FileSystem;
 
@@ -65,7 +66,7 @@ public static class Devices
             }
 
             var fileHandle = PInvoke.CreateFile(devicePath,
-                FILE_ACCESS_FLAGS.FILE_READ_DATA | FILE_ACCESS_FLAGS.FILE_WRITE_DATA,
+                (uint)FILE_ACCESS_RIGHTS.FILE_READ_DATA | (uint)FILE_ACCESS_RIGHTS.FILE_WRITE_DATA,
                 FILE_SHARE_MODE.FILE_SHARE_READ | FILE_SHARE_MODE.FILE_SHARE_WRITE,
                 null,
                 FILE_CREATION_DISPOSITION.OPEN_EXISTING,
@@ -179,26 +180,26 @@ public static class Devices
             }
 
             var fileHandle = PInvoke.CreateFile(devicePath,
-                FILE_ACCESS_FLAGS.FILE_READ_DATA | FILE_ACCESS_FLAGS.FILE_WRITE_DATA,
+                (uint)FILE_ACCESS_RIGHTS.FILE_READ_DATA | (uint)FILE_ACCESS_RIGHTS.FILE_WRITE_DATA,
                 FILE_SHARE_MODE.FILE_SHARE_READ | FILE_SHARE_MODE.FILE_SHARE_WRITE,
                 null,
                 FILE_CREATION_DISPOSITION.OPEN_EXISTING,
                 FILE_FLAGS_AND_ATTRIBUTES.FILE_ATTRIBUTE_NORMAL,
                 null);
 
-            if (!PInvoke.HidD_GetAttributes(fileHandle, out var hiddAttributes))
+            if (!PInvoke.HidD_GetAttributes(fileHandle, out var hidAttributes))
                 continue;
 
-            nint preParsedData = 0;
+            PHIDP_PREPARSED_DATA preParsedData = default;
             try
             {
                 PInvoke.HidD_GetPreparsedData(fileHandle, out preParsedData);
                 PInvoke.HidP_GetCaps(preParsedData, out var caps);
 
-                if (hiddAttributes.VendorID == vendorId && (hiddAttributes.ProductID & productIdMask) == productIdMasked && caps.FeatureReportByteLength == descriptorLength)
+                if (hidAttributes.VendorID == vendorId && (hidAttributes.ProductID & productIdMask) == productIdMasked && caps.FeatureReportByteLength == descriptorLength)
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Found device. [vendorId={hiddAttributes.VendorID:X2}, productId={hiddAttributes.ProductID:X2}, descriptorLength={caps.FeatureReportByteLength}]");
+                        Log.Instance.Trace($"Found device. [vendorId={hidAttributes.VendorID:X2}, productId={hidAttributes.ProductID:X2}, descriptorLength={caps.FeatureReportByteLength}]");
 
                     return fileHandle;
                 }

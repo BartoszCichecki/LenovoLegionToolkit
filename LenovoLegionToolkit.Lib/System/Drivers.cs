@@ -29,7 +29,7 @@ public static class Drivers
                 return _energy;
 
             var handle = PInvoke.CreateFile(@"\\.\EnergyDrv",
-                FILE_ACCESS_FLAGS.FILE_READ_DATA | FILE_ACCESS_FLAGS.FILE_WRITE_DATA,
+                (uint)FILE_ACCESS_RIGHTS.FILE_READ_DATA | (uint)FILE_ACCESS_RIGHTS.FILE_WRITE_DATA,
                 FILE_SHARE_MODE.FILE_SHARE_READ | FILE_SHARE_MODE.FILE_SHARE_WRITE,
                 null,
                 FILE_CREATION_DISPOSITION.OPEN_EXISTING,
