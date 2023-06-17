@@ -672,6 +672,16 @@ Merci par avance !</value>
     <value>ATTENTION !
 Certaines machines peuvent accepter des valeurs plus faibles à celles indiquées, mais soyez prudents. Cette option peut engendrer un comportement imprévisible, si vous n'êtes pas sûr de ce que vous faites, laissez cette valeur à 0.</value>
   </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
+    <value>Réglage minimum</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
+    <value>ATTENTION !
+Certaines machines peuvent accepter des valeurs plus élevées à celles indiquées, mais soyez prudents. Cette option peut engendrer un comportement imprévisible, si vous n'êtes pas sûr de ce que vous faites, laissez cette valeur à 0.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
+    <value>Réglage maximum</value>
+  </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>Ne modifiez pas les options ci-dessous à moins que vous ne sachiez vraiment ce que vous faites.</value>
   </data>
@@ -1194,6 +1204,19 @@ Il est recommandé de redémarrer l'ordinateur après avoir modifié cette optio
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Désactiver Lenovo Hotkeys</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
+    <value>Vantage et/ou ImController ont peut-être été mal désactivés</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
+    <value>Impossible de désactiver Vantage et/ou ImController</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
+    <value>Désactive Lenovo Vantage et ImController sans les désinstaller.
+Un redémarrage est recommandé après avoir modifié cette option.</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
+    <value>Désactiver Lenovo Vantage et ImController</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone n'a peut-être pas été activé correctement</value>
@@ -1729,10 +1752,67 @@ Ce paramètre ne prend effet que lorsque le mode personnalisé est activé.</val
   <data name="PoweredOff" xml:space="preserve">
     <value>Désactivé</value>
   </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
+    <value>Importer un profil de rétroéclairage du clavier</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message" xml:space="preserve">
+    <value>Importer et appliquer la configuration du rétroéclairage au profil actuel.</value>
+  </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
     <value>Emplacement</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_After" xml:space="preserve">
     <value>Après {0}</value>
+  </data>
+  <data name="MultipleTriggersAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Plusieurs déclencheurs...</value>
+    <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_Title" xml:space="preserve">
+    <value>Paramètres d'overclocking du GPU</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title" xml:space="preserve">
+    <value>Offset de la Fréquence du Cœur</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title" xml:space="preserve">
+    <value>Offset de la fréquence de la mémoire</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Title" xml:space="preserve">
+    <value>Overclock GPU</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
+    <value>Améliorez les performances en surcadençant le GPU dédié.</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
+    <value>Overclock GPU</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
+    <value>Augmentez les performances en surcadençant le GPU discret.
+
+AVERTISSEMENT : Cette action ne fonctionnera pas correctement si le GPU dédié n'est pas disponible.</value>
+  </data>
+  <data name="PortsBacklightControl_Title" xml:space="preserve">
+	  <value>Rétroéclairage des ports</value>
+  </data>
+  <data name="PortsBacklightControl_Message" xml:space="preserve">
+	  <value>Activez ou désactivez le rétroéclairage des ports situés à l'arrière de l'ordinateur portable.</value>
+  </data>
+  <data name="PortsBacklightAutomationStepControl_Title" xml:space="preserve">
+	  <value>Rétroéclairage des ports</value>
+  </data>
+  <data name="PortsBacklightAutomationStepControl_Message" xml:space="preserve">
+	  <value>Activez ou désactivez le rétroéclairage des ports situés à l'arrière de l'ordinateur portable.</value>
+  </data>
+  <data name="PanelLogoBacklightControl_Title" xml:space="preserve">
+	  <value>Rétroéclairage du logo</value>
+  </data>
+  <data name="PanelLogoBacklightControl_Message" xml:space="preserve">
+	  <value>Activez ou désactivez le rétroéclairage sur le capot de l'ordinateur portable.</value>
+  </data>
+  <data name="PanelLogoBacklightAutomationStepControl_Title" xml:space="preserve">
+	  <value>Rétroéclairage du logo</value>
+  </data>
+  <data name="PanelLogoBacklightAutomationStepControl_Message" xml:space="preserve">
+	  <value>Active ou désactive le rétroéclairage sur le capot de l'ordinateur portable.</value>
   </data>
 </root>
