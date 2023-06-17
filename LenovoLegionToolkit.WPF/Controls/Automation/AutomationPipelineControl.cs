@@ -324,6 +324,7 @@ public class AutomationPipelineControl : UserControl
             OneLevelWhiteKeyboardBacklightAutomationStep s => new OneLevelWhiteKeyboardBacklightAutomationStepControl(s),
             OverDriveAutomationStep s => new OverDriveAutomationStepControl(s),
             OverclockDiscreteGPUAutomationStep s => new OverclockDiscreteGPUAutomationStepControl(s),
+            PanelLogoBacklightAutomationStep s => new PanelLogoBacklightAutomationStepControl(s),
             PortsBacklightAutomationStep s => new PortsBacklightAutomationStepControl(s),
             PowerModeAutomationStep s => new PowerModeAutomationStepControl(s),
             RefreshRateAutomationStep s => new RefreshRateAutomationStepControl(s),
