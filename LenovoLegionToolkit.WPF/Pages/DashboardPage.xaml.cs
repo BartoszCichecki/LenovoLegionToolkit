@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Controls.Dashboard;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Settings;
@@ -41,6 +42,13 @@ public partial class DashboardPage
         _content.Children.Clear();
 
         var groups = _dashboardSettings.Store.Groups;
+
+        if (Log.Instance.IsTraceEnabled)
+        {
+            Log.Instance.Trace($"Groups:");
+            foreach (var group in groups)
+                Log.Instance.Trace($" - {group}");
+        }
 
         _content.ColumnDefinitions.Add(new ColumnDefinition { Width = new(1, GridUnitType.Star) });
         _content.ColumnDefinitions.Add(new ColumnDefinition { Width = new(1, GridUnitType.Star) });

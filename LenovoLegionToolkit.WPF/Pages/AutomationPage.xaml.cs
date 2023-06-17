@@ -170,6 +170,8 @@ public partial class AutomationPage
             new OneLevelWhiteKeyboardBacklightAutomationStep(default),
             new OverclockDiscreteGPUAutomationStep(default),
             new OverDriveAutomationStep(default),
+            new PanelLogoBacklightAutomationStep(default),
+            new PortsBacklightAutomationStep(default),
             new PowerModeAutomationStep(default),
             new RefreshRateAutomationStep(default),
             new ResolutionAutomationStep(default),

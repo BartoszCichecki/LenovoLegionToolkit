@@ -19,6 +19,4 @@
         </Setter>
     </Style>
 
-    <Style BasedOn="{StaticResource PlainToolTipStyle}" TargetType="{x:Type ToolTip}" />
-
 </ResourceDictionary>
