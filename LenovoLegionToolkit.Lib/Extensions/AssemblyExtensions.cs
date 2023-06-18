@@ -20,9 +20,17 @@ public static class AssemblyExtensions
             return null;
 
         value = value[(index + buildVersionMetadataPrefix.Length)..];
+
+        // ReSharper disable once StringLiteralTypo
         if (DateTime.TryParseExact(value, "yyyyMMddHHmmss", CultureInfo.InvariantCulture, DateTimeStyles.None, out var result))
             return result;
 
         return null;
+    }
+
+    public static string? GetBuildDateTimeString(this Assembly assembly)
+    {
+        // ReSharper disable once StringLiteralTypo
+        return GetBuildDateTime(assembly)?.ToString("yyyyMMddHHmmss");
     }
 }

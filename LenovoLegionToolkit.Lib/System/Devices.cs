@@ -34,6 +34,8 @@ public static class Devices
                 null,
                 HWND.Null,
                 PInvoke.DIGCF_PRESENT | PInvoke.DIGCF_DEVICEINTERFACE);
+
+            // ReSharper disable once StringLiteralTypo
             if (deviceHandle.IsInvalid)
                 PInvokeExtensions.ThrowIfWin32Error("SetupDiGetClassDevs");
 

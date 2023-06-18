@@ -125,7 +125,7 @@ public partial class PackagesPage : IProgress<float>
         if (!await ShouldInterruptDownloadsIfRunning())
             return;
 
-        var errored = false;
+        var errorOccurred = false;
         try
         {
             _downloadPackagesButton.Visibility = Visibility.Collapsed;
@@ -179,25 +179,25 @@ public partial class PackagesPage : IProgress<float>
         }
         catch (TaskCanceledException)
         {
-            errored = true;
+            errorOccurred = true;
         }
         catch (HttpRequestException ex)
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Error occured when downloading packages.", ex);
+                Log.Instance.Trace($"Error occurred when downloading packages.", ex);
 
             await SnackbarHelper.ShowAsync("Something went wrong", "Check if your internet connection is up and running.", true);
 
-            errored = true;
+            errorOccurred = true;
         }
         catch (Exception ex)
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Error occured when downloading packages.", ex);
+                Log.Instance.Trace($"Error occurred when downloading packages.", ex);
 
             await SnackbarHelper.ShowAsync("Something went wrong", ex.Message, true);
 
-            errored = true;
+            errorOccurred = true;
         }
         finally
         {
@@ -207,7 +207,7 @@ public partial class PackagesPage : IProgress<float>
             _loader.Progress = 0;
             _loader.IsIndeterminate = true;
 
-            if (errored)
+            if (errorOccurred)
             {
                 _packagesStackPanel.Children.Clear();
                 _loader.Visibility = Visibility.Collapsed;

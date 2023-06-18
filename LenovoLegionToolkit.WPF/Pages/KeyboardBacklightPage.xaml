@@ -20,7 +20,7 @@
             FontWeight="Medium"
             Text="{x:Static resources:Resource.KeyboardBacklightPage_Title}" />
 
-        <controls:LoadableControl x:Name="_loader" InidicatorMargin="0,64,0,0">
+        <controls:LoadableControl x:Name="_loader" IndicatorMargin="0,64,0,0">
             <StackPanel x:Name="_content" Margin="0,0,8,0">
                 <TextBlock
                     x:Name="_noKeyboardsText"

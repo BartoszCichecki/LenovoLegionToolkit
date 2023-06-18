@@ -130,14 +130,14 @@ public partial class PackageControl : IProgress<float>
         catch (HttpRequestException ex)
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Error occured when downloading package file.", ex);
+                Log.Instance.Trace($"Error occurred when downloading package file.", ex);
 
             await SnackbarHelper.ShowAsync(Resource.PackageControl_HttpGeneralError_Title, Resource.PackageControl_HttpGeneralError_Message, true);
         }
         catch (Exception ex)
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Error occured when downloading package file.", ex);
+                Log.Instance.Trace($"Error occurred when downloading package file.", ex);
 
             await SnackbarHelper.ShowAsync(Resource.PackageControl_GeneralError_Title, ex.Message, true);
         }

@@ -183,6 +183,7 @@ public class AIModeController
                 $"SELECT * FROM LENOVO_INTELLIGENT_OP_LIST",
                 pdc =>
                 {
+                    // ReSharper disable once StringLiteralTypo
                     var processName = pdc["processname"].Value.ToString();
                     var mode = Convert.ToInt32(pdc["mode"].Value);
                     return (processName, mode);

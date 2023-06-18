@@ -67,7 +67,7 @@ public class LoadableControl : UserControl
         set => _progressRing.VerticalAlignment = value;
     }
 
-    public Thickness InidicatorMargin
+    public Thickness IndicatorMargin
     {
         get => _progressRing.Margin;
         set => _progressRing.Margin = value;

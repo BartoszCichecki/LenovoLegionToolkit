@@ -8,6 +8,8 @@ using Windows.Win32;
 using Windows.Win32.Foundation;
 using Windows.Win32.System.Power;
 
+// ReSharper disable StringLiteralTypo
+
 namespace LenovoLegionToolkit.Lib.Utils;
 
 public static class Compatibility

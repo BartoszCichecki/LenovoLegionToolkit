@@ -9,5 +9,6 @@ public class BalanceModeSettings : AbstractSettings<BalanceModeSettingsStore>
         public bool AIModeEnabled { get; set; }
     }
 
+    // ReSharper disable once StringLiteralTypo
     public BalanceModeSettings() : base("balancemode.json") { }
 }

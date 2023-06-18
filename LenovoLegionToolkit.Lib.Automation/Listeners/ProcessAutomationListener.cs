@@ -13,6 +13,8 @@ public class ProcessAutomationListener : IListener<ProcessEventInfo>
 {
     private static readonly object Lock = new();
 
+    // ReSharper disable StringLiteralTypo
+
     private static readonly string[] IgnoredNames =
     {
         "backgroundTaskHost",
@@ -27,6 +29,8 @@ public class ProcessAutomationListener : IListener<ProcessEventInfo>
         "svchost",
         "WmiPrvSE"
     };
+
+    // ReSharper restore StringLiteralTypo
 
     private static readonly string[] IgnoredPaths =
     {

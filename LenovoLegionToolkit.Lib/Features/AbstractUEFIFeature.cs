@@ -51,9 +51,9 @@ public abstract class AbstractUEFIFeature<T> : IFeature<T> where T : struct, Enu
             if (!SetPrivilege(true))
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Cannot set UEFI privilages [feature={GetType().Name}]");
+                    Log.Instance.Trace($"Cannot set UEFI privileges [feature={GetType().Name}]");
 
-                throw new InvalidOperationException("Cannot set privilages UEFI");
+                throw new InvalidOperationException("Cannot set privileges UEFI");
             }
 
             var ptrSize = (uint)Marshal.SizeOf<TS>();
@@ -90,9 +90,9 @@ public abstract class AbstractUEFIFeature<T> : IFeature<T> where T : struct, Enu
             if (!SetPrivilege(true))
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Cannot set UEFI privilages [feature={GetType().Name}]");
+                    Log.Instance.Trace($"Cannot set UEFI privileges [feature={GetType().Name}]");
 
-                throw new InvalidOperationException("Cannot set privilages UEFI");
+                throw new InvalidOperationException("Cannot set privileges UEFI");
             }
 
             Marshal.StructureToPtr(structure, ptr, false);
@@ -140,7 +140,7 @@ public abstract class AbstractUEFIFeature<T> : IFeature<T> where T : struct, Enu
             }
 
             var state = new TOKEN_PRIVILEGES { PrivilegeCount = 1 };
-            state.Privileges._0 = new LUID_AND_ATTRIBUTES()
+            state.Privileges._0 = new LUID_AND_ATTRIBUTES
             {
                 Luid = luid,
                 Attributes = enable ? TOKEN_PRIVILEGES_ATTRIBUTES.SE_PRIVILEGE_ENABLED : 0

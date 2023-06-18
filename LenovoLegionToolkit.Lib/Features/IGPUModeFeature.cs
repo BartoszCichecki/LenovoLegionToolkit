@@ -42,6 +42,7 @@ public class IGPUModeFeature : AbstractLenovoGamezoneWmiFeature<IGPUModeState>
     {
         try
         {
+            // ReSharper disable once StringLiteralTypo
             return await WMI.CallAsync(SCOPE,
                 Query,
                 "GetDGPUHWId",

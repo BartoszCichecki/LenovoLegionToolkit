@@ -77,8 +77,10 @@ internal readonly struct ExternalDetectionRule : IPackageRule
         if (executable is null)
             return false;
 
+        // ReSharper disable StringLiteralTypo
         if (executable.Contains("%PACKAGEPATH%"))
             executable = executable.Replace("%PACKAGEPATH%", packagePath);
+        // ReSharper restore StringLiteralTypo
 
         if (!executable.Contains('\\'))
             executable = Path.Combine(packagePath, executable);

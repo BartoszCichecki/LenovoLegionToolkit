@@ -36,6 +36,7 @@ public class GodModeSettings : AbstractSettings<GodModeSettings.GodModeSettingsS
         public Dictionary<Guid, Preset> Presets { get; set; } = new();
     }
 
+    // ReSharper disable once StringLiteralTypo
     public GodModeSettings() : base("godmode.json") { }
 
     public override GodModeSettingsStore LoadStore()
@@ -102,6 +103,7 @@ internal class LegacyGodModeSettings : AbstractSettings<LegacyGodModeSettings.Le
 
     protected override LegacyGodModeSettingsStore Default => new();
 
+    // ReSharper disable once StringLiteralTypo
     public LegacyGodModeSettings() : base("godmode.json")
     {
         JsonSerializerSettings.MissingMemberHandling = MissingMemberHandling.Error;

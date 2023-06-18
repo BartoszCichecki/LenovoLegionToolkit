@@ -68,6 +68,8 @@ public static class SystemTheme
 
     #region Native
 
+    // ReSharper disable StringLiteralTypo
+
     [DllImport("uxtheme.dll", EntryPoint = "#95")]
     private static extern uint GetImmersiveColorFromColorSetEx(uint immersiveColorSet, uint immersiveColorType, bool ignoreHighContrast, uint highContrastCacheMode);
 
@@ -76,6 +78,8 @@ public static class SystemTheme
 
     [DllImport("uxtheme.dll", EntryPoint = "#98")]
     private static extern uint GetImmersiveUserColorSetPreference(bool forceCheckRegistry, bool skipCheckOnFail);
+
+    // ReSharper restore StringLiteralTypo
 
     #endregion
 }

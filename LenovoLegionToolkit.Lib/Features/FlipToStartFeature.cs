@@ -7,7 +7,7 @@ namespace LenovoLegionToolkit.Lib.Features;
 public class FlipToStartFeature : AbstractUEFIFeature<FlipToStartState>
 {
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    public struct FlipToBootStruct
+    private struct FlipToBootStruct
     {
         [MarshalAs(UnmanagedType.U1)]
         public byte FlipToBootEn;
@@ -19,6 +19,7 @@ public class FlipToStartFeature : AbstractUEFIFeature<FlipToStartState>
         public byte Reserved3;
     }
 
+    // ReSharper disable once StringLiteralTypo
     public FlipToStartFeature() : base("{D743491E-F484-4952-A87D-8D5DD189B70C}",
         "FBSWIF",
         PInvokeExtensions.VARIABLE_ATTRIBUTE_NON_VOLATILE |

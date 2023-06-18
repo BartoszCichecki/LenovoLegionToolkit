@@ -81,6 +81,6 @@ public static class ComboBoxExtensions
 
         public override int GetHashCode() => HashCode.Combine(Value);
 
-        public override string ToString() => _displayString?.Invoke(Value).ToString() ?? Value?.ToString() ?? "";
+        public override string ToString() => _displayString?.Invoke(Value).ToString() ?? Value?.ToString() ?? string.Empty;
     }
 }

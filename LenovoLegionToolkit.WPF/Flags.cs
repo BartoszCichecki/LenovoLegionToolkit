@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using LenovoLegionToolkit.Lib.Utils;
 
+// ReSharper disable StringLiteralTypo
+
 namespace LenovoLegionToolkit.WPF;
 
 public class Flags

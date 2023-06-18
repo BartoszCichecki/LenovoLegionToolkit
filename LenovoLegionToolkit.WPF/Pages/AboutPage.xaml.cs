@@ -17,13 +17,14 @@ public partial class AboutPage
         {
             var version = Assembly.GetEntryAssembly()?.GetName().Version;
             if (version is null)
-                return "";
+                return string.Empty;
             if (version.IsBeta())
                 return "BETA";
             return version.ToString(3);
         }
     }
-    private static string BuildText => Assembly.GetEntryAssembly()?.GetBuildDateTime()?.ToString("yyyyMMddHHmmss") ?? "";
+
+    private static string BuildText => Assembly.GetEntryAssembly()?.GetBuildDateTimeString() ?? string.Empty;
 
     private static string CopyrightText
     {
@@ -31,9 +32,8 @@ public partial class AboutPage
         {
             var location = Assembly.GetEntryAssembly()?.Location;
             if (location is null)
-                return "";
-            var versionInfo = FileVersionInfo.GetVersionInfo(location);
-            return versionInfo.LegalCopyright ?? "";
+                return string.Empty;
+            return FileVersionInfo.GetVersionInfo(location).LegalCopyright ?? string.Empty;
         }
     }
 

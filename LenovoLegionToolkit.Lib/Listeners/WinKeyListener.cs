@@ -5,6 +5,7 @@ namespace LenovoLegionToolkit.Lib.Listeners;
 
 public class WinKeyListener : AbstractWMIListener<WinKeyChanged>
 {
+    // ReSharper disable once StringLiteralTypo
     public WinKeyListener() : base("ROOT\\WMI", "LENOVO_GAMEZONE_KEYLOCK_STATUS_EVENT") { }
 
     protected override WinKeyChanged GetValue(PropertyDataCollection properties) => default;

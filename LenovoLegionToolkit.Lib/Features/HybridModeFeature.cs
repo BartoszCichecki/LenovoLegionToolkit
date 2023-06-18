@@ -6,24 +6,23 @@ namespace LenovoLegionToolkit.Lib.Features;
 
 public class HybridModeFeature : IFeature<HybridModeState>
 {
-    private readonly GSyncFeature _gsyncFeature;
+    private readonly GSyncFeature _gSyncFeature;
     private readonly IGPUModeFeature _igpuModeFeature;
 
-    public HybridModeFeature(GSyncFeature gsyncFeature, IGPUModeFeature igpuModeFeature)
+    public HybridModeFeature(GSyncFeature gSyncFeature, IGPUModeFeature igpuModeFeature)
     {
-        _gsyncFeature = gsyncFeature ?? throw new ArgumentNullException(nameof(gsyncFeature));
+        _gSyncFeature = gSyncFeature ?? throw new ArgumentNullException(nameof(gSyncFeature));
         _igpuModeFeature = igpuModeFeature ?? throw new ArgumentNullException(nameof(igpuModeFeature));
     }
 
-    public Task<bool> IsSupportedAsync() => _gsyncFeature.IsSupportedAsync();
+    public Task<bool> IsSupportedAsync() => _gSyncFeature.IsSupportedAsync();
 
     public async Task<HybridModeState[]> GetAllStatesAsync()
     {
         var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
-        if (mi.Properties.SupportsExtendedHybridMode)
-            return new[] { HybridModeState.On, HybridModeState.OnIGPUOnly, HybridModeState.OnAuto, HybridModeState.Off };
-
-        return new[] { HybridModeState.On, HybridModeState.Off };
+        return mi.Properties.SupportsExtendedHybridMode
+            ? new[] { HybridModeState.On, HybridModeState.OnIGPUOnly, HybridModeState.OnAuto, HybridModeState.Off }
+            : new[] { HybridModeState.On, HybridModeState.Off };
     }
 
     public async Task<HybridModeState> GetStateAsync()
@@ -31,26 +30,26 @@ public class HybridModeFeature : IFeature<HybridModeState>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting state...");
 
-        var gsync = await _gsyncFeature.GetStateAsync().ConfigureAwait(false);
+        var gSync = await _gSyncFeature.GetStateAsync().ConfigureAwait(false);
 
         var igpuMode = IGPUModeState.Default;
         if (await _igpuModeFeature.IsSupportedAsync().ConfigureAwait(false))
             igpuMode = await _igpuModeFeature.GetStateAsync().ConfigureAwait(false);
 
-        var state = Pack(gsync, igpuMode);
+        var state = Pack(gSync, igpuMode);
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"State is {state} [gsync={gsync}, igpuMode={igpuMode}]");
+            Log.Instance.Trace($"State is {state} [gSync={gSync}, igpuMode={igpuMode}]");
 
         return state;
     }
 
     public async Task SetStateAsync(HybridModeState state)
     {
-        var (gsync, igpuMode) = Unpack(state);
+        var (gSync, igpuMode) = Unpack(state);
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Setting state to {state}... [gsync={gsync}, igpuMode={igpuMode}]");
+            Log.Instance.Trace($"Setting state to {state}... [gSync={gSync}, igpuMode={igpuMode}]");
 
         if (await _igpuModeFeature.IsSupportedAsync().ConfigureAwait(false))
         {
@@ -58,13 +57,13 @@ public class HybridModeFeature : IFeature<HybridModeState>
             await _igpuModeFeature.NotifyAsync().ConfigureAwait(false);
         }
 
-        await _gsyncFeature.SetStateAsync(gsync).ConfigureAwait(false);
+        await _gSyncFeature.SetStateAsync(gSync).ConfigureAwait(false);
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"State set to {state} [gsync={gsync}, igpuMode={igpuMode}]");
+            Log.Instance.Trace($"State set to {state} [gSync={gSync}, igpuMode={igpuMode}]");
     }
 
-    private (GSyncState, IGPUModeState) Unpack(HybridModeState state) => state switch
+    private static (GSyncState, IGPUModeState) Unpack(HybridModeState state) => state switch
     {
         HybridModeState.On => (GSyncState.On, IGPUModeState.Default),
         HybridModeState.OnIGPUOnly => (GSyncState.On, IGPUModeState.IGPUOnly),
@@ -73,7 +72,7 @@ public class HybridModeFeature : IFeature<HybridModeState>
         _ => throw new InvalidOperationException("Invalid state"),
     };
 
-    private HybridModeState Pack(GSyncState state1, IGPUModeState state2) => (state1, state2) switch
+    private static HybridModeState Pack(GSyncState state1, IGPUModeState state2) => (state1, state2) switch
     {
         (GSyncState.On, IGPUModeState.Default) => HybridModeState.On,
         (GSyncState.On, IGPUModeState.IGPUOnly) => HybridModeState.OnIGPUOnly,

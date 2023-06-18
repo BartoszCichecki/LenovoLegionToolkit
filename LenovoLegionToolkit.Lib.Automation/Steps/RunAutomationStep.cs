@@ -24,7 +24,7 @@ public class RunAutomationStep : IAutomationStep
         if (string.IsNullOrWhiteSpace(ScriptPath))
             return;
 
-        await CMD.RunAsync(ScriptPath, ScriptArguments ?? "", false).ConfigureAwait(false);
+        await CMD.RunAsync(ScriptPath, ScriptArguments ?? string.Empty, false).ConfigureAwait(false);
     }
 
     IAutomationStep IAutomationStep.DeepCopy() => new RunAutomationStep(ScriptPath, ScriptArguments);
