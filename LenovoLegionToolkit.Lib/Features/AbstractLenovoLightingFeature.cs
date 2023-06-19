@@ -14,7 +14,7 @@ public abstract class AbstractLenovoLightingFeature<T> : IFeature<T> where T : s
         _id = id;
     }
 
-    public async Task<bool> IsSupportedAsync()
+    public virtual async Task<bool> IsSupportedAsync()
     {
         try
         {
