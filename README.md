@@ -148,8 +148,8 @@ Custom Mode is supported on following BIOS versions:
 * J2CN40WW and higher
 * JUCN51WW and higher
 * JYCN39WW and higher
-<!-- * M3CN32WW and higher -->
-<!-- * M0CN27WW and higher -->
+* M3CN32WW and higher
+* M0CN27WW and higher
 
 Not all features of Custom Mode are supported by all devices.
 
@@ -166,7 +166,6 @@ Deactivate button will be enabled when dGPU is active, you have Hybrid mode enab
 
 Keep in mind that some apps may not like this feature and crash when you deactivate dGPU.
 
-<!--
 #### Overclock discrete nVidia GPUs
 
 The overclock option is intended for simple overclocking, similar to the one available in Vantage. It is not intended to replace tools like Afterburner. Here are some points to keep in mind:
@@ -174,7 +173,7 @@ The overclock option is intended for simple overclocking, similar to the one ava
 * Overclocking does not work with Vantage or LegionZone running in the background.
 * It is not recommended to use the option while using other tools like Afterburner.
 * If you edited your Dashboard, you might need to add the control manually.
--->
+
 ##### Windows Power Plans
 
 Lenovo Legion Toolkit will automatically switch Windows power plans when Power Mode changes *and* when Lenovo Vantage is disabled.
@@ -309,7 +308,6 @@ I also recommend other apps that make it very easy to manage settings across mul
 
 You can customize Fn+F9 hotkey in LLT settings. Other hotkeys can't be customized.
 
-<!---
 #### What if I overclocked my GPU too much?
 
 If you end up in a situation where your GPU is not stable and you can't boot into Windows, there are two things you can do:
@@ -317,7 +315,6 @@ If you end up in a situation where your GPU is not stable and you can't boot int
 1. Go into BIOS and try to find and option similar to "Enabled GPU Overclocking" and disable it, start Windows, and toggle the BIOS option again to Enabled.
 2. Start Windows in Safe Mode, and delete `gpu_oc.json` file under LLT settings, which are located in `"%LOCALAPPDATA%\LenovoLegionToolkit`.
 
--->
 ## How to collect logs?
 
 In some cases it will be super useful if you can provide logs that this app can create. This helps with debugging and other issue solving.
