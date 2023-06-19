@@ -66,6 +66,8 @@ internal enum LENOVO_SPECTRUM_OPERATION_TYPE : byte
     Brightness = 0xCE,
     AuroraStartStop = 0xD0,
     AuroraSendBitmap = 0xA1,
+    GetLogoStatus = 0xA5,
+    LogoStatus = 0xA6
 }
 
 internal enum LENOVO_SPECTRUM_EFFECT_TYPE : byte
@@ -332,6 +334,42 @@ internal readonly struct LENOVO_SPECTRUM_SET_BRIGHTNESS_REQUEST
     {
         Header = new(LENOVO_SPECTRUM_OPERATION_TYPE.Brightness, 0xC0);
         Brightness = brightness;
+    }
+}
+
+[StructLayout(LayoutKind.Sequential, Size = 960)]
+internal readonly struct LENOVO_SPECTRUM_GET_LOGO_STATUS
+{
+    private readonly LENOVO_SPECTRUM_HEADER Header;
+
+    public LENOVO_SPECTRUM_GET_LOGO_STATUS()
+    {
+        Header = new LENOVO_SPECTRUM_HEADER(LENOVO_SPECTRUM_OPERATION_TYPE.GetLogoStatus, 0xC0);
+    }
+}
+
+[StructLayout(LayoutKind.Sequential, Size = 960)]
+internal readonly struct LENOVO_SPECTRUM_GET_LOGO_STATUS_RESPONSE
+{
+    private readonly byte ReportId;
+    private readonly LENOVO_SPECTRUM_OPERATION_TYPE Type;
+    private readonly byte Length;
+    private readonly byte Unknown1;
+    private readonly byte Status;
+
+    public bool IsOn => Status == 1;
+}
+
+[StructLayout(LayoutKind.Sequential, Size = 960)]
+internal readonly struct LENOVO_SPECTRUM_SET_LOGO_STATUS_REQUEST
+{
+    private readonly LENOVO_SPECTRUM_HEADER Header;
+    private readonly byte Status;
+
+    public LENOVO_SPECTRUM_SET_LOGO_STATUS_REQUEST(bool isOn)
+    {
+        Header = new(LENOVO_SPECTRUM_OPERATION_TYPE.LogoStatus, 0xC0);
+        Status = (byte)(isOn ? 1 : 0);
     }
 }
 
