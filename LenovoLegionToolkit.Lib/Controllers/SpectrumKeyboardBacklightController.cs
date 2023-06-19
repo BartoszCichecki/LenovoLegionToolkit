@@ -167,6 +167,45 @@ public class SpectrumKeyboardBacklightController
             Log.Instance.Trace($"Keyboard brightness set.");
     }
 
+    public async Task<bool> GetLogoStatusAsync()
+    {
+        await ThrowIfVantageEnabled().ConfigureAwait(false);
+
+        var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
+        if (handle is null)
+            throw new InvalidOperationException(nameof(handle));
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Getting logo status...");
+
+        var input = new LENOVO_SPECTRUM_GET_LOGO_STATUS();
+        SetAndGetFeature(handle, input, out LENOVO_SPECTRUM_GET_LOGO_STATUS_RESPONSE output);
+        var result = output.IsOn;
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Logo status is {result}.");
+
+        return result;
+    }
+
+    public async Task SetLogoStatusAsync(bool isOn)
+    {
+        await ThrowIfVantageEnabled().ConfigureAwait(false);
+
+        var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
+        if (handle is null)
+            throw new InvalidOperationException(nameof(handle));
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Setting logo status to: {isOn}.");
+
+        var input = new LENOVO_SPECTRUM_SET_LOGO_STATUS_REQUEST(isOn);
+        SetFeature(handle, input);
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Logo status set.");
+    }
+
     public async Task<int> GetProfileAsync()
     {
         await ThrowIfVantageEnabled().ConfigureAwait(false);

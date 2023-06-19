@@ -41,6 +41,8 @@ public class IoCModule : Module
         builder.Register<OneLevelWhiteKeyboardBacklightFeature>();
         builder.Register<OverDriveFeature>();
         builder.Register<PanelLogoBacklightFeature>();
+        builder.Register<PanelLogoSpectrumBacklightFeature>(true);
+        builder.Register<PanelLogoLenovoLightingBacklightFeature>(true);
         builder.Register<PortsBacklightFeature>();
         builder.Register<PowerModeFeature>();
         builder.Register<RefreshRateFeature>();
@@ -66,8 +68,8 @@ public class IoCModule : Module
         builder.Register<AIModeController>();
         builder.Register<DisplayBrightnessController>();
         builder.Register<GodModeController>();
-        builder.Register<GodModeControllerV1>();
-        builder.Register<GodModeControllerV2>();
+        builder.Register<GodModeControllerV1>(true);
+        builder.Register<GodModeControllerV2>(true);
         builder.Register<GPUController>();
         builder.Register<GPUOverclockController>();
         builder.Register<PowerPlanController>();

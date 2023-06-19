@@ -1,10 +1,47 @@
-﻿namespace LenovoLegionToolkit.Lib.Features;
+﻿using System;
+using System.Threading.Tasks;
 
-public class PanelLogoBacklightFeature : AbstractLenovoLightingFeature<PanelLogoBacklightState>
+namespace LenovoLegionToolkit.Lib.Features;
+
+public class PanelLogoBacklightFeature : IFeature<PanelLogoBacklightState>
 {
-    public PanelLogoBacklightFeature() : base(3) { }
+    private readonly PanelLogoSpectrumBacklightFeature _spectrumFeature;
+    private readonly PanelLogoLenovoLightingBacklightFeature _lenovoLightingFeature;
 
-    protected override PanelLogoBacklightState FromInternal(int value) => (PanelLogoBacklightState)value;
+    public PanelLogoBacklightFeature(PanelLogoSpectrumBacklightFeature spectrumFeature, PanelLogoLenovoLightingBacklightFeature lenovoLightingFeature)
+    {
+        _spectrumFeature = spectrumFeature;
+        _lenovoLightingFeature = lenovoLightingFeature;
+    }
 
-    protected override int ToInternal(PanelLogoBacklightState state) => (int)state;
+    public async Task<bool> IsSupportedAsync() => await GetFeatureAsync().ConfigureAwait(false) != null;
+
+    public async Task<PanelLogoBacklightState[]> GetAllStatesAsync()
+    {
+        var feature = await GetFeatureAsync().ConfigureAwait(false) ?? throw new InvalidOperationException("No supported feature found.");
+        return await feature.GetAllStatesAsync().ConfigureAwait(false);
+    }
+
+    public async Task<PanelLogoBacklightState> GetStateAsync()
+    {
+        var feature = await GetFeatureAsync().ConfigureAwait(false) ?? throw new InvalidOperationException("No supported feature found.");
+        return await feature.GetStateAsync().ConfigureAwait(false);
+    }
+
+    public async Task SetStateAsync(PanelLogoBacklightState state)
+    {
+        var feature = await GetFeatureAsync().ConfigureAwait(false) ?? throw new InvalidOperationException("No supported feature found.");
+        await feature.SetStateAsync(state).ConfigureAwait(false);
+    }
+
+    private async Task<IFeature<PanelLogoBacklightState>?> GetFeatureAsync()
+    {
+        if (await _lenovoLightingFeature.IsSupportedAsync().ConfigureAwait(false))
+            return _lenovoLightingFeature;
+
+        if (await _spectrumFeature.IsSupportedAsync().ConfigureAwait(false))
+            return _spectrumFeature;
+
+        return null;
+    }
 }
