@@ -9,8 +9,7 @@ public class PanelLogoLenovoLightingBacklightFeature : AbstractLenovoLightingFea
     private readonly string[] _excludedMachineTypes =
     {
         "82JH", "82JK", "82JM", "82JN", "82JU", "82JW", "82JY", "82K0",
-        "82K1", "82K2", "82NW", "82RB", "82RC", "82RD", "82RE", "82S9",
-        "82SA", "82SB", "82SC"
+        "82K1", "82K2", "82NW", "82SA", "82SB", "82SC"
     };
 
     public PanelLogoLenovoLightingBacklightFeature() : base(3) { }
