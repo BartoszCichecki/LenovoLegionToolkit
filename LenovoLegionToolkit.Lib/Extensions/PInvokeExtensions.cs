@@ -22,9 +22,6 @@ public static class PInvokeExtensions
 
     public const uint KF_FLAG_DEFAULT = 0;
 
-    public const uint VK_CAPITAL = 0x14;
-    public const uint VK_NUMLOCK = 0x90;
-
     public const uint VARIABLE_ATTRIBUTE_BOOTSERVICE_ACCESS = 2;
     public const uint VARIABLE_ATTRIBUTE_NON_VOLATILE = 1;
     public const uint VARIABLE_ATTRIBUTE_RUNTIME_ACCESS = 7;

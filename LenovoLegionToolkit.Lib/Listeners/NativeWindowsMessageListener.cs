@@ -8,6 +8,7 @@ using LenovoLegionToolkit.Lib.Utils;
 using Windows.Win32;
 using Windows.Win32.Foundation;
 using Windows.Win32.System.Power;
+using Windows.Win32.UI.Input.KeyboardAndMouse;
 using Windows.Win32.UI.WindowsAndMessaging;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
@@ -253,16 +254,18 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         {
             var kbStruct = Marshal.PtrToStructure<KBDLLHOOKSTRUCT>(new IntPtr(lParam.Value));
 
-            if (kbStruct.vkCode == PInvokeExtensions.VK_CAPITAL)
+            if (kbStruct.vkCode == (ulong)VIRTUAL_KEY.VK_CAPITAL)
             {
-                var isOn = (PInvoke.GetKeyState((int)PInvokeExtensions.VK_CAPITAL) & 0x1) != 0;
-                MessagingCenter.Publish(new Notification(isOn ? NotificationType.CapsLockOn : NotificationType.CapsLockOff, NotificationDuration.Short));
+                var isOn = (PInvoke.GetKeyState((int)VIRTUAL_KEY.VK_CAPITAL) & 0x1) != 0;
+                var type = isOn ? NotificationType.CapsLockOn : NotificationType.CapsLockOff;
+                MessagingCenter.Publish(new Notification(type, NotificationDuration.Short));
             }
 
-            if (kbStruct.vkCode == PInvokeExtensions.VK_NUMLOCK)
+            if (kbStruct.vkCode == (ulong)VIRTUAL_KEY.VK_NUMLOCK)
             {
-                var isOn = (PInvoke.GetKeyState((int)PInvokeExtensions.VK_NUMLOCK) & 0x1) != 0;
-                MessagingCenter.Publish(new Notification(isOn ? NotificationType.NumLockOn : NotificationType.NumLockOff, NotificationDuration.Short));
+                var isOn = (PInvoke.GetKeyState((int)VIRTUAL_KEY.VK_NUMLOCK) & 0x1) != 0;
+                var type = isOn ? NotificationType.NumLockOn : NotificationType.NumLockOff;
+                MessagingCenter.Publish(new Notification(type, NotificationDuration.Short));
             }
         }
 
