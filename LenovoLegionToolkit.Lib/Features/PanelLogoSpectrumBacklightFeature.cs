@@ -13,7 +13,15 @@ public class PanelLogoSpectrumBacklightFeature : IFeature<PanelLogoBacklightStat
         _controller = controller;
     }
 
-    public Task<bool> IsSupportedAsync() => _controller.IsSupportedAsync();
+    public async Task<bool> IsSupportedAsync()
+    {
+        var isSupported = await _controller.IsSupportedAsync().ConfigureAwait(false);
+        if (!isSupported)
+            return false;
+
+        var (layout, _, _) = await _controller.GetKeyboardLayoutAsync().ConfigureAwait(false);
+        return layout == SpectrumLayout.Full;
+    }
 
     public Task<PanelLogoBacklightState[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<PanelLogoBacklightState>());
 
