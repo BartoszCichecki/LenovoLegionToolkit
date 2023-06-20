@@ -1,19 +1,24 @@
 ﻿using System;
 using System.Management;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.SoftwareDisabler;
-using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
 public class LightingChangeListener : AbstractWMIListener<LightingChangeState>
 {
+    private readonly PanelLogoBacklightFeature _panelLogoBacklightFeature;
+    private readonly PortsBacklightFeature _portsBacklightFeature;
     private readonly FnKeysDisabler _fnKeysDisabler;
 
-    public LightingChangeListener(FnKeysDisabler fnKeysDisabler) : base("ROOT\\WMI", "LENOVO_LIGHTING_EVENT")
+    public LightingChangeListener(PanelLogoBacklightFeature panelLogoBacklightFeature, PortsBacklightFeature portsBacklightFeature, FnKeysDisabler fnKeysDisabler)
+        : base("ROOT\\WMI", "LENOVO_LIGHTING_EVENT")
     {
-        _fnKeysDisabler = fnKeysDisabler;
+        _panelLogoBacklightFeature = panelLogoBacklightFeature ?? throw new ArgumentNullException(nameof(panelLogoBacklightFeature));
+        _portsBacklightFeature = portsBacklightFeature ?? throw new ArgumentNullException(nameof(portsBacklightFeature));
+        _fnKeysDisabler = fnKeysDisabler ?? throw new ArgumentNullException(nameof(fnKeysDisabler));
     }
 
     protected override LightingChangeState GetValue(PropertyDataCollection properties)
@@ -30,43 +35,38 @@ public class LightingChangeListener : AbstractWMIListener<LightingChangeState>
 
     protected override async Task OnChangedAsync(LightingChangeState value)
     {
-        if (await _fnKeysDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+        try
         {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Ignoring, FnKeys are enabled.");
+            if (await _fnKeysDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Ignoring, FnKeys are enabled.");
 
-            return;
-        }
+                return;
+            }
 
-        if (value == LightingChangeState.Ports)
-        {
-            if (await IsPortLightingOnAsync().ConfigureAwait(false))
-                MessagingCenter.Publish(new Notification(NotificationType.PortLightingOn, NotificationDuration.Short));
-            else
-                MessagingCenter.Publish(new Notification(NotificationType.PortLightingOff, NotificationDuration.Short));
-        }
+            switch (value)
+            {
+                case LightingChangeState.Panel when await _panelLogoBacklightFeature.IsSupportedAsync().ConfigureAwait(false):
+                    {
+                        var type = await _panelLogoBacklightFeature.GetStateAsync().ConfigureAwait(false) == PanelLogoBacklightState.On
+                            ? NotificationType.PanelLogoLightingOn
+                            : NotificationType.PanelLogoLightingOff;
 
-        if (value == LightingChangeState.Panel)
-        {
-            if (await IsPanelLogoLightingOnAsync().ConfigureAwait(false))
-                MessagingCenter.Publish(new Notification(NotificationType.PanelLogoLightingOn, NotificationDuration.Short));
-            else
-                MessagingCenter.Publish(new Notification(NotificationType.PanelLogoLightingOff, NotificationDuration.Short));
+                        MessagingCenter.Publish(new Notification(type, NotificationDuration.Short));
+                        break;
+                    }
+                case LightingChangeState.Ports when await _portsBacklightFeature.IsSupportedAsync().ConfigureAwait(false):
+                    {
+                        var type = await _portsBacklightFeature.GetStateAsync().ConfigureAwait(false) == PortsBacklightState.On
+                            ? NotificationType.PortLightingOn
+                            : NotificationType.PortLightingOff;
+
+                        MessagingCenter.Publish(new Notification(type, NotificationDuration.Short));
+                        break;
+                    }
+            }
         }
+        catch { /* Ignored. */ }
     }
-
-    private Task<bool> IsPortLightingOnAsync() => IsLightingOnAsync(5);
-
-    private Task<bool> IsPanelLogoLightingOnAsync() => IsLightingOnAsync(3);
-
-    private async Task<bool> IsLightingOnAsync(int id) => await WMI.CallAsync("ROOT\\WMI",
-        $"SELECT * FROM LENOVO_LIGHTING_METHOD",
-        "Get_Lighting_Current_Status",
-        new() { { "Lighting_ID", id } },
-        pdc =>
-        {
-            if (!int.TryParse(pdc["Current_State_Type"].Value.ToString(), out var value))
-                return false;
-            return value == 1;
-        });
 }
