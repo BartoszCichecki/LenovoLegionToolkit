@@ -23,7 +23,6 @@ public class AutomationEnvironment
     private const string IS_SUNRISE = "LLT_IS_SUNRISE";
     private const string TIME = "LLT_TIME";
     private const string DAYS = "LLT_DAYS";
-
     private const string USER_ACTIVE = "LLT_IS_USER_ACTIVE";
 
     private const string VALUE_TRUE = "TRUE";
