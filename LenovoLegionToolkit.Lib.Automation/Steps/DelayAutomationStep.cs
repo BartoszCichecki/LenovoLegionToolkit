@@ -21,5 +21,5 @@ public class DelayAutomationStep : IAutomationStep<Delay>
 
     public IAutomationStep DeepCopy() => new DelayAutomationStep(State);
 
-    public Task RunAsync() => Task.Delay(TimeSpan.FromSeconds(State.DelaySeconds));
+    public Task RunAsync(AutomationEnvironment _) => Task.Delay(TimeSpan.FromSeconds(State.DelaySeconds));
 }

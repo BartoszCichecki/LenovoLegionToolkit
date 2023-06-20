@@ -26,6 +26,12 @@ public class LowWattageACAdapterConnectedAutomationPipelineTrigger : IPowerState
         return result == PowerAdapterStatus.ConnectedLowWattage;
     }
 
+    public void UpdateEnvironment(ref AutomationEnvironment e)
+    {
+        e.AcAdapterConnected = true;
+        e.LowPowerAcAdapter = true;
+    }
+
     public IAutomationPipelineTrigger DeepCopy() => new LowWattageACAdapterConnectedAutomationPipelineTrigger();
 
     public override bool Equals(object? obj) => obj is LowWattageACAdapterConnectedAutomationPipelineTrigger;

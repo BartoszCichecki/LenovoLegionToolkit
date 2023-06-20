@@ -11,9 +11,9 @@ public class ResolutionAutomationStep : AbstractFeatureAutomationStep<Resolution
     [JsonConstructor]
     public ResolutionAutomationStep(Resolution state) : base(state) { }
 
-    public override Task RunAsync()
+    public override Task RunAsync(AutomationEnvironment environment)
     {
-        return RetryHelper.RetryAsync(base.RunAsync,
+        return RetryHelper.RetryAsync(() => base.RunAsync(environment),
             5,
             TimeSpan.FromSeconds(1),
             ex => ex is ModeChangeException,

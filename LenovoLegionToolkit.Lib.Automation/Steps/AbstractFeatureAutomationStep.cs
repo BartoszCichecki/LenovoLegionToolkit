@@ -13,7 +13,7 @@ public abstract class AbstractFeatureAutomationStep<T> : IAutomationStep<T> wher
 
     public Task<bool> IsSupportedAsync() => _feature.IsSupportedAsync();
 
-    public virtual async Task RunAsync()
+    public virtual async Task RunAsync(AutomationEnvironment _)
     {
         var currentState = await _feature.GetStateAsync().ConfigureAwait(false);
         if (!State.Equals(currentState))

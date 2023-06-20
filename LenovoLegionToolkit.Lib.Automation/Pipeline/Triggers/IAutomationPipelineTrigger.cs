@@ -13,6 +13,8 @@ public interface IAutomationPipelineTrigger
 
     Task<bool> IsMatchingState();
 
+    void UpdateEnvironment(ref AutomationEnvironment e);
+
     IAutomationPipelineTrigger DeepCopy();
 }
 

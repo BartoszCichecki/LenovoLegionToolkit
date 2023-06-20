@@ -48,6 +48,14 @@ public class TimeAutomationPipelineTrigger : ITimeAutomationPipelineTrigger
         return await IsMatching(time, day).ConfigureAwait(false);
     }
 
+    public void UpdateEnvironment(ref AutomationEnvironment e)
+    {
+        e.IsSunset = IsSunset;
+        e.IsSunrise = IsSunrise;
+        e.Time = Time;
+        e.Days = Days;
+    }
+
     private async Task<bool> IsMatching(Time time, DayOfWeek dayOfWeek)
     {
         if (Time == time && (Days.IsEmpty() || Days.Contains(dayOfWeek)))

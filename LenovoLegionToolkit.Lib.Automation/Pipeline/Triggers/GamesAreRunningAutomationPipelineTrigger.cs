@@ -21,5 +21,7 @@ public class GamesAreRunningAutomationPipelineTrigger : IGameAutomationPipelineT
         return Task.FromResult(result);
     }
 
+    public void UpdateEnvironment(ref AutomationEnvironment e) => e.GameRunning = true;
+
     public IAutomationPipelineTrigger DeepCopy() => new GamesAreRunningAutomationPipelineTrigger();
 }
