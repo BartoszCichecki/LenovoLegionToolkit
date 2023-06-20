@@ -315,6 +315,18 @@ If you end up in a situation where your GPU is not stable and you can't boot int
 1. Go into BIOS and try to find and option similar to "Enabled GPU Overclocking" and disable it, start Windows, and toggle the BIOS option again to Enabled.
 2. Start Windows in Safe Mode, and delete `gpu_oc.json` file under LLT settings, which are located in `"%LOCALAPPDATA%\LenovoLegionToolkit`.
 
+#### Why do I get a message that Vantage is still running, even though I uninstalled it?
+
+Starting from version 2.14.0, LLT is much more strict about detecting leftover processes related to Vantage. Vantage installs 3 components:
+
+1. Lenovo Vantage app
+2. Lenovo Vantage Service
+3. System Interface Foundation V2 Device
+
+The easiest solution is to go into LLT settings and selection options to disable Lenovo Vantage, LegionZone and Hotkeys (only still installed ones are shown).
+
+If you want to remove them instead, make sure that you uninstall all 3, otherwise some options in LLT will not be available. You can check Task Manager for any processes containing "Vantage" or "ImController". You can also check this guide for more info: [Uninstalling System Interface Foundation V2 Device](https://support.lenovo.com/us/en/solutions/HT506070), if you have troubles getting rid of "ImController" processes.
+
 ## How to collect logs?
 
 In some cases it will be super useful if you can provide logs that this app can create. This helps with debugging and other issue solving.
