@@ -47,10 +47,10 @@ public class ProcessesAreRunningAutomationPipelineTrigger : IProcessesAutomation
         return Task.FromResult(result);
     }
 
-    public void UpdateEnvironment(ref AutomationEnvironment e)
+    public void UpdateEnvironment(ref AutomationEnvironment environment)
     {
-        e.ProcessesStarted = true;
-        e.Processes = Processes;
+        environment.ProcessesStarted = true;
+        environment.Processes = Processes;
     }
 
     public IAutomationPipelineTrigger DeepCopy() => new ProcessesAreRunningAutomationPipelineTrigger(Processes);
