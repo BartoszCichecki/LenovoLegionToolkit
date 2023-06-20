@@ -2,7 +2,7 @@
 
 namespace LenovoLegionToolkit.Lib.Extensions;
 
-public class OSExtensions
+public static class OSExtensions
 {
     public static OS GetCurrent()
     {

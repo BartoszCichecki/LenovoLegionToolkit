@@ -57,7 +57,7 @@ public class WarrantyChecker
         return locallyUpdatedWarrantyInfo;
     }
 
-    private string GetWarrantyStatus(DateTime? endDate)
+    private static string GetWarrantyStatus(DateTime? endDate)
     {
         var status = "In Warranty";
         var now = DateTime.Now;
@@ -66,7 +66,7 @@ public class WarrantyChecker
         return status;
     }
 
-    private async Task<WarrantyInfo?> GetStandardWarrantyInfo(HttpClient httpClient, MachineInformation machineInformation,
+    private static async Task<WarrantyInfo?> GetStandardWarrantyInfo(HttpClient httpClient, MachineInformation machineInformation,
         CancellationToken token)
     {
         var warrantySummaryString = await httpClient.GetStringAsync($"https://pcsupport.lenovo.com/api/v4/upsellAggregation/vantage/warrantySummaryInfo?geo=us&language=en&sn={machineInformation.SerialNumber}", token).ConfigureAwait(false);

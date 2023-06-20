@@ -73,7 +73,7 @@ public abstract class AbstractPackageDownloader : IPackageDownloader
         throw new InvalidDataException("File checksum mismatch.");
     }
 
-    protected async Task<string?> GetReadmeAsync(HttpClient httpClient, string location, CancellationToken token)
+    protected static async Task<string?> GetReadmeAsync(HttpClient httpClient, string location, CancellationToken token)
     {
         try
         {
@@ -85,7 +85,7 @@ public abstract class AbstractPackageDownloader : IPackageDownloader
         }
     }
 
-    protected static string SanitizeFileName(string name)
+    private static string SanitizeFileName(string name)
     {
         var invalidChars = Regex.Escape(new string(Path.GetInvalidFileNameChars()));
         var invalidRegStr = string.Format(@"([{0}]*\.+$)|([{0}]+)", invalidChars);

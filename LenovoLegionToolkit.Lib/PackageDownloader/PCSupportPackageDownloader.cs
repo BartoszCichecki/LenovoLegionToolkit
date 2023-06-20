@@ -98,7 +98,7 @@ public class PCSupportPackageDownloader : AbstractPackageDownloader
         };
     }
 
-    private bool IsCompatible(JsonNode? downloadNode, string osString)
+    private static bool IsCompatible(JsonNode? downloadNode, string osString)
     {
         var operatingSystems = downloadNode?["OperatingSystemKeys"]?.AsArray();
 

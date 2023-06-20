@@ -310,7 +310,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 #endif
         });
 
-        private LENOVO_RGB_KEYBOARD_STATE CreateOffState()
+        private static LENOVO_RGB_KEYBOARD_STATE CreateOffState()
         {
             return new()
             {
@@ -328,7 +328,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             };
         }
 
-        private LENOVO_RGB_KEYBOARD_STATE Convert(RGBKeyboardBacklightBacklightPresetDescription preset)
+        private static LENOVO_RGB_KEYBOARD_STATE Convert(RGBKeyboardBacklightBacklightPresetDescription preset)
         {
             var result = new LENOVO_RGB_KEYBOARD_STATE
             {

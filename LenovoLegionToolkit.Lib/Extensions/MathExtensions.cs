@@ -2,7 +2,7 @@
 
 namespace LenovoLegionToolkit.Lib.Extensions;
 
-public class MathExtensions
+public static class MathExtensions
 {
     public static int RoundNearest(int value, int factor)
     {

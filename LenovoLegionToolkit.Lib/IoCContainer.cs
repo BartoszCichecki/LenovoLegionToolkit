@@ -3,7 +3,7 @@ using Autofac;
 
 namespace LenovoLegionToolkit.Lib;
 
-public class IoCContainer
+public static class IoCContainer
 {
     private static readonly object Lock = new();
 

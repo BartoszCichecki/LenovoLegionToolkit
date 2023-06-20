@@ -144,7 +144,7 @@ public partial class FanCurveControl
         DrawGraph();
     }
 
-    private CustomPopupPlacement[] ToolTipCustomPopupPlacementCallback(Size size, Size targetSize, Point _)
+    private static CustomPopupPlacement[] ToolTipCustomPopupPlacementCallback(Size size, Size targetSize, Point _)
     {
         return new CustomPopupPlacement[]
         {

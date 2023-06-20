@@ -238,7 +238,7 @@ public class AIModeController
         }
     }
 
-    private async Task SetIntelligentSubModeAsync(int subMode)
+    private static async Task SetIntelligentSubModeAsync(int subMode)
     {
         try
         {
@@ -257,7 +257,7 @@ public class AIModeController
         }
     }
 
-    private async Task<int> GetIntelligentSubModeAsync()
+    private static async Task<int> GetIntelligentSubModeAsync()
     {
         try
         {

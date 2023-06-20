@@ -38,7 +38,7 @@ public class SunriseSunset
         return (sunrise, sunset);
     }
 
-    private async Task<Coordinate?> GetGeoLocationAsync(CancellationToken token)
+    private static async Task<Coordinate?> GetGeoLocationAsync(CancellationToken token)
     {
         try
         {
@@ -57,7 +57,7 @@ public class SunriseSunset
         return null;
     }
 
-    private (Time?, Time?) CalculateSunriseSunset(Coordinate coordinate)
+    private static (Time?, Time?) CalculateSunriseSunset(Coordinate coordinate)
     {
         var sunrise = coordinate.CelestialInfo.SunRise;
         var sunset = coordinate.CelestialInfo.SunSet;

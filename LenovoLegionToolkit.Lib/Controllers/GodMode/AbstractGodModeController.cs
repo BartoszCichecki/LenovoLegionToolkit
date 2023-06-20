@@ -147,7 +147,7 @@ public abstract class AbstractGodModeController : IGodModeController
         return fanTable.GetTable().Where((t, i) => t < minimum[i] || t > 10u).IsEmpty();
     }
 
-    private bool IsValidStore(GodModeSettings.GodModeSettingsStore store) => store.Presets.Any() && store.Presets.ContainsKey(store.ActivePresetId);
+    private static bool IsValidStore(GodModeSettings.GodModeSettingsStore store) => store.Presets.Any() && store.Presets.ContainsKey(store.ActivePresetId);
 
     private async Task<GodModeState> LoadStateFromStoreAsync(GodModeSettings.GodModeSettingsStore store, GodModePreset defaultState)
     {

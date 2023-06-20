@@ -2,7 +2,7 @@
 
 namespace LenovoLegionToolkit.Lib.Extensions;
 
-public class DateTimeExtensions
+public static class DateTimeExtensions
 {
     public static DateTime UtcFrom(int hours, int minutes)
     {

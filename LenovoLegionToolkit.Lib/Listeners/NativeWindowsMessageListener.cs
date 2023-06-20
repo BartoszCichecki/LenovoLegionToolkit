@@ -248,7 +248,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         Changed?.Invoke(this, NativeWindowsMessage.OnDisplayDeviceArrival);
     }
 
-    private LRESULT LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
+    private static LRESULT LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
     {
         if (nCode == PInvoke.HC_ACTION && wParam.Value == PInvoke.WM_KEYUP)
         {

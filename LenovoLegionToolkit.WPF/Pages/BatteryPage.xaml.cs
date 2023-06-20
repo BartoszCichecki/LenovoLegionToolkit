@@ -136,7 +136,7 @@ public partial class BatteryPage
         _batteryCycleCountText.Text = $"{batteryInfo.CycleCount}";
     }
 
-    private string GetStatusText(BatteryInformation batteryInfo)
+    private static string GetStatusText(BatteryInformation batteryInfo)
     {
         if (batteryInfo.IsCharging)
         {

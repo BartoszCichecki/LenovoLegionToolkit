@@ -17,7 +17,7 @@ namespace LenovoLegionToolkit.WPF.Utils;
 
 public class NotificationsManager
 {
-    private Dispatcher Dispatcher => Application.Current.Dispatcher;
+    private static Dispatcher Dispatcher => Application.Current.Dispatcher;
 
     private readonly ApplicationSettings _settings;
 

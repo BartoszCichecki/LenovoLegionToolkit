@@ -8,7 +8,7 @@ using LenovoLegionToolkit.Lib;
 
 namespace LenovoLegionToolkit.WPF.Extensions;
 
-public class ClipboardExtensions
+public static class ClipboardExtensions
 {
     public static void SetProcesses(IEnumerable<ProcessInfo> processes)
     {

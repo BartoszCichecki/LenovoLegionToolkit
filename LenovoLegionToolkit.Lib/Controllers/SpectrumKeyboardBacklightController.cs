@@ -644,7 +644,7 @@ public class SpectrumKeyboardBacklightController
         }
     }
 
-    private void SetAndGetFeature<TIn>(SafeFileHandle handle, TIn input, out byte[] output, int size) where TIn : notnull
+    private static void SetAndGetFeature<TIn>(SafeHandle handle, TIn input, out byte[] output, int size) where TIn : notnull
     {
         lock (IoLock)
         {
@@ -653,7 +653,7 @@ public class SpectrumKeyboardBacklightController
         }
     }
 
-    private unsafe void SetFeature<T>(SafeFileHandle handle, T str) where T : notnull
+    private static unsafe void SetFeature<T>(SafeHandle handle, T str) where T : notnull
     {
         lock (IoLock)
         {
@@ -685,7 +685,7 @@ public class SpectrumKeyboardBacklightController
         }
     }
 
-    private unsafe void GetFeature<T>(SafeFileHandle handle, out T str) where T : struct
+    private static unsafe void GetFeature<T>(SafeHandle handle, out T str) where T : struct
     {
         lock (IoLock)
         {
@@ -709,7 +709,7 @@ public class SpectrumKeyboardBacklightController
         }
     }
 
-    private unsafe void GetFeature(SafeFileHandle handle, out byte[] bytes, int size)
+    private static unsafe void GetFeature(SafeHandle handle, out byte[] bytes, int size)
     {
         lock (IoLock)
         {

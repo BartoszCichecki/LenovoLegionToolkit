@@ -58,7 +58,7 @@ public class VantagePackageDownloader : AbstractPackageDownloader
         return packages;
     }
 
-    private async Task<List<PackageDefinition>> GetPackageDefinitionsAsync(HttpClient httpClient, string location, CancellationToken token)
+    private static async Task<List<PackageDefinition>> GetPackageDefinitionsAsync(HttpClient httpClient, string location, CancellationToken token)
     {
         var catalogString = await httpClient.GetStringAsync(location, token).ConfigureAwait(false);
 
