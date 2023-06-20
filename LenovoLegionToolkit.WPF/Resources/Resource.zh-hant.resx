@@ -133,7 +133,7 @@
     <value>在 GitHub 上檢視專案</value>
   </data>
   <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
-    <value>第三方庫</value>
+    <value>第三方資料庫</value>
   </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>關於</value>
@@ -149,7 +149,7 @@
     <value>新增</value>
   </data>
   <data name="AddNew" xml:space="preserve">
-    <value>新增新的</value>
+    <value>新增</value>
   </data>
   <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
     <value>當 Lenovo Vantage 啟用時仍然啟用電源計劃。
@@ -231,7 +231,7 @@
     <value>自動化</value>
   </data>
   <data name="AutomationPipelineControl_AddStep" xml:space="preserve">
-    <value>新增步驟</value>
+    <value>新增條件</value>
   </data>
   <data name="AutomationPipelineControl_Configure" xml:space="preserve">
     <value>配置</value>
@@ -261,10 +261,10 @@
     <value>執行中……</value>
   </data>
   <data name="AutomationPipelineControl_Step" xml:space="preserve">
-    <value>共 {0} 個步驟</value>
+    <value>共 {0} 個條件</value>
   </data>
   <data name="AutomationPipelineControl_Step_Many" xml:space="preserve">
-    <value>共 {0} 個步驟</value>
+    <value>共 {0} 個條件</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_Apps" xml:space="preserve">
     <value>應用程式</value>
@@ -309,7 +309,7 @@
     <value>已連接，充電中……</value>
   </data>
   <data name="BatteryPage_ACAdapterConnectedNotCharging" xml:space="preserve">
-    <value>已連接，但未充電</value>
+    <value>已連接，已完全充電</value>
   </data>
   <data name="BatteryPage_BatteryTemperature_Message" xml:space="preserve">
     <value>目前電池溫度。</value>
@@ -448,7 +448,7 @@
     <value>休眠獨立 GPU</value>
   </data>
   <data name="DelayAutomationStepControl_Message" xml:space="preserve">
-    <value>在執行下一步驟前增加延遲。</value>
+    <value>在執行下一條件前增加延遲。</value>
   </data>
   <data name="DelayAutomationStepControl_Title" xml:space="preserve">
     <value>延遲</value>
@@ -528,7 +528,7 @@
     <value>如果 GPU 不需要活動時關閉顯示卡。</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
-    <value>顯示器已連接到 nVidia 顯示卡。</value>
+    <value>顯示器已連接到 nVidia GPU。</value>
   </data>
   <data name="DiscreteGPUControl_NoProcesses" xml:space="preserve">
     <value>尚無進程</value>
@@ -550,7 +550,7 @@
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
     <value>變更內部顯示器顯示亮度。
-在一些裝置上，變更電源模式後亮度會發生變化。如果有任何異常，請確保將此步驟放到最後再做。
+在一些裝置上，變更電源模式後亮度會發生變化。如果有任何異常，請確保將此條件放到最後再做。
 
 警告：如果內部顯示器已關閉，則此操作將無法正常執行。</value>
   </data>
@@ -561,7 +561,7 @@
     <value>贊助於</value>
   </data>
   <data name="DonatePage_Message" xml:space="preserve">
-    <value>開發和維護 Lenovo Legion 工具套件需要大量的時間。如果你喜歡這個應用程式，您可以透過捐贈來支持未來應用程式的開發。
+    <value>開發和維護 Lenovo Legion 工具套件需要大量的時間。如果您喜歡這個應用程式，您可以透過捐贈來支持未來應用程式的開發。
 
 點擊下方的 Stripe 圖示或掃描 QR 條碼使用 Stripe 捐贈。
 
@@ -914,7 +914,7 @@
     <value>通知</value>
   </data>
   <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
-    <value>觸控板鎖定</value>
+    <value>鎖定觸控板</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>確認</value>
@@ -1023,7 +1023,7 @@
     <value>貼上</value>
   </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-    <value>選擇效能模式</value>
+    <value>選擇效能模式。</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>電源模式</value>
@@ -1398,13 +1398,13 @@
     <value>停用觸控板。</value>
   </data>
   <data name="TouchpadLockAutomationStepControl_Title" xml:space="preserve">
-    <value>觸控板鎖定</value>
+    <value>鎖定觸控板</value>
   </data>
   <data name="TouchpadLockControl_Message" xml:space="preserve">
     <value>停用觸控板。</value>
   </data>
   <data name="TouchpadLockControl_Title" xml:space="preserve">
-    <value>觸控板鎖定</value>
+    <value>鎖定觸控板</value>
   </data>
   <data name="TryAgain" xml:space="preserve">
     <value>再試一次</value>
@@ -1691,7 +1691,7 @@
     <value>建立</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
-    <value>新增步驟</value>
+    <value>新增條件</value>
   </data>
   <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
     <value>建立操作</value>
@@ -1779,7 +1779,7 @@
     <value>GPU 超頻</value>
   </data>
   <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
-    <value>藉由對獨立 GPU 超頻以提升效能</value>
+    <value>藉由對獨立 GPU 超頻以提升效能。</value>
   </data>
   <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
     <value>GPU 超頻</value>

@@ -74,13 +74,13 @@
     <value>僅限睡眠時</value>
   </data>
   <data name="AutorunState_Disabled" xml:space="preserve">
-    <value>已停用</value>
+    <value>停用</value>
   </data>
   <data name="AutorunState_Enabled" xml:space="preserve">
-    <value>已啟用</value>
+    <value>啟用</value>
   </data>
   <data name="AutorunState_EnabledDelayed" xml:space="preserve">
-    <value>已開啟延遲</value>
+    <value>延遲開啟</value>
   </data>
   <data name="BatteryState_Conservation" xml:space="preserve">
     <value>維護</value>
@@ -199,7 +199,7 @@
     <value>客製化</value>
   </data>
   <data name="PowerModeState_Performance" xml:space="preserve">
-    <value>效能</value>
+    <value>效能模式</value>
   </data>
   <data name="PowerModeState_Quiet" xml:space="preserve">
     <value>靜音模式</value>

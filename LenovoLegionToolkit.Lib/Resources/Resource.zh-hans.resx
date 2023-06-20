@@ -361,4 +361,16 @@
     <value>开</value>
     <comment>Informs the user that WinLock is or will be turned on.</comment>
   </data>
+  <data name="PortsBacklightState_Off" xml:space="preserve">
+		<value>关</value>
+	</data>
+  <data name="PortsBacklightState_On" xml:space="preserve">
+		<value>开</value>
+	</data>
+  <data name="PanelLogoBacklightState_On" xml:space="preserve">
+		<value>开</value>
+	</data>
+  <data name="PanelLogoBacklightState_Off" xml:space="preserve">
+		<value>关</value>
+	</data>
 </root>
