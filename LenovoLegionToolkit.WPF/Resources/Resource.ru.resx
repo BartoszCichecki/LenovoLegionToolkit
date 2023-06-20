@@ -1204,6 +1204,19 @@
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Отключить Lenovo Hotkeys</value>
   </data>
+  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
+    <value>Возможно, Vantage и/или ImController были отключены неправильно</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
+    <value>Не удалось отключить Vantage и/или ImController</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
+    <value>Отключить Lenovo Vantage и ImController, не удаляя их.
+После изменения этого параметра рекомендуется перезагрузка.</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
+    <value>Отключить Lenovo Vantage и ImController</value>
+  </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Возможно, Legion Zone был неверно запущен</value>
   </data>
@@ -1746,5 +1759,59 @@
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
     <value>Путь</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_After" xml:space="preserve">
+    <value>Через {0}</value>
+  </data>
+  <data name="MultipleTriggersAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Несколько триггеров...</value>
+    <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_Title" xml:space="preserve">
+    <value>Настройки разгона GPU</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title" xml:space="preserve">
+    <value>Смещение частоты ядра</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title" xml:space="preserve">
+    <value>Смещение частоты памяти</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Title" xml:space="preserve">
+    <value>Разгон GPU</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
+    <value>Повысить производительности путем разгона дискретного GPU.</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
+    <value>Разгон GPU</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
+    <value>Повысить производительности путем разгона дискретного GPU.
+
+ВНИМАНИЕ: Это действие не будет выполняться корректно, если дискретный GPU недоступен.</value>
+  </data>
+  <data name="PortsBacklightControl_Title" xml:space="preserve">
+	  <value>Подсветка портов</value>
+  </data>
+  <data name="PortsBacklightControl_Message" xml:space="preserve">
+	  <value>Включить или выключить подсветку портов на задней стороне ноутбука.</value>
+  </data>
+  <data name="PortsBacklightAutomationStepControl_Title" xml:space="preserve">
+	  <value>Подсветка портов</value>
+  </data>
+  <data name="PortsBacklightAutomationStepControl_Message" xml:space="preserve">
+	  <value>Включить или выключить подсветку портов на задней стороне ноутбука.</value>
+  </data>
+  <data name="PanelLogoBacklightControl_Title" xml:space="preserve">
+	  <value>Подсветка логотипа на панели</value>
+  </data>
+  <data name="PanelLogoBacklightControl_Message" xml:space="preserve">
+	  <value>Включить или выключить подсветку на крышке ноутбука.</value>
+  </data>
+  <data name="PanelLogoBacklightAutomationStepControl_Title" xml:space="preserve">
+	  <value>Подсветка логотипа на панели</value>
+  </data>
+  <data name="PanelLogoBacklightAutomationStepControl_Message" xml:space="preserve">
+	  <value>Включить или выключить подсветку на крышке ноутбука.</value>
   </data>
 </root>
