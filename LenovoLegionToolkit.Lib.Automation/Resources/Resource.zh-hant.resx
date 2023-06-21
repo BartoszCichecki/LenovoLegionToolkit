@@ -142,7 +142,7 @@
     <value>當啟動時</value>
   </data>
   <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>當效能模式變更時</value>
+    <value>當電源模式變更時</value>
   </data>
   <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>當應用程式啟動時</value>

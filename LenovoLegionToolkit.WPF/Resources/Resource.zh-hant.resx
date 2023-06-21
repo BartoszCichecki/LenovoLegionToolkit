@@ -531,7 +531,7 @@
     <value>顯示器已連接到 nVidia GPU。</value>
   </data>
   <data name="DiscreteGPUControl_NoProcesses" xml:space="preserve">
-    <value>尚無進程</value>
+    <value>尚無處理程序</value>
   </data>
   <data name="DiscreteGPUControl_PerformanceState" xml:space="preserve">
     <value>效能狀態</value>
@@ -540,7 +540,7 @@
     <value>未知</value>
   </data>
   <data name="DiscreteGPUControl_Processes" xml:space="preserve">
-    <value>進程</value>
+    <value>處理程序</value>
   </data>
   <data name="DiscreteGPUControl_RestartGPU" xml:space="preserve">
     <value>重新啟動 GPU</value>
@@ -1039,7 +1039,7 @@
     <value>電源模式</value>
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
-    <value>尚未連接電源供應器時，效能模式可能無法正確地的運作。</value>
+    <value>尚未連接電源供應器時，電源模式可能無法正確地的運作。</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>當 Lenovo Vantage 正在執行時啟用此選項，並變更筆記型電腦的電源計劃可能導致未預期的行為。</value>

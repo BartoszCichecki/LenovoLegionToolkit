@@ -111,7 +111,7 @@
     <value>已關閉電源</value>
   </data>
   <data name="GPUController_PoweredOn" xml:space="preserve">
-    <value>已開啟電源</value>
+    <value>啟用</value>
   </data>
   <data name="GSyncState_Off" xml:space="preserve">
     <value>關閉</value>
