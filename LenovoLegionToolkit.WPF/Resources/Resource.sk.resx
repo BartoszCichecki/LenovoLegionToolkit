@@ -1748,7 +1748,7 @@ Nastavenia sú účinne len keď je povolený vlastný režim.</value>
     <value>Možnosti plánu napájanie v ovládacom paneli Windows</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
-    <value>Vypnutý</value>
+    <value>Vypnutá</value>
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
     <value>Importovať profily podsvietenia klávesnice</value>
