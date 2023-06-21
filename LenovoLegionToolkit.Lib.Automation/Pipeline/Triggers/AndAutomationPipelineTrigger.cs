@@ -38,5 +38,11 @@ public class AndAutomationPipelineTrigger : ICompositeAutomationPipelineTrigger
 
     public Task<bool> IsMatchingState() => Task.FromResult(false);
 
+    public void UpdateEnvironment(ref AutomationEnvironment environment)
+    {
+        foreach (var trigger in Triggers)
+            trigger.UpdateEnvironment(ref environment);
+    }
+
     public IAutomationPipelineTrigger DeepCopy() => new AndAutomationPipelineTrigger(Triggers);
 }

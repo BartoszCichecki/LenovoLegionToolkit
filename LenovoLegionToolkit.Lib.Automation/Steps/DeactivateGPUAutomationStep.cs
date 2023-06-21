@@ -16,7 +16,7 @@ public class DeactivateGPUAutomationStep : IAutomationStep<DeactivateGPUAutomati
 
     public Task<bool> IsSupportedAsync() => Task.FromResult(_controller.IsSupported());
 
-    public async Task RunAsync()
+    public async Task RunAsync(AutomationEnvironment _)
     {
         if (!_controller.IsSupported())
             return;

@@ -48,6 +48,12 @@ public class ProcessesStopRunningAutomationPipelineTrigger : IProcessesAutomatio
         return Task.FromResult(result);
     }
 
+    public void UpdateEnvironment(ref AutomationEnvironment environment)
+    {
+        environment.ProcessesStarted = false;
+        environment.Processes = Processes;
+    }
+
     public IAutomationPipelineTrigger DeepCopy() => new ProcessesStopRunningAutomationPipelineTrigger(Processes);
 
     public IProcessesAutomationPipelineTrigger DeepCopy(ProcessInfo[] processes) => new ProcessesStopRunningAutomationPipelineTrigger(processes);

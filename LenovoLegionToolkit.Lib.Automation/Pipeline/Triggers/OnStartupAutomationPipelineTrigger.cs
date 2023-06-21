@@ -17,6 +17,8 @@ public class OnStartupAutomationPipelineTrigger : IOnStartupAutomationPipelineTr
 
     public Task<bool> IsMatchingState() => Task.FromResult(false);
 
+    public void UpdateEnvironment(ref AutomationEnvironment environment) => environment.Startup = true;
+
     public IAutomationPipelineTrigger DeepCopy() => new OnStartupAutomationPipelineTrigger();
 
     public override bool Equals(object? obj) => obj is OnStartupAutomationPipelineTrigger;

@@ -26,6 +26,8 @@ public class ACAdapterConnectedAutomationPipelineTrigger : IPowerStateAutomation
         return status == PowerAdapterStatus.Connected;
     }
 
+    public void UpdateEnvironment(ref AutomationEnvironment environment) => environment.AcAdapterConnected = true;
+
     public IAutomationPipelineTrigger DeepCopy() => new ACAdapterConnectedAutomationPipelineTrigger();
 
     public override bool Equals(object? obj) => obj is ACAdapterConnectedAutomationPipelineTrigger;

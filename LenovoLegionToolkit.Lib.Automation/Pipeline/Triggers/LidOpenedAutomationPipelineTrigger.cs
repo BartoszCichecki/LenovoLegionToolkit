@@ -24,6 +24,8 @@ public class LidOpenedAutomationPipelineTrigger : INativeWindowsMessagePipelineT
         return Task.FromResult(result);
     }
 
+    public void UpdateEnvironment(ref AutomationEnvironment environment) => environment.LidOpen = true;
+
     public IAutomationPipelineTrigger DeepCopy() => new LidOpenedAutomationPipelineTrigger();
 
     public override bool Equals(object? obj) => obj is LidOpenedAutomationPipelineTrigger;

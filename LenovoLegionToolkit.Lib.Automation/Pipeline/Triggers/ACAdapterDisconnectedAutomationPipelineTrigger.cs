@@ -26,6 +26,8 @@ public class ACAdapterDisconnectedAutomationPipelineTrigger : IPowerStateAutomat
         return status == PowerAdapterStatus.Disconnected;
     }
 
+    public void UpdateEnvironment(ref AutomationEnvironment environment) => environment.AcAdapterConnected = false;
+
     public IAutomationPipelineTrigger DeepCopy() => new ACAdapterDisconnectedAutomationPipelineTrigger();
 
     public override bool Equals(object? obj) => obj is ACAdapterDisconnectedAutomationPipelineTrigger;

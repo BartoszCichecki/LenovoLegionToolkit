@@ -36,6 +36,8 @@ public class UserInactivityAutomationPipelineTrigger : IUserInactivityPipelineTr
         return Task.FromResult(result);
     }
 
+    public void UpdateEnvironment(ref AutomationEnvironment environment) => environment.UserActive = InactivityTimeSpan == TimeSpan.Zero;
+
     public IAutomationPipelineTrigger DeepCopy() => new UserInactivityAutomationPipelineTrigger(InactivityTimeSpan);
 
     public IUserInactivityPipelineTrigger DeepCopy(TimeSpan timeSpan) => new UserInactivityAutomationPipelineTrigger(InactivityTimeSpan);

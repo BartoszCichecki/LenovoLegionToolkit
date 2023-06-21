@@ -29,6 +29,8 @@ public class ExternalDisplayDisconnectedAutomationPipelineTrigger : INativeWindo
         return Task.FromResult(result);
     }
 
+    public void UpdateEnvironment(ref AutomationEnvironment environment) => environment.ExternalDisplayConnected = false;
+
     public IAutomationPipelineTrigger DeepCopy() => new ExternalDisplayDisconnectedAutomationPipelineTrigger();
 
     public override bool Equals(object? obj) => obj is ExternalDisplayDisconnectedAutomationPipelineTrigger;

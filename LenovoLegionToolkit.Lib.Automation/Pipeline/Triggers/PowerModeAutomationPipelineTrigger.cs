@@ -33,6 +33,8 @@ public class PowerModeAutomationPipelineTrigger : IPowerModeAutomationPipelineTr
         return await feature.GetStateAsync().ConfigureAwait(false) == PowerModeState;
     }
 
+    public void UpdateEnvironment(ref AutomationEnvironment environment) => environment.PowerMode = PowerModeState;
+
     public IAutomationPipelineTrigger DeepCopy() => new PowerModeAutomationPipelineTrigger(PowerModeState);
 
     public IPowerModeAutomationPipelineTrigger DeepCopy(PowerModeState powerModeState) => new PowerModeAutomationPipelineTrigger(powerModeState);
