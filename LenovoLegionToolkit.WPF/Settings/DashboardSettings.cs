@@ -6,7 +6,7 @@ public class DashboardSettings : AbstractSettings<DashboardSettings.DashboardSet
 {
     public class DashboardSettingsStore
     {
-        public DashboardGroup[] Groups { get; set; } = DashboardGroup.DefaultGroups;
+        public DashboardGroup[]? Groups { get; set; }
     }
 
     protected override DashboardSettingsStore Default => new();

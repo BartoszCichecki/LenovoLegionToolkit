@@ -22,7 +22,7 @@ public partial class EditDashboardWindow
 
     public EditDashboardWindow()
     {
-        _groups = _dashboardSettings.Store.Groups;
+        _groups = _dashboardSettings.Store.Groups ?? DashboardGroup.DefaultGroups;
 
         InitializeComponent();
 
@@ -74,9 +74,12 @@ public partial class EditDashboardWindow
 
     private async void DefaultButton_Click(object sender, RoutedEventArgs e)
     {
-        _groups = DashboardGroup.DefaultGroups;
+        _dashboardSettings.Store.Groups = null;
+        _dashboardSettings.SynchronizeStore();
 
-        await RefreshAsync();
+        Close();
+
+        Apply?.Invoke(this, EventArgs.Empty);
     }
 
     private void ApplyButton_Click(object sender, RoutedEventArgs e)
@@ -94,10 +97,7 @@ public partial class EditDashboardWindow
         Apply?.Invoke(this, EventArgs.Empty);
     }
 
-    private void CancelButton_Click(object sender, RoutedEventArgs e)
-    {
-        Close();
-    }
+    private void CancelButton_Click(object sender, RoutedEventArgs e) => Close();
 
     private IEnumerable<DashboardItem> GetAllItems() =>
         _groupsStackPanel.Children

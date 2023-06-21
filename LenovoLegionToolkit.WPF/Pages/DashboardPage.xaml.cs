@@ -41,7 +41,7 @@ public partial class DashboardPage
         _content.RowDefinitions.Clear();
         _content.Children.Clear();
 
-        var groups = _dashboardSettings.Store.Groups;
+        var groups = _dashboardSettings.Store.Groups ?? DashboardGroup.DefaultGroups;
 
         if (Log.Instance.IsTraceEnabled)
         {
