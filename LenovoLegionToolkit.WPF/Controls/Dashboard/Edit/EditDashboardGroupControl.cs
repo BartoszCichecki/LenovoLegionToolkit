@@ -192,7 +192,7 @@ public class EditDashboardGroupControl : UserControl
         return control;
     }
 
-    private void MoveItemUp(Control control)
+    private void MoveItemUp(UIElement control)
     {
         var index = _itemsStackPanel.Children.IndexOf(control);
         index--;
@@ -204,7 +204,7 @@ public class EditDashboardGroupControl : UserControl
         _itemsStackPanel.Children.Insert(index, control);
     }
 
-    private void MoveItemDown(Control control)
+    private void MoveItemDown(UIElement control)
     {
         var index = _itemsStackPanel.Children.IndexOf(control);
         index++;
@@ -216,7 +216,7 @@ public class EditDashboardGroupControl : UserControl
         _itemsStackPanel.Children.Insert(index, control);
     }
 
-    private void DeleteItem(Control control)
+    private void DeleteItem(UIElement control)
     {
         _itemsStackPanel.Children.Remove(control);
     }

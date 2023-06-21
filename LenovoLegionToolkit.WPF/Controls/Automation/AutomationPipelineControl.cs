@@ -357,7 +357,7 @@ public class AutomationPipelineControl : UserControl
         return control;
     }
 
-    private void ShowContextMenu(Control control)
+    private void ShowContextMenu(FrameworkElement control)
     {
         var menuItems = new List<MenuItem>();
 
@@ -392,7 +392,7 @@ public class AutomationPipelineControl : UserControl
         control.ContextMenu.IsOpen = true;
     }
 
-    private void MoveStep(Control control, int index)
+    private void MoveStep(UIElement control, int index)
     {
         _stepsStackPanel.Children.Remove(control);
         _stepsStackPanel.Children.Insert(index, control);
@@ -409,7 +409,7 @@ public class AutomationPipelineControl : UserControl
         OnChanged?.Invoke(this, EventArgs.Empty);
     }
 
-    private void DeleteStep(Control control)
+    private void DeleteStep(UIElement control)
     {
         _stepsStackPanel.Children.Remove(control);
         _cardHeaderControl.Subtitle = GenerateSubtitle();

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Features;
@@ -64,7 +65,7 @@ public partial class PowerPlansWindow
         _loader.IsLoading = false;
     }
 
-    private void Refresh(ComboBox comboBox, PowerPlan[] powerPlans, PowerModeState powerModeState)
+    private void Refresh(Selector comboBox, PowerPlan[] powerPlans, PowerModeState powerModeState)
     {
         var settingsPowerPlanGuid = _settings.Store.PowerPlans.GetValueOrDefault(powerModeState);
         var selectedValue = powerPlans.FirstOrDefault(pp => pp.Guid == settingsPowerPlanGuid);

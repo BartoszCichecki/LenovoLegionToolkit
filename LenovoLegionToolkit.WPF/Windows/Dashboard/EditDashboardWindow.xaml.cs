@@ -16,7 +16,7 @@ public partial class EditDashboardWindow
 {
     private readonly DashboardSettings _dashboardSettings = IoCContainer.Resolve<DashboardSettings>();
 
-    private DashboardGroup[] _groups;
+    private readonly DashboardGroup[] _groups;
 
     public event EventHandler? Apply;
 
@@ -72,7 +72,7 @@ public partial class EditDashboardWindow
         _groupsStackPanel.Children.Add(CreateGroupControl(new(DashboardGroupType.Custom, result)));
     }
 
-    private async void DefaultButton_Click(object sender, RoutedEventArgs e)
+    private void DefaultButton_Click(object sender, RoutedEventArgs e)
     {
         _dashboardSettings.Store.Groups = null;
         _dashboardSettings.SynchronizeStore();
@@ -113,7 +113,7 @@ public partial class EditDashboardWindow
         return control;
     }
 
-    private void MoveGroupUp(Control control)
+    private void MoveGroupUp(UIElement control)
     {
         var index = _groupsStackPanel.Children.IndexOf(control);
         index--;
@@ -125,7 +125,7 @@ public partial class EditDashboardWindow
         _groupsStackPanel.Children.Insert(index, control);
     }
 
-    private void MoveGroupDown(Control control)
+    private void MoveGroupDown(UIElement control)
     {
         var index = _groupsStackPanel.Children.IndexOf(control);
         index++;
@@ -137,7 +137,7 @@ public partial class EditDashboardWindow
         _groupsStackPanel.Children.Insert(index, control);
     }
 
-    private void DeleteGroup(Control control)
+    private void DeleteGroup(UIElement control)
     {
         _groupsStackPanel.Children.Remove(control);
     }

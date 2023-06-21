@@ -617,7 +617,7 @@ public class SpectrumKeyboardBacklightController
         }
     }
 
-    private bool IsReady(SafeFileHandle handle)
+    private static bool IsReady(SafeHandle handle)
     {
         try
         {
@@ -635,7 +635,7 @@ public class SpectrumKeyboardBacklightController
         }
     }
 
-    private void SetAndGetFeature<TIn, TOut>(SafeFileHandle handle, TIn input, out TOut output) where TIn : notnull where TOut : struct
+    private static void SetAndGetFeature<TIn, TOut>(SafeHandle handle, TIn input, out TOut output) where TIn : notnull where TOut : struct
     {
         lock (IoLock)
         {

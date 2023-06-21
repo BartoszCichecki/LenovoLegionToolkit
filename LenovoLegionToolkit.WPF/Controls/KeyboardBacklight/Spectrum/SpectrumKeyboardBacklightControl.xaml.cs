@@ -502,7 +502,7 @@ public partial class SpectrumKeyboardBacklightControl
         window.ShowDialog();
     }
 
-    private async Task ReplaceEffectAsync(SpectrumKeyboardEffectControl effectControl, SpectrumKeyboardBacklightEffect effect)
+    private async Task ReplaceEffectAsync(UIElement effectControl, SpectrumKeyboardBacklightEffect effect)
     {
         DeselectAllButtons();
 
@@ -525,7 +525,7 @@ public partial class SpectrumKeyboardBacklightControl
         await ApplyProfileAsync();
     }
 
-    private async Task DeleteEffectAsync(SpectrumKeyboardEffectControl effectControl)
+    private async Task DeleteEffectAsync(UIElement effectControl)
     {
         _effects.Children.Remove(effectControl);
 
