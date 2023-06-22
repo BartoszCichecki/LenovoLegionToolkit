@@ -352,8 +352,6 @@ public enum SpecialKey
     CameraOff = 13,
     FnR = 16,
     FnR2 = 0x0041002A,
-    PanelLogoLightingOn = 20,
-    PanelLogoLightingOff = 21,
     SpectrumBacklightOff = 24,
     SpectrumBacklight1 = 25,
     SpectrumBacklight2 = 26,
