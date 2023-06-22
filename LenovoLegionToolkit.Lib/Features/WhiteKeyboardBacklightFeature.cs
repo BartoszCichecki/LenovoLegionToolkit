@@ -1,10 +1,52 @@
-﻿namespace LenovoLegionToolkit.Lib.Features;
+﻿using System;
+using System.Threading.Tasks;
 
-public class WhiteKeyboardBacklightFeature : AbstractLenovoLightingFeature<WhiteKeyboardBacklightState>
+namespace LenovoLegionToolkit.Lib.Features;
+
+public class WhiteKeyboardBacklightFeature : IFeature<WhiteKeyboardBacklightState>
 {
-    public WhiteKeyboardBacklightFeature() : base(0, 0, 1) { }
+    private readonly WhiteKeyboardLenovoLightingBacklightFeature _lenovoLightingFeature;
+    private readonly WhiteKeyboardDriverBacklightFeature _driverFeature;
 
-    protected override WhiteKeyboardBacklightState FromInternal(int _, int level) => (WhiteKeyboardBacklightState)(level - 1);
+    private IFeature<WhiteKeyboardBacklightState>? _feature;
 
-    protected override (int stateType, int level) ToInternal(WhiteKeyboardBacklightState state) => (0, (int)(state + 1));
+    public WhiteKeyboardBacklightFeature(WhiteKeyboardLenovoLightingBacklightFeature lenovoLightingFeature, WhiteKeyboardDriverBacklightFeature driverFeature)
+    {
+        _lenovoLightingFeature = lenovoLightingFeature;
+        _driverFeature = driverFeature;
+    }
+
+    public async Task<bool> IsSupportedAsync() => await GetFeatureAsync().ConfigureAwait(false) != null;
+
+    public async Task<WhiteKeyboardBacklightState[]> GetAllStatesAsync()
+    {
+        var feature = await GetFeatureAsync().ConfigureAwait(false) ?? throw new InvalidOperationException("No supported feature found.");
+        return await feature.GetAllStatesAsync().ConfigureAwait(false);
+    }
+
+    public async Task<WhiteKeyboardBacklightState> GetStateAsync()
+    {
+        var feature = await GetFeatureAsync().ConfigureAwait(false) ?? throw new InvalidOperationException("No supported feature found.");
+        return await feature.GetStateAsync().ConfigureAwait(false);
+    }
+
+    public async Task SetStateAsync(WhiteKeyboardBacklightState state)
+    {
+        var feature = await GetFeatureAsync().ConfigureAwait(false) ?? throw new InvalidOperationException("No supported feature found.");
+        await feature.SetStateAsync(state).ConfigureAwait(false);
+    }
+
+    private async Task<IFeature<WhiteKeyboardBacklightState>?> GetFeatureAsync()
+    {
+        if (_feature is not null)
+            return _feature;
+
+        if (await _lenovoLightingFeature.IsSupportedAsync().ConfigureAwait(false))
+            return _feature = _lenovoLightingFeature;
+
+        if (await _driverFeature.IsSupportedAsync().ConfigureAwait(false))
+            return _feature = _driverFeature;
+
+        return null;
+    }
 }

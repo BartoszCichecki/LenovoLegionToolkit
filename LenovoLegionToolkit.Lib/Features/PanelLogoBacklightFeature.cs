@@ -5,13 +5,15 @@ namespace LenovoLegionToolkit.Lib.Features;
 
 public class PanelLogoBacklightFeature : IFeature<PanelLogoBacklightState>
 {
-    private readonly PanelLogoSpectrumBacklightFeature _spectrumFeature;
     private readonly PanelLogoLenovoLightingBacklightFeature _lenovoLightingFeature;
+    private readonly PanelLogoSpectrumBacklightFeature _spectrumFeature;
 
-    public PanelLogoBacklightFeature(PanelLogoSpectrumBacklightFeature spectrumFeature, PanelLogoLenovoLightingBacklightFeature lenovoLightingFeature)
+    private IFeature<PanelLogoBacklightState>? _feature;
+
+    public PanelLogoBacklightFeature(PanelLogoLenovoLightingBacklightFeature lenovoLightingFeature, PanelLogoSpectrumBacklightFeature spectrumFeature)
     {
-        _spectrumFeature = spectrumFeature;
-        _lenovoLightingFeature = lenovoLightingFeature;
+        _lenovoLightingFeature = lenovoLightingFeature ?? throw new ArgumentNullException(nameof(lenovoLightingFeature));
+        _spectrumFeature = spectrumFeature ?? throw new ArgumentNullException(nameof(spectrumFeature));
     }
 
     public async Task<bool> IsSupportedAsync() => await GetFeatureAsync().ConfigureAwait(false) != null;
@@ -36,11 +38,14 @@ public class PanelLogoBacklightFeature : IFeature<PanelLogoBacklightState>
 
     private async Task<IFeature<PanelLogoBacklightState>?> GetFeatureAsync()
     {
+        if (_feature is not null)
+            return _feature;
+
         if (await _lenovoLightingFeature.IsSupportedAsync().ConfigureAwait(false))
-            return _lenovoLightingFeature;
+            return _feature = _lenovoLightingFeature;
 
         if (await _spectrumFeature.IsSupportedAsync().ConfigureAwait(false))
-            return _spectrumFeature;
+            return _feature = _spectrumFeature;
 
         return null;
     }
