@@ -21,7 +21,7 @@ public class PanelLogoLenovoLightingBacklightFeature : AbstractLenovoLightingFea
         ("82NW", "15ACH6A")
     };
 
-    public PanelLogoLenovoLightingBacklightFeature() : base(3) { }
+    public PanelLogoLenovoLightingBacklightFeature() : base(3, 1, 0) { }
 
     public override async Task<bool> IsSupportedAsync()
     {
@@ -32,7 +32,7 @@ public class PanelLogoLenovoLightingBacklightFeature : AbstractLenovoLightingFea
         return await base.IsSupportedAsync().ConfigureAwait(false);
     }
 
-    protected override PanelLogoBacklightState FromInternal(int value) => (PanelLogoBacklightState)value;
+    protected override PanelLogoBacklightState FromInternal(int stateType, int _) => (PanelLogoBacklightState)stateType;
 
-    protected override int ToInternal(PanelLogoBacklightState state) => (int)state;
+    protected override (int stateType, int level) ToInternal(PanelLogoBacklightState state) => ((int)state, 0);
 }
