@@ -558,6 +558,9 @@
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>Яркость дисплея</value>
   </data>
+  <data name="DonatePage_DonateWith" xml:space="preserve">
+    <value>Сделать пожертвование через</value>
+  </data>
   <data name="DonatePage_Message" xml:space="preserve">
     <value>На разработку и обслуживание Lenovo Legion Toolkit уходит много времени. Если вам нравится пользоваться этим программным обеспечением, вы можете поддержать его будущее, пожертвовав любую сумму денег.
 
@@ -1776,8 +1779,16 @@
   <data name="OverclockDiscreteGPUControl_Title" xml:space="preserve">
     <value>Разгон GPU</value>
   </data>
+  <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
+    <value>Повысить производительность путем разгона дискретного GPU.</value>
+  </data>
   <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
     <value>Разгон GPU</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
+    <value>Повысить производительность путем разгона дискретного GPU.
+
+ВНИМАНИЕ: Это действие не будет выполняться корректно, если дискретный GPU недоступен.</value>
   </data>
   <data name="PortsBacklightControl_Title" xml:space="preserve">
 	  <value>Подсветка портов</value>
