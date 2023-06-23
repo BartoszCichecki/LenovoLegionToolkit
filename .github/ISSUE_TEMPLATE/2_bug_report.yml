@@ -78,22 +78,13 @@ body:
     attributes:
       label: Additional information
       description: If applicable, add screenshots or other relevant information to help explain your problem.
-  - type: checkbox
-    id: readme-read
+  - type: checkboxes
+    id: rules
     attributes:
-      label: I made myself familiar with the README.
+      label: Rules
+      options:
+        - label: I made myself familiar with the README.
+        - label: I checked close issues for similar issues.
+        - label: I understand that, if insufficient information was provided, my issue will be closed without an answer.
     validation:
       required: true
-  - type: checkbox
-    id: previous-issues
-    attributes:
-      label: I checked close issues for similar issues.
-    validation:
-      required: true
-  - type: checkbox
-    id: previous-issues
-    attributes:
-      label: I understand that, if insufficient information was provided, my issue will be closed without an answer.
-    validation:
-      required: true
-      
