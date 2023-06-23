@@ -6,6 +6,16 @@ body:
     attributes:
       value: |
         Thanks for taking the time to fill out this bug report. The more information you provide, the easier it will be for me to fix it!
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: Rules
+      options:
+        - label: I made myself familiar with the README.
+        - label: I checked closed issues for similar ones and did not find a similar problem mentioned before.
+        - label: I understand that, if insufficient information was provided, my issue will be closed without an answer.
+    validations:
+      required: true
   - type: input
     id: version
     attributes:
@@ -79,13 +89,3 @@ body:
     attributes:
       label: Additional information
       description: If applicable, add screenshots or other relevant information to help explain your problem.
-  - type: checkboxes
-    id: rules
-    attributes:
-      label: Rules
-      options:
-        - label: I made myself familiar with the README.
-        - label: I checked closed issues for similar ones and did not find a similar problem mentioned before.
-        - label: I understand that, if insufficient information was provided, my issue will be closed without an answer.
-    validations:
-      required: true
