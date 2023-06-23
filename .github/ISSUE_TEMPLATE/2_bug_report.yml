@@ -86,5 +86,3 @@ body:
         - label: I made myself familiar with the README.
         - label: I checked close issues for similar issues.
         - label: I understand that, if insufficient information was provided, my issue will be closed without an answer.
-    validation:
-      required: true
