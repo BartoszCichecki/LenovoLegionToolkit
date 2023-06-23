@@ -7,18 +7,22 @@ body:
     attributes:
       value: |
         Thanks for taking the time to fill out this compatibility request. Please provide as much information as possible.
-        
-        
-        **IMPORTANT:**
-        **Support is limited only to laptops from Lenovo Legion series. Other devices will not be supported. Issues related to other devices will not be looked at!**
-        
-        
+
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: Rules
+      options:
+        - label: I made myself familiar with the README.
+        - label: I understand that requests should not be placed for devices that are not part of Legion, Ideapad Gaming and LOQ line ups.
+    validations:
+      required: true      
   - type: input
     id: version
     attributes:
       label: Version
       description: Which Lenovo Legion Toolkit version do you use?
-      placeholder: e.g. 2.5.1
+      placeholder: e.g. 2.14.0
     validations:
       required: true
   - type: input
