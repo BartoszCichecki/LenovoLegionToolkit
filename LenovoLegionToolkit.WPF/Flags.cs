@@ -45,4 +45,14 @@ public class Flags
             return Array.Empty<string>();
         }
     }
+
+    public override string ToString() =>
+        $"{nameof(IsTraceEnabled)}: {IsTraceEnabled}," +
+        $" {nameof(Minimized)}: {Minimized}," +
+        $" {nameof(SkipCompatibilityCheck)}: {SkipCompatibilityCheck}," +
+        $" {nameof(DisableTrayTooltip)}: {DisableTrayTooltip}," +
+        $" {nameof(AllowAllPowerModesOnBattery)}: {AllowAllPowerModesOnBattery}," +
+        $" {nameof(ForceDisableRgbKeyboardSupport)}: {ForceDisableRgbKeyboardSupport}," +
+        $" {nameof(ForceDisableSpectrumKeyboardSupport)}: {ForceDisableSpectrumKeyboardSupport}," +
+        $" {nameof(ForceDisableLenovoLighting)}: {ForceDisableLenovoLighting}";
 }

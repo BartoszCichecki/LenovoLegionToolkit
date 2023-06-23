@@ -60,6 +60,9 @@ public partial class App
 
         AppDomain.CurrentDomain.UnhandledException += AppDomain_UnhandledException;
 
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Flags: {flags}");
+
         EnsureSingleInstance();
 
         await LocalizationHelper.SetLanguageAsync(true);
