@@ -1,18 +1,27 @@
 name: Feature Request
 description: Suggest an idea for this project
-title: "[FEAT]: "
 labels: ["feature"]
 body:
   - type: markdown
     attributes:
       value: |
         Thanks for taking the time to fill out this feature request. Please provide as much information as possible.
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: Rules
+      options:
+        - label: I made myself familiar with the README.
+        - label: I checked closed issues for similar ones and did not find a similar feature request mentioned before.
+        - label: I understand that, if insufficient information was provided, my issue will be closed without an answer.
+    validations:
+      required: true
   - type: input
     id: version
     attributes:
       label: Version
       description: Which Lenovo Legion Toolkit version do you use?
-      placeholder: e.g. 2.5.1
+      placeholder: e.g. 2.14.0
     validations:
       required: true
   - type: input
@@ -36,7 +45,7 @@ body:
     attributes:
       label: Is your feature request related to a problem?
       description: A clear and concise description of what the problem is.
-      placeholder: Type here...
+      placeholder: A clear and concise description of what the problem is.
     validations:
       required: true
   - type: textarea
@@ -44,15 +53,15 @@ body:
     attributes:
       label: How would you like the problem to be solved?
       description: A clear and concise description of what you would like to happen.
-      placeholder: Type here...
+      placeholder: A clear and concise description of what you would like to happen.
     validations:
       required: true
   - type: textarea
     id: alternatives
     attributes:
       label: What alternatives have you considered?
-      description: A clear and concise description of any alternative solutions or features you've considered.
-      placeholder: Type here...
+      description: A clear and concise description of any alternative solutions or features you have considered.
+      placeholder: A clear and concise description of any alternative solutions or features you have considered.
     validations:
       required: true
   - type: textarea
