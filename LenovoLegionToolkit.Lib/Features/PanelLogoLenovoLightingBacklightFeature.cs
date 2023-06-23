@@ -1,12 +1,10 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.Utils;
+﻿using System.Collections.Generic;
 
 namespace LenovoLegionToolkit.Lib.Features;
 
 public class PanelLogoLenovoLightingBacklightFeature : AbstractLenovoLightingFeature<PanelLogoBacklightState>
 {
-    private readonly (string machineType, string model)[] _excluded =
+    protected override IEnumerable<(string machineType, string model)> Excluded => new[]
     {
         ("82JH", "15ITH6H"),
         ("82JK", "15ITH6"),
@@ -22,15 +20,6 @@ public class PanelLogoLenovoLightingBacklightFeature : AbstractLenovoLightingFea
     };
 
     public PanelLogoLenovoLightingBacklightFeature() : base(3, 1, 0) { }
-
-    public override async Task<bool> IsSupportedAsync()
-    {
-        var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
-        if (_excluded.Where(e => mi.MachineType.Contains(e.machineType) && mi.Model.Contains(e.model)).Any())
-            return false;
-
-        return await base.IsSupportedAsync().ConfigureAwait(false);
-    }
 
     protected override PanelLogoBacklightState FromInternal(int stateType, int _) => (PanelLogoBacklightState)stateType;
 

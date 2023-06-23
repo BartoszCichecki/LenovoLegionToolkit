@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
@@ -11,6 +13,8 @@ public abstract class AbstractLenovoLightingFeature<T> : IFeature<T> where T : s
     private readonly int _controlInterface;
     private readonly int _type;
 
+    protected virtual IEnumerable<(string machineType, string model)> Excluded { get; } = Array.Empty<(string, string)>();
+
     public bool ForceDisable { get; set; }
 
     protected AbstractLenovoLightingFeature(int lightingID, int controlInterface, int type)
@@ -20,13 +24,20 @@ public abstract class AbstractLenovoLightingFeature<T> : IFeature<T> where T : s
         _type = type;
     }
 
-    public virtual async Task<bool> IsSupportedAsync()
+    public async Task<bool> IsSupportedAsync()
     {
         if (ForceDisable)
             return false;
 
         try
         {
+            if (Excluded.Any())
+            {
+                var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
+                if (Excluded.Where(e => mi.MachineType.Contains(e.machineType) && mi.Model.Contains(e.model)).Any())
+                    return false;
+            }
+
             var isSupported = await WMI.ExistsAsync(
                 "root\\WMI",
                 $"SELECT * FROM LENOVO_LIGHTING_DATA WHERE Lighting_ID = {_lightingID} AND Control_Interface = {_controlInterface} AND Lighting_Type = {_type}"
