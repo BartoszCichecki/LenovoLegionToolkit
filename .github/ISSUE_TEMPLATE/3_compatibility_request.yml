@@ -1,6 +1,5 @@
 name: Compatibility Request
 description: Request support for a device that is not supported
-title: "[COMPATIBILITY]: "
 labels: ["compatibility"]
 body:
   - type: markdown
