@@ -11,6 +11,8 @@ public abstract class AbstractLenovoLightingFeature<T> : IFeature<T> where T : s
     private readonly int _controlInterface;
     private readonly int _type;
 
+    public bool ForceDisable { get; set; }
+
     protected AbstractLenovoLightingFeature(int lightingID, int controlInterface, int type)
     {
         _lightingID = lightingID;
@@ -20,6 +22,9 @@ public abstract class AbstractLenovoLightingFeature<T> : IFeature<T> where T : s
 
     public virtual async Task<bool> IsSupportedAsync()
     {
+        if (ForceDisable)
+            return false;
+
         try
         {
             var isSupported = await WMI.ExistsAsync(
