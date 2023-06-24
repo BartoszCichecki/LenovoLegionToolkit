@@ -29,11 +29,12 @@ public abstract class AbstractLenovoLightingFeature<T> : IFeature<T> where T : s
 
         try
         {
-            if (GetExcludedModels().Any())
+            var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
+            if (GetExcludedModels().Where(e => mi.MachineType.Contains(e.machineType) && mi.Model.Contains(e.model)).Any())
             {
-                var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
-                if (GetExcludedModels().Where(e => mi.MachineType.Contains(e.machineType) && mi.Model.Contains(e.model)).Any())
-                    return false;
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Model is on excluded list. [machineType={mi.MachineType}, model={mi.Model}]");
+                return false;
             }
 
             var isSupported = await WMI.ExistsAsync(
