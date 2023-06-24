@@ -78,7 +78,7 @@ public static class Compatibility
         if (!_machineInformation.HasValue)
         {
             var (vendor, machineType, model, serialNumber) = await GetModelDataAsync().ConfigureAwait(false);
-            var biosVersion = await GetBIOSVersionAsync().ConfigureAwait(false);
+            var (biosVersion, biosVersionRaw) = await GetBIOSVersionAsync().ConfigureAwait(false);
 
             var machineInformation = new MachineInformation
             {
@@ -87,6 +87,7 @@ public static class Compatibility
                 Model = model,
                 SerialNumber = serialNumber,
                 BiosVersion = biosVersion,
+                BiosVersionRaw = biosVersionRaw,
                 Properties = new()
                 {
                     SupportsAlwaysOnAc = GetAlwaysOnAcStatus(),
@@ -107,7 +108,7 @@ public static class Compatibility
                 Log.Instance.Trace($" * Vendor: '{machineInformation.Vendor}'");
                 Log.Instance.Trace($" * Machine Type: '{machineInformation.MachineType}'");
                 Log.Instance.Trace($" * Model: '{machineInformation.Model}'");
-                Log.Instance.Trace($" * BIOS: '{machineInformation.BiosVersion}'");
+                Log.Instance.Trace($" * BIOS: '{machineInformation.BiosVersion}' [{machineInformation.BiosVersionRaw}]");
                 Log.Instance.Trace($" * Properties.SupportsAlwaysOnAc: '{machineInformation.Properties.SupportsAlwaysOnAc.status}, {machineInformation.Properties.SupportsAlwaysOnAc.connectivity}'");
                 Log.Instance.Trace($" * Properties.SupportsGodModeV1: '{machineInformation.Properties.SupportsGodModeV1}'");
                 Log.Instance.Trace($" * Properties.SupportsGodModeV2: '{machineInformation.Properties.SupportsGodModeV2}'");
@@ -222,7 +223,7 @@ public static class Compatibility
         return result.First();
     }
 
-    private static async Task<BiosVersion?> GetBIOSVersionAsync()
+    private static async Task<(BiosVersion?, string?)> GetBIOSVersionAsync()
     {
         var result = await WMI.ReadAsync("root\\CIMV2",
             $"SELECT * FROM Win32_BIOS",
@@ -236,9 +237,9 @@ public static class Compatibility
         var versionString = versionRegex.Match(biosString).Value;
 
         if (!int.TryParse(versionRegex.Match(versionString).Value, out var version))
-            return null;
+            return (null, null);
 
-        return new(prefix, version);
+        return (new(prefix, version), biosString);
     }
 
     private static bool GetHasQuietToPerformanceModeSwitchingBug(BiosVersion? biosVersion)

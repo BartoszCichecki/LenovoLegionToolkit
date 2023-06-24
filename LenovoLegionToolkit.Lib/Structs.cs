@@ -374,6 +374,7 @@ public readonly struct MachineInformation
     public string Model { get; init; }
     public string SerialNumber { get; init; }
     public BiosVersion? BiosVersion { get; init; }
+    public string? BiosVersionRaw { get; init; }
     public CompatibilityProperties Properties { get; init; }
 }
 
