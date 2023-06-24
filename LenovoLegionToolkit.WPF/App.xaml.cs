@@ -60,6 +60,9 @@ public partial class App
 
         AppDomain.CurrentDomain.UnhandledException += AppDomain_UnhandledException;
 
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Flags: {flags}");
+
         EnsureSingleInstance();
 
         await LocalizationHelper.SetLanguageAsync(true);
@@ -85,6 +88,9 @@ public partial class App
         IoCContainer.Resolve<PowerModeFeature>().AllowAllPowerModesOnBattery = flags.AllowAllPowerModesOnBattery;
         IoCContainer.Resolve<RGBKeyboardBacklightController>().ForceDisable = flags.ForceDisableRgbKeyboardSupport;
         IoCContainer.Resolve<SpectrumKeyboardBacklightController>().ForceDisable = flags.ForceDisableSpectrumKeyboardSupport;
+        IoCContainer.Resolve<WhiteKeyboardLenovoLightingBacklightFeature>().ForceDisable = flags.ForceDisableLenovoLighting;
+        IoCContainer.Resolve<PanelLogoLenovoLightingBacklightFeature>().ForceDisable = flags.ForceDisableLenovoLighting;
+        IoCContainer.Resolve<PortsBacklightFeature>().ForceDisable = flags.ForceDisableLenovoLighting;
 
         await LogSoftwareStatusAsync();
         await InitPowerModeFeatureAsync();

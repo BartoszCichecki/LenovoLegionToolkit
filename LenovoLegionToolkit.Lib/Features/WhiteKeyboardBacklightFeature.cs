@@ -1,50 +1,52 @@
 ﻿using System;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.System;
 
 namespace LenovoLegionToolkit.Lib.Features;
 
-public class WhiteKeyboardBacklightFeature : AbstractDriverFeature<WhiteKeyboardBacklightState>
+public class WhiteKeyboardBacklightFeature : IFeature<WhiteKeyboardBacklightState>
 {
-    public WhiteKeyboardBacklightFeature() : base(Drivers.GetEnergy, Drivers.IOCTL_ENERGY_KEYBOARD) { }
+    private readonly WhiteKeyboardLenovoLightingBacklightFeature _lenovoLightingFeature;
+    private readonly WhiteKeyboardDriverBacklightFeature _driverFeature;
 
-    public override async Task<bool> IsSupportedAsync()
+    private IFeature<WhiteKeyboardBacklightState>? _feature;
+
+    public WhiteKeyboardBacklightFeature(WhiteKeyboardLenovoLightingBacklightFeature lenovoLightingFeature, WhiteKeyboardDriverBacklightFeature driverFeature)
     {
-        try
-        {
-            var outBuffer = await SendCodeAsync(DriverHandle(), ControlCode, 0x1).ConfigureAwait(false);
-            outBuffer >>= 1;
-            return outBuffer == 0x2;
-        }
-        catch
-        {
-            return false;
-        }
+        _lenovoLightingFeature = lenovoLightingFeature;
+        _driverFeature = driverFeature;
     }
 
-    protected override uint GetInBufferValue() => 0x22;
+    public async Task<bool> IsSupportedAsync() => await GetFeatureAsync().ConfigureAwait(false) != null;
 
-    protected override Task<uint[]> ToInternalAsync(WhiteKeyboardBacklightState state)
+    public async Task<WhiteKeyboardBacklightState[]> GetAllStatesAsync()
     {
-        var result = state switch
-        {
-            WhiteKeyboardBacklightState.Off => new uint[] { 0x00023 },
-            WhiteKeyboardBacklightState.Low => new uint[] { 0x10023 },
-            WhiteKeyboardBacklightState.High => new uint[] { 0x20023 },
-            _ => throw new InvalidOperationException("Invalid state"),
-        };
-        return Task.FromResult(result);
+        var feature = await GetFeatureAsync().ConfigureAwait(false) ?? throw new InvalidOperationException("No supported feature found.");
+        return await feature.GetAllStatesAsync().ConfigureAwait(false);
     }
 
-    protected override Task<WhiteKeyboardBacklightState> FromInternalAsync(uint state)
+    public async Task<WhiteKeyboardBacklightState> GetStateAsync()
     {
-        var result = state switch
-        {
-            0x1 => WhiteKeyboardBacklightState.Off,
-            0x3 => WhiteKeyboardBacklightState.Low,
-            0x5 => WhiteKeyboardBacklightState.High,
-            _ => throw new InvalidOperationException("Invalid state"),
-        };
-        return Task.FromResult(result);
+        var feature = await GetFeatureAsync().ConfigureAwait(false) ?? throw new InvalidOperationException("No supported feature found.");
+        return await feature.GetStateAsync().ConfigureAwait(false);
+    }
+
+    public async Task SetStateAsync(WhiteKeyboardBacklightState state)
+    {
+        var feature = await GetFeatureAsync().ConfigureAwait(false) ?? throw new InvalidOperationException("No supported feature found.");
+        await feature.SetStateAsync(state).ConfigureAwait(false);
+    }
+
+    private async Task<IFeature<WhiteKeyboardBacklightState>?> GetFeatureAsync()
+    {
+        if (_feature is not null)
+            return _feature;
+
+        if (await _lenovoLightingFeature.IsSupportedAsync().ConfigureAwait(false))
+            return _feature = _lenovoLightingFeature;
+
+        if (await _driverFeature.IsSupportedAsync().ConfigureAwait(false))
+            return _feature = _driverFeature;
+
+        return null;
     }
 }

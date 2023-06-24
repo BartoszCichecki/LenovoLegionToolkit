@@ -49,6 +49,8 @@ public class IoCModule : Module
         builder.Register<ResolutionFeature>();
         builder.Register<TouchpadLockFeature>();
         builder.Register<WhiteKeyboardBacklightFeature>();
+        builder.Register<WhiteKeyboardDriverBacklightFeature>(true);
+        builder.Register<WhiteKeyboardLenovoLightingBacklightFeature>(true);
         builder.Register<WinKeyFeature>();
 
         builder.Register<DisplayBrightnessListener>().AutoActivateListener();

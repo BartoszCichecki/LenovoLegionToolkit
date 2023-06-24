@@ -28,9 +28,34 @@ public readonly struct BatteryInformation
     public DateTime? FirstUseDate { get; init; }
 }
 
+public readonly struct BiosVersion
+{
+    public string Prefix { get; }
+    public int? Version { get; }
+
+    public BiosVersion(string prefix, int? version)
+    {
+        Prefix = prefix;
+        Version = version;
+    }
+
+    public bool IsHigherOrEqualThan(BiosVersion other)
+    {
+        if (!Prefix.Equals(other.Prefix, StringComparison.InvariantCultureIgnoreCase))
+            return false;
+
+        if (Version is null || other.Version is null)
+            return true;
+
+        return Version >= other.Version;
+    }
+
+    public override string ToString() => $"{nameof(Prefix)}: {Prefix}, {nameof(Version)}: {Version}";
+}
+
 public readonly struct Brightness
 {
-    public byte Value { get; init; }
+    public byte Value { get; private init; }
 
     public static implicit operator Brightness(byte value) => new() { Value = value };
 }
@@ -329,13 +354,15 @@ public readonly struct MachineInformation
         public bool SupportsIntelligentSubMode { get; init; }
         public bool HasQuietToPerformanceModeSwitchingBug { get; init; }
         public bool HasGodModeToOtherModeSwitchingBug { get; init; }
+        public bool IsExcludedFromLenovoLighting { get; init; }
+        public bool IsExcludedFromPanelLogoLenovoLighting { get; init; }
     }
 
     public string Vendor { get; init; }
     public string MachineType { get; init; }
     public string Model { get; init; }
     public string SerialNumber { get; init; }
-    public string BiosVersion { get; init; }
+    public BiosVersion? BiosVersion { get; init; }
     public CompatibilityProperties Properties { get; init; }
 }
 

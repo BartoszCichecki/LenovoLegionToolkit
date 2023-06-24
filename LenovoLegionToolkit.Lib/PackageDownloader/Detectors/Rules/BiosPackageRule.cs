@@ -40,14 +40,11 @@ internal readonly struct BiosPackageRule : IPackageRule
         var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
         var currentBios = mi.BiosVersion;
 
-        var currentBiosPrefix = PrefixRegex.Match(currentBios).Value;
-        var currentBiosVersion = int.Parse(VersionRegex.Match(currentBios).Value);
-
         var result = Levels.Any(level =>
         {
             var levelPrefix = PrefixRegex.Match(level).Value;
             var levelVersion = int.Parse(VersionRegex.Match(level).Value);
-            return levelPrefix == currentBiosPrefix && levelVersion == currentBiosVersion;
+            return levelPrefix == currentBios?.Prefix && levelVersion == currentBios?.Version;
         });
 
         return result;
@@ -58,14 +55,11 @@ internal readonly struct BiosPackageRule : IPackageRule
         var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
         var currentBios = mi.BiosVersion;
 
-        var currentBiosPrefix = PrefixRegex.Match(currentBios).Value;
-        var currentBiosVersion = int.Parse(VersionRegex.Match(currentBios).Value);
-
         var result = Levels.All(level =>
         {
             var levelPrefix = PrefixRegex.Match(level).Value;
             var levelVersion = int.Parse(VersionRegex.Match(level).Value);
-            return levelPrefix == currentBiosPrefix && levelVersion > currentBiosVersion;
+            return levelPrefix == currentBios?.Prefix && levelVersion > currentBios?.Version;
         });
 
         return result;

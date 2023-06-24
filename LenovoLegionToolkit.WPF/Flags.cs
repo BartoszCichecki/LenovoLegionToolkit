@@ -17,6 +17,7 @@ public class Flags
     public bool AllowAllPowerModesOnBattery { get; }
     public bool ForceDisableRgbKeyboardSupport { get; }
     public bool ForceDisableSpectrumKeyboardSupport { get; }
+    public bool ForceDisableLenovoLighting { get; }
 
     public Flags(IEnumerable<string> startupArgs)
     {
@@ -29,6 +30,7 @@ public class Flags
         AllowAllPowerModesOnBattery = args.Contains("--allow-all-power-modes-on-battery");
         ForceDisableRgbKeyboardSupport = args.Contains("--force-disable-rgbkb");
         ForceDisableSpectrumKeyboardSupport = args.Contains("--force-disable-spectrumkb");
+        ForceDisableLenovoLighting = args.Contains("--force-disable-lenovolighting");
     }
 
     private static IEnumerable<string> LoadExternalArgs()
@@ -43,4 +45,14 @@ public class Flags
             return Array.Empty<string>();
         }
     }
+
+    public override string ToString() =>
+        $"{nameof(IsTraceEnabled)}: {IsTraceEnabled}," +
+        $" {nameof(Minimized)}: {Minimized}," +
+        $" {nameof(SkipCompatibilityCheck)}: {SkipCompatibilityCheck}," +
+        $" {nameof(DisableTrayTooltip)}: {DisableTrayTooltip}," +
+        $" {nameof(AllowAllPowerModesOnBattery)}: {AllowAllPowerModesOnBattery}," +
+        $" {nameof(ForceDisableRgbKeyboardSupport)}: {ForceDisableRgbKeyboardSupport}," +
+        $" {nameof(ForceDisableSpectrumKeyboardSupport)}: {ForceDisableSpectrumKeyboardSupport}," +
+        $" {nameof(ForceDisableLenovoLighting)}: {ForceDisableLenovoLighting}";
 }
