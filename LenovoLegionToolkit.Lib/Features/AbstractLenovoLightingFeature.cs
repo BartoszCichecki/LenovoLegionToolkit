@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
@@ -22,7 +20,7 @@ public abstract class AbstractLenovoLightingFeature<T> : IFeature<T> where T : s
         _type = type;
     }
 
-    public async Task<bool> IsSupportedAsync()
+    public virtual async Task<bool> IsSupportedAsync()
     {
         if (ForceDisable)
             return false;
@@ -30,12 +28,8 @@ public abstract class AbstractLenovoLightingFeature<T> : IFeature<T> where T : s
         try
         {
             var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
-            if (GetExcludedModels().Where(e => mi.MachineType.Contains(e.machineType) && mi.Model.Contains(e.model)).Any())
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Model is on excluded list. [machineType={mi.MachineType}, model={mi.Model}]");
+            if (mi.Properties.IsExcludedFromLenovoLighting)
                 return false;
-            }
 
             var isSupported = await WMI.ExistsAsync(
                 "root\\WMI",
@@ -108,12 +102,6 @@ public abstract class AbstractLenovoLightingFeature<T> : IFeature<T> where T : s
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Set state to {state} [feature={GetType().Name}]");
-    }
-
-    protected virtual IEnumerable<(string machineType, string model)> GetExcludedModels()
-    {
-        // BSODs on accessing lighting data
-        yield return ("82N6", "16ACHg6");
     }
 
     protected abstract T FromInternal(int stateType, int level);

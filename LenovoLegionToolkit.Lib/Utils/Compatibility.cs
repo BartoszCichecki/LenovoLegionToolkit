@@ -96,6 +96,8 @@ public static class Compatibility
                     SupportsIntelligentSubMode = await GetSupportsIntelligentSubModeAsync().ConfigureAwait(false),
                     HasQuietToPerformanceModeSwitchingBug = GetHasQuietToPerformanceModeSwitchingBug(biosVersion),
                     HasGodModeToOtherModeSwitchingBug = GetHasGodModeToOtherModeSwitchingBug(biosVersion),
+                    IsExcludedFromLenovoLighting = GetIsExcludedFromLenovoLighting(biosVersion),
+                    IsExcludedFromPanelLogoLenovoLighting = GetIsExcludedFromPanelLenovoLighting(machineType, model)
                 }
             };
 
@@ -113,6 +115,8 @@ public static class Compatibility
                 Log.Instance.Trace($" * Properties.SupportsIntelligentSubMode: '{machineInformation.Properties.SupportsIntelligentSubMode}'");
                 Log.Instance.Trace($" * Properties.HasQuietToPerformanceModeSwitchingBug: '{machineInformation.Properties.HasQuietToPerformanceModeSwitchingBug}'");
                 Log.Instance.Trace($" * Properties.HasGodModeToOtherModeSwitchingBug: '{machineInformation.Properties.HasGodModeToOtherModeSwitchingBug}'");
+                Log.Instance.Trace($" * Properties.IsExcludedFromLenovoLighting: '{machineInformation.Properties.IsExcludedFromLenovoLighting}'");
+                Log.Instance.Trace($" * Properties.IsExcludedFromPanelLogoLenovoLighting: '{machineInformation.Properties.IsExcludedFromPanelLogoLenovoLighting}'");
             }
 
             _machineInformation = machineInformation;
@@ -136,37 +140,37 @@ public static class Compatibility
         return (capabilities.AoAc, capabilities.AoAcConnectivitySupported);
     }
 
-    private static bool GetSupportsGodModeV1(string currentBiosVersionString)
+    private static bool GetSupportsGodModeV1(BiosVersion? biosVersion)
     {
-        (string, int?)[] supportedBiosVersions =
+        BiosVersion[] supportedBiosVersions =
         {
-            ("GKCN", 49),
-            ("G9CN", 30),
-            ("H1CN", 49),
-            ("HACN", 31),
-            ("HHCN", 23),
-            ("K1CN", 31),
-            ("K9CN", 34),
-            ("KFCN", 32),
-            ("J2CN", 40),
-            ("JUCN", 51),
-            ("JYCN", 39)
+            new("GKCN", 49),
+            new("G9CN", 30),
+            new("H1CN", 49),
+            new("HACN", 31),
+            new("HHCN", 23),
+            new("K1CN", 31),
+            new("K9CN", 34),
+            new("KFCN", 32),
+            new("J2CN", 40),
+            new("JUCN", 51),
+            new("JYCN", 39)
         };
 
-        return IsBiosVersionMatch(currentBiosVersionString, supportedBiosVersions);
+        return supportedBiosVersions.Any(bv => biosVersion?.IsHigherOrEqualThan(bv) ?? false);
     }
 
-    private static bool GetSupportsGodModeV2(string currentBiosVersionString)
+    private static bool GetSupportsGodModeV2(BiosVersion? biosVersion)
     {
-        (string, int?)[] supportedBiosVersions =
+        BiosVersion[] supportedBiosVersions =
         {
-            ("KWCN", 28),
-            ("LPCN", 27),
-            ("M3CN", 32),
-            ("M0CN", 27)
+            new("KWCN", 28),
+            new("LPCN", 27),
+            new("M3CN", 32),
+            new("M0CN", 27)
         };
 
-        return IsBiosVersionMatch(currentBiosVersionString, supportedBiosVersions);
+        return supportedBiosVersions.Any(bv => biosVersion?.IsHigherOrEqualThan(bv) ?? false);
     }
 
     private static async Task<bool> GetSupportsExtendedHybridModeAsync()
@@ -218,51 +222,77 @@ public static class Compatibility
         return result.First();
     }
 
-    private static async Task<string> GetBIOSVersionAsync()
+    private static async Task<BiosVersion?> GetBIOSVersionAsync()
     {
         var result = await WMI.ReadAsync("root\\CIMV2",
             $"SELECT * FROM Win32_BIOS",
             pdc => (string)pdc["Name"].Value).ConfigureAwait(false);
-        return result.First();
-    }
+        var biosString = result.First();
 
-    private static bool GetHasQuietToPerformanceModeSwitchingBug(string biosVersion)
-    {
-        (string, int?)[] affectedBiosList =
-        {
-            ("J2CN", null)
-        };
-
-        return IsBiosVersionMatch(biosVersion, affectedBiosList);
-    }
-
-    private static bool GetHasGodModeToOtherModeSwitchingBug(string biosVersion)
-    {
-        (string, int?)[] affectedBiosList =
-        {
-            ("K1CN", null)
-        };
-
-        return IsBiosVersionMatch(biosVersion, affectedBiosList);
-    }
-
-    private static bool IsBiosVersionMatch(string currentBiosVersionString, (string, int?)[] biosVersions)
-    {
         var prefixRegex = new Regex("^[A-Z0-9]{4}");
         var versionRegex = new Regex("[0-9]{2}");
 
-        var currentPrefix = prefixRegex.Match(currentBiosVersionString).Value;
-        var currentVersionString = versionRegex.Match(currentBiosVersionString).Value;
+        var prefix = prefixRegex.Match(biosString).Value;
+        var versionString = versionRegex.Match(biosString).Value;
 
-        if (!int.TryParse(versionRegex.Match(currentVersionString).Value, out var currentVersion))
-            return false;
+        if (!int.TryParse(versionRegex.Match(versionString).Value, out var version))
+            return null;
 
-        foreach (var (prefix, minimumVersion) in biosVersions)
+        return new(prefix, version);
+    }
+
+    private static bool GetHasQuietToPerformanceModeSwitchingBug(BiosVersion? biosVersion)
+    {
+        BiosVersion[] affectedBiosVersions =
         {
-            if (currentPrefix.Equals(prefix, StringComparison.InvariantCultureIgnoreCase) && currentVersion >= (minimumVersion ?? 0))
-                return true;
-        }
+            new("J2CN", null)
+        };
 
-        return false;
+        return affectedBiosVersions.Any(bv => biosVersion?.IsHigherOrEqualThan(bv) ?? false);
+    }
+
+    private static bool GetHasGodModeToOtherModeSwitchingBug(BiosVersion? biosVersion)
+    {
+        BiosVersion[] affectedBiosVersions =
+        {
+            new("K1CN", null)
+        };
+
+        return affectedBiosVersions.Any(bv => biosVersion?.IsHigherOrEqualThan(bv) ?? false);
+    }
+
+    private static bool GetIsExcludedFromLenovoLighting(BiosVersion? biosVersion)
+    {
+        BiosVersion[] affectedBiosVersions =
+        {
+            new("GKCN", 54)
+        };
+
+        return affectedBiosVersions.Any(bv => biosVersion?.IsHigherOrEqualThan(bv) ?? false);
+    }
+
+    private static bool GetIsExcludedFromPanelLenovoLighting(string machineType, string model)
+    {
+        (string machineType, string model)[] excludedModels =
+        {
+            ("82JH", "15ITH6H"),
+            ("82JK", "15ITH6"),
+            ("82JM", "17ITH6H"),
+            ("82JN", "17ITH6"),
+            ("82JU", "15ACH6H"),
+            ("82JW", "15ACH6"),
+            ("82JY", "17ACH6H"),
+            ("82K0", "17ACH6"),
+            ("82K1", "15IHU6"),
+            ("82K2", "15ACH6"),
+            ("82NW", "15ACH6A")
+        };
+
+        return excludedModels.Where(m =>
+        {
+            var result = machineType.Contains(m.machineType);
+            result &= model.Contains(m.model);
+            return result;
+        }).Any();
     }
 }
