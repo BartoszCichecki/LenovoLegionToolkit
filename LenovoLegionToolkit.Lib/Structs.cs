@@ -684,8 +684,8 @@ public readonly struct RefreshRate : IDisplayName, IEquatable<RefreshRate>
 
 public readonly struct Resolution : IDisplayName, IEquatable<Resolution>, IComparable<Resolution>
 {
-    public int Width { get; }
-    public int Height { get; }
+    private int Width { get; }
+    private int Height { get; }
 
     [JsonIgnore]
     public string DisplayName => $"{Width} × {Height}";

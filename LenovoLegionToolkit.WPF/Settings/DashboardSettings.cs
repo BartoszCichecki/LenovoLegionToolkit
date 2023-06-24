@@ -6,6 +6,7 @@ public class DashboardSettings : AbstractSettings<DashboardSettings.DashboardSet
 {
     public class DashboardSettingsStore
     {
+        public bool ShowSensors { get; set; } = true;
         public DashboardGroup[]? Groups { get; set; }
     }
 

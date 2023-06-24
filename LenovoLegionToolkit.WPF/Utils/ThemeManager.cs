@@ -34,7 +34,30 @@ public class ThemeManager
         ThemeApplied?.Invoke(this, EventArgs.Empty);
     }
 
-    public bool IsDarkMode()
+    public RGBColor GetAccentColor()
+    {
+        switch (_settings.Store.AccentColorSource)
+        {
+            case AccentColorSource.Custom:
+                return _settings.Store.AccentColor ?? DefaultAccentColor;
+            case AccentColorSource.System:
+                try
+                {
+                    return SystemTheme.GetAccentColor();
+                }
+                catch (Exception ex)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Couldn't check system accent color; using default.", ex);
+
+                    return DefaultAccentColor;
+                }
+            default:
+                return DefaultAccentColor;
+        }
+    }
+
+    private bool IsDarkMode()
     {
         var theme = _settings.Store.Theme;
 
@@ -58,29 +81,6 @@ public class ThemeManager
                 }
             default:
                 return true;
-        }
-    }
-
-    public RGBColor GetAccentColor()
-    {
-        switch (_settings.Store.AccentColorSource)
-        {
-            case AccentColorSource.Custom:
-                return _settings.Store.AccentColor ?? DefaultAccentColor;
-            case AccentColorSource.System:
-                try
-                {
-                    return SystemTheme.GetAccentColor();
-                }
-                catch (Exception ex)
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Couldn't check system accent color; using default.", ex);
-
-                    return DefaultAccentColor;
-                }
-            default:
-                return DefaultAccentColor;
         }
     }
 
