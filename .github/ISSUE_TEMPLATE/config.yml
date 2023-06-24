@@ -1,1 +1,5 @@
 blank_issues_enabled: false
+contact_links:
+  - name: General questions
+    url: https://github.com/BartoszCichecki/LenovoLegionToolkit/discussions/new?category=q-a
+    about: Please ask questions here.
