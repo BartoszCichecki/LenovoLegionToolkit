@@ -50,6 +50,17 @@ public readonly struct BiosVersion
         return Version >= other.Version;
     }
 
+    public bool IsLowerThan(BiosVersion other)
+    {
+        if (!Prefix.Equals(other.Prefix, StringComparison.InvariantCultureIgnoreCase))
+            return false;
+
+        if (Version is null || other.Version is null)
+            return true;
+
+        return Version < other.Version;
+    }
+
     public override string ToString() => $"{nameof(Prefix)}: {Prefix}, {nameof(Version)}: {Version}";
 }
 

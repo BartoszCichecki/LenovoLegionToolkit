@@ -268,7 +268,7 @@ public static class Compatibility
             new("GKCN", 54)
         };
 
-        return affectedBiosVersions.Any(bv => biosVersion?.IsHigherOrEqualThan(bv) ?? false);
+        return affectedBiosVersions.Any(bv => biosVersion?.IsLowerThan(bv) ?? false);
     }
 
     private static bool GetIsExcludedFromPanelLenovoLighting(string machineType, string model)
