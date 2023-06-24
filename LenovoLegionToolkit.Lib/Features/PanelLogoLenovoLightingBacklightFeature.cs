@@ -4,22 +4,27 @@ namespace LenovoLegionToolkit.Lib.Features;
 
 public class PanelLogoLenovoLightingBacklightFeature : AbstractLenovoLightingFeature<PanelLogoBacklightState>
 {
-    protected override IEnumerable<(string machineType, string model)> Excluded => new[]
-    {
-        ("82JH", "15ITH6H"),
-        ("82JK", "15ITH6"),
-        ("82JM", "17ITH6H"),
-        ("82JN", "17ITH6"),
-        ("82JU", "15ACH6H"),
-        ("82JW", "15ACH6"),
-        ("82JY", "17ACH6H"),
-        ("82K0", "17ACH6"),
-        ("82K1", "15IHU6"),
-        ("82K2", "15ACH6"),
-        ("82NW", "15ACH6A")
-    };
-
     public PanelLogoLenovoLightingBacklightFeature() : base(3, 1, 0) { }
+
+    protected override IEnumerable<(string machineType, string model)> GetExcludedModels()
+    {
+        using var enumerator = base.GetExcludedModels().GetEnumerator();
+        while (enumerator.MoveNext())
+            yield return enumerator.Current;
+
+        // Falsely report available panel logo
+        yield return ("82JH", "15ITH6H");
+        yield return ("82JK", "15ITH6");
+        yield return ("82JM", "17ITH6H");
+        yield return ("82JN", "17ITH6");
+        yield return ("82JU", "15ACH6H");
+        yield return ("82JW", "15ACH6");
+        yield return ("82JY", "17ACH6H");
+        yield return ("82K0", "17ACH6");
+        yield return ("82K1", "15IHU6");
+        yield return ("82K2", "15ACH6");
+        yield return ("82NW", "15ACH6A");
+    }
 
     protected override PanelLogoBacklightState FromInternal(int stateType, int _) => (PanelLogoBacklightState)stateType;
 

@@ -13,8 +13,6 @@ public abstract class AbstractLenovoLightingFeature<T> : IFeature<T> where T : s
     private readonly int _controlInterface;
     private readonly int _type;
 
-    protected virtual IEnumerable<(string machineType, string model)> Excluded { get; } = Array.Empty<(string, string)>();
-
     public bool ForceDisable { get; set; }
 
     protected AbstractLenovoLightingFeature(int lightingID, int controlInterface, int type)
@@ -31,10 +29,10 @@ public abstract class AbstractLenovoLightingFeature<T> : IFeature<T> where T : s
 
         try
         {
-            if (Excluded.Any())
+            if (GetExcludedModels().Any())
             {
                 var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
-                if (Excluded.Where(e => mi.MachineType.Contains(e.machineType) && mi.Model.Contains(e.model)).Any())
+                if (GetExcludedModels().Where(e => mi.MachineType.Contains(e.machineType) && mi.Model.Contains(e.model)).Any())
                     return false;
             }
 
@@ -109,6 +107,12 @@ public abstract class AbstractLenovoLightingFeature<T> : IFeature<T> where T : s
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Set state to {state} [feature={GetType().Name}]");
+    }
+
+    protected virtual IEnumerable<(string machineType, string model)> GetExcludedModels()
+    {
+        // BSODs on accessing lighting data
+        yield return ("82N6", "16ACHg6");
     }
 
     protected abstract T FromInternal(int stateType, int level);
