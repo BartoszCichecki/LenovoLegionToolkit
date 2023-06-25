@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using LenovoLegionToolkit.Lib;
-using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.Lib.Controllers.Sensors;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Resources;
@@ -48,7 +48,16 @@ public partial class SensorsControl
         _refreshTask = Task.Run(async () =>
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Battery information refresh started...");
+                Log.Instance.Trace($"Sensors refresh started...");
+
+            if (!await _controller.IsSupportedAsync())
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Sensors not supported.");
+
+                Visibility = Visibility.Collapsed;
+                return;
+            }
 
             while (!token.IsCancellationRequested)
             {
@@ -69,6 +78,18 @@ public partial class SensorsControl
                         _cpuFanSpeedBar.Value = data.CPU.CurrentFanSpeed;
                         _cpuFanSpeedLabel.Content = $"{data.CPU.CurrentFanSpeed} RPM";
 
+                        var gpuCoreClockAvailable = data.GPU.CoreClock > 0 || data.GPU.MaxCoreClock > 0;
+                        _gpuCoreClockBar.Minimum = 0;
+                        _gpuCoreClockBar.Maximum = gpuCoreClockAvailable ? data.GPU.MaxCoreClock : 0;
+                        _gpuCoreClockBar.Value = gpuCoreClockAvailable ? data.GPU.CoreClock : 0;
+                        _gpuCoreClockLabel.Content = gpuCoreClockAvailable ? $"{data.GPU.CoreClock} MHz" : "-";
+
+                        var gpuMemoryClockAvailable = data.GPU.MemoryClock > 0 || data.GPU.MaxMemoryClock > 0;
+                        _gpuMemoryClockBar.Minimum = 0;
+                        _gpuMemoryClockBar.Maximum = gpuMemoryClockAvailable ? data.GPU.MaxMemoryClock : 0;
+                        _gpuMemoryClockBar.Value = gpuMemoryClockAvailable ? data.GPU.MemoryClock : 0;
+                        _gpuMemoryClockLabel.Content = gpuMemoryClockAvailable ? $"{data.GPU.MemoryClock} MHz" : "-";
+
                         _gpuTemperatureBar.Minimum = 0;
                         _gpuTemperatureBar.Maximum = data.GPU.MaxTemperature; ;
                         _gpuTemperatureBar.Value = data.GPU.CurrentTemperature;
@@ -87,12 +108,12 @@ public partial class SensorsControl
                 catch (Exception ex)
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Battery information refresh failed.", ex);
+                        Log.Instance.Trace($"Sensors refresh failed.", ex);
                 }
             }
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Battery information refresh stopped.");
+                Log.Instance.Trace($"Sensors refresh stopped.");
         }, token);
     }
 

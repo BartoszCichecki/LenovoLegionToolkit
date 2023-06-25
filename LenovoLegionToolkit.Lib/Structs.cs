@@ -624,6 +624,32 @@ public readonly struct RGBKeyboardBacklightState
     }
 }
 
+public readonly struct SensorData
+{
+    public int CoreClock { get; init; }
+    public int MaxCoreClock { get; init; }
+    public int MemoryClock { get; init; }
+    public int MaxMemoryClock { get; init; }
+    public int CurrentTemperature { get; init; }
+    public int MaxTemperature { get; init; }
+    public int CurrentFanSpeed { get; init; }
+    public int MaxFanSpeed { get; init; }
+}
+
+public readonly struct SensorsData
+{
+    public SensorData CPU { get; init; }
+    public SensorData GPU { get; init; }
+}
+
+public readonly struct SensorSettings
+{
+    public int CPUSensorID { get; init; }
+    public int GPUSensorID { get; init; }
+    public int CPUFanID { get; init; }
+    public int GPUFanID { get; init; }
+}
+
 public readonly struct DpiScale : IDisplayName, IEquatable<DpiScale>
 {
     public int Scale { get; }
