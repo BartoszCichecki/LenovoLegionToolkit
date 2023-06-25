@@ -33,25 +33,22 @@ namespace LenovoLegionToolkit.Lib.Controllers
         Task<Sensors> GetDataAsync();
     }
 
-
-    public class SensorsControllerV2 : ISensorsController
+    public abstract class AbstractSensorsController : ISensorsController
     {
-        private readonly SensorSettings _settings = new()
-        {
-            CPUSensorID = 3,
-            GPUSensorID = 4,
-            CPUFanID = 0,
-            GPUFanID = 1
-        };
+        protected abstract SensorSettings Settings { get; }
 
-        public async Task<bool> IsSupportedAsync()
+        public virtual async Task<bool> IsSupportedAsync()
         {
-            // 0 0 and 0 1 for gen 6
-            // 4 1 and 5 2 for gen 8
-
-            var result = await WMI.ExistsAsync("root\\WMI", $"SELECT * FROM LENOVO_FAN_TABLE_DATA WHERE Sensor_ID = 3 AND Fan_Id = 0").ConfigureAwait(false);
-            result &= await WMI.ExistsAsync("root\\WMI", $"SELECT * FROM LENOVO_FAN_TABLE_DATA WHERE Sensor_ID = 4 AND Fan_Id = 1").ConfigureAwait(false);
-            return result;
+            try
+            {
+                var result = await WMI.ExistsAsync("root\\WMI", $"SELECT * FROM LENOVO_FAN_TABLE_DATA WHERE Sensor_ID = {Settings.CPUSensorID} AND Fan_Id = {Settings.CPUFanID}").ConfigureAwait(false);
+                result &= await WMI.ExistsAsync("root\\WMI", $"SELECT * FROM LENOVO_FAN_TABLE_DATA WHERE Sensor_ID = {Settings.GPUSensorID} AND Fan_Id = {Settings.GPUFanID}").ConfigureAwait(false);
+                return result;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public async Task<Sensors> GetDataAsync()
@@ -60,17 +57,17 @@ namespace LenovoLegionToolkit.Lib.Controllers
             {
                 CPU = new()
                 {
-                    CurrentTemperature = await GetCurrentTemperatureAsync(_settings.CPUSensorID).ConfigureAwait(false),
+                    CurrentTemperature = await GetCurrentTemperatureAsync(Settings.CPUSensorID).ConfigureAwait(false),
                     MaxTemperature = 100,
-                    CurrentFanSpeed = await GetCurrentFanSpeedAsync(_settings.CPUFanID).ConfigureAwait(false),
-                    MaxFanSpeed = await GetMaxFanSpeedAsync(_settings.CPUSensorID, _settings.CPUFanID).ConfigureAwait(false),
+                    CurrentFanSpeed = await GetCurrentFanSpeedAsync(Settings.CPUFanID).ConfigureAwait(false),
+                    MaxFanSpeed = await GetMaxFanSpeedAsync(Settings.CPUSensorID, Settings.CPUFanID).ConfigureAwait(false),
                 },
                 GPU = new()
                 {
-                    CurrentTemperature = await GetCurrentTemperatureAsync(_settings.GPUSensorID).ConfigureAwait(false),
+                    CurrentTemperature = await GetCurrentTemperatureAsync(Settings.GPUSensorID).ConfigureAwait(false),
                     MaxTemperature = 95,
-                    CurrentFanSpeed = await GetCurrentFanSpeedAsync(_settings.GPUFanID).ConfigureAwait(false),
-                    MaxFanSpeed = await GetMaxFanSpeedAsync(_settings.GPUSensorID, _settings.GPUFanID).ConfigureAwait(false),
+                    CurrentFanSpeed = await GetCurrentFanSpeedAsync(Settings.GPUFanID).ConfigureAwait(false),
+                    MaxFanSpeed = await GetMaxFanSpeedAsync(Settings.GPUSensorID, Settings.GPUFanID).ConfigureAwait(false),
                 }
             };
         }
@@ -89,20 +86,67 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 new() { { "FanID", fanID } },
                 pdc => Convert.ToInt32(pdc["CurrentFanSpeed"].Value));
 
-        private static async Task<int> GetMaxFanSpeedAsync(int sensorID, int fanID)
+        protected virtual async Task<int> GetMaxFanSpeedAsync(int sensorID, int fanID)
         {
             var result = await WMI.ReadAsync("root\\WMI",
                 $"SELECT * FROM LENOVO_FAN_TABLE_DATA WHERE Sensor_ID = {sensorID} AND Fan_Id = {fanID}",
                 pdc => Convert.ToInt32(pdc["CurrentFanMaxSpeed"].Value)).ConfigureAwait(false);
-            var maxFanSpeed = result.FirstOrDefault();
+            return result.FirstOrDefault();
+        }
+    }
 
-            if (maxFanSpeed < 1)
-                return maxFanSpeed;
+    public class SensorsControllerV1 : AbstractSensorsController
+    {
+        protected override SensorSettings Settings => new()
+        {
+            CPUSensorID = 3,
+            GPUSensorID = 4,
+            CPUFanID = 0,
+            GPUFanID = 1
+        };
 
-            result = await WMI.ReadAsync("root\\WMI",
+        public override async Task<bool> IsSupportedAsync()
+        {
+            try
+            {
+                var result = await WMI.ExistsAsync("root\\WMI", $"SELECT * FROM LENOVO_FAN_TABLE_DATA WHERE Sensor_ID = 0 AND Fan_Id = {Settings.CPUFanID}").ConfigureAwait(false);
+                result &= await WMI.ExistsAsync("root\\WMI", $"SELECT * FROM LENOVO_FAN_TABLE_DATA WHERE Sensor_ID = 0 AND Fan_Id = {Settings.GPUFanID}").ConfigureAwait(false);
+                return result;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        protected override async Task<int> GetMaxFanSpeedAsync(int sensorID, int fanID)
+        {
+            var result = await WMI.ReadAsync("root\\WMI",
                 $"SELECT * FROM LENOVO_FAN_TABLE_DATA WHERE Sensor_ID = 0 AND Fan_Id = {fanID}",
                 pdc => Convert.ToInt32(pdc["DefaultFanMaxSpeed"].Value)).ConfigureAwait(false);
             return result.FirstOrDefault();
         }
+    }
+
+    public class SensorsControllerV2 : AbstractSensorsController
+    {
+        protected override SensorSettings Settings => new()
+        {
+            CPUSensorID = 3,
+            GPUSensorID = 4,
+            CPUFanID = 0,
+            GPUFanID = 1
+        };
+    }
+
+    public class SensorsControllerV3 : AbstractSensorsController
+    {
+        protected override SensorSettings Settings => new()
+        {
+            CPUSensorID = 4,
+            GPUSensorID = 5,
+            CPUFanID = 1,
+            GPUFanID = 2
+        };
     }
 }
