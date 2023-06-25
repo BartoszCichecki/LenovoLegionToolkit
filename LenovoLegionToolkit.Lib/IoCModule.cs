@@ -76,7 +76,7 @@ public class IoCModule : Module
         builder.Register<GPUOverclockController>();
         builder.Register<PowerPlanController>();
         builder.Register<RGBKeyboardBacklightController>();
-        builder.Register<SensorsController>();
+        builder.Register<SensorsControllerV2>();
         builder.Register<SpectrumKeyboardBacklightController>();
 
         builder.Register<UpdateChecker>();

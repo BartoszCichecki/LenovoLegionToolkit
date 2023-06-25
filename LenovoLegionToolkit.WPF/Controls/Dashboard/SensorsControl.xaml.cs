@@ -12,8 +12,8 @@ namespace LenovoLegionToolkit.WPF.Controls.Dashboard;
 
 public partial class SensorsControl
 {
+    private readonly ISensorsController _controller = IoCContainer.Resolve<ISensorsController>();
     private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
-    private readonly SensorsController _controller = IoCContainer.Resolve<SensorsController>();
 
     private CancellationTokenSource? _cts;
     private Task? _refreshTask;

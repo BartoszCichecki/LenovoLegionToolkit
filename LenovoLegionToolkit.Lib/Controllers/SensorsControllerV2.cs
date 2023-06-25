@@ -27,7 +27,14 @@ namespace LenovoLegionToolkit.Lib.Controllers
         public int MaxFanSpeed { get; init; }
     }
 
-    public class SensorsController
+    public interface ISensorsController
+    {
+        Task<bool> IsSupportedAsync();
+        Task<Sensors> GetDataAsync();
+    }
+
+
+    public class SensorsControllerV2 : ISensorsController
     {
         private readonly SensorSettings _settings = new()
         {
@@ -36,6 +43,16 @@ namespace LenovoLegionToolkit.Lib.Controllers
             CPUFanID = 0,
             GPUFanID = 1
         };
+
+        public async Task<bool> IsSupportedAsync()
+        {
+            // 0 0 and 0 1 for gen 6
+            // 4 1 and 5 2 for gen 8
+
+            var result = await WMI.ExistsAsync("root\\WMI", $"SELECT * FROM LENOVO_FAN_TABLE_DATA WHERE Sensor_ID = 3 AND Fan_Id = 0").ConfigureAwait(false);
+            result &= await WMI.ExistsAsync("root\\WMI", $"SELECT * FROM LENOVO_FAN_TABLE_DATA WHERE Sensor_ID = 4 AND Fan_Id = 1").ConfigureAwait(false);
+            return result;
+        }
 
         public async Task<Sensors> GetDataAsync()
         {
@@ -77,6 +94,14 @@ namespace LenovoLegionToolkit.Lib.Controllers
             var result = await WMI.ReadAsync("root\\WMI",
                 $"SELECT * FROM LENOVO_FAN_TABLE_DATA WHERE Sensor_ID = {sensorID} AND Fan_Id = {fanID}",
                 pdc => Convert.ToInt32(pdc["CurrentFanMaxSpeed"].Value)).ConfigureAwait(false);
+            var maxFanSpeed = result.FirstOrDefault();
+
+            if (maxFanSpeed < 1)
+                return maxFanSpeed;
+
+            result = await WMI.ReadAsync("root\\WMI",
+                $"SELECT * FROM LENOVO_FAN_TABLE_DATA WHERE Sensor_ID = 0 AND Fan_Id = {fanID}",
+                pdc => Convert.ToInt32(pdc["DefaultFanMaxSpeed"].Value)).ConfigureAwait(false);
             return result.FirstOrDefault();
         }
     }
