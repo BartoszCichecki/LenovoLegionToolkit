@@ -102,7 +102,7 @@ public partial class SensorsControl
                         _gpuFanSpeedLabel.Content = $"{data.GPU.CurrentFanSpeed} RPM";
                     });
 
-                    await Task.Delay(TimeSpan.FromSeconds(1), token);
+                    await Task.Delay(TimeSpan.FromSeconds(2), token);
                 }
                 catch (TaskCanceledException) { }
                 catch (Exception ex)
