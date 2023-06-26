@@ -32,9 +32,9 @@ public abstract class AbstractSensorsController : ISensorsController
         {
             CPU = new()
             {
-                CurrentTemperature = await GetCurrentTemperatureAsync(Settings.CPUSensorID).ConfigureAwait(false),
+                Temperature = await GetCurrentTemperatureAsync(Settings.CPUSensorID).ConfigureAwait(false),
                 MaxTemperature = 100,
-                CurrentFanSpeed = await GetCurrentFanSpeedAsync(Settings.CPUFanID).ConfigureAwait(false),
+                FanSpeed = await GetCurrentFanSpeedAsync(Settings.CPUFanID).ConfigureAwait(false),
                 MaxFanSpeed = await GetMaxFanSpeedAsync(Settings.CPUSensorID, Settings.CPUFanID).ConfigureAwait(false),
             },
             GPU = new()
@@ -43,9 +43,9 @@ public abstract class AbstractSensorsController : ISensorsController
                 MaxCoreClock = maxCoreClock,
                 MemoryClock = memoryClock,
                 MaxMemoryClock = maxMemoryClock,
-                CurrentTemperature = await GetCurrentTemperatureAsync(Settings.GPUSensorID).ConfigureAwait(false),
+                Temperature = await GetCurrentTemperatureAsync(Settings.GPUSensorID).ConfigureAwait(false),
                 MaxTemperature = 95,
-                CurrentFanSpeed = await GetCurrentFanSpeedAsync(Settings.GPUFanID).ConfigureAwait(false),
+                FanSpeed = await GetCurrentFanSpeedAsync(Settings.GPUFanID).ConfigureAwait(false),
                 MaxFanSpeed = await GetMaxFanSpeedAsync(Settings.GPUSensorID, Settings.GPUFanID).ConfigureAwait(false),
             }
         };

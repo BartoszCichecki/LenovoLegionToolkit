@@ -2,6 +2,8 @@
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers.Sensors;
 using LenovoLegionToolkit.Lib.Settings;
@@ -67,39 +69,13 @@ public partial class SensorsControl
 
                     Dispatcher.Invoke(() =>
                     {
-                        _cpuTemperatureBar.Minimum = 0;
-                        _cpuTemperatureBar.Maximum = data.CPU.MaxTemperature;
-                        _cpuTemperatureBar.Value = data.CPU.CurrentTemperature;
-                        _cpuTemperatureLabel.Content = GetTemperatureText(data.CPU.CurrentTemperature);
-                        _cpuTemperatureLabel.Tag = (double)data.CPU.CurrentTemperature;
+                        UpdateValue(_cpuTemperatureBar, _cpuTemperatureLabel, data.CPU.MaxTemperature, data.CPU.Temperature, GetTemperatureText(data.CPU.Temperature));
+                        UpdateValue(_cpuFanSpeedBar, _cpuFanSpeedLabel, data.CPU.MaxFanSpeed, data.CPU.FanSpeed, $"{data.CPU.FanSpeed} RPM");
 
-                        _cpuFanSpeedBar.Minimum = 0;
-                        _cpuFanSpeedBar.Maximum = data.CPU.MaxFanSpeed;
-                        _cpuFanSpeedBar.Value = data.CPU.CurrentFanSpeed;
-                        _cpuFanSpeedLabel.Content = $"{data.CPU.CurrentFanSpeed} RPM";
-
-                        var gpuCoreClockAvailable = data.GPU.CoreClock > 0 || data.GPU.MaxCoreClock > 0;
-                        _gpuCoreClockBar.Minimum = 0;
-                        _gpuCoreClockBar.Maximum = gpuCoreClockAvailable ? data.GPU.MaxCoreClock : 0;
-                        _gpuCoreClockBar.Value = gpuCoreClockAvailable ? data.GPU.CoreClock : 0;
-                        _gpuCoreClockLabel.Content = gpuCoreClockAvailable ? $"{data.GPU.CoreClock} MHz" : "-";
-
-                        var gpuMemoryClockAvailable = data.GPU.MemoryClock > 0 || data.GPU.MaxMemoryClock > 0;
-                        _gpuMemoryClockBar.Minimum = 0;
-                        _gpuMemoryClockBar.Maximum = gpuMemoryClockAvailable ? data.GPU.MaxMemoryClock : 0;
-                        _gpuMemoryClockBar.Value = gpuMemoryClockAvailable ? data.GPU.MemoryClock : 0;
-                        _gpuMemoryClockLabel.Content = gpuMemoryClockAvailable ? $"{data.GPU.MemoryClock} MHz" : "-";
-
-                        _gpuTemperatureBar.Minimum = 0;
-                        _gpuTemperatureBar.Maximum = data.GPU.MaxTemperature; ;
-                        _gpuTemperatureBar.Value = data.GPU.CurrentTemperature;
-                        _gpuTemperatureLabel.Content = GetTemperatureText(data.GPU.CurrentTemperature);
-                        _gpuTemperatureLabel.Tag = (double)data.GPU.CurrentTemperature;
-
-                        _gpuFanSpeedBar.Minimum = 0;
-                        _gpuFanSpeedBar.Maximum = data.GPU.MaxFanSpeed;
-                        _gpuFanSpeedBar.Value = data.GPU.CurrentFanSpeed;
-                        _gpuFanSpeedLabel.Content = $"{data.GPU.CurrentFanSpeed} RPM";
+                        UpdateValue(_gpuCoreClockBar, _gpuCoreClockLabel, data.GPU.MaxCoreClock, data.GPU.CoreClock, $"{data.GPU.CoreClock} MHz");
+                        UpdateValue(_gpuMemoryClockBar, _gpuMemoryClockLabel, data.GPU.MaxMemoryClock, data.GPU.MemoryClock, $"{data.GPU.MemoryClock} MHz");
+                        UpdateValue(_gpuTemperatureBar, _gpuTemperatureLabel, data.GPU.MaxTemperature, data.GPU.Temperature, GetTemperatureText(data.GPU.Temperature));
+                        UpdateValue(_gpuFanSpeedBar, _gpuFanSpeedLabel, data.GPU.MaxFanSpeed, data.GPU.FanSpeed, $"{data.GPU.FanSpeed} RPM");
                     });
 
                     await Task.Delay(TimeSpan.FromSeconds(2), token);
@@ -138,5 +114,25 @@ public partial class SensorsControl
         }
 
         return $"{temperature:0} {Resource.Celsius}";
+    }
+
+    private static void UpdateValue(RangeBase bar, ContentControl label, double max, double value, string text)
+    {
+        if (max < 1 || value < 1)
+        {
+            bar.Minimum = 0;
+            bar.Maximum = 1;
+            bar.Value = 0;
+            label.Content = "-";
+            label.Tag = 0;
+        }
+        else
+        {
+            bar.Minimum = 0;
+            bar.Maximum = max;
+            bar.Value = value;
+            label.Content = text;
+            label.Tag = value;
+        }
     }
 }

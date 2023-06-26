@@ -630,9 +630,9 @@ public readonly struct SensorData
     public int MaxCoreClock { get; init; }
     public int MemoryClock { get; init; }
     public int MaxMemoryClock { get; init; }
-    public int CurrentTemperature { get; init; }
+    public int Temperature { get; init; }
     public int MaxTemperature { get; init; }
-    public int CurrentFanSpeed { get; init; }
+    public int FanSpeed { get; init; }
     public int MaxFanSpeed { get; init; }
 }
 
