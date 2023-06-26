@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     d:DesignHeight="450"
     d:DesignWidth="800"
@@ -34,13 +35,13 @@
                     Margin="0,0,0,8"
                     FontSize="18"
                     FontWeight="Medium"
-                    Text="CPU" />
+                    Text="{x:Static resources:Resource.SensorsControl_CPU_Title}" />
 
                 <Label
                     Grid.Row="1"
                     Grid.Column="0"
                     VerticalContentAlignment="Center"
-                    Content="Utilization"
+                    Content="{x:Static resources:Resource.SensorsControl_Utilisation_Title}"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                 <ProgressBar
                     x:Name="_cpuUtilizationBar"
@@ -63,7 +64,7 @@
                     Grid.Row="2"
                     Grid.Column="0"
                     VerticalContentAlignment="Center"
-                    Content="Core Clock"
+                    Content="{x:Static resources:Resource.SensorsControl_CoreClock_Title}"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                 <ProgressBar
                     x:Name="_cpuCoreClockBar"
@@ -86,7 +87,7 @@
                     Grid.Row="3"
                     Grid.Column="0"
                     VerticalContentAlignment="Center"
-                    Content="Temperature"
+                    Content="{x:Static resources:Resource.SensorsControl_Temperature_Title}"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                 <ProgressBar
                     x:Name="_cpuTemperatureBar"
@@ -109,7 +110,7 @@
                 <Label
                     Grid.Row="4"
                     Grid.Column="0"
-                    Content="Fan"
+                    Content="{x:Static resources:Resource.SensorsControl_Fan_Title}"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                 <ProgressBar
                     x:Name="_cpuFanSpeedBar"
@@ -133,13 +134,13 @@
                     Margin="0,0,0,8"
                     FontSize="18"
                     FontWeight="Medium"
-                    Text="GPU" />
+                    Text="{x:Static resources:Resource.SensorsControl_GPU_Title}" />
 
                 <Label
                     Grid.Row="1"
                     Grid.Column="4"
                     VerticalContentAlignment="Center"
-                    Content="Utilization"
+                    Content="{x:Static resources:Resource.SensorsControl_Utilisation_Title}"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                 <ProgressBar
                     x:Name="_gpuUtilizationBar"
@@ -162,7 +163,7 @@
                     Grid.Row="2"
                     Grid.Column="4"
                     VerticalContentAlignment="Center"
-                    Content="Core Clock"
+                    Content="{x:Static resources:Resource.SensorsControl_CoreClock_Title}"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                 <ProgressBar
                     x:Name="_gpuCoreClockBar"
@@ -185,7 +186,7 @@
                     Grid.Row="3"
                     Grid.Column="4"
                     VerticalContentAlignment="Center"
-                    Content="Memory Clock"
+                    Content="{x:Static resources:Resource.SensorsControl_MemoryClock_Title}"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                 <ProgressBar
                     x:Name="_gpuMemoryClockBar"
@@ -209,7 +210,7 @@
                     Grid.Row="4"
                     Grid.Column="4"
                     VerticalContentAlignment="Center"
-                    Content="Temperature"
+                    Content="{x:Static resources:Resource.SensorsControl_Temperature_Title}"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                 <ProgressBar
                     x:Name="_gpuTemperatureBar"
@@ -232,7 +233,7 @@
                 <Label
                     Grid.Row="5"
                     Grid.Column="4"
-                    Content="Fan"
+                    Content="{x:Static resources:Resource.SensorsControl_Fan_Title}"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                 <ProgressBar
                     x:Name="_gpuFanSpeedBar"
