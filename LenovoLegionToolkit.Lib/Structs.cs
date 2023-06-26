@@ -626,7 +626,7 @@ public readonly struct RGBKeyboardBacklightState
 
 public readonly struct SensorData
 {
-    public static SensorData Empty = new()
+    public static readonly SensorData Empty = new()
     {
         Utilization = -1,
         CoreClock = -1,
@@ -652,7 +652,7 @@ public readonly struct SensorData
 
 public readonly struct SensorsData
 {
-    public static SensorsData Empty = new() { CPU = SensorData.Empty, GPU = SensorData.Empty };
+    public static readonly SensorsData Empty = new() { CPU = SensorData.Empty, GPU = SensorData.Empty };
 
     public SensorData CPU { get; init; }
     public SensorData GPU { get; init; }
