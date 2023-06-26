@@ -32,7 +32,7 @@
                 <TextBlock
                     Grid.ColumnSpan="3"
                     Margin="0,0,0,8"
-                    FontSize="16"
+                    FontSize="18"
                     FontWeight="Medium"
                     Text="CPU" />
 
@@ -56,7 +56,8 @@
                     Grid.Column="2"
                     HorizontalContentAlignment="Right"
                     VerticalContentAlignment="Center"
-                    Content="-" />
+                    Content="-"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
                 <Label
                     Grid.Row="2"
@@ -78,7 +79,8 @@
                     Grid.Column="2"
                     HorizontalContentAlignment="Right"
                     VerticalContentAlignment="Center"
-                    Content="-" />
+                    Content="-"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
                 <Label
                     Grid.Row="3"
@@ -101,6 +103,7 @@
                     HorizontalContentAlignment="Right"
                     VerticalContentAlignment="Center"
                     Content="-"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                     MouseUp="TemperatureLabel_Click" />
 
                 <Label
@@ -121,13 +124,14 @@
                     Grid.Row="4"
                     Grid.Column="2"
                     HorizontalContentAlignment="Right"
-                    Content="-" />
+                    Content="-"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
                 <TextBlock
                     Grid.Row="0"
                     Grid.Column="4"
                     Margin="0,0,0,8"
-                    FontSize="16"
+                    FontSize="18"
                     FontWeight="Medium"
                     Text="GPU" />
 
@@ -151,7 +155,8 @@
                     Grid.Column="6"
                     HorizontalContentAlignment="Right"
                     VerticalContentAlignment="Center"
-                    Content="-" />
+                    Content="-"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
                 <Label
                     Grid.Row="2"
@@ -173,7 +178,8 @@
                     Grid.Column="6"
                     HorizontalContentAlignment="Right"
                     VerticalContentAlignment="Center"
-                    Content="-" />
+                    Content="-"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
                 <Label
                     Grid.Row="3"
@@ -196,6 +202,7 @@
                     HorizontalContentAlignment="Right"
                     VerticalContentAlignment="Center"
                     Content="-"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                     MouseUp="TemperatureLabel_Click" />
 
                 <Label
@@ -219,6 +226,7 @@
                     HorizontalContentAlignment="Right"
                     VerticalContentAlignment="Center"
                     Content="-"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                     MouseUp="TemperatureLabel_Click" />
 
                 <Label
@@ -239,7 +247,8 @@
                     Grid.Row="5"
                     Grid.Column="6"
                     HorizontalContentAlignment="Right"
-                    Content="-" />
+                    Content="-"
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
             </Grid>
         </wpfui:CardControl.Header>
