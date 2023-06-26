@@ -21,6 +21,7 @@ public abstract class AbstractSensorsController : ISensorsController
     private int? _cpuBaseClockCache;
     private int? _cpuMaxCoreClockCache;
     private int? _cpuMaxFanSpeedCache;
+    private int? _cpuMaxTemperatureCache;
     private int? _gpuMaxFanSpeedCache;
 
     protected AbstractSensorsController()
@@ -45,18 +46,15 @@ public abstract class AbstractSensorsController : ISensorsController
 
     public async Task<SensorsData> GetDataAsync()
     {
-        const int cpuMaxTemperature = 100;
-        const int gpuMaxTemperature = 95;
-
         var cpuUtilization = GetCpuUtilization();
         var cpuCoreClock = GetCpuCoreClock();
         var cpuMaxCoreClock = _cpuMaxCoreClockCache ??= await GetCpuMaxCoreClockAsync().ConfigureAwait(false);
         var cpuCurrentTemperature = await GetCurrentTemperatureAsync(Settings.CPUSensorID).ConfigureAwait(false);
+        var cpuMaxTemperature = _cpuMaxTemperatureCache ??= await GetCpuMaxTemperatureAsync().ConfigureAwait(false);
         var cpuCurrentFanSpeed = await GetCurrentFanSpeedAsync(Settings.CPUFanID).ConfigureAwait(false);
         var cpuMaxFanSpeed = _cpuMaxFanSpeedCache ??= await GetMaxFanSpeedAsync(Settings.CPUSensorID, Settings.CPUFanID).ConfigureAwait(false);
 
-        var (gpuUtilization, gpuCoreClock, gpuMaxCoreClock, gpuMemoryClock, gpuMaxMemoryClock) = GetGPUClocks();
-        var gpuCurrentTemperature = await GetCurrentTemperatureAsync(Settings.GPUSensorID).ConfigureAwait(false);
+        var (gpuUtilization, gpuCoreClock, gpuMaxCoreClock, gpuMemoryClock, gpuMaxMemoryClock, gpuTemperature, gpuMaxTemperature) = GetGPUInfo();
         var gpuCurrentFanSpeed = await GetCurrentFanSpeedAsync(Settings.GPUFanID).ConfigureAwait(false);
         var gpuMaxFanSpeed = _gpuMaxFanSpeedCache ??= await GetMaxFanSpeedAsync(Settings.GPUSensorID, Settings.GPUFanID).ConfigureAwait(false);
 
@@ -79,7 +77,7 @@ public abstract class AbstractSensorsController : ISensorsController
                 MaxCoreClock = gpuMaxCoreClock,
                 MemoryClock = gpuMemoryClock,
                 MaxMemoryClock = gpuMaxMemoryClock,
-                Temperature = gpuCurrentTemperature,
+                Temperature = gpuTemperature,
                 MaxTemperature = gpuMaxTemperature,
                 FanSpeed = gpuCurrentFanSpeed,
                 MaxFanSpeed = gpuMaxFanSpeed,
@@ -154,7 +152,21 @@ public abstract class AbstractSensorsController : ISensorsController
                 return Math.Max(low, high);
             });
 
-    private static (int utilization, int coreClock, int maxCoreClock, int memoryClock, int maxMemoryClock) GetGPUClocks()
+    private static async Task<int> GetCpuMaxTemperatureAsync()
+    {
+        var result = await WMI.ReadAsync("root\\WMI",
+            $"SELECT * FROM MSAcpi_ThermalZoneTemperature",
+            pdc =>
+            {
+                var max = Convert.ToInt32(pdc["CriticalTripPoint"].Value);
+                max -= 2731;
+                max /= 10;
+                return max;
+            }).ConfigureAwait(false);
+        return result.DefaultIfEmpty(-1).FirstOrDefault();
+    }
+
+    private static (int utilization, int coreClock, int maxCoreClock, int memoryClock, int maxMemoryClock, int temperature, int maxTemperature) GetGPUInfo()
     {
         try
         {
@@ -162,7 +174,7 @@ public abstract class AbstractSensorsController : ISensorsController
 
             var gpu = NVAPI.GetGPU();
             if (gpu is null)
-                return (-1, -1, -1, -1, -1); ;
+                return (-1, -1, -1, -1, -1, -1, -1);
 
             var utilization = Math.Max(gpu.UsageInformation.GPU.Percentage, gpu.UsageInformation.VideoEngine.Percentage);
 
@@ -176,11 +188,15 @@ public abstract class AbstractSensorsController : ISensorsController
             var maxCoreClockOffset = states.Clocks[PerformanceStateId.P0_3DPerformance][0].FrequencyDeltaInkHz.DeltaValue / 1000;
             var maxMemoryClockOffset = states.Clocks[PerformanceStateId.P0_3DPerformance][1].FrequencyDeltaInkHz.DeltaValue / 1000;
 
-            return (utilization, currentCoreClock, maxCoreClock + maxCoreClockOffset, currentMemoryClock, maxMemoryClock + maxMemoryClockOffset);
+            var temperatureSensor = gpu.ThermalInformation.ThermalSensors.FirstOrDefault();
+            var currentTemperature = temperatureSensor?.CurrentTemperature ?? -1;
+            var maxTemperature = temperatureSensor?.DefaultMaximumTemperature ?? -1;
+
+            return (utilization, currentCoreClock, maxCoreClock + maxCoreClockOffset, currentMemoryClock, maxMemoryClock + maxMemoryClockOffset, currentTemperature, maxTemperature);
         }
         catch
         {
-            return (-1, -1, -1, -1, -1);
+            return (-1, -1, -1, -1, -1, -1, -1);
         }
         finally
         {
