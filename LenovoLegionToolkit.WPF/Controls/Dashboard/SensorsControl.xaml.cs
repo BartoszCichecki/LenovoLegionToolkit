@@ -100,7 +100,7 @@ public partial class SensorsControl
         UpdateValue(_gpuCoreClockBar, _gpuCoreClockLabel, data.GPU.MaxCoreClock, data.GPU.CoreClock,
             $"{data.GPU.CoreClock} {Resource.MHz}", $"{data.GPU.MaxCoreClock} {Resource.MHz}");
         UpdateValue(_gpuMemoryClockBar, _gpuMemoryClockLabel, data.GPU.MaxMemoryClock, data.GPU.MemoryClock,
-            $"{data.GPU.MemoryClock}  {Resource.MHz}", $"{data.GPU.MaxMemoryClock}  {Resource.MHz}");
+            $"{data.GPU.MemoryClock}  {Resource.MHz}", $"{data.GPU.MaxMemoryClock} {Resource.MHz}");
         UpdateValue(_gpuTemperatureBar, _gpuTemperatureLabel, data.GPU.MaxTemperature, data.GPU.Temperature,
             GetTemperatureText(data.GPU.Temperature), GetTemperatureText(data.GPU.MaxTemperature));
         UpdateValue(_gpuFanSpeedBar, _gpuFanSpeedLabel, data.GPU.MaxFanSpeed, data.GPU.FanSpeed,
