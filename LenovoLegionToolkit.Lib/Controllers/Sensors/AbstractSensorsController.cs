@@ -139,31 +139,47 @@ public abstract class AbstractSensorsController : ISensorsController
         }
     }
 
-    private static Task<int> GetCpuMaxCoreClockAsync() =>
-        WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_GAMEZONE_DATA",
-            "GetCPUFrequency",
-            new(),
-            pdc =>
-            {
-                var value = Convert.ToInt32(pdc["Data"].Value);
-                var low = value & 0xFFFF;
-                var high = value >> 16;
-                return Math.Max(low, high);
-            });
+    private static async Task<int> GetCpuMaxCoreClockAsync()
+    {
+        try
+        {
+            return await WMI.CallAsync("root\\WMI",
+                $"SELECT * FROM LENOVO_GAMEZONE_DATA",
+                "GetCPUFrequency",
+                new(),
+                pdc =>
+                {
+                    var value = Convert.ToInt32(pdc["Data"].Value);
+                    var low = value & 0xFFFF;
+                    var high = value >> 16;
+                    return Math.Max(low, high);
+                }).ConfigureAwait(false);
+        }
+        catch
+        {
+            return 5000;
+        }
+    }
 
     private static async Task<int> GetCpuMaxTemperatureAsync()
     {
-        var result = await WMI.ReadAsync("root\\WMI",
-            $"SELECT * FROM MSAcpi_ThermalZoneTemperature",
-            pdc =>
-            {
-                var max = Convert.ToInt32(pdc["CriticalTripPoint"].Value);
-                max -= 2731;
-                max /= 10;
-                return max;
-            }).ConfigureAwait(false);
-        return result.DefaultIfEmpty(-1).FirstOrDefault();
+        try
+        {
+            var result = await WMI.ReadAsync("root\\WMI",
+                $"SELECT CriticalTripPoint FROM MSAcpi_ThermalZoneTemperature",
+                pdc =>
+                {
+                    var max = Convert.ToInt32(pdc["CriticalTripPoint"].Value);
+                    max -= 2731;
+                    max /= 10;
+                    return max;
+                }).ConfigureAwait(false);
+            return result.DefaultIfEmpty(-1).FirstOrDefault();
+        }
+        catch
+        {
+            return 105;
+        }
     }
 
     private static (int utilization, int coreClock, int maxCoreClock, int memoryClock, int maxMemoryClock, int temperature, int maxTemperature) GetGPUInfo()
