@@ -23,10 +23,10 @@ public partial class SensorsControl
     public SensorsControl()
     {
         InitializeComponent();
-        IsVisibleChanged += BatteryPage_IsVisibleChanged;
+        IsVisibleChanged += SensorsControl_IsVisibleChanged;
     }
 
-    private async void BatteryPage_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+    private async void SensorsControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
     {
         if (IsVisible)
         {
