@@ -30,17 +30,40 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
                     <Label
                         Grid.Row="0"
                         Grid.Column="0"
                         VerticalContentAlignment="Center"
+                        Content="Core Clock"
+                        Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                    <ProgressBar
+                        x:Name="_cpuCoreClockBar"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Margin="16,0,16,0"
+                        Maximum="100"
+                        Minimum="0"
+                        Value="0" />
+                    <Label
+                        x:Name="_cpuCoreClockLabel"
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        HorizontalContentAlignment="Right"
+                        VerticalContentAlignment="Center"
+                        Content="-" />
+
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        VerticalContentAlignment="Center"
                         Content="Temperature"
                         Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                     <ProgressBar
                         x:Name="_cpuTemperatureBar"
-                        Grid.Row="0"
+                        Grid.Row="1"
                         Grid.Column="1"
                         Margin="16,0,16,0"
                         Maximum="100"
@@ -48,7 +71,7 @@
                         Value="0" />
                     <Label
                         x:Name="_cpuTemperatureLabel"
-                        Grid.Row="0"
+                        Grid.Row="1"
                         Grid.Column="2"
                         HorizontalContentAlignment="Right"
                         VerticalContentAlignment="Center"
@@ -56,13 +79,13 @@
                         MouseUp="TemperatureLabel_Click" />
 
                     <Label
-                        Grid.Row="1"
+                        Grid.Row="2"
                         Grid.Column="0"
                         Content="Fan"
                         Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                     <ProgressBar
                         x:Name="_cpuFanSpeedBar"
-                        Grid.Row="1"
+                        Grid.Row="2"
                         Grid.Column="1"
                         Margin="16,0,16,0"
                         Maximum="100"
@@ -70,7 +93,7 @@
                         Value="0" />
                     <Label
                         x:Name="_cpuFanSpeedLabel"
-                        Grid.Row="1"
+                        Grid.Row="2"
                         Grid.Column="2"
                         HorizontalContentAlignment="Right"
                         Content="-" />
