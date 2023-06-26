@@ -966,7 +966,7 @@
   </data>
   <data name="PackagesPage_Disclaimer_Message" xml:space="preserve">
     <value>以下是標記為與您的筆記型電腦相容的套件列表。
-始終確保您正在安裝正確的套件。</value>
+始終請您確保安裝正確的套件。</value>
   </data>
   <data name="PackagesPage_DownloadFailed_Message" xml:space="preserve">
     <value>檢查裝置類型和系統設定是否正確。</value>
