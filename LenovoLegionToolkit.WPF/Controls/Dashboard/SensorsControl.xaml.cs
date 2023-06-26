@@ -87,24 +87,24 @@ public partial class SensorsControl
     private void UpdateValues(SensorsData data)
     {
         UpdateValue(_cpuUtilizationBar, _cpuUtilizationLabel, 100, data.CPU.Utilization,
-            $"{data.CPU.Utilization} %");
+            $"{data.CPU.Utilization}%");
         UpdateValue(_cpuCoreClockBar, _cpuCoreClockLabel, data.CPU.MaxCoreClock, data.CPU.CoreClock,
-            $"{data.CPU.CoreClock / 1000.0:0.0} GHz", $"{data.CPU.MaxCoreClock / 1000.0:0.0} GHz");
+            $"{data.CPU.CoreClock / 1000.0:0.0} {Resource.GHz}", $"{data.CPU.MaxCoreClock / 1000.0:0.0} {Resource.GHz}");
         UpdateValue(_cpuTemperatureBar, _cpuTemperatureLabel, data.CPU.MaxTemperature, data.CPU.Temperature,
             GetTemperatureText(data.CPU.Temperature), GetTemperatureText(data.CPU.MaxTemperature));
         UpdateValue(_cpuFanSpeedBar, _cpuFanSpeedLabel, data.CPU.MaxFanSpeed, data.CPU.FanSpeed,
-            $"{data.CPU.FanSpeed} RPM", $"{data.CPU.MaxFanSpeed} RPM");
+            $"{data.CPU.FanSpeed} {Resource.RPM}", $"{data.CPU.MaxFanSpeed} {Resource.RPM}");
 
         UpdateValue(_gpuUtilizationBar, _gpuUtilizationLabel, 100, data.GPU.Utilization,
             $"{data.GPU.Utilization} %");
         UpdateValue(_gpuCoreClockBar, _gpuCoreClockLabel, data.GPU.MaxCoreClock, data.GPU.CoreClock,
-            $"{data.GPU.CoreClock} MHz", $"{data.GPU.MaxCoreClock} MHz");
+            $"{data.GPU.CoreClock} {Resource.MHz}", $"{data.GPU.MaxCoreClock} {Resource.MHz}");
         UpdateValue(_gpuMemoryClockBar, _gpuMemoryClockLabel, data.GPU.MaxMemoryClock, data.GPU.MemoryClock,
-            $"{data.GPU.MemoryClock} MHz", $"{data.GPU.MaxMemoryClock} MHz");
+            $"{data.GPU.MemoryClock}  {Resource.MHz}", $"{data.GPU.MaxMemoryClock}  {Resource.MHz}");
         UpdateValue(_gpuTemperatureBar, _gpuTemperatureLabel, data.GPU.MaxTemperature, data.GPU.Temperature,
             GetTemperatureText(data.GPU.Temperature), GetTemperatureText(data.GPU.MaxTemperature));
         UpdateValue(_gpuFanSpeedBar, _gpuFanSpeedLabel, data.GPU.MaxFanSpeed, data.GPU.FanSpeed,
-            $"{data.GPU.FanSpeed} RPM", $"{data.GPU.MaxFanSpeed} RPM");
+            $"{data.GPU.FanSpeed} {Resource.RPM}", $"{data.GPU.MaxFanSpeed} {Resource.RPM}");
     }
 
     private void TemperatureLabel_Click(object sender, RoutedEventArgs e)
@@ -147,7 +147,7 @@ public partial class SensorsControl
             bar.Maximum = max;
             bar.Value = value;
             label.Content = text;
-            label.ToolTip = toolTipText is null ? null : $"Maximum: {toolTipText}";
+            label.ToolTip = toolTipText is null ? null : string.Format(Resource.SensorsControl_Maximum, toolTipText);
             label.Tag = value;
         }
     }

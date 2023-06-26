@@ -640,7 +640,7 @@ Thanks in advance!</value>
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>GPU</value>
   </data>
-  <data name="FanCurveControl_RPM" xml:space="preserve">
+  <data name="RPM" xml:space="preserve">
     <value>RPM</value>
   </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
@@ -1791,27 +1791,36 @@ This settings takes effect only when Custom Mode is enabled.</value>
 WARNING: This action will not run correctly, if discrete GPU is not available.</value>
   </data>
   <data name="PortsBacklightControl_Title" xml:space="preserve">
-	  <value>Ports backlight</value>
+    <value>Ports backlight</value>
   </data>
   <data name="PortsBacklightControl_Message" xml:space="preserve">
-	  <value>Turn on or off backlight of the ports on the back of the laptop.</value>
+    <value>Turn on or off backlight of the ports on the back of the laptop.</value>
   </data>
   <data name="PortsBacklightAutomationStepControl_Title" xml:space="preserve">
-	  <value>Ports backlight</value>
+    <value>Ports backlight</value>
   </data>
   <data name="PortsBacklightAutomationStepControl_Message" xml:space="preserve">
-	  <value>Turn on or off the backlight of the ports on the back of the laptop.</value>
+    <value>Turn on or off the backlight of the ports on the back of the laptop.</value>
   </data>
   <data name="PanelLogoBacklightControl_Title" xml:space="preserve">
-	  <value>Panel logo backlight</value>
+    <value>Panel logo backlight</value>
   </data>
   <data name="PanelLogoBacklightControl_Message" xml:space="preserve">
-	  <value>Turn on or off the backlight on the lid of the laptop.</value>
+    <value>Turn on or off the backlight on the lid of the laptop.</value>
   </data>
   <data name="PanelLogoBacklightAutomationStepControl_Title" xml:space="preserve">
-	  <value>Panel logo backlight</value>
+    <value>Panel logo backlight</value>
   </data>
   <data name="PanelLogoBacklightAutomationStepControl_Message" xml:space="preserve">
-	  <value>Turn on or off the backlight on the lid of the laptop.</value>
+    <value>Turn on or off the backlight on the lid of the laptop.</value>
+  </data>
+  <data name="GHz" xml:space="preserve">
+    <value>GHz</value>
+  </data>
+  <data name="MHz" xml:space="preserve">
+    <value>MHz</value>
+  </data>
+  <data name="SensorsControl_Maximum" xml:space="preserve">
+	  <value>Maximum: {0}</value>
   </data>
 </root>
