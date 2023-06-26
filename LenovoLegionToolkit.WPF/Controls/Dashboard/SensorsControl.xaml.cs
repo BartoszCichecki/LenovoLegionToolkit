@@ -57,7 +57,7 @@ public partial class SensorsControl
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Sensors not supported.");
 
-                Visibility = Visibility.Collapsed;
+                Dispatcher.Invoke(() => Visibility = Visibility.Collapsed);
                 return;
             }
 
@@ -97,6 +97,10 @@ public partial class SensorsControl
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Sensors refresh failed.", ex);
+
+                    Dispatcher.Invoke(() => Visibility = Visibility.Collapsed);
+
+                    return;
                 }
             }
 
