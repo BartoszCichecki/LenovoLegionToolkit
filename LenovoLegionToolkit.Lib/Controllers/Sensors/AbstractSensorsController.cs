@@ -113,8 +113,8 @@ public abstract class AbstractSensorsController : ISensorsController
     private int GetCpuCoreClock()
     {
         var baseClock = _cpuBaseClockCache ??= GetCpuBaseClock();
-        var clock = (int)(baseClock * (_percentProcessorPerformanceCounter.NextValue() / 100.0));
-        return clock < 1 ? -1 : clock;
+        var clock = baseClock * (_percentProcessorPerformanceCounter.NextValue() / 100.0);
+        return clock < 1 ? -1 : (int)clock;
     }
 
     private static unsafe int GetCpuBaseClock()
@@ -124,15 +124,26 @@ public abstract class AbstractSensorsController : ISensorsController
         {
             PInvoke.GetSystemInfo(out var systemInfo);
 
-            var size = Marshal.SizeOf<PROCESSOR_POWER_INFORMATION>() * (int)systemInfo.dwNumberOfProcessors;
-            ptr = Marshal.AllocHGlobal(size);
+            var numberOfProcessors = Math.Min(32, (int)systemInfo.dwNumberOfProcessors);
+            var infoSize = Marshal.SizeOf<PROCESSOR_POWER_INFORMATION>();
+            var infosSize = numberOfProcessors * infoSize;
 
-            var result = PInvoke.CallNtPowerInformation(POWER_INFORMATION_LEVEL.ProcessorInformation, null, 0, ptr.ToPointer(), (uint)size);
+            ptr = Marshal.AllocHGlobal(infosSize);
+
+            var result = PInvoke.CallNtPowerInformation(POWER_INFORMATION_LEVEL.ProcessorInformation,
+                null,
+                0,
+                ptr.ToPointer(),
+                (uint)infosSize);
             if (result != 0)
                 return 0;
 
-            var ppi = Marshal.PtrToStructure<PROCESSOR_POWER_INFORMATION>(ptr);
-            return (int)ppi.MaxMhz;
+            var infos = new PROCESSOR_POWER_INFORMATION[numberOfProcessors];
+
+            for (var i = 0; i < infos.Length; i++)
+                infos[i] = Marshal.PtrToStructure<PROCESSOR_POWER_INFORMATION>(IntPtr.Add(ptr, i * infoSize));
+
+            return (int)infos.Select(p => p.MaxMhz).Max();
         }
         finally
         {
