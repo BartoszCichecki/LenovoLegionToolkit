@@ -24,12 +24,6 @@ public abstract class AbstractSensorsController : ISensorsController
     private int? _cpuMaxTemperatureCache;
     private int? _gpuMaxFanSpeedCache;
 
-    protected AbstractSensorsController()
-    {
-        _percentProcessorPerformanceCounter.NextValue();
-        _percentProcessorUtilityCounter.NextValue();
-    }
-
     public virtual async Task<bool> IsSupportedAsync()
     {
         try
@@ -107,7 +101,11 @@ public abstract class AbstractSensorsController : ISensorsController
         return result.FirstOrDefault();
     }
 
-    private int GetCpuUtilization() => (int)_percentProcessorUtilityCounter.NextValue();
+    private int GetCpuUtilization()
+    {
+        var result = _percentProcessorUtilityCounter.NextValue();
+        return result == 0.0 ? -1 : (int)result;
+    }
 
     private int GetCpuCoreClock()
     {
