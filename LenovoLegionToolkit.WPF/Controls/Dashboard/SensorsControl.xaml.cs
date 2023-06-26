@@ -69,10 +69,12 @@ public partial class SensorsControl
 
                     Dispatcher.Invoke(() =>
                     {
+                        UpdateValue(_cpuUtilizationBar, _cpuUtilizationLabel, 100, data.CPU.Utilization, $"{data.CPU.Utilization} %");
                         UpdateValue(_cpuCoreClockBar, _cpuCoreClockLabel, data.CPU.MaxCoreClock, data.CPU.CoreClock, $"{data.CPU.CoreClock / 1000.0:0.0} GHz");
                         UpdateValue(_cpuTemperatureBar, _cpuTemperatureLabel, data.CPU.MaxTemperature, data.CPU.Temperature, GetTemperatureText(data.CPU.Temperature));
                         UpdateValue(_cpuFanSpeedBar, _cpuFanSpeedLabel, data.CPU.MaxFanSpeed, data.CPU.FanSpeed, $"{data.CPU.FanSpeed} RPM");
 
+                        UpdateValue(_gpuUtilizationBar, _gpuUtilizationLabel, 100, data.GPU.Utilization, $"{data.GPU.Utilization} %");
                         UpdateValue(_gpuCoreClockBar, _gpuCoreClockLabel, data.GPU.MaxCoreClock, data.GPU.CoreClock, $"{data.GPU.CoreClock} MHz");
                         UpdateValue(_gpuMemoryClockBar, _gpuMemoryClockLabel, data.GPU.MaxMemoryClock, data.GPU.MemoryClock, $"{data.GPU.MemoryClock} MHz");
                         UpdateValue(_gpuTemperatureBar, _gpuTemperatureLabel, data.GPU.MaxTemperature, data.GPU.Temperature, GetTemperatureText(data.GPU.Temperature));
@@ -117,9 +119,9 @@ public partial class SensorsControl
         return $"{temperature:0} {Resource.Celsius}";
     }
 
-    private static void UpdateValue(RangeBase bar, ContentControl label, double max, double value, string text)
+    private static void UpdateValue(RangeBase bar, ContentControl label, double max, double value, string text, bool clearOnZero = true)
     {
-        if (max < 1 || value < 1)
+        if (clearOnZero && (max < 0 || value < 0))
         {
             bar.Minimum = 0;
             bar.Maximum = 1;

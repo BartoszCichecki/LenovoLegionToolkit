@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
@@ -14,10 +15,19 @@ public abstract class AbstractSensorsController : ISensorsController
 {
     protected abstract SensorSettings Settings { get; }
 
+    private readonly PerformanceCounter _percentProcessorPerformanceCounter = new("Processor Information", "% Processor Performance", "_Total");
+    private readonly PerformanceCounter _percentProcessorUtilityCounter = new("Processor Information", "% Processor Utility", "_Total");
+
     private int? _cpuBaseClockCache;
     private int? _cpuMaxCoreClockCache;
     private int? _cpuMaxFanSpeedCache;
     private int? _gpuMaxFanSpeedCache;
+
+    protected AbstractSensorsController()
+    {
+        _percentProcessorPerformanceCounter.NextValue();
+        _percentProcessorUtilityCounter.NextValue();
+    }
 
     public virtual async Task<bool> IsSupportedAsync()
     {
@@ -38,13 +48,14 @@ public abstract class AbstractSensorsController : ISensorsController
         const int cpuMaxTemperature = 100;
         const int gpuMaxTemperature = 95;
 
-        var cpuCoreClock = await GetCpuCoreClockAsync().ConfigureAwait(false);
+        var cpuUtilization = GetCpuUtilization();
+        var cpuCoreClock = GetCpuCoreClock();
         var cpuMaxCoreClock = _cpuMaxCoreClockCache ??= await GetCpuMaxCoreClockAsync().ConfigureAwait(false);
         var cpuCurrentTemperature = await GetCurrentTemperatureAsync(Settings.CPUSensorID).ConfigureAwait(false);
         var cpuCurrentFanSpeed = await GetCurrentFanSpeedAsync(Settings.CPUFanID).ConfigureAwait(false);
         var cpuMaxFanSpeed = _cpuMaxFanSpeedCache ??= await GetMaxFanSpeedAsync(Settings.CPUSensorID, Settings.CPUFanID).ConfigureAwait(false);
 
-        var (gpuCoreClock, gpuMaxCoreClock, gpuMemoryClock, gpuMaxMemoryClock) = GetGPUClocks();
+        var (gpuUtilization, gpuCoreClock, gpuMaxCoreClock, gpuMemoryClock, gpuMaxMemoryClock) = GetGPUClocks();
         var gpuCurrentTemperature = await GetCurrentTemperatureAsync(Settings.GPUSensorID).ConfigureAwait(false);
         var gpuCurrentFanSpeed = await GetCurrentFanSpeedAsync(Settings.GPUFanID).ConfigureAwait(false);
         var gpuMaxFanSpeed = _gpuMaxFanSpeedCache ??= await GetMaxFanSpeedAsync(Settings.GPUSensorID, Settings.GPUFanID).ConfigureAwait(false);
@@ -53,6 +64,7 @@ public abstract class AbstractSensorsController : ISensorsController
         {
             CPU = new()
             {
+                Utilization = cpuUtilization,
                 CoreClock = cpuCoreClock,
                 MaxCoreClock = cpuMaxCoreClock,
                 Temperature = cpuCurrentTemperature,
@@ -62,6 +74,7 @@ public abstract class AbstractSensorsController : ISensorsController
             },
             GPU = new()
             {
+                Utilization = gpuUtilization,
                 CoreClock = gpuCoreClock,
                 MaxCoreClock = gpuMaxCoreClock,
                 MemoryClock = gpuMemoryClock,
@@ -96,13 +109,13 @@ public abstract class AbstractSensorsController : ISensorsController
         return result.FirstOrDefault();
     }
 
-    private async Task<int> GetCpuCoreClockAsync()
+    private int GetCpuUtilization() => (int)_percentProcessorUtilityCounter.NextValue();
+
+    private int GetCpuCoreClock()
     {
         var baseClock = _cpuBaseClockCache ??= GetCpuBaseClock();
-        var percentPerformance = await WMI.ReadAsync("root\\CIMV2",
-            $"SELECT Name,PercentProcessorPerformance FROM Win32_PerfFormattedData_Counters_ProcessorInformation WHERE Name = '_Total'",
-            pdc => Convert.ToInt32(pdc["PercentProcessorPerformance"].Value)).ConfigureAwait(false);
-        return (int)(baseClock * (percentPerformance.First() / 100.0));
+        var clock = (int)(baseClock * (_percentProcessorPerformanceCounter.NextValue() / 100.0));
+        return clock < 1 ? -1 : clock;
     }
 
     private static unsafe int GetCpuBaseClock()
@@ -141,7 +154,7 @@ public abstract class AbstractSensorsController : ISensorsController
                 return Math.Max(low, high);
             });
 
-    private static (int coreClock, int maxCoreClock, int memoryClock, int maxMemoryClock) GetGPUClocks()
+    private static (int utilization, int coreClock, int maxCoreClock, int memoryClock, int maxMemoryClock) GetGPUClocks()
     {
         try
         {
@@ -149,23 +162,25 @@ public abstract class AbstractSensorsController : ISensorsController
 
             var gpu = NVAPI.GetGPU();
             if (gpu is null)
-                return default;
+                return (-1, -1, -1, -1, -1); ;
+
+            var utilization = Math.Max(gpu.UsageInformation.GPU.Percentage, gpu.UsageInformation.VideoEngine.Percentage);
 
             var currentCoreClock = (int)gpu.CurrentClockFrequencies.GraphicsClock.Frequency / 1000;
             var currentMemoryClock = (int)gpu.CurrentClockFrequencies.MemoryClock.Frequency / 1000;
 
-            var maxCoreClock = (int)gpu.BaseClockFrequencies.GraphicsClock.Frequency / 1000;
-            var maxMemoryClock = (int)gpu.BaseClockFrequencies.MemoryClock.Frequency / 1000;
+            var maxCoreClock = (int)gpu.BoostClockFrequencies.GraphicsClock.Frequency / 1000;
+            var maxMemoryClock = (int)gpu.BoostClockFrequencies.MemoryClock.Frequency / 1000;
 
             var states = GPUApi.GetPerformanceStates20(gpu.Handle);
             var maxCoreClockOffset = states.Clocks[PerformanceStateId.P0_3DPerformance][0].FrequencyDeltaInkHz.DeltaValue / 1000;
             var maxMemoryClockOffset = states.Clocks[PerformanceStateId.P0_3DPerformance][1].FrequencyDeltaInkHz.DeltaValue / 1000;
 
-            return (currentCoreClock, maxCoreClock + maxCoreClockOffset, currentMemoryClock, maxMemoryClock + maxMemoryClockOffset);
+            return (utilization, currentCoreClock, maxCoreClock + maxCoreClockOffset, currentMemoryClock, maxMemoryClock + maxMemoryClockOffset);
         }
         catch
         {
-            return default;
+            return (-1, -1, -1, -1, -1);
         }
         finally
         {
