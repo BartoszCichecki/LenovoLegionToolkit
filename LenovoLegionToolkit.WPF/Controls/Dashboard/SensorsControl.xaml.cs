@@ -23,6 +23,7 @@ public partial class SensorsControl
     public SensorsControl()
     {
         InitializeComponent();
+
         IsVisibleChanged += SensorsControl_IsVisibleChanged;
     }
 
