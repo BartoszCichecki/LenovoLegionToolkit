@@ -66,30 +66,7 @@ public partial class SensorsControl
                 try
                 {
                     var data = await _controller.GetDataAsync();
-
-                    Dispatcher.Invoke(() =>
-                    {
-                        UpdateValue(_cpuUtilizationBar, _cpuUtilizationLabel, 100, data.CPU.Utilization,
-                            $"{data.CPU.Utilization} %");
-                        UpdateValue(_cpuCoreClockBar, _cpuCoreClockLabel, data.CPU.MaxCoreClock, data.CPU.CoreClock,
-                            $"{data.CPU.CoreClock / 1000.0:0.0} GHz", $"{data.CPU.MaxCoreClock / 1000.0:0.0} GHz");
-                        UpdateValue(_cpuTemperatureBar, _cpuTemperatureLabel, data.CPU.MaxTemperature, data.CPU.Temperature,
-                            GetTemperatureText(data.CPU.Temperature), GetTemperatureText(data.CPU.MaxTemperature));
-                        UpdateValue(_cpuFanSpeedBar, _cpuFanSpeedLabel, data.CPU.MaxFanSpeed, data.CPU.FanSpeed,
-                            $"{data.CPU.FanSpeed} RPM", $"{data.CPU.MaxFanSpeed} RPM");
-
-                        UpdateValue(_gpuUtilizationBar, _gpuUtilizationLabel, 100, data.GPU.Utilization,
-                            $"{data.GPU.Utilization} %");
-                        UpdateValue(_gpuCoreClockBar, _gpuCoreClockLabel, data.GPU.MaxCoreClock, data.GPU.CoreClock,
-                            $"{data.GPU.CoreClock} MHz", $"{data.GPU.MaxCoreClock} MHz");
-                        UpdateValue(_gpuMemoryClockBar, _gpuMemoryClockLabel, data.GPU.MaxMemoryClock, data.GPU.MemoryClock,
-                            $"{data.GPU.MemoryClock} MHz", $"{data.GPU.MaxMemoryClock} MHz");
-                        UpdateValue(_gpuTemperatureBar, _gpuTemperatureLabel, data.GPU.MaxTemperature, data.GPU.Temperature,
-                            GetTemperatureText(data.GPU.Temperature), GetTemperatureText(data.GPU.MaxTemperature));
-                        UpdateValue(_gpuFanSpeedBar, _gpuFanSpeedLabel, data.GPU.MaxFanSpeed, data.GPU.FanSpeed,
-                            $"{data.GPU.FanSpeed} RPM", $"{data.GPU.MaxFanSpeed} RPM");
-                    });
-
+                    Dispatcher.Invoke(() => UpdateValues(data));
                     await Task.Delay(TimeSpan.FromSeconds(2), token);
                 }
                 catch (TaskCanceledException) { }
@@ -98,15 +75,36 @@ public partial class SensorsControl
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Sensors refresh failed.", ex);
 
-                    Dispatcher.Invoke(() => Visibility = Visibility.Collapsed);
-
-                    return;
+                    Dispatcher.Invoke(() => UpdateValues(SensorsData.Empty));
                 }
             }
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Sensors refresh stopped.");
         }, token);
+    }
+
+    private void UpdateValues(SensorsData data)
+    {
+        UpdateValue(_cpuUtilizationBar, _cpuUtilizationLabel, 100, data.CPU.Utilization,
+            $"{data.CPU.Utilization} %");
+        UpdateValue(_cpuCoreClockBar, _cpuCoreClockLabel, data.CPU.MaxCoreClock, data.CPU.CoreClock,
+            $"{data.CPU.CoreClock / 1000.0:0.0} GHz", $"{data.CPU.MaxCoreClock / 1000.0:0.0} GHz");
+        UpdateValue(_cpuTemperatureBar, _cpuTemperatureLabel, data.CPU.MaxTemperature, data.CPU.Temperature,
+            GetTemperatureText(data.CPU.Temperature), GetTemperatureText(data.CPU.MaxTemperature));
+        UpdateValue(_cpuFanSpeedBar, _cpuFanSpeedLabel, data.CPU.MaxFanSpeed, data.CPU.FanSpeed,
+            $"{data.CPU.FanSpeed} RPM", $"{data.CPU.MaxFanSpeed} RPM");
+
+        UpdateValue(_gpuUtilizationBar, _gpuUtilizationLabel, 100, data.GPU.Utilization,
+            $"{data.GPU.Utilization} %");
+        UpdateValue(_gpuCoreClockBar, _gpuCoreClockLabel, data.GPU.MaxCoreClock, data.GPU.CoreClock,
+            $"{data.GPU.CoreClock} MHz", $"{data.GPU.MaxCoreClock} MHz");
+        UpdateValue(_gpuMemoryClockBar, _gpuMemoryClockLabel, data.GPU.MaxMemoryClock, data.GPU.MemoryClock,
+            $"{data.GPU.MemoryClock} MHz", $"{data.GPU.MaxMemoryClock} MHz");
+        UpdateValue(_gpuTemperatureBar, _gpuTemperatureLabel, data.GPU.MaxTemperature, data.GPU.Temperature,
+            GetTemperatureText(data.GPU.Temperature), GetTemperatureText(data.GPU.MaxTemperature));
+        UpdateValue(_gpuFanSpeedBar, _gpuFanSpeedLabel, data.GPU.MaxFanSpeed, data.GPU.FanSpeed,
+            $"{data.GPU.FanSpeed} RPM", $"{data.GPU.MaxFanSpeed} RPM");
     }
 
     private void TemperatureLabel_Click(object sender, RoutedEventArgs e)

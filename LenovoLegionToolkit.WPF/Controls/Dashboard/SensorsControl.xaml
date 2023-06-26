@@ -8,238 +8,240 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <wpfui:Card>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" SharedSizeGroup="A" />
-                <ColumnDefinition Width="*" SharedSizeGroup="B" />
-                <ColumnDefinition Width="70" SharedSizeGroup="C" />
-                <ColumnDefinition Width="16" />
-                <ColumnDefinition Width="Auto" SharedSizeGroup="A" />
-                <ColumnDefinition Width="*" SharedSizeGroup="B" />
-                <ColumnDefinition Width="70" SharedSizeGroup="C" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+    <wpfui:CardControl>
+        <wpfui:CardControl.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="A" />
+                    <ColumnDefinition Width="*" SharedSizeGroup="B" />
+                    <ColumnDefinition Width="70" SharedSizeGroup="C" />
+                    <ColumnDefinition Width="16" />
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="A" />
+                    <ColumnDefinition Width="*" SharedSizeGroup="B" />
+                    <ColumnDefinition Width="70" SharedSizeGroup="C" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
-            <TextBlock
-                Grid.ColumnSpan="3"
-                Margin="0,0,0,8"
-                FontSize="16"
-                FontWeight="Medium"
-                Text="CPU" />
+                <TextBlock
+                    Grid.ColumnSpan="3"
+                    Margin="0,0,0,8"
+                    FontSize="16"
+                    FontWeight="Medium"
+                    Text="CPU" />
 
-            <Label
-                Grid.Row="1"
-                Grid.Column="0"
-                VerticalContentAlignment="Center"
-                Content="Utilization"
-                Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-            <ProgressBar
-                x:Name="_cpuUtilizationBar"
-                Grid.Row="1"
-                Grid.Column="1"
-                Margin="16,0,16,0"
-                Maximum="100"
-                Minimum="0"
-                Value="0" />
-            <Label
-                x:Name="_cpuUtilizationLabel"
-                Grid.Row="1"
-                Grid.Column="2"
-                HorizontalContentAlignment="Right"
-                VerticalContentAlignment="Center"
-                Content="-" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    VerticalContentAlignment="Center"
+                    Content="Utilization"
+                    Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                <ProgressBar
+                    x:Name="_cpuUtilizationBar"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="16,0,16,0"
+                    Maximum="100"
+                    Minimum="0"
+                    Value="0" />
+                <Label
+                    x:Name="_cpuUtilizationLabel"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    HorizontalContentAlignment="Right"
+                    VerticalContentAlignment="Center"
+                    Content="-" />
 
-            <Label
-                Grid.Row="2"
-                Grid.Column="0"
-                VerticalContentAlignment="Center"
-                Content="Core Clock"
-                Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-            <ProgressBar
-                x:Name="_cpuCoreClockBar"
-                Grid.Row="2"
-                Grid.Column="1"
-                Margin="16,0,16,0"
-                Maximum="100"
-                Minimum="0"
-                Value="0" />
-            <Label
-                x:Name="_cpuCoreClockLabel"
-                Grid.Row="2"
-                Grid.Column="2"
-                HorizontalContentAlignment="Right"
-                VerticalContentAlignment="Center"
-                Content="-" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    VerticalContentAlignment="Center"
+                    Content="Core Clock"
+                    Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                <ProgressBar
+                    x:Name="_cpuCoreClockBar"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Margin="16,0,16,0"
+                    Maximum="100"
+                    Minimum="0"
+                    Value="0" />
+                <Label
+                    x:Name="_cpuCoreClockLabel"
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    HorizontalContentAlignment="Right"
+                    VerticalContentAlignment="Center"
+                    Content="-" />
 
-            <Label
-                Grid.Row="3"
-                Grid.Column="0"
-                VerticalContentAlignment="Center"
-                Content="Temperature"
-                Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-            <ProgressBar
-                x:Name="_cpuTemperatureBar"
-                Grid.Row="3"
-                Grid.Column="1"
-                Margin="16,0,16,0"
-                Maximum="100"
-                Minimum="0"
-                Value="0" />
-            <Label
-                x:Name="_cpuTemperatureLabel"
-                Grid.Row="3"
-                Grid.Column="2"
-                HorizontalContentAlignment="Right"
-                VerticalContentAlignment="Center"
-                Content="-"
-                MouseUp="TemperatureLabel_Click" />
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    VerticalContentAlignment="Center"
+                    Content="Temperature"
+                    Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                <ProgressBar
+                    x:Name="_cpuTemperatureBar"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Margin="16,0,16,0"
+                    Maximum="100"
+                    Minimum="0"
+                    Value="0" />
+                <Label
+                    x:Name="_cpuTemperatureLabel"
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    HorizontalContentAlignment="Right"
+                    VerticalContentAlignment="Center"
+                    Content="-"
+                    MouseUp="TemperatureLabel_Click" />
 
-            <Label
-                Grid.Row="4"
-                Grid.Column="0"
-                Content="Fan"
-                Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-            <ProgressBar
-                x:Name="_cpuFanSpeedBar"
-                Grid.Row="4"
-                Grid.Column="1"
-                Margin="16,0,16,0"
-                Maximum="100"
-                Minimum="0"
-                Value="0" />
-            <Label
-                x:Name="_cpuFanSpeedLabel"
-                Grid.Row="4"
-                Grid.Column="2"
-                HorizontalContentAlignment="Right"
-                Content="-" />
+                <Label
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Content="Fan"
+                    Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                <ProgressBar
+                    x:Name="_cpuFanSpeedBar"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Margin="16,0,16,0"
+                    Maximum="100"
+                    Minimum="0"
+                    Value="0" />
+                <Label
+                    x:Name="_cpuFanSpeedLabel"
+                    Grid.Row="4"
+                    Grid.Column="2"
+                    HorizontalContentAlignment="Right"
+                    Content="-" />
 
-            <TextBlock
-                Grid.Row="0"
-                Grid.Column="4"
-                Margin="0,0,0,8"
-                FontSize="16"
-                FontWeight="Medium"
-                Text="GPU" />
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="4"
+                    Margin="0,0,0,8"
+                    FontSize="16"
+                    FontWeight="Medium"
+                    Text="GPU" />
 
-            <Label
-                Grid.Row="1"
-                Grid.Column="4"
-                VerticalContentAlignment="Center"
-                Content="Utilization"
-                Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-            <ProgressBar
-                x:Name="_gpuUtilizationBar"
-                Grid.Row="1"
-                Grid.Column="5"
-                Margin="16,0,16,0"
-                Maximum="100"
-                Minimum="0"
-                Value="0" />
-            <Label
-                x:Name="_gpuUtilizationLabel"
-                Grid.Row="1"
-                Grid.Column="6"
-                HorizontalContentAlignment="Right"
-                VerticalContentAlignment="Center"
-                Content="-" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="4"
+                    VerticalContentAlignment="Center"
+                    Content="Utilization"
+                    Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                <ProgressBar
+                    x:Name="_gpuUtilizationBar"
+                    Grid.Row="1"
+                    Grid.Column="5"
+                    Margin="16,0,16,0"
+                    Maximum="100"
+                    Minimum="0"
+                    Value="0" />
+                <Label
+                    x:Name="_gpuUtilizationLabel"
+                    Grid.Row="1"
+                    Grid.Column="6"
+                    HorizontalContentAlignment="Right"
+                    VerticalContentAlignment="Center"
+                    Content="-" />
 
-            <Label
-                Grid.Row="2"
-                Grid.Column="4"
-                VerticalContentAlignment="Center"
-                Content="Core Clock"
-                Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-            <ProgressBar
-                x:Name="_gpuCoreClockBar"
-                Grid.Row="2"
-                Grid.Column="5"
-                Margin="16,0,16,0"
-                Maximum="100"
-                Minimum="0"
-                Value="0" />
-            <Label
-                x:Name="_gpuCoreClockLabel"
-                Grid.Row="2"
-                Grid.Column="6"
-                HorizontalContentAlignment="Right"
-                VerticalContentAlignment="Center"
-                Content="-" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="4"
+                    VerticalContentAlignment="Center"
+                    Content="Core Clock"
+                    Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                <ProgressBar
+                    x:Name="_gpuCoreClockBar"
+                    Grid.Row="2"
+                    Grid.Column="5"
+                    Margin="16,0,16,0"
+                    Maximum="100"
+                    Minimum="0"
+                    Value="0" />
+                <Label
+                    x:Name="_gpuCoreClockLabel"
+                    Grid.Row="2"
+                    Grid.Column="6"
+                    HorizontalContentAlignment="Right"
+                    VerticalContentAlignment="Center"
+                    Content="-" />
 
-            <Label
-                Grid.Row="3"
-                Grid.Column="4"
-                VerticalContentAlignment="Center"
-                Content="Memory Clock"
-                Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-            <ProgressBar
-                x:Name="_gpuMemoryClockBar"
-                Grid.Row="3"
-                Grid.Column="5"
-                Margin="16,0,16,0"
-                Maximum="100"
-                Minimum="0"
-                Value="0" />
-            <Label
-                x:Name="_gpuMemoryClockLabel"
-                Grid.Row="3"
-                Grid.Column="6"
-                HorizontalContentAlignment="Right"
-                VerticalContentAlignment="Center"
-                Content="-"
-                MouseUp="TemperatureLabel_Click" />
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="4"
+                    VerticalContentAlignment="Center"
+                    Content="Memory Clock"
+                    Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                <ProgressBar
+                    x:Name="_gpuMemoryClockBar"
+                    Grid.Row="3"
+                    Grid.Column="5"
+                    Margin="16,0,16,0"
+                    Maximum="100"
+                    Minimum="0"
+                    Value="0" />
+                <Label
+                    x:Name="_gpuMemoryClockLabel"
+                    Grid.Row="3"
+                    Grid.Column="6"
+                    HorizontalContentAlignment="Right"
+                    VerticalContentAlignment="Center"
+                    Content="-"
+                    MouseUp="TemperatureLabel_Click" />
 
-            <Label
-                Grid.Row="4"
-                Grid.Column="4"
-                VerticalContentAlignment="Center"
-                Content="Temperature"
-                Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-            <ProgressBar
-                x:Name="_gpuTemperatureBar"
-                Grid.Row="4"
-                Grid.Column="5"
-                Margin="16,0,16,0"
-                Maximum="100"
-                Minimum="0"
-                Value="0" />
-            <Label
-                x:Name="_gpuTemperatureLabel"
-                Grid.Row="4"
-                Grid.Column="6"
-                HorizontalContentAlignment="Right"
-                VerticalContentAlignment="Center"
-                Content="-"
-                MouseUp="TemperatureLabel_Click" />
+                <Label
+                    Grid.Row="4"
+                    Grid.Column="4"
+                    VerticalContentAlignment="Center"
+                    Content="Temperature"
+                    Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                <ProgressBar
+                    x:Name="_gpuTemperatureBar"
+                    Grid.Row="4"
+                    Grid.Column="5"
+                    Margin="16,0,16,0"
+                    Maximum="100"
+                    Minimum="0"
+                    Value="0" />
+                <Label
+                    x:Name="_gpuTemperatureLabel"
+                    Grid.Row="4"
+                    Grid.Column="6"
+                    HorizontalContentAlignment="Right"
+                    VerticalContentAlignment="Center"
+                    Content="-"
+                    MouseUp="TemperatureLabel_Click" />
 
-            <Label
-                Grid.Row="5"
-                Grid.Column="4"
-                Content="Fan"
-                Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-            <ProgressBar
-                x:Name="_gpuFanSpeedBar"
-                Grid.Row="5"
-                Grid.Column="5"
-                Margin="16,0,16,0"
-                Maximum="100"
-                Minimum="0"
-                Value="0" />
-            <Label
-                x:Name="_gpuFanSpeedLabel"
-                Grid.Row="5"
-                Grid.Column="6"
-                HorizontalContentAlignment="Right"
-                Content="-" />
+                <Label
+                    Grid.Row="5"
+                    Grid.Column="4"
+                    Content="Fan"
+                    Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                <ProgressBar
+                    x:Name="_gpuFanSpeedBar"
+                    Grid.Row="5"
+                    Grid.Column="5"
+                    Margin="16,0,16,0"
+                    Maximum="100"
+                    Minimum="0"
+                    Value="0" />
+                <Label
+                    x:Name="_gpuFanSpeedLabel"
+                    Grid.Row="5"
+                    Grid.Column="6"
+                    HorizontalContentAlignment="Right"
+                    Content="-" />
 
-        </Grid>
-    </wpfui:Card>
+            </Grid>
+        </wpfui:CardControl.Header>
+    </wpfui:CardControl>
 </UserControl>
