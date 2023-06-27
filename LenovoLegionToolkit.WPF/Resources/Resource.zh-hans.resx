@@ -473,9 +473,6 @@
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
     <value>设备信息</value>
   </data>
-  <data name="DeviceInformationWindow_InWarranty" xml:space="preserve">
-    <value>在保</value>
-  </data>
   <data name="DeviceInformationWindow_LenovoSupport" xml:space="preserve">
     <value>点击访问联想服务网站查看详细保修信息</value>
   </data>
@@ -488,9 +485,6 @@
   <data name="DeviceInformationWindow_Model_Title" xml:space="preserve">
     <value>设备型号</value>
   </data>
-  <data name="DeviceInformationWindow_OutOfWarranty" xml:space="preserve">
-    <value>过保</value>
-  </data>
   <data name="DeviceInformationWindow_SerialNumber_Title" xml:space="preserve">
     <value>序列号</value>
   </data>
@@ -502,9 +496,6 @@
   </data>
   <data name="DeviceInformationWindow_WarrantyStartDate_Title" xml:space="preserve">
     <value>开始时间</value>
-  </data>
-  <data name="DeviceInformationWindow_WarrantyStatus_Title" xml:space="preserve">
-    <value>状态</value>
   </data>
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>保修信息</value>
