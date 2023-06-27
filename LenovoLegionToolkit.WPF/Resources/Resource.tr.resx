@@ -397,6 +397,15 @@ Dizüstü bilgisayar uyurken veya kapalıyken şarj edildiyse bu süre doğru ol
   <data name="ColorCardControl_Red" xml:space="preserve">
     <value>Kırmızı</value>
   </data>
+  <data name="Color_Blue" xml:space="preserve">
+    <value>Mavi</value>
+  </data>
+  <data name="Color_Green" xml:space="preserve">
+    <value>Yeşil</value>
+  </data>
+  <data name="Color_Red" xml:space="preserve">
+    <value>Kırmızı</value>
+  </data>
   <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
     <value>Bilgisayarınızın kullanımına ve güç koşullarına göre GPU çalışma modunu seçin.
 Bu modları değiştirmek yeniden başlatma gerektirebilir.</value>
@@ -450,6 +459,9 @@ UYARI: Dahili ekran kapalıysa veya Hibrit modu etkin değilse bu eylem düzgün
   </data>
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>BIOS sürümü</value>
+  </data>
+  <data name="CopiedToClipboard_Message" xml:space="preserve">
+    <value>Metin panoya kopyalandı.</value>
   </data>
   <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
     <value>"{0}" panoya kopyalandı.</value>
@@ -537,6 +549,9 @@ UYARI: Dahili ekran kapalıysa bu eylem düzgün çalışmayacaktır.</value>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>Ekran parlaklığı</value>
   </data>
+  <data name="DonatePage_DonateWith" xml:space="preserve">
+    <value>Bağış yapın</value>
+  </data>
   <data name="DonatePage_Message" xml:space="preserve">
     <value>Lenovo Legion Toolkit'in geliştirilmesi ve bakımı çok zaman alıyor. Bu yazılımı kullanmayı seviyorsanız, istediğiniz miktarda bağış yaparak geleceğine destek olabilirsiniz.
 
@@ -546,6 +561,12 @@ PayPal ile bağış yapmak için aşağıdaki PayPal logosuna tıklayın veya QR
   </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>Bağış</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Düzenle</value>
+  </data>
+  <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
+    <value>Fn+R kısayolu kullanıldığında kullanmak istemediğiniz yenileme hızlarını kaldırın.</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>Dizüstü bilgisayar ekranının açık olduğundan emin olun. Lenovo Legion Toolkit, açık olmayan bir ekran için yenileme hızlarını yükleyemez.</value>
@@ -558,6 +579,9 @@ PayPal ile bağış yapmak için aşağıdaki PayPal logosuna tıklayın veya QR
   </data>
   <data name="Exit" xml:space="preserve">
     <value>Çıkış</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Dışa Aktar</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
     <value>Pille çalışırken yalnızca tümleşik GPU'yu ve AC adaptörü bağlıyken hem tümleşik hem de harici GPU'yu kullanın. Standart olmayan bir adaptör bağlandığında, sistem Yalnızca Hibrit-iGPU Moduna geçer.</value>
@@ -573,6 +597,9 @@ PayPal ile bağış yapmak için aşağıdaki PayPal logosuna tıklayın veya QR
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
     <value>dGPU Modu</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
+    <value>Hem entegre hem de harici GPU etkinleştirilmiştir. Sistem, ihtiyaçlarına göre bunlar arasında otomatik olarak geçiş yapacaktır.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Hibrit Kipi</value>
@@ -630,6 +657,20 @@ PayPal ile bağış yapmak için aşağıdaki PayPal logosuna tıklayın veya QR
   </data>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Fn Kilidi</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
+    <value>UYARI!
+Bazı bilgisayarlar, belirtilenden daha düşük değerleri kabul edebilir, ancak dikkatli olun. Bu seçenek öngörülemeyen davranışlara neden olabilir, bu nedenle ne yaptığınızdan emin değilseniz, bunu 0'da bırakın.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
+    <value>Minimum ofset</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
+    <value>UYARI!
+Bazı bilgisayarlar, belirtilenden daha yüksek değerleri kabul edebilir, ancak dikkatli olun. Bu seçenek öngörülemeyen davranışlara neden olabilir, bu nedenle ne yaptığınızdan emin değilseniz, bunu 0'da bırakın.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
+    <value>Maksimum ofset</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>Ne yaptığınızı gerçekten bilmiyorsanız aşağıdaki seçenekler ile oynamayın.</value>
@@ -690,6 +731,26 @@ Cidden, bu seçeneğe dikkat edin!</value>
   <data name="GodModeSettingsWindow_Title" xml:space="preserve">
     <value>Özel Kipi Ayarları</value>
   </data>
+  <data name="HDRAutomationStepControl_Message" xml:space="preserve">
+    <value>Yerleşik ekranda yüksek dinamik aralığı (HDR) etkinleştirin.
+
+UYARI: Dahili ekran kapalıysa bu işlem doğru çalışmaz.</value>
+  </data>
+  <data name="HDRAutomationStepControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Message" xml:space="preserve">
+    <value>Yerleşik ekranda yüksek dinamik aralığı (HDR) etkinleştirin.</value>
+  </data>
+  <data name="HDRControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Warning" xml:space="preserve">
+    <value>HDR kullanımı, Windows ayarları tarafından engellenmiş.</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>İçe Aktar</value>
+  </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Bu cihaz, Lenovo Legion Toolkit ile uyumlu değildir.</value>
   </data>
@@ -701,6 +762,9 @@ Cidden, bu seçeneğe dikkat edin!</value>
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Klavye Işığı</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>Vantage veya servisleri çalışırken klavye ışığı burada kontrol edilemez.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage açık görünüyor</value>
@@ -744,12 +808,105 @@ Cidden, bu seçeneğe dikkat edin!</value>
   <data name="No" xml:space="preserve">
     <value>Hayır</value>
   </data>
+  <data name="Notification_ACAdapterConnected" xml:space="preserve">
+    <value>AC adaptörü bağlı</value>
+  </data>
+  <data name="Notification_ACAdapterConnectedLowWattage" xml:space="preserve">
+    <value>AC adaptörü bağlı (Düşük watt)</value>
+  </data>
+  <data name="Notification_ACAdapterDisconnected" xml:space="preserve">
+    <value>AC adaptörü bağlantısı kesildi</value>
+  </data>
+  <data name="Notification_CameraOff" xml:space="preserve">
+    <value>Kamera kapalı</value>
+  </data>
+  <data name="Notification_CameraOn" xml:space="preserve">
+    <value>Kamera açık</value>
+  </data>
+  <data name="Notification_CapsLockOff" xml:space="preserve">
+    <value>Büyük Harf Kilidi kapalı</value>
+  </data>
+  <data name="Notification_CapsLockOn" xml:space="preserve">
+    <value>Büyük Harf Kilidi açık</value>
+  </data>
+  <data name="Notification_FnLockOff" xml:space="preserve">
+    <value>Fn Kilidi kapalı</value>
+  </data>
+  <data name="Notification_FnLockOn" xml:space="preserve">
+    <value>Fn Kilidi açık</value>
+  </data>
+  <data name="Notification_MicrophoneOff" xml:space="preserve">
+    <value>Mikrofon kapalı</value>
+  </data>
+  <data name="Notification_MicrophoneOn" xml:space="preserve">
+    <value>Mikrofon Açık</value>
+  </data>
+  <data name="Notification_NumLockOff" xml:space="preserve">
+    <value>Num Kilidi kapalı</value>
+  </data>
+  <data name="Notification_NumLockOn" xml:space="preserve">
+    <value>Num Kilidi açık</value>
+  </data>
+  <data name="Notification_SpectrumKeyboardBacklight_Backlight" xml:space="preserve">
+    <value>Arka ışık {0}</value>
+  </data>
+  <data name="Notification_SpectrumKeyboardBacklight_Brightness" xml:space="preserve">
+    <value>Parlaklık {0}</value>
+  </data>
+  <data name="Notification_SpectrumKeyboardBacklight_Profile" xml:space="preserve">
+    <value>Profil {0}</value>
+  </data>
+  <data name="Notification_TouchpadOff" xml:space="preserve">
+    <value>Touchpad kapalı</value>
+  </data>
+  <data name="Notification_TouchpadOn" xml:space="preserve">
+    <value>Touchpad açık</value>
+  </data>
+  <data name="Notification_WhiteKeyboardBacklight" xml:space="preserve">
+    <value>Arka ışık {0}</value>
+  </data>
+  <data name="NotificationsSettingsWindow_ACAdapter" xml:space="preserve">
+    <value>AC Adaptörü</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Camera" xml:space="preserve">
+    <value>Kamera</value>
+  </data>
+  <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
+    <value>Büyük Tuş Kilidi ve Num Kilidi</value>
+  </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
     <value>Mikrofonun sesini kapatma gibi Fn tuşları eylemleri için ekran bildirimini devre dışı bırakır
 Tam ekran uygulamalarda rahatsız oluyorsanız bu seçeneği etkinleştirin.</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Bildirimleri gösterme</value>
+  </data>
+  <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
+    <value>Fn Kilidi</value>
+  </data>
+  <data name="NotificationsSettingsWindow_KeyboardBacklight" xml:space="preserve">
+    <value>Klavye Işığı</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Microphone" xml:space="preserve">
+    <value>Mikrofon</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationPosition_Title" xml:space="preserve">
+    <value>Konum</value>
+  </data>
+  <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
+    <value>Güç Kipi</value>
+  </data>
+  <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
+    <value>Yenileme Hızı</value>
+  </data>
+  <data name="NotificationsSettingsWindow_SmartKey" xml:space="preserve">
+    <value>Akıllı Tuş</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
+    <value>Bildirimler</value>
+  </data>
+  <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
+    <value>Touchpad Kilidi</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>Tamam</value>
@@ -790,6 +947,9 @@ Tam ekran uygulamalarda rahatsız oluyorsanız bu seçeneği etkinleştirin.</va
   <data name="PackageControl_HttpGeneralError_Title" xml:space="preserve">
     <value>Bir şeyler ters gitti</value>
   </data>
+  <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
+    <value>Güncelleme mevcut!</value>
+  </data>
   <data name="PackageControl_OldPackageWarning" xml:space="preserve">
     <value>Bu paket bir yıldan daha eski.</value>
   </data>
@@ -827,8 +987,14 @@ Daima doğru paketleri kurduğunuzdan emin olun.</value>
   <data name="PackagesPage_PrimarySource" xml:space="preserve">
     <value>Birincil (Önerilen)</value>
   </data>
+  <data name="PackagesPage_PrimarySource_Message" xml:space="preserve">
+    <value>Lenovo Vantage ile aynı</value>
+  </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>İkincil</value>
+  </data>
+  <data name="PackagesPage_SecondarySource_Message" xml:space="preserve">
+    <value>Lenovo PC Desteği ile aynı</value>
   </data>
   <data name="PackagesPage_Sort_Category" xml:space="preserve">
     <value>Kategori</value>
@@ -864,6 +1030,9 @@ Fn+Q ile modu değiştirebilirsiniz.</value>
   <data name="PowerModeControl_Title" xml:space="preserve">
     <value>Güç Modu</value>
   </data>
+  <data name="PowerModeControl_Warning" xml:space="preserve">
+    <value>Seçilen güç modu, AC adaptörü bağlı olmadan düzgün çalışmayabilir.</value>
+  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
     <value>Lenovo Vantage çalışırken vebilgisayarınızda güç planlarını değiştirirken bu seçeneğin etkinleştirilmesi, beklenmeyen davranışlara neden olabilir.</value>
   </data>
@@ -875,6 +1044,9 @@ Fn+Q ile modu değiştirebilirsiniz.</value>
   </data>
   <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
     <value>Özel Kipi</value>
+  </data>
+  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
+    <value>Varsayılan</value>
   </data>
   <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
     <value>Performans Kipi</value>
@@ -972,6 +1144,18 @@ UYARI: Yerleşik ekran kapalıysa bu eylem düzgün çalışmayacaktır.</value>
   <data name="Save" xml:space="preserve">
     <value>Kaydet</value>
   </data>
+  <data name="Saving" xml:space="preserve">
+    <value>Kaydediliyor...</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Description" xml:space="preserve">
+    <value>Geçiş yapmak için bir veya daha fazla hızlı işlem seçin</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
+    <value>Hızlı İşlem tanımlanmadı.</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
+    <value>Bu uygulamayı göster</value>
+  </data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
     <value>Uygulamanın rengini değiştirin.</value>
   </data>
@@ -990,6 +1174,10 @@ UYARI: Yerleşik ekran kapalıysa bu eylem düzgün çalışmayacaktır.</value>
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
     <value>Legion Zone devre dışı bırakılamadı</value>
   </data>
+  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
+    <value>Legion Zone'u ve hizmetini kaldırmadan devre dışı bırakın.
+Bu seçeneği değiştirdikten sonra yeniden başlatma önerilir.</value>
+  </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
     <value>Legion Zone'u devre dışı bırak</value>
   </data>
@@ -999,8 +1187,26 @@ UYARI: Yerleşik ekran kapalıysa bu eylem düzgün çalışmayacaktır.</value>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Lenovo Hotkeys devre dışı bırakılamadı</value>
   </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
+    <value>Lenovo Hotkeys ve hizmetini kaldırmadan devre dışı bırakın.
+Devre dışı bırakılırsa, bu uygulama Fn kısayollarını idare edecektir
+Bu seçeneği değiştirdikten sonra yeniden başlatma önerilir.</value>
+  </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Lenovo Hotkeys'i Devre Dışı Bırak</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
+    <value>Vantage ve/veya ImController doğru şekilde devre dışı bırakılmamış olabilir</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
+    <value>Vantage ve/veya ImController devre dışı bırakılamadı</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
+    <value>Lenovo Vantage'ı ve lmController hizmetini kaldırmadan devre dışı bırakın.
+Bu seçeneği değiştirdikten sonra yeniden başlatma önerilir.</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
+    <value>Lenovo Vantage ve ImController'ı devre dışı bırakın</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone doğru bir şekilde etkinleştirilmemiş olabilir</value>
@@ -1038,8 +1244,26 @@ UYARI: Yerleşik ekran kapalıysa bu eylem düzgün çalışmayacaktır.</value>
   <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
     <value>Kapatırken simge durumuna küçült</value>
   </data>
+  <data name="SettingsPage_Notifications_Message" xml:space="preserve">
+    <value>Hangi bildirimlerin gösterileceğini ayarlayın.</value>
+  </data>
+  <data name="SettingsPage_Notifications_Title" xml:space="preserve">
+    <value>Bildirimler</value>
+  </data>
   <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
     <value>Güç planları</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
+    <value>Fn+F9'a çift basışa Hızlı İşlem atayın.</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">
+    <value>Akıllı Tuş İkincil İşlem</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
+    <value>Fn+F9 tek basışına Hızlı Eylem atayın.</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
+    <value>Akıllı Tuş Eylemi</value>
   </data>
   <data name="SettingsPage_Theme_Description" xml:space="preserve">
     <value>Açık temayı, koyu temayı ayarlayın veya sistem ayarlarını takip edin.</value>
@@ -1049,6 +1273,96 @@ UYARI: Yerleşik ekran kapalıysa bu eylem düzgün çalışmayacaktır.</value>
   </data>
   <data name="SettingsPage_Title" xml:space="preserve">
     <value>Ayarlar</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Message" xml:space="preserve">
+    <value>Klavye ışık seviyesini ayarlayın.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Off" xml:space="preserve">
+    <value>Kapalı</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Title" xml:space="preserve">
+    <value>Klavye ışık parlaklığı</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_AddEffect" xml:space="preserve">
+    <value>Efekt ekle</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
+    <value>Profil uygulanamadı</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
+    <value>Işık profili uygulanamadı.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
+    <value>Parlaklık</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_DeselectAll_ToolTip" xml:space="preserve">
+    <value>Tüm bölgelerin seçimini kaldır</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
+    <value>Efektler</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Message" xml:space="preserve">
+    <value>Profil dışa aktarılamadı</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Title" xml:space="preserve">
+    <value>Profil dışa aktarılamadı</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Message" xml:space="preserve">
+    <value>Profil içe aktarılamadı</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Title" xml:space="preserve">
+    <value>Profil içe aktarılamadı</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
+    <value>Hiçbir efekt eklenmedi.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip" xml:space="preserve">
+    <value>Varsayılana sıfırla</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
+    <value>Tüm bölgeleri seç</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_SwitchKeyboardLayout_ToolTip" xml:space="preserve">
+    <value>Klavye düzenini değiştir</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_ClockwiseDirection_Title" xml:space="preserve">
+    <value>Yön</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Color_Title" xml:space="preserve">
+    <value>Renk</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Colors_Title" xml:space="preserve">
+    <value>Renkler</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Direction_Title" xml:space="preserve">
+    <value>Yön</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Title" xml:space="preserve">
+    <value>Efekt</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Warning" xml:space="preserve">
+    <value>Bu efekt tüm klavyeye uygulanacak ve diğer tüm efektlerin yerini alacaktır.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Speed_Title" xml:space="preserve">
+    <value>Hız</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Add" xml:space="preserve">
+    <value>Efekt ekle</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Edit" xml:space="preserve">
+    <value>Efekti düzenle</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Message" xml:space="preserve">
+    <value>Klavye ışık profilini ayarlayın.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Title" xml:space="preserve">
+    <value>Klavye ışık profili</value>
+  </data>
+  <data name="SpectrumKeyboardEffectControl_Description_AllZones" xml:space="preserve">
+    <value>Bütün tuşlar</value>
+  </data>
+  <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
+    <value>{0} bölge</value>
   </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>Gündoğumu</value>
@@ -1140,6 +1454,9 @@ Devam etmeyi seçerseniz, kayıt etme otomatik olarak etkinleştirilecektir.</va
   <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
     <value>Fn+Space ile parlaklığı değiştirebilirsiniz</value>
   </data>
+  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Klavye ışığı</value>
+  </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
     <value>Windows tuşunu etkinleştirin veya devre dışı bırakın.</value>
   </data>
@@ -1155,10 +1472,337 @@ Devam etmeyi seçerseniz, kayıt etme otomatik olarak etkinleştirilecektir.</va
   <data name="Yes" xml:space="preserve">
     <value>Evet</value>
   </data>
+  <data name="MicrophoneControl_Title" xml:space="preserve">
+    <value>Mikrofon</value>
+  </data>
+  <data name="MicrophoneControl_Message" xml:space="preserve">
+    <value>Kapatıldığında, mikrofonların sesi kapatılır.</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
+    <value>Mikrofon</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
+    <value>Kapatıldığında, mikrofonların sesi kapatılır.</value>
+  </data>
+  <data name="ResolutionControl_Title" xml:space="preserve">
+    <value>Çözünürlük</value>
+  </data>
+  <data name="ResolutionControl_Message" xml:space="preserve">
+    <value>Yerleşik ekranın çözünürlüğünü değiştirin.</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
+    <value>Çözünürlük</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
+    <value>Yerleşik ekranın çözünürlüğünü değiştirin.
+
+UYARI: Dahili ekran kapalıysa, bu işlem doğru çalışmaz.</value>
+  </data>
+  <data name="DpiScaleControl_Title" xml:space="preserve">
+    <value>DPI</value>
+  </data>
+  <data name="DpiScaleControl_Message" xml:space="preserve">
+    <value>Yerleşik ekranın ölçeğini değiştirin.</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
+    <value>DPI</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
+    <value>Yerleşik ekranın ölçeklendirmesini değiştirin.
+
+UYARI: Dahili ekran kapalıysa, bu işlem doğru çalışmaz.</value>
+  </data>
+  <data name="DashboardPage_Display_Title" xml:space="preserve">
+    <value>Ekran</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Klavye ışığı</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
+    <value>Işığı Fn+Boşluk ile açıp kapatabilirsiniz.</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Klavye ışığı</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Işığı açın veya kapatın.</value>
+  </data>
+  <data name="PackagesPage_NoMatchingDownloads" xml:space="preserve">
+    <value>Eşleşen bir indirme bulunmamakta</value>
+  </data>
+  <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
+    <value>Sadece güncellemeleri göster</value>
+  </data>
+  <data name="EditDashboardWindow_Title" xml:space="preserve">
+    <value>Ana Sayfayı Düzenle</value>
+  </data>
+  <data name="Load" xml:space="preserve">
+    <value>Yükle</value>
+  </data>
+  <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
+    <value>Grup oluştur</value>
+  </data>
+  <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
+    <value>İsim</value>
+  </data>
+  <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
+    <value>Cihazınızın durumuna ve yapılandırmasına bağlı olarak bazı özellikler Ana Menü'de görünmeyebilir.</value>
+  </data>
+  <data name="DashboardPage_Customize" xml:space="preserve">
+    <value>Özelleştir</value>
+  </data>
+  <data name="TurnOffMonitorsControl_Title" xml:space="preserve">
+    <value>Ekranları kapat</value>
+  </data>
+  <data name="TurnOffMonitorsControl_Message" xml:space="preserve">
+    <value>Mevcut tüm ekranları kapatın.
+Fareyi hareket ettirmek veya klavyeye basmak ekranları uyandırır.</value>
+  </data>
+  <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
+    <value>Kapat</value>
+  </data>
+  <data name="TurnOffMonitorsAutomationStepControl_Title" xml:space="preserve">
+    <value>Ekranları kapat</value>
+  </data>
+  <data name="TurnOffMonitorsAutomationStepControl_Message" xml:space="preserve">
+    <value>Mevcut tüm ekranları kapat.</value>
+  </data>
+  <data name="EditDashboardGroupControl_EditGroup_Title" xml:space="preserve">
+    <value>Grup adını düzenle</value>
+  </data>
+  <data name="EditDashboardGroupControl_EditGroup_Message" xml:space="preserve">
+    <value>İsim</value>
+  </data>
+  <data name="Notification_PanelLogoLightingOn" xml:space="preserve">
+    <value>Legion logosu açık</value>
+  </data>
+  <data name="Notification_PanelLogoLightingOff" xml:space="preserve">
+    <value>Legion logosu kapalı</value>
+  </data>
+  <data name="Notification_PortLightingOn" xml:space="preserve">
+    <value>Port ışıkları açık</value>
+  </data>
+  <data name="Notification_PortLightingOff" xml:space="preserve">
+    <value>Port ışıkları kapalı</value>
+  </data>
+  <data name="PackageControl_RebootRequired" xml:space="preserve">
+    <value>Yeniden başlatma gerekli</value>
+  </data>
+  <data name="PackageControl_ShutdownRequired" xml:space="preserve">
+    <value>Sistemi kapatma gerekli</value>
+  </data>
+  <data name="PackageControl_RebootRecommended" xml:space="preserve">
+    <value>Yeniden başlatma önerilir</value>
+  </data>
+  <data name="SaveAndClose" xml:space="preserve">
+    <value>Kaydet &amp; Kapat</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
+    <value>Özel Mod Ön Ayarı</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
+    <value>Özel Modu ön ayarını etkinleştirin.
+Bu ayarlar yalnızca Özel Mod etkinleştirildiğinde etkili olur.</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
+    <value>Ön ayar adı</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Message" xml:space="preserve">
+    <value>İsim</value>
+  </data>
+  <data name="GodModeSettingsWindow_ActivePreset_Title" xml:space="preserve">
+    <value>Etkin Ön Ayar</value>
+  </data>
+  <data name="AboutPage_ApplicationFolders" xml:space="preserve">
+    <value>Uygulama klasörleri</value>
+  </data>
+  <data name="AboutPage_Data" xml:space="preserve">
+    <value>Veri</value>
+  </data>
+  <data name="AboutPage_Temp" xml:space="preserve">
+    <value>Sıcaklık</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
+    <value>Tek Ekran Parlaklığı</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
+    <value>Açık olduğunda, değiştirdiğinizde tüm Windows güç planlarına aynı parlaklık düzeyi uygulanacaktır.</value>
+  </data>
+  <data name="Notification_UpdateAvailable" xml:space="preserve">
+    <value>{0} sürümü güncelleme için mevcut!</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL" xml:space="preserve">
+    <value>Tepe Güç Sınırı</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
+    <value>APU sPPT Güç Limiti</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL_Description" xml:space="preserve">
+    <value>CPU tarafından ulaşılabilen sürekli güç tüketimi.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL_Description" xml:space="preserve">
+    <value>CPU tarafından kısa bir süre içinde ulaşılabilen en yüksek güç tüketimi.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL_Description" xml:space="preserve">
+    <value>CPU tarafından ulaşılabilen maksimum anlık güç tüketimi.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_CrossLoading_Description" xml:space="preserve">
+    <value>Hem CPU hem de GPU tamamen kullanıldığında CPU tarafından ulaşılabilen maksimum güç tüketimi.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL_Description" xml:space="preserve">
+    <value>CPU tarafından küçük bir gecikmeyle ulaşılabilen en yüksek güç tüketimi.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
+    <value>Frekans ve güç düşürülmeden önce CPU'nun ulaşabileceği maksimum sıcaklık.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
+    <value>CPU'nun güç tüketimine bağlı olarak GPU'ya tahsis edilebilecek ek maksimum güç.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
+    <value>Temel güç tüketimine ek olarak GPU'ya tahsis edilebilecek ek güç miktarı.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
+    <value>Frekans ve güç düşürülmeden önce GPU'nun ulaşabileceği maksimum sıcaklık.</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Varsayılan</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
+    <value>Kısa Vadeli Güç Sınırı</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau_Description" xml:space="preserve">
+    <value>CPU'nun Kısa Süreli Güç Sınırını artırmasına ve kullanmasına izin verilen süre. Tau sona erdiğinde, Uzun Süreli Güç Limiti kullanılır.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
+    <value>AC'de Toplam İşlemci Gücü Hedefi</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
+    <value>CPU'nun GPU için dinamik güç tüketimi ayarını tetiklediği nokta.</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Oluştur</value>
+  </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
     <value>Adım ekle</value>
   </data>
+  <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
+    <value>Eylem Oluştur</value>
+  </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+    <value>Güç Modu</value>
+  </data>
+  <data name="StatusTrayPopup_Preset" xml:space="preserve">
+    <value>Ön Ayar</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+    <value>Harici GPU</value>
+  </data>
+  <data name="StatusTrayPopup_PowerState" xml:space="preserve">
+    <value>Güç Durumu</value>
+  </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+    <value>Batarya</value>
+  </data>
+  <data name="StatusTrayPopup_Mode" xml:space="preserve">
+    <value>Mod</value>
+  </data>
+  <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
+    <value>Deşarj oranı</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+    <value>Güncelleme mevcut!</value>
+  </data>
+  <data name="SymbolRegularPicker_Title" xml:space="preserve">
+    <value>Simge seç</value>
+  </data>
+  <data name="AutomationPage_ChangeIcon" xml:space="preserve">
+    <value>Simgeyi değiştir</value>
+  </data>
+  <data name="BatteryPage_LowLevel" xml:space="preserve">
+    <value>Düşük pil seviyesi</value>
+  </data>
+  <data name="AutomationPipelineTriggerConfigurationWindow_Title" xml:space="preserve">
+    <value>Yapılandır</value>
+  </data>
+  <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
+    <value>S0 Düşük Güç Modu algılandı</value>
+  </data>
+  <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
+    <value>Windows, bu aygıtın Modern Beklemeyi desteklediğini bildiriyor. Dengeli dışında güç planlarının kullanılması beklenmeyen davranışlara neden olabilir.</value>
+  </data>
+  <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
+    <value>Güç Modu değiştiğinde uygulanacak Windows Güç Planlarını seçin.</value>
+  </data>
+  <data name="SettingsPage_Power_Title" xml:space="preserve">
+    <value>Güç</value>
+  </data>
+  <data name="SettingsPage_PowerPlansControlPanel_Title" xml:space="preserve">
+    <value>Windows Denetim Masası'ndaki Güç Planı seçenekleri</value>
+  </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Kapatıldı</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
+    <value>Klavye ışık profilini içe aktarın</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message" xml:space="preserve">
+    <value>Işık yapılandırmasını içe aktarın ve mevcut profile uygulayın.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
+    <value>Yol</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_After" xml:space="preserve">
+    <value>{0} sonrası</value>
+  </data>
+  <data name="MultipleTriggersAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Çoklu tetikleyiciler...</value>
+    <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_Title" xml:space="preserve">
+    <value>GPU Hız Aşırtma Ayarları</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title" xml:space="preserve">
+    <value>Çekirdek Frekans Ofseti</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title" xml:space="preserve">
+    <value>Bellek Frekans Ofseti</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Title" xml:space="preserve">
+    <value>GPU Hız Aşırtma</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
+    <value>Harici GPU'yu hız aşırtarak performansı artırın.</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
+    <value>GPU Hız Aşırtma</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
+    <value>Harici GPU'yu hız aşırtarak performansı artırın.
+
+UYARI: Harici GPU mevcut değilse, bu işlem doğru çalışmaz.</value>
+  </data>
+  <data name="PortsBacklightControl_Title" xml:space="preserve">
+	  <value>Port ışıkları</value>
+  </data>
+  <data name="PortsBacklightControl_Message" xml:space="preserve">
+	  <value>Bilgisayarın arkasındaki bağlantı noktalarının ışığını açın veya kapatın.</value>
+  </data>
+  <data name="PortsBacklightAutomationStepControl_Title" xml:space="preserve">
+	  <value>Port ışıkları</value>
+  </data>
+  <data name="PortsBacklightAutomationStepControl_Message" xml:space="preserve">
+	  <value>Bilgisayarın arkasındaki bağlantı noktalarının ışığını açın veya kapatın.</value>
+  </data>
+  <data name="PanelLogoBacklightControl_Title" xml:space="preserve">
+	  <value>Panel logosu ışığı</value>
+  </data>
+  <data name="PanelLogoBacklightControl_Message" xml:space="preserve">
+	  <value>Bilgisayarın kapağındaki ışığı açın veya kapatın.</value>
+  </data>
+  <data name="PanelLogoBacklightAutomationStepControl_Title" xml:space="preserve">
+	  <value>Panel logosu ışığı</value>
+  </data>
+  <data name="PanelLogoBacklightAutomationStepControl_Message" xml:space="preserve">
+	  <value>Bilgisayarın kapağındaki ışığı açın veya kapatın.</value>
   </data>
 </root>
