@@ -3976,6 +3976,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Refresh interval.
+        /// </summary>
+        public static string SensorsControl_RefreshInterval {
+            get {
+                return ResourceManager.GetString("SensorsControl_RefreshInterval", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Temperature.
         /// </summary>
         public static string SensorsControl_Temperature_Title {

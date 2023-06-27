@@ -4,18 +4,23 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using Humanizer;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers.Sensors;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Resources;
+using LenovoLegionToolkit.WPF.Settings;
+using Wpf.Ui.Common;
+using MenuItem = Wpf.Ui.Controls.MenuItem;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard;
 
 public partial class SensorsControl
 {
     private readonly ISensorsController _controller = IoCContainer.Resolve<ISensorsController>();
-    private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
+    private readonly ApplicationSettings _applicationSettings = IoCContainer.Resolve<ApplicationSettings>();
+    private readonly DashboardSettings _dashboardSettings = IoCContainer.Resolve<DashboardSettings>();
 
     private CancellationTokenSource? _cts;
     private Task? _refreshTask;
@@ -23,8 +28,31 @@ public partial class SensorsControl
     public SensorsControl()
     {
         InitializeComponent();
+        InitializeContextMenu();
 
         IsVisibleChanged += SensorsControl_IsVisibleChanged;
+    }
+
+    private void InitializeContextMenu()
+    {
+        ContextMenu = new ContextMenu();
+        ContextMenu.Items.Add(new MenuItem { Header = Resource.SensorsControl_RefreshInterval, IsEnabled = false });
+
+        foreach (var interval in new[] { 1, 2, 3, 5 })
+        {
+            var item = new MenuItem
+            {
+                SymbolIcon = _dashboardSettings.Store.SensorsRefreshIntervalSeconds == interval ? SymbolRegular.CheckboxChecked24 : SymbolRegular.CheckboxUnchecked24,
+                Header = TimeSpan.FromSeconds(interval).Humanize(culture: Resource.Culture)
+            };
+            item.Click += (sender, args) =>
+            {
+                _dashboardSettings.Store.SensorsRefreshIntervalSeconds = interval;
+                _dashboardSettings.SynchronizeStore();
+                InitializeContextMenu();
+            };
+            ContextMenu.Items.Add(item);
+        }
     }
 
     private async void SensorsControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -68,7 +96,7 @@ public partial class SensorsControl
                 {
                     var data = await _controller.GetDataAsync();
                     Dispatcher.Invoke(() => UpdateValues(data));
-                    await Task.Delay(TimeSpan.FromSeconds(2), token);
+                    await Task.Delay(TimeSpan.FromSeconds(_dashboardSettings.Store.SensorsRefreshIntervalSeconds), token);
                 }
                 catch (TaskCanceledException) { }
                 catch (Exception ex)
@@ -110,8 +138,8 @@ public partial class SensorsControl
 
     private void TemperatureLabel_Click(object sender, RoutedEventArgs e)
     {
-        _settings.Store.TemperatureUnit = _settings.Store.TemperatureUnit == TemperatureUnit.C ? TemperatureUnit.F : TemperatureUnit.C;
-        _settings.SynchronizeStore();
+        _applicationSettings.Store.TemperatureUnit = _applicationSettings.Store.TemperatureUnit == TemperatureUnit.C ? TemperatureUnit.F : TemperatureUnit.C;
+        _applicationSettings.SynchronizeStore();
 
         if (_cpuTemperatureLabel.Tag is double cpuTemperature)
             _cpuTemperatureLabel.Content = GetTemperatureText(cpuTemperature);
@@ -121,7 +149,7 @@ public partial class SensorsControl
 
     private string GetTemperatureText(double temperature)
     {
-        if (_settings.Store.TemperatureUnit == TemperatureUnit.F)
+        if (_applicationSettings.Store.TemperatureUnit == TemperatureUnit.F)
         {
             temperature *= 9.0 / 5.0;
             temperature += 32;

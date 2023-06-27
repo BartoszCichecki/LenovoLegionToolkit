@@ -1835,4 +1835,7 @@ WARNING: This action will not run correctly, if discrete GPU is not available.</
   <data name="SensorsControl_MemoryClock_Title" xml:space="preserve">
 	  <value>Memory Clock</value>
   </data>
+  <data name="SensorsControl_RefreshInterval" xml:space="preserve">
+	  <value>Refresh interval</value>
+  </data>
 </root>
