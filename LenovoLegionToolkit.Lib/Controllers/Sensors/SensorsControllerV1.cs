@@ -7,13 +7,10 @@ namespace LenovoLegionToolkit.Lib.Controllers.Sensors;
 
 public class SensorsControllerV1 : AbstractSensorsController
 {
-    protected override SensorSettings Settings => new()
+    public SensorsControllerV1(GPUController gpuController)
+        : base(new() { CPUSensorID = 3, GPUSensorID = 4, CPUFanID = 0, GPUFanID = 1 }, gpuController)
     {
-        CPUSensorID = 3,
-        GPUSensorID = 4,
-        CPUFanID = 0,
-        GPUFanID = 1
-    };
+    }
 
     public override async Task<bool> IsSupportedAsync()
     {

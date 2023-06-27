@@ -2,11 +2,8 @@
 
 public class SensorsControllerV2 : AbstractSensorsController
 {
-    protected override SensorSettings Settings => new()
+    public SensorsControllerV2(GPUController gpuController)
+        : base(new() { CPUSensorID = 3, GPUSensorID = 4, CPUFanID = 0, GPUFanID = 1 }, gpuController)
     {
-        CPUSensorID = 3,
-        GPUSensorID = 4,
-        CPUFanID = 0,
-        GPUFanID = 1
-    };
+    }
 }

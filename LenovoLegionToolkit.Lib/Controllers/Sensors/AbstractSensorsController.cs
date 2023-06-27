@@ -13,16 +13,37 @@ namespace LenovoLegionToolkit.Lib.Controllers.Sensors;
 
 public abstract class AbstractSensorsController : ISensorsController
 {
-    protected abstract SensorSettings Settings { get; }
+    private readonly struct GPUInfo
+    {
+        public static readonly GPUInfo Empty = new() { Utilization = -1, CoreClock = -1, MaxCoreClock = -1, MemoryClock = -1, MaxMemoryClock = -1, Temperature = -1, MaxTemperature = -1 };
+
+        public int Utilization { get; init; }
+        public int CoreClock { get; init; }
+        public int MaxCoreClock { get; init; }
+        public int MemoryClock { get; init; }
+        public int MaxMemoryClock { get; init; }
+        public int Temperature { get; init; }
+        public int MaxTemperature { get; init; }
+    }
 
     private readonly PerformanceCounter _percentProcessorPerformanceCounter = new("Processor Information", "% Processor Performance", "_Total");
     private readonly PerformanceCounter _percentProcessorUtilityCounter = new("Processor Information", "% Processor Utility", "_Total");
+
+    private readonly GPUController _gpuController;
 
     private int? _cpuBaseClockCache;
     private int? _cpuMaxCoreClockCache;
     private int? _cpuMaxFanSpeedCache;
     private int? _cpuMaxTemperatureCache;
     private int? _gpuMaxFanSpeedCache;
+
+    protected readonly SensorSettings Settings;
+
+    protected AbstractSensorsController(SensorSettings settings, GPUController gpuController)
+    {
+        Settings = settings;
+        _gpuController = gpuController ?? throw new ArgumentNullException(nameof(gpuController));
+    }
 
     public virtual async Task<bool> IsSupportedAsync()
     {
@@ -51,7 +72,7 @@ public abstract class AbstractSensorsController : ISensorsController
         var cpuCurrentFanSpeed = await GetCurrentFanSpeedAsync(Settings.CPUFanID).ConfigureAwait(false);
         var cpuMaxFanSpeed = _cpuMaxFanSpeedCache ??= await GetMaxFanSpeedAsync(Settings.CPUSensorID, Settings.CPUFanID).ConfigureAwait(false);
 
-        var (gpuUtilization, gpuCoreClock, gpuMaxCoreClock, gpuMemoryClock, gpuMaxMemoryClock, gpuTemperature, gpuMaxTemperature) = GetGPUInfo();
+        var gpuInfo = GetGPUInfo();
         var gpuCurrentFanSpeed = await GetCurrentFanSpeedAsync(Settings.GPUFanID).ConfigureAwait(false);
         var gpuMaxFanSpeed = _gpuMaxFanSpeedCache ??= await GetMaxFanSpeedAsync(Settings.GPUSensorID, Settings.GPUFanID).ConfigureAwait(false);
 
@@ -69,13 +90,13 @@ public abstract class AbstractSensorsController : ISensorsController
             },
             GPU = new()
             {
-                Utilization = gpuUtilization,
-                CoreClock = gpuCoreClock,
-                MaxCoreClock = gpuMaxCoreClock,
-                MemoryClock = gpuMemoryClock,
-                MaxMemoryClock = gpuMaxMemoryClock,
-                Temperature = gpuTemperature,
-                MaxTemperature = gpuMaxTemperature,
+                Utilization = gpuInfo.Utilization,
+                CoreClock = gpuInfo.CoreClock,
+                MaxCoreClock = gpuInfo.MaxCoreClock,
+                MemoryClock = gpuInfo.MemoryClock,
+                MaxMemoryClock = gpuInfo.MaxMemoryClock,
+                Temperature = gpuInfo.Temperature,
+                MaxTemperature = gpuInfo.MaxTemperature,
                 FanSpeed = gpuCurrentFanSpeed,
                 MaxFanSpeed = gpuMaxFanSpeed,
             }
@@ -194,15 +215,18 @@ public abstract class AbstractSensorsController : ISensorsController
         }
     }
 
-    private static (int utilization, int coreClock, int maxCoreClock, int memoryClock, int maxMemoryClock, int temperature, int maxTemperature) GetGPUInfo()
+    private GPUInfo GetGPUInfo()
     {
+        if (_gpuController.LastKnownState is GPUController.GPUState.Inactive or GPUController.GPUState.PoweredOff)
+            return GPUInfo.Empty;
+
         try
         {
             NVAPI.Initialize();
 
             var gpu = NVAPI.GetGPU();
             if (gpu is null)
-                return (-1, -1, -1, -1, -1, -1, -1);
+                return GPUInfo.Empty;
 
             var utilization = Math.Max(gpu.UsageInformation.GPU.Percentage, gpu.UsageInformation.VideoEngine.Percentage);
 
@@ -220,11 +244,20 @@ public abstract class AbstractSensorsController : ISensorsController
             var currentTemperature = temperatureSensor?.CurrentTemperature ?? -1;
             var maxTemperature = temperatureSensor?.DefaultMaximumTemperature ?? -1;
 
-            return (utilization, currentCoreClock, maxCoreClock + maxCoreClockOffset, currentMemoryClock, maxMemoryClock + maxMemoryClockOffset, currentTemperature, maxTemperature);
+            return new()
+            {
+                Utilization = utilization,
+                CoreClock = currentCoreClock,
+                MaxCoreClock = maxCoreClock + maxCoreClockOffset,
+                MemoryClock = currentMemoryClock,
+                MaxMemoryClock = maxMemoryClock + maxMemoryClockOffset,
+                Temperature = currentTemperature,
+                MaxTemperature = maxTemperature
+            };
         }
         catch
         {
-            return (-1, -1, -1, -1, -1, -1, -1);
+            return GPUInfo.Empty;
         }
         finally
         {
