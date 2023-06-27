@@ -465,15 +465,15 @@ public class GodModeControllerV1 : AbstractGodModeController
         var preset = new GodModePreset
         {
             Name = "Default",
-            CPULongTermPowerLimit = await GetCPULongTermPowerLimitAsync().ConfigureAwait(false).OrNull(),
-            CPUShortTermPowerLimit = await GetCPUShortTermPowerLimitAsync().ConfigureAwait(false).OrNull(),
-            CPUPeakPowerLimit = await GetCPUPeakPowerLimitAsync().ConfigureAwait(false).OrNull(),
-            CPUCrossLoadingPowerLimit = await GetCPUCrossLoadingPowerLimitAsync().ConfigureAwait(false).OrNull(),
-            APUsPPTPowerLimit = await GetAPUSPPTPowerLimitAsync().ConfigureAwait(false).OrNull(),
-            CPUTemperatureLimit = await GetCPUTemperatureLimitAsync().ConfigureAwait(false).OrNull(),
-            GPUPowerBoost = await GetGPUPowerBoost().ConfigureAwait(false).OrNull(),
-            GPUConfigurableTGP = await GetGPUConfigurableTGPAsync().ConfigureAwait(false).OrNull(),
-            GPUTemperatureLimit = await GetGPUTemperatureLimitAsync().ConfigureAwait(false).OrNull(),
+            CPULongTermPowerLimit = await GetCPULongTermPowerLimitAsync().ConfigureAwait(false).OrNullIfException(),
+            CPUShortTermPowerLimit = await GetCPUShortTermPowerLimitAsync().ConfigureAwait(false).OrNullIfException(),
+            CPUPeakPowerLimit = await GetCPUPeakPowerLimitAsync().ConfigureAwait(false).OrNullIfException(),
+            CPUCrossLoadingPowerLimit = await GetCPUCrossLoadingPowerLimitAsync().ConfigureAwait(false).OrNullIfException(),
+            APUsPPTPowerLimit = await GetAPUSPPTPowerLimitAsync().ConfigureAwait(false).OrNullIfException(),
+            CPUTemperatureLimit = await GetCPUTemperatureLimitAsync().ConfigureAwait(false).OrNullIfException(),
+            GPUPowerBoost = await GetGPUPowerBoost().ConfigureAwait(false).OrNullIfException(),
+            GPUConfigurableTGP = await GetGPUConfigurableTGPAsync().ConfigureAwait(false).OrNullIfException(),
+            GPUTemperatureLimit = await GetGPUTemperatureLimitAsync().ConfigureAwait(false).OrNullIfException(),
             FanTableInfo = fanTableData is null ? null : new FanTableInfo(fanTableData, await GetDefaultFanTableAsync().ConfigureAwait(false)),
             FanFullSpeed = await GetFanFullSpeedAsync().ConfigureAwait(false),
             MinValueOffset = 0,
@@ -494,7 +494,7 @@ public class GodModeControllerV1 : AbstractGodModeController
             $"SELECT * FROM LENOVO_CPU_METHOD",
             "CPU_Get_Default_PowerLimit",
             new(),
-            pdc => Convert.ToInt32(pdc["DefaultLongTermPowerlimit"].Value)).ConfigureAwait(false).OrNull();
+            pdc => Convert.ToInt32(pdc["DefaultLongTermPowerlimit"].Value)).ConfigureAwait(false).OrNullIfException();
 
         var stepperValue = await WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_CPU_METHOD",
@@ -528,7 +528,7 @@ public class GodModeControllerV1 : AbstractGodModeController
             $"SELECT * FROM LENOVO_CPU_METHOD",
             "CPU_Get_Default_PowerLimit",
             new(),
-            pdc => Convert.ToInt32(pdc["DefaultShortTermPowerlimit"].Value)).ConfigureAwait(false).OrNull();
+            pdc => Convert.ToInt32(pdc["DefaultShortTermPowerlimit"].Value)).ConfigureAwait(false).OrNullIfException();
 
         var stepperValue = await WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_CPU_METHOD",
@@ -658,7 +658,7 @@ public class GodModeControllerV1 : AbstractGodModeController
             $"SELECT * FROM LENOVO_GPU_METHOD",
             "GPU_Get_Default_PPAB_cTGP_PowerLimit",
             new(),
-            pdc => Convert.ToInt32(pdc["Default_cTGP_Powerlimit"].Value)).ConfigureAwait(false).OrNull();
+            pdc => Convert.ToInt32(pdc["Default_cTGP_Powerlimit"].Value)).ConfigureAwait(false).OrNullIfException();
 
         var stepperValue = await WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_GPU_METHOD",
@@ -692,7 +692,7 @@ public class GodModeControllerV1 : AbstractGodModeController
             $"SELECT * FROM LENOVO_GPU_METHOD",
             "GPU_Get_Default_PPAB_cTGP_PowerLimit",
             new(),
-            pdc => Convert.ToInt32(pdc["Default_PPAB_Powerlimit"].Value)).ConfigureAwait(false).OrNull();
+            pdc => Convert.ToInt32(pdc["Default_PPAB_Powerlimit"].Value)).ConfigureAwait(false).OrNullIfException();
 
         var stepperValue = await WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_GPU_METHOD",
