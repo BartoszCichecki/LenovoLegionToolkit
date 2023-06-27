@@ -71,7 +71,7 @@ public class WarrantyChecker
         return warrantyInfo;
     }
 
-    private async Task<WarrantyInfo?> GetChineseWarrantyInfo(HttpClient httpClient, MachineInformation machineInformation, CancellationToken token)
+    private static async Task<WarrantyInfo?> GetChineseWarrantyInfo(HttpClient httpClient, MachineInformation machineInformation, CancellationToken token)
     {
         var warrantySummaryString = await httpClient.GetStringAsync($"https://msupport.lenovo.com.cn/centerapi/devicedetail?sn={machineInformation.SerialNumber}", token).ConfigureAwait(false);
 
