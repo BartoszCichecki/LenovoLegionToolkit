@@ -119,7 +119,7 @@
                     VerticalContentAlignment="Center"
                     Content="-"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                    MouseUp="TemperatureLabel_Click" />
+                    MouseDown="TemperatureLabel_Click" />
 
                 <Label
                     Grid.Row="4"
@@ -262,7 +262,7 @@
                     VerticalContentAlignment="Center"
                     Content="-"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                    MouseUp="TemperatureLabel_Click" />
+                    MouseDown="TemperatureLabel_Click" />
 
                 <Label
                     Grid.Row="5"

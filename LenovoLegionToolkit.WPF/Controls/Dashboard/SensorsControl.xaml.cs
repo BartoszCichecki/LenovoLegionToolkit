@@ -45,7 +45,7 @@ public partial class SensorsControl
                 SymbolIcon = _dashboardSettings.Store.SensorsRefreshIntervalSeconds == interval ? SymbolRegular.CheckboxChecked24 : SymbolRegular.CheckboxUnchecked24,
                 Header = TimeSpan.FromSeconds(interval).Humanize(culture: Resource.Culture)
             };
-            item.Click += (sender, args) =>
+            item.Click += (_, _) =>
             {
                 _dashboardSettings.Store.SensorsRefreshIntervalSeconds = interval;
                 _dashboardSettings.SynchronizeStore();
