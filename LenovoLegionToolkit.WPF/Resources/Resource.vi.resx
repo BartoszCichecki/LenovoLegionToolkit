@@ -658,6 +658,20 @@ Xin chân thành cảm ơn!</value>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Khóa phím Fn</value>
   </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
+    <value>CẢNH BÁO!
+Một số laptop có thể nhận giá trị thấp hơn cho phép, nhưng hãy cẩn thận. Chức năng có thể dẫn đến laptop hoạt động không ổn định. Nếu bạn không biết bạn đang làm gì, giữ nguyên giá trị này tại 0.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
+    <value>Minimum offset</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
+    <value>CẢNH BÁO!
+Một số laptop có thể nhận giá trị cao hơn cho phép, nhưng hãy cẩn thận. Chức năng có thể dẫn đến laptop hoạt động không ổn định. Nếu bạn không biết bạn đang làm gì, giữ nguyên giá trị này tại 0.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
+    <value>Maximum offset</value>
+  </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>KHÔNG THAY ĐỔI BẤT CỨ GIÁ TRỊ NÀO DƯỚI ĐÂY NẾU BẠN KHÔNG BIẾT CÔNG DỤNG CỦA CHÚNG!</value>
   </data>
@@ -1180,6 +1194,19 @@ Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Ngắt kích hoạt Lenovo Hotkeys</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
+    <value>Vantage và/ hoặc ImController đã không được ngắt đúng cách</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
+    <value>Không thể ngắt Vantage và/ hoặc ImController</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
+    <value>Ngắt kích hoạt Lenovo Vantage và các dịch vụ con mà không cần gỡ cài đặt.
+Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
+    <value>Ngắt kích hoạt Lenovo Vantage và ImController</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Legion Zone có thể đã được kích hoạt không đúng</value>
@@ -1714,5 +1741,68 @@ Chỉ hoạt động khi chế độ tùy chỉnh đã đang chạy.</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Ngắt kích hoạt</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
+    <value>Nhập cấu hình đèn nền bàn phím</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message" xml:space="preserve">
+    <value>Nhập và áp dụng cấu hình bàn phím cho profile hiện tại.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
+    <value>Đường dẫn</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_After" xml:space="preserve">
+    <value>Sau {0}</value>
+  </data>
+  <data name="MultipleTriggersAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Nhiều điểm kích hoạt...</value>
+    <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_Title" xml:space="preserve">
+    <value>Cài đặt ép xung GPU rời</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title" xml:space="preserve">
+    <value>Core Frequency Offset</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title" xml:space="preserve">
+    <value>Memory Frequency Offset</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Title" xml:space="preserve">
+    <value>Ép xung GPU</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
+    <value>Tăng hiệu suất máy bằng việc ép xung GPU rời.</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
+    <value>Ép xung GPU</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
+    <value>Tăng hiệu suất máy bằng việc ép xung GPU rời.
+
+CẢNH BÁO: hành động có thể chạy không đúng nếu GPU rời không có mặt.</value>
+  </data>
+  <data name="PortsBacklightControl_Title" xml:space="preserve">
+	  <value>Đèn I/O</value>
+  </data>
+  <data name="PortsBacklightControl_Message" xml:space="preserve">
+	  <value>Bật hoặc tắt đèn I/O phía sau laptop.</value>
+  </data>
+  <data name="PortsBacklightAutomationStepControl_Title" xml:space="preserve">
+	  <value>Đèn I/O</value>
+  </data>
+  <data name="PortsBacklightAutomationStepControl_Message" xml:space="preserve">
+	  <value>Bật hoặc tắt đèn I/O phía sau laptop.</value>
+  </data>
+  <data name="PanelLogoBacklightControl_Title" xml:space="preserve">
+	  <value>Đèn logo</value>
+  </data>
+  <data name="PanelLogoBacklightControl_Message" xml:space="preserve">
+	  <value>Bật hoặc tắt đèn logo laptop.</value>
+  </data>
+  <data name="PanelLogoBacklightAutomationStepControl_Title" xml:space="preserve">
+	  <value>Đèn logo</value>
+  </data>
+  <data name="PanelLogoBacklightAutomationStepControl_Message" xml:space="preserve">
+	  <value>Bật hoặc tắt đèn logo laptop.</value>
   </data>
 </root>
