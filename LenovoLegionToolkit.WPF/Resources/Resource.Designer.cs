@@ -1237,15 +1237,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to In Warranty.
-        /// </summary>
-        public static string DeviceInformationWindow_InWarranty {
-            get {
-                return ResourceManager.GetString("DeviceInformationWindow_InWarranty", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Lenovo Support.
         /// </summary>
         public static string DeviceInformationWindow_LenovoSupport {
@@ -1278,15 +1269,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string DeviceInformationWindow_Model_Title {
             get {
                 return ResourceManager.GetString("DeviceInformationWindow_Model_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Out of Warranty.
-        /// </summary>
-        public static string DeviceInformationWindow_OutOfWarranty {
-            get {
-                return ResourceManager.GetString("DeviceInformationWindow_OutOfWarranty", resourceCulture);
             }
         }
         
@@ -1332,15 +1314,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string DeviceInformationWindow_WarrantyStartDate_Title {
             get {
                 return ResourceManager.GetString("DeviceInformationWindow_WarrantyStartDate_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Status.
-        /// </summary>
-        public static string DeviceInformationWindow_WarrantyStatus_Title {
-            get {
-                return ResourceManager.GetString("DeviceInformationWindow_WarrantyStatus_Title", resourceCulture);
             }
         }
         

@@ -33,7 +33,6 @@ public partial class DeviceInformationWindow
         {
             _refreshWarrantyButton.IsEnabled = false;
 
-            _warrantyStatusLabel.Content = "-";
             _warrantyStartLabel.Content = "-";
             _warrantyEndLabel.Content = "-";
             _warrantyLinkCardAction.Tag = null;
@@ -45,7 +44,6 @@ public partial class DeviceInformationWindow
             if (!warrantyInfo.HasValue)
                 return;
 
-            _warrantyStatusLabel.Content = TryLocalizeStatus(warrantyInfo.Value.Status);
             _warrantyStartLabel.Content = warrantyInfo.Value.Start is not null ? warrantyInfo.Value.Start?.ToString(LocalizationHelper.ShortDateFormat) : "-";
             _warrantyEndLabel.Content = warrantyInfo.Value.End is not null ? warrantyInfo.Value.End?.ToString(LocalizationHelper.ShortDateFormat) : "-";
             _warrantyLinkCardAction.Tag = warrantyInfo.Value.Link;
@@ -61,20 +59,6 @@ public partial class DeviceInformationWindow
         {
             _refreshWarrantyButton.IsEnabled = true;
         }
-    }
-
-    private static string TryLocalizeStatus(string? status)
-    {
-        if (status is null)
-            return "-";
-
-        if (status.Equals("In Warranty", StringComparison.CurrentCultureIgnoreCase))
-            return Resource.DeviceInformationWindow_InWarranty;
-
-        if (status.Equals("Out of Warranty", StringComparison.CurrentCultureIgnoreCase))
-            return Resource.DeviceInformationWindow_OutOfWarranty;
-
-        return status;
     }
 
     private async void RefreshWarrantyButton_OnClick(object sender, RoutedEventArgs e) => await RefreshAsync(true);

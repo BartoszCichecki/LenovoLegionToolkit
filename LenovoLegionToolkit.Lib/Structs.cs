@@ -868,7 +868,6 @@ public readonly struct Update
 
 public readonly struct WarrantyInfo
 {
-    public string? Status { get; init; }
     public DateTime? Start { get; init; }
     public DateTime? End { get; init; }
     public Uri? Link { get; init; }
