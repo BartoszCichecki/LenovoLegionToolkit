@@ -640,6 +640,7 @@ public readonly struct SensorData
     };
 
     public int Utilization { get; init; }
+    public int MaxUtilization { get; init; }
     public int CoreClock { get; init; }
     public int MaxCoreClock { get; init; }
     public int MemoryClock { get; init; }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.Utils;
 using NvAPIWrapper.Native;
 using NvAPIWrapper.Native.GPU;
 using Windows.Win32;
@@ -34,7 +35,6 @@ public abstract class AbstractSensorsController : ISensorsController
     private int? _cpuBaseClockCache;
     private int? _cpuMaxCoreClockCache;
     private int? _cpuMaxFanSpeedCache;
-    private int? _cpuMaxTemperatureCache;
     private int? _gpuMaxFanSpeedCache;
 
     protected readonly SensorSettings Settings;
@@ -52,12 +52,16 @@ public abstract class AbstractSensorsController : ISensorsController
             var result = await WMI.ExistsAsync("root\\WMI", $"SELECT * FROM LENOVO_FAN_TABLE_DATA WHERE Sensor_ID = {Settings.CPUSensorID} AND Fan_Id = {Settings.CPUFanID}").ConfigureAwait(false);
             result &= await WMI.ExistsAsync("root\\WMI", $"SELECT * FROM LENOVO_FAN_TABLE_DATA WHERE Sensor_ID = {Settings.GPUSensorID} AND Fan_Id = {Settings.GPUFanID}").ConfigureAwait(false);
 
-            _ = await GetDataAsync().ConfigureAwait(false);
+            if (result)
+                _ = await GetDataAsync().ConfigureAwait(false);
 
             return result;
         }
-        catch
+        catch (Exception ex)
         {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Error checking support. [type={GetType().Name}]", ex);
+
             return false;
         }
     }
@@ -68,7 +72,6 @@ public abstract class AbstractSensorsController : ISensorsController
         var cpuCoreClock = GetCpuCoreClock();
         var cpuMaxCoreClock = _cpuMaxCoreClockCache ??= await GetCpuMaxCoreClockAsync().ConfigureAwait(false);
         var cpuCurrentTemperature = await GetCurrentTemperatureAsync(Settings.CPUSensorID).ConfigureAwait(false);
-        var cpuMaxTemperature = _cpuMaxTemperatureCache ??= await GetCpuMaxTemperatureAsync().ConfigureAwait(false);
         var cpuCurrentFanSpeed = await GetCurrentFanSpeedAsync(Settings.CPUFanID).ConfigureAwait(false);
         var cpuMaxFanSpeed = _cpuMaxFanSpeedCache ??= await GetMaxFanSpeedAsync(Settings.CPUSensorID, Settings.CPUFanID).ConfigureAwait(false);
 
@@ -81,16 +84,18 @@ public abstract class AbstractSensorsController : ISensorsController
             CPU = new()
             {
                 Utilization = cpuUtilization,
+                MaxUtilization = 100,
                 CoreClock = cpuCoreClock,
                 MaxCoreClock = cpuMaxCoreClock,
                 Temperature = cpuCurrentTemperature,
-                MaxTemperature = cpuMaxTemperature,
+                MaxTemperature = 100,
                 FanSpeed = cpuCurrentFanSpeed,
                 MaxFanSpeed = cpuMaxFanSpeed,
             },
             GPU = new()
             {
                 Utilization = gpuInfo.Utilization,
+                MaxUtilization = 100,
                 CoreClock = gpuInfo.CoreClock,
                 MaxCoreClock = gpuInfo.MaxCoreClock,
                 MemoryClock = gpuInfo.MemoryClock,
@@ -172,48 +177,18 @@ public abstract class AbstractSensorsController : ISensorsController
         }
     }
 
-    private static async Task<int> GetCpuMaxCoreClockAsync()
-    {
-        try
-        {
-            return await WMI.CallAsync("root\\WMI",
-                $"SELECT * FROM LENOVO_GAMEZONE_DATA",
-                "GetCPUFrequency",
-                new(),
-                pdc =>
-                {
-                    var value = Convert.ToInt32(pdc["Data"].Value);
-                    var low = value & 0xFFFF;
-                    var high = value >> 16;
-                    return Math.Max(low, high);
-                }).ConfigureAwait(false);
-        }
-        catch
-        {
-            return 5000;
-        }
-    }
-
-    private static async Task<int> GetCpuMaxTemperatureAsync()
-    {
-        try
-        {
-            var result = await WMI.ReadAsync("root\\WMI",
-                $"SELECT CriticalTripPoint FROM MSAcpi_ThermalZoneTemperature",
-                pdc =>
-                {
-                    var max = Convert.ToInt32(pdc["CriticalTripPoint"].Value);
-                    max -= 2731;
-                    max /= 10;
-                    return max;
-                }).ConfigureAwait(false);
-            return result.DefaultIfEmpty(-1).FirstOrDefault();
-        }
-        catch
-        {
-            return 105;
-        }
-    }
+    private static Task<int> GetCpuMaxCoreClockAsync() =>
+        WMI.CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_GAMEZONE_DATA",
+            "GetCPUFrequency",
+            new(),
+            pdc =>
+            {
+                var value = Convert.ToInt32(pdc["Data"].Value);
+                var low = value & 0xFFFF;
+                var high = value >> 16;
+                return Math.Max(low, high);
+            });
 
     private GPUInfo GetGPUInfo()
     {
