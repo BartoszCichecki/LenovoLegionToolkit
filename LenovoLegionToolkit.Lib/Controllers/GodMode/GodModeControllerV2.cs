@@ -214,7 +214,7 @@ public class GodModeControllerV2 : AbstractGodModeController
 
         foreach (var c in capabilityData)
         {
-            var value = await GetValue(c.Id).OrNull().ConfigureAwait(false) ?? c.DefaultValue;
+            var value = await GetValue(c.Id).ConfigureAwait(false).OrNull() ?? c.DefaultValue;
             var steps = discreteData.GetValueOrDefault(c.Id) ?? Array.Empty<int>();
 
             if (c.Step == 0 && steps.Length < 1)
