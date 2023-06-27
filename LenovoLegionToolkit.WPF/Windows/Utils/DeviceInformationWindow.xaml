@@ -112,13 +112,6 @@
 
                 <wpfui:CardControl Margin="0,0,0,8">
                     <wpfui:CardControl.Header>
-                        <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_WarrantyStatus_Title}" />
-                    </wpfui:CardControl.Header>
-                    <Label x:Name="_warrantyStatusLabel" Content="-" />
-                </wpfui:CardControl>
-
-                <wpfui:CardControl Margin="0,0,0,8">
-                    <wpfui:CardControl.Header>
                         <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_WarrantyStartDate_Title}" />
                     </wpfui:CardControl.Header>
                     <Label x:Name="_warrantyStartLabel" Content="-" />

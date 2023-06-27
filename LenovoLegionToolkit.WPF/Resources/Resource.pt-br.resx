@@ -472,9 +472,6 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
     <value>Dispositivo</value>
   </data>
-  <data name="DeviceInformationWindow_InWarranty" xml:space="preserve">
-    <value>Em garantia</value>
-  </data>
   <data name="DeviceInformationWindow_LenovoSupport" xml:space="preserve">
     <value>Suporte Lenovo</value>
   </data>
@@ -487,9 +484,6 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
   <data name="DeviceInformationWindow_Model_Title" xml:space="preserve">
     <value>Modelo</value>
   </data>
-  <data name="DeviceInformationWindow_OutOfWarranty" xml:space="preserve">
-    <value>Fora da Garantia</value>
-  </data>
   <data name="DeviceInformationWindow_SerialNumber_Title" xml:space="preserve">
     <value>Número de série</value>
   </data>
@@ -501,9 +495,6 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
   </data>
   <data name="DeviceInformationWindow_WarrantyStartDate_Title" xml:space="preserve">
     <value>Data de Início</value>
-  </data>
-  <data name="DeviceInformationWindow_WarrantyStatus_Title" xml:space="preserve">
-    <value>Situação</value>
   </data>
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Garantia</value>

@@ -472,9 +472,6 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je displej notebooku vypnutý
   <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
     <value>Zařízení</value>
   </data>
-  <data name="DeviceInformationWindow_InWarranty" xml:space="preserve">
-    <value>V záruce</value>
-  </data>
   <data name="DeviceInformationWindow_LenovoSupport" xml:space="preserve">
     <value>Lenovo Podpora</value>
   </data>
@@ -487,9 +484,6 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je displej notebooku vypnutý
   <data name="DeviceInformationWindow_Model_Title" xml:space="preserve">
     <value>Model</value>
   </data>
-  <data name="DeviceInformationWindow_OutOfWarranty" xml:space="preserve">
-    <value>Bez záruky</value>
-  </data>
   <data name="DeviceInformationWindow_SerialNumber_Title" xml:space="preserve">
     <value>Sériové číslo</value>
   </data>
@@ -501,9 +495,6 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je displej notebooku vypnutý
   </data>
   <data name="DeviceInformationWindow_WarrantyStartDate_Title" xml:space="preserve">
     <value>Datum začátku</value>
-  </data>
-  <data name="DeviceInformationWindow_WarrantyStatus_Title" xml:space="preserve">
-    <value>Stav</value>
   </data>
   <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
     <value>Záruka</value>
