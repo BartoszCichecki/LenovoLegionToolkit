@@ -67,6 +67,8 @@ public partial class SensorsControl
         if (_refreshTask is not null)
             await _refreshTask;
         _refreshTask = null;
+
+        UpdateValues(SensorsData.Empty);
     }
 
     private void Refresh()
