@@ -73,6 +73,15 @@
   <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
     <value>Uykudayken açık</value>
   </data>
+  <data name="AutorunState_Disabled" xml:space="preserve">
+    <value>Devre dışı</value>
+  </data>
+  <data name="AutorunState_Enabled" xml:space="preserve">
+    <value>Etkin</value>
+  </data>
+  <data name="AutorunState_EnabledDelayed" xml:space="preserve">
+    <value>Kapalı, gecikmeli</value>
+  </data>
   <data name="BatteryState_Conservation" xml:space="preserve">
     <value>Pil Koruma Modu</value>
   </data>
@@ -82,11 +91,43 @@
   <data name="BatteryState_RapidCharge" xml:space="preserve">
     <value>Hızlı Şarj</value>
   </data>
+  <data name="FlipToStartState_Off" xml:space="preserve">
+    <value>Kapalı</value>
+    <comment>Informs the user that Flip to Start is or will be turned off.</comment>
+  </data>
+  <data name="FlipToStartState_On" xml:space="preserve">
+    <value>Açık</value>
+    <comment>Informs the user that Flip to Start is or will be turned on.</comment>
+  </data>
+  <data name="FnLockState_Off" xml:space="preserve">
+    <value>Kapalı</value>
+    <comment>Informs the user that Fn Lock is or will be turned off.</comment>
+  </data>
+  <data name="FnLockState_On" xml:space="preserve">
+    <value>Açık</value>
+    <comment>Informs the user that Fn Lock is or will be turned on.</comment>
+  </data>
   <data name="GPUController_PoweredOff" xml:space="preserve">
     <value>Kapatıldı</value>
   </data>
   <data name="GPUController_PoweredOn" xml:space="preserve">
     <value>Açık</value>
+  </data>
+  <data name="GSyncState_Off" xml:space="preserve">
+    <value>Kapalı</value>
+    <comment>Informs the user that GSync is or will be turned off.</comment>
+  </data>
+  <data name="GSyncState_On" xml:space="preserve">
+    <value>Açık</value>
+    <comment>Informs the user that GSync is or will be turned on.</comment>
+  </data>
+  <data name="HDRState_Off" xml:space="preserve">
+    <value>Kapalı</value>
+    <comment>Informs the user that HDR is or will be turned off.</comment>
+  </data>
+  <data name="HDRState_On" xml:space="preserve">
+    <value>Açık</value>
+    <comment>Informs the user that HDR is or will be turned on.</comment>
   </data>
   <data name="HybridModeState_Off" xml:space="preserve">
     <value>dGPU</value>
@@ -99,6 +140,57 @@
   </data>
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
     <value>Hibrit-iGPU</value>
+  </data>
+  <data name="MicrophoneState_Off" xml:space="preserve">
+    <value>Kapalı</value>
+    <comment>Informs the user that the microphone is or will be turned off.</comment>
+  </data>
+  <data name="MicrophoneState_On" xml:space="preserve">
+    <value>Açık</value>
+    <comment>Informs the user that the microphone is or will be turned on.</comment>
+  </data>
+  <data name="NotificationPosition_BottomCenter" xml:space="preserve">
+    <value>Alt orta</value>
+  </data>
+  <data name="NotificationPosition_BottomLeft" xml:space="preserve">
+    <value>Sol alt</value>
+  </data>
+  <data name="NotificationPosition_BottomRight" xml:space="preserve">
+    <value>Sağ alt</value>
+  </data>
+  <data name="NotificationPosition_Center" xml:space="preserve">
+    <value>Merkez</value>
+  </data>
+  <data name="NotificationPosition_CenterLeft" xml:space="preserve">
+    <value>Sol merkez</value>
+  </data>
+  <data name="NotificationPosition_CenterRight" xml:space="preserve">
+    <value>Sağ merkez</value>
+  </data>
+  <data name="NotificationPosition_TopCenter" xml:space="preserve">
+    <value>Üst merkez</value>
+  </data>
+  <data name="NotificationPosition_TopLeft" xml:space="preserve">
+    <value>Sol üst</value>
+  </data>
+  <data name="NotificationPosition_TopRight" xml:space="preserve">
+    <value>Sağ üst</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightState_Off" xml:space="preserve">
+    <value>Kapalı</value>
+    <comment>Informs the user that One Level White Keyboard Backlight is or will be turned off.</comment>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightState_On" xml:space="preserve">
+    <value>Açık</value>
+    <comment>Informs the user that One Level White Keyboard Backlight is or will be turned on.</comment>
+  </data>
+  <data name="OverdriveState_Off" xml:space="preserve">
+    <value>Kapalı</value>
+    <comment>Informs the user that Overdrive is or will be turned off.</comment>
+  </data>
+  <data name="OverdriveState_On" xml:space="preserve">
+    <value>Açık</value>
+    <comment>Informs the user that Overdrive is or will be turned on.</comment>
   </data>
   <data name="PowerModeState_Balance" xml:space="preserve">
     <value>Denge</value>
@@ -157,6 +249,84 @@
   <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
     <value>2. Hazır Ayar</value>
   </data>
+  <data name="SpectrumKeyboardBacklightBrightness_High" xml:space="preserve">
+    <value>Yüksek</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightness_Low" xml:space="preserve">
+    <value>Düşük</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightness_Medium" xml:space="preserve">
+    <value>Orta</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightness_Off" xml:space="preserve">
+    <value>Kapalı</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_BottomToTop" xml:space="preserve">
+    <value>Aşağıdan Yukarıya</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_Clockwise" xml:space="preserve">
+    <value>Saat Yönünde</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_CounterClockwise" xml:space="preserve">
+    <value>Saat Yönünün Tersi</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_LeftToRight" xml:space="preserve">
+    <value>Soldan Sağa</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_RightToLeft" xml:space="preserve">
+    <value>Sağdan Sola</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightDirection_TopToBottom" xml:space="preserve">
+    <value>Yukarıdan Aşağıya</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Always" xml:space="preserve">
+    <value>Her Zaman</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_AudioBounce" xml:space="preserve">
+    <value>Ses Zıplaması</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_AudioRipple" xml:space="preserve">
+    <value>Ses Dalgalanması</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_AuroraSync" xml:space="preserve">
+    <value>Aurora Sync</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_ColorChange" xml:space="preserve">
+    <value>Renk değişimi</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_ColorPulse" xml:space="preserve">
+    <value>Renk Titreşimi</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_ColorWave" xml:space="preserve">
+    <value>Renkli Dalgalanma</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Rain" xml:space="preserve">
+    <value>Yağmur</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_RainbowScrew" xml:space="preserve">
+    <value>Gökkuşağı Döngüsü</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_RainbowWave" xml:space="preserve">
+    <value>Gökkuşağı Dalgası</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Ripple" xml:space="preserve">
+    <value>Dalgalanma</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Smooth" xml:space="preserve">
+    <value>Akıcı</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEffectType_Type" xml:space="preserve">
+    <value>Tür</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed1" xml:space="preserve">
+    <value>Yavaş</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed2" xml:space="preserve">
+    <value>Orta</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightSpeed_Speed3" xml:space="preserve">
+    <value>Hızlı</value>
+  </data>
   <data name="Theme_Dark" xml:space="preserve">
     <value>Koyu</value>
   </data>
@@ -165,6 +335,14 @@
   </data>
   <data name="Theme_System" xml:space="preserve">
     <value>Sistem</value>
+  </data>
+  <data name="TouchpadLockState_Off" xml:space="preserve">
+    <value>Kapalı</value>
+    <comment>Informs the user that Touchpad Lock is or will be turned off.</comment>
+  </data>
+  <data name="TouchpadLockState_On" xml:space="preserve">
+    <value>Açık</value>
+    <comment>Informs the user that Touchpad Lock is or will be turned on.</comment>
   </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
     <value>Yüksek</value>
@@ -175,4 +353,24 @@
   <data name="WhiteKeyboardBacklightState_Off" xml:space="preserve">
     <value>Kapalı</value>
   </data>
+  <data name="WinKeyState_Off" xml:space="preserve">
+    <value>Kapalı</value>
+    <comment>Informs the user that WinLock is or will be turned on.</comment>
+  </data>
+  <data name="WinKeyState_On" xml:space="preserve">
+    <value>Açık</value>
+    <comment>Informs the user that WinLock is or will be turned on.</comment>
+  </data>
+  <data name="PortsBacklightState_Off" xml:space="preserve">
+		<value>Kapalı</value>
+	</data>
+  <data name="PortsBacklightState_On" xml:space="preserve">
+		<value>Açık</value>
+	</data>
+  <data name="PanelLogoBacklightState_On" xml:space="preserve">
+		<value>Açık</value>
+	</data>
+  <data name="PanelLogoBacklightState_Off" xml:space="preserve">
+		<value>Kapalı</value>
+	</data>
 </root>
