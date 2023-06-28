@@ -15,6 +15,7 @@ public static class DashboardItemExtensions
         DashboardItem.PowerMode => SymbolRegular.Gauge24,
         DashboardItem.BatteryMode => SymbolRegular.BatteryCharge24,
         DashboardItem.AlwaysOnUsb => SymbolRegular.UsbStick24,
+        DashboardItem.InstantBoot => SymbolRegular.PlugDisconnected24,
         DashboardItem.HybridMode => SymbolRegular.LeafOne24,
         DashboardItem.DiscreteGpu => SymbolRegular.DeveloperBoard24,
         DashboardItem.OverclockDiscreteGpu => SymbolRegular.DeveloperBoardLightning20,
@@ -40,6 +41,7 @@ public static class DashboardItemExtensions
         DashboardItem.PowerMode => Resource.PowerModeControl_Title,
         DashboardItem.BatteryMode => Resource.BatteryModeControl_Title,
         DashboardItem.AlwaysOnUsb => Resource.AlwaysOnUSBControl_Title,
+        DashboardItem.InstantBoot => Resource.InstantBootControl_Title,
         DashboardItem.HybridMode => $"{Resource.ComboBoxHybridModeControl_Title} / {Resource.ToggleHybridModeControl_Title}",
         DashboardItem.DiscreteGpu => Resource.DiscreteGPUControl_Title,
         DashboardItem.OverclockDiscreteGpu => Resource.OverclockDiscreteGPUControl_Title,
@@ -56,7 +58,7 @@ public static class DashboardItemExtensions
         DashboardItem.TouchpadLock => Resource.TouchpadLockControl_Title,
         DashboardItem.FnLock => Resource.FnLockControl_Title,
         DashboardItem.WinKeyLock => Resource.WinKeyControl_Title,
-        DashboardItem.WhiteKeyboardBacklight => $"{Resource.WhiteKeyboardBacklightControl_Title} / {Resource.OneLevelWhiteKeyboardBacklightControl_Title}",
+        DashboardItem.WhiteKeyboardBacklight => Resource.WhiteKeyboardBacklightControl_Title,
         _ => throw new InvalidOperationException($"Invalid DashboardItem {dashboardItem}"),
     };
 
@@ -65,6 +67,7 @@ public static class DashboardItemExtensions
         DashboardItem.PowerMode => new[] { new PowerModeControl() },
         DashboardItem.BatteryMode => new[] { new BatteryModeControl() },
         DashboardItem.AlwaysOnUsb => new[] { new AlwaysOnUSBControl() },
+        DashboardItem.InstantBoot => new[] { new InstantBootControl() },
         DashboardItem.HybridMode => new[] { await HybridModeControlFactory.GetControlAsync() },
         DashboardItem.DiscreteGpu => new[] { new DiscreteGPUControl() },
         DashboardItem.OverclockDiscreteGpu => new[] { new OverclockDiscreteGPUControl() },

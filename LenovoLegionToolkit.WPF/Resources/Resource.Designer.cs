@@ -2337,6 +2337,42 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Automatically power on when a charger is connected..
+        /// </summary>
+        public static string InstantBootAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("InstantBootAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Instant Boot.
+        /// </summary>
+        public static string InstantBootAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("InstantBootAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Automatically power on when a charger is connected..
+        /// </summary>
+        public static string InstantBootControl_Message {
+            get {
+                return ResourceManager.GetString("InstantBootControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Instant Boot.
+        /// </summary>
+        public static string InstantBootControl_Title {
+            get {
+                return ResourceManager.GetString("InstantBootControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Keyboard backlight cannot be controlled in here when Vantage or its services are running..
         /// </summary>
         public static string Keyboard_VantageEnabledWarning_Message {

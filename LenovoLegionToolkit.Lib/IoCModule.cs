@@ -37,6 +37,7 @@ public class IoCModule : Module
         builder.Register<HDRFeature>();
         builder.Register<HybridModeFeature>();
         builder.Register<IGPUModeFeature>();
+        builder.Register<InstantBootFeature>();
         builder.Register<MicrophoneFeature>();
         builder.Register<OneLevelWhiteKeyboardBacklightFeature>();
         builder.Register<OverDriveFeature>();
