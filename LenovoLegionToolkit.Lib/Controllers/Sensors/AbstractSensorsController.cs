@@ -4,7 +4,6 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.System;
-using LenovoLegionToolkit.Lib.Utils;
 using NvAPIWrapper.Native;
 using NvAPIWrapper.Native.GPU;
 using Windows.Win32;
@@ -37,98 +36,71 @@ public abstract class AbstractSensorsController : ISensorsController
     private int? _cpuMaxFanSpeedCache;
     private int? _gpuMaxFanSpeedCache;
 
-    protected readonly SensorSettings Settings;
-
-    protected AbstractSensorsController(SensorSettings settings, GPUController gpuController)
+    protected AbstractSensorsController(GPUController gpuController)
     {
-        Settings = settings;
         _gpuController = gpuController ?? throw new ArgumentNullException(nameof(gpuController));
     }
 
-    public virtual async Task<bool> IsSupportedAsync()
-    {
-        try
-        {
-            var result = await WMI.ExistsAsync("root\\WMI", $"SELECT * FROM LENOVO_FAN_TABLE_DATA WHERE Sensor_ID = {Settings.CPUSensorID} AND Fan_Id = {Settings.CPUFanID}").ConfigureAwait(false);
-            result &= await WMI.ExistsAsync("root\\WMI", $"SELECT * FROM LENOVO_FAN_TABLE_DATA WHERE Sensor_ID = {Settings.GPUSensorID} AND Fan_Id = {Settings.GPUFanID}").ConfigureAwait(false);
-
-            if (result)
-                _ = await GetDataAsync().ConfigureAwait(false);
-
-            return result;
-        }
-        catch (Exception ex)
-        {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Error checking support. [type={GetType().Name}]", ex);
-
-            return false;
-        }
-    }
+    public abstract Task<bool> IsSupportedAsync();
 
     public async Task<SensorsData> GetDataAsync()
     {
+        const int genericMaxUtilization = 100;
+        const int genericMaxTemperature = 100;
+
         var cpuUtilization = GetCpuUtilization();
         var cpuCoreClock = GetCpuCoreClock();
         var cpuMaxCoreClock = _cpuMaxCoreClockCache ??= await GetCpuMaxCoreClockAsync().ConfigureAwait(false);
-        var cpuCurrentTemperature = await GetCurrentTemperatureAsync(Settings.CPUSensorID).ConfigureAwait(false);
-        var cpuCurrentFanSpeed = await GetCurrentFanSpeedAsync(Settings.CPUFanID).ConfigureAwait(false);
-        var cpuMaxFanSpeed = _cpuMaxFanSpeedCache ??= await GetMaxFanSpeedAsync(Settings.CPUSensorID, Settings.CPUFanID).ConfigureAwait(false);
+        var cpuCurrentTemperature = await GetCpuCurrentTemperatureAsync().ConfigureAwait(false);
+        var cpuCurrentFanSpeed = await GetCpuCurrentFanSpeedAsync().ConfigureAwait(false);
+        var cpuMaxFanSpeed = _cpuMaxFanSpeedCache ??= await GetCpuMaxFanSpeedAsync().ConfigureAwait(false);
 
         var gpuInfo = GetGPUInfo();
-        var gpuCurrentFanSpeed = await GetCurrentFanSpeedAsync(Settings.GPUFanID).ConfigureAwait(false);
-        var gpuMaxFanSpeed = _gpuMaxFanSpeedCache ??= await GetMaxFanSpeedAsync(Settings.GPUSensorID, Settings.GPUFanID).ConfigureAwait(false);
+        var gpuCurrentTemperature = gpuInfo.Temperature >= 0 ? gpuInfo.Temperature : await GetGpuCurrentTemperatureAsync().ConfigureAwait(false);
+        var gpuMaxTemperature = gpuInfo.MaxTemperature >= 0 ? gpuInfo.MaxTemperature : genericMaxTemperature;
+        var gpuCurrentFanSpeed = await GetGpuCurrentFanSpeedAsync().ConfigureAwait(false);
+        var gpuMaxFanSpeed = _gpuMaxFanSpeedCache ??= await GetGpuMaxFanSpeedAsync().ConfigureAwait(false);
 
         return new()
         {
             CPU = new()
             {
                 Utilization = cpuUtilization,
-                MaxUtilization = 100,
+                MaxUtilization = genericMaxUtilization,
                 CoreClock = cpuCoreClock,
                 MaxCoreClock = cpuMaxCoreClock,
                 Temperature = cpuCurrentTemperature,
-                MaxTemperature = 100,
+                MaxTemperature = genericMaxTemperature,
                 FanSpeed = cpuCurrentFanSpeed,
                 MaxFanSpeed = cpuMaxFanSpeed,
             },
             GPU = new()
             {
                 Utilization = gpuInfo.Utilization,
-                MaxUtilization = 100,
+                MaxUtilization = genericMaxTemperature,
                 CoreClock = gpuInfo.CoreClock,
                 MaxCoreClock = gpuInfo.MaxCoreClock,
                 MemoryClock = gpuInfo.MemoryClock,
                 MaxMemoryClock = gpuInfo.MaxMemoryClock,
-                Temperature = gpuInfo.Temperature,
-                MaxTemperature = gpuInfo.MaxTemperature,
+                Temperature = gpuCurrentTemperature,
+                MaxTemperature = gpuMaxTemperature,
                 FanSpeed = gpuCurrentFanSpeed,
                 MaxFanSpeed = gpuMaxFanSpeed,
             }
         };
     }
 
-    private static Task<int> GetCurrentTemperatureAsync(int sensorID) =>
-        WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_FAN_METHOD",
-            "Fan_GetCurrentSensorTemperature",
-            new() { { "SensorID", sensorID } },
-            pdc => Convert.ToInt32(pdc["CurrentSensorTemperature"].Value));
+    protected abstract Task<int> GetCpuCurrentTemperatureAsync();
 
-    private static Task<int> GetCurrentFanSpeedAsync(int fanID) =>
-        WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_FAN_METHOD",
-            "Fan_GetCurrentFanSpeed",
-            new() { { "FanID", fanID } },
-            pdc => Convert.ToInt32(pdc["CurrentFanSpeed"].Value));
+    protected abstract Task<int> GetGpuCurrentTemperatureAsync();
 
-    protected virtual async Task<int> GetMaxFanSpeedAsync(int sensorID, int fanID)
-    {
-        var result = await WMI.ReadAsync("root\\WMI",
-            $"SELECT CurrentFanMaxSpeed FROM LENOVO_FAN_TABLE_DATA WHERE Sensor_ID = {sensorID} AND Fan_Id = {fanID}",
-            pdc => Convert.ToInt32(pdc["CurrentFanMaxSpeed"].Value)).ConfigureAwait(false);
-        return result.FirstOrDefault();
-    }
+    protected abstract Task<int> GetCpuCurrentFanSpeedAsync();
+
+    protected abstract Task<int> GetGpuCurrentFanSpeedAsync();
+
+    protected abstract Task<int> GetCpuMaxFanSpeedAsync();
+
+    protected abstract Task<int> GetGpuMaxFanSpeedAsync();
 
     private int GetCpuUtilization()
     {
