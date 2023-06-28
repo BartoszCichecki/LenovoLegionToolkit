@@ -55,7 +55,7 @@ public class SensorsControllerV3 : AbstractSensorsController
     private static Task<int> GetFeatureValueAsync(int id) =>
         WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_OTHER_METHOD",
-            "GetFeatureValueAsync",
+            "GetFeatureValue",
             new() { { "IDs", id } },
             pdc => Convert.ToInt32(pdc["Value"].Value));
 
