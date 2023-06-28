@@ -744,7 +744,7 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     #region Fan Table
 
-    protected static async Task<FanTableData[]?> GetFanTableDataAsync()
+    private static async Task<FanTableData[]?> GetFanTableDataAsync()
     {
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Reading fan table data...");
@@ -808,7 +808,7 @@ public class GodModeControllerV1 : AbstractGodModeController
         return fanTableData;
     }
 
-    protected static Task SetFanTable(FanTable fanTable) => WMI.CallAsync("root\\WMI",
+    private static Task SetFanTable(FanTable fanTable) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_FAN_METHOD",
         "Fan_Set_Table",
         new() { { "FanTable", fanTable.GetBytes() } });
@@ -817,13 +817,13 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     #region Fan Full Speed
 
-    protected static Task<bool> GetFanFullSpeedAsync() => WMI.CallAsync("root\\WMI",
+    private static Task<bool> GetFanFullSpeedAsync() => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_FAN_METHOD",
         "Fan_Get_FullSpeed",
         new(),
         pdc => (bool)pdc["Status"].Value);
 
-    protected static Task SetFanFullSpeedAsync(bool enabled) => WMI.CallAsync("root\\WMI",
+    private static Task SetFanFullSpeedAsync(bool enabled) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_FAN_METHOD",
         "Fan_Set_FullSpeed",
         new() { { "Status", enabled } });

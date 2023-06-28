@@ -630,7 +630,7 @@ Vielen Dank im Voraus!</value>
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>GPU</value>
   </data>
-  <data name="FanCurveControl_RPM" xml:space="preserve">
+  <data name="RPM" xml:space="preserve">
     <value>U/min</value>
   </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">

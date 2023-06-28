@@ -62,7 +62,7 @@ public partial class DiscreteGPUControl
         var tooltipStringBuilder = new StringBuilder(Resource.DiscreteGPUControl_PerformanceState);
         tooltipStringBuilder.AppendLine().Append(" · ").Append(e.PerformanceState ?? Resource.DiscreteGPUControl_PerformanceState_Unknown);
 
-        if (e.Status is GPUController.Status.Unknown or GPUController.Status.NvidiaGpuNotFound)
+        if (e.State is GPUController.GPUState.Unknown or GPUController.GPUState.NvidiaGpuNotFound)
         {
             _discreteGPUStatusActiveIndicator.Visibility = Visibility.Collapsed;
             _discreteGPUStatusInactiveIndicator.Visibility = Visibility.Collapsed;
@@ -133,10 +133,10 @@ public partial class DiscreteGPUControl
             _deactivateGPUButtonIcon.SetResourceReference(ForegroundProperty, "TextFillColorDisabledBrush");
         }
 
-        _deactivateGPUButton.ToolTip = e.Status switch
+        _deactivateGPUButton.ToolTip = e.State switch
         {
-            GPUController.Status.MonitorsConnected => Resource.DiscreteGPUControl_MonitorConnected,
-            GPUController.Status.DeactivatePossible => Resource.DiscreteGPUControl_DisablePossible,
+            GPUController.GPUState.MonitorsConnected => Resource.DiscreteGPUControl_MonitorConnected,
+            GPUController.GPUState.DeactivatePossible => Resource.DiscreteGPUControl_DisablePossible,
             _ => null,
         };
 
