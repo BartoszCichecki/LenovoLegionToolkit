@@ -14,7 +14,7 @@ namespace LenovoLegionToolkit.Lib.Controllers;
 
 public class GPUController
 {
-    public enum Status
+    public enum GPUState
     {
         Unknown,
         NvidiaGpuNotFound,
@@ -26,17 +26,17 @@ public class GPUController
 
     public readonly struct GPUStatus
     {
-        public Status Status { get; }
+        public GPUState State { get; }
         public string? PerformanceState { get; }
         public List<Process> Processes { get; }
         public int ProcessCount => Processes.Count;
-        public bool IsActive => Status is Status.MonitorsConnected or Status.DeactivatePossible;
-        public bool IsPoweredOff => Status is Status.PoweredOff;
-        public bool CanBeDeactivated => Status == Status.DeactivatePossible;
+        public bool IsActive => State is GPUState.MonitorsConnected or GPUState.DeactivatePossible;
+        public bool IsPoweredOff => State is GPUState.PoweredOff;
+        public bool CanBeDeactivated => State == GPUState.DeactivatePossible;
 
-        public GPUStatus(Status status, string? performanceState, List<Process> processes)
+        public GPUStatus(GPUState state, string? performanceState, List<Process> processes)
         {
-            Status = status;
+            State = state;
             PerformanceState = performanceState;
             Processes = processes;
         }
@@ -47,14 +47,15 @@ public class GPUController
     private Task? _refreshTask;
     private CancellationTokenSource? _refreshCancellationTokenSource;
 
-    private Status _status = Status.Unknown;
+    private GPUState _state = GPUState.Unknown;
     private List<Process> _processes = new();
     private string? _gpuInstanceId;
     private string? _performanceState;
 
-    private bool IsActive => _status is Status.MonitorsConnected or Status.DeactivatePossible;
-    private bool CanBeDeactivated => _status == Status.DeactivatePossible;
+    private bool IsActive => _state is GPUState.MonitorsConnected or GPUState.DeactivatePossible;
+    private bool CanBeDeactivated => _state is GPUState.DeactivatePossible;
 
+    public GPUState LastKnownState => _state;
     public event EventHandler<GPUStatus>? Refreshed;
 
     public bool IsSupported()
@@ -83,7 +84,7 @@ public class GPUController
         using (await _lock.LockAsync().ConfigureAwait(false))
         {
             await RefreshLoopAsync(0, 0, CancellationToken.None);
-            return new GPUStatus(_status, _performanceState, _processes);
+            return new GPUStatus(_state, _performanceState, _processes);
         }
     }
 
@@ -206,7 +207,7 @@ public class GPUController
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Refreshed");
 
-                    Refreshed?.Invoke(this, new GPUStatus(_status, _performanceState, _processes));
+                    Refreshed?.Invoke(this, new GPUStatus(_state, _performanceState, _processes));
                 }
 
                 if (interval > 0)
@@ -239,7 +240,7 @@ public class GPUController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Refresh in progress...");
 
-        _status = Status.Unknown;
+        _state = GPUState.Unknown;
         _processes = new();
         _gpuInstanceId = null;
         _performanceState = null;
@@ -247,10 +248,10 @@ public class GPUController
         var gpu = NVAPI.GetGPU();
         if (gpu is null)
         {
-            _status = Status.NvidiaGpuNotFound;
+            _state = GPUState.NvidiaGpuNotFound;
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"GPU present [status={_status}, processes.Count={_processes.Count}, gpuInstanceId={_gpuInstanceId}]");
+                Log.Instance.Trace($"GPU present [state={_state}, processes.Count={_processes.Count}, gpuInstanceId={_gpuInstanceId}]");
 
             return;
         }
@@ -264,7 +265,7 @@ public class GPUController
         }
         catch (Exception ex) when (ex.Message == "NVAPI_GPU_NOT_POWERED")
         {
-            _status = Status.PoweredOff;
+            _state = GPUState.PoweredOff;
             _performanceState = Resource.GPUController_PoweredOff;
             return;
         }
@@ -279,10 +280,10 @@ public class GPUController
         var processNames = NVAPIExtensions.GetActiveProcesses(gpu);
         if (processNames.Count < 1)
         {
-            _status = Status.Inactive;
+            _state = GPUState.Inactive;
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"GPU inactive [status={_status}, processes.Count={_processes.Count}, gpuInstanceId={_gpuInstanceId}]");
+                Log.Instance.Trace($"GPU inactive [state={_state}, processes.Count={_processes.Count}, gpuInstanceId={_gpuInstanceId}]");
 
             return;
         }
@@ -291,10 +292,10 @@ public class GPUController
 
         if (NVAPI.IsDisplayConnected(gpu))
         {
-            _status = Status.MonitorsConnected;
+            _state = GPUState.MonitorsConnected;
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Monitor connected [status={_status}, processes.Count={_processes.Count}, gpuInstanceId={_gpuInstanceId}]");
+                Log.Instance.Trace($"Monitor connected [state={_state}, processes.Count={_processes.Count}, gpuInstanceId={_gpuInstanceId}]");
 
             return;
         }
@@ -306,11 +307,11 @@ public class GPUController
 
         var gpuInstanceId = await GetDeviceInstanceIDAsync(pnpDeviceId).ConfigureAwait(false);
 
+        _state = GPUState.DeactivatePossible;
         _gpuInstanceId = gpuInstanceId;
-        _status = Status.DeactivatePossible;
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Deactivate possible [status={_status}, processes.Count={_processes.Count}, gpuInstanceId={_gpuInstanceId}, pnpDeviceId={pnpDeviceId}]");
+            Log.Instance.Trace($"Deactivate possible [state={_state}, processes.Count={_processes.Count}, gpuInstanceId={_gpuInstanceId}, pnpDeviceId={pnpDeviceId}]");
     }
 
     private static async Task<string?> GetDeviceInstanceIDAsync(string pnpDeviceId)

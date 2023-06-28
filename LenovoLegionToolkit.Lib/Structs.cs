@@ -624,6 +624,49 @@ public readonly struct RGBKeyboardBacklightState
     }
 }
 
+public readonly struct SensorData
+{
+    public static readonly SensorData Empty = new()
+    {
+        Utilization = -1,
+        CoreClock = -1,
+        MaxCoreClock = -1,
+        MemoryClock = -1,
+        MaxMemoryClock = -1,
+        Temperature = -1,
+        MaxTemperature = -1,
+        FanSpeed = -1,
+        MaxFanSpeed = -1
+    };
+
+    public int Utilization { get; init; }
+    public int MaxUtilization { get; init; }
+    public int CoreClock { get; init; }
+    public int MaxCoreClock { get; init; }
+    public int MemoryClock { get; init; }
+    public int MaxMemoryClock { get; init; }
+    public int Temperature { get; init; }
+    public int MaxTemperature { get; init; }
+    public int FanSpeed { get; init; }
+    public int MaxFanSpeed { get; init; }
+}
+
+public readonly struct SensorsData
+{
+    public static readonly SensorsData Empty = new() { CPU = SensorData.Empty, GPU = SensorData.Empty };
+
+    public SensorData CPU { get; init; }
+    public SensorData GPU { get; init; }
+}
+
+public readonly struct SensorSettings
+{
+    public int CPUSensorID { get; init; }
+    public int GPUSensorID { get; init; }
+    public int CPUFanID { get; init; }
+    public int GPUFanID { get; init; }
+}
+
 public readonly struct DpiScale : IDisplayName, IEquatable<DpiScale>
 {
     public int Scale { get; }
@@ -684,8 +727,8 @@ public readonly struct RefreshRate : IDisplayName, IEquatable<RefreshRate>
 
 public readonly struct Resolution : IDisplayName, IEquatable<Resolution>, IComparable<Resolution>
 {
-    public int Width { get; }
-    public int Height { get; }
+    private int Width { get; }
+    private int Height { get; }
 
     [JsonIgnore]
     public string DisplayName => $"{Width} × {Height}";

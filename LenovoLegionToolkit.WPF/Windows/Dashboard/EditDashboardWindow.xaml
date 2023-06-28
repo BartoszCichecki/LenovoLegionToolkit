@@ -64,7 +64,15 @@
             Margin="12,0,0,0"
             IndicatorVerticalAlignment="Center">
             <wpfui:DynamicScrollViewer x:Name="_groupsScrollViewer">
-                <StackPanel x:Name="_groupsStackPanel" Margin="0,0,16,0" />
+                <StackPanel>
+                    <wpfui:CardControl Margin="0,0,16,16">
+                        <wpfui:CardControl.Header>
+                            <controls:CardHeaderControl Title="Sensors" />
+                        </wpfui:CardControl.Header>
+                        <wpfui:ToggleSwitch x:Name="_sensorsSwitch" />
+                    </wpfui:CardControl>
+                    <StackPanel x:Name="_groupsStackPanel" Margin="0,0,16,0" />
+                </StackPanel>
             </wpfui:DynamicScrollViewer>
         </controls:LoadableControl>
 

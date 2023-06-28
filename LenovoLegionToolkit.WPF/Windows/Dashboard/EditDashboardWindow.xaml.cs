@@ -48,6 +48,8 @@ public partial class EditDashboardWindow
         _groupsScrollViewer.ScrollToTop();
         _groupsStackPanel.Children.Clear();
 
+        _sensorsSwitch.IsChecked = _dashboardSettings.Store.ShowSensors;
+
         foreach (var group in groups)
             _groupsStackPanel.Children.Add(CreateGroupControl(group));
 
@@ -74,6 +76,7 @@ public partial class EditDashboardWindow
 
     private void DefaultButton_Click(object sender, RoutedEventArgs e)
     {
+        _dashboardSettings.Store.ShowSensors = true;
         _dashboardSettings.Store.Groups = null;
         _dashboardSettings.SynchronizeStore();
 
@@ -84,12 +87,11 @@ public partial class EditDashboardWindow
 
     private void ApplyButton_Click(object sender, RoutedEventArgs e)
     {
-        var groups = _groupsStackPanel.Children
+        _dashboardSettings.Store.ShowSensors = _sensorsSwitch.IsChecked ?? true;
+        _dashboardSettings.Store.Groups = _groupsStackPanel.Children
             .OfType<EditDashboardGroupControl>()
             .Select(c => c.GetDashboardGroup())
             .ToArray();
-
-        _dashboardSettings.Store.Groups = groups;
         _dashboardSettings.SynchronizeStore();
 
         Close();

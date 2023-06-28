@@ -1770,15 +1770,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to RPM.
-        /// </summary>
-        public static string FanCurveControl_RPM {
-            get {
-                return ResourceManager.GetString("FanCurveControl_RPM", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Filter....
         /// </summary>
         public static string Filter {
@@ -1856,6 +1847,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string FnLockControl_Title {
             get {
                 return ResourceManager.GetString("FnLockControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GHz.
+        /// </summary>
+        public static string GHz {
+            get {
+                return ResourceManager.GetString("GHz", resourceCulture);
             }
         }
         
@@ -2504,6 +2504,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string MainWindow_UpdateAvailableWithVersion {
             get {
                 return ResourceManager.GetString("MainWindow_UpdateAvailableWithVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MHz.
+        /// </summary>
+        public static string MHz {
+            get {
+                return ResourceManager.GetString("MHz", resourceCulture);
             }
         }
         
@@ -3849,6 +3858,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to RPM.
+        /// </summary>
+        public static string RPM {
+            get {
+                return ResourceManager.GetString("RPM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Arguments.
         /// </summary>
         public static string RunAutomationStepControl_ExeArguments {
@@ -3936,6 +3954,87 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string SelectSmartKeyPipelinesWindow_ShowThisApp {
             get {
                 return ResourceManager.GetString("SelectSmartKeyPipelinesWindow_ShowThisApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Core Clock.
+        /// </summary>
+        public static string SensorsControl_CoreClock_Title {
+            get {
+                return ResourceManager.GetString("SensorsControl_CoreClock_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CPU.
+        /// </summary>
+        public static string SensorsControl_CPU_Title {
+            get {
+                return ResourceManager.GetString("SensorsControl_CPU_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fan.
+        /// </summary>
+        public static string SensorsControl_Fan_Title {
+            get {
+                return ResourceManager.GetString("SensorsControl_Fan_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GPU.
+        /// </summary>
+        public static string SensorsControl_GPU_Title {
+            get {
+                return ResourceManager.GetString("SensorsControl_GPU_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximum: {0}.
+        /// </summary>
+        public static string SensorsControl_Maximum {
+            get {
+                return ResourceManager.GetString("SensorsControl_Maximum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Memory Clock.
+        /// </summary>
+        public static string SensorsControl_MemoryClock_Title {
+            get {
+                return ResourceManager.GetString("SensorsControl_MemoryClock_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Refresh interval.
+        /// </summary>
+        public static string SensorsControl_RefreshInterval {
+            get {
+                return ResourceManager.GetString("SensorsControl_RefreshInterval", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Temperature.
+        /// </summary>
+        public static string SensorsControl_Temperature_Title {
+            get {
+                return ResourceManager.GetString("SensorsControl_Temperature_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Utilisation.
+        /// </summary>
+        public static string SensorsControl_Utilisation_Title {
+            get {
+                return ResourceManager.GetString("SensorsControl_Utilisation_Title", resourceCulture);
             }
         }
         
