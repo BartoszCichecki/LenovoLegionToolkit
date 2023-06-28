@@ -102,6 +102,18 @@ public enum IGPUModeState
     Auto
 }
 
+public enum InstantBootState
+{
+    [Display(ResourceType = typeof(Resource), Name = "InstantBootState_Off")]
+    Off,
+    [Display(ResourceType = typeof(Resource), Name = "InstantBootState_AcAdapter")]
+    AcAdapter,
+    [Display(ResourceType = typeof(Resource), Name = "InstantBootState_UsbPowerDelivery")]
+    UsbPowerDelivery,
+    [Display(ResourceType = typeof(Resource), Name = "InstantBootState_AcAdapterAndUsbPowerDelivery")]
+    AcAdapterAndUsbPowerDelivery
+}
+
 public enum KeyboardLayout
 {
     Ansi,

@@ -68,7 +68,7 @@ public class GodModeControllerV2 : AbstractGodModeController
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Applying {id}: {value}...");
 
-                await SetValue(id, value.Value).ConfigureAwait(false);
+                await SetValueAsync(id, value.Value).ConfigureAwait(false);
             }
             catch (Exception ex)
             {
@@ -214,7 +214,7 @@ public class GodModeControllerV2 : AbstractGodModeController
 
         foreach (var c in capabilityData)
         {
-            var value = await GetValue(c.Id).ConfigureAwait(false).OrNullIfException() ?? c.DefaultValue;
+            var value = await GetValueAsync(c.Id).ConfigureAwait(false).OrNullIfException() ?? c.DefaultValue;
             var steps = discreteData.GetValueOrDefault(c.Id) ?? Array.Empty<int>();
 
             if (c.Step == 0 && steps.Length < 1)
@@ -273,7 +273,7 @@ public class GodModeControllerV2 : AbstractGodModeController
 
     #region Get/Set Value
 
-    private static Task<int> GetValue(TuneId id)
+    private static Task<int> GetValueAsync(TuneId id)
     {
         var idRaw = (uint)id & 0xFFFF00FF;
         return WMI.CallAsync("root\\WMI",
@@ -283,7 +283,7 @@ public class GodModeControllerV2 : AbstractGodModeController
             pdc => Convert.ToInt32(pdc["Value"].Value));
     }
 
-    private static Task SetValue(TuneId id, StepperValue value)
+    private static Task SetValueAsync(TuneId id, StepperValue value)
     {
         var idRaw = (uint)id & 0xFFFF00FF;
         return WMI.CallAsync("root\\WMI",

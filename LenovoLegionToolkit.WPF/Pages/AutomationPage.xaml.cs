@@ -166,6 +166,7 @@ public partial class AutomationPage
             new FnLockAutomationStep(default),
             new GodModePresetAutomationStep(default),
             new HDRAutomationStep(default),
+            new InstantBootAutomationStep(default),
             new MicrophoneAutomationStep(default),
             new OneLevelWhiteKeyboardBacklightAutomationStep(default),
             new OverclockDiscreteGPUAutomationStep(default),
