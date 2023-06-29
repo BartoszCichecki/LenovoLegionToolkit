@@ -3,6 +3,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System;
 using Windows.Win32;
 using Windows.Win32.Foundation;
@@ -85,6 +86,7 @@ public static class Compatibility
             var (vendor, machineType, model, serialNumber) = await GetModelDataAsync().ConfigureAwait(false);
             var (biosVersion, biosVersionRaw) = await GetBIOSVersionAsync().ConfigureAwait(false);
             var legionZoneVersion = await GetLegionZoneVersionAsync().ConfigureAwait(false);
+            var features = await GetFeaturesAsync().ConfigureAwait(false);
 
             var machineInformation = new MachineInformation
             {
@@ -95,6 +97,7 @@ public static class Compatibility
                 BiosVersion = biosVersion,
                 BiosVersionRaw = biosVersionRaw,
                 LegionZoneVersion = legionZoneVersion,
+                Features = features,
                 Properties = new()
                 {
                     SupportsAlwaysOnAc = GetAlwaysOnAcStatus(),
@@ -116,15 +119,25 @@ public static class Compatibility
                 Log.Instance.Trace($" * Machine Type: '{machineInformation.MachineType}'");
                 Log.Instance.Trace($" * Model: '{machineInformation.Model}'");
                 Log.Instance.Trace($" * BIOS: '{machineInformation.BiosVersion}' [{machineInformation.BiosVersionRaw}]");
-                Log.Instance.Trace($" * Properties.SupportsAlwaysOnAc: '{machineInformation.Properties.SupportsAlwaysOnAc.status}, {machineInformation.Properties.SupportsAlwaysOnAc.connectivity}'");
-                Log.Instance.Trace($" * Properties.SupportsGodModeV1: '{machineInformation.Properties.SupportsGodModeV1}'");
-                Log.Instance.Trace($" * Properties.SupportsGodModeV2: '{machineInformation.Properties.SupportsGodModeV2}'");
-                Log.Instance.Trace($" * Properties.SupportsExtendedHybridMode: '{machineInformation.Properties.SupportsExtendedHybridMode}'");
-                Log.Instance.Trace($" * Properties.SupportsIntelligentSubMode: '{machineInformation.Properties.SupportsIntelligentSubMode}'");
-                Log.Instance.Trace($" * Properties.HasQuietToPerformanceModeSwitchingBug: '{machineInformation.Properties.HasQuietToPerformanceModeSwitchingBug}'");
-                Log.Instance.Trace($" * Properties.HasGodModeToOtherModeSwitchingBug: '{machineInformation.Properties.HasGodModeToOtherModeSwitchingBug}'");
-                Log.Instance.Trace($" * Properties.IsExcludedFromLenovoLighting: '{machineInformation.Properties.IsExcludedFromLenovoLighting}'");
-                Log.Instance.Trace($" * Properties.IsExcludedFromPanelLogoLenovoLighting: '{machineInformation.Properties.IsExcludedFromPanelLogoLenovoLighting}'");
+                Log.Instance.Trace($" * LegionZoneVersion: '{machineInformation.LegionZoneVersion}'");
+                Log.Instance.Trace($" * Features:");
+                Log.Instance.Trace($"     * Source: '{machineInformation.Features.Source}'");
+                Log.Instance.Trace($"     * IGPUModeSupport: '{machineInformation.Features.IGPUModeSupport}'");
+                Log.Instance.Trace($"     * NvidiaGPUDynamicDisplaySwitching: '{machineInformation.Features.NvidiaGPUDynamicDisplaySwitching}'");
+                Log.Instance.Trace($"     * InstantBootAc: '{machineInformation.Features.InstantBootAc}'");
+                Log.Instance.Trace($"     * InstantBootUsbPowerDelivery: '{machineInformation.Features.InstantBootUsbPowerDelivery}'");
+                Log.Instance.Trace($"     * AMDSmartShiftMode: '{machineInformation.Features.AMDSmartShiftMode}'");
+                Log.Instance.Trace($"     * AMDSkinTemperatureTracking: '{machineInformation.Features.AMDSkinTemperatureTracking}'");
+                Log.Instance.Trace($" * Properties:");
+                Log.Instance.Trace($"     * SupportsAlwaysOnAc: '{machineInformation.Properties.SupportsAlwaysOnAc.status}, {machineInformation.Properties.SupportsAlwaysOnAc.connectivity}'");
+                Log.Instance.Trace($"     * SupportsGodModeV1: '{machineInformation.Properties.SupportsGodModeV1}'");
+                Log.Instance.Trace($"     * SupportsGodModeV2: '{machineInformation.Properties.SupportsGodModeV2}'");
+                Log.Instance.Trace($"     * SupportsExtendedHybridMode: '{machineInformation.Properties.SupportsExtendedHybridMode}'");
+                Log.Instance.Trace($"     * SupportsIntelligentSubMode: '{machineInformation.Properties.SupportsIntelligentSubMode}'");
+                Log.Instance.Trace($"     * HasQuietToPerformanceModeSwitchingBug: '{machineInformation.Properties.HasQuietToPerformanceModeSwitchingBug}'");
+                Log.Instance.Trace($"     * HasGodModeToOtherModeSwitchingBug: '{machineInformation.Properties.HasGodModeToOtherModeSwitchingBug}'");
+                Log.Instance.Trace($"     * IsExcludedFromLenovoLighting: '{machineInformation.Properties.IsExcludedFromLenovoLighting}'");
+                Log.Instance.Trace($"     * IsExcludedFromPanelLogoLenovoLighting: '{machineInformation.Properties.IsExcludedFromPanelLogoLenovoLighting}'");
             }
 
             _machineInformation = machineInformation;
@@ -167,20 +180,77 @@ public static class Compatibility
         return (new(prefix, version), biosString);
     }
 
+    private static async Task<MachineInformation.FeatureData> GetFeaturesAsync()
+    {
+        try
+        {
+            var capabilities = await WMI.ReadAsync("root\\WMI",
+                $"SELECT * FROM LENOVO_CAPABILITY_DATA_00",
+                pdc => (LenovoFeatureID)Convert.ToInt32(pdc["IDs"].Value)).ConfigureAwait(false);
+            capabilities = capabilities.ToArray();
+
+            return new()
+            {
+                Source = MachineInformation.FeatureData.SourceType.CapabilityData,
+                IGPUModeSupport = capabilities.Contains(LenovoFeatureID.IGPUModeSupport),
+                NvidiaGPUDynamicDisplaySwitching = capabilities.Contains(LenovoFeatureID.NvidiaGPUDynamicDisplaySwitching),
+                InstantBootAc = capabilities.Contains(LenovoFeatureID.InstantBootAc),
+                InstantBootUsbPowerDelivery = capabilities.Contains(LenovoFeatureID.InstantBootUsbPowerDelivery),
+                AMDSmartShiftMode = capabilities.Contains(LenovoFeatureID.AMDSmartShiftMode),
+                AMDSkinTemperatureTracking = capabilities.Contains(LenovoFeatureID.AMDSkinTemperatureTracking),
+            };
+        }
+        catch { /* Ignored. */ }
+
+        try
+        {
+            var featureFlags = await WMI.CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_OTHER_METHOD",
+            "Get_Legion_Device_Support_Feature",
+            new(),
+            pdc => Convert.ToInt32(pdc["Status"].Value)).ConfigureAwait(false);
+
+            return new()
+            {
+                Source = MachineInformation.FeatureData.SourceType.Flags,
+                IGPUModeSupport = featureFlags.IsBitSet(0),
+                NvidiaGPUDynamicDisplaySwitching = featureFlags.IsBitSet(4),
+                InstantBootAc = featureFlags.IsBitSet(5),
+                InstantBootUsbPowerDelivery = featureFlags.IsBitSet(6),
+                AMDSmartShiftMode = featureFlags.IsBitSet(7),
+                AMDSkinTemperatureTracking = featureFlags.IsBitSet(8)
+            };
+        }
+        catch { /* Ignored. */ }
+
+        return MachineInformation.FeatureData.Unknown;
+    }
+
     private static async Task<int> GetLegionZoneVersionAsync()
     {
         try
         {
-            return await WMI.CallAsync("root\\WMI",
+            var result = await WMI.CallAsync("root\\WMI",
+                $"SELECT * FROM LENOVO_OTHER_METHOD",
+                "GetFeatureValue",
+                new() { { "IDs", LenovoFeatureID.LegionZoneSupportVersion } },
+                pdc => Convert.ToInt32(pdc["Value"].Value)).ConfigureAwait(false);
+            return result;
+        }
+        catch { /* Ignored. */ }
+
+        try
+        {
+            var result = await WMI.CallAsync("root\\WMI",
                 $"SELECT * FROM LENOVO_OTHER_METHOD",
                 "Get_Support_LegionZone_Version",
                 new(),
                 pdc => Convert.ToInt32(pdc["Version"].Value)).ConfigureAwait(false);
+            return result;
         }
-        catch
-        {
-            return -1;
-        }
+        catch { /* Ignored. */ }
+
+        return 0;
     }
 
     private static unsafe (bool status, bool connectivity) GetAlwaysOnAcStatus()

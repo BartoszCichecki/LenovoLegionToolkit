@@ -16,8 +16,7 @@ public class WhiteKeyboardBacklightFeature : IFeature<WhiteKeyboardBacklightStat
     public WhiteKeyboardBacklightFeature(WhiteKeyboardLenovoLightingBacklightFeature lenovoLightingFeature,
         WhiteKeyboardDriverBacklightFeature driverFeature,
         SpectrumKeyboardBacklightController spectrumController,
-        RGBKeyboardBacklightController rgbController
-        )
+        RGBKeyboardBacklightController rgbController)
     {
         _lenovoLightingFeature = lenovoLightingFeature ?? throw new ArgumentNullException(nameof(lenovoLightingFeature));
         _driverFeature = driverFeature ?? throw new ArgumentNullException(nameof(driverFeature));

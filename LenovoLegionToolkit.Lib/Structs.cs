@@ -354,7 +354,27 @@ public readonly struct HardwareId
 
 public readonly struct MachineInformation
 {
-    public readonly struct CompatibilityProperties
+    public readonly struct FeatureData
+    {
+        public static readonly FeatureData Unknown = new() { Source = SourceType.Unknown };
+
+        public enum SourceType
+        {
+            Unknown,
+            Flags,
+            CapabilityData
+        }
+
+        public SourceType Source { get; init; }
+        public bool IGPUModeSupport { get; init; }
+        public bool NvidiaGPUDynamicDisplaySwitching { get; init; }
+        public bool InstantBootAc { get; init; }
+        public bool InstantBootUsbPowerDelivery { get; init; }
+        public bool AMDSmartShiftMode { get; init; }
+        public bool AMDSkinTemperatureTracking { get; init; }
+    }
+
+    public readonly struct PropertyData
     {
         public bool SupportsGodMode => SupportsGodModeV1 || SupportsGodModeV2;
 
@@ -376,7 +396,8 @@ public readonly struct MachineInformation
     public BiosVersion? BiosVersion { get; init; }
     public string? BiosVersionRaw { get; init; }
     public int LegionZoneVersion { get; init; }
-    public CompatibilityProperties Properties { get; init; }
+    public FeatureData Features { get; init; }
+    public PropertyData Properties { get; init; }
 }
 
 public struct Package

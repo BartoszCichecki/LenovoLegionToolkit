@@ -51,9 +51,13 @@ public enum FanTableType
     CPUSensor
 }
 
-public enum FeatureID : uint
+public enum LenovoFeatureID : uint
 {
-    // LegionZoneSupportVersion = 0x90000,
+    IGPUModeSupport = 0x0010000,
+    NvidiaGPUDynamicDisplaySwitching = 0x0040000,
+    AMDSmartShiftMode = 0x0050001,
+    AMDSkinTemperatureTracking = 0x0050002,
+    LegionZoneSupportVersion = 0x00900000,
     CPUShortTermPowerLimit = 0x0101FF00,
     CPULongTermPowerLimit = 0x0102FF00,
     CPUPeakPowerLimit = 0x0103FF00,
@@ -65,6 +69,8 @@ public enum FeatureID : uint
     GPUConfigurableTGP = 0x0202FF00,
     GPUTemperatureLimit = 0x0203FF00,
     GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline = 0x0204FF00,
+    InstantBootAc = 0x3010001,
+    InstantBootUsbPowerDelivery = 0x3010002,
     // FanTable = 0x4010000,
     FanFullSpeed = 0x4020000,
     CpuCurrentFanSpeed = 0x4030001,
