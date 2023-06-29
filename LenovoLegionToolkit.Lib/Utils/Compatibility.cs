@@ -24,6 +24,7 @@ public static class Compatibility
         "17IMH",
 
         "16ACH",
+        "16APH",
         "16ARH",
         "16ARX",
         "16IAH",
@@ -33,14 +34,18 @@ public static class Compatibility
         "16ITH",
 
         "15ACH",
+        "15APH",
         "15ARH",
         "15IAH",
         "15IHU",
         "15IMH",
+        "15IRH",
         "15ITH",
 
+        "14IRP",
+
         // Chinese variants
-        "IRH8",
+        "G5000",
         "R9000",
         "R7000",
         "Y9000",
@@ -49,7 +54,7 @@ public static class Compatibility
         // Limited compatibility
         "17IR",
         "15IR",
-        "15ICH"
+        "15IC"
     };
 
     private static MachineInformation? _machineInformation;
