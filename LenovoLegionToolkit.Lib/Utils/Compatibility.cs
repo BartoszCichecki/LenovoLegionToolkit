@@ -103,7 +103,6 @@ public static class Compatibility
                     SupportsAlwaysOnAc = GetAlwaysOnAcStatus(),
                     SupportsGodModeV1 = legionZoneVersion is 1 or 2,
                     SupportsGodModeV2 = legionZoneVersion is 3,
-                    SupportsExtendedHybridMode = await GetSupportsExtendedHybridModeAsync().ConfigureAwait(false),
                     SupportsIntelligentSubMode = await GetSupportsIntelligentSubModeAsync().ConfigureAwait(false),
                     HasQuietToPerformanceModeSwitchingBug = GetHasQuietToPerformanceModeSwitchingBug(biosVersion),
                     HasGodModeToOtherModeSwitchingBug = GetHasGodModeToOtherModeSwitchingBug(biosVersion),
@@ -132,7 +131,6 @@ public static class Compatibility
                 Log.Instance.Trace($"     * SupportsAlwaysOnAc: '{machineInformation.Properties.SupportsAlwaysOnAc.status}, {machineInformation.Properties.SupportsAlwaysOnAc.connectivity}'");
                 Log.Instance.Trace($"     * SupportsGodModeV1: '{machineInformation.Properties.SupportsGodModeV1}'");
                 Log.Instance.Trace($"     * SupportsGodModeV2: '{machineInformation.Properties.SupportsGodModeV2}'");
-                Log.Instance.Trace($"     * SupportsExtendedHybridMode: '{machineInformation.Properties.SupportsExtendedHybridMode}'");
                 Log.Instance.Trace($"     * SupportsIntelligentSubMode: '{machineInformation.Properties.SupportsIntelligentSubMode}'");
                 Log.Instance.Trace($"     * HasQuietToPerformanceModeSwitchingBug: '{machineInformation.Properties.HasQuietToPerformanceModeSwitchingBug}'");
                 Log.Instance.Trace($"     * HasGodModeToOtherModeSwitchingBug: '{machineInformation.Properties.HasGodModeToOtherModeSwitchingBug}'");
@@ -266,23 +264,6 @@ public static class Compatibility
             return (false, false);
 
         return (capabilities.AoAc, capabilities.AoAcConnectivitySupported);
-    }
-
-    private static async Task<bool> GetSupportsExtendedHybridModeAsync()
-    {
-        try
-        {
-            var result = await WMI.CallAsync("root\\WMI",
-                $"SELECT * FROM LENOVO_GAMEZONE_DATA",
-                "IsSupportIGPUMode",
-                new(),
-                pdc => (uint)pdc["Data"].Value).ConfigureAwait(false);
-            return result > 0;
-        }
-        catch
-        {
-            return false;
-        }
     }
 
     private static async Task<bool> GetSupportsIntelligentSubModeAsync()
