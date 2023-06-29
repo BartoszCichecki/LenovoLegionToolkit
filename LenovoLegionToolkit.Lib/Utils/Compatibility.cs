@@ -79,6 +79,7 @@ public static class Compatibility
         {
             var (vendor, machineType, model, serialNumber) = await GetModelDataAsync().ConfigureAwait(false);
             var (biosVersion, biosVersionRaw) = await GetBIOSVersionAsync().ConfigureAwait(false);
+            var legionZoneVersion = await GetLegionZoneVersionAsync().ConfigureAwait(false);
 
             var machineInformation = new MachineInformation
             {
@@ -88,11 +89,12 @@ public static class Compatibility
                 SerialNumber = serialNumber,
                 BiosVersion = biosVersion,
                 BiosVersionRaw = biosVersionRaw,
+                LegionZoneVersion = legionZoneVersion,
                 Properties = new()
                 {
                     SupportsAlwaysOnAc = GetAlwaysOnAcStatus(),
-                    SupportsGodModeV1 = GetSupportsGodModeV1(biosVersion),
-                    SupportsGodModeV2 = GetSupportsGodModeV2(biosVersion),
+                    SupportsGodModeV1 = legionZoneVersion is 1 or 2,
+                    SupportsGodModeV2 = legionZoneVersion is 3,
                     SupportsExtendedHybridMode = await GetSupportsExtendedHybridModeAsync().ConfigureAwait(false),
                     SupportsIntelligentSubMode = await GetSupportsIntelligentSubModeAsync().ConfigureAwait(false),
                     HasQuietToPerformanceModeSwitchingBug = GetHasQuietToPerformanceModeSwitchingBug(biosVersion),
@@ -124,88 +126,6 @@ public static class Compatibility
         }
 
         return _machineInformation.Value;
-    }
-
-    private static unsafe (bool status, bool connectivity) GetAlwaysOnAcStatus()
-    {
-        var capabilities = new SYSTEM_POWER_CAPABILITIES();
-        var result = PInvoke.CallNtPowerInformation(POWER_INFORMATION_LEVEL.SystemPowerCapabilities,
-            null,
-            0,
-            &capabilities,
-            (uint)Marshal.SizeOf<SYSTEM_POWER_CAPABILITIES>());
-
-        if (result.SeverityCode == NTSTATUS.Severity.Success)
-            return (false, false);
-
-        return (capabilities.AoAc, capabilities.AoAcConnectivitySupported);
-    }
-
-    private static bool GetSupportsGodModeV1(BiosVersion? biosVersion)
-    {
-        BiosVersion[] supportedBiosVersions =
-        {
-            new("GKCN", 49),
-            new("G9CN", 30),
-            new("H1CN", 49),
-            new("HACN", 31),
-            new("HHCN", 23),
-            new("K1CN", 31),
-            new("K9CN", 34),
-            new("KFCN", 32),
-            new("J2CN", 40),
-            new("JUCN", 51),
-            new("JYCN", 39)
-        };
-
-        return supportedBiosVersions.Any(bv => biosVersion?.IsHigherOrEqualThan(bv) ?? false);
-    }
-
-    private static bool GetSupportsGodModeV2(BiosVersion? biosVersion)
-    {
-        BiosVersion[] supportedBiosVersions =
-        {
-            new("KWCN", 28),
-            new("LPCN", 27),
-            new("M3CN", 32),
-            new("M0CN", 27)
-        };
-
-        return supportedBiosVersions.Any(bv => biosVersion?.IsHigherOrEqualThan(bv) ?? false);
-    }
-
-    private static async Task<bool> GetSupportsExtendedHybridModeAsync()
-    {
-        try
-        {
-            var result = await WMI.CallAsync("root\\WMI",
-                $"SELECT * FROM LENOVO_GAMEZONE_DATA",
-                "IsSupportIGPUMode",
-                new(),
-                pdc => (uint)pdc["Data"].Value).ConfigureAwait(false);
-            return result > 0;
-        }
-        catch
-        {
-            return false;
-        }
-    }
-
-    private static async Task<bool> GetSupportsIntelligentSubModeAsync()
-    {
-        try
-        {
-            _ = await WMI.CallAsync("root\\WMI",
-                $"SELECT * FROM LENOVO_GAMEZONE_DATA",
-                "GetIntelligentSubMode",
-                new(),
-                pdc => (uint)pdc["Data"].Value).ConfigureAwait(false);
-            return true;
-        }
-        catch
-        {
-            return false;
-        }
     }
 
     private static async Task<(string, string, string, string)> GetModelDataAsync()
@@ -240,6 +160,71 @@ public static class Compatibility
             return (null, null);
 
         return (new(prefix, version), biosString);
+    }
+
+    private static async Task<int> GetLegionZoneVersionAsync()
+    {
+        try
+        {
+            return await WMI.CallAsync("root\\WMI",
+                $"SELECT * FROM LENOVO_OTHER_METHOD",
+                "Get_Support_LegionZone_Version",
+                new(),
+                pdc => Convert.ToInt32(pdc["Version"].Value)).ConfigureAwait(false);
+        }
+        catch
+        {
+            return -1;
+        }
+    }
+
+    private static unsafe (bool status, bool connectivity) GetAlwaysOnAcStatus()
+    {
+        var capabilities = new SYSTEM_POWER_CAPABILITIES();
+        var result = PInvoke.CallNtPowerInformation(POWER_INFORMATION_LEVEL.SystemPowerCapabilities,
+            null,
+            0,
+            &capabilities,
+            (uint)Marshal.SizeOf<SYSTEM_POWER_CAPABILITIES>());
+
+        if (result.SeverityCode == NTSTATUS.Severity.Success)
+            return (false, false);
+
+        return (capabilities.AoAc, capabilities.AoAcConnectivitySupported);
+    }
+
+    private static async Task<bool> GetSupportsExtendedHybridModeAsync()
+    {
+        try
+        {
+            var result = await WMI.CallAsync("root\\WMI",
+                $"SELECT * FROM LENOVO_GAMEZONE_DATA",
+                "IsSupportIGPUMode",
+                new(),
+                pdc => (uint)pdc["Data"].Value).ConfigureAwait(false);
+            return result > 0;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    private static async Task<bool> GetSupportsIntelligentSubModeAsync()
+    {
+        try
+        {
+            _ = await WMI.CallAsync("root\\WMI",
+                $"SELECT * FROM LENOVO_GAMEZONE_DATA",
+                "GetIntelligentSubMode",
+                new(),
+                pdc => (uint)pdc["Data"].Value).ConfigureAwait(false);
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
     }
 
     private static bool GetHasQuietToPerformanceModeSwitchingBug(BiosVersion? biosVersion)
