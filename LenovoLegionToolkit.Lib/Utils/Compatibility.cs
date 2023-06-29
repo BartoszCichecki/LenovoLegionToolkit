@@ -228,11 +228,11 @@ public static class Compatibility
     {
         BiosVersion[] affectedBiosVersions =
         {
-            new("HHCN",20),
+            new("G9CN",24),
             new("GKCN",46),
             new("H1CN",39),
             new("HACN",31),
-            new("G9CN",24)
+            new("HHCN",20),
         };
 
         if (affectedBiosVersions.Any(bv => biosVersion?.IsLowerThan(bv) ?? false))
