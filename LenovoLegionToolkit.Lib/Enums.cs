@@ -51,6 +51,28 @@ public enum FanTableType
     CPUSensor
 }
 
+public enum FeatureID : uint
+{
+    // LegionZoneSupportVersion = 0x90000,
+    CPUShortTermPowerLimit = 0x0101FF00,
+    CPULongTermPowerLimit = 0x0102FF00,
+    CPUPeakPowerLimit = 0x0103FF00,
+    CPUTemperatureLimit = 0x0104FF00,
+    APUsPPTPowerLimit = 0x0105FF00,
+    CPUCrossLoadingPowerLimit = 0x0106FF00,
+    CPUPL1Tau = 0x0107FF00,
+    GPUPowerBoost = 0x0201FF00,
+    GPUConfigurableTGP = 0x0202FF00,
+    GPUTemperatureLimit = 0x0203FF00,
+    GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline = 0x0204FF00,
+    // FanTable = 0x4010000,
+    FanFullSpeed = 0x4020000,
+    CpuCurrentFanSpeed = 0x4030001,
+    GpuCurrentFanSpeed = 0x4030002,
+    CpuCurrentTemperature = 0x5040000,
+    GpuCurrentTemperature = 0x5050000,
+}
+
 public enum FlipToStartState
 {
     [Display(ResourceType = typeof(Resource), Name = "FlipToStartState_Off")]

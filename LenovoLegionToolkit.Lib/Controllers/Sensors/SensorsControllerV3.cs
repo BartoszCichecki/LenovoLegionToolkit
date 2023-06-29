@@ -12,10 +12,6 @@ public class SensorsControllerV3 : AbstractSensorsController
     private const int GPU_SENSOR_ID = 5;
     private const int CPU_FAN_ID = 1;
     private const int GPU_FAN_ID = 2;
-    private const int CPU_CURRENT_TEMPERATURE_FEATURE_ID = 0x5040000;
-    private const int GPU_CURRENT_TEMPERATURE_FEATURE_ID = 0x5050000;
-    private const int CPU_CURRENT_FAN_SPEED_FEATURE_ID = 0x4030001;
-    private const int GPU_CURRENT_FAN_SPEED_FEATURE_ID = 0x4030002;
 
     public SensorsControllerV3(GPUController gpuController) : base(gpuController) { }
 
@@ -40,23 +36,23 @@ public class SensorsControllerV3 : AbstractSensorsController
         }
     }
 
-    protected override Task<int> GetCpuCurrentTemperatureAsync() => GetFeatureValueAsync(CPU_CURRENT_TEMPERATURE_FEATURE_ID);
+    protected override Task<int> GetCpuCurrentTemperatureAsync() => GetFeatureValueAsync(FeatureID.CpuCurrentTemperature);
 
-    protected override Task<int> GetGpuCurrentTemperatureAsync() => GetFeatureValueAsync(GPU_CURRENT_TEMPERATURE_FEATURE_ID);
+    protected override Task<int> GetGpuCurrentTemperatureAsync() => GetFeatureValueAsync(FeatureID.GpuCurrentTemperature);
 
-    protected override Task<int> GetCpuCurrentFanSpeedAsync() => GetFeatureValueAsync(CPU_CURRENT_FAN_SPEED_FEATURE_ID);
+    protected override Task<int> GetCpuCurrentFanSpeedAsync() => GetFeatureValueAsync(FeatureID.CpuCurrentFanSpeed);
 
-    protected override Task<int> GetGpuCurrentFanSpeedAsync() => GetFeatureValueAsync(GPU_CURRENT_FAN_SPEED_FEATURE_ID);
+    protected override Task<int> GetGpuCurrentFanSpeedAsync() => GetFeatureValueAsync(FeatureID.GpuCurrentFanSpeed);
 
     protected override Task<int> GetCpuMaxFanSpeedAsync() => GetMaxFanSpeedAsync(CPU_SENSOR_ID, CPU_FAN_ID);
 
     protected override Task<int> GetGpuMaxFanSpeedAsync() => GetMaxFanSpeedAsync(GPU_SENSOR_ID, GPU_FAN_ID);
 
-    private static Task<int> GetFeatureValueAsync(int id) =>
+    private static Task<int> GetFeatureValueAsync(FeatureID id) =>
         WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_OTHER_METHOD",
             "GetFeatureValue",
-            new() { { "IDs", id } },
+            new() { { "IDs", (int)id } },
             pdc => Convert.ToInt32(pdc["Value"].Value));
 
     private static async Task<int> GetMaxFanSpeedAsync(int sensorID, int fanID)
