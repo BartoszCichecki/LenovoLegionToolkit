@@ -117,4 +117,1692 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutPage_AppName" xml:space="preserve">
+    <value>Lenovo Legion Toolkit</value>
+  </data>
+  <data name="AboutPage_Build" xml:space="preserve">
+    <value>Izlaidums</value>
+  </data>
+  <data name="AboutPage_LatestReleaseOnGitHub" xml:space="preserve">
+    <value>Jaunākais laidums iekš GitHub</value>
+  </data>
+  <data name="AboutPage_Links" xml:space="preserve">
+    <value>Saites</value>
+  </data>
+  <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
+    <value>Projekta mājaslapa iekš GitHub</value>
+  </data>
+  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
+    <value>Trešo pušu bibliotēkas</value>
+  </data>
+  <data name="AboutPage_Title" xml:space="preserve">
+    <value>Par</value>
+  </data>
+  <data name="AboutPage_TranslationCredit" xml:space="preserve">
+    <value>Tulkojumus nodrošina kopiena.</value>
+    <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
+  </data>
+  <data name="AboutPage_Version" xml:space="preserve">
+    <value>Versija</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Pievienot</value>
+  </data>
+  <data name="AddNew" xml:space="preserve">
+    <value>Pievienot jaunu</value>
+  </data>
+  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
+    <value>Aktivizēt Enerģijas Plānus pat tad, kad Vantage ir iespējots.
+Šī opcija ir paredzēta tikai ierīcēm, kurām nav pievienoti vairāki Enerģijas Plāni.</value>
+  </data>
+  <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
+    <value>Vienmēr aktivizēt Windows Enerģijas Plānus</value>
+  </data>
+  <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
+    <value>Uzlādējiet USB ierīces, kad dators ir izslēgts vai atrodas miega vai hibernācijas režīmā.</value>
+  </data>
+  <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
+    <value>Vienmēr ieslēgts USB</value>
+  </data>
+  <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
+    <value>Uzlādējiet USB ierīces, kad dators ir izslēgts vai atrodas miega vai hibernācijas režīmā.</value>
+  </data>
+  <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
+    <value>Vienmēr ieslēgts USB</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Lenovo Legion Toolkit</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Apstiprināt</value>
+  </data>
+  <data name="ApplyAndClose" xml:space="preserve">
+    <value>Apstiprināt un Aizvērt</value>
+  </data>
+  <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
+    <value>Lai automātiskās darbības darbotos, ir jābūt ieslēgtam Lenovo Legion Toolkit.</value>
+  </data>
+  <data name="AutomationPage_ActionsEnabled_Title" xml:space="preserve">
+    <value>Iespējot</value>
+  </data>
+  <data name="AutomationPage_Actions_Empty" xml:space="preserve">
+    <value>Nav definētas Darbības. Lai izveidotu jaunu Darbību, noklikšķiniet uz "Pievienot jaunu".</value>
+  </data>
+  <data name="AutomationPage_Actions_Message" xml:space="preserve">
+    <value>Ja šīs darbības ir iespējotas, tās tiks veiktas automātiski. Mainoties stāvoklim, visas darbības tiks izvērtētas no augšas uz leju.
+Tiks izpildītas tikai tās darbības, kas atbilst pašreizējam stāvoklim.</value>
+  </data>
+  <data name="AutomationPage_Actions_Title" xml:space="preserve">
+    <value>Darbības</value>
+  </data>
+  <data name="AutomationPage_AddManualPipeline_Placeholder" xml:space="preserve">
+    <value>Vārds...</value>
+  </data>
+  <data name="AutomationPage_AddManualPipeline_Title" xml:space="preserve">
+    <value>Pievienot jaunu</value>
+  </data>
+  <data name="AutomationPage_QuickActions_Empty" xml:space="preserve">
+    <value>Nav definētas Veiklās Darbības. Lai izveidotu jaunu Veiklo Darbību, noklikšķiniet uz "Pievienot jaunu".</value>
+  </data>
+  <data name="AutomationPage_QuickActions_Message" xml:space="preserve">
+    <value>Ātrās darbības ir pieejamas ar peles labo klikšķi uz teknes ikonas izvēlnes.</value>
+  </data>
+  <data name="AutomationPage_QuickActions_Title" xml:space="preserve">
+    <value>Ātrās Darbības</value>
+  </data>
+  <data name="AutomationPage_RenamePipeline_Placeholder" xml:space="preserve">
+    <value>Vārds...</value>
+  </data>
+  <data name="AutomationPage_RenamePipeline_Title" xml:space="preserve">
+    <value>Pārdēvēt</value>
+  </data>
+  <data name="AutomationPage_Reverted_Message" xml:space="preserve">
+    <value>Visas izmaiņas atgrieztas!</value>
+  </data>
+  <data name="AutomationPage_Reverted_Title" xml:space="preserve">
+    <value>Atgriezts</value>
+  </data>
+  <data name="AutomationPage_Saved_Message" xml:space="preserve">
+    <value>Izmaiņas saglabātas veiksmīgi!</value>
+  </data>
+  <data name="AutomationPage_Saved_Title" xml:space="preserve">
+    <value>Saglabāts</value>
+  </data>
+  <data name="AutomationPage_Title" xml:space="preserve">
+    <value>Automatizācija</value>
+  </data>
+  <data name="AutomationPipelineControl_AddStep" xml:space="preserve">
+    <value>Pievienot soli</value>
+  </data>
+  <data name="AutomationPipelineControl_Configure" xml:space="preserve">
+    <value>Konfigurēt</value>
+  </data>
+  <data name="AutomationPipelineControl_Exclusive" xml:space="preserve">
+    <value>Ekskluzīvs</value>
+  </data>
+  <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
+    <value>Neveikt turpmākas darbības, kad šī darbība tiek izpildīta.</value>
+  </data>
+  <data name="AutomationPipelineControl_RunNow" xml:space="preserve">
+    <value>Palaist tagad</value>
+  </data>
+  <data name="AutomationPipelineControl_RunNow_Error_Message" xml:space="preserve">
+    <value>Pabeigts ar kļūdām.</value>
+  </data>
+  <data name="AutomationPipelineControl_RunNow_Error_Title" xml:space="preserve">
+    <value>Palaist tagad</value>
+  </data>
+  <data name="AutomationPipelineControl_RunNow_Success_Message" xml:space="preserve">
+    <value>Veiksmīgi pabeigts!</value>
+  </data>
+  <data name="AutomationPipelineControl_RunNow_Success_Title" xml:space="preserve">
+    <value>Palaist tagad</value>
+  </data>
+  <data name="AutomationPipelineControl_Running" xml:space="preserve">
+    <value>Notiek palaišana...</value>
+  </data>
+  <data name="AutomationPipelineControl_Step" xml:space="preserve">
+    <value>{0} solis</value>
+  </data>
+  <data name="AutomationPipelineControl_Step_Many" xml:space="preserve">
+    <value>{0} soļi</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_Apps" xml:space="preserve">
+    <value>Aplikācijas</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_AtSunrise" xml:space="preserve">
+    <value>Rītausmā</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_AtSunset" xml:space="preserve">
+    <value>Saulrietā</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_AtTime" xml:space="preserve">
+    <value>Plkst. {0:D2}:{1:D2}</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_PowerMode" xml:space="preserve">
+    <value>Barošanas Režīms</value>
+  </data>
+  <data name="AutomationPipelineControl_Unnamed" xml:space="preserve">
+    <value>Bez nosaukuma</value>
+  </data>
+  <data name="BalanceModeSettingsWindow_AIEngine_Message" xml:space="preserve">
+    <value>Automātiski nosaka, kad darbojas noteiktas spēles, un koriģē centrālā procesora un GPU veiktspēju. Temperatūra un ventilatora troksnis var paaugstināties.</value>
+  </data>
+  <data name="BalanceModeSettingsWindow_AIEngine_Title" xml:space="preserve">
+    <value>Ieslēgt AI Engine</value>
+  </data>
+  <data name="BalanceModeSettingsWindow_Title" xml:space="preserve">
+    <value>Balancētā Režīma Iestatījumi</value>
+  </data>
+  <data name="BatteryAutomationStepControl_Message" xml:space="preserve">
+    <value>Izvēlēties kā akumulātors tiek uzlādēts.</value>
+  </data>
+  <data name="BatteryAutomationStepControl_Title" xml:space="preserve">
+    <value>Akumulatora Režīms</value>
+  </data>
+  <data name="BatteryModeControl_Message" xml:space="preserve">
+    <value>Izvēlēties kā akumulātors tiek uzlādēts.</value>
+  </data>
+  <data name="BatteryModeControl_Title" xml:space="preserve">
+    <value>Akumulatora Režīms</value>
+  </data>
+  <data name="BatteryPage_ACAdapterConnectedAndCharging" xml:space="preserve">
+    <value>Savienots, notiek uzlāde...</value>
+  </data>
+  <data name="BatteryPage_ACAdapterConnectedNotCharging" xml:space="preserve">
+    <value>Savienots, nenotiek uzlāde</value>
+  </data>
+  <data name="BatteryPage_BatteryTemperature_Message" xml:space="preserve">
+    <value>Pašreizējā akumulatora temperatūra.</value>
+  </data>
+  <data name="BatteryPage_BatteryTemperature_Title" xml:space="preserve">
+    <value>Akumulatora temperatūra</value>
+  </data>
+  <data name="BatteryPage_CurrentCapacity_Message" xml:space="preserve">
+    <value>Pašreizējā akumulatora ietilpība.</value>
+  </data>
+  <data name="BatteryPage_CurrentCapacity_Title" xml:space="preserve">
+    <value>Pašreizējā ietilpība</value>
+  </data>
+  <data name="BatteryPage_CycleCount_Message" xml:space="preserve">
+    <value>Uzlādes/izlādes ciklu skaits.</value>
+  </data>
+  <data name="BatteryPage_CycleCount_Title" xml:space="preserve">
+    <value>Ciklu skaits</value>
+  </data>
+  <data name="BatteryPage_DesignCapacity_Message" xml:space="preserve">
+    <value>Paredzētā Akumulatora ietilpība.</value>
+  </data>
+  <data name="BatteryPage_DesignCapacity_Title" xml:space="preserve">
+    <value>Paredzētā ietilpība</value>
+  </data>
+  <data name="BatteryPage_DischargeRate_Message" xml:space="preserve">
+    <value>Akumulatora uzlādes ātrums (+) vai izlādes ātrums (-).</value>
+  </data>
+  <data name="BatteryPage_DischargeRate_Title" xml:space="preserve">
+    <value>Izlādes ātrums</value>
+  </data>
+  <data name="BatteryPage_EstimatedBatteryLifeRemaining" xml:space="preserve">
+    <value>Atlikušais paredzamais laiks: {0}</value>
+  </data>
+  <data name="BatteryPage_EstimatingBatteryLife" xml:space="preserve">
+    <value>Notiek laika novērtēšana...</value>
+  </data>
+  <data name="BatteryPage_FirstUseDate_Title" xml:space="preserve">
+    <value>Pirmais lietošanas datums</value>
+  </data>
+  <data name="BatteryPage_FirstUse_Message" xml:space="preserve">
+    <value>Kad pirmo reizi akumulators ticis izmantots.</value>
+  </data>
+  <data name="BatteryPage_FullChargeCapacity_Message" xml:space="preserve">
+    <value>Akumulatora tilpība kad tas ir pilnībā uzlādēts.</value>
+  </data>
+  <data name="BatteryPage_FullChargeCapacity_Title" xml:space="preserve">
+    <value>Pilnas uzlādes tilpība</value>
+  </data>
+  <data name="BatteryPage_LowWattageChargerConnected" xml:space="preserve">
+    <value>Zemas jaudas lādētājs pievienots</value>
+  </data>
+  <data name="BatteryPage_ManufactureDate_Message" xml:space="preserve">
+    <value>Kad akumulators ticis ražots.</value>
+  </data>
+  <data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
+    <value>Ražošanas datums</value>
+  </data>
+  <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
+    <value>Laiks, kopš klēpjdators pēdējo reizi tika pievienots maiņstrāvas avotam.
+Šis laiks var nebūt precīzs, ja klēpjdators ir uzlādēts miega vai izslēgšanas laikā.</value>
+  </data>
+  <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
+    <value>No akumulatora kopš</value>
+  </data>
+  <data name="BatteryPage_Title" xml:space="preserve">
+    <value>Akumulators</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Atcelt</value>
+  </data>
+  <data name="Celsius" xml:space="preserve">
+    <value>°C</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Aizvērt</value>
+  </data>
+  <data name="ColorCardControl_Blue" xml:space="preserve">
+    <value>Zils</value>
+  </data>
+  <data name="ColorCardControl_Green" xml:space="preserve">
+    <value>Zaļš</value>
+  </data>
+  <data name="ColorCardControl_Red" xml:space="preserve">
+    <value>Sarkans</value>
+  </data>
+  <data name="Color_Blue" xml:space="preserve">
+    <value>Zils</value>
+  </data>
+  <data name="Color_Green" xml:space="preserve">
+    <value>Zaļš</value>
+  </data>
+  <data name="Color_Red" xml:space="preserve">
+    <value>Sarkans</value>
+  </data>
+  <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
+    <value>Atlasiet GPU darbības režīmu atkarībā no datora lietojuma un barošanas apstākļiem.
+Pārslēdzot režīms dators varbūt būt jārestartē.</value>
+  </data>
+  <data name="ComboBoxHybridModeControl_RestartRequired_Message" xml:space="preserve">
+    <value>Lai pārslēgtos uz {0}, nepieciešama restartēšana. Vai vēlaties restartēt tūlīt?</value>
+  </data>
+  <data name="ComboBoxHybridModeControl_RestartRequired_Title" xml:space="preserve">
+    <value>Nepieciešama restartēšana</value>
+  </data>
+  <data name="ComboBoxHybridModeControl_Title" xml:space="preserve">
+    <value>GPU Darbošanās režīms</value>
+  </data>
+  <data name="ContextMenu_QuickActions" xml:space="preserve">
+    <value>Ātrās Darbības</value>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Turpināt</value>
+  </data>
+  <data name="CopyAll" xml:space="preserve">
+    <value>Kopēt visu</value>
+  </data>
+  <data name="DashboardPage_Graphics_Title" xml:space="preserve">
+    <value>Grafika</value>
+  </data>
+  <data name="DashboardPage_Other_Title" xml:space="preserve">
+    <value>Cits</value>
+  </data>
+  <data name="DashboardPage_Power_Title" xml:space="preserve">
+    <value>Enerģija</value>
+  </data>
+  <data name="DashboardPage_Title" xml:space="preserve">
+    <value>Sākums</value>
+  </data>
+  <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
+    <value>Atspējojiet diskrēto GPU, ja tas ir nevajadzīgi aktīvs.
+
+BRĪDINĀJUMS. Ja iekšējais displejs ir izslēgts vai hibrīda režīms nav aktīvs, šī darbība nedarbosies pareizi.</value>
+  </data>
+  <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
+    <value>Deaktivizēt GPU</value>
+  </data>
+  <data name="DelayAutomationStepControl_Message" xml:space="preserve">
+    <value>Pirms nākamās darbības veikšanas pievienot aizkavi.</value>
+  </data>
+  <data name="DelayAutomationStepControl_Title" xml:space="preserve">
+    <value>Aizkave</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Dzēst</value>
+  </data>
+  <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
+    <value>BIOS versija</value>
+  </data>
+  <data name="CopiedToClipboard_Message" xml:space="preserve">
+    <value>Teksts iekopēts starpliktuvē.</value>
+  </data>
+  <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
+    <value>"{0}" iekopēts starpliktuvē.</value>
+  </data>
+  <data name="CopiedToClipboard_Title" xml:space="preserve">
+    <value>Nokopēts!</value>
+  </data>
+  <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
+    <value>Ierīce</value>
+  </data>
+  <data name="DeviceInformationWindow_LenovoSupport" xml:space="preserve">
+    <value>Lenovo Atbalsts</value>
+  </data>
+  <data name="DeviceInformationWindow_MachineType_Title" xml:space="preserve">
+    <value>Iekārtas Tips</value>
+  </data>
+  <data name="DeviceInformationWindow_Manufacturer_Title" xml:space="preserve">
+    <value>Ražotājs</value>
+  </data>
+  <data name="DeviceInformationWindow_Model_Title" xml:space="preserve">
+    <value>Modelis</value>
+  </data>
+  <data name="DeviceInformationWindow_SerialNumber_Title" xml:space="preserve">
+    <value>Sērijas numurs</value>
+  </data>
+  <data name="DeviceInformationWindow_Title" xml:space="preserve">
+    <value>Par Jūsu ierīci</value>
+  </data>
+  <data name="DeviceInformationWindow_WarrantyEndDate_Title" xml:space="preserve">
+    <value>Beigu datums</value>
+  </data>
+  <data name="DeviceInformationWindow_WarrantyStartDate_Title" xml:space="preserve">
+    <value>Sākuma datums</value>
+  </data>
+  <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
+    <value>Garantija</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Aktīvizēt</value>
+  </data>
+  <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
+    <value>Deaktivizēt</value>
+  </data>
+  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
+    <value>nVidia GPU var atspējot.
+
+Atcerieties, ka dažas programmas var avarēt, ja to darīsiet.</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>Neaktīvs</value>
+  </data>
+  <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
+    <value>Nokaut lietotnes</value>
+  </data>
+  <data name="DiscreteGPUControl_Message" xml:space="preserve">
+    <value>Atspējojiet diskrēto GPU, ja tas ir nevajadzīgi aktīvs.</value>
+  </data>
+  <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
+    <value>Monitors ir pievienots nVidia GPU.</value>
+  </data>
+  <data name="DiscreteGPUControl_NoProcesses" xml:space="preserve">
+    <value>Nav procesu</value>
+  </data>
+  <data name="DiscreteGPUControl_PerformanceState" xml:space="preserve">
+    <value>Veiktspējas stāvoklis</value>
+  </data>
+  <data name="DiscreteGPUControl_PerformanceState_Unknown" xml:space="preserve">
+    <value>Nezināms</value>
+  </data>
+  <data name="DiscreteGPUControl_Processes" xml:space="preserve">
+    <value>Procesi</value>
+  </data>
+  <data name="DiscreteGPUControl_RestartGPU" xml:space="preserve">
+    <value>Restartēt GPU</value>
+  </data>
+  <data name="DiscreteGPUControl_Title" xml:space="preserve">
+    <value>Diskrētais GPU</value>
+  </data>
+  <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
+    <value>Mainiet iebūvētā ekrāna spilgtumu.
+Enerģijas režīmi maina spilgtumu dažās ierīcēs. Pārliecinies, ka šis solis ir pēdējais, ja kaut kas nesanāk vienkārši pareizi.
+
+BRĪDINĀJUMS. Ja iebūvētais ekrāns ir izslēgts, šī darbība nedarbosies pareizi.</value>
+  </data>
+  <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
+    <value>Ekrāna spilgtums</value>
+  </data>
+  <data name="DonatePage_DonateWith" xml:space="preserve">
+    <value>Ziedot ar</value>
+  </data>
+  <data name="DonatePage_Message" xml:space="preserve">
+    <value>Lenovo Legion Toolkit izstrāde un uzturēšana prasa daudz laika. Ja jums patīk izmantot šo programmatūru, varat atbalstīt tās nākotni, ziedojot noteiktu summu.
+
+Noklikšķiniet uz zemāk redzamā PayPal logotipa vai skenējiet QR kodu, lai ziedotu ar PayPal.
+
+Paldies jau iepriekš!</value>
+  </data>
+  <data name="DonatePage_Title" xml:space="preserve">
+    <value>Ziedot</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Rediģēt</value>
+  </data>
+  <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
+    <value>Noņemiet atzīmi no atsvaidzināšanas ātruma, ko nevēlaties izmantot, izmantojot fn + R saīsni.</value>
+  </data>
+  <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
+    <value>Pārliecinieties, vai ir ieslēgts klēpjdatora ekrāns. Lenovo Legion Toolkit nevar ielādēt atsvaidzināšanas ātrumu ekrānam, kas nav ieslēgts.</value>
+  </data>
+  <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Title" xml:space="preserve">
+    <value>Atsvaidzināšanas Ātrumi netika atrasti</value>
+  </data>
+  <data name="ExcludeRefreshRatesWindow_Title" xml:space="preserve">
+    <value>Izlaist Atsvaidzināšanas Ātrumus</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Iziet</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Eksportēt</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
+    <value>Izmantojiet tikai integrēto GPU akumulatora uzlādes laikā un gan integrēto, gan diskrēto GPU, ja ir pievienots maiņstrāvas adapteris. Ja ir pievienots nestandarta adapteris, sistēma pārslēdzas tikai uz Hybrid-iGPU režīmu.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
+    <value>Hybrid-Auto Režīms</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_DGPU_Disclaimer" xml:space="preserve">
+    <value>Lai pārslēgtos uz šo režīmu un no tā, nepieciešama restartēšana.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_DGPU_Message" xml:space="preserve">
+    <value>Izmantojiet tikai diskrēto GPU. Šis režīms nodrošina labāko grafikas veiktspēju, bet palielina enerģijas patēriņu.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
+    <value>dGPU Režīms</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
+    <value>Ir iespējots gan integrētais, gan diskrētais GPU. Sistēma automātiski pārslēgsies starp tiem atkarībā no savām vajadzībām.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
+    <value>Hibrīda Režīms</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_IGPU_Disclaimer" xml:space="preserve">
+    <value>Šis režīms stājas spēkā tikai tad, ja diskrētais GPU nedarbojas.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_IGPU_Message" xml:space="preserve">
+    <value>Izmantojiet tikai integrēto GPU. Šis režīms samazina enerģijas patēriņu un troksni.</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_IGPU_Title" xml:space="preserve">
+    <value>Tikai Hybrīda-iGPU Režīms</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Title" xml:space="preserve">
+    <value>Par GPU Darbības Režīmiem</value>
+  </data>
+  <data name="Fahrenheit" xml:space="preserve">
+    <value>°F</value>
+  </data>
+  <data name="FanCurveControl_CPU" xml:space="preserve">
+    <value>CPU</value>
+  </data>
+  <data name="FanCurveControl_CPUSensor" xml:space="preserve">
+    <value>CPU Sensors</value>
+  </data>
+  <data name="FanCurveControl_FanSpeed" xml:space="preserve">
+    <value>Ventilatora ātrums</value>
+  </data>
+  <data name="FanCurveControl_GPU" xml:space="preserve">
+    <value>GPU</value>
+  </data>
+  <data name="FanCurveControl_RPM" xml:space="preserve">
+    <value>Apgr/min</value>
+  </data>
+  <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
+    <value>Klēpjdatora ieslēgšana, atverot vāku.</value>
+  </data>
+  <data name="FlipToStartAutomationStepControl_Title" xml:space="preserve">
+    <value>Atvērt Lai Ieslēgtu</value>
+  </data>
+  <data name="FlipToStartControl_Message" xml:space="preserve">
+    <value>Klēpjdatora ieslēgšana, atverot vāku.</value>
+  </data>
+  <data name="FlipToStartControl_Title" xml:space="preserve">
+    <value>Atvērt Lai Ieslēgtu</value>
+  </data>
+  <data name="FnLockAutomationStepControl_Message" xml:space="preserve">
+    <value>Izmantojiet F1-F12 taustiņu sekundārās funkcijas, neturot taustiņu fn.</value>
+  </data>
+  <data name="FnLockAutomationStepControl_Title" xml:space="preserve">
+    <value>Fn Bloķēšana</value>
+  </data>
+  <data name="FnLockControl_Message" xml:space="preserve">
+    <value>Izmantojiet F1-F12 taustiņu sekundārās funkcijas, neturot taustiņu fn.</value>
+  </data>
+  <data name="FnLockControl_Title" xml:space="preserve">
+    <value>Fn Bloķēšana</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
+    <value>Brīdinājums!
+Daži klēpjdatori var pieņemt zemākas vērtības, nekā norādīts, taču esiet piesardzīgs. Šī opcija var izraisīt neprognozējamu rīcību, tāpēc, ja neesat pārliecināts, ko darāt, atstājiet 0.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
+    <value>Minimālā nobīde</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
+    <value>Brīdinājums!
+Daži klēpjdatori var pieņemt augstākas vērtības, nekā norādīts, taču esiet piesardzīgs. Šī opcija var izraisīt neprognozējamu rīcību, tāpēc, ja neesat pārliecināts, ko darāt, atstājiet 0.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
+    <value>Maksimālā nobīde</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
+    <value>Nemainiet tālāk norādītās opcijas, ja vien zinat, ko darāt.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_Title" xml:space="preserve">
+    <value>Papildus</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_CrossLoading" xml:space="preserve">
+    <value>Ilgtermiņa jaudas ierobežojums (Cross Loading)</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL" xml:space="preserve">
+    <value>Ilgtermiņa Jaudas Ierobežojums</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL" xml:space="preserve">
+    <value>Īstermiņa Jaudas Ierobežojums</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_TempLimit" xml:space="preserve">
+    <value>CPU Temperatūras Ierobežojums</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_Title" xml:space="preserve">
+    <value>CPU</value>
+  </data>
+  <data name="GodModeSettingsWindow_Error_Apply_Title" xml:space="preserve">
+    <value>Neizdevās piemērot iestatījumu</value>
+  </data>
+  <data name="GodModeSettingsWindow_Error_Load_Title" xml:space="preserve">
+    <value>Neizdevās ielādēt iestatījumu.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Fans_Curve_Message" xml:space="preserve">
+    <value>Ventilatora ātrumu stingri nenosaka tikai viens temperatūras sensors. Tas palielina vai samazina ātrumu uz augstāko sensoru starp CPU, GPU un sildītāja temperatūru. Precīzas vērtības tiks parādītas, noliekot kursoru virs katra soļa.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Fans_Curve_Title" xml:space="preserve">
+    <value>Ventilatora līkne</value>
+  </data>
+  <data name="GodModeSettingsWindow_Fans_Max_Message" xml:space="preserve">
+    <value>BRĪDINĀJUMS!
+Ilgstoša šīs iespējas izmantošana degradēs ventilātorus, samazinot viņu ilgmūžību.
+Nopietni, esi uzmanīgs ar šo variantu!</value>
+  </data>
+  <data name="GodModeSettingsWindow_Fans_Max_Title" xml:space="preserve">
+    <value>Ventilatora maksimālais ātrums</value>
+  </data>
+  <data name="GodModeSettingsWindow_Fans_Title" xml:space="preserve">
+    <value>Ventilatori</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP" xml:space="preserve">
+    <value>Konfigurējams TGP</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_DynamicBoost" xml:space="preserve">
+    <value>Dynamic Boost</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TempLimit" xml:space="preserve">
+    <value>CPU Temperatūras Ierobežojums</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_Title" xml:space="preserve">
+    <value>GPU</value>
+  </data>
+  <data name="GodModeSettingsWindow_Title" xml:space="preserve">
+    <value>Pielāgotā Režīma Iestatījumi</value>
+  </data>
+  <data name="HDRAutomationStepControl_Message" xml:space="preserve">
+    <value>Iebūvētajā ekrānā iespējojiet augstu dinamisko diapazonu (HDR).
+
+BRĪDINĀJUMS. Ja iebūvētais ekrāns ir izslēgts, šī darbība nedarbosies pareizi.</value>
+  </data>
+  <data name="HDRAutomationStepControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Message" xml:space="preserve">
+    <value>Iebūvētajā ekrānā iespējojiet augstu dinamisko diapazonu (HDR).</value>
+  </data>
+  <data name="HDRControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Warning" xml:space="preserve">
+    <value>HDR lietošanu bloķē Windows iestatījumi.</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Importēt</value>
+  </data>
+  <data name="IncompatibleDevice_Message" xml:space="preserve">
+    <value>Šī ierīce nesader ar Lenovo Legion Toolkit.</value>
+  </data>
+  <data name="IncompatibleDevice_Title" xml:space="preserve">
+    <value>Lenovo Legion Toolkit</value>
+  </data>
+  <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
+    <value>Netika atrastas saderīgas tastatūras</value>
+  </data>
+  <data name="KeyboardBacklightPage_Title" xml:space="preserve">
+    <value>Tastatūras Izgaismojums</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>Tastatūras fona apgaismojumu šeit nevar kontrolēt, ja darbojas Vantage vai tā pakalpojumi.</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
+    <value>Šķiet, ka Lenovo Vantage ir iespējots</value>
+  </data>
+  <data name="MainWindow_NavigationItem_About" xml:space="preserve">
+    <value>Par</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Actions" xml:space="preserve">
+    <value>Darbības</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Battery" xml:space="preserve">
+    <value>Akumulators</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Dashboard" xml:space="preserve">
+    <value>Informācijas panelis</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Donate" xml:space="preserve">
+    <value>Ziedot</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
+    <value>Tastatūra</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
+    <value>Lejupielādes</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
+    <value>Iestatījumi</value>
+  </data>
+  <data name="MainWindow_UpdateAvailable" xml:space="preserve">
+    <value>Pieejams atjauninājums!</value>
+  </data>
+  <data name="MainWindow_UpdateAvailableWithVersion" xml:space="preserve">
+    <value>Pieejams atjauninājums {0}!</value>
+  </data>
+  <data name="MoveDown" xml:space="preserve">
+    <value>Pārvietoties uz leju</value>
+  </data>
+  <data name="MoveUp" xml:space="preserve">
+    <value>Pārvietoties uz augšu</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Nē</value>
+  </data>
+  <data name="Notification_ACAdapterConnected" xml:space="preserve">
+    <value>Maiņstrāvas adapteris pievienots</value>
+  </data>
+  <data name="Notification_ACAdapterConnectedLowWattage" xml:space="preserve">
+    <value>Maiņstrāvas adapteris pievienots (Zema jauda)</value>
+  </data>
+  <data name="Notification_ACAdapterDisconnected" xml:space="preserve">
+    <value>Maiņstrāvas adapteris atvienots</value>
+  </data>
+  <data name="Notification_CameraOff" xml:space="preserve">
+    <value>Kamera izslēgta</value>
+  </data>
+  <data name="Notification_CameraOn" xml:space="preserve">
+    <value>Kamera ieslēgta</value>
+  </data>
+  <data name="Notification_CapsLockOff" xml:space="preserve">
+    <value>Burtslēgs izslēgts</value>
+  </data>
+  <data name="Notification_CapsLockOn" xml:space="preserve">
+    <value>Burtslēgs ieslēgts</value>
+  </data>
+  <data name="Notification_FnLockOff" xml:space="preserve">
+    <value>Fn Bloķēšana izslēgts</value>
+  </data>
+  <data name="Notification_FnLockOn" xml:space="preserve">
+    <value>Fn Bloķēšana ieslēgts</value>
+  </data>
+  <data name="Notification_MicrophoneOff" xml:space="preserve">
+    <value>Mikrofons izslēgts</value>
+  </data>
+  <data name="Notification_MicrophoneOn" xml:space="preserve">
+    <value>Mikrofons ieslēgts</value>
+  </data>
+  <data name="Notification_NumLockOff" xml:space="preserve">
+    <value>Num Bloķēšana izslēgta</value>
+  </data>
+  <data name="Notification_NumLockOn" xml:space="preserve">
+    <value>Num Bloķēšana ieslēgta</value>
+  </data>
+  <data name="Notification_SpectrumKeyboardBacklight_Backlight" xml:space="preserve">
+    <value>Izgaismojums {0}</value>
+  </data>
+  <data name="Notification_SpectrumKeyboardBacklight_Brightness" xml:space="preserve">
+    <value>Spilgtums {0}</value>
+  </data>
+  <data name="Notification_SpectrumKeyboardBacklight_Profile" xml:space="preserve">
+    <value>Profils {0}</value>
+  </data>
+  <data name="Notification_TouchpadOff" xml:space="preserve">
+    <value>Skārienpanelis izslēgts</value>
+  </data>
+  <data name="Notification_TouchpadOn" xml:space="preserve">
+    <value>Skārienpanelis ieslēgts</value>
+  </data>
+  <data name="Notification_WhiteKeyboardBacklight" xml:space="preserve">
+    <value>Izgaismojums {0}</value>
+  </data>
+  <data name="NotificationsSettingsWindow_ACAdapter" xml:space="preserve">
+    <value>Maiņstrāvas Adapteris</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Camera" xml:space="preserve">
+    <value>Kamera</value>
+  </data>
+  <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
+    <value>Burtslēgs un Num Bloķēšana</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
+    <value>Atspējo paziņojumu par Fn taustiņu darbībām, piemēram, mikrofona izslēgšanu
+Iespējojiet šo opciju, ja rodas konflikti ar pilnekrāna lietojumprogrammām.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
+    <value>Nerādīt paziņojumus</value>
+  </data>
+  <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
+    <value>Fn Bloķēšana</value>
+  </data>
+  <data name="NotificationsSettingsWindow_KeyboardBacklight" xml:space="preserve">
+    <value>Tastatūras Izgaismojums</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Microphone" xml:space="preserve">
+    <value>Mikrofons</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationPosition_Title" xml:space="preserve">
+    <value>Pozīcija</value>
+  </data>
+  <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
+    <value>Barošanas Režīms</value>
+  </data>
+  <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
+    <value>Atsvaidzināšanas Ātrums</value>
+  </data>
+  <data name="NotificationsSettingsWindow_SmartKey" xml:space="preserve">
+    <value>Smart Taustiņš</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
+    <value>Paziņojumi</value>
+  </data>
+  <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
+    <value>Skārienpaneļa Bloķēšana</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Atvērt</value>
+  </data>
+  <data name="OverDriveAutomationStepControl_Message" xml:space="preserve">
+    <value>Uzlabojiet iebūvētā ekrāna reakcijas laiku.</value>
+  </data>
+  <data name="OverDriveAutomationStepControl_Title" xml:space="preserve">
+    <value>Over Drive</value>
+  </data>
+  <data name="OverDriveControl_Message" xml:space="preserve">
+    <value>Uzlabojiet iebūvētā ekrāna reakcijas laiku.</value>
+  </data>
+  <data name="OverDriveControl_Title" xml:space="preserve">
+    <value>Over Drive</value>
+  </data>
+  <data name="PackageControl_DownloadComplete_Message" xml:space="preserve">
+    <value>{0} Lejupielādēts!</value>
+  </data>
+  <data name="PackageControl_DownloadComplete_Title" xml:space="preserve">
+    <value>Lejupielāde pabeigta</value>
+  </data>
+  <data name="PackageControl_GeneralError_Title" xml:space="preserve">
+    <value>Kaut kas nogāja greizi</value>
+  </data>
+  <data name="PackageControl_Http404Error_Message" xml:space="preserve">
+    <value>Serveris atgrieza 404 kodu.</value>
+  </data>
+  <data name="PackageControl_Http404Error_Title" xml:space="preserve">
+    <value>Fails, iespējams, ir pazudis</value>
+  </data>
+  <data name="PackageControl_HttpGeneralError_Message" xml:space="preserve">
+    <value>Pārbaudiet, vai interneta savienojums ir ieslēgts un darbojas.</value>
+  </data>
+  <data name="PackageControl_HttpGeneralError_Title" xml:space="preserve">
+    <value>Kaut kas nogāja greizi</value>
+  </data>
+  <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
+    <value>Pieejams atjauninājums!</value>
+  </data>
+  <data name="PackageControl_OldPackageWarning" xml:space="preserve">
+    <value>Pakotne ir vairāk nekā gadu veca.</value>
+  </data>
+  <data name="PackageControl_Version" xml:space="preserve">
+    <value>Versija</value>
+  </data>
+  <data name="PackagesPage_Disclaimer_Message" xml:space="preserve">
+    <value>Tālāk ir saraksts ar programmatūras pakotnēm, kas atzīmētas kā saderīgas ar klēpjdatoru.
+Vienmēr pārliecinieties, vai instalējat pareizas pakotnes.</value>
+  </data>
+  <data name="PackagesPage_DownloadFailed_Message" xml:space="preserve">
+    <value>Pārbaudiet, vai Iekārtas Tips un OS ir iestatīti pareizi.</value>
+  </data>
+  <data name="PackagesPage_DownloadFailed_Title" xml:space="preserve">
+    <value>Kaut kas nogāja greizi</value>
+  </data>
+  <data name="PackagesPage_DownloadInProgress_Message" xml:space="preserve">
+    <value>Kārtošanas maiņa, rezultātu filtrēšana, pakotņu paslēpšana vai saraksta atsvaidzināšana apturēs lejupielādi. Vai vēlaties turpināt?</value>
+  </data>
+  <data name="PackagesPage_DownloadInProgress_Title" xml:space="preserve">
+    <value>Notiek Lejupielāde</value>
+  </data>
+  <data name="PackagesPage_DownloadTo" xml:space="preserve">
+    <value>Lejupielādēt uz</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filtrs...</value>
+  </data>
+  <data name="PackagesPage_MachineType" xml:space="preserve">
+    <value>Iekārtas Tips</value>
+  </data>
+  <data name="PackagesPage_OperatingSystem" xml:space="preserve">
+    <value>Operētājsistēma</value>
+  </data>
+  <data name="PackagesPage_PrimarySource" xml:space="preserve">
+    <value>Primārais (Ieteicamais)</value>
+  </data>
+  <data name="PackagesPage_PrimarySource_Message" xml:space="preserve">
+    <value>Tas pats, kas Lenovo Vantage</value>
+  </data>
+  <data name="PackagesPage_SecondarySource" xml:space="preserve">
+    <value>Sekundārais</value>
+  </data>
+  <data name="PackagesPage_SecondarySource_Message" xml:space="preserve">
+    <value>Tas pats, kas Lenovo PC Support</value>
+  </data>
+  <data name="PackagesPage_Sort_Category" xml:space="preserve">
+    <value>Kategorija</value>
+  </data>
+  <data name="PackagesPage_Sort_Date" xml:space="preserve">
+    <value>Datums</value>
+  </data>
+  <data name="PackagesPage_Sort_Name" xml:space="preserve">
+    <value>Nosaukums</value>
+  </data>
+  <data name="PackagesPage_Source" xml:space="preserve">
+    <value>Avots</value>
+  </data>
+  <data name="PackagesPage_Title" xml:space="preserve">
+    <value>Lejupielādes</value>
+  </data>
+  <data name="Paste" xml:space="preserve">
+    <value>Ielīmēt</value>
+  </data>
+  <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
+    <value>Izvēlēties veiktspējas režīmu.</value>
+  </data>
+  <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
+    <value>Barošanas Režīms</value>
+  </data>
+  <data name="PowerModeControl_Message" xml:space="preserve">
+    <value>Izvēlēties veiktspējas režīmu.
+Jūs varat režīmus mainīt ar Fn+Q.</value>
+  </data>
+  <data name="PowerModeControl_Settings" xml:space="preserve">
+    <value>Iestatījumi</value>
+  </data>
+  <data name="PowerModeControl_Title" xml:space="preserve">
+    <value>Barošanas Režīms</value>
+  </data>
+  <data name="PowerModeControl_Warning" xml:space="preserve">
+    <value>Izvēlētais barošanas režīms var nedarboties pareizi, ja nav pievienots maiņstrāvas adapteris.</value>
+  </data>
+  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
+    <value>Iespējojot šo opciju, ja darbojas Lenovo Vantage un tas maina barošanas plānus klēpjdatorā, var rasties neparedzēta darbība.</value>
+  </data>
+  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
+    <value>Vai esat pārliecināts?</value>
+  </data>
+  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
+    <value>Balancētais režīms</value>
+  </data>
+  <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
+    <value>Pielāgotais režīms</value>
+  </data>
+  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
+    <value>Noklusējums</value>
+  </data>
+  <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
+    <value>Veiktspējas režīms</value>
+  </data>
+  <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
+    <value>Klusais režīms</value>
+  </data>
+  <data name="PowerPlansWindow_Title" xml:space="preserve">
+    <value>Barošanas Plāni</value>
+  </data>
+  <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Pielāgojiet tastatūras fona apgaismojuma iestatījumu.</value>
+  </data>
+  <data name="RGBKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Tastatūras Izgaismojums</value>
+  </data>
+  <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
+    <value>Spilgtums</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Preset1" xml:space="preserve">
+    <value>Priekšiestatījums 1</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Preset2" xml:space="preserve">
+    <value>Priekšiestatījums 2</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Preset3" xml:space="preserve">
+    <value>Priekšiestatījums 3</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
+    <value>Atspējots</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Zone1" xml:space="preserve">
+    <value>1. zona</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Zone2" xml:space="preserve">
+    <value>2. zona</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Zone3" xml:space="preserve">
+    <value>3. zona</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Zone4" xml:space="preserve">
+    <value>4. zona</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffectCardControl_Title" xml:space="preserve">
+    <value>Efekts</value>
+  </data>
+  <data name="RGBKeyboardBacklightSpeedCardControl_Title" xml:space="preserve">
+    <value>Ātrums</value>
+  </data>
+  <data name="ReadmeWindow_Title" xml:space="preserve">
+    <value>LasiMani</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Atsvaidzināt</value>
+  </data>
+  <data name="RefreshRateAutomationStepControl_Message" xml:space="preserve">
+    <value>Mainiet iebūvētā ekrāna atsvaidzināšanas ātrumu.
+
+BRĪDINĀJUMS. Ja iebūvētais ekrāns ir izslēgts, šī darbība nedarbosies pareizi.</value>
+  </data>
+  <data name="RefreshRateAutomationStepControl_Title" xml:space="preserve">
+    <value>Atsvaidzināšanas ātrums</value>
+  </data>
+  <data name="RefreshRateControl_Message" xml:space="preserve">
+    <value>Mainiet iebūvētā ekrāna atsvaidzināšanas ātrumu.</value>
+  </data>
+  <data name="RefreshRateControl_Title" xml:space="preserve">
+    <value>Atsvaidzināšanas ātrums</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Pārdēvēt</value>
+  </data>
+  <data name="RestartLater" xml:space="preserve">
+    <value>Es pats restartēšu vēlāk</value>
+  </data>
+  <data name="RestartNow" xml:space="preserve">
+    <value>Restartēt tagad</value>
+  </data>
+  <data name="Revert" xml:space="preserve">
+    <value>Atgriezt</value>
+  </data>
+  <data name="RunAutomationStepControl_ExeArguments" xml:space="preserve">
+    <value>Argumenti</value>
+  </data>
+  <data name="RunAutomationStepControl_ExePath" xml:space="preserve">
+    <value>Izpildāmā Ceļš</value>
+  </data>
+  <data name="RunAutomationStepControl_Message" xml:space="preserve">
+    <value>Palaidiet skriptu vai programmu.
+Vispirms pārliecinieties, vai skripts darbojas pareizi.</value>
+  </data>
+  <data name="RunAutomationStepControl_Title" xml:space="preserve">
+    <value>Palaist</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Saglabāt</value>
+  </data>
+  <data name="Saving" xml:space="preserve">
+    <value>Saglabā...</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Description" xml:space="preserve">
+    <value>Izvēlieties vienu vai vairākas ātrās darbības, pa kurām pārvietoties</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
+    <value>Nav definēta neviena Ātrā Darbība.</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
+    <value>Parādīt šo aplikāciju</value>
+  </data>
+  <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
+    <value>Nomainīt akcentu krāsu šai aplikācijai.</value>
+  </data>
+  <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
+    <value>Akcentu krāsa</value>
+  </data>
+  <data name="SettingsPage_Autorun_Message" xml:space="preserve">
+    <value>Piesakoties sistēmā Windows, sāciet minimizētu teknē.</value>
+  </data>
+  <data name="SettingsPage_Autorun_Title" xml:space="preserve">
+    <value>Autopalaišana</value>
+  </data>
+  <data name="SettingsPage_DisableLegionZone_Error_Message" xml:space="preserve">
+    <value>Iespējams, Legion Zone nav pareizi atspējots</value>
+  </data>
+  <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
+    <value>Nevarēja atspējot Legion Zone</value>
+  </data>
+  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
+    <value>Atspējojiet Legion Zone un tās pakalpojumu, neatinstalējot to.
+Pēc šīs opcijas maiņas ieteicams restartēt datoru.</value>
+  </data>
+  <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
+    <value>Atspējot Legion Zone</value>
+  </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Error_Message" xml:space="preserve">
+    <value>Iespējams, Legion Hotkeys nav pareizi atspējots</value>
+  </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
+    <value>Nevarēja atspējot Legion Hotkeys</value>
+  </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
+    <value>Atspējojiet Lenovo Hotkeys un to pakalpojumus, neatinstalējot tos.
+Ja šī programma ir atspējota, Lenovo Legion Toolkit apstrādās Fn saīsnes.
+Pēc šīs opcijas maiņas ieteicams restartēt datoru.</value>
+  </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
+    <value>Atspējot Lenovo Hotkeys</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
+    <value>Iespējams, Vantage un/vai ImController nav pareizi atspējots</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
+    <value>Nevarēja atspējot Vantage un/vai ImController</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
+    <value>Atspējojiet Lenovo Vantage un ImController, neatinstalējot tos.
+Pēc šīs opcijas maiņas ieteicams restartēt datoru.</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
+    <value>Atspējot Lenovo Vantage un ImController</value>
+  </data>
+  <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
+    <value>Iespējams, Legion Zone nav pareizi iespējots</value>
+  </data>
+  <data name="SettingsPage_EnableLegionZone_Error_Title" xml:space="preserve">
+    <value>Nevarēja iespējot Legion Zone</value>
+  </data>
+  <data name="SettingsPage_EnableLenovoHotkeys_Error_Message" xml:space="preserve">
+    <value>Iespējams, Legion Hotkeys nav pareizi iespējots</value>
+  </data>
+  <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
+    <value>Nevarēja iespējot Legion Hotkeys</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+    <value>Iespējams, Vantage nav pareizi iespējots</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+    <value>Nevarēja iespējot Vantage</value>
+  </data>
+  <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
+    <value>Varat izslēgt atsvaidzināšanas ātrumus, lai padarītu Fn+R saīsni noderīgāku.</value>
+  </data>
+  <data name="SettingsPage_ExcludeRefreshRates_Title" xml:space="preserve">
+    <value>Izlaist Atsvaidzināšanas Ātrumus</value>
+  </data>
+  <data name="SettingsPage_Language_Message" xml:space="preserve">
+    <value>Atlasīt valodu.</value>
+  </data>
+  <data name="SettingsPage_Language_Title" xml:space="preserve">
+    <value>Valoda</value>
+  </data>
+  <data name="SettingsPage_MinimizeOnClose_Message" xml:space="preserve">
+    <value>Vienmēr minimizējiet līdz teknei. Aizveriet, ar peles labo klikšķi uz teknes ikonas.</value>
+  </data>
+  <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
+    <value>Minimizēt pēc aizvēršanas</value>
+  </data>
+  <data name="SettingsPage_Notifications_Message" xml:space="preserve">
+    <value>Uzstādīt kuri paziņojumi tiek parādīti.</value>
+  </data>
+  <data name="SettingsPage_Notifications_Title" xml:space="preserve">
+    <value>Paziņojumi</value>
+  </data>
+  <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
+    <value>Barošanas Plāni</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
+    <value>Piešķiriet Ātro Darbību fn + F9 dubultai nospiešanai.</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">
+    <value>Smart Taustiņa Sekundārā Darbība</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
+    <value>Piešķiriet Ātro Darbību fn + F9 vienreizējai nospiešanai.</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
+    <value>Smart Taustiņa Darbība</value>
+  </data>
+  <data name="SettingsPage_Theme_Description" xml:space="preserve">
+    <value>Iestatīt gaišo motīvu, tumšo motīvu vai sekot sistēmas iestatījumiem.</value>
+  </data>
+  <data name="SettingsPage_Theme_Title" xml:space="preserve">
+    <value>Motīvs</value>
+  </data>
+  <data name="SettingsPage_Title" xml:space="preserve">
+    <value>Iestatījumi</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Message" xml:space="preserve">
+    <value>Pielāgojiet tastatūras izgaismojuma spožumu.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Off" xml:space="preserve">
+    <value>Atspējots</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Title" xml:space="preserve">
+    <value>Tastatūras izgaismojuma spožums</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_AddEffect" xml:space="preserve">
+    <value>Pievienot efektu</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
+    <value>Neizdevās piemērot profilu</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
+    <value>Neizdevās pielāgot izgaismojuma profilu.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
+    <value>Spilgtums</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_DeselectAll_ToolTip" xml:space="preserve">
+    <value>Noņemt visu zonu atlasi</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
+    <value>Efekti</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Message" xml:space="preserve">
+    <value>Profilu nav iespējams eksportēt</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Title" xml:space="preserve">
+    <value>Neizdevās eksportēt profilu</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Message" xml:space="preserve">
+    <value>Profilu nav iespējams importēt</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Title" xml:space="preserve">
+    <value>Neizdevās importēt profilu</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
+    <value>Netika pievienots neviens efekts.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip" xml:space="preserve">
+    <value>Atgriezt uz noklusējumu</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
+    <value>Izvēlēties visas zonas</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_SwitchKeyboardLayout_ToolTip" xml:space="preserve">
+    <value>Mainīt tastatūras izkārtojumu</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_ClockwiseDirection_Title" xml:space="preserve">
+    <value>Virziens</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Color_Title" xml:space="preserve">
+    <value>Krāsa</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Colors_Title" xml:space="preserve">
+    <value>Krāsas</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Direction_Title" xml:space="preserve">
+    <value>Virziens</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Title" xml:space="preserve">
+    <value>Efekts</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Warning" xml:space="preserve">
+    <value>Šis efekts tiks lietots visai tastatūrai un aizstās visus pārējos efektus.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Speed_Title" xml:space="preserve">
+    <value>Ātrums</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Add" xml:space="preserve">
+    <value>Pievienot efektu</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Edit" xml:space="preserve">
+    <value>Rediģēt efektu</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Message" xml:space="preserve">
+    <value>Pielāgojiet tastatūras apgaismojuma profilu.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Title" xml:space="preserve">
+    <value>Tastatūras izgaismojuma profils</value>
+  </data>
+  <data name="SpectrumKeyboardEffectControl_Description_AllZones" xml:space="preserve">
+    <value>Visi taustiņi</value>
+  </data>
+  <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
+    <value>{0} zonas</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
+    <value>Saullēkts</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
+    <value>Saulriets</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
+    <value>Laiks</value>
+  </data>
+  <data name="ToggleHybridModeControl_Message" xml:space="preserve">
+    <value>Atļaut pārslēgties starp integrētu un atsevišķu GPU.
+Nepieciešama restartēšana.</value>
+  </data>
+  <data name="ToggleHybridModeControl_RestartRequired_Message" xml:space="preserve">
+    <value>Lai pārslēgtos uz Hibrīda Režīmu, nepieciešama restartēšana. Vai vēlaties restartēt datoru tagad?</value>
+  </data>
+  <data name="ToggleHybridModeControl_RestartRequired_Title" xml:space="preserve">
+    <value>Nepieciešama restartēšana</value>
+  </data>
+  <data name="ToggleHybridModeControl_Title" xml:space="preserve">
+    <value>Hibrīda Režīms</value>
+  </data>
+  <data name="TouchpadLockAutomationStepControl_Message" xml:space="preserve">
+    <value>Atspējot skārienpaliktni.</value>
+  </data>
+  <data name="TouchpadLockAutomationStepControl_Title" xml:space="preserve">
+    <value>Skārienpaliktņa Bloķēšana</value>
+  </data>
+  <data name="TouchpadLockControl_Message" xml:space="preserve">
+    <value>Atspējot skārienpaliktni.</value>
+  </data>
+  <data name="TouchpadLockControl_Title" xml:space="preserve">
+    <value>Skārienpaliktņa Bloķēšana</value>
+  </data>
+  <data name="TryAgain" xml:space="preserve">
+    <value>Mēģiniet vēlreiz</value>
+  </data>
+  <data name="UnexpectedException" xml:space="preserve">
+    <value>Radās neparedzēts izņēmums:
+{0}
+
+Lūdzu, ziņojiet par šo problēmu {1}.</value>
+  </data>
+  <data name="Unnamed" xml:space="preserve">
+    <value>Bez nosaukuma</value>
+  </data>
+  <data name="UnsupportedWindow_Disclaimer" xml:space="preserve">
+    <value>Varat izvēlēties turpināt darbu uz jūsu pašu atbildību, taču ņemiet vērā, ka daži līdzekļi var nebūt pieejami un/vai nedarboties pareizi.
+
+Ja izvēlaties turpināt, reģistrēšana tiks iespējota automātiski.</value>
+  </data>
+  <data name="UnsupportedWindow_Disclaimer_GitHub" xml:space="preserve">
+    <value>Papildinformāciju skatiet GitHub projekta lapā.</value>
+  </data>
+  <data name="UnsupportedWindow_Disclaimer_Logs" xml:space="preserve">
+    <value>Žurnālfailu mape</value>
+  </data>
+  <data name="UnsupportedWindow_MachineType" xml:space="preserve">
+    <value>Iekārtas Tips</value>
+  </data>
+  <data name="UnsupportedWindow_Message" xml:space="preserve">
+    <value>Lenovo Legion Toolkit nav pārbaudīts ar jūsu ierīci.</value>
+  </data>
+  <data name="UnsupportedWindow_Model" xml:space="preserve">
+    <value>Modelis</value>
+  </data>
+  <data name="UnsupportedWindow_Title" xml:space="preserve">
+    <value>Neatbalstīta ierīce</value>
+  </data>
+  <data name="UnsupportedWindow_Vendor" xml:space="preserve">
+    <value>Tirgotājs</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Atjaunināt</value>
+  </data>
+  <data name="UpdateWindow_Title" xml:space="preserve">
+    <value>Pieejams atjauninājums</value>
+  </data>
+  <data name="UpdateWindow_WhatsNew" xml:space="preserve">
+    <value>Kas jauns?</value>
+  </data>
+  <data name="WhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Pielāgojiet tastatūras izgaismojuma spožumu.</value>
+  </data>
+  <data name="WhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Tastatūras izgaismojums</value>
+  </data>
+  <data name="WhiteKeyboardBacklightControl_Message" xml:space="preserve">
+    <value>Spilgtumu var mainīt ar Fn+Space</value>
+  </data>
+  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Tastatūras izgaismojums</value>
+  </data>
+  <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
+    <value>Iespējots vai atspējots Windows taustiņš.</value>
+  </data>
+  <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
+    <value>Windows Taustiņš</value>
+  </data>
+  <data name="WinKeyControl_Message" xml:space="preserve">
+    <value>Strādā tikai ar iebūvēto taustatūru.</value>
+  </data>
+  <data name="WinKeyControl_Title" xml:space="preserve">
+    <value>Windows Taustiņa Bloķēšana</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Jā</value>
+  </data>
+  <data name="MicrophoneControl_Title" xml:space="preserve">
+    <value>Mikrofons</value>
+  </data>
+  <data name="MicrophoneControl_Message" xml:space="preserve">
+    <value>Kamēr atspējots, mikrofoni tiks apklusināti.</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
+    <value>Mikrofons</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
+    <value>Kamēr atspējots, mikrofoni tiks apklusināti.</value>
+  </data>
+  <data name="ResolutionControl_Title" xml:space="preserve">
+    <value>Izšķirtspēja</value>
+  </data>
+  <data name="ResolutionControl_Message" xml:space="preserve">
+    <value>Mainiet iebūvētā ekrāna izšķirtspēju.</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
+    <value>Izšķirtspēja</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
+    <value>Mainiet iebūvētā ekrāna izšķirtspēju.
+
+BRĪDINĀJUMS. Ja iebūvētais ekrāns ir izslēgts, šī darbība nedarbosies pareizi.</value>
+  </data>
+  <data name="DpiScaleControl_Title" xml:space="preserve">
+    <value>DPI</value>
+  </data>
+  <data name="DpiScaleControl_Message" xml:space="preserve">
+    <value>Mainiet iebūvētā ekrāna mērogu.</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
+    <value>DPI</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
+    <value>Mainiet iebūvētā ekrāna mērogošanu.
+
+BRĪDINĀJUMS. Ja iebūvētais ekrāns ir izslēgts, šī darbība nedarbosies pareizi.</value>
+  </data>
+  <data name="DashboardPage_Display_Title" xml:space="preserve">
+    <value>Ekrāns</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>Tastatūras izgaismojums</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
+    <value>Izgaismojumu var ieslēgt vai izslēgt ar Fn+Space.</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Tastatūras izgaismojums</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Ieslēgt vai izslēgt izgaismojumu.</value>
+  </data>
+  <data name="PackagesPage_NoMatchingDownloads" xml:space="preserve">
+    <value>Nav atrastas atbilstošas lejupielādes</value>
+  </data>
+  <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
+    <value>Rādīt tikai atjauninājumus</value>
+  </data>
+  <data name="EditDashboardWindow_Title" xml:space="preserve">
+    <value>Rediģēt Informācijas Paneli</value>
+  </data>
+  <data name="Load" xml:space="preserve">
+    <value>Ielādēt</value>
+  </data>
+  <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
+    <value>Izveidot grupu</value>
+  </data>
+  <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
+    <value>Nosaukums</value>
+  </data>
+  <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
+    <value>Dažas funkcijas informācijas panelī var neparādīties atkarībā no ierīces stāvokļa un konfigurācijas.</value>
+  </data>
+  <data name="DashboardPage_Customize" xml:space="preserve">
+    <value>Pielāgot</value>
+  </data>
+  <data name="TurnOffMonitorsControl_Title" xml:space="preserve">
+    <value>Izslēgt ekrānus</value>
+  </data>
+  <data name="TurnOffMonitorsControl_Message" xml:space="preserve">
+    <value>Izslēdziet visus pieejamos ekrānus.
+Peles pārvietošana vai tastatūras nospiešana pamodinās ekrānus.</value>
+  </data>
+  <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
+    <value>Izslēgt</value>
+  </data>
+  <data name="TurnOffMonitorsAutomationStepControl_Title" xml:space="preserve">
+    <value>Izslēgt ekrānus</value>
+  </data>
+  <data name="TurnOffMonitorsAutomationStepControl_Message" xml:space="preserve">
+    <value>Izslēgt visus pieejamos ekrānus.</value>
+  </data>
+  <data name="EditDashboardGroupControl_EditGroup_Title" xml:space="preserve">
+    <value>Rediģēt grupas nosaukumu</value>
+  </data>
+  <data name="EditDashboardGroupControl_EditGroup_Message" xml:space="preserve">
+    <value>Nosaukums</value>
+  </data>
+  <data name="Notification_PanelLogoLightingOn" xml:space="preserve">
+    <value>Legion logotips ieslēgts</value>
+  </data>
+  <data name="Notification_PanelLogoLightingOff" xml:space="preserve">
+    <value>Legion logotips izslēgts</value>
+  </data>
+  <data name="Notification_PortLightingOn" xml:space="preserve">
+    <value>Portu izgaismojums ieslēgts</value>
+  </data>
+  <data name="Notification_PortLightingOff" xml:space="preserve">
+    <value>Portu izgaismojums izslēgts</value>
+  </data>
+  <data name="PackageControl_RebootRequired" xml:space="preserve">
+    <value>Nepieciešama restartēšana</value>
+  </data>
+  <data name="PackageControl_ShutdownRequired" xml:space="preserve">
+    <value>Nepieciešama izslēgšana</value>
+  </data>
+  <data name="PackageControl_RebootRecommended" xml:space="preserve">
+    <value>Ieteicama restartēšana</value>
+  </data>
+  <data name="SaveAndClose" xml:space="preserve">
+    <value>Saglabāt &amp; Aizvērt</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
+    <value>Pielāgotā režīma priekšiestatījums</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
+    <value>Aktivizējiet Pielāgotā Režīma priekšiestatījumu.
+Šie iestatījumi stājas spēkā tikai tad, ja ir iespējots pielāgotais režīms.</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
+    <value>Pirmsiestatītais nosaukums</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Message" xml:space="preserve">
+    <value>Nosaukums</value>
+  </data>
+  <data name="GodModeSettingsWindow_ActivePreset_Title" xml:space="preserve">
+    <value>Aktīvais priekšiestatījums</value>
+  </data>
+  <data name="AboutPage_ApplicationFolders" xml:space="preserve">
+    <value>Aplikāciju Folderi</value>
+  </data>
+  <data name="AboutPage_Data" xml:space="preserve">
+    <value>Dati</value>
+  </data>
+  <data name="AboutPage_Temp" xml:space="preserve">
+    <value>Īslaicīgs</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
+    <value>Viena Ekrāna Spilgtums</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
+    <value>Kad iespējots, visiem Windows Barošanas Plāniem tiks lietots vienāds spilgtuma līmenis ikreiz, kad to mainīsit.</value>
+  </data>
+  <data name="Notification_UpdateAvailable" xml:space="preserve">
+    <value>Pieejams atjauninājums {0}!</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL" xml:space="preserve">
+    <value>Maksimālā Jaudas Robeža</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
+    <value>APU sPPT Jaudas Ierobežojums</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL_Description" xml:space="preserve">
+    <value>Nepārtrauktais enerģijas patēriņš, ko var sasniegt CPU.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL_Description" xml:space="preserve">
+    <value>Maksimālais jaudas patēriņš, ko CPU var sasniegt īsā laikā.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL_Description" xml:space="preserve">
+    <value>Maksimālais momentānais enerģijas patēriņš, ko var sasniegt CPU.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_CrossLoading_Description" xml:space="preserve">
+    <value>Maksimālais jaudas patēriņš, ko var sasniegt centrālais procesors, pilnībā izmantojot gan CPU, gan GPU.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL_Description" xml:space="preserve">
+    <value>Maksimālais jaudas patēriņš, ko CPU var sasniegt ar nelielu aizkavi.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
+    <value>Maksimālā temperatūra, ko centrālais procesors var sasniegt pirms frekvences un jaudas samazināšanas.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
+    <value>Papildu maksimālā jauda, ko var piešķirt GPU, pamatojoties uz CPU enerģijas patēriņu.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
+    <value>Papildu jaudas apjoms, ko var piešķirt GPU papildus pamata jaudas patēriņam.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
+    <value>Maksimālā temperatūra, ko GPU var sasniegt pirms frekvences un jaudas samazināšanas.</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Noklusējums</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
+    <value>Īstermiņa Jaudas Ierobežojums</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau_Description" xml:space="preserve">
+    <value>Laiks, cik ilgi CPU ir atļauts palielināt un izmantot Īstermiņa Jaudas Ierobežojumu. Kad beidzas Tau, tiek izmantots Ilgtermiņa Jaudas Ierobežojums.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
+    <value>Kopējais Procesora Jaudas Mērķis Maiņstrāvā</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
+    <value>Punkts, kurā CPU izraisa dinamisku jaudas patēriņa korekciju priekš GPU.</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Izveidot</value>
+  </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+    <value>Pievienot soli</value>
+  </data>
+  <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
+    <value>Izveidot Darbību</value>
+  </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+    <value>Jaudas režīms</value>
+  </data>
+  <data name="StatusTrayPopup_Preset" xml:space="preserve">
+    <value>Priekšiestatījums</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+    <value>Diskrētais GPU</value>
+  </data>
+  <data name="StatusTrayPopup_PowerState" xml:space="preserve">
+    <value>Jaudas Stāvoklis</value>
+  </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+    <value>Akumulators</value>
+  </data>
+  <data name="StatusTrayPopup_Mode" xml:space="preserve">
+    <value>Režīms</value>
+  </data>
+  <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
+    <value>Izlādes ātrums</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+    <value>Pieejams atjauninājums!</value>
+  </data>
+  <data name="SymbolRegularPicker_Title" xml:space="preserve">
+    <value>Atlasīt ikonu</value>
+  </data>
+  <data name="AutomationPage_ChangeIcon" xml:space="preserve">
+    <value>Mainīt ikonu</value>
+  </data>
+  <data name="BatteryPage_LowLevel" xml:space="preserve">
+    <value>Zems akumulatora uzlādes līmenis</value>
+  </data>
+  <data name="AutomationPipelineTriggerConfigurationWindow_Title" xml:space="preserve">
+    <value>Konfigurēt</value>
+  </data>
+  <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
+    <value>Konstatēts S0 Mazjaudas Modelis</value>
+  </data>
+  <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
+    <value>Windows ziņo, ka šī ierīce atbalsta Moderno Gaidstāvi. Enerģijas plānu izmantošana, kas nav Līdzsvarots, var izraisīt negaidītu rīcību.</value>
+  </data>
+  <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
+    <value>Atlasiet Windows Barošanas Plānus, kas jālieto, mainot Barošanas Režīmu.</value>
+  </data>
+  <data name="SettingsPage_Power_Title" xml:space="preserve">
+    <value>Jauda</value>
+  </data>
+  <data name="SettingsPage_PowerPlansControlPanel_Title" xml:space="preserve">
+    <value>Barošanas Plāna opcijas Windows Vadības Panelī</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+    <value>Izslēgts</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
+    <value>Importēt tastatūras izgaismojuma profilu</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message" xml:space="preserve">
+    <value>Importējiet un lietojiet fona izgaismojuma konfigurāciju pašreizējam profilam.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
+    <value>Ceļš</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_After" xml:space="preserve">
+    <value>Pēc {0}</value>
+  </data>
+  <data name="MultipleTriggersAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Vairāki trigeri...</value>
+    <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_Title" xml:space="preserve">
+    <value>Virstaktēšana GPU Iestatījumi</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title" xml:space="preserve">
+    <value>Kodola Frekvences Nobīde</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title" xml:space="preserve">
+    <value>Atmiņas Frekvences Nobīde</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Title" xml:space="preserve">
+    <value>Virstaktēt GPU</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
+    <value>Palieliniet veiktspēju, virstaktējot diskrēto GPU.</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
+    <value>Virstaktēt GPU</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
+    <value>Palieliniet veiktspēju, virstaktējot diskrēto GPU.
+
+BRĪDINĀJUMS. Ja nav pieejams atsevišķs GPU, šī darbība nedarbosies pareizi.</value>
+  </data>
+  <data name="PortsBacklightControl_Title" xml:space="preserve">
+	  <value>Portu izgaismojums</value>
+  </data>
+  <data name="PortsBacklightControl_Message" xml:space="preserve">
+	  <value>Ieslēdziet vai izslēdziet klēpjdatora aizmugurē esošo portu izgaismojumu.</value>
+  </data>
+  <data name="PortsBacklightAutomationStepControl_Title" xml:space="preserve">
+	  <value>Portu izgaismojums</value>
+  </data>
+  <data name="PortsBacklightAutomationStepControl_Message" xml:space="preserve">
+	  <value>Ieslēdziet vai izslēdziet klēpjdatora aizmugurē esošo portu izgaismojumu.</value>
+  </data>
+  <data name="PanelLogoBacklightControl_Title" xml:space="preserve">
+	  <value>Paneļa logotipa izgaismojums</value>
+  </data>
+  <data name="PanelLogoBacklightControl_Message" xml:space="preserve">
+	  <value>Ieslēgt vai izslēgt klēpjdatora vāka izgaismojumu.</value>
+  </data>
+  <data name="PanelLogoBacklightAutomationStepControl_Title" xml:space="preserve">
+	  <value>Paneļa logotipa izgaismojums</value>
+  </data>
+  <data name="PanelLogoBacklightAutomationStepControl_Message" xml:space="preserve">
+	  <value>Ieslēgt vai izslēgt klēpjdatora vāka izgaismojumu.</value>
+  </data>
 </root>
