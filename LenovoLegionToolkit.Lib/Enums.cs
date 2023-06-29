@@ -58,6 +58,7 @@ public enum LenovoFeatureID : uint
     AMDSmartShiftMode = 0x0050001,
     AMDSkinTemperatureTracking = 0x0050002,
     LegionZoneSupportVersion = 0x00900000,
+    // IGPUModeChangeStatus = 0x00F0000,
     CPUShortTermPowerLimit = 0x0101FF00,
     CPULongTermPowerLimit = 0x0102FF00,
     CPUPeakPowerLimit = 0x0103FF00,
