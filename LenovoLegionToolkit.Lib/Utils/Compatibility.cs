@@ -85,7 +85,7 @@ public static class Compatibility
         {
             var (vendor, machineType, model, serialNumber) = await GetModelDataAsync().ConfigureAwait(false);
             var (biosVersion, biosVersionRaw) = await GetBIOSVersionAsync().ConfigureAwait(false);
-            var legionZoneVersion = await GetLegionZoneVersionAsync().ConfigureAwait(false);
+            var legionZoneVersion = await GetLegionZoneVersionAsync(biosVersion).ConfigureAwait(false);
             var features = await GetFeaturesAsync().ConfigureAwait(false);
 
             var machineInformation = new MachineInformation
@@ -224,8 +224,20 @@ public static class Compatibility
         return MachineInformation.FeatureData.Unknown;
     }
 
-    private static async Task<int> GetLegionZoneVersionAsync()
+    private static async Task<int> GetLegionZoneVersionAsync(BiosVersion? biosVersion)
     {
+        BiosVersion[] affectedBiosVersions =
+        {
+            new("HHCN",20),
+            new("GKCN",46),
+            new("H1CN",39),
+            new("HACN",31),
+            new("G9CN",24)
+        };
+
+        if (affectedBiosVersions.Any(bv => biosVersion?.IsLowerThan(bv) ?? false))
+            return 0;
+
         try
         {
             var result = await WMI.CallAsync("root\\WMI",
