@@ -628,9 +628,6 @@ Clicca il logo PayPal qui sotto oppure scansiona il QR code per donare con PayPa
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>GPU</value>
   </data>
-  <data name="RPM" xml:space="preserve">
-    <value>Giri/min</value>
-  </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
     <value>Accende il laptop quando apri il coperchio.</value>
   </data>
