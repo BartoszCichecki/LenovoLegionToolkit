@@ -81,67 +81,68 @@ public static class Compatibility
 
     public static async Task<MachineInformation> GetMachineInformationAsync()
     {
-        if (!_machineInformation.HasValue)
+        if (_machineInformation.HasValue)
+            return _machineInformation.Value;
+
+        var (vendor, machineType, model, serialNumber) = await GetModelDataAsync().ConfigureAwait(false);
+        var (biosVersion, biosVersionRaw) = await GetBIOSVersionAsync().ConfigureAwait(false);
+        var smartFanVersion = await GetSmartFanVersionAsync().ConfigureAwait(false);
+        var legionZoneVersion = await GetLegionZoneVersionAsync().ConfigureAwait(false);
+        var features = await GetFeaturesAsync().ConfigureAwait(false);
+
+        var machineInformation = new MachineInformation
         {
-            var (vendor, machineType, model, serialNumber) = await GetModelDataAsync().ConfigureAwait(false);
-            var (biosVersion, biosVersionRaw) = await GetBIOSVersionAsync().ConfigureAwait(false);
-            var legionZoneVersion = await GetLegionZoneVersionAsync(biosVersion).ConfigureAwait(false);
-            var features = await GetFeaturesAsync().ConfigureAwait(false);
-
-            var machineInformation = new MachineInformation
+            Vendor = vendor,
+            MachineType = machineType,
+            Model = model,
+            SerialNumber = serialNumber,
+            BiosVersion = biosVersion,
+            BiosVersionRaw = biosVersionRaw,
+            SmartFanVersion = smartFanVersion,
+            LegionZoneVersion = legionZoneVersion,
+            Features = features,
+            Properties = new()
             {
-                Vendor = vendor,
-                MachineType = machineType,
-                Model = model,
-                SerialNumber = serialNumber,
-                BiosVersion = biosVersion,
-                BiosVersionRaw = biosVersionRaw,
-                LegionZoneVersion = legionZoneVersion,
-                Features = features,
-                Properties = new()
-                {
-                    SupportsAlwaysOnAc = GetAlwaysOnAcStatus(),
-                    SupportsGodModeV1 = legionZoneVersion is 1 or 2,
-                    SupportsGodModeV2 = legionZoneVersion is 3,
-                    SupportsIntelligentSubMode = await GetSupportsIntelligentSubModeAsync().ConfigureAwait(false),
-                    HasQuietToPerformanceModeSwitchingBug = GetHasQuietToPerformanceModeSwitchingBug(biosVersion),
-                    HasGodModeToOtherModeSwitchingBug = GetHasGodModeToOtherModeSwitchingBug(biosVersion),
-                    IsExcludedFromLenovoLighting = GetIsExcludedFromLenovoLighting(biosVersion),
-                    IsExcludedFromPanelLogoLenovoLighting = GetIsExcludedFromPanelLenovoLighting(machineType, model)
-                }
-            };
-
-            if (Log.Instance.IsTraceEnabled)
-            {
-                Log.Instance.Trace($"Retrieved machine information:");
-                Log.Instance.Trace($" * Vendor: '{machineInformation.Vendor}'");
-                Log.Instance.Trace($" * Machine Type: '{machineInformation.MachineType}'");
-                Log.Instance.Trace($" * Model: '{machineInformation.Model}'");
-                Log.Instance.Trace($" * BIOS: '{machineInformation.BiosVersion}' [{machineInformation.BiosVersionRaw}]");
-                Log.Instance.Trace($" * LegionZoneVersion: '{machineInformation.LegionZoneVersion}'");
-                Log.Instance.Trace($" * Features:");
-                Log.Instance.Trace($"     * Source: '{machineInformation.Features.Source}'");
-                Log.Instance.Trace($"     * IGPUModeSupport: '{machineInformation.Features.IGPUModeSupport}'");
-                Log.Instance.Trace($"     * NvidiaGPUDynamicDisplaySwitching: '{machineInformation.Features.NvidiaGPUDynamicDisplaySwitching}'");
-                Log.Instance.Trace($"     * InstantBootAc: '{machineInformation.Features.InstantBootAc}'");
-                Log.Instance.Trace($"     * InstantBootUsbPowerDelivery: '{machineInformation.Features.InstantBootUsbPowerDelivery}'");
-                Log.Instance.Trace($"     * AMDSmartShiftMode: '{machineInformation.Features.AMDSmartShiftMode}'");
-                Log.Instance.Trace($"     * AMDSkinTemperatureTracking: '{machineInformation.Features.AMDSkinTemperatureTracking}'");
-                Log.Instance.Trace($" * Properties:");
-                Log.Instance.Trace($"     * SupportsAlwaysOnAc: '{machineInformation.Properties.SupportsAlwaysOnAc.status}, {machineInformation.Properties.SupportsAlwaysOnAc.connectivity}'");
-                Log.Instance.Trace($"     * SupportsGodModeV1: '{machineInformation.Properties.SupportsGodModeV1}'");
-                Log.Instance.Trace($"     * SupportsGodModeV2: '{machineInformation.Properties.SupportsGodModeV2}'");
-                Log.Instance.Trace($"     * SupportsIntelligentSubMode: '{machineInformation.Properties.SupportsIntelligentSubMode}'");
-                Log.Instance.Trace($"     * HasQuietToPerformanceModeSwitchingBug: '{machineInformation.Properties.HasQuietToPerformanceModeSwitchingBug}'");
-                Log.Instance.Trace($"     * HasGodModeToOtherModeSwitchingBug: '{machineInformation.Properties.HasGodModeToOtherModeSwitchingBug}'");
-                Log.Instance.Trace($"     * IsExcludedFromLenovoLighting: '{machineInformation.Properties.IsExcludedFromLenovoLighting}'");
-                Log.Instance.Trace($"     * IsExcludedFromPanelLogoLenovoLighting: '{machineInformation.Properties.IsExcludedFromPanelLogoLenovoLighting}'");
+                SupportsAlwaysOnAc = GetAlwaysOnAcStatus(),
+                SupportsGodModeV1 = GetSupportsGodModeV1(smartFanVersion, legionZoneVersion, biosVersion),
+                SupportsGodModeV2 = GetSupportsGodModeV2(smartFanVersion, legionZoneVersion),
+                SupportsIntelligentSubMode = await GetSupportsIntelligentSubModeAsync().ConfigureAwait(false),
+                HasQuietToPerformanceModeSwitchingBug = GetHasQuietToPerformanceModeSwitchingBug(biosVersion),
+                HasGodModeToOtherModeSwitchingBug = GetHasGodModeToOtherModeSwitchingBug(biosVersion),
+                IsExcludedFromLenovoLighting = GetIsExcludedFromLenovoLighting(biosVersion),
+                IsExcludedFromPanelLogoLenovoLighting = GetIsExcludedFromPanelLenovoLighting(machineType, model)
             }
+        };
 
-            _machineInformation = machineInformation;
+        if (Log.Instance.IsTraceEnabled)
+        {
+            Log.Instance.Trace($"Retrieved machine information:");
+            Log.Instance.Trace($" * Vendor: '{machineInformation.Vendor}'");
+            Log.Instance.Trace($" * Machine Type: '{machineInformation.MachineType}'");
+            Log.Instance.Trace($" * Model: '{machineInformation.Model}'");
+            Log.Instance.Trace($" * BIOS: '{machineInformation.BiosVersion}' [{machineInformation.BiosVersionRaw}]");
+            Log.Instance.Trace($" * SmartFanVersion: '{machineInformation.SmartFanVersion}'");
+            Log.Instance.Trace($" * LegionZoneVersion: '{machineInformation.LegionZoneVersion}'");
+            Log.Instance.Trace($" * Features:");
+            Log.Instance.Trace($"     * Source: '{machineInformation.Features.Source}'");
+            Log.Instance.Trace($"     * IGPUModeSupport: '{machineInformation.Features.IGPUModeSupport}'");
+            Log.Instance.Trace($"     * NvidiaGPUDynamicDisplaySwitching: '{machineInformation.Features.NvidiaGPUDynamicDisplaySwitching}'");
+            Log.Instance.Trace($"     * InstantBootAc: '{machineInformation.Features.InstantBootAc}'");
+            Log.Instance.Trace($"     * InstantBootUsbPowerDelivery: '{machineInformation.Features.InstantBootUsbPowerDelivery}'");
+            Log.Instance.Trace($"     * AMDSmartShiftMode: '{machineInformation.Features.AMDSmartShiftMode}'");
+            Log.Instance.Trace($"     * AMDSkinTemperatureTracking: '{machineInformation.Features.AMDSkinTemperatureTracking}'");
+            Log.Instance.Trace($" * Properties:");
+            Log.Instance.Trace($"     * SupportsAlwaysOnAc: '{machineInformation.Properties.SupportsAlwaysOnAc.status}, {machineInformation.Properties.SupportsAlwaysOnAc.connectivity}'");
+            Log.Instance.Trace($"     * SupportsGodModeV1: '{machineInformation.Properties.SupportsGodModeV1}'");
+            Log.Instance.Trace($"     * SupportsGodModeV2: '{machineInformation.Properties.SupportsGodModeV2}'");
+            Log.Instance.Trace($"     * SupportsIntelligentSubMode: '{machineInformation.Properties.SupportsIntelligentSubMode}'");
+            Log.Instance.Trace($"     * HasQuietToPerformanceModeSwitchingBug: '{machineInformation.Properties.HasQuietToPerformanceModeSwitchingBug}'");
+            Log.Instance.Trace($"     * HasGodModeToOtherModeSwitchingBug: '{machineInformation.Properties.HasGodModeToOtherModeSwitchingBug}'");
+            Log.Instance.Trace($"     * IsExcludedFromLenovoLighting: '{machineInformation.Properties.IsExcludedFromLenovoLighting}'");
+            Log.Instance.Trace($"     * IsExcludedFromPanelLogoLenovoLighting: '{machineInformation.Properties.IsExcludedFromPanelLogoLenovoLighting}'");
         }
 
-        return _machineInformation.Value;
+        return (_machineInformation = machineInformation).Value;
     }
 
     private static async Task<(string, string, string, string)> GetModelDataAsync()
@@ -224,20 +225,24 @@ public static class Compatibility
         return MachineInformation.FeatureData.Unknown;
     }
 
-    private static async Task<int> GetLegionZoneVersionAsync(BiosVersion? biosVersion)
+    private static async Task<int> GetSmartFanVersionAsync()
     {
-        BiosVersion[] affectedBiosVersions =
+        try
         {
-            new("G9CN",24),
-            new("GKCN",46),
-            new("H1CN",39),
-            new("HACN",31),
-            new("HHCN",20),
-        };
+            var result = await WMI.CallAsync("root\\WMI",
+                $"SELECT * FROM LENOVO_GAMEZONE_DATA",
+                "IsSupportSmartFan",
+                new(),
+                pdc => Convert.ToInt32(pdc["Data"].Value)).ConfigureAwait(false);
+            return result;
+        }
+        catch { /* Ignored. */ }
 
-        if (affectedBiosVersions.Any(bv => biosVersion?.IsLowerThan(bv) ?? false))
-            return 0;
+        return 0;
+    }
 
+    private static async Task<int> GetLegionZoneVersionAsync()
+    {
         try
         {
             var result = await WMI.CallAsync("root\\WMI",
@@ -278,6 +283,25 @@ public static class Compatibility
         return (capabilities.AoAc, capabilities.AoAcConnectivitySupported);
     }
 
+    private static bool GetSupportsGodModeV1(int smartFanVersion, int legionZoneVersion, BiosVersion? biosVersion)
+    {
+        var affectedBiosVersions = new BiosVersion[]
+        {
+            new("G9CN", 24),
+            new("GKCN", 46),
+            new("H1CN", 39),
+            new("HACN", 31),
+            new("HHCN", 20),
+        };
+
+        if (affectedBiosVersions.Any(bv => biosVersion?.IsLowerThan(bv) ?? false))
+            return false;
+
+        return smartFanVersion is 4 or 5 || legionZoneVersion is 1 or 2;
+    }
+
+    private static bool GetSupportsGodModeV2(int smartFanVersion, int legionZoneVersion) => smartFanVersion is 6 || legionZoneVersion is 3;
+
     private static async Task<bool> GetSupportsIntelligentSubModeAsync()
     {
         try
@@ -297,7 +321,7 @@ public static class Compatibility
 
     private static bool GetHasQuietToPerformanceModeSwitchingBug(BiosVersion? biosVersion)
     {
-        BiosVersion[] affectedBiosVersions =
+        var affectedBiosVersions = new BiosVersion[]
         {
             new("J2CN", null)
         };
@@ -307,7 +331,7 @@ public static class Compatibility
 
     private static bool GetHasGodModeToOtherModeSwitchingBug(BiosVersion? biosVersion)
     {
-        BiosVersion[] affectedBiosVersions =
+        var affectedBiosVersions = new BiosVersion[]
         {
             new("K1CN", null)
         };
@@ -317,7 +341,7 @@ public static class Compatibility
 
     private static bool GetIsExcludedFromLenovoLighting(BiosVersion? biosVersion)
     {
-        BiosVersion[] affectedBiosVersions =
+        var affectedBiosVersions = new BiosVersion[]
         {
             new("GKCN", 54)
         };
