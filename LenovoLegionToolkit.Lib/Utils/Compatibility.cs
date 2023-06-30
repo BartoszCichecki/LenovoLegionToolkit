@@ -106,6 +106,7 @@ public static class Compatibility
                 SupportsAlwaysOnAc = GetAlwaysOnAcStatus(),
                 SupportsGodModeV1 = GetSupportsGodModeV1(smartFanVersion, legionZoneVersion, biosVersion),
                 SupportsGodModeV2 = GetSupportsGodModeV2(smartFanVersion, legionZoneVersion),
+                SupportsIGPUMode = await GetSupportsIGPUModeAsync().ConfigureAwait(false),
                 SupportsIntelligentSubMode = await GetSupportsIntelligentSubModeAsync().ConfigureAwait(false),
                 HasQuietToPerformanceModeSwitchingBug = GetHasQuietToPerformanceModeSwitchingBug(biosVersion),
                 HasGodModeToOtherModeSwitchingBug = GetHasGodModeToOtherModeSwitchingBug(biosVersion),
@@ -125,7 +126,7 @@ public static class Compatibility
             Log.Instance.Trace($" * LegionZoneVersion: '{machineInformation.LegionZoneVersion}'");
             Log.Instance.Trace($" * Features:");
             Log.Instance.Trace($"     * Source: '{machineInformation.Features.Source}'");
-            Log.Instance.Trace($"     * IGPUModeSupport: '{machineInformation.Features.IGPUModeSupport}'");
+            Log.Instance.Trace($"     * IGPUMode: '{machineInformation.Features.IGPUMode}'");
             Log.Instance.Trace($"     * NvidiaGPUDynamicDisplaySwitching: '{machineInformation.Features.NvidiaGPUDynamicDisplaySwitching}'");
             Log.Instance.Trace($"     * InstantBootAc: '{machineInformation.Features.InstantBootAc}'");
             Log.Instance.Trace($"     * InstantBootUsbPowerDelivery: '{machineInformation.Features.InstantBootUsbPowerDelivery}'");
@@ -135,6 +136,7 @@ public static class Compatibility
             Log.Instance.Trace($"     * SupportsAlwaysOnAc: '{machineInformation.Properties.SupportsAlwaysOnAc.status}, {machineInformation.Properties.SupportsAlwaysOnAc.connectivity}'");
             Log.Instance.Trace($"     * SupportsGodModeV1: '{machineInformation.Properties.SupportsGodModeV1}'");
             Log.Instance.Trace($"     * SupportsGodModeV2: '{machineInformation.Properties.SupportsGodModeV2}'");
+            Log.Instance.Trace($"     * SupportsIGPUMode: '{machineInformation.Properties.SupportsIGPUMode}'");
             Log.Instance.Trace($"     * SupportsIntelligentSubMode: '{machineInformation.Properties.SupportsIntelligentSubMode}'");
             Log.Instance.Trace($"     * HasQuietToPerformanceModeSwitchingBug: '{machineInformation.Properties.HasQuietToPerformanceModeSwitchingBug}'");
             Log.Instance.Trace($"     * HasGodModeToOtherModeSwitchingBug: '{machineInformation.Properties.HasGodModeToOtherModeSwitchingBug}'");
@@ -191,7 +193,7 @@ public static class Compatibility
             return new()
             {
                 Source = MachineInformation.FeatureData.SourceType.CapabilityData,
-                IGPUModeSupport = capabilities.Contains(CapabilityID.IGPUModeSupport),
+                IGPUMode = capabilities.Contains(CapabilityID.IGPUModeSupport),
                 NvidiaGPUDynamicDisplaySwitching = capabilities.Contains(CapabilityID.NvidiaGPUDynamicDisplaySwitching),
                 InstantBootAc = capabilities.Contains(CapabilityID.InstantBootAc),
                 InstantBootUsbPowerDelivery = capabilities.Contains(CapabilityID.InstantBootUsbPowerDelivery),
@@ -212,7 +214,7 @@ public static class Compatibility
             return new()
             {
                 Source = MachineInformation.FeatureData.SourceType.Flags,
-                IGPUModeSupport = featureFlags.IsBitSet(0),
+                IGPUMode = featureFlags.IsBitSet(0),
                 NvidiaGPUDynamicDisplaySwitching = featureFlags.IsBitSet(4),
                 InstantBootAc = featureFlags.IsBitSet(5),
                 InstantBootUsbPowerDelivery = featureFlags.IsBitSet(6),
@@ -318,6 +320,23 @@ public static class Compatibility
             return false;
         }
     }
+    private static async Task<bool> GetSupportsIGPUModeAsync()
+    {
+        try
+        {
+            var result = await WMI.CallAsync("root\\WMI",
+                $"SELECT * FROM LENOVO_GAMEZONE_DATA",
+                "IsSupportIGPUMode",
+                new(),
+                pdc => (uint)pdc["Data"].Value).ConfigureAwait(false);
+            return result > 0;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
 
     private static bool GetHasQuietToPerformanceModeSwitchingBug(BiosVersion? biosVersion)
     {

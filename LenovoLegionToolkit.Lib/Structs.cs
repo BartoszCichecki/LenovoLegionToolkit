@@ -366,7 +366,7 @@ public readonly struct MachineInformation
         }
 
         public SourceType Source { get; init; }
-        public bool IGPUModeSupport { get; init; }
+        public bool IGPUMode { get; init; }
         public bool NvidiaGPUDynamicDisplaySwitching { get; init; }
         public bool InstantBootAc { get; init; }
         public bool InstantBootUsbPowerDelivery { get; init; }
@@ -381,6 +381,7 @@ public readonly struct MachineInformation
         public (bool status, bool connectivity) SupportsAlwaysOnAc { get; init; }
         public bool SupportsGodModeV1 { get; init; }
         public bool SupportsGodModeV2 { get; init; }
+        public bool SupportsIGPUMode { get; init; }
         public bool SupportsIntelligentSubMode { get; init; }
         public bool HasQuietToPerformanceModeSwitchingBug { get; init; }
         public bool HasGodModeToOtherModeSwitchingBug { get; init; }

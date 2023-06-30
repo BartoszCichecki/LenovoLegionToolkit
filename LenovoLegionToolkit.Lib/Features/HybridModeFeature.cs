@@ -20,7 +20,7 @@ public class HybridModeFeature : IFeature<HybridModeState>
     public async Task<HybridModeState[]> GetAllStatesAsync()
     {
         var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
-        return mi.Features.IGPUModeSupport
+        return mi.Properties.SupportsIGPUMode
             ? new[] { HybridModeState.On, HybridModeState.OnIGPUOnly, HybridModeState.OnAuto, HybridModeState.Off }
             : new[] { HybridModeState.On, HybridModeState.Off };
     }
