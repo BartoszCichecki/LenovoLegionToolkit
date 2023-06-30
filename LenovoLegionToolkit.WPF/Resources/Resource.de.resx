@@ -630,9 +630,6 @@ Vielen Dank im Voraus!</value>
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>GPU</value>
   </data>
-  <data name="RPM" xml:space="preserve">
-    <value>U/min</value>
-  </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
     <value>Schalte den Laptop ein, wenn der Bildschirm aufgeklappt wird.</value>
   </data>
@@ -1781,27 +1778,27 @@ Diese Einstellung wird nur wirksam, wenn der benutzerdefinierte Modus aktiviert 
 WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn keine diskrete GPU verfügbar ist.</value>
   </data>
   <data name="PortsBacklightControl_Title" xml:space="preserve">
-	  <value>Ports Hintergrundbeleuchtung</value>
+    <value>Ports Hintergrundbeleuchtung</value>
   </data>
   <data name="PortsBacklightControl_Message" xml:space="preserve">
-	  <value>Schalten Sie die Hintergrundbeleuchtung der Anschlüsse auf der Rückseite des Laptops ein oder aus.</value>
+    <value>Schalten Sie die Hintergrundbeleuchtung der Anschlüsse auf der Rückseite des Laptops ein oder aus.</value>
   </data>
   <data name="PortsBacklightAutomationStepControl_Title" xml:space="preserve">
-	  <value>Ports Hintergrundbeleuchtung</value>
+    <value>Ports Hintergrundbeleuchtung</value>
   </data>
   <data name="PortsBacklightAutomationStepControl_Message" xml:space="preserve">
-	  <value>Schalten Sie die Hintergrundbeleuchtung der Anschlüsse auf der Rückseite des Laptops ein oder aus.</value>
+    <value>Schalten Sie die Hintergrundbeleuchtung der Anschlüsse auf der Rückseite des Laptops ein oder aus.</value>
   </data>
   <data name="PanelLogoBacklightControl_Title" xml:space="preserve">
-	  <value>Hintergrundbeleuchtung des Panel-Logos</value>
+    <value>Hintergrundbeleuchtung des Panel-Logos</value>
   </data>
   <data name="PanelLogoBacklightControl_Message" xml:space="preserve">
-	  <value>Schalten Sie die Hintergrundbeleuchtung auf dem Deckel des Laptops ein oder aus.</value>
+    <value>Schalten Sie die Hintergrundbeleuchtung auf dem Deckel des Laptops ein oder aus.</value>
   </data>
   <data name="PanelLogoBacklightAutomationStepControl_Title" xml:space="preserve">
-	  <value>Hintergrundbeleuchtung des Panel-Logos</value>
+    <value>Hintergrundbeleuchtung des Panel-Logos</value>
   </data>
   <data name="PanelLogoBacklightAutomationStepControl_Message" xml:space="preserve">
-	  <value>Schalten Sie die Hintergrundbeleuchtung auf dem Deckel des Laptops ein oder aus.</value>
+    <value>Schalten Sie die Hintergrundbeleuchtung auf dem Deckel des Laptops ein oder aus.</value>
   </data>
 </root>
