@@ -631,9 +631,6 @@ Paldies jau iepriekš!</value>
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>GPU</value>
   </data>
-  <data name="FanCurveControl_RPM" xml:space="preserve">
-    <value>Apgr/min</value>
-  </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
     <value>Klēpjdatora ieslēgšana, atverot vāku.</value>
   </data>
@@ -1782,27 +1779,27 @@ Peles pārvietošana vai tastatūras nospiešana pamodinās ekrānus.</value>
 BRĪDINĀJUMS. Ja nav pieejams atsevišķs GPU, šī darbība nedarbosies pareizi.</value>
   </data>
   <data name="PortsBacklightControl_Title" xml:space="preserve">
-	  <value>Portu izgaismojums</value>
+    <value>Portu izgaismojums</value>
   </data>
   <data name="PortsBacklightControl_Message" xml:space="preserve">
-	  <value>Ieslēdziet vai izslēdziet klēpjdatora aizmugurē esošo portu izgaismojumu.</value>
+    <value>Ieslēdziet vai izslēdziet klēpjdatora aizmugurē esošo portu izgaismojumu.</value>
   </data>
   <data name="PortsBacklightAutomationStepControl_Title" xml:space="preserve">
-	  <value>Portu izgaismojums</value>
+    <value>Portu izgaismojums</value>
   </data>
   <data name="PortsBacklightAutomationStepControl_Message" xml:space="preserve">
-	  <value>Ieslēdziet vai izslēdziet klēpjdatora aizmugurē esošo portu izgaismojumu.</value>
+    <value>Ieslēdziet vai izslēdziet klēpjdatora aizmugurē esošo portu izgaismojumu.</value>
   </data>
   <data name="PanelLogoBacklightControl_Title" xml:space="preserve">
-	  <value>Paneļa logotipa izgaismojums</value>
+    <value>Paneļa logotipa izgaismojums</value>
   </data>
   <data name="PanelLogoBacklightControl_Message" xml:space="preserve">
-	  <value>Ieslēgt vai izslēgt klēpjdatora vāka izgaismojumu.</value>
+    <value>Ieslēgt vai izslēgt klēpjdatora vāka izgaismojumu.</value>
   </data>
   <data name="PanelLogoBacklightAutomationStepControl_Title" xml:space="preserve">
-	  <value>Paneļa logotipa izgaismojums</value>
+    <value>Paneļa logotipa izgaismojums</value>
   </data>
   <data name="PanelLogoBacklightAutomationStepControl_Message" xml:space="preserve">
-	  <value>Ieslēgt vai izslēgt klēpjdatora vāka izgaismojumu.</value>
+    <value>Ieslēgt vai izslēgt klēpjdatora vāka izgaismojumu.</value>
   </data>
 </root>
