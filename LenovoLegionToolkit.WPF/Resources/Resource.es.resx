@@ -632,9 +632,6 @@ El sistema alternará automáticamente entre ellas, en función de sus necesidad
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>GPU</value>
   </data>
-  <data name="RPM" xml:space="preserve">
-    <value>Revoluciones por minuto</value>
-  </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
     <value>Encender el portátil al abrir la tapa.</value>
   </data>
@@ -1784,27 +1781,27 @@ Esta configuración sólo tiene efecto si el modo personalizado está activado.<
 AVISO: Esta acción no se ejecutará correctamente si no se dispone de una GPU externa.</value>
   </data>
   <data name="PortsBacklightControl_Title" xml:space="preserve">
-	  <value>Retroiluminación de puertos</value>
+    <value>Retroiluminación de puertos</value>
   </data>
   <data name="PortsBacklightControl_Message" xml:space="preserve">
-	  <value>Activa o desactiva la retroiluminación de los puertos de la parte posterior del portátil.</value>
+    <value>Activa o desactiva la retroiluminación de los puertos de la parte posterior del portátil.</value>
   </data>
   <data name="PortsBacklightAutomationStepControl_Title" xml:space="preserve">
-	  <value>Retroiluminación de puertos</value>
+    <value>Retroiluminación de puertos</value>
   </data>
   <data name="PortsBacklightAutomationStepControl_Message" xml:space="preserve">
-	  <value>Activa o desactiva la retroiluminación de los puertos de la parte posterior del portátil.</value>
+    <value>Activa o desactiva la retroiluminación de los puertos de la parte posterior del portátil.</value>
   </data>
   <data name="PanelLogoBacklightControl_Title" xml:space="preserve">
-	  <value>Retroiluminación del logo del panel</value>
+    <value>Retroiluminación del logo del panel</value>
   </data>
   <data name="PanelLogoBacklightControl_Message" xml:space="preserve">
-	  <value>Activa o desactiva la retroiluminación de la tapa del portátil.</value>
+    <value>Activa o desactiva la retroiluminación de la tapa del portátil.</value>
   </data>
   <data name="PanelLogoBacklightAutomationStepControl_Title" xml:space="preserve">
-	  <value>Retroiluminación del logo del panel</value>
+    <value>Retroiluminación del logo del panel</value>
   </data>
   <data name="PanelLogoBacklightAutomationStepControl_Message" xml:space="preserve">
-	  <value>Enciende o apaga la retroiluminación de la tapa del portátil.</value>
+    <value>Enciende o apaga la retroiluminación de la tapa del portátil.</value>
   </data>
 </root>
