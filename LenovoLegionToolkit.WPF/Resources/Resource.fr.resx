@@ -632,9 +632,6 @@ Merci par avance !</value>
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>GPU</value>
   </data>
-  <data name="RPM" xml:space="preserve">
-    <value>Tr/min</value>
-  </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
     <value>Allume l'ordinateur à l'ouverture de l'écran.</value>
   </data>
@@ -1783,27 +1780,27 @@ Ce paramètre ne prend effet que lorsque le mode personnalisé est activé.</val
 AVERTISSEMENT : Cette action ne fonctionnera pas correctement si le GPU dédié n'est pas disponible.</value>
   </data>
   <data name="PortsBacklightControl_Title" xml:space="preserve">
-	  <value>Rétroéclairage des ports</value>
+    <value>Rétroéclairage des ports</value>
   </data>
   <data name="PortsBacklightControl_Message" xml:space="preserve">
-	  <value>Activez ou désactivez le rétroéclairage des ports situés à l'arrière de l'ordinateur portable.</value>
+    <value>Activez ou désactivez le rétroéclairage des ports situés à l'arrière de l'ordinateur portable.</value>
   </data>
   <data name="PortsBacklightAutomationStepControl_Title" xml:space="preserve">
-	  <value>Rétroéclairage des ports</value>
+    <value>Rétroéclairage des ports</value>
   </data>
   <data name="PortsBacklightAutomationStepControl_Message" xml:space="preserve">
-	  <value>Activez ou désactivez le rétroéclairage des ports situés à l'arrière de l'ordinateur portable.</value>
+    <value>Activez ou désactivez le rétroéclairage des ports situés à l'arrière de l'ordinateur portable.</value>
   </data>
   <data name="PanelLogoBacklightControl_Title" xml:space="preserve">
-	  <value>Rétroéclairage du logo</value>
+    <value>Rétroéclairage du logo</value>
   </data>
   <data name="PanelLogoBacklightControl_Message" xml:space="preserve">
-	  <value>Activez ou désactivez le rétroéclairage sur le capot de l'ordinateur portable.</value>
+    <value>Activez ou désactivez le rétroéclairage sur le capot de l'ordinateur portable.</value>
   </data>
   <data name="PanelLogoBacklightAutomationStepControl_Title" xml:space="preserve">
-	  <value>Rétroéclairage du logo</value>
+    <value>Rétroéclairage du logo</value>
   </data>
   <data name="PanelLogoBacklightAutomationStepControl_Message" xml:space="preserve">
-	  <value>Active ou désactive le rétroéclairage sur le capot de l'ordinateur portable.</value>
+    <value>Active ou désactive le rétroéclairage sur le capot de l'ordinateur portable.</value>
   </data>
 </root>
