@@ -184,18 +184,18 @@ public static class Compatibility
         {
             var capabilities = await WMI.ReadAsync("root\\WMI",
                 $"SELECT * FROM LENOVO_CAPABILITY_DATA_00",
-                pdc => (LenovoFeatureID)Convert.ToInt32(pdc["IDs"].Value)).ConfigureAwait(false);
+                pdc => (CapabilityID)Convert.ToInt32(pdc["IDs"].Value)).ConfigureAwait(false);
             capabilities = capabilities.ToArray();
 
             return new()
             {
                 Source = MachineInformation.FeatureData.SourceType.CapabilityData,
-                IGPUModeSupport = capabilities.Contains(LenovoFeatureID.IGPUModeSupport),
-                NvidiaGPUDynamicDisplaySwitching = capabilities.Contains(LenovoFeatureID.NvidiaGPUDynamicDisplaySwitching),
-                InstantBootAc = capabilities.Contains(LenovoFeatureID.InstantBootAc),
-                InstantBootUsbPowerDelivery = capabilities.Contains(LenovoFeatureID.InstantBootUsbPowerDelivery),
-                AMDSmartShiftMode = capabilities.Contains(LenovoFeatureID.AMDSmartShiftMode),
-                AMDSkinTemperatureTracking = capabilities.Contains(LenovoFeatureID.AMDSkinTemperatureTracking),
+                IGPUModeSupport = capabilities.Contains(CapabilityID.IGPUModeSupport),
+                NvidiaGPUDynamicDisplaySwitching = capabilities.Contains(CapabilityID.NvidiaGPUDynamicDisplaySwitching),
+                InstantBootAc = capabilities.Contains(CapabilityID.InstantBootAc),
+                InstantBootUsbPowerDelivery = capabilities.Contains(CapabilityID.InstantBootUsbPowerDelivery),
+                AMDSmartShiftMode = capabilities.Contains(CapabilityID.AMDSmartShiftMode),
+                AMDSkinTemperatureTracking = capabilities.Contains(CapabilityID.AMDSkinTemperatureTracking),
             };
         }
         catch { /* Ignored. */ }
@@ -243,7 +243,7 @@ public static class Compatibility
             var result = await WMI.CallAsync("root\\WMI",
                 $"SELECT * FROM LENOVO_OTHER_METHOD",
                 "GetFeatureValue",
-                new() { { "IDs", LenovoFeatureID.LegionZoneSupportVersion } },
+                new() { { "IDs", CapabilityID.LegionZoneSupportVersion } },
                 pdc => Convert.ToInt32(pdc["Value"].Value)).ConfigureAwait(false);
             return result;
         }
