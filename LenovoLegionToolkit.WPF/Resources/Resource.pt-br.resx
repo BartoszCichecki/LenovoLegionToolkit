@@ -631,9 +631,6 @@ Desde já, obrigado!</value>
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>GPU</value>
   </data>
-  <data name="RPM" xml:space="preserve">
-    <value>RPM</value>
-  </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
     <value>Ligar o notebook ao abrir a tampa da tela.</value>
   </data>
@@ -1779,27 +1776,27 @@ Esta configuração somente terá efeito se o Modo Personalizado estiver ativo.<
 AVISO: Esta ação não será executada corretamente caso a GPU dedicada não esteja disponível.</value>
   </data>
   <data name="PortsBacklightControl_Title" xml:space="preserve">
-	  <value>Iluminação das portas traseiras</value>
+    <value>Iluminação das portas traseiras</value>
   </data>
   <data name="PortsBacklightControl_Message" xml:space="preserve">
-	  <value>Liga ou desliga a luz de fundo das portas na parte de trás do laptop.</value>
+    <value>Liga ou desliga a luz de fundo das portas na parte de trás do laptop.</value>
   </data>
   <data name="PortsBacklightAutomationStepControl_Title" xml:space="preserve">
-	  <value>Iluminação das portas traseiras</value>
+    <value>Iluminação das portas traseiras</value>
   </data>
   <data name="PortsBacklightAutomationStepControl_Message" xml:space="preserve">
-	  <value>Liga ou desliga a luz de fundo das portas na parte de trás do laptop.</value>
+    <value>Liga ou desliga a luz de fundo das portas na parte de trás do laptop.</value>
   </data>
   <data name="PanelLogoBacklightControl_Title" xml:space="preserve">
-	  <value>Iluminação do logo da tampa</value>
+    <value>Iluminação do logo da tampa</value>
   </data>
   <data name="PanelLogoBacklightControl_Message" xml:space="preserve">
-	  <value>Liga ou desliga a luz de fundo do logo da tampa do notebook.</value>
+    <value>Liga ou desliga a luz de fundo do logo da tampa do notebook.</value>
   </data>
   <data name="PanelLogoBacklightAutomationStepControl_Title" xml:space="preserve">
-	  <value>Iluminação do logo da tampa</value>
+    <value>Iluminação do logo da tampa</value>
   </data>
   <data name="PanelLogoBacklightAutomationStepControl_Message" xml:space="preserve">
-	  <value>Liga ou desliga a luz de fundo do lolo da tampa do laptop.</value>
+    <value>Liga ou desliga a luz de fundo do lolo da tampa do laptop.</value>
   </data>
 </root>
