@@ -630,9 +630,6 @@
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>Видеокарта</value>
   </data>
-  <data name="RPM" xml:space="preserve">
-    <value>Обороти в минута</value>
-  </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
     <value>Стартира лаптопа при отваряне на капака.</value>
   </data>
