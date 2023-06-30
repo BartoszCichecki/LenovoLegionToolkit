@@ -628,9 +628,6 @@
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>ГП</value>
   </data>
-  <data name="RPM" xml:space="preserve">
-    <value>Об/хв</value>
-  </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
     <value>Вмикати ноутбук коли ви підіймаєте кришку.</value>
   </data>
