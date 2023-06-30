@@ -27,8 +27,8 @@ public class InstantBootCapabilityFeature : IFeature<InstantBootState>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting state...");
 
-        var acAdapter = await GetFeatureValueAsync(LenovoFeatureID.InstantBootAc).ConfigureAwait(false);
-        var usbPowerDelivery = await GetFeatureValueAsync(LenovoFeatureID.InstantBootUsbPowerDelivery).ConfigureAwait(false);
+        var acAdapter = await GetFeatureValueAsync(CapabilityID.InstantBootAc).ConfigureAwait(false);
+        var usbPowerDelivery = await GetFeatureValueAsync(CapabilityID.InstantBootUsbPowerDelivery).ConfigureAwait(false);
 
         var result = (acAdapter, usbPowerDelivery) switch
         {
@@ -57,21 +57,21 @@ public class InstantBootCapabilityFeature : IFeature<InstantBootState>
             _ => (false, false)
         };
 
-        await SetFeatureValueAsync(LenovoFeatureID.InstantBootAc, acAdapter).ConfigureAwait(false);
-        await SetFeatureValueAsync(LenovoFeatureID.InstantBootUsbPowerDelivery, usbPowerDelivery).ConfigureAwait(false);
+        await SetFeatureValueAsync(CapabilityID.InstantBootAc, acAdapter).ConfigureAwait(false);
+        await SetFeatureValueAsync(CapabilityID.InstantBootUsbPowerDelivery, usbPowerDelivery).ConfigureAwait(false);
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Set state to {state}");
     }
 
-    private static Task<bool> GetFeatureValueAsync(LenovoFeatureID id) =>
+    private static Task<bool> GetFeatureValueAsync(CapabilityID id) =>
         WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_OTHER_METHOD",
             "GetFeatureValue",
             new() { { "IDs", id } },
             pdc => Convert.ToInt32(pdc["Value"].Value) != 0);
 
-    private static Task SetFeatureValueAsync(LenovoFeatureID id, bool value) =>
+    private static Task SetFeatureValueAsync(CapabilityID id, bool value) =>
         WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_OTHER_METHOD",
             "SetFeatureValue",

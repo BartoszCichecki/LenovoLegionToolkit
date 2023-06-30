@@ -36,19 +36,19 @@ public class SensorsControllerV3 : AbstractSensorsController
         }
     }
 
-    protected override Task<int> GetCpuCurrentTemperatureAsync() => GetFeatureValueAsync(LenovoFeatureID.CpuCurrentTemperature);
+    protected override Task<int> GetCpuCurrentTemperatureAsync() => GetFeatureValueAsync(CapabilityID.CpuCurrentTemperature);
 
-    protected override Task<int> GetGpuCurrentTemperatureAsync() => GetFeatureValueAsync(LenovoFeatureID.GpuCurrentTemperature);
+    protected override Task<int> GetGpuCurrentTemperatureAsync() => GetFeatureValueAsync(CapabilityID.GpuCurrentTemperature);
 
-    protected override Task<int> GetCpuCurrentFanSpeedAsync() => GetFeatureValueAsync(LenovoFeatureID.CpuCurrentFanSpeed);
+    protected override Task<int> GetCpuCurrentFanSpeedAsync() => GetFeatureValueAsync(CapabilityID.CpuCurrentFanSpeed);
 
-    protected override Task<int> GetGpuCurrentFanSpeedAsync() => GetFeatureValueAsync(LenovoFeatureID.GpuCurrentFanSpeed);
+    protected override Task<int> GetGpuCurrentFanSpeedAsync() => GetFeatureValueAsync(CapabilityID.GpuCurrentFanSpeed);
 
     protected override Task<int> GetCpuMaxFanSpeedAsync() => GetMaxFanSpeedAsync(CPU_SENSOR_ID, CPU_FAN_ID);
 
     protected override Task<int> GetGpuMaxFanSpeedAsync() => GetMaxFanSpeedAsync(GPU_SENSOR_ID, GPU_FAN_ID);
 
-    private static Task<int> GetFeatureValueAsync(LenovoFeatureID id) =>
+    private static Task<int> GetFeatureValueAsync(CapabilityID id) =>
         WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_OTHER_METHOD",
             "GetFeatureValue",

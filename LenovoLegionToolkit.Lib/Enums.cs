@@ -34,24 +34,7 @@ public enum BatteryState
     RapidCharge
 }
 
-[Flags]
-public enum DriverKey
-{
-    FnF10 = 32,
-    FnF4 = 256,
-    FnF8 = 8192,
-    FnSpace = 4096,
-}
-
-public enum FanTableType
-{
-    Unknown,
-    CPU,
-    GPU,
-    CPUSensor
-}
-
-public enum LenovoFeatureID : uint
+public enum CapabilityID : uint
 {
     IGPUModeSupport = 0x0010000,
     NvidiaGPUDynamicDisplaySwitching = 0x0040000,
@@ -78,6 +61,23 @@ public enum LenovoFeatureID : uint
     GpuCurrentFanSpeed = 0x4030002,
     CpuCurrentTemperature = 0x5040000,
     GpuCurrentTemperature = 0x5050000,
+}
+
+[Flags]
+public enum DriverKey
+{
+    FnF10 = 32,
+    FnF4 = 256,
+    FnF8 = 8192,
+    FnSpace = 4096,
+}
+
+public enum FanTableType
+{
+    Unknown,
+    CPU,
+    GPU,
+    CPUSensor
 }
 
 public enum FlipToStartState
