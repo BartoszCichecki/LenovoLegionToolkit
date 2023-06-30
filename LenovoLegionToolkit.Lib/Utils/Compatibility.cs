@@ -304,22 +304,6 @@ public static class Compatibility
 
     private static bool GetSupportsGodModeV2(int smartFanVersion, int legionZoneVersion) => smartFanVersion is 6 || legionZoneVersion is 3;
 
-    private static async Task<bool> GetSupportsIntelligentSubModeAsync()
-    {
-        try
-        {
-            _ = await WMI.CallAsync("root\\WMI",
-                $"SELECT * FROM LENOVO_GAMEZONE_DATA",
-                "GetIntelligentSubMode",
-                new(),
-                pdc => (uint)pdc["Data"].Value).ConfigureAwait(false);
-            return true;
-        }
-        catch
-        {
-            return false;
-        }
-    }
     private static async Task<bool> GetSupportsIGPUModeAsync()
     {
         try
@@ -337,6 +321,22 @@ public static class Compatibility
         }
     }
 
+    private static async Task<bool> GetSupportsIntelligentSubModeAsync()
+    {
+        try
+        {
+            _ = await WMI.CallAsync("root\\WMI",
+                $"SELECT * FROM LENOVO_GAMEZONE_DATA",
+                "GetIntelligentSubMode",
+                new(),
+                pdc => (uint)pdc["Data"].Value).ConfigureAwait(false);
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
 
     private static bool GetHasQuietToPerformanceModeSwitchingBug(BiosVersion? biosVersion)
     {
