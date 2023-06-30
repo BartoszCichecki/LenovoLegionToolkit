@@ -20,9 +20,8 @@ public static class HybridModeControlFactory
     public static async Task<AbstractRefreshingControl> GetControlAsync()
     {
         var mi = await Compatibility.GetMachineInformationAsync();
-        if (mi.Properties.SupportsExtendedHybridMode)
+        if (mi.Properties.SupportsIGPUMode)
             return new ComboBoxHybridModeControl();
-
         return new ToggleHybridModeControl();
     }
 

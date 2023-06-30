@@ -36,6 +36,8 @@ public partial class DashboardPage
 
         ScrollHost?.ScrollToTop();
 
+        _sensors.Visibility = _dashboardSettings.Store.ShowSensors ? Visibility.Visible : Visibility.Collapsed;
+
         _dashboardGroupControls.Clear();
         _content.ColumnDefinitions.Clear();
         _content.RowDefinitions.Clear();

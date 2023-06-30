@@ -34,6 +34,35 @@ public enum BatteryState
     RapidCharge
 }
 
+public enum CapabilityID : uint
+{
+    IGPUModeSupport = 0x0010000,
+    NvidiaGPUDynamicDisplaySwitching = 0x0040000,
+    AMDSmartShiftMode = 0x0050001,
+    AMDSkinTemperatureTracking = 0x0050002,
+    LegionZoneSupportVersion = 0x00900000,
+    // IGPUModeChangeStatus = 0x00F0000,
+    CPUShortTermPowerLimit = 0x0101FF00,
+    CPULongTermPowerLimit = 0x0102FF00,
+    CPUPeakPowerLimit = 0x0103FF00,
+    CPUTemperatureLimit = 0x0104FF00,
+    APUsPPTPowerLimit = 0x0105FF00,
+    CPUCrossLoadingPowerLimit = 0x0106FF00,
+    CPUPL1Tau = 0x0107FF00,
+    GPUPowerBoost = 0x0201FF00,
+    GPUConfigurableTGP = 0x0202FF00,
+    GPUTemperatureLimit = 0x0203FF00,
+    GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline = 0x0204FF00,
+    InstantBootAc = 0x3010001,
+    InstantBootUsbPowerDelivery = 0x3010002,
+    // FanTable = 0x4010000,
+    FanFullSpeed = 0x4020000,
+    CpuCurrentFanSpeed = 0x4030001,
+    GpuCurrentFanSpeed = 0x4030002,
+    CpuCurrentTemperature = 0x5040000,
+    GpuCurrentTemperature = 0x5050000,
+}
+
 [Flags]
 public enum DriverKey
 {
@@ -100,6 +129,18 @@ public enum IGPUModeState
     Default,
     IGPUOnly,
     Auto
+}
+
+public enum InstantBootState
+{
+    [Display(ResourceType = typeof(Resource), Name = "InstantBootState_Off")]
+    Off,
+    [Display(ResourceType = typeof(Resource), Name = "InstantBootState_AcAdapter")]
+    AcAdapter,
+    [Display(ResourceType = typeof(Resource), Name = "InstantBootState_UsbPowerDelivery")]
+    UsbPowerDelivery,
+    [Display(ResourceType = typeof(Resource), Name = "InstantBootState_AcAdapterAndUsbPowerDelivery")]
+    AcAdapterAndUsbPowerDelivery
 }
 
 public enum KeyboardLayout

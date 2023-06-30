@@ -286,6 +286,42 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to AC Adapter.
+        /// </summary>
+        public static string InstantBootState_AcAdapter {
+            get {
+                return ResourceManager.GetString("InstantBootState_AcAdapter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AC and USB PD.
+        /// </summary>
+        public static string InstantBootState_AcAdapterAndUsbPowerDelivery {
+            get {
+                return ResourceManager.GetString("InstantBootState_AcAdapterAndUsbPowerDelivery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Off.
+        /// </summary>
+        public static string InstantBootState_Off {
+            get {
+                return ResourceManager.GetString("InstantBootState_Off", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to USB Power Delivery.
+        /// </summary>
+        public static string InstantBootState_UsbPowerDelivery {
+            get {
+                return ResourceManager.GetString("InstantBootState_UsbPowerDelivery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Off.
         /// </summary>
         public static string MicrophoneState_Off {

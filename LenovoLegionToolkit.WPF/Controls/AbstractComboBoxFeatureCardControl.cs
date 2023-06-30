@@ -101,9 +101,14 @@ public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshing
 
     protected virtual async Task OnStateChange(ComboBox comboBox, IFeature<T> feature, T? newValue, T? oldValue)
     {
+        var exceptionOccurred = false;
+
         try
         {
             if (IsRefreshing)
+                return;
+
+            if (oldValue is null)
                 return;
 
             if (!comboBox.TryGetSelectedItem(out T selectedState))
@@ -118,11 +123,13 @@ public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshing
         }
         catch (Exception ex)
         {
-            if (oldValue.HasValue)
-                comboBox.SelectItem(oldValue.Value);
+            exceptionOccurred = true;
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Failed to change state. [feature={GetType().Name}]", ex);
         }
+
+        if (exceptionOccurred)
+            await RefreshAsync();
     }
 }

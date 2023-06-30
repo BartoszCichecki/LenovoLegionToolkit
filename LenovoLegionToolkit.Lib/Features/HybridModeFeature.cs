@@ -20,7 +20,7 @@ public class HybridModeFeature : IFeature<HybridModeState>
     public async Task<HybridModeState[]> GetAllStatesAsync()
     {
         var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
-        return mi.Properties.SupportsExtendedHybridMode
+        return mi.Properties.SupportsIGPUMode
             ? new[] { HybridModeState.On, HybridModeState.OnIGPUOnly, HybridModeState.OnAuto, HybridModeState.Off }
             : new[] { HybridModeState.On, HybridModeState.Off };
     }
@@ -51,13 +51,10 @@ public class HybridModeFeature : IFeature<HybridModeState>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Setting state to {state}... [gSync={gSync}, igpuMode={igpuMode}]");
 
-        if (await _igpuModeFeature.IsSupportedAsync().ConfigureAwait(false))
-        {
-            await _igpuModeFeature.SetStateAsync(igpuMode).ConfigureAwait(false);
-            await _igpuModeFeature.NotifyAsync().ConfigureAwait(false);
-        }
-
         await _gSyncFeature.SetStateAsync(gSync).ConfigureAwait(false);
+
+        if (await _igpuModeFeature.IsSupportedAsync().ConfigureAwait(false))
+            await _igpuModeFeature.SetStateAsync(igpuMode).ConfigureAwait(false);
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"State set to {state} [gSync={gSync}, igpuMode={igpuMode}]");

@@ -354,14 +354,34 @@ public readonly struct HardwareId
 
 public readonly struct MachineInformation
 {
-    public readonly struct CompatibilityProperties
+    public readonly struct FeatureData
+    {
+        public static readonly FeatureData Unknown = new() { Source = SourceType.Unknown };
+
+        public enum SourceType
+        {
+            Unknown,
+            Flags,
+            CapabilityData
+        }
+
+        public SourceType Source { get; init; }
+        public bool IGPUMode { get; init; }
+        public bool NvidiaGPUDynamicDisplaySwitching { get; init; }
+        public bool InstantBootAc { get; init; }
+        public bool InstantBootUsbPowerDelivery { get; init; }
+        public bool AMDSmartShiftMode { get; init; }
+        public bool AMDSkinTemperatureTracking { get; init; }
+    }
+
+    public readonly struct PropertyData
     {
         public bool SupportsGodMode => SupportsGodModeV1 || SupportsGodModeV2;
 
         public (bool status, bool connectivity) SupportsAlwaysOnAc { get; init; }
         public bool SupportsGodModeV1 { get; init; }
         public bool SupportsGodModeV2 { get; init; }
-        public bool SupportsExtendedHybridMode { get; init; }
+        public bool SupportsIGPUMode { get; init; }
         public bool SupportsIntelligentSubMode { get; init; }
         public bool HasQuietToPerformanceModeSwitchingBug { get; init; }
         public bool HasGodModeToOtherModeSwitchingBug { get; init; }
@@ -375,7 +395,10 @@ public readonly struct MachineInformation
     public string SerialNumber { get; init; }
     public BiosVersion? BiosVersion { get; init; }
     public string? BiosVersionRaw { get; init; }
-    public CompatibilityProperties Properties { get; init; }
+    public int SmartFanVersion { get; init; }
+    public int LegionZoneVersion { get; init; }
+    public FeatureData Features { get; init; }
+    public PropertyData Properties { get; init; }
 }
 
 public struct Package
@@ -624,6 +647,49 @@ public readonly struct RGBKeyboardBacklightState
     }
 }
 
+public readonly struct SensorData
+{
+    public static readonly SensorData Empty = new()
+    {
+        Utilization = -1,
+        CoreClock = -1,
+        MaxCoreClock = -1,
+        MemoryClock = -1,
+        MaxMemoryClock = -1,
+        Temperature = -1,
+        MaxTemperature = -1,
+        FanSpeed = -1,
+        MaxFanSpeed = -1
+    };
+
+    public int Utilization { get; init; }
+    public int MaxUtilization { get; init; }
+    public int CoreClock { get; init; }
+    public int MaxCoreClock { get; init; }
+    public int MemoryClock { get; init; }
+    public int MaxMemoryClock { get; init; }
+    public int Temperature { get; init; }
+    public int MaxTemperature { get; init; }
+    public int FanSpeed { get; init; }
+    public int MaxFanSpeed { get; init; }
+}
+
+public readonly struct SensorsData
+{
+    public static readonly SensorsData Empty = new() { CPU = SensorData.Empty, GPU = SensorData.Empty };
+
+    public SensorData CPU { get; init; }
+    public SensorData GPU { get; init; }
+}
+
+public readonly struct SensorSettings
+{
+    public int CPUSensorID { get; init; }
+    public int GPUSensorID { get; init; }
+    public int CPUFanID { get; init; }
+    public int GPUFanID { get; init; }
+}
+
 public readonly struct DpiScale : IDisplayName, IEquatable<DpiScale>
 {
     public int Scale { get; }
@@ -684,8 +750,8 @@ public readonly struct RefreshRate : IDisplayName, IEquatable<RefreshRate>
 
 public readonly struct Resolution : IDisplayName, IEquatable<Resolution>, IComparable<Resolution>
 {
-    public int Width { get; }
-    public int Height { get; }
+    private int Width { get; }
+    private int Height { get; }
 
     [JsonIgnore]
     public string DisplayName => $"{Width} × {Height}";

@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Controllers.GodMode;
+using LenovoLegionToolkit.Lib.Controllers.Sensors;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
@@ -37,6 +38,9 @@ public class IoCModule : Module
         builder.Register<HDRFeature>();
         builder.Register<HybridModeFeature>();
         builder.Register<IGPUModeFeature>();
+        builder.Register<InstantBootFeature>();
+        builder.Register<InstantBootFeatureFlagsFeature>(true);
+        builder.Register<InstantBootCapabilityFeature>(true);
         builder.Register<MicrophoneFeature>();
         builder.Register<OneLevelWhiteKeyboardBacklightFeature>();
         builder.Register<OverDriveFeature>();
@@ -76,6 +80,10 @@ public class IoCModule : Module
         builder.Register<GPUOverclockController>();
         builder.Register<PowerPlanController>();
         builder.Register<RGBKeyboardBacklightController>();
+        builder.Register<SensorsController>();
+        builder.Register<SensorsControllerV1>(true);
+        builder.Register<SensorsControllerV2>(true);
+        builder.Register<SensorsControllerV3>(true);
         builder.Register<SpectrumKeyboardBacklightController>();
 
         builder.Register<UpdateChecker>();
