@@ -373,4 +373,16 @@
   <data name="PanelLogoBacklightState_Off" xml:space="preserve">
 		<value>Desligado</value>
 	</data>
+  <data name="InstantBootState_Off" xml:space="preserve">
+		<value>Desligado</value>
+	</data>
+  <data name="InstantBootState_AcAdapter" xml:space="preserve">
+		<value>Carregador</value>
+	</data>
+  <data name="InstantBootState_UsbPowerDelivery" xml:space="preserve">
+		<value>Carregamento por USB</value>
+	</data>
+  <data name="InstantBootState_AcAdapterAndUsbPowerDelivery" xml:space="preserve">
+		<value>Carregamento por Carregador e USB</value>
+	</data>
 </root>

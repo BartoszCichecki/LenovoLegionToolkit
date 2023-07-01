@@ -631,9 +631,6 @@ Xin chân thành cảm ơn!</value>
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>GPU</value>
   </data>
-  <data name="RPM" xml:space="preserve">
-    <value>RPM</value>
-  </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
     <value>Bật máy khi lật mở màn hình.</value>
   </data>
@@ -1782,27 +1779,27 @@ Chỉ hoạt động khi chế độ tùy chỉnh đã đang chạy.</value>
 CẢNH BÁO: hành động có thể chạy không đúng nếu GPU rời không có mặt.</value>
   </data>
   <data name="PortsBacklightControl_Title" xml:space="preserve">
-	  <value>Đèn I/O</value>
+    <value>Đèn I/O</value>
   </data>
   <data name="PortsBacklightControl_Message" xml:space="preserve">
-	  <value>Bật hoặc tắt đèn I/O phía sau laptop.</value>
+    <value>Bật hoặc tắt đèn I/O phía sau laptop.</value>
   </data>
   <data name="PortsBacklightAutomationStepControl_Title" xml:space="preserve">
-	  <value>Đèn I/O</value>
+    <value>Đèn I/O</value>
   </data>
   <data name="PortsBacklightAutomationStepControl_Message" xml:space="preserve">
-	  <value>Bật hoặc tắt đèn I/O phía sau laptop.</value>
+    <value>Bật hoặc tắt đèn I/O phía sau laptop.</value>
   </data>
   <data name="PanelLogoBacklightControl_Title" xml:space="preserve">
-	  <value>Đèn logo</value>
+    <value>Đèn logo</value>
   </data>
   <data name="PanelLogoBacklightControl_Message" xml:space="preserve">
-	  <value>Bật hoặc tắt đèn logo laptop.</value>
+    <value>Bật hoặc tắt đèn logo laptop.</value>
   </data>
   <data name="PanelLogoBacklightAutomationStepControl_Title" xml:space="preserve">
-	  <value>Đèn logo</value>
+    <value>Đèn logo</value>
   </data>
   <data name="PanelLogoBacklightAutomationStepControl_Message" xml:space="preserve">
-	  <value>Bật hoặc tắt đèn logo laptop.</value>
+    <value>Bật hoặc tắt đèn logo laptop.</value>
   </data>
 </root>

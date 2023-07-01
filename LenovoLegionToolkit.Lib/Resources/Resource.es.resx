@@ -373,4 +373,16 @@
   <data name="PanelLogoBacklightState_Off" xml:space="preserve">
 		<value>Apagado</value>
 	</data>
+  <data name="InstantBootState_Off" xml:space="preserve">
+		<value>Apagado</value>
+	</data>
+  <data name="InstantBootState_AcAdapter" xml:space="preserve">
+		<value>Adaptador de corriente alterna</value>
+	</data>
+  <data name="InstantBootState_UsbPowerDelivery" xml:space="preserve">
+		<value>Salida de alimentación USB</value>
+	</data>
+  <data name="InstantBootState_AcAdapterAndUsbPowerDelivery" xml:space="preserve">
+		<value>DP de CA y USB</value>
+	</data>
 </root>

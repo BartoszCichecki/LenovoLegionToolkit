@@ -631,9 +631,6 @@ PayPal ile bağış yapmak için aşağıdaki PayPal logosuna tıklayın veya QR
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>GPU</value>
   </data>
-  <data name="RPM" xml:space="preserve">
-    <value>RPM</value>
-  </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
     <value>Kapağı açtığınızda bilgisayarı açın.</value>
   </data>
@@ -1782,27 +1779,27 @@ Bu ayarlar yalnızca Özel Mod etkinleştirildiğinde etkili olur.</value>
 UYARI: Harici GPU mevcut değilse, bu işlem doğru çalışmaz.</value>
   </data>
   <data name="PortsBacklightControl_Title" xml:space="preserve">
-	  <value>Port ışıkları</value>
+    <value>Port ışıkları</value>
   </data>
   <data name="PortsBacklightControl_Message" xml:space="preserve">
-	  <value>Bilgisayarın arkasındaki bağlantı noktalarının ışığını açın veya kapatın.</value>
+    <value>Bilgisayarın arkasındaki bağlantı noktalarının ışığını açın veya kapatın.</value>
   </data>
   <data name="PortsBacklightAutomationStepControl_Title" xml:space="preserve">
-	  <value>Port ışıkları</value>
+    <value>Port ışıkları</value>
   </data>
   <data name="PortsBacklightAutomationStepControl_Message" xml:space="preserve">
-	  <value>Bilgisayarın arkasındaki bağlantı noktalarının ışığını açın veya kapatın.</value>
+    <value>Bilgisayarın arkasındaki bağlantı noktalarının ışığını açın veya kapatın.</value>
   </data>
   <data name="PanelLogoBacklightControl_Title" xml:space="preserve">
-	  <value>Panel logosu ışığı</value>
+    <value>Panel logosu ışığı</value>
   </data>
   <data name="PanelLogoBacklightControl_Message" xml:space="preserve">
-	  <value>Bilgisayarın kapağındaki ışığı açın veya kapatın.</value>
+    <value>Bilgisayarın kapağındaki ışığı açın veya kapatın.</value>
   </data>
   <data name="PanelLogoBacklightAutomationStepControl_Title" xml:space="preserve">
-	  <value>Panel logosu ışığı</value>
+    <value>Panel logosu ışığı</value>
   </data>
   <data name="PanelLogoBacklightAutomationStepControl_Message" xml:space="preserve">
-	  <value>Bilgisayarın kapağındaki ışığı açın veya kapatın.</value>
+    <value>Bilgisayarın kapağındaki ışığı açın veya kapatın.</value>
   </data>
 </root>

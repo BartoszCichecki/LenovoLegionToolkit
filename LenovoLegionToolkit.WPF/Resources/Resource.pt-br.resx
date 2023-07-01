@@ -1779,27 +1779,60 @@ Esta configuração somente terá efeito se o Modo Personalizado estiver ativo.<
 AVISO: Esta ação não será executada corretamente caso a GPU dedicada não esteja disponível.</value>
   </data>
   <data name="PortsBacklightControl_Title" xml:space="preserve">
-	  <value>Iluminação das portas traseiras</value>
+    <value>Iluminação das portas traseiras</value>
   </data>
   <data name="PortsBacklightControl_Message" xml:space="preserve">
-	  <value>Liga ou desliga a luz de fundo das portas na parte de trás do laptop.</value>
+    <value>Liga ou desliga a luz de fundo das portas na parte de trás do laptop.</value>
   </data>
   <data name="PortsBacklightAutomationStepControl_Title" xml:space="preserve">
-	  <value>Iluminação das portas traseiras</value>
+    <value>Iluminação das portas traseiras</value>
   </data>
   <data name="PortsBacklightAutomationStepControl_Message" xml:space="preserve">
-	  <value>Liga ou desliga a luz de fundo das portas na parte de trás do laptop.</value>
+    <value>Liga ou desliga a luz de fundo das portas na parte de trás do laptop.</value>
   </data>
   <data name="PanelLogoBacklightControl_Title" xml:space="preserve">
-	  <value>Iluminação do logo da tampa</value>
+    <value>Iluminação do logo da tampa</value>
   </data>
   <data name="PanelLogoBacklightControl_Message" xml:space="preserve">
-	  <value>Liga ou desliga a luz de fundo do logo da tampa do notebook.</value>
+    <value>Liga ou desliga a luz de fundo do logo da tampa do notebook.</value>
   </data>
   <data name="PanelLogoBacklightAutomationStepControl_Title" xml:space="preserve">
-	  <value>Iluminação do logo da tampa</value>
+    <value>Iluminação do logo da tampa</value>
   </data>
   <data name="PanelLogoBacklightAutomationStepControl_Message" xml:space="preserve">
-	  <value>Liga ou desliga a luz de fundo do lolo da tampa do laptop.</value>
+    <value>Liga ou desliga a luz de fundo do lolo da tampa do laptop.</value>
+  </data>
+  <data name="GHz" xml:space="preserve">
+    <value>GHz</value>
+  </data>
+  <data name="MHz" xml:space="preserve">
+    <value>MHz</value>
+  </data>
+  <data name="SensorsControl_Maximum" xml:space="preserve">
+	  <value>Máximo:{0}</value>
+  </data>
+  <data name="SensorsControl_CPU_Title" xml:space="preserve">
+	  <value>CPU</value>
+  </data>
+  <data name="SensorsControl_Utilisation_Title" xml:space="preserve">
+	  <value>Utilização</value>
+  </data>
+  <data name="SensorsControl_Temperature_Title" xml:space="preserve">
+	  <value>Temperatura</value>
+  </data>
+  <data name="SensorsControl_Fan_Title" xml:space="preserve">
+	  <value>Cooler</value>
+  </data>
+  <data name="SensorsControl_GPU_Title" xml:space="preserve">
+	  <value>GPU</value>
+  </data>
+  <data name="SensorsControl_MemoryClock_Title" xml:space="preserve">
+	  <value>Clock da Memória</value>
+  </data>
+  <data name="SensorsControl_RefreshInterval" xml:space="preserve">
+	  <value>Intervalo de atualização</value>
+  </data>
+  <data name="InstantBootControl_Title" xml:space="preserve">
+	  <value>Reserva Instantânea</value>
   </data>
 </root>

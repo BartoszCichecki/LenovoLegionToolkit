@@ -618,9 +618,6 @@
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>كرت الشاشة</value>
   </data>
-  <data name="RPM" xml:space="preserve">
-    <value>لفة فى الدقيقة</value>
-  </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
     <value>تشغيل اللاب توب عند رفع الشاشة.</value>
   </data>

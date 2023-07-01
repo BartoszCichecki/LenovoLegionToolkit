@@ -629,9 +629,6 @@ Aldınnan raxmet!</value>
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>Grafikalıq processor</value>
   </data>
-  <data name="RPM" xml:space="preserve">
-    <value>aylanıw/min</value>
-  </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
     <value>Qaqpaqtı ashqanda noutbuktı qosıw.</value>
   </data>
