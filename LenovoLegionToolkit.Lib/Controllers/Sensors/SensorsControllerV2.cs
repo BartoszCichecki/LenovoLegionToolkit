@@ -36,9 +36,21 @@ public class SensorsControllerV2 : AbstractSensorsController
         }
     }
 
-    protected override Task<int> GetCpuCurrentTemperatureAsync() => GetCurrentTemperatureAsync(CPU_SENSOR_ID);
+    protected override async Task<int> GetCpuCurrentTemperatureAsync()
+    {
+        var t = await GetCurrentTemperatureAsync(CPU_SENSOR_ID).ConfigureAwait(false);
+        if (t < 1)
+            return -1;
+        return t;
+    }
 
-    protected override Task<int> GetGpuCurrentTemperatureAsync() => GetCurrentTemperatureAsync(GPU_SENSOR_ID);
+    protected override async Task<int> GetGpuCurrentTemperatureAsync()
+    {
+        var t = await GetCurrentTemperatureAsync(GPU_SENSOR_ID).ConfigureAwait(false);
+        if (t < 1)
+            return -1;
+        return t;
+    }
 
     protected override Task<int> GetCpuCurrentFanSpeedAsync() => GetCurrentFanSpeedAsync(CPU_FAN_ID);
 
