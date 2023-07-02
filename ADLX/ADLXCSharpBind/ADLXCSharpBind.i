@@ -98,6 +98,7 @@ typedef WCHAR TCHAR;
 %include "../SDK/Include/ADLXDefines.h"
 %include "../SDK/Include/ICollections.h"
 %include "../SDK/Include/IDisplays.h"
+%include "../SDK/Include/IPerformanceMonitoring.h"
 %include "../SDK/Include/ISystem.h"
 %include "../SDK/Include/ILog.h"
 %include "../SDK/ADLXHelper/Windows/Cpp/ADLXHelper.h"
@@ -109,8 +110,9 @@ using namespace adlx;
 %pointer_functions(double, doubleP);
 %pointer_functions(adlx_uint, uintP);
 %pointer_functions(ADLX_DISPLAY_TYPE, displayTypeP);
-%pointer_functions(ADLX_DISPLAY_CONNECTOR_TYPE, disConnectTypeP);
-%pointer_functions(ADLX_DISPLAY_SCAN_TYPE, disScanTypeP);
+%pointer_functions(ADLX_DISPLAY_CONNECTOR_TYPE, displayConnectTypeP);
+%pointer_functions(ADLX_DISPLAY_SCAN_TYPE, displayScanTypeP);
+%pointer_functions(ADLX_GPU_TYPE, gpuTypeP);
 %pointer_functions(adlx_size, adlx_sizeP);
 
 // T** ppointer
@@ -156,4 +158,6 @@ TYPE2 NAME(TYPE1 x) {
 %ppointer_functions(IADLXDisplayList*, displayListP_Ptr);
 %ppointer_functions(IADLXDisplay*, displayP_Ptr);
 %ppointer_functions(IADLXDisplayChangedHandling*, displayChangeHandlP_Ptr);
+%ppointer_functions(IADLXGPUList*, gpuListP_Ptr);
+%ppointer_functions(IADLXGPU*, gpuP_Ptr);
 %ppointer_functions(char*, charP_Ptr);

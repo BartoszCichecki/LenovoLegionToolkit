@@ -518,44 +518,65 @@ static ADLX_DISPLAY_TYPE displayTypeP_value(ADLX_DISPLAY_TYPE *obj) {
 }
 
 
-static ADLX_DISPLAY_CONNECTOR_TYPE *new_disConnectTypeP(void) { 
+static ADLX_DISPLAY_CONNECTOR_TYPE *new_displayConnectTypeP(void) { 
   return new ADLX_DISPLAY_CONNECTOR_TYPE(); 
 }
 
-static ADLX_DISPLAY_CONNECTOR_TYPE *copy_disConnectTypeP(ADLX_DISPLAY_CONNECTOR_TYPE value) { 
+static ADLX_DISPLAY_CONNECTOR_TYPE *copy_displayConnectTypeP(ADLX_DISPLAY_CONNECTOR_TYPE value) { 
   return new ADLX_DISPLAY_CONNECTOR_TYPE(value); 
 }
 
-static void delete_disConnectTypeP(ADLX_DISPLAY_CONNECTOR_TYPE *obj) { 
+static void delete_displayConnectTypeP(ADLX_DISPLAY_CONNECTOR_TYPE *obj) { 
   delete obj; 
 }
 
-static void disConnectTypeP_assign(ADLX_DISPLAY_CONNECTOR_TYPE *obj, ADLX_DISPLAY_CONNECTOR_TYPE value) {
+static void displayConnectTypeP_assign(ADLX_DISPLAY_CONNECTOR_TYPE *obj, ADLX_DISPLAY_CONNECTOR_TYPE value) {
   *obj = value;
 }
 
-static ADLX_DISPLAY_CONNECTOR_TYPE disConnectTypeP_value(ADLX_DISPLAY_CONNECTOR_TYPE *obj) {
+static ADLX_DISPLAY_CONNECTOR_TYPE displayConnectTypeP_value(ADLX_DISPLAY_CONNECTOR_TYPE *obj) {
   return *obj;
 }
 
 
-static ADLX_DISPLAY_SCAN_TYPE *new_disScanTypeP(void) { 
+static ADLX_DISPLAY_SCAN_TYPE *new_displayScanTypeP(void) { 
   return new ADLX_DISPLAY_SCAN_TYPE(); 
 }
 
-static ADLX_DISPLAY_SCAN_TYPE *copy_disScanTypeP(ADLX_DISPLAY_SCAN_TYPE value) { 
+static ADLX_DISPLAY_SCAN_TYPE *copy_displayScanTypeP(ADLX_DISPLAY_SCAN_TYPE value) { 
   return new ADLX_DISPLAY_SCAN_TYPE(value); 
 }
 
-static void delete_disScanTypeP(ADLX_DISPLAY_SCAN_TYPE *obj) { 
+static void delete_displayScanTypeP(ADLX_DISPLAY_SCAN_TYPE *obj) { 
   delete obj; 
 }
 
-static void disScanTypeP_assign(ADLX_DISPLAY_SCAN_TYPE *obj, ADLX_DISPLAY_SCAN_TYPE value) {
+static void displayScanTypeP_assign(ADLX_DISPLAY_SCAN_TYPE *obj, ADLX_DISPLAY_SCAN_TYPE value) {
   *obj = value;
 }
 
-static ADLX_DISPLAY_SCAN_TYPE disScanTypeP_value(ADLX_DISPLAY_SCAN_TYPE *obj) {
+static ADLX_DISPLAY_SCAN_TYPE displayScanTypeP_value(ADLX_DISPLAY_SCAN_TYPE *obj) {
+  return *obj;
+}
+
+
+static ADLX_GPU_TYPE *new_gpuTypeP(void) { 
+  return new ADLX_GPU_TYPE(); 
+}
+
+static ADLX_GPU_TYPE *copy_gpuTypeP(ADLX_GPU_TYPE value) { 
+  return new ADLX_GPU_TYPE(value); 
+}
+
+static void delete_gpuTypeP(ADLX_GPU_TYPE *obj) { 
+  delete obj; 
+}
+
+static void gpuTypeP_assign(ADLX_GPU_TYPE *obj, ADLX_GPU_TYPE value) {
+  *obj = value;
+}
+
+static ADLX_GPU_TYPE gpuTypeP_value(ADLX_GPU_TYPE *obj) {
   return *obj;
 }
 
@@ -661,6 +682,48 @@ static void displayChangeHandlP_Ptr_assign(IADLXDisplayChangedHandling* *obj, IA
 }
 
 static IADLXDisplayChangedHandling* displayChangeHandlP_Ptr_value(IADLXDisplayChangedHandling* *obj) {
+  return *obj;
+}
+
+
+static IADLXGPUList* *new_gpuListP_Ptr() { 
+  return new IADLXGPUList*(); 
+}
+
+static IADLXGPUList* *copy_gpuListP_Ptr(IADLXGPUList* value) { 
+  return new IADLXGPUList*(value); 
+}
+
+static void delete_gpuListP_Ptr(IADLXGPUList* *obj) { 
+  if (*obj) delete *obj; 
+}
+
+static void gpuListP_Ptr_assign(IADLXGPUList* *obj, IADLXGPUList* value) {
+  *obj = value;
+}
+
+static IADLXGPUList* gpuListP_Ptr_value(IADLXGPUList* *obj) {
+  return *obj;
+}
+
+
+static IADLXGPU* *new_gpuP_Ptr() { 
+  return new IADLXGPU*(); 
+}
+
+static IADLXGPU* *copy_gpuP_Ptr(IADLXGPU* value) { 
+  return new IADLXGPU*(value); 
+}
+
+static void delete_gpuP_Ptr(IADLXGPU* *obj) { 
+  if (*obj) delete *obj; 
+}
+
+static void gpuP_Ptr_assign(IADLXGPU* *obj, IADLXGPU* value) {
+  *obj = value;
+}
+
+static IADLXGPU* gpuP_Ptr_value(IADLXGPU* *obj) {
   return *obj;
 }
 
@@ -3297,105 +3360,157 @@ SWIGEXPORT int SWIGSTDCALL CSharp_displayTypeP_value(void * jarg1) {
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_new_disConnectTypeP() {
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_displayConnectTypeP() {
   void * jresult ;
   ADLX_DISPLAY_CONNECTOR_TYPE *result = 0 ;
   
-  result = (ADLX_DISPLAY_CONNECTOR_TYPE *)new_disConnectTypeP();
+  result = (ADLX_DISPLAY_CONNECTOR_TYPE *)new_displayConnectTypeP();
   jresult = (void *)result; 
   return jresult;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_copy_disConnectTypeP(int jarg1) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_copy_displayConnectTypeP(int jarg1) {
   void * jresult ;
   ADLX_DISPLAY_CONNECTOR_TYPE arg1 ;
   ADLX_DISPLAY_CONNECTOR_TYPE *result = 0 ;
   
   arg1 = (ADLX_DISPLAY_CONNECTOR_TYPE)jarg1; 
-  result = (ADLX_DISPLAY_CONNECTOR_TYPE *)copy_disConnectTypeP(arg1);
+  result = (ADLX_DISPLAY_CONNECTOR_TYPE *)copy_displayConnectTypeP(arg1);
   jresult = (void *)result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_delete_disConnectTypeP(void * jarg1) {
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_displayConnectTypeP(void * jarg1) {
   ADLX_DISPLAY_CONNECTOR_TYPE *arg1 = (ADLX_DISPLAY_CONNECTOR_TYPE *) 0 ;
   
   arg1 = (ADLX_DISPLAY_CONNECTOR_TYPE *)jarg1; 
-  delete_disConnectTypeP(arg1);
+  delete_displayConnectTypeP(arg1);
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_disConnectTypeP_assign(void * jarg1, int jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_displayConnectTypeP_assign(void * jarg1, int jarg2) {
   ADLX_DISPLAY_CONNECTOR_TYPE *arg1 = (ADLX_DISPLAY_CONNECTOR_TYPE *) 0 ;
   ADLX_DISPLAY_CONNECTOR_TYPE arg2 ;
   
   arg1 = (ADLX_DISPLAY_CONNECTOR_TYPE *)jarg1; 
   arg2 = (ADLX_DISPLAY_CONNECTOR_TYPE)jarg2; 
-  disConnectTypeP_assign(arg1,arg2);
+  displayConnectTypeP_assign(arg1,arg2);
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_disConnectTypeP_value(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_displayConnectTypeP_value(void * jarg1) {
   int jresult ;
   ADLX_DISPLAY_CONNECTOR_TYPE *arg1 = (ADLX_DISPLAY_CONNECTOR_TYPE *) 0 ;
   ADLX_DISPLAY_CONNECTOR_TYPE result;
   
   arg1 = (ADLX_DISPLAY_CONNECTOR_TYPE *)jarg1; 
-  result = (ADLX_DISPLAY_CONNECTOR_TYPE)disConnectTypeP_value(arg1);
+  result = (ADLX_DISPLAY_CONNECTOR_TYPE)displayConnectTypeP_value(arg1);
   jresult = (int)result; 
   return jresult;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_new_disScanTypeP() {
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_displayScanTypeP() {
   void * jresult ;
   ADLX_DISPLAY_SCAN_TYPE *result = 0 ;
   
-  result = (ADLX_DISPLAY_SCAN_TYPE *)new_disScanTypeP();
+  result = (ADLX_DISPLAY_SCAN_TYPE *)new_displayScanTypeP();
   jresult = (void *)result; 
   return jresult;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_copy_disScanTypeP(int jarg1) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_copy_displayScanTypeP(int jarg1) {
   void * jresult ;
   ADLX_DISPLAY_SCAN_TYPE arg1 ;
   ADLX_DISPLAY_SCAN_TYPE *result = 0 ;
   
   arg1 = (ADLX_DISPLAY_SCAN_TYPE)jarg1; 
-  result = (ADLX_DISPLAY_SCAN_TYPE *)copy_disScanTypeP(arg1);
+  result = (ADLX_DISPLAY_SCAN_TYPE *)copy_displayScanTypeP(arg1);
   jresult = (void *)result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_delete_disScanTypeP(void * jarg1) {
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_displayScanTypeP(void * jarg1) {
   ADLX_DISPLAY_SCAN_TYPE *arg1 = (ADLX_DISPLAY_SCAN_TYPE *) 0 ;
   
   arg1 = (ADLX_DISPLAY_SCAN_TYPE *)jarg1; 
-  delete_disScanTypeP(arg1);
+  delete_displayScanTypeP(arg1);
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_disScanTypeP_assign(void * jarg1, int jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_displayScanTypeP_assign(void * jarg1, int jarg2) {
   ADLX_DISPLAY_SCAN_TYPE *arg1 = (ADLX_DISPLAY_SCAN_TYPE *) 0 ;
   ADLX_DISPLAY_SCAN_TYPE arg2 ;
   
   arg1 = (ADLX_DISPLAY_SCAN_TYPE *)jarg1; 
   arg2 = (ADLX_DISPLAY_SCAN_TYPE)jarg2; 
-  disScanTypeP_assign(arg1,arg2);
+  displayScanTypeP_assign(arg1,arg2);
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_disScanTypeP_value(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_displayScanTypeP_value(void * jarg1) {
   int jresult ;
   ADLX_DISPLAY_SCAN_TYPE *arg1 = (ADLX_DISPLAY_SCAN_TYPE *) 0 ;
   ADLX_DISPLAY_SCAN_TYPE result;
   
   arg1 = (ADLX_DISPLAY_SCAN_TYPE *)jarg1; 
-  result = (ADLX_DISPLAY_SCAN_TYPE)disScanTypeP_value(arg1);
+  result = (ADLX_DISPLAY_SCAN_TYPE)displayScanTypeP_value(arg1);
+  jresult = (int)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_gpuTypeP() {
+  void * jresult ;
+  ADLX_GPU_TYPE *result = 0 ;
+  
+  result = (ADLX_GPU_TYPE *)new_gpuTypeP();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_copy_gpuTypeP(int jarg1) {
+  void * jresult ;
+  ADLX_GPU_TYPE arg1 ;
+  ADLX_GPU_TYPE *result = 0 ;
+  
+  arg1 = (ADLX_GPU_TYPE)jarg1; 
+  result = (ADLX_GPU_TYPE *)copy_gpuTypeP(arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_gpuTypeP(void * jarg1) {
+  ADLX_GPU_TYPE *arg1 = (ADLX_GPU_TYPE *) 0 ;
+  
+  arg1 = (ADLX_GPU_TYPE *)jarg1; 
+  delete_gpuTypeP(arg1);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_gpuTypeP_assign(void * jarg1, int jarg2) {
+  ADLX_GPU_TYPE *arg1 = (ADLX_GPU_TYPE *) 0 ;
+  ADLX_GPU_TYPE arg2 ;
+  
+  arg1 = (ADLX_GPU_TYPE *)jarg1; 
+  arg2 = (ADLX_GPU_TYPE)jarg2; 
+  gpuTypeP_assign(arg1,arg2);
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_gpuTypeP_value(void * jarg1) {
+  int jresult ;
+  ADLX_GPU_TYPE *arg1 = (ADLX_GPU_TYPE *) 0 ;
+  ADLX_GPU_TYPE result;
+  
+  arg1 = (ADLX_GPU_TYPE *)jarg1; 
+  result = (ADLX_GPU_TYPE)gpuTypeP_value(arg1);
   jresult = (int)result; 
   return jresult;
 }
@@ -3656,6 +3771,110 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_displayChangeHandlP_Ptr_value(void * jarg1)
   
   arg1 = (adlx::IADLXDisplayChangedHandling **)jarg1; 
   result = (adlx::IADLXDisplayChangedHandling *)displayChangeHandlP_Ptr_value(arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_gpuListP_Ptr() {
+  void * jresult ;
+  adlx::IADLXGPUList **result = 0 ;
+  
+  result = (adlx::IADLXGPUList **)new_gpuListP_Ptr();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_copy_gpuListP_Ptr(void * jarg1) {
+  void * jresult ;
+  adlx::IADLXGPUList *arg1 = (adlx::IADLXGPUList *) 0 ;
+  adlx::IADLXGPUList **result = 0 ;
+  
+  arg1 = (adlx::IADLXGPUList *)jarg1; 
+  result = (adlx::IADLXGPUList **)copy_gpuListP_Ptr(arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_gpuListP_Ptr(void * jarg1) {
+  adlx::IADLXGPUList **arg1 = (adlx::IADLXGPUList **) 0 ;
+  
+  arg1 = (adlx::IADLXGPUList **)jarg1; 
+  delete_gpuListP_Ptr(arg1);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_gpuListP_Ptr_assign(void * jarg1, void * jarg2) {
+  adlx::IADLXGPUList **arg1 = (adlx::IADLXGPUList **) 0 ;
+  adlx::IADLXGPUList *arg2 = (adlx::IADLXGPUList *) 0 ;
+  
+  arg1 = (adlx::IADLXGPUList **)jarg1; 
+  arg2 = (adlx::IADLXGPUList *)jarg2; 
+  gpuListP_Ptr_assign(arg1,arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_gpuListP_Ptr_value(void * jarg1) {
+  void * jresult ;
+  adlx::IADLXGPUList **arg1 = (adlx::IADLXGPUList **) 0 ;
+  adlx::IADLXGPUList *result = 0 ;
+  
+  arg1 = (adlx::IADLXGPUList **)jarg1; 
+  result = (adlx::IADLXGPUList *)gpuListP_Ptr_value(arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_gpuP_Ptr() {
+  void * jresult ;
+  adlx::IADLXGPU **result = 0 ;
+  
+  result = (adlx::IADLXGPU **)new_gpuP_Ptr();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_copy_gpuP_Ptr(void * jarg1) {
+  void * jresult ;
+  adlx::IADLXGPU *arg1 = (adlx::IADLXGPU *) 0 ;
+  adlx::IADLXGPU **result = 0 ;
+  
+  arg1 = (adlx::IADLXGPU *)jarg1; 
+  result = (adlx::IADLXGPU **)copy_gpuP_Ptr(arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_gpuP_Ptr(void * jarg1) {
+  adlx::IADLXGPU **arg1 = (adlx::IADLXGPU **) 0 ;
+  
+  arg1 = (adlx::IADLXGPU **)jarg1; 
+  delete_gpuP_Ptr(arg1);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_gpuP_Ptr_assign(void * jarg1, void * jarg2) {
+  adlx::IADLXGPU **arg1 = (adlx::IADLXGPU **) 0 ;
+  adlx::IADLXGPU *arg2 = (adlx::IADLXGPU *) 0 ;
+  
+  arg1 = (adlx::IADLXGPU **)jarg1; 
+  arg2 = (adlx::IADLXGPU *)jarg2; 
+  gpuP_Ptr_assign(arg1,arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_gpuP_Ptr_value(void * jarg1) {
+  void * jresult ;
+  adlx::IADLXGPU **arg1 = (adlx::IADLXGPU **) 0 ;
+  adlx::IADLXGPU *result = 0 ;
+  
+  arg1 = (adlx::IADLXGPU **)jarg1; 
+  result = (adlx::IADLXGPU *)gpuP_Ptr_value(arg1);
   jresult = (void *)result; 
   return jresult;
 }
