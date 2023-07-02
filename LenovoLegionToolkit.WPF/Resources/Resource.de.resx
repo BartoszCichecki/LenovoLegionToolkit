@@ -630,6 +630,9 @@ Vielen Dank im Voraus!</value>
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>GPU</value>
   </data>
+  <data name="RPM" xml:space="preserve">
+    <value>U/min</value>
+  </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
     <value>Schalte den Laptop ein, wenn der Bildschirm aufgeklappt wird.</value>
   </data>
@@ -1800,5 +1803,50 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn keine diskrete GPU ve
   </data>
   <data name="PanelLogoBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Schalten Sie die Hintergrundbeleuchtung auf dem Deckel des Laptops ein oder aus.</value>
+  </data>
+  <data name="GHz" xml:space="preserve">
+    <value>GHz</value>
+  </data>
+  <data name="MHz" xml:space="preserve">
+    <value>MHz</value>
+  </data>
+  <data name="SensorsControl_Maximum" xml:space="preserve">
+	  <value>Maximal: {0}</value>
+  </data>
+  <data name="SensorsControl_CPU_Title" xml:space="preserve">
+	  <value>CPU</value>
+  </data>
+  <data name="SensorsControl_Utilisation_Title" xml:space="preserve">
+	  <value>Nutzung</value>
+  </data>
+  <data name="SensorsControl_CoreClock_Title" xml:space="preserve">
+	  <value>Kerntakt</value>
+  </data>
+  <data name="SensorsControl_Temperature_Title" xml:space="preserve">
+	  <value>Temperatur</value>
+  </data>
+  <data name="SensorsControl_Fan_Title" xml:space="preserve">
+	  <value>Lüfter</value>
+  </data>
+  <data name="SensorsControl_GPU_Title" xml:space="preserve">
+	  <value>GPU</value>
+  </data>
+  <data name="SensorsControl_MemoryClock_Title" xml:space="preserve">
+	  <value>Speichertakt</value>
+  </data>
+  <data name="SensorsControl_RefreshInterval" xml:space="preserve">
+	  <value>Aktualisierungsintervall</value>
+  </data>
+  <data name="InstantBootControl_Title" xml:space="preserve">
+	  <value>Instant Boot</value>
+  </data>
+  <data name="InstantBootControl_Message" xml:space="preserve">
+	  <value>Automatisches Einschalten, wenn ein Ladegerät angeschlossen ist.</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Title" xml:space="preserve">
+	  <value>Instant Boot</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Message" xml:space="preserve">
+	  <value>Automatisches Einschalten, wenn ein Ladegerät angeschlossen ist.</value>
   </data>
 </root>
