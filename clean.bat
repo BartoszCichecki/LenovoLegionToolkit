@@ -5,6 +5,9 @@ rmdir /s /q .vs
 rmdir /s /q build
 rmdir /s /q build_installer
 
+rmdir /s /q LenovoLegionToolkit.Lib.ADL\bin
+rmdir /s /q LenovoLegionToolkit.Lib.ADL\obj
+
 rmdir /s /q LenovoLegionToolkit.Lib\bin
 rmdir /s /q LenovoLegionToolkit.Lib\obj
 
@@ -16,3 +19,6 @@ rmdir /s /q LenovoLegionToolkit.WPF\obj
 
 rmdir /s /q LenovoLegionToolkit.SpectrumTester\bin
 rmdir /s /q LenovoLegionToolkit.SpectrumTester\obj
+
+rmdir /s /q LenovoLegionToolkit.ADLTester\bin
+rmdir /s /q LenovoLegionToolkit.ADLTester\obj

@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit.Spectru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{CC081CCC-BA76-4603-8444-9F33C3DD2025}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit.Lib.ADL", "LenovoLegionToolkit.Lib.ADL\LenovoLegionToolkit.Lib.ADL.csproj", "{4D820CC4-EBB0-4BCA-BC8F-E3124779B200}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LenovoLegionToolkit.ADLTester", "LenovoLegionToolkit.ADLTester\LenovoLegionToolkit.ADLTester.csproj", "{363E7FF9-D104-43BE-B1F9-61662A4B4308}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -35,12 +39,21 @@ Global
 		{BB54FD85-CB1C-401F-A520-02396718595C}.Debug|x64.Build.0 = Debug|x64
 		{BB54FD85-CB1C-401F-A520-02396718595C}.Release|x64.ActiveCfg = Release|x64
 		{BB54FD85-CB1C-401F-A520-02396718595C}.Release|x64.Build.0 = Release|x64
+		{4D820CC4-EBB0-4BCA-BC8F-E3124779B200}.Debug|x64.ActiveCfg = Debug|x64
+		{4D820CC4-EBB0-4BCA-BC8F-E3124779B200}.Debug|x64.Build.0 = Debug|x64
+		{4D820CC4-EBB0-4BCA-BC8F-E3124779B200}.Release|x64.ActiveCfg = Release|Any CPU
+		{4D820CC4-EBB0-4BCA-BC8F-E3124779B200}.Release|x64.Build.0 = Release|Any CPU
+		{363E7FF9-D104-43BE-B1F9-61662A4B4308}.Debug|x64.ActiveCfg = Debug|x64
+		{363E7FF9-D104-43BE-B1F9-61662A4B4308}.Debug|x64.Build.0 = Debug|x64
+		{363E7FF9-D104-43BE-B1F9-61662A4B4308}.Release|x64.ActiveCfg = Release|Any CPU
+		{363E7FF9-D104-43BE-B1F9-61662A4B4308}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{BB54FD85-CB1C-401F-A520-02396718595C} = {CC081CCC-BA76-4603-8444-9F33C3DD2025}
+		{363E7FF9-D104-43BE-B1F9-61662A4B4308} = {CC081CCC-BA76-4603-8444-9F33C3DD2025}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DA77E337-1B57-4D70-B454-BE5EA6E618D6}
