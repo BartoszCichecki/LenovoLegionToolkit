@@ -5,6 +5,9 @@ rmdir /s /q .vs
 rmdir /s /q build
 rmdir /s /q build_installer
 
+rmdir /s /q LenovoLegionToolkit.Lib.ADLX\bin
+rmdir /s /q LenovoLegionToolkit.Lib.ADLX\obj
+
 rmdir /s /q LenovoLegionToolkit.Lib\bin
 rmdir /s /q LenovoLegionToolkit.Lib\obj
 
