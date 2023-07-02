@@ -632,6 +632,9 @@ Merci par avance !</value>
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>GPU</value>
   </data>
+  <data name="RPM" xml:space="preserve">
+    <value>Tr/min</value>
+  </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
     <value>Allume l'ordinateur à l'ouverture de l'écran.</value>
   </data>
@@ -1802,5 +1805,50 @@ AVERTISSEMENT : Cette action ne fonctionnera pas correctement si le GPU dédié 
   </data>
   <data name="PanelLogoBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Active ou désactive le rétroéclairage sur le capot de l'ordinateur portable.</value>
+  </data>
+  <data name="GHz" xml:space="preserve">
+    <value>GHz</value>
+  </data>
+  <data name="MHz" xml:space="preserve">
+    <value>MHz</value>
+  </data>
+  <data name="SensorsControl_Maximum" xml:space="preserve">
+	  <value>Maximum：{0}</value>
+  </data>
+  <data name="SensorsControl_CPU_Title" xml:space="preserve">
+	  <value>CPU</value>
+  </data>
+  <data name="SensorsControl_Utilisation_Title" xml:space="preserve">
+	  <value>Utilisation</value>
+  </data>
+  <data name="SensorsControl_CoreClock_Title" xml:space="preserve">
+	  <value>Fréquence du Cœur</value>
+  </data>
+  <data name="SensorsControl_Temperature_Title" xml:space="preserve">
+	  <value>Température</value>
+  </data>
+  <data name="SensorsControl_Fan_Title" xml:space="preserve">
+	  <value>Ventilateur</value>
+  </data>
+  <data name="SensorsControl_GPU_Title" xml:space="preserve">
+	  <value>GPU</value>
+  </data>
+  <data name="SensorsControl_MemoryClock_Title" xml:space="preserve">
+	  <value>Fréquence de la mémoire</value>
+  </data>
+  <data name="SensorsControl_RefreshInterval" xml:space="preserve">
+	  <value>Fréquence d'actualisation</value>
+  </data>
+  <data name="InstantBootControl_Title" xml:space="preserve">
+	  <value>Démarrage instantané</value>
+  </data>
+  <data name="InstantBootControl_Message" xml:space="preserve">
+	  <value>Allume automatiquement l'ordinateur lorsque le chargeur est branché.</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Title" xml:space="preserve">
+	  <value>Démarrage instantané</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Message" xml:space="preserve">
+	  <value>Allume automatiquement l'ordinateur lorsque le chargeur est branché.</value>
   </data>
 </root>
