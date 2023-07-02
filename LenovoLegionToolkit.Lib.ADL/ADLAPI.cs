@@ -1,109 +1,100 @@
-﻿using System;
-using System.Runtime.InteropServices;
+﻿#pragma warning disable
 
-// ReSharper disable IdentifierTypo
+// ReSharper disable all
+
+using System;
+using System.Runtime.InteropServices;
 
 namespace LenovoLegionToolkit.Lib.ADL;
 
 public class ADLAPI : IDisposable
 {
-    public readonly struct Adapter
+    public class Adapter
     {
         public int AdapterIndex { get; }
+        public string PNPString { get; }
         public bool IsActive { get; }
 
-        public Adapter(int adapterIndex, bool isActive)
+        public Adapter(int adapterIndex, string pnpString, bool isActive)
         {
             AdapterIndex = adapterIndex;
+            PNPString = pnpString;
             IsActive = isActive;
         }
     }
 
-    private const int VENDOR_ID_AMD = 0x03EA;
+    private const int VENDOR_ID_AMD = 1002;
 
-    private readonly bool _isInitialized;
+    private IntPtr _ptr;
 
     public ADLAPI()
     {
-        var result = ADL.ADL_Main_Control_Create?.Invoke(ADL.ADL_Main_Memory_Alloc, 1);
+        Marshal.PrelinkAll(typeof(ADL));
+
+        var result = ADL.ADL2_Main_Control_Create(ADL.ADL_Main_Memory_Alloc, 1, out var ptr);
         if (result != ADL.ADL_SUCCESS)
             return;
 
-        _isInitialized = true;
+        _ptr = ptr;
     }
 
     public Adapter? GetDiscreteAdapter()
     {
-        if (!_isInitialized)
+        if (_ptr == IntPtr.Zero)
             return null;
 
-        var adapterInfoArrayPtr = IntPtr.Zero;
-
-        try
-        {
-            var numberOfAdapters = 0;
-            var result = ADL.ADL_Adapter_NumberOfAdapters_Get?.Invoke(ref numberOfAdapters);
-            if (result != ADL.ADL_SUCCESS)
-                return null;
-
-            Console.WriteLine($"ADL: numberOfAdapters: {numberOfAdapters}");
-
-            if (numberOfAdapters < 1)
-                return null;
-
-            var adapterInfoArray = new ADLAdapterInfoArray();
-            var adapterInfoArraySize = Marshal.SizeOf(adapterInfoArray);
-            adapterInfoArrayPtr = Marshal.AllocCoTaskMem(adapterInfoArraySize);
-
-            Marshal.StructureToPtr(adapterInfoArray, adapterInfoArrayPtr, false);
-
-            result = ADL.ADL_Adapter_AdapterInfo_Get?.Invoke(adapterInfoArrayPtr, adapterInfoArraySize);
-            if (result != ADL.ADL_SUCCESS)
-                return null;
-
-            adapterInfoArray = Marshal.PtrToStructure<ADLAdapterInfoArray>(adapterInfoArrayPtr);
-
-            for (var adapterIndex = 0; adapterIndex < numberOfAdapters; adapterIndex++)
-            {
-                var adapterInfo = adapterInfoArray.ADLAdapterInfo[adapterIndex];
-
-                Console.WriteLine($"ADL: adapterInfo {adapterIndex}: {adapterInfo.VendorID},{adapterInfo.Exist},{adapterInfo.Present}");
-
-                //if (adapterInfo.VendorID != VENDOR_ID_AMD)
-                //    continue;
-
-                if (adapterInfo.Exist == 0)
-                    continue;
-
-                if (adapterInfo.Present == 0)
-                    continue;
-
-                var asicTypes = 0;
-                var valids = 0;
-                result = ADL.ADL_Adapter_ASICFamilyType_Get?.Invoke(adapterInfo.AdapterIndex, ref asicTypes, ref valids);
-                if (result != ADL.ADL_SUCCESS)
-                    return null;
-
-                Console.WriteLine($"ADL: asicTypes {adapterIndex}: {asicTypes},{valids}");
-
-                asicTypes &= valids;
-                if ((asicTypes & ADL.ADL_ASIC_DISCRETE) == 0)
-                    continue;
-
-                var isActive = 0;
-                result = ADL.ADL_Adapter_Active_Get?.Invoke(adapterInfo.AdapterIndex, ref isActive);
-                if (result != ADL.ADL_SUCCESS)
-                    return null;
-
-                return new(adapterInfo.AdapterIndex, isActive != 0);
-            }
-
+        var result = ADL.ADL2_Adapter_NumberOfAdapters_Get(_ptr, out var numberOfAdapters);
+        if (result != ADL.ADL_SUCCESS)
             return null;
-        }
-        finally
+
+        if (numberOfAdapters < 1)
+            return null;
+
+        result = ADL.ADL2_Adapter_AdapterInfo_Get(_ptr, out var adapterInfoArray, Marshal.SizeOf<ADLAdapterInfoArray>());
+        if (result != ADL.ADL_SUCCESS)
+            return null;
+
+        for (var adapterIndex = 0; adapterIndex < numberOfAdapters; adapterIndex++)
         {
-            Marshal.FreeCoTaskMem(adapterInfoArrayPtr);
+            var adapterInfo = adapterInfoArray.ADLAdapterInfo[adapterIndex];
+
+            if (adapterInfo.VendorID != VENDOR_ID_AMD)
+                continue;
+
+            if (adapterInfo.Exist == 0)
+                continue;
+
+            if (adapterInfo.Present == 0)
+                continue;
+
+            result = ADL.ADL2_Adapter_ASICFamilyType_Get(_ptr, adapterInfo.AdapterIndex, out var asicTypes, out var valids);
+            if (result != ADL.ADL_SUCCESS)
+                continue;
+
+            asicTypes &= valids;
+            if ((asicTypes & ADL.ADL_ASIC_DISCRETE) == 0)
+                continue;
+
+            result = ADL.ADL2_Adapter_Active_Get(_ptr, adapterInfo.AdapterIndex, out var isActive);
+            if (result != ADL.ADL_SUCCESS)
+                continue;
+
+            return new(adapterInfo.AdapterIndex, adapterInfo.PNPString, isActive == ADL.ADL_TRUE);
         }
+
+        return null;
+    }
+
+    public (int supported, int enabled, int version) GetOverdriveInfo(Adapter adapter)
+    {
+        if (_ptr == IntPtr.Zero)
+            return (0, 0, -1);
+
+        var result = ADL.ADL2_Overdrive_Caps(_ptr, adapter.AdapterIndex, out var supported, out var enabled, out var version);
+        if (result != ADL.ADL_SUCCESS)
+            return (0, 0, -1);
+
+        return (supported, enabled, version);
     }
 
     ~ADLAPI()
@@ -119,9 +110,10 @@ public class ADLAPI : IDisposable
 
     private void ReleaseUnmanagedResources()
     {
-        if (!_isInitialized)
+        if (_ptr == IntPtr.Zero)
             return;
 
-        _ = ADL.ADL_Main_Control_Destroy?.Invoke();
+        _ = ADL.ADL2_Main_Control_Destroy(_ptr);
+        _ptr = IntPtr.Zero;
     }
 }

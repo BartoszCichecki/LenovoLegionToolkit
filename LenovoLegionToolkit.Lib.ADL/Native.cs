@@ -9,15 +9,6 @@ using HMODULE = System.IntPtr;
 
 namespace LenovoLegionToolkit.Lib.ADL;
 
-internal delegate IntPtr ADL_Main_Memory_Alloc(int size);
-internal delegate int ADL_Main_Control_Create(ADL_Main_Memory_Alloc callback, int enumConnectedAdapters);
-internal delegate int ADL_Main_Control_Destroy();
-internal delegate int ADL_Adapter_NumberOfAdapters_Get(ref int numAdapters);
-internal delegate int ADL_Adapter_AdapterInfo_Get(IntPtr info, int inputSize);
-internal delegate int ADL_Adapter_Active_Get(int adapterIndex, ref int status);
-internal delegate int ADL_Adapter_ASICFamilyType_Get(int adapterIndex, ref int asicTypes, ref int valids);
-internal delegate int ADL_Display_DisplayInfo_Get(int adapterIndex, ref int numDisplays, out IntPtr displayInfoArray, int forceDetect);
-
 [StructLayout(LayoutKind.Sequential)]
 internal struct ADLAdapterInfo
 {
@@ -94,11 +85,19 @@ internal struct ADLPMLogDataOutput
 
 internal static class ADL
 {
+    internal delegate IntPtr ADL_Main_Memory_Alloc_Delegate(int size);
+
+    internal const string Atiadlxx_FileName = "atiadlxx.dll";
+    internal const string Kernel32_FileName = "kernel32.dll";
+
     internal const int ADL_MAX_PATH = 256;
     internal const int ADL_MAX_ADAPTERS = 40;
     internal const int ADL_MAX_DISPLAYS = 40;
     internal const int ADL_MAX_DEVICENAME = 32;
     internal const int ADL_PMLOG_MAX_SENSORS = 256;
+
+    internal const int ADL_TRUE = 1;
+    internal const int ADL_FALSE = 0;
 
     internal const int ADL_SUCCESS = 0;
     internal const int ADL_FAIL = -1;
@@ -119,101 +118,34 @@ internal static class ADL
     internal const int ADL_ASIC_WORKSTATION = (1 << 2);
     internal const int ADL_ASIC_XGP = (1 << 4);
 
-    private static class ADLImport
-    {
-        internal const string Atiadlxx_FileName = "atiadlxx.dll";
-        internal const string Kernel32_FileName = "kernel32.dll";
+    internal const int ADL_DISPLAY_CONTYPE_UNKNOWN = 0;
+    internal const int ADL_DISPLAY_CONTYPE_VGA = 1;
+    internal const int ADL_DISPLAY_CONTYPE_DVI_D = 2;
+    internal const int ADL_DISPLAY_CONTYPE_DVI_I = 3;
+    internal const int ADL_DISPLAY_CONTYPE_ATICVDONGLE_NTSC = 4;
+    internal const int ADL_DISPLAY_CONTYPE_ATICVDONGLE_JPN = 5;
+    internal const int ADL_DISPLAY_CONTYPE_ATICVDONGLE_NONI2C_JPN = 6;
+    internal const int ADL_DISPLAY_CONTYPE_ATICVDONGLE_NONI2C_NTSC = 7;
+    internal const int ADL_DISPLAY_CONTYPE_PROPRIETARY = 8;
+    internal const int ADL_DISPLAY_CONTYPE_HDMI_TYPE_A = 10;
+    internal const int ADL_DISPLAY_CONTYPE_HDMI_TYPE_B = 11;
+    internal const int ADL_DISPLAY_CONTYPE_SVIDEO = 12;
+    internal const int ADL_DISPLAY_CONTYPE_COMPOSITE = 13;
+    internal const int ADL_DISPLAY_CONTYPE_RCA_3COMPONENT = 14;
+    internal const int ADL_DISPLAY_CONTYPE_DISPLAYPORT = 15;
+    internal const int ADL_DISPLAY_CONTYPE_EDP = 16;
+    internal const int ADL_DISPLAY_CONTYPE_WIRELESSDISPLAY = 17;
+    internal const int ADL_DISPLAY_CONTYPE_USB_TYPE_C = 18;
 
-        [DllImport(Kernel32_FileName)]
-        internal static extern HMODULE GetModuleHandle(string moduleName);
+    internal const int ADL_ODN_TEMPERATURE_TYPE_CORE = 1;
+    internal const int ADL_ODN_TEMPERATURE_TYPE_MEMORY = 2;
+    internal const int ADL_ODN_TEMPERATURE_TYPE_VRM_CORE = 3;
+    internal const int ADL_ODN_TEMPERATURE_TYPE_VRM_MEMORY = 4;
+    internal const int ADL_ODN_TEMPERATURE_TYPE_LIQUID = 5;
+    internal const int ADL_ODN_TEMPERATURE_TYPE_PLX = 6;
+    internal const int ADL_ODN_TEMPERATURE_TYPE_HOTSPOT = 7;
 
-        [DllImport(Atiadlxx_FileName)]
-        internal static extern int ADL_Main_Control_Create(ADL_Main_Memory_Alloc callback, int enumConnectedAdapters);
-
-        [DllImport(Atiadlxx_FileName)]
-        internal static extern int ADL_Main_Control_Destroy();
-
-        [DllImport(Atiadlxx_FileName)]
-        internal static extern int ADL_Main_Control_IsFunctionValid(HMODULE module, string procName);
-
-        [DllImport(Atiadlxx_FileName)]
-        internal static extern FARPROC ADL_Main_Control_GetProcAddress(HMODULE module, string procName);
-
-        [DllImport(Atiadlxx_FileName)]
-        internal static extern int ADL_Adapter_NumberOfAdapters_Get(ref int numAdapters);
-
-        [DllImport(Atiadlxx_FileName)]
-        internal static extern int ADL_Adapter_AdapterInfo_Get(IntPtr info, int inputSize);
-
-        [DllImport(Atiadlxx_FileName)]
-        internal static extern int ADL_Adapter_Active_Get(int adapterIndex, ref int status);
-
-        [DllImport(Atiadlxx_FileName)]
-        internal static extern int ADL_Adapter_ASICFamilyType_Get(int adapterIndex, ref int asicTypes, ref int valids);
-
-        [DllImport(Atiadlxx_FileName)]
-        internal static extern int ADL_Display_DisplayInfo_Get(int adapterIndex, ref int numDisplays, out IntPtr displayInfoArray, int forceDetect);
-    }
-
-    private class ADLCheckLibrary
-    {
-        private HMODULE ADLLibrary = IntPtr.Zero;
-
-        private static ADLCheckLibrary ADLCheckLibrary_ = new ADLCheckLibrary();
-
-        private ADLCheckLibrary()
-        {
-            try
-            {
-                if (1 == ADLImport.ADL_Main_Control_IsFunctionValid(IntPtr.Zero, "ADL_Main_Control_Create"))
-                    ADLLibrary = ADLImport.GetModuleHandle(ADLImport.Atiadlxx_FileName);
-            }
-            catch (DllNotFoundException ex)
-            {
-                Console.WriteLine($"ADL: DllNotFoundException {ex.Message}");
-            }
-            catch (EntryPointNotFoundException ex)
-            {
-                Console.WriteLine($"ADL: EntryPointNotFoundException {ex.Message}");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"ADL: Exception {ex.Message}");
-            }
-        }
-
-        ~ADLCheckLibrary()
-        {
-            if (System.IntPtr.Zero != ADLCheckLibrary_.ADLLibrary)
-                ADLImport.ADL_Main_Control_Destroy();
-        }
-
-        internal static bool IsFunctionValid(string functionName)
-        {
-            var result = false;
-
-            if (System.IntPtr.Zero != ADLCheckLibrary_.ADLLibrary)
-            {
-                if (1 == ADLImport.ADL_Main_Control_IsFunctionValid(ADLCheckLibrary_.ADLLibrary, functionName))
-                    result = true;
-            }
-
-            return result;
-        }
-
-        internal static FARPROC GetProcAddress(string functionName)
-        {
-            FARPROC result = System.IntPtr.Zero;
-            if (System.IntPtr.Zero != ADLCheckLibrary_.ADLLibrary)
-                result = ADLImport.ADL_Main_Control_GetProcAddress(ADLCheckLibrary_.ADLLibrary, functionName);
-
-            return result;
-        }
-    }
-
-    #region ADL_Main_Memory_Alloc
-
-    internal static ADL_Main_Memory_Alloc ADL_Main_Memory_Alloc = ADL_Main_Memory_Alloc_;
+    internal static ADL_Main_Memory_Alloc_Delegate ADL_Main_Memory_Alloc = ADL_Main_Memory_Alloc_;
 
     private static IntPtr ADL_Main_Memory_Alloc_(int size)
     {
@@ -221,170 +153,24 @@ internal static class ADL
         return result;
     }
 
-    #endregion ADL_Main_Memory_Alloc
+    [DllImport(Atiadlxx_FileName)]
+    internal static extern int ADL2_Main_Control_Create(ADL_Main_Memory_Alloc_Delegate callback, int enumConnectedAdapters, out IntPtr ptr);
 
-    #region ADL_Main_Memory_Free
+    [DllImport(Atiadlxx_FileName)]
+    internal static extern int ADL2_Main_Control_Destroy(IntPtr ptr);
 
-    internal static void ADL_Main_Memory_Free(IntPtr buffer)
-    {
-        if (IntPtr.Zero != buffer)
-            Marshal.FreeCoTaskMem(buffer);
-    }
+    [DllImport(Atiadlxx_FileName)]
+    internal static extern int ADL2_Adapter_NumberOfAdapters_Get(IntPtr ptr, out int numAdapters);
 
-    #endregion ADL_Main_Memory_Free
+    [DllImport(Atiadlxx_FileName)]
+    internal static extern int ADL2_Adapter_AdapterInfo_Get(IntPtr ptr, out ADLAdapterInfoArray info, int inputSize);
 
-    #region ADL_Main_Control_Create
+    [DllImport(Atiadlxx_FileName)]
+    internal static extern int ADL2_Adapter_Active_Get(IntPtr ptr, int adapterIndex, out int status);
 
-    internal static ADL_Main_Control_Create? ADL_Main_Control_Create
-    {
-        get
-        {
-            if (!ADL_Main_Control_Create_Check && null == ADL_Main_Control_Create_)
-            {
-                ADL_Main_Control_Create_Check = true;
-                if (ADLCheckLibrary.IsFunctionValid("ADL_Main_Control_Create"))
-                    ADL_Main_Control_Create_ = ADLImport.ADL_Main_Control_Create;
-            }
+    [DllImport(Atiadlxx_FileName)]
+    internal static extern int ADL2_Adapter_ASICFamilyType_Get(IntPtr ptr, int adapterIndex, out int asicTypes, out int valids);
 
-            return ADL_Main_Control_Create_;
-        }
-    }
-
-    private static ADL_Main_Control_Create? ADL_Main_Control_Create_ = null;
-    private static bool ADL_Main_Control_Create_Check = false;
-
-    #endregion ADL_Main_Control_Create
-
-    #region ADL_Main_Control_Destroy
-
-    internal static ADL_Main_Control_Destroy? ADL_Main_Control_Destroy
-    {
-        get
-        {
-            if (!ADL_Main_Control_Destroy_Check && null == ADL_Main_Control_Destroy_)
-            {
-                ADL_Main_Control_Destroy_Check = true;
-                if (ADLCheckLibrary.IsFunctionValid("ADL_Main_Control_Destroy"))
-                    ADL_Main_Control_Destroy_ = ADLImport.ADL_Main_Control_Destroy;
-            }
-
-            return ADL_Main_Control_Destroy_;
-        }
-    }
-
-    private static ADL_Main_Control_Destroy? ADL_Main_Control_Destroy_ = null;
-    private static bool ADL_Main_Control_Destroy_Check = false;
-
-    #endregion ADL_Main_Control_Destroy
-
-    #region ADL_Adapter_NumberOfAdapters_Get
-
-    internal static ADL_Adapter_NumberOfAdapters_Get? ADL_Adapter_NumberOfAdapters_Get
-    {
-        get
-        {
-            if (!ADL_Adapter_NumberOfAdapters_Get_Check && null == ADL_Adapter_NumberOfAdapters_Get_)
-            {
-                ADL_Adapter_NumberOfAdapters_Get_Check = true;
-                if (ADLCheckLibrary.IsFunctionValid("ADL_Adapter_NumberOfAdapters_Get"))
-                    ADL_Adapter_NumberOfAdapters_Get_ = ADLImport.ADL_Adapter_NumberOfAdapters_Get;
-            }
-
-            return ADL_Adapter_NumberOfAdapters_Get_;
-        }
-    }
-
-    private static ADL_Adapter_NumberOfAdapters_Get? ADL_Adapter_NumberOfAdapters_Get_ = null;
-    private static bool ADL_Adapter_NumberOfAdapters_Get_Check = false;
-
-    #endregion ADL_Adapter_NumberOfAdapters_Get
-
-    #region ADL_Adapter_AdapterInfo_Get
-
-    internal static ADL_Adapter_AdapterInfo_Get? ADL_Adapter_AdapterInfo_Get
-    {
-        get
-        {
-            if (!ADL_Adapter_AdapterInfo_Get_Check && null == ADL_Adapter_AdapterInfo_Get_)
-            {
-                ADL_Adapter_AdapterInfo_Get_Check = true;
-                if (ADLCheckLibrary.IsFunctionValid("ADL_Adapter_AdapterInfo_Get"))
-                    ADL_Adapter_AdapterInfo_Get_ = ADLImport.ADL_Adapter_AdapterInfo_Get;
-            }
-
-            return ADL_Adapter_AdapterInfo_Get_;
-        }
-    }
-
-    private static ADL_Adapter_AdapterInfo_Get? ADL_Adapter_AdapterInfo_Get_ = null;
-    private static bool ADL_Adapter_AdapterInfo_Get_Check = false;
-
-    #endregion ADL_Adapter_AdapterInfo_Get
-
-    #region ADL_Adapter_ASICFamilyType_Get
-
-    internal static ADL_Adapter_ASICFamilyType_Get? ADL_Adapter_ASICFamilyType_Get
-    {
-        get
-        {
-            if (!ADL_Adapter_ASICFamilyType_Get_Check && null == ADL_Adapter_ASICFamilyType_Get_)
-            {
-                ADL_Adapter_ASICFamilyType_Get_Check = true;
-                if (ADLCheckLibrary.IsFunctionValid("ADL_Adapter_ASICFamilyType_Get"))
-                    ADL_Adapter_ASICFamilyType_Get_ = ADLImport.ADL_Adapter_ASICFamilyType_Get;
-            }
-
-            return ADL_Adapter_ASICFamilyType_Get_;
-        }
-    }
-
-    private static ADL_Adapter_ASICFamilyType_Get? ADL_Adapter_ASICFamilyType_Get_ = null;
-    private static bool ADL_Adapter_ASICFamilyType_Get_Check = false;
-
-    #endregion ADL_Adapter_Active_Get
-
-    #region ADL_Adapter_Active_Get
-
-    internal static ADL_Adapter_Active_Get? ADL_Adapter_Active_Get
-    {
-        get
-        {
-            if (!ADL_Adapter_Active_Get_Check && null == ADL_Adapter_Active_Get_)
-            {
-                ADL_Adapter_Active_Get_Check = true;
-                if (ADLCheckLibrary.IsFunctionValid("ADL_Adapter_Active_Get"))
-                    ADL_Adapter_Active_Get_ = ADLImport.ADL_Adapter_Active_Get;
-            }
-
-            return ADL_Adapter_Active_Get_;
-        }
-    }
-
-    private static ADL_Adapter_Active_Get? ADL_Adapter_Active_Get_ = null;
-    private static bool ADL_Adapter_Active_Get_Check = false;
-
-    #endregion ADL_Adapter_Active_Get
-
-    #region ADL_Display_DisplayInfo_Get
-
-    internal static ADL_Display_DisplayInfo_Get? ADL_Display_DisplayInfo_Get
-    {
-        get
-        {
-            if (!ADL_Display_DisplayInfo_Get_Check && null == ADL_Display_DisplayInfo_Get_)
-            {
-                ADL_Display_DisplayInfo_Get_Check = true;
-                if (ADLCheckLibrary.IsFunctionValid("ADL_Display_DisplayInfo_Get"))
-                    ADL_Display_DisplayInfo_Get_ = ADLImport.ADL_Display_DisplayInfo_Get;
-            }
-
-            return ADL_Display_DisplayInfo_Get_;
-        }
-    }
-
-    private static ADL_Display_DisplayInfo_Get? ADL_Display_DisplayInfo_Get_ = null;
-    private static bool ADL_Display_DisplayInfo_Get_Check = false;
-
-    #endregion ADL_Display_DisplayInfo_Get
-
+    [DllImport(Atiadlxx_FileName)]
+    internal static extern int ADL2_Overdrive_Caps(IntPtr ptr, int adapterIndex, out int supported, out int enabled, out int version);
 }
