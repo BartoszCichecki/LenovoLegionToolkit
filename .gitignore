@@ -578,3 +578,4 @@ obj/
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio,dotnetcore,csharp
 
 build_installer
+out
