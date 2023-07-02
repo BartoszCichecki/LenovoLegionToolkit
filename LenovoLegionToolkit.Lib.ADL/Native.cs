@@ -76,12 +76,29 @@ internal struct ADLDisplayInfo
     internal int DisplayInfoValue;
 }
 
+[StructLayout(LayoutKind.Sequential)]
+internal struct ADLSingleSensorData
+{
+    internal int Supported;
+    internal int Value;
+}
+
+[StructLayout(LayoutKind.Sequential)]
+internal struct ADLPMLogDataOutput
+{
+    internal int Size;
+
+    [MarshalAs(UnmanagedType.ByValArray, SizeConst = ADL.ADL_PMLOG_MAX_SENSORS)]
+    public ADLSingleSensorData[] Sensors;
+}
+
 internal static class ADL
 {
     internal const int ADL_MAX_PATH = 256;
-    internal const int ADL_MAX_ADAPTERS = 40 /* 150 */;
-    internal const int ADL_MAX_DISPLAYS = 40 /* 150 */;
+    internal const int ADL_MAX_ADAPTERS = 40;
+    internal const int ADL_MAX_DISPLAYS = 40;
     internal const int ADL_MAX_DEVICENAME = 32;
+    internal const int ADL_PMLOG_MAX_SENSORS = 256;
 
     internal const int ADL_SUCCESS = 0;
     internal const int ADL_FAIL = -1;
@@ -151,9 +168,18 @@ internal static class ADL
                 if (1 == ADLImport.ADL_Main_Control_IsFunctionValid(IntPtr.Zero, "ADL_Main_Control_Create"))
                     ADLLibrary = ADLImport.GetModuleHandle(ADLImport.Atiadlxx_FileName);
             }
-            catch (DllNotFoundException) { }
-            catch (EntryPointNotFoundException) { }
-            catch (Exception) { }
+            catch (DllNotFoundException ex)
+            {
+                Console.WriteLine($"ADL: DllNotFoundException {ex.Message}");
+            }
+            catch (EntryPointNotFoundException ex)
+            {
+                Console.WriteLine($"ADL: EntryPointNotFoundException {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"ADL: Exception {ex.Message}");
+            }
         }
 
         ~ADLCheckLibrary()

@@ -69,8 +69,8 @@ public class ADLAPI : IDisposable
 
                 Console.WriteLine($"ADL: adapterInfo {adapterIndex}: {adapterInfo.VendorID},{adapterInfo.Exist},{adapterInfo.Present}");
 
-                if (adapterInfo.VendorID != VENDOR_ID_AMD)
-                    continue;
+                //if (adapterInfo.VendorID != VENDOR_ID_AMD)
+                //    continue;
 
                 if (adapterInfo.Exist == 0)
                     continue;
