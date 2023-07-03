@@ -598,6 +598,9 @@ Obrigado desde já!</value>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
     <value>Modo dGPU</value>
   </data>
+  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
+    <value>Tanto a GPU integrada como a discreta estão ativadas. O sistema irá alterar entre elas consoante as necessidades.</value>
+  </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Modo Híbrido</value>
   </data>
@@ -628,6 +631,9 @@ Obrigado desde já!</value>
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>GPU</value>
   </data>
+  <data name="RPM" xml:space="preserve">
+    <value>RPM</value>
+  </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
     <value>Liga o portátil ao abrir a tampa.</value>
   </data>
@@ -651,6 +657,20 @@ Obrigado desde já!</value>
   </data>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Fn Lock</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
+    <value>ATENÇÃO!
+Alguns portáteis podem aceitar valores menores do que indicam, mas tem cuidado. Esta opção pode resultar num comportamento desconhecido, portanto se não tiveres a certeza do que estás a fazer, deixa isto em 0.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
+    <value>Offset mínimo</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
+    <value>ATENÇÃO!
+Alguns portáteis podem aceitar valores maiores do que indicam, mas tem cuidado. Esta opção pode resultar num comportamento desconhecido, portanto se não tiveres a certeza do que estás a fazer, deixa isto em 0.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
+    <value>Offset máximo</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>Não alteres as opções abaixo a menos que saibas mesmo o que estás a fazer.</value>
@@ -742,6 +762,9 @@ ATENÇÃO: Está ação não irá executar corretamente se o ecrã interno estiv
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Luz do teclado</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>Não podes controlar a luz do teclado aqui enquanto os serviços do Vantage estão ativos.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>O Lenovo Vantage parece estar ativo</value>
@@ -1151,6 +1174,10 @@ Certifica-te que o script executa corretamente primeiro.</value>
   <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
     <value>Não foi possível desativar o Legion Zone</value>
   </data>
+  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
+    <value>Desativa o Legion Zone e os seus serviços sem o desinstalar.
+É recomendado reiniciar depois de alterar estas opções.</value>
+  </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
     <value>Desativar o Legion Zone</value>
   </data>
@@ -1160,8 +1187,26 @@ Certifica-te que o script executa corretamente primeiro.</value>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Não foi possível desativar o Lenovo Hotkeys</value>
   </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
+    <value>Desativa o Lenovo Hotkeys e os seus serviços sem o desinstalar.
+Se desativado, esta app irá executar os atalhos Fn.
+É recomendado reiniciar depois de alterar esta opção.</value>
+  </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Desativar Lenovo Hotkeys</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
+    <value>O Vantage e/ou o ImController podem são ter sido desativados corretamente</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
+    <value>Não foi possível desativar o Vantage e/ou o ImController</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
+    <value>Desativa o Lenovo Vantage e o ImController sem os desinstalar.
+É recomendado reiniciar após alterar estas opções.</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
+    <value>Desativa o Lenovo Vantage e o ImController</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>O Legion Zone pode não ter sido ativado corretamente</value>
@@ -1547,23 +1592,117 @@ Mover o rato ou clicar no teclado vai ligar os ecrãs.</value>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>É recomendado reiniciar</value>
   </data>
+  <data name="SaveAndClose" xml:space="preserve">
+    <value>Guardar &amp; Sair</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
+    <value>Predefinição do Modo Customizado</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
+    <value>Ativar predefinição do Modo Customizado.
+Esta definição apenas tem efeito quando o mesmo está ativo.</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
+    <value>Nome da predefinição</value>
+  </data>
   <data name="GodModeSettingsWindow_EditPreset_Message" xml:space="preserve">
     <value>Nome</value>
+  </data>
+  <data name="GodModeSettingsWindow_ActivePreset_Title" xml:space="preserve">
+    <value>Predefinição ativa</value>
+  </data>
+  <data name="AboutPage_ApplicationFolders" xml:space="preserve">
+    <value>Pastas da Aplicação</value>
+  </data>
+  <data name="AboutPage_Data" xml:space="preserve">
+    <value>Dados</value>
+  </data>
+  <data name="AboutPage_Temp" xml:space="preserve">
+    <value>Ficheiros temporários</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
+    <value>Luminosidade de Ecrã Única</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
+    <value>Quando ligado, a mesma luminosidade será aplicada a todos os esquemas de energia do Windows sempre que a mudares.</value>
+  </data>
+  <data name="Notification_UpdateAvailable" xml:space="preserve">
+    <value>Atualização {0} disponível!</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL" xml:space="preserve">
+    <value>Limite de Energia Máximo</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
+    <value>Limite de Energia APU sPPT</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL_Description" xml:space="preserve">
+    <value>O consumo de energia contínuo que o CPU pode alcançar.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL_Description" xml:space="preserve">
+    <value>O consumo de energia máximo que o CPU pode alcançar num período de tempo pequeno.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL_Description" xml:space="preserve">
+    <value>O consumo de energia máximo instantâneo que o CPU pode alcançar.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_CrossLoading_Description" xml:space="preserve">
+    <value>O consumo de energia máximo que o CPU pode alcançar quando tanto o CPU como a GPU estão em utilização máxima.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL_Description" xml:space="preserve">
+    <value>O consumo de energia máximo que o CPU pode alcançar com um pequeno atraso.</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
+    <value>A temperatura máxima que o CPU pode atingir antes de a sua frequência e potência serem reduzidas.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
+    <value>A quantidade de energia adicional que pode ser alocada para a GPU baseado no consumo de energia do CPU.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
+    <value>A quantidade de energia adicional que pode ser alocada para a GPU para além do consumo de energia base.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
+    <value>A temperatura máxima que a GPU pode atingir antes de a sua frequência e potência serem reduzidas.</value>
   </data>
   <data name="Default" xml:space="preserve">
     <value>Padrão</value>
   </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
+    <value>Duração do limite de energia a curto prazo</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_PL1Tau_Description" xml:space="preserve">
+    <value>A quantidade de tempo que o CPU pode dar boost e usar o Limite de Energia a Curto Prazo. Quando expira, o Limite de Energia a Longo Prazo é utilizado.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
+    <value>Alvo de energia total do processador quando ligado ao carregador</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
+    <value>O ponto em que o CPU ativa o consumo de energia dinâmico para a GPU.</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Criar</value>
+  </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
     <value>Adicionar etapa</value>
+  </data>
+  <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
+    <value>Criar Ação</value>
   </data>
   <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
     <value>Esquema de energia</value>
   </data>
+  <data name="StatusTrayPopup_Preset" xml:space="preserve">
+    <value>Predefinição</value>
+  </data>
   <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
     <value>GPU discreta</value>
   </data>
+  <data name="StatusTrayPopup_PowerState" xml:space="preserve">
+    <value>Estado de Energia</value>
+  </data>
   <data name="StatusTrayPopup_Battery" xml:space="preserve">
     <value>Bateria</value>
+  </data>
+  <data name="StatusTrayPopup_Mode" xml:space="preserve">
+    <value>Modo</value>
   </data>
   <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
     <value>Taxa de descarregamento</value>
@@ -1571,10 +1710,142 @@ Mover o rato ou clicar no teclado vai ligar os ecrãs.</value>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
     <value>Atualização disponível!</value>
   </data>
+  <data name="SymbolRegularPicker_Title" xml:space="preserve">
+    <value>Selecionar ícone</value>
+  </data>
+  <data name="AutomationPage_ChangeIcon" xml:space="preserve">
+    <value>Mudar Ícone</value>
+  </data>
+  <data name="BatteryPage_LowLevel" xml:space="preserve">
+    <value>Nível de bateria baixo</value>
+  </data>
   <data name="AutomationPipelineTriggerConfigurationWindow_Title" xml:space="preserve">
     <value>Configurar</value>
   </data>
+  <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
+    <value>Modelo de Baixa Energia S0 detetado</value>
+  </data>
+  <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
+    <value>O Windows reporta que este dispositivo suporta Modern Standy. Usar Esquemas de Energia para além de Equilibrado pode causar comportamentos inesperados.</value>
+  </data>
+  <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
+    <value>Selecionar os Esquemas de Energia do Windows a aplicar quando o Modo de Energia muda.</value>
+  </data>
+  <data name="SettingsPage_Power_Title" xml:space="preserve">
+    <value>Energia</value>
+  </data>
+  <data name="SettingsPage_PowerPlansControlPanel_Title" xml:space="preserve">
+    <value>Opções dos Esquemas de Energia no Painel de Controlo do Windows</value>
+  </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Desligada</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
+    <value>Importar perfil da luz de fundo do teclado</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message" xml:space="preserve">
+    <value>Importar e aplicar configuração da luz de fundo no perfil atual.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
+    <value>Caminho</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_After" xml:space="preserve">
+    <value>Depois de {0}</value>
+  </data>
+  <data name="MultipleTriggersAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Vários gatilhos...</value>
+    <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_Title" xml:space="preserve">
+    <value>Definições de Overclock da GPU</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title" xml:space="preserve">
+    <value>Offset da Frequência do Núcleo</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title" xml:space="preserve">
+    <value>Offset da Frequência de Memória</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Title" xml:space="preserve">
+    <value>Overclock da GPU</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
+    <value>Aumenta o desempenho ao fazer overclock da GPU discreta.</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
+    <value>Overclock da GPU</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
+    <value>Aumenta o desempenho ao fazer overclock da GPU discreta.
+
+Atenção: Esta ação não irá correr corretamente se a GPU discreta estiver indisponível.</value>
+  </data>
+  <data name="PortsBacklightControl_Title" xml:space="preserve">
+    <value>Luz das portas</value>
+  </data>
+  <data name="PortsBacklightControl_Message" xml:space="preserve">
+    <value>Liga ou desliga a luz das portas de trás do portátil.</value>
+  </data>
+  <data name="PortsBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Luz das portas</value>
+  </data>
+  <data name="PortsBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Liga ou desliga a luz das portas de trás do portátil.</value>
+  </data>
+  <data name="PanelLogoBacklightControl_Title" xml:space="preserve">
+    <value>Luz do logo da tampa</value>
+  </data>
+  <data name="PanelLogoBacklightControl_Message" xml:space="preserve">
+    <value>Liga ou desliga a luz do logo da tampa do portátil.</value>
+  </data>
+  <data name="PanelLogoBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Luz do logo da tampa</value>
+  </data>
+  <data name="PanelLogoBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Liga ou desliga a luz do logo da tampa do portátil.</value>
+  </data>
+  <data name="GHz" xml:space="preserve">
+    <value>GHz</value>
+  </data>
+  <data name="MHz" xml:space="preserve">
+    <value>MHz</value>
+  </data>
+  <data name="SensorsControl_Maximum" xml:space="preserve">
+	  <value>Máximo: {0}</value>
+  </data>
+  <data name="SensorsControl_CPU_Title" xml:space="preserve">
+	  <value>CPU</value>
+  </data>
+  <data name="SensorsControl_Utilisation_Title" xml:space="preserve">
+	  <value>Utilização</value>
+  </data>
+  <data name="SensorsControl_CoreClock_Title" xml:space="preserve">
+	  <value>Frequência do Núcleo</value>
+  </data>
+  <data name="SensorsControl_Temperature_Title" xml:space="preserve">
+	  <value>Temperatura</value>
+  </data>
+  <data name="SensorsControl_Fan_Title" xml:space="preserve">
+	  <value>Ventoinha</value>
+  </data>
+  <data name="SensorsControl_GPU_Title" xml:space="preserve">
+	  <value>GPU</value>
+  </data>
+  <data name="SensorsControl_MemoryClock_Title" xml:space="preserve">
+	  <value>Frequência da Memória</value>
+  </data>
+  <data name="SensorsControl_RefreshInterval" xml:space="preserve">
+	  <value>Intervalo de atualização</value>
+  </data>
+  <data name="InstantBootControl_Title" xml:space="preserve">
+	  <value>Boot Instantâneo</value>
+  </data>
+  <data name="InstantBootControl_Message" xml:space="preserve">
+	  <value>Ligar automaticamente quando o carregador é ligado.</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Title" xml:space="preserve">
+	  <value>Boot Instantâneo</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Message" xml:space="preserve">
+	  <value>Ligar automaticamente quando o carregador é ligado.</value>
   </data>
 </root>

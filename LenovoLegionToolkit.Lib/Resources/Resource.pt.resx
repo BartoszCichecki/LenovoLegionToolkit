@@ -91,11 +91,43 @@
   <data name="BatteryState_RapidCharge" xml:space="preserve">
     <value>Carregamento rápido</value>
   </data>
+  <data name="FlipToStartState_Off" xml:space="preserve">
+    <value>Desligado</value>
+    <comment>Informs the user that Flip to Start is or will be turned off.</comment>
+  </data>
+  <data name="FlipToStartState_On" xml:space="preserve">
+    <value>Ligado</value>
+    <comment>Informs the user that Flip to Start is or will be turned on.</comment>
+  </data>
+  <data name="FnLockState_Off" xml:space="preserve">
+    <value>Desligado</value>
+    <comment>Informs the user that Fn Lock is or will be turned off.</comment>
+  </data>
+  <data name="FnLockState_On" xml:space="preserve">
+    <value>Ligado</value>
+    <comment>Informs the user that Fn Lock is or will be turned on.</comment>
+  </data>
   <data name="GPUController_PoweredOff" xml:space="preserve">
     <value>Desligada</value>
   </data>
   <data name="GPUController_PoweredOn" xml:space="preserve">
     <value>Ligada</value>
+  </data>
+  <data name="GSyncState_Off" xml:space="preserve">
+    <value>Desligado</value>
+    <comment>Informs the user that GSync is or will be turned off.</comment>
+  </data>
+  <data name="GSyncState_On" xml:space="preserve">
+    <value>Ligado</value>
+    <comment>Informs the user that GSync is or will be turned on.</comment>
+  </data>
+  <data name="HDRState_Off" xml:space="preserve">
+    <value>Desligado</value>
+    <comment>Informs the user that HDR is or will be turned off.</comment>
+  </data>
+  <data name="HDRState_On" xml:space="preserve">
+    <value>Ligado</value>
+    <comment>Informs the user that HDR is or will be turned on.</comment>
   </data>
   <data name="HybridModeState_Off" xml:space="preserve">
     <value>dGPU</value>
@@ -108,6 +140,14 @@
   </data>
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
     <value>Híbrido-iGPU</value>
+  </data>
+  <data name="MicrophoneState_Off" xml:space="preserve">
+    <value>Desligado</value>
+    <comment>Informs the user that the microphone is or will be turned off.</comment>
+  </data>
+  <data name="MicrophoneState_On" xml:space="preserve">
+    <value>Ligado</value>
+    <comment>Informs the user that the microphone is or will be turned on.</comment>
   </data>
   <data name="NotificationPosition_BottomCenter" xml:space="preserve">
     <value>Centro inferior</value>
@@ -135,6 +175,22 @@
   </data>
   <data name="NotificationPosition_TopRight" xml:space="preserve">
     <value>Canto superior direito</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightState_Off" xml:space="preserve">
+    <value>Desligada</value>
+    <comment>Informs the user that One Level White Keyboard Backlight is or will be turned off.</comment>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightState_On" xml:space="preserve">
+    <value>Ligada</value>
+    <comment>Informs the user that One Level White Keyboard Backlight is or will be turned on.</comment>
+  </data>
+  <data name="OverdriveState_Off" xml:space="preserve">
+    <value>Desligado</value>
+    <comment>Informs the user that Overdrive is or will be turned off.</comment>
+  </data>
+  <data name="OverdriveState_On" xml:space="preserve">
+    <value>Ligado</value>
+    <comment>Informs the user that Overdrive is or will be turned on.</comment>
   </data>
   <data name="PowerModeState_Balance" xml:space="preserve">
     <value>Equilibrado</value>
@@ -280,6 +336,14 @@
   <data name="Theme_System" xml:space="preserve">
     <value>Sistema</value>
   </data>
+  <data name="TouchpadLockState_Off" xml:space="preserve">
+    <value>Desligado</value>
+    <comment>Informs the user that Touchpad Lock is or will be turned off.</comment>
+  </data>
+  <data name="TouchpadLockState_On" xml:space="preserve">
+    <value>Ligado</value>
+    <comment>Informs the user that Touchpad Lock is or will be turned on.</comment>
+  </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
     <value>Alta</value>
   </data>
@@ -289,4 +353,36 @@
   <data name="WhiteKeyboardBacklightState_Off" xml:space="preserve">
     <value>Desligada</value>
   </data>
+  <data name="WinKeyState_Off" xml:space="preserve">
+    <value>Desligada</value>
+    <comment>Informs the user that WinLock is or will be turned on.</comment>
+  </data>
+  <data name="WinKeyState_On" xml:space="preserve">
+    <value>Ligada</value>
+    <comment>Informs the user that WinLock is or will be turned on.</comment>
+  </data>
+  <data name="PortsBacklightState_Off" xml:space="preserve">
+		<value>Desligada</value>
+	</data>
+  <data name="PortsBacklightState_On" xml:space="preserve">
+		<value>Ligada</value>
+	</data>
+  <data name="PanelLogoBacklightState_On" xml:space="preserve">
+		<value>Ligado</value>
+	</data>
+  <data name="PanelLogoBacklightState_Off" xml:space="preserve">
+		<value>Desligada</value>
+	</data>
+  <data name="InstantBootState_Off" xml:space="preserve">
+		<value>Desligado</value>
+	</data>
+  <data name="InstantBootState_AcAdapter" xml:space="preserve">
+		<value>Carregador</value>
+	</data>
+  <data name="InstantBootState_UsbPowerDelivery" xml:space="preserve">
+		<value>Carregador USB PD</value>
+	</data>
+  <data name="InstantBootState_AcAdapterAndUsbPowerDelivery" xml:space="preserve">
+		<value>Carregador e USB PD</value>
+	</data>
 </root>
