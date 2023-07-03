@@ -47,6 +47,8 @@ public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshing
         set => _cardHeaderControl.Warning = value;
     }
 
+    protected virtual bool RefreshOnException => true;
+
     protected AbstractComboBoxFeatureCardControl() => InitializeComponent();
 
     private void InitializeComponent()
@@ -131,7 +133,7 @@ public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshing
             OnStateChangeException(ex);
         }
 
-        if (exceptionOccurred)
+        if (exceptionOccurred && RefreshOnException)
             await RefreshAsync();
     }
 

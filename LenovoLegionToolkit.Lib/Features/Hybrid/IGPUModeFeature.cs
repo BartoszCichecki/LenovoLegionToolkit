@@ -11,9 +11,19 @@ using Windows.Win32.Foundation;
 
 namespace LenovoLegionToolkit.Lib.Features.Hybrid;
 
-public class IGPUModeFeature : AbstractLenovoGamezoneWmiFeature<IGPUModeState>
+public class IGPUModeChangeException : Exception
 {
-    public IGPUModeFeature() : base("IGPUModeStatus", 0, "IsSupportIGPUMode", inParameterName: "mode") { }
+    public IGPUModeState IGPUMode { get; }
+
+    public IGPUModeChangeException(IGPUModeState igpuMode)
+    {
+        IGPUMode = igpuMode;
+    }
+}
+
+public class IGPUModeFeature : AbstractCompositeFeature<IGPUModeState, IGPUModeFeatureFlagsFeature, IGPUModeGamezoneFeature>
+{
+    public IGPUModeFeature(IGPUModeFeatureFlagsFeature feature1, IGPUModeGamezoneFeature feature2) : base(feature1, feature2) { }
 
     public async Task NotifyAsync()
     {
@@ -33,8 +43,8 @@ public class IGPUModeFeature : AbstractLenovoGamezoneWmiFeature<IGPUModeState>
         }
     }
 
-    private Task NotifyDGPUStatusAsync(bool state) => WMI.CallAsync(SCOPE,
-        Query,
+    private Task NotifyDGPUStatusAsync(bool state) => WMI.CallAsync("root\\WMI",
+        $"SELECT * FROM LENOVO_GAMEZONE_DATA",
         "NotifyDGPUStatus",
         new() { { "Status", state ? "1" : "0" } });
 
@@ -43,8 +53,8 @@ public class IGPUModeFeature : AbstractLenovoGamezoneWmiFeature<IGPUModeState>
         try
         {
             // ReSharper disable once StringLiteralTypo
-            return await WMI.CallAsync(SCOPE,
-                Query,
+            return await WMI.CallAsync("root\\WMI",
+                $"SELECT * FROM LENOVO_GAMEZONE_DATA",
                 "GetDGPUHWId",
                 new(),
                 pdc =>

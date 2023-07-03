@@ -1,9 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.Features.Hybrid;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Resources;
@@ -81,6 +83,21 @@ public static class HybridModeControlFactory
                 await Power.RestartAsync();
             else
                 await RefreshAsync();
+        }
+
+        protected override void OnStateChangeException(Exception exception)
+        {
+            if (exception is IGPUModeChangeException ex1)
+            {
+                var message = ex1.IGPUMode switch
+                {
+                    IGPUModeState.IGPUOnly => "Make sure that dGPU is not being used. dGPU will disconnect automatically when not in use.",
+                    IGPUModeState.Auto => "Discrete GPU will disconnect automatically when not in use and laptop is on battery power.",
+                    _ => "Discrete GPU might have not been disconnected or reconnected properly. Wait a bit or try to change the mode again."
+                };
+
+                SnackbarHelper.Show("Problem occurred while changing GPU Working Mode", message, SnackbarType.Warning);
+            }
         }
 
         private void InfoButton_Click(object sender, RoutedEventArgs e)
