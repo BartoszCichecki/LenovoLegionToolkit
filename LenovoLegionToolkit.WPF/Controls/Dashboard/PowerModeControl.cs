@@ -3,11 +3,13 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Resources;
+using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Dashboard;
 using Wpf.Ui.Common;
 using Button = Wpf.Ui.Controls.Button;
@@ -88,6 +90,16 @@ public class PowerModeControl : AbstractComboBoxFeatureCardControl<PowerModeStat
                 _configButton.ToolTip = null;
                 _configButton.Visibility = Visibility.Collapsed;
                 break;
+        }
+    }
+
+    protected override void OnStateChangeException(Exception exception)
+    {
+        if (exception is PowerModeUnavailableWithoutACException ex1)
+        {
+            SnackbarHelper.Show(Resource.PowerModeUnavailableWithoutACException_Title,
+                string.Format(Resource.PowerModeUnavailableWithoutACException_Message, ex1.PowerMode.GetDisplayName()),
+                SnackbarType.Warning);
         }
     }
 

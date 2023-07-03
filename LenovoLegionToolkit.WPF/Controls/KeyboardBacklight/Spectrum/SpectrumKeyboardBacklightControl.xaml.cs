@@ -200,7 +200,7 @@ public partial class SpectrumKeyboardBacklightControl
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Couldn't export profile.", ex);
 
-            await SnackbarHelper.ShowAsync(Resource.SpectrumKeyboardBacklightControl_ExportProfileError_Title, Resource.SpectrumKeyboardBacklightControl_ExportProfileError_Message, true);
+            await SnackbarHelper.ShowAsync(Resource.SpectrumKeyboardBacklightControl_ExportProfileError_Title, Resource.SpectrumKeyboardBacklightControl_ExportProfileError_Message, SnackbarType.Error);
         }
     }
 
@@ -230,7 +230,7 @@ public partial class SpectrumKeyboardBacklightControl
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Couldn't import profile.", ex);
 
-            await SnackbarHelper.ShowAsync(Resource.SpectrumKeyboardBacklightControl_ImportProfileError_Title, Resource.SpectrumKeyboardBacklightControl_ImportProfileError_Message, true);
+            await SnackbarHelper.ShowAsync(Resource.SpectrumKeyboardBacklightControl_ImportProfileError_Title, Resource.SpectrumKeyboardBacklightControl_ImportProfileError_Message, SnackbarType.Error);
         }
     }
 
@@ -446,7 +446,7 @@ public partial class SpectrumKeyboardBacklightControl
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Couldn't apply profile.", ex);
 
-            await SnackbarHelper.ShowAsync(Resource.SpectrumKeyboardBacklightControl_ApplyProfileError_Title, Resource.SpectrumKeyboardBacklightControl_ApplyProfileError_Message, true);
+            await SnackbarHelper.ShowAsync(Resource.SpectrumKeyboardBacklightControl_ApplyProfileError_Title, Resource.SpectrumKeyboardBacklightControl_ApplyProfileError_Message, SnackbarType.Error);
         }
 
         await RefreshProfileDescriptionAsync();

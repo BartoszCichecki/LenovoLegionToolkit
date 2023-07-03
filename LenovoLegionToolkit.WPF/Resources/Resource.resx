@@ -1850,4 +1850,11 @@ WARNING: This action will not run correctly, if discrete GPU is not available.</
   <data name="InstantBootAutomationStepControl_Message" xml:space="preserve">
 	  <value>Automatically power on when a charger is connected.</value>
   </data>
+  <data name="PowerModeUnavailableWithoutACException_Title" xml:space="preserve">
+	  <value>Cannot change Power Mode</value>
+  </data>
+  <data name="PowerModeUnavailableWithoutACException_Message" xml:space="preserve">
+	  <value>{0} power mode is not available without AC power.</value>
+	  <comment>For example: "{Performance} power mode is not available without AC power."</comment>
+  </data>
 </root>

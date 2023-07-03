@@ -90,6 +90,8 @@ public abstract class AbstractToggleFeatureCardControl<T> : AbstractRefreshingCo
 
     protected virtual async Task OnStateChange(ToggleSwitch toggle, IFeature<T> feature)
     {
+        var exceptionOccurred = false;
+
         try
         {
             if (IsRefreshing || toggle.IsChecked is null)
@@ -103,8 +105,17 @@ public abstract class AbstractToggleFeatureCardControl<T> : AbstractRefreshingCo
         }
         catch (Exception ex)
         {
+            exceptionOccurred = true;
+
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Failed to change state. [feature={GetType().Name}]", ex);
+
+            OnStateChangeException(ex);
         }
+
+        if (exceptionOccurred)
+            await RefreshAsync();
     }
+
+    protected virtual void OnStateChangeException(Exception exception) { }
 }

@@ -127,9 +127,13 @@ public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshing
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Failed to change state. [feature={GetType().Name}]", ex);
+
+            OnStateChangeException(ex);
         }
 
         if (exceptionOccurred)
             await RefreshAsync();
     }
+
+    protected virtual void OnStateChangeException(Exception exception) { }
 }

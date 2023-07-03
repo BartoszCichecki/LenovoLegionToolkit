@@ -9,6 +9,16 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features;
 
+public class PowerModeUnavailableWithoutACException : Exception
+{
+    public PowerModeState PowerMode { get; }
+
+    public PowerModeUnavailableWithoutACException(PowerModeState powerMode)
+    {
+        PowerMode = powerMode;
+    }
+}
+
 public class PowerModeFeature : AbstractLenovoGamezoneWmiFeature<PowerModeState>
 {
     private readonly AIModeController _aiModeController;
@@ -49,8 +59,8 @@ public class PowerModeFeature : AbstractLenovoGamezoneWmiFeature<PowerModeState>
 
         if (state is PowerModeState.Performance or PowerModeState.GodMode
             && !AllowAllPowerModesOnBattery
-            && await Power.IsPowerAdapterConnectedAsync() is PowerAdapterStatus.Disconnected)
-            throw new InvalidOperationException($"Can't switch to {state} power mode on battery.");
+            && await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false) is PowerAdapterStatus.Disconnected)
+            throw new PowerModeUnavailableWithoutACException(state);
 
         var currentState = await GetStateAsync().ConfigureAwait(false);
 

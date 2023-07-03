@@ -3521,6 +3521,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} power mode is not available without AC power..
+        /// </summary>
+        public static string PowerModeUnavailableWithoutACException_Message {
+            get {
+                return ResourceManager.GetString("PowerModeUnavailableWithoutACException_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot change Power Mode.
+        /// </summary>
+        public static string PowerModeUnavailableWithoutACException_Title {
+            get {
+                return ResourceManager.GetString("PowerModeUnavailableWithoutACException_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enabling this option when Lenovo Vantage is running and it changes power plans on your laptop might result in unexpected behavior..
         /// </summary>
         public static string PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message {

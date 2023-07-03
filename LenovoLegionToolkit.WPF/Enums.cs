@@ -33,3 +33,10 @@ public enum DashboardItem
     WinKeyLock,
     WhiteKeyboardBacklight
 }
+
+public enum SnackbarType
+{
+    Success,
+    Warning,
+    Error
+}
