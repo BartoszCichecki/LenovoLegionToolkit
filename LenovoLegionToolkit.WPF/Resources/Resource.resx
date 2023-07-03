@@ -152,7 +152,7 @@
     <value>Add new</value>
   </data>
   <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Activate Power Plan even when Vantage is enabled.
+	  <value>Activate Power Plan even when Vantage or its services are enabled.
 This option is intended only for devices that didn't come with multiple power plans.</value>
   </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
@@ -757,7 +757,7 @@ WARNING: This action will not run correctly if the internal display is off.</val
     <value>Keyboard backlight cannot be controlled in here when Vantage or its services are running.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-    <value>Lenovo Vantage seems to be enabled</value>
+	  <value>Lenovo Vantage or its services are running</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>About</value>
@@ -1024,7 +1024,7 @@ Performance mode can also be changed with Fn+Q.</value>
     <value>Selected power mode may not work correctly without AC adapter connected.</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Enabling this option when Lenovo Vantage is running and it changes power plans on your laptop might result in unexpected behavior.</value>
+	  <value>Enabling this option when Lenovo Vantage or its services are running and it changes power plans on your laptop might result in unexpected behavior.</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Are you sure?</value>
@@ -1211,10 +1211,10 @@ Restart is recommended after changing this option.</value>
     <value>Couldn't enable Lenovo Hotkeys Keys</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage may have not been enabled correctly</value>
+	  <value>Vantage and/or ImController may have not been enabled correctly</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Couldn't enable Vantage</value>
+	  <value>Couldn't enable Vantage and/or ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>You can exclude refresh rates, to make Fn+R shortcut more useful.</value>
