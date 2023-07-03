@@ -64,47 +64,5 @@
 
         </StackPanel>
 
-        <StackPanel x:Name="_stripeChina" Margin="0,8,0,0">
-
-            <Border
-                Width="300"
-                Margin="0,8,0,0"
-                HorizontalAlignment="Left"
-                Background="Black"
-                BorderBrush="Gray"
-                BorderThickness="2"
-                CornerRadius="16"
-                Cursor="Hand"
-                MouseLeftButtonDown="StripeCNYDonateButton_Click"
-                MouseRightButtonDown="StripeCNYDonateButton_Click">
-                <StackPanel Orientation="Vertical">
-                    <Label
-                        Margin="0,8,0,-4"
-                        HorizontalContentAlignment="Center"
-                        Content="{x:Static resources:Resource.DonatePage_DonateWith}"
-                        FontSize="16"
-                        Foreground="White" />
-                    <Image
-                        Height="48"
-                        Margin="24,8,24,8"
-                        RenderOptions.BitmapScalingMode="Fant"
-                        Source="/Assets/Donate/stripe_logo.png" />
-                </StackPanel>
-            </Border>
-
-            <Border
-                Width="300"
-                Margin="0,16,0,0"
-                HorizontalAlignment="Left"
-                Background="White"
-                CornerRadius="16">
-                <Image
-                    Margin="8"
-                    RenderOptions.BitmapScalingMode="Fant"
-                    Source="../Assets/Donate/stripe_cny_qr.png" />
-            </Border>
-
-        </StackPanel>
-
     </StackPanel>
 </wpfui:UiPage>
