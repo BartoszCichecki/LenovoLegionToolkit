@@ -151,10 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Yeni ekle</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Güç Planlarını Vantage açıkken bile aktif et.
-Bu ayar cihazın içinde güç planları gelmeyenler için amaçlanmıştır.</value>
-  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Windows Güç Planlarını her zaman aktif et</value>
   </data>
@@ -754,9 +750,6 @@ UYARI: Dahili ekran kapalıysa bu işlem doğru çalışmaz.</value>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>Vantage veya servisleri çalışırken klavye ışığı burada kontrol edilemez.</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-    <value>Lenovo Vantage açık görünüyor</value>
-  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Hakkında</value>
   </data>
@@ -1021,9 +1014,6 @@ Fn+Q ile modu değiştirebilirsiniz.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Seçilen güç modu, AC adaptörü bağlı olmadan düzgün çalışmayabilir.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Lenovo Vantage çalışırken vebilgisayarınızda güç planlarını değiştirirken bu seçeneğin etkinleştirilmesi, beklenmeyen davranışlara neden olabilir.</value>
-  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Emin misiniz?</value>
   </data>
@@ -1207,12 +1197,6 @@ Bu seçeneği değiştirdikten sonra yeniden başlatma önerilir.</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Lenovo Hotkeys Tuşları etkinleştirilemedi</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage doğru bir şekilde etkinleştirilmemiş olabilir</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Vantage etkinleştirilemedi</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Fn+R kısayolunu daha kullanışlı hale getirmek için yenileme hızlarını hariç tutabilirsiniz.</value>
