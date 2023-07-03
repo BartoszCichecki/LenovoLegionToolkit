@@ -151,10 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Додати нову</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Активувати план живлення коли Vantage увімкнений.
-Ця опція призначена тільки для пристроїв, у яких немає декількох планів живлення.</value>
-  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Завжди активувати план живлення Windows</value>
   </data>
@@ -740,9 +736,6 @@
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>Неможливо керувати підсвіткою клавіатури, коли працює Vantage або його служби.</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-    <value>Схоже Lenovo Vantage увімкнено</value>
-  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Про застосунок</value>
   </data>
@@ -1007,9 +1000,6 @@
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Обраний режим живлення може не працювати справно без підключеного блоку живлення.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Увімкнення цієї опції під час роботи Lenovo Vantage і зміна планів енергоспоживання на ноутбуці може призвести до непередбачуваної поведінки.</value>
-  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Ви впевнені?</value>
   </data>
@@ -1180,12 +1170,6 @@
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Не вдалося увімкнути гарячі клавіші Lenovo</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage міг бути запущений неправильно</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Не вдалося увімкнути Vantage</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Ви можете виключити частоту оновлення, щоб зробити комбінацію клавіш Fn+R більш корисною.</value>
