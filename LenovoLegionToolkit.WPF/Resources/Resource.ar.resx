@@ -151,10 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>أضف جديد</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>تشغيل وضع الطاقة حتى لو كان Vantage يعمل بالفعل.
-هذا الخيار موجه فقط للأجهزة التى لا تأتى مع اوضاع طاقة متعددة.</value>
-  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>تشغيل وضع الطاقة الخاص بالويندوز</value>
   </data>
@@ -724,9 +720,6 @@
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>الإضاءة الخلفية للوحة المفاتيح</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-    <value>يبدو أن Lenovo Vantage مفعّل</value>
-  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>حول البرنامج</value>
   </data>
@@ -991,9 +984,6 @@
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>قد لا يعمل وضع الطاقة المحدد بشكل صحيح بِدون توصيل محول التيار المتردد.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>قد يؤدي تمكين هذا الخِيار عند تشغيل Lenovo Vantage وتغييره لِخطط الطاقة على الكمبيوتر المحمول إلى سلوك غير متوقع.</value>
-  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>هل أنت متأكد؟</value>
   </data>
@@ -1155,12 +1145,6 @@
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>تعذر تعطيل مفاتيح مِيزة Lenovo Hotkeys أو مفاتيح مِيزة مفاتيح Lenovo الساخنة</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>ربما لم يتم تعطيل Vantage بشكل صحيح</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>تعذر تعطيل "%s"</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>يمكنك استبعاد معدلات التحديث ، لجعل اختصار Fn + R أكثر فائدة.</value>
