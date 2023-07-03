@@ -159,13 +159,13 @@
     <value>Vienmēr aktivizēt Windows Enerģijas Plānus</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>Uzlādējiet USB ierīces, kad dators ir izslēgts vai atrodas miega vai hibernācijas režīmā.</value>
+	  <value>Uzlādējiet USB ierīces, kad dators ir izslēgts vai atrodas miega vai hibernācijas režīmā.</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>Vienmēr ieslēgts USB</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-    <value>Uzlādējiet USB ierīces, kad dators ir izslēgts vai atrodas miega vai hibernācijas režīmā.</value>
+	  <value>Uzlādējiet USB ierīces, kad dators ir izslēgts vai atrodas miega vai hibernācijas režīmā.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>Vienmēr ieslēgts USB</value>
@@ -189,7 +189,7 @@
     <value>Nav definētas Darbības. Lai izveidotu jaunu Darbību, noklikšķiniet uz "Pievienot jaunu".</value>
   </data>
   <data name="AutomationPage_Actions_Message" xml:space="preserve">
-    <value>Ja šīs darbības ir iespējotas, tās tiks veiktas automātiski. Mainoties stāvoklim, visas darbības tiks izvērtētas no augšas uz leju.
+	  <value>Ja šīs darbības ir iespējotas, tās tiks veiktas automātiski. Mainoties stāvoklim, visas darbības tiks izvērtētas no augšas uz leju.
 Tiks izpildītas tikai tās darbības, kas atbilst pašreizējam stāvoklim.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
@@ -370,7 +370,7 @@ Tiks izpildītas tikai tās darbības, kas atbilst pašreizējam stāvoklim.</va
     <value>Ražošanas datums</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-    <value>Laiks, kopš klēpjdators pēdējo reizi tika pievienots maiņstrāvas avotam.
+	  <value>Laiks, kopš klēpjdators pēdējo reizi tika pievienots maiņstrāvas avotam.
 Šis laiks var nebūt precīzs, ja klēpjdators ir uzlādēts miega vai izslēgšanas laikā.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
@@ -497,7 +497,7 @@ BRĪDINĀJUMS. Ja iekšējais displejs ir izslēgts vai hibrīda režīms nav ak
     <value>Deaktivizēt</value>
   </data>
   <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-    <value>nVidia GPU var atspējot.
+	  <value>nVidia GPU var atspējot.
 
 Atcerieties, ka dažas programmas var avarēt, ja to darīsiet.</value>
   </data>
@@ -508,7 +508,7 @@ Atcerieties, ka dažas programmas var avarēt, ja to darīsiet.</value>
     <value>Nokaut lietotnes</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-    <value>Atspējojiet diskrēto GPU, ja tas ir nevajadzīgi aktīvs.</value>
+	  <value>Atspējojiet diskrēto GPU, ja tas ir nevajadzīgi aktīvs.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>Monitors ir pievienots nVidia GPU.</value>
@@ -532,7 +532,7 @@ Atcerieties, ka dažas programmas var avarēt, ja to darīsiet.</value>
     <value>Diskrētais GPU</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-    <value>Mainiet iebūvētā ekrāna spilgtumu.
+	  <value>Mainiet iebūvētā ekrāna spilgtumu.
 Enerģijas režīmi maina spilgtumu dažās ierīcēs. Pārliecinies, ka šis solis ir pēdējais, ja kaut kas nesanāk vienkārši pareizi.
 
 BRĪDINĀJUMS. Ja iebūvētais ekrāns ir izslēgts, šī darbība nedarbosies pareizi.</value>
@@ -647,14 +647,14 @@ Paldies jau iepriekš!</value>
     <value>Fn Bloķēšana</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
-    <value>Brīdinājums!
+	  <value>Brīdinājums!
 Daži klēpjdatori var pieņemt zemākas vērtības, nekā norādīts, taču esiet piesardzīgs. Šī opcija var izraisīt neprognozējamu rīcību, tāpēc, ja neesat pārliecināts, ko darāt, atstājiet 0.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
     <value>Minimālā nobīde</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>Brīdinājums!
+	  <value>Brīdinājums!
 Daži klēpjdatori var pieņemt augstākas vērtības, nekā norādīts, taču esiet piesardzīgs. Šī opcija var izraisīt neprognozējamu rīcību, tāpēc, ja neesat pārliecināts, ko darāt, atstājiet 0.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
@@ -1003,13 +1003,13 @@ Vienmēr pārliecinieties, vai instalējat pareizas pakotnes.</value>
     <value>Ielīmēt</value>
   </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-    <value>Izvēlēties veiktspējas režīmu.</value>
+	  <value>Izvēlēties veiktspējas režīmu.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Barošanas Režīms</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
-    <value>Izvēlēties veiktspējas režīmu.
+	  <value>Izvēlēties veiktspējas režīmu.
 Jūs varat režīmus mainīt ar Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
@@ -1534,7 +1534,7 @@ BRĪDINĀJUMS. Ja iebūvētais ekrāns ir izslēgts, šī darbība nedarbosies p
     <value>Nosaukums</value>
   </data>
   <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-    <value>Dažas funkcijas informācijas panelī var neparādīties atkarībā no ierīces stāvokļa un konfigurācijas.</value>
+	  <value>Dažas funkcijas informācijas panelī var neparādīties atkarībā no ierīces stāvokļa un konfigurācijas.</value>
   </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>Pielāgot</value>
@@ -1716,7 +1716,7 @@ Peles pārvietošana vai tastatūras nospiešana pamodinās ekrānus.</value>
     <value>Konstatēts S0 Mazjaudas Modelis</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-    <value>Windows ziņo, ka šī ierīce atbalsta Moderno Gaidstāvi. Enerģijas plānu izmantošana, kas nav Līdzsvarots, var izraisīt negaidītu rīcību.</value>
+	  <value>Windows ziņo, ka šī ierīce atbalsta Moderno Gaidstāvi. Enerģijas plānu izmantošana, kas nav Līdzsvarots, var izraisīt negaidītu rīcību.</value>
   </data>
   <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
     <value>Atlasiet Windows Barošanas Plānus, kas jālieto, mainot Barošanas Režīmu.</value>

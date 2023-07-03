@@ -159,13 +159,13 @@
     <value>Винаги активирай Планът за захранване на Windows</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>Зареждане на USB устройства при изключен компютър, в спящ режим или в режим на хибернация.</value>
+	  <value>Зареждане на USB устройства при изключен компютър, в спящ режим или в режим на хибернация.</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>Винаги включен USB</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-    <value>Зареждане на USB устройства при изключен компютър, в спящ режим или в режим на хибернация.</value>
+	  <value>Зареждане на USB устройства при изключен компютър, в спящ режим или в режим на хибернация.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>Винаги включен USB</value>
@@ -189,7 +189,7 @@
     <value>Нямате дефинирани Действия. Натиснете "Добави ново", за да създадете ново Действие.</value>
   </data>
   <data name="AutomationPage_Actions_Message" xml:space="preserve">
-    <value>Действия ще бъдат изпълнени автоматично, ако функцията е активирана. При промяна в състоянието, всички те ще бъдат проверени от горе надолу. Само тези, които съвпадат с настоящото състояние, ще бъдат изпълнени.</value>
+	  <value>Действия ще бъдат изпълнени автоматично, ако функцията е активирана. При промяна в състоянието, всички те ще бъдат проверени от горе надолу. Само тези, които съвпадат с настоящото състояние, ще бъдат изпълнени.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>Действия</value>
@@ -369,7 +369,7 @@
     <value>Дата на производство</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-    <value>Изминалото време от последното свързване на зарядното.
+	  <value>Изминалото време от последното свързване на зарядното.
 Възможни са неточности, ако лаптопът е бил зареждан по време на спящ режим или докато е бил изключен.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
@@ -496,7 +496,7 @@
     <value>Деактивирай</value>
   </data>
   <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-    <value>Графичната карта Nvidia може да бъде деактивирана.
+	  <value>Графичната карта Nvidia може да бъде деактивирана.
 
 Запомнете, че някои програми може да не работят правилно ако направите това.</value>
   </data>
@@ -507,7 +507,7 @@
     <value>Спри приложенията</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-    <value>Деактивирайте допълнителната видеокарта ако се използва без да има нужда.</value>
+	  <value>Деактивирайте допълнителната видеокарта ако се използва без да има нужда.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>Монитор беше свързан към графичната карта на Nvidia.</value>
@@ -531,7 +531,7 @@
     <value>Допълнителна видеокарта</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-    <value>Променете яркостта на вградения екран.
+	  <value>Променете яркостта на вградения екран.
 Промяна в режима на захранване може да доведе до промяна в яркостта при някои устройства. Уверете се, че настоящата стъпка е сложена на последно място, ако нещо не работи, както очаквате.
 
 ВНИМАНИЕ: Това действие може да не се изпълни правилно, ако вграденият екран е изключен.</value>
@@ -621,6 +621,9 @@
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>Видеокарта</value>
   </data>
+  <data name="RPM" xml:space="preserve">
+    <value>Обороти в минута</value>
+  </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
     <value>Стартира лаптопа при отваряне на капака.</value>
   </data>
@@ -646,14 +649,14 @@
     <value>Заключен клавиш Fn</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
-    <value>ВНИМАНИ!
+	  <value>ВНИМАНИ!
 Някои лаптопи може да поддържат по-ниски стойности от посочените, но внимавайте. Тази опция може да доведе до непредвидимо поведение, затова я оставете на 0 ако не сте сигурни какво правите.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
     <value>Минимален офсет</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>ВНИМАНИ!
+	  <value>ВНИМАНИ!
 Някои лаптопи може да поддържат по-високи стойности от посочените, но внимавайте. Тази опция може да доведе до непредвидимо поведение, затова я оставете на 0 ако не сте сигурни какво правите.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
@@ -1002,13 +1005,13 @@
     <value>Поставяне</value>
   </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-    <value>Изберете режим на производителност.</value>
+	  <value>Изберете режим на производителност.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Режим на захранване</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
-    <value>Изберете режим на производителност.
+	  <value>Изберете режим на производителност.
 Може да промените режима с клавишната комбинация Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
@@ -1531,7 +1534,7 @@
     <value>Име</value>
   </data>
   <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-    <value>В зависимост от състоянието и настройките на Вашето устройство, някои функции може да не бъдат показани на информационното табло.</value>
+	  <value>В зависимост от състоянието и настройките на Вашето устройство, някои функции може да не бъдат показани на информационното табло.</value>
   </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>Персонализиране</value>
@@ -1713,7 +1716,7 @@
     <value>Открит е S0 Lower Power Model</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-    <value>Windows докладва, че това устройство поддържа модерен режим на готовност. Използвайки план на захранване различен от Балансиран може да доведе до неочаквано поведение.</value>
+	  <value>Windows докладва, че това устройство поддържа модерен режим на готовност. Използвайки план на захранване различен от Балансиран може да доведе до неочаквано поведение.</value>
   </data>
   <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
     <value>Изберете план на захранване, когато режимът на работа бъде променен.</value>

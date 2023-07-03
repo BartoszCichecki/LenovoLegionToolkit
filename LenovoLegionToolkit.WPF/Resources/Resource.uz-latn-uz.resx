@@ -159,13 +159,13 @@ Bul parametr tek bir neshe quwatlılıq jobaları menen támiyinlenbegen qurılm
     <value>Hámiyshe Windows quwatlılıq jobasın aktivlestiriw</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>Kompyuter óshirilgen, gibernaciya yamasa uyqı rejiminde bolǵanda qurılmalardı USB arqalı zaryadlaw.</value>
+	  <value>Kompyuter óshirilgen, gibernaciya yamasa uyqı rejiminde bolǵanda qurılmalardı USB arqalı zaryadlaw.</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>Hámiyshe USBden quwatlanıw</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-    <value>Kompyuter óshirilgen, gibernaciya yamasa uyqı rejiminde bolǵanda qurılmalardı USB arqalı zaryadlaw.</value>
+	  <value>Kompyuter óshirilgen, gibernaciya yamasa uyqı rejiminde bolǵanda qurılmalardı USB arqalı zaryadlaw.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>Hámiyshe USBden quwatlanıw</value>
@@ -189,7 +189,7 @@ Bul parametr tek bir neshe quwatlılıq jobaları menen támiyinlenbegen qurılm
     <value>Háreketler anıqlanbaǵan. Jańa háreket jaratıw ushın "Jańadan qosıw" túymesin basıń.</value>
   </data>
   <data name="AutomationPage_Actions_Message" xml:space="preserve">
-    <value>Eger qosılǵan bolsa, bul háreketler avtomatikalıq ámelge asırıladı. Jaǵday ózgergende, barlıq háreketler joqarıdan tómenge qaray bahalanadı.
+	  <value>Eger qosılǵan bolsa, bul háreketler avtomatikalıq ámelge asırıladı. Jaǵday ózgergende, barlıq háreketler joqarıdan tómenge qaray bahalanadı.
 Tek ámeldegi jaǵdayǵa sáykes keletuǵın háreketler orınlanadı.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
@@ -370,7 +370,7 @@ Tek ámeldegi jaǵdayǵa sáykes keletuǵın háreketler orınlanadı.</value>
     <value>Islep shıǵarılǵan sáne</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-    <value>Noutbuk aqırǵı márte tarmaqqa jalǵanǵannan beri waqıt.
+	  <value>Noutbuk aqırǵı márte tarmaqqa jalǵanǵannan beri waqıt.
 Eger noutbuk uyqı rejiminde yamasa óshirilgen waqıtta zaryadlanǵan bolsa, bul waqıt anıq bolmawı múmkin.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
@@ -496,7 +496,7 @@ DIQQAT: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bul
     <value>Óshiriw</value>
   </data>
   <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-    <value>nVidia grafikalıq processorı óshiriliwi múmkin.
+	  <value>nVidia grafikalıq processorı óshiriliwi múmkin.
 Itibar berıń, eger siz bunı isleneńiz ayrım baǵdarlamalar islemey qalıwı múmkin.</value>
   </data>
   <data name="Inactive" xml:space="preserve">
@@ -506,7 +506,7 @@ Itibar berıń, eger siz bunı isleneńiz ayrım baǵdarlamalar islemey qalıwı
     <value>Proceslerdi juwmaqlaw</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-    <value>Eger bólekli grafikalıq processor zarúr bolmasa da qosılǵan bolsa, onı óshiriw.</value>
+	  <value>Eger bólekli grafikalıq processor zarúr bolmasa da qosılǵan bolsa, onı óshiriw.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>Monitor nVidia grafikalıq processorına jalǵanǵan.</value>
@@ -530,7 +530,7 @@ Itibar berıń, eger siz bunı isleneńiz ayrım baǵdarlamalar islemey qalıwı
     <value>Bólekli grafikalıq processor</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-    <value>Ornatılǵan displeydiń jarıqlıǵın ózgertiń. 
+	  <value>Ornatılǵan displeydiń jarıqlıǵın ózgertiń. 
 Ayırım qurılmalarda quwatlıq rejimleri jarıqlıqtı ózgertedi. Eger bir nárse kerekli dárejede durıs islemese, bul qádem aqırǵısı ekenine isenim kámil etiń.
 
 ESLETPE: Eger ishki displey óshirilgen bolsa, bul háreket durıs islemeydi.</value>
@@ -620,6 +620,9 @@ Aldınnan raxmet!</value>
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>Grafikalıq processor</value>
   </data>
+  <data name="RPM" xml:space="preserve">
+    <value>aylanıw/min</value>
+  </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
     <value>Qaqpaqtı ashqanda noutbuktı qosıw.</value>
   </data>
@@ -645,11 +648,11 @@ Aldınnan raxmet!</value>
     <value>Fn Lock</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
-    <value>DIQQAT!
+	  <value>DIQQAT!
 Ayrim noutbuklar o'zleri ko'rsetken quwatliliqtan to'menlewin qabillawi mu'mkin, biraq abayli bolin'. Bul tan'law ku'tilmegen na'tiyje beriwi mu'mkin, sonliqtan eger ne islep atirg'anin'izdi bilmesen'iz, buni 0 de qaldirin'.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>DIQQAT!
+	  <value>DIQQAT!
 Ayrım noutbukler o'zleri ko'rsetken quwatlılıqtan to'menlewin qabıllawı mu'mkin, biraq abaylı bolın'. Bul tan'law ku'tilmegen na'tiyje beriwi mu'mkin, sonlıqtan eger ne islep atırg'anın'ızdı bilmesen'iz, bunı 0 de qaldırın'.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
@@ -995,13 +998,13 @@ Durıs paketlerdi ornatıp atırǵanıńızǵa isenim kámil etiń.</value>
     <value>Ornalastırıw</value>
   </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-    <value>Islew rejimin tańlań.</value>
+	  <value>Islew rejimin tańlań.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Quwatlılıq rejimi</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
-    <value>Islew rejimin saylań.
+	  <value>Islew rejimin saylań.
 Rejimdi Fn+Q járdeminde ózgerte alasız.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
@@ -1512,7 +1515,7 @@ ESLETPE: Eger ishki displey óshirilgen bolsa, bul ámel durıs orınlanbaydı.<
     <value>Ataması</value>
   </data>
   <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-    <value>Qurılmańız halatı hám sazlawlarına qarap ayırım funkciyalar Ásbaplar panelinde kórinbewi múmkin.</value>
+	  <value>Qurılmańız halatı hám sazlawlarına qarap ayırım funkciyalar Ásbaplar panelinde kórinbewi múmkin.</value>
   </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>Sazlaw</value>
@@ -1694,7 +1697,7 @@ Bul sazlaw tek arnawlı rejim qosılǵanda nátiyje beredi.</value>
     <value>S0 tómen quwatlılıq modeli anıqlandı</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-    <value>Bul qurılma Modern Standbydı qollap-quwatlaytuǵının Windows xabarlaydı. Teńlestirilgen quwatlılıq jobasınan basqasın qollanıw kútilmegen háreketke alıp keliwi múmkin.</value>
+	  <value>Bul qurılma Modern Standbydı qollap-quwatlaytuǵının Windows xabarlaydı. Teńlestirilgen quwatlılıq jobasınan basqasın qollanıw kútilmegen háreketke alıp keliwi múmkin.</value>
   </data>
   <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
     <value>Quwatlılıq rejimi ózgergende qollanılatuǵın Windows quwatlılıq jobaların tańlań.</value>

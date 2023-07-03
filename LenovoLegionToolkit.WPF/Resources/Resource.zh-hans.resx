@@ -159,14 +159,14 @@
     <value>始终启用 Windows 电源计划</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>在电脑关机、睡眠或休眠时保持 USB 接口供电。
+	  <value>在电脑关机、睡眠或休眠时保持 USB 接口供电。
 一般为笔记本侧面标有电池标志的 USB 接口受此项控制。</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>保持 USB 供电</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-    <value>在电脑关机、睡眠或休眠时保持 USB 接口供电。
+	  <value>在电脑关机、睡眠或休眠时保持 USB 接口供电。
 一般为笔记本侧面标有电池标志的 USB 接口受此项控制。</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
@@ -191,7 +191,7 @@
     <value>当前没有自动化脚本，请点击 “新建” 来新建一项。</value>
   </data>
   <data name="AutomationPage_Actions_Message" xml:space="preserve">
-    <value>启用自动化后，当设备的状态发生改变时，本应用将会按顺序检查各项自动化是否符合条件后，执行相关操作。</value>
+	  <value>启用自动化后，当设备的状态发生改变时，本应用将会按顺序检查各项自动化是否符合条件后，执行相关操作。</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>自动化</value>
@@ -371,7 +371,7 @@
     <value>生产日期</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-    <value>笔记本断开电源适配器的时间。
+	  <value>笔记本断开电源适配器的时间。
 如果在关机或休眠时充电，可能会导致此时间不准确。</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
@@ -498,7 +498,7 @@
     <value>强制休眠显卡</value>
   </data>
   <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-    <value>手动强制休眠英伟达显卡
+	  <value>手动强制休眠英伟达显卡
 
 谨记，如果强制休眠可能导致一些应用崩溃。</value>
   </data>
@@ -509,7 +509,7 @@
     <value>关闭占用应用</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-    <value>在不需要时强制休眠显卡，可能会导致应用崩溃。
+	  <value>在不需要时强制休眠显卡，可能会导致应用崩溃。
 请尽可能通过手动关闭占用进程来解除独立显卡占用。</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
@@ -534,7 +534,7 @@
     <value>独立显卡</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-    <value>更改内置屏幕亮度。
+	  <value>更改内置屏幕亮度。
 在部分设备上，切换性能模式后屏幕亮度也会变化，因此请确保把这一步放到最后，否则可能无法正常执行。
 
 警告：当内置显示器关闭时此操作将不起作用。</value>
@@ -654,14 +654,14 @@
     <value>锁定 Fn 键</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
-    <value>警告！
+	  <value>警告！
 一些笔记本可以使用更低的功耗限制，但【一定小心】，这个选项可能会导致未知后果！除非你了解【此选项的准确意义】，否则请保持这个选项为 0。</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
     <value>最小功耗限制偏移量</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>警告！
+	  <value>警告！
 一些笔记本可以使用更高的功耗限制，但【一定小心】，这个选项可能会导致未知后果！除非你了解【此选项的准确意义】，否则请保持这个选项为 0。</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
@@ -1012,13 +1012,13 @@
     <value>粘贴</value>
   </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-    <value>选择性能模式</value>
+	  <value>选择性能模式</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>性能模式</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
-    <value>选择性能模式
+	  <value>选择性能模式
 你可以通过快捷键 Fn+Q 快速更改。</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
@@ -1544,7 +1544,7 @@
     <value>点此输入名称</value>
   </data>
   <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-    <value>不同设备的功能支持情况各不相同，所以一些功能可能不会显示在控制台中。</value>
+	  <value>不同设备的功能支持情况各不相同，所以一些功能可能不会显示在控制台中。</value>
   </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>自定义</value>
@@ -1727,7 +1727,7 @@
     <value>检测到 S0 低功耗空闲模型</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-    <value>检测到本设备支持新式待机（Modern Standby）。使用 “平衡” 以外的电源计划可能会导致意外问题。</value>
+	  <value>检测到本设备支持新式待机（Modern Standby）。使用 “平衡” 以外的电源计划可能会导致意外问题。</value>
   </data>
   <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
     <value>选择在电源模式改变时应用的 Windows 电源计划。</value>

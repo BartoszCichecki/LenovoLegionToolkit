@@ -159,13 +159,13 @@ Bu ayar cihazın içinde güç planları gelmeyenler için amaçlanmıştır.</v
     <value>Windows Güç Planlarını her zaman aktif et</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>Bilgisayar kapalıyken veya uykudayken veya hibernasyon modundayken USB cihazlarını şarj et.</value>
+	  <value>Bilgisayar kapalıyken veya uykudayken veya hibernasyon modundayken USB cihazlarını şarj et.</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>Her zaman açık USB</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-    <value>Bilgisayar kapalıyken veya uykudayken veya hibernasyon modundayken USB cihazlarını şarj et.</value>
+	  <value>Bilgisayar kapalıyken veya uykudayken veya hibernasyon modundayken USB cihazlarını şarj et.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>Her zaman açık USB</value>
@@ -189,7 +189,7 @@ Bu ayar cihazın içinde güç planları gelmeyenler için amaçlanmıştır.</v
     <value>Eylem bulunamadı. Yeni Eylem oluşturmak için "Yeni ekle"yi tıklayın.</value>
   </data>
   <data name="AutomationPage_Actions_Message" xml:space="preserve">
-    <value>Etkinleştirilirse, bu eylem otomatik olarak çalışacaktır. Durum değiştiğinde, tüm eylemler yukarıdan aşağıya doğru çalıştırılacaktır.
+	  <value>Etkinleştirilirse, bu eylem otomatik olarak çalışacaktır. Durum değiştiğinde, tüm eylemler yukarıdan aşağıya doğru çalıştırılacaktır.
 Yalnızca mevcut durumla eşleşen eylemler çalışacaktır.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
@@ -370,7 +370,7 @@ Yalnızca mevcut durumla eşleşen eylemler çalışacaktır.</value>
     <value>Üretim Tarihi</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-    <value>Dizüstü bilgisayarın AC gücüne en son bağlandığından beri geçen süre.
+	  <value>Dizüstü bilgisayarın AC gücüne en son bağlandığından beri geçen süre.
 Dizüstü bilgisayar uyurken veya kapalıyken şarj edildiyse bu süre doğru olmayabilir.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
@@ -497,7 +497,7 @@ UYARI: Dahili ekran kapalıysa veya Hibrit modu etkin değilse bu eylem düzgün
     <value>Devredışı bırak</value>
   </data>
   <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-    <value>nVidia GPU devre dışı bırakılabilir.
+	  <value>nVidia GPU devre dışı bırakılabilir.
 
 Bunu yaparsanız bazı programların çökebileceğini unutmayın.</value>
   </data>
@@ -508,7 +508,7 @@ Bunu yaparsanız bazı programların çökebileceğini unutmayın.</value>
     <value>Uygulamaları Kapat</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-    <value>Gereksiz yere etkinse harici GPU'yu devre dışı bırakın.</value>
+	  <value>Gereksiz yere etkinse harici GPU'yu devre dışı bırakın.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>nVidia GPU'ya bir monitör bağlı.</value>
@@ -532,7 +532,7 @@ Bunu yaparsanız bazı programların çökebileceğini unutmayın.</value>
     <value>Harici GPU</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-    <value>Yerleşik ekranın parlaklığını değiştirin.
+	  <value>Yerleşik ekranın parlaklığını değiştirin.
 Güç modları, bazı cihazlarda parlaklığı değiştirir. Bir şey doğru çalışmıyorsa, bu adımı en son koyduğunuzdan emin olun.
 
 UYARI: Dahili ekran kapalıysa bu eylem düzgün çalışmayacaktır.</value>
@@ -647,14 +647,14 @@ PayPal ile bağış yapmak için aşağıdaki PayPal logosuna tıklayın veya QR
     <value>Fn Kilidi</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
-    <value>UYARI!
+	  <value>UYARI!
 Bazı bilgisayarlar, belirtilenden daha düşük değerleri kabul edebilir, ancak dikkatli olun. Bu seçenek öngörülemeyen davranışlara neden olabilir, bu nedenle ne yaptığınızdan emin değilseniz, bunu 0'da bırakın.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
     <value>Minimum ofset</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>UYARI!
+	  <value>UYARI!
 Bazı bilgisayarlar, belirtilenden daha yüksek değerleri kabul edebilir, ancak dikkatli olun. Bu seçenek öngörülemeyen davranışlara neden olabilir, bu nedenle ne yaptığınızdan emin değilseniz, bunu 0'da bırakın.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
@@ -1003,13 +1003,13 @@ Daima doğru paketleri kurduğunuzdan emin olun.</value>
     <value>Yapıştır</value>
   </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-    <value>Performans modunu seçin.</value>
+	  <value>Performans modunu seçin.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Güç Modu</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
-    <value>Performans modunu seçin.
+	  <value>Performans modunu seçin.
 Fn+Q ile modu değiştirebilirsiniz.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
@@ -1534,7 +1534,7 @@ UYARI: Dahili ekran kapalıysa, bu işlem doğru çalışmaz.</value>
     <value>İsim</value>
   </data>
   <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-    <value>Cihazınızın durumuna ve yapılandırmasına bağlı olarak bazı özellikler Ana Menü'de görünmeyebilir.</value>
+	  <value>Cihazınızın durumuna ve yapılandırmasına bağlı olarak bazı özellikler Ana Menü'de görünmeyebilir.</value>
   </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>Özelleştir</value>
@@ -1716,7 +1716,7 @@ Bu ayarlar yalnızca Özel Mod etkinleştirildiğinde etkili olur.</value>
     <value>S0 Düşük Güç Modu algılandı</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-    <value>Windows, bu aygıtın Modern Beklemeyi desteklediğini bildiriyor. Dengeli dışında güç planlarının kullanılması beklenmeyen davranışlara neden olabilir.</value>
+	  <value>Windows, bu aygıtın Modern Beklemeyi desteklediğini bildiriyor. Dengeli dışında güç planlarının kullanılması beklenmeyen davranışlara neden olabilir.</value>
   </data>
   <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
     <value>Güç Modu değiştiğinde uygulanacak Windows Güç Planlarını seçin.</value>

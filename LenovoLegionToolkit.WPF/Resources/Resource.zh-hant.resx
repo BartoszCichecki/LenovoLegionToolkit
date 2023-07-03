@@ -159,13 +159,13 @@
     <value>保持啟用 Windows 電源計劃</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>標有電池標誌的 USB 受此項控制，在電腦關機、睡眠或休眠時保持 USB 供電。</value>
+	  <value>標有電池標誌的 USB 受此項控制，在電腦關機、睡眠或休眠時保持 USB 供電。</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>保持 USB 供電</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-    <value>標有電池標誌的 USB 受此項控制，在電腦關機、睡眠或休眠時保持 USB 供電。</value>
+	  <value>標有電池標誌的 USB 受此項控制，在電腦關機、睡眠或休眠時保持 USB 供電。</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>保持 USB 供電</value>
@@ -189,7 +189,7 @@
     <value>尚未定義操作。點擊「新增」以新增新的操作。</value>
   </data>
   <data name="AutomationPage_Actions_Message" xml:space="preserve">
-    <value>如果啟用此操作將自動地執行。當狀態變更時，所有操作將按順序檢查各項自動化是否符合條件。</value>
+	  <value>如果啟用此操作將自動地執行。當狀態變更時，所有操作將按順序檢查各項自動化是否符合條件。</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>操作</value>
@@ -369,7 +369,7 @@
     <value>製造日期</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-    <value>自筆記型電腦上次連接到電源供應器以來的時間。
+	  <value>自筆記型電腦上次連接到電源供應器以來的時間。
 如果在關機或休眠時充電，可能導致此時間不準確。</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
@@ -496,7 +496,7 @@
     <value>休眠</value>
   </data>
   <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-    <value>nVidia GPU 可被關閉。
+	  <value>nVidia GPU 可被關閉。
 
 請記得，如果關閉 GPU 可能造成一些應用程式崩潰。</value>
   </data>
@@ -507,7 +507,7 @@
     <value>強制關閉應用程式</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-    <value>如果 GPU 不需要活動時關閉顯示卡。</value>
+	  <value>如果 GPU 不需要活動時關閉顯示卡。</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>顯示器已連接到 nVidia GPU。</value>
@@ -531,7 +531,7 @@
     <value>獨立顯示卡</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-    <value>變更內部顯示器顯示亮度。
+	  <value>變更內部顯示器顯示亮度。
 在一些裝置上，變更電源模式後亮度會發生變化。如果有任何異常，請確保將此條件放到最後再做。
 
 警告：如果內部顯示器已關閉，則此操作將無法正常執行。</value>
@@ -646,14 +646,14 @@
     <value>鎖定 Fn 鍵</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
-    <value>警告！
+	  <value>警告！
 一些筆記型電腦可能接受較低的功率限制。請小心，此選項可能導致未知的後果，因此如果您不確定自己在做什麼，請將其保留為 0。</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
     <value>最小偏移</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>警告！
+	  <value>警告！
 一些筆記型電腦可能接受較高的功率限制。請小心，此選項可能導致未知的後果，因此如果您不確定自己在做什麼，請將其保留為 0。</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
@@ -1002,13 +1002,13 @@
     <value>貼上</value>
   </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-    <value>選擇效能模式。</value>
+	  <value>選擇效能模式。</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>電源模式</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
-    <value>選擇效能模式。
+	  <value>選擇效能模式。
 您可以透過快捷鍵 Fn+Q 快速更改。</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
@@ -1533,7 +1533,7 @@
     <value>名稱</value>
   </data>
   <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-    <value>根據裝置的狀態和配置，某些功能可能不會出現在控制面板上。</value>
+	  <value>根據裝置的狀態和配置，某些功能可能不會出現在控制面板上。</value>
   </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>客製化</value>
@@ -1715,7 +1715,7 @@
     <value>偵測到 S0 Lower Power Model</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-    <value>Windows 回報裝置支援新式待命（Modern Standby）。使用平衡以外的電源計劃可能導致未預期的行為。</value>
+	  <value>Windows 回報裝置支援新式待命（Modern Standby）。使用平衡以外的電源計劃可能導致未預期的行為。</value>
   </data>
   <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
     <value>選擇電源模式變更時要套用的 Windows 電源計劃。</value>
