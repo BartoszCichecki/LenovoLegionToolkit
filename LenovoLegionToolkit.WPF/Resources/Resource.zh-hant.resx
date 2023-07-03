@@ -151,10 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>新增</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>當 Lenovo Vantage 啟用時仍然啟用電源計劃。
-此選項僅適用於沒有附帶多種電源計劃的裝置。</value>
-  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>保持啟用 Windows 電源計劃</value>
   </data>
@@ -753,9 +749,6 @@
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>由於 Lenovo Vantage 或其他服務正在執行而導致衝突，無法在此控制鍵盤背光。</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-    <value>似乎已啟用 Lenovo Vantage。</value>
-  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>關於</value>
   </data>
@@ -1020,9 +1013,6 @@
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>尚未連接電源供應器時，電源模式可能無法正確地的運作。</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>當 Lenovo Vantage 正在執行時啟用此選項，並變更筆記型電腦的電源計劃可能導致未預期的行為。</value>
-  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>您確定嗎？</value>
   </data>
@@ -1206,12 +1196,6 @@
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>無法啟用 Lenovo Hotkeys</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage 可能沒有被正確地啟用</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>無法啟用 Lenovo VantageVantage</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>您可以排除更新率，使用 Fn+R 快捷鍵切換更加實用。</value>
