@@ -151,10 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Přidat nový</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Aktivovat režim napájení, i když je povolený Vantage.
-Tato možnost je určena pouze pro zařízení, která nebyla dodána s více režimy napájení.</value>
-  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Vždy aktivovat Režim napájení windows</value>
   </data>
@@ -740,9 +736,6 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je interní displej vypnutý.
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>Zde nelze ovládat podsvícení klávesnice, když je spuštěný Vantage nebo jeho služby.</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-    <value>Zdá se, že Lenovo Vantage je povolený</value>
-  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>O aplikaci</value>
   </data>
@@ -1007,9 +1000,6 @@ Režim můžeš přepínat pomocí Fn+Q.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Vybraný režim výkonu nemusí fungovat správně bez připojené nabíječky.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Povolení této možnosti, když je spuštěn Lenovo Vantage a mění plány napájení tvého notebooku, může vést k neočekávanému chování.</value>
-  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Jsi si jistý?</value>
   </data>
@@ -1180,12 +1170,6 @@ Po změně této možnosti se doporučuje restartovat.</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Lenovo Hotkeys se nepodařilo aktivovat</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage možná nebyla správně aktivována</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Vantage se nepodařilo povolit</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Můžeš vyloučit obnovovací frekvence, aby byla zkratka Fn+R užitečnější.</value>

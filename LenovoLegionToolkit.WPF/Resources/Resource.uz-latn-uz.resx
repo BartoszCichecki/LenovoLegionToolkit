@@ -151,10 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Jańadan qosıw</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Vantage qosılǵan bolsa da quwatlılıq jobasın aktivlestiriń.
-Bul parametr tek bir neshe quwatlılıq jobaları menen támiyinlenbegen qurılmalar ushın mólsherlengen.</value>
-  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Hámiyshe Windows quwatlılıq jobasın aktivlestiriw</value>
   </data>
@@ -749,9 +745,6 @@ DIQQAT: Eger ishki displey óshirilgen bolsa, bul háreket durıs orınlanbaydı
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>Vantage yamasa onıń xızmetleri islep turǵanda, klaviaturanıń arqa jaqtılıǵın bul jerde basqarıw múmkin emes.</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-    <value>Lenovo Vantage iske túsirilgenge uqsaydı</value>
-  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Baǵdarlama haqqında</value>
   </data>
@@ -1016,9 +1009,6 @@ Rejimdi Fn+Q járdeminde ózgerte alasız.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Quwatlaw blogı qosılmasa, saylanǵan quwatlılıq rejimi durıs islemewi múmkin.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Lenovo Vantage islep turǵanda hám noutbugıńız quwat rejelerin ózgertkende, bul parametrdi qosıw kútilmegen aqıbetlerge alıp keliwi múmkin.</value>
-  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Isenimińiz kámil me?</value>
   </data>
@@ -1189,12 +1179,6 @@ Bul varianttı ózgertkennen keyin qayta iske túsiriw usınıs etiledi.</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Lenovo Hotkeystiń túymelerin iske túsiriw ámelge aspadı</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage nadurıs iske túsirilgen bolıwı múmkin</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Vantagedi iske túsiriw ámelge aspadı</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Fn+R túymelerin paydalıraq qılıw ushın, siz jańalanıw tezligin esaptan tısqarı qılıwıńız múmkin</value>

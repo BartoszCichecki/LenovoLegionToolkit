@@ -151,10 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Добави ново</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Активирай Планът за захранването, дори когато Vantage работи.
-Тази опция е предназначена само за устройства, които не са дошли с множество планове на захранването.</value>
-  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Винаги активирай Планът за захранване на Windows</value>
   </data>
@@ -756,9 +752,6 @@
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>Подсветката на клавиатурата не може да бъде управлявана тук, когато Vantage или неговите услуги работят.</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-    <value>Изглежда, че Lenovo Vantage е активиран</value>
-  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Относно</value>
   </data>
@@ -1023,9 +1016,6 @@
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Избраният режим на захранване може да не работи правилно без свързано зарядно.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Активиране на тази настройки, когато Lenovo Vantage работи и извършва промени в режима на захранване на Вашия лаптоп, може да доведе до неочаквано поведение.</value>
-  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Сигурни ли сте?</value>
   </data>
@@ -1209,12 +1199,6 @@
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Приложението Lenovo Hotkeys не можа да бъде активирано</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Възможно е приложението Vantage да не е активирано правилно</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Приложението Vantage не можа да бъде активирано</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Може да изключите избрани честоти на опресняване, за да направите клавишната комбинация Fn+R по-полезна.</value>

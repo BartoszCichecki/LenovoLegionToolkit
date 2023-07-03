@@ -151,10 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Добавить новое действие</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Активировать схемы питания даже при работе Vantage.
-Этот параметр предназначен только для устройств, которые не поставляются с несколькими схемами питания.</value>
-  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Всегда включать схемы питания Windows</value>
   </data>
@@ -757,9 +753,6 @@
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>Подсветкой клавиатуры нельзя управлять здесь, когда работает Vantage или его службы.</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-    <value>Похоже, что Lenovo Vantage включен</value>
-  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>О ПО</value>
   </data>
@@ -1024,9 +1017,6 @@
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Выбранный режим питания может работать некорректно, если блок питания не подключен.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Включение этой опции во время работы Lenovo Vantage и изменения планов электропитания на ноутбуке может привести к неожиданным последствиям.</value>
-  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Вы уверены?</value>
   </data>
@@ -1210,12 +1200,6 @@
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Не удалось включить клавиши горячих клавиш Lenovo Hotkeys</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Возможно, Vantage был неверно запущен</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Не удалось включить Vantage</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Вы можете исключить частоту обновления, чтобы сделать сочетание клавиш Fn+R более полезным.</value>
