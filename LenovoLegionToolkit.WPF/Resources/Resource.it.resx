@@ -158,14 +158,8 @@ Questa opzione è serve solo ai dispositivi che non possiedono modalità energet
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Utilizza i piani energetici di Windows</value>
   </data>
-  <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>Alimenta i dispositivi connessi alle porte USB, quando il computer è spento, in standby o in ibernazione.</value>
-  </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>USB sempre attive</value>
-  </data>
-  <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-    <value>Alimenta i dispositivi connessi alle porte USB, quando il computer è spento, in standby o in ibernazione.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>USB sempre attive</value>
@@ -187,9 +181,6 @@ Questa opzione è serve solo ai dispositivi che non possiedono modalità energet
   </data>
   <data name="AutomationPage_Actions_Empty" xml:space="preserve">
     <value>Nessuna azione configurata. clicca su "Aggiungi nuova" per configurare una nuova azione.</value>
-  </data>
-  <data name="AutomationPage_Actions_Message" xml:space="preserve">
-    <value>Se attive, queste azioni verranno eseguite automaticamente secondo gli eventi configurati. La priorità delle azioni è dall'alto verso il basso.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>Azioni automatizzate</value>
@@ -368,10 +359,6 @@ Questa opzione è serve solo ai dispositivi che non possiedono modalità energet
   <data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
     <value>Data di produzione</value>
   </data>
-  <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-    <value>Tempo trascorso dall'ultimo collegamento dell'alimentatore.
-l'orario indicato potrebbe non essere corretto se il laptop è stato caricato mentre era in standby o spento.</value>
-  </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
     <value>A batteria da</value>
   </data>
@@ -495,19 +482,11 @@ Attenzione: Questa azione non funzionerà correttamente se il display è spento 
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Disattiva</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-    <value>La GPU Nvidia può essere disattivata.
-
-Ricorda, alcuni programmi potrebbero crashare se la disattivi.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Disattivata</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Chiudi applicazioni</value>
-  </data>
-  <data name="DiscreteGPUControl_Message" xml:space="preserve">
-    <value>Disattiva la GPU dedicata se inutilmente attiva.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>Un monitor è collegato alla GPU Nvidia.</value>
@@ -529,12 +508,6 @@ Ricorda, alcuni programmi potrebbero crashare se la disattivi.</value>
   </data>
   <data name="DiscreteGPUControl_Title" xml:space="preserve">
     <value>GPU dedicata</value>
-  </data>
-  <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-    <value>Cambia la luminosità del display integrato.
-Alcune opzioni energetiche potrebbero cambiare la luminosità su alcuni dispositivi. Lascia per ultimo questa azione, se le cose non funzionano correttamente.
-
-ATTENZIONE: questa azione non verrà eseguita correttamente se il display interno è spento.</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>Luminosità Display</value>
@@ -983,15 +956,8 @@ Assicurati sempre di installare i pacchetti corretti.</value>
   <data name="Paste" xml:space="preserve">
     <value>Incolla</value>
   </data>
-  <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-    <value>Cambia la modalità energetica.</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Modalità energetica</value>
-  </data>
-  <data name="PowerModeControl_Message" xml:space="preserve">
-    <value>Cambia la modalità energetica.
-Puoi anche usare la scorciatoia Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
     <value>Opzioni</value>
@@ -1513,9 +1479,6 @@ ATTENZIONE: questa azione non verrà eseguita correttamente se il display intern
   </data>
   <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
     <value>Nome</value>
-  </data>
-  <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-    <value>Alcune opzioni potrebbero non apparire nella Dashboard in base allo stato e configurazione del tuo dispositivo.</value>
   </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>Personalizza</value>
