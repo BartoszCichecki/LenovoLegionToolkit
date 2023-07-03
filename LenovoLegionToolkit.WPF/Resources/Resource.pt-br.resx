@@ -158,14 +158,8 @@ Esta opção destina-se apenas a dispositivos que não possuem vários planos de
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Sempre ativar os Planos de Energia do Windows</value>
   </data>
-  <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>Carregar dispositivos USB mesmo quando o computador estiver desligado, em modo de suspensão ou hibernando.</value>
-  </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>USB Sempre ativa</value>
-  </data>
-  <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-    <value>Carregar dispositivos USB mesmo quando o computador estiver desligado, em modo de suspensão ou hibernando.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>USB Sempre ativa</value>
@@ -187,10 +181,6 @@ Esta opção destina-se apenas a dispositivos que não possuem vários planos de
   </data>
   <data name="AutomationPage_Actions_Empty" xml:space="preserve">
     <value>Sem ações definidas. Clique em "Adicionar nova" para criar uma ação.</value>
-  </data>
-  <data name="AutomationPage_Actions_Message" xml:space="preserve">
-    <value>Se habilitado, essas ações serão executadas automaticamente. Independente do estado, todas as ações serão validadas de cima para baixo.
-Somente ações que correspondem com o estado atual serão executadas.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>Ações</value>
@@ -369,10 +359,6 @@ Somente ações que correspondem com o estado atual serão executadas.</value>
   <data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
     <value>Data de fabricação</value>
   </data>
-  <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-    <value>Tempo desde que o notebook foi desconectado do carregador.
-Este tempo pode não ser exato caso o equipamento for carregado em estado de suspensão ou desligado.</value>
-  </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
     <value>Em bateria desde</value>
   </data>
@@ -496,19 +482,11 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Desativar</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-    <value>A GPU nVidia não pode ser desativada.
-
-Lembre-se, alguns programas podem apresentar problemas se você fizer isso.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Inativa</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Encerrar Aplicativos</value>
-  </data>
-  <data name="DiscreteGPUControl_Message" xml:space="preserve">
-    <value>Desativar a GPU dedicada se estiver ativa desnecessariamente.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>Um monitor está conectado a GPU nVidia.</value>
@@ -530,12 +508,6 @@ Lembre-se, alguns programas podem apresentar problemas se você fizer isso.</val
   </data>
   <data name="DiscreteGPUControl_Title" xml:space="preserve">
     <value>GPU dedicada</value>
-  </data>
-  <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-    <value>Alterar o brilho da tela integrada.
-Os modos de energia alteram o brilho em alguns dispositivos. Certifique-se de colocar esta etapa por último, se algo não funcionar corretamente.
-
-AVISO: Esta ação não será executada corretamente se a tela integrada estiver desligada.</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>Brilho da tela</value>
@@ -649,16 +621,8 @@ Desde já, obrigado!</value>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Bloqueio da tecla Fn</value>
   </data>
-  <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
-    <value>AVISO!
-Alguns notebooks podem aceitar limites de energia menores do que indicado, mas tenha cuidado! Esta opção pode resultar em comportamentos imprevisíveis, então caso não tenha certeza do que está fazendo, deixe em 0.</value>
-  </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
     <value>Deslocamento mínimo</value>
-  </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>AVISO!
-Alguns notebooks podem aceitar limites de energia maiores do que indicado, mas tenha cuidado! Esta opção pode resultar em comportamentos imprevisíveis, então caso não tenha certeza do que está fazendo, deixe em 0.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
     <value>Deslocamento máximo</value>
@@ -1005,15 +969,8 @@ Sempre certifique-se de estar instalando os pacotes corretos.</value>
   <data name="Paste" xml:space="preserve">
     <value>Colar</value>
   </data>
-  <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-    <value>Selecione o modo de desempenho.</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Plano de Energia</value>
-  </data>
-  <data name="PowerModeControl_Message" xml:space="preserve">
-    <value>Selecione o modo de desempenho.
-Você pode alternar entre os modos pressionando Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
     <value>Configurações</value>
@@ -1533,9 +1490,6 @@ AVISO: Esta ação não será executada corretamente se a tela integrada estiver
   <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
     <value>Nome</value>
   </data>
-  <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-    <value>Alguns recursos podem não serem exibidos no Painel dependendo do estado e das configurações de seu dispositivo.</value>
-  </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>Personalizar</value>
   </data>
@@ -1715,9 +1669,6 @@ Esta configuração somente terá efeito se o Modo Personalizado estiver ativo.<
   <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
     <value>Modelo de Baixa Energia S0 detectado</value>
   </data>
-  <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-    <value>Esta versão do Windows suporta o modo de espera moderno. Usar planos de energia diferentes do Balanceado pode causar comportamentos inesperados.</value>
-  </data>
   <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
     <value>Selecione Planos de energia do Windows a serem aplicados quando o Modo de energia for alterado.</value>
   </data>
@@ -1804,9 +1755,6 @@ AVISO: Esta ação não será executada corretamente caso a GPU dedicada não es
   </data>
   <data name="SensorsControl_CPU_Title" xml:space="preserve">
 	  <value>CPU</value>
-  </data>
-  <data name="SensorsControl_Utilization_Title" xml:space="preserve">
-	  <value>Utilização</value>
   </data>
   <data name="SensorsControl_Temperature_Title" xml:space="preserve">
 	  <value>Temperatura</value>
