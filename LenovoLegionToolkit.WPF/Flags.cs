@@ -56,5 +56,6 @@ public class Flags
         $" {nameof(AllowAllPowerModesOnBattery)}: {AllowAllPowerModesOnBattery}," +
         $" {nameof(ForceDisableRgbKeyboardSupport)}: {ForceDisableRgbKeyboardSupport}," +
         $" {nameof(ForceDisableSpectrumKeyboardSupport)}: {ForceDisableSpectrumKeyboardSupport}," +
-        $" {nameof(ForceDisableLenovoLighting)}: {ForceDisableLenovoLighting}";
+        $" {nameof(ForceDisableLenovoLighting)}: {ForceDisableLenovoLighting}," +
+        $" {nameof(EnableExperimentalGPUWorkingModeSwitching)}: {EnableExperimentalGPUWorkingModeSwitching}";
 }
