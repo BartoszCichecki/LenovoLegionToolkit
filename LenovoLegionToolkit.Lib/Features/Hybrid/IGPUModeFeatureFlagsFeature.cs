@@ -13,7 +13,7 @@ public class IGPUModeFeatureFlagsFeature : IFeature<IGPUModeState>
         try
         {
             var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
-            return mi.Features.IGPUMode;
+            return mi.Features is { Source: MachineInformation.FeatureData.SourceType.Flags, IGPUMode: true };
         }
         catch
         {
