@@ -151,10 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Pridať novú</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Aktivovať plán napájania, aj keď je Vantage zapnutý.
-Táto možnosť je určená pre zariadenia, ktoré nie sú dodávané s viacero plánmi napájania.</value>
-  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Vždy aktivuj plán napájania Windows</value>
   </data>
@@ -756,9 +752,6 @@ VAROVANIE: Táto akcia neprebehne správne, ak je zabudovaný displej vypnutý.<
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>Podsvietenie klávesnice nemôže byť ovládané tu, pokiaľ beží Vantage alebo jeho služby.</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-    <value>Zdá sa, že Lenovo Vantage je povolený</value>
-  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>O projekte</value>
   </data>
@@ -1023,9 +1016,6 @@ Môžete prepnúť pomocou Fn+Q.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Vybraný režim výkonu nemusí pracovať správne bez pripojeného sieťového adaptéra.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Povolenie tejto možnosti, keď beží Lenovo Vantage a zmení napájací plán na vašom notebooku, môže spôsobiť neočakávané správanie.</value>
-  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Ste si istý?</value>
   </data>
@@ -1209,12 +1199,6 @@ Po zmene tejto možnosti sa odporúča reštart.</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Nepodarilo sa povoliť Lenovo Hotkeys</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage možno nebol povolený správne</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Nepodarilo sa povoliť Vantage</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Môžete vylúčiť obnovovacie frekvencie, aby bola skratka Fn+R užitočnejšia.</value>
