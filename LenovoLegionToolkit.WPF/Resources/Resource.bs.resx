@@ -725,12 +725,6 @@ Startup is delayed by 30 seconds for compatibility reasons.</value>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Nije moguće omogućiti Lenovo Hotkeys</value>
   </data>
-  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage možda nije ispravno omogućeno</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Nije moguće omogućiti Vantage</value>
-  </data>
   <data name="SettingsPage_Language_Message" xml:space="preserve">
     <value>Izaberi jezik.</value>
   </data>
