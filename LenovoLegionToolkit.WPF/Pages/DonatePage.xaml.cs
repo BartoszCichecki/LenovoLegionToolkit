@@ -15,10 +15,4 @@ public partial class DonatePage
         Constants.PayPalUri.Open();
         e.Handled = true;
     }
-
-    private void StripeCNYDonateButton_Click(object sender, RoutedEventArgs e)
-    {
-        Constants.StripeCNYUri.Open();
-        e.Handled = true;
-    }
 }
