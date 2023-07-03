@@ -155,12 +155,6 @@ Ta opcja powinna być używana tylko na urządzeniach, które nie miały dodatko
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Zawsze aktywuj plan zasilania Windows</value>
   </data>
-  <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>Ładuj urządzenia USB gdy komputer jest wyłączony, uśpiony lub zahibernowany.</value>
-  </data>
-  <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-    <value>Ładuj urządzenia USB gdy komputer jest wyłączony, uśpiony lub zahibernowany.</value>
-  </data>
   <data name="AppName" xml:space="preserve">
     <value>Lenovo Legion Toolkit</value>
   </data>
