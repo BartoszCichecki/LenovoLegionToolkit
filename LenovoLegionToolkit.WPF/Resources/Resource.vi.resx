@@ -388,15 +388,6 @@ Thời gian có thể không chính xác nếu laptop được sạc khi Ngủ h
   <data name="Close" xml:space="preserve">
     <value>Đóng</value>
   </data>
-  <data name="ColorCardControl_Blue" xml:space="preserve">
-    <value>Xanh dương</value>
-  </data>
-  <data name="ColorCardControl_Green" xml:space="preserve">
-    <value>Xanh lá</value>
-  </data>
-  <data name="ColorCardControl_Red" xml:space="preserve">
-    <value>Đỏ</value>
-  </data>
   <data name="Color_Blue" xml:space="preserve">
     <value>Xanh dương</value>
   </data>

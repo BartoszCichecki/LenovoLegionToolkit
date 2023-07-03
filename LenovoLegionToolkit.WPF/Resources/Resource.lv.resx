@@ -388,15 +388,6 @@ Tiks izpildītas tikai tās darbības, kas atbilst pašreizējam stāvoklim.</va
   <data name="Close" xml:space="preserve">
     <value>Aizvērt</value>
   </data>
-  <data name="ColorCardControl_Blue" xml:space="preserve">
-    <value>Zils</value>
-  </data>
-  <data name="ColorCardControl_Green" xml:space="preserve">
-    <value>Zaļš</value>
-  </data>
-  <data name="ColorCardControl_Red" xml:space="preserve">
-    <value>Sarkans</value>
-  </data>
   <data name="Color_Blue" xml:space="preserve">
     <value>Zils</value>
   </data>

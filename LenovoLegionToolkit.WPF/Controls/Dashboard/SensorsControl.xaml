@@ -43,7 +43,7 @@
                     Grid.Row="1"
                     Grid.Column="0"
                     VerticalContentAlignment="Center"
-                    Content="{x:Static resources:Resource.SensorsControl_Utilisation_Title}"
+                    Content="{x:Static resources:Resource.SensorsControl_Utilization_Title}"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                 <ProgressBar
                     x:Name="_cpuUtilizationBar"
@@ -158,7 +158,7 @@
                     Grid.Row="1"
                     Grid.Column="4"
                     VerticalContentAlignment="Center"
-                    Content="{x:Static resources:Resource.SensorsControl_Utilisation_Title}"
+                    Content="{x:Static resources:Resource.SensorsControl_Utilization_Title}"
                     Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                 <ProgressBar
                     x:Name="_gpuUtilizationBar"

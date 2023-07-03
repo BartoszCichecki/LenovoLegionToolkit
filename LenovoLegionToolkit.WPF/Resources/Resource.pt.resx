@@ -388,15 +388,6 @@ Este tempo pode não estar correto se o dispositivo foi carregado quando estava 
   <data name="Close" xml:space="preserve">
     <value>Fechar</value>
   </data>
-  <data name="ColorCardControl_Blue" xml:space="preserve">
-    <value>Azul</value>
-  </data>
-  <data name="ColorCardControl_Green" xml:space="preserve">
-    <value>Verde</value>
-  </data>
-  <data name="ColorCardControl_Red" xml:space="preserve">
-    <value>Vermelho</value>
-  </data>
   <data name="Color_Blue" xml:space="preserve">
     <value>Azul</value>
   </data>
@@ -1815,7 +1806,7 @@ Atenção: Esta ação não irá correr corretamente se a GPU discreta estiver i
   <data name="SensorsControl_CPU_Title" xml:space="preserve">
 	  <value>CPU</value>
   </data>
-  <data name="SensorsControl_Utilisation_Title" xml:space="preserve">
+  <data name="SensorsControl_Utilization_Title" xml:space="preserve">
 	  <value>Utilização</value>
   </data>
   <data name="SensorsControl_CoreClock_Title" xml:space="preserve">

@@ -389,15 +389,6 @@ Cette valeur peut être imprécise si l'appareil a été chargé en veille ou é
   <data name="Close" xml:space="preserve">
     <value>Fermer</value>
   </data>
-  <data name="ColorCardControl_Blue" xml:space="preserve">
-    <value>Bleu</value>
-  </data>
-  <data name="ColorCardControl_Green" xml:space="preserve">
-    <value>Vert</value>
-  </data>
-  <data name="ColorCardControl_Red" xml:space="preserve">
-    <value>Rouge</value>
-  </data>
   <data name="Color_Blue" xml:space="preserve">
     <value>Bleu</value>
   </data>
@@ -1818,7 +1809,7 @@ AVERTISSEMENT : Cette action ne fonctionnera pas correctement si le GPU dédié 
   <data name="SensorsControl_CPU_Title" xml:space="preserve">
 	  <value>CPU</value>
   </data>
-  <data name="SensorsControl_Utilisation_Title" xml:space="preserve">
+  <data name="SensorsControl_Utilization_Title" xml:space="preserve">
 	  <value>Utilisation</value>
   </data>
   <data name="SensorsControl_CoreClock_Title" xml:space="preserve">

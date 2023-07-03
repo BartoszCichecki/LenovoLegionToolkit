@@ -388,15 +388,6 @@ Tento čas nemusí být přesný, pokud byl notebook nabíjen ve spánku nebo ve
   <data name="Close" xml:space="preserve">
     <value>Zavřít</value>
   </data>
-  <data name="ColorCardControl_Blue" xml:space="preserve">
-    <value>Modrá</value>
-  </data>
-  <data name="ColorCardControl_Green" xml:space="preserve">
-    <value>Zelená</value>
-  </data>
-  <data name="ColorCardControl_Red" xml:space="preserve">
-    <value>Červená</value>
-  </data>
   <data name="Color_Blue" xml:space="preserve">
     <value>Modrá</value>
   </data>

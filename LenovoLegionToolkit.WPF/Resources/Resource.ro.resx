@@ -388,15 +388,6 @@ Este posibil ca acest timp să nu fie precis dacă laptopul a fost încărcat î
   <data name="Close" xml:space="preserve">
     <value>Închidere</value>
   </data>
-  <data name="ColorCardControl_Blue" xml:space="preserve">
-    <value>Albastru</value>
-  </data>
-  <data name="ColorCardControl_Green" xml:space="preserve">
-    <value>Verde</value>
-  </data>
-  <data name="ColorCardControl_Red" xml:space="preserve">
-    <value>Roșu</value>
-  </data>
   <data name="Color_Blue" xml:space="preserve">
     <value>Albastru</value>
   </data>

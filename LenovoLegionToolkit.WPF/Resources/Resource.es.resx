@@ -388,15 +388,6 @@ Esta hora puede no ser correcta si el portátil se ha cargado mientras estaba su
   <data name="Close" xml:space="preserve">
     <value>Cerrar</value>
   </data>
-  <data name="ColorCardControl_Blue" xml:space="preserve">
-    <value>Azul</value>
-  </data>
-  <data name="ColorCardControl_Green" xml:space="preserve">
-    <value>Verde</value>
-  </data>
-  <data name="ColorCardControl_Red" xml:space="preserve">
-    <value>Rojo</value>
-  </data>
   <data name="Color_Blue" xml:space="preserve">
     <value>Azul</value>
   </data>
@@ -1819,7 +1810,7 @@ AVISO: Esta acción no se ejecutará correctamente si no se dispone de una GPU e
   <data name="SensorsControl_CPU_Title" xml:space="preserve">
 	  <value>Unidad de control de potencia (CPU)</value>
   </data>
-  <data name="SensorsControl_Utilisation_Title" xml:space="preserve">
+  <data name="SensorsControl_Utilization_Title" xml:space="preserve">
 	  <value>Uso</value>
   </data>
   <data name="SensorsControl_CoreClock_Title" xml:space="preserve">

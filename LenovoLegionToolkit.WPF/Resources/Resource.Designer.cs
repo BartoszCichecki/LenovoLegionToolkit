@@ -224,7 +224,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Charge USB devices, when the computer is off or in sleep or hibernation mode..
+        ///   Looks up a localized string similar to Charge USB devices, when the laptop is off, sleeping or hibernated..
         /// </summary>
         public static string AlwaysOnUsbAutomationStepControl_Message {
             get {
@@ -242,7 +242,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Charge USB devices, when the computer is off or in sleep or hibernation mode..
+        ///   Looks up a localized string similar to Charge USB devices, when the laptop is off, sleeping or hibernated..
         /// </summary>
         public static string AlwaysOnUSBControl_Message {
             get {
@@ -296,7 +296,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to If enabled these action will run automatically. Whenever state changes, all actions will be evaluated from top to bottom.
+        ///   Looks up a localized string similar to If enabled, these action will run automatically. Whenever state changes, all actions will be evaluated from top to bottom.
         ///Only actions that match current state will run..
         /// </summary>
         public static string AutomationPage_Actions_Message {
@@ -892,7 +892,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to Time since laptop was last connected to AC power.
-        ///This time might not be accurate if laptop was charged when sleeping or off..
+        ///This time might not be accurate, if laptop was charged when sleeping or off..
         /// </summary>
         public static string BatteryPage_OnBatterySince_Message {
             get {
@@ -969,33 +969,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string Color_Red {
             get {
                 return ResourceManager.GetString("Color_Red", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Blue.
-        /// </summary>
-        public static string ColorCardControl_Blue {
-            get {
-                return ResourceManager.GetString("ColorCardControl_Blue", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Green.
-        /// </summary>
-        public static string ColorCardControl_Green {
-            get {
-                return ResourceManager.GetString("ColorCardControl_Green", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Red.
-        /// </summary>
-        public static string ColorCardControl_Red {
-            get {
-                return ResourceManager.GetString("ColorCardControl_Red", resourceCulture);
             }
         }
         
@@ -1329,7 +1302,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         /// <summary>
         ///   Looks up a localized string similar to nVidia GPU can be disabled.
         ///
-        ///Remember, that some programs might crash if you do it..
+        ///Remember, that some programs might crash, if you do it..
         /// </summary>
         public static string DiscreteGPUControl_DisablePossible {
             get {
@@ -1347,7 +1320,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Disable discrete GPU if it is active unnecessarily..
+        ///   Looks up a localized string similar to Disable discrete GPU, if it is active unnecessarily..
         /// </summary>
         public static string DiscreteGPUControl_Message {
             get {
@@ -1420,7 +1393,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to Change display brightness of the built-in display.
-        ///Power modes change brightness on some devices. Make sure to put this step last, if something doesn&apos;t work just right.
         ///
         ///WARNING: This action will not run correctly, if internal display is off..
         /// </summary>
@@ -1554,7 +1526,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Some features may not appear on the Dashboard depending on state and configuration of your device..
+        ///   Looks up a localized string similar to Some features may not appear on the Dashboard depending on state and configuration of your laptop..
         /// </summary>
         public static string EditDashboardWindow_Disclaimer_Message {
             get {
@@ -1889,7 +1861,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to WARNING!
-        ///Some laptops may accept higher values than they indicate, but be careful. This option may result in unpredictable behavior, so if you are not sure what are you doing, leave this at 0..
+        ///Some laptops may accept higher values than they indicate, but be careful. This option may result in unpredictable behavior. If you are not sure what are you doing, leave this at 0..
         /// </summary>
         public static string GodModeSettingsWindow_Advanced_MaxOffset_Message {
             get {
@@ -1917,7 +1889,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to WARNING!
-        ///Some laptops may accept lower values than they indicate, but be careful. This option may result in unpredictable behavior, so if you are not sure what are you doing, leave this at 0..
+        ///Some laptops may accept lower values than they indicate, but be careful. This option may result in unpredictable behavior. If you are not sure what are you doing, leave this at 0..
         /// </summary>
         public static string GodModeSettingsWindow_Advanced_MinOffset_Message {
             get {
@@ -3466,7 +3438,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select performance mode..
+        ///   Looks up a localized string similar to Change performance mode..
         /// </summary>
         public static string PowerModeAutomationStepControl_Message {
             get {
@@ -3484,8 +3456,8 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select performance mode.
-        ///You can switch mode with Fn+Q..
+        ///   Looks up a localized string similar to Change performance mode.
+        ///Performance mode can also be changed with Fn+Q..
         /// </summary>
         public static string PowerModeControl_Message {
             get {
@@ -3557,7 +3529,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Windows reports that this device supports Modern Standby. Using power plans other than Balanced may cause unexpected behavior..
+        ///   Looks up a localized string similar to Windows reports that this laptop supports Modern Standby. Using power plans other than Balanced may cause unexpected behavior..
         /// </summary>
         public static string PowerPlansWindow_AoAcWarning_Message {
             get {
@@ -4048,11 +4020,11 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Utilisation.
+        ///   Looks up a localized string similar to Utilization.
         /// </summary>
-        public static string SensorsControl_Utilisation_Title {
+        public static string SensorsControl_Utilization_Title {
             get {
-                return ResourceManager.GetString("SensorsControl_Utilisation_Title", resourceCulture);
+                return ResourceManager.GetString("SensorsControl_Utilization_Title", resourceCulture);
             }
         }
         

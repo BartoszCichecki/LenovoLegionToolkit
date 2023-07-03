@@ -387,15 +387,6 @@ Deze tijd is mogelijk niet nauwkeurig als de laptop is opgeladen tijdens het sla
   <data name="Close" xml:space="preserve">
     <value>Sluiten</value>
   </data>
-  <data name="ColorCardControl_Blue" xml:space="preserve">
-    <value>Blauw</value>
-  </data>
-  <data name="ColorCardControl_Green" xml:space="preserve">
-    <value>Groen</value>
-  </data>
-  <data name="ColorCardControl_Red" xml:space="preserve">
-    <value>Rood</value>
-  </data>
   <data name="Color_Blue" xml:space="preserve">
     <value>Blauw</value>
   </data>

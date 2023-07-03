@@ -387,15 +387,6 @@ Diese Zeit ist möglicherweise nicht genau, wenn der Laptop im Schlaf oder im au
   <data name="Close" xml:space="preserve">
     <value>Beenden</value>
   </data>
-  <data name="ColorCardControl_Blue" xml:space="preserve">
-    <value>Blau</value>
-  </data>
-  <data name="ColorCardControl_Green" xml:space="preserve">
-    <value>Grün</value>
-  </data>
-  <data name="ColorCardControl_Red" xml:space="preserve">
-    <value>Rot</value>
-  </data>
   <data name="Color_Blue" xml:space="preserve">
     <value>Blau</value>
   </data>
@@ -1816,7 +1807,7 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn keine diskrete GPU ve
   <data name="SensorsControl_CPU_Title" xml:space="preserve">
 	  <value>CPU</value>
   </data>
-  <data name="SensorsControl_Utilisation_Title" xml:space="preserve">
+  <data name="SensorsControl_Utilization_Title" xml:space="preserve">
 	  <value>Nutzung</value>
   </data>
   <data name="SensorsControl_CoreClock_Title" xml:space="preserve">

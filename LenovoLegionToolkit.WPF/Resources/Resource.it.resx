@@ -387,15 +387,6 @@ l'orario indicato potrebbe non essere corretto se il laptop è stato caricato me
   <data name="Close" xml:space="preserve">
     <value>Chiudi</value>
   </data>
-  <data name="ColorCardControl_Blue" xml:space="preserve">
-    <value>Blu</value>
-  </data>
-  <data name="ColorCardControl_Green" xml:space="preserve">
-    <value>Verde</value>
-  </data>
-  <data name="ColorCardControl_Red" xml:space="preserve">
-    <value>Rosso</value>
-  </data>
   <data name="Color_Blue" xml:space="preserve">
     <value>Blu</value>
   </data>

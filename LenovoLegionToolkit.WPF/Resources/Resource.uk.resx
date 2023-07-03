@@ -387,15 +387,6 @@
   <data name="Close" xml:space="preserve">
     <value>Закрити</value>
   </data>
-  <data name="ColorCardControl_Blue" xml:space="preserve">
-    <value>Синій</value>
-  </data>
-  <data name="ColorCardControl_Green" xml:space="preserve">
-    <value>Зелений</value>
-  </data>
-  <data name="ColorCardControl_Red" xml:space="preserve">
-    <value>Червоний</value>
-  </data>
   <data name="Color_Blue" xml:space="preserve">
     <value>Синя</value>
   </data>

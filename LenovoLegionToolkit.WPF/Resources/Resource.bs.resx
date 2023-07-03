@@ -347,15 +347,6 @@ Ovo vrijeme možda neće biti tačno ako je laptop bio napunjen dok je spavao il
   <data name="Close" xml:space="preserve">
     <value>Zatvori</value>
   </data>
-  <data name="ColorCardControl_Blue" xml:space="preserve">
-    <value>Plava</value>
-  </data>
-  <data name="ColorCardControl_Green" xml:space="preserve">
-    <value>Zelena</value>
-  </data>
-  <data name="ColorCardControl_Red" xml:space="preserve">
-    <value>Crvena</value>
-  </data>
   <data name="ComboBoxHybridModeControl_RestartRequired_Message" xml:space="preserve">
     <value>Promjena na {0} zahtijeva ponovno pokretanje. Da li želite restartovati sada?</value>
   </data>

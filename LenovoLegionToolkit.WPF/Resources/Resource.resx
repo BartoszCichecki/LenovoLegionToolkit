@@ -159,13 +159,13 @@ This option is intended only for devices that didn't come with multiple power pl
     <value>Always activate Windows Power Plan</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>Charge USB devices, when the computer is off or in sleep or hibernation mode.</value>
+	  <value>Charge USB devices, when the laptop is off, sleeping or hibernated.</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>Always on USB</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-    <value>Charge USB devices, when the computer is off or in sleep or hibernation mode.</value>
+	  <value>Charge USB devices, when the laptop is off, sleeping or hibernated.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>Always on USB</value>
@@ -189,7 +189,7 @@ This option is intended only for devices that didn't come with multiple power pl
     <value>No Actions defined. Click "Add new" to create new Action.</value>
   </data>
   <data name="AutomationPage_Actions_Message" xml:space="preserve">
-    <value>If enabled these action will run automatically. Whenever state changes, all actions will be evaluated from top to bottom.
+	  <value>If enabled, these action will run automatically. Whenever state changes, all actions will be evaluated from top to bottom.
 Only actions that match current state will run.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
@@ -370,8 +370,8 @@ Only actions that match current state will run.</value>
     <value>Manufacture date</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-    <value>Time since laptop was last connected to AC power.
-This time might not be accurate if laptop was charged when sleeping or off.</value>
+	  <value>Time since laptop was last connected to AC power.
+This time might not be accurate, if laptop was charged when sleeping or off.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
     <value>On battery since</value>
@@ -387,15 +387,6 @@ This time might not be accurate if laptop was charged when sleeping or off.</val
   </data>
   <data name="Close" xml:space="preserve">
     <value>Close</value>
-  </data>
-  <data name="ColorCardControl_Blue" xml:space="preserve">
-    <value>Blue</value>
-  </data>
-  <data name="ColorCardControl_Green" xml:space="preserve">
-    <value>Green</value>
-  </data>
-  <data name="ColorCardControl_Red" xml:space="preserve">
-    <value>Red</value>
   </data>
   <data name="Color_Blue" xml:space="preserve">
     <value>Blue</value>
@@ -506,9 +497,9 @@ WARNING: This action will not run correctly, if internal display is off or Hybri
     <value>Deactivate</value>
   </data>
   <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-    <value>nVidia GPU can be disabled.
+	  <value>nVidia GPU can be disabled.
 
-Remember, that some programs might crash if you do it.</value>
+Remember, that some programs might crash, if you do it.</value>
   </data>
   <data name="Inactive" xml:space="preserve">
     <value>Inactive</value>
@@ -517,7 +508,7 @@ Remember, that some programs might crash if you do it.</value>
     <value>Kill apps</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-    <value>Disable discrete GPU if it is active unnecessarily.</value>
+	  <value>Disable discrete GPU, if it is active unnecessarily.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>A monitor is connected to nVidia GPU.</value>
@@ -541,8 +532,7 @@ Remember, that some programs might crash if you do it.</value>
     <value>Discrete GPU</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-    <value>Change display brightness of the built-in display.
-Power modes change brightness on some devices. Make sure to put this step last, if something doesn't work just right.
+	  <value>Change display brightness of the built-in display.
 
 WARNING: This action will not run correctly, if internal display is off.</value>
   </data>
@@ -659,15 +649,15 @@ Thanks in advance!</value>
     <value>Fn Lock</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
-    <value>WARNING!
-Some laptops may accept lower values than they indicate, but be careful. This option may result in unpredictable behavior, so if you are not sure what are you doing, leave this at 0.</value>
+	  <value>WARNING!
+Some laptops may accept lower values than they indicate, but be careful. This option may result in unpredictable behavior. If you are not sure what are you doing, leave this at 0.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
     <value>Minimum offset</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>WARNING!
-Some laptops may accept higher values than they indicate, but be careful. This option may result in unpredictable behavior, so if you are not sure what are you doing, leave this at 0.</value>
+	  <value>WARNING!
+Some laptops may accept higher values than they indicate, but be careful. This option may result in unpredictable behavior. If you are not sure what are you doing, leave this at 0.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
     <value>Maximum offset</value>
@@ -1015,14 +1005,14 @@ Always make sure that you are installing correct packages.</value>
     <value>Paste</value>
   </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-    <value>Select performance mode.</value>
+	  <value>Change performance mode.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Power Mode</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
-    <value>Select performance mode.
-You can switch mode with Fn+Q.</value>
+	  <value>Change performance mode.
+Performance mode can also be changed with Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
     <value>Settings</value>
@@ -1546,7 +1536,7 @@ WARNING: This action will not run correctly, if internal display is off.</value>
     <value>Name</value>
   </data>
   <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-    <value>Some features may not appear on the Dashboard depending on state and configuration of your device.</value>
+	  <value>Some features may not appear on the Dashboard depending on state and configuration of your laptop.</value>
   </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>Customize</value>
@@ -1728,7 +1718,7 @@ This settings takes effect only when Custom Mode is enabled.</value>
     <value>S0 Lower Power Model detected</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-    <value>Windows reports that this device supports Modern Standby. Using power plans other than Balanced may cause unexpected behavior.</value>
+	  <value>Windows reports that this laptop supports Modern Standby. Using power plans other than Balanced may cause unexpected behavior.</value>
   </data>
   <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
     <value>Select Windows Power Plans to apply when Power Mode changes.</value>
@@ -1817,8 +1807,8 @@ WARNING: This action will not run correctly, if discrete GPU is not available.</
   <data name="SensorsControl_CPU_Title" xml:space="preserve">
 	  <value>CPU</value>
   </data>
-  <data name="SensorsControl_Utilisation_Title" xml:space="preserve">
-	  <value>Utilisation</value>
+  <data name="SensorsControl_Utilization_Title" xml:space="preserve">
+	  <value>Utilization</value>
   </data>
   <data name="SensorsControl_CoreClock_Title" xml:space="preserve">
 	  <value>Core Clock</value>
