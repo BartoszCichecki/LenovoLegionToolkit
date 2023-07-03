@@ -151,10 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Adicionar um nova</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Adicionar novo plano de energia mesmo que o Vantage estiver habilitado.
-Esta opção destina-se apenas a dispositivos que não possuem vários planos de energia.</value>
-  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Sempre ativar os Planos de Energia do Windows</value>
   </data>
@@ -757,9 +753,6 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>A luz de fundo do teclado não pode ser controlada aqui quando o Vantage ou seus serviços estão em execução.</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-    <value>O Lenovo Vantage parece estar ativo</value>
-  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Sobre</value>
   </data>
@@ -1024,9 +1017,6 @@ Você pode alternar entre os modos pressionando Fn+Q.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>O modo de energia selecionado pode não funcionar corretamente sem o carregador conectado.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Ativando esta opção quando o Lenovo Vantage está em execução e alterar os planos de energia do seu notebook podem resultar em um comportamento inesperado.</value>
-  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Você tem certeza?</value>
   </data>
@@ -1210,12 +1200,6 @@ Uma reinicialização é recomendada após alterar esta opção.</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Não foi possível ativar o Lenovo Hotkeys</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>O Vantage pode não ter sido ativado corretamente</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Não foi possível ativar o Vantage</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Você pode excluir taxas de atualização para tornar o atalho Fn+R mais útil.</value>
