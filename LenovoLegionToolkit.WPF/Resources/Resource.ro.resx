@@ -151,10 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Adăugați nou</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Activați planul de alimentare chiar și atunci când Vantage este activat.
-Această opțiune este destinată numai dispozitivelor care nu au mai multe planuri de alimentare.</value>
-  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Activați întotdeauna planul de alimentare Windows</value>
   </data>
@@ -740,9 +736,6 @@ ATENȚIE: Această acțiune nu va rula corect dacă afișajul incorporat este op
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>Iluminarea tastaturii nu poate fi controlată aici când Vantage sau serviciile sale rulează.</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-    <value>Lenovo Vantage pare să fie activat</value>
-  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Despre</value>
   </data>
@@ -1007,9 +1000,6 @@ Puteți schimba modul apăsând Fn+Q.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Este posibil ca modul de putere selectat să nu funcționeze corect fără alimentator.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Activarea acestei opțiuni atunci când Lenovo Vantage rulează și modifică planurile de alimentare de pe laptop poate duce la un comportament neașteptat.</value>
-  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Sunteți sigur(ă)?</value>
   </data>
@@ -1180,12 +1170,6 @@ Se recomandă repornirea după modificarea acestei opțiuni.</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Nu s-a putut activa Lenovo Hotkeys Keys</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Este posibil ca Vantage să nu fi fost activat corect</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Nu s-a putut activa Vantage</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Puteți exclude rate de reîmprospătare pentru a face comanda rapidă Fn+R mai utilă.</value>
