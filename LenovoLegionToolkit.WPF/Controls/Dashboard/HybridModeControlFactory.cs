@@ -87,7 +87,7 @@ public static class HybridModeControlFactory
 
         protected override void OnStateChangeException(Exception exception)
         {
-            if (exception is IGPUModeChangeException ex1)
+            if (exception is IGPUModeChangeException { IGPUMode: not IGPUModeState.Default } ex1)
             {
                 var message = ex1.IGPUMode switch
                 {
@@ -96,7 +96,7 @@ public static class HybridModeControlFactory
                     _ => "Discrete GPU might have not been disconnected or reconnected properly. Wait a bit or try to change the mode again."
                 };
 
-                SnackbarHelper.Show("Problem occurred while changing GPU Working Mode", message, SnackbarType.Warning);
+                SnackbarHelper.Show("Cannot successfully change GPU Working Mode", message, SnackbarType.Warning);
             }
         }
 

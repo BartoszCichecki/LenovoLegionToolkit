@@ -23,7 +23,20 @@ public class IGPUModeChangeException : Exception
 
 public class IGPUModeFeature : AbstractCompositeFeature<IGPUModeState, IGPUModeFeatureFlagsFeature, IGPUModeGamezoneFeature>
 {
+    public bool EnableExperimentalSwitching { get; set; }
+
     public IGPUModeFeature(IGPUModeFeatureFlagsFeature feature1, IGPUModeGamezoneFeature feature2) : base(feature1, feature2) { }
+
+    protected override async Task<IFeature<IGPUModeState>?> GetFeatureLazyAsync()
+    {
+        if (EnableExperimentalSwitching && await Feature1.IsSupportedAsync().ConfigureAwait(false))
+            return Feature1;
+
+        if (await Feature2.IsSupportedAsync().ConfigureAwait(false))
+            return Feature2;
+
+        return null;
+    }
 
     public async Task NotifyAsync()
     {
