@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.System;
 
-namespace LenovoLegionToolkit.Lib.Features;
+namespace LenovoLegionToolkit.Lib.Features.WhiteKeyboardBacklight;
 
 public class WhiteKeyboardDriverBacklightFeature : AbstractDriverFeature<WhiteKeyboardBacklightState>
 {

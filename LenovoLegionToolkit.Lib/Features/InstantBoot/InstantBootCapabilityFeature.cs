@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
-namespace LenovoLegionToolkit.Lib.Features;
+namespace LenovoLegionToolkit.Lib.Features.InstantBoot;
 
 public class InstantBootCapabilityFeature : IFeature<InstantBootState>
 {

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Utils;
 
-namespace LenovoLegionToolkit.Lib.Features;
+namespace LenovoLegionToolkit.Lib.Features.PanelLogo;
 
 public class PanelLogoLenovoLightingBacklightFeature : AbstractLenovoLightingFeature<PanelLogoBacklightState>
 {

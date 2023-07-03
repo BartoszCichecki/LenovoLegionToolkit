@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
 
-namespace LenovoLegionToolkit.Lib.Features;
+namespace LenovoLegionToolkit.Lib.Features.PanelLogo;
 
 public class PanelLogoSpectrumBacklightFeature : IFeature<PanelLogoBacklightState>
 {

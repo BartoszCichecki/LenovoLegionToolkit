@@ -4,7 +4,7 @@ using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
-namespace LenovoLegionToolkit.Lib.Features;
+namespace LenovoLegionToolkit.Lib.Features.InstantBoot;
 
 public class InstantBootFeatureFlagsFeature : IFeature<InstantBootState>
 {

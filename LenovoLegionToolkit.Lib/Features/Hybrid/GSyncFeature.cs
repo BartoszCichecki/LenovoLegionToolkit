@@ -1,4 +1,4 @@
-﻿namespace LenovoLegionToolkit.Lib.Features;
+﻿namespace LenovoLegionToolkit.Lib.Features.Hybrid;
 
 public class GSyncFeature : AbstractLenovoGamezoneWmiFeature<GSyncState>
 {
