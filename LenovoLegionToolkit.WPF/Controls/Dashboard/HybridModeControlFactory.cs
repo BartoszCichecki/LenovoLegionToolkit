@@ -91,12 +91,12 @@ public static class HybridModeControlFactory
             {
                 var message = ex1.IGPUMode switch
                 {
-                    IGPUModeState.IGPUOnly => "Make sure that dGPU is not being used.\ndGPU will disconnect automatically when not in use.",
-                    IGPUModeState.Auto => "Discrete GPU will disconnect automatically when not in use and laptop is on battery power.",
-                    _ => "Discrete GPU might have not been disconnected or reconnected properly. Wait a bit or try to change the mode again."
+                    IGPUModeState.IGPUOnly => Resource.IGPUModeChangeException_Message_IGPUOnly,
+                    IGPUModeState.Auto => Resource.IGPUModeChangeException_Message_Auto,
+                    _ => Resource.IGPUModeChangeException_Message
                 };
 
-                SnackbarHelper.Show("Could not change dGPU Working Mode", message, SnackbarType.Warning);
+                SnackbarHelper.Show(Resource.IGPUModeChangeException_Title, message, SnackbarType.Warning);
             }
         }
 

@@ -2282,6 +2282,43 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Discrete GPU might have not been disconnected or reconnected properly. Wait a bit or try to change the mode again..
+        /// </summary>
+        public static string IGPUModeChangeException_Message {
+            get {
+                return ResourceManager.GetString("IGPUModeChangeException_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Discrete GPU will disconnect automatically when not in use and laptop is on battery power..
+        /// </summary>
+        public static string IGPUModeChangeException_Message_Auto {
+            get {
+                return ResourceManager.GetString("IGPUModeChangeException_Message_Auto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Make sure that dGPU is not being used.
+        ///dGPU will disconnect automatically when not in use..
+        /// </summary>
+        public static string IGPUModeChangeException_Message_IGPUOnly {
+            get {
+                return ResourceManager.GetString("IGPUModeChangeException_Message_IGPUOnly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not change dGPU Working Mode.
+        /// </summary>
+        public static string IGPUModeChangeException_Title {
+            get {
+                return ResourceManager.GetString("IGPUModeChangeException_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Import.
         /// </summary>
         public static string Import {
