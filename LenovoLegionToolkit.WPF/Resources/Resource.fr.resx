@@ -158,14 +158,8 @@ Cette option est destinée uniquement aux appareils qui ne sont pas livrés avec
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Toujours activer les modes de gestion d'alimentation de Windows</value>
   </data>
-  <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>Charger les périphériques USB, lorsque l'appareil est éteint ou en veille ou en veille prolongée.</value>
-  </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>Always on USB</value>
-  </data>
-  <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-    <value>Charger les périphériques USB, lorsque l'appareil est éteint ou en veille ou en veille prolongée.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>Always on USB</value>
@@ -187,10 +181,6 @@ Cette option est destinée uniquement aux appareils qui ne sont pas livrés avec
   </data>
   <data name="AutomationPage_Actions_Empty" xml:space="preserve">
     <value>Aucune Action définie. Cliquer sur "Ajouter une Action" pour créer une nouvelle Action.</value>
-  </data>
-  <data name="AutomationPage_Actions_Message" xml:space="preserve">
-    <value>Si elles sont activées, ces actions seront exécutées automatiquement. Lorsque l'état change, toutes les actions sont évaluées de haut en bas.
-Seules les actions qui correspondent à l'état actuel seront exécutées.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>Actions</value>
@@ -370,10 +360,6 @@ La température et le bruit des ventilateurs peuvent augmenter.</value>
   <data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
     <value>Date de fabrication</value>
   </data>
-  <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-    <value>Temps écoulé depuis la dernière connexion au secteur.
-Cette valeur peut être imprécise si l'appareil a été chargé en veille ou éteint.</value>
-  </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
     <value>Sur batterie depuis</value>
   </data>
@@ -497,19 +483,11 @@ ATTENTION : Cette action ne fonctionnera pas correctement, si l'écran intégré
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Désactiver</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-    <value>Le GPU nVidia peut être désactivé.
-
-Certains programmes peuvent planter si vous le faites.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Inactif</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Fermer les applications</value>
-  </data>
-  <data name="DiscreteGPUControl_Message" xml:space="preserve">
-    <value>Désactive le GPU dédié s'il est actif inutilement.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>Un écran est connecté au GPU nVidia.</value>
@@ -531,12 +509,6 @@ Certains programmes peuvent planter si vous le faites.</value>
   </data>
   <data name="DiscreteGPUControl_Title" xml:space="preserve">
     <value>GPU dédié</value>
-  </data>
-  <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-    <value>Modifie la luminosité de l'écran intégré.
-Les modes d'alimentation peuvent modifier la luminosité sur certains appareils. Assurez-vous d'effectuer cette étape en dernier, si cela ne fonctionne pas. 
-
-ATTENTION : Cette action ne fonctionnera pas si l'écran intégré est éteint.</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>Luminosité de l'écran</value>
@@ -650,16 +622,8 @@ Merci par avance !</value>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Verrouillage de Fn</value>
   </data>
-  <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
-    <value>ATTENTION !
-Certaines machines peuvent accepter des valeurs plus faibles à celles indiquées, mais soyez prudents. Cette option peut engendrer un comportement imprévisible, si vous n'êtes pas sûr de ce que vous faites, laissez cette valeur à 0.</value>
-  </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
     <value>Réglage minimum</value>
-  </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>ATTENTION !
-Certaines machines peuvent accepter des valeurs plus élevées à celles indiquées, mais soyez prudents. Cette option peut engendrer un comportement imprévisible, si vous n'êtes pas sûr de ce que vous faites, laissez cette valeur à 0.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
     <value>Réglage maximum</value>
@@ -1006,15 +970,8 @@ Assurez-vous toujours que vous installez les paquets appropriés.</value>
   <data name="Paste" xml:space="preserve">
     <value>Coller</value>
   </data>
-  <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-    <value>Sélectionnez le mode de performance.</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Mode d'alimentation</value>
-  </data>
-  <data name="PowerModeControl_Message" xml:space="preserve">
-    <value>Sélectionnez le mode de performances.
-Vous pouvez changer de mode avec Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
     <value>Paramètres</value>
@@ -1537,9 +1494,6 @@ ATTENTION : Cette action ne fonctionnera pas correctement, si l'écran interne e
   <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
     <value>Nom</value>
   </data>
-  <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-    <value>Certaines fonctionnalités peuvent ne pas apparaître sur le tableau de bord selon l'état et la configuration de votre appareil.</value>
-  </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>Personnaliser</value>
   </data>
@@ -1719,9 +1673,6 @@ Ce paramètre ne prend effet que lorsque le mode personnalisé est activé.</val
   <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
     <value>S0 Modèle de puissance inférieure détectée</value>
   </data>
-  <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-    <value>Windows signale que ce périphérique prend en charge la mise en veille moderne. L'utilisation de modes de gestion d'alimentation autres qu'équilibré peut entraîner un comportement inattendu.</value>
-  </data>
   <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
     <value>Sélectionnez les modes de gestion d'alimentation Windows à appliquer lorsque le mode d'alimentation change.</value>
   </data>
@@ -1808,9 +1759,6 @@ AVERTISSEMENT : Cette action ne fonctionnera pas correctement si le GPU dédié 
   </data>
   <data name="SensorsControl_CPU_Title" xml:space="preserve">
 	  <value>CPU</value>
-  </data>
-  <data name="SensorsControl_Utilization_Title" xml:space="preserve">
-	  <value>Utilisation</value>
   </data>
   <data name="SensorsControl_CoreClock_Title" xml:space="preserve">
 	  <value>Fréquence du Cœur</value>
