@@ -157,8 +157,14 @@
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Ativar sempre o esquema de energia do Windows</value>
   </data>
+  <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
+	  <value>Carregar dispositivos USB, quando o computador está suspenso ou em modo de hibernação.</value>
+  </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>USB sempre ligado</value>
+  </data>
+  <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
+	  <value>Carregar dispositivos USB, quando o computador está suspenso ou em modo de hibernação.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>USB sempre ligado</value>
@@ -180,6 +186,11 @@
   </data>
   <data name="AutomationPage_Actions_Empty" xml:space="preserve">
     <value>Nenhuma Ação definida. Clica em "Adicionar nova" para criar uma nova ação.</value>
+  </data>
+  <data name="AutomationPage_Actions_Message" xml:space="preserve">
+	  <value>Se ativado, estas ações irão ser executadas automaticamente.
+Quando o estado mudar, todas as ações serão avaliadas de cima para baixo.
+Apenas as ações que corresponderem ao estado atual irão ser executadas.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>Ações</value>
@@ -358,6 +369,10 @@
   <data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
     <value>Data de fabrico</value>
   </data>
+  <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
+	  <value>Tempo desde que o dispositivo foi desconectado do carregador.
+Este tempo pode não estar correto se o dispositivo foi carregado quando estava suspenso ou desligado.</value>
+  </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
     <value>Em bateria desde</value>
   </data>
@@ -481,11 +496,18 @@ ATENÇÃO: Esta ação não irá correr corretamente se o ecrã interno estiver 
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Desativado</value>
   </data>
+  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
+	  <value>A GPU da nVidia pode ser desligada.
+Lembra-te que alguns programas podem crashar se o fizeres.</value>
+  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Inativa</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Fechar apps</value>
+  </data>
+  <data name="DiscreteGPUControl_Message" xml:space="preserve">
+	  <value>Desativar a GPU discreta se estiver ativada desnecessariamente.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>Está um monitor ligado à GPU da nVidia.</value>
@@ -507,6 +529,13 @@ ATENÇÃO: Esta ação não irá correr corretamente se o ecrã interno estiver 
   </data>
   <data name="DiscreteGPUControl_Title" xml:space="preserve">
     <value>GPU discreta</value>
+  </data>
+  <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
+	  <value>Altera o brilho do ecrã interno.
+Os modos de desempenho podem alterar o brilho nalguns dispositivos.
+Certifica-te de que colocas este passo em último, se algo não funcionar corretamente 
+
+ATENÇÃO: Está ação não irá funcionar corretamente se o ecrã interno estiver desligado.</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>Brilho do ecrã</value>
@@ -620,8 +649,16 @@ Obrigado desde já!</value>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Fn Lock</value>
   </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
+	  <value>ATENÇÃO!
+Alguns portáteis podem aceitar valores menores do que indicam, mas tem cuidado. Esta opção pode resultar num comportamento desconhecido, portanto se não tiveres a certeza do que estás a fazer, deixa isto em 0.</value>
+  </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
     <value>Offset mínimo</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
+	  <value>ATENÇÃO!
+Alguns portáteis podem aceitar valores maiores do que indicam, mas tem cuidado. Esta opção pode resultar num comportamento desconhecido, portanto se não tiveres a certeza do que estás a fazer, deixa isto em 0.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
     <value>Offset máximo</value>
@@ -968,8 +1005,15 @@ Confirma sempre que estás a instalar o pacotes corretos.</value>
   <data name="Paste" xml:space="preserve">
     <value>Colar</value>
   </data>
+  <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
+	  <value>Selecionar modo de desempenho.</value>
+  </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Modo de energia</value>
+  </data>
+  <data name="PowerModeControl_Message" xml:space="preserve">
+	  <value>Seleciona o esquema de energia.
+Podes mudar com Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
     <value>Definições</value>
@@ -1490,6 +1534,9 @@ ATENÇÃO: Esta ação não irá executar corretamente se o ecrã interno estive
   <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
     <value>Nome</value>
   </data>
+  <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
+	  <value>Algumas funções podem não aparecer na Dashboard dependendo do estado e da configuração do teu dispositivo.</value>
+  </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>Personalizar</value>
   </data>
@@ -1669,6 +1716,9 @@ Esta definição apenas tem efeito quando o mesmo está ativo.</value>
   <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
     <value>Modelo de Baixa Energia S0 detetado</value>
   </data>
+  <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
+	  <value>O Windows reporta que este dispositivo suporta Modern Standy. Usar Esquemas de Energia para além de Equilibrado pode causar comportamentos inesperados.</value>
+  </data>
   <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
     <value>Selecionar os Esquemas de Energia do Windows a aplicar quando o Modo de Energia muda.</value>
   </data>
@@ -1755,6 +1805,9 @@ Atenção: Esta ação não irá correr corretamente se a GPU discreta estiver i
   </data>
   <data name="SensorsControl_CPU_Title" xml:space="preserve">
 	  <value>CPU</value>
+  </data>
+  <data name="SensorsControl_Utilization_Title" xml:space="preserve">
+	  <value>Utilização</value>
   </data>
   <data name="SensorsControl_CoreClock_Title" xml:space="preserve">
 	  <value>Frequência do Núcleo</value>
