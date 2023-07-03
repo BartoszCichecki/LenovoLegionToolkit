@@ -158,14 +158,8 @@ Această opțiune este destinată numai dispozitivelor care nu au mai multe plan
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Activați întotdeauna planul de alimentare Windows</value>
   </data>
-  <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>Încărcați dispozitivele USB, când computerul este oprit sau în modul de repaus sau hibernare.</value>
-  </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>USB mereu activ</value>
-  </data>
-  <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-    <value>Încărcați dispozitivele USB, când computerul este oprit sau în modul de repaus sau hibernare.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>USB mereu activ</value>
@@ -187,10 +181,6 @@ Această opțiune este destinată numai dispozitivelor care nu au mai multe plan
   </data>
   <data name="AutomationPage_Actions_Empty" xml:space="preserve">
     <value>Nicio Acțiune definită. Apăsați pe "Adăugați nou" pentru a crea o nouă Acțiune.</value>
-  </data>
-  <data name="AutomationPage_Actions_Message" xml:space="preserve">
-    <value>Dacă setarea este activată, aceste acțiuni vor rula automat. Ori de câte ori starea se schimbă, toate acțiunile vor fi evaluate de sus până jos.
-Se vor rula numai acțiunile care se potrivesc cu starea actuală.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>Acțiuni</value>
@@ -369,10 +359,6 @@ Se vor rula numai acțiunile care se potrivesc cu starea actuală.</value>
   <data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
     <value>Dată fabricare</value>
   </data>
-  <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-    <value>Timp scurs de când laptopul a fost conectat ultima dată la alimentator.
-Este posibil ca acest timp să nu fie precis dacă laptopul a fost încărcat în mod repaus sau oprit.</value>
-  </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
     <value>Pe baterie timp de</value>
   </data>
@@ -496,19 +482,11 @@ ATENȚIE: Această acțiune nu va rula corect dacă afișajul intern este oprit 
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Dezactivare</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-    <value>GPU-ul nVidia poate fi dezactivat.
-
-Țineți cont că unele programe se pot bloca dacă o faceți.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Inactiv</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Închidere aplicații</value>
-  </data>
-  <data name="DiscreteGPUControl_Message" xml:space="preserve">
-    <value>Dezactivați GPU-ul dedicat dacă este activ inutil.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>Un monitor este conectat la GPU-ul nVidia.</value>
@@ -530,12 +508,6 @@ ATENȚIE: Această acțiune nu va rula corect dacă afișajul intern este oprit 
   </data>
   <data name="DiscreteGPUControl_Title" xml:space="preserve">
     <value>GPU dedicat</value>
-  </data>
-  <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-    <value>Schimbați luminozitatea afișajului încorporat.
-Modurile de putere modifică luminozitatea pe unele dispozitive. Asigurați-vă că puneți acest pas pe ultimul loc dacă ceva nu funcționează corect.
-
-ATENȚIE: Această acțiune nu va rula corect dacă afișajul intern este oprit.</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>Luminozitate afișaj</value>
@@ -988,15 +960,8 @@ Asigurați-vă întotdeauna că instalați pachetele corecte.</value>
   <data name="Paste" xml:space="preserve">
     <value>Lipire</value>
   </data>
-  <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-    <value>Selectați modul de performanță.</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Mod putere</value>
-  </data>
-  <data name="PowerModeControl_Message" xml:space="preserve">
-    <value>Selectați modul de performanță.
-Puteți schimba modul apăsând Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
     <value>Setări</value>
@@ -1505,9 +1470,6 @@ ATENȚIE: Această acțiune nu va rula corect dacă afișajul încorporat este o
   </data>
   <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
     <value>Nume</value>
-  </data>
-  <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-    <value>Este posibil ca unele funcții să nu apară în tabloul de bord, în funcție de starea și configurația dispozitivului dvs.</value>
   </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>Personalizare</value>
