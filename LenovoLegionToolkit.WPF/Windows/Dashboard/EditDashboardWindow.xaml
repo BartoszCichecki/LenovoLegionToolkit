@@ -67,7 +67,7 @@
                 <StackPanel>
                     <wpfui:CardControl Margin="0,0,16,16">
                         <wpfui:CardControl.Header>
-                            <controls:CardHeaderControl Title="Sensors" />
+                            <controls:CardHeaderControl Title="{x:Static resources:Resource.EditDashboardWindow_Sensors}" />
                         </wpfui:CardControl.Header>
                         <wpfui:ToggleSwitch x:Name="_sensorsSwitch" />
                     </wpfui:CardControl>

@@ -1847,4 +1847,7 @@ WARNING: This action will not run correctly, if discrete GPU is not available.</
 	  <value>{0} power mode is not available without AC power.</value>
 	  <comment>For example: "{Performance} power mode is not available without AC power."</comment>
   </data>
+  <data name="EditDashboardWindow_Sensors" xml:space="preserve">
+	  <value>Sensors</value>
+  </data>
 </root>

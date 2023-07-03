@@ -205,7 +205,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activate Power Plan even when Vantage is enabled.
+        ///   Looks up a localized string similar to Activate Power Plan even when Vantage or its services are enabled.
         ///This option is intended only for devices that didn&apos;t come with multiple power plans..
         /// </summary>
         public static string AlwaysActivatePowerPlans_Message {
@@ -1535,6 +1535,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sensors.
+        /// </summary>
+        public static string EditDashboardWindow_Sensors {
+            get {
+                return ResourceManager.GetString("EditDashboardWindow_Sensors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Customize Dashboard.
         /// </summary>
         public static string EditDashboardWindow_Title {
@@ -2309,7 +2318,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Automatically power on when a charger is connected..
+        ///   Looks up a localized string similar to Turn on the laptop when a charger is connected..
         /// </summary>
         public static string InstantBootAutomationStepControl_Message {
             get {
@@ -2327,7 +2336,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Automatically power on when a charger is connected..
+        ///   Looks up a localized string similar to Turn on the laptop when a charger is connected..
         /// </summary>
         public static string InstantBootControl_Message {
             get {
@@ -2354,7 +2363,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lenovo Vantage seems to be enabled.
+        ///   Looks up a localized string similar to Lenovo Vantage or its services are running.
         /// </summary>
         public static string Keyboard_VantageEnabledWarning_Title {
             get {
@@ -3511,7 +3520,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enabling this option when Lenovo Vantage is running and it changes power plans on your laptop might result in unexpected behavior..
+        ///   Looks up a localized string similar to Enabling this option when Lenovo Vantage or its services are running and it changes power plans on your laptop might result in unexpected behavior..
         /// </summary>
         public static string PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message {
             get {
@@ -4213,7 +4222,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vantage may have not been enabled correctly.
+        ///   Looks up a localized string similar to Vantage and/or ImController may have not been enabled correctly.
         /// </summary>
         public static string SettingsPage_EnableVantage_Error_Message {
             get {
@@ -4222,7 +4231,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Couldn&apos;t enable Vantage.
+        ///   Looks up a localized string similar to Couldn&apos;t enable Vantage and/or ImController.
         /// </summary>
         public static string SettingsPage_EnableVantage_Error_Title {
             get {
