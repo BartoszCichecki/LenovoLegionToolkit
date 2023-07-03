@@ -166,15 +166,6 @@
 
 <img src="LenovoLegionToolkit.WPF/Assets/Donate/paypal_qr.png" width="200" alt="PayPal QR code" />
 
-
-#### 中国用户赞助
-
-如果你居住在中国，可以使用Stripe来赞助。（支持支付宝与银联）
-
-[使用Stripe赞助](https://donate.stripe.com/14k8yM94I980f3q7ss)
-
-<img src="LenovoLegionToolkit.WPF/Assets/Donate/stripe_cny_qr.png" width="200" alt="Stripe (CNY) QR code" />
-
 ## 贡献者
 
 特别感谢：
