@@ -158,14 +158,8 @@ Táto možnosť je určená pre zariadenia, ktoré nie sú dodávané s viacero 
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Vždy aktivuj plán napájania Windows</value>
   </data>
-  <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>Nabíjanie USB zariadení, aj keď je počítač vypnutý, v spánku alebo hibernuje.</value>
-  </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>Vždy napájané USB</value>
-  </data>
-  <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-    <value>Nabíjanie USB zariadení, aj keď je počítač vypnutý, v spánku alebo hibernuje.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>Vždy napájané USB</value>
@@ -187,9 +181,6 @@ Táto možnosť je určená pre zariadenia, ktoré nie sú dodávané s viacero 
   </data>
   <data name="AutomationPage_Actions_Empty" xml:space="preserve">
     <value>Žiadne akcie. Kliknite "Pridať novú" pre vytvorenie nových akcií.</value>
-  </data>
-  <data name="AutomationPage_Actions_Message" xml:space="preserve">
-    <value>Pri povolení budú tieto akcie spustené automaticky. Kedykoľvek sa zmení stav, všetky akcie budú vyhodnotené z hora dole. Len akcie zhodne s momentálnym stavom budú spustené.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>Akcie</value>
@@ -368,10 +359,6 @@ Táto možnosť je určená pre zariadenia, ktoré nie sú dodávané s viacero 
   <data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
     <value>Dátum výroby</value>
   </data>
-  <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-    <value>Čas od posledného pripojenia notebooku k sieťovému napájaniu.
-Tento čas nemusí byť presný, ak bol notebooku nabíjaný vypnutý alebo v spánku.</value>
-  </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
     <value>Na batérii od</value>
   </data>
@@ -495,19 +482,11 @@ VAROVANIE: Táto akcia neprebehne správne, ak je displej notebooku vypnutý, al
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Deaktivovať</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-    <value>nVidia GPU môže byť deaktivovaná.
-
-Pamätajte, niektoré programy môžu spadnúť, ak to urobíte.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Neaktívna</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Ukončiť aplikácie</value>
-  </data>
-  <data name="DiscreteGPUControl_Message" xml:space="preserve">
-    <value>Deaktivovať dedikovanú GPU, ak je aktívna zbytočne.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>K nVidia GPU je pripojený monitor.</value>
@@ -529,12 +508,6 @@ Pamätajte, niektoré programy môžu spadnúť, ak to urobíte.</value>
   </data>
   <data name="DiscreteGPUControl_Title" xml:space="preserve">
     <value>Dedikovaná GPU</value>
-  </data>
-  <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-    <value>Zmeniť jas zabudovaného displeja.
-Na niektorých zariadenia menia napájacie režimy jas. Uistite sa, že tento krok umiestnite ako posledný, ak niečo nefunguje správne.
-
-VAROVANIE: Táto akcia neprebehne správne, ak je zabudovaný displej vypnutý.</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>Jas displeja</value>
@@ -645,16 +618,8 @@ Vopred vďaka!</value>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Zámok Fn klávesy</value>
   </data>
-  <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
-    <value>VAROVANIE!
-Niektoré notebooky môžu prijímať nižšie hodnoty ako uvádzajú, ale buďte opatrný. Táto možnosť môže mať za následok nepredvídateľné správanie, takže ak si nie ste istý čo robíte nechajte to na 0.</value>
-  </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
     <value>Minimálny posun</value>
-  </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>VAROVANIE!
-Niektoré notebooky môžu prijímať vyššie hodnoty ako uvádzajú, ale buďte opatrný. Táto možnosť môže mať za následok nepredvídateľné správanie, takže ak si nie ste istý čo robíte nechajte to na 0.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
     <value>Maximálny posun</value>
@@ -1001,15 +966,8 @@ Vždy sa uistite, že inštalujete správne balíky.</value>
   <data name="Paste" xml:space="preserve">
     <value>Vložiť</value>
   </data>
-  <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-    <value>Zvoliť výkonný režim.</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Režim výkonu</value>
-  </data>
-  <data name="PowerModeControl_Message" xml:space="preserve">
-    <value>Výber výkonostného režimu.
-Môžete prepnúť pomocou Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
     <value>Nastavenia</value>
@@ -1532,9 +1490,6 @@ VAROVANIE: Táto akcia neprebehne správne, ak je zabudovaný displej vypnutý.<
   <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
     <value>Názov</value>
   </data>
-  <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-    <value>Niektoré funkcie sa nemusia zobraziť na prehľade v závislosti od stavu a nastavenia vášho zariadenia.</value>
-  </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>Prispôsobiť</value>
   </data>
@@ -1713,9 +1668,6 @@ Nastavenia sú účinne len keď je povolený vlastný režim.</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
     <value>Zistený S0 s nižšou spotrebou</value>
-  </data>
-  <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-    <value>Windows hlási, že toto zariadenie podporuje moderný pohotovostný režim. Použitie iného ako vyváženého plánu napájania môže spôsobiť neočakávané chovanie.</value>
   </data>
   <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
     <value>Vyberte, ktoré plány napájania Windows použiť pri zmene režimu výkonu.</value>
