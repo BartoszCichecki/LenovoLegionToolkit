@@ -24,16 +24,34 @@ public class IGPUModeCapabilityFeature : IFeature<IGPUModeState>
 
     public async Task<IGPUModeState> GetStateAsync()
     {
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Getting state...");
+
         var value = await GetFeatureValueAsync(CapabilityID.IGPUModeSupport).ConfigureAwait(false);
         var result = (IGPUModeState)value;
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"State is {result}");
+
         return result;
     }
 
     public async Task SetStateAsync(IGPUModeState state)
     {
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Setting state to {state}...");
+
         await SetFeatureValueAsync(CapabilityID.IGPUModeSupport, (int)state).ConfigureAwait(false);
         if (await GetFeatureValueAsync(CapabilityID.IGPUModeChangeStatus).ConfigureAwait(false) == 0)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Set state to {state}, but dGPU check failed.");
+
             throw new IGPUModeChangeException(state);
+        }
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Set state to {state}");
     }
 
     private static Task<int> GetFeatureValueAsync(CapabilityID id) =>
