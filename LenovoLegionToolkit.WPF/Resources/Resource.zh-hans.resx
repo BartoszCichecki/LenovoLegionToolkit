@@ -151,10 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>新建</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>当 Lenovo Vantage 启用时仍然启用电源计划
-此选项仅适用于没有附带多种电源计划的设备。</value>
-  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>始终启用 Windows 电源计划</value>
   </data>
@@ -542,16 +538,6 @@
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>显示器亮度</value>
   </data>
-  <data name="DonatePage_DonateWith" xml:space="preserve">
-    <value>点击使用 Stripe 赞助（支持支付宝）</value>
-  </data>
-  <data name="DonatePage_Message" xml:space="preserve">
-    <value>开发与维护联想拯救箱需要大量时间。如果你喜欢这个软件，你可以通过赞助来支持软件的开发。
-
-点击下方的 Stripe 图标或扫描二维码使用Stripe赞助，支持支付宝与银联支付。
-
-万分感谢！</value>
-  </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>赞助</value>
   </data>
@@ -760,9 +746,6 @@
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>由于 Lenovo Vantage 或其服务正在运行导致冲突，无法在此控制键盘背光。</value>
-  </data>
-  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-    <value>Lenovo Vantage似乎已启用。</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>关于</value>
@@ -1030,9 +1013,6 @@
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>在未插入电源适配器的情况下，性能模式可能无法正常生效。</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>当Lenovo Vantage运行时启用该选项并修改笔记本上的电源计划可能会导致意外情况。</value>
-  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>你确定吗？</value>
   </data>
@@ -1217,12 +1197,6 @@
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>无法启用 Lenovo Hotkeys</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Lenovo Vantage 可能没有被正确启用</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>无法启用 Lenovo Vantage</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>你可以排除某个刷新率，使 Fn+R 快捷键切换更快速。</value>
