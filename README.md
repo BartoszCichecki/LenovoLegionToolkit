@@ -196,15 +196,6 @@ If you enjoy using the Lenovo Legion Toolkit, consider donating.
 
 <img src="LenovoLegionToolkit.WPF/Assets/Donate/paypal_qr.png" width="200" alt="PayPal QR code" />
 
-
-#### Donate from China
-
-If you live in China, you can also donate in Chinese Yuan using Stripe (supports UnionPay and AliPay):
-
-[Donate with Stripe](https://donate.stripe.com/14k8yM94I980f3q7ss)
-
-<img src="LenovoLegionToolkit.WPF/Assets/Donate/stripe_cny_qr.png" width="200" alt="Stripe (CNY) QR code" />
-
 ## Credits
 
 Special thanks to:
