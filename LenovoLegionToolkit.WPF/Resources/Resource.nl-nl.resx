@@ -157,14 +157,8 @@
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Activeer altijd de Windows Energiebeheerschema</value>
   </data>
-  <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>Laad USB-apparaten op wanneer de computer is uitgeschakeld of in de slaap- of sluimerstand staat.</value>
-  </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>USB Altijd Aan</value>
-  </data>
-  <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-    <value>Laad USB-apparaten op wanneer de computer is uitgeschakeld of in de slaap- of sluimerstand staat.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>USB Altijd Aan</value>
@@ -186,10 +180,6 @@
   </data>
   <data name="AutomationPage_Actions_Empty" xml:space="preserve">
     <value>Geen acties gedefinieerd. Klik op "Nieuwe toevoegen" om een nieuwe actie te maken.</value>
-  </data>
-  <data name="AutomationPage_Actions_Message" xml:space="preserve">
-    <value>Indien ingeschakeld, wordt deze actie automatisch uitgevoerd. Wanneer de status verandert, worden alle acties van boven naar beneden geëvalueerd.
-Alleen acties die overeenkomen met de huidige status worden uitgevoerd.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>Acties</value>
@@ -368,10 +358,6 @@ Alleen acties die overeenkomen met de huidige status worden uitgevoerd.</value>
   <data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
     <value>Productiedatum</value>
   </data>
-  <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-    <value>Tijd sinds de laptop voor het laatst is aangesloten op de netvoeding.
-Deze tijd is mogelijk niet nauwkeurig als de laptop is opgeladen tijdens het slapen of uit.</value>
-  </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
     <value>Op batterij sinds</value>
   </data>
@@ -495,19 +481,11 @@ WAARSCHUWING: Deze actie wordt niet correct uitgevoerd als het interne display i
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Deactiveren</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-    <value>nVidia GPU kan worden uitgeschakeld.
-
-Houd er rekening mee dat sommige programma's kunnen crashen als u dit doet.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>inactief</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Apps stoppen</value>
-  </data>
-  <data name="DiscreteGPUControl_Message" xml:space="preserve">
-    <value>Schakel discrete GPU uit als deze onnodig actief is.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>Een scherm is connecteerd met de nVidia GPU.</value>
@@ -529,12 +507,6 @@ Houd er rekening mee dat sommige programma's kunnen crashen als u dit doet.</val
   </data>
   <data name="DiscreteGPUControl_Title" xml:space="preserve">
     <value>Discrete GPU</value>
-  </data>
-  <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-    <value>Wijzig de helderheid van het ingebouwde display.
-Energiemodi veranderen de helderheid op sommige apparaten. Zorg ervoor dat u deze stap als laatste zet, als iets niet goed werkt.
-
-WAARSCHUWING: Deze actie wordt niet correct uitgevoerd als het interne display is uitgeschakeld.</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>Schermhelderheid</value>
@@ -981,15 +953,8 @@ Zorg er altijd voor dat u de juiste pakketten installeert.</value>
   <data name="Paste" xml:space="preserve">
     <value>Plakken</value>
   </data>
-  <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-    <value>Selecteer prestatiemodus.</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Energiemodus</value>
-  </data>
-  <data name="PowerModeControl_Message" xml:space="preserve">
-    <value>Selecteer prestatiemodus.
-U kunt van modus wisselen met Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
     <value>Instellingen</value>
@@ -1490,9 +1455,6 @@ WAARSCHUWING: Deze actie wordt niet correct uitgevoerd als het interne beeldsche
   </data>
   <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
     <value>Naam</value>
-  </data>
-  <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-    <value>Sommige functies verschijnen mogelijk niet op het dashboard, afhankelijk van de status en configuratie van uw apparaat.</value>
   </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>Aanpassen</value>
