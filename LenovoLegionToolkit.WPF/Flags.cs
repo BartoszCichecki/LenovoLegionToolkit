@@ -32,7 +32,7 @@ public class Flags
         ForceDisableRgbKeyboardSupport = args.Contains("--force-disable-rgbkb");
         ForceDisableSpectrumKeyboardSupport = args.Contains("--force-disable-spectrumkb");
         ForceDisableLenovoLighting = args.Contains("--force-disable-lenovolighting");
-        EnableExperimentalGPUWorkingModeSwitching = true; // args.Contains("--experimental-gpuworkingmode");
+        EnableExperimentalGPUWorkingModeSwitching = args.Contains("--experimental-gpu-working-mode");
     }
 
     private static IEnumerable<string> LoadExternalArgs()
