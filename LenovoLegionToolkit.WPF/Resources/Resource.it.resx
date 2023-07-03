@@ -151,10 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Aggiungi Evento</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Utilizza i piani energetici di windows anche quando Vantage è in esecuzione.
-Questa opzione è serve solo ai dispositivi che non possiedono modalità energetiche alternative.</value>
-  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Utilizza i piani energetici di Windows</value>
   </data>
@@ -738,9 +734,6 @@ ATTENZIONE: questa azione non verrà eseguita correttamente se il display intern
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>La retroilluminazione della tastiera non può essere controllata qua mentre Vantage o i suoi servizi sono in esecuzione.</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-    <value>Lenovo Vantage sembra essere abilitato</value>
-  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Informazioni su</value>
   </data>
@@ -1005,9 +998,6 @@ Puoi anche usare la scorciatoia Fn+Q.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>La modalità di alimentazione selezionata potrebbe non funzionare correttamente senza un alimentatore collegato.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>L'abilitazione di questa opzione quando Lenovo Vantage è in esecuzione e cambia i piani di alimentazione sul laptop potrebbe causare un comportamento imprevisto.</value>
-  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Sei sicuro/a?</value>
   </data>
@@ -1191,12 +1181,6 @@ Il riavvio è consigliabile dopo aver cambiato questa impostazione.</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Impossibile abilitare Lenovo Hotkeys</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage potrebbe non essere abilitato correttamente</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Impossibile abilitare Vantage</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Puoi escludere le frequenze di aggiornamento per rendere più comoda la scorciatoia Fn+R.</value>
