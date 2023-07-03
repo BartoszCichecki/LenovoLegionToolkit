@@ -50,8 +50,6 @@ public abstract class AbstractToggleFeatureCardControl<T> : AbstractRefreshingCo
         set => _toggle.IsEnabled = value;
     }
 
-    protected virtual bool RefreshOnException => true;
-
     protected abstract T OnState { get; }
 
     protected abstract T OffState { get; }
@@ -115,7 +113,7 @@ public abstract class AbstractToggleFeatureCardControl<T> : AbstractRefreshingCo
             OnStateChangeException(ex);
         }
 
-        if (exceptionOccurred && RefreshOnException)
+        if (exceptionOccurred)
             await RefreshAsync();
     }
 
