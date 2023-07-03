@@ -1832,13 +1832,13 @@ WARNING: This action will not run correctly, if discrete GPU is not available.</
 	  <value>Instant Boot</value>
   </data>
   <data name="InstantBootControl_Message" xml:space="preserve">
-	  <value>Automatically power on when a charger is connected.</value>
+	  <value>Turn on the laptop when a charger is connected.</value>
   </data>
   <data name="InstantBootAutomationStepControl_Title" xml:space="preserve">
 	  <value>Instant Boot</value>
   </data>
   <data name="InstantBootAutomationStepControl_Message" xml:space="preserve">
-	  <value>Automatically power on when a charger is connected.</value>
+	  <value>Turn on the laptop when a charger is connected.</value>
   </data>
   <data name="PowerModeUnavailableWithoutACException_Title" xml:space="preserve">
 	  <value>Cannot change Power Mode</value>
