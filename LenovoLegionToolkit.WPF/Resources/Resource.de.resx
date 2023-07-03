@@ -151,10 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Neu hinzufügen</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Aktiviere den Energiesparplan, auch wenn Vantage aktiviert ist.
-Diese Option ist nur für Geräte gedacht, die nicht mit mehreren Energiesparplänen ausgestattet sind.</value>
-  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Aktiviere immer Windows Energiesparplan</value>
   </data>
@@ -756,9 +752,6 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn der interne Bildschir
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>Die Tastaturbeleuchtung kann nicht gesteuert werden, wenn Vantage oder dessen Dienste ausgeführt werden.</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-    <value>Lenovo Vantage scheint aktiviert zu sein</value>
-  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Über</value>
   </data>
@@ -1023,9 +1016,6 @@ Sie können den Modus mit Fn+Q wechseln.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Der gewählte Leistungsmodus funktioniert möglicherweise nicht richtig, wenn kein Netzteil angeschlossen ist.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Aktivieren dieser Option, während Lenovo Vantage ausgeführt wird und den Energiesparplan Ihres Laptops ändert, kann zu unerwartetem Verhalten führen.</value>
-  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Sind Sie sicher?</value>
   </data>
@@ -1209,12 +1199,6 @@ Nach dem Ändern dieser Option wird ein Neustart empfohlen.</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Lenovo Hotkeys konnte nicht aktiviert werden</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage wurde möglicherweise nicht korrekt aktiviert</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Vantage konnte nicht aktiviert werden</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Sie können Bildwiederholraten ausschließen, um die Tastenkombination Fn+R nützlicher zu machen.</value>
