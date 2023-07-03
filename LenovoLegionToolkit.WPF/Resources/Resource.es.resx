@@ -151,10 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Añadir nueva</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Activar el plan de energía, incluso si Vantage está activado.
-Esta opción está pensada sólo para dispositivos que no vienen con múltiples planes de energía.</value>
-  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Activar siempre el plan de energía de Windows</value>
   </data>
@@ -758,9 +754,6 @@ AVISO: Esta acción no se ejecutará correctamente si la pantalla interna está 
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>La retroiluminación del teclado no puede ser controlada aquí, si Vantage o sus servicios están funcionando.</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-    <value>Lenovo Vantage parece estar activado</value>
-  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Acerca de</value>
   </data>
@@ -1025,9 +1018,6 @@ Puede cambiar de modo con Fn+Q.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>El modo de alimentación seleccionado puede no funcionar correctamente sin el adaptador de corriente alterna conectado.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Activar esta opción cuando Lenovo Vantage se está ejecutando y cambia los planes de energía en su portátil podría dar lugar a un comportamiento inesperado.</value>
-  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>¿Está seguro?</value>
   </data>
@@ -1211,12 +1201,6 @@ Se recomienda reiniciar después de cambiar esta opción.</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>No se pueden activar las teclas de acceso rápido de Lenovo</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Es posible que Vantage no se haya activado correctamente</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>No se ha podido activar Vantage</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Puede excluir las tasas de refresco, para que el acceso rápido Fn+R sea más útil.</value>
