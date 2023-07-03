@@ -151,10 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Thêm mới</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Kích hoạt Power Plan kể cả khi Vantage được dùng.
-Lựa chọn này chỉ dành cho thiết bị không đi kèm với nhiều Power Plan khác nhau.</value>
-  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Luôn kích hoạt Windows Power Plan</value>
   </data>
@@ -754,9 +750,6 @@ CẢNH BÁO: Hành động sẽ không chạy nếu màn hình laptop tắt.</va
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>Đèn nền bàn phím không thể được tùy chỉnh nếu Lenovo vantage hoặc các chương trình con của nó đang chạy.</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-    <value>Dường như Lenovo Vantage đang chạy</value>
-  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Thông tin</value>
   </data>
@@ -1021,9 +1014,6 @@ Bạn có thể chuyển đổi giữa các Chế độ với Fn+Q.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Chế độ được lựa chọn có thể không hoạt động nếu không được kết nối nguồn điện ngoài.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Bật tùy chọn này khi Lenovo Vantage đang chạy và nếu có xung đột với lựa chọn Power plan, có thể gây ra lỗi.</value>
-  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Bạn chắc chứ?</value>
   </data>
@@ -1207,12 +1197,6 @@ Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Không thể kích hoạt Lenovo Hotkeys</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Lenovo Vantage có thể đã được kích hoạt không đúng</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Không thể kích hoạt Lenovo Vantage</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Bạn có thể loại trừ một số tần số quét, để chức năng Fn+R hữu dụng hơn.</value>
