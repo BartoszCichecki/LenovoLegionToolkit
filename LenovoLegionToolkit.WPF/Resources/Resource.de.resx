@@ -158,8 +158,14 @@ Diese Option ist nur für Geräte gedacht, die nicht mit mehreren Energiesparpl�
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Aktiviere immer Windows Energiesparplan</value>
   </data>
+  <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
+	  <value>Lade USB Geräte, wenn der Computer ausgeschaltet ist oder sich im Schlaf- oder Ruhezustand befindet.</value>
+  </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>Always on USB</value>
+  </data>
+  <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
+	  <value>Lade USB Geräte, wenn der Computer ausgeschaltet ist oder sich im Schlaf- oder Ruhezustand befindet.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>Always on USB</value>
@@ -181,6 +187,9 @@ Diese Option ist nur für Geräte gedacht, die nicht mit mehreren Energiesparpl�
   </data>
   <data name="AutomationPage_Actions_Empty" xml:space="preserve">
     <value>Keine Aktionen definiert. Klicke auf "Neu hinzufügen", um eine neue Aktion zu erstellen.</value>
+  </data>
+  <data name="AutomationPage_Actions_Message" xml:space="preserve">
+	  <value>Wenn eingeschaltet, werden diese Aktionen automatisch ausgeführt. Wenn sich der Zustand ändert, werden alle Aktionen von oben nach unten ausgewertet. Nur Aktionen, die dem aktuellen Zustand entsprechen, werden ausgeführt.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>Aktionen</value>
@@ -359,6 +368,10 @@ Diese Option ist nur für Geräte gedacht, die nicht mit mehreren Energiesparpl�
   <data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
     <value>Herstellungsdatum</value>
   </data>
+  <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
+	  <value>Zeit seit dem letzten Anschluss des Laptops an das Stromnetz.
+Diese Zeit ist möglicherweise nicht genau, wenn der Laptop im Schlaf oder im ausgeschalteten Zustand aufgeladen wurde.</value>
+  </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
     <value>Auf Akku seit</value>
   </data>
@@ -482,11 +495,19 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Deaktivieren</value>
   </data>
+  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
+	  <value>nVidia GPU kann deaktiviert werden.
+
+Beachten Sie, dass einige Programme dabei abstürzen könnten.</value>
+  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Inaktiv</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Anwendungen schließen</value>
+  </data>
+  <data name="DiscreteGPUControl_Message" xml:space="preserve">
+	  <value>Deaktiviere die diskrete GPU, wenn sie unnötigerweise aktiv ist.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>Ein Monitor ist an die nVidia GPU angeschlossen.</value>
@@ -508,6 +529,12 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
   </data>
   <data name="DiscreteGPUControl_Title" xml:space="preserve">
     <value>Diskrete GPU</value>
+  </data>
+  <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
+	  <value>Ändert die Display-Helligkeit des integrierten Bildschirms.
+Bei einigen Geräten ändert der Energiemodus die Helligkeit. Stellen Sie sicher, dass dieser Schritt zuletzt ausgeführt wird, wenn etwas nicht richtig funktioniert.
+
+WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn der interne Bildschirm ausgeschaltet ist.</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>Bildschirmhelligkeit</value>
@@ -621,8 +648,16 @@ Vielen Dank im Voraus!</value>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Fn Lock</value>
   </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
+	  <value>WARNUNG!
+Einige Laptops können niedrigere Werte akzeptieren, als sie angeben, aber seien Sie vorsichtig. Diese Option kann zu unvorhersehbarem Verhalten führen. Wenn Sie also nicht sicher sind, was Sie tun, lassen Sie diese Option auf 0.</value>
+  </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
     <value>Minimaler Offset</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
+	  <value>WARNUNG!
+Einige Laptops können höhere Werte akzeptieren, als sie angeben, aber seien Sie vorsichtig. Diese Option kann zu unvorhersehbarem Verhalten führen. Wenn Sie also nicht sicher sind, was Sie tun, lassen Sie diese Option auf 0.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
     <value>Maximaler Offset</value>
@@ -969,8 +1004,15 @@ Stellen Sie immer sicher, dass Sie die richtigen Pakete installieren.</value>
   <data name="Paste" xml:space="preserve">
     <value>Einfügen</value>
   </data>
+  <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
+	  <value>Auswahl des Leistungsmodus.</value>
+  </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Leistungsmodus</value>
+  </data>
+  <data name="PowerModeControl_Message" xml:space="preserve">
+	  <value>Auswahl des Leistungsmodus.
+Sie können den Modus mit Fn+Q wechseln.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
     <value>Einstellungen</value>
@@ -1493,6 +1535,9 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn der interne Bildschir
   <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
+	  <value>Je nach Zustand und Konfiguration Ihres Geräts werden einige Funktionen möglicherweise nicht in der Übersicht angezeigt.</value>
+  </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>Anpassen</value>
   </data>
@@ -1672,6 +1717,9 @@ Diese Einstellung wird nur wirksam, wenn der benutzerdefinierte Modus aktiviert 
   <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
     <value>S0 Low Power Idle-Modell erkannt</value>
   </data>
+  <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
+	  <value>Windows meldet, dass dieses Gerät den modernen Standby-Modus unterstützt. Die Verwendung anderer Energiesparpläne als "Ausbalanciert" kann zu unerwartetem Verhalten führen.</value>
+  </data>
   <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
     <value>Wählen Sie Windows-Energiepläne aus, die bei einer Änderung des Energiemodus angewendet werden sollen.</value>
   </data>
@@ -1758,6 +1806,9 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn keine diskrete GPU ve
   </data>
   <data name="SensorsControl_CPU_Title" xml:space="preserve">
 	  <value>CPU</value>
+  </data>
+  <data name="SensorsControl_Utilization_Title" xml:space="preserve">
+	  <value>Nutzung</value>
   </data>
   <data name="SensorsControl_CoreClock_Title" xml:space="preserve">
 	  <value>Kerntakt</value>
