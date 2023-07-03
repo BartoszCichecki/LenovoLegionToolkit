@@ -158,14 +158,8 @@
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Всегда включать схемы питания Windows</value>
   </data>
-  <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>Зарядка устройств через USB, когда компьютер выключен или находится в режиме сна или гибернации.</value>
-  </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>Постоянное питание от USB</value>
-  </data>
-  <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-    <value>Зарядка устройств через USB, когда компьютер выключен или находится в режиме сна или гибернации.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>Постоянное питание от USB</value>
@@ -187,10 +181,6 @@
   </data>
   <data name="AutomationPage_Actions_Empty" xml:space="preserve">
     <value>Действия не заданы. Нажмите "Добавить новое действие" для создания.</value>
-  </data>
-  <data name="AutomationPage_Actions_Message" xml:space="preserve">
-    <value>При активации эти действия будут выполняться автоматически. При изменении состояния все действия будут обрабатываться сверху вниз.
-Будут выполняться только те действия, которые соответствуют текущему состоянию.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>Действия</value>
@@ -369,10 +359,6 @@
   <data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
     <value>Дата изготовления</value>
   </data>
-  <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-    <value>Время с момента последнего подключения ноутбука к сети.
-Это время может быть неточным, если ноутбук заряжался во время сна или был выключен.</value>
-  </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
     <value>На батарее</value>
   </data>
@@ -496,19 +482,11 @@
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Деактивировать</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-    <value>Графический процессор nVidia может быть отключен.
-
-Обратите внимание, что некоторые программы могут выйти из строя, если вы это сделаете.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Неактивен</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
     <value>Завершить процессы</value>
-  </data>
-  <data name="DiscreteGPUControl_Message" xml:space="preserve">
-    <value>Отключить дискретный графический процессор, если он активен без необходимости.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>Монитор подключен к графическому процессору nVidia.</value>
@@ -530,12 +508,6 @@
   </data>
   <data name="DiscreteGPUControl_Title" xml:space="preserve">
     <value>Дискретный граф. процессор</value>
-  </data>
-  <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-    <value>Изменить яркость встроенного дисплея.
-На некоторых устройствах режимы питания изменяют яркость. Убедитесь, что этот шаг последний, если что-то работает не так, как нужно.
-
-ВНИМАНИЕ: Это действие не будет выполняться корректно, если внутренний дисплей выключен.</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>Яркость дисплея</value>
@@ -646,16 +618,8 @@
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Fn Lock</value>
   </data>
-  <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
-    <value>ВНИМАНИЕ!
-Некоторые ноутбуки могут допускать более низкие пределы мощности, чем они указывают, однако будьте осторожны. Этот параметр может привести к непредсказуемому поведению, поэтому, если вы не уверены в своих действиях, оставьте значение 0.</value>
-  </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
     <value>Минимальное смещение</value>
-  </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-    <value>ВНИМАНИЕ!
-Некоторые ноутбуки могут допускать более высокие пределы мощности, чем они указывают, однако будьте осторожны. Этот параметр может привести к непредсказуемому поведению, поэтому, если вы не уверены в своих действиях, оставьте значение 0.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
     <value>Максимальное смещение</value>
@@ -1002,15 +966,8 @@
   <data name="Paste" xml:space="preserve">
     <value>Вставить</value>
   </data>
-  <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-    <value>Выбрать режим работы.</value>
-  </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Режим питания</value>
-  </data>
-  <data name="PowerModeControl_Message" xml:space="preserve">
-    <value>Выберите режим работы.
-Переключение режима осуществляется с помощью Fn+Q. </value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
     <value>Настройки</value>
@@ -1533,9 +1490,6 @@
   <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
     <value>Имя</value>
   </data>
-  <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-    <value>Некоторые функции могут не отображаться на вкладке "Обзор" в зависимости от состояния и конфигурации вашего устройства.</value>
-  </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>Настроить</value>
   </data>
@@ -1714,9 +1668,6 @@
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
     <value>Обнаружена модель низкой мощности S0</value>
-  </data>
-  <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-    <value>Windows сообщает, что это устройство поддерживает Modern Standby. Применение планов питания, отличных от сбалансированного, может привести к неожиданному поведению.</value>
   </data>
   <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
     <value>Выберите планы питания Windows, которые будут применяться при изменении режима питания.</value>
