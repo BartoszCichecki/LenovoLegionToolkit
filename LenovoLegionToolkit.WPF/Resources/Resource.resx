@@ -1851,7 +1851,7 @@ WARNING: This action will not run correctly, if discrete GPU is not available.</
 	  <value>Sensors</value>
   </data>
   <data name="IGPUModeChangeException_Title" xml:space="preserve">
-	  <value>Could not change dGPU Working Mode</value>
+	  <value>Could not change GPU Working Mode</value>
   </data>
   <data name="IGPUModeChangeException_Message" xml:space="preserve">
 	  <value>Try to change the mode again.</value>

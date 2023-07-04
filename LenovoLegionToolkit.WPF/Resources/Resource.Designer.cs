@@ -2309,7 +2309,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Could not change dGPU Working Mode.
+        ///   Looks up a localized string similar to Could not change GPU Working Mode.
         /// </summary>
         public static string IGPUModeChangeException_Title {
             get {
