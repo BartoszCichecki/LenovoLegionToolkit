@@ -16,15 +16,25 @@ public class SafePerformanceCounter
         _counterName = counterName;
         _instanceName = instanceName;
 
-        _ = TryCreate();
+        TryCreate();
     }
 
-    public float NextValue() => _performanceCounter?.NextValue() ?? 0f;
+    public float NextValue()
+    {
+        try
+        {
+            return _performanceCounter?.NextValue() ?? 0f;
+        }
+        catch
+        {
+            TryCreate();
+            return 0f;
+        }
+    }
 
-    private PerformanceCounter? TryCreate()
+    private void TryCreate()
     {
         try { _performanceCounter = new(_categoryName, _counterName, _instanceName); }
         catch { _performanceCounter = null; }
-        return _performanceCounter;
     }
 }
