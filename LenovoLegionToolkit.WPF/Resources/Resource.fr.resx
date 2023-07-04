@@ -151,6 +151,10 @@
   <data name="AddNew" xml:space="preserve">
     <value>Ajouter une Action</value>
   </data>
+  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
+	  <value>Activer les modes de gestion d’alimentation même si Vantage ou ses services est activé.
+Cette option est destinée uniquement aux appareils qui ne sont pas livrés avec plusieurs modes de gestion d'alimentation.</value>
+  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Toujours activer les modes de gestion d'alimentation de Windows</value>
   </data>
@@ -754,6 +758,9 @@ AVERTISSEMENT : Cette action ne fonctionnera pas correctement si l'affichage int
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>Le rétroéclairage du clavier ne peut pas être contrôlé par ici quand Vantage ou ses services sont en exécution.</value>
   </data>
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
+	  <value>Lenovo Vantage ou ses services sont en cours d'exécution</value>
+  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>À propos</value>
   </data>
@@ -1018,6 +1025,9 @@ Vous pouvez changer de mode avec Fn+Q.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Le mode d'alimentation sélectionné peut ne pas fonctionner correctement sans adaptateur secteur connecté.</value>
   </data>
+  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
+	  <value>L'activation de cette option lorsque Lenovo Vantage ou ses services sont en cours d'exécution et qu'ils modifient les plans d'alimentation de votre ordinateur portable peut entraîner un comportement inattendu.</value>
+  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Êtes-vous sûr ?</value>
   </data>
@@ -1201,6 +1211,12 @@ Un redémarrage est recommandé après avoir modifié cette option.</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Impossible d'activer les raccourcis claviers Lenovo Hotkeys</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+	  <value>Vantage et/ou ImController n'ont peut-être pas été activés correctement</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+	  <value>Impossible d'activer Vantage et/ou ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Vous pouvez exclure les taux de rafraîchissement, pour rendre le raccourci Fn+R plus pratique.</value>
@@ -1819,5 +1835,12 @@ AVERTISSEMENT : Cette action ne fonctionnera pas correctement si le GPU dédié 
   </data>
   <data name="InstantBootAutomationStepControl_Title" xml:space="preserve">
 	  <value>Démarrage instantané</value>
+  </data>
+  <data name="PowerModeUnavailableWithoutACException_Title" xml:space="preserve">
+	  <value>Impossible de changer le mode d'alimentation</value>
+  </data>
+  <data name="PowerModeUnavailableWithoutACException_Message" xml:space="preserve">
+	  <value>Le mode d'alimentation {0} n'est pas disponible sans le chargeur secteur.</value>
+	  <comment>For example: "{Performance} power mode is not available without AC power."</comment>
   </data>
 </root>
