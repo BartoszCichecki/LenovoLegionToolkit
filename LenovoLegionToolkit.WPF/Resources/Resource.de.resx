@@ -151,6 +151,10 @@
   <data name="AddNew" xml:space="preserve">
     <value>Neu hinzufügen</value>
   </data>
+  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
+	  <value>Aktiviere den Energiesparplan, auch wenn Vantage oder dazugehörige Dienste aktiviert sind.
+Diese Option ist nur für Geräte gedacht, die nicht mit mehreren Energiesparplänen ausgestattet sind.</value>
+  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Aktiviere immer Windows Energiesparplan</value>
   </data>
@@ -752,6 +756,9 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn der interne Bildschir
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>Die Tastaturbeleuchtung kann nicht gesteuert werden, wenn Vantage oder dessen Dienste ausgeführt werden.</value>
   </data>
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
+	  <value>Lenovo Vantage oder dazugehörige Dienste werden ausgeführt</value>
+  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Über</value>
   </data>
@@ -1016,6 +1023,9 @@ Sie können den Modus mit Fn+Q wechseln.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Der gewählte Leistungsmodus funktioniert möglicherweise nicht richtig, wenn kein Netzteil angeschlossen ist.</value>
   </data>
+  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
+	  <value>Wenn Sie diese Option aktivieren, während Lenovo Vantage oder die zugehörigen Dienste ausgeführt werden und den Energiesparplan Ihres Laptops ändern, kann dies zu unerwartetem Verhalten führen.</value>
+  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Sind Sie sicher?</value>
   </data>
@@ -1199,6 +1209,12 @@ Nach dem Ändern dieser Option wird ein Neustart empfohlen.</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Lenovo Hotkeys konnte nicht aktiviert werden</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+	  <value>Vantage und/oder ImController wurden möglicherweise nicht korrekt aktiviert</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+	  <value>Vantage und/oder ImController konnten nicht aktiviert werden</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Sie können Bildwiederholraten ausschließen, um die Tastenkombination Fn+R nützlicher zu machen.</value>
@@ -1815,7 +1831,41 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn keine diskrete GPU ve
   <data name="InstantBootControl_Title" xml:space="preserve">
 	  <value>Instant Boot</value>
   </data>
+  <data name="InstantBootControl_Message" xml:space="preserve">
+	  <value>Schalte den Laptop ein, wenn ein Netzadapter angeschlossen wird.</value>
+  </data>
   <data name="InstantBootAutomationStepControl_Title" xml:space="preserve">
 	  <value>Instant Boot</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Message" xml:space="preserve">
+	  <value>Schalte den Laptop ein, wenn ein Netzadapter angeschlossen wird.</value>
+  </data>
+  <data name="PowerModeUnavailableWithoutACException_Title" xml:space="preserve">
+	  <value>Leistungsmodus kann nicht geändert werden</value>
+  </data>
+  <data name="PowerModeUnavailableWithoutACException_Message" xml:space="preserve">
+	  <value>Leistungsmodus {0} ist ohne Netzadapter nicht verfügbar.</value>
+	  <comment>For example: "{Performance} power mode is not available without AC power."</comment>
+  </data>
+  <data name="EditDashboardWindow_Sensors" xml:space="preserve">
+	  <value>Sensoren</value>
+  </data>
+  <data name="IGPUModeChangeException_Title" xml:space="preserve">
+	  <value>GPU-Betriebsmodus konnte nicht geändert werden</value>
+  </data>
+  <data name="IGPUModeChangeException_Message" xml:space="preserve">
+	  <value>Versuchen Sie erneut, den Modus zu ändern.</value>
+  </data>
+  <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
+	  <value>dGPU wird derzeit verwendet</value>
+  </data>
+  <data name="IGPUModeChangeException_Message_IGPUOnly" xml:space="preserve">
+	  <value>dGPU wird automatisch getrennt, wenn sie nicht verwendet wird.</value>
+  </data>
+  <data name="IGPUModeChangeException_Title_Auto" xml:space="preserve">
+	  <value>dGPU wird gerade verwendet oder der Laptop ist nicht im Akkubetrieb</value>
+  </data>
+  <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
+	  <value>dGPU wird automatisch getrennt, wenn sie nicht verwendet wird und der Laptop im Akkubetrieb ist.</value>
   </data>
 </root>
