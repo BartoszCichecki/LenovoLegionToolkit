@@ -2,6 +2,7 @@
 using System.Windows;
 using LenovoLegionToolkit.WPF.Windows;
 using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Utils;
 
@@ -15,24 +16,7 @@ public static class SnackbarHelper
         if (snackBar is null)
             return;
 
-        snackBar.Icon = type switch
-        {
-            SnackbarType.Warning => SymbolRegular.Warning24,
-            SnackbarType.Error => SymbolRegular.ErrorCircle24,
-            _ => SymbolRegular.Checkmark24
-        };
-        snackBar.Timeout = type switch
-        {
-            SnackbarType.Warning => 5000,
-            SnackbarType.Error => 5000,
-            _ => 2000
-        };
-        snackBar.CloseButtonEnabled = type switch
-        {
-            SnackbarType.Warning => true,
-            SnackbarType.Error => true,
-            _ => false
-        };
+        SetupSnackbarAppearance(snackBar, type);
         await snackBar.ShowAsync(title, message);
     }
 
@@ -44,6 +28,18 @@ public static class SnackbarHelper
         if (snackBar is null)
             return;
 
+        SetupSnackbarAppearance(snackBar, type);
+        snackBar.Show(title, message);
+    }
+
+    private static void SetupSnackbarAppearance(Snackbar snackBar, SnackbarType type)
+    {
+        snackBar.Appearance = type switch
+        {
+            SnackbarType.Warning => ControlAppearance.Caution,
+            SnackbarType.Error => ControlAppearance.Danger,
+            _ => ControlAppearance.Primary
+        };
         snackBar.Icon = type switch
         {
             SnackbarType.Warning => SymbolRegular.Warning24,
@@ -62,6 +58,5 @@ public static class SnackbarHelper
             SnackbarType.Error => true,
             _ => false
         };
-        snackBar.Show(title, message);
     }
 }

@@ -42,6 +42,9 @@ public class IoCModule : Module
         builder.Register<HDRFeature>();
         builder.Register<HybridModeFeature>();
         builder.Register<IGPUModeFeature>();
+        builder.Register<IGPUModeCapabilityFeature>(true);
+        builder.Register<IGPUModeFeatureFlagsFeature>(true);
+        builder.Register<IGPUModeGamezoneFeature>(true);
         builder.Register<InstantBootFeature>();
         builder.Register<InstantBootFeatureFlagsFeature>(true);
         builder.Register<InstantBootCapabilityFeature>(true);

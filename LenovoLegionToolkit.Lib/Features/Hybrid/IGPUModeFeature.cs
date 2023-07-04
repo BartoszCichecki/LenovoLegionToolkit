@@ -11,9 +11,40 @@ using Windows.Win32.Foundation;
 
 namespace LenovoLegionToolkit.Lib.Features.Hybrid;
 
-public class IGPUModeFeature : AbstractLenovoGamezoneWmiFeature<IGPUModeState>
+public class IGPUModeChangeException : Exception
 {
-    public IGPUModeFeature() : base("IGPUModeStatus", 0, "IsSupportIGPUMode", inParameterName: "mode") { }
+    public IGPUModeState IGPUMode { get; }
+
+    public IGPUModeChangeException(IGPUModeState igpuMode)
+    {
+        IGPUMode = igpuMode;
+    }
+}
+
+public class IGPUModeFeature : AbstractCompositeFeature<IGPUModeState, IGPUModeCapabilityFeature, IGPUModeFeatureFlagsFeature, IGPUModeGamezoneFeature>
+{
+    public bool EnableExperimentalSwitching { get; set; }
+
+    public IGPUModeFeature(IGPUModeCapabilityFeature feature1, IGPUModeFeatureFlagsFeature feature2, IGPUModeGamezoneFeature feature3) : base(feature1, feature2, feature3) { }
+
+    protected override async Task<IFeature<IGPUModeState>?> GetFeatureLazyAsync()
+    {
+        if (EnableExperimentalSwitching)
+        {
+            if (await Feature1.IsSupportedAsync().ConfigureAwait(false))
+                return Feature1;
+
+            if (await Feature2.IsSupportedAsync().ConfigureAwait(false))
+                return Feature2;
+        }
+        else
+        {
+            if (await Feature3.IsSupportedAsync().ConfigureAwait(false))
+                return Feature3;
+        }
+
+        return null;
+    }
 
     public async Task NotifyAsync()
     {
@@ -33,8 +64,8 @@ public class IGPUModeFeature : AbstractLenovoGamezoneWmiFeature<IGPUModeState>
         }
     }
 
-    private Task NotifyDGPUStatusAsync(bool state) => WMI.CallAsync(SCOPE,
-        Query,
+    private Task NotifyDGPUStatusAsync(bool state) => WMI.CallAsync("root\\WMI",
+        $"SELECT * FROM LENOVO_GAMEZONE_DATA",
         "NotifyDGPUStatus",
         new() { { "Status", state ? "1" : "0" } });
 
@@ -43,8 +74,8 @@ public class IGPUModeFeature : AbstractLenovoGamezoneWmiFeature<IGPUModeState>
         try
         {
             // ReSharper disable once StringLiteralTypo
-            return await WMI.CallAsync(SCOPE,
-                Query,
+            return await WMI.CallAsync("root\\WMI",
+                $"SELECT * FROM LENOVO_GAMEZONE_DATA",
                 "GetDGPUHWId",
                 new(),
                 pdc =>

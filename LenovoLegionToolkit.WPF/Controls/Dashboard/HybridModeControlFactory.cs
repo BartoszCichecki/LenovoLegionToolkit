@@ -1,9 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.Features.Hybrid;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Resources;
@@ -81,6 +83,21 @@ public static class HybridModeControlFactory
                 await Power.RestartAsync();
             else
                 await RefreshAsync();
+        }
+
+        protected override void OnStateChangeException(Exception exception)
+        {
+            if (exception is IGPUModeChangeException { IGPUMode: not IGPUModeState.Default } ex1)
+            {
+                var (title, message) = ex1.IGPUMode switch
+                {
+                    IGPUModeState.IGPUOnly => (Resource.IGPUModeChangeException_Title_IGPUOnly, Resource.IGPUModeChangeException_Message_IGPUOnly),
+                    IGPUModeState.Auto => (Resource.IGPUModeChangeException_Title_Auto, Resource.IGPUModeChangeException_Message_Auto),
+                    _ => (Resource.IGPUModeChangeException_Title, Resource.IGPUModeChangeException_Message)
+                };
+
+                SnackbarHelper.Show(title, message, SnackbarType.Warning);
+            }
         }
 
         private void InfoButton_Click(object sender, RoutedEventArgs e)
