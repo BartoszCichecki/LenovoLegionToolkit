@@ -89,14 +89,14 @@ public static class HybridModeControlFactory
         {
             if (exception is IGPUModeChangeException { IGPUMode: not IGPUModeState.Default } ex1)
             {
-                var message = ex1.IGPUMode switch
+                var (title, message) = ex1.IGPUMode switch
                 {
-                    IGPUModeState.IGPUOnly => Resource.IGPUModeChangeException_Message_IGPUOnly,
-                    IGPUModeState.Auto => Resource.IGPUModeChangeException_Message_Auto,
-                    _ => Resource.IGPUModeChangeException_Message
+                    IGPUModeState.IGPUOnly => (Resource.IGPUModeChangeException_Title_IGPUOnly, Resource.IGPUModeChangeException_Message_IGPUOnly),
+                    IGPUModeState.Auto => (Resource.IGPUModeChangeException_Title_Auto, Resource.IGPUModeChangeException_Message_Auto),
+                    _ => (Resource.IGPUModeChangeException_Title, Resource.IGPUModeChangeException_Message)
                 };
 
-                SnackbarHelper.Show(Resource.IGPUModeChangeException_Title, message, SnackbarType.Warning);
+                SnackbarHelper.Show(title, message, SnackbarType.Warning);
             }
         }
 

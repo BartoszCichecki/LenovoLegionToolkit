@@ -2282,7 +2282,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Discrete GPU might have not been disconnected or reconnected properly. Wait a bit or try to change the mode again..
+        ///   Looks up a localized string similar to Try to change the mode again..
         /// </summary>
         public static string IGPUModeChangeException_Message {
             get {
@@ -2291,7 +2291,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Discrete GPU will disconnect automatically when not in use and laptop is on battery power..
+        ///   Looks up a localized string similar to dGPU will disconnect automatically when not in use and laptop is on battery power..
         /// </summary>
         public static string IGPUModeChangeException_Message_Auto {
             get {
@@ -2300,8 +2300,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Make sure that dGPU is not being used.
-        ///dGPU will disconnect automatically when not in use..
+        ///   Looks up a localized string similar to dGPU will disconnect automatically when not in use..
         /// </summary>
         public static string IGPUModeChangeException_Message_IGPUOnly {
             get {
@@ -2315,6 +2314,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string IGPUModeChangeException_Title {
             get {
                 return ResourceManager.GetString("IGPUModeChangeException_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to dGPU is currently in use or laptop is not on battery power.
+        /// </summary>
+        public static string IGPUModeChangeException_Title_Auto {
+            get {
+                return ResourceManager.GetString("IGPUModeChangeException_Title_Auto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to dGPU is currently in use.
+        /// </summary>
+        public static string IGPUModeChangeException_Title_IGPUOnly {
+            get {
+                return ResourceManager.GetString("IGPUModeChangeException_Title_IGPUOnly", resourceCulture);
             }
         }
         
