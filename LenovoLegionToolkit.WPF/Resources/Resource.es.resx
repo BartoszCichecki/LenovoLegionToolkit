@@ -1850,4 +1850,7 @@ AVISO: Esta acción no se ejecutará correctamente si no se dispone de una GPU e
 	  <value>El modo de energía {0} no está disponible sin alimentación de corriente eléctrica.</value>
 	  <comment>For example: "{Performance} power mode is not available without AC power."</comment>
   </data>
+  <data name="EditDashboardWindow_Sensors" xml:space="preserve">
+	  <value>Sensores</value>
+  </data>
 </root>
