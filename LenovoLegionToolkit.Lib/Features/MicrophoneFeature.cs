@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Extensions;
 using NAudio.CoreAudioApi;
 
 namespace LenovoLegionToolkit.Lib.Features;
@@ -9,15 +11,15 @@ public class MicrophoneFeature : IFeature<MicrophoneState>
 {
     private readonly MMDeviceEnumerator _enumerator = new();
 
-    private MMDeviceCollection Devices => _enumerator.EnumerateAudioEndPoints(DataFlow.Capture, DeviceState.Active);
+    private IEnumerable<AudioEndpointVolume> AudioEndpointVolumes => _enumerator.EnumerateAudioEndPoints(DataFlow.Capture, DeviceState.Active).Select(d => d.AudioEndpointVolume);
 
-    public Task<bool> IsSupportedAsync() => Task.FromResult(Devices.Any());
+    public Task<bool> IsSupportedAsync() => Task.FromResult(AudioEndpointVolumes.Any());
 
     public Task<MicrophoneState[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<MicrophoneState>());
 
     public Task<MicrophoneState> GetStateAsync()
     {
-        var mute = Devices.Aggregate(true, (current, device) => current && device.AudioEndpointVolume.Mute);
+        var mute = AudioEndpointVolumes.Aggregate(true, (current, v) => current && v.Mute);
         var result = mute ? MicrophoneState.Off : MicrophoneState.On;
         return Task.FromResult(result);
     }
@@ -25,8 +27,7 @@ public class MicrophoneFeature : IFeature<MicrophoneState>
     public Task SetStateAsync(MicrophoneState state)
     {
         var mute = MicrophoneState.Off == state;
-        foreach (var device in Devices)
-            device.AudioEndpointVolume.Mute = mute;
+        AudioEndpointVolumes.ForEach(v => v.Mute = mute);
         return Task.CompletedTask;
     }
 }
