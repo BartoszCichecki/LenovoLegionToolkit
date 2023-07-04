@@ -151,6 +151,10 @@
   <data name="AddNew" xml:space="preserve">
     <value>Añadir nueva</value>
   </data>
+  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
+	  <value>Activar el Plan de energía aunque Vantage o sus servicios estén activados.
+Esta opción solo está pensada para dispositivos que no vienen con varios planes de energía.</value>
+  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Activar siempre el plan de energía de Windows</value>
   </data>
@@ -754,6 +758,9 @@ AVISO: Esta acción no se ejecutará correctamente si la pantalla interna está 
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>La retroiluminación del teclado no puede ser controlada aquí, si Vantage o sus servicios están funcionando.</value>
   </data>
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
+	  <value>Lenovo Vantage o sus servicios se están ejecutando</value>
+  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Acerca de</value>
   </data>
@@ -1018,6 +1025,9 @@ Puede cambiar de modo con Fn+Q.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>El modo de alimentación seleccionado puede no funcionar correctamente sin el adaptador de corriente alterna conectado.</value>
   </data>
+  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
+	  <value>Activar esta opción si Lenovo Vantage o sus servicios se están ejecutando y eso cambia los planes de energía de su portátil, lo que podría dar lugar a un comportamiento inesperado.</value>
+  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>¿Está seguro?</value>
   </data>
@@ -1201,6 +1211,12 @@ Se recomienda reiniciar después de cambiar esta opción.</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>No se pueden activar las teclas de acceso rápido de Lenovo</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+	  <value>Vantage y/o ImController pueden no haber sido activados correctamente</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+	  <value>No se ha podido activar Vantage y/o ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Puede excluir las tasas de refresco, para que el acceso rápido Fn+R sea más útil.</value>
@@ -1818,7 +1834,23 @@ AVISO: Esta acción no se ejecutará correctamente si no se dispone de una GPU e
   <data name="InstantBootControl_Title" xml:space="preserve">
 	  <value>Inicio inmediato</value>
   </data>
+  <data name="InstantBootControl_Message" xml:space="preserve">
+	  <value>Encender el portátil cuando haya un cargador conectado.</value>
+  </data>
   <data name="InstantBootAutomationStepControl_Title" xml:space="preserve">
 	  <value>Inicio inmediato</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Message" xml:space="preserve">
+	  <value>Encender el portátil cuando haya un cargador conectado.</value>
+  </data>
+  <data name="PowerModeUnavailableWithoutACException_Title" xml:space="preserve">
+	  <value>No se puede cambiar el modo de energía</value>
+  </data>
+  <data name="PowerModeUnavailableWithoutACException_Message" xml:space="preserve">
+	  <value>El modo de energía {0} no está disponible sin alimentación de corriente eléctrica.</value>
+	  <comment>For example: "{Performance} power mode is not available without AC power."</comment>
+  </data>
+  <data name="EditDashboardWindow_Sensors" xml:space="preserve">
+	  <value>Sensores</value>
   </data>
 </root>
