@@ -27,7 +27,7 @@ public class IGPUModeCapabilityFeature : IFeature<IGPUModeState>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting state...");
 
-        var value = await GetFeatureValueAsync(CapabilityID.IGPUModeSupport).ConfigureAwait(false);
+        var value = await GetFeatureValueAsync(CapabilityID.IGPUMode).ConfigureAwait(false);
         var result = (IGPUModeState)value;
 
         if (Log.Instance.IsTraceEnabled)
@@ -41,7 +41,7 @@ public class IGPUModeCapabilityFeature : IFeature<IGPUModeState>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Setting state to {state}...");
 
-        await SetFeatureValueAsync(CapabilityID.IGPUModeSupport, (int)state).ConfigureAwait(false);
+        await SetFeatureValueAsync(CapabilityID.IGPUMode, (int)state).ConfigureAwait(false);
         if (await GetFeatureValueAsync(CapabilityID.IGPUModeChangeStatus).ConfigureAwait(false) == 0)
         {
             if (Log.Instance.IsTraceEnabled)

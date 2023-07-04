@@ -36,7 +36,7 @@ public enum BatteryState
 
 public enum CapabilityID : uint
 {
-    IGPUModeSupport = 0x0010000,
+    IGPUMode = 0x0010000,
     NvidiaGPUDynamicDisplaySwitching = 0x0040000,
     AMDSmartShiftMode = 0x0050001,
     AMDSkinTemperatureTracking = 0x0050002,
