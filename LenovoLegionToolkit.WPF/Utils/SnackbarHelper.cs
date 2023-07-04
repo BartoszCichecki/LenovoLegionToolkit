@@ -38,7 +38,7 @@ public static class SnackbarHelper
         {
             SnackbarType.Warning => ControlAppearance.Caution,
             SnackbarType.Error => ControlAppearance.Danger,
-            _ => ControlAppearance.Primary
+            _ => ControlAppearance.Secondary
         };
         snackBar.Icon = type switch
         {
@@ -48,14 +48,12 @@ public static class SnackbarHelper
         };
         snackBar.Timeout = type switch
         {
-            SnackbarType.Warning => 5000,
-            SnackbarType.Error => 5000,
+            SnackbarType.Warning or SnackbarType.Error => 5000,
             _ => 2000
         };
         snackBar.CloseButtonEnabled = type switch
         {
-            SnackbarType.Warning => true,
-            SnackbarType.Error => true,
+            SnackbarType.Warning or SnackbarType.Error => true,
             _ => false
         };
     }
