@@ -1833,8 +1833,14 @@ AVERTISSEMENT : Cette action ne fonctionnera pas correctement si le GPU dédié 
   <data name="InstantBootControl_Title" xml:space="preserve">
 	  <value>Démarrage instantané</value>
   </data>
+  <data name="InstantBootControl_Message" xml:space="preserve">
+	  <value>Allumer l'ordinateur lorsqu'un chargeur est branché.</value>
+  </data>
   <data name="InstantBootAutomationStepControl_Title" xml:space="preserve">
 	  <value>Démarrage instantané</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Message" xml:space="preserve">
+	  <value>Allumer l'ordinateur lorsqu'un chargeur est branché.</value>
   </data>
   <data name="PowerModeUnavailableWithoutACException_Title" xml:space="preserve">
 	  <value>Impossible de changer le mode d'alimentation</value>
@@ -1842,5 +1848,14 @@ AVERTISSEMENT : Cette action ne fonctionnera pas correctement si le GPU dédié 
   <data name="PowerModeUnavailableWithoutACException_Message" xml:space="preserve">
 	  <value>Le mode d'alimentation {0} n'est pas disponible sans le chargeur secteur.</value>
 	  <comment>For example: "{Performance} power mode is not available without AC power."</comment>
+  </data>
+  <data name="EditDashboardWindow_Sensors" xml:space="preserve">
+	  <value>Capteurs</value>
+  </data>
+  <data name="IGPUModeChangeException_Title" xml:space="preserve">
+	  <value>Impossible de changer le mode de fonctionnement GPU</value>
+  </data>
+  <data name="IGPUModeChangeException_Message" xml:space="preserve">
+	  <value>Essayez de changer de mode à nouveau.</value>
   </data>
 </root>
