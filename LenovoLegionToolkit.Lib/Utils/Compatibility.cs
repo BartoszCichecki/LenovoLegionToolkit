@@ -193,7 +193,7 @@ public static class Compatibility
             return new()
             {
                 Source = MachineInformation.FeatureData.SourceType.CapabilityData,
-                IGPUMode = capabilities.Contains(CapabilityID.IGPUModeSupport),
+                IGPUMode = capabilities.Contains(CapabilityID.IGPUMode),
                 NvidiaGPUDynamicDisplaySwitching = capabilities.Contains(CapabilityID.NvidiaGPUDynamicDisplaySwitching),
                 InstantBootAc = capabilities.Contains(CapabilityID.InstantBootAc),
                 InstantBootUsbPowerDelivery = capabilities.Contains(CapabilityID.InstantBootUsbPowerDelivery),
