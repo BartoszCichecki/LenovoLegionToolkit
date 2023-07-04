@@ -1572,8 +1572,7 @@
     <value>点此输入名称</value>
   </data>
   <data name="Notification_PanelLogoLightingOn" xml:space="preserve">
-    <value>拯救者 LOGO 灯 开
-</value>
+    <value>拯救者 LOGO 灯 开</value>
   </data>
   <data name="Notification_PanelLogoLightingOff" xml:space="preserve">
     <value>拯救者 LOGO 灯 关</value>
@@ -1855,5 +1854,8 @@
   <data name="PowerModeUnavailableWithoutACException_Message" xml:space="preserve">
 	  <value>在未接入全功率电源适配器时无法启用{0}</value>
 	  <comment>For example: "{Performance} power mode is not available without AC power."</comment>
+  </data>
+  <data name="EditDashboardWindow_Sensors" xml:space="preserve">
+	  <value>硬件监控信息</value>
   </data>
 </root>
