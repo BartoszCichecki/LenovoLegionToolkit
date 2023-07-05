@@ -1853,4 +1853,22 @@ AVISO: Esta acción no se ejecutará correctamente si no se dispone de una GPU e
   <data name="EditDashboardWindow_Sensors" xml:space="preserve">
 	  <value>Sensores</value>
   </data>
+  <data name="IGPUModeChangeException_Title" xml:space="preserve">
+	  <value>No se puede cambiar el modo de trabajo de la GPU</value>
+  </data>
+  <data name="IGPUModeChangeException_Message" xml:space="preserve">
+	  <value>Intente cambiar el modo de nuevo.</value>
+  </data>
+  <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
+	  <value>La dGPU está actualmente en uso</value>
+  </data>
+  <data name="IGPUModeChangeException_Message_IGPUOnly" xml:space="preserve">
+	  <value>La dGPU se desconectará automáticamente cuando no esté en uso.</value>
+  </data>
+  <data name="IGPUModeChangeException_Title_Auto" xml:space="preserve">
+	  <value>La dGPU está actualmente en uso o el portátil no está alimentado por batería</value>
+  </data>
+  <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
+	  <value>La dGPU se desconectará automáticamente cuando no esté en uso y el portátil esté alimentado por batería.</value>
+  </data>
 </root>
