@@ -295,7 +295,7 @@ public static class Compatibility
         }
         catch { /* Ignored. */ }
 
-        return 0;
+        return -1;
     }
 
     private static async Task<int> GetLegionZoneVersionAsync()
@@ -322,7 +322,7 @@ public static class Compatibility
         }
         catch { /* Ignored. */ }
 
-        return 0;
+        return -1;
     }
 
     private static unsafe (bool status, bool connectivity) GetAlwaysOnAcStatus()
