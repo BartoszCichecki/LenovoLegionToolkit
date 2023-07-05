@@ -826,7 +826,7 @@ public class GodModeControllerV1 : AbstractGodModeController
     private static Task SetFanFullSpeedAsync(bool enabled) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_FAN_METHOD",
         "Fan_Set_FullSpeed",
-        new() { { "Status", enabled } });
+        new() { { "Status", enabled ? 1 : 0 } });
 
     #endregion
 
