@@ -230,7 +230,7 @@ Many thanks to everyone else, who monitors and corrects translations!
 
 ## FAQ
 
-* [Why do I get a message that Vantage is still running, even though I uninstalled it?](#Why do I get a message that Vantage is still running, even though I uninstalled it?)
+* [Why do I get a message that Vantage is still running, even though I uninstalled it?](#vantage-running)
 * [Why is my antivirus reporting that the installer contains a virus/trojan/malware?](Why is my antivirus reporting that the installer contains a virus/trojan/malware?)
 * [Can I customize hotkeys?](Can I customize hotkeys?)
 * [Why can't I switch to Performance or Custom Power Mode on battery?](Why can't I switch to Performance or Custom Power Mode on battery?)
@@ -247,7 +247,7 @@ Many thanks to everyone else, who monitors and corrects translations!
 
 
 
-#### Why do I get a message that Vantage is still running, even though I uninstalled it?
+####  <a id="vantage-running" />Why do I get a message that Vantage is still running, even though I uninstalled it?
 
 Starting from version 2.14.0, LLT is much more strict about detecting leftover processes related to Vantage. Vantage installs 3 components:
 
