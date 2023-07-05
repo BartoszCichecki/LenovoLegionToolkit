@@ -58,7 +58,7 @@ public class IGPUModeCapabilityFeature : IFeature<IGPUModeState>
         WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_OTHER_METHOD",
             "GetFeatureValue",
-            new() { { "IDs", id } },
+            new() { { "IDs", (int)id } },
             pdc => Convert.ToInt32(pdc["Value"].Value));
 
     private static Task SetFeatureValueAsync(CapabilityID id, int value) =>
@@ -67,7 +67,7 @@ public class IGPUModeCapabilityFeature : IFeature<IGPUModeState>
             "SetFeatureValue",
             new()
             {
-                { "IDs", id },
+                { "IDs", (int)id },
                 { "value", value }
             });
 }

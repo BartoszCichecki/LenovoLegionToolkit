@@ -68,7 +68,7 @@ public class InstantBootCapabilityFeature : IFeature<InstantBootState>
         WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_OTHER_METHOD",
             "GetFeatureValue",
-            new() { { "IDs", id } },
+            new() { { "IDs", (int)id } },
             pdc => Convert.ToInt32(pdc["Value"].Value) != 0);
 
     private static Task SetFeatureValueAsync(CapabilityID id, bool value) =>
@@ -77,7 +77,7 @@ public class InstantBootCapabilityFeature : IFeature<InstantBootState>
             "SetFeatureValue",
             new()
             {
-                { "IDs", id },
+                { "IDs", (int)id },
                 { "value", value ? 1 : 0 }
             });
 }

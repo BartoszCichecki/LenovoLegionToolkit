@@ -62,7 +62,7 @@ public class IGPUModeFeature : AbstractCompositeFeature<IGPUModeState, IGPUModeC
     private Task NotifyDGPUStatusAsync(bool state) => WMI.CallAsync("root\\WMI",
         $"SELECT * FROM LENOVO_GAMEZONE_DATA",
         "NotifyDGPUStatus",
-        new() { { "Status", state ? "1" : "0" } });
+        new() { { "Status", state ? 1 : 0 } });
 
     private async Task<HardwareId> GetDGPUHardwareId()
     {

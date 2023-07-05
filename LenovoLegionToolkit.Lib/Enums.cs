@@ -34,7 +34,7 @@ public enum BatteryState
     RapidCharge
 }
 
-public enum CapabilityID : uint
+public enum CapabilityID
 {
     IGPUMode = 0x0010000,
     NvidiaGPUDynamicDisplaySwitching = 0x0040000,
