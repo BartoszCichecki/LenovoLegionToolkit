@@ -395,6 +395,7 @@ public readonly struct MachineInformation
     public string SerialNumber { get; init; }
     public BiosVersion? BiosVersion { get; init; }
     public string? BiosVersionRaw { get; init; }
+    public PowerModeState[] SupportedPowerModes { get; init; }
     public int SmartFanVersion { get; init; }
     public int LegionZoneVersion { get; init; }
     public FeatureData Features { get; init; }

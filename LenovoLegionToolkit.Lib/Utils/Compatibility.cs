@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
@@ -86,6 +87,7 @@ public static class Compatibility
 
         var (vendor, machineType, model, serialNumber) = await GetModelDataAsync().ConfigureAwait(false);
         var (biosVersion, biosVersionRaw) = await GetBIOSVersionAsync().ConfigureAwait(false);
+        var supportedPowerModes = (await GetSupportedPowerModesAsync().ConfigureAwait(false)).ToArray();
         var smartFanVersion = await GetSmartFanVersionAsync().ConfigureAwait(false);
         var legionZoneVersion = await GetLegionZoneVersionAsync().ConfigureAwait(false);
         var features = await GetFeaturesAsync().ConfigureAwait(false);
@@ -98,14 +100,15 @@ public static class Compatibility
             SerialNumber = serialNumber,
             BiosVersion = biosVersion,
             BiosVersionRaw = biosVersionRaw,
+            SupportedPowerModes = supportedPowerModes,
             SmartFanVersion = smartFanVersion,
             LegionZoneVersion = legionZoneVersion,
             Features = features,
             Properties = new()
             {
                 SupportsAlwaysOnAc = GetAlwaysOnAcStatus(),
-                SupportsGodModeV1 = GetSupportsGodModeV1(smartFanVersion, legionZoneVersion, biosVersion),
-                SupportsGodModeV2 = GetSupportsGodModeV2(smartFanVersion, legionZoneVersion),
+                SupportsGodModeV1 = GetSupportsGodModeV1(supportedPowerModes, smartFanVersion, legionZoneVersion, biosVersion),
+                SupportsGodModeV2 = GetSupportsGodModeV2(supportedPowerModes, smartFanVersion, legionZoneVersion),
                 SupportsIGPUMode = await GetSupportsIGPUModeAsync().ConfigureAwait(false),
                 SupportsIntelligentSubMode = await GetSupportsIntelligentSubModeAsync().ConfigureAwait(false),
                 HasQuietToPerformanceModeSwitchingBug = GetHasQuietToPerformanceModeSwitchingBug(biosVersion),
@@ -122,6 +125,7 @@ public static class Compatibility
             Log.Instance.Trace($" * Machine Type: '{machineInformation.MachineType}'");
             Log.Instance.Trace($" * Model: '{machineInformation.Model}'");
             Log.Instance.Trace($" * BIOS: '{machineInformation.BiosVersion}' [{machineInformation.BiosVersionRaw}]");
+            Log.Instance.Trace($" * SupportedPowerModes: '{string.Join(",", machineInformation.SupportedPowerModes)}'");
             Log.Instance.Trace($" * SmartFanVersion: '{machineInformation.SmartFanVersion}'");
             Log.Instance.Trace($" * LegionZoneVersion: '{machineInformation.LegionZoneVersion}'");
             Log.Instance.Trace($" * Features:");
@@ -227,6 +231,57 @@ public static class Compatibility
         return MachineInformation.FeatureData.Unknown;
     }
 
+    private static async Task<IEnumerable<PowerModeState>> GetSupportedPowerModesAsync()
+    {
+        try
+        {
+            var powerModes = new List<PowerModeState>();
+
+            var result = await WMI.CallAsync("root\\WMI",
+                $"SELECT * FROM LENOVO_OTHER_METHOD",
+                "GetFeatureValue",
+                new() { { "IDs", CapabilityID.SupportedPowerModes } },
+                pdc => Convert.ToInt32(pdc["Value"].Value)).ConfigureAwait(false);
+
+            if (result.IsBitSet(0))
+                powerModes.Add(PowerModeState.Quiet);
+            if (result.IsBitSet(1))
+                powerModes.Add(PowerModeState.Balance);
+            if (result.IsBitSet(2))
+                powerModes.Add(PowerModeState.Performance);
+            if (result.IsBitSet(16))
+                powerModes.Add(PowerModeState.GodMode);
+
+            return powerModes;
+        }
+        catch { /* Ignored. */ }
+
+        try
+        {
+            var powerModes = new List<PowerModeState>();
+
+            var result = await WMI.CallAsync("root\\WMI",
+                $"SELECT * FROM LENOVO_OTHER_METHOD",
+                "GetSupportThermalMode",
+                new(),
+                pdc => Convert.ToInt32(pdc["mode"].Value)).ConfigureAwait(false);
+
+            if (result.IsBitSet(0))
+                powerModes.Add(PowerModeState.Quiet);
+            if (result.IsBitSet(1))
+                powerModes.Add(PowerModeState.Balance);
+            if (result.IsBitSet(2))
+                powerModes.Add(PowerModeState.Performance);
+            if (result.IsBitSet(16))
+                powerModes.Add(PowerModeState.GodMode);
+
+            return powerModes;
+        }
+        catch { /* Ignored. */ }
+
+        return Array.Empty<PowerModeState>();
+    }
+
     private static async Task<int> GetSmartFanVersionAsync()
     {
         try
@@ -285,15 +340,18 @@ public static class Compatibility
         return (capabilities.AoAc, capabilities.AoAcConnectivitySupported);
     }
 
-    private static bool GetSupportsGodModeV1(int smartFanVersion, int legionZoneVersion, BiosVersion? biosVersion)
+    private static bool GetSupportsGodModeV1(IEnumerable<PowerModeState> supportedPowerModes, int smartFanVersion, int legionZoneVersion, BiosVersion? biosVersion)
     {
+        if (!supportedPowerModes.Contains(PowerModeState.GodMode))
+            return false;
+
         var affectedBiosVersions = new BiosVersion[]
         {
             new("G9CN", 24),
             new("GKCN", 46),
             new("H1CN", 39),
             new("HACN", 31),
-            new("HHCN", 20),
+            new("HHCN", 20)
         };
 
         if (affectedBiosVersions.Any(bv => biosVersion?.IsLowerThan(bv) ?? false))
@@ -302,7 +360,13 @@ public static class Compatibility
         return smartFanVersion is 4 or 5 || legionZoneVersion is 1 or 2;
     }
 
-    private static bool GetSupportsGodModeV2(int smartFanVersion, int legionZoneVersion) => smartFanVersion is 6 || legionZoneVersion is 3;
+    private static bool GetSupportsGodModeV2(IEnumerable<PowerModeState> supportedPowerModes, int smartFanVersion, int legionZoneVersion)
+    {
+        if (!supportedPowerModes.Contains(PowerModeState.GodMode))
+            return false;
+
+        return smartFanVersion is 6 || legionZoneVersion is 3;
+    }
 
     private static async Task<bool> GetSupportsIGPUModeAsync()
     {
