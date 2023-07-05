@@ -39,17 +39,13 @@ public class SensorsControllerV3 : AbstractSensorsController
     protected override async Task<int> GetCpuCurrentTemperatureAsync()
     {
         var t = await GetFeatureValueAsync(CapabilityID.CpuCurrentTemperature).ConfigureAwait(false);
-        if (t < 1)
-            return -1;
-        return 0;
+        return t < 1 ? -1 : t;
     }
 
     protected override async Task<int> GetGpuCurrentTemperatureAsync()
     {
         var t = await GetFeatureValueAsync(CapabilityID.GpuCurrentTemperature).ConfigureAwait(false);
-        if (t < 1)
-            return -1;
-        return 0;
+        return t < 1 ? -1 : t;
     }
 
     protected override Task<int> GetCpuCurrentFanSpeedAsync() => GetFeatureValueAsync(CapabilityID.CpuCurrentFanSpeed);
