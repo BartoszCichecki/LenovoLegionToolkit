@@ -240,7 +240,7 @@ public static class Compatibility
             var result = await WMI.CallAsync("root\\WMI",
                 $"SELECT * FROM LENOVO_OTHER_METHOD",
                 "GetFeatureValue",
-                new() { { "IDs", CapabilityID.SupportedPowerModes } },
+                new() { { "IDs", (int)CapabilityID.SupportedPowerModes } },
                 pdc => Convert.ToInt32(pdc["Value"].Value)).ConfigureAwait(false);
 
             if (result.IsBitSet(0))
@@ -295,7 +295,7 @@ public static class Compatibility
         }
         catch { /* Ignored. */ }
 
-        return 0;
+        return -1;
     }
 
     private static async Task<int> GetLegionZoneVersionAsync()
@@ -305,7 +305,7 @@ public static class Compatibility
             var result = await WMI.CallAsync("root\\WMI",
                 $"SELECT * FROM LENOVO_OTHER_METHOD",
                 "GetFeatureValue",
-                new() { { "IDs", CapabilityID.LegionZoneSupportVersion } },
+                new() { { "IDs", (int)CapabilityID.LegionZoneSupportVersion } },
                 pdc => Convert.ToInt32(pdc["Value"].Value)).ConfigureAwait(false);
             return result;
         }
@@ -322,7 +322,7 @@ public static class Compatibility
         }
         catch { /* Ignored. */ }
 
-        return 0;
+        return -1;
     }
 
     private static unsafe (bool status, bool connectivity) GetAlwaysOnAcStatus()

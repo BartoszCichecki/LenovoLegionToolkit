@@ -34,15 +34,15 @@ public enum BatteryState
     RapidCharge
 }
 
-public enum CapabilityID : uint
+public enum CapabilityID
 {
-    IGPUMode = 0x0010000,
-    NvidiaGPUDynamicDisplaySwitching = 0x0040000,
-    AMDSmartShiftMode = 0x0050001,
-    AMDSkinTemperatureTracking = 0x0050002,
-    SupportedPowerModes = 0x0070000,
-    LegionZoneSupportVersion = 0x00900000,
-    IGPUModeChangeStatus = 0x00F0000,
+    IGPUMode = 0x00010000,
+    NvidiaGPUDynamicDisplaySwitching = 0x00040000,
+    AMDSmartShiftMode = 0x00050001,
+    AMDSkinTemperatureTracking = 0x00050002,
+    SupportedPowerModes = 0x00070000,
+    LegionZoneSupportVersion = 0x00090000,
+    IGPUModeChangeStatus = 0x000F0000,
     CPUShortTermPowerLimit = 0x0101FF00,
     CPULongTermPowerLimit = 0x0102FF00,
     CPUPeakPowerLimit = 0x0103FF00,

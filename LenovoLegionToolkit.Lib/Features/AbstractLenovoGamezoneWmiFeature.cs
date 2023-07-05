@@ -80,7 +80,7 @@ public abstract class AbstractLenovoGamezoneWmiFeature<T> : IFeature<T> where T 
         await WMI.CallAsync(SCOPE,
             Query,
             "Set" + _methodNameSuffix,
-            new() { { _inParameterName, ToInternal(state).ToString() } }).ConfigureAwait(false);
+            new() { { _inParameterName, ToInternal(state) } }).ConfigureAwait(false);
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Set state to {state} [feature={GetType().Name}]");

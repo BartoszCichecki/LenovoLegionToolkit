@@ -61,7 +61,7 @@ public abstract class AbstractSensorsController : ISensorsController
         var gpuCurrentFanSpeed = await GetGpuCurrentFanSpeedAsync().ConfigureAwait(false);
         var gpuMaxFanSpeed = _gpuMaxFanSpeedCache ??= await GetGpuMaxFanSpeedAsync().ConfigureAwait(false);
 
-        return new()
+        var result = new SensorsData
         {
             CPU = new()
             {
@@ -77,7 +77,7 @@ public abstract class AbstractSensorsController : ISensorsController
             GPU = new()
             {
                 Utilization = gpuInfo.Utilization,
-                MaxUtilization = genericMaxTemperature,
+                MaxUtilization = genericMaxUtilization,
                 CoreClock = gpuInfo.CoreClock,
                 MaxCoreClock = gpuInfo.MaxCoreClock,
                 MemoryClock = gpuInfo.MemoryClock,
@@ -88,6 +88,11 @@ public abstract class AbstractSensorsController : ISensorsController
                 MaxFanSpeed = gpuMaxFanSpeed,
             }
         };
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Current data: {result} [type={GetType().Name}]");
+
+        return result;
     }
 
     protected abstract Task<int> GetCpuCurrentTemperatureAsync();
@@ -105,7 +110,7 @@ public abstract class AbstractSensorsController : ISensorsController
     private int GetCpuUtilization()
     {
         var result = _percentProcessorUtilityCounter.NextValue();
-        return result == 0.0 ? -1 : (int)result;
+        return Math.Min(100, result == 0.0 ? -1 : (int)result);
     }
 
     private int GetCpuCoreClock()
@@ -175,7 +180,7 @@ public abstract class AbstractSensorsController : ISensorsController
             if (gpu is null)
                 return GPUInfo.Empty;
 
-            var utilization = Math.Max(gpu.UsageInformation.GPU.Percentage, gpu.UsageInformation.VideoEngine.Percentage);
+            var utilization = Math.Min(100, Math.Max(gpu.UsageInformation.GPU.Percentage, gpu.UsageInformation.VideoEngine.Percentage));
 
             var currentCoreClock = (int)gpu.CurrentClockFrequencies.GraphicsClock.Frequency / 1000;
             var currentMemoryClock = (int)gpu.CurrentClockFrequencies.MemoryClock.Frequency / 1000;

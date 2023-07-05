@@ -406,7 +406,7 @@ public class GodModeControllerV2 : AbstractGodModeController
         WMI.CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_OTHER_METHOD",
             "GetFeatureValue",
-            new() { { "IDs", CapabilityID.FanFullSpeed } },
+            new() { { "IDs", (int)CapabilityID.FanFullSpeed } },
             pdc => Convert.ToInt32(pdc["Value"].Value) == 1);
 
     private static Task SetFanFullSpeedAsync(bool enabled) =>
@@ -415,7 +415,7 @@ public class GodModeControllerV2 : AbstractGodModeController
             "SetFeatureValue",
             new()
             {
-                { "IDs", CapabilityID.FanFullSpeed },
+                { "IDs", (int)CapabilityID.FanFullSpeed },
                 { "value", enabled ? 1 : 0 },
             });
 

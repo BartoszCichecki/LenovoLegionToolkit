@@ -673,6 +673,18 @@ public readonly struct SensorData
     public int MaxTemperature { get; init; }
     public int FanSpeed { get; init; }
     public int MaxFanSpeed { get; init; }
+
+    public override string ToString() =>
+        $"{nameof(Utilization)}: {Utilization}," +
+        $" {nameof(MaxUtilization)}: {MaxUtilization}," +
+        $" {nameof(CoreClock)}: {CoreClock}," +
+        $" {nameof(MaxCoreClock)}: {MaxCoreClock}," +
+        $" {nameof(MemoryClock)}: {MemoryClock}," +
+        $" {nameof(MaxMemoryClock)}: {MaxMemoryClock}," +
+        $" {nameof(Temperature)}: {Temperature}," +
+        $" {nameof(MaxTemperature)}: {MaxTemperature}," +
+        $" {nameof(FanSpeed)}: {FanSpeed}," +
+        $" {nameof(MaxFanSpeed)}: {MaxFanSpeed}";
 }
 
 public readonly struct SensorsData
@@ -681,6 +693,8 @@ public readonly struct SensorsData
 
     public SensorData CPU { get; init; }
     public SensorData GPU { get; init; }
+
+    public override string ToString() => $"{nameof(CPU)}: {CPU}, {nameof(GPU)}: {GPU}";
 }
 
 public readonly struct SensorSettings
