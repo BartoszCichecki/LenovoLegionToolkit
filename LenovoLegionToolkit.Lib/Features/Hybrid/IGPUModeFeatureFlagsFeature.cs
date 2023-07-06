@@ -62,21 +62,19 @@ public class IGPUModeFeatureFlagsFeature : IFeature<IGPUModeState>
             Log.Instance.Trace($"Set state to {state}");
     }
 
-    private static Task<int> GetFlagsAsync() =>
-        WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_OTHER_METHOD ",
-            "Get_Device_Current_Support_Feature",
-            new(),
-            pdc => Convert.ToInt32(pdc["Flag"].Value));
+    private static Task<int> GetFlagsAsync() => WMI.CallAsync("root\\WMI",
+        $"SELECT * FROM LENOVO_OTHER_METHOD ",
+        "Get_Device_Current_Support_Feature",
+        new(),
+        pdc => Convert.ToInt32(pdc["Flag"].Value));
 
-    private static Task<int> SetFlagAsync(int flag, int value) =>
-        WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_OTHER_METHOD ",
-            "Set_Device_Current_Support_Feature",
-            new()
-            {
-                { "FunctionID", flag },
-                { "value", value }
-            },
-            pdc => Convert.ToInt32(pdc["ret"].Value));
+    private static Task<int> SetFlagAsync(int flag, int value) => WMI.CallAsync("root\\WMI",
+        $"SELECT * FROM LENOVO_OTHER_METHOD ",
+        "Set_Device_Current_Support_Feature",
+        new()
+        {
+            { "FunctionID", flag },
+            { "value", value }
+        },
+        pdc => Convert.ToInt32(pdc["ret"].Value));
 }

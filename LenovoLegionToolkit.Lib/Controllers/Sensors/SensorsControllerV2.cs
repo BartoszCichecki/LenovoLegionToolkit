@@ -60,19 +60,17 @@ public class SensorsControllerV2 : AbstractSensorsController
 
     protected override Task<int> GetGpuMaxFanSpeedAsync() => GetMaxFanSpeedAsync(GPU_SENSOR_ID, GPU_FAN_ID);
 
-    private static Task<int> GetCurrentTemperatureAsync(int sensorID) =>
-        WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_FAN_METHOD",
-            "Fan_GetCurrentSensorTemperature",
-            new() { { "SensorID", sensorID } },
-            pdc => Convert.ToInt32(pdc["CurrentSensorTemperature"].Value));
+    private static Task<int> GetCurrentTemperatureAsync(int sensorID) => WMI.CallAsync("root\\WMI",
+        $"SELECT * FROM LENOVO_FAN_METHOD",
+        "Fan_GetCurrentSensorTemperature",
+        new() { { "SensorID", sensorID } },
+        pdc => Convert.ToInt32(pdc["CurrentSensorTemperature"].Value));
 
-    private static Task<int> GetCurrentFanSpeedAsync(int fanID) =>
-        WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_FAN_METHOD",
-            "Fan_GetCurrentFanSpeed",
-            new() { { "FanID", fanID } },
-            pdc => Convert.ToInt32(pdc["CurrentFanSpeed"].Value));
+    private static Task<int> GetCurrentFanSpeedAsync(int fanID) => WMI.CallAsync("root\\WMI",
+        $"SELECT * FROM LENOVO_FAN_METHOD",
+        "Fan_GetCurrentFanSpeed",
+        new() { { "FanID", fanID } },
+        pdc => Convert.ToInt32(pdc["CurrentFanSpeed"].Value));
 
     private static async Task<int> GetMaxFanSpeedAsync(int sensorID, int fanID)
     {

@@ -57,5 +57,8 @@ public readonly struct DashboardGroup
         _ => throw new InvalidOperationException($"Invalid type {Type}"),
     };
 
-    public override string ToString() => $"{nameof(Type)}: {Type}, {nameof(CustomName)}: {CustomName}, {nameof(Items)}: {string.Join(",", Items)}";
+    public override string ToString() =>
+        $"{nameof(Type)}: {Type}," +
+        $" {nameof(CustomName)}: {CustomName}," +
+        $" {nameof(Items)}: {string.Join(",", Items)}";
 }

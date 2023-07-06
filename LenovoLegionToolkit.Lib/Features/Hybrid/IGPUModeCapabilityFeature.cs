@@ -54,20 +54,18 @@ public class IGPUModeCapabilityFeature : IFeature<IGPUModeState>
             Log.Instance.Trace($"Set state to {state}");
     }
 
-    private static Task<int> GetFeatureValueAsync(CapabilityID id) =>
-        WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_OTHER_METHOD",
-            "GetFeatureValue",
-            new() { { "IDs", (int)id } },
-            pdc => Convert.ToInt32(pdc["Value"].Value));
+    private static Task<int> GetFeatureValueAsync(CapabilityID id) => WMI.CallAsync("root\\WMI",
+        $"SELECT * FROM LENOVO_OTHER_METHOD",
+        "GetFeatureValue",
+        new() { { "IDs", (int)id } },
+        pdc => Convert.ToInt32(pdc["Value"].Value));
 
-    private static Task SetFeatureValueAsync(CapabilityID id, int value) =>
-        WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_OTHER_METHOD",
-            "SetFeatureValue",
-            new()
-            {
-                { "IDs", (int)id },
-                { "value", value }
-            });
+    private static Task SetFeatureValueAsync(CapabilityID id, int value) => WMI.CallAsync("root\\WMI",
+        $"SELECT * FROM LENOVO_OTHER_METHOD",
+        "SetFeatureValue",
+        new()
+        {
+            { "IDs", (int)id },
+            { "value", value }
+        });
 }
