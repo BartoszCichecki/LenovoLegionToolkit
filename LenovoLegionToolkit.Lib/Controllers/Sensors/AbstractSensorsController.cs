@@ -154,18 +154,17 @@ public abstract class AbstractSensorsController : ISensorsController
         }
     }
 
-    private static Task<int> GetCpuMaxCoreClockAsync() =>
-        WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_GAMEZONE_DATA",
-            "GetCPUFrequency",
-            new(),
-            pdc =>
-            {
-                var value = Convert.ToInt32(pdc["Data"].Value);
-                var low = value & 0xFFFF;
-                var high = value >> 16;
-                return Math.Max(low, high);
-            });
+    private static Task<int> GetCpuMaxCoreClockAsync() => WMI.CallAsync("root\\WMI",
+        $"SELECT * FROM LENOVO_GAMEZONE_DATA",
+        "GetCPUFrequency",
+        new(),
+        pdc =>
+        {
+            var value = Convert.ToInt32(pdc["Data"].Value);
+            var low = value & 0xFFFF;
+            var high = value >> 16;
+            return Math.Max(low, high);
+        });
 
     private GPUInfo GetGPUInfo()
     {

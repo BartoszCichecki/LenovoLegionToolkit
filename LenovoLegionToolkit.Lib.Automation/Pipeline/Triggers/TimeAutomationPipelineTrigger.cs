@@ -86,5 +86,9 @@ public class TimeAutomationPipelineTrigger : ITimeAutomationPipelineTrigger
 
     public override int GetHashCode() => HashCode.Combine(IsSunrise, IsSunset, Time, Days);
 
-    public override string ToString() => $"{nameof(IsSunrise)}: {IsSunrise}, {nameof(IsSunset)}: {IsSunset}, {nameof(Time)}: {Time}, {nameof(Days)}: {Days}";
+    public override string ToString() =>
+        $"{nameof(IsSunrise)}: {IsSunrise}," +
+        $" {nameof(IsSunset)}: {IsSunset}," +
+        $" {nameof(Time)}: {Time}," +
+        $" {nameof(Days)}: {Days}";
 }

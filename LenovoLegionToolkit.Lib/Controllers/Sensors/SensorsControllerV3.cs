@@ -56,12 +56,11 @@ public class SensorsControllerV3 : AbstractSensorsController
 
     protected override Task<int> GetGpuMaxFanSpeedAsync() => GetMaxFanSpeedAsync(GPU_SENSOR_ID, GPU_FAN_ID);
 
-    private static Task<int> GetFeatureValueAsync(CapabilityID id) =>
-        WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_OTHER_METHOD",
-            "GetFeatureValue",
-            new() { { "IDs", (int)id } },
-            pdc => Convert.ToInt32(pdc["Value"].Value));
+    private static Task<int> GetFeatureValueAsync(CapabilityID id) => WMI.CallAsync("root\\WMI",
+        $"SELECT * FROM LENOVO_OTHER_METHOD",
+        "GetFeatureValue",
+        new() { { "IDs", (int)id } },
+        pdc => Convert.ToInt32(pdc["Value"].Value));
 
     private static async Task<int> GetMaxFanSpeedAsync(int sensorID, int fanID)
     {
