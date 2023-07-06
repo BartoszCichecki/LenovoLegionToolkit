@@ -5,6 +5,7 @@ using LenovoLegionToolkit.Lib.Controllers.Sensors;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Features.Hybrid;
+using LenovoLegionToolkit.Lib.Features.Hybrid.Notify;
 using LenovoLegionToolkit.Lib.Features.InstantBoot;
 using LenovoLegionToolkit.Lib.Features.PanelLogo;
 using LenovoLegionToolkit.Lib.Features.WhiteKeyboardBacklight;
@@ -63,6 +64,11 @@ public class IoCModule : Module
         builder.Register<WhiteKeyboardDriverBacklightFeature>(true);
         builder.Register<WhiteKeyboardLenovoLightingBacklightFeature>(true);
         builder.Register<WinKeyFeature>();
+
+        builder.Register<DGPUNotify>();
+        builder.Register<DGPUCapabilityNotify>(true);
+        builder.Register<DGPUFeatureFlagsNotify>(true);
+        builder.Register<DGPUGamezoneNotify>(true);
 
         builder.Register<DisplayBrightnessListener>().AutoActivateListener();
         builder.Register<DisplayConfigurationListener>().AutoActivateListener();

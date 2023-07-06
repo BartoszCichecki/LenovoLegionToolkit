@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Features;
-using LenovoLegionToolkit.Lib.Features.Hybrid;
+using LenovoLegionToolkit.Lib.Features.Hybrid.Notify;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32;
@@ -29,8 +29,8 @@ public class PowerStateListener : IListener<EventArgs>
     private readonly PDEVICE_NOTIFY_CALLBACK_ROUTINE _callback;
 
     private readonly PowerModeFeature _powerModeFeature;
-    private readonly IGPUModeFeature _iGpuModeFeature;
     private readonly BatteryFeature _batteryFeature;
+    private readonly DGPUNotify _dgpuNotify;
     private readonly RGBKeyboardBacklightController _rgbController;
 
     private bool _started;
@@ -39,11 +39,11 @@ public class PowerStateListener : IListener<EventArgs>
 
     public event EventHandler<EventArgs>? Changed;
 
-    public unsafe PowerStateListener(PowerModeFeature powerModeFeature, IGPUModeFeature iGpuModeFeature, BatteryFeature batteryFeature, RGBKeyboardBacklightController rgbController)
+    public unsafe PowerStateListener(PowerModeFeature powerModeFeature, BatteryFeature batteryFeature, DGPUNotify dgpuNotify, RGBKeyboardBacklightController rgbController)
     {
         _powerModeFeature = powerModeFeature ?? throw new ArgumentNullException(nameof(powerModeFeature));
-        _iGpuModeFeature = iGpuModeFeature ?? throw new ArgumentNullException(nameof(iGpuModeFeature));
         _batteryFeature = batteryFeature ?? throw new ArgumentNullException(nameof(batteryFeature));
+        _dgpuNotify = dgpuNotify ?? throw new ArgumentNullException(nameof(dgpuNotify));
         _rgbController = rgbController ?? throw new ArgumentNullException(nameof(rgbController));
 
         _callback = Callback;
@@ -152,10 +152,10 @@ public class PowerStateListener : IListener<EventArgs>
                     await _powerModeFeature.EnsureCorrectPowerPlanIsSetAsync().ConfigureAwait(false);
                 }
 
-                if (await _iGpuModeFeature.IsSupportedAsync().ConfigureAwait(false))
+                if (await _dgpuNotify.IsSupportedAsync().ConfigureAwait(false))
                 {
                     await Task.Delay(TimeSpan.FromSeconds(5)).ConfigureAwait(false);
-                    await _iGpuModeFeature.NotifyAsync().ConfigureAwait(false);
+                    await _dgpuNotify.NotifyAsync().ConfigureAwait(false);
                 }
             });
         }

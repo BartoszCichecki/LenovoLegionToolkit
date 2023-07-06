@@ -17,6 +17,7 @@ using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Features.Hybrid;
+using LenovoLegionToolkit.Lib.Features.Hybrid.Notify;
 using LenovoLegionToolkit.Lib.Features.PanelLogo;
 using LenovoLegionToolkit.Lib.Features.WhiteKeyboardBacklight;
 using LenovoLegionToolkit.Lib.Listeners;
@@ -95,6 +96,7 @@ public partial class App
         IoCContainer.Resolve<PanelLogoLenovoLightingBacklightFeature>().ForceDisable = flags.ForceDisableLenovoLighting;
         IoCContainer.Resolve<PortsBacklightFeature>().ForceDisable = flags.ForceDisableLenovoLighting;
         IoCContainer.Resolve<IGPUModeFeature>().EnableLegacySwitching = flags.LegacyGPUWorkingModeSwitching;
+        IoCContainer.Resolve<DGPUNotify>().EnableLegacySwitching = flags.LegacyGPUWorkingModeSwitching;
 
         await LogSoftwareStatusAsync();
         await InitPowerModeFeatureAsync();
