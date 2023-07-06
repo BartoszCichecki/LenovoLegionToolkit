@@ -21,10 +21,7 @@ public class DGPUGamezoneNotify : AbstractDGPUNotify
         }
     }
 
-    protected override Task NotifyDGPUStatusAsync(bool state) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_GAMEZONE_DATA",
-        "NotifyDGPUStatus",
-        new() { { "Status", state ? 1 : 0 } });
+    protected override Task NotifyDGPUStatusAsync(bool state) => WMI.LenovoGamezoneData.NotifyDGPUStatusAsync(state);
 
     protected override async Task<HardwareId> GetDGPUHardwareIdAsync()
     {
