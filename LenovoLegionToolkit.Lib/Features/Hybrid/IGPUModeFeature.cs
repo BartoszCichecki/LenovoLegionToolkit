@@ -161,14 +161,15 @@ public class IGPUModeFeature : AbstractCompositeFeature<IGPUModeState, IGPUModeC
             if (gpuHwId is null)
                 return default;
 
-            var matches = new Regex("PCIVEN_([0-9A-F]{4})|DEV_([0-9A-F]{4})").Matches(gpuHwId);
+            var matches = new Regex("PCIVEN_([0-9A-F]{4})|DEV_([0-9A-F]{4})|SUBSYS_([0-9A-F]*)").Matches(gpuHwId);
             if (matches.Count != 3)
                 return default;
 
             var vendor = matches[0].Groups[1].Value;
             var device = matches[1].Groups[2].Value;
+            var subsystem = matches[2].Groups[3].Value;
 
-            return new HardwareId { Vendor = vendor, Device = device };
+            return new HardwareId { Vendor = vendor, Device = device, SubSystem = subsystem };
         }
         catch
         {
@@ -180,14 +181,15 @@ public class IGPUModeFeature : AbstractCompositeFeature<IGPUModeState, IGPUModeC
     {
         try
         {
-            var matches = new Regex("pci#ven_([0-9A-Fa-f]{4})|dev_([0-9A-Fa-f]{4})").Matches(devicePath);
+            var matches = new Regex("pci#ven_([0-9A-Fa-f]{4})|dev_([0-9A-Fa-f]{4})|subsys_([0-9A-Fa-f]*)").Matches(devicePath);
             if (matches.Count != 3)
                 return default;
 
             var vendor = matches[0].Groups[1].Value;
             var device = matches[1].Groups[2].Value;
+            var subsystem = matches[2].Groups[3].Value;
 
-            return new HardwareId { Vendor = vendor, Device = device };
+            return new HardwareId { Vendor = vendor, Device = device, SubSystem = subsystem };
         }
         catch
         {

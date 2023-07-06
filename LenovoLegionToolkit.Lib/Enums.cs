@@ -56,16 +56,12 @@ public enum CapabilityID
     GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline = 0x0204FF00,
     InstantBootAc = 0x03010001,
     InstantBootUsbPowerDelivery = 0x03010002,
+    // FanTable = 0x04010000,
     FanFullSpeed = 0x04020000,
     CpuCurrentFanSpeed = 0x04030001,
     GpuCurrentFanSpeed = 0x04030002,
     CpuCurrentTemperature = 0x05040000,
-    GpuCurrentTemperature = 0x05050000
-
-    // Currently unused values
-    // GPUDidVid = 0x02090000, // Gen 7 counterpart: LENOVO_OTHER_METHOD.Get_DGPU_Device_DIDVID
-    // GPUStatus = 0x02070000 // Gen 7 counterpart: LENOVO_OTHER_METHOD.Set_DGPU_Device_Status
-    // FanTable = 0x04010000, // Capability test only
+    GpuCurrentTemperature = 0x05050000,
 }
 
 [Flags]
