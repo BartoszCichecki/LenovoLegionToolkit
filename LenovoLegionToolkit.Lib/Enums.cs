@@ -55,6 +55,8 @@ public enum CapabilityID
     GPUConfigurableTGP = 0x0202FF00,
     GPUTemperatureLimit = 0x0203FF00,
     GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline = 0x0204FF00,
+    GPUStatus = 0x02070000,
+    GPUDidVid = 0x02090000,
     InstantBootAc = 0x03010001,
     InstantBootUsbPowerDelivery = 0x03010002,
     FanFullSpeed = 0x04020000,

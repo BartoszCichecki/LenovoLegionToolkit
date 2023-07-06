@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LenovoLegionToolkit.Lib.Extensions;
-using LenovoLegionToolkit.Lib.Features.Hybrid;
+using LenovoLegionToolkit.Lib.Features.Hybrid.Notify;
 using LenovoLegionToolkit.Lib.Utils;
 using Windows.Win32;
 using Windows.Win32.Foundation;
@@ -16,7 +16,7 @@ namespace LenovoLegionToolkit.Lib.Listeners;
 public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindowsMessage>
 {
     private readonly IMainThreadDispatcher _mainThreadDispatcher;
-    private readonly IGPUModeFeature _igpuModeFeature;
+    private readonly DGPUNotify _dgpuNotify;
 
     private readonly HOOKPROC _kbProc;
 
@@ -34,10 +34,10 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
 
     public event EventHandler<NativeWindowsMessage>? Changed;
 
-    public NativeWindowsMessageListener(IMainThreadDispatcher mainThreadDispatcher, IGPUModeFeature igpuModeFeature)
+    public NativeWindowsMessageListener(IMainThreadDispatcher mainThreadDispatcher, DGPUNotify dgpuNotify)
     {
         _mainThreadDispatcher = mainThreadDispatcher ?? throw new ArgumentNullException(nameof(mainThreadDispatcher));
-        _igpuModeFeature = igpuModeFeature ?? throw new ArgumentNullException(nameof(igpuModeFeature));
+        _dgpuNotify = dgpuNotify ?? throw new ArgumentNullException(nameof(dgpuNotify));
 
         _kbProc = LowLevelKeyboardProc;
     }
@@ -241,8 +241,8 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
     {
         Task.Run(async () =>
         {
-            if (await _igpuModeFeature.IsSupportedAsync().ConfigureAwait(false))
-                await _igpuModeFeature.NotifyAsync().ConfigureAwait(false);
+            if (await _dgpuNotify.IsSupportedAsync().ConfigureAwait(false))
+                await _dgpuNotify.NotifyAsync().ConfigureAwait(false);
         });
 
         Changed?.Invoke(this, NativeWindowsMessage.OnDisplayDeviceArrival);

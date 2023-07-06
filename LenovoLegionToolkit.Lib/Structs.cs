@@ -320,9 +320,10 @@ public readonly struct GodModePreset
 
 public readonly struct HardwareId
 {
+    public static readonly HardwareId Empty = new();
+
     public string Vendor { get; init; }
     public string Device { get; init; }
-    public string SubSystem { get; init; }
 
     #region Equality
 
@@ -337,13 +338,10 @@ public readonly struct HardwareId
         if (!Device.Equals(other.Device, StringComparison.InvariantCultureIgnoreCase))
             return false;
 
-        if (!SubSystem.Equals(other.SubSystem, StringComparison.InvariantCultureIgnoreCase))
-            return false;
-
         return true;
     }
 
-    public override int GetHashCode() => HashCode.Combine(Vendor, Device, SubSystem);
+    public override int GetHashCode() => HashCode.Combine(Vendor, Device);
 
     public static bool operator ==(HardwareId left, HardwareId right) => left.Equals(right);
 
