@@ -198,6 +198,7 @@ public static class Compatibility
             {
                 Source = MachineInformation.FeatureData.SourceType.CapabilityData,
                 IGPUMode = capabilities.Contains(CapabilityID.IGPUMode),
+                FlipToStart = capabilities.Contains(CapabilityID.FlipToStart),
                 NvidiaGPUDynamicDisplaySwitching = capabilities.Contains(CapabilityID.NvidiaGPUDynamicDisplaySwitching),
                 InstantBootAc = capabilities.Contains(CapabilityID.InstantBootAc),
                 InstantBootUsbPowerDelivery = capabilities.Contains(CapabilityID.InstantBootUsbPowerDelivery),
@@ -219,6 +220,7 @@ public static class Compatibility
             {
                 Source = MachineInformation.FeatureData.SourceType.Flags,
                 IGPUMode = featureFlags.IsBitSet(0),
+                FlipToStart = true,
                 NvidiaGPUDynamicDisplaySwitching = featureFlags.IsBitSet(4),
                 InstantBootAc = featureFlags.IsBitSet(5),
                 InstantBootUsbPowerDelivery = featureFlags.IsBitSet(6),

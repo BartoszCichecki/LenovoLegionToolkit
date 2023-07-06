@@ -367,6 +367,7 @@ public readonly struct MachineInformation
 
         public SourceType Source { get; init; }
         public bool IGPUMode { get; init; }
+        public bool FlipToStart { get; init; }
         public bool NvidiaGPUDynamicDisplaySwitching { get; init; }
         public bool InstantBootAc { get; init; }
         public bool InstantBootUsbPowerDelivery { get; init; }

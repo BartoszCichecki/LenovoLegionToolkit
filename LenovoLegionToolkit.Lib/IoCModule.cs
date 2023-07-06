@@ -4,6 +4,7 @@ using LenovoLegionToolkit.Lib.Controllers.GodMode;
 using LenovoLegionToolkit.Lib.Controllers.Sensors;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.Features.FlipToStart;
 using LenovoLegionToolkit.Lib.Features.Hybrid;
 using LenovoLegionToolkit.Lib.Features.InstantBoot;
 using LenovoLegionToolkit.Lib.Features.PanelLogo;
@@ -37,6 +38,8 @@ public class IoCModule : Module
         builder.Register<BatteryFeature>();
         builder.Register<DpiScaleFeature>();
         builder.Register<FlipToStartFeature>();
+        builder.Register<FlipToStartCapabilityFeature>(true);
+        builder.Register<FlipToStartUEFIFeature>(true);
         builder.Register<FnLockFeature>();
         builder.Register<GSyncFeature>();
         builder.Register<HDRFeature>();
