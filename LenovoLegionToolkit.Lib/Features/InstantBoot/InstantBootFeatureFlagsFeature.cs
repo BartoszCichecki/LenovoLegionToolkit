@@ -71,13 +71,13 @@ public class InstantBootFeatureFlagsFeature : IFeature<InstantBootState>
     }
 
     private static Task<int> GetFlagsAsync() => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_OTHER_METHOD ",
+        $"SELECT * FROM LENOVO_OTHER_METHOD",
         "Get_Device_Current_Support_Feature",
         new(),
         pdc => Convert.ToInt32(pdc["Flag"].Value));
 
     private static Task SetFlagAsync(int flag, bool value) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_OTHER_METHOD ",
+        $"SELECT * FROM LENOVO_OTHER_METHOD",
         "Set_Device_Current_Support_Feature",
         new()
         {
