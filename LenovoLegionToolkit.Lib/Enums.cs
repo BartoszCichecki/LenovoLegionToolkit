@@ -390,6 +390,7 @@ public enum SpecialKey
     FnLockOn = 2,
     FnLockOff = 3,
     FnPrtSc = 4,
+    FnPrtSc2 = 45,
     CameraOn = 12,
     CameraOff = 13,
     FnR = 16,

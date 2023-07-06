@@ -42,7 +42,7 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
         SpecialKey.CameraOn or SpecialKey.CameraOff => NotifyCameraState(value),
         SpecialKey.FnLockOn or SpecialKey.FnLockOff => NotifyFnLockState(value),
         SpecialKey.FnR or SpecialKey.FnR2 => ToggleRefreshRateAsync(),
-        SpecialKey.FnPrtSc => OpenSnippingTool(),
+        SpecialKey.FnPrtSc or SpecialKey.FnPrtSc2 => OpenSnippingTool(),
         SpecialKey.SpectrumBacklightOff => NotifySpectrumBacklight(0),
         SpecialKey.SpectrumBacklight1 => NotifySpectrumBacklight(1),
         SpecialKey.SpectrumBacklight2 => NotifySpectrumBacklight(2),
