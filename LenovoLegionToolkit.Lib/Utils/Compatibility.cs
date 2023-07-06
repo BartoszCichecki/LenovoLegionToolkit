@@ -210,11 +210,7 @@ public static class Compatibility
 
         try
         {
-            var featureFlags = await WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_OTHER_METHOD",
-            "Get_Legion_Device_Support_Feature",
-            new(),
-            pdc => Convert.ToInt32(pdc["Status"].Value)).ConfigureAwait(false);
+            var featureFlags = await WMI.LenovoOtherMethod.GetLegionDeviceSupportFeatureAsync().ConfigureAwait(false);
 
             return new()
             {

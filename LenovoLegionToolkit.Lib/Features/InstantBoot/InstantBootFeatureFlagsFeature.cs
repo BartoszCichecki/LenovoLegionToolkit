@@ -31,7 +31,7 @@ public class InstantBootFeatureFlagsFeature : IFeature<InstantBootState>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting state...");
 
-        var flags = await GetFlagsAsync().ConfigureAwait(false);
+        var flags = await WMI.LenovoOtherMethod.GetDeviceCurrentSupportFeatureAsync().ConfigureAwait(false);
 
         var acAdapter = flags.IsBitSet(AC_INDEX);
         var usbPowerDelivery = flags.IsBitSet(USB_POWER_DELIVERY_INDEX);
@@ -63,25 +63,10 @@ public class InstantBootFeatureFlagsFeature : IFeature<InstantBootState>
             _ => (false, false)
         };
 
-        await SetFlagAsync(AC_INDEX, acAdapter).ConfigureAwait(false);
-        await SetFlagAsync(USB_POWER_DELIVERY_INDEX, usbPowerDelivery).ConfigureAwait(false);
+        await WMI.LenovoOtherMethod.SetDeviceCurrentSupportFeatureAsync(AC_INDEX, acAdapter ? 1 : 0).ConfigureAwait(false);
+        await WMI.LenovoOtherMethod.SetDeviceCurrentSupportFeatureAsync(USB_POWER_DELIVERY_INDEX, usbPowerDelivery ? 1 : 0).ConfigureAwait(false);
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Set state to {state}");
     }
-
-    private static Task<int> GetFlagsAsync() => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_OTHER_METHOD ",
-        "Get_Device_Current_Support_Feature",
-        new(),
-        pdc => Convert.ToInt32(pdc["Flag"].Value));
-
-    private static Task SetFlagAsync(int flag, bool value) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_OTHER_METHOD ",
-        "Set_Device_Current_Support_Feature",
-        new()
-        {
-            { "FunctionID", flag },
-            { "value", value ? 1 : 0 }
-        });
 }

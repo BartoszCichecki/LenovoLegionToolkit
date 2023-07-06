@@ -9,10 +9,32 @@ public static partial class WMI
 {
     public static class LenovoOtherMethod
     {
-        public static Task SetDGPUDeviceStatusAsync(bool state) => CallAsync("root\\WMI",
+        public static Task<int> GetLegionDeviceSupportFeatureAsync() => CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_OTHER_METHOD",
+            "Get_Legion_Device_Support_Feature",
+            new(),
+            pdc => Convert.ToInt32(pdc["Status"].Value));
+
+        public static Task<int> GetDeviceCurrentSupportFeatureAsync() => CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_OTHER_METHOD",
+            "Get_Device_Current_Support_Feature",
+            new(),
+            pdc => Convert.ToInt32(pdc["Flag"].Value));
+
+        public static Task<int> SetDeviceCurrentSupportFeatureAsync(int functionId, int value) => CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_OTHER_METHOD",
+            "Set_Device_Current_Support_Feature",
+            new()
+            {
+                { "FunctionID", functionId },
+                { "value", value }
+            },
+            pdc => Convert.ToInt32(pdc["ret"].Value));
+
+        public static Task SetDGPUDeviceStatusAsync(bool status) => CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_OTHER_METHOD",
             "Set_DGPU_Device_Status",
-            new() { { "Status", state ? 1 : 0 } });
+            new() { { "Status", status ? 1 : 0 } });
 
         public static Task<HardwareId> GetDGPUDeviceDeviceIdVendorId() => CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_OTHER_METHOD",
