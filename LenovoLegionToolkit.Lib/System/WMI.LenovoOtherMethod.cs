@@ -9,6 +9,18 @@ public static partial class WMI
 {
     public static class LenovoOtherMethod
     {
+        public static Task<int> GetSupportThermalModeAsync() => CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_OTHER_METHOD",
+            "GetSupportThermalMode",
+            new(),
+            pdc => Convert.ToInt32(pdc["mode"].Value));
+
+        public static Task<int> GetSupportLegionZoneVersionAsync() => CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_OTHER_METHOD",
+            "Get_Support_LegionZone_Version",
+            new(),
+            pdc => Convert.ToInt32(pdc["Version"].Value));
+
         public static Task<int> GetLegionDeviceSupportFeatureAsync() => CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_OTHER_METHOD",
             "Get_Legion_Device_Support_Feature",

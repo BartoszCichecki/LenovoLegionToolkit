@@ -254,11 +254,7 @@ public static class Compatibility
         {
             var powerModes = new List<PowerModeState>();
 
-            var result = await WMI.CallAsync("root\\WMI",
-                $"SELECT * FROM LENOVO_OTHER_METHOD",
-                "GetSupportThermalMode",
-                new(),
-                pdc => Convert.ToInt32(pdc["mode"].Value)).ConfigureAwait(false);
+            var result = await WMI.LenovoOtherMethod.GetSupportThermalModeAsync().ConfigureAwait(false);
 
             if (result.IsBitSet(0))
                 powerModes.Add(PowerModeState.Quiet);
@@ -302,12 +298,7 @@ public static class Compatibility
 
         try
         {
-            var result = await WMI.CallAsync("root\\WMI",
-                $"SELECT * FROM LENOVO_OTHER_METHOD",
-                "Get_Support_LegionZone_Version",
-                new(),
-                pdc => Convert.ToInt32(pdc["Version"].Value)).ConfigureAwait(false);
-            return result;
+            return await WMI.LenovoOtherMethod.GetSupportLegionZoneVersionAsync().ConfigureAwait(false);
         }
         catch { /* Ignored. */ }
 
