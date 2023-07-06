@@ -63,9 +63,10 @@ public enum CapabilityID
     GpuCurrentTemperature = 0x05050000
 
     // Currently unused values
-    // GPUDidVid = 0x02090000, // Gen 7 counterpart: LENOVO_OTHER_METHOD.Get_DGPU_Device_DIDVID
     // GPUStatus = 0x02070000 // Gen 7 counterpart: LENOVO_OTHER_METHOD.Set_DGPU_Device_Status
-    // FanTable = 0x04010000, // Capability test only
+    // GPUDidVid = 0x02090000, // Gen 7 counterpart: LENOVO_OTHER_METHOD.Get_DGPU_Device_DIDVID
+    // BaseTGP = 20A0000
+    // FanTable = 0x04010000 // Capability test only
 }
 
 [Flags]
