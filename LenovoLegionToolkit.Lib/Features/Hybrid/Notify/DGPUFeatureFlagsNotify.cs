@@ -20,11 +20,10 @@ public class DGPUFeatureFlagsNotify : AbstractDGPUNotify
         }
     }
 
-    protected override Task NotifyDGPUStatusAsync(bool state) =>
-        WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_OTHER_METHOD",
-            "Set_DGPU_Device_Status",
-            new() { { "Status", state ? 1 : 0 } });
+    protected override Task NotifyDGPUStatusAsync(bool state) => WMI.CallAsync("root\\WMI",
+        $"SELECT * FROM LENOVO_OTHER_METHOD",
+        "Set_DGPU_Device_Status",
+        new() { { "Status", state ? 1 : 0 } });
 
     protected override async Task<HardwareId> GetDGPUHardwareIdAsync()
     {
