@@ -154,7 +154,7 @@ public abstract class AbstractSensorsController : ISensorsController
         }
     }
 
-    private static Task<int> GetCpuMaxCoreClockAsync() => WMI.LenovoGamezoneData.GetCPUFrequencyAsync();
+    private static Task<int> GetCpuMaxCoreClockAsync() => WMI.LenovoGameZoneData.GetCPUFrequencyAsync();
 
     private GPUInfo GetGPUInfo()
     {

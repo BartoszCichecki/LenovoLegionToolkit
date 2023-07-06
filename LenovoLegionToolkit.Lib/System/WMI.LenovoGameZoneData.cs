@@ -5,7 +5,7 @@ namespace LenovoLegionToolkit.Lib.System;
 
 public static partial class WMI
 {
-    public static class LenovoGamezoneData
+    public static class LenovoGameZoneData
     {
         public static Task<bool> IsSupportGpuOCAsync() => WMI.CallAsync("ROOT\\WMI",
             $"SELECT * FROM LENOVO_GAMEZONE_DATA",

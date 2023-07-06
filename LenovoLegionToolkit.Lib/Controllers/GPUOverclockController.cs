@@ -67,7 +67,7 @@ public class GPUOverclockController
 
         try
         {
-            isSupported = await WMI.LenovoGamezoneData.IsSupportGpuOCAsync().ConfigureAwait(false);
+            isSupported = await WMI.LenovoGameZoneData.IsSupportGpuOCAsync().ConfigureAwait(false);
 
             if (!isSupported)
             {
