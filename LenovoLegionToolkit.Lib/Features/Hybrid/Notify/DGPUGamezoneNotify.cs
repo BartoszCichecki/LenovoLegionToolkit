@@ -43,7 +43,7 @@ public class DGPUGamezoneNotify : AbstractDGPUNotify
         }
         catch (Exception)
         {
-            return new();
+            return HardwareId.Empty;
         }
     }
 

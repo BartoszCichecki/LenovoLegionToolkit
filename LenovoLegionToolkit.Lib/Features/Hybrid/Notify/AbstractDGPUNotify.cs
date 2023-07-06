@@ -38,6 +38,9 @@ public abstract class AbstractDGPUNotify : IDGPUNotify
 
     private unsafe bool IsDGPUAvailable(HardwareId dgpuHardwareId)
     {
+        if (dgpuHardwareId == HardwareId.Empty)
+            return false;
+
         var guidDisplayDeviceArrival = PInvoke.GUID_DISPLAY_DEVICE_ARRIVAL;
         var deviceHandle = PInvoke.SetupDiGetClassDevs(guidDisplayDeviceArrival,
             null,

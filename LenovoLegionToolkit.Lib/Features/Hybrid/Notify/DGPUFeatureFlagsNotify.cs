@@ -43,7 +43,7 @@ public class DGPUFeatureFlagsNotify : AbstractDGPUNotify
         }
         catch (Exception)
         {
-            return new();
+            return HardwareId.Empty;
         }
     }
 }

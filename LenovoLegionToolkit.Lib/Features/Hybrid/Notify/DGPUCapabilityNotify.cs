@@ -33,7 +33,7 @@ public class DGPUCapabilityNotify : AbstractDGPUNotify
         }
         catch (Exception)
         {
-            return new();
+            return HardwareId.Empty;
         }
     }
 

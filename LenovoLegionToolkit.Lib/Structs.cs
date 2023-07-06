@@ -320,6 +320,8 @@ public readonly struct GodModePreset
 
 public readonly struct HardwareId
 {
+    public static readonly HardwareId Empty = new();
+
     public string Vendor { get; init; }
     public string Device { get; init; }
 
