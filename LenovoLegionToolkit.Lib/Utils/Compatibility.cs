@@ -239,19 +239,15 @@ public static class Compatibility
         {
             var powerModes = new List<PowerModeState>();
 
-            var result = await WMI.CallAsync("root\\WMI",
-                $"SELECT * FROM LENOVO_OTHER_METHOD",
-                "GetFeatureValue",
-                new() { { "IDs", (int)CapabilityID.SupportedPowerModes } },
-                pdc => Convert.ToInt32(pdc["Value"].Value)).ConfigureAwait(false);
+            var value = await WMI.LenovoOtherMethod.GetFeatureValueAsync(CapabilityID.SupportedPowerModes).ConfigureAwait(false);
 
-            if (result.IsBitSet(0))
+            if (value.IsBitSet(0))
                 powerModes.Add(PowerModeState.Quiet);
-            if (result.IsBitSet(1))
+            if (value.IsBitSet(1))
                 powerModes.Add(PowerModeState.Balance);
-            if (result.IsBitSet(2))
+            if (value.IsBitSet(2))
                 powerModes.Add(PowerModeState.Performance);
-            if (result.IsBitSet(16))
+            if (value.IsBitSet(16))
                 powerModes.Add(PowerModeState.GodMode);
 
             return powerModes;
@@ -304,12 +300,7 @@ public static class Compatibility
     {
         try
         {
-            var result = await WMI.CallAsync("root\\WMI",
-                $"SELECT * FROM LENOVO_OTHER_METHOD",
-                "GetFeatureValue",
-                new() { { "IDs", (int)CapabilityID.LegionZoneSupportVersion } },
-                pdc => Convert.ToInt32(pdc["Value"].Value)).ConfigureAwait(false);
-            return result;
+            return await WMI.LenovoOtherMethod.GetFeatureValueAsync(CapabilityID.LegionZoneSupportVersion).ConfigureAwait(false);
         }
         catch { /* Ignored. */ }
 

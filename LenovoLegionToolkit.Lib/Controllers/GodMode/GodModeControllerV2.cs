@@ -402,22 +402,13 @@ public class GodModeControllerV2 : AbstractGodModeController
 
     #region Fan Full Speed
 
-    private static Task<bool> GetFanFullSpeedAsync() =>
-        WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_OTHER_METHOD",
-            "GetFeatureValue",
-            new() { { "IDs", (int)CapabilityID.FanFullSpeed } },
-            pdc => Convert.ToInt32(pdc["Value"].Value) == 1);
+    private static async Task<bool> GetFanFullSpeedAsync()
+    {
+        var value = await WMI.LenovoOtherMethod.GetFeatureValueAsync(CapabilityID.FanFullSpeed).ConfigureAwait(false);
+        return value != 0;
+    }
 
-    private static Task SetFanFullSpeedAsync(bool enabled) =>
-        WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_OTHER_METHOD",
-            "SetFeatureValue",
-            new()
-            {
-                { "IDs", (int)CapabilityID.FanFullSpeed },
-                { "value", enabled ? 1 : 0 },
-            });
+    private static Task SetFanFullSpeedAsync(bool enabled) => WMI.LenovoOtherMethod.SetFeatureValueAsync(CapabilityID.FanFullSpeed, enabled ? 1 : 0);
 
     #endregion
 

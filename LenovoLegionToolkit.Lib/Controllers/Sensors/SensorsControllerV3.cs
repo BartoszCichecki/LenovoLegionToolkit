@@ -38,29 +38,23 @@ public class SensorsControllerV3 : AbstractSensorsController
 
     protected override async Task<int> GetCpuCurrentTemperatureAsync()
     {
-        var t = await GetFeatureValueAsync(CapabilityID.CpuCurrentTemperature).ConfigureAwait(false);
-        return t < 1 ? -1 : t;
+        var value = await WMI.LenovoOtherMethod.GetFeatureValueAsync(CapabilityID.CpuCurrentTemperature).ConfigureAwait(false);
+        return value < 1 ? -1 : value;
     }
 
     protected override async Task<int> GetGpuCurrentTemperatureAsync()
     {
-        var t = await GetFeatureValueAsync(CapabilityID.GpuCurrentTemperature).ConfigureAwait(false);
-        return t < 1 ? -1 : t;
+        var value = await WMI.LenovoOtherMethod.GetFeatureValueAsync(CapabilityID.GpuCurrentTemperature).ConfigureAwait(false);
+        return value < 1 ? -1 : value;
     }
 
-    protected override Task<int> GetCpuCurrentFanSpeedAsync() => GetFeatureValueAsync(CapabilityID.CpuCurrentFanSpeed);
+    protected override Task<int> GetCpuCurrentFanSpeedAsync() => WMI.LenovoOtherMethod.GetFeatureValueAsync(CapabilityID.CpuCurrentFanSpeed);
 
-    protected override Task<int> GetGpuCurrentFanSpeedAsync() => GetFeatureValueAsync(CapabilityID.GpuCurrentFanSpeed);
+    protected override Task<int> GetGpuCurrentFanSpeedAsync() => WMI.LenovoOtherMethod.GetFeatureValueAsync(CapabilityID.GpuCurrentFanSpeed);
 
     protected override Task<int> GetCpuMaxFanSpeedAsync() => GetMaxFanSpeedAsync(CPU_SENSOR_ID, CPU_FAN_ID);
 
     protected override Task<int> GetGpuMaxFanSpeedAsync() => GetMaxFanSpeedAsync(GPU_SENSOR_ID, GPU_FAN_ID);
-
-    private static Task<int> GetFeatureValueAsync(CapabilityID id) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_OTHER_METHOD",
-        "GetFeatureValue",
-        new() { { "IDs", (int)id } },
-        pdc => Convert.ToInt32(pdc["Value"].Value));
 
     private static async Task<int> GetMaxFanSpeedAsync(int sensorID, int fanID)
     {

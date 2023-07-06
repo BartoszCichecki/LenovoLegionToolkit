@@ -8,7 +8,7 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.System;
 
-public static class WMI
+public static partial class WMI
 {
     public static async Task<bool> ExistsAsync(string scope, FormattableString query)
     {
