@@ -1858,4 +1858,16 @@ AVERTISSEMENT : Cette action ne fonctionnera pas correctement si le GPU dédié 
   <data name="IGPUModeChangeException_Message" xml:space="preserve">
 	  <value>Essayez de changer de mode à nouveau.</value>
   </data>
+  <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
+	  <value>Le dGPU est actuellement utilisé</value>
+  </data>
+  <data name="IGPUModeChangeException_Message_IGPUOnly" xml:space="preserve">
+	  <value>Le dGPU va se déconnecter automatiquement lorsqu'il ne sera plus utilisé.</value>
+  </data>
+  <data name="IGPUModeChangeException_Title_Auto" xml:space="preserve">
+	  <value>Le dGPU est actuellement utilisé ou l'ordinateur n'est pas alimenté sur batterie</value>
+  </data>
+  <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
+	  <value>Le dGPU va se déconnecter automatiquement lorsqu'il ne sera plus utilisé et l'ordinateur alimenté sur batterie.</value>
+  </data>
 </root>

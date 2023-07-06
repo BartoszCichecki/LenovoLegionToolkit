@@ -37,6 +37,7 @@ public enum BatteryState
 public enum CapabilityID
 {
     IGPUMode = 0x00010000,
+    FlipToStart = 0x00030000,
     NvidiaGPUDynamicDisplaySwitching = 0x00040000,
     AMDSmartShiftMode = 0x00050001,
     AMDSkinTemperatureTracking = 0x00050002,
@@ -63,10 +64,6 @@ public enum CapabilityID
     GpuCurrentFanSpeed = 0x04030002,
     CpuCurrentTemperature = 0x05040000,
     GpuCurrentTemperature = 0x05050000
-
-    // Currently unused values
-    // BaseTGP = 0x020A0000
-    // FanTable = 0x04010000 // Capability test only
 }
 
 [Flags]
