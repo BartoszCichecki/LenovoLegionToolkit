@@ -131,6 +131,7 @@ public static class Compatibility
             Log.Instance.Trace($" * Features:");
             Log.Instance.Trace($"     * Source: '{machineInformation.Features.Source}'");
             Log.Instance.Trace($"     * IGPUMode: '{machineInformation.Features.IGPUMode}'");
+            Log.Instance.Trace($"     * FlipToStart: '{machineInformation.Features.FlipToStart}'");
             Log.Instance.Trace($"     * NvidiaGPUDynamicDisplaySwitching: '{machineInformation.Features.NvidiaGPUDynamicDisplaySwitching}'");
             Log.Instance.Trace($"     * InstantBootAc: '{machineInformation.Features.InstantBootAc}'");
             Log.Instance.Trace($"     * InstantBootUsbPowerDelivery: '{machineInformation.Features.InstantBootUsbPowerDelivery}'");
