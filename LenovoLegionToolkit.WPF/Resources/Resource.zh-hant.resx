@@ -1173,7 +1173,7 @@
     <value>停用 Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage 或 ImController 可能沒有被正確地關閉。</value>
+    <value>Vantage 或 ImController 可能沒有被正確地停用</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
     <value>無法停用 Vantage 或 ImController</value>
