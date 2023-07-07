@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
@@ -27,42 +26,11 @@ public class DGPUGamezoneNotify : AbstractDGPUNotify
     {
         try
         {
-            // ReSharper disable once StringLiteralTypo
-            return await WMI.CallAsync("root\\WMI",
-                $"SELECT * FROM LENOVO_GAMEZONE_DATA",
-                "GetDGPUHWId",
-                new(),
-                pdc =>
-                {
-                    var id = pdc["Data"].Value.ToString();
-                    return HardwareIdFromDGPUHardwareId(id);
-                }).ConfigureAwait(false);
+            return await WMI.LenovoGameZoneData.GetDGPUHWIdAsync().ConfigureAwait(false);
         }
         catch (Exception)
         {
             return HardwareId.Empty;
-        }
-    }
-
-    private static HardwareId HardwareIdFromDGPUHardwareId(string? gpuHwId)
-    {
-        try
-        {
-            if (gpuHwId is null)
-                return default;
-
-            var matches = new Regex("PCIVEN_([0-9A-F]{4})|DEV_([0-9A-F]{4})").Matches(gpuHwId);
-            if (matches.Count != 2)
-                return default;
-
-            var vendor = matches[0].Groups[1].Value;
-            var device = matches[1].Groups[2].Value;
-
-            return new HardwareId { Vendor = vendor, Device = device };
-        }
-        catch
-        {
-            return default;
         }
     }
 }

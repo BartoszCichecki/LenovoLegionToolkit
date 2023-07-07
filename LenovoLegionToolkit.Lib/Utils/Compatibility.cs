@@ -61,7 +61,7 @@ public static class Compatibility
 
     private static MachineInformation? _machineInformation;
 
-    public static Task<bool> CheckBasicCompatibilityAsync() => WMI.ExistsAsync("root\\WMI", $"SELECT * FROM LENOVO_GAMEZONE_DATA");
+    public static Task<bool> CheckBasicCompatibilityAsync() => WMI.LenovoGameZoneData.Exists();
 
     public static async Task<(bool isCompatible, MachineInformation machineInformation)> IsCompatibleAsync()
     {
@@ -277,12 +277,7 @@ public static class Compatibility
     {
         try
         {
-            var result = await WMI.CallAsync("root\\WMI",
-                $"SELECT * FROM LENOVO_GAMEZONE_DATA",
-                "IsSupportSmartFan",
-                new(),
-                pdc => Convert.ToInt32(pdc["Data"].Value)).ConfigureAwait(false);
-            return result;
+            return await WMI.LenovoGameZoneData.IsSupportSmartFanAsync().ConfigureAwait(false);
         }
         catch { /* Ignored. */ }
 
@@ -353,12 +348,7 @@ public static class Compatibility
     {
         try
         {
-            var result = await WMI.CallAsync("root\\WMI",
-                $"SELECT * FROM LENOVO_GAMEZONE_DATA",
-                "IsSupportIGPUMode",
-                new(),
-                pdc => (uint)pdc["Data"].Value).ConfigureAwait(false);
-            return result > 0;
+            return await WMI.LenovoGameZoneData.IsSupportIGPUModeAsync().ConfigureAwait(false);
         }
         catch
         {
@@ -370,11 +360,7 @@ public static class Compatibility
     {
         try
         {
-            _ = await WMI.CallAsync("root\\WMI",
-                $"SELECT * FROM LENOVO_GAMEZONE_DATA",
-                "GetIntelligentSubMode",
-                new(),
-                pdc => (uint)pdc["Data"].Value).ConfigureAwait(false);
+            await WMI.LenovoGameZoneData.GetIntelligentSubModeAsync().ConfigureAwait(false);
             return true;
         }
         catch

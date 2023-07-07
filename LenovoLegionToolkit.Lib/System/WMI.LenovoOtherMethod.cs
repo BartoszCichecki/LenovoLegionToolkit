@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
+// ReSharper disable InconsistentNaming
 // ReSharper disable StringLiteralTypo
 
 namespace LenovoLegionToolkit.Lib.System;

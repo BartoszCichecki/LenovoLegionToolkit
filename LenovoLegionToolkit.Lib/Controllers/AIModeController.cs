@@ -242,10 +242,7 @@ public class AIModeController
     {
         try
         {
-            await WMI.CallAsync("root\\WMI",
-                $"SELECT * FROM LENOVO_GAMEZONE_DATA",
-                "SetIntelligentSubMode",
-                new() { { "Data", subMode } }).ConfigureAwait(false);
+            await WMI.LenovoGameZoneData.SetIntelligentSubModeAsync(subMode).ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Sub mode set to {subMode}.");
@@ -261,11 +258,7 @@ public class AIModeController
     {
         try
         {
-            var subMode = await WMI.CallAsync("root\\WMI",
-                $"SELECT * FROM LENOVO_GAMEZONE_DATA",
-                "GetIntelligentSubMode",
-                new(),
-                pdc => Convert.ToInt32(pdc["Data"].Value)).ConfigureAwait(false);
+            var subMode = await WMI.LenovoGameZoneData.GetIntelligentSubModeAsync().ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Sub mode currently set to {subMode}.");
