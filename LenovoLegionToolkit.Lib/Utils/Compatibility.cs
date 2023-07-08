@@ -61,7 +61,7 @@ public static class Compatibility
 
     private static MachineInformation? _machineInformation;
 
-    public static Task<bool> CheckBasicCompatibilityAsync() => WMI.LenovoGameZoneData.Exists();
+    public static Task<bool> CheckBasicCompatibilityAsync() => WMI.LenovoGameZoneData.ExistsAsync();
 
     public static async Task<(bool isCompatible, MachineInformation machineInformation)> IsCompatibleAsync()
     {
@@ -348,7 +348,7 @@ public static class Compatibility
     {
         try
         {
-            return await WMI.LenovoGameZoneData.IsSupportIGPUModeAsync().ConfigureAwait(false);
+            return await WMI.LenovoGameZoneData.IsSupportIGPUModeAsync().ConfigureAwait(false) > 0;
         }
         catch
         {
