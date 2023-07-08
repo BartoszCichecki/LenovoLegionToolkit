@@ -21,6 +21,7 @@ public static partial class WMI
                 var processId = Convert.ToInt32(pdc["ProcessID"].Value);
                 handler(processName, processId);
             });
+
         public static IDisposable ListenProcessStopTrace(Action<string, int> handler) => Listen("root\\CIMV2",
             $"SELECT * FROM Win32_ProcessStopTrace",
             pdc =>
