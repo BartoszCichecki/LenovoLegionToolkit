@@ -120,7 +120,7 @@ public class AIModeController
         return mi.Properties.SupportsIntelligentSubMode;
     }
 
-    private void ProcessStarted(string processName, int processId)
+    private void ProcessStarted(int processId, string processName)
     {
         var targetSubMode = _subModeData.TryGetValue(processName, out var result) ? result : 1;
 
@@ -137,7 +137,7 @@ public class AIModeController
         });
     }
 
-    private void ProcessStopped(int processId)
+    private void ProcessStopped(int processId, string processName)
     {
         if (!_runningProcessIds.Contains(processId))
             return;
@@ -150,14 +150,6 @@ public class AIModeController
         Task.Run(() => SetIntelligentSubModeAsync(1));
     }
 
-    private IDisposable CreateStartProcessListener() => WMI.Win32.ProcessStartTrace.Listen(ProcessStarted);
-
-    private IDisposable CreateStopProcessListener() => WMI.Win32.ProcessStopTrace.Listen((_, id) =>
-    {
-        if (id > 0)
-            ProcessStopped(id);
-    });
-
     private async Task LoadSubModesAsync()
     {
         _subModeData.Clear();
@@ -165,7 +157,7 @@ public class AIModeController
         try
         {
             var subModes = await WMI.LenovoIntelligentOPList.ReadAsync().ConfigureAwait(false);
-            _subModeData.AddRange(subModes);
+            _subModeData.AddRange(subModes.ToDictionary(kv => Path.GetFileNameWithoutExtension(kv.Key), kv => kv.Value));
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Loaded {_subModeData.Count} sub modes.");
@@ -201,8 +193,8 @@ public class AIModeController
 
             await SetIntelligentSubModeAsync(targetSubMode).ConfigureAwait(false);
 
-            _startProcessListener = CreateStartProcessListener();
-            _stopProcessListener = CreateStopProcessListener();
+            _startProcessListener = WMI.Win32.ProcessStartTrace.Listen(ProcessStarted);
+            _stopProcessListener = WMI.Win32.ProcessStopTrace.Listen(ProcessStopped);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Initial sub mode set.");

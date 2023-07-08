@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Management;
 using System.Threading.Tasks;
@@ -15,25 +16,25 @@ public static partial class WMI
     {
         public static class ProcessStartTrace
         {
-            public static IDisposable Listen(Action<string, int> handler) => WMI.Listen("root\\CIMV2",
+            public static IDisposable Listen(Action<int, string> handler) => WMI.Listen("root\\CIMV2",
                 $"SELECT * FROM Win32_ProcessStartTrace",
                 pdc =>
                 {
-                    var processName = (string)pdc["ProcessName"].Value;
                     var processId = Convert.ToInt32(pdc["ProcessID"].Value);
-                    handler(processName, processId);
+                    var processName = (string)pdc["ProcessName"].Value;
+                    handler(processId, Path.GetFileNameWithoutExtension(processName));
                 });
         }
 
         public static class ProcessStopTrace
         {
-            public static IDisposable Listen(Action<string, int> handler) => WMI.Listen("root\\CIMV2",
+            public static IDisposable Listen(Action<int, string> handler) => WMI.Listen("root\\CIMV2",
                 $"SELECT * FROM Win32_ProcessStopTrace",
                 pdc =>
                 {
-                    var processName = (string)pdc["ProcessName"].Value;
                     var processId = Convert.ToInt32(pdc["ProcessID"].Value);
-                    handler(processName, processId);
+                    var processName = (string)pdc["ProcessName"].Value;
+                    handler(processId, Path.GetFileNameWithoutExtension(processName));
                 });
         }
 

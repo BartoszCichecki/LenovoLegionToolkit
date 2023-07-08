@@ -1,30 +1,20 @@
 ﻿using System;
-using System.Management;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public abstract class AbstractWMIListener<T> : IListener<T> where T : struct
+public abstract class AbstractWMIListener<T1, T2> : IListener<T1> where T1 : struct
 {
-    private readonly string _scope;
-    private readonly FormattableString _query;
+    private readonly Func<Action<T2>, IDisposable> _listen;
 
     private IDisposable? _disposable;
 
-    public event EventHandler<T>? Changed;
+    public event EventHandler<T1>? Changed;
 
-    protected AbstractWMIListener(string scope, FormattableString query)
+    protected AbstractWMIListener(Func<Action<T2>, IDisposable> listen)
     {
-        _scope = scope;
-        _query = query;
-    }
-
-    protected AbstractWMIListener(string scope, string eventName)
-    {
-        _scope = scope;
-        _query = $"SELECT * FROM {eventName}";
+        _listen = listen;
     }
 
     public Task StartAsync()
@@ -41,7 +31,7 @@ public abstract class AbstractWMIListener<T> : IListener<T> where T : struct
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Starting... [listener={GetType().Name}]");
 
-            _disposable = WMI.Listen(_scope, _query, Handler);
+            _disposable = _listen(Handler);
         }
         catch (Exception ex)
         {
@@ -71,14 +61,15 @@ public abstract class AbstractWMIListener<T> : IListener<T> where T : struct
         return Task.CompletedTask;
     }
 
-    protected abstract T GetValue(PropertyDataCollection properties);
+    protected abstract T1 GetValue(T2 value);
 
-    protected abstract Task OnChangedAsync(T value);
+    protected abstract Task OnChangedAsync(T1 value);
 
-    protected void RaiseChanged(T value) => Changed?.Invoke(this, value);
+    protected void RaiseChanged(T1 value) => Changed?.Invoke(this, value);
 
-    private async void Handler(PropertyDataCollection properties)
+    private async void Handler(T2 properties)
     {
+
         try
         {
             var value = GetValue(properties);
