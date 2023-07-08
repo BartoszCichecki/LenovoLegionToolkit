@@ -281,24 +281,13 @@ public class GodModeControllerV2 : AbstractGodModeController
     private static Task<int> GetValueAsync(CapabilityID id)
     {
         var idRaw = (uint)id & 0xFFFF00FF;
-        return WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_OTHER_METHOD",
-            "GetFeatureValue",
-            new() { { "IDs", idRaw } },
-            pdc => Convert.ToInt32(pdc["Value"].Value));
+        return WMI.LenovoOtherMethod.GetFeatureValueAsync(idRaw);
     }
 
     private static Task SetValueAsync(CapabilityID id, StepperValue value)
     {
         var idRaw = (uint)id & 0xFFFF00FF;
-        return WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_OTHER_METHOD",
-            "SetFeatureValue",
-            new()
-            {
-                { "IDs", idRaw },
-                { "value", value.Value },
-            });
+        return WMI.LenovoOtherMethod.SetFeatureValueAsync(idRaw, value.Value);
     }
 
     #endregion

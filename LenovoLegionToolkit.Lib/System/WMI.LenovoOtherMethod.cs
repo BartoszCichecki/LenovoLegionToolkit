@@ -75,5 +75,20 @@ public static partial class WMI
                 { "IDs", (int)id },
                 { "value", value }
             });
+
+        public static Task<int> GetFeatureValueAsync(uint idRaw) => CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_OTHER_METHOD",
+            "GetFeatureValue",
+            new() { { "IDs", idRaw } },
+            pdc => Convert.ToInt32(pdc["Value"].Value));
+
+        public static Task SetFeatureValueAsync(uint idRaw, int value) => CallAsync("root\\WMI",
+            $"SELECT * FROM LENOVO_OTHER_METHOD",
+            "SetFeatureValue",
+            new()
+            {
+                { "IDs", idRaw },
+                { "value", value }
+            });
     }
 }

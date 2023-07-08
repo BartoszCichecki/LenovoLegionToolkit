@@ -490,33 +490,12 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     private static async Task<StepperValue> GetCPULongTermPowerLimitAsync()
     {
-        var defaultValue = await WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_CPU_METHOD",
-            "CPU_Get_Default_PowerLimit",
-            new(),
-            pdc => Convert.ToInt32(pdc["DefaultLongTermPowerlimit"].Value)).ConfigureAwait(false).OrNullIfException();
-
-        var stepperValue = await WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_CPU_METHOD",
-            "CPU_Get_LongTerm_PowerLimit",
-            new(),
-            pdc =>
-            {
-                var value = Convert.ToInt32(pdc["CurrentLongTerm_PowerLimit"].Value);
-                var min = Convert.ToInt32(pdc["MinLongTerm_PowerLimit"].Value);
-                var max = Convert.ToInt32(pdc["MaxLongTerm_PowerLimit"].Value);
-                var step = Convert.ToInt32(pdc["step"].Value);
-
-                return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
-            }).ConfigureAwait(false);
-
-        return stepperValue;
+        var defaultValue = await WMI.LenovoCpuMethod.CPUGetDefaultPowerLimitAsync().ConfigureAwait(false).OrNullIfException();
+        var (value, min, max, step) = await WMI.LenovoCpuMethod.CPUGetLongTermPowerLimitAsync().ConfigureAwait(false);
+        return new(value, min, max, step, Array.Empty<int>(), defaultValue?.longTerm);
     }
 
-    private static Task SetCPULongTermPowerLimitAsync(int value) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_CPU_METHOD",
-        "CPU_Set_LongTerm_PowerLimit",
-        new() { { "value", value } });
+    private static Task SetCPULongTermPowerLimitAsync(int value) => WMI.LenovoCpuMethod.CPUSetLongTermPowerLimitAsync(value);
 
     #endregion
 
@@ -524,129 +503,60 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     private static async Task<StepperValue> GetCPUShortTermPowerLimitAsync()
     {
-        var defaultValue = await WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_CPU_METHOD",
-            "CPU_Get_Default_PowerLimit",
-            new(),
-            pdc => Convert.ToInt32(pdc["DefaultShortTermPowerlimit"].Value)).ConfigureAwait(false).OrNullIfException();
-
-        var stepperValue = await WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_CPU_METHOD",
-            "CPU_Get_ShortTerm_PowerLimit",
-            new(),
-            pdc =>
-            {
-                var value = Convert.ToInt32(pdc["CurrentShortTerm_PowerLimit"].Value);
-                var min = Convert.ToInt32(pdc["MinShortTerm_PowerLimit"].Value);
-                var max = Convert.ToInt32(pdc["MaxShortTerm_PowerLimit"].Value);
-                var step = Convert.ToInt32(pdc["step"].Value);
-
-                return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
-            }).ConfigureAwait(false);
-
-        return stepperValue;
+        var defaultValue = await WMI.LenovoCpuMethod.CPUGetDefaultPowerLimitAsync().ConfigureAwait(false).OrNullIfException();
+        var (value, min, max, step) = await WMI.LenovoCpuMethod.CPUGetShortTermPowerLimitAsync().ConfigureAwait(false);
+        return new(value, min, max, step, Array.Empty<int>(), defaultValue?.shortTerm);
     }
 
-    private static Task SetCPUShortTermPowerLimitAsync(int value) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_CPU_METHOD",
-        "CPU_Set_ShortTerm_PowerLimit",
-        new() { { "value", value } });
+    private static Task SetCPUShortTermPowerLimitAsync(int value) => WMI.LenovoCpuMethod.CPUSetShortTermPowerLimitAsync(value);
 
     #endregion
 
     #region CPU Peak Power Limit
 
-    private static Task<StepperValue> GetCPUPeakPowerLimitAsync() => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_CPU_METHOD",
-        "CPU_Get_Peak_PowerLimit",
-        new(),
-        pdc =>
-        {
-            var value = Convert.ToInt32(pdc["CurrentPeakPowerLimit"].Value);
-            var min = Convert.ToInt32(pdc["MinPeakPowerLimit"].Value);
-            var max = Convert.ToInt32(pdc["MaxPeakPowerLimit"].Value);
-            var step = Convert.ToInt32(pdc["step"].Value);
-            var defaultValue = Convert.ToInt32(pdc["DefaultPeakPowerLimit"].Value);
+    private static async Task<StepperValue> GetCPUPeakPowerLimitAsync()
+    {
+        var (value, min, max, step, defaultValue) = await WMI.LenovoCpuMethod.CPUGetPeakPowerLimitAsync().ConfigureAwait(false);
+        return new(value, min, max, step, Array.Empty<int>(), defaultValue);
+    }
 
-            return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
-        });
-
-    private static Task SetCPUPeakPowerLimitAsync(int value) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_CPU_METHOD",
-        "CPU_Set_Peak_PowerLimit",
-        new() { { "CurrentPeakPowerLimit", value } });
+    private static Task SetCPUPeakPowerLimitAsync(int value) => WMI.LenovoCpuMethod.CPUSetPeakPowerLimitAsync(value);
 
     #endregion
 
     #region CPU Cross Loading Power Limit
 
-    private static Task<StepperValue> GetCPUCrossLoadingPowerLimitAsync() => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_CPU_METHOD",
-        "CPU_Get_Cross_Loading_PowerLimit",
-        new(),
-        pdc =>
-        {
-            var value = Convert.ToInt32(pdc["CurrentCpuCrossLoading"].Value);
-            var min = Convert.ToInt32(pdc["MinCpuCrossLoading"].Value);
-            var max = Convert.ToInt32(pdc["MaxCpuCrossLoading"].Value);
-            var step = Convert.ToInt32(pdc["step"].Value);
-            var defaultValue = Convert.ToInt32(pdc["DefaultCpuCrossLoading"].Value);
+    private static async Task<StepperValue> GetCPUCrossLoadingPowerLimitAsync()
+    {
+        var (value, min, max, step, defaultValue) = await WMI.LenovoCpuMethod.CPUGetCrossLoadingPowerLimitAsync().ConfigureAwait(false);
+        return new(value, min, max, step, Array.Empty<int>(), defaultValue);
+    }
 
-            return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
-        });
-
-    private static Task SetCPUCrossLoadingPowerLimitAsync(int value) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_CPU_METHOD",
-        "CPU_Set_Cross_Loading_PowerLimit",
-        new() { { "CurrentCpuCrossLoading", value } });
+    private static Task SetCPUCrossLoadingPowerLimitAsync(int value) => WMI.LenovoCpuMethod.CPUSetCrossLoadingPowerLimitAsync(value);
 
     #endregion
 
     #region APU sPPT Power Limit
 
-    private static Task<StepperValue> GetAPUSPPTPowerLimitAsync() => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_CPU_METHOD",
-        "Get_APU_sPPT_PowerLimit",
-        new(),
-        pdc =>
-        {
-            var value = Convert.ToInt32(pdc["CurrenAPUsPPTPowerLimit"].Value);
-            var min = Convert.ToInt32(pdc["MinAPUsPPTPowerLimit"].Value);
-            var max = Convert.ToInt32(pdc["MaxAPUsPPTPowerLimit"].Value);
-            var step = Convert.ToInt32(pdc["step"].Value);
-            var defaultValue = Convert.ToInt32(pdc["DefaultAPUsPPTPowerLimit"].Value);
+    private static async Task<StepperValue> GetAPUSPPTPowerLimitAsync()
+    {
+        var (value, min, max, step, defaultValue) = await WMI.LenovoCpuMethod.GetAPUSPPTPowerLimitAsync().ConfigureAwait(false);
+        return new(value, min, max, step, Array.Empty<int>(), defaultValue);
+    }
 
-            return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
-        });
-
-    private static Task SetAPUSPPTPowerLimitAsync(int value) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_CPU_METHOD",
-        "Set_APU_sPPT_PowerLimit",
-        new() { { "CurrentAPUsPPTPowerLimit", value } });
+    private static Task SetAPUSPPTPowerLimitAsync(int value) => WMI.LenovoCpuMethod.SetAPUSPPTPowerLimitAsync(value);
 
     #endregion
 
     #region CPU Temperature Limit
 
-    private static Task<StepperValue> GetCPUTemperatureLimitAsync() => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_CPU_METHOD",
-        "CPU_Get_Temperature_Control",
-        new(),
-        pdc =>
-        {
-            var value = Convert.ToInt32(pdc["CurrentTemperatueControl"].Value);
-            var min = Convert.ToInt32(pdc["MinTemperatueControl"].Value);
-            var max = Convert.ToInt32(pdc["MaxTemperatueControl"].Value);
-            var step = Convert.ToInt32(pdc["step"].Value);
-            var defaultValue = Convert.ToInt32(pdc["DefaultTemperatueControl"].Value);
+    private static async Task<StepperValue> GetCPUTemperatureLimitAsync()
+    {
+        var (value, min, max, step, defaultValue) = await WMI.LenovoCpuMethod.CPUGetTemperatureControlAsync().ConfigureAwait(false);
+        return new(value, min, max, step, Array.Empty<int>(), defaultValue);
+    }
 
-            return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
-        });
-
-    private static Task SetCPUTemperatureLimitAsync(int value) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_CPU_METHOD",
-        "CPU_Set_Temperature_Control",
-        new() { { "CurrentTemperatureControl", value } });
+    private static Task SetCPUTemperatureLimitAsync(int value) => WMI.LenovoCpuMethod.CPUSetTemperatureControlAsync(value);
 
     #endregion
 

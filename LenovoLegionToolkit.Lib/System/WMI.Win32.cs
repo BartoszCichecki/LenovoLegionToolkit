@@ -70,6 +70,14 @@ public static partial class WMI
             return result.First();
         }
 
+        public static async Task<string?> GetPnpEntityDeviceID(string pnpDeviceIdPart)
+        {
+            var results = await WMI.ReadAsync("root\\CIMV2",
+                $"SELECT * FROM Win32_PnpEntity WHERE DeviceID LIKE '{pnpDeviceIdPart}%'",
+                pdc => (string)pdc["DeviceID"].Value).ConfigureAwait(false);
+            return results.FirstOrDefault();
+        }
+
         public static Task<IEnumerable<DriverInfo>> GetPnpSignedDriversAsync() => ReadAsync("root\\CIMV2",
             $"SELECT * FROM Win32_PnPSignedDriver",
             pdc =>
