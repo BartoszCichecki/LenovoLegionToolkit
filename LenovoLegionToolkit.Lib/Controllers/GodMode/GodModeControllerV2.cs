@@ -310,37 +310,24 @@ public class GodModeControllerV2 : AbstractGodModeController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Reading fan table data...");
 
-        var data = await WMI.ReadAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_FAN_TABLE_DATA",
-            pdc =>
-            {
-                var mode = Convert.ToInt32(pdc["Mode"].Value);
-                var fanId = Convert.ToByte(pdc["Fan_Id"].Value);
-                var sensorId = Convert.ToByte(pdc["Sensor_ID"].Value);
-                var fanSpeeds = (ushort[]?)pdc["FanTable_Data"].Value ?? Array.Empty<ushort>();
-                var temps = (ushort[]?)pdc["SensorTable_Data"].Value ?? Array.Empty<ushort>();
+        var data = await WMI.LenovoFanMethod.FanGetTable().ConfigureAwait(false);
 
-                var type = (fanId, sensorId) switch
+        var fanTableData = data
+            .Where(d => d.mode == (int)powerModeState + 1)
+            .Select(d => new FanTableData
+            {
+                Type = (d.fanId, d.sensorId) switch
                 {
                     (1, 4) => FanTableType.CPU,
                     (1, 1) => FanTableType.CPUSensor,
                     (2, 5) => FanTableType.GPU,
                     _ => FanTableType.Unknown,
-                };
-
-                return (mode, data: new FanTableData
-                {
-                    Type = type,
-                    FanId = fanId,
-                    SensorId = sensorId,
-                    FanSpeeds = fanSpeeds,
-                    Temps = temps
-                });
-            }).ConfigureAwait(false);
-
-        var fanTableData = data
-            .Where(d => d.mode == (int)powerModeState + 1)
-            .Select(d => d.data)
+                },
+                FanId = d.fanId,
+                SensorId = d.sensorId,
+                FanSpeeds = d.fanTableData,
+                Temps = d.sensorTableData
+            })
             .ToArray();
 
         if (fanTableData.Length != 3)
@@ -373,10 +360,7 @@ public class GodModeControllerV2 : AbstractGodModeController
         return fanTableData;
     }
 
-    private static Task SetFanTable(FanTable fanTable) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_FAN_METHOD",
-        "Fan_Set_Table",
-        new() { { "FanTable", fanTable.GetBytes() } });
+    private static Task SetFanTable(FanTable fanTable) => WMI.LenovoFanMethod.FanSetTable(fanTable.GetBytes());
 
     #endregion
 

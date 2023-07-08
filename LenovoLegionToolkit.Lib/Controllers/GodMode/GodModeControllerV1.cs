@@ -749,34 +749,24 @@ public class GodModeControllerV1 : AbstractGodModeController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Reading fan table data...");
 
-        var data = await WMI.ReadAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_FAN_TABLE_DATA",
-            pdc =>
-            {
-                var fanId = Convert.ToByte(pdc["Fan_Id"].Value);
-                var sensorId = Convert.ToByte(pdc["Sensor_ID"].Value);
-                var fanSpeeds = (ushort[]?)pdc["FanTable_Data"].Value ?? Array.Empty<ushort>();
-                var temps = (ushort[]?)pdc["SensorTable_Data"].Value ?? Array.Empty<ushort>();
+        var data = await WMI.LenovoFanMethod.FanGetTable().ConfigureAwait(false);
 
-                var type = (fanId, sensorId) switch
+        var fanTableData = data
+            .Select(d => new FanTableData
+            {
+                Type = (d.fanId, d.sensorId) switch
                 {
                     (0, 3) => FanTableType.CPU,
                     (1, 4) => FanTableType.GPU,
                     (0, 0) => FanTableType.CPUSensor,
                     _ => FanTableType.Unknown,
-                };
-
-                return new FanTableData
-                {
-                    Type = type,
-                    FanId = fanId,
-                    SensorId = sensorId,
-                    FanSpeeds = fanSpeeds,
-                    Temps = temps
-                };
-            }).ConfigureAwait(false);
-
-        var fanTableData = data.ToArray();
+                },
+                FanId = d.fanId,
+                SensorId = d.sensorId,
+                FanSpeeds = d.fanTableData,
+                Temps = d.sensorTableData
+            })
+            .ToArray();
 
         if (fanTableData.Length != 3)
         {
@@ -808,25 +798,15 @@ public class GodModeControllerV1 : AbstractGodModeController
         return fanTableData;
     }
 
-    private static Task SetFanTable(FanTable fanTable) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_FAN_METHOD",
-        "Fan_Set_Table",
-        new() { { "FanTable", fanTable.GetBytes() } });
+    private static Task SetFanTable(FanTable fanTable) => WMI.LenovoFanMethod.FanSetTable(fanTable.GetBytes());
 
     #endregion
 
     #region Fan Full Speed
 
-    private static Task<bool> GetFanFullSpeedAsync() => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_FAN_METHOD",
-        "Fan_Get_FullSpeed",
-        new(),
-        pdc => (bool)pdc["Status"].Value);
+    private static Task<bool> GetFanFullSpeedAsync() => WMI.LenovoFanMethod.FanGetFullSpeedAsync();
 
-    private static Task SetFanFullSpeedAsync(bool enabled) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_FAN_METHOD",
-        "Fan_Set_FullSpeed",
-        new() { { "Status", enabled ? 1 : 0 } });
+    private static Task SetFanFullSpeedAsync(bool enabled) => WMI.LenovoFanMethod.FanSetFullSpeedAsync(enabled ? 1 : 0);
 
     #endregion
 
