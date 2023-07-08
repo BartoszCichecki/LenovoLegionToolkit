@@ -150,28 +150,13 @@ public class AIModeController
         Task.Run(() => SetIntelligentSubModeAsync(1));
     }
 
-    private IDisposable CreateStartProcessListener() => WMI.Listen("root\\CIMV2",
-        $"SELECT * FROM Win32_ProcessStartTrace",
-        pdc =>
-        {
-            var processName = pdc["ProcessName"].Value.ToString();
-            if (!int.TryParse(pdc["ProcessID"].Value.ToString(), out var processID))
-                processID = 0;
+    private IDisposable CreateStartProcessListener() => WMI.Win32.ListenProcessStartTrace(ProcessStarted);
 
-            if (processName is not null && processID > 0)
-                ProcessStarted(processName, processID);
-        });
-
-    private IDisposable CreateStopProcessListener() => WMI.Listen("root\\CIMV2",
-        $"SELECT * FROM Win32_ProcessStopTrace",
-        pdc =>
-        {
-            if (!int.TryParse(pdc["ProcessID"].Value.ToString(), out var processId))
-                processId = 0;
-
-            if (processId > 0)
-                ProcessStopped(processId);
-        });
+    private IDisposable CreateStopProcessListener() => WMI.Win32.ListenProcessStopTrace((_, id) =>
+    {
+        if (id > 0)
+            ProcessStopped(id);
+    });
 
     private async Task LoadSubModesAsync()
     {

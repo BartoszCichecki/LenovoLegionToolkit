@@ -152,38 +152,22 @@ public static class Compatibility
         return (_machineInformation = machineInformation).Value;
     }
 
-    private static async Task<(string, string, string, string)> GetModelDataAsync()
-    {
-        var result = await WMI.ReadAsync("root\\CIMV2",
-            $"SELECT * FROM Win32_ComputerSystemProduct",
-            pdc =>
-            {
-                var machineType = (string)pdc["Name"].Value;
-                var vendor = (string)pdc["Vendor"].Value;
-                var model = (string)pdc["Version"].Value;
-                var serialNumber = (string)pdc["IdentifyingNumber"].Value;
-                return (vendor, machineType, model, serialNumber);
-            }).ConfigureAwait(false);
-        return result.First();
-    }
+    private static Task<(string, string, string, string)> GetModelDataAsync() => WMI.Win32.GetComputerSystemProductAsync();
 
     private static async Task<(BiosVersion?, string?)> GetBIOSVersionAsync()
     {
-        var result = await WMI.ReadAsync("root\\CIMV2",
-            $"SELECT * FROM Win32_BIOS",
-            pdc => (string)pdc["Name"].Value).ConfigureAwait(false);
-        var biosString = result.First();
+        var result = await WMI.Win32.GetBIOSNameAsync().ConfigureAwait(false);
 
         var prefixRegex = new Regex("^[A-Z0-9]{4}");
         var versionRegex = new Regex("[0-9]{2}");
 
-        var prefix = prefixRegex.Match(biosString).Value;
-        var versionString = versionRegex.Match(biosString).Value;
+        var prefix = prefixRegex.Match(result).Value;
+        var versionString = versionRegex.Match(result).Value;
 
         if (!int.TryParse(versionRegex.Match(versionString).Value, out var version))
             return (null, null);
 
-        return (new(prefix, version), biosString);
+        return (new(prefix, version), result);
     }
 
     private static async Task<MachineInformation.FeatureData> GetFeaturesAsync()

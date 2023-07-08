@@ -153,7 +153,7 @@ public class GodModeControllerV2 : AbstractGodModeController
 
             var result = new Dictionary<PowerModeState, GodModeDefaults>();
 
-            var allCapabilityData = await WMI.LenovoCapabilityData01.GetAsync().ConfigureAwait(false);
+            var allCapabilityData = await WMI.LenovoCapabilityData01.ReadAsync().ConfigureAwait(false);
             allCapabilityData = allCapabilityData.ToArray();
 
             foreach (var powerMode in new[] { PowerModeState.Quiet, PowerModeState.Balance, PowerModeState.Performance })
@@ -200,14 +200,14 @@ public class GodModeControllerV2 : AbstractGodModeController
 
     protected override async Task<GodModePreset> GetDefaultStateAsync()
     {
-        var allCapabilityData = await WMI.LenovoCapabilityData01.GetAsync().ConfigureAwait(false);
+        var allCapabilityData = await WMI.LenovoCapabilityData01.ReadAsync().ConfigureAwait(false);
         allCapabilityData = allCapabilityData.ToArray();
 
         var capabilityData = allCapabilityData
             .Where(d => Enum.IsDefined(d.Id))
             .ToArray();
 
-        var allDiscreteData = await WMI.LenovoDiscreteCapability.GetAsync().ConfigureAwait(false);
+        var allDiscreteData = await WMI.LenovoDiscreteCapability.ReadAsync().ConfigureAwait(false);
         allDiscreteData = allDiscreteData.ToArray();
 
         var discreteData = allDiscreteData
