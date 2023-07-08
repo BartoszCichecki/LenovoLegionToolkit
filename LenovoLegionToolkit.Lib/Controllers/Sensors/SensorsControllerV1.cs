@@ -16,8 +16,8 @@ public class SensorsControllerV1 : AbstractSensorsController
     {
         try
         {
-            var result = await WMI.LenovoFanMethod.ExistsAsync(0, CPU_FAN_ID).ConfigureAwait(false);
-            result &= await WMI.LenovoFanMethod.ExistsAsync(0, GPU_FAN_ID).ConfigureAwait(false);
+            var result = await WMI.LenovoFanTable.ExistsAsync(0, CPU_FAN_ID).ConfigureAwait(false);
+            result &= await WMI.LenovoFanTable.ExistsAsync(0, GPU_FAN_ID).ConfigureAwait(false);
 
             if (result)
                 _ = await GetDataAsync().ConfigureAwait(false);
