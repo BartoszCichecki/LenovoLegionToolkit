@@ -10,6 +10,7 @@ using NeoSmart.AsyncLock;
 using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32.SafeHandles;
 using LenovoLegionToolkit.Lib.SoftwareDisabler;
+using LenovoLegionToolkit.Lib.System.Management;
 
 #if !MOCK_RGB
 using System.Runtime.InteropServices;

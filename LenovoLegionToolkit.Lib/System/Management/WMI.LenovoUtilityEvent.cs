@@ -3,17 +3,17 @@
 // ReSharper disable InconsistentNaming
 // ReSharper disable StringLiteralTypo
 
-namespace LenovoLegionToolkit.Lib.System;
+namespace LenovoLegionToolkit.Lib.System.Management;
 
 public static partial class WMI
 {
-    public static class LenovoGameZoneSmartFanModeEvent
+    public static class LenovoUtilityEvent
     {
         public static IDisposable Listen(Action<int> handler) => WMI.Listen("root\\WMI",
-            $"SELECT * FROM LENOVO_GAMEZONE_SMART_FAN_MODE_EVENT",
+            $"SELECT * FROM LENOVO_UTILITY_EVENT",
             pdc =>
             {
-                var value = Convert.ToInt32(pdc["mode"].Value);
+                var value = Convert.ToInt32(pdc["PressTypeDataVal"].Value);
                 handler(value);
             });
     }

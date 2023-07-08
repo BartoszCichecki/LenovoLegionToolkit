@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 // ReSharper disable InconsistentNaming
 // ReSharper disable StringLiteralTypo
 
-namespace LenovoLegionToolkit.Lib.System;
+namespace LenovoLegionToolkit.Lib.System.Management;
 
 public static partial class WMI
 {
