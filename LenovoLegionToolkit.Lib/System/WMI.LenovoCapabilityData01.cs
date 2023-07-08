@@ -11,7 +11,7 @@ public static partial class WMI
 {
     public static class LenovoCapabilityData01
     {
-        public static Task<IEnumerable<RangeCapability>> GetAsync() => ReadAsync("root\\WMI",
+        public static Task<IEnumerable<RangeCapability>> ReadAsync() => WMI.ReadAsync("root\\WMI",
             $"SELECT * FROM LENOVO_CAPABILITY_DATA_01",
             pdc =>
             {

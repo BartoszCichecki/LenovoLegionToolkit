@@ -12,9 +12,9 @@ public static partial class WMI
 {
     public static class LenovoIntelligentOPList
     {
-        public static async Task<Dictionary<string, int>> GetAsync()
+        public static async Task<Dictionary<string, int>> ReadAsync()
         {
-            var result = await ReadAsync("root\\WMI",
+            var result = await WMI.ReadAsync("root\\WMI",
                 $"SELECT * FROM LENOVO_INTELLIGENT_OP_LIST",
                 pdc =>
                 {

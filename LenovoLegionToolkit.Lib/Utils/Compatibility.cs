@@ -190,7 +190,7 @@ public static class Compatibility
     {
         try
         {
-            var capabilities = await WMI.LenovoCapabilityData00.GetAsync().ConfigureAwait(false);
+            var capabilities = await WMI.LenovoCapabilityData00.ReadAsync().ConfigureAwait(false);
             capabilities = capabilities.ToArray();
 
             return new()

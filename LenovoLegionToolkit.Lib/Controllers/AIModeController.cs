@@ -179,7 +179,7 @@ public class AIModeController
 
         try
         {
-            var subModes = await WMI.LenovoIntelligentOPList.GetAsync().ConfigureAwait(false);
+            var subModes = await WMI.LenovoIntelligentOPList.ReadAsync().ConfigureAwait(false);
             _subModeData.AddRange(subModes);
 
             if (Log.Instance.IsTraceEnabled)
