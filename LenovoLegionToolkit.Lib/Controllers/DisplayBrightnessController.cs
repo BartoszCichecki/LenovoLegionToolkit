@@ -5,8 +5,5 @@ namespace LenovoLegionToolkit.Lib.Controllers;
 
 public class DisplayBrightnessController
 {
-    public Task SetBrightnessAsync(int brightness) => WMI.CallAsync(@"root\WMI",
-        $"SELECT * FROM WmiMonitorBrightnessMethods",
-        "WmiSetBrightness",
-        new() { { "Timeout", 1 }, { "Brightness", brightness } });
+    public Task SetBrightnessAsync(int brightness) => WMI.WmiMonitorBrightnessMethods.WmiSetBrightness(brightness, 1);
 }
