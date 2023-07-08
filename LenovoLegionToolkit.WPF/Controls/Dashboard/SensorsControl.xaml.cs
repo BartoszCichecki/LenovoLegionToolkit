@@ -42,7 +42,7 @@ public partial class SensorsControl
         {
             var item = new MenuItem
             {
-                SymbolIcon = _dashboardSettings.Store.SensorsRefreshIntervalSeconds == interval ? SymbolRegular.CheckboxChecked24 : SymbolRegular.CheckboxUnchecked24,
+                SymbolIcon = _dashboardSettings.Store.SensorsRefreshIntervalSeconds == interval ? SymbolRegular.Checkmark24 : SymbolRegular.Empty,
                 Header = TimeSpan.FromSeconds(interval).Humanize(culture: Resource.Culture)
             };
             item.Click += (_, _) =>
