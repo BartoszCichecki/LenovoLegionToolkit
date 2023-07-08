@@ -304,7 +304,7 @@ public class GPUController
         if (string.IsNullOrEmpty(pnpDeviceIdPart))
             throw new InvalidOperationException("pnpDeviceIdPart is null or empty");
 
-        var gpuInstanceId = await WMI.Win32.GetPnpEntityDeviceID(pnpDeviceIdPart).ConfigureAwait(false);
+        var gpuInstanceId = await WMI.Win32.PnpEntity.GetDeviceIDAsync(pnpDeviceIdPart).ConfigureAwait(false);
 
         _state = GPUState.DeactivatePossible;
         _gpuInstanceId = gpuInstanceId;

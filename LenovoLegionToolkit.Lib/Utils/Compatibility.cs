@@ -152,11 +152,11 @@ public static class Compatibility
         return (_machineInformation = machineInformation).Value;
     }
 
-    private static Task<(string, string, string, string)> GetModelDataAsync() => WMI.Win32.GetComputerSystemProductAsync();
+    private static Task<(string, string, string, string)> GetModelDataAsync() => WMI.Win32.ComputerSystemProduct.ReadAsync();
 
     private static async Task<(BiosVersion?, string?)> GetBIOSVersionAsync()
     {
-        var result = await WMI.Win32.GetBIOSNameAsync().ConfigureAwait(false);
+        var result = await WMI.Win32.BIOS.GetNameAsync().ConfigureAwait(false);
 
         var prefixRegex = new Regex("^[A-Z0-9]{4}");
         var versionRegex = new Regex("[0-9]{2}");

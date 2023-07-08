@@ -150,9 +150,9 @@ public class AIModeController
         Task.Run(() => SetIntelligentSubModeAsync(1));
     }
 
-    private IDisposable CreateStartProcessListener() => WMI.Win32.ListenProcessStartTrace(ProcessStarted);
+    private IDisposable CreateStartProcessListener() => WMI.Win32.ProcessStartTrace.Listen(ProcessStarted);
 
-    private IDisposable CreateStopProcessListener() => WMI.Win32.ListenProcessStopTrace((_, id) =>
+    private IDisposable CreateStopProcessListener() => WMI.Win32.ProcessStopTrace.Listen((_, id) =>
     {
         if (id > 0)
             ProcessStopped(id);

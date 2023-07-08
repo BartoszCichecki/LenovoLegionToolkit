@@ -32,7 +32,7 @@ internal readonly struct WindowsBuildVersionPackageRule : IPackageRule
 
     private async Task<bool> CheckBuildNumberAsync()
     {
-        var buildNumberString = await WMI.Win32.GetOperatingSystemBuildNumberAsync().ConfigureAwait(false);
+        var buildNumberString = await WMI.Win32.OperatingSystem.GetBuildNumberAsync().ConfigureAwait(false);
         var buildNumber = int.TryParse(buildNumberString, out var bn) ? bn : 0;
         var result = Version <= buildNumber;
         return result;

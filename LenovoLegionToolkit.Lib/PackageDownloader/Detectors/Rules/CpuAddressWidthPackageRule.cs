@@ -31,7 +31,7 @@ internal readonly struct CpuAddressWidthPackageRule : IPackageRule
 
     private async Task<bool> CheckCpuAddressWidthAsync()
     {
-        var addressWidth = await WMI.Win32.GetProcessorAddressWidthAsync().ConfigureAwait(false);
+        var addressWidth = await WMI.Win32.Processor.GetAddressWidthAsync().ConfigureAwait(false);
         var result = Value == addressWidth;
         return result;
     }
