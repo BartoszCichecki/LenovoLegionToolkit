@@ -269,11 +269,7 @@ public class GodModeControllerV1 : AbstractGodModeController
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting defaults in other power modes...");
 
-            var defaultValues = await GetDefaultValuesInDifferentModeAsync().ConfigureAwait(false);
-            var result = defaultValues
-                .Where(d => d.powerMode is PowerModeState.Quiet or PowerModeState.Balance or PowerModeState.Performance)
-                .DistinctBy(d => d.powerMode)
-                .ToDictionary(d => d.powerMode, d => d.defaults);
+            var result = await GetDefaultValuesInDifferentModeAsync().ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
             {
@@ -299,11 +295,7 @@ public class GodModeControllerV1 : AbstractGodModeController
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Restoring defaults for {state}...");
 
-            var defaultValues = await GetDefaultValuesInDifferentModeAsync().ConfigureAwait(false);
-            var result = defaultValues
-                .Where(d => d.powerMode is PowerModeState.Quiet or PowerModeState.Balance or PowerModeState.Performance)
-                .DistinctBy(d => d.powerMode)
-                .ToDictionary(d => d.powerMode, d => d.defaults);
+            var result = await GetDefaultValuesInDifferentModeAsync().ConfigureAwait(false);
 
             if (!result.TryGetValue(state, out var defaults))
             {
@@ -666,32 +658,33 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     #region Default values
 
-    private async Task<IEnumerable<(PowerModeState powerMode, GodModeDefaults defaults)>> GetDefaultValuesInDifferentModeAsync()
+    private async Task<Dictionary<PowerModeState, GodModeDefaults>> GetDefaultValuesInDifferentModeAsync()
     {
         var defaultFanTableAsync = await GetDefaultFanTableAsync().ConfigureAwait(false);
 
-        var result = await WMI.ReadAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_DEFAULT_VALUE_IN_DIFFERENT_MODE_DATA ",
-            pdc =>
+        var result = await WMI.LenovoDefaultValueInDifferentModeData.ReadAsync().ConfigureAwait(false);
+        return result.Select(d =>
             {
-                var mode = (PowerModeState)Convert.ToInt32(pdc["mode"].Value) - 1;
-
-                return (mode, new GodModeDefaults
+                var powerMode = (PowerModeState)(d.Mode - 1);
+                var defaults = new GodModeDefaults
                 {
-                    CPULongTermPowerLimit = Convert.ToInt32(pdc["DefaultLongTermPowerlimit"].Value),
-                    CPUShortTermPowerLimit = Convert.ToInt32(pdc["DefaultShortTermPowerlimit"].Value),
-                    CPUPeakPowerLimit = Convert.ToInt32(pdc["DefaultPeakPowerLimit"].Value),
-                    CPUCrossLoadingPowerLimit = Convert.ToInt32(pdc["DefaultCpuCrossLoading"].Value),
-                    APUsPPTPowerLimit = Convert.ToInt32(pdc["DefaultAPUsPPTPowerLimit"].Value),
-                    CPUTemperatureLimit = Convert.ToInt32(pdc["DefaultTemperatueControl"].Value),
-                    GPUPowerBoost = Convert.ToInt32(pdc["Default_PPAB_Powerlimit"].Value),
-                    GPUConfigurableTGP = Convert.ToInt32(pdc["Default_cTGP_Powerlimit"].Value),
-                    GPUTemperatureLimit = Convert.ToInt32(pdc["DefaultTemperatueLimit"].Value),
+                    CPULongTermPowerLimit = d.CPULongTermPowerLimit,
+                    CPUShortTermPowerLimit = d.CPUShortTermPowerLimit,
+                    CPUPeakPowerLimit = d.CPUPeakPowerLimit,
+                    CPUCrossLoadingPowerLimit = d.CPUCrossLoadingPowerLimit,
+                    APUsPPTPowerLimit = d.APUsPPTPowerLimit,
+                    CPUTemperatureLimit = d.CPUTemperatureLimit,
+                    GPUPowerBoost = d.GPUPowerBoost,
+                    GPUConfigurableTGP = d.GPUConfigurableTGP,
+                    GPUTemperatureLimit = d.GPUTemperatureLimit,
                     FanTable = defaultFanTableAsync,
                     FanFullSpeed = false
-                });
-            }).ConfigureAwait(false);
-        return result;
+                };
+                return (powerMode, defaults);
+            })
+            .Where(d => d.powerMode is PowerModeState.Quiet or PowerModeState.Balance or PowerModeState.Performance)
+            .DistinctBy(d => d.powerMode)
+            .ToDictionary(d => d.powerMode, d => d.defaults);
     }
 
     #endregion
