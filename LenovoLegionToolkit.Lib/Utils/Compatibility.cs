@@ -131,6 +131,7 @@ public static class Compatibility
             Log.Instance.Trace($" * Features:");
             Log.Instance.Trace($"     * Source: '{machineInformation.Features.Source}'");
             Log.Instance.Trace($"     * IGPUMode: '{machineInformation.Features.IGPUMode}'");
+            Log.Instance.Trace($"     * FlipToStart: '{machineInformation.Features.FlipToStart}'");
             Log.Instance.Trace($"     * NvidiaGPUDynamicDisplaySwitching: '{machineInformation.Features.NvidiaGPUDynamicDisplaySwitching}'");
             Log.Instance.Trace($"     * InstantBootAc: '{machineInformation.Features.InstantBootAc}'");
             Log.Instance.Trace($"     * InstantBootUsbPowerDelivery: '{machineInformation.Features.InstantBootUsbPowerDelivery}'");
@@ -198,6 +199,7 @@ public static class Compatibility
             {
                 Source = MachineInformation.FeatureData.SourceType.CapabilityData,
                 IGPUMode = capabilities.Contains(CapabilityID.IGPUMode),
+                FlipToStart = capabilities.Contains(CapabilityID.FlipToStart),
                 NvidiaGPUDynamicDisplaySwitching = capabilities.Contains(CapabilityID.NvidiaGPUDynamicDisplaySwitching),
                 InstantBootAc = capabilities.Contains(CapabilityID.InstantBootAc),
                 InstantBootUsbPowerDelivery = capabilities.Contains(CapabilityID.InstantBootUsbPowerDelivery),
@@ -219,6 +221,7 @@ public static class Compatibility
             {
                 Source = MachineInformation.FeatureData.SourceType.Flags,
                 IGPUMode = featureFlags.IsBitSet(0),
+                FlipToStart = true,
                 NvidiaGPUDynamicDisplaySwitching = featureFlags.IsBitSet(4),
                 InstantBootAc = featureFlags.IsBitSet(5),
                 InstantBootUsbPowerDelivery = featureFlags.IsBitSet(6),

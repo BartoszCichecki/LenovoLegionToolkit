@@ -60,7 +60,6 @@ public class IGPUModeFeatureFlagsFeature : IFeature<IGPUModeState>
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Set state to {state}");
-
     }
 
     private static Task<int> GetFlagsAsync() => WMI.CallAsync("root\\WMI",
