@@ -153,7 +153,8 @@ public class GodModeControllerV2 : AbstractGodModeController
 
             var result = new Dictionary<PowerModeState, GodModeDefaults>();
 
-            var allCapabilityData = (await GetCapabilityDataAsync().ConfigureAwait(false)).ToArray();
+            var allCapabilityData = await WMI.LenovoCapabilityData01.GetAsync().ConfigureAwait(false);
+            allCapabilityData = allCapabilityData.ToArray();
 
             foreach (var powerMode in new[] { PowerModeState.Quiet, PowerModeState.Balance, PowerModeState.Performance })
             {
@@ -199,13 +200,17 @@ public class GodModeControllerV2 : AbstractGodModeController
 
     protected override async Task<GodModePreset> GetDefaultStateAsync()
     {
-        var allCapabilityData = (await GetCapabilityDataAsync().ConfigureAwait(false)).ToArray();
+        var allCapabilityData = await WMI.LenovoCapabilityData01.GetAsync().ConfigureAwait(false);
+        allCapabilityData = allCapabilityData.ToArray();
 
         var capabilityData = allCapabilityData
             .Where(d => Enum.IsDefined(d.Id))
             .ToArray();
 
-        var discreteData = (await GetDiscreteDataAsync().ConfigureAwait(false))
+        var allDiscreteData = await WMI.LenovoDiscreteCapability.GetAsync().ConfigureAwait(false);
+        allDiscreteData = allDiscreteData.ToArray();
+
+        var discreteData = allDiscreteData
             .Where(d => Enum.IsDefined(d.Id))
             .GroupBy(d => d.Id, d => d.Value, (id, values) => (id, values))
             .ToDictionary(d => d.id, d => d.values.ToArray());
@@ -260,7 +265,7 @@ public class GodModeControllerV2 : AbstractGodModeController
         return (CapabilityID)(idRaw + powerModeRaw);
     }
 
-    private static int? GetDefaultCapabilityIdValueInPowerMode(IEnumerable<Capability> capabilities, CapabilityID id, PowerModeState powerMode)
+    private static int? GetDefaultCapabilityIdValueInPowerMode(IEnumerable<RangeCapability> capabilities, CapabilityID id, PowerModeState powerMode)
     {
         var adjustedId = AdjustCapabilityIdForPowerMode(id, powerMode);
         var value = capabilities
@@ -295,31 +300,6 @@ public class GodModeControllerV2 : AbstractGodModeController
                 { "value", value.Value },
             });
     }
-
-    #endregion
-
-    #region Capabilities
-
-    private static Task<IEnumerable<Capability>> GetCapabilityDataAsync() => WMI.ReadAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_CAPABILITY_DATA_01",
-        pdc =>
-        {
-            var id = Convert.ToInt32(pdc["IDs"].Value);
-            var defaultValue = Convert.ToInt32(pdc["DefaultValue"].Value);
-            var min = Convert.ToInt32(pdc["MinValue"].Value);
-            var max = Convert.ToInt32(pdc["MaxValue"].Value);
-            var step = Convert.ToInt32(pdc["Step"].Value);
-            return new Capability((CapabilityID)id, defaultValue, min, max, step);
-        });
-
-    private static Task<IEnumerable<Discrete>> GetDiscreteDataAsync() => WMI.ReadAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_DISCRETE_DATA",
-        pdc =>
-        {
-            var id = (CapabilityID)Convert.ToInt32(pdc["IDs"].Value);
-            var value = Convert.ToInt32(pdc["Value"].Value);
-            return new Discrete(id, value);
-        });
 
     #endregion
 
@@ -409,40 +389,6 @@ public class GodModeControllerV2 : AbstractGodModeController
     }
 
     private static Task SetFanFullSpeedAsync(bool enabled) => WMI.LenovoOtherMethod.SetFeatureValueAsync(CapabilityID.FanFullSpeed, enabled ? 1 : 0);
-
-    #endregion
-
-    #region Support types
-
-    private readonly struct Capability
-    {
-        public CapabilityID Id { get; }
-        public int DefaultValue { get; }
-        public int Min { get; }
-        public int Max { get; }
-        public int Step { get; }
-
-        public Capability(CapabilityID id, int defaultValue, int min, int max, int step)
-        {
-            Id = id;
-            DefaultValue = defaultValue;
-            Min = min;
-            Max = max;
-            Step = step;
-        }
-    }
-
-    private readonly struct Discrete
-    {
-        public CapabilityID Id { get; }
-        public int Value { get; }
-
-        public Discrete(CapabilityID id, int value)
-        {
-            Id = id;
-            Value = value;
-        }
-    }
 
     #endregion
 

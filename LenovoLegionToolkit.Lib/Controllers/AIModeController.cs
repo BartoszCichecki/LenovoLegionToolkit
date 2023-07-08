@@ -179,17 +179,8 @@ public class AIModeController
 
         try
         {
-            var subModes = await WMI.ReadAsync("root\\WMI",
-                $"SELECT * FROM LENOVO_INTELLIGENT_OP_LIST",
-                pdc =>
-                {
-                    // ReSharper disable once StringLiteralTypo
-                    var processName = pdc["processname"].Value.ToString();
-                    var mode = Convert.ToInt32(pdc["mode"].Value);
-                    return (processName, mode);
-                }).ConfigureAwait(false);
-
-            _subModeData.AddRange(subModes.OfType<(string, int)>().ToDictionary(sm => sm.Item1, sm => sm.Item2));
+            var subModes = await WMI.LenovoIntelligentOPList.GetAsync().ConfigureAwait(false);
+            _subModeData.AddRange(subModes);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Loaded {_subModeData.Count} sub modes.");

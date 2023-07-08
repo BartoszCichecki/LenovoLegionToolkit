@@ -49,7 +49,7 @@ public abstract class AbstractWmiFeature<T> : IFeature<T> where T : struct, Enum
         return result;
     }
 
-    public async Task SetStateAsync(T state)
+    public virtual async Task SetStateAsync(T state)
     {
 
         if (Log.Instance.IsTraceEnabled)

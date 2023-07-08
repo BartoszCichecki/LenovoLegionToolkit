@@ -190,9 +190,7 @@ public static class Compatibility
     {
         try
         {
-            var capabilities = await WMI.ReadAsync("root\\WMI",
-                $"SELECT * FROM LENOVO_CAPABILITY_DATA_00",
-                pdc => (CapabilityID)Convert.ToInt32(pdc["IDs"].Value)).ConfigureAwait(false);
+            var capabilities = await WMI.LenovoCapabilityData00.GetAsync().ConfigureAwait(false);
             capabilities = capabilities.ToArray();
 
             return new()

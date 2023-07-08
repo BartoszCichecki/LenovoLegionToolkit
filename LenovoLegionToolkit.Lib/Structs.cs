@@ -71,6 +71,18 @@ public readonly struct Brightness
     public static implicit operator Brightness(byte value) => new() { Value = value };
 }
 
+public readonly struct DiscreteCapability
+{
+    public CapabilityID Id { get; }
+    public int Value { get; }
+
+    public DiscreteCapability(CapabilityID id, int value)
+    {
+        Id = id;
+        Value = value;
+    }
+}
+
 public readonly struct DisplayAdvancedColorInfo
 {
     public bool AdvancedColorSupported { get; }
@@ -530,6 +542,24 @@ public readonly struct ProcessInfo : IComparable
     public static bool operator >=(ProcessInfo left, ProcessInfo right) => left.CompareTo(right) >= 0;
 
     #endregion
+}
+
+public readonly struct RangeCapability
+{
+    public CapabilityID Id { get; }
+    public int DefaultValue { get; }
+    public int Min { get; }
+    public int Max { get; }
+    public int Step { get; }
+
+    public RangeCapability(CapabilityID id, int defaultValue, int min, int max, int step)
+    {
+        Id = id;
+        DefaultValue = defaultValue;
+        Min = min;
+        Max = max;
+        Step = step;
+    }
 }
 
 public readonly struct RGBColor
