@@ -8,8 +8,6 @@ using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
-// ReSharper disable StringLiteralTypo
-
 namespace LenovoLegionToolkit.Lib.Controllers.GodMode;
 
 public class GodModeControllerV1 : AbstractGodModeController
@@ -564,33 +562,12 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     private static async Task<StepperValue> GetGPUConfigurableTGPAsync()
     {
-        var defaultValue = await WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_GPU_METHOD",
-            "GPU_Get_Default_PPAB_cTGP_PowerLimit",
-            new(),
-            pdc => Convert.ToInt32(pdc["Default_cTGP_Powerlimit"].Value)).ConfigureAwait(false).OrNullIfException();
-
-        var stepperValue = await WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_GPU_METHOD",
-            "GPU_Get_cTGP_PowerLimit",
-            new(),
-            pdc =>
-            {
-                var value = Convert.ToInt32(pdc["Current_cTGP_PowerLimit"].Value);
-                var min = Convert.ToInt32(pdc["Min_cTGP_PowerLimit"].Value);
-                var max = Convert.ToInt32(pdc["Max_cTGP_PowerLimit"].Value);
-                var step = Convert.ToInt32(pdc["step"].Value);
-
-                return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
-            }).ConfigureAwait(false);
-
-        return stepperValue;
+        var defaultValue = await WMI.LenovoGpuMethod.GPUGetDefaultPPABcTGPPowerLimit().ConfigureAwait(false).OrNullIfException();
+        var (value, min, max, step) = await WMI.LenovoGpuMethod.GPUGetCTGPPowerLimitAsync().ConfigureAwait(false);
+        return new(value, min, max, step, Array.Empty<int>(), defaultValue?.ctgp);
     }
 
-    private static Task SetGPUConfigurableTGPAsync(int value) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_GPU_METHOD",
-        "GPU_Set_cTGP_PowerLimit",
-        new() { { "value", value } });
+    private static Task SetGPUConfigurableTGPAsync(int value) => WMI.LenovoGpuMethod.GPUSetCTGPPowerLimitAsync(value);
 
     #endregion
 
@@ -598,57 +575,24 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     private static async Task<StepperValue> GetGPUPowerBoost()
     {
-        var defaultValue = await WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_GPU_METHOD",
-            "GPU_Get_Default_PPAB_cTGP_PowerLimit",
-            new(),
-            pdc => Convert.ToInt32(pdc["Default_PPAB_Powerlimit"].Value)).ConfigureAwait(false).OrNullIfException();
-
-        var stepperValue = await WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_GPU_METHOD",
-            "GPU_Get_PPAB_PowerLimit",
-            new(),
-            pdc =>
-            {
-                var value = Convert.ToInt32(pdc["CurrentPPAB_PowerLimit"].Value);
-                var min = Convert.ToInt32(pdc["MinPPAB_PowerLimit"].Value);
-                var max = Convert.ToInt32(pdc["MaxPPAB_PowerLimit"].Value);
-                var step = Convert.ToInt32(pdc["step"].Value);
-
-                return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
-            }).ConfigureAwait(false);
-
-        return stepperValue;
+        var defaultValue = await WMI.LenovoGpuMethod.GPUGetDefaultPPABcTGPPowerLimit().ConfigureAwait(false).OrNullIfException();
+        var (value, min, max, step) = await WMI.LenovoGpuMethod.GPUGetPPABPowerLimitAsync().ConfigureAwait(false);
+        return new(value, min, max, step, Array.Empty<int>(), defaultValue?.ppab);
     }
 
-    private static Task SetGPUPowerBoostAsync(int value) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_GPU_METHOD",
-        "GPU_Set_PPAB_PowerLimit",
-        new() { { "value", value } });
+    private static Task SetGPUPowerBoostAsync(int value) => WMI.LenovoGpuMethod.GPUSetPPABPowerLimitAsync(value);
 
     #endregion
 
     #region GPU Temperature Limit
 
-    private static Task<StepperValue> GetGPUTemperatureLimitAsync() => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_GPU_METHOD",
-        "GPU_Get_Temperature_Limit",
-        new(),
-        pdc =>
-        {
-            var value = Convert.ToInt32(pdc["CurrentTemperatueLimit"].Value);
-            var min = Convert.ToInt32(pdc["MinTemperatueLimit"].Value);
-            var max = Convert.ToInt32(pdc["MaxTemperatueLimit"].Value);
-            var step = Convert.ToInt32(pdc["step"].Value);
-            var defaultValue = Convert.ToInt32(pdc["DefaultTemperatueLimit"].Value);
+    private static async Task<StepperValue> GetGPUTemperatureLimitAsync()
+    {
+        var (value, min, max, step, defaultValue) = await WMI.LenovoGpuMethod.GPUGetTemperatureLimitAsync().ConfigureAwait(false);
+        return new(value, min, max, step, Array.Empty<int>(), defaultValue);
+    }
 
-            return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
-        });
-
-    private static Task SetGPUTemperatureLimitAsync(int value) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_GPU_METHOD",
-        "GPU_Set_Temperature_Limit",
-        new() { { "CurrentTemperatureLimit", value } });
+    private static Task SetGPUTemperatureLimitAsync(int value) => WMI.LenovoGpuMethod.GPUSetTemperatureLimitAsync(value);
 
     #endregion
 
@@ -659,7 +603,7 @@ public class GodModeControllerV1 : AbstractGodModeController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Reading fan table data...");
 
-        var data = await WMI.LenovoFanMethod.FanGetTable().ConfigureAwait(false);
+        var data = await WMI.LenovoFanMethod.FanGetTableAsync().ConfigureAwait(false);
 
         var fanTableData = data
             .Select(d => new FanTableData
@@ -708,7 +652,7 @@ public class GodModeControllerV1 : AbstractGodModeController
         return fanTableData;
     }
 
-    private static Task SetFanTable(FanTable fanTable) => WMI.LenovoFanMethod.FanSetTable(fanTable.GetBytes());
+    private static Task SetFanTable(FanTable fanTable) => WMI.LenovoFanMethod.FanSetTableAsync(fanTable.GetBytes());
 
     #endregion
 

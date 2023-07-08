@@ -8,8 +8,6 @@ using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
-// ReSharper disable StringLiteralTypo
-
 namespace LenovoLegionToolkit.Lib.Controllers.GodMode;
 
 public class GodModeControllerV2 : AbstractGodModeController
@@ -299,7 +297,7 @@ public class GodModeControllerV2 : AbstractGodModeController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Reading fan table data...");
 
-        var data = await WMI.LenovoFanMethod.FanGetTable().ConfigureAwait(false);
+        var data = await WMI.LenovoFanMethod.FanGetTableAsync().ConfigureAwait(false);
 
         var fanTableData = data
             .Where(d => d.mode == (int)powerModeState + 1)
@@ -349,7 +347,7 @@ public class GodModeControllerV2 : AbstractGodModeController
         return fanTableData;
     }
 
-    private static Task SetFanTable(FanTable fanTable) => WMI.LenovoFanMethod.FanSetTable(fanTable.GetBytes());
+    private static Task SetFanTable(FanTable fanTable) => WMI.LenovoFanMethod.FanSetTableAsync(fanTable.GetBytes());
 
     #endregion
 
