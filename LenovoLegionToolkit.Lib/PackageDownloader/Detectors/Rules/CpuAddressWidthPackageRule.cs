@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
-using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.System.Management;
 
 namespace LenovoLegionToolkit.Lib.PackageDownloader.Detectors.Rules;
 
@@ -32,18 +31,8 @@ internal readonly struct CpuAddressWidthPackageRule : IPackageRule
 
     private async Task<bool> CheckCpuAddressWidthAsync()
     {
-        var results = await WMI.ReadAsync("root\\CIMV2", $"SELECT * FROM Win32_Processor", pdc =>
-        {
-            var str = pdc["AddressWidth"].Value.ToString();
-
-            var addressWidth = 0;
-            if (int.TryParse(str, out var bn))
-                addressWidth = bn;
-
-            return addressWidth;
-        }).ConfigureAwait(false);
-
-        var result = Value == results.FirstOrDefault();
+        var addressWidth = await WMI.Win32.Processor.GetAddressWidthAsync().ConfigureAwait(false);
+        var result = Value == addressWidth;
         return result;
     }
 }

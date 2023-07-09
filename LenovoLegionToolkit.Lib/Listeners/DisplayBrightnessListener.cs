@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Management;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.System.Management;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class DisplayBrightnessListener : AbstractWMIListener<Brightness>
+public class DisplayBrightnessListener : AbstractWMIListener<Brightness, byte>
 {
     private const string DISPLAY_SUBGROUP_GUID = "7516b95f-f776-4464-8c53-06167f40cc99";
     private const string DISPLAY_BRIGHTNESS_SETTING_GUID = "aded5e82-b909-4619-9949-f5d71dac0bcb";
@@ -18,13 +18,14 @@ public class DisplayBrightnessListener : AbstractWMIListener<Brightness>
 
     private readonly ThrottleLastDispatcher _dispatcher = new(TimeSpan.FromSeconds(2), nameof(DisplayBrightnessListener));
 
-    public DisplayBrightnessListener(PowerPlanController powerPlanController, ApplicationSettings settings) : base("ROOT\\WMI", "WmiMonitorBrightnessEvent")
+    public DisplayBrightnessListener(PowerPlanController powerPlanController, ApplicationSettings settings)
+        : base(WMI.WmiMonitorBrightnessEvent.Listen)
     {
         _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController));
         _settings = settings ?? throw new ArgumentNullException(nameof(settings));
     }
 
-    protected override Brightness GetValue(PropertyDataCollection properties) => Convert.ToByte(properties["Brightness"].Value);
+    protected override Brightness GetValue(byte value) => value;
 
     protected override async Task OnChangedAsync(Brightness value)
     {

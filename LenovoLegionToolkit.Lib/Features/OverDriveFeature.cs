@@ -1,6 +1,8 @@
-﻿namespace LenovoLegionToolkit.Lib.Features;
+﻿using LenovoLegionToolkit.Lib.System.Management;
 
-public class OverDriveFeature : AbstractLenovoGamezoneWmiFeature<OverDriveState>
+namespace LenovoLegionToolkit.Lib.Features;
+
+public class OverDriveFeature : AbstractWmiFeature<OverDriveState>
 {
-    public OverDriveFeature() : base("ODStatus", 0, "IsSupportOD") { }
+    public OverDriveFeature() : base(WMI.LenovoGameZoneData.GetODStatusAsync, WMI.LenovoGameZoneData.SetODStatusAsync, WMI.LenovoGameZoneData.IsSupportODAsync) { }
 }

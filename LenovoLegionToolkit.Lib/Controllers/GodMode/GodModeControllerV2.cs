@@ -5,10 +5,8 @@ using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.SoftwareDisabler;
-using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.System.Management;
 using LenovoLegionToolkit.Lib.Utils;
-
-// ReSharper disable StringLiteralTypo
 
 namespace LenovoLegionToolkit.Lib.Controllers.GodMode;
 
@@ -153,7 +151,8 @@ public class GodModeControllerV2 : AbstractGodModeController
 
             var result = new Dictionary<PowerModeState, GodModeDefaults>();
 
-            var allCapabilityData = (await GetCapabilityDataAsync().ConfigureAwait(false)).ToArray();
+            var allCapabilityData = await WMI.LenovoCapabilityData01.ReadAsync().ConfigureAwait(false);
+            allCapabilityData = allCapabilityData.ToArray();
 
             foreach (var powerMode in new[] { PowerModeState.Quiet, PowerModeState.Balance, PowerModeState.Performance })
             {
@@ -199,13 +198,17 @@ public class GodModeControllerV2 : AbstractGodModeController
 
     protected override async Task<GodModePreset> GetDefaultStateAsync()
     {
-        var allCapabilityData = (await GetCapabilityDataAsync().ConfigureAwait(false)).ToArray();
+        var allCapabilityData = await WMI.LenovoCapabilityData01.ReadAsync().ConfigureAwait(false);
+        allCapabilityData = allCapabilityData.ToArray();
 
         var capabilityData = allCapabilityData
             .Where(d => Enum.IsDefined(d.Id))
             .ToArray();
 
-        var discreteData = (await GetDiscreteDataAsync().ConfigureAwait(false))
+        var allDiscreteData = await WMI.LenovoDiscreteData.ReadAsync().ConfigureAwait(false);
+        allDiscreteData = allDiscreteData.ToArray();
+
+        var discreteData = allDiscreteData
             .Where(d => Enum.IsDefined(d.Id))
             .GroupBy(d => d.Id, d => d.Value, (id, values) => (id, values))
             .ToDictionary(d => d.id, d => d.values.ToArray());
@@ -260,7 +263,7 @@ public class GodModeControllerV2 : AbstractGodModeController
         return (CapabilityID)(idRaw + powerModeRaw);
     }
 
-    private static int? GetDefaultCapabilityIdValueInPowerMode(IEnumerable<Capability> capabilities, CapabilityID id, PowerModeState powerMode)
+    private static int? GetDefaultCapabilityIdValueInPowerMode(IEnumerable<RangeCapability> capabilities, CapabilityID id, PowerModeState powerMode)
     {
         var adjustedId = AdjustCapabilityIdForPowerMode(id, powerMode);
         var value = capabilities
@@ -276,50 +279,14 @@ public class GodModeControllerV2 : AbstractGodModeController
     private static Task<int> GetValueAsync(CapabilityID id)
     {
         var idRaw = (uint)id & 0xFFFF00FF;
-        return WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_OTHER_METHOD",
-            "GetFeatureValue",
-            new() { { "IDs", idRaw } },
-            pdc => Convert.ToInt32(pdc["Value"].Value));
+        return WMI.LenovoOtherMethod.GetFeatureValueAsync(idRaw);
     }
 
     private static Task SetValueAsync(CapabilityID id, StepperValue value)
     {
         var idRaw = (uint)id & 0xFFFF00FF;
-        return WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_OTHER_METHOD",
-            "SetFeatureValue",
-            new()
-            {
-                { "IDs", idRaw },
-                { "value", value.Value },
-            });
+        return WMI.LenovoOtherMethod.SetFeatureValueAsync(idRaw, value.Value);
     }
-
-    #endregion
-
-    #region Capabilities
-
-    private static Task<IEnumerable<Capability>> GetCapabilityDataAsync() => WMI.ReadAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_CAPABILITY_DATA_01",
-        pdc =>
-        {
-            var id = Convert.ToInt32(pdc["IDs"].Value);
-            var defaultValue = Convert.ToInt32(pdc["DefaultValue"].Value);
-            var min = Convert.ToInt32(pdc["MinValue"].Value);
-            var max = Convert.ToInt32(pdc["MaxValue"].Value);
-            var step = Convert.ToInt32(pdc["Step"].Value);
-            return new Capability((CapabilityID)id, defaultValue, min, max, step);
-        });
-
-    private static Task<IEnumerable<Discrete>> GetDiscreteDataAsync() => WMI.ReadAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_DISCRETE_DATA",
-        pdc =>
-        {
-            var id = (CapabilityID)Convert.ToInt32(pdc["IDs"].Value);
-            var value = Convert.ToInt32(pdc["Value"].Value);
-            return new Discrete(id, value);
-        });
 
     #endregion
 
@@ -330,37 +297,24 @@ public class GodModeControllerV2 : AbstractGodModeController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Reading fan table data...");
 
-        var data = await WMI.ReadAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_FAN_TABLE_DATA",
-            pdc =>
-            {
-                var mode = Convert.ToInt32(pdc["Mode"].Value);
-                var fanId = Convert.ToByte(pdc["Fan_Id"].Value);
-                var sensorId = Convert.ToByte(pdc["Sensor_ID"].Value);
-                var fanSpeeds = (ushort[]?)pdc["FanTable_Data"].Value ?? Array.Empty<ushort>();
-                var temps = (ushort[]?)pdc["SensorTable_Data"].Value ?? Array.Empty<ushort>();
+        var data = await WMI.LenovoFanTableData.ReadAsync().ConfigureAwait(false);
 
-                var type = (fanId, sensorId) switch
+        var fanTableData = data
+            .Where(d => d.mode == (int)powerModeState + 1)
+            .Select(d => new FanTableData
+            {
+                Type = (d.fanId, d.sensorId) switch
                 {
                     (1, 4) => FanTableType.CPU,
                     (1, 1) => FanTableType.CPUSensor,
                     (2, 5) => FanTableType.GPU,
                     _ => FanTableType.Unknown,
-                };
-
-                return (mode, data: new FanTableData
-                {
-                    Type = type,
-                    FanId = fanId,
-                    SensorId = sensorId,
-                    FanSpeeds = fanSpeeds,
-                    Temps = temps
-                });
-            }).ConfigureAwait(false);
-
-        var fanTableData = data
-            .Where(d => d.mode == (int)powerModeState + 1)
-            .Select(d => d.data)
+                },
+                FanId = d.fanId,
+                SensorId = d.sensorId,
+                FanSpeeds = d.fanTableData,
+                Temps = d.sensorTableData
+            })
             .ToArray();
 
         if (fanTableData.Length != 3)
@@ -393,65 +347,19 @@ public class GodModeControllerV2 : AbstractGodModeController
         return fanTableData;
     }
 
-    private static Task SetFanTable(FanTable fanTable) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_FAN_METHOD",
-        "Fan_Set_Table",
-        new() { { "FanTable", fanTable.GetBytes() } });
+    private static Task SetFanTable(FanTable fanTable) => WMI.LenovoFanMethod.FanSetTableAsync(fanTable.GetBytes());
 
     #endregion
 
     #region Fan Full Speed
 
-    private static Task<bool> GetFanFullSpeedAsync() =>
-        WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_OTHER_METHOD",
-            "GetFeatureValue",
-            new() { { "IDs", (int)CapabilityID.FanFullSpeed } },
-            pdc => Convert.ToInt32(pdc["Value"].Value) == 1);
-
-    private static Task SetFanFullSpeedAsync(bool enabled) =>
-        WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_OTHER_METHOD",
-            "SetFeatureValue",
-            new()
-            {
-                { "IDs", (int)CapabilityID.FanFullSpeed },
-                { "value", enabled ? 1 : 0 },
-            });
-
-    #endregion
-
-    #region Support types
-
-    private readonly struct Capability
+    private static async Task<bool> GetFanFullSpeedAsync()
     {
-        public CapabilityID Id { get; }
-        public int DefaultValue { get; }
-        public int Min { get; }
-        public int Max { get; }
-        public int Step { get; }
-
-        public Capability(CapabilityID id, int defaultValue, int min, int max, int step)
-        {
-            Id = id;
-            DefaultValue = defaultValue;
-            Min = min;
-            Max = max;
-            Step = step;
-        }
+        var value = await WMI.LenovoOtherMethod.GetFeatureValueAsync(CapabilityID.FanFullSpeed).ConfigureAwait(false);
+        return value != 0;
     }
 
-    private readonly struct Discrete
-    {
-        public CapabilityID Id { get; }
-        public int Value { get; }
-
-        public Discrete(CapabilityID id, int value)
-        {
-            Id = id;
-            Value = value;
-        }
-    }
+    private static Task SetFanFullSpeedAsync(bool enabled) => WMI.LenovoOtherMethod.SetFeatureValueAsync(CapabilityID.FanFullSpeed, enabled ? 1 : 0);
 
     #endregion
 

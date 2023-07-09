@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.Lib.System.Management;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Automation.Listeners;
@@ -39,92 +40,87 @@ public class ProcessAutomationListener : IListener<ProcessEventInfo>
 
     public event EventHandler<ProcessEventInfo>? Changed;
 
-    private readonly InstanceEventListener _instanceCreationListener;
-    private readonly InstanceEventListener _instanceDeletionListener;
+    private IDisposable? _processStartTraceDisposable;
+    private IDisposable? _processStopTraceDisposable;
 
     private readonly Dictionary<int, ProcessInfo> _processCache = new();
 
-    public ProcessAutomationListener()
+    public Task StartAsync()
     {
-        _instanceCreationListener = new InstanceEventListener(ProcessEventInfoType.Started, "Win32_ProcessStartTrace");
-        _instanceCreationListener.Changed += InstanceCreationListener_Changed;
+        _processStartTraceDisposable = WMI.Win32.ProcessStartTrace.Listen(ProcessStartTraceListen_Handler);
+        _processStopTraceDisposable = WMI.Win32.ProcessStopTrace.Listen(ProcessStopTraceListen_Handler);
 
-        _instanceDeletionListener = new InstanceEventListener(ProcessEventInfoType.Stopped, "Win32_ProcessStopTrace");
-        _instanceDeletionListener.Changed += InstanceDeletionListener_Changed;
+        return Task.CompletedTask;
     }
 
-    public async Task StartAsync()
+    public Task StopAsync()
     {
-        await _instanceCreationListener.StartAsync().ConfigureAwait(false);
-        await _instanceDeletionListener.StartAsync().ConfigureAwait(false);
-    }
-
-    public async Task StopAsync()
-    {
-        await _instanceCreationListener.StopAsync().ConfigureAwait(false);
-        await _instanceDeletionListener.StopAsync().ConfigureAwait(false);
+        _processStartTraceDisposable?.Dispose();
+        _processStopTraceDisposable?.Dispose();
 
         lock (Lock)
         {
             _processCache.Clear();
         }
+
+        return Task.CompletedTask;
     }
 
-    private void InstanceCreationListener_Changed(object? sender, (ProcessEventInfoType type, int processId, string processName) e)
+    private void ProcessStartTraceListen_Handler(int processId, string processName)
     {
         lock (Lock)
         {
-            if (e.processId < 0)
+            if (processId < 0)
                 return;
 
-            if (string.IsNullOrWhiteSpace(e.processName))
+            if (string.IsNullOrWhiteSpace(processName))
                 return;
 
-            if (IgnoredNames.Contains(e.processName, StringComparer.InvariantCultureIgnoreCase))
+            if (IgnoredNames.Contains(processName, StringComparer.InvariantCultureIgnoreCase))
                 return;
 
             string? processPath = null;
             try
             {
-                processPath = Process.GetProcessById(e.processId).GetFileName();
+                processPath = Process.GetProcessById(processId).GetFileName();
             }
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Can't get process {e.processName} details.", ex);
+                    Log.Instance.Trace($"Can't get process {processName} details.", ex);
             }
 
             if (!string.IsNullOrEmpty(processPath) && IgnoredPaths.Any(p => processPath.StartsWith(p, StringComparison.InvariantCultureIgnoreCase)))
                 return;
 
-            var processInfo = new ProcessInfo(e.processName, processPath);
-            _processCache[e.processId] = processInfo;
+            var processInfo = new ProcessInfo(processName, processPath);
+            _processCache[processId] = processInfo;
 
-            Changed?.Invoke(this, new(e.type, processInfo));
+            Changed?.Invoke(this, new(ProcessEventInfoType.Started, processInfo));
         }
     }
 
-    private void InstanceDeletionListener_Changed(object? sender, (ProcessEventInfoType type, int processId, string processName) e)
+    private void ProcessStopTraceListen_Handler(int processId, string processName)
     {
         lock (Lock)
         {
             CleanUpCacheIfNecessary();
 
-            if (e.processId < 0)
+            if (processId < 0)
                 return;
 
-            if (string.IsNullOrWhiteSpace(e.processName))
+            if (string.IsNullOrWhiteSpace(processName))
                 return;
 
-            if (IgnoredNames.Contains(e.processName, StringComparer.InvariantCultureIgnoreCase))
+            if (IgnoredNames.Contains(processName, StringComparer.InvariantCultureIgnoreCase))
                 return;
 
-            if (!_processCache.TryGetValue(e.processId, out var processInfo))
+            if (!_processCache.TryGetValue(processId, out var processInfo))
                 return;
 
-            _processCache.Remove(e.processId);
+            _processCache.Remove(processId);
 
-            Changed?.Invoke(this, new(e.type, processInfo));
+            Changed?.Invoke(this, new(ProcessEventInfoType.Stopped, processInfo));
         }
     }
 

@@ -1,6 +1,8 @@
-﻿namespace LenovoLegionToolkit.Lib.Features;
+﻿using LenovoLegionToolkit.Lib.System.Management;
 
-public class TouchpadLockFeature : AbstractLenovoGamezoneWmiFeature<TouchpadLockState>
+namespace LenovoLegionToolkit.Lib.Features;
+
+public class TouchpadLockFeature : AbstractWmiFeature<TouchpadLockState>
 {
-    public TouchpadLockFeature() : base("TPStatus", 0, "IsSupportDisableTP") { }
+    public TouchpadLockFeature() : base(WMI.LenovoGameZoneData.GetTPStatusStatusAsync, WMI.LenovoGameZoneData.SetTPStatusAsync, WMI.LenovoGameZoneData.IsSupportDisableTPAsync) { }
 }

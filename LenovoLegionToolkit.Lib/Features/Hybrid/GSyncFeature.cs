@@ -1,6 +1,8 @@
-﻿namespace LenovoLegionToolkit.Lib.Features.Hybrid;
+﻿using LenovoLegionToolkit.Lib.System.Management;
 
-public class GSyncFeature : AbstractLenovoGamezoneWmiFeature<GSyncState>
+namespace LenovoLegionToolkit.Lib.Features.Hybrid;
+
+public class GSyncFeature : AbstractWmiFeature<GSyncState>
 {
-    public GSyncFeature() : base("GSyncStatus", 0, "IsSupportGSync") { }
+    public GSyncFeature() : base(WMI.LenovoGameZoneData.GetGSyncStatusAsync, WMI.LenovoGameZoneData.SetGSyncStatusAsync, WMI.LenovoGameZoneData.IsSupportGSyncAsync) { }
 }

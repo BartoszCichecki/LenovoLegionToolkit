@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Resources;
 using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.System.Management;
 using LenovoLegionToolkit.Lib.Utils;
 using NeoSmart.AsyncLock;
 
@@ -300,25 +300,17 @@ public class GPUController
             return;
         }
 
-        var pnpDeviceId = NVAPI.GetGPUId(gpu);
+        var pnpDeviceIdPart = NVAPI.GetGPUId(gpu);
 
-        if (string.IsNullOrEmpty(pnpDeviceId))
-            throw new InvalidOperationException("pnpDeviceId is null or empty");
+        if (string.IsNullOrEmpty(pnpDeviceIdPart))
+            throw new InvalidOperationException("pnpDeviceIdPart is null or empty");
 
-        var gpuInstanceId = await GetDeviceInstanceIDAsync(pnpDeviceId).ConfigureAwait(false);
+        var gpuInstanceId = await WMI.Win32.PnpEntity.GetDeviceIDAsync(pnpDeviceIdPart).ConfigureAwait(false);
 
         _state = GPUState.DeactivatePossible;
         _gpuInstanceId = gpuInstanceId;
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Deactivate possible [state={_state}, processes.Count={_processes.Count}, gpuInstanceId={_gpuInstanceId}, pnpDeviceId={pnpDeviceId}]");
-    }
-
-    private static async Task<string?> GetDeviceInstanceIDAsync(string pnpDeviceId)
-    {
-        var results = await WMI.ReadAsync("root\\CIMV2",
-            $"SELECT * FROM Win32_PnpEntity WHERE DeviceID LIKE '{pnpDeviceId}%'",
-            pdc => (string)pdc["DeviceID"].Value).ConfigureAwait(false);
-        return results.FirstOrDefault();
+            Log.Instance.Trace($"Deactivate possible [state={_state}, processes.Count={_processes.Count}, gpuInstanceId={_gpuInstanceId}, pnpDeviceIdPart={pnpDeviceIdPart}]");
     }
 }

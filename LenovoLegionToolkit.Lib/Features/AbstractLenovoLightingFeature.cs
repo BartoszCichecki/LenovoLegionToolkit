@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.System.Management;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features;
@@ -31,10 +31,7 @@ public abstract class AbstractLenovoLightingFeature<T> : IFeature<T> where T : s
             if (mi.Properties.IsExcludedFromLenovoLighting)
                 return false;
 
-            var isSupported = await WMI.ExistsAsync(
-                "root\\WMI",
-                $"SELECT * FROM LENOVO_LIGHTING_DATA WHERE Lighting_ID = {_lightingID} AND Control_Interface = {_controlInterface} AND Lighting_Type = {_type}"
-                ).ConfigureAwait(false);
+            var isSupported = await WMI.LenovoLightingData.ExistsAsync(_lightingID, _controlInterface, _type).ConfigureAwait(false);
 
             if (!isSupported)
             {
@@ -66,16 +63,8 @@ public abstract class AbstractLenovoLightingFeature<T> : IFeature<T> where T : s
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting state... [feature={GetType().Name}]");
 
-        var result = await WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_LIGHTING_METHOD",
-            "Get_Lighting_Current_Status",
-            new() { { "Lighting_ID", _lightingID } },
-            pdc =>
-            {
-                var stateType = Convert.ToInt32(pdc["Current_State_Type"].Value);
-                var level = Convert.ToInt32(pdc["Current_Brightness_Level"].Value);
-                return FromInternal(stateType, level);
-            }).ConfigureAwait(false);
+        var (stateType, level) = await WMI.LenovoLightingMethod.GetLightingCurrentStatusAsync(_lightingID).ConfigureAwait(false);
+        var result = FromInternal(stateType, level);
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"State is {result} [feature={GetType().Name}]");
@@ -90,15 +79,7 @@ public abstract class AbstractLenovoLightingFeature<T> : IFeature<T> where T : s
 
         var (stateType, level) = ToInternal(state);
 
-        await WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_LIGHTING_METHOD",
-            "Set_Lighting_Current_Status",
-            new()
-            {
-                { "Lighting_ID", _lightingID },
-                { "Current_State_Type",  stateType},
-                { "Current_Brightness_Level", level }
-            }).ConfigureAwait(false);
+        await WMI.LenovoLightingMethod.SetLightingCurrentStatusAsync(_lightingID, stateType, level).ConfigureAwait(false);
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Set state to {state} [feature={GetType().Name}]");

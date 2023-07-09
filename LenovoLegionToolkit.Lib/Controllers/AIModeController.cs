@@ -7,7 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Settings;
-using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.System.Management;
 using LenovoLegionToolkit.Lib.Utils;
 using NeoSmart.AsyncLock;
 
@@ -94,6 +94,8 @@ public class AIModeController
 
             _startProcessListener?.Dispose();
             _stopProcessListener?.Dispose();
+            _startProcessListener = null;
+            _stopProcessListener = null;
 
             _runningProcessIds.Clear();
             _subModeData.Clear();
@@ -104,8 +106,6 @@ public class AIModeController
             if (_setInitialDelayedTask is not null)
                 await _setInitialDelayedTask.ConfigureAwait(false);
 
-            _startProcessListener = null;
-            _stopProcessListener = null;
             _setInitialDelayedCancellationTokenSource = null;
             _setInitialDelayedTask = null;
 
@@ -120,7 +120,7 @@ public class AIModeController
         return mi.Properties.SupportsIntelligentSubMode;
     }
 
-    private void ProcessStarted(string processName, int processId)
+    private void ProcessStarted(int processId, string processName)
     {
         var targetSubMode = _subModeData.TryGetValue(processName, out var result) ? result : 1;
 
@@ -137,7 +137,7 @@ public class AIModeController
         });
     }
 
-    private void ProcessStopped(int processId)
+    private void ProcessStopped(int processId, string processName)
     {
         if (!_runningProcessIds.Contains(processId))
             return;
@@ -150,46 +150,14 @@ public class AIModeController
         Task.Run(() => SetIntelligentSubModeAsync(1));
     }
 
-    private IDisposable CreateStartProcessListener() => WMI.Listen("root\\CIMV2",
-        $"SELECT * FROM Win32_ProcessStartTrace",
-        pdc =>
-        {
-            var processName = pdc["ProcessName"].Value.ToString();
-            if (!int.TryParse(pdc["ProcessID"].Value.ToString(), out var processID))
-                processID = 0;
-
-            if (processName is not null && processID > 0)
-                ProcessStarted(processName, processID);
-        });
-
-    private IDisposable CreateStopProcessListener() => WMI.Listen("root\\CIMV2",
-        $"SELECT * FROM Win32_ProcessStopTrace",
-        pdc =>
-        {
-            if (!int.TryParse(pdc["ProcessID"].Value.ToString(), out var processId))
-                processId = 0;
-
-            if (processId > 0)
-                ProcessStopped(processId);
-        });
-
     private async Task LoadSubModesAsync()
     {
         _subModeData.Clear();
 
         try
         {
-            var subModes = await WMI.ReadAsync("root\\WMI",
-                $"SELECT * FROM LENOVO_INTELLIGENT_OP_LIST",
-                pdc =>
-                {
-                    // ReSharper disable once StringLiteralTypo
-                    var processName = pdc["processname"].Value.ToString();
-                    var mode = Convert.ToInt32(pdc["mode"].Value);
-                    return (processName, mode);
-                }).ConfigureAwait(false);
-
-            _subModeData.AddRange(subModes.OfType<(string, int)>().ToDictionary(sm => sm.Item1, sm => sm.Item2));
+            var subModes = await WMI.LenovoIntelligentOPList.ReadAsync().ConfigureAwait(false);
+            _subModeData.AddRange(subModes.ToDictionary(kv => Path.GetFileNameWithoutExtension(kv.Key), kv => kv.Value));
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Loaded {_subModeData.Count} sub modes.");
@@ -225,8 +193,8 @@ public class AIModeController
 
             await SetIntelligentSubModeAsync(targetSubMode).ConfigureAwait(false);
 
-            _startProcessListener = CreateStartProcessListener();
-            _stopProcessListener = CreateStopProcessListener();
+            _startProcessListener = WMI.Win32.ProcessStartTrace.Listen(ProcessStarted);
+            _stopProcessListener = WMI.Win32.ProcessStopTrace.Listen(ProcessStopped);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Initial sub mode set.");
@@ -242,10 +210,7 @@ public class AIModeController
     {
         try
         {
-            await WMI.CallAsync("root\\WMI",
-                $"SELECT * FROM LENOVO_GAMEZONE_DATA",
-                "SetIntelligentSubMode",
-                new() { { "Data", subMode } }).ConfigureAwait(false);
+            await WMI.LenovoGameZoneData.SetIntelligentSubModeAsync(subMode).ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Sub mode set to {subMode}.");
@@ -261,11 +226,7 @@ public class AIModeController
     {
         try
         {
-            var subMode = await WMI.CallAsync("root\\WMI",
-                $"SELECT * FROM LENOVO_GAMEZONE_DATA",
-                "GetIntelligentSubMode",
-                new(),
-                pdc => Convert.ToInt32(pdc["Data"].Value)).ConfigureAwait(false);
+            var subMode = await WMI.LenovoGameZoneData.GetIntelligentSubModeAsync().ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Sub mode currently set to {subMode}.");

@@ -1,14 +1,13 @@
-﻿using System.Management;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.System.Management;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class WinKeyListener : AbstractWMIListener<WinKeyChanged>
+public class WinKeyListener : AbstractWMIListener<WinKeyChanged, int>
 {
-    // ReSharper disable once StringLiteralTypo
-    public WinKeyListener() : base("ROOT\\WMI", "LENOVO_GAMEZONE_KEYLOCK_STATUS_EVENT") { }
+    public WinKeyListener() : base(WMI.LenovoGameZoneKeyLockStatusEvent.Listen) { }
 
-    protected override WinKeyChanged GetValue(PropertyDataCollection properties) => default;
+    protected override WinKeyChanged GetValue(int value) => default;
 
     protected override Task OnChangedAsync(WinKeyChanged value) => Task.CompletedTask;
 }

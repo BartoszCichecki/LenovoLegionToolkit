@@ -5,6 +5,7 @@ using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Controllers.GodMode;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.System.Management;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features;
@@ -19,7 +20,7 @@ public class PowerModeUnavailableWithoutACException : Exception
     }
 }
 
-public class PowerModeFeature : AbstractLenovoGamezoneWmiFeature<PowerModeState>
+public class PowerModeFeature : AbstractWmiFeature<PowerModeState>
 {
     private readonly AIModeController _aiModeController;
     private readonly GodModeController _godModeController;
@@ -29,12 +30,12 @@ public class PowerModeFeature : AbstractLenovoGamezoneWmiFeature<PowerModeState>
 
     public bool AllowAllPowerModesOnBattery { get; set; }
 
-    public PowerModeFeature(
-        AIModeController aiModeController,
+    public PowerModeFeature(AIModeController aiModeController,
         GodModeController godModeController,
         PowerPlanController powerPlanController,
         ThermalModeListener thermalModeListener,
-        PowerModeListener powerModeListener) : base("SmartFanMode", 1, "IsSupportSmartFan")
+        PowerModeListener powerModeListener)
+        : base(WMI.LenovoGameZoneData.GetSmartFanModeAsync, WMI.LenovoGameZoneData.SetSmartFanModeAsync, WMI.LenovoGameZoneData.IsSupportSmartFanAsync, 1)
     {
         _aiModeController = aiModeController ?? throw new ArgumentNullException(nameof(aiModeController));
         _godModeController = godModeController ?? throw new ArgumentNullException(nameof(godModeController));

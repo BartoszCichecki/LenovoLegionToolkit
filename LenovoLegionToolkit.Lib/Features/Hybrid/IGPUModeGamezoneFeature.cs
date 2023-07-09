@@ -1,6 +1,8 @@
-﻿namespace LenovoLegionToolkit.Lib.Features.Hybrid;
+﻿using LenovoLegionToolkit.Lib.System.Management;
 
-public class IGPUModeGamezoneFeature : AbstractLenovoGamezoneWmiFeature<IGPUModeState>
+namespace LenovoLegionToolkit.Lib.Features.Hybrid;
+
+public class IGPUModeGamezoneFeature : AbstractWmiFeature<IGPUModeState>
 {
-    public IGPUModeGamezoneFeature() : base("IGPUModeStatus", 0, "IsSupportIGPUMode", inParameterName: "mode") { }
+    public IGPUModeGamezoneFeature() : base(WMI.LenovoGameZoneData.GetIGPUModeStatusAsync, WMI.LenovoGameZoneData.SetIGPUModeStatusAsync, WMI.LenovoGameZoneData.IsSupportIGPUModeAsync) { }
 }

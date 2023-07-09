@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
-using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.System.Management;
 
 namespace LenovoLegionToolkit.Lib.PackageDownloader.Detectors.Rules;
 
@@ -33,19 +32,8 @@ internal readonly struct WindowsBuildVersionPackageRule : IPackageRule
 
     private async Task<bool> CheckBuildNumberAsync()
     {
-        var buildNumbers = await WMI.ReadAsync("root\\CIMV2", $"SELECT * FROM Win32_OperatingSystem", pdc =>
-        {
-            var buildNumberString = pdc["BuildNumber"].Value.ToString();
-
-            var buildNumber = 0;
-            if (int.TryParse(buildNumberString, out var bn))
-                buildNumber = bn;
-
-            return buildNumber;
-        }).ConfigureAwait(false);
-
-        var buildNumber = buildNumbers.FirstOrDefault();
-
+        var buildNumberString = await WMI.Win32.OperatingSystem.GetBuildNumberAsync().ConfigureAwait(false);
+        var buildNumber = int.TryParse(buildNumberString, out var bn) ? bn : 0;
         var result = Version <= buildNumber;
         return result;
     }

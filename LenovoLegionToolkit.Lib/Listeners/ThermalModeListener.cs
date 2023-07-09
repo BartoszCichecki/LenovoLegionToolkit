@@ -1,37 +1,35 @@
 ﻿using System;
-using System.Management;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.Lib.System.Management;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class ThermalModeListener : AbstractWMIListener<ThermalModeState>
+public class ThermalModeListener : AbstractWMIListener<ThermalModeState, int>
 {
     private readonly ThreadSafeCounter _suppressCounter = new();
 
     private readonly PowerPlanController _powerPlanController;
 
-    public ThermalModeListener(PowerPlanController powerPlanController) : base("ROOT\\WMI", "LENOVO_GAMEZONE_THERMAL_MODE_EVENT")
+    public ThermalModeListener(PowerPlanController powerPlanController) : base(WMI.LenovoGameZoneThermalModeEvent.Listen)
     {
         _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController));
     }
 
-    protected override ThermalModeState GetValue(PropertyDataCollection properties)
+    protected override ThermalModeState GetValue(int value)
     {
-        var property = properties["mode"];
-        var propertyValue = Convert.ToInt32(property.Value);
-        var value = (ThermalModeState)(object)propertyValue;
+        var state = (ThermalModeState)value;
 
-        if (!Enum.IsDefined(value))
+        if (!Enum.IsDefined(state))
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Unknown value received: {propertyValue}");
+                Log.Instance.Trace($"Unknown value received: {value}");
 
-            value = ThermalModeState.Unknown;
+            state = ThermalModeState.Unknown;
         }
 
-        return value;
+        return state;
     }
 
     protected override async Task OnChangedAsync(ThermalModeState state)
