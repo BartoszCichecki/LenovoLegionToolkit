@@ -748,7 +748,7 @@
     <value>يتوفر تحديث!</value>
   </data>
   <data name="MainWindow_UpdateAvailableWithVersion" xml:space="preserve">
-    <value>يتوفر تحديث!</value>
+    <value>يتوفر {0} تحديث!</value>
   </data>
   <data name="MoveDown" xml:space="preserve">
     <value>التحريك للأسفل</value>
@@ -1384,7 +1384,7 @@
     <value>الاسم</value>
   </data>
   <data name="Notification_UpdateAvailable" xml:space="preserve">
-    <value>يتوفر تحديث!</value>
+    <value>يتوفر {0} تحديث!</value>
   </data>
   <data name="AddAutomationStepWindow_Title" xml:space="preserve">
     <value>إضافة خطوة</value>
