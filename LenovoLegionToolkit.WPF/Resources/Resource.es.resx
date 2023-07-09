@@ -298,7 +298,7 @@ Sólo se ejecutarán las acciones que coincidan con el estado actual.</value>
     <value>Elegir como se carga la batería.</value>
   </data>
   <data name="BatteryAutomationStepControl_Title" xml:space="preserve">
-    <value>Modo batería</value>
+    <value>Modo de batería</value>
   </data>
   <data name="BatteryModeControl_Message" xml:space="preserve">
     <value>Elegir como se carga la batería.</value>
@@ -432,7 +432,7 @@ El cambio de modo puede requerir un reinicio.</value>
     <value>Inicio</value>
   </data>
   <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
-    <value>Desactivar la GPU externa si esté activa innecesariamente.
+    <value>Desactivar la GPU externa si está activa innecesariamente.
 
 AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está apagada o el modo híbrido no está activo.</value>
   </data>
@@ -575,7 +575,7 @@ Haga clic en el logotipo de PayPal que aparece a continuación, o escanee el có
     <value>Exportar</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
-    <value>Utilizar sólo la GPU integrada si está en modo batería, y la GPU integrada y la externa, si el adaptador de CA está conectado. Si se conecta un adaptador que no es estándar, el sistema cambiará sólo al modo híbrido-iGPU.</value>
+    <value>Utilizar la GPU integrada sólo si está en modo batería; y la GPU integrada y externa si el adaptador de CA está conectado. Si se conecta un adaptador no estándar, el sistema cambiará sólo al modo híbrido-iGPU.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
     <value>Modo híbrido-automático</value>
@@ -953,7 +953,7 @@ Activar esta opción si tiene conflictos con las aplicaciones en pantalla comple
 Asegúrese de instalar siempre los paquetes correctos.</value>
   </data>
   <data name="PackagesPage_DownloadFailed_Message" xml:space="preserve">
-    <value>Comprobar si el tipo de máquina y el sistema operativo están configurados correctamente.</value>
+    <value>Comprobar si el tipo de máquina y el Sistema Operativo están configurados correctamente.</value>
   </data>
   <data name="PackagesPage_DownloadFailed_Title" xml:space="preserve">
     <value>Algo salió mal</value>
@@ -1194,7 +1194,7 @@ Se recomienda reiniciar después de cambiar esta opción.</value>
     <value>No se ha podido desactivar Vantage y/o ImController</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>Desactive Lenovo Vantage e ImController sin desinstalarlos.
+    <value>Desactivar Lenovo Vantage e ImController sin desinstalarlos.
 Se recomienda reiniciar después de cambiar esta opción.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
@@ -1415,7 +1415,7 @@ El registro de sucesos se activará automáticamente, si decide continuar.</valu
     <value>Carpeta de registros</value>
   </data>
   <data name="UnsupportedWindow_MachineType" xml:space="preserve">
-    <value>Tipo de máquina</value>
+    <value>Tipo</value>
   </data>
   <data name="UnsupportedWindow_Message" xml:space="preserve">
     <value>Lenovo Legion Toolkit no ha sido probado con su dispositivo.</value>
@@ -1469,13 +1469,13 @@ El registro de sucesos se activará automáticamente, si decide continuar.</valu
     <value>Micrófono</value>
   </data>
   <data name="MicrophoneControl_Message" xml:space="preserve">
-    <value>Cuando está desactivado, los micrófonos se silencian.</value>
+    <value>Si está desactivado, los micrófonos se silencian.</value>
   </data>
   <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
     <value>Micrófono</value>
   </data>
   <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
-    <value>Cuando está desactivado, los micrófonos se silencian.</value>
+    <value>Si está desactivado, los micrófonos se silencian.</value>
   </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
     <value>Resolución</value>
@@ -1863,12 +1863,12 @@ AVISO: Esta acción no se ejecutará correctamente si no se dispone de una GPU e
 	  <value>La dGPU está actualmente en uso</value>
   </data>
   <data name="IGPUModeChangeException_Message_IGPUOnly" xml:space="preserve">
-	  <value>La dGPU se desconectará automáticamente cuando no esté en uso.</value>
+	  <value>La dGPU se desconectará automáticamente si no está en uso.</value>
   </data>
   <data name="IGPUModeChangeException_Title_Auto" xml:space="preserve">
 	  <value>La dGPU está actualmente en uso o el portátil no está alimentado por batería</value>
   </data>
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
-	  <value>La dGPU se desconectará automáticamente cuando no esté en uso y el portátil esté alimentado por batería.</value>
+	  <value>La dGPU se desconectará automáticamente si no está en uso y el portátil está alimentado por batería.</value>
   </data>
 </root>

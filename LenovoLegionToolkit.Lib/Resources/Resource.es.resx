@@ -80,7 +80,7 @@
     <value>Activado</value>
   </data>
   <data name="AutorunState_EnabledDelayed" xml:space="preserve">
-    <value>Activado, retrasado</value>
+    <value>Activado, demorado</value>
   </data>
   <data name="BatteryState_Conservation" xml:space="preserve">
     <value>Conservador</value>
