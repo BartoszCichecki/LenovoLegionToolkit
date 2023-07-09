@@ -94,6 +94,8 @@ public class AIModeController
 
             _startProcessListener?.Dispose();
             _stopProcessListener?.Dispose();
+            _startProcessListener = null;
+            _stopProcessListener = null;
 
             _runningProcessIds.Clear();
             _subModeData.Clear();
@@ -104,8 +106,6 @@ public class AIModeController
             if (_setInitialDelayedTask is not null)
                 await _setInitialDelayedTask.ConfigureAwait(false);
 
-            _startProcessListener = null;
-            _stopProcessListener = null;
             _setInitialDelayedCancellationTokenSource = null;
             _setInitialDelayedTask = null;
 

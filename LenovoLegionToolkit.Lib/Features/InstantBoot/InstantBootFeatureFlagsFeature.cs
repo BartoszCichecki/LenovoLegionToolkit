@@ -57,14 +57,14 @@ public class InstantBootFeatureFlagsFeature : IFeature<InstantBootState>
 
         var (acAdapter, usbPowerDelivery) = state switch
         {
-            InstantBootState.AcAdapterAndUsbPowerDelivery => (true, true),
-            InstantBootState.AcAdapter => (true, false),
-            InstantBootState.UsbPowerDelivery => (false, true),
-            _ => (false, false)
+            InstantBootState.AcAdapterAndUsbPowerDelivery => (1, 1),
+            InstantBootState.AcAdapter => (1, 0),
+            InstantBootState.UsbPowerDelivery => (0, 1),
+            _ => (0, 0)
         };
 
-        await WMI.LenovoOtherMethod.SetDeviceCurrentSupportFeatureAsync(AC_INDEX, acAdapter ? 1 : 0).ConfigureAwait(false);
-        await WMI.LenovoOtherMethod.SetDeviceCurrentSupportFeatureAsync(USB_POWER_DELIVERY_INDEX, usbPowerDelivery ? 1 : 0).ConfigureAwait(false);
+        await WMI.LenovoOtherMethod.SetDeviceCurrentSupportFeatureAsync(AC_INDEX, acAdapter).ConfigureAwait(false);
+        await WMI.LenovoOtherMethod.SetDeviceCurrentSupportFeatureAsync(USB_POWER_DELIVERY_INDEX, usbPowerDelivery).ConfigureAwait(false);
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Set state to {state}");

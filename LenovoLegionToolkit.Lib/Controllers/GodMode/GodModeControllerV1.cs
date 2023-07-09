@@ -595,7 +595,7 @@ public class GodModeControllerV1 : AbstractGodModeController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Reading fan table data...");
 
-        var data = await WMI.LenovoFanTable.ReadAsync().ConfigureAwait(false);
+        var data = await WMI.LenovoFanTableData.ReadAsync().ConfigureAwait(false);
 
         var fanTableData = data
             .Select(d => new FanTableData

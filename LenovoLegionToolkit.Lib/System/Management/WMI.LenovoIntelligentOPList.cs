@@ -18,12 +18,13 @@ public static partial class WMI
                 $"SELECT * FROM LENOVO_INTELLIGENT_OP_LIST",
                 pdc =>
                 {
-                    // ReSharper disable once StringLiteralTypo
-                    var processName = pdc["processname"].Value.ToString();
+                    var processName = Convert.ToString(pdc["processname"].Value);
                     var mode = Convert.ToInt32(pdc["mode"].Value);
                     return (processName, mode);
                 }).ConfigureAwait(false);
-            return result.OfType<(string, int)>().ToDictionary(sm => sm.Item1, sm => sm.Item2);
+            return result
+                .OfType<(string, int)>()
+                .ToDictionary(sm => sm.Item1, sm => sm.Item2);
         }
     }
 }

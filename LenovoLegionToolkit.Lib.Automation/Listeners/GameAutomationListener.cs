@@ -70,6 +70,7 @@ public class GameAutomationListener : IListener<bool>
         await _effectiveGameModeListener.StopAsync().ConfigureAwait(false);
 
         _processStartTraceDisposable?.Dispose();
+        _processStartTraceDisposable = null;
 
         lock (Lock)
         {

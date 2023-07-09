@@ -9,7 +9,7 @@ namespace LenovoLegionToolkit.Lib.System.Management;
 
 public static partial class WMI
 {
-    public static class LenovoDiscreteCapability
+    public static class LenovoDiscreteData
     {
         public static Task<IEnumerable<DiscreteCapability>> ReadAsync() => WMI.ReadAsync("root\\WMI",
             $"SELECT * FROM LENOVO_DISCRETE_DATA",

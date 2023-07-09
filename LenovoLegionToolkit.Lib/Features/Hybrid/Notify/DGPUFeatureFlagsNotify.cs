@@ -26,7 +26,7 @@ public class DGPUFeatureFlagsNotify : AbstractDGPUNotify
     {
         try
         {
-            return await WMI.LenovoOtherMethod.GetDGPUDeviceDeviceIdVendorId().ConfigureAwait(false);
+            return await WMI.LenovoOtherMethod.GetDGPUDeviceDIDVIDAsync().ConfigureAwait(false);
         }
         catch (Exception)
         {

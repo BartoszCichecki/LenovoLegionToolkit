@@ -12,9 +12,9 @@ public static partial class WMI
     public static class LenovoFanMethod
     {
         public static Task FanSetTableAsync(byte[] fanTable) => CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_FAN_METHOD",
-        "Fan_Set_Table",
-        new() { { "FanTable", fanTable } });
+            $"SELECT * FROM LENOVO_FAN_METHOD",
+            "Fan_Set_Table",
+            new() { { "FanTable", fanTable } });
 
         public static Task<bool> FanGetFullSpeedAsync() => CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_FAN_METHOD",

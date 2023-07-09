@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
+// ReSharper disable IdentifierTypo
 // ReSharper disable InconsistentNaming
 // ReSharper disable StringLiteralTypo
 
@@ -49,7 +50,7 @@ public static partial class WMI
             "Set_DGPU_Device_Status",
             new() { { "Status", status ? 1 : 0 } });
 
-        public static Task<HardwareId> GetDGPUDeviceDeviceIdVendorId() => CallAsync("root\\WMI",
+        public static Task<HardwareId> GetDGPUDeviceDIDVIDAsync() => CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_OTHER_METHOD",
             "Get_DGPU_Device_DIDVID",
             new(),

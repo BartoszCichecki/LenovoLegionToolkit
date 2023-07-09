@@ -205,7 +205,7 @@ public class GodModeControllerV2 : AbstractGodModeController
             .Where(d => Enum.IsDefined(d.Id))
             .ToArray();
 
-        var allDiscreteData = await WMI.LenovoDiscreteCapability.ReadAsync().ConfigureAwait(false);
+        var allDiscreteData = await WMI.LenovoDiscreteData.ReadAsync().ConfigureAwait(false);
         allDiscreteData = allDiscreteData.ToArray();
 
         var discreteData = allDiscreteData
@@ -297,7 +297,7 @@ public class GodModeControllerV2 : AbstractGodModeController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Reading fan table data...");
 
-        var data = await WMI.LenovoFanTable.ReadAsync().ConfigureAwait(false);
+        var data = await WMI.LenovoFanTableData.ReadAsync().ConfigureAwait(false);
 
         var fanTableData = data
             .Where(d => d.mode == (int)powerModeState + 1)

@@ -30,7 +30,7 @@ public class InstantBootCapabilityFeature : IFeature<InstantBootState>
         var acAdapterValue = await WMI.LenovoOtherMethod.GetFeatureValueAsync(CapabilityID.InstantBootAc).ConfigureAwait(false);
         var usbPowerDeliveryValue = await WMI.LenovoOtherMethod.GetFeatureValueAsync(CapabilityID.InstantBootUsbPowerDelivery).ConfigureAwait(false);
 
-        var result = (acAdapter: acAdapterValue, usbPowerDelivery: usbPowerDeliveryValue) switch
+        var result = (acAdapterValue, usbPowerDeliveryValue) switch
         {
             (1, 1) => InstantBootState.AcAdapterAndUsbPowerDelivery,
             (1, 0) => InstantBootState.AcAdapter,

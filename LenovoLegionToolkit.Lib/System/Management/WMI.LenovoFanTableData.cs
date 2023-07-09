@@ -10,7 +10,7 @@ namespace LenovoLegionToolkit.Lib.System.Management;
 
 public static partial class WMI
 {
-    public static class LenovoFanTable
+    public static class LenovoFanTableData
     {
         public static Task<bool> ExistsAsync(int sensorId, int fanId) => WMI.ExistsAsync("root\\WMI", $"SELECT * FROM LENOVO_FAN_TABLE_DATA WHERE Sensor_ID = {sensorId} AND Fan_Id = {fanId}");
 

@@ -21,8 +21,7 @@ public static partial class WMI
                 return (longTerm, shortTerm);
             });
 
-        public static Task<(int value, int min, int max, int step)> CPUGetLongTermPowerLimitAsync() => CallAsync(
-            "root\\WMI",
+        public static Task<(int value, int min, int max, int step)> CPUGetLongTermPowerLimitAsync() => CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_CPU_METHOD",
             "CPU_Get_LongTerm_PowerLimit",
             new(),
@@ -41,8 +40,7 @@ public static partial class WMI
             "CPU_Set_LongTerm_PowerLimit",
             new() { { "value", value } });
 
-        public static Task<(int value, int min, int max, int step)> CPUGetShortTermPowerLimitAsync() => CallAsync(
-            "root\\WMI",
+        public static Task<(int value, int min, int max, int step)> CPUGetShortTermPowerLimitAsync() => CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_CPU_METHOD",
             "CPU_Get_ShortTerm_PowerLimit",
             new(),
@@ -61,8 +59,7 @@ public static partial class WMI
             "CPU_Set_ShortTerm_PowerLimit",
             new() { { "value", value } });
 
-        public static Task<(int value, int min, int max, int step, int defaultValue)> CPUGetPeakPowerLimitAsync() => CallAsync(
-            "root\\WMI",
+        public static Task<(int value, int min, int max, int step, int defaultValue)> CPUGetPeakPowerLimitAsync() => CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_CPU_METHOD",
             "CPU_Get_Peak_PowerLimit",
             new(),
