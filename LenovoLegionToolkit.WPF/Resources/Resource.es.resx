@@ -431,11 +431,6 @@ El cambio de modo puede requerir un reinicio.</value>
   <data name="DashboardPage_Title" xml:space="preserve">
     <value>Inicio</value>
   </data>
-  <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
-    <value>Desactivar la GPU externa si esté activa innecesariamente.
-
-AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está apagada o el modo híbrido no está activo.</value>
-  </data>
   <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
     <value>Desactivar la GPU</value>
   </data>
@@ -1192,10 +1187,6 @@ Se recomienda reiniciar después de cambiar esta opción.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
     <value>No se ha podido desactivar Vantage y/o ImController</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
-    <value>Desactive Lenovo Vantage e ImController sin desinstalarlos.
-Se recomienda reiniciar después de cambiar esta opción.</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Desactivar Lenovo Vantage e ImController</value>
