@@ -455,15 +455,15 @@ public class GodModeControllerV1 : AbstractGodModeController
         var preset = new GodModePreset
         {
             Name = "Default",
-            CPULongTermPowerLimit = await GetCPULongTermPowerLimitAsync().ConfigureAwait(false).OrNullIfException(),
-            CPUShortTermPowerLimit = await GetCPUShortTermPowerLimitAsync().ConfigureAwait(false).OrNullIfException(),
-            CPUPeakPowerLimit = await GetCPUPeakPowerLimitAsync().ConfigureAwait(false).OrNullIfException(),
-            CPUCrossLoadingPowerLimit = await GetCPUCrossLoadingPowerLimitAsync().ConfigureAwait(false).OrNullIfException(),
-            APUsPPTPowerLimit = await GetAPUSPPTPowerLimitAsync().ConfigureAwait(false).OrNullIfException(),
-            CPUTemperatureLimit = await GetCPUTemperatureLimitAsync().ConfigureAwait(false).OrNullIfException(),
-            GPUPowerBoost = await GetGPUPowerBoost().ConfigureAwait(false).OrNullIfException(),
-            GPUConfigurableTGP = await GetGPUConfigurableTGPAsync().ConfigureAwait(false).OrNullIfException(),
-            GPUTemperatureLimit = await GetGPUTemperatureLimitAsync().ConfigureAwait(false).OrNullIfException(),
+            CPULongTermPowerLimit = await GetCPULongTermPowerLimitAsync().OrNullIfException().ConfigureAwait(false),
+            CPUShortTermPowerLimit = await GetCPUShortTermPowerLimitAsync().OrNullIfException().ConfigureAwait(false),
+            CPUPeakPowerLimit = await GetCPUPeakPowerLimitAsync().OrNullIfException().ConfigureAwait(false),
+            CPUCrossLoadingPowerLimit = await GetCPUCrossLoadingPowerLimitAsync().OrNullIfException().ConfigureAwait(false),
+            APUsPPTPowerLimit = await GetAPUSPPTPowerLimitAsync().OrNullIfException().ConfigureAwait(false),
+            CPUTemperatureLimit = await GetCPUTemperatureLimitAsync().OrNullIfException().ConfigureAwait(false),
+            GPUPowerBoost = await GetGPUPowerBoost().OrNullIfException().ConfigureAwait(false),
+            GPUConfigurableTGP = await GetGPUConfigurableTGPAsync().OrNullIfException().ConfigureAwait(false),
+            GPUTemperatureLimit = await GetGPUTemperatureLimitAsync().OrNullIfException().ConfigureAwait(false),
             FanTableInfo = fanTableData is null ? null : new FanTableInfo(fanTableData, await GetDefaultFanTableAsync().ConfigureAwait(false)),
             FanFullSpeed = await GetFanFullSpeedAsync().ConfigureAwait(false),
             MinValueOffset = 0,
@@ -480,7 +480,7 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     private static async Task<StepperValue> GetCPULongTermPowerLimitAsync()
     {
-        var defaultValue = await WMI.LenovoCpuMethod.CPUGetDefaultPowerLimitAsync().ConfigureAwait(false).OrNullIfException();
+        var defaultValue = await WMI.LenovoCpuMethod.CPUGetDefaultPowerLimitAsync().OrNullIfException().ConfigureAwait(false);
         var (value, min, max, step) = await WMI.LenovoCpuMethod.CPUGetLongTermPowerLimitAsync().ConfigureAwait(false);
         return new(value, min, max, step, Array.Empty<int>(), defaultValue?.longTerm);
     }
@@ -493,7 +493,7 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     private static async Task<StepperValue> GetCPUShortTermPowerLimitAsync()
     {
-        var defaultValue = await WMI.LenovoCpuMethod.CPUGetDefaultPowerLimitAsync().ConfigureAwait(false).OrNullIfException();
+        var defaultValue = await WMI.LenovoCpuMethod.CPUGetDefaultPowerLimitAsync().OrNullIfException().ConfigureAwait(false);
         var (value, min, max, step) = await WMI.LenovoCpuMethod.CPUGetShortTermPowerLimitAsync().ConfigureAwait(false);
         return new(value, min, max, step, Array.Empty<int>(), defaultValue?.shortTerm);
     }
@@ -554,7 +554,7 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     private static async Task<StepperValue> GetGPUConfigurableTGPAsync()
     {
-        var defaultValue = await WMI.LenovoGpuMethod.GPUGetDefaultPPABcTGPPowerLimit().ConfigureAwait(false).OrNullIfException();
+        var defaultValue = await WMI.LenovoGpuMethod.GPUGetDefaultPPABcTGPPowerLimit().OrNullIfException().ConfigureAwait(false);
         var (value, min, max, step) = await WMI.LenovoGpuMethod.GPUGetCTGPPowerLimitAsync().ConfigureAwait(false);
         return new(value, min, max, step, Array.Empty<int>(), defaultValue?.ctgp);
     }
@@ -567,7 +567,7 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     private static async Task<StepperValue> GetGPUPowerBoost()
     {
-        var defaultValue = await WMI.LenovoGpuMethod.GPUGetDefaultPPABcTGPPowerLimit().ConfigureAwait(false).OrNullIfException();
+        var defaultValue = await WMI.LenovoGpuMethod.GPUGetDefaultPPABcTGPPowerLimit().OrNullIfException().ConfigureAwait(false);
         var (value, min, max, step) = await WMI.LenovoGpuMethod.GPUGetPPABPowerLimitAsync().ConfigureAwait(false);
         return new(value, min, max, step, Array.Empty<int>(), defaultValue?.ppab);
     }

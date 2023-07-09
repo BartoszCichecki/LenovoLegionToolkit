@@ -26,7 +26,7 @@ internal class VantagePackageUpdateDetector
         if (!dependenciesSatisfied)
             return false;
 
-        return await DetectInstallAsync(httpClient, document, baseLocation, token);
+        return await DetectInstallAsync(httpClient, document, baseLocation, token).ConfigureAwait(false);
     }
 
     private async Task<bool> CheckDependenciesSatisfiedAsync(HttpClient httpClient, XmlDocument document, string baseLocation, CancellationToken token)

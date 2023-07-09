@@ -12,6 +12,6 @@ public class LambdaAsyncDisposable : IAsyncDisposable
     public async ValueTask DisposeAsync()
     {
         GC.SuppressFinalize(this);
-        await _action();
+        await _action().ConfigureAwait(false);
     }
 }

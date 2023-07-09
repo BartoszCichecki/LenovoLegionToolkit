@@ -21,7 +21,7 @@ public class ThrottleFirstDispatcher
 
     public async Task DispatchAsync(Func<Task> task)
     {
-        using (await _lock.LockAsync())
+        using (await _lock.LockAsync().ConfigureAwait(false))
         {
             var diff = DateTime.UtcNow - _lastEvent;
 
@@ -36,7 +36,7 @@ public class ThrottleFirstDispatcher
             if (_tag is not null && Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Allowing... [tag={_tag}, diff={diff.TotalMilliseconds}ms]");
 
-            await task();
+            await task().ConfigureAwait(false);
 
             _lastEvent = DateTime.UtcNow;
         }

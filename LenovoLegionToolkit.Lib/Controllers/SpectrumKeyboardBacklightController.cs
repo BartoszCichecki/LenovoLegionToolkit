@@ -543,7 +543,7 @@ public class SpectrumKeyboardBacklightController
             var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
             if (handle is not null)
             {
-                var currentProfile = await GetProfileAsync();
+                var currentProfile = await GetProfileAsync().ConfigureAwait(false);
                 SetFeature(handle, new LENOVO_SPECTRUM_AURORA_START_STOP_REQUEST(false, (byte)currentProfile));
             }
 
@@ -559,7 +559,7 @@ public class SpectrumKeyboardBacklightController
 
         try
         {
-            using (await GetDeviceHandleLock.LockAsync())
+            using (await GetDeviceHandleLock.LockAsync().ConfigureAwait(false))
             {
                 if (_deviceHandle is not null && IsReady(_deviceHandle))
                     return _deviceHandle;

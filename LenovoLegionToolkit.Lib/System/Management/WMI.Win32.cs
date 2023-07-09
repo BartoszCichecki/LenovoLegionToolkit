@@ -84,7 +84,7 @@ public static partial class WMI
             {
                 var result = await ReadAsync("root\\CIMV2",
                     $"SELECT * FROM Win32_OperatingSystem",
-                    pdc => (string)pdc["BuildNumber"].Value);
+                    pdc => (string)pdc["BuildNumber"].Value).ConfigureAwait(false);
                 return result.First();
             }
         }

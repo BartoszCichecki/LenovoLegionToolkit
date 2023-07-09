@@ -83,7 +83,7 @@ public class GPUController
     {
         using (await _lock.LockAsync().ConfigureAwait(false))
         {
-            await RefreshLoopAsync(0, 0, CancellationToken.None);
+            await RefreshLoopAsync(0, 0, CancellationToken.None).ConfigureAwait(false);
             return new GPUStatus(_state, _performanceState, _processes);
         }
     }

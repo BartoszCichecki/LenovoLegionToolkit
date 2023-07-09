@@ -57,7 +57,7 @@ internal class GameDetector
     public async Task StopAsync()
     {
         if (_listener != null)
-            await _listener.DisposeAsync();
+            await _listener.DisposeAsync().ConfigureAwait(false);
         _listener = null;
     }
 

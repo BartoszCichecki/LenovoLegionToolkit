@@ -44,8 +44,12 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
 
     public async Task TurnOffMonitorAsync()
     {
-        await Task.Delay(TimeSpan.FromSeconds(1));
-        PInvoke.SendMessage(new HWND(Handle), PInvoke.WM_SYSCOMMAND, new WPARAM(PInvoke.SC_MONITORPOWER), new LPARAM(2));
+        await Task.Delay(TimeSpan.FromSeconds(1)).ConfigureAwait(false);
+        await _mainThreadDispatcher.DispatchAsync(() =>
+        {
+            PInvoke.SendMessage(new HWND(Handle), PInvoke.WM_SYSCOMMAND, new WPARAM(PInvoke.SC_MONITORPOWER), new LPARAM(2));
+            return Task.CompletedTask;
+        }).ConfigureAwait(false);
     }
 
     public Task StartAsync() => _mainThreadDispatcher.DispatchAsync(() =>
