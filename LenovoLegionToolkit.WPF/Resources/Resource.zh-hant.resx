@@ -151,6 +151,10 @@
   <data name="AddNew" xml:space="preserve">
     <value>新增</value>
   </data>
+  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
+	  <value>即使 Vantage 或其服務已啟用，也要啟用電源計劃。
+此選項僅適用於沒有多個電源計劃的裝置。</value>
+  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>保持啟用 Windows 電源計劃</value>
   </data>
@@ -617,6 +621,9 @@
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>GPU</value>
   </data>
+  <data name="RPM" xml:space="preserve">
+    <value>RPM</value>
+  </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
     <value>開啟上蓋後自動開啟筆記型電腦。</value>
   </data>
@@ -748,6 +755,9 @@
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>由於 Lenovo Vantage 或其他服務正在執行而導致衝突，無法在此控制鍵盤背光。</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
+	  <value>Lenovo Vantage 或其相關服務正在運行</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>關於</value>
@@ -1013,6 +1023,9 @@
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>尚未連接電源供應器時，電源模式可能無法正確地的運作。</value>
   </data>
+  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
+	  <value>當 Lenovo Vantage 或其相關服務正在運行並且更改筆記型電腦上的電源計劃時，啟用此選項可能會導致未預期的行為。</value>
+  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>您確定嗎？</value>
   </data>
@@ -1173,7 +1186,7 @@
     <value>停用 Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage 或 ImController 可能沒有被正確地關閉。</value>
+    <value>Vantage 或 ImController 可能沒有被正確地停用</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
     <value>無法停用 Vantage 或 ImController</value>
@@ -1196,6 +1209,12 @@
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>無法啟用 Lenovo Hotkeys</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+	  <value>Vantage 或 ImController 可能沒有被正確地啟用</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+	  <value>無法啟用 Vantage 或 ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>您可以排除更新率，使用 Fn+R 快捷鍵切換更加實用。</value>
@@ -1775,5 +1794,78 @@
   </data>
   <data name="PanelLogoBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>開啟或關閉筆記型電腦的背蓋背光。</value>
+  </data>
+  <data name="GHz" xml:space="preserve">
+    <value>GHz</value>
+  </data>
+  <data name="MHz" xml:space="preserve">
+    <value>MHz</value>
+  </data>
+  <data name="SensorsControl_Maximum" xml:space="preserve">
+	  <value>最大：{0}</value>
+  </data>
+  <data name="SensorsControl_CPU_Title" xml:space="preserve">
+	  <value>CPU</value>
+  </data>
+  <data name="SensorsControl_Utilization_Title" xml:space="preserve">
+	  <value>使用率</value>
+  </data>
+  <data name="SensorsControl_CoreClock_Title" xml:space="preserve">
+	  <value>核心時脈</value>
+  </data>
+  <data name="SensorsControl_Temperature_Title" xml:space="preserve">
+	  <value>溫度</value>
+  </data>
+  <data name="SensorsControl_Fan_Title" xml:space="preserve">
+	  <value>風扇</value>
+  </data>
+  <data name="SensorsControl_GPU_Title" xml:space="preserve">
+	  <value>GPU</value>
+  </data>
+  <data name="SensorsControl_MemoryClock_Title" xml:space="preserve">
+	  <value>記憶體時脈</value>
+  </data>
+  <data name="SensorsControl_RefreshInterval" xml:space="preserve">
+	  <value>重新整理間隔</value>
+  </data>
+  <data name="InstantBootControl_Title" xml:space="preserve">
+	  <value>快速啟動</value>
+  </data>
+  <data name="InstantBootControl_Message" xml:space="preserve">
+	  <value>當電源連接後啟動筆記型電腦。</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Title" xml:space="preserve">
+	  <value>快速啟動</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Message" xml:space="preserve">
+	  <value>當電源連接後啟動筆記型電腦。</value>
+  </data>
+  <data name="PowerModeUnavailableWithoutACException_Title" xml:space="preserve">
+	  <value>無法變更電源模式</value>
+  </data>
+  <data name="PowerModeUnavailableWithoutACException_Message" xml:space="preserve">
+	  <value>當未連接電源供應器時無法啟用 {0}。</value>
+	  <comment>For example: "{Performance} power mode is not available without AC power."</comment>
+  </data>
+  <data name="EditDashboardWindow_Sensors" xml:space="preserve">
+	  <value>感測器</value>
+  </data>
+  <data name="IGPUModeChangeException_Title" xml:space="preserve">
+	  <value>無法變更 GPU 運作模式</value>
+  </data>
+  <data name="IGPUModeChangeException_Message" xml:space="preserve">
+	  <value>再次嘗試變更模式。</value>
+  </data>
+  <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
+	  <value>dGPU 目前使用中</value>
+  </data>
+  <data name="IGPUModeChangeException_Message_IGPUOnly" xml:space="preserve">
+	  <value>當 dGPU 未使用時將自動中斷連接。</value>
+  </data>
+  <data name="IGPUModeChangeException_Title_Auto" xml:space="preserve">
+	  <value>dGPU 目前正在使用或筆記型電腦未使用電池電源</value>
+  </data>
+  <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
+	  <value>未使用筆記本電腦或使用電池供電時，dGPU 將自動中斷連接。</value>
   </data>
 </root>

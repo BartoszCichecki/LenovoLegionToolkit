@@ -373,4 +373,16 @@
   <data name="PanelLogoBacklightState_Off" xml:space="preserve">
 		<value>關閉</value>
 	</data>
+  <data name="InstantBootState_Off" xml:space="preserve">
+		<value>關閉</value>
+	</data>
+  <data name="InstantBootState_AcAdapter" xml:space="preserve">
+		<value>AC 方形電源孔</value>
+	</data>
+  <data name="InstantBootState_UsbPowerDelivery" xml:space="preserve">
+		<value>USB PD 充電孔</value>
+	</data>
+  <data name="InstantBootState_AcAdapterAndUsbPowerDelivery" xml:space="preserve">
+		<value>AC 方形電源孔和 USB PD 電源孔</value>
+	</data>
 </root>

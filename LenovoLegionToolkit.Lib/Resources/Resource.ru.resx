@@ -373,4 +373,16 @@
   <data name="PanelLogoBacklightState_Off" xml:space="preserve">
 		<value>Откл.</value>
 	</data>
+  <data name="InstantBootState_Off" xml:space="preserve">
+		<value>Откл.</value>
+	</data>
+  <data name="InstantBootState_AcAdapter" xml:space="preserve">
+		<value>Сетевой адаптер</value>
+	</data>
+  <data name="InstantBootState_UsbPowerDelivery" xml:space="preserve">
+		<value>Питание от USB</value>
+	</data>
+  <data name="InstantBootState_AcAdapterAndUsbPowerDelivery" xml:space="preserve">
+		<value>Сетевой адаптер и питание по USB</value>
+	</data>
 </root>
