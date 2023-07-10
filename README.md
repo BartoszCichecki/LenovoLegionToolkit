@@ -344,7 +344,7 @@ Some, less frequently needed, features or options can be enabled by using additi
 * `--allow-all-power-modes-on-battery` - allows using all Power Modes without AC adapter
 * `--force-disable-rgbkb` - disables all lighting features for 4-zone RGB keyboards
 * `--force-disable-spectrumkb` - disables all lighting features for Spectrum per-key RGB keyboards
-* `--force-disable-lenovolighting` - disables all lightinh features realted to panel logo, ports backlight and some white backlit keyboards
+* `--force-disable-lenovolighting` - disables all lighting features related to panel logo, ports backlight and some white backlit keyboards
 * `--legacy-gpu-working-mode` - changes GPU Working Mode switch to use legacy, less reliable, method
 
 If you decide to use the arguments with `args.txt` file:
