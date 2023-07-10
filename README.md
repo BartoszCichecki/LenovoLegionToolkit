@@ -80,17 +80,17 @@ You can download the installer from the [Releases page](https://github.com/Barto
 
 `winget install BartoszCichecki.LenovoLegionToolkit`
 
-#### Required drivers
-
-If you installed LLT on a clean Windows install, make sure to have necessary drivers installed. If drivers are missing, some options might not be available. Especially make sure that these two are installed on your system:
-1. Lenovo Energy Management
-2. Lenovo Vantage Gaming Feature Driver
-
 #### Next steps
 
 LLT works best when it's running in the background, so go to Settings and enable _Autorun_ and _Minimize on close_. Next thing is to either disable Vantage and Hotkeys or just uninstall them. After that LLT will always run on startup and will take over all functions that were handled by Vantage and Hotkeys.
 
 If you close LLT completely some functions will not work, like synchronizing power plans with current Power Mode or Actions.
+
+#### Required drivers
+
+If you installed LLT on a clean Windows install, make sure to have necessary drivers installed. If drivers are missing, some options might not be available. Especially make sure that these two are installed on your system:
+1. Lenovo Energy Management
+2. Lenovo Vantage Gaming Feature Driver
 
 #### Problems with .NET?
 
