@@ -64,6 +64,7 @@ _If you are looking for a Vantage alternative that was made for Linux, check [Le
   - [Donate](#donate)
   - [Credits](#credits)
   - [FAQ](#faq)
+  - [Arguments](#arguments)
   - [How to collect logs?](#how-to-collect-logs)
   - [Contribution](#contribution)
 
@@ -79,13 +80,17 @@ You can download the installer from the [Releases page](https://github.com/Barto
 
 `winget install BartoszCichecki.LenovoLegionToolkit`
 
+#### Required drivers
+
+If you installed LLT on a clean Windows install, make sure to have necessary drivers installed. If drivers are missing, some options might not be available. Especially make sure that these two are installed on your system:
+1. Lenovo Energy Management
+2. Lenovo Vantage Gaming Feature Driver
+
 #### Next steps
 
 LLT works best when it's running in the background, so go to Settings and enable _Autorun_ and _Minimize on close_. Next thing is to either disable Vantage and Hotkeys or just uninstall them. After that LLT will always run on startup and will take over all functions that were handled by Vantage and Hotkeys.
 
-If you close LLT completely some functions will not work, like synchronizing power plans with current Power Mode (Fn+Q) or Actions.
-
-Also, check out the [Compatibility](#compatibility) section below!
+If you close LLT completely some functions will not work, like synchronizing power plans with current Power Mode or Actions.
 
 #### Problems with .NET?
 
@@ -111,9 +116,9 @@ Join the [Legion Series Discord](https://discord.com/invite/legionseries) and he
 
 ## Compatibility
 
-Lenovo Legion Toolkit is made for Lenovo Legion laptops released in 2020 or later.
+Lenovo Legion Toolkit is made for Lenovo Legion laptops, and other similar laptops like Ideapad Gaming, LOQ and their Chinese variants.
 
-Some features work (or mostly work) on  models released before 2020 and on Ideapad Gaming 3 laptops, but you may experience some smaller issues. The list of models on which LLT was tested and is working can be found here: [Compatibility.cs](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/LenovoLegionToolkit.Lib/Utils/Compatibility.cs).
+Generations 6 (MY2021), 7 (MY2022) and 8 (MY2023) are supported, although some features also work on the 5th generation (MY2020).
 
 If you are getting an incompatible message on startup, you can check the *Contribution* section down at the bottom, to see how can you help. Keep in mind, that not always I can make all options compatible with all hardware since I do not have access to it.
 
@@ -132,32 +137,26 @@ LLT currently does not support installation for multiple users, so if you need t
 The app allows to:
 
 - Change settings like power mode, battery charging mode, etc. that are available only through Vantage.
-- Access to Custom Mode, including Fan Control on 2022 and newer models.
 - Spectrum RGB, 4-zone RGB and White backlight keyboards support.
 - Deactivate discrete GPU (nVidia only).
 - View battery statistics.
 - Download software updates.
 - Define Actions that will run when the laptop is i.e. connected to AC power.
 - Disable/enable Lenovo Vantage, Legion Zone and Lenovo Hotkeys service without uninstalling it.
+- ... and more!
 
 ##### Custom Mode
 
-Custom Mode is supported on following BIOS versions:
-* GKCN49WW and higher
-* H1CN49WW and higher
-* HACN31WW and higher
-* HHCN23WW and higher
-* K1CN31WW and higher
-* K9CN34WW and higher
-* KFCN32WW and higher
-* KWCN28WW and higher
-* J2CN40WW and higher
-* JUCN51WW and higher
-* JYCN39WW and higher
-* M3CN32WW and higher
-* M0CN27WW and higher
+Custom Mode is supported on all devices that support it. Not all features of Custom Mode are supported by all devices.
 
-Not all features of Custom Mode are supported by all devices.
+If you have one of the following BIOSes:
+* G9CN (24 or higher)
+* GKCN (46 or higher)
+* H1CN (39 or higher)
+* HACN (31 or higher)
+* HHCN (20 or higher)
+
+Make sure to update it to at least minimum version mentioned above for Custom Mode to function properly.
 
 ##### Deactivate discrete nVidia GPU
 
@@ -216,6 +215,7 @@ Translations provided by:
 * Greek - GreatApo
 * Italian - [Lampadina17](https://github.com/Lampadina17)
 * Karakalpak - KarLin, Gulnaz, Niyazbek Tolibaev, Shingis Joldasbaev
+* Latvian - RJSkudra
 * Romanian - [Mario Bălănică](https://github.com/mariobalanica)
 * Slovak - Mitschud, Newbie414
 * Spanish - M.A.G.
@@ -230,89 +230,24 @@ Many thanks to everyone else, who monitors and corrects translations!
 
 ## FAQ
 
-#### Why is my antivirus reporting that the installer contains a virus/trojan/malware?
+* [Why do I get a message that Vantage is still running, even though I uninstalled it?](#vantage-running)
+* [Why is my antivirus reporting that the installer contains a virus/trojan/malware?](#virus)
+* [Can I customize hotkeys?](#faq-custom-hotkeys)
+* [Why can't I switch to Performance or Custom Power Mode on battery?](#faq-perf-custom-battery)
+* [Why does switching to Performance mode seem buggy, when AI Engine is enabled?](#faq-ai-fnq-bug)
+* [Why am I getting incompatible message after motherboard replacement?](#faq-incompatible)
+* [Why isn't a game detected, even though Actions are configured properly?](#faq-game-detect)
+* [Can I use other RGB software while using LLT?](#faq-rgb-software)
+* [Will iCue RGB keyboards be supported?](#faq-icue)
+* [Can I have more RGB effects?](#faq-more-rgb-effects)
+* [Can you add fan control to other models?](#faq-fan-control)
+* [Why don't I see the custom tooltip when I hover LLT icon in tray?](#faq-custom-tooltip)
+* [What, if I overclocked my GPU too much?](#faq-gpu-oc)
+* [Which generation is my laptop?](#faq-which-gen)
 
-LLT makes use of many low-level Windows APIs that can be falsely flagged by antiviruses as suspicious, resulting in a false-positive. LLT is open source and can easily be audited by anyone who has any doubts as to what this software does. All installers are built directly on GitHub with GitHub Actions, so that there is no doubt what they contain. This problem could be solved by signing all code, but I can't afford spending hundreds of dollars per year for an Extended Validation certificate.
-
-If you downloaded the installer from this projects website, you shouldn't worry - the warning is a false-positive. That said, if you can help with resolving this issue, let's get in touch.
 
 
-#### My motherboard was replaced and now LLT gives me incompatible message. What do I do?
-
-Sometimes new motherboard does not contain correct model numbers and serial numbers. You should try [this tutorial](https://laptopwiki.eu/laptopwiki/guides/lenovo/legion_bios_lvarrecovery) to try and recover them. If that method does not succeed, you can workaround by going to `%LOCALAPPDATA%\LenovoLegionToolkit` and creating an `args.txt` file. Inside that file paste `--skip-compat-check`. This will disable all compatibility checks in LLT. Use this workaround only if correct model number, serial number etc. can't be restored.
-
-#### Why I can't switch to Performance or Custom Power Mode on battery?
-
-Starting with version 2.11.0, LLT's behavior was aligned with Vantage and Legion Zone and it does not allow using them without an appropriate power source.
-
-If for whatever reason you want to use these modes on battery anyway, you can use `--allow-all-power-modes-on-battery` argument. Note that Power Limits and other settings are not applied correctly on most devices when laptop is not connected to full power AC adapter and unpredictable and weird behavior is expected.
-
-You have been warned, but here are the steps to allow all power modes without AC adapter:
-1. Go to `%LOCALAPPDATA%\LenovoLegionToolkit`
-2. Create `args.txt` file in there (if you already have it edit)
-3. Paste `--allow-all-power-modes-on-battery`
-4. Start LLT
-
-#### Will iCue RGB keyboards be supported?
-
-No. Check out [OpenRGB](https://openrgb.org/) project.
-
-#### Can I have more RGB effects?
-
-Only options natively supported by hardware are available; adding support for custom effects is not planned. If you would like more customization check out [L5P-Keyboard-RGB](https://github.com/4JX/L5P-Keyboard-RGB) or [OpenRGB](https://openrgb.org/).
-
-#### Can I use other RGB software while using LLT?
-
-In general yes. LLT will disable RGB controls when Vantage is running to avoid conflicts. If you use other RGB software like [L5P-Keyboard-RGB](https://github.com/4JX/L5P-Keyboard-RGB) or [OpenRGB](https://openrgb.org/), you can disable RGB in LLT to avoid conflicts.
-
-To disable RGB:
-1. Go to `%LOCALAPPDATA%\LenovoLegionToolkit`
-2. Create `args.txt` file in there (if you already have it edit)
-3. Paste `--force-disable-rgbkb` or `--force-disable-spectrumkb` depending on which keyboard you have (if you have other parameters, there should be 1 per line)
-4. Start LLT
-
-#### Can you add fan control to other models?
-
-If you have a 2022 or newer Legion that does not support it make a ticket and we'll try to add suport for it. Older models will not be supported due to technical limitations.
-
-#### Why is my Fn lock is flipped?
-
-Some devices experience this issue and frankly, I have no idea why. It is known issue, but if you know how to solve it, check out the Contribution section.
-
-#### Why is switching to Performance mode seems buggy, when AI Engine is enabled?
-
-It seems that some BIOS versions indeed have a weird issue when using Fn+Q. Only hope is to wait for Lenovo to fix it.
-
-#### Why isn't a game detected, even though Actions are configured properly?
-
-Game detection feature is built on top of Windows' game detection, meaning LLT will react to EXE files that Windows considers "a game". That also means that if you nuked Xbox Game Bar from your installation, there is 99.9% chance this feature will not work.
-
-Windows probably doesn't recognize all games properly, but you can mark any program as game in Xbox Game Bar settings (Win+G). You can find list of recognized games in registry: `HKEY_CURRENT_USER\System\GameConfigStore\Children`.
-
-#### Why don't I see the custom tooltip when I hover LLT icon in tray?
-
-In Windows 10 and 11, Microsoft did plenty of changes to the tray, breaking a lot of things on the way. As a results custom tooltips not always work properly. Solution? Update your Windows and keep fingers crossed.
-
-#### Where can I find CPU Boost Mode settings?
-
-Shortly speaking, in Windows Control Panel. This option was removed from LLT since it was quite annoying to maintain and it's available inside Windows Control Panel. In LLT's Settings you can find a link directly to the power plan setttings page in Control Panel where you can easily edit CPU Boost Mode settings as well as other settings of Windows power plans.
-
-By default this setting is hidden, but can be revealed by running `powercfg.exe -attributes sub_processor perfboostmode -attrib_hide` in Terminal.
-
-I also recommend other apps that make it very easy to manage settings across multiple power plans: [PowerSettingsExplorer](https://forums.guru3d.com/threads/windows-power-plan-settings-explorer-utility.416058/) and [QuickCPU](https://coderbag.com/product/quickcpu).
-
-#### Can I customize hotkeys?
-
-You can customize Fn+F9 hotkey in LLT settings. Other hotkeys can't be customized.
-
-#### What if I overclocked my GPU too much?
-
-If you end up in a situation where your GPU is not stable and you can't boot into Windows, there are two things you can do:
-
-1. Go into BIOS and try to find and option similar to "Enabled GPU Overclocking" and disable it, start Windows, and toggle the BIOS option again to Enabled.
-2. Start Windows in Safe Mode, and delete `gpu_oc.json` file under LLT settings, which are located in `"%LOCALAPPDATA%\LenovoLegionToolkit`.
-
-#### Why do I get a message that Vantage is still running, even though I uninstalled it?
+####  <a id="faq-vantage-running" />Why do I get a message that Vantage is still running, even though I uninstalled it?
 
 Starting from version 2.14.0, LLT is much more strict about detecting leftover processes related to Vantage. Vantage installs 3 components:
 
@@ -322,7 +257,90 @@ Starting from version 2.14.0, LLT is much more strict about detecting leftover p
 
 The easiest solution is to go into LLT settings and selection options to disable Lenovo Vantage, LegionZone and Hotkeys (only still installed ones are shown).
 
-If you want to remove them instead, make sure that you uninstall all 3, otherwise some options in LLT will not be available. You can check Task Manager for any processes containing "Vantage" or "ImController". You can also check this guide for more info: [Uninstalling System Interface Foundation V2 Device](https://support.lenovo.com/us/en/solutions/HT506070), if you have troubles getting rid of "ImController" processes.
+If you want to remove them instead, make sure that you uninstall all 3, otherwise some options in LLT will not be available. You can check Task Manager for any processes containing `Vantage` or `ImController`. You can also check this guide for more info: [Uninstalling System Interface Foundation V2 Device](https://support.lenovo.com/us/en/solutions/HT506070), if you have troubles getting rid of `ImController` processes.
+
+#### <a id="faq-virus" />Why is my antivirus reporting that the installer contains a virus/trojan/malware?
+
+LLT makes use of many low-level Windows APIs that can be falsely flagged by antiviruses as suspicious, resulting in a false-positive. LLT is open source and can easily be audited by anyone who has any doubts as to what this software does. All installers are built directly on GitHub with GitHub Actions, so that there is no doubt what they contain. This problem could be solved by signing all code, but I can't afford spending hundreds of dollars per year for an Extended Validation certificate.
+
+If you downloaded the installer from this projects website, you shouldn't worry - the warning is a false-positive. That said, if you can help with resolving this issue, let's get in touch.
+
+#### <a id="faq-custom-hotkeys" />Can I customize hotkeys?
+
+You can customize Fn+F9 hotkey in LLT settings. Other hotkeys can't be customized.
+
+#### <a id="faq-perf-custom-battery" />Why can't I switch to Performance or Custom Power Mode on battery?
+
+Starting with version 2.11.0, LLT's behavior was aligned with Vantage and Legion Zone and it does not allow using them without an appropriate power source.
+
+If for whatever reason you want to use these modes on battery anyway, you can use `--allow-all-power-modes-on-battery` argument. Check [Arguments](#arguments) section for more details.
+
+*Note that power limits and other settings are not applied correctly on most devices when laptop is not connected to full power AC adapter and unpredictable and weird behavior is expected. Therefore, no support is provided for issues related to using this argument.*
+
+#### <a id="faq-ai-fnq-bug" />Why does switching to Performance mode seem buggy, when AI Engine is enabled?
+
+It seems that some BIOS versions indeed have weird issues when using Fn+Q. Only hope is to wait for Lenovo to fix it.
+
+#### <a id="faq-incompatible" />Why am I getting incompatible message after motherboard replacement?
+
+Sometimes new motherboard does not contain correct model numbers and serial numbers. You should try [this tutorial](https://laptopwiki.eu/laptopwiki/guides/lenovo/legion_bios_lvarrecovery) to try and recover them. If that method does not succeed, you can workaround it with `--skip-compat-check` argument. Check [Arguments](#arguments) section for more details.
+
+#### <a id="faq-game-detect" />Why isn't a game detected, even though Actions are configured properly?
+
+Game detection feature is built on top of Windows' game detection, meaning LLT will react to EXE files that Windows considers "a game". That also means that if you nuked Xbox Game Bar from your installation, there is 99.9% chance this feature will not work.
+
+Windows probably doesn't recognize all games properly, but you can mark any program as game in Xbox Game Bar settings (Win+G). You can find list of recognized games in registry: `HKEY_CURRENT_USER\System\GameConfigStore\Children`.
+
+#### <a id="faq-rgb-software" />Can I use other RGB software while using LLT?
+
+In general yes. LLT will disable RGB controls when Vantage is running to avoid conflicts. If you use other RGB software like [L5P-Keyboard-RGB](https://github.com/4JX/L5P-Keyboard-RGB) or [OpenRGB](https://openrgb.org/), you can disable RGB in LLT to avoid conflicts with `--force-disable-rgbkb` or `--force-disable-spectrumkb` argument. Check [Arguments](#arguments) section for more details.
+
+#### <a id="faq-icue" />Will iCue RGB keyboards be supported?
+
+No. Check out [OpenRGB](https://openrgb.org/) project.
+
+#### <a id="faq-more-rgb-effects" />Can I have more RGB effects?
+
+Only options natively supported by hardware are available; adding support for custom effects is not planned. If you would like more customization check out [L5P-Keyboard-RGB](https://github.com/4JX/L5P-Keyboard-RGB) or [OpenRGB](https://openrgb.org/).
+
+#### <a id="faq-fan-control" />Can you add fan control to other models?
+
+Fan control is available on Gen 7 and later models. Older models will not be supported due to technical limitations.
+
+#### <a id="faq-custom-tooltip" />Why don't I see the custom tooltip when I hover LLT icon in tray?
+
+In Windows 10 and 11, Microsoft did plenty of changes to the tray, breaking a lot of things on the way. As a results custom tooltips not always work properly. Solution? Update your Windows and keep fingers crossed.
+
+#### <a id="faq-gpu-oc" />What, if I overclocked my GPU too much?
+
+If you end up in a situation where your GPU is not stable and you can't boot into Windows, there are two things you can do:
+
+1. Go into BIOS and try to find and option similar to "Enabled GPU Overclocking" and disable it, start Windows, and toggle the BIOS option again to Enabled.
+2. Start Windows in Safe Mode, and delete `gpu_oc.json` file under LLT settings, which are located in `"%LOCALAPPDATA%\LenovoLegionToolkit`.
+
+#### <a id="faq-which-gen" />Which generation is my laptop?
+
+Check the model number. Example model numbers are `16ACH6H` or `16IAX7`. The last number of the model number indicates generation.
+
+## Arguments
+
+Some, less frequently needed, features or options can be enabled by using additional arguments. These arguments can either be passed as parameters or added to `args.txt` file.
+
+* `--trace` - enables logging to `%LOCALAPPDATA%\LenovoLegionToolkit\log`
+* `--minimized` - starts LLT minimized to tray
+* `--skip-compat-check` - disables compatibility check on startup
+* `--disable-tray-tooltip` - disables tray tooltip that is shown when you hover the cursors over tray icon
+* `--allow-all-power-modes-on-battery` - allows using all Power Modes without AC adapter
+* `--force-disable-rgbkb` - disables all lighting features for 4-zone RGB keyboards
+* `--force-disable-spectrumkb` - disables all lighting features for Spectrum per-key RGB keyboards
+* `--force-disable-lenovolighting` - disables all lightinh features realted to panel logo, ports backlight and some white backlit keyboards
+* `--legacy-gpu-working-mode` - changes GPU Working Mode switch to use legacy, less reliable, method
+
+If you decide to use the arguments with `args.txt` file:
+1. Go to `%LOCALAPPDATA%\LenovoLegionToolkit`
+2. Create or edit `args.txt` file in there
+3. Paste **one** argument per line
+4. Start LLT
 
 ## How to collect logs?
 
