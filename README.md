@@ -147,7 +147,7 @@ The app allows to:
 
 ##### Custom Mode
 
-Custom Mode is supported on all devices that support it. Not all features of Custom Mode are supported by all devices.
+Custom Mode is available on all devices that support it. You can find it in the Power Mode dropdown as it basically is 4th power mode. Custom Mode can't be accessed with Fn+Q shortcut. Not all features of Custom Mode are supported by all devices.
 
 If you have one of the following BIOSes:
 * G9CN (24 or higher)
@@ -157,6 +157,17 @@ If you have one of the following BIOSes:
 * HHCN (20 or higher)
 
 Make sure to update it to at least minimum version mentioned above for Custom Mode to function properly.
+
+##### RGB and lighting
+
+Both Spectrum per-key RGB and 4-zone RGB backlight is supported. Vantage and it's services need to be disabled to avoid conflicts when communicating with hardware. If you use other RGB apps that might conflict with LLT, check [FAQ](#faq) for solutions.
+
+Other lighting features like both 1 and 3 level white keyboard backlight, panel logo and rear ports backlight are also supported, however there are some constraints:
+
+* GKCN54WW and lower - some lighting features are disabled due to a bug in these BIOS versions causing BSOD
+* some (mostly Gen 6) laptops models might not show all options - this is due misconfigured BIOS that doesn't report availability of these features
+
+Lighting that required Corsair iCue is not supported by LLT.
 
 ##### Deactivate discrete nVidia GPU
 
@@ -171,7 +182,7 @@ Deactivate button will be enabled when dGPU is active, you have Hybrid mode enab
 
 Keep in mind that some apps may not like this feature and crash when you deactivate dGPU.
 
-#### Overclock discrete nVidia GPUs
+##### Overclock discrete nVidia GPUs
 
 The overclock option is intended for simple overclocking, similar to the one available in Vantage. It is not intended to replace tools like Afterburner. Here are some points to keep in mind:
 * Make sure GPU overclocking is enabled in BIOS, if your laptop has such option.
