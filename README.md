@@ -353,6 +353,8 @@ If you decide to use the arguments with `args.txt` file:
 3. Paste **one** argument per line
 4. Start LLT
 
+Arguments not listed above are no longer needed or available.
+
 ## How to collect logs?
 
 In some cases it will be super useful if you can provide logs that this app can create. This helps with debugging and other issue solving.
