@@ -146,6 +146,9 @@ public static class LocalizationHelper
         Resource.Culture = cultureInfo;
         Lib.Resources.Resource.Culture = cultureInfo;
         Lib.Automation.Resources.Resource.Culture = cultureInfo;
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Applied culture: {cultureInfo.Name}");
     }
 
     private static unsafe string? GetSystemShortDateFormat()

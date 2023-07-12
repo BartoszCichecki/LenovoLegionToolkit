@@ -151,6 +151,10 @@
   <data name="AddNew" xml:space="preserve">
     <value>Pievienot jaunu</value>
   </data>
+  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
+	  <value>Aktivizēt Enerģijas Plānus pat tad, kad Vantage ir iespējots.
+Šī opcija ir paredzēta tikai ierīcēm, kurām nav pievienoti vairāki Enerģijas Plāni.</value>
+  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Vienmēr aktivizēt Windows Enerģijas Plānus</value>
   </data>
@@ -618,6 +622,9 @@ Paldies jau iepriekš!</value>
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>GPU</value>
   </data>
+  <data name="RPM" xml:space="preserve">
+    <value>Apgr/min</value>
+  </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
     <value>Klēpjdatora ieslēgšana, atverot vāku.</value>
   </data>
@@ -749,6 +756,9 @@ BRĪDINĀJUMS. Ja iebūvētais ekrāns ir izslēgts, šī darbība nedarbosies p
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>Tastatūras fona apgaismojumu šeit nevar kontrolēt, ja darbojas Vantage vai tā pakalpojumi.</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
+	  <value>Lenovo Vantage vai tā servisi šobrīd ir ieslēgti</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Par</value>
@@ -1014,6 +1024,9 @@ Jūs varat režīmus mainīt ar Fn+Q.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Izvēlētais barošanas režīms var nedarboties pareizi, ja nav pievienots maiņstrāvas adapteris.</value>
   </data>
+  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
+	  <value>Iespējojot šo opciju, ja darbojas Lenovo Vantage vai tā servisi un tie maina barošanas plānus klēpjdatorā, var rasties neparedzēta darbība.</value>
+  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Vai esat pārliecināts?</value>
   </data>
@@ -1197,6 +1210,12 @@ Pēc šīs opcijas maiņas ieteicams restartēt datoru.</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Nevarēja iespējot Legion Hotkeys</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+	  <value>Iespējams, Vantage un/vai ImController nav pareizi iespējots</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+	  <value>Nevarēja iespējot Vantage un/vai ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Varat izslēgt atsvaidzināšanas ātrumus, lai padarītu Fn+R saīsni noderīgāku.</value>
@@ -1776,5 +1795,78 @@ BRĪDINĀJUMS. Ja nav pieejams atsevišķs GPU, šī darbība nedarbosies pareiz
   </data>
   <data name="PanelLogoBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Ieslēgt vai izslēgt klēpjdatora vāka izgaismojumu.</value>
+  </data>
+  <data name="GHz" xml:space="preserve">
+    <value>GHz</value>
+  </data>
+  <data name="MHz" xml:space="preserve">
+    <value>MHz</value>
+  </data>
+  <data name="SensorsControl_Maximum" xml:space="preserve">
+	  <value>Maksimums: {0}</value>
+  </data>
+  <data name="SensorsControl_CPU_Title" xml:space="preserve">
+	  <value>CPU</value>
+  </data>
+  <data name="SensorsControl_Utilization_Title" xml:space="preserve">
+	  <value>Lietojums</value>
+  </data>
+  <data name="SensorsControl_CoreClock_Title" xml:space="preserve">
+	  <value>Kodola Takts Ātrums</value>
+  </data>
+  <data name="SensorsControl_Temperature_Title" xml:space="preserve">
+	  <value>Temperatūra</value>
+  </data>
+  <data name="SensorsControl_Fan_Title" xml:space="preserve">
+	  <value>Ventilators</value>
+  </data>
+  <data name="SensorsControl_GPU_Title" xml:space="preserve">
+	  <value>GPU</value>
+  </data>
+  <data name="SensorsControl_MemoryClock_Title" xml:space="preserve">
+	  <value>Atmiņas Takts Ātrums</value>
+  </data>
+  <data name="SensorsControl_RefreshInterval" xml:space="preserve">
+	  <value>Atjaunošanas intervāls</value>
+  </data>
+  <data name="InstantBootControl_Title" xml:space="preserve">
+	  <value>Tūlītēja Sāknēšana</value>
+  </data>
+  <data name="InstantBootControl_Message" xml:space="preserve">
+	  <value>Ieslēgt portatīvo datoru kad tiek pievienots lādētājs.</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Title" xml:space="preserve">
+	  <value>Tūlītēja Sāknēšana</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Message" xml:space="preserve">
+	  <value>Ieslēgt portatīvo datoru kad tiek pievienots lādētājs.</value>
+  </data>
+  <data name="PowerModeUnavailableWithoutACException_Title" xml:space="preserve">
+	  <value>Nevarēja nomainīt Jaudas Režīmu</value>
+  </data>
+  <data name="PowerModeUnavailableWithoutACException_Message" xml:space="preserve">
+	  <value>{0} jaudas režīms nav pieejams bez maiņstrāvas pieslēguma.</value>
+	  <comment>For example: "{Performance} power mode is not available without AC power."</comment>
+  </data>
+  <data name="EditDashboardWindow_Sensors" xml:space="preserve">
+	  <value>Sensori</value>
+  </data>
+  <data name="IGPUModeChangeException_Title" xml:space="preserve">
+	  <value>Nevarēja nomainīt GPU Darbošanās režīmu</value>
+  </data>
+  <data name="IGPUModeChangeException_Message" xml:space="preserve">
+	  <value>Mēģiniet atkārtoti nomainīt režīmu.</value>
+  </data>
+  <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
+	  <value>dGPU šobrīd tiek izmantots</value>
+  </data>
+  <data name="IGPUModeChangeException_Message_IGPUOnly" xml:space="preserve">
+	  <value>dGPU automātiski pats atvienosies kad tas netiks izmantots.</value>
+  </data>
+  <data name="IGPUModeChangeException_Title_Auto" xml:space="preserve">
+	  <value>dGPU šobrīd tiek izmantots vai arī portatīvais dators neizmanto akumulatoru</value>
+  </data>
+  <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
+	  <value>dGPU tiks atvienots automātiski kad tas netiek izmantots vai portatīvais dators izmanto akumulatoru.</value>
   </data>
 </root>
