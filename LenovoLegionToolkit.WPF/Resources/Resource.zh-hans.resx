@@ -625,7 +625,7 @@
     <value>GPU</value>
   </data>
   <data name="RPM" xml:space="preserve">
-    <value>转/分钟 (RPM)</value>
+    <value>转</value>
   </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
     <value>打开盖子时将自动开启笔记本。</value>
@@ -1857,5 +1857,23 @@
   </data>
   <data name="EditDashboardWindow_Sensors" xml:space="preserve">
 	  <value>硬件监控信息</value>
+  </data>
+  <data name="IGPUModeChangeException_Title" xml:space="preserve">
+	  <value>当前无法切换显卡工作模式</value>
+  </data>
+  <data name="IGPUModeChangeException_Message" xml:space="preserve">
+	  <value>请重试切换模式。</value>
+  </data>
+  <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
+	  <value>独立显卡当前被占用</value>
+  </data>
+  <data name="IGPUModeChangeException_Message_IGPUOnly" xml:space="preserve">
+	  <value>独立显卡在解除占用后将自动停用。</value>
+  </data>
+  <data name="IGPUModeChangeException_Title_Auto" xml:space="preserve">
+	  <value>独立显卡当前被占用或设备当前并非电池供电</value>
+  </data>
+  <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
+	  <value>独立显卡在解除占用或设备处于电池供电的状态下将自动停用。</value>
   </data>
 </root>
