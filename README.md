@@ -357,7 +357,7 @@ Arguments not listed above are no longer needed or available.
 
 ## How to collect logs?
 
-In some cases it will be super useful if you can provide logs that this app can create. This helps with debugging and other issue solving.
+In all troubleshooting situations, logs provide important information. **Always** attach logs to your issues. Critical error logs are saved automatically and saved under `"%LOCALAPPDATA%\LenovoLegionToolkit\log"`.
 
 To collect logs:
 
@@ -380,7 +380,7 @@ Crowdin has been selected as the tool for handling translations. If you want to 
 
 #### Bugs
 
-If you find any bugs in the app, please report them. It will be very helpful if you attach logs that will help to trace the root cause of the issue. You can find logs in `%LOCALAPPDATA%\LenovoLegionToolkit\log`. Of course attach the latest log to the issue here on GitHub.
+If you find any bugs in the app, please report them. **Always** attach logs to your issues. You can find logs in `%LOCALAPPDATA%\LenovoLegionToolkit\log`.
 
 #### Compatibility
 
