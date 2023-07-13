@@ -29,17 +29,17 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <wpfui:CardControl
-            x:Name="_vantageWarningCard"
+        <wpfui:InfoBar
+            x:Name="_vantageWarningInfoBar"
+            Title="{x:Static resources:Resource.Keyboard_VantageEnabledWarning_Title}"
             Grid.Row="0"
             Grid.Column="0"
             Grid.ColumnSpan="4"
             Margin="0,0,8,24"
-            Icon="Warning24">
-            <wpfui:CardControl.Header>
-                <controls:CardHeaderControl Title="{x:Static resources:Resource.Keyboard_VantageEnabledWarning_Title}" Subtitle="{x:Static resources:Resource.Keyboard_VantageEnabledWarning_Message}" />
-            </wpfui:CardControl.Header>
-        </wpfui:CardControl>
+            IsClosable="False"
+            IsOpen="False"
+            Message="{x:Static resources:Resource.Keyboard_VantageEnabledWarning_Message}"
+            Severity="Error" />
 
         <wpfui:Button
             x:Name="_offPresetButton"

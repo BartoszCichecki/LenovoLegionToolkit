@@ -2226,11 +2226,29 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Custom Mode settings will not be applied correctly when LegionZone or it&apos;s services are running..
+        /// </summary>
+        public static string GodModeSettingsWindow_LegionZoneWarning_Title {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_LegionZoneWarning_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Custom Mode Settings.
         /// </summary>
         public static string GodModeSettingsWindow_Title {
             get {
                 return ResourceManager.GetString("GodModeSettingsWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom Mode settings will not be applied correctly when Lenovo Vantage or it&apos;s services are running..
+        /// </summary>
+        public static string GodModeSettingsWindow_VantageWarning_Title {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_VantageWarning_Title", resourceCulture);
             }
         }
         

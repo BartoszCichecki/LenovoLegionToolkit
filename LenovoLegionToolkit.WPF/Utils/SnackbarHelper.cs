@@ -44,17 +44,18 @@ public static class SnackbarHelper
         {
             SnackbarType.Warning => SymbolRegular.Warning24,
             SnackbarType.Error => SymbolRegular.ErrorCircle24,
+            SnackbarType.Info => SymbolRegular.Info24,
             _ => SymbolRegular.Checkmark24
         };
         snackBar.Timeout = type switch
         {
-            SnackbarType.Warning or SnackbarType.Error => 5000,
-            _ => 2000
+            SnackbarType.Success => 2000,
+            _ => 5000
         };
         snackBar.CloseButtonEnabled = type switch
         {
-            SnackbarType.Warning or SnackbarType.Error => true,
-            _ => false
+            SnackbarType.Success => false,
+            _ => true
         };
     }
 }

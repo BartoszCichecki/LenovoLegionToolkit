@@ -53,15 +53,8 @@ public partial class GodModeSettingsWindow
 
             var loadingTask = Task.Delay(TimeSpan.FromMilliseconds(500));
 
-            _vantageRunningWarningInfoBar.Visibility = await _godModeController.NeedsVantageDisabledAsync()
-                                                       && await _vantageDisabler.GetStatusAsync() == SoftwareStatus.Enabled
-                ? Visibility.Visible
-                : Visibility.Collapsed;
-
-            _legionZoneRunningWarningInfoBar.Visibility = await _godModeController.NeedsLegionZoneDisabledAsync()
-                                                          && await _legionZoneDisabler.GetStatusAsync() == SoftwareStatus.Enabled
-                ? Visibility.Visible
-                : Visibility.Collapsed;
+            _vantageRunningWarningInfoBar.IsOpen = await _godModeController.NeedsVantageDisabledAsync() && await _vantageDisabler.GetStatusAsync() == SoftwareStatus.Enabled;
+            _legionZoneRunningWarningInfoBar.IsOpen = await _godModeController.NeedsLegionZoneDisabledAsync() && await _legionZoneDisabler.GetStatusAsync() == SoftwareStatus.Enabled;
 
             _state = await _godModeController.GetStateAsync();
             _defaults = await _godModeController.GetDefaultsInOtherPowerModesAsync();

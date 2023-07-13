@@ -96,7 +96,7 @@ public static class HybridModeControlFactory
                     _ => (Resource.IGPUModeChangeException_Title, Resource.IGPUModeChangeException_Message)
                 };
 
-                SnackbarHelper.Show(title, message, SnackbarType.Warning);
+                SnackbarHelper.Show(title, message, SnackbarType.Info);
             }
         }
 
