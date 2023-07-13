@@ -169,6 +169,26 @@ Other lighting features like both 1 and 3 level white keyboard backlight, panel 
 
 Lighting that required Corsair iCue is not supported by LLT.
 
+##### Hybrid Mode and GPU Working Modes
+
+There are two main way you can use your dGPU:
+
+1. Hybrid mode on - internal laptop display is connected to integrated GPU, discrete GPU will work when needed and power off when not in use, giving better battery life
+2. Hybrid mode off (aka dGPU) - internal laptop display is conenected directly to discreted GPU, giving best performance but also worst battery life
+
+Switching between two modes requires restart.
+
+On Gen 7 and 8 laptops, there are additional 2 settings for Hybrid mode:
+
+1. Hybrid iGPU-only - in this mode dGPU will be disconnected (think of it like ejecting USB drive), so there is no risk of it using power when you want to achieve best battery life
+2. Hybrid Auto - similar to the above, but tries to automate the process by automatically disconnecting dGPU on battery power and reconnecting it when you plug in AC adapter
+
+Discrete GPU may not disconnect, and in most cases will not disconnect, when it is used. That includes apps using dGPU, external monitor connected and probably some other cases that aren't specified by Lenovo.
+
+All above settings are using built in functions of the EC and how well they work relies on Lenovo's firmware implementation. From my observations, they are reliable, unless you start switching them every couple seconds. In this case it seems that at some point, something in firmware goes south and dGPU might not disconnect at all or not reconnect when needed. Restart usually resolves the issue.
+
+These options _are not_ Advanced Optimus and work separately from it.
+
 ##### Deactivate discrete nVidia GPU
 
 Sometimes discrete GPU stays active even when it should not. This can happen for example, if you work with an external screen and you disconnect it - some processes will keep running on discrete GPU keeping it alive and shortening battery life.
@@ -244,6 +264,7 @@ Many thanks to everyone else, who monitors and corrects translations!
 * [Why do I get a message that Vantage is still running, even though I uninstalled it?](#vantage-running)
 * [Why is my antivirus reporting that the installer contains a virus/trojan/malware?](#virus)
 * [Can I customize hotkeys?](#faq-custom-hotkeys)
+* [Can I customize fans in Quiet, Balance or Performance modes?](far-fan-curves)
 * [Why can't I switch to Performance or Custom Power Mode on battery?](#faq-perf-custom-battery)
 * [Why does switching to Performance mode seem buggy, when AI Engine is enabled?](#faq-ai-fnq-bug)
 * [Why am I getting incompatible message after motherboard replacement?](#faq-incompatible)
@@ -279,6 +300,10 @@ If you downloaded the installer from this projects website, you shouldn't worry 
 #### <a id="faq-custom-hotkeys" />Can I customize hotkeys?
 
 You can customize Fn+F9 hotkey in LLT settings. Other hotkeys can't be customized.
+
+#### <a id="far-fan-curves" />Can I customize fans in Quiet, Balance or Performance modes?
+
+No, it isn't possible to customize how the fan works in power modes other than Custom.
 
 #### <a id="faq-perf-custom-battery" />Why can't I switch to Performance or Custom Power Mode on battery?
 
