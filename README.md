@@ -145,7 +145,7 @@ The app allows to:
 - Disable/enable Lenovo Vantage, Legion Zone and Lenovo Hotkeys service without uninstalling it.
 - ... and more!
 
-##### Custom Mode
+### Custom Mode
 
 Custom Mode is available on all devices that support it. You can find it in the Power Mode dropdown as it basically is 4th power mode. Custom Mode can't be accessed with Fn+Q shortcut. Not all features of Custom Mode are supported by all devices.
 
@@ -158,7 +158,7 @@ If you have one of the following BIOSes:
 
 Make sure to update it to at least minimum version mentioned above for Custom Mode to function properly.
 
-##### RGB and lighting
+### RGB and lighting
 
 Both Spectrum per-key RGB and 4-zone RGB backlight is supported. Vantage and it's services need to be disabled to avoid conflicts when communicating with hardware. If you use other RGB apps that might conflict with LLT, check [FAQ](#faq) for solutions.
 
@@ -169,7 +169,7 @@ Other lighting features like both 1 and 3 level white keyboard backlight, panel 
 
 Lighting that required Corsair iCue is not supported by LLT.
 
-##### Hybrid Mode and GPU Working Modes
+### Hybrid Mode and GPU Working Modes
 
 There are two main way you can use your dGPU:
 
@@ -189,7 +189,7 @@ All above settings are using built in functions of the EC and how well they work
 
 These options _are not_ Advanced Optimus and work separately from it.
 
-##### Deactivate discrete nVidia GPU
+### Deactivate discrete nVidia GPU
 
 Sometimes discrete GPU stays active even when it should not. This can happen for example, if you work with an external screen and you disconnect it - some processes will keep running on discrete GPU keeping it alive and shortening battery life.
 
@@ -202,7 +202,7 @@ Deactivate button will be enabled when dGPU is active, you have Hybrid mode enab
 
 Keep in mind that some apps may not like this feature and crash when you deactivate dGPU.
 
-##### Overclock discrete nVidia GPUs
+### Overclock discrete nVidia GPUs
 
 The overclock option is intended for simple overclocking, similar to the one available in Vantage. It is not intended to replace tools like Afterburner. Here are some points to keep in mind:
 * Make sure GPU overclocking is enabled in BIOS, if your laptop has such option.
@@ -210,7 +210,7 @@ The overclock option is intended for simple overclocking, similar to the one ava
 * It is not recommended to use the option while using other tools like Afterburner.
 * If you edited your Dashboard, you might need to add the control manually.
 
-##### Windows Power Plans
+### Windows Power Plans
 
 Lenovo Legion Toolkit will automatically switch Windows power plans when Power Mode changes *and* when Lenovo Vantage is disabled.
 
