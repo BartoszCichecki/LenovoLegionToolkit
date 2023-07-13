@@ -57,23 +57,21 @@
             <wpfui:DynamicScrollViewer>
                 <StackPanel Margin="0,0,16,0">
 
-                    <wpfui:CardControl
+                    <wpfui:InfoBar
                         x:Name="_vantageRunningWarningInfoBar"
+                        Title="{x:Static resources:Resource.GodModeSettingsWindow_VantageWarning_Title}"
                         Margin="0,16,0,0"
-                        Icon="Warning24">
-                        <wpfui:CardControl.Header>
-                            <TextBlock Text="Custom Mode settings will not be applied correctly when Lenovo Vantage is running." TextWrapping="Wrap" />
-                        </wpfui:CardControl.Header>
-                    </wpfui:CardControl>
+                        IsClosable="False"
+                        IsOpen="False"
+                        Severity="Error" />
 
-                    <wpfui:CardControl
+                    <wpfui:InfoBar
                         x:Name="_legionZoneRunningWarningInfoBar"
+                        Title="{x:Static resources:Resource.GodModeSettingsWindow_LegionZoneWarning_Title}"
                         Margin="0,16,0,0"
-                        Icon="Warning24">
-                        <wpfui:CardControl.Header>
-                            <TextBlock Text="Custom Mode settings will not be applied correctly when LegionZone is running." TextWrapping="Wrap" />
-                        </wpfui:CardControl.Header>
-                    </wpfui:CardControl>
+                        IsClosable="False"
+                        IsOpen="False"
+                        Severity="Error" />
 
                     <TextBlock
                         Margin="0,16,0,24"

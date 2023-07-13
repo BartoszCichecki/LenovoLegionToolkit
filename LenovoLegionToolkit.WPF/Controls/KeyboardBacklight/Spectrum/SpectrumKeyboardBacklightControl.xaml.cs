@@ -264,7 +264,7 @@ public partial class SpectrumKeyboardBacklightControl
         var vantageStatus = await _vantageDisabler.GetStatusAsync();
         if (vantageStatus == SoftwareStatus.Enabled)
         {
-            _vantageWarningCard.Visibility = Visibility.Visible;
+            _vantageWarningInfoBar.IsOpen = true;
 
             _device.SetLayout(SpectrumLayout.Full, KeyboardLayout.Ansi, new());
             _content.IsEnabled = false;
@@ -273,7 +273,7 @@ public partial class SpectrumKeyboardBacklightControl
             return;
         }
 
-        _vantageWarningCard.Visibility = Visibility.Collapsed;
+        _vantageWarningInfoBar.IsOpen = false;
 
         var (spectrumLayout, keyboardLayout, keys) = await _controller.GetKeyboardLayoutAsync();
 

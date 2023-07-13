@@ -38,5 +38,6 @@ public enum SnackbarType
 {
     Success,
     Warning,
-    Error
+    Error,
+    Info
 }

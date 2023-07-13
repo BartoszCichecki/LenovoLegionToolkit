@@ -145,7 +145,7 @@ The app allows to:
 - Disable/enable Lenovo Vantage, Legion Zone and Lenovo Hotkeys service without uninstalling it.
 - ... and more!
 
-##### Custom Mode
+### Custom Mode
 
 Custom Mode is available on all devices that support it. You can find it in the Power Mode dropdown as it basically is 4th power mode. Custom Mode can't be accessed with Fn+Q shortcut. Not all features of Custom Mode are supported by all devices.
 
@@ -158,7 +158,7 @@ If you have one of the following BIOSes:
 
 Make sure to update it to at least minimum version mentioned above for Custom Mode to function properly.
 
-##### RGB and lighting
+### RGB and lighting
 
 Both Spectrum per-key RGB and 4-zone RGB backlight is supported. Vantage and it's services need to be disabled to avoid conflicts when communicating with hardware. If you use other RGB apps that might conflict with LLT, check [FAQ](#faq) for solutions.
 
@@ -169,7 +169,27 @@ Other lighting features like both 1 and 3 level white keyboard backlight, panel 
 
 Lighting that required Corsair iCue is not supported by LLT.
 
-##### Deactivate discrete nVidia GPU
+### Hybrid Mode and GPU Working Modes
+
+There are two main way you can use your dGPU:
+
+1. Hybrid mode on - internal laptop display is connected to integrated GPU, discrete GPU will work when needed and power off when not in use, giving better battery life
+2. Hybrid mode off (aka dGPU) - internal laptop display is conenected directly to discreted GPU, giving best performance but also worst battery life
+
+Switching between two modes requires restart.
+
+On Gen 7 and 8 laptops, there are additional 2 settings for Hybrid mode:
+
+1. Hybrid iGPU-only - in this mode dGPU will be disconnected (think of it like ejecting USB drive), so there is no risk of it using power when you want to achieve best battery life
+2. Hybrid Auto - similar to the above, but tries to automate the process by automatically disconnecting dGPU on battery power and reconnecting it when you plug in AC adapter
+
+Discrete GPU may not disconnect, and in most cases will not disconnect, when it is used. That includes apps using dGPU, external monitor connected and probably some other cases that aren't specified by Lenovo.
+
+All above settings are using built in functions of the EC and how well they work relies on Lenovo's firmware implementation. From my observations, they are reliable, unless you start switching them every couple seconds. In this case it seems that at some point, something in firmware goes south and dGPU might not disconnect at all or not reconnect when needed. Restart usually resolves the issue.
+
+These options _are not_ Advanced Optimus and work separately from it.
+
+### Deactivate discrete nVidia GPU
 
 Sometimes discrete GPU stays active even when it should not. This can happen for example, if you work with an external screen and you disconnect it - some processes will keep running on discrete GPU keeping it alive and shortening battery life.
 
@@ -182,7 +202,7 @@ Deactivate button will be enabled when dGPU is active, you have Hybrid mode enab
 
 Keep in mind that some apps may not like this feature and crash when you deactivate dGPU.
 
-##### Overclock discrete nVidia GPUs
+### Overclock discrete nVidia GPUs
 
 The overclock option is intended for simple overclocking, similar to the one available in Vantage. It is not intended to replace tools like Afterburner. Here are some points to keep in mind:
 * Make sure GPU overclocking is enabled in BIOS, if your laptop has such option.
@@ -190,7 +210,7 @@ The overclock option is intended for simple overclocking, similar to the one ava
 * It is not recommended to use the option while using other tools like Afterburner.
 * If you edited your Dashboard, you might need to add the control manually.
 
-##### Windows Power Plans
+### Windows Power Plans
 
 Lenovo Legion Toolkit will automatically switch Windows power plans when Power Mode changes *and* when Lenovo Vantage is disabled.
 
@@ -244,6 +264,7 @@ Many thanks to everyone else, who monitors and corrects translations!
 * [Why do I get a message that Vantage is still running, even though I uninstalled it?](#vantage-running)
 * [Why is my antivirus reporting that the installer contains a virus/trojan/malware?](#virus)
 * [Can I customize hotkeys?](#faq-custom-hotkeys)
+* [Can I customize fans in Quiet, Balance or Performance modes?](far-fan-curves)
 * [Why can't I switch to Performance or Custom Power Mode on battery?](#faq-perf-custom-battery)
 * [Why does switching to Performance mode seem buggy, when AI Engine is enabled?](#faq-ai-fnq-bug)
 * [Why am I getting incompatible message after motherboard replacement?](#faq-incompatible)
@@ -279,6 +300,10 @@ If you downloaded the installer from this projects website, you shouldn't worry 
 #### <a id="faq-custom-hotkeys" />Can I customize hotkeys?
 
 You can customize Fn+F9 hotkey in LLT settings. Other hotkeys can't be customized.
+
+#### <a id="far-fan-curves" />Can I customize fans in Quiet, Balance or Performance modes?
+
+No, it isn't possible to customize how the fan works in power modes other than Custom.
 
 #### <a id="faq-perf-custom-battery" />Why can't I switch to Performance or Custom Power Mode on battery?
 

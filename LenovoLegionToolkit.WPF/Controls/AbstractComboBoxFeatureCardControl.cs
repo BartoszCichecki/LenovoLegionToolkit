@@ -47,6 +47,8 @@ public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshing
         set => _cardHeaderControl.Warning = value;
     }
 
+    public virtual TimeSpan AdditionalStateChangeDelay => TimeSpan.Zero;
+
     protected AbstractComboBoxFeatureCardControl() => InitializeComponent();
 
     private void InitializeComponent()
@@ -108,6 +110,8 @@ public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshing
             if (IsRefreshing)
                 return;
 
+            _comboBox.IsEnabled = false;
+
             if (oldValue is null)
                 return;
 
@@ -129,6 +133,13 @@ public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshing
                 Log.Instance.Trace($"Failed to change state. [feature={GetType().Name}]", ex);
 
             OnStateChangeException(ex);
+        }
+        finally
+        {
+            if (AdditionalStateChangeDelay > TimeSpan.Zero)
+                await Task.Delay(AdditionalStateChangeDelay);
+
+            _comboBox.IsEnabled = true;
         }
 
         if (exceptionOccurred)

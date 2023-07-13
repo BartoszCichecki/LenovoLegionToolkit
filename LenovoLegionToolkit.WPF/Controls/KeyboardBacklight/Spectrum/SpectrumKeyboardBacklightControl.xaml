@@ -9,15 +9,14 @@
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml">
     <StackPanel Margin="0,0,8,0">
 
-        <wpfui:CardControl
-            x:Name="_vantageWarningCard"
+        <wpfui:InfoBar
+            x:Name="_vantageWarningInfoBar"
+            Title="{x:Static resources:Resource.Keyboard_VantageEnabledWarning_Title}"
             Margin="0,0,0,16"
-            Icon="Warning24"
-            Visibility="Collapsed">
-            <wpfui:CardControl.Header>
-                <controls:CardHeaderControl Title="{x:Static resources:Resource.Keyboard_VantageEnabledWarning_Title}" Subtitle="{x:Static resources:Resource.Keyboard_VantageEnabledWarning_Message}" />
-            </wpfui:CardControl.Header>
-        </wpfui:CardControl>
+            IsClosable="False"
+            IsOpen="False"
+            Message="{x:Static resources:Resource.Keyboard_VantageEnabledWarning_Message}"
+            Severity="Error" />
 
         <StackPanel x:Name="_content">
 

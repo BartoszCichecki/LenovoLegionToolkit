@@ -54,6 +54,8 @@ public abstract class AbstractToggleFeatureCardControl<T> : AbstractRefreshingCo
 
     protected abstract T OffState { get; }
 
+    public virtual TimeSpan AdditionalStateChangeDelay => TimeSpan.Zero;
+
     protected AbstractToggleFeatureCardControl()
     {
         InitializeComponent();
@@ -97,6 +99,8 @@ public abstract class AbstractToggleFeatureCardControl<T> : AbstractRefreshingCo
             if (IsRefreshing || toggle.IsChecked is null)
                 return;
 
+            _toggle.IsEnabled = false;
+
             var state = toggle.IsChecked.Value ? OnState : OffState;
             if (state.Equals(await feature.GetStateAsync()))
                 return;
@@ -111,6 +115,13 @@ public abstract class AbstractToggleFeatureCardControl<T> : AbstractRefreshingCo
                 Log.Instance.Trace($"Failed to change state. [feature={GetType().Name}]", ex);
 
             OnStateChangeException(ex);
+        }
+        finally
+        {
+            if (AdditionalStateChangeDelay > TimeSpan.Zero)
+                await Task.Delay(AdditionalStateChangeDelay);
+
+            _toggle.IsEnabled = true;
         }
 
         if (exceptionOccurred)

@@ -93,7 +93,7 @@ public partial class RGBKeyboardBacklightControl
         var vantageStatus = await _vantageDisabler.GetStatusAsync();
         if (vantageStatus == SoftwareStatus.Enabled)
         {
-            _vantageWarningCard.Visibility = Visibility.Visible;
+            _vantageWarningInfoBar.IsOpen = true;
 
             _offPresetButton.IsEnabled = false;
             _preset1Button.IsEnabled = false;
@@ -128,7 +128,7 @@ public partial class RGBKeyboardBacklightControl
             presetButton.Appearance = selected ? ControlAppearance.Primary : ControlAppearance.Secondary;
         }
 
-        _vantageWarningCard.Visibility = Visibility.Collapsed;
+        _vantageWarningInfoBar.IsOpen = false;
 
         _offPresetButton.IsEnabled = true;
         _preset1Button.IsEnabled = true;
