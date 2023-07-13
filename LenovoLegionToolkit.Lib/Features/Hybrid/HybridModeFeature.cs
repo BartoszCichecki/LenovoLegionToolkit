@@ -51,10 +51,14 @@ public class HybridModeFeature : IFeature<HybridModeState>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Setting state to {state}... [gSync={gSync}, igpuMode={igpuMode}]");
 
-        await _gSyncFeature.SetStateAsync(gSync).ConfigureAwait(false);
+        if (await _gSyncFeature.GetStateAsync().ConfigureAwait(false) != gSync)
+            await _gSyncFeature.SetStateAsync(gSync).ConfigureAwait(false);
 
         if (await _igpuModeFeature.IsSupportedAsync().ConfigureAwait(false))
-            await _igpuModeFeature.SetStateAsync(igpuMode).ConfigureAwait(false);
+        {
+            if (await _igpuModeFeature.GetStateAsync().ConfigureAwait(false) != igpuMode)
+                await _igpuModeFeature.SetStateAsync(igpuMode).ConfigureAwait(false);
+        }
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"State set to {state} [gSync={gSync}, igpuMode={igpuMode}]");

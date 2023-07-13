@@ -36,6 +36,8 @@ public static class HybridModeControlFactory
             Margin = new(8, 0, 0, 0),
         };
 
+        public override TimeSpan AdditionalStateChangeDelay => TimeSpan.FromSeconds(5);
+
         public ComboBoxHybridModeControl()
         {
             Icon = SymbolRegular.LeafOne24;
@@ -64,30 +66,26 @@ public static class HybridModeControlFactory
             if (newValue is null || oldValue is null)
                 return;
 
+            var reboot = (newValue == HybridModeState.Off || oldValue == HybridModeState.Off) && await MessageBoxHelper.ShowAsync(this,
+                    Resource.ComboBoxHybridModeControl_RestartRequired_Title,
+                    string.Format(Resource.ComboBoxHybridModeControl_RestartRequired_Message, newValue.GetDisplayName()),
+                    Resource.RestartNow,
+                    Resource.RestartLater);
+
             await base.OnStateChange(comboBox, feature, newValue, oldValue);
 
-            if (newValue != HybridModeState.Off && oldValue != HybridModeState.Off)
+            if (reboot)
             {
-                await RefreshAsync();
+                await Power.RestartAsync();
                 return;
             }
 
-            var result = await MessageBoxHelper.ShowAsync(
-                this,
-                Resource.ComboBoxHybridModeControl_RestartRequired_Title,
-                string.Format(Resource.ComboBoxHybridModeControl_RestartRequired_Message, newValue.GetDisplayName()),
-                Resource.RestartNow,
-                Resource.RestartLater);
-
-            if (result)
-                await Power.RestartAsync();
-            else
-                await RefreshAsync();
+            await RefreshAsync();
         }
 
         protected override void OnStateChangeException(Exception exception)
         {
-            if (exception is IGPUModeChangeException { IGPUMode: not IGPUModeState.Default } ex1)
+            if (exception is IGPUModeChangeException ex1)
             {
                 var (title, message) = ex1.IGPUMode switch
                 {
