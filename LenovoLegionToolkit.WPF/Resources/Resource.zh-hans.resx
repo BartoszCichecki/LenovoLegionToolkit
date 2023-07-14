@@ -1876,4 +1876,10 @@
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
 	  <value>独立显卡在解除占用或设备处于电池供电的状态下将自动停用。</value>
   </data>
+  <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
+	  <value>自定义设置在 Lenovo Vantage 及其服务运行时将不会生效。</value>
+  </data>
+  <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
+	  <value>自定义设置在 Legion Zone 及其服务运行时将不会生效。</value>
+  </data>
 </root>
