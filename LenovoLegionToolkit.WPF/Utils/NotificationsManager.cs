@@ -184,31 +184,22 @@ public class NotificationsManager
                 NotificationType.RGBKeyboardBacklightChanged => string.Format("{0}", notification.Args),
                 NotificationType.SmartKeyDoublePress => string.Format("{0}", notification.Args),
                 NotificationType.SmartKeySinglePress => string.Format("{0}", notification.Args),
-                NotificationType.SpectrumBacklightChanged => string.Format(
-                    Resource.Notification_SpectrumKeyboardBacklight_Brightness, notification.Args),
-                NotificationType.SpectrumBacklightOff => string.Format(
-                    Resource.Notification_SpectrumKeyboardBacklight_Backlight, notification.Args),
-                NotificationType.SpectrumBacklightPresetChanged => string.Format(
-                    Resource.Notification_SpectrumKeyboardBacklight_Profile, notification.Args),
+                NotificationType.SpectrumBacklightChanged => string.Format(Resource.Notification_SpectrumKeyboardBacklight_Brightness, notification.Args),
+                NotificationType.SpectrumBacklightOff => string.Format(Resource.Notification_SpectrumKeyboardBacklight_Backlight, notification.Args),
+                NotificationType.SpectrumBacklightPresetChanged => string.Format(Resource.Notification_SpectrumKeyboardBacklight_Profile, notification.Args),
                 NotificationType.TouchpadOn => Resource.Notification_TouchpadOn,
                 NotificationType.TouchpadOff => Resource.Notification_TouchpadOff,
-                NotificationType.UpdateAvailable => string.Format(Resource.Notification_UpdateAvailable,
-                    notification.Args),
-                NotificationType.WhiteKeyboardBacklightOff => string.Format(
-                    Resource.Notification_WhiteKeyboardBacklight, notification.Args),
-                NotificationType.WhiteKeyboardBacklightChanged => string.Format(
-                    Resource.Notification_WhiteKeyboardBacklight, notification.Args),
+                NotificationType.UpdateAvailable => string.Format(Resource.Notification_UpdateAvailable, notification.Args),
+                NotificationType.WhiteKeyboardBacklightOff => string.Format(Resource.Notification_WhiteKeyboardBacklight, notification.Args),
+                NotificationType.WhiteKeyboardBacklightChanged => string.Format(Resource.Notification_WhiteKeyboardBacklight, notification.Args),
                 _ => throw new ArgumentException(nameof(notification.Type))
             };
 
             Action<SymbolIcon>? symbolTransform = notification.Type switch
             {
-                NotificationType.PowerModeQuiet => si =>
-                    si.Foreground = new SolidColorBrush(Color.FromRgb(53, 123, 242)),
-                NotificationType.PowerModePerformance => si =>
-                    si.Foreground = new SolidColorBrush(Color.FromRgb(212, 51, 51)),
-                NotificationType.PowerModeGodMode => si =>
-                    si.Foreground = new SolidColorBrush(Color.FromRgb(99, 52, 227)),
+                NotificationType.PowerModeQuiet => si => si.Foreground = new SolidColorBrush(Color.FromRgb(53, 123, 242)),
+                NotificationType.PowerModePerformance => si => si.Foreground = new SolidColorBrush(Color.FromRgb(212, 51, 51)),
+                NotificationType.PowerModeGodMode => si => si.Foreground = new SolidColorBrush(Color.FromRgb(99, 52, 227)),
                 _ => null
             };
 
@@ -237,8 +228,7 @@ public class NotificationsManager
 
     private void ShowNotification(SymbolRegular symbol, SymbolRegular? overlaySymbol, Action<SymbolIcon>? symbolTransform, string text, int closeAfter, Action? clickAction)
     {
-        var mainWindow = Application.Current.MainWindow;
-        if (mainWindow is null)
+        if (App.Current.MainWindow is not MainWindow mainWindow)
             return;
 
         if (_window is not null)
@@ -249,12 +239,14 @@ public class NotificationsManager
 
         var nw = new NotificationWindow(symbol, overlaySymbol, symbolTransform, text, clickAction, _settings.Store.NotificationPosition) { Owner = mainWindow };
         nw.Show(closeAfter);
+
         _window = nw;
     }
 
     private static void UpdateAvailableAction()
     {
-        if (App.Current.MainWindow is not MainWindow mainWindow) return;
+        if (App.Current.MainWindow is not MainWindow mainWindow)
+            return;
 
         mainWindow.BringToForeground();
         mainWindow.ShowUpdateWindow();
