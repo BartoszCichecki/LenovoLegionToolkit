@@ -58,8 +58,6 @@ public partial class App
         }
 #endif
 
-        throw new NotImplementedException();
-
         var flags = new Flags(e.Args);
 
         Log.Instance.IsTraceEnabled = flags.IsTraceEnabled;
