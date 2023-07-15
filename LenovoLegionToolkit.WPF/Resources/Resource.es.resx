@@ -1868,4 +1868,10 @@ AVISO: Esta acción no se ejecutará correctamente si no se dispone de una GPU e
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
 	  <value>La dGPU se desconectará automáticamente si no está en uso y el portátil está alimentado por batería.</value>
   </data>
+  <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
+	  <value>Los ajustes del modo personalizado no se aplicarán correctamente, si Lenovo Vantage o sus servicios se están ejecutando.</value>
+  </data>
+  <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
+	  <value>Los ajustes del modo personalizado no se aplicarán correctamente, si Legion Zone o sus servicios se están ejecutando.</value>
+  </data>
 </root>
