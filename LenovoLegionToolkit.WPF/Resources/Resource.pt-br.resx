@@ -151,6 +151,10 @@
   <data name="AddNew" xml:space="preserve">
     <value>Adicionar um nova</value>
   </data>
+  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
+	  <value>Ative o plano de energia mesmo quando o Vantage ou seus serviços estiverem ativados.
+ Esta opção destina-se apenas a dispositivos que não vêm com vários planos de energia.</value>
+  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Sempre ativar os Planos de Energia do Windows</value>
   </data>
@@ -493,7 +497,7 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
     <value>Desativar</value>
   </data>
   <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-	  <value>A GPU nVidia não pode ser desativada.
+	  <value>A GPU nVidia pode ser desativada.
 
 Lembre-se, alguns programas podem apresentar problemas se você fizer isso.</value>
   </data>
@@ -529,7 +533,6 @@ Lembre-se, alguns programas podem apresentar problemas se você fizer isso.</val
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
 	  <value>Alterar o brilho da tela integrada.
-Os modos de energia alteram o brilho em alguns dispositivos. Certifique-se de colocar esta etapa por último, se algo não funcionar corretamente.
 
 AVISO: Esta ação não será executada corretamente se a tela integrada estiver desligada.</value>
   </data>
@@ -752,6 +755,9 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>A luz de fundo do teclado não pode ser controlada aqui quando o Vantage ou seus serviços estão em execução.</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
+	  <value>Lenovo Vantage ou seus serviços estão em execução</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Sobre</value>
@@ -999,13 +1005,13 @@ Sempre certifique-se de estar instalando os pacotes corretos.</value>
     <value>Colar</value>
   </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-	  <value>Selecione o modo de desempenho.</value>
+	  <value>Alterar o modo de desempenho.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Plano de Energia</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
-	  <value>Selecione o modo de desempenho.
+	  <value>Alterar o modo de desempenho.
 Você pode alternar entre os modos pressionando Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
@@ -1016,6 +1022,9 @@ Você pode alternar entre os modos pressionando Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>O modo de energia selecionado pode não funcionar corretamente sem o carregador conectado.</value>
+  </data>
+  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
+	  <value>A ativação dessa opção quando o Lenovo Vantage ou seus serviços estão em execução e altera os planos de energia em seu notebook pode resultar em um comportamento inesperado.</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Você tem certeza?</value>
@@ -1200,6 +1209,12 @@ Uma reinicialização é recomendada após alterar esta opção.</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Não foi possível ativar o Lenovo Hotkeys</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+	  <value>Vantage e/ou ImController podem não ter sido ativados corretamente</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+	  <value>Não foi possível habilitar o Vantage e/ou ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Você pode excluir taxas de atualização para tornar o atalho Fn+R mais útil.</value>
@@ -1792,6 +1807,9 @@ AVISO: Esta ação não será executada corretamente caso a GPU dedicada não es
   <data name="SensorsControl_Utilization_Title" xml:space="preserve">
 	  <value>Utilização</value>
   </data>
+  <data name="SensorsControl_CoreClock_Title" xml:space="preserve">
+	  <value>Core Clock</value>
+  </data>
   <data name="SensorsControl_Temperature_Title" xml:space="preserve">
 	  <value>Temperatura</value>
   </data>
@@ -1808,6 +1826,49 @@ AVISO: Esta ação não será executada corretamente caso a GPU dedicada não es
 	  <value>Intervalo de atualização</value>
   </data>
   <data name="InstantBootControl_Title" xml:space="preserve">
-	  <value>Reserva Instantânea</value>
+	  <value>Inicialização instantânea</value>
+  </data>
+  <data name="InstantBootControl_Message" xml:space="preserve">
+	  <value>Ligue o notebook quando um carregador estiver conectado.</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Title" xml:space="preserve">
+	  <value>Inicialização instantânea</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Message" xml:space="preserve">
+	  <value>Ligar o notebook quando um carregador for conectado.</value>
+  </data>
+  <data name="PowerModeUnavailableWithoutACException_Title" xml:space="preserve">
+	  <value>Não foi possível alterar o plano de energia</value>
+  </data>
+  <data name="PowerModeUnavailableWithoutACException_Message" xml:space="preserve">
+	  <value>{0} o modo de energia não está disponível sem alimentação AC.</value>
+	  <comment>For example: "{Performance} power mode is not available without AC power."</comment>
+  </data>
+  <data name="EditDashboardWindow_Sensors" xml:space="preserve">
+	  <value>Sensores</value>
+  </data>
+  <data name="IGPUModeChangeException_Title" xml:space="preserve">
+	  <value>Não foi possível alterar o modo de trabalho da GPU</value>
+  </data>
+  <data name="IGPUModeChangeException_Message" xml:space="preserve">
+	  <value>Tente alterar o modo novamente em alguns segundos, se você não tiver o resultado esperado.&#x0a;Se a GPU dedicada não responder, reinicie o notebook.</value>
+  </data>
+  <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
+	  <value>A GPU dedicada está em uso</value>
+  </data>
+  <data name="IGPUModeChangeException_Message_IGPUOnly" xml:space="preserve">
+	  <value>A GPU dedicada se desconectará automaticamente quando não estiver em uso.</value>
+  </data>
+  <data name="IGPUModeChangeException_Title_Auto" xml:space="preserve">
+	  <value>A GPU dedicada está em uso no momento ou o notebook não está com bateria</value>
+  </data>
+  <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
+	  <value>A GPU dedicada será desconectada automaticamente quando não estiver em uso e o notebook estiver funcionando na bateria.</value>
+  </data>
+  <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
+	  <value>As configurações do modo personalizado não serão aplicadas corretamente quando o Lenovo Vantage ou seus serviços estiverem em execução.</value>
+  </data>
+  <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
+	  <value>As configurações do modo personalizado não serão aplicadas corretamente quando o LegionZone ou seus serviços estiverem em execução.</value>
   </data>
 </root>

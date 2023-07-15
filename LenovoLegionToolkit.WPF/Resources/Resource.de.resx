@@ -1854,7 +1854,7 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn keine diskrete GPU ve
 	  <value>GPU-Betriebsmodus konnte nicht geändert werden</value>
   </data>
   <data name="IGPUModeChangeException_Message" xml:space="preserve">
-	  <value>Versuchen Sie erneut, den Modus zu ändern.</value>
+	  <value>Versuchen Sie, den Modus in ein paar Sekunden erneut zu ändern, wenn Sie nicht das erwartete Ergebnis sehen.&#x0a;Wenn dGPU überhaupt nicht reagiert, starten Sie bitte Ihren Laptop neu.</value>
   </data>
   <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
 	  <value>dGPU wird derzeit verwendet</value>
@@ -1867,5 +1867,11 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn keine diskrete GPU ve
   </data>
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
 	  <value>dGPU wird automatisch getrennt, wenn sie nicht verwendet wird und der Laptop im Akkubetrieb ist.</value>
+  </data>
+  <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
+	  <value>Die Einstellungen des benutzerdefinierten Modus werden nicht korrekt angewendet, wenn Lenovo Vantage oder dessen Dienste ausgeführt werden.</value>
+  </data>
+  <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
+	  <value>Die Einstellungen des benutzerdefinierten Modus werden nicht korrekt angewendet, wenn LegionZone oder dessen Dienste ausgeführt werden.</value>
   </data>
 </root>

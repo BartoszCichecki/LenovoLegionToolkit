@@ -1862,7 +1862,7 @@
 	  <value>当前无法切换显卡工作模式</value>
   </data>
   <data name="IGPUModeChangeException_Message" xml:space="preserve">
-	  <value>请重试切换模式。</value>
+	  <value>如果独显未启用，请在几秒钟后再次尝试更改模式。&#x0a;如果仍未有反应，请重新启动设备。</value>
   </data>
   <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
 	  <value>独立显卡当前被占用</value>
