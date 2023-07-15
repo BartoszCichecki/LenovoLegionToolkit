@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using LenovoLegionToolkit.WPF.Windows;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
@@ -17,7 +18,8 @@ public static class SnackbarHelper
             return;
 
         SetupSnackbarAppearance(snackBar, type);
-        await snackBar.ShowAsync(title, message);
+        SetTitleAndMessage(snackBar, title, message);
+        await snackBar.ShowAsync();
     }
 
     public static void Show(string title, string message, SnackbarType type = SnackbarType.Success)
@@ -29,7 +31,8 @@ public static class SnackbarHelper
             return;
 
         SetupSnackbarAppearance(snackBar, type);
-        snackBar.Show(title, message);
+        SetTitleAndMessage(snackBar, title, message);
+        snackBar.Show();
     }
 
     private static void SetupSnackbarAppearance(Snackbar snackBar, SnackbarType type)
@@ -57,5 +60,13 @@ public static class SnackbarHelper
             SnackbarType.Success => false,
             _ => true
         };
+    }
+
+    private static void SetTitleAndMessage(FrameworkElement snackBar, string title, string message)
+    {
+        if (snackBar.FindName("_snackbarTitle") is TextBlock snackbarTitle)
+            snackbarTitle.Text = title;
+        if (snackBar.FindName("_snackbarMessage") is TextBlock snackbarMessage)
+            snackbarMessage.Text = message;
     }
 }
