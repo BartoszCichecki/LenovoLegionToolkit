@@ -2300,8 +2300,8 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Try changing the mode again in a couple of seconds, if you don&apos;t expected result.
-        ///If dGPU does not respond, please restart your laptop..
+        ///   Looks up a localized string similar to Try changing the mode again in a couple of seconds, if you do not see expected result.
+        ///If dGPU does not respond at all, please restart your laptop..
         /// </summary>
         public static string IGPUModeChangeException_Message {
             get {

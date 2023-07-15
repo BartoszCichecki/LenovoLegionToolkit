@@ -1854,7 +1854,7 @@ WARNING: This action will not run correctly, if discrete GPU is not available.</
 	  <value>Could not change GPU Working Mode</value>
   </data>
   <data name="IGPUModeChangeException_Message" xml:space="preserve">
-	  <value>Try changing the mode again in a couple of seconds, if you don't expected result.&#x0a;If dGPU does not respond, please restart your laptop.</value>
+	  <value>Try changing the mode again in a couple of seconds, if you do not see expected result.&#x0a;If dGPU does not respond at all, please restart your laptop.</value>
   </data>
   <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
 	  <value>dGPU is currently in use</value>
