@@ -1005,7 +1005,7 @@ Sempre certifique-se de estar instalando os pacotes corretos.</value>
     <value>Plano de Energia</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
-	  <value>Selecione o modo de desempenho.
+	  <value>Alterar o modo de desempenho.
 Você pode alternar entre os modos pressionando Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
