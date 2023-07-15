@@ -151,6 +151,10 @@
   <data name="AddNew" xml:space="preserve">
     <value>Thêm mới</value>
   </data>
+  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
+	  <value>Kích hoạt Power Plan ngay cả khi Vantage hoặc các dịch vụ của Vantage được bật.
+Lựa chọn này chỉ dành cho thiết bị không đi kèm với nhiều Power Plan khác nhau.</value>
+  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Luôn kích hoạt Windows Power Plan</value>
   </data>
@@ -618,6 +622,9 @@ Xin chân thành cảm ơn!</value>
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>GPU</value>
   </data>
+  <data name="RPM" xml:space="preserve">
+    <value>RPM</value>
+  </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
     <value>Bật máy khi lật mở màn hình.</value>
   </data>
@@ -749,6 +756,9 @@ CẢNH BÁO: Hành động sẽ không chạy nếu màn hình laptop tắt.</va
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>Đèn nền bàn phím không thể được tùy chỉnh nếu Lenovo vantage hoặc các chương trình con của nó đang chạy.</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
+	  <value>Lenovo Vantage hoặc các dịch vụ của nó đang chạy</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Thông tin</value>
@@ -1014,6 +1024,9 @@ Bạn có thể chuyển đổi giữa các Chế độ với Fn+Q.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Chế độ được lựa chọn có thể không hoạt động nếu không được kết nối nguồn điện ngoài.</value>
   </data>
+  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
+	  <value>Bật tùy chọn này khi Lenovo Vantage hoặc các dịch vụ của nó đang chạy khiến thay đổi Power plans của Laptop và có thể gây ra lỗi.</value>
+  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Bạn chắc chứ?</value>
   </data>
@@ -1197,6 +1210,12 @@ Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Không thể kích hoạt Lenovo Hotkeys</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+	  <value>Vantage hoặc ImController có thể đã không được kích hoạt đúng cách</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+	  <value>Không thể kích hoạt Vantage hoặc ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Bạn có thể loại trừ một số tần số quét, để chức năng Fn+R hữu dụng hơn.</value>
@@ -1776,5 +1795,84 @@ CẢNH BÁO: hành động có thể chạy không đúng nếu GPU rời không
   </data>
   <data name="PanelLogoBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Bật hoặc tắt đèn logo laptop.</value>
+  </data>
+  <data name="GHz" xml:space="preserve">
+    <value>GHz</value>
+  </data>
+  <data name="MHz" xml:space="preserve">
+    <value>MHz</value>
+  </data>
+  <data name="SensorsControl_Maximum" xml:space="preserve">
+	  <value>Tối đa: {0}</value>
+  </data>
+  <data name="SensorsControl_CPU_Title" xml:space="preserve">
+	  <value>CPU</value>
+  </data>
+  <data name="SensorsControl_Utilization_Title" xml:space="preserve">
+	  <value>Sử dụng</value>
+  </data>
+  <data name="SensorsControl_CoreClock_Title" xml:space="preserve">
+	  <value>Core Clock</value>
+  </data>
+  <data name="SensorsControl_Temperature_Title" xml:space="preserve">
+	  <value>Nhiệt độ</value>
+  </data>
+  <data name="SensorsControl_Fan_Title" xml:space="preserve">
+	  <value>Quạt</value>
+  </data>
+  <data name="SensorsControl_GPU_Title" xml:space="preserve">
+	  <value>GPU</value>
+  </data>
+  <data name="SensorsControl_MemoryClock_Title" xml:space="preserve">
+	  <value>Memory Clock</value>
+  </data>
+  <data name="SensorsControl_RefreshInterval" xml:space="preserve">
+	  <value>Thời gian làm mới</value>
+  </data>
+  <data name="InstantBootControl_Title" xml:space="preserve">
+	  <value>Khởi động tức thì</value>
+  </data>
+  <data name="InstantBootControl_Message" xml:space="preserve">
+	  <value>Bật máy tính xách tay khi kết nối với bộ sạc.</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Title" xml:space="preserve">
+	  <value>Khởi động tức thì</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Message" xml:space="preserve">
+	  <value>Bật máy tính xách tay khi kết nối với bộ sạc.</value>
+  </data>
+  <data name="PowerModeUnavailableWithoutACException_Title" xml:space="preserve">
+	  <value>Không thể thay đổi Power Mode</value>
+  </data>
+  <data name="PowerModeUnavailableWithoutACException_Message" xml:space="preserve">
+	  <value>{0} Power mode không khả dụng nếu không kết nối với bộ sạc.</value>
+	  <comment>For example: "{Performance} power mode is not available without AC power."</comment>
+  </data>
+  <data name="EditDashboardWindow_Sensors" xml:space="preserve">
+	  <value>Cảm biến</value>
+  </data>
+  <data name="IGPUModeChangeException_Title" xml:space="preserve">
+	  <value>Không thể thay đổi Working Mode của GPU</value>
+  </data>
+  <data name="IGPUModeChangeException_Message" xml:space="preserve">
+	  <value>Nếu bạn không thấy kết quả như mong đợi, hãy thử thay đổi lại chế độ sau vài giây.&#x0a;Nếu dGPU hoàn toàn không phản hồi, hãy khởi động lại máy tính xách tay của bạn.</value>
+  </data>
+  <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
+	  <value>dGPU hiện đang được sử dụng</value>
+  </data>
+  <data name="IGPUModeChangeException_Message_IGPUOnly" xml:space="preserve">
+	  <value>dGPU sẽ tự động ngắt kết nối khi không được sử dụng.</value>
+  </data>
+  <data name="IGPUModeChangeException_Title_Auto" xml:space="preserve">
+	  <value>dGPU hiện đang được sử dụng hoặc laptop đang không sử dụng pin</value>
+  </data>
+  <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
+	  <value>dGPU sẽ tự động ngắt kết nối khi không sử dụng và laptop đang chạy bằng pin.</value>
+  </data>
+  <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
+	  <value>Cài đặt của Chế độ Custom sẽ không được áp dụng chính xác khi Lenovo Vantage hoặc các dịch vụ của nó đang chạy.</value>
+  </data>
+  <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
+	  <value>Cài đặt của Chế độ Custom sẽ không được áp dụng chính xác khi LegionZone hoặc các dịch vụ của nó đang chạy.</value>
   </data>
 </root>
