@@ -1856,9 +1856,6 @@ AVISO: Esta acción no se ejecutará correctamente si no se dispone de una GPU e
   <data name="IGPUModeChangeException_Title" xml:space="preserve">
 	  <value>No se puede cambiar el modo de trabajo de la GPU</value>
   </data>
-  <data name="IGPUModeChangeException_Message" xml:space="preserve">
-	  <value>Intente cambiar el modo de nuevo.</value>
-  </data>
   <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
 	  <value>La dGPU está actualmente en uso</value>
   </data>
