@@ -11,6 +11,22 @@ public class DGPUNotify : IDGPUNotify
 
     private readonly Lazy<Task<IDGPUNotify?>> _lazyAsyncNotify;
 
+    public event EventHandler<bool>? Notified
+    {
+        add
+        {
+            _capabilityNotify.Notified += value;
+            _featureFlagsNotify.Notified += value;
+            _gamezoneNotify.Notified += value;
+        }
+        remove
+        {
+            _capabilityNotify.Notified -= value;
+            _featureFlagsNotify.Notified -= value;
+            _gamezoneNotify.Notified -= value;
+        }
+    }
+
     public bool EnableLegacySwitching { get; set; }
 
     public DGPUNotify(DGPUCapabilityNotify capabilityNotify, DGPUFeatureFlagsNotify featureFlagsNotify, DGPUGamezoneNotify gamezoneNotify)

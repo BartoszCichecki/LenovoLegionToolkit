@@ -6,6 +6,7 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Features.Hybrid;
+using LenovoLegionToolkit.Lib.Features.Hybrid.Notify;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Resources;
@@ -29,6 +30,8 @@ public static class HybridModeControlFactory
 
     private class ComboBoxHybridModeControl : AbstractComboBoxFeatureCardControl<HybridModeState>
     {
+        private readonly DGPUNotify _dgpuNotify = IoCContainer.Resolve<DGPUNotify>();
+
         private readonly Button _infoButton = new()
         {
             Icon = SymbolRegular.Info24,
@@ -43,6 +46,8 @@ public static class HybridModeControlFactory
             Icon = SymbolRegular.LeafOne24;
             Title = Resource.ComboBoxHybridModeControl_Title;
             Subtitle = Resource.ComboBoxHybridModeControl_Message;
+
+            _dgpuNotify.Notified += DGPUNotify_Notified;
         }
 
         protected override FrameworkElement GetAccessory(ComboBox comboBox)
@@ -97,6 +102,11 @@ public static class HybridModeControlFactory
                 SnackbarHelper.Show(title, message, SnackbarType.Info);
             }
         }
+
+        private void DGPUNotify_Notified(object? sender, bool e) => Dispatcher.Invoke(() =>
+        {
+            SnackbarHelper.Show(e ? Resource.DGPU_Connected_Title : Resource.DGPU_Disconnected_Title);
+        });
 
         private void InfoButton_Click(object sender, RoutedEventArgs e)
         {

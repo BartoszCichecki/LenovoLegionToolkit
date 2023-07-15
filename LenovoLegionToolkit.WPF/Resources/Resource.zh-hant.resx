@@ -1853,9 +1853,6 @@
   <data name="IGPUModeChangeException_Title" xml:space="preserve">
 	  <value>無法變更 GPU 運作模式</value>
   </data>
-  <data name="IGPUModeChangeException_Message" xml:space="preserve">
-	  <value>再次嘗試變更模式。</value>
-  </data>
   <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
 	  <value>dGPU 目前使用中</value>
   </data>

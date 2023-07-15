@@ -1857,7 +1857,7 @@ AVISO: Esta acción no se ejecutará correctamente si no se dispone de una GPU e
 	  <value>No se puede cambiar el modo de trabajo de la GPU</value>
   </data>
   <data name="IGPUModeChangeException_Message" xml:space="preserve">
-	  <value>Intente cambiar el modo de nuevo.</value>
+	  <value>Intentar cambiar el modo de nuevo en un par de segundos, si no ve el resultado esperado.&#x0a;Si dGPU no responde del todo, reinicie su portátil.</value>
   </data>
   <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
 	  <value>La dGPU está actualmente en uso</value>
@@ -1870,5 +1870,11 @@ AVISO: Esta acción no se ejecutará correctamente si no se dispone de una GPU e
   </data>
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
 	  <value>La dGPU se desconectará automáticamente si no está en uso y el portátil está alimentado por batería.</value>
+  </data>
+  <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
+	  <value>Los ajustes del modo personalizado no se aplicarán correctamente, si Lenovo Vantage o sus servicios se están ejecutando.</value>
+  </data>
+  <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
+	  <value>Los ajustes del modo personalizado no se aplicarán correctamente, si Legion Zone o sus servicios se están ejecutando.</value>
   </data>
 </root>

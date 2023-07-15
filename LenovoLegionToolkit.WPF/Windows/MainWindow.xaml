@@ -147,9 +147,26 @@
                 x:Name="_snackbar"
                 Grid.Column="1"
                 MinWidth="300"
-                MaxWidth="600"
                 HorizontalAlignment="Center"
-                Icon="Checkmark24" />
+                Icon="Checkmark24">
+                <StackPanel Margin="4,4,4,4" VerticalAlignment="Center">
+                    <!--  ReSharper disable once UnusedMember.Global  -->
+                    <TextBlock
+                        x:Name="_snackbarTitle"
+                        Margin="0,0,0,6"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        FontWeight="Medium"
+                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                        TextWrapping="WrapWithOverflow" />
+                    <!--  ReSharper disable once UnusedMember.Global  -->
+                    <TextBlock
+                        x:Name="_snackbarMessage"
+                        FontSize="14"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        TextWrapping="WrapWithOverflow" />
+                </StackPanel>
+            </wpfui:Snackbar>
 
         </Grid>
 

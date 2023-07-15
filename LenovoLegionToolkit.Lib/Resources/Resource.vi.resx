@@ -373,4 +373,10 @@
   <data name="PanelLogoBacklightState_Off" xml:space="preserve">
 		<value>Tắt</value>
 	</data>
+  <data name="InstantBootState_Off" xml:space="preserve">
+		<value>Tắt</value>
+	</data>
+  <data name="InstantBootState_AcAdapter" xml:space="preserve">
+		<value>Bộ sạc</value>
+	</data>
 </root>

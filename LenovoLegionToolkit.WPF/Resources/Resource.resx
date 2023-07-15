@@ -1854,7 +1854,7 @@ WARNING: This action will not run correctly, if discrete GPU is not available.</
 	  <value>Could not change GPU Working Mode</value>
   </data>
   <data name="IGPUModeChangeException_Message" xml:space="preserve">
-	  <value>Try to change the mode again.</value>
+	  <value>Try changing the mode again in a couple of seconds, if you do not see expected result.&#x0a;If dGPU does not respond at all, please restart your laptop.</value>
   </data>
   <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
 	  <value>dGPU is currently in use</value>
@@ -1873,5 +1873,11 @@ WARNING: This action will not run correctly, if discrete GPU is not available.</
   </data>
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
 	  <value>Custom Mode settings will not be applied correctly when LegionZone or it's services are running.</value>
+  </data>
+  <data name="DGPU_Connected_Title" xml:space="preserve">
+	  <value>DGPU connected</value>
+  </data>
+  <data name="DGPU_Disconnected_Title" xml:space="preserve">
+	  <value>DGPU disconnected</value>
   </data>
 </root>

@@ -1854,9 +1854,6 @@ BRĪDINĀJUMS. Ja nav pieejams atsevišķs GPU, šī darbība nedarbosies pareiz
   <data name="IGPUModeChangeException_Title" xml:space="preserve">
 	  <value>Nevarēja nomainīt GPU Darbošanās režīmu</value>
   </data>
-  <data name="IGPUModeChangeException_Message" xml:space="preserve">
-	  <value>Mēģiniet atkārtoti nomainīt režīmu.</value>
-  </data>
   <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
 	  <value>dGPU šobrīd tiek izmantots</value>
   </data>
