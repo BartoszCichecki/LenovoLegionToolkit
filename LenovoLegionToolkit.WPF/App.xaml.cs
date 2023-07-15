@@ -58,6 +58,8 @@ public partial class App
         }
 #endif
 
+        throw new NotImplementedException();
+
         var flags = new Flags(e.Args);
 
         Log.Instance.IsTraceEnabled = flags.IsTraceEnabled;
@@ -210,8 +212,8 @@ public partial class App
         Log.Instance.ErrorReport("AppDomain_UnhandledException", exception ?? new Exception($"Unknown exception caught: {e.ExceptionObject}"));
         Log.Instance.Trace($"Unhandled exception occurred.", exception);
 
-        MessageBox.Show(string.Format(Resource.UnexpectedException, exception?.Message ?? "Unknown exception.", Constants.BugReportUri),
-            "Error",
+        MessageBox.Show(string.Format(Resource.UnexpectedException, exception?.ToStringDemystified() ?? "Unknown exception.", Constants.ProjectUri),
+            "Application Domain Error",
             MessageBoxButton.OK,
             MessageBoxImage.Error);
         Shutdown(1);
@@ -222,8 +224,8 @@ public partial class App
         Log.Instance.ErrorReport("Application_DispatcherUnhandledException", e.Exception);
         Log.Instance.Trace($"Unhandled exception occurred.", e.Exception);
 
-        MessageBox.Show(string.Format(Resource.UnexpectedException, e.Exception.Message, Constants.BugReportUri),
-            "Error",
+        MessageBox.Show(string.Format(Resource.UnexpectedException, e.Exception.ToStringDemystified(), Constants.ProjectUri),
+            "Application Error",
             MessageBoxButton.OK,
             MessageBoxImage.Error);
         Shutdown(1);
