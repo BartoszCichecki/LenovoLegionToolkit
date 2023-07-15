@@ -1853,9 +1853,6 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn keine diskrete GPU ve
   <data name="IGPUModeChangeException_Title" xml:space="preserve">
 	  <value>GPU-Betriebsmodus konnte nicht geändert werden</value>
   </data>
-  <data name="IGPUModeChangeException_Message" xml:space="preserve">
-	  <value>Versuchen Sie erneut, den Modus zu ändern.</value>
-  </data>
   <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
 	  <value>dGPU wird derzeit verwendet</value>
   </data>
