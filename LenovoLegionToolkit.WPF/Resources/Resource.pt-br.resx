@@ -493,7 +493,7 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
     <value>Desativar</value>
   </data>
   <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-	  <value>A GPU nVidia não pode ser desativada.
+	  <value>A GPU nVidia pode ser desativada.
 
 Lembre-se, alguns programas podem apresentar problemas se você fizer isso.</value>
   </data>
@@ -529,7 +529,6 @@ Lembre-se, alguns programas podem apresentar problemas se você fizer isso.</val
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
 	  <value>Alterar o brilho da tela integrada.
-Os modos de energia alteram o brilho em alguns dispositivos. Certifique-se de colocar esta etapa por último, se algo não funcionar corretamente.
 
 AVISO: Esta ação não será executada corretamente se a tela integrada estiver desligada.</value>
   </data>
@@ -999,7 +998,7 @@ Sempre certifique-se de estar instalando os pacotes corretos.</value>
     <value>Colar</value>
   </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-	  <value>Selecione o modo de desempenho.</value>
+	  <value>Alterar o modo de desempenho.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Plano de Energia</value>
@@ -1808,6 +1807,6 @@ AVISO: Esta ação não será executada corretamente caso a GPU dedicada não es
 	  <value>Intervalo de atualização</value>
   </data>
   <data name="InstantBootControl_Title" xml:space="preserve">
-	  <value>Reserva Instantânea</value>
+	  <value>Inicialização instantânea</value>
   </data>
 </root>
