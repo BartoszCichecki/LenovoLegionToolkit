@@ -149,13 +149,13 @@
                 MinWidth="300"
                 HorizontalAlignment="Center"
                 Icon="Checkmark24">
-                <StackPanel VerticalAlignment="Center">
+                <StackPanel Margin="4,4,4,4" VerticalAlignment="Center">
                     <!--  ReSharper disable once UnusedMember.Global  -->
                     <TextBlock
                         x:Name="_snackbarTitle"
-                        Margin="0,0,0,4"
+                        Margin="0,0,0,6"
                         VerticalAlignment="Center"
-                        FontSize="14"
+                        FontSize="16"
                         FontWeight="Medium"
                         Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                         TextWrapping="WrapWithOverflow" />

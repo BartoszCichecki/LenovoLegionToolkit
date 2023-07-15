@@ -1291,6 +1291,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DGPU connected.
+        /// </summary>
+        public static string DGPU_Connected_Title {
+            get {
+                return ResourceManager.GetString("DGPU_Connected_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DGPU disconnected.
+        /// </summary>
+        public static string DGPU_Disconnected_Title {
+            get {
+                return ResourceManager.GetString("DGPU_Disconnected_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Deactivate.
         /// </summary>
         public static string DiscreteGPUControl_Deactivate {

@@ -12,6 +12,8 @@ namespace LenovoLegionToolkit.Lib.Features.Hybrid.Notify;
 
 public abstract class AbstractDGPUNotify : IDGPUNotify
 {
+    public event EventHandler<bool>? Notified;
+
     public abstract Task<bool> IsSupportedAsync();
 
     public async Task NotifyAsync()
@@ -21,6 +23,8 @@ public abstract class AbstractDGPUNotify : IDGPUNotify
             var dgpuHardwareId = await GetDGPUHardwareIdAsync().ConfigureAwait(false);
             var isAvailable = IsDGPUAvailable(dgpuHardwareId);
             await NotifyDGPUStatusAsync(isAvailable).ConfigureAwait(false);
+
+            Notified?.Invoke(this, isAvailable);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Notified: {isAvailable}");

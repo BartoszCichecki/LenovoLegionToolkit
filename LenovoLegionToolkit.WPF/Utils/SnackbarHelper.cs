@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.WPF.Windows;
@@ -9,7 +10,7 @@ namespace LenovoLegionToolkit.WPF.Utils;
 
 public static class SnackbarHelper
 {
-    public static async Task ShowAsync(string title, string message, SnackbarType type = SnackbarType.Success)
+    public static async Task ShowAsync(string title, string? message = null, SnackbarType type = SnackbarType.Success)
     {
         var mainWindow = Application.Current.MainWindow as MainWindow;
         var snackBar = mainWindow?.Snackbar;
@@ -17,12 +18,12 @@ public static class SnackbarHelper
         if (snackBar is null)
             return;
 
-        SetupSnackbarAppearance(snackBar, type);
+        SetupSnackbarAppearance(snackBar, title, message, type);
         SetTitleAndMessage(snackBar, title, message);
         await snackBar.ShowAsync();
     }
 
-    public static void Show(string title, string message, SnackbarType type = SnackbarType.Success)
+    public static void Show(string title, string? message = null, SnackbarType type = SnackbarType.Success)
     {
         var mainWindow = Application.Current.MainWindow as MainWindow;
         var snackBar = mainWindow?.Snackbar;
@@ -30,12 +31,12 @@ public static class SnackbarHelper
         if (snackBar is null)
             return;
 
-        SetupSnackbarAppearance(snackBar, type);
+        SetupSnackbarAppearance(snackBar, title, message, type);
         SetTitleAndMessage(snackBar, title, message);
         snackBar.Show();
     }
 
-    private static void SetupSnackbarAppearance(Snackbar snackBar, SnackbarType type)
+    private static void SetupSnackbarAppearance(Snackbar snackBar, string title, string? message, SnackbarType type)
     {
         snackBar.Appearance = type switch
         {
@@ -53,7 +54,7 @@ public static class SnackbarHelper
         snackBar.Timeout = type switch
         {
             SnackbarType.Success => 2000,
-            _ => 5000
+            _ => Math.Clamp(GetTextLengthInMilliseconds(title, message), 5000, 10000)
         };
         snackBar.CloseButtonEnabled = type switch
         {
@@ -62,11 +63,21 @@ public static class SnackbarHelper
         };
     }
 
-    private static void SetTitleAndMessage(FrameworkElement snackBar, string title, string message)
+    private static void SetTitleAndMessage(FrameworkElement snackBar, string title, string? message)
     {
         if (snackBar.FindName("_snackbarTitle") is TextBlock snackbarTitle)
             snackbarTitle.Text = title;
+
         if (snackBar.FindName("_snackbarMessage") is TextBlock snackbarMessage)
+        {
+            snackbarMessage.Visibility = string.IsNullOrEmpty(message) ? Visibility.Collapsed : Visibility.Visible;
             snackbarMessage.Text = message;
+        }
+    }
+
+    private static int GetTextLengthInMilliseconds(string title, string? message)
+    {
+        var length = 2 + (title.Length + (message?.Length ?? 0)) % 10;
+        return length * 1000;
     }
 }
