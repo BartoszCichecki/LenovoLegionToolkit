@@ -5,26 +5,17 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls.Primitives;
-using System.Windows.Forms;
 using System.Windows.Input;
-using System.Windows.Interop;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
-using LenovoLegionToolkit.WPF.Assets;
-using LenovoLegionToolkit.WPF.Controls;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Pages;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Utils;
 using Microsoft.Xaml.Behaviors.Core;
-using Windows.Win32;
-using Windows.Win32.Foundation;
 using Wpf.Ui.Controls;
-using NotifyIcon = System.Windows.Forms.NotifyIcon;
-using ToolTip = System.Windows.Controls.ToolTip;
 #if !DEBUG
 using System.Reflection;
 using LenovoLegionToolkit.Lib.Extensions;
@@ -37,9 +28,7 @@ public partial class MainWindow
     private readonly ApplicationSettings _applicationSettings = IoCContainer.Resolve<ApplicationSettings>();
     private readonly UpdateChecker _updateChecker = IoCContainer.Resolve<UpdateChecker>();
 
-    private readonly ContextMenuHelper _contextMenuHelper = new();
-
-    private NotifyIcon? _notifyIcon;
+    private TrayHelper? _trayHelper;
 
     public bool TrayTooltipEnabled { get; init; } = true;
 
@@ -73,62 +62,6 @@ public partial class MainWindow
         }
     }
 
-    private ToolTip? _toolTip;
-
-    private void InitializeTray()
-    {
-        var notifyIcon = new NotifyIcon
-        {
-            Text = Resource.AppName,
-            Icon = AssetResources.icon,
-            Visible = true
-        };
-        notifyIcon.MouseMove += (_, e) =>
-        {
-            if (_toolTip is not null)
-                return;
-
-            var tooltip = new ToolTip
-            {
-                Style = System.Windows.Application.Current.Resources["PlainTooltip"] as Style,
-                Placement = PlacementMode.Mouse,
-                Content = new StatusTrayPopup(),
-                IsOpen = true,
-            };
-            tooltip.Closed += (sender, args) =>
-            {
-                _toolTip = null;
-            };
-
-            if (PresentationSource.FromVisual(_contextMenuHelper.ContextMenu) is HwndSource source && source.Handle != IntPtr.Zero)
-                PInvoke.SetForegroundWindow(new HWND(source.Handle));
-
-            _toolTip = tooltip;
-        };
-        notifyIcon.MouseClick += (_, e) =>
-        {
-            switch (e.Button)
-            {
-                case MouseButtons.Left:
-                    {
-                        BringToForeground();
-                        break;
-                    }
-                case MouseButtons.Right:
-                    {
-                        _contextMenuHelper.ContextMenu.IsOpen = true;
-
-                        if (PresentationSource.FromVisual(_contextMenuHelper.ContextMenu) is HwndSource source && source.Handle != IntPtr.Zero)
-                            PInvoke.SetForegroundWindow(new HWND(source.Handle));
-
-                        break;
-                    }
-            }
-        };
-
-        _notifyIcon = notifyIcon;
-    }
-
     private void MainWindow_SourceInitialized(object? sender, EventArgs e) => RestoreSize();
 
     private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -138,8 +71,6 @@ public partial class MainWindow
         if (!await KeyboardBacklightPage.IsSupportedAsync())
             _navigationStore.Items.Remove(_keyboardItem);
 
-        _contextMenuHelper.SetNavigationItems(_navigationStore);
-
         SmartKeyHelper.Instance.BringToForeground = () => Dispatcher.Invoke(BringToForeground);
 
         _contentGrid.Visibility = Visibility.Visible;
@@ -147,14 +78,14 @@ public partial class MainWindow
         LoadDeviceInfo();
         CheckForUpdates();
 
-        InitializeTray();
-
         InputBindings.Add(new KeyBinding(new ActionCommand(_navigationStore.NavigateToNext), Key.Tab, ModifierKeys.Control));
         InputBindings.Add(new KeyBinding(new ActionCommand(_navigationStore.NavigateToPrevious), Key.Tab, ModifierKeys.Control | ModifierKeys.Shift));
 
         var key = (int)Key.D1;
         foreach (var item in _navigationStore.Items.OfType<NavigationItem>())
             InputBindings.Add(new KeyBinding(new ActionCommand(() => _navigationStore.Navigate(item.PageTag)), (Key)key++, ModifierKeys.Control));
+
+        _trayHelper = new(_navigationStore, BringToForeground);
     }
 
     private async void MainWindow_Closing(object? sender, CancelEventArgs e)
@@ -163,8 +94,8 @@ public partial class MainWindow
 
         if (SuppressClosingEventHandler)
         {
-            _notifyIcon?.Dispose();
-            _notifyIcon = null;
+            _trayHelper?.Dispose();
+            _trayHelper = null;
             return;
         }
 
