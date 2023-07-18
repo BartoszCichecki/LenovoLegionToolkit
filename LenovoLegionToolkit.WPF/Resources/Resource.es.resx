@@ -1877,4 +1877,10 @@ AVISO: Esta acción no se ejecutará correctamente si no se dispone de una GPU e
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
 	  <value>Los ajustes del modo personalizado no se aplicarán correctamente, si Legion Zone o sus servicios se están ejecutando.</value>
   </data>
+  <data name="DGPU_Connected_Title" xml:space="preserve">
+	  <value>DGPU conectada</value>
+  </data>
+  <data name="DGPU_Disconnected_Title" xml:space="preserve">
+	  <value>DGPU desconectada</value>
+  </data>
 </root>
