@@ -106,6 +106,8 @@ public partial class App
         await InitGpuOverclockControllerAsync();
         await InitAutomationProcessorAsync();
 
+        await IoCContainer.Resolve<DGPUNotify>().NotifyAsync();
+
 #if !DEBUG
         Autorun.Validate();
 #endif

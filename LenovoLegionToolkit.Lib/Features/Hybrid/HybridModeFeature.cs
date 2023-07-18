@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Features.Hybrid.Notify;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features.Hybrid;
@@ -8,11 +9,13 @@ public class HybridModeFeature : IFeature<HybridModeState>
 {
     private readonly GSyncFeature _gSyncFeature;
     private readonly IGPUModeFeature _igpuModeFeature;
+    private readonly DGPUNotify _dgpuNotify;
 
-    public HybridModeFeature(GSyncFeature gSyncFeature, IGPUModeFeature igpuModeFeature)
+    public HybridModeFeature(GSyncFeature gSyncFeature, IGPUModeFeature igpuModeFeature, DGPUNotify dgpuNotify)
     {
         _gSyncFeature = gSyncFeature ?? throw new ArgumentNullException(nameof(gSyncFeature));
         _igpuModeFeature = igpuModeFeature ?? throw new ArgumentNullException(nameof(igpuModeFeature));
+        _dgpuNotify = dgpuNotify ?? throw new ArgumentNullException(nameof(dgpuNotify));
     }
 
     public Task<bool> IsSupportedAsync() => _gSyncFeature.IsSupportedAsync();
@@ -70,6 +73,11 @@ public class HybridModeFeature : IFeature<HybridModeState>
                 {
                     if (!gSyncChanged)
                         throw;
+                }
+                finally
+                {
+                    if (!gSyncChanged && igpuMode == IGPUModeState.Default)
+                        await _dgpuNotify.NotifyLaterAsync().ConfigureAwait(false);
                 }
             }
         }
