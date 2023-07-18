@@ -112,6 +112,7 @@ UnregisterPowerSettingNotification
 
 CallNextHookEx
 GetForegroundWindow
+SetForegroundWindow
 GetDesktopWindow
 GetShellWindow
 GetWindowRect

@@ -5,10 +5,14 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls.Primitives;
+using System.Windows.Forms;
 using System.Windows.Input;
+using System.Windows.Interop;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Assets;
 using LenovoLegionToolkit.WPF.Controls;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Pages;
@@ -16,7 +20,11 @@ using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Utils;
 using Microsoft.Xaml.Behaviors.Core;
+using Windows.Win32;
+using Windows.Win32.Foundation;
 using Wpf.Ui.Controls;
+using NotifyIcon = System.Windows.Forms.NotifyIcon;
+using ToolTip = System.Windows.Controls.ToolTip;
 #if !DEBUG
 using System.Reflection;
 using LenovoLegionToolkit.Lib.Extensions;
@@ -30,6 +38,8 @@ public partial class MainWindow
     private readonly UpdateChecker _updateChecker = IoCContainer.Resolve<UpdateChecker>();
 
     private readonly ContextMenuHelper _contextMenuHelper = new();
+
+    private NotifyIcon? _notifyIcon;
 
     public bool TrayTooltipEnabled { get; init; } = true;
 
@@ -63,29 +73,60 @@ public partial class MainWindow
         }
     }
 
+    private ToolTip? _toolTip;
+
     private void InitializeTray()
     {
-        _contextMenuHelper.BringToForeground = BringToForeground;
-        _contextMenuHelper.Close = App.Current.ShutdownAsync;
-
-        _trayIcon.ToolTipText = Resource.AppName;
-
-        if (TrayTooltipEnabled)
+        var notifyIcon = new NotifyIcon
         {
-            _trayIcon.PreviewTrayToolTipOpen += (_, _) =>
+            Text = Resource.AppName,
+            Icon = AssetResources.icon,
+            Visible = true
+        };
+        notifyIcon.MouseMove += (_, e) =>
+        {
+            if (_toolTip is not null)
+                return;
+
+            var tooltip = new ToolTip
             {
-                if (_trayIcon.TrayToolTip is not null)
-                    return;
-
-                _trayIcon.TrayToolTip = new StatusTrayPopup();
-                _trayIcon.TrayToolTipResolved.Style = Application.Current.Resources["PlainTooltip"] as Style;
-                _trayIcon.TrayToolTipResolved.VerticalOffset = -8;
+                Style = System.Windows.Application.Current.Resources["PlainTooltip"] as Style,
+                Placement = PlacementMode.Mouse,
+                Content = new StatusTrayPopup(),
+                IsOpen = true,
             };
-        }
+            tooltip.Closed += (sender, args) =>
+            {
+                _toolTip = null;
+            };
 
-        _trayIcon.PreviewTrayContextMenuOpen += (_, _) => _trayIcon.ContextMenu ??= _contextMenuHelper.ContextMenu;
-        _trayIcon.TrayLeftMouseUp += (_, _) => BringToForeground();
-        _trayIcon.NoLeftClickDelay = true;
+            if (PresentationSource.FromVisual(_contextMenuHelper.ContextMenu) is HwndSource source && source.Handle != IntPtr.Zero)
+                PInvoke.SetForegroundWindow(new HWND(source.Handle));
+
+            _toolTip = tooltip;
+        };
+        notifyIcon.MouseClick += (_, e) =>
+        {
+            switch (e.Button)
+            {
+                case MouseButtons.Left:
+                    {
+                        BringToForeground();
+                        break;
+                    }
+                case MouseButtons.Right:
+                    {
+                        _contextMenuHelper.ContextMenu.IsOpen = true;
+
+                        if (PresentationSource.FromVisual(_contextMenuHelper.ContextMenu) is HwndSource source && source.Handle != IntPtr.Zero)
+                            PInvoke.SetForegroundWindow(new HWND(source.Handle));
+
+                        break;
+                    }
+            }
+        };
+
+        _notifyIcon = notifyIcon;
     }
 
     private void MainWindow_SourceInitialized(object? sender, EventArgs e) => RestoreSize();
@@ -122,7 +163,8 @@ public partial class MainWindow
 
         if (SuppressClosingEventHandler)
         {
-            _trayIcon.Dispose();
+            _notifyIcon?.Dispose();
+            _notifyIcon = null;
             return;
         }
 

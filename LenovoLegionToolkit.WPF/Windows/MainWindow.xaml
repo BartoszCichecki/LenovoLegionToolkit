@@ -22,12 +22,6 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <tb:TaskbarIcon
-            x:Name="_trayIcon"
-            IconSource="/Assets/icon.ico"
-            MenuActivation="RightClick"
-            Visibility="Visible" />
-
         <wpfui:TitleBar Grid.Row="0" />
 
         <Grid Grid.Row="0" Margin="12,4,150,4">

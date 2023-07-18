@@ -55,12 +55,16 @@
 		<None Remove="Assets\Donate\paypal_qr.png" />
 	</ItemGroup>
 	<ItemGroup>
-		<Resource Include="Assets\default_exe.png" />
 		<Resource Include="Assets\icon.ico" />
 		<Resource Include="Assets\Donate\paypal_logo.png" />
 		<Resource Include="Assets\Donate\paypal_qr.png" />
 	</ItemGroup>
 	<ItemGroup>
+	  <Compile Update="Assets\AssetResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>AssetResources.resx</DependentUpon>
+	  </Compile>
 	  <Compile Update="Resources\Resource.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
@@ -68,6 +72,10 @@
 	  </Compile>
 	</ItemGroup>
 	<ItemGroup>
+	  <EmbeddedResource Update="Assets\AssetResources.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>AssetResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Resource.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>Resource.Designer.cs</LastGenOutput>
