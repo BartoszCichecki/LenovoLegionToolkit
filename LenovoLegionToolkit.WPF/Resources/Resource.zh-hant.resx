@@ -431,12 +431,12 @@
     <value>首頁</value>
   </data>
   <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
-    <value>如果 GPU 不需要活動時關閉顯示卡。
+    <value>如果 GPU 不需要活動時，停用顯示卡。
 
-警告：如果內部顯示器關閉或混合模式未啟用，則此操作將無法正常執行。</value>
+警告：如果內部顯示器關閉或混合模式未啟用，則此操作將無法正確地執行。</value>
   </data>
   <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
-    <value>休眠獨立 GPU</value>
+    <value>休眠 GPU</value>
   </data>
   <data name="DelayAutomationStepControl_Message" xml:space="preserve">
     <value>在執行下一條件前增加延遲。</value>
@@ -496,9 +496,9 @@
     <value>休眠</value>
   </data>
   <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-	  <value>nVidia GPU 可被關閉。
+	  <value>nVidia GPU 可被停用。
 
-請記得，如果關閉 GPU 可能造成一些應用程式崩潰。</value>
+請記得，如果停用 GPU，將可能造成一些應用程式崩潰。</value>
   </data>
   <data name="Inactive" xml:space="preserve">
     <value>休眠中</value>
@@ -507,7 +507,7 @@
     <value>強制關閉應用程式</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-	  <value>如果 GPU 不需要活動時關閉顯示卡。</value>
+	  <value>如果 GPU 不需要活動時停用顯示卡。</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>顯示器已連接到 nVidia GPU。</value>
@@ -532,9 +532,8 @@
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
 	  <value>變更內部顯示器顯示亮度。
-在一些裝置上，變更電源模式後亮度會發生變化。如果有任何異常，請確保將此條件放到最後再做。
 
-警告：如果內部顯示器已關閉，則此操作將無法正常執行。</value>
+警告：如果內部顯示器已關閉，則此操作將無法正確地執行。</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>顯示亮度</value>
@@ -586,7 +585,7 @@
     <value>僅使用獨立顯示卡。此模式將提供最佳化的圖形效能，但會顯著地增加功率。</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
-    <value>獨立顯示卡直接連接模式</value>
+    <value>dGPU 模式</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
     <value>內建顯示卡和獨立顯示卡都將啟用。系統將視情況自動地切換它們。</value>
@@ -724,7 +723,7 @@
   <data name="HDRAutomationStepControl_Message" xml:space="preserve">
     <value>啟用高動態範圍（HDR）顯示。
 
-警告：如果內部顯示器已關閉，則此操作將無法正常執行。</value>
+警告：如果內部顯示器已關閉，則此操作將無法正確地執行。</value>
   </data>
   <data name="HDRAutomationStepControl_Title" xml:space="preserve">
     <value>HDR</value>
@@ -905,13 +904,13 @@
     <value>開啟</value>
   </data>
   <data name="OverDriveAutomationStepControl_Message" xml:space="preserve">
-    <value>透過增加電壓超頻以提升內部顯示器反應速度，可能會導致顯示器螢幕過衝產生鬼影。</value>
+    <value>透過增加電壓超頻以提升內部顯示器反應速度，可能會導致顯示器過衝產生鬼影。</value>
   </data>
   <data name="OverDriveAutomationStepControl_Title" xml:space="preserve">
     <value>Over Drive</value>
   </data>
   <data name="OverDriveControl_Message" xml:space="preserve">
-    <value>透過增加電壓超頻以提升內部顯示器反應速度，可能會導致顯示器螢幕過衝產生鬼影。</value>
+    <value>透過增加電壓超頻以提升內部顯示器反應速度，可能會導致顯示器過衝產生鬼影。</value>
   </data>
   <data name="OverDriveControl_Title" xml:space="preserve">
     <value>Over Drive</value>
@@ -1095,7 +1094,7 @@
   <data name="RefreshRateAutomationStepControl_Message" xml:space="preserve">
     <value>變更內部顯示器更新率。
 
-警告：如果內部顯示器已關閉，則此操作將無法正常執行。</value>
+警告：如果內部顯示器已關閉，則此操作將無法正確地執行。</value>
   </data>
   <data name="RefreshRateAutomationStepControl_Title" xml:space="preserve">
     <value>更新率</value>
@@ -1486,7 +1485,7 @@
   <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
     <value>變更內部顯示器解析度。
 
-警告：如果內部顯示器已關閉，則此操作將無法正常執行。</value>
+警告：如果內部顯示器已關閉，則此操作將無法正確地執行。</value>
   </data>
   <data name="DpiScaleControl_Title" xml:space="preserve">
     <value>DPI</value>
@@ -1500,7 +1499,7 @@
   <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
     <value>變更內部顯示器比例。
 
-警告：如果內部顯示器已關閉，則此操作將無法正常執行。</value>
+警告：如果內部顯示器已關閉，則此操作將無法正確地執行。</value>
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>顯示</value>
@@ -1546,7 +1545,7 @@
   </data>
   <data name="TurnOffMonitorsControl_Message" xml:space="preserve">
     <value>關閉所有可供使用的顯示器。
-移動滑鼠或點擊鍵盤按鍵以喚醒螢幕。</value>
+移動滑鼠或點擊鍵盤按鍵以喚醒顯示器。</value>
   </data>
   <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
     <value>關閉</value>
@@ -1769,7 +1768,7 @@
   <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
     <value>藉由對獨立 GPU 超頻以提升效能。
 
-警告：如果獨立顯示卡不可供使用，則此操作將無法正常執行。</value>
+警告：如果獨立顯示卡無法使用，則此操作將無法正確地執行。</value>
   </data>
   <data name="PortsBacklightControl_Title" xml:space="preserve">
     <value>介面指示燈</value>
@@ -1853,6 +1852,9 @@
   <data name="IGPUModeChangeException_Title" xml:space="preserve">
 	  <value>無法變更 GPU 運作模式</value>
   </data>
+  <data name="IGPUModeChangeException_Message" xml:space="preserve">
+	  <value>如果 dGPU 仍然未啟用，請稍後再次嘗試變更模式。&#x0a;如果仍未有反應，請重新啟動您的筆記型電腦。</value>
+  </data>
   <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
 	  <value>dGPU 目前使用中</value>
   </data>
@@ -1864,5 +1866,17 @@
   </data>
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
 	  <value>未使用筆記本電腦或使用電池供電時，dGPU 將自動中斷連接。</value>
+  </data>
+  <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
+	  <value>當 Lenovo Vantage 或其他服務正在執行時，客製化模式設定將無法被正確地套用。</value>
+  </data>
+  <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
+	  <value>當 LenovoZong 或其他服務正在執行時，客製化模式設定將無法被正確地套用。</value>
+  </data>
+  <data name="DGPU_Connected_Title" xml:space="preserve">
+	  <value>DGPU 已連接</value>
+  </data>
+  <data name="DGPU_Disconnected_Title" xml:space="preserve">
+	  <value>DGPU 已中斷連接</value>
   </data>
 </root>
