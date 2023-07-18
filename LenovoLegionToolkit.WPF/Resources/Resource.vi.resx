@@ -1875,4 +1875,10 @@ CẢNH BÁO: hành động có thể chạy không đúng nếu GPU rời không
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
 	  <value>Cài đặt của Chế độ Custom sẽ không được áp dụng chính xác khi LegionZone hoặc các dịch vụ của nó đang chạy.</value>
   </data>
+  <data name="DGPU_Connected_Title" xml:space="preserve">
+	  <value>Đã kết nối với DGPU</value>
+  </data>
+  <data name="DGPU_Disconnected_Title" xml:space="preserve">
+	  <value>Đã ngắt kết nối DGPU</value>
+  </data>
 </root>
