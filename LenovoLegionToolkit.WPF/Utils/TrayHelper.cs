@@ -1,23 +1,22 @@
 ﻿using System;
-using System.Drawing;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Forms;
-using System.Windows.Interop;
+using Hardcodet.Wpf.TaskbarNotification;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Automation;
+using LenovoLegionToolkit.Lib.Automation.Pipeline;
 using LenovoLegionToolkit.WPF.Assets;
 using LenovoLegionToolkit.WPF.Controls;
 using LenovoLegionToolkit.WPF.Resources;
-using Windows.Win32;
-using Windows.Win32.Foundation;
+using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 using Wpf.Ui.Controls.Interfaces;
 using Brushes = System.Windows.Media.Brushes;
 using MenuItem = Wpf.Ui.Controls.MenuItem;
-using NotifyIcon = System.Windows.Forms.NotifyIcon;
 using ToolTip = System.Windows.Controls.ToolTip;
 
 namespace LenovoLegionToolkit.WPF.Utils;
@@ -26,16 +25,20 @@ public class TrayHelper : IDisposable
 {
     private const string NAVIGATION_TAG = "navigation";
     private const string STATIC_TAG = "static";
+    private const string AUTOMATION_TAG = "automation";
 
     private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
+    private readonly AutomationProcessor _automationProcessor = IoCContainer.Resolve<AutomationProcessor>();
 
-    private readonly NotifyIcon _notifyIcon = new()
+    private readonly TaskbarIcon _notifyIcon = new()
     {
-        Icon = AssetResources.icon,
-        // Text = Resource.AppName
+        Icon = AssetResources.icon
     };
 
-    private readonly ContextMenu _contextMenu = new();
+    private readonly ContextMenu _contextMenu = new()
+    {
+        FontSize = 14
+    };
 
     private readonly ToolTip _toolTip = new()
     {
@@ -45,32 +48,37 @@ public class TrayHelper : IDisposable
         BorderBrush = Brushes.Transparent,
         BorderThickness = new(0),
         MaxWidth = double.PositiveInfinity,
-        MaxHeight = double.PositiveInfinity,
-    };
-
-    private readonly Timer _toolTipTimer = new()
-    {
-        Interval = 250,
+        MaxHeight = double.PositiveInfinity
     };
 
     private readonly Action _bringToForeground;
 
-    private Rectangle? _mousePositionOnTooltipOpen;
-
-    public TrayHelper(INavigation navigation, Action bringToForeground)
+    public TrayHelper(INavigation navigation, Action bringToForeground, bool trayTooltipEnabled)
     {
         _bringToForeground = bringToForeground;
 
         InitializeStaticItems(navigation);
 
+        if (trayTooltipEnabled)
+            _notifyIcon.TrayToolTip = _toolTip;
+        else
+            _notifyIcon.ToolTipText = Resource.AppName;
+
+        _notifyIcon.ContextMenu = _contextMenu;
+
+        _notifyIcon.TrayContextMenuOpen += NotifyIcon_ContextMenuOpening;
+        _notifyIcon.TrayLeftMouseUp += NotifyIcon_TrayLeftMouseUp;
+
         _themeManager.ThemeApplied += (_, _) => _contextMenu.Resources = App.Current.Resources;
+    }
 
-        _toolTipTimer.Tick += ToolTipTimer_Tick;
-        _toolTip.Closed += ToolTip_Closed;
-        _notifyIcon.MouseMove += NotifyIcon_MouseMove;
-        _notifyIcon.MouseClick += NotifyIcon_MouseClick;
+    public async Task InitializeAsync()
+    {
+        var pipelines = await _automationProcessor.GetPipelinesAsync();
+        pipelines = pipelines.Where(p => p.Trigger is null).ToList();
+        SetAutomationItems(pipelines);
 
-        _notifyIcon.Visible = true;
+        _automationProcessor.PipelinesChanged += (_, p) => SetAutomationItems(p);
     }
 
     private void InitializeStaticItems(INavigation navigation)
@@ -113,66 +121,56 @@ public class TrayHelper : IDisposable
         _contextMenu.Items.Add(closeMenuItem);
     }
 
-    private void ToolTipTimer_Tick(object? sender, EventArgs e)
+    private void SetAutomationItems(List<AutomationPipeline> pipelines)
     {
-        if (!_mousePositionOnTooltipOpen.HasValue)
-            return;
+        foreach (var item in _contextMenu.Items.OfType<Control>().Where(mi => AUTOMATION_TAG.Equals(mi.Tag)).ToArray())
+            _contextMenu.Items.Remove(item);
 
-        var point = Cursor.Position;
-        if (_mousePositionOnTooltipOpen.Value.Contains(point))
-            return;
+        pipelines = pipelines.Where(p => p.Trigger is null).ToList();
 
-        _toolTip.IsOpen = false;
-    }
+        if (pipelines.Any())
+            _contextMenu.Items.Insert(0, new Separator { Tag = AUTOMATION_TAG });
 
-    private void ToolTip_Closed(object sender, RoutedEventArgs e)
-    {
-        _toolTipTimer.Enabled = false;
-        _mousePositionOnTooltipOpen = null;
-    }
-
-    private void NotifyIcon_MouseMove(object? sender, MouseEventArgs e)
-    {
-        if (_toolTip.IsOpen)
-            return;
-
-        var size = _notifyIcon.Icon.Size.Width;
-        var point = Cursor.Position;
-        _mousePositionOnTooltipOpen = new(point.X - size / 2, point.Y - size / 2, size, size);
-
-        _toolTip.IsOpen = true;
-        _toolTipTimer.Enabled = true;
-
-        if (PresentationSource.FromVisual(_toolTip) is HwndSource source && source.Handle != IntPtr.Zero)
-            PInvoke.SetForegroundWindow(new HWND(source.Handle));
-    }
-
-    private void NotifyIcon_MouseClick(object? sender, MouseEventArgs e)
-    {
-        switch (e.Button)
+        foreach (var pipeline in pipelines)
         {
-            case MouseButtons.Left:
+            var icon = Enum.TryParse<SymbolRegular>(pipeline.IconName, out var iconParsed)
+                ? iconParsed
+                : SymbolRegular.Play24;
+
+            var item = new MenuItem
+            {
+                SymbolIcon = icon,
+                Header = pipeline.Name ?? Resource.Unnamed,
+                Tag = AUTOMATION_TAG
+            };
+            item.Click += async (_, _) =>
+            {
+                try
                 {
-                    _bringToForeground();
-
-                    break;
+                    await _automationProcessor.RunNowAsync(pipeline);
                 }
-            case MouseButtons.Right:
-                {
-                    _contextMenu.IsOpen = true;
+                catch {  /* Ignored. */ }
+            };
 
-                    if (PresentationSource.FromVisual(_contextMenu) is HwndSource source && source.Handle != IntPtr.Zero)
-                        PInvoke.SetForegroundWindow(new HWND(source.Handle));
-
-                    break;
-                }
+            _contextMenu.Items.Insert(0, item);
         }
     }
+
+    public void MakeVisible() => _notifyIcon.Visibility = Visibility.Visible;
+
+    private void NotifyIcon_ContextMenuOpening(object sender, RoutedEventArgs e)
+    {
+        if (_notifyIcon.TrayToolTip is ToolTip { IsOpen: true } tooltip)
+            tooltip.IsOpen = false;
+    }
+
+    private void NotifyIcon_TrayLeftMouseUp(object o, RoutedEventArgs routedEventArgs) => _bringToForeground();
 
     public void Dispose()
     {
         GC.SuppressFinalize(this);
 
+        _notifyIcon.Visibility = Visibility.Collapsed;
         _notifyIcon.Dispose();
     }
 }

@@ -85,7 +85,10 @@ public partial class MainWindow
         foreach (var item in _navigationStore.Items.OfType<NavigationItem>())
             InputBindings.Add(new KeyBinding(new ActionCommand(() => _navigationStore.Navigate(item.PageTag)), (Key)key++, ModifierKeys.Control));
 
-        _trayHelper = new(_navigationStore, BringToForeground);
+        var trayHelper = new TrayHelper(_navigationStore, BringToForeground, TrayTooltipEnabled);
+        await trayHelper.InitializeAsync();
+        trayHelper.MakeVisible();
+        _trayHelper = trayHelper;
     }
 
     private async void MainWindow_Closing(object? sender, CancelEventArgs e)
