@@ -60,7 +60,7 @@ public abstract class AbstractDGPUNotify : IDGPUNotify
             token = _notifyLaterCancellationTokenSource.Token;
         }
 
-        _ = Task.Delay(TimeSpan.FromSeconds(10), token)
+        _ = Task.Delay(TimeSpan.FromSeconds(5), token)
             .ContinueWith(async t =>
             {
                 if (!t.IsCompletedSuccessfully)

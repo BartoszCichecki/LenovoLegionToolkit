@@ -27,13 +27,13 @@ public class DGPUNotify : IDGPUNotify
         }
     }
 
-    public bool EnableLegacySwitching { get; set; }
+    public bool ExperimentalGPUWorkingMode { get; set; }
 
-    public DGPUNotify(DGPUCapabilityNotify capabilityNotify, DGPUFeatureFlagsNotify featureFlagsNotify, DGPUGamezoneNotify gamezoneNotify)
+    public DGPUNotify(DGPUGamezoneNotify gamezoneNotify, DGPUCapabilityNotify capabilityNotify, DGPUFeatureFlagsNotify featureFlagsNotify)
     {
+        _gamezoneNotify = gamezoneNotify ?? throw new ArgumentNullException(nameof(gamezoneNotify));
         _capabilityNotify = capabilityNotify ?? throw new ArgumentNullException(nameof(capabilityNotify));
         _featureFlagsNotify = featureFlagsNotify ?? throw new ArgumentNullException(nameof(featureFlagsNotify));
-        _gamezoneNotify = gamezoneNotify ?? throw new ArgumentNullException(nameof(gamezoneNotify));
 
         _lazyAsyncNotify = new(GetNotifyLazyAsync);
     }
@@ -54,15 +54,17 @@ public class DGPUNotify : IDGPUNotify
 
     private async Task<IDGPUNotify?> GetNotifyLazyAsync()
     {
-        if (EnableLegacySwitching)
-            return await _gamezoneNotify.IsSupportedAsync().ConfigureAwait(false) ? _gamezoneNotify : null;
+        if (ExperimentalGPUWorkingMode)
+        {
+            if (await _capabilityNotify.IsSupportedAsync().ConfigureAwait(false))
+                return _capabilityNotify;
 
-        if (await _capabilityNotify.IsSupportedAsync().ConfigureAwait(false))
-            return _capabilityNotify;
+            if (await _featureFlagsNotify.IsSupportedAsync().ConfigureAwait(false))
+                return _featureFlagsNotify;
 
-        if (await _featureFlagsNotify.IsSupportedAsync().ConfigureAwait(false))
-            return _featureFlagsNotify;
+            return null;
+        }
 
-        return null;
+        return await _gamezoneNotify.IsSupportedAsync().ConfigureAwait(false) ? _gamezoneNotify : null;
     }
 }
