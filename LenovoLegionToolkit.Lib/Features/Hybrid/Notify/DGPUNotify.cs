@@ -46,10 +46,10 @@ public class DGPUNotify : IDGPUNotify
         await feature.NotifyAsync(publish).ConfigureAwait(false);
     }
 
-    public async Task NotifyLaterAsync()
+    public async Task NotifyLaterIfNeededAsync()
     {
         var feature = await _lazyAsyncNotify.Value.ConfigureAwait(false) ?? throw new InvalidOperationException($"No supported feature found. [type={GetType().Name}");
-        await feature.NotifyLaterAsync().ConfigureAwait(false);
+        await feature.NotifyLaterIfNeededAsync().ConfigureAwait(false);
     }
 
     private async Task<IDGPUNotify?> GetNotifyLazyAsync()

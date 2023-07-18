@@ -48,7 +48,7 @@ public abstract class AbstractDGPUNotify : IDGPUNotify
         }
     }
 
-    public Task NotifyLaterAsync()
+    public Task NotifyLaterIfNeededAsync()
     {
         CancellationToken token;
 

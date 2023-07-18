@@ -9,5 +9,5 @@ public interface IDGPUNotify
 
     Task<bool> IsSupportedAsync();
     Task NotifyAsync(bool publish = true);
-    Task NotifyLaterAsync();
+    Task NotifyLaterIfNeededAsync();
 }
