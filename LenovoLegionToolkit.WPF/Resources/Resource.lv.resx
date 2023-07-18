@@ -1854,6 +1854,9 @@ BRĪDINĀJUMS. Ja nav pieejams atsevišķs GPU, šī darbība nedarbosies pareiz
   <data name="IGPUModeChangeException_Title" xml:space="preserve">
 	  <value>Nevarēja nomainīt GPU Darbošanās režīmu</value>
   </data>
+  <data name="IGPUModeChangeException_Message" xml:space="preserve">
+	  <value>Ja neredzat paredzēto rezultātu, mēģiniet nomainīt režīmu atkārtoti pēc pāris sekundēm.&#x0a;Ja dGPU vispār nereaģē, lūdzu, restartējiet savu portatīvo datoru.</value>
+  </data>
   <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
 	  <value>dGPU šobrīd tiek izmantots</value>
   </data>
@@ -1865,5 +1868,17 @@ BRĪDINĀJUMS. Ja nav pieejams atsevišķs GPU, šī darbība nedarbosies pareiz
   </data>
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
 	  <value>dGPU tiks atvienots automātiski kad tas netiek izmantots vai portatīvais dators izmanto akumulatoru.</value>
+  </data>
+  <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
+	  <value>Pielāgotā Režīma iestatījumi netiks pielietoti pareizi kamēr Lenovo Vantage un tā servisi ir ieslēgti.</value>
+  </data>
+  <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
+	  <value>Pielāgotā Režīma iestatījumi netiks pielietoti pareizi kamēr LegionZone un tā servisi ir ieslēgti.</value>
+  </data>
+  <data name="DGPU_Connected_Title" xml:space="preserve">
+	  <value>DGPU pieslēdzies</value>
+  </data>
+  <data name="DGPU_Disconnected_Title" xml:space="preserve">
+	  <value>DGPU atslēdzies</value>
   </data>
 </root>

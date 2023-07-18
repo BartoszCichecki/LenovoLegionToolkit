@@ -95,8 +95,8 @@ public partial class App
         IoCContainer.Resolve<WhiteKeyboardLenovoLightingBacklightFeature>().ForceDisable = flags.ForceDisableLenovoLighting;
         IoCContainer.Resolve<PanelLogoLenovoLightingBacklightFeature>().ForceDisable = flags.ForceDisableLenovoLighting;
         IoCContainer.Resolve<PortsBacklightFeature>().ForceDisable = flags.ForceDisableLenovoLighting;
-        IoCContainer.Resolve<IGPUModeFeature>().EnableLegacySwitching = flags.LegacyGPUWorkingModeSwitching;
-        IoCContainer.Resolve<DGPUNotify>().EnableLegacySwitching = flags.LegacyGPUWorkingModeSwitching;
+        IoCContainer.Resolve<IGPUModeFeature>().ExperimentalGPUWorkingMode = flags.ExperimentalGPUWorkingMode;
+        IoCContainer.Resolve<DGPUNotify>().ExperimentalGPUWorkingMode = flags.ExperimentalGPUWorkingMode;
 
         await LogSoftwareStatusAsync();
         await InitPowerModeFeatureAsync();

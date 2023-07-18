@@ -1874,4 +1874,10 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn keine diskrete GPU ve
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
 	  <value>Die Einstellungen des benutzerdefinierten Modus werden nicht korrekt angewendet, wenn LegionZone oder dessen Dienste ausgeführt werden.</value>
   </data>
+  <data name="DGPU_Connected_Title" xml:space="preserve">
+	  <value>DGPU verbunden</value>
+  </data>
+  <data name="DGPU_Disconnected_Title" xml:space="preserve">
+	  <value>DGPU getrennt</value>
+  </data>
 </root>

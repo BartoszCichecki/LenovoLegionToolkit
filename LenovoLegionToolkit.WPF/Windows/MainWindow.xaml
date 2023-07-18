@@ -147,7 +147,6 @@
                     <!--  ReSharper disable once UnusedMember.Global  -->
                     <TextBlock
                         x:Name="_snackbarTitle"
-                        Margin="0,0,0,6"
                         VerticalAlignment="Center"
                         FontSize="16"
                         FontWeight="Medium"
@@ -156,6 +155,7 @@
                     <!--  ReSharper disable once UnusedMember.Global  -->
                     <TextBlock
                         x:Name="_snackbarMessage"
+                        Margin="0,6,0,0"
                         FontSize="14"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         TextWrapping="WrapWithOverflow" />
