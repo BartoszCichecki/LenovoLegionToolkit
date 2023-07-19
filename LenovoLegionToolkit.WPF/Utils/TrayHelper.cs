@@ -42,9 +42,11 @@ public class TrayHelper : IDisposable
 
         InitializeStaticItems(navigation);
 
-        var notifyIcon = new NotifyIcon();
-        notifyIcon.Icon = AssetResources.icon;
-        notifyIcon.Text = Resource.AppName;
+        var notifyIcon = new NotifyIcon
+        {
+            Icon = AssetResources.icon,
+            Text = Resource.AppName
+        };
 
         if (trayTooltipEnabled)
         {
