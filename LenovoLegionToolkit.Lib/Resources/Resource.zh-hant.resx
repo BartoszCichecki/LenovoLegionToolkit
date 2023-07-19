@@ -108,10 +108,10 @@
     <comment>Informs the user that Fn Lock is or will be turned on.</comment>
   </data>
   <data name="GPUController_PoweredOff" xml:space="preserve">
-    <value>已關閉電源</value>
+    <value>關機</value>
   </data>
   <data name="GPUController_PoweredOn" xml:space="preserve">
-    <value>啟用</value>
+    <value>開機</value>
   </data>
   <data name="GSyncState_Off" xml:space="preserve">
     <value>關閉</value>
@@ -130,7 +130,7 @@
     <comment>Informs the user that HDR is or will be turned on.</comment>
   </data>
   <data name="HybridModeState_Off" xml:space="preserve">
-    <value>獨立顯示卡直接連接模式</value>
+    <value>dGPU</value>
   </data>
   <data name="HybridModeState_On" xml:space="preserve">
     <value>混合模式</value>
@@ -139,7 +139,7 @@
     <value>混合自動模式</value>
   </data>
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
-    <value>混合內建顯示卡模式</value>
+    <value>Hybrid-iGPU</value>
   </data>
   <data name="MicrophoneState_Off" xml:space="preserve">
     <value>關閉</value>
@@ -289,7 +289,7 @@
     <value>韻律漣漪</value>
   </data>
   <data name="SpectrumKeyboardBacklightEffectType_AuroraSync" xml:space="preserve">
-    <value>螢幕同步</value>
+    <value>Aurora Sync（顯示器燈光同步）</value>
   </data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorChange" xml:space="preserve">
     <value>光譜循環</value>
