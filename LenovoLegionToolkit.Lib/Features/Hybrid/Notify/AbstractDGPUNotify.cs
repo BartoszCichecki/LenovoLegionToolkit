@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Utils;
@@ -12,19 +13,30 @@ namespace LenovoLegionToolkit.Lib.Features.Hybrid.Notify;
 
 public abstract class AbstractDGPUNotify : IDGPUNotify
 {
+    private readonly object _lock = new();
+
+    private CancellationTokenSource? _notifyLaterCancellationTokenSource;
+
     public event EventHandler<bool>? Notified;
 
     public abstract Task<bool> IsSupportedAsync();
 
-    public async Task NotifyAsync()
+    public async Task NotifyAsync(bool publish = true)
     {
+        lock (_lock)
+        {
+            _notifyLaterCancellationTokenSource?.Cancel();
+            _notifyLaterCancellationTokenSource = null;
+        }
+
         try
         {
             var dgpuHardwareId = await GetDGPUHardwareIdAsync().ConfigureAwait(false);
             var isAvailable = IsDGPUAvailable(dgpuHardwareId);
             await NotifyDGPUStatusAsync(isAvailable).ConfigureAwait(false);
 
-            Notified?.Invoke(this, isAvailable);
+            if (publish)
+                Notified?.Invoke(this, isAvailable);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Notified: {isAvailable}");
@@ -34,6 +46,33 @@ public abstract class AbstractDGPUNotify : IDGPUNotify
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Failed to notify.", ex);
         }
+    }
+
+    public Task NotifyLaterIfNeededAsync()
+    {
+        CancellationToken token;
+
+        lock (_lock)
+        {
+            _notifyLaterCancellationTokenSource?.Cancel();
+            _notifyLaterCancellationTokenSource = new();
+
+            token = _notifyLaterCancellationTokenSource.Token;
+        }
+
+        _ = Task.Delay(TimeSpan.FromSeconds(5), token)
+            .ContinueWith(async t =>
+            {
+                if (!t.IsCompletedSuccessfully)
+                    return;
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Event not received, notifying anyway...");
+
+                await NotifyAsync(false).ConfigureAwait(false);
+            }, token);
+
+        return Task.CompletedTask;
     }
 
     protected abstract Task NotifyDGPUStatusAsync(bool state);

@@ -41,6 +41,9 @@ public class WarrantyChecker
         var responseContent = await response.Content.ReadAsStringAsync(token).ConfigureAwait(false);
         var node = JsonNode.Parse(responseContent);
 
+        if (node?["code"]?.GetValue<int>() != 0)
+            return null;
+
         var baseWarranties = node?["data"]?["baseWarranties"]?.AsArray() ?? new JsonArray();
         var upgradeWarranties = node?["data"]?["upgradeWarranties"]?.AsArray() ?? new JsonArray();
 
@@ -75,14 +78,14 @@ public class WarrantyChecker
     {
         var warrantySummaryString = await httpClient.GetStringAsync($"https://msupport.lenovo.com.cn/centerapi/devicedetail?sn={machineInformation.SerialNumber}", token).ConfigureAwait(false);
 
-        var warrantySummaryNode = JsonNode.Parse(warrantySummaryString);
-        var dataNode = warrantySummaryNode?["data"];
+        var node = JsonNode.Parse(warrantySummaryString);
 
-        if (dataNode is null)
+        if (node?["status_code"]?.GetValue<int>() != 200)
             return null;
 
-        var startDateString = dataNode["warranty_start"]?.ToString();
-        var endDateString = dataNode["warranty_end"]?.ToString();
+        var dataNode = node?["data"];
+        var startDateString = dataNode?["warranty_start"]?.ToString();
+        var endDateString = dataNode?["warranty_end"]?.ToString();
 
         DateTime? startDate = startDateString is null ? null : DateTime.Parse(startDateString);
         DateTime? endDate = endDateString is null ? null : DateTime.Parse(endDateString);

@@ -148,16 +148,16 @@
     <value>當應用程式啟動時</value>
   </data>
   <data name="ProcessesStopRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>當應用程式關閉時</value>
+    <value>當應用程式關閉後</value>
   </data>
   <data name="TimeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>在指定的時間</value>
+    <value>指定時間</value>
   </data>
   <data name="ExternalDisplayConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>當連接外接螢幕後</value>
+    <value>當連接外接顯示器後</value>
   </data>
   <data name="ExternalDisplayDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>當中斷連接外接螢幕後</value>
+    <value>當中斷連接外接顯示器後</value>
   </data>
   <data name="DisplayOnAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>當顯示器開啟時</value>
@@ -181,10 +181,10 @@
     <value>當使用者處於活動狀態</value>
   </data>
   <data name="UserInactivityAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>當使用者處於非活動狀態</value>
+    <value>當使用者處於非活動狀態時</value>
   </data>
   <data name="DeactivateGpuQuickAction_Title" xml:space="preserve">
-    <value>休眠獨立 GPU</value>
+    <value>休眠 GPU</value>
     <comment>The display name of the default Quick Action that is presented to the user upon first installation.</comment>
   </data>
   <data name="OverclockDiscreteGPUAutomationStepState_Off" xml:space="preserve">

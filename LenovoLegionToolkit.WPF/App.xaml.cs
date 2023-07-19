@@ -95,8 +95,8 @@ public partial class App
         IoCContainer.Resolve<WhiteKeyboardLenovoLightingBacklightFeature>().ForceDisable = flags.ForceDisableLenovoLighting;
         IoCContainer.Resolve<PanelLogoLenovoLightingBacklightFeature>().ForceDisable = flags.ForceDisableLenovoLighting;
         IoCContainer.Resolve<PortsBacklightFeature>().ForceDisable = flags.ForceDisableLenovoLighting;
-        IoCContainer.Resolve<IGPUModeFeature>().EnableLegacySwitching = flags.LegacyGPUWorkingModeSwitching;
-        IoCContainer.Resolve<DGPUNotify>().EnableLegacySwitching = flags.LegacyGPUWorkingModeSwitching;
+        IoCContainer.Resolve<IGPUModeFeature>().ExperimentalGPUWorkingMode = flags.ExperimentalGPUWorkingMode;
+        IoCContainer.Resolve<DGPUNotify>().ExperimentalGPUWorkingMode = flags.ExperimentalGPUWorkingMode;
 
         await LogSoftwareStatusAsync();
         await InitPowerModeFeatureAsync();
@@ -210,8 +210,8 @@ public partial class App
         Log.Instance.ErrorReport("AppDomain_UnhandledException", exception ?? new Exception($"Unknown exception caught: {e.ExceptionObject}"));
         Log.Instance.Trace($"Unhandled exception occurred.", exception);
 
-        MessageBox.Show(string.Format(Resource.UnexpectedException, exception?.Message ?? "Unknown exception.", Constants.BugReportUri),
-            "Error",
+        MessageBox.Show(string.Format(Resource.UnexpectedException, exception?.ToStringDemystified() ?? "Unknown exception.", Constants.ProjectUri),
+            "Application Domain Error",
             MessageBoxButton.OK,
             MessageBoxImage.Error);
         Shutdown(1);
@@ -222,8 +222,8 @@ public partial class App
         Log.Instance.ErrorReport("Application_DispatcherUnhandledException", e.Exception);
         Log.Instance.Trace($"Unhandled exception occurred.", e.Exception);
 
-        MessageBox.Show(string.Format(Resource.UnexpectedException, e.Exception.Message, Constants.BugReportUri),
-            "Error",
+        MessageBox.Show(string.Format(Resource.UnexpectedException, e.Exception.ToStringDemystified(), Constants.ProjectUri),
+            "Application Error",
             MessageBoxButton.OK,
             MessageBoxImage.Error);
         Shutdown(1);

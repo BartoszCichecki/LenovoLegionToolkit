@@ -8,5 +8,6 @@ public interface IDGPUNotify
     public event EventHandler<bool>? Notified;
 
     Task<bool> IsSupportedAsync();
-    Task NotifyAsync();
+    Task NotifyAsync(bool publish = true);
+    Task NotifyLaterIfNeededAsync();
 }

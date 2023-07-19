@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Features.Hybrid.Notify;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features.Hybrid;
@@ -8,11 +9,13 @@ public class HybridModeFeature : IFeature<HybridModeState>
 {
     private readonly GSyncFeature _gSyncFeature;
     private readonly IGPUModeFeature _igpuModeFeature;
+    private readonly DGPUNotify _dgpuNotify;
 
-    public HybridModeFeature(GSyncFeature gSyncFeature, IGPUModeFeature igpuModeFeature)
+    public HybridModeFeature(GSyncFeature gSyncFeature, IGPUModeFeature igpuModeFeature, DGPUNotify dgpuNotify)
     {
         _gSyncFeature = gSyncFeature ?? throw new ArgumentNullException(nameof(gSyncFeature));
         _igpuModeFeature = igpuModeFeature ?? throw new ArgumentNullException(nameof(igpuModeFeature));
+        _dgpuNotify = dgpuNotify ?? throw new ArgumentNullException(nameof(dgpuNotify));
     }
 
     public Task<bool> IsSupportedAsync() => _gSyncFeature.IsSupportedAsync();
@@ -51,13 +54,32 @@ public class HybridModeFeature : IFeature<HybridModeState>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Setting state to {state}... [gSync={gSync}, igpuMode={igpuMode}]");
 
+        var gSyncChanged = false;
         if (await _gSyncFeature.GetStateAsync().ConfigureAwait(false) != gSync)
+        {
             await _gSyncFeature.SetStateAsync(gSync).ConfigureAwait(false);
+            gSyncChanged = true;
+        }
 
         if (await _igpuModeFeature.IsSupportedAsync().ConfigureAwait(false))
         {
             if (await _igpuModeFeature.GetStateAsync().ConfigureAwait(false) != igpuMode)
-                await _igpuModeFeature.SetStateAsync(igpuMode).ConfigureAwait(false);
+            {
+                try
+                {
+                    await _igpuModeFeature.SetStateAsync(igpuMode).ConfigureAwait(false);
+                }
+                catch (IGPUModeChangeException)
+                {
+                    if (!gSyncChanged)
+                        throw;
+                }
+                finally
+                {
+                    if (!gSyncChanged && igpuMode is IGPUModeState.Default or IGPUModeState.Auto)
+                        await _dgpuNotify.NotifyLaterIfNeededAsync().ConfigureAwait(false);
+                }
+            }
         }
 
         if (Log.Instance.IsTraceEnabled)

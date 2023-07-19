@@ -105,7 +105,7 @@ public static class HybridModeControlFactory
 
         private void DGPUNotify_Notified(object? sender, bool e) => Dispatcher.Invoke(() =>
         {
-            SnackbarHelper.Show(e ? Resource.DGPU_Connected_Title : Resource.DGPU_Disconnected_Title);
+            SnackbarHelper.Show(e ? Resource.DGPU_Connected_Title : Resource.DGPU_Disconnected_Title, type: SnackbarType.Info);
         });
 
         private void InfoButton_Click(object sender, RoutedEventArgs e)
