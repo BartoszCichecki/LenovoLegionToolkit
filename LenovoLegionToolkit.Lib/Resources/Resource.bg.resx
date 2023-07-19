@@ -373,4 +373,16 @@
   <data name="PanelLogoBacklightState_Off" xml:space="preserve">
 		<value>Изключена</value>
 	</data>
+  <data name="InstantBootState_Off" xml:space="preserve">
+		<value>Изключено</value>
+	</data>
+  <data name="InstantBootState_AcAdapter" xml:space="preserve">
+		<value>Зарядно</value>
+	</data>
+  <data name="InstantBootState_UsbPowerDelivery" xml:space="preserve">
+		<value>USB Захранване с Висока Мощност</value>
+	</data>
+  <data name="InstantBootState_AcAdapterAndUsbPowerDelivery" xml:space="preserve">
+		<value>Зарядно и USB Захранване с Висока Мощност</value>
+	</data>
 </root>
