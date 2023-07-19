@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using Hardcodet.Wpf.TaskbarNotification;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
@@ -17,7 +15,6 @@ using Wpf.Ui.Controls;
 using Wpf.Ui.Controls.Interfaces;
 using Brushes = System.Windows.Media.Brushes;
 using MenuItem = Wpf.Ui.Controls.MenuItem;
-using ToolTip = System.Windows.Controls.ToolTip;
 
 namespace LenovoLegionToolkit.WPF.Utils;
 
@@ -30,28 +27,14 @@ public class TrayHelper : IDisposable
     private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
     private readonly AutomationProcessor _automationProcessor = IoCContainer.Resolve<AutomationProcessor>();
 
-    private readonly TaskbarIcon _notifyIcon = new()
-    {
-        Icon = AssetResources.icon
-    };
-
     private readonly ContextMenu _contextMenu = new()
     {
         FontSize = 14
     };
 
-    private readonly ToolTip _toolTip = new()
-    {
-        Content = new StatusTrayPopup(),
-        Placement = PlacementMode.Mouse,
-        Background = Brushes.Transparent,
-        BorderBrush = Brushes.Transparent,
-        BorderThickness = new(0),
-        MaxWidth = double.PositiveInfinity,
-        MaxHeight = double.PositiveInfinity
-    };
-
     private readonly Action _bringToForeground;
+
+    private NotifyIcon? _notifyIcon;
 
     public TrayHelper(INavigation navigation, Action bringToForeground, bool trayTooltipEnabled)
     {
@@ -59,15 +42,27 @@ public class TrayHelper : IDisposable
 
         InitializeStaticItems(navigation);
 
+        var notifyIcon = new NotifyIcon();
+        notifyIcon.Icon = AssetResources.icon;
+        notifyIcon.Text = Resource.AppName;
+
         if (trayTooltipEnabled)
-            _notifyIcon.TrayToolTip = _toolTip;
-        else
-            _notifyIcon.ToolTipText = Resource.AppName;
+        {
+            notifyIcon.ToolTip = new()
+            {
+                Content = new StatusTrayPopup(),
+                Placement = PlacementMode.Mouse,
+                Background = Brushes.Transparent,
+                BorderBrush = Brushes.Transparent,
+                BorderThickness = new(0),
+                MaxWidth = double.PositiveInfinity,
+                MaxHeight = double.PositiveInfinity
+            };
+        }
 
-        _notifyIcon.ContextMenu = _contextMenu;
-
-        _notifyIcon.TrayContextMenuOpen += NotifyIcon_ContextMenuOpening;
-        _notifyIcon.TrayLeftMouseUp += NotifyIcon_TrayLeftMouseUp;
+        notifyIcon.ContextMenu = _contextMenu;
+        notifyIcon.OnClick += (_, _) => _bringToForeground();
+        _notifyIcon = notifyIcon;
 
         _themeManager.ThemeApplied += (_, _) => _contextMenu.Resources = App.Current.Resources;
     }
@@ -156,21 +151,22 @@ public class TrayHelper : IDisposable
         }
     }
 
-    public void MakeVisible() => _notifyIcon.Visibility = Visibility.Visible;
-
-    private void NotifyIcon_ContextMenuOpening(object sender, RoutedEventArgs e)
+    public void MakeVisible()
     {
-        if (_notifyIcon.TrayToolTip is ToolTip { IsOpen: true } tooltip)
-            tooltip.IsOpen = false;
-    }
+        if (_notifyIcon is null)
+            return;
 
-    private void NotifyIcon_TrayLeftMouseUp(object o, RoutedEventArgs routedEventArgs) => _bringToForeground();
+        _notifyIcon.Visible = true;
+    }
 
     public void Dispose()
     {
         GC.SuppressFinalize(this);
 
-        _notifyIcon.Visibility = Visibility.Collapsed;
-        _notifyIcon.Dispose();
+        if (_notifyIcon is not null)
+            _notifyIcon.Visible = false;
+
+        _notifyIcon?.Dispose();
+        _notifyIcon = null;
     }
 }
