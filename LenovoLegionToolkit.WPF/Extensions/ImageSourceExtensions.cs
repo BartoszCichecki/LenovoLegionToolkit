@@ -10,14 +10,6 @@ namespace LenovoLegionToolkit.WPF.Extensions;
 
 public static class ImageSourceExtensions
 {
-    public static ImageSource ApplicationIcon()
-    {
-        var assemblyName = Assembly.GetExecutingAssembly().GetName().Name;
-        var path = "pack://application:,,,/" + assemblyName + ";component/Assets/icon.ico";
-        var uri = new Uri(path, UriKind.RelativeOrAbsolute);
-        return BitmapFrame.Create(uri);
-    }
-
     public static ImageSource? ApplicationIcon(string? exePath)
     {
         if (exePath is null)

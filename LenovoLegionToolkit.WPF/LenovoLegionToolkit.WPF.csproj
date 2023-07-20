@@ -54,6 +54,7 @@
 		<None Remove="Assets\Donate\paypal_qr.png" />
 	</ItemGroup>
 	<ItemGroup>
+		<Resource Include="Assets\default_exe.png" />
 		<Resource Include="Assets\icon.ico" />
 		<Resource Include="Assets\Donate\paypal_logo.png" />
 		<Resource Include="Assets\Donate\paypal_qr.png" />
