@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
@@ -25,6 +27,7 @@ public class NotifyIcon : NativeWindow, IDisposable
     private readonly uint _id = ++_nextId;
 
     private bool _added;
+    private CancellationTokenSource? _showToolTipCancellationTokenSource;
 
     private bool _visible;
     public bool Visible
@@ -117,23 +120,39 @@ public class NotifyIcon : NativeWindow, IDisposable
         }
     }
 
-    private void ShowToolTip()
+    private async void ShowToolTip()
     {
-        if (ContextMenu is not null && ContextMenu.IsOpen)
-            return;
-
         if (_toolTip is null)
             return;
 
-        _toolTip.IsOpen = true;
+        _showToolTipCancellationTokenSource?.Cancel();
+        _showToolTipCancellationTokenSource = new();
 
-        if (PresentationSource.FromVisual(_toolTip) is HwndSource source && source.Handle != IntPtr.Zero)
-            PInvoke.SetForegroundWindow(new HWND(source.Handle));
+        var token = _showToolTipCancellationTokenSource.Token;
+
+        try
+        {
+            await Task.Delay(TimeSpan.FromMilliseconds(500), token);
+        }
+        catch (TaskCanceledException)
+        {
+            return;
+        }
+
+        if (ContextMenu is not null && ContextMenu.IsOpen)
+            return;
+
+        _toolTip.IsOpen = true;
     }
 
     private void HideToolTip()
     {
-        if (_toolTip is null || !_toolTip.IsOpen)
+        if (_toolTip is null)
+            return;
+
+        _showToolTipCancellationTokenSource?.Cancel();
+
+        if (!_toolTip.IsOpen)
             return;
 
         _toolTip.IsOpen = false;
