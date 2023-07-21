@@ -204,7 +204,7 @@
     <value>尚未定義快捷操作。點擊「新增」以建立新的快捷操作。</value>
   </data>
   <data name="AutomationPage_QuickActions_Message" xml:space="preserve">
-    <value>快捷操作已可供在工作列中的系統匣使用。</value>
+    <value>對系統匣選單中的圖示提供快捷操作。</value>
   </data>
   <data name="AutomationPage_QuickActions_Title" xml:space="preserve">
     <value>快捷操作</value>
@@ -351,7 +351,7 @@
     <value>初次使用日期</value>
   </data>
   <data name="BatteryPage_FirstUse_Message" xml:space="preserve">
-    <value>第一次使用電池。</value>
+    <value>初次使用電池時間。</value>
   </data>
   <data name="BatteryPage_FullChargeCapacity_Message" xml:space="preserve">
     <value>當電池充飽時的容量。</value>
@@ -542,14 +542,14 @@
     <value>贊助於</value>
   </data>
   <data name="DonatePage_Message" xml:space="preserve">
-    <value>開發和維護 Lenovo Legion 工具套件需要大量的時間。如果您喜歡此應用程式，您可以透過捐贈來支持應用程式未來的開發。
+    <value>開發和維護 Lenovo Legion 工具套件需要大量的時間。如果您喜歡此應用程式，您可以透過贊助來支持應用程式未來的開發。
 
-點擊下方的 PayPal 圖示或掃描 QR 條碼使用 PayPal 捐贈。
+點擊下方的 PayPal 圖示或掃描 QR 條碼使用 PayPal 贊助。
 
-在此十分感謝！</value>
+萬分的感謝！</value>
   </data>
   <data name="DonatePage_Title" xml:space="preserve">
-    <value>捐贈</value>
+    <value>贊助</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>編輯</value>
@@ -771,7 +771,7 @@
     <value>控制面板</value>
   </data>
   <data name="MainWindow_NavigationItem_Donate" xml:space="preserve">
-    <value>捐贈</value>
+    <value>贊助</value>
   </data>
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
     <value>鍵盤</value>
