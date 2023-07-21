@@ -130,16 +130,16 @@
     <comment>Informs the user that HDR is or will be turned on.</comment>
   </data>
   <data name="HybridModeState_Off" xml:space="preserve">
-    <value>dGPU</value>
+    <value>獨立顯示卡直接連接模式（dGPU）</value>
   </data>
   <data name="HybridModeState_On" xml:space="preserve">
-    <value>混合模式</value>
+    <value>混合模式（Hybrid）</value>
   </data>
   <data name="HybridModeState_OnAuto" xml:space="preserve">
-    <value>混合自動模式</value>
+    <value>混合自動模式（Hybrid-Auto）</value>
   </data>
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
-    <value>Hybrid-iGPU</value>
+    <value>混合內建顯示卡模式（Hybrid-iGPU）</value>
   </data>
   <data name="MicrophoneState_Off" xml:space="preserve">
     <value>關閉</value>
