@@ -204,7 +204,7 @@
     <value>尚未定義快捷操作。點擊「新增」以建立新的快捷操作。</value>
   </data>
   <data name="AutomationPage_QuickActions_Message" xml:space="preserve">
-    <value>快捷操作已可供在工作列中的系統匣使用。</value>
+    <value>對系統匣選單中的圖示提供快捷操作。</value>
   </data>
   <data name="AutomationPage_QuickActions_Title" xml:space="preserve">
     <value>快捷操作</value>
@@ -351,13 +351,13 @@
     <value>初次使用日期</value>
   </data>
   <data name="BatteryPage_FirstUse_Message" xml:space="preserve">
-    <value>第一次使用電池。</value>
+    <value>初次使用電池時間。</value>
   </data>
   <data name="BatteryPage_FullChargeCapacity_Message" xml:space="preserve">
-    <value>當電池充飽時的容量。</value>
+    <value>當電池充滿時的容量。</value>
   </data>
   <data name="BatteryPage_FullChargeCapacity_Title" xml:space="preserve">
-    <value>充飽容量</value>
+    <value>充滿容量</value>
   </data>
   <data name="BatteryPage_LowWattageChargerConnected" xml:space="preserve">
     <value>已連接較低功率電源供應器</value>
@@ -407,7 +407,7 @@
     <value>需要重新啟動</value>
   </data>
   <data name="ComboBoxHybridModeControl_Title" xml:space="preserve">
-    <value>GPU 運作模式</value>
+    <value>GPU 運作模式（GPU Working Mode）</value>
   </data>
   <data name="ContextMenu_QuickActions" xml:space="preserve">
     <value>快捷操作</value>
@@ -433,7 +433,7 @@
   <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
     <value>如果 GPU 不需要活動時，停用顯示卡。
 
-警告：如果內部顯示器關閉或混合模式未啟用，則此操作將無法正確地執行。</value>
+警告：如果內部顯示器關閉或混合模式（Hybrid Mode）未啟用，則此操作將無法正確地執行。</value>
   </data>
   <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
     <value>休眠 GPU</value>
@@ -542,14 +542,14 @@
     <value>贊助於</value>
   </data>
   <data name="DonatePage_Message" xml:space="preserve">
-    <value>開發和維護 Lenovo Legion 工具套件需要大量的時間。如果您喜歡此應用程式，您可以透過捐贈來支持應用程式未來的開發。
+    <value>開發和維護 Lenovo Legion 工具套件需要大量的時間。如果您喜歡此應用程式，您可以透過贊助來支持應用程式未來的開發。
 
-點擊下方的 PayPal 圖示或掃描 QR 條碼使用 PayPal 捐贈。
+點擊下方的 PayPal 圖示或掃描 QR 條碼使用 PayPal 贊助。
 
-在此十分感謝！</value>
+萬分的感謝！</value>
   </data>
   <data name="DonatePage_Title" xml:space="preserve">
-    <value>捐贈</value>
+    <value>贊助</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>編輯</value>
@@ -573,10 +573,10 @@
     <value>匯出</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
-    <value>使用電池時只使用內建顯示卡，連接電源供應器時使用內建顯示卡和獨立顯示卡。當連接低功率電源供應器時，系統將接換到混合模式。</value>
+    <value>使用電池時只使用內建顯示卡，連接電源供應器時使用內建顯示卡和獨立顯示卡。當連接低功率電源供應器時，系統將接換到混合模式（Hybrid-iGPU）。</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
-    <value>混合自動模式</value>
+    <value>混合自動模式（Hybrid-Auto Mode）</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Disclaimer" xml:space="preserve">
     <value>切換到此模式需要重新啟動。</value>
@@ -585,13 +585,13 @@
     <value>僅使用獨立顯示卡。此模式將提供最佳化的圖形效能，但會顯著地增加功率。</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
-    <value>dGPU 模式</value>
+    <value>獨立顯示卡直接連接模式（dGPU Mode）</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
     <value>內建顯示卡和獨立顯示卡都將啟用。系統將視情況自動地切換它們。</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
-    <value>混合模式</value>
+    <value>混合模式（Hybrid Mode）</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Disclaimer" xml:space="preserve">
     <value>此模式僅在獨立顯示卡不運作時生效。</value>
@@ -600,7 +600,7 @@
     <value>僅使用內建顯示卡，此模式將消耗最少的電源和最小的風扇噪音。</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Title" xml:space="preserve">
-    <value>混合僅限內建顯示卡模式</value>
+    <value>混合僅限內建顯示卡模式（Hybrid-iGPU Only Mode）</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Title" xml:space="preserve">
     <value>關於 GPU 運作模式</value>
@@ -753,10 +753,10 @@
     <value>鍵盤背光</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>由於 Lenovo Vantage 或其他服務正在執行而導致衝突，無法在此控制鍵盤背光。</value>
+    <value>由於 Lenovo Vantage 或其他服務正在執行，所以無法在此控制鍵盤背光。</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-	  <value>Lenovo Vantage 或其相關服務正在運行</value>
+	  <value>Lenovo Vantage 或其相關服務正在執行</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>關於</value>
@@ -771,7 +771,7 @@
     <value>控制面板</value>
   </data>
   <data name="MainWindow_NavigationItem_Donate" xml:space="preserve">
-    <value>捐贈</value>
+    <value>贊助</value>
   </data>
   <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
     <value>鍵盤</value>
@@ -1023,7 +1023,7 @@
     <value>尚未連接電源供應器時，電源模式可能無法正確地的運作。</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-	  <value>當 Lenovo Vantage 或其相關服務正在運行並且更改筆記型電腦上的電源計劃時，啟用此選項可能會導致未預期的行為。</value>
+	  <value>當 Lenovo Vantage 或其相關服務正在執行且變更筆記型電腦上的電源計劃時，啟用此選項可能會導致未預期的行為。</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>您確定嗎？</value>
@@ -1367,13 +1367,13 @@
 需要重新啟動。</value>
   </data>
   <data name="ToggleHybridModeControl_RestartRequired_Message" xml:space="preserve">
-    <value>變更混合模式需要重新啟動。您想要現在重新啟動嗎？</value>
+    <value>變更混合模式（Hybrid Mode）需要重新啟動。您想要現在重新啟動嗎？</value>
   </data>
   <data name="ToggleHybridModeControl_RestartRequired_Title" xml:space="preserve">
     <value>需要重新啟動</value>
   </data>
   <data name="ToggleHybridModeControl_Title" xml:space="preserve">
-    <value>混合模式</value>
+    <value>混合模式（Hybrid Mode）</value>
   </data>
   <data name="TouchpadLockAutomationStepControl_Message" xml:space="preserve">
     <value>停用觸控板。</value>
