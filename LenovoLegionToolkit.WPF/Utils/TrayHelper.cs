@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
@@ -53,7 +52,6 @@ public class TrayHelper : IDisposable
             notifyIcon.ToolTip = new()
             {
                 Content = new StatusTrayPopup(),
-                Placement = PlacementMode.Mouse,
                 Background = Brushes.Transparent,
                 BorderBrush = Brushes.Transparent,
                 BorderThickness = new(0),

@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
 using System.Windows.Interop;
 using Windows.Win32;
@@ -142,6 +143,9 @@ public class NotifyIcon : NativeWindow, IDisposable
         if (ContextMenu is not null && ContextMenu.IsOpen)
             return;
 
+        _toolTip.Placement = PlacementMode.Mouse;
+        _toolTip.PlacementRectangle = Rect.Empty;
+        _toolTip.PlacementTarget = null;
         _toolTip.IsOpen = true;
     }
 
@@ -163,6 +167,9 @@ public class NotifyIcon : NativeWindow, IDisposable
         if (ContextMenu is null)
             return;
 
+        ContextMenu.Placement = PlacementMode.Mouse;
+        ContextMenu.PlacementRectangle = Rect.Empty;
+        ContextMenu.PlacementTarget = null;
         ContextMenu.IsOpen = true;
 
         if (PresentationSource.FromVisual(ContextMenu) is HwndSource source && source.Handle != IntPtr.Zero)
