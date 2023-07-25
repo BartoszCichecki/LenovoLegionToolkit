@@ -7,7 +7,6 @@ public class BalanceModeSettings : AbstractSettings<BalanceModeSettingsStore>
     public class BalanceModeSettingsStore
     {
         public bool AIModeEnabled { get; set; }
-        public bool AIChipEnabled { get; set; }
     }
 
     // ReSharper disable once StringLiteralTypo

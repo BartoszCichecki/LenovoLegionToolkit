@@ -35,16 +35,6 @@ public class AIController
         }
     }
 
-    public bool IsAIChipEnabled
-    {
-        get => IsAIModeEnabled && _settings.Store.AIChipEnabled;
-        set
-        {
-            _settings.Store.AIChipEnabled = IsAIModeEnabled && value;
-            _settings.SynchronizeStore();
-        }
-    }
-
     public AIController(PowerModeListener powerModeListener,
         PowerStateListener powerStateListener,
         GameListener gameListener,

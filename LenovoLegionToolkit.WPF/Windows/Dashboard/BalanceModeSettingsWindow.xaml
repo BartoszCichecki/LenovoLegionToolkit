@@ -53,23 +53,13 @@
             </Grid.RowDefinitions>
 
             <StackPanel Grid.Row="0">
-                <CheckBox
-                    x:Name="_aiModeCheckBox"
-                    Checked="AiModeCheckBox_Checked"
-                    Content="{x:Static resources:Resource.BalanceModeSettingsWindow_AIEngine_Title}"
-                    Unchecked="AiModeCheckBox_Checked" />
+                <CheckBox x:Name="_aiModeCheckBox" Content="{x:Static resources:Resource.BalanceModeSettingsWindow_AIEngine_Title}" />
 
                 <TextBlock
                     Margin="32,4,0,0"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                     Text="{x:Static resources:Resource.BalanceModeSettingsWindow_AIEngine_Message}"
                     TextWrapping="Wrap" />
-
-                <CheckBox
-                    x:Name="_aiChipCheckBox"
-                    Margin="0,4,0,0"
-                    Content="Boost with AI Core"
-                    Visibility="Collapsed" />
             </StackPanel>
 
             <Grid Grid.Row="1" Margin="0,20,0,0">
