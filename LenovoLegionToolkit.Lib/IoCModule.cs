@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using LenovoLegionToolkit.Lib.AutoListeners;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Controllers.GodMode;
 using LenovoLegionToolkit.Lib.Controllers.Sensors;
@@ -76,7 +77,6 @@ public class IoCModule : Module
         builder.Register<DisplayBrightnessListener>().AutoActivateListener();
         builder.Register<DisplayConfigurationListener>().AutoActivateListener();
         builder.Register<DriverKeyListener>().AutoActivateListener();
-        builder.Register<GameListener>().AutoActivateListener();
         builder.Register<LightingChangeListener>().AutoActivateListener();
         builder.Register<NativeWindowsMessageListener>().AutoActivateListener();
         builder.Register<PowerModeListener>().AutoActivateListener();
@@ -87,6 +87,11 @@ public class IoCModule : Module
         builder.Register<SystemThemeListener>().AutoActivateListener();
         builder.Register<ThermalModeListener>().AutoActivateListener();
         builder.Register<WinKeyListener>().AutoActivateListener();
+
+        builder.Register<GameAutoListener>();
+        builder.Register<ProcessAutoListener>();
+        builder.Register<TimeAutoListener>();
+        builder.Register<UserInactivityAutoListener>();
 
         builder.Register<AIController>();
         builder.Register<DisplayBrightnessController>();

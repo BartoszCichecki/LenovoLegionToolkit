@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.AutoListeners;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Settings;
@@ -21,7 +22,7 @@ public class AIController
 
     private readonly PowerModeListener _powerModeListener;
     private readonly PowerStateListener _powerStateListener;
-    private readonly GameListener _gameListener;
+    private readonly GameAutoListener _gameAutoListener;
     private readonly PowerModeFeature _powerModeFeature;
     private readonly BalanceModeSettings _settings;
 
@@ -37,19 +38,15 @@ public class AIController
 
     public AIController(PowerModeListener powerModeListener,
         PowerStateListener powerStateListener,
-        GameListener gameListener,
+        GameAutoListener gameAutoListener,
         PowerModeFeature powerModeFeature,
         BalanceModeSettings settings)
     {
         _powerModeListener = powerModeListener ?? throw new ArgumentNullException(nameof(powerModeListener));
         _powerStateListener = powerStateListener ?? throw new ArgumentNullException(nameof(powerStateListener));
-        _gameListener = gameListener ?? throw new ArgumentNullException(nameof(gameListener));
+        _gameAutoListener = gameAutoListener ?? throw new ArgumentNullException(nameof(gameAutoListener));
         _powerModeFeature = powerModeFeature ?? throw new ArgumentNullException(nameof(powerModeFeature));
         _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-
-        _powerModeListener.Changed += PowerModeListener_Changed;
-        _powerStateListener.Changed += PowerStateListener_Changed;
-        _gameListener.Changed += GameListener_Changed;
     }
 
     public async Task StartIfNeededAsync()
@@ -71,7 +68,7 @@ public class AIController
         {
             _powerModeListener.Changed += PowerModeListener_Changed;
             _powerStateListener.Changed += PowerStateListener_Changed;
-            _gameListener.Changed += GameListener_Changed;
+            _gameAutoListener.Changed += GameAutoListenerChanged;
 
             await RefreshAsync().ConfigureAwait(false);
         }
@@ -91,7 +88,7 @@ public class AIController
         {
             _powerModeListener.Changed -= PowerModeListener_Changed;
             _powerStateListener.Changed -= PowerStateListener_Changed;
-            _gameListener.Changed -= GameListener_Changed;
+            _gameAutoListener.Changed -= GameAutoListenerChanged;
 
             if (await ShouldDisableAsync().ConfigureAwait(false))
                 await DisableAsync().ConfigureAwait(false);
@@ -100,7 +97,7 @@ public class AIController
 
     private async void PowerModeListener_Changed(object? sender, PowerModeState e) => await _dispatcher.DispatchAsync(RefreshAsync);
     private async void PowerStateListener_Changed(object? sender, EventArgs e) => await _dispatcher.DispatchAsync(RefreshAsync);
-    private async void GameListener_Changed(object? sender, bool e) => await _dispatcher.DispatchAsync(RefreshAsync);
+    private async void GameAutoListenerChanged(object? sender, bool e) => await _dispatcher.DispatchAsync(RefreshAsync);
 
     private async Task RefreshAsync()
     {
@@ -142,7 +139,7 @@ public class AIController
         if (await _powerModeFeature.GetStateAsync().ConfigureAwait(false) != PowerModeState.Balance)
             return false;
 
-        if (!_gameListener.AreGamesRunning())
+        if (!_gameAutoListener.AreGamesRunning())
             return false;
 
         return true;

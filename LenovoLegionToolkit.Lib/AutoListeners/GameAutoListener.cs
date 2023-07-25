@@ -7,11 +7,12 @@ using System.Management;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.GameDetection;
+using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
 
-namespace LenovoLegionToolkit.Lib.Listeners;
+namespace LenovoLegionToolkit.Lib.AutoListeners;
 
-public class GameListener : IListener<bool>
+public class GameAutoListener : AbstractAutoListener<bool>
 {
     private class InstanceEventListener : AbstractWMIListener<(ProcessEventInfoType, int, string)>
     {
@@ -53,8 +54,6 @@ public class GameListener : IListener<bool>
 
     private static readonly object Lock = new();
 
-    public event EventHandler<bool>? Changed;
-
     private readonly GameConfigStoreDetector _gameConfigStoreDetector;
     private readonly EffectiveGameModeDetector _effectiveGameModeDetector;
     private readonly InstanceEventListener _instanceCreationListener;
@@ -64,7 +63,7 @@ public class GameListener : IListener<bool>
 
     private bool _lastState;
 
-    public GameListener()
+    public GameAutoListener()
     {
         _gameConfigStoreDetector = new GameConfigStoreDetector();
         _gameConfigStoreDetector.GamesDetected += GameConfigStoreDetectorGamesConfigStoreDetected;
@@ -76,7 +75,7 @@ public class GameListener : IListener<bool>
         _instanceCreationListener.Changed += InstanceCreationListener_Changed;
     }
 
-    public async Task StartAsync()
+    protected override async Task StartAsync()
     {
         lock (Lock)
         {
@@ -90,7 +89,7 @@ public class GameListener : IListener<bool>
         await _instanceCreationListener.StartAsync().ConfigureAwait(false);
     }
 
-    public async Task StopAsync()
+    protected override async Task StopAsync()
     {
         await _gameConfigStoreDetector.StopAsync().ConfigureAwait(false);
         await _effectiveGameModeDetector.StopAsync().ConfigureAwait(false);
@@ -219,7 +218,7 @@ public class GameListener : IListener<bool>
 
             _lastState = newState;
 
-            Changed?.Invoke(this, newState);
+            RaiseChanged(newState);
         }
     }
 

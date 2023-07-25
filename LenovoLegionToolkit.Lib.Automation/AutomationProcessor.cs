@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.Automation.Listeners;
+using LenovoLegionToolkit.Lib.AutoListeners;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
 using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 using LenovoLegionToolkit.Lib.Automation.Utils;
@@ -19,10 +19,10 @@ public class AutomationProcessor
     private readonly NativeWindowsMessageListener _nativeWindowsMessageListener;
     private readonly PowerStateListener _powerStateListener;
     private readonly PowerModeListener _powerModeListener;
-    private readonly GameListener _gameListener;
-    private readonly ProcessAutomationListener _processListener;
-    private readonly TimeAutomationListener _timeListener;
-    private readonly UserInactivityListener _userInactivityListener;
+    private readonly GameAutoListener _gameAutoListener;
+    private readonly ProcessAutoListener _processAutoListener;
+    private readonly TimeAutoListener _timeAutoListener;
+    private readonly UserInactivityAutoListener _userInactivityAutoListener;
 
     private readonly AsyncLock _ioLock = new();
     private readonly AsyncLock _runLock = new();
@@ -38,19 +38,19 @@ public class AutomationProcessor
         NativeWindowsMessageListener nativeWindowsMessageListener,
         PowerStateListener powerStateListener,
         PowerModeListener powerModeListener,
-        GameListener gameListener,
-        ProcessAutomationListener processListener,
-        TimeAutomationListener timeListener,
-        UserInactivityListener userInactivityListener)
+        GameAutoListener gameAutoListener,
+        ProcessAutoListener processAutoListener,
+        TimeAutoListener timeAutoListener,
+        UserInactivityAutoListener userInactivityAutoListener)
     {
         _settings = settings ?? throw new ArgumentNullException(nameof(settings));
         _nativeWindowsMessageListener = nativeWindowsMessageListener ?? throw new ArgumentNullException(nameof(nativeWindowsMessageListener));
         _powerStateListener = powerStateListener ?? throw new ArgumentNullException(nameof(powerStateListener));
         _powerModeListener = powerModeListener ?? throw new ArgumentNullException(nameof(powerModeListener));
-        _gameListener = gameListener ?? throw new ArgumentNullException(nameof(gameListener));
-        _processListener = processListener ?? throw new ArgumentNullException(nameof(processListener));
-        _timeListener = timeListener ?? throw new ArgumentNullException(nameof(timeListener));
-        _userInactivityListener = userInactivityListener ?? throw new ArgumentNullException(nameof(userInactivityListener));
+        _gameAutoListener = gameAutoListener ?? throw new ArgumentNullException(nameof(gameAutoListener));
+        _processAutoListener = processAutoListener ?? throw new ArgumentNullException(nameof(processAutoListener));
+        _timeAutoListener = timeAutoListener ?? throw new ArgumentNullException(nameof(timeAutoListener));
+        _userInactivityAutoListener = userInactivityAutoListener ?? throw new ArgumentNullException(nameof(userInactivityAutoListener));
     }
 
     #region Initialization / pipeline reloading
@@ -62,16 +62,12 @@ public class AutomationProcessor
             _nativeWindowsMessageListener.Changed += NativeWindowsMessageListener_Changed;
             _powerStateListener.Changed += PowerStateListener_Changed;
             _powerModeListener.Changed += PowerModeListenerOnChanged;
-            _gameListener.Changed += GameListenerChanged;
-            _processListener.Changed += ProcessListener_Changed;
-            _timeListener.Changed += TimeListener_Changed;
-            _userInactivityListener.Changed += UserInactivityListener_Changed;
 
             _pipelines = _settings.Store.Pipelines.ToList();
 
             RaisePipelinesChanged();
 
-            await UpdateListenersAsync().ConfigureAwait(false);
+            UpdateListeners();
         }
     }
 
@@ -82,7 +78,7 @@ public class AutomationProcessor
             _settings.Store.IsEnabled = enabled;
             _settings.SynchronizeStore();
 
-            await UpdateListenersAsync().ConfigureAwait(false);
+            UpdateListeners();
         }
     }
 
@@ -103,7 +99,7 @@ public class AutomationProcessor
 
             RaisePipelinesChanged();
 
-            await UpdateListenersAsync().ConfigureAwait(false);
+            UpdateListeners();
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Pipelines reloaded.");
@@ -264,25 +260,25 @@ public class AutomationProcessor
         await ProcessEvent(e).ConfigureAwait(false);
     }
 
-    private async void GameListenerChanged(object? sender, bool started)
+    private async void GameAutoListenerChanged(object? sender, bool started)
     {
         var e = new GameAutomationEvent { Started = started };
         await ProcessEvent(e).ConfigureAwait(false);
     }
 
-    private async void ProcessListener_Changed(object? sender, ProcessEventInfo processEventInfo)
+    private async void ProcessAutoListenerChanged(object? sender, ProcessEventInfo processEventInfo)
     {
         var e = new ProcessAutomationEvent { ProcessEventInfo = processEventInfo };
         await ProcessEvent(e).ConfigureAwait(false);
     }
 
-    private async void TimeListener_Changed(object? sender, (Time time, DayOfWeek day) timeDay)
+    private async void TimeAutoListenerChanged(object? sender, (Time time, DayOfWeek day) timeDay)
     {
         var e = new TimeAutomationEvent { Time = timeDay.time, Day = timeDay.day };
         await ProcessEvent(e).ConfigureAwait(false);
     }
 
-    private async void UserInactivityListener_Changed(object? sender, (TimeSpan resolution, uint tickCount) inactivityInfo)
+    private async void UserInactivityAutoListenerChanged(object? sender, (TimeSpan resolution, uint tickCount) inactivityInfo)
     {
         var e = new UserInactivityAutomationEvent
         {
@@ -317,14 +313,15 @@ public class AutomationProcessor
 
     #region Helper methods
 
-    private async Task UpdateListenersAsync()
+    private void UpdateListeners()
     {
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Stopping listeners...");
 
-        await _processListener.StopAsync().ConfigureAwait(false);
-        await _timeListener.StopAsync().ConfigureAwait(false);
-        await _userInactivityListener.StopAsync().ConfigureAwait(false);
+        _gameAutoListener.Changed -= GameAutoListenerChanged;
+        _processAutoListener.Changed -= ProcessAutoListenerChanged;
+        _timeAutoListener.Changed -= TimeAutoListenerChanged;
+        _userInactivityAutoListener.Changed -= UserInactivityAutoListenerChanged;
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Stopped listeners...");
@@ -341,12 +338,20 @@ public class AutomationProcessor
 
         var triggers = _pipelines.SelectMany(p => p.AllTriggers).ToArray();
 
+        if (triggers.OfType<IGameAutomationPipelineTrigger>().Any())
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Starting game listener...");
+
+            _gameAutoListener.Changed += GameAutoListenerChanged;
+        }
+
         if (triggers.OfType<IProcessesAutomationPipelineTrigger>().Any())
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Starting process listener...");
 
-            await _processListener.StartAsync().ConfigureAwait(false);
+            _processAutoListener.Changed += ProcessAutoListenerChanged;
         }
 
         if (triggers.OfType<ITimeAutomationPipelineTrigger>().Any())
@@ -354,7 +359,7 @@ public class AutomationProcessor
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Starting time listener...");
 
-            await _timeListener.StartAsync().ConfigureAwait(false);
+            _timeAutoListener.Changed += TimeAutoListenerChanged;
         }
 
         if (triggers.OfType<IUserInactivityPipelineTrigger>().Any())
@@ -362,7 +367,7 @@ public class AutomationProcessor
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Starting user inactivity listener...");
 
-            await _userInactivityListener.StartAsync().ConfigureAwait(false);
+            _userInactivityAutoListener.Changed += UserInactivityAutoListenerChanged;
         }
 
         if (Log.Instance.IsTraceEnabled)

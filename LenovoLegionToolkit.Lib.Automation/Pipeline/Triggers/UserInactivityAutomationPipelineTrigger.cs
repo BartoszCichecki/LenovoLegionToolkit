@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.Automation.Listeners;
+using LenovoLegionToolkit.Lib.AutoListeners;
 using LenovoLegionToolkit.Lib.Automation.Resources;
 using Newtonsoft.Json;
 
@@ -31,7 +31,7 @@ public class UserInactivityAutomationPipelineTrigger : IUserInactivityPipelineTr
 
     public Task<bool> IsMatchingState()
     {
-        var listener = IoCContainer.Resolve<UserInactivityListener>();
+        var listener = IoCContainer.Resolve<UserInactivityAutoListener>();
         var result = InactivityTimeSpan == listener.InactivityTimeSpan;
         return Task.FromResult(result);
     }

@@ -9,9 +9,9 @@ using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
 
-namespace LenovoLegionToolkit.Lib.Automation.Listeners;
+namespace LenovoLegionToolkit.Lib.AutoListeners;
 
-public class ProcessAutomationListener : IListener<ProcessEventInfo>
+public class ProcessAutoListener : AbstractAutoListener<ProcessEventInfo>
 {
     private class InstanceEventListener : AbstractWMIListener<(ProcessEventInfoType, int, string)>
     {
@@ -63,14 +63,12 @@ public class ProcessAutomationListener : IListener<ProcessEventInfo>
         Environment.GetFolderPath(Environment.SpecialFolder.Windows),
     };
 
-    public event EventHandler<ProcessEventInfo>? Changed;
-
     private readonly InstanceEventListener _instanceCreationListener;
     private readonly InstanceEventListener _instanceDeletionListener;
 
     private readonly Dictionary<int, ProcessInfo> _processCache = new();
 
-    public ProcessAutomationListener()
+    public ProcessAutoListener()
     {
         _instanceCreationListener = new InstanceEventListener(ProcessEventInfoType.Started, "Win32_ProcessStartTrace");
         _instanceCreationListener.Changed += InstanceCreationListener_Changed;
@@ -79,21 +77,19 @@ public class ProcessAutomationListener : IListener<ProcessEventInfo>
         _instanceDeletionListener.Changed += InstanceDeletionListener_Changed;
     }
 
-    public async Task StartAsync()
+    protected override async Task StartAsync()
     {
         await _instanceCreationListener.StartAsync().ConfigureAwait(false);
         await _instanceDeletionListener.StartAsync().ConfigureAwait(false);
     }
 
-    public async Task StopAsync()
+    protected override async Task StopAsync()
     {
         await _instanceCreationListener.StopAsync().ConfigureAwait(false);
         await _instanceDeletionListener.StopAsync().ConfigureAwait(false);
 
         lock (Lock)
-        {
             _processCache.Clear();
-        }
     }
 
     private void InstanceCreationListener_Changed(object? sender, (ProcessEventInfoType type, int processId, string processName) e)
@@ -126,7 +122,7 @@ public class ProcessAutomationListener : IListener<ProcessEventInfo>
             var processInfo = new ProcessInfo(e.processName, processPath);
             _processCache[e.processId] = processInfo;
 
-            Changed?.Invoke(this, new(e.type, processInfo));
+            RaiseChanged(new(e.type, processInfo));
         }
     }
 
@@ -150,7 +146,7 @@ public class ProcessAutomationListener : IListener<ProcessEventInfo>
 
             _processCache.Remove(e.processId);
 
-            Changed?.Invoke(this, new(e.type, processInfo));
+            RaiseChanged(new(e.type, processInfo));
         }
     }
 
