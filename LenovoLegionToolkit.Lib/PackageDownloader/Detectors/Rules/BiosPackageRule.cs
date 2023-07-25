@@ -44,7 +44,7 @@ internal readonly struct BiosPackageRule : IPackageRule
         {
             var levelPrefix = PrefixRegex.Match(level).Value;
             var levelVersion = int.Parse(VersionRegex.Match(level).Value);
-            return levelPrefix == currentBios?.Prefix && levelVersion == currentBios?.Version;
+            return currentBios.HasValue && levelPrefix == currentBios.Value.Prefix && levelVersion == currentBios.Value.Version;
         });
 
         return result;
@@ -59,7 +59,7 @@ internal readonly struct BiosPackageRule : IPackageRule
         {
             var levelPrefix = PrefixRegex.Match(level).Value;
             var levelVersion = int.Parse(VersionRegex.Match(level).Value);
-            return levelPrefix == currentBios?.Prefix && levelVersion > currentBios?.Version;
+            return currentBios.HasValue && levelPrefix == currentBios.Value.Prefix && levelVersion > currentBios.Value.Version;
         });
 
         return result;
