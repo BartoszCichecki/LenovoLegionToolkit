@@ -1,42 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Management;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
-using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.AutoListeners;
 
 public class ProcessAutoListener : AbstractAutoListener<ProcessEventInfo>
 {
-    private class InstanceEventListener : AbstractWMIListener<(ProcessEventInfoType, int, string)>
-    {
-        private readonly ProcessEventInfoType _type;
-
-        public InstanceEventListener(ProcessEventInfoType type, string eventName)
-            : base("ROOT\\CIMV2", query: $"SELECT * FROM {eventName}")
-        {
-            _type = type;
-        }
-
-        protected override (ProcessEventInfoType, int, string) GetValue(PropertyDataCollection properties)
-        {
-            // ReSharper disable ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
-            var processName = properties["ProcessName"].Value?.ToString() ?? string.Empty;
-            if (!int.TryParse(properties["ProcessID"].Value?.ToString(), out var processId))
-                processId = -1;
-
-            return (_type, processId, Path.GetFileNameWithoutExtension(processName));
-            // ReSharper enable ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
-        }
-
-        protected override Task OnChangedAsync((ProcessEventInfoType, int, string) value) => Task.CompletedTask;
-    }
-
     private static readonly object Lock = new();
 
     // ReSharper disable StringLiteralTypo
@@ -63,36 +36,38 @@ public class ProcessAutoListener : AbstractAutoListener<ProcessEventInfo>
         Environment.GetFolderPath(Environment.SpecialFolder.Windows),
     };
 
-    private readonly InstanceEventListener _instanceCreationListener;
-    private readonly InstanceEventListener _instanceDeletionListener;
+    private readonly InstanceStartedEventAutoAutoListener _instanceStartedEventAutoAutoListener;
+    private readonly InstanceStoppedEventAutoAutoListener _instanceStoppedEventAutoAutoListener;
 
     private readonly Dictionary<int, ProcessInfo> _processCache = new();
 
-    public ProcessAutoListener()
+    public ProcessAutoListener(InstanceStartedEventAutoAutoListener instanceStartedEventAutoAutoListener, InstanceStoppedEventAutoAutoListener instanceStoppedEventAutoAutoListener)
     {
-        _instanceCreationListener = new InstanceEventListener(ProcessEventInfoType.Started, "Win32_ProcessStartTrace");
-        _instanceCreationListener.Changed += InstanceCreationListener_Changed;
+        _instanceStartedEventAutoAutoListener = instanceStartedEventAutoAutoListener ?? throw new ArgumentNullException(nameof(instanceStartedEventAutoAutoListener));
+        _instanceStoppedEventAutoAutoListener = instanceStoppedEventAutoAutoListener ?? throw new ArgumentNullException(nameof(instanceStoppedEventAutoAutoListener));
 
-        _instanceDeletionListener = new InstanceEventListener(ProcessEventInfoType.Stopped, "Win32_ProcessStopTrace");
-        _instanceDeletionListener.Changed += InstanceDeletionListener_Changed;
     }
 
-    protected override async Task StartAsync()
+    protected override Task StartAsync()
     {
-        await _instanceCreationListener.StartAsync().ConfigureAwait(false);
-        await _instanceDeletionListener.StartAsync().ConfigureAwait(false);
+        _instanceStartedEventAutoAutoListener.Changed += InstanceStartedEventAutoAutoListener_Changed;
+        _instanceStoppedEventAutoAutoListener.Changed += InstanceStoppedEventAutoAutoListener_Changed;
+
+        return Task.CompletedTask;
     }
 
-    protected override async Task StopAsync()
+    protected override Task StopAsync()
     {
-        await _instanceCreationListener.StopAsync().ConfigureAwait(false);
-        await _instanceDeletionListener.StopAsync().ConfigureAwait(false);
+        _instanceStartedEventAutoAutoListener.Changed -= InstanceStartedEventAutoAutoListener_Changed;
+        _instanceStoppedEventAutoAutoListener.Changed -= InstanceStoppedEventAutoAutoListener_Changed;
 
         lock (Lock)
             _processCache.Clear();
+
+        return Task.CompletedTask;
     }
 
-    private void InstanceCreationListener_Changed(object? sender, (ProcessEventInfoType type, int processId, string processName) e)
+    private void InstanceStartedEventAutoAutoListener_Changed(object? sender, (ProcessEventInfoType type, int processId, string processName) e)
     {
         lock (Lock)
         {
@@ -126,7 +101,7 @@ public class ProcessAutoListener : AbstractAutoListener<ProcessEventInfo>
         }
     }
 
-    private void InstanceDeletionListener_Changed(object? sender, (ProcessEventInfoType type, int processId, string processName) e)
+    private void InstanceStoppedEventAutoAutoListener_Changed(object? sender, (ProcessEventInfoType type, int processId, string processName) e)
     {
         lock (Lock)
         {

@@ -1,43 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Management;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.GameDetection;
-using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.AutoListeners;
 
 public class GameAutoListener : AbstractAutoListener<bool>
 {
-    private class InstanceEventListener : AbstractWMIListener<(ProcessEventInfoType, int, string)>
-    {
-        private readonly ProcessEventInfoType _type;
-
-        public InstanceEventListener(ProcessEventInfoType type, string eventName)
-            : base("ROOT\\CIMV2", query: $"SELECT * FROM {eventName}")
-        {
-            _type = type;
-        }
-
-        protected override (ProcessEventInfoType, int, string) GetValue(PropertyDataCollection properties)
-        {
-            // ReSharper disable ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
-            var processName = properties["ProcessName"].Value?.ToString() ?? string.Empty;
-            if (!int.TryParse(properties["ProcessID"].Value?.ToString(), out var processId))
-                processId = -1;
-
-            return (_type, processId, Path.GetFileNameWithoutExtension(processName));
-            // ReSharper enable ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
-        }
-
-        protected override Task OnChangedAsync((ProcessEventInfoType, int, string) value) => Task.CompletedTask;
-    }
-
     private class ProcessEqualityComparer : IEqualityComparer<Process>
     {
         public bool Equals(Process? x, Process? y)
@@ -54,25 +27,25 @@ public class GameAutoListener : AbstractAutoListener<bool>
 
     private static readonly object Lock = new();
 
+    private readonly InstanceStartedEventAutoAutoListener _instanceStartedEventAutoAutoListener;
+
     private readonly GameConfigStoreDetector _gameConfigStoreDetector;
     private readonly EffectiveGameModeDetector _effectiveGameModeDetector;
-    private readonly InstanceEventListener _instanceCreationListener;
 
     private readonly HashSet<ProcessInfo> _detectedGamePathsCache = new();
     private readonly HashSet<Process> _processCache = new(new ProcessEqualityComparer());
 
     private bool _lastState;
 
-    public GameAutoListener()
+    public GameAutoListener(InstanceStartedEventAutoAutoListener instanceStartedEventAutoAutoListener)
     {
+        _instanceStartedEventAutoAutoListener = instanceStartedEventAutoAutoListener ?? throw new ArgumentNullException(nameof(instanceStartedEventAutoAutoListener));
+
         _gameConfigStoreDetector = new GameConfigStoreDetector();
         _gameConfigStoreDetector.GamesDetected += GameConfigStoreDetectorGamesConfigStoreDetected;
 
         _effectiveGameModeDetector = new EffectiveGameModeDetector();
         _effectiveGameModeDetector.Changed += EffectiveGameModeDetectorChanged;
-
-        _instanceCreationListener = new InstanceEventListener(ProcessEventInfoType.Started, "Win32_ProcessStartTrace");
-        _instanceCreationListener.Changed += InstanceCreationListener_Changed;
     }
 
     protected override async Task StartAsync()
@@ -86,15 +59,15 @@ public class GameAutoListener : AbstractAutoListener<bool>
         await _gameConfigStoreDetector.StartAsync().ConfigureAwait(false);
         await _effectiveGameModeDetector.StartAsync().ConfigureAwait(false);
 
-        await _instanceCreationListener.StartAsync().ConfigureAwait(false);
+        _instanceStartedEventAutoAutoListener.Changed += InstanceStartedEventAutoAutoListener_Changed;
     }
 
     protected override async Task StopAsync()
     {
+        _instanceStartedEventAutoAutoListener.Changed -= InstanceStartedEventAutoAutoListener_Changed;
+
         await _gameConfigStoreDetector.StopAsync().ConfigureAwait(false);
         await _effectiveGameModeDetector.StopAsync().ConfigureAwait(false);
-
-        await _instanceCreationListener.StopAsync().ConfigureAwait(false);
 
         lock (Lock)
         {
@@ -166,7 +139,7 @@ public class GameAutoListener : AbstractAutoListener<bool>
         }
     }
 
-    private void InstanceCreationListener_Changed(object? sender, (ProcessEventInfoType type, int processId, string processName) e)
+    private void InstanceStartedEventAutoAutoListener_Changed(object? sender, (ProcessEventInfoType type, int processId, string processName) e)
     {
         lock (Lock)
         {

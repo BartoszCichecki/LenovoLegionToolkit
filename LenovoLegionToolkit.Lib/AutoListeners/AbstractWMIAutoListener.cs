@@ -4,24 +4,22 @@ using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
-namespace LenovoLegionToolkit.Lib.Listeners;
+namespace LenovoLegionToolkit.Lib.AutoListeners;
 
-public abstract class AbstractWMIListener<T> : IListener<T> where T : struct
+public abstract class AbstractWMIAutoListener<T> : AbstractAutoListener<T> where T : struct
 {
     private readonly string _scope;
     private readonly FormattableString _query;
 
     private IDisposable? _disposable;
 
-    public event EventHandler<T>? Changed;
-
-    protected AbstractWMIListener(string scope, string eventName)
+    protected AbstractWMIAutoListener(string scope, string eventName)
     {
         _scope = scope;
         _query = $"SELECT * FROM {eventName}";
     }
 
-    public Task StartAsync()
+    protected override Task StartAsync()
     {
         try
         {
@@ -46,7 +44,7 @@ public abstract class AbstractWMIListener<T> : IListener<T> where T : struct
         return Task.CompletedTask;
     }
 
-    public Task StopAsync()
+    protected override Task StopAsync()
     {
         try
         {
@@ -68,8 +66,6 @@ public abstract class AbstractWMIListener<T> : IListener<T> where T : struct
     protected abstract T GetValue(PropertyDataCollection properties);
 
     protected abstract Task OnChangedAsync(T value);
-
-    protected void RaiseChanged(T value) => Changed?.Invoke(this, value);
 
     private async void Handler(PropertyDataCollection properties)
     {

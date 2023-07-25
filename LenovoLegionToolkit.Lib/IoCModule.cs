@@ -89,6 +89,8 @@ public class IoCModule : Module
         builder.Register<WinKeyListener>().AutoActivateListener();
 
         builder.Register<GameAutoListener>();
+        builder.Register<InstanceStartedEventAutoAutoListener>();
+        builder.Register<InstanceStoppedEventAutoAutoListener>();
         builder.Register<ProcessAutoListener>();
         builder.Register<TimeAutoListener>();
         builder.Register<UserInactivityAutoListener>();
