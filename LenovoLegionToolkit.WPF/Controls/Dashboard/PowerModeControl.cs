@@ -81,7 +81,7 @@ public class PowerModeControl : AbstractComboBoxFeatureCardControl<PowerModeStat
 
         switch (newValue)
         {
-            case PowerModeState.Balance when mi.Properties.SupportsIntelligentSubMode:
+            case PowerModeState.Balance when mi.Properties.SupportsAIMode:
             case PowerModeState.GodMode when mi.Properties.SupportsGodMode:
                 _configButton.ToolTip = Resource.PowerModeControl_Settings;
                 _configButton.Visibility = Visibility.Visible;

@@ -47,7 +47,7 @@ public class AIModeController
     {
         using (await _startStopLock.LockAsync().ConfigureAwait(false))
         {
-            if (!await SupportsIntelligentSubModeAsync().ConfigureAwait(false))
+            if (!await IsSupportedAsync().ConfigureAwait(false))
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Not supported.");
@@ -64,7 +64,7 @@ public class AIModeController
             if (_setInitialDelayedTask is not null)
                 await _setInitialDelayedTask.ConfigureAwait(false);
 
-            if (powerModeState != PowerModeState.Balance || !_settings.Store.AIModeEnabled)
+            if (powerModeState != PowerModeState.Balance || IsEnabled)
                 return;
 
             await LoadSubModesAsync().ConfigureAwait(false);
@@ -81,7 +81,7 @@ public class AIModeController
     {
         using (await _startStopLock.LockAsync().ConfigureAwait(false))
         {
-            if (!await SupportsIntelligentSubModeAsync().ConfigureAwait(false))
+            if (!await IsSupportedAsync().ConfigureAwait(false))
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Not supported.");
@@ -114,10 +114,10 @@ public class AIModeController
         }
     }
 
-    private static async Task<bool> SupportsIntelligentSubModeAsync()
+    private static async Task<bool> IsSupportedAsync()
     {
         var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
-        return mi.Properties.SupportsIntelligentSubMode;
+        return mi.Properties.SupportsAIMode;
     }
 
     private void ProcessStarted(string processName, int processId)
