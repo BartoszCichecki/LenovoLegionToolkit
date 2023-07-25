@@ -71,7 +71,7 @@
     <value>Her zaman açık</value>
   </data>
   <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
-    <value>Uykudayken açık</value>
+    <value>Uykuda açık</value>
   </data>
   <data name="AutorunState_Disabled" xml:space="preserve">
     <value>Devre dışı</value>
@@ -80,10 +80,10 @@
     <value>Etkin</value>
   </data>
   <data name="AutorunState_EnabledDelayed" xml:space="preserve">
-    <value>Kapalı, gecikmeli</value>
+    <value>Etkin, gecikmeli</value>
   </data>
   <data name="BatteryState_Conservation" xml:space="preserve">
-    <value>Pil Koruma Modu</value>
+    <value>Pil Korumalı</value>
   </data>
   <data name="BatteryState_Normal" xml:space="preserve">
     <value>Normal</value>
@@ -108,10 +108,10 @@
     <comment>Informs the user that Fn Lock is or will be turned on.</comment>
   </data>
   <data name="GPUController_PoweredOff" xml:space="preserve">
-    <value>Kapatıldı</value>
+    <value>Güç Kapatıldı</value>
   </data>
   <data name="GPUController_PoweredOn" xml:space="preserve">
-    <value>Açık</value>
+    <value>Güç Açık</value>
   </data>
   <data name="GSyncState_Off" xml:space="preserve">
     <value>Kapalı</value>
@@ -136,7 +136,7 @@
     <value>Hibrit</value>
   </data>
   <data name="HybridModeState_OnAuto" xml:space="preserve">
-    <value>Hibrit-Oto</value>
+    <value>Hibrit-Otomatik</value>
   </data>
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
     <value>Hibrit-iGPU</value>
@@ -159,16 +159,16 @@
     <value>Sağ alt</value>
   </data>
   <data name="NotificationPosition_Center" xml:space="preserve">
-    <value>Merkez</value>
+    <value>Orta</value>
   </data>
   <data name="NotificationPosition_CenterLeft" xml:space="preserve">
-    <value>Sol merkez</value>
+    <value>Sol orta</value>
   </data>
   <data name="NotificationPosition_CenterRight" xml:space="preserve">
-    <value>Sağ merkez</value>
+    <value>Sağ orta</value>
   </data>
   <data name="NotificationPosition_TopCenter" xml:space="preserve">
-    <value>Üst merkez</value>
+    <value>Üst orta</value>
   </data>
   <data name="NotificationPosition_TopLeft" xml:space="preserve">
     <value>Sol üst</value>
@@ -223,7 +223,7 @@
     <value>Düşük</value>
   </data>
   <data name="RGBKeyboardBacklightEffect_Breath" xml:space="preserve">
-    <value>Nefes</value>
+    <value>Esinti</value>
   </data>
   <data name="RGBKeyboardBacklightEffect_Smooth" xml:space="preserve">
     <value>Akıcı</value>
@@ -241,13 +241,13 @@
     <value>Kapalı</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_One" xml:space="preserve">
-    <value>1. Hazır Ayar</value>
+    <value>Ön ayar 1</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Three" xml:space="preserve">
-    <value>3. Hazır Ayar</value>
+    <value>Ön ayar 3</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Two" xml:space="preserve">
-    <value>2. Hazır Ayar</value>
+    <value>Ön ayar 2</value>
   </data>
   <data name="SpectrumKeyboardBacklightBrightness_High" xml:space="preserve">
     <value>Yüksek</value>
@@ -292,13 +292,13 @@
     <value>Aurora Sync</value>
   </data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorChange" xml:space="preserve">
-    <value>Renk değişimi</value>
+    <value>Renk Değiştir</value>
   </data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorPulse" xml:space="preserve">
     <value>Renk Titreşimi</value>
   </data>
   <data name="SpectrumKeyboardBacklightEffectType_ColorWave" xml:space="preserve">
-    <value>Renkli Dalgalanma</value>
+    <value>Renk Dalgası</value>
   </data>
   <data name="SpectrumKeyboardBacklightEffectType_Rain" xml:space="preserve">
     <value>Yağmur</value>
@@ -372,5 +372,17 @@
 	</data>
   <data name="PanelLogoBacklightState_Off" xml:space="preserve">
 		<value>Kapalı</value>
+	</data>
+  <data name="InstantBootState_Off" xml:space="preserve">
+		<value>Kapalı</value>
+	</data>
+  <data name="InstantBootState_AcAdapter" xml:space="preserve">
+		<value>AC Adaptör</value>
+	</data>
+  <data name="InstantBootState_UsbPowerDelivery" xml:space="preserve">
+		<value>USB Güç Dağıtımı</value>
+	</data>
+  <data name="InstantBootState_AcAdapterAndUsbPowerDelivery" xml:space="preserve">
+		<value>AC ve USB GD</value>
 	</data>
 </root>
