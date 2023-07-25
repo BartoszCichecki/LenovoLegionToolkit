@@ -121,19 +121,19 @@
     <value>Lenovo Legion Toolkit</value>
   </data>
   <data name="AboutPage_Build" xml:space="preserve">
-    <value>Sürüm</value>
+    <value>Yapı</value>
   </data>
   <data name="AboutPage_LatestReleaseOnGitHub" xml:space="preserve">
-    <value>GitHub'daki son yayınlanan sürüm</value>
+    <value>GitHub üstündeki son sürüm</value>
   </data>
   <data name="AboutPage_Links" xml:space="preserve">
-    <value>Linkler</value>
+    <value>Bağlantılar</value>
   </data>
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
     <value>Projenin Github sayfası</value>
   </data>
   <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
-    <value>3. Parti Kütüphaneler</value>
+    <value>3. parti kütüphaneler</value>
   </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>Hakkında</value>
@@ -143,7 +143,7 @@
     <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
   </data>
   <data name="AboutPage_Version" xml:space="preserve">
-    <value>Versiyon</value>
+    <value>Sürüm</value>
   </data>
   <data name="Add" xml:space="preserve">
     <value>Ekle</value>
@@ -151,17 +151,21 @@
   <data name="AddNew" xml:space="preserve">
     <value>Yeni ekle</value>
   </data>
+  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
+	  <value>Vantage veya hizmetleri açık olduğunda bile Güç Planını etkinleştirin.
+Bu seçenek, yalnızca birden fazla güç planıyla gelmeyen cihazlar için tasarlanmıştır.</value>
+  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Windows Güç Planlarını her zaman aktif et</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-	  <value>Bilgisayar kapalıyken veya uykudayken veya hibernasyon modundayken USB cihazlarını şarj et.</value>
+	  <value>Bilgisayar kapalı, uyku veya hazırda bekletme modundayken USB cihazlarını şarj edin.</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>Her zaman açık USB</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-	  <value>Bilgisayar kapalıyken veya uykudayken veya hibernasyon modundayken USB cihazlarını şarj et.</value>
+	  <value>Bilgisayar kapalı, uyku veya hazırda bekletme modundayken USB cihazlarını şarj edin.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>Her zaman açık USB</value>
@@ -173,10 +177,10 @@
     <value>Uygula</value>
   </data>
   <data name="ApplyAndClose" xml:space="preserve">
-    <value>Uygula ve kapat</value>
+    <value>Uygula &amp; Kapat</value>
   </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
-    <value>Otomatik eylemlerin çalışması için Lenovo Legion Toolkit'in çalışması gerekir.</value>
+    <value>Otomatik eylemlerin çalışması için Lenovo Legion Toolkit çalışıyor olmalıdır.</value>
   </data>
   <data name="AutomationPage_ActionsEnabled_Title" xml:space="preserve">
     <value>Etkinleştir</value>
@@ -204,13 +208,13 @@ Yalnızca mevcut durumla eşleşen eylemler çalışacaktır.</value>
     <value>Hızlı eylemler, görev çubuğundaki sağ tıklama menüsünde mevcuttur.</value>
   </data>
   <data name="AutomationPage_QuickActions_Title" xml:space="preserve">
-    <value>Hızlı eylemler</value>
+    <value>Hızlı Eylemler</value>
   </data>
   <data name="AutomationPage_RenamePipeline_Placeholder" xml:space="preserve">
     <value>İsim...</value>
   </data>
   <data name="AutomationPage_RenamePipeline_Title" xml:space="preserve">
-    <value>Yeniden adlandır</value>
+    <value>Adlandır</value>
   </data>
   <data name="AutomationPage_Reverted_Message" xml:space="preserve">
     <value>Tüm değişiklikler geri alındı!</value>
@@ -258,19 +262,19 @@ Yalnızca mevcut durumla eşleşen eylemler çalışacaktır.</value>
     <value>Çalışıyor...</value>
   </data>
   <data name="AutomationPipelineControl_Step" xml:space="preserve">
-    <value>{0} Adım</value>
+    <value>{0} adım</value>
   </data>
   <data name="AutomationPipelineControl_Step_Many" xml:space="preserve">
-    <value>{0} Adım</value>
+    <value>{0} adım</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_Apps" xml:space="preserve">
     <value>Uygulamalar</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_AtSunrise" xml:space="preserve">
-    <value>Gündoğumunda</value>
+    <value>Gün doğumunda</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_AtSunset" xml:space="preserve">
-    <value>Günbatımında</value>
+    <value>Gün batımında</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_AtTime" xml:space="preserve">
     <value>{0:D2}:{1:D2}</value>
@@ -279,7 +283,7 @@ Yalnızca mevcut durumla eşleşen eylemler çalışacaktır.</value>
     <value>Güç Kipi</value>
   </data>
   <data name="AutomationPipelineControl_Unnamed" xml:space="preserve">
-    <value>Adsız</value>
+    <value>İsimsiz</value>
   </data>
   <data name="BalanceModeSettingsWindow_AIEngine_Message" xml:space="preserve">
     <value>Belirli oyunların ne zaman çalıştığını otomatik olarak algılar ve CPU ve GPU performansını düzenler. Sıcaklıklar ve fan sesi artabilir.</value>
@@ -291,16 +295,16 @@ Yalnızca mevcut durumla eşleşen eylemler çalışacaktır.</value>
     <value>Denge Kipi Ayarları</value>
   </data>
   <data name="BatteryAutomationStepControl_Message" xml:space="preserve">
-    <value>Bataryanın nasıl şarj olacağını seç.</value>
+    <value>Pilin nasıl şarj edileceğini seçin.</value>
   </data>
   <data name="BatteryAutomationStepControl_Title" xml:space="preserve">
-    <value>Pil modu</value>
+    <value>Pil Modu</value>
   </data>
   <data name="BatteryModeControl_Message" xml:space="preserve">
-    <value>Bataryanın nasıl şarj olacağını seç.</value>
+    <value>Pilin nasıl şarj edileceğini seçin.</value>
   </data>
   <data name="BatteryModeControl_Title" xml:space="preserve">
-    <value>Pil modu</value>
+    <value>Pil Modu</value>
   </data>
   <data name="BatteryPage_ACAdapterConnectedAndCharging" xml:space="preserve">
     <value>Bağlı, şarj oluyor...</value>
@@ -309,16 +313,16 @@ Yalnızca mevcut durumla eşleşen eylemler çalışacaktır.</value>
     <value>Bağlı, şarj etmiyor</value>
   </data>
   <data name="BatteryPage_BatteryTemperature_Message" xml:space="preserve">
-    <value>Bataryanın anlık sıcaklığı.</value>
+    <value>Pilin mevcut sıcaklığı.</value>
   </data>
   <data name="BatteryPage_BatteryTemperature_Title" xml:space="preserve">
-    <value>Batarya sıcaklığı</value>
+    <value>Pil sıcaklığı</value>
   </data>
   <data name="BatteryPage_CurrentCapacity_Message" xml:space="preserve">
     <value>Mevcut pil kapasitesi.</value>
   </data>
   <data name="BatteryPage_CurrentCapacity_Title" xml:space="preserve">
-    <value>Şuanki kapasite</value>
+    <value>Mevcut kapasite</value>
   </data>
   <data name="BatteryPage_CycleCount_Message" xml:space="preserve">
     <value>Şarj/deşarj döngüsü sayısı.</value>
@@ -327,13 +331,13 @@ Yalnızca mevcut durumla eşleşen eylemler çalışacaktır.</value>
     <value>Döngü sayısı</value>
   </data>
   <data name="BatteryPage_DesignCapacity_Message" xml:space="preserve">
-    <value>Tasarlanan batarya kapasitesi.</value>
+    <value>Tasarlanmış pil kapasitesi.</value>
   </data>
   <data name="BatteryPage_DesignCapacity_Title" xml:space="preserve">
     <value>Tasarım kapasitesi</value>
   </data>
   <data name="BatteryPage_DischargeRate_Message" xml:space="preserve">
-    <value>Bataryanın şarj (+) veya deşarj (-) oranı.</value>
+    <value>Pilin şarj (+) veya deşarj (-) oranı.</value>
   </data>
   <data name="BatteryPage_DischargeRate_Title" xml:space="preserve">
     <value>Deşarj oranı</value>
@@ -348,7 +352,7 @@ Yalnızca mevcut durumla eşleşen eylemler çalışacaktır.</value>
     <value>İlk kullanım tarihi</value>
   </data>
   <data name="BatteryPage_FirstUse_Message" xml:space="preserve">
-    <value>Bataryanın ilk kullanım tarihi.</value>
+    <value>Pilin ilk kullanım tarihi.</value>
   </data>
   <data name="BatteryPage_FullChargeCapacity_Message" xml:space="preserve">
     <value>Tam şarj olduğundaki pil kapasitesi.</value>
@@ -357,23 +361,23 @@ Yalnızca mevcut durumla eşleşen eylemler çalışacaktır.</value>
     <value>Tam şarj kapasitesi</value>
   </data>
   <data name="BatteryPage_LowWattageChargerConnected" xml:space="preserve">
-    <value>Düşük güç adaptör bağlandı</value>
+    <value>Düşük voltajlı şarj cihazı bağlı</value>
   </data>
   <data name="BatteryPage_ManufactureDate_Message" xml:space="preserve">
-    <value>Bataryanın üretim tarihi.</value>
+    <value>Pilin üretim tarihi.</value>
   </data>
   <data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
-    <value>Üretim Tarihi</value>
+    <value>Üretim tarihi</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
 	  <value>Dizüstü bilgisayarın AC gücüne en son bağlandığından beri geçen süre.
 Dizüstü bilgisayar uyurken veya kapalıyken şarj edildiyse bu süre doğru olmayabilir.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
-    <value>Bataryada geçen süre</value>
+    <value>Pil ile geçen süre</value>
   </data>
   <data name="BatteryPage_Title" xml:space="preserve">
-    <value>Pil / Batarya</value>
+    <value>Pil</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>İptal</value>
@@ -501,7 +505,7 @@ Bunu yaparsanız bazı programların çökebileceğini unutmayın.</value>
     <value>Aktif değil</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
-    <value>Uygulamaları Kapat</value>
+    <value>Uygulamaları kapat</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
 	  <value>Gereksiz yere etkinse harici GPU'yu devre dışı bırakın.</value>
@@ -617,6 +621,9 @@ PayPal ile bağış yapmak için aşağıdaki PayPal logosuna tıklayın veya QR
   </data>
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>GPU</value>
+  </data>
+  <data name="RPM" xml:space="preserve">
+    <value>RPM</value>
   </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
     <value>Kapağı açtığınızda bilgisayarı açın.</value>
@@ -750,6 +757,9 @@ UYARI: Dahili ekran kapalıysa bu işlem doğru çalışmaz.</value>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>Vantage veya servisleri çalışırken klavye ışığı burada kontrol edilemez.</value>
   </data>
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
+	  <value>Lenovo Vantage veya hizmetleri çalışıyor</value>
+  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Hakkında</value>
   </data>
@@ -757,7 +767,7 @@ UYARI: Dahili ekran kapalıysa bu işlem doğru çalışmaz.</value>
     <value>Eylemler</value>
   </data>
   <data name="MainWindow_NavigationItem_Battery" xml:space="preserve">
-    <value>Batarya</value>
+    <value>Pil</value>
   </data>
   <data name="MainWindow_NavigationItem_Dashboard" xml:space="preserve">
     <value>Menü</value>
@@ -875,7 +885,7 @@ Tam ekran uygulamalarda rahatsız oluyorsanız bu seçeneği etkinleştirin.</va
     <value>Konum</value>
   </data>
   <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
-    <value>Güç Kipi</value>
+    <value>Güç Modu</value>
   </data>
   <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
     <value>Yenileme Hızı</value>
@@ -1014,6 +1024,9 @@ Fn+Q ile modu değiştirebilirsiniz.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Seçilen güç modu, AC adaptörü bağlı olmadan düzgün çalışmayabilir.</value>
   </data>
+  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
+	  <value>Lenovo Vantage veya hizmetleri çalışırken ve dizüstü bilgisayarınızın güç planlarını değiştirirken bu seçeneğin etkinleştirilmesi, beklenmeyen davranışlara neden olabilir.</value>
+  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Emin misiniz?</value>
   </data>
@@ -1095,7 +1108,7 @@ UYARI: Yerleşik ekran kapalıysa bu eylem düzgün çalışmayacaktır.</value>
     <value>Yenileme hızı</value>
   </data>
   <data name="Rename" xml:space="preserve">
-    <value>Yeniden adlandır</value>
+    <value>Adlandır</value>
   </data>
   <data name="RestartLater" xml:space="preserve">
     <value>Sonra yeniden başlatacağım</value>
@@ -1197,6 +1210,12 @@ Bu seçeneği değiştirdikten sonra yeniden başlatma önerilir.</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Lenovo Hotkeys Tuşları etkinleştirilemedi</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+	  <value>Vantage ve/veya ImController doğru şekilde etkinleştirilmemiş olabilir</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+	  <value>Vantage ve/veya ImController etkinleştirilemedi</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Fn+R kısayolunu daha kullanışlı hale getirmek için yenileme hızlarını hariç tutabilirsiniz.</value>
@@ -1403,7 +1422,7 @@ Devam etmeyi seçerseniz, kayıt etme otomatik olarak etkinleştirilecektir.</va
     <value>Model</value>
   </data>
   <data name="UnsupportedWindow_Title" xml:space="preserve">
-    <value>Desteklenmeyen Cihaz</value>
+    <value>Desteklenmeyen cihaz</value>
   </data>
   <data name="UnsupportedWindow_Vendor" xml:space="preserve">
     <value>Üretici</value>
@@ -1415,7 +1434,7 @@ Devam etmeyi seçerseniz, kayıt etme otomatik olarak etkinleştirilecektir.</va
     <value>Güncelleme mevcut</value>
   </data>
   <data name="UpdateWindow_WhatsNew" xml:space="preserve">
-    <value>Yenilikler</value>
+    <value>Yenilikler nedir?</value>
   </data>
   <data name="WhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Klavye parlaklığını ayarlayın.</value>
@@ -1673,7 +1692,7 @@ Bu ayarlar yalnızca Özel Mod etkinleştirildiğinde etkili olur.</value>
     <value>Güç Durumu</value>
   </data>
   <data name="StatusTrayPopup_Battery" xml:space="preserve">
-    <value>Batarya</value>
+    <value>Pil</value>
   </data>
   <data name="StatusTrayPopup_Mode" xml:space="preserve">
     <value>Mod</value>
@@ -1712,7 +1731,7 @@ Bu ayarlar yalnızca Özel Mod etkinleştirildiğinde etkili olur.</value>
     <value>Windows Denetim Masası'ndaki Güç Planı seçenekleri</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
-    <value>Kapatıldı</value>
+    <value>Güç Kapatıldı</value>
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
     <value>Klavye ışık profilini içe aktarın</value>
@@ -1777,8 +1796,66 @@ UYARI: Harici GPU mevcut değilse, bu işlem doğru çalışmaz.</value>
   <data name="PanelLogoBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Bilgisayarın kapağındaki ışığı açın veya kapatın.</value>
   </data>
+  <data name="GHz" xml:space="preserve">
+    <value>GHz</value>
+  </data>
+  <data name="MHz" xml:space="preserve">
+    <value>MHz</value>
+  </data>
+  <data name="SensorsControl_Maximum" xml:space="preserve">
+	  <value>Azami: {0}</value>
+  </data>
+  <data name="SensorsControl_CPU_Title" xml:space="preserve">
+	  <value>CPU</value>
+  </data>
+  <data name="SensorsControl_Utilization_Title" xml:space="preserve">
+	  <value>Kullanım</value>
+  </data>
+  <data name="SensorsControl_CoreClock_Title" xml:space="preserve">
+	  <value>Çekirdek Saati</value>
+  </data>
+  <data name="SensorsControl_Temperature_Title" xml:space="preserve">
+	  <value>Sıcaklık</value>
+  </data>
+  <data name="SensorsControl_Fan_Title" xml:space="preserve">
+	  <value>Fan</value>
+  </data>
+  <data name="SensorsControl_GPU_Title" xml:space="preserve">
+	  <value>GPU</value>
+  </data>
+  <data name="SensorsControl_MemoryClock_Title" xml:space="preserve">
+	  <value>Bellek Saati</value>
+  </data>
+  <data name="SensorsControl_RefreshInterval" xml:space="preserve">
+	  <value>Yenileme aralığı</value>
+  </data>
+  <data name="InstantBootControl_Title" xml:space="preserve">
+	  <value>Anında Önyükleme</value>
+  </data>
+  <data name="InstantBootControl_Message" xml:space="preserve">
+	  <value>Bir şarj cihazı bağlandığında dizüstü bilgisayarı açın.</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Title" xml:space="preserve">
+	  <value>Anında Önyükleme</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Message" xml:space="preserve">
+	  <value>Bir şarj cihazı bağlandığında dizüstü bilgisayarı açın.</value>
+  </data>
+  <data name="PowerModeUnavailableWithoutACException_Title" xml:space="preserve">
+	  <value>Güç Modu değiştirilemiyor</value>
+  </data>
+  <data name="PowerModeUnavailableWithoutACException_Message" xml:space="preserve">
+	  <value>{0} güç modu, AC gücü olmadan kullanılamaz.</value>
+	  <comment>For example: "{Performance} power mode is not available without AC power."</comment>
+  </data>
+  <data name="EditDashboardWindow_Sensors" xml:space="preserve">
+	  <value>Sensörler</value>
+  </data>
   <data name="IGPUModeChangeException_Title" xml:space="preserve">
 	  <value>GPU Çalışma Modu Değiştirilemedi</value>
+  </data>
+  <data name="IGPUModeChangeException_Message" xml:space="preserve">
+	  <value>Beklenen sonucu görmezseniz, birkaç saniye içinde modu tekrar değiştirmeyi deneyin.&#x0a;dGPU hiç yanıt vermiyorsa, lütfen dizüstü bilgisayarınızı yeniden başlatın.</value>
   </data>
   <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
 	  <value>dGPU şuan kullanımda</value>
@@ -1791,5 +1868,17 @@ UYARI: Harici GPU mevcut değilse, bu işlem doğru çalışmaz.</value>
   </data>
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
 	  <value>dGPU kullanılmadığında ve dizüstü pil gücünde çalıştığında otomatik olarak kapanacaktır.</value>
+  </data>
+  <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
+	  <value>Özel Mod ayarları, Lenovo Vantage veya hizmetleri çalışırken doğru şekilde uygulanmayacaktır.</value>
+  </data>
+  <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
+	  <value>LegionZone veya hizmetleri çalışırken Özel Mod ayarları doğru uygulanmayacaktır.</value>
+  </data>
+  <data name="DGPU_Connected_Title" xml:space="preserve">
+	  <value>DGPU bağlı</value>
+  </data>
+  <data name="DGPU_Disconnected_Title" xml:space="preserve">
+	  <value>DGPU bağlı değil</value>
   </data>
 </root>

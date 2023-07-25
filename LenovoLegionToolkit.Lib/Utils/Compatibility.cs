@@ -56,7 +56,8 @@ public static class Compatibility
         // Limited compatibility
         "17IR",
         "15IR",
-        "15IC"
+        "15IC",
+        "15IK"
     };
 
     private static MachineInformation? _machineInformation;
