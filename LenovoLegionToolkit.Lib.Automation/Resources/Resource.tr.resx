@@ -124,7 +124,7 @@
     <value>AC güç adaptörü çıkarılınca</value>
   </data>
   <data name="DeactivateGPUAutomationStepState_KillApps" xml:space="preserve">
-    <value>Uygulamaları Kapat</value>
+    <value>Uygulamaları kapat</value>
   </data>
   <data name="DeactivateGPUAutomationStepState_RestartGPU" xml:space="preserve">
     <value>GPU'yu yeniden başlat</value>
@@ -136,13 +136,13 @@
     <value>{0} saniye</value>
   </data>
   <data name="LowWattageACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Düşük güçlü AC güç adaptörü bağlanırsa</value>
+    <value>Düşük voltajlı AC güç adaptörü bağlandığında</value>
   </data>
   <data name="OnStartupAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Başlangıçta</value>
   </data>
   <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Performans modu değiştiğinde</value>
+    <value>Güç Modu değiştirildiğinde</value>
   </data>
   <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Uygulama başlatıldığında</value>
