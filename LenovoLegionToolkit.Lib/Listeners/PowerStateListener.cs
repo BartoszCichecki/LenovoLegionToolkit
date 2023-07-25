@@ -147,9 +147,8 @@ public class PowerStateListener : IListener<EventArgs>
 
                 if (await _powerModeFeature.IsSupportedAsync().ConfigureAwait(false))
                 {
-                    await _powerModeFeature.EnsureAiModeIsSetAsync().ConfigureAwait(false);
-                    await _powerModeFeature.EnsureGodModeStateIsAppliedAsync().ConfigureAwait(false);
                     await _powerModeFeature.EnsureCorrectPowerPlanIsSetAsync().ConfigureAwait(false);
+                    await _powerModeFeature.EnsureGodModeStateIsAppliedAsync().ConfigureAwait(false);
                 }
 
                 if (await _dgpuNotify.IsSupportedAsync().ConfigureAwait(false))

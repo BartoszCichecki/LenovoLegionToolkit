@@ -1,17 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Management;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.Automation.GameDetection;
 using LenovoLegionToolkit.Lib.Extensions;
-using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.Lib.GameDetection;
 using LenovoLegionToolkit.Lib.Utils;
 
-namespace LenovoLegionToolkit.Lib.Automation.Listeners;
+namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class GameAutomationListener : IListener<bool>
+public class GameListener : IListener<bool>
 {
+    private class InstanceEventListener : AbstractWMIListener<(ProcessEventInfoType, int, string)>
+    {
+        private readonly ProcessEventInfoType _type;
+
+        public InstanceEventListener(ProcessEventInfoType type, string eventName)
+            : base("ROOT\\CIMV2", query: $"SELECT * FROM {eventName}")
+        {
+            _type = type;
+        }
+
+        protected override (ProcessEventInfoType, int, string) GetValue(PropertyDataCollection properties)
+        {
+            // ReSharper disable ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
+            var processName = properties["ProcessName"].Value?.ToString() ?? string.Empty;
+            if (!int.TryParse(properties["ProcessID"].Value?.ToString(), out var processId))
+                processId = -1;
+
+            return (_type, processId, Path.GetFileNameWithoutExtension(processName));
+            // ReSharper enable ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
+        }
+
+        protected override Task OnChangedAsync((ProcessEventInfoType, int, string) value) => Task.CompletedTask;
+    }
+
     private class ProcessEqualityComparer : IEqualityComparer<Process>
     {
         public bool Equals(Process? x, Process? y)
@@ -30,47 +55,47 @@ public class GameAutomationListener : IListener<bool>
 
     public event EventHandler<bool>? Changed;
 
-    private readonly GameDetector _gameDetector;
+    private readonly GameConfigStoreDetector _gameConfigStoreDetector;
+    private readonly EffectiveGameModeDetector _effectiveGameModeDetector;
     private readonly InstanceEventListener _instanceCreationListener;
-    private readonly EffectiveGameModeListener _effectiveGameModeListener;
 
     private readonly HashSet<ProcessInfo> _detectedGamePathsCache = new();
     private readonly HashSet<Process> _processCache = new(new ProcessEqualityComparer());
 
     private bool _lastState;
 
-    public GameAutomationListener()
+    public GameListener()
     {
-        _gameDetector = new GameDetector();
-        _gameDetector.GamesDetected += GameDetector_GamesDetected;
+        _gameConfigStoreDetector = new GameConfigStoreDetector();
+        _gameConfigStoreDetector.GamesDetected += GameConfigStoreDetectorGamesConfigStoreDetected;
+
+        _effectiveGameModeDetector = new EffectiveGameModeDetector();
+        _effectiveGameModeDetector.Changed += EffectiveGameModeDetectorChanged;
 
         _instanceCreationListener = new InstanceEventListener(ProcessEventInfoType.Started, "Win32_ProcessStartTrace");
         _instanceCreationListener.Changed += InstanceCreationListener_Changed;
-
-        _effectiveGameModeListener = new EffectiveGameModeListener();
-        _effectiveGameModeListener.Changed += EffectiveGameModeListenerChanged;
     }
 
     public async Task StartAsync()
     {
         lock (Lock)
         {
-            foreach (var gamePath in GameDetector.GetDetectedGamePaths())
+            foreach (var gamePath in GameConfigStoreDetector.GetDetectedGamePaths())
                 _detectedGamePathsCache.Add(gamePath);
         }
 
-        await _gameDetector.StartAsync().ConfigureAwait(false);
+        await _gameConfigStoreDetector.StartAsync().ConfigureAwait(false);
+        await _effectiveGameModeDetector.StartAsync().ConfigureAwait(false);
 
         await _instanceCreationListener.StartAsync().ConfigureAwait(false);
-        await _effectiveGameModeListener.StartAsync().ConfigureAwait(false);
     }
 
     public async Task StopAsync()
     {
-        await _gameDetector.StopAsync().ConfigureAwait(false);
+        await _gameConfigStoreDetector.StopAsync().ConfigureAwait(false);
+        await _effectiveGameModeDetector.StopAsync().ConfigureAwait(false);
 
         await _instanceCreationListener.StopAsync().ConfigureAwait(false);
-        await _effectiveGameModeListener.StopAsync().ConfigureAwait(false);
 
         lock (Lock)
         {
@@ -91,7 +116,7 @@ public class GameAutomationListener : IListener<bool>
         }
     }
 
-    private void GameDetector_GamesDetected(object? sender, GameDetector.GameDetectedEventArgs e)
+    private void GameConfigStoreDetectorGamesConfigStoreDetected(object? sender, GameConfigStoreDetector.GameDetectedEventArgs e)
     {
         lock (Lock)
         {
@@ -124,6 +149,21 @@ public class GameAutomationListener : IListener<bool>
                     }
                 }
             }
+        }
+    }
+
+    private void EffectiveGameModeDetectorChanged(object? sender, bool e)
+    {
+        lock (Lock)
+        {
+            if (_processCache.Any())
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Ignoring, process cache is not empty.");
+                return;
+            }
+
+            RaiseChangedIfNeeded(e);
         }
     }
 
@@ -167,21 +207,6 @@ public class GameAutomationListener : IListener<bool>
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Failed to attach to {e.processName}. [processId={e.processId}]", ex);
             }
-        }
-    }
-
-    private void EffectiveGameModeListenerChanged(object? sender, bool e)
-    {
-        lock (Lock)
-        {
-            if (_processCache.Any())
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Ignoring, process cache is not empty.");
-                return;
-            }
-
-            RaiseChangedIfNeeded(e);
         }
     }
 

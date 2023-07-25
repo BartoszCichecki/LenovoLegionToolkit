@@ -11,7 +11,6 @@ public class IoCModule : Module
     {
         builder.Register<AutomationSettings>();
 
-        builder.Register<GameAutomationListener>(true);
         builder.Register<ProcessAutomationListener>(true);
         builder.Register<TimeAutomationListener>(true);
         builder.Register<UserInactivityListener>(true);

@@ -9,8 +9,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Dashboard;
 public partial class BalanceModeSettingsWindow
 {
     private readonly PowerModeFeature _powerModeFeature = IoCContainer.Resolve<PowerModeFeature>();
-    private readonly AIModeController _aiModeController = IoCContainer.Resolve<AIModeController>();
-    private readonly AIChipController _aiChipController = IoCContainer.Resolve<AIChipController>();
+    private readonly AIController _aiController = IoCContainer.Resolve<AIController>();
 
     public BalanceModeSettingsWindow()
     {
@@ -24,18 +23,18 @@ public partial class BalanceModeSettingsWindow
         if (!IsVisible)
             return;
 
-        _aiModeCheckBox.IsChecked = _aiModeController.IsEnabled;
+        _aiModeCheckBox.IsChecked = _aiController.IsAIModeEnabled;
 
         var mi = await Compatibility.GetMachineInformationAsync();
         if (mi.Features.AIChip)
         {
             _aiChipCheckBox.Visibility = Visibility.Visible;
-            _aiChipCheckBox.IsEnabled = false;
+            _aiChipCheckBox.IsEnabled = _aiController.IsAIChipEnabled;
         }
         else
         {
             _aiChipCheckBox.Visibility = Visibility.Collapsed;
-            _aiChipCheckBox.IsEnabled = _aiModeController.IsEnabled;
+            _aiChipCheckBox.IsEnabled = false;
         }
     }
 
@@ -52,10 +51,12 @@ public partial class BalanceModeSettingsWindow
         var isAiModeChecked = _aiModeCheckBox.IsChecked ?? false;
         var isAiChipChecked = _aiChipCheckBox.IsChecked ?? false;
 
-        _aiModeController.IsEnabled = isAiModeChecked;
-        _aiChipController.IsEnabled = _aiChipCheckBox.IsVisible && isAiModeChecked && isAiChipChecked;
+        _aiController.IsAIModeEnabled = isAiModeChecked;
+        _aiController.IsAIChipEnabled = _aiChipCheckBox.IsVisible && isAiModeChecked && isAiChipChecked;
 
+        await _aiController.StopAsync();
         await _powerModeFeature.SetStateAsync(PowerModeState.Balance);
+        await _aiController.StartIfNeededAsync();
 
         Close();
     }

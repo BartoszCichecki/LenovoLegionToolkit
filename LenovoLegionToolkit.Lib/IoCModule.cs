@@ -76,6 +76,7 @@ public class IoCModule : Module
         builder.Register<DisplayBrightnessListener>().AutoActivateListener();
         builder.Register<DisplayConfigurationListener>().AutoActivateListener();
         builder.Register<DriverKeyListener>().AutoActivateListener();
+        builder.Register<GameListener>().AutoActivateListener();
         builder.Register<LightingChangeListener>().AutoActivateListener();
         builder.Register<NativeWindowsMessageListener>().AutoActivateListener();
         builder.Register<PowerModeListener>().AutoActivateListener();
@@ -87,8 +88,7 @@ public class IoCModule : Module
         builder.Register<ThermalModeListener>().AutoActivateListener();
         builder.Register<WinKeyListener>().AutoActivateListener();
 
-        builder.Register<AIModeController>();
-        builder.Register<AIChipController>();
+        builder.Register<AIController>();
         builder.Register<DisplayBrightnessController>();
         builder.Register<GodModeController>();
         builder.Register<GodModeControllerV1>(true);
