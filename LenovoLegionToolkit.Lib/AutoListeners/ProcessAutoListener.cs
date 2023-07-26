@@ -48,23 +48,19 @@ public class ProcessAutoListener : AbstractAutoListener<ProcessEventInfo>
 
     }
 
-    protected override Task StartAsync()
+    protected override async Task StartAsync()
     {
-        _instanceStartedEventAutoAutoListener.Changed += InstanceStartedEventAutoAutoListener_Changed;
-        _instanceStoppedEventAutoAutoListener.Changed += InstanceStoppedEventAutoAutoListener_Changed;
-
-        return Task.CompletedTask;
+        await _instanceStartedEventAutoAutoListener.SubscribeChangedAsync(InstanceStartedEventAutoAutoListener_Changed).ConfigureAwait(false);
+        await _instanceStoppedEventAutoAutoListener.SubscribeChangedAsync(InstanceStoppedEventAutoAutoListener_Changed).ConfigureAwait(false);
     }
 
-    protected override Task StopAsync()
+    protected override async Task StopAsync()
     {
-        _instanceStartedEventAutoAutoListener.Changed -= InstanceStartedEventAutoAutoListener_Changed;
-        _instanceStoppedEventAutoAutoListener.Changed -= InstanceStoppedEventAutoAutoListener_Changed;
+        await _instanceStartedEventAutoAutoListener.UnsubscribeChangedAsync(InstanceStartedEventAutoAutoListener_Changed).ConfigureAwait(false);
+        await _instanceStoppedEventAutoAutoListener.UnsubscribeChangedAsync(InstanceStoppedEventAutoAutoListener_Changed).ConfigureAwait(false);
 
         lock (Lock)
             _processCache.Clear();
-
-        return Task.CompletedTask;
     }
 
     private void InstanceStartedEventAutoAutoListener_Changed(object? sender, (ProcessEventInfoType type, int processId, string processName) e)

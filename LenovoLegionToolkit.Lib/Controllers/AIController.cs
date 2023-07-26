@@ -68,7 +68,8 @@ public class AIController
         {
             _powerModeListener.Changed += PowerModeListener_Changed;
             _powerStateListener.Changed += PowerStateListener_Changed;
-            _gameAutoListener.Changed += GameAutoListenerChanged;
+
+            await _gameAutoListener.SubscribeChangedAsync(GameAutoListener_Changed).ConfigureAwait(false);
 
             await RefreshAsync().ConfigureAwait(false);
         }
@@ -88,7 +89,8 @@ public class AIController
         {
             _powerModeListener.Changed -= PowerModeListener_Changed;
             _powerStateListener.Changed -= PowerStateListener_Changed;
-            _gameAutoListener.Changed -= GameAutoListenerChanged;
+
+            await _gameAutoListener.UnsubscribeChangedAsync(GameAutoListener_Changed).ConfigureAwait(false);
 
             if (await ShouldDisableAsync().ConfigureAwait(false))
                 await DisableAsync().ConfigureAwait(false);
@@ -97,7 +99,7 @@ public class AIController
 
     private async void PowerModeListener_Changed(object? sender, PowerModeState e) => await _dispatcher.DispatchAsync(RefreshAsync);
     private async void PowerStateListener_Changed(object? sender, EventArgs e) => await _dispatcher.DispatchAsync(RefreshAsync);
-    private async void GameAutoListenerChanged(object? sender, bool e) => await _dispatcher.DispatchAsync(RefreshAsync);
+    private async void GameAutoListener_Changed(object? sender, bool e) => await _dispatcher.DispatchAsync(RefreshAsync);
 
     private async Task RefreshAsync()
     {

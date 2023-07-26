@@ -59,12 +59,12 @@ public class GameAutoListener : AbstractAutoListener<bool>
         await _gameConfigStoreDetector.StartAsync().ConfigureAwait(false);
         await _effectiveGameModeDetector.StartAsync().ConfigureAwait(false);
 
-        _instanceStartedEventAutoAutoListener.Changed += InstanceStartedEventAutoAutoListener_Changed;
+        await _instanceStartedEventAutoAutoListener.SubscribeChangedAsync(InstanceStartedEventAutoAutoListener_Changed).ConfigureAwait(false);
     }
 
     protected override async Task StopAsync()
     {
-        _instanceStartedEventAutoAutoListener.Changed -= InstanceStartedEventAutoAutoListener_Changed;
+        await _instanceStartedEventAutoAutoListener.UnsubscribeChangedAsync(InstanceStartedEventAutoAutoListener_Changed).ConfigureAwait(false);
 
         await _gameConfigStoreDetector.StopAsync().ConfigureAwait(false);
         await _effectiveGameModeDetector.StopAsync().ConfigureAwait(false);

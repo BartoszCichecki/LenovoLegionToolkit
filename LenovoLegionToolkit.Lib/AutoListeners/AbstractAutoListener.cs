@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Linq;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Utils;
 using NeoSmart.AsyncLock;
 
 namespace LenovoLegionToolkit.Lib.AutoListeners;
@@ -11,51 +11,81 @@ public abstract class AbstractAutoListener<T> : IAutoListener<T>
 
     private bool _started;
 
-    private event EventHandler<T>? ChangedInternal;
+    private event EventHandler<T>? Changed;
 
-    public event EventHandler<T>? Changed
+    public async Task SubscribeChangedAsync(EventHandler<T> eventHandler)
     {
-        add { ChangedInternal += value; StartStop(); }
-        remove { ChangedInternal -= value; StartStop(); }
+        Changed += eventHandler;
+        await StartStopAsync();
     }
 
-    private void StartStop()
+    public async Task UnsubscribeChangedAsync(EventHandler<T> eventHandler)
     {
-        Task.Run(async () =>
+        Changed -= eventHandler;
+        await StartStopAsync();
+    }
+
+    private async Task StartStopAsync()
+    {
+        using (await _startStopLock.LockAsync())
         {
-            using (await _startStopLock.LockAsync())
-            {
-                if (ChangedInternal?.GetInvocationList().Any() ?? false)
-                    await StartInternalAsync().ConfigureAwait(false);
-                else
-                    await StopInternalAsync().ConfigureAwait(false);
-            }
-        });
+            var subscribers = Changed?.GetInvocationList().Length ?? 0;
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Subscribers: {subscribers}. [type={GetType().Name}]");
+
+            if (subscribers > 0)
+                await StartInternalAsync().ConfigureAwait(false);
+            else
+                await StopInternalAsync().ConfigureAwait(false);
+        }
     }
 
     private async Task StartInternalAsync()
     {
         if (_started)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Already started. [type={GetType().Name}]");
+
             return;
+        }
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Starting... [type={GetType().Name}]");
 
         await StartAsync().ConfigureAwait(false);
 
         _started = true;
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Started. [type={GetType().Name}]");
     }
 
     private async Task StopInternalAsync()
     {
         if (!_started)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Already stopped. [type={GetType().Name}]");
+
             return;
+        }
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Stopping... [type={GetType().Name}]");
 
         await StopAsync().ConfigureAwait(false);
 
         _started = false;
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Stopped. [type={GetType().Name}]");
     }
 
     protected abstract Task StartAsync();
 
     protected abstract Task StopAsync();
 
-    protected void RaiseChanged(T value) => ChangedInternal?.Invoke(this, value);
+    protected void RaiseChanged(T value) => Changed?.Invoke(this, value);
 }
