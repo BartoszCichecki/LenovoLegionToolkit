@@ -11,8 +11,3 @@ public interface IListener<T>
 
     Task StopAsync();
 }
-
-public interface INotifyingListener<T> : IListener<T>
-{
-    Task NotifyAsync(T value);
-}

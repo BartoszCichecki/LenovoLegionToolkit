@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
 using Windows.Win32;
 using Windows.Win32.System.Power;
 
-namespace LenovoLegionToolkit.Lib.Automation.Listeners;
+namespace LenovoLegionToolkit.Lib.GameDetection;
 
-internal unsafe class EffectiveGameModeListener : IListener<bool>
+internal unsafe class EffectiveGameModeDetector
 {
     private readonly EFFECTIVE_POWER_MODE_CALLBACK _callbackPointer;
 
@@ -16,7 +15,7 @@ internal unsafe class EffectiveGameModeListener : IListener<bool>
 
     public event EventHandler<bool>? Changed;
 
-    public EffectiveGameModeListener()
+    public EffectiveGameModeDetector()
     {
         _callbackPointer = Callback;
     }

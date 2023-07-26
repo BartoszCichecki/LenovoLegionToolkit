@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.Automation.Listeners;
+using LenovoLegionToolkit.Lib.AutoListeners;
 using LenovoLegionToolkit.Lib.Automation.Resources;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
@@ -16,7 +16,7 @@ public class GamesAreRunningAutomationPipelineTrigger : IGameAutomationPipelineT
 
     public Task<bool> IsMatchingState()
     {
-        var listener = IoCContainer.Resolve<GameAutomationListener>();
+        var listener = IoCContainer.Resolve<GameAutoListener>();
         var result = listener.AreGamesRunning();
         return Task.FromResult(result);
     }

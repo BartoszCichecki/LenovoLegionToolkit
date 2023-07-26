@@ -8,13 +8,11 @@ namespace LenovoLegionToolkit.Lib.Listeners;
 
 public class PowerModeListener : AbstractWMIListener<PowerModeState, int>, INotifyingListener<PowerModeState>
 {
-    private readonly AIModeController _aiModeController;
     private readonly PowerPlanController _powerPlanController;
 
-    public PowerModeListener(AIModeController aiModeController, PowerPlanController powerPlanController)
+    public PowerModeListener(PowerPlanController powerPlanController)
         : base(WMI.LenovoGameZoneSmartFanModeEvent.Listen)
     {
-        _aiModeController = aiModeController ?? throw new ArgumentNullException(nameof(aiModeController));
         _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController));
     }
 
@@ -38,7 +36,6 @@ public class PowerModeListener : AbstractWMIListener<PowerModeState, int>, INoti
 
     private async Task ChangeDependenciesAsync(PowerModeState value)
     {
-        await _aiModeController.StartAsync(value).ConfigureAwait(false);
         await _powerPlanController.ActivatePowerPlanAsync(value).ConfigureAwait(false);
     }
 

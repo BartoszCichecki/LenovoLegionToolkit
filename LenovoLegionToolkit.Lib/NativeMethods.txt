@@ -1,7 +1,16 @@
-﻿WM_DEVICECHANGE
+﻿WM_CLOSE
+WM_COMMAND
+WM_DESTROY
+WM_DEVICECHANGE
 WM_KEYUP
+WM_LBUTTONUP
 WM_POWERBROADCAST
 WM_SYSCOMMAND
+WM_RBUTTONUP
+WM_USER
+
+NIN_POPUPCLOSE
+NIN_POPUPOPEN
 
 VIRTUAL_KEY
 
@@ -62,6 +71,8 @@ SYSTEM_POWER_CAPABILITIES
 
 EFFECTIVE_POWER_MODE_V2
 
+NOTIFYICONDATAW
+
 GetSystemInfo
 CallNtPowerInformation
 
@@ -112,6 +123,7 @@ UnregisterPowerSettingNotification
 
 CallNextHookEx
 GetForegroundWindow
+SetForegroundWindow
 GetDesktopWindow
 GetShellWindow
 GetWindowRect
@@ -142,3 +154,6 @@ PowerRegisterForEffectivePowerModeNotifications
 PowerUnregisterFromEffectivePowerModeNotifications
 PowerRegisterSuspendResumeNotification
 PowerUnregisterSuspendResumeNotification
+
+Shell_NotifyIcon
+RegisterWindowMessage

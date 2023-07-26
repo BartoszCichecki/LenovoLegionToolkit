@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.Automation.GameDetection;
 using LenovoLegionToolkit.Lib.Extensions;
-using LenovoLegionToolkit.Lib.Listeners;
-using LenovoLegionToolkit.Lib.System.Management;
+using LenovoLegionToolkit.Lib.GameDetection;
 using LenovoLegionToolkit.Lib.Utils;
 
-namespace LenovoLegionToolkit.Lib.Automation.Listeners;
+namespace LenovoLegionToolkit.Lib.AutoListeners;
 
-public class GameAutomationListener : IListener<bool>
+public class GameAutoListener : AbstractAutoListener<bool>
 {
     private class ProcessEqualityComparer : IEqualityComparer<Process>
     {
@@ -29,48 +27,47 @@ public class GameAutomationListener : IListener<bool>
 
     private static readonly object Lock = new();
 
-    public event EventHandler<bool>? Changed;
+    private readonly InstanceStartedEventAutoAutoListener _instanceStartedEventAutoAutoListener;
 
-    private readonly GameDetector _gameDetector;
-    private readonly EffectiveGameModeListener _effectiveGameModeListener;
-
-    private IDisposable? _processStartTraceDisposable;
+    private readonly GameConfigStoreDetector _gameConfigStoreDetector;
+    private readonly EffectiveGameModeDetector _effectiveGameModeDetector;
 
     private readonly HashSet<ProcessInfo> _detectedGamePathsCache = new();
     private readonly HashSet<Process> _processCache = new(new ProcessEqualityComparer());
 
     private bool _lastState;
 
-    public GameAutomationListener()
+    public GameAutoListener(InstanceStartedEventAutoAutoListener instanceStartedEventAutoAutoListener)
     {
-        _gameDetector = new GameDetector();
-        _gameDetector.GamesDetected += GameDetector_GamesDetected;
+        _instanceStartedEventAutoAutoListener = instanceStartedEventAutoAutoListener ?? throw new ArgumentNullException(nameof(instanceStartedEventAutoAutoListener));
 
-        _effectiveGameModeListener = new EffectiveGameModeListener();
-        _effectiveGameModeListener.Changed += EffectiveGameModeListenerChanged;
+        _gameConfigStoreDetector = new GameConfigStoreDetector();
+        _gameConfigStoreDetector.GamesDetected += GameConfigStoreDetectorGamesConfigStoreDetected;
+
+        _effectiveGameModeDetector = new EffectiveGameModeDetector();
+        _effectiveGameModeDetector.Changed += EffectiveGameModeDetectorChanged;
     }
 
-    public async Task StartAsync()
+    protected override async Task StartAsync()
     {
         lock (Lock)
         {
-            foreach (var gamePath in GameDetector.GetDetectedGamePaths())
+            foreach (var gamePath in GameConfigStoreDetector.GetDetectedGamePaths())
                 _detectedGamePathsCache.Add(gamePath);
         }
 
-        await _gameDetector.StartAsync().ConfigureAwait(false);
-        await _effectiveGameModeListener.StartAsync().ConfigureAwait(false);
+        await _gameConfigStoreDetector.StartAsync().ConfigureAwait(false);
+        await _effectiveGameModeDetector.StartAsync().ConfigureAwait(false);
 
-        _processStartTraceDisposable = WMI.Win32.ProcessStartTrace.Listen(ProcessStartTraceListen_Handler);
+        await _instanceStartedEventAutoAutoListener.SubscribeChangedAsync(InstanceStartedEventAutoAutoListener_Changed).ConfigureAwait(false);
     }
 
-    public async Task StopAsync()
+    protected override async Task StopAsync()
     {
-        await _gameDetector.StopAsync().ConfigureAwait(false);
-        await _effectiveGameModeListener.StopAsync().ConfigureAwait(false);
+        await _instanceStartedEventAutoAutoListener.UnsubscribeChangedAsync(InstanceStartedEventAutoAutoListener_Changed).ConfigureAwait(false);
 
-        _processStartTraceDisposable?.Dispose();
-        _processStartTraceDisposable = null;
+        await _gameConfigStoreDetector.StopAsync().ConfigureAwait(false);
+        await _effectiveGameModeDetector.StopAsync().ConfigureAwait(false);
 
         lock (Lock)
         {
@@ -91,7 +88,7 @@ public class GameAutomationListener : IListener<bool>
         }
     }
 
-    private void GameDetector_GamesDetected(object? sender, GameDetector.GameDetectedEventArgs e)
+    private void GameConfigStoreDetectorGamesConfigStoreDetected(object? sender, GameConfigStoreDetector.GameDetectedEventArgs e)
     {
         lock (Lock)
         {
@@ -127,7 +124,7 @@ public class GameAutomationListener : IListener<bool>
         }
     }
 
-    private void EffectiveGameModeListenerChanged(object? sender, bool e)
+    private void EffectiveGameModeDetectorChanged(object? sender, bool e)
     {
         lock (Lock)
         {
@@ -142,25 +139,25 @@ public class GameAutomationListener : IListener<bool>
         }
     }
 
-    private void ProcessStartTraceListen_Handler(int processId, string processName)
+    private void InstanceStartedEventAutoAutoListener_Changed(object? sender, (int processId, string processName) e)
     {
         lock (Lock)
         {
-            if (processId < 0)
+            if (e.processId < 0)
                 return;
 
-            if (!_detectedGamePathsCache.Any(p => processName.Equals(p.Name, StringComparison.CurrentCultureIgnoreCase)))
+            if (!_detectedGamePathsCache.Any(p => e.processName.Equals(p.Name, StringComparison.CurrentCultureIgnoreCase)))
                 return;
 
             try
             {
-                var process = Process.GetProcessById(processId);
+                var process = Process.GetProcessById(e.processId);
                 var processPath = process.GetFileName();
 
                 if (string.IsNullOrEmpty(processPath))
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Can't get path for {processName}. [processId={processId}]");
+                        Log.Instance.Trace($"Can't get path for {e.processName}. [processId={e.processId}]");
 
                     return;
                 }
@@ -170,7 +167,7 @@ public class GameAutomationListener : IListener<bool>
                     return;
 
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Game {processInfo} is running. [processId={processId}, processPath={processPath}]");
+                    Log.Instance.Trace($"Game {processInfo} is running. [processId={e.processId}, processPath={processPath}]");
 
                 Attach(process);
                 _processCache.Add(process);
@@ -180,7 +177,7 @@ public class GameAutomationListener : IListener<bool>
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Failed to attach to {processName}. [processId={processId}]", ex);
+                    Log.Instance.Trace($"Failed to attach to {e.processName}. [processId={e.processId}]", ex);
             }
         }
     }
@@ -194,7 +191,7 @@ public class GameAutomationListener : IListener<bool>
 
             _lastState = newState;
 
-            Changed?.Invoke(this, newState);
+            RaiseChanged(newState);
         }
     }
 

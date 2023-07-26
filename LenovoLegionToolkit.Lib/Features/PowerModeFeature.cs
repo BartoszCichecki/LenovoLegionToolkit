@@ -22,7 +22,6 @@ public class PowerModeUnavailableWithoutACException : Exception
 
 public class PowerModeFeature : AbstractWmiFeature<PowerModeState>
 {
-    private readonly AIModeController _aiModeController;
     private readonly GodModeController _godModeController;
     private readonly PowerPlanController _powerPlanController;
     private readonly ThermalModeListener _thermalModeListener;
@@ -30,14 +29,9 @@ public class PowerModeFeature : AbstractWmiFeature<PowerModeState>
 
     public bool AllowAllPowerModesOnBattery { get; set; }
 
-    public PowerModeFeature(AIModeController aiModeController,
-        GodModeController godModeController,
-        PowerPlanController powerPlanController,
-        ThermalModeListener thermalModeListener,
-        PowerModeListener powerModeListener)
+    public PowerModeFeature(GodModeController godModeController, PowerPlanController powerPlanController, ThermalModeListener thermalModeListener, PowerModeListener powerModeListener)
         : base(WMI.LenovoGameZoneData.GetSmartFanModeAsync, WMI.LenovoGameZoneData.SetSmartFanModeAsync, WMI.LenovoGameZoneData.IsSupportSmartFanAsync, 1)
     {
-        _aiModeController = aiModeController ?? throw new ArgumentNullException(nameof(aiModeController));
         _godModeController = godModeController ?? throw new ArgumentNullException(nameof(godModeController));
         _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController));
         _thermalModeListener = thermalModeListener ?? throw new ArgumentNullException(nameof(thermalModeListener));
@@ -64,8 +58,6 @@ public class PowerModeFeature : AbstractWmiFeature<PowerModeState>
             throw new PowerModeUnavailableWithoutACException(state);
 
         var currentState = await GetStateAsync().ConfigureAwait(false);
-
-        await _aiModeController.StopAsync(currentState).ConfigureAwait(false);
 
         var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
 
@@ -119,17 +111,5 @@ public class PowerModeFeature : AbstractWmiFeature<PowerModeState>
             return;
 
         await _godModeController.ApplyStateAsync().ConfigureAwait(false);
-    }
-
-    public async Task EnsureAiModeIsSetAsync()
-    {
-        var state = await GetStateAsync().ConfigureAwait(false);
-        await _aiModeController.StartAsync(state).ConfigureAwait(false);
-    }
-
-    public async Task EnsureAiModeIsOffAsync()
-    {
-        var state = await GetStateAsync().ConfigureAwait(false);
-        await _aiModeController.StopAsync(state).ConfigureAwait(false);
     }
 }

@@ -111,7 +111,7 @@ public static class Compatibility
                 SupportsGodModeV1 = GetSupportsGodModeV1(supportedPowerModes, smartFanVersion, legionZoneVersion, biosVersion),
                 SupportsGodModeV2 = GetSupportsGodModeV2(supportedPowerModes, smartFanVersion, legionZoneVersion),
                 SupportsIGPUMode = await GetSupportsIGPUModeAsync().ConfigureAwait(false),
-                SupportsIntelligentSubMode = await GetSupportsIntelligentSubModeAsync().ConfigureAwait(false),
+                SupportsAIMode = await GetSupportsAIModeAsync().ConfigureAwait(false),
                 HasQuietToPerformanceModeSwitchingBug = GetHasQuietToPerformanceModeSwitchingBug(biosVersion),
                 HasGodModeToOtherModeSwitchingBug = GetHasGodModeToOtherModeSwitchingBug(biosVersion),
                 IsExcludedFromLenovoLighting = GetIsExcludedFromLenovoLighting(biosVersion),
@@ -132,6 +132,7 @@ public static class Compatibility
             Log.Instance.Trace($" * Features:");
             Log.Instance.Trace($"     * Source: '{machineInformation.Features.Source}'");
             Log.Instance.Trace($"     * IGPUMode: '{machineInformation.Features.IGPUMode}'");
+            Log.Instance.Trace($"     * AIChip: '{machineInformation.Features.AIChip}'");
             Log.Instance.Trace($"     * FlipToStart: '{machineInformation.Features.FlipToStart}'");
             Log.Instance.Trace($"     * NvidiaGPUDynamicDisplaySwitching: '{machineInformation.Features.NvidiaGPUDynamicDisplaySwitching}'");
             Log.Instance.Trace($"     * InstantBootAc: '{machineInformation.Features.InstantBootAc}'");
@@ -143,7 +144,7 @@ public static class Compatibility
             Log.Instance.Trace($"     * SupportsGodModeV1: '{machineInformation.Properties.SupportsGodModeV1}'");
             Log.Instance.Trace($"     * SupportsGodModeV2: '{machineInformation.Properties.SupportsGodModeV2}'");
             Log.Instance.Trace($"     * SupportsIGPUMode: '{machineInformation.Properties.SupportsIGPUMode}'");
-            Log.Instance.Trace($"     * SupportsIntelligentSubMode: '{machineInformation.Properties.SupportsIntelligentSubMode}'");
+            Log.Instance.Trace($"     * SupportsAIMode: '{machineInformation.Properties.SupportsAIMode}'");
             Log.Instance.Trace($"     * HasQuietToPerformanceModeSwitchingBug: '{machineInformation.Properties.HasQuietToPerformanceModeSwitchingBug}'");
             Log.Instance.Trace($"     * HasGodModeToOtherModeSwitchingBug: '{machineInformation.Properties.HasGodModeToOtherModeSwitchingBug}'");
             Log.Instance.Trace($"     * IsExcludedFromLenovoLighting: '{machineInformation.Properties.IsExcludedFromLenovoLighting}'");
@@ -182,6 +183,7 @@ public static class Compatibility
             {
                 Source = MachineInformation.FeatureData.SourceType.CapabilityData,
                 IGPUMode = capabilities.Contains(CapabilityID.IGPUMode),
+                AIChip = capabilities.Contains(CapabilityID.AIChip),
                 FlipToStart = capabilities.Contains(CapabilityID.FlipToStart),
                 NvidiaGPUDynamicDisplaySwitching = capabilities.Contains(CapabilityID.NvidiaGPUDynamicDisplaySwitching),
                 InstantBootAc = capabilities.Contains(CapabilityID.InstantBootAc),
@@ -200,6 +202,7 @@ public static class Compatibility
             {
                 Source = MachineInformation.FeatureData.SourceType.Flags,
                 IGPUMode = featureFlags.IsBitSet(0),
+                AIChip = false,
                 FlipToStart = true,
                 NvidiaGPUDynamicDisplaySwitching = featureFlags.IsBitSet(4),
                 InstantBootAc = featureFlags.IsBitSet(5),
@@ -339,7 +342,7 @@ public static class Compatibility
         }
     }
 
-    private static async Task<bool> GetSupportsIntelligentSubModeAsync()
+    private static async Task<bool> GetSupportsAIModeAsync()
     {
         try
         {
