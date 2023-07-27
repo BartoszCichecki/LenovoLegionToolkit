@@ -266,7 +266,7 @@ Many thanks to everyone else, who monitors and corrects translations!
 * [Why do I get a message that Vantage is still running, even though I uninstalled it?](#vantage-running)
 * [Why is my antivirus reporting that the installer contains a virus/trojan/malware?](#virus)
 * [Can I customize hotkeys?](#faq-custom-hotkeys)
-* [Can I customize fans in Quiet, Balance or Performance modes?](far-fan-curves)
+* [Can I customize fans in Quiet, Balance or Performance modes?](#faq-fan-curves)
 * [Why can't I switch to Performance or Custom Power Mode on battery?](#faq-perf-custom-battery)
 * [Why does switching to Performance mode seem buggy, when AI Engine is enabled?](#faq-ai-fnq-bug)
 * [Why am I getting incompatible message after motherboard replacement?](#faq-incompatible)
@@ -303,7 +303,7 @@ If you downloaded the installer from this projects website, you shouldn't worry 
 
 You can customize Fn+F9 hotkey in LLT settings. Other hotkeys can't be customized.
 
-#### <a id="far-fan-curves" />Can I customize fans in Quiet, Balance or Performance modes?
+#### <a id="faq-fan-curves" />Can I customize fans in Quiet, Balance or Performance modes?
 
 No, it isn't possible to customize how the fan works in power modes other than Custom.
 
