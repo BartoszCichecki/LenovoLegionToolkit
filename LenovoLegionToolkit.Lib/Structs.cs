@@ -9,6 +9,8 @@ using LenovoLegionToolkit.Lib.Extensions;
 using Newtonsoft.Json;
 using Octokit;
 
+// ReSharper disable MemberCanBePrivate.Global
+
 namespace LenovoLegionToolkit.Lib;
 
 public readonly struct BatteryInformation
@@ -764,8 +766,8 @@ public readonly struct RefreshRate : IDisplayName, IEquatable<RefreshRate>
 
 public readonly struct Resolution : IDisplayName, IEquatable<Resolution>, IComparable<Resolution>
 {
-    private int Width { get; }
-    private int Height { get; }
+    public int Width { get; }
+    public int Height { get; }
 
     [JsonIgnore]
     public string DisplayName => $"{Width} × {Height}";
