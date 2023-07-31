@@ -113,15 +113,7 @@
   <data name="GPUController_PoweredOn" xml:space="preserve">
     <value>Powered On</value>
   </data>
-  <data name="GSyncState_Off" xml:space="preserve">
-    <value>Off</value>
-    <comment>Informs the user that GSync is or will be turned off.</comment>
-  </data>
-  <data name="GSyncState_On" xml:space="preserve">
-    <value>On</value>
-    <comment>Informs the user that GSync is or will be turned on.</comment>
-  </data>
-  <data name="HDRState_Off" xml:space="preserve">
+	<data name="HDRState_Off" xml:space="preserve">
     <value>Off</value>
     <comment>Informs the user that HDR is or will be turned off.</comment>
   </data>

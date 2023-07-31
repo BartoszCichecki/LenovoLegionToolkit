@@ -45,7 +45,7 @@ public class HybridModeFeature : IFeature<HybridModeState>
         var gSyncSupported = await _gSyncFeature.IsSupportedAsync().ConfigureAwait(false);
         var igpuModeSupported = await _igpuModeFeature.IsSupportedAsync().ConfigureAwait(false);
 
-        var gSync = GSyncState.On;
+        var gSync = GSyncState.Off;
         var igpuMode = IGPUModeState.Default;
 
         if (gSyncSupported)
@@ -104,19 +104,19 @@ public class HybridModeFeature : IFeature<HybridModeState>
 
     private static (GSyncState, IGPUModeState) Unpack(HybridModeState state) => state switch
     {
-        HybridModeState.On => (GSyncState.On, IGPUModeState.Default),
-        HybridModeState.OnIGPUOnly => (GSyncState.On, IGPUModeState.IGPUOnly),
-        HybridModeState.OnAuto => (GSyncState.On, IGPUModeState.Auto),
-        HybridModeState.Off => (GSyncState.Off, IGPUModeState.Default),
+        HybridModeState.On => (GSyncState.Off, IGPUModeState.Default),
+        HybridModeState.OnIGPUOnly => (GSyncState.Off, IGPUModeState.IGPUOnly),
+        HybridModeState.OnAuto => (GSyncState.Off, IGPUModeState.Auto),
+        HybridModeState.Off => (GSyncState.On, IGPUModeState.Default),
         _ => throw new InvalidOperationException("Invalid state"),
     };
 
     private static HybridModeState Pack(GSyncState state1, IGPUModeState state2) => (state1, state2) switch
     {
-        (GSyncState.On, IGPUModeState.Default) => HybridModeState.On,
-        (GSyncState.On, IGPUModeState.IGPUOnly) => HybridModeState.OnIGPUOnly,
-        (GSyncState.On, IGPUModeState.Auto) => HybridModeState.OnAuto,
-        (GSyncState.Off, _) => HybridModeState.Off,
+        (GSyncState.Off, IGPUModeState.Default) => HybridModeState.On,
+        (GSyncState.Off, IGPUModeState.IGPUOnly) => HybridModeState.OnIGPUOnly,
+        (GSyncState.Off, IGPUModeState.Auto) => HybridModeState.OnAuto,
+        (GSyncState.On, _) => HybridModeState.Off,
         _ => throw new InvalidOperationException("Invalid state"),
     };
 }
