@@ -15,7 +15,7 @@ namespace LenovoLegionToolkit.WPF.Controls;
 
 public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshingControl where T : struct
 {
-    private readonly IFeature<T> _feature = IoCContainer.Resolve<IFeature<T>>();
+    protected readonly IFeature<T> Feature = IoCContainer.Resolve<IFeature<T>>();
 
     private readonly CardControl _cardControl = new();
 
@@ -47,7 +47,7 @@ public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshing
         set => _cardHeaderControl.Warning = value;
     }
 
-    public virtual TimeSpan AdditionalStateChangeDelay => TimeSpan.Zero;
+    protected virtual TimeSpan AdditionalStateChangeDelay => TimeSpan.Zero;
 
     protected AbstractComboBoxFeatureCardControl() => InitializeComponent();
 
@@ -67,7 +67,7 @@ public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshing
 
     private async void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        await OnStateChange(_comboBox, _feature, e.GetNewValue<T>(), e.GetOldValue<T>());
+        await OnStateChange(_comboBox, Feature, e.GetNewValue<T>(), e.GetOldValue<T>());
     }
 
     protected bool TryGetSelectedItem(out T value) => _comboBox.TryGetSelectedItem(out value);
@@ -85,11 +85,11 @@ public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshing
 
     protected override async Task OnRefreshAsync()
     {
-        if (!await _feature.IsSupportedAsync())
+        if (!await Feature.IsSupportedAsync())
             throw new NotSupportedException();
 
-        var items = await _feature.GetAllStatesAsync();
-        var selectedItem = await _feature.GetStateAsync();
+        var items = await Feature.GetAllStatesAsync();
+        var selectedItem = await Feature.GetStateAsync();
 
         _comboBox.SetItems(items, selectedItem, ComboBoxItemDisplayName);
         _comboBox.IsEnabled = items.Any();

@@ -18,14 +18,23 @@ public class HybridModeFeature : IFeature<HybridModeState>
         _dgpuNotify = dgpuNotify ?? throw new ArgumentNullException(nameof(dgpuNotify));
     }
 
-    public Task<bool> IsSupportedAsync() => _gSyncFeature.IsSupportedAsync();
+    public async Task<bool> IsSupportedAsync()
+    {
+        var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
+        return mi.Properties.SupportsGSync || mi.Properties.SupportsIGPUMode;
+    }
 
     public async Task<HybridModeState[]> GetAllStatesAsync()
     {
         var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
-        return mi.Properties.SupportsIGPUMode
-            ? new[] { HybridModeState.On, HybridModeState.OnIGPUOnly, HybridModeState.OnAuto, HybridModeState.Off }
-            : new[] { HybridModeState.On, HybridModeState.Off };
+
+        return (mi.Properties.SupportsGSync, mi.Properties.SupportsIGPUMode) switch
+        {
+            (true, true) => new[] { HybridModeState.On, HybridModeState.OnIGPUOnly, HybridModeState.OnAuto, HybridModeState.Off },
+            (false, true) => new[] { HybridModeState.On, HybridModeState.OnIGPUOnly, HybridModeState.OnAuto },
+            (true, false) => new[] { HybridModeState.On, HybridModeState.Off },
+            _ => Array.Empty<HybridModeState>()
+        };
     }
 
     public async Task<HybridModeState> GetStateAsync()
@@ -33,10 +42,16 @@ public class HybridModeFeature : IFeature<HybridModeState>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting state...");
 
-        var gSync = await _gSyncFeature.GetStateAsync().ConfigureAwait(false);
+        var gSyncSupported = await _gSyncFeature.IsSupportedAsync().ConfigureAwait(false);
+        var igpuModeSupported = await _igpuModeFeature.IsSupportedAsync().ConfigureAwait(false);
 
+        var gSync = GSyncState.On;
         var igpuMode = IGPUModeState.Default;
-        if (await _igpuModeFeature.IsSupportedAsync().ConfigureAwait(false))
+
+        if (gSyncSupported)
+            gSync = await _gSyncFeature.GetStateAsync().ConfigureAwait(false);
+
+        if (igpuModeSupported)
             igpuMode = await _igpuModeFeature.GetStateAsync().ConfigureAwait(false);
 
         var state = Pack(gSync, igpuMode);
@@ -54,31 +69,32 @@ public class HybridModeFeature : IFeature<HybridModeState>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Setting state to {state}... [gSync={gSync}, igpuMode={igpuMode}]");
 
+        var gSyncSupported = await _gSyncFeature.IsSupportedAsync().ConfigureAwait(false);
+        var igpuModeSupported = await _igpuModeFeature.IsSupportedAsync().ConfigureAwait(false);
+
         var gSyncChanged = false;
-        if (await _gSyncFeature.GetStateAsync().ConfigureAwait(false) != gSync)
+
+        if (gSyncSupported && await _gSyncFeature.GetStateAsync().ConfigureAwait(false) != gSync)
         {
             await _gSyncFeature.SetStateAsync(gSync).ConfigureAwait(false);
             gSyncChanged = true;
         }
 
-        if (await _igpuModeFeature.IsSupportedAsync().ConfigureAwait(false))
+        if (igpuModeSupported && await _igpuModeFeature.GetStateAsync().ConfigureAwait(false) != igpuMode)
         {
-            if (await _igpuModeFeature.GetStateAsync().ConfigureAwait(false) != igpuMode)
+            try
             {
-                try
-                {
-                    await _igpuModeFeature.SetStateAsync(igpuMode).ConfigureAwait(false);
-                }
-                catch (IGPUModeChangeException)
-                {
-                    if (!gSyncChanged)
-                        throw;
-                }
-                finally
-                {
-                    if (!gSyncChanged && igpuMode is IGPUModeState.Default or IGPUModeState.Auto)
-                        await _dgpuNotify.NotifyLaterIfNeededAsync().ConfigureAwait(false);
-                }
+                await _igpuModeFeature.SetStateAsync(igpuMode).ConfigureAwait(false);
+            }
+            catch (IGPUModeChangeException)
+            {
+                if (!gSyncChanged)
+                    throw;
+            }
+            finally
+            {
+                if (!gSyncChanged && igpuMode is IGPUModeState.Default or IGPUModeState.Auto)
+                    await _dgpuNotify.NotifyLaterIfNeededAsync().ConfigureAwait(false);
             }
         }
 

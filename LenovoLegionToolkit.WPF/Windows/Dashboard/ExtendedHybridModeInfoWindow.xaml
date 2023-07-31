@@ -50,60 +50,65 @@
         <ScrollViewer Grid.Row="1" Margin="16,16,16,16">
             <StackPanel>
 
-                <TextBlock
-                    FontSize="16"
-                    FontWeight="Medium"
-                    Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_Hybrid_Title}" />
-                <TextBlock
-                    Margin="0,4,0,0"
-                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                    Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_Hybrid_Message}"
-                    TextWrapping="Wrap" />
+                <StackPanel x:Name="_hybridPanel">
+                    <TextBlock
+                        FontSize="16"
+                        FontWeight="Medium"
+                        Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_Hybrid_Title}" />
+                    <TextBlock
+                        Margin="0,4,0,24"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_Hybrid_Message}"
+                        TextWrapping="Wrap" />
+                </StackPanel>
 
-                <TextBlock
-                    Margin="0,24,0,0"
-                    FontSize="16"
-                    FontWeight="Medium"
-                    Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_IGPU_Title}" />
-                <TextBlock
-                    Margin="0,4,0,0"
-                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                    Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_IGPU_Message}"
-                    TextWrapping="Wrap" />
-                <TextBlock
-                    Margin="0,4,0,0"
-                    FontWeight="Medium"
-                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                    Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_IGPU_Disclaimer}"
-                    TextWrapping="Wrap" />
+                <StackPanel x:Name="_hybridIgpuPanel">
+                    <TextBlock
+                        FontSize="16"
+                        FontWeight="Medium"
+                        Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_IGPU_Title}" />
+                    <TextBlock
+                        Margin="0,4,0,0"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_IGPU_Message}"
+                        TextWrapping="Wrap" />
+                    <TextBlock
+                        Margin="0,4,0,24"
+                        FontWeight="Medium"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_IGPU_Disclaimer}"
+                        TextWrapping="Wrap" />
+                </StackPanel>
 
-                <TextBlock
-                    Margin="0,24,0,0"
-                    FontSize="16"
-                    FontWeight="Medium"
-                    Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_Auto_Title}" />
-                <TextBlock
-                    Margin="0,4,0,0"
-                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                    Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_Auto_Message}"
-                    TextWrapping="Wrap" />
+                <StackPanel x:Name="_hybridAutoPanel">
+                    <TextBlock
+                        FontSize="16"
+                        FontWeight="Medium"
+                        Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_Auto_Title}" />
+                    <TextBlock
+                        Margin="0,4,0,24"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_Auto_Message}"
+                        TextWrapping="Wrap" />
+                </StackPanel>
 
-                <TextBlock
-                    Margin="0,24,0,0"
-                    FontSize="16"
-                    FontWeight="Medium"
-                    Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_DGPU_Title}" />
-                <TextBlock
-                    Margin="0,4,0,0"
-                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                    Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_DGPU_Message}"
-                    TextWrapping="Wrap" />
-                <TextBlock
-                    Margin="0,4,0,0"
-                    FontWeight="Medium"
-                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                    Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_DGPU_Disclaimer}"
-                    TextWrapping="Wrap" />
+                <StackPanel x:Name="_dgpuPanel">
+                    <TextBlock
+                        FontSize="16"
+                        FontWeight="Medium"
+                        Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_DGPU_Title}" />
+                    <TextBlock
+                        Margin="0,4,0,0"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_DGPU_Message}"
+                        TextWrapping="Wrap" />
+                    <TextBlock
+                        Margin="0,4,0,24"
+                        FontWeight="Medium"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{x:Static resources:Resource.ExtendedHybridModeInfoWindow_DGPU_Disclaimer}"
+                        TextWrapping="Wrap" />
+                </StackPanel>
 
             </StackPanel>
         </ScrollViewer>

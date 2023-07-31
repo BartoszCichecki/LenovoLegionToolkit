@@ -110,6 +110,7 @@ public static class Compatibility
                 SupportsAlwaysOnAc = GetAlwaysOnAcStatus(),
                 SupportsGodModeV1 = GetSupportsGodModeV1(supportedPowerModes, smartFanVersion, legionZoneVersion, biosVersion),
                 SupportsGodModeV2 = GetSupportsGodModeV2(supportedPowerModes, smartFanVersion, legionZoneVersion),
+                SupportsGSync = await GetSupportsGSyncAsync().ConfigureAwait(false),
                 SupportsIGPUMode = await GetSupportsIGPUModeAsync().ConfigureAwait(false),
                 SupportsAIMode = await GetSupportsAIModeAsync().ConfigureAwait(false),
                 HasQuietToPerformanceModeSwitchingBug = GetHasQuietToPerformanceModeSwitchingBug(biosVersion),
@@ -143,6 +144,7 @@ public static class Compatibility
             Log.Instance.Trace($"     * SupportsAlwaysOnAc: '{machineInformation.Properties.SupportsAlwaysOnAc.status}, {machineInformation.Properties.SupportsAlwaysOnAc.connectivity}'");
             Log.Instance.Trace($"     * SupportsGodModeV1: '{machineInformation.Properties.SupportsGodModeV1}'");
             Log.Instance.Trace($"     * SupportsGodModeV2: '{machineInformation.Properties.SupportsGodModeV2}'");
+            Log.Instance.Trace($"     * SupportsGSync: '{machineInformation.Properties.SupportsGSync}'");
             Log.Instance.Trace($"     * SupportsIGPUMode: '{machineInformation.Properties.SupportsIGPUMode}'");
             Log.Instance.Trace($"     * SupportsAIMode: '{machineInformation.Properties.SupportsAIMode}'");
             Log.Instance.Trace($"     * HasQuietToPerformanceModeSwitchingBug: '{machineInformation.Properties.HasQuietToPerformanceModeSwitchingBug}'");
@@ -328,6 +330,18 @@ public static class Compatibility
             return false;
 
         return smartFanVersion is 6 || legionZoneVersion is 3;
+    }
+
+    private static async Task<bool> GetSupportsGSyncAsync()
+    {
+        try
+        {
+            return await WMI.LenovoGameZoneData.IsSupportGSyncAsync().ConfigureAwait(false) > 0;
+        }
+        catch
+        {
+            return false;
+        }
     }
 
     private static async Task<bool> GetSupportsIGPUModeAsync()
