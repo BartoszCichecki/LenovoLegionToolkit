@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
-using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.System.Management;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features.Hybrid;
@@ -28,7 +28,7 @@ public class IGPUModeFeatureFlagsFeature : IFeature<IGPUModeState>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting state...");
 
-        var flags = await GetFlagsAsync().ConfigureAwait(false);
+        var flags = await WMI.LenovoOtherMethod.GetDeviceCurrentSupportFeatureAsync().ConfigureAwait(false);
 
         var result = IGPUModeState.Default;
 
@@ -49,7 +49,7 @@ public class IGPUModeFeatureFlagsFeature : IFeature<IGPUModeState>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Setting state to {state}...");
 
-        var result = await SetFlagAsync(1, (int)state).ConfigureAwait(false);
+        var result = await WMI.LenovoOtherMethod.SetDeviceCurrentSupportFeatureAsync(1, (int)state).ConfigureAwait(false);
         if (result == 0)
         {
             if (Log.Instance.IsTraceEnabled)
@@ -61,20 +61,4 @@ public class IGPUModeFeatureFlagsFeature : IFeature<IGPUModeState>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Set state to {state}");
     }
-
-    private static Task<int> GetFlagsAsync() => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_OTHER_METHOD",
-        "Get_Device_Current_Support_Feature",
-        new(),
-        pdc => Convert.ToInt32(pdc["Flag"].Value));
-
-    private static Task<int> SetFlagAsync(int flag, int value) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_OTHER_METHOD",
-        "Set_Device_Current_Support_Feature",
-        new()
-        {
-            { "FunctionID", flag },
-            { "value", value }
-        },
-        pdc => Convert.ToInt32(pdc["ret"].Value));
 }

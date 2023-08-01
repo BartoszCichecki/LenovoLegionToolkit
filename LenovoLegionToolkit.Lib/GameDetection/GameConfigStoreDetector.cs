@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 
-namespace LenovoLegionToolkit.Lib.Automation.GameDetection;
+namespace LenovoLegionToolkit.Lib.GameDetection;
 
-internal class GameDetector
+internal class GameConfigStoreDetector
 {
     private const string GAME_CONFIG_STORE_HIVE = "HKEY_CURRENT_USER";
     private const string GAME_CONFIG_STORE_PATH = @"System\GameConfigStore\Children";
@@ -57,7 +57,7 @@ internal class GameDetector
     public async Task StopAsync()
     {
         if (_listener != null)
-            await _listener.DisposeAsync();
+            await _listener.DisposeAsync().ConfigureAwait(false);
         _listener = null;
     }
 

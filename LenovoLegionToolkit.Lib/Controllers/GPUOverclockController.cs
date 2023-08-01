@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.System.Management;
 using LenovoLegionToolkit.Lib.Utils;
 using NvAPIWrapper.GPU;
 using NvAPIWrapper.Native;
@@ -67,7 +68,7 @@ public class GPUOverclockController
 
         try
         {
-            isSupported = await IsSupportGpuOC().ConfigureAwait(false);
+            isSupported = await WMI.LenovoGameZoneData.IsSupportGpuOCAsync().ConfigureAwait(false) > 0;
 
             if (!isSupported)
             {
@@ -198,12 +199,6 @@ public class GPUOverclockController
         GPUMemoryMaker.Samsung => 1000,
         _ => 500
     };
-
-    private static Task<bool> IsSupportGpuOC() => WMI.CallAsync("ROOT\\WMI",
-        $"SELECT * FROM LENOVO_GAMEZONE_DATA",
-        "IsSupportGpuOC",
-        new(),
-        pdc => !pdc["Data"].Value.Equals(0));
 
     private static void SetOverclockInfo(PhysicalGPU gpu, GPUOverclockInfo info)
     {

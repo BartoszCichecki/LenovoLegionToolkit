@@ -5,10 +5,8 @@ using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.SoftwareDisabler;
-using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.System.Management;
 using LenovoLegionToolkit.Lib.Utils;
-
-// ReSharper disable StringLiteralTypo
 
 namespace LenovoLegionToolkit.Lib.Controllers.GodMode;
 
@@ -271,11 +269,7 @@ public class GodModeControllerV1 : AbstractGodModeController
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Getting defaults in other power modes...");
 
-            var defaultValues = await GetDefaultValuesInDifferentModeAsync().ConfigureAwait(false);
-            var result = defaultValues
-                .Where(d => d.powerMode is PowerModeState.Quiet or PowerModeState.Balance or PowerModeState.Performance)
-                .DistinctBy(d => d.powerMode)
-                .ToDictionary(d => d.powerMode, d => d.defaults);
+            var result = await GetDefaultValuesInDifferentModeAsync().ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
             {
@@ -301,11 +295,7 @@ public class GodModeControllerV1 : AbstractGodModeController
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Restoring defaults for {state}...");
 
-            var defaultValues = await GetDefaultValuesInDifferentModeAsync().ConfigureAwait(false);
-            var result = defaultValues
-                .Where(d => d.powerMode is PowerModeState.Quiet or PowerModeState.Balance or PowerModeState.Performance)
-                .DistinctBy(d => d.powerMode)
-                .ToDictionary(d => d.powerMode, d => d.defaults);
+            var result = await GetDefaultValuesInDifferentModeAsync().ConfigureAwait(false);
 
             if (!result.TryGetValue(state, out var defaults))
             {
@@ -465,15 +455,15 @@ public class GodModeControllerV1 : AbstractGodModeController
         var preset = new GodModePreset
         {
             Name = "Default",
-            CPULongTermPowerLimit = await GetCPULongTermPowerLimitAsync().ConfigureAwait(false).OrNullIfException(),
-            CPUShortTermPowerLimit = await GetCPUShortTermPowerLimitAsync().ConfigureAwait(false).OrNullIfException(),
-            CPUPeakPowerLimit = await GetCPUPeakPowerLimitAsync().ConfigureAwait(false).OrNullIfException(),
-            CPUCrossLoadingPowerLimit = await GetCPUCrossLoadingPowerLimitAsync().ConfigureAwait(false).OrNullIfException(),
-            APUsPPTPowerLimit = await GetAPUSPPTPowerLimitAsync().ConfigureAwait(false).OrNullIfException(),
-            CPUTemperatureLimit = await GetCPUTemperatureLimitAsync().ConfigureAwait(false).OrNullIfException(),
-            GPUPowerBoost = await GetGPUPowerBoost().ConfigureAwait(false).OrNullIfException(),
-            GPUConfigurableTGP = await GetGPUConfigurableTGPAsync().ConfigureAwait(false).OrNullIfException(),
-            GPUTemperatureLimit = await GetGPUTemperatureLimitAsync().ConfigureAwait(false).OrNullIfException(),
+            CPULongTermPowerLimit = await GetCPULongTermPowerLimitAsync().OrNullIfException().ConfigureAwait(false),
+            CPUShortTermPowerLimit = await GetCPUShortTermPowerLimitAsync().OrNullIfException().ConfigureAwait(false),
+            CPUPeakPowerLimit = await GetCPUPeakPowerLimitAsync().OrNullIfException().ConfigureAwait(false),
+            CPUCrossLoadingPowerLimit = await GetCPUCrossLoadingPowerLimitAsync().OrNullIfException().ConfigureAwait(false),
+            APUsPPTPowerLimit = await GetAPUSPPTPowerLimitAsync().OrNullIfException().ConfigureAwait(false),
+            CPUTemperatureLimit = await GetCPUTemperatureLimitAsync().OrNullIfException().ConfigureAwait(false),
+            GPUPowerBoost = await GetGPUPowerBoost().OrNullIfException().ConfigureAwait(false),
+            GPUConfigurableTGP = await GetGPUConfigurableTGPAsync().OrNullIfException().ConfigureAwait(false),
+            GPUTemperatureLimit = await GetGPUTemperatureLimitAsync().OrNullIfException().ConfigureAwait(false),
             FanTableInfo = fanTableData is null ? null : new FanTableInfo(fanTableData, await GetDefaultFanTableAsync().ConfigureAwait(false)),
             FanFullSpeed = await GetFanFullSpeedAsync().ConfigureAwait(false),
             MinValueOffset = 0,
@@ -490,33 +480,12 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     private static async Task<StepperValue> GetCPULongTermPowerLimitAsync()
     {
-        var defaultValue = await WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_CPU_METHOD",
-            "CPU_Get_Default_PowerLimit",
-            new(),
-            pdc => Convert.ToInt32(pdc["DefaultLongTermPowerlimit"].Value)).ConfigureAwait(false).OrNullIfException();
-
-        var stepperValue = await WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_CPU_METHOD",
-            "CPU_Get_LongTerm_PowerLimit",
-            new(),
-            pdc =>
-            {
-                var value = Convert.ToInt32(pdc["CurrentLongTerm_PowerLimit"].Value);
-                var min = Convert.ToInt32(pdc["MinLongTerm_PowerLimit"].Value);
-                var max = Convert.ToInt32(pdc["MaxLongTerm_PowerLimit"].Value);
-                var step = Convert.ToInt32(pdc["step"].Value);
-
-                return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
-            }).ConfigureAwait(false);
-
-        return stepperValue;
+        var defaultValue = await WMI.LenovoCpuMethod.CPUGetDefaultPowerLimitAsync().OrNullIfException().ConfigureAwait(false);
+        var (value, min, max, step) = await WMI.LenovoCpuMethod.CPUGetLongTermPowerLimitAsync().ConfigureAwait(false);
+        return new(value, min, max, step, Array.Empty<int>(), defaultValue?.longTerm);
     }
 
-    private static Task SetCPULongTermPowerLimitAsync(int value) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_CPU_METHOD",
-        "CPU_Set_LongTerm_PowerLimit",
-        new() { { "value", value } });
+    private static Task SetCPULongTermPowerLimitAsync(int value) => WMI.LenovoCpuMethod.CPUSetLongTermPowerLimitAsync(value);
 
     #endregion
 
@@ -524,129 +493,60 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     private static async Task<StepperValue> GetCPUShortTermPowerLimitAsync()
     {
-        var defaultValue = await WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_CPU_METHOD",
-            "CPU_Get_Default_PowerLimit",
-            new(),
-            pdc => Convert.ToInt32(pdc["DefaultShortTermPowerlimit"].Value)).ConfigureAwait(false).OrNullIfException();
-
-        var stepperValue = await WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_CPU_METHOD",
-            "CPU_Get_ShortTerm_PowerLimit",
-            new(),
-            pdc =>
-            {
-                var value = Convert.ToInt32(pdc["CurrentShortTerm_PowerLimit"].Value);
-                var min = Convert.ToInt32(pdc["MinShortTerm_PowerLimit"].Value);
-                var max = Convert.ToInt32(pdc["MaxShortTerm_PowerLimit"].Value);
-                var step = Convert.ToInt32(pdc["step"].Value);
-
-                return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
-            }).ConfigureAwait(false);
-
-        return stepperValue;
+        var defaultValue = await WMI.LenovoCpuMethod.CPUGetDefaultPowerLimitAsync().OrNullIfException().ConfigureAwait(false);
+        var (value, min, max, step) = await WMI.LenovoCpuMethod.CPUGetShortTermPowerLimitAsync().ConfigureAwait(false);
+        return new(value, min, max, step, Array.Empty<int>(), defaultValue?.shortTerm);
     }
 
-    private static Task SetCPUShortTermPowerLimitAsync(int value) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_CPU_METHOD",
-        "CPU_Set_ShortTerm_PowerLimit",
-        new() { { "value", value } });
+    private static Task SetCPUShortTermPowerLimitAsync(int value) => WMI.LenovoCpuMethod.CPUSetShortTermPowerLimitAsync(value);
 
     #endregion
 
     #region CPU Peak Power Limit
 
-    private static Task<StepperValue> GetCPUPeakPowerLimitAsync() => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_CPU_METHOD",
-        "CPU_Get_Peak_PowerLimit",
-        new(),
-        pdc =>
-        {
-            var value = Convert.ToInt32(pdc["CurrentPeakPowerLimit"].Value);
-            var min = Convert.ToInt32(pdc["MinPeakPowerLimit"].Value);
-            var max = Convert.ToInt32(pdc["MaxPeakPowerLimit"].Value);
-            var step = Convert.ToInt32(pdc["step"].Value);
-            var defaultValue = Convert.ToInt32(pdc["DefaultPeakPowerLimit"].Value);
+    private static async Task<StepperValue> GetCPUPeakPowerLimitAsync()
+    {
+        var (value, min, max, step, defaultValue) = await WMI.LenovoCpuMethod.CPUGetPeakPowerLimitAsync().ConfigureAwait(false);
+        return new(value, min, max, step, Array.Empty<int>(), defaultValue);
+    }
 
-            return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
-        });
-
-    private static Task SetCPUPeakPowerLimitAsync(int value) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_CPU_METHOD",
-        "CPU_Set_Peak_PowerLimit",
-        new() { { "CurrentPeakPowerLimit", value } });
+    private static Task SetCPUPeakPowerLimitAsync(int value) => WMI.LenovoCpuMethod.CPUSetPeakPowerLimitAsync(value);
 
     #endregion
 
     #region CPU Cross Loading Power Limit
 
-    private static Task<StepperValue> GetCPUCrossLoadingPowerLimitAsync() => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_CPU_METHOD",
-        "CPU_Get_Cross_Loading_PowerLimit",
-        new(),
-        pdc =>
-        {
-            var value = Convert.ToInt32(pdc["CurrentCpuCrossLoading"].Value);
-            var min = Convert.ToInt32(pdc["MinCpuCrossLoading"].Value);
-            var max = Convert.ToInt32(pdc["MaxCpuCrossLoading"].Value);
-            var step = Convert.ToInt32(pdc["step"].Value);
-            var defaultValue = Convert.ToInt32(pdc["DefaultCpuCrossLoading"].Value);
+    private static async Task<StepperValue> GetCPUCrossLoadingPowerLimitAsync()
+    {
+        var (value, min, max, step, defaultValue) = await WMI.LenovoCpuMethod.CPUGetCrossLoadingPowerLimitAsync().ConfigureAwait(false);
+        return new(value, min, max, step, Array.Empty<int>(), defaultValue);
+    }
 
-            return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
-        });
-
-    private static Task SetCPUCrossLoadingPowerLimitAsync(int value) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_CPU_METHOD",
-        "CPU_Set_Cross_Loading_PowerLimit",
-        new() { { "CurrentCpuCrossLoading", value } });
+    private static Task SetCPUCrossLoadingPowerLimitAsync(int value) => WMI.LenovoCpuMethod.CPUSetCrossLoadingPowerLimitAsync(value);
 
     #endregion
 
     #region APU sPPT Power Limit
 
-    private static Task<StepperValue> GetAPUSPPTPowerLimitAsync() => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_CPU_METHOD",
-        "Get_APU_sPPT_PowerLimit",
-        new(),
-        pdc =>
-        {
-            var value = Convert.ToInt32(pdc["CurrenAPUsPPTPowerLimit"].Value);
-            var min = Convert.ToInt32(pdc["MinAPUsPPTPowerLimit"].Value);
-            var max = Convert.ToInt32(pdc["MaxAPUsPPTPowerLimit"].Value);
-            var step = Convert.ToInt32(pdc["step"].Value);
-            var defaultValue = Convert.ToInt32(pdc["DefaultAPUsPPTPowerLimit"].Value);
+    private static async Task<StepperValue> GetAPUSPPTPowerLimitAsync()
+    {
+        var (value, min, max, step, defaultValue) = await WMI.LenovoCpuMethod.GetAPUSPPTPowerLimitAsync().ConfigureAwait(false);
+        return new(value, min, max, step, Array.Empty<int>(), defaultValue);
+    }
 
-            return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
-        });
-
-    private static Task SetAPUSPPTPowerLimitAsync(int value) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_CPU_METHOD",
-        "Set_APU_sPPT_PowerLimit",
-        new() { { "CurrentAPUsPPTPowerLimit", value } });
+    private static Task SetAPUSPPTPowerLimitAsync(int value) => WMI.LenovoCpuMethod.SetAPUSPPTPowerLimitAsync(value);
 
     #endregion
 
     #region CPU Temperature Limit
 
-    private static Task<StepperValue> GetCPUTemperatureLimitAsync() => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_CPU_METHOD",
-        "CPU_Get_Temperature_Control",
-        new(),
-        pdc =>
-        {
-            var value = Convert.ToInt32(pdc["CurrentTemperatueControl"].Value);
-            var min = Convert.ToInt32(pdc["MinTemperatueControl"].Value);
-            var max = Convert.ToInt32(pdc["MaxTemperatueControl"].Value);
-            var step = Convert.ToInt32(pdc["step"].Value);
-            var defaultValue = Convert.ToInt32(pdc["DefaultTemperatueControl"].Value);
+    private static async Task<StepperValue> GetCPUTemperatureLimitAsync()
+    {
+        var (value, min, max, step, defaultValue) = await WMI.LenovoCpuMethod.CPUGetTemperatureControlAsync().ConfigureAwait(false);
+        return new(value, min, max, step, Array.Empty<int>(), defaultValue);
+    }
 
-            return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
-        });
-
-    private static Task SetCPUTemperatureLimitAsync(int value) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_CPU_METHOD",
-        "CPU_Set_Temperature_Control",
-        new() { { "CurrentTemperatureControl", value } });
+    private static Task SetCPUTemperatureLimitAsync(int value) => WMI.LenovoCpuMethod.CPUSetTemperatureControlAsync(value);
 
     #endregion
 
@@ -654,33 +554,12 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     private static async Task<StepperValue> GetGPUConfigurableTGPAsync()
     {
-        var defaultValue = await WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_GPU_METHOD",
-            "GPU_Get_Default_PPAB_cTGP_PowerLimit",
-            new(),
-            pdc => Convert.ToInt32(pdc["Default_cTGP_Powerlimit"].Value)).ConfigureAwait(false).OrNullIfException();
-
-        var stepperValue = await WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_GPU_METHOD",
-            "GPU_Get_cTGP_PowerLimit",
-            new(),
-            pdc =>
-            {
-                var value = Convert.ToInt32(pdc["Current_cTGP_PowerLimit"].Value);
-                var min = Convert.ToInt32(pdc["Min_cTGP_PowerLimit"].Value);
-                var max = Convert.ToInt32(pdc["Max_cTGP_PowerLimit"].Value);
-                var step = Convert.ToInt32(pdc["step"].Value);
-
-                return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
-            }).ConfigureAwait(false);
-
-        return stepperValue;
+        var defaultValue = await WMI.LenovoGpuMethod.GPUGetDefaultPPABcTGPPowerLimit().OrNullIfException().ConfigureAwait(false);
+        var (value, min, max, step) = await WMI.LenovoGpuMethod.GPUGetCTGPPowerLimitAsync().ConfigureAwait(false);
+        return new(value, min, max, step, Array.Empty<int>(), defaultValue?.ctgp);
     }
 
-    private static Task SetGPUConfigurableTGPAsync(int value) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_GPU_METHOD",
-        "GPU_Set_cTGP_PowerLimit",
-        new() { { "value", value } });
+    private static Task SetGPUConfigurableTGPAsync(int value) => WMI.LenovoGpuMethod.GPUSetCTGPPowerLimitAsync(value);
 
     #endregion
 
@@ -688,57 +567,24 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     private static async Task<StepperValue> GetGPUPowerBoost()
     {
-        var defaultValue = await WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_GPU_METHOD",
-            "GPU_Get_Default_PPAB_cTGP_PowerLimit",
-            new(),
-            pdc => Convert.ToInt32(pdc["Default_PPAB_Powerlimit"].Value)).ConfigureAwait(false).OrNullIfException();
-
-        var stepperValue = await WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_GPU_METHOD",
-            "GPU_Get_PPAB_PowerLimit",
-            new(),
-            pdc =>
-            {
-                var value = Convert.ToInt32(pdc["CurrentPPAB_PowerLimit"].Value);
-                var min = Convert.ToInt32(pdc["MinPPAB_PowerLimit"].Value);
-                var max = Convert.ToInt32(pdc["MaxPPAB_PowerLimit"].Value);
-                var step = Convert.ToInt32(pdc["step"].Value);
-
-                return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
-            }).ConfigureAwait(false);
-
-        return stepperValue;
+        var defaultValue = await WMI.LenovoGpuMethod.GPUGetDefaultPPABcTGPPowerLimit().OrNullIfException().ConfigureAwait(false);
+        var (value, min, max, step) = await WMI.LenovoGpuMethod.GPUGetPPABPowerLimitAsync().ConfigureAwait(false);
+        return new(value, min, max, step, Array.Empty<int>(), defaultValue?.ppab);
     }
 
-    private static Task SetGPUPowerBoostAsync(int value) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_GPU_METHOD",
-        "GPU_Set_PPAB_PowerLimit",
-        new() { { "value", value } });
+    private static Task SetGPUPowerBoostAsync(int value) => WMI.LenovoGpuMethod.GPUSetPPABPowerLimitAsync(value);
 
     #endregion
 
     #region GPU Temperature Limit
 
-    private static Task<StepperValue> GetGPUTemperatureLimitAsync() => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_GPU_METHOD",
-        "GPU_Get_Temperature_Limit",
-        new(),
-        pdc =>
-        {
-            var value = Convert.ToInt32(pdc["CurrentTemperatueLimit"].Value);
-            var min = Convert.ToInt32(pdc["MinTemperatueLimit"].Value);
-            var max = Convert.ToInt32(pdc["MaxTemperatueLimit"].Value);
-            var step = Convert.ToInt32(pdc["step"].Value);
-            var defaultValue = Convert.ToInt32(pdc["DefaultTemperatueLimit"].Value);
+    private static async Task<StepperValue> GetGPUTemperatureLimitAsync()
+    {
+        var (value, min, max, step, defaultValue) = await WMI.LenovoGpuMethod.GPUGetTemperatureLimitAsync().ConfigureAwait(false);
+        return new(value, min, max, step, Array.Empty<int>(), defaultValue);
+    }
 
-            return new StepperValue(value, min, max, step, Array.Empty<int>(), defaultValue);
-        });
-
-    private static Task SetGPUTemperatureLimitAsync(int value) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_GPU_METHOD",
-        "GPU_Set_Temperature_Limit",
-        new() { { "CurrentTemperatureLimit", value } });
+    private static Task SetGPUTemperatureLimitAsync(int value) => WMI.LenovoGpuMethod.GPUSetTemperatureLimitAsync(value);
 
     #endregion
 
@@ -749,34 +595,24 @@ public class GodModeControllerV1 : AbstractGodModeController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Reading fan table data...");
 
-        var data = await WMI.ReadAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_FAN_TABLE_DATA",
-            pdc =>
-            {
-                var fanId = Convert.ToByte(pdc["Fan_Id"].Value);
-                var sensorId = Convert.ToByte(pdc["Sensor_ID"].Value);
-                var fanSpeeds = (ushort[]?)pdc["FanTable_Data"].Value ?? Array.Empty<ushort>();
-                var temps = (ushort[]?)pdc["SensorTable_Data"].Value ?? Array.Empty<ushort>();
+        var data = await WMI.LenovoFanTableData.ReadAsync().ConfigureAwait(false);
 
-                var type = (fanId, sensorId) switch
+        var fanTableData = data
+            .Select(d => new FanTableData
+            {
+                Type = (d.fanId, d.sensorId) switch
                 {
                     (0, 3) => FanTableType.CPU,
                     (1, 4) => FanTableType.GPU,
                     (0, 0) => FanTableType.CPUSensor,
                     _ => FanTableType.Unknown,
-                };
-
-                return new FanTableData
-                {
-                    Type = type,
-                    FanId = fanId,
-                    SensorId = sensorId,
-                    FanSpeeds = fanSpeeds,
-                    Temps = temps
-                };
-            }).ConfigureAwait(false);
-
-        var fanTableData = data.ToArray();
+                },
+                FanId = d.fanId,
+                SensorId = d.sensorId,
+                FanSpeeds = d.fanTableData,
+                Temps = d.sensorTableData
+            })
+            .ToArray();
 
         if (fanTableData.Length != 3)
         {
@@ -808,56 +644,47 @@ public class GodModeControllerV1 : AbstractGodModeController
         return fanTableData;
     }
 
-    private static Task SetFanTable(FanTable fanTable) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_FAN_METHOD",
-        "Fan_Set_Table",
-        new() { { "FanTable", fanTable.GetBytes() } });
+    private static Task SetFanTable(FanTable fanTable) => WMI.LenovoFanMethod.FanSetTableAsync(fanTable.GetBytes());
 
     #endregion
 
     #region Fan Full Speed
 
-    private static Task<bool> GetFanFullSpeedAsync() => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_FAN_METHOD",
-        "Fan_Get_FullSpeed",
-        new(),
-        pdc => (bool)pdc["Status"].Value);
+    private static Task<bool> GetFanFullSpeedAsync() => WMI.LenovoFanMethod.FanGetFullSpeedAsync();
 
-    private static Task SetFanFullSpeedAsync(bool enabled) => WMI.CallAsync("root\\WMI",
-        $"SELECT * FROM LENOVO_FAN_METHOD",
-        "Fan_Set_FullSpeed",
-        new() { { "Status", enabled ? 1 : 0 } });
+    private static Task SetFanFullSpeedAsync(bool enabled) => WMI.LenovoFanMethod.FanSetFullSpeedAsync(enabled ? 1 : 0);
 
     #endregion
 
     #region Default values
 
-    private async Task<IEnumerable<(PowerModeState powerMode, GodModeDefaults defaults)>> GetDefaultValuesInDifferentModeAsync()
+    private async Task<Dictionary<PowerModeState, GodModeDefaults>> GetDefaultValuesInDifferentModeAsync()
     {
         var defaultFanTableAsync = await GetDefaultFanTableAsync().ConfigureAwait(false);
 
-        var result = await WMI.ReadAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_DEFAULT_VALUE_IN_DIFFERENT_MODE_DATA ",
-            pdc =>
+        var result = await WMI.LenovoDefaultValueInDifferentModeData.ReadAsync().ConfigureAwait(false);
+        return result.Select(d =>
             {
-                var mode = (PowerModeState)Convert.ToInt32(pdc["mode"].Value) - 1;
-
-                return (mode, new GodModeDefaults
+                var powerMode = (PowerModeState)(d.Mode - 1);
+                var defaults = new GodModeDefaults
                 {
-                    CPULongTermPowerLimit = Convert.ToInt32(pdc["DefaultLongTermPowerlimit"].Value),
-                    CPUShortTermPowerLimit = Convert.ToInt32(pdc["DefaultShortTermPowerlimit"].Value),
-                    CPUPeakPowerLimit = Convert.ToInt32(pdc["DefaultPeakPowerLimit"].Value),
-                    CPUCrossLoadingPowerLimit = Convert.ToInt32(pdc["DefaultCpuCrossLoading"].Value),
-                    APUsPPTPowerLimit = Convert.ToInt32(pdc["DefaultAPUsPPTPowerLimit"].Value),
-                    CPUTemperatureLimit = Convert.ToInt32(pdc["DefaultTemperatueControl"].Value),
-                    GPUPowerBoost = Convert.ToInt32(pdc["Default_PPAB_Powerlimit"].Value),
-                    GPUConfigurableTGP = Convert.ToInt32(pdc["Default_cTGP_Powerlimit"].Value),
-                    GPUTemperatureLimit = Convert.ToInt32(pdc["DefaultTemperatueLimit"].Value),
+                    CPULongTermPowerLimit = d.CPULongTermPowerLimit,
+                    CPUShortTermPowerLimit = d.CPUShortTermPowerLimit,
+                    CPUPeakPowerLimit = d.CPUPeakPowerLimit,
+                    CPUCrossLoadingPowerLimit = d.CPUCrossLoadingPowerLimit,
+                    APUsPPTPowerLimit = d.APUsPPTPowerLimit,
+                    CPUTemperatureLimit = d.CPUTemperatureLimit,
+                    GPUPowerBoost = d.GPUPowerBoost,
+                    GPUConfigurableTGP = d.GPUConfigurableTGP,
+                    GPUTemperatureLimit = d.GPUTemperatureLimit,
                     FanTable = defaultFanTableAsync,
                     FanFullSpeed = false
-                });
-            }).ConfigureAwait(false);
-        return result;
+                };
+                return (powerMode, defaults);
+            })
+            .Where(d => d.powerMode is PowerModeState.Quiet or PowerModeState.Balance or PowerModeState.Performance)
+            .DistinctBy(d => d.powerMode)
+            .ToDictionary(d => d.powerMode, d => d.defaults);
     }
 
     #endregion

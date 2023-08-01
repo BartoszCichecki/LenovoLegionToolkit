@@ -106,6 +106,8 @@ public partial class App
         await InitGpuOverclockControllerAsync();
         await InitAutomationProcessorAsync();
 
+        await IoCContainer.Resolve<AIController>().StartIfNeededAsync();
+
 #if !DEBUG
         Autorun.Validate();
 #endif
@@ -165,8 +167,8 @@ public partial class App
     {
         try
         {
-            if (IoCContainer.TryResolve<PowerModeFeature>() is { } powerModeFeature)
-                await powerModeFeature.EnsureAiModeIsOffAsync();
+            if (IoCContainer.TryResolve<AIController>() is { } aiController)
+                await aiController.StopAsync();
         }
         catch {  /* Ignored. */ }
 
@@ -353,23 +355,6 @@ public partial class App
 
     private static async Task InitPowerModeFeatureAsync()
     {
-        try
-        {
-            var feature = IoCContainer.Resolve<PowerModeFeature>();
-            if (await feature.IsSupportedAsync())
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Ensuring AI Mode is set...");
-
-                await feature.EnsureAiModeIsSetAsync();
-            }
-        }
-        catch (Exception ex)
-        {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Couldn't set AI Mode.", ex);
-        }
-
         try
         {
             var feature = IoCContainer.Resolve<PowerModeFeature>();

@@ -25,8 +25,8 @@ public class WarrantyChecker
 
         using var httpClient = new HttpClient();
 
-        var warrantyInfo = await GetStandardWarrantyInfo(httpClient, machineInformation, token);
-        warrantyInfo ??= await GetChineseWarrantyInfo(httpClient, machineInformation, token);
+        var warrantyInfo = await GetStandardWarrantyInfo(httpClient, machineInformation, token).ConfigureAwait(false);
+        warrantyInfo ??= await GetChineseWarrantyInfo(httpClient, machineInformation, token).ConfigureAwait(false);
 
         _settings.Store.WarrantyInfo = warrantyInfo;
         _settings.SynchronizeStore();
@@ -37,7 +37,7 @@ public class WarrantyChecker
     private static async Task<WarrantyInfo?> GetStandardWarrantyInfo(HttpClient httpClient, MachineInformation machineInformation, CancellationToken token)
     {
         var content = JsonContent.Create(new { serialNumber = machineInformation.SerialNumber, machineType = machineInformation.MachineType });
-        var response = await httpClient.PostAsync("https://pcsupport.lenovo.com/dk/en/api/v4/upsell/redport/getIbaseInfo", content, token);
+        var response = await httpClient.PostAsync("https://pcsupport.lenovo.com/dk/en/api/v4/upsell/redport/getIbaseInfo", content, token).ConfigureAwait(false);
         var responseContent = await response.Content.ReadAsStringAsync(token).ConfigureAwait(false);
         var node = JsonNode.Parse(responseContent);
 

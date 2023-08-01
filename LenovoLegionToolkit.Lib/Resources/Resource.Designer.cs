@@ -216,24 +216,6 @@ namespace LenovoLegionToolkit.Lib.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Off.
         /// </summary>
-        public static string GSyncState_Off {
-            get {
-                return ResourceManager.GetString("GSyncState_Off", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to On.
-        /// </summary>
-        public static string GSyncState_On {
-            get {
-                return ResourceManager.GetString("GSyncState_On", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Off.
-        /// </summary>
         public static string HDRState_Off {
             get {
                 return ResourceManager.GetString("HDRState_Off", resourceCulture);

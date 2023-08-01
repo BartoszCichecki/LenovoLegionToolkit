@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.Automation.GameDetection;
 using LenovoLegionToolkit.Lib.Extensions;
-using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.Lib.GameDetection;
 using LenovoLegionToolkit.Lib.Utils;
 
-namespace LenovoLegionToolkit.Lib.Automation.Listeners;
+namespace LenovoLegionToolkit.Lib.AutoListeners;
 
-public class GameAutomationListener : IListener<bool>
+public class GameAutoListener : AbstractAutoListener<bool>
 {
     private class ProcessEqualityComparer : IEqualityComparer<Process>
     {
@@ -28,49 +27,47 @@ public class GameAutomationListener : IListener<bool>
 
     private static readonly object Lock = new();
 
-    public event EventHandler<bool>? Changed;
+    private readonly InstanceStartedEventAutoAutoListener _instanceStartedEventAutoAutoListener;
 
-    private readonly GameDetector _gameDetector;
-    private readonly InstanceEventListener _instanceCreationListener;
-    private readonly EffectiveGameModeListener _effectiveGameModeListener;
+    private readonly GameConfigStoreDetector _gameConfigStoreDetector;
+    private readonly EffectiveGameModeDetector _effectiveGameModeDetector;
 
     private readonly HashSet<ProcessInfo> _detectedGamePathsCache = new();
     private readonly HashSet<Process> _processCache = new(new ProcessEqualityComparer());
 
     private bool _lastState;
 
-    public GameAutomationListener()
+    public GameAutoListener(InstanceStartedEventAutoAutoListener instanceStartedEventAutoAutoListener)
     {
-        _gameDetector = new GameDetector();
-        _gameDetector.GamesDetected += GameDetector_GamesDetected;
+        _instanceStartedEventAutoAutoListener = instanceStartedEventAutoAutoListener ?? throw new ArgumentNullException(nameof(instanceStartedEventAutoAutoListener));
 
-        _instanceCreationListener = new InstanceEventListener(ProcessEventInfoType.Started, "Win32_ProcessStartTrace");
-        _instanceCreationListener.Changed += InstanceCreationListener_Changed;
+        _gameConfigStoreDetector = new GameConfigStoreDetector();
+        _gameConfigStoreDetector.GamesDetected += GameConfigStoreDetectorGamesConfigStoreDetected;
 
-        _effectiveGameModeListener = new EffectiveGameModeListener();
-        _effectiveGameModeListener.Changed += EffectiveGameModeListenerChanged;
+        _effectiveGameModeDetector = new EffectiveGameModeDetector();
+        _effectiveGameModeDetector.Changed += EffectiveGameModeDetectorChanged;
     }
 
-    public async Task StartAsync()
+    protected override async Task StartAsync()
     {
         lock (Lock)
         {
-            foreach (var gamePath in GameDetector.GetDetectedGamePaths())
+            foreach (var gamePath in GameConfigStoreDetector.GetDetectedGamePaths())
                 _detectedGamePathsCache.Add(gamePath);
         }
 
-        await _gameDetector.StartAsync().ConfigureAwait(false);
+        await _gameConfigStoreDetector.StartAsync().ConfigureAwait(false);
+        await _effectiveGameModeDetector.StartAsync().ConfigureAwait(false);
 
-        await _instanceCreationListener.StartAsync().ConfigureAwait(false);
-        await _effectiveGameModeListener.StartAsync().ConfigureAwait(false);
+        await _instanceStartedEventAutoAutoListener.SubscribeChangedAsync(InstanceStartedEventAutoAutoListener_Changed).ConfigureAwait(false);
     }
 
-    public async Task StopAsync()
+    protected override async Task StopAsync()
     {
-        await _gameDetector.StopAsync().ConfigureAwait(false);
+        await _instanceStartedEventAutoAutoListener.UnsubscribeChangedAsync(InstanceStartedEventAutoAutoListener_Changed).ConfigureAwait(false);
 
-        await _instanceCreationListener.StopAsync().ConfigureAwait(false);
-        await _effectiveGameModeListener.StopAsync().ConfigureAwait(false);
+        await _gameConfigStoreDetector.StopAsync().ConfigureAwait(false);
+        await _effectiveGameModeDetector.StopAsync().ConfigureAwait(false);
 
         lock (Lock)
         {
@@ -91,7 +88,7 @@ public class GameAutomationListener : IListener<bool>
         }
     }
 
-    private void GameDetector_GamesDetected(object? sender, GameDetector.GameDetectedEventArgs e)
+    private void GameConfigStoreDetectorGamesConfigStoreDetected(object? sender, GameConfigStoreDetector.GameDetectedEventArgs e)
     {
         lock (Lock)
         {
@@ -127,7 +124,22 @@ public class GameAutomationListener : IListener<bool>
         }
     }
 
-    private void InstanceCreationListener_Changed(object? sender, (ProcessEventInfoType type, int processId, string processName) e)
+    private void EffectiveGameModeDetectorChanged(object? sender, bool e)
+    {
+        lock (Lock)
+        {
+            if (_processCache.Any())
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Ignoring, process cache is not empty.");
+                return;
+            }
+
+            RaiseChangedIfNeeded(e);
+        }
+    }
+
+    private void InstanceStartedEventAutoAutoListener_Changed(object? sender, (int processId, string processName) e)
     {
         lock (Lock)
         {
@@ -170,21 +182,6 @@ public class GameAutomationListener : IListener<bool>
         }
     }
 
-    private void EffectiveGameModeListenerChanged(object? sender, bool e)
-    {
-        lock (Lock)
-        {
-            if (_processCache.Any())
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Ignoring, process cache is not empty.");
-                return;
-            }
-
-            RaiseChangedIfNeeded(e);
-        }
-    }
-
     private void RaiseChangedIfNeeded(bool newState)
     {
         lock (Lock)
@@ -194,7 +191,7 @@ public class GameAutomationListener : IListener<bool>
 
             _lastState = newState;
 
-            Changed?.Invoke(this, newState);
+            RaiseChanged(newState);
         }
     }
 

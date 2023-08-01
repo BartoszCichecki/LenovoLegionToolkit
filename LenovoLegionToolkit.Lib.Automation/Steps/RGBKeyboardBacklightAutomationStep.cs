@@ -18,7 +18,7 @@ public class RGBKeyboardBacklightAutomationStep : IAutomationStep<RGBKeyboardBac
 
     public async Task RunAsync(AutomationEnvironment _)
     {
-        if (!await _controller.IsSupportedAsync())
+        if (!await _controller.IsSupportedAsync().ConfigureAwait(false))
             return;
 
         await _controller.SetLightControlOwnerAsync(true).ConfigureAwait(false);

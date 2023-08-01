@@ -23,9 +23,9 @@ public static class HybridModeControlFactory
     public static async Task<AbstractRefreshingControl> GetControlAsync()
     {
         var mi = await Compatibility.GetMachineInformationAsync();
-        if (mi.Properties.SupportsIGPUMode)
-            return new ComboBoxHybridModeControl();
-        return new ToggleHybridModeControl();
+        return mi.Properties.SupportsIGPUMode
+            ? new ComboBoxHybridModeControl()
+            : new ToggleHybridModeControl();
     }
 
     private class ComboBoxHybridModeControl : AbstractComboBoxFeatureCardControl<HybridModeState>
@@ -39,7 +39,7 @@ public static class HybridModeControlFactory
             Margin = new(8, 0, 0, 0),
         };
 
-        public override TimeSpan AdditionalStateChangeDelay => TimeSpan.FromSeconds(5);
+        protected override TimeSpan AdditionalStateChangeDelay => TimeSpan.FromSeconds(5);
 
         public ComboBoxHybridModeControl()
         {
@@ -108,9 +108,10 @@ public static class HybridModeControlFactory
             SnackbarHelper.Show(e ? Resource.DGPU_Connected_Title : Resource.DGPU_Disconnected_Title, type: SnackbarType.Info);
         });
 
-        private void InfoButton_Click(object sender, RoutedEventArgs e)
+        private async void InfoButton_Click(object sender, RoutedEventArgs e)
         {
-            var window = new ExtendedHybridModeInfoWindow { Owner = Window.GetWindow(this) };
+            var states = await Feature.GetAllStatesAsync();
+            var window = new ExtendedHybridModeInfoWindow(states) { Owner = Window.GetWindow(this) };
             window.ShowDialog();
         }
     }

@@ -43,6 +43,7 @@ public enum CapabilityID
     AMDSkinTemperatureTracking = 0x00050002,
     SupportedPowerModes = 0x00070000,
     LegionZoneSupportVersion = 0x00090000,
+    AIChip = 0x000E0000,
     IGPUModeChangeStatus = 0x000F0000,
     CPUShortTermPowerLimit = 0x0101FF00,
     CPULongTermPowerLimit = 0x0102FF00,
@@ -101,10 +102,8 @@ public enum FnLockState
 
 public enum GSyncState
 {
-    [Display(ResourceType = typeof(Resource), Name = "GSyncState_On")]
-    On,
-    [Display(ResourceType = typeof(Resource), Name = "GSyncState_Off")]
-    Off
+    Off,
+    On
 }
 
 public enum HDRState

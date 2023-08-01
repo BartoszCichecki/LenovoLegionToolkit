@@ -8,12 +8,12 @@
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="{x:Static resources:Resource.BalanceModeSettingsWindow_Title}"
     MinWidth="400"
-    MinHeight="220"
+    MinHeight="0"
     MaxWidth="400"
-    MaxHeight="220"
     FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
     ResizeMode="NoResize"
     ShowInTaskbar="False"
+    SizeToContent="Height"
     WindowStartupLocation="CenterOwner">
     <Grid>
         <Grid.RowDefinitions>
@@ -44,12 +44,11 @@
                 FontSize="12"
                 IsHitTestVisible="False"
                 Text="{x:Static resources:Resource.BalanceModeSettingsWindow_Title}" />
-
         </Grid>
 
         <Grid Grid.Row="1" Margin="12,0,12,12">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
@@ -63,7 +62,7 @@
                     TextWrapping="Wrap" />
             </StackPanel>
 
-            <Grid Grid.Row="1" Margin="0,8,0,0">
+            <Grid Grid.Row="1" Margin="0,20,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
@@ -83,10 +82,7 @@
                     Margin="8,0,0,0"
                     Click="CancelButton_Click"
                     Content="{x:Static resources:Resource.Cancel}" />
-
             </Grid>
-
         </Grid>
-
     </Grid>
 </local:BaseWindow>

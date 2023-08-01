@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Linq;
-using System.Management;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.SoftwareDisabler;
+using LenovoLegionToolkit.Lib.System.Management;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
+public class SpecialKeyListener : AbstractWMIListener<SpecialKey, int>
 {
     private readonly ThrottleFirstDispatcher _refreshRateDispatcher = new(TimeSpan.FromSeconds(2), nameof(SpecialKeyListener));
 
@@ -18,23 +18,20 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey>
     private readonly FnKeysDisabler _fnKeysDisabler;
     private readonly RefreshRateFeature _refreshRateFeature;
 
-    public SpecialKeyListener(ApplicationSettings settings, FnKeysDisabler fnKeysDisabler, RefreshRateFeature feature) : base("ROOT\\WMI", "LENOVO_UTILITY_EVENT")
+    public SpecialKeyListener(ApplicationSettings settings, FnKeysDisabler fnKeysDisabler, RefreshRateFeature feature) : base(WMI.LenovoUtilityEvent.Listen)
     {
         _settings = settings ?? throw new ArgumentNullException(nameof(settings));
         _fnKeysDisabler = fnKeysDisabler ?? throw new ArgumentNullException(nameof(fnKeysDisabler));
         _refreshRateFeature = feature ?? throw new ArgumentNullException(nameof(feature));
     }
 
-    protected override SpecialKey GetValue(PropertyDataCollection properties)
+    protected override SpecialKey GetValue(int value)
     {
-        var property = properties["PressTypeDataVal"];
-        var propertyValue = Convert.ToInt32(property.Value);
-
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Event received. [value={propertyValue}]");
+            Log.Instance.Trace($"Event received. [value={value}]");
 
-        var value = (SpecialKey)propertyValue;
-        return value;
+        var result = (SpecialKey)value;
+        return result;
     }
 
     protected override Task OnChangedAsync(SpecialKey value) => value switch

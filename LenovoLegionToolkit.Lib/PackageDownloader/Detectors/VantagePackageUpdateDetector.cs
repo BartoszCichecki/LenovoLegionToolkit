@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Management;
+﻿using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
 using LenovoLegionToolkit.Lib.PackageDownloader.Detectors.Rules;
-using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.System.Management;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.PackageDownloader.Detectors;
@@ -17,32 +15,7 @@ internal class VantagePackageUpdateDetector
 
     public async Task BuildDriverInfoCache()
     {
-        var driverInfo = await WMI.ReadAsync("root\\CIMV2",
-            $"SELECT * FROM Win32_PnPSignedDriver",
-            pdc =>
-            {
-                var deviceId = pdc["DeviceID"].Value as string ?? string.Empty;
-                var hardwareId = pdc["HardWareId"].Value as string ?? string.Empty;
-                var driverVersionString = pdc["DriverVersion"].Value as string;
-                var driverDateString = pdc["DriverDate"].Value as string;
-
-                Version? driverVersion = null;
-                if (Version.TryParse(driverVersionString, out var v))
-                    driverVersion = v;
-
-                DateTime? driverDate = null;
-                if (driverDateString is not null)
-                    driverDate = ManagementDateTimeConverter.ToDateTime(driverDateString).Date;
-
-                return new DriverInfo
-                {
-                    DeviceId = deviceId,
-                    HardwareId = hardwareId,
-                    Version = driverVersion,
-                    Date = driverDate
-                };
-            });
-
+        var driverInfo = await WMI.Win32.PnpSignedDriver.ReadAsync().ConfigureAwait(false);
         _driverInfoCache.Clear();
         _driverInfoCache.AddRange(driverInfo);
     }
@@ -53,7 +26,7 @@ internal class VantagePackageUpdateDetector
         if (!dependenciesSatisfied)
             return false;
 
-        return await DetectInstallAsync(httpClient, document, baseLocation, token);
+        return await DetectInstallAsync(httpClient, document, baseLocation, token).ConfigureAwait(false);
     }
 
     private async Task<bool> CheckDependenciesSatisfiedAsync(HttpClient httpClient, XmlDocument document, string baseLocation, CancellationToken token)

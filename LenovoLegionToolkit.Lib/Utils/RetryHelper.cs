@@ -41,7 +41,7 @@ public static class RetryHelper
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Retrying {retries}/{maximumRetries}... [tag={tag}]");
 
-                await Task.Delay(timeout.Value);
+                await Task.Delay(timeout.Value).ConfigureAwait(false);
             }
         }
     }

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.System.Management;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features.InstantBoot;
@@ -27,14 +27,14 @@ public class InstantBootCapabilityFeature : IFeature<InstantBootState>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting state...");
 
-        var acAdapter = await GetFeatureValueAsync(CapabilityID.InstantBootAc).ConfigureAwait(false);
-        var usbPowerDelivery = await GetFeatureValueAsync(CapabilityID.InstantBootUsbPowerDelivery).ConfigureAwait(false);
+        var acAdapterValue = await WMI.LenovoOtherMethod.GetFeatureValueAsync(CapabilityID.InstantBootAc).ConfigureAwait(false);
+        var usbPowerDeliveryValue = await WMI.LenovoOtherMethod.GetFeatureValueAsync(CapabilityID.InstantBootUsbPowerDelivery).ConfigureAwait(false);
 
-        var result = (acAdapter, usbPowerDelivery) switch
+        var result = (acAdapterValue, usbPowerDeliveryValue) switch
         {
-            (true, true) => InstantBootState.AcAdapterAndUsbPowerDelivery,
-            (true, false) => InstantBootState.AcAdapter,
-            (false, true) => InstantBootState.UsbPowerDelivery,
+            (1, 1) => InstantBootState.AcAdapterAndUsbPowerDelivery,
+            (1, 0) => InstantBootState.AcAdapter,
+            (0, 1) => InstantBootState.UsbPowerDelivery,
             _ => InstantBootState.Off
         };
 
@@ -49,35 +49,18 @@ public class InstantBootCapabilityFeature : IFeature<InstantBootState>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Setting state to {state}...");
 
-        var (acAdapter, usbPowerDelivery) = state switch
+        var (acAdapterValue, usbPowerDeliveryValue) = state switch
         {
-            InstantBootState.AcAdapterAndUsbPowerDelivery => (true, true),
-            InstantBootState.AcAdapter => (true, false),
-            InstantBootState.UsbPowerDelivery => (false, true),
-            _ => (false, false)
+            InstantBootState.AcAdapterAndUsbPowerDelivery => (1, 1),
+            InstantBootState.AcAdapter => (1, 0),
+            InstantBootState.UsbPowerDelivery => (0, 1),
+            _ => (0, 0)
         };
 
-        await SetFeatureValueAsync(CapabilityID.InstantBootAc, acAdapter).ConfigureAwait(false);
-        await SetFeatureValueAsync(CapabilityID.InstantBootUsbPowerDelivery, usbPowerDelivery).ConfigureAwait(false);
+        await WMI.LenovoOtherMethod.SetFeatureValueAsync(CapabilityID.InstantBootAc, acAdapterValue).ConfigureAwait(false);
+        await WMI.LenovoOtherMethod.SetFeatureValueAsync(CapabilityID.InstantBootUsbPowerDelivery, usbPowerDeliveryValue).ConfigureAwait(false);
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Set state to {state}");
     }
-
-    private static Task<bool> GetFeatureValueAsync(CapabilityID id) =>
-        WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_OTHER_METHOD",
-            "GetFeatureValue",
-            new() { { "IDs", (int)id } },
-            pdc => Convert.ToInt32(pdc["Value"].Value) != 0);
-
-    private static Task SetFeatureValueAsync(CapabilityID id, bool value) =>
-        WMI.CallAsync("root\\WMI",
-            $"SELECT * FROM LENOVO_OTHER_METHOD",
-            "SetFeatureValue",
-            new()
-            {
-                { "IDs", (int)id },
-                { "value", value ? 1 : 0 }
-            });
 }

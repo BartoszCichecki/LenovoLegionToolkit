@@ -9,8 +9,6 @@ using LenovoLegionToolkit.Lib.Extensions;
 using Newtonsoft.Json;
 using Octokit;
 
-// ReSharper disable MemberCanBePrivate.Global
-
 namespace LenovoLegionToolkit.Lib;
 
 public readonly struct BatteryInformation
@@ -71,6 +69,18 @@ public readonly struct Brightness
     public byte Value { get; private init; }
 
     public static implicit operator Brightness(byte value) => new() { Value = value };
+}
+
+public readonly struct DiscreteCapability
+{
+    public CapabilityID Id { get; }
+    public int Value { get; }
+
+    public DiscreteCapability(CapabilityID id, int value)
+    {
+        Id = id;
+        Value = value;
+    }
 }
 
 public readonly struct DisplayAdvancedColorInfo
@@ -367,6 +377,7 @@ public readonly struct MachineInformation
 
         public SourceType Source { get; init; }
         public bool IGPUMode { get; init; }
+        public bool AIChip { get; init; }
         public bool FlipToStart { get; init; }
         public bool NvidiaGPUDynamicDisplaySwitching { get; init; }
         public bool InstantBootAc { get; init; }
@@ -382,8 +393,9 @@ public readonly struct MachineInformation
         public (bool status, bool connectivity) SupportsAlwaysOnAc { get; init; }
         public bool SupportsGodModeV1 { get; init; }
         public bool SupportsGodModeV2 { get; init; }
+        public bool SupportsGSync { get; init; }
         public bool SupportsIGPUMode { get; init; }
-        public bool SupportsIntelligentSubMode { get; init; }
+        public bool SupportsAIMode { get; init; }
         public bool HasQuietToPerformanceModeSwitchingBug { get; init; }
         public bool HasGodModeToOtherModeSwitchingBug { get; init; }
         public bool IsExcludedFromLenovoLighting { get; init; }
@@ -532,6 +544,24 @@ public readonly struct ProcessInfo : IComparable
     public static bool operator >=(ProcessInfo left, ProcessInfo right) => left.CompareTo(right) >= 0;
 
     #endregion
+}
+
+public readonly struct RangeCapability
+{
+    public CapabilityID Id { get; }
+    public int DefaultValue { get; }
+    public int Min { get; }
+    public int Max { get; }
+    public int Step { get; }
+
+    public RangeCapability(CapabilityID id, int defaultValue, int min, int max, int step)
+    {
+        Id = id;
+        DefaultValue = defaultValue;
+        Min = min;
+        Max = max;
+        Step = step;
+    }
 }
 
 public readonly struct RGBColor
@@ -766,8 +796,11 @@ public readonly struct RefreshRate : IDisplayName, IEquatable<RefreshRate>
 
 public readonly struct Resolution : IDisplayName, IEquatable<Resolution>, IComparable<Resolution>
 {
-    public int Width { get; }
-    public int Height { get; }
+    [JsonProperty]
+    private int Width { get; }
+
+    [JsonProperty]
+    private int Height { get; }
 
     [JsonIgnore]
     public string DisplayName => $"{Width} × {Height}";

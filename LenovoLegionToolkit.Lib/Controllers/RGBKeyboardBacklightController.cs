@@ -10,6 +10,7 @@ using NeoSmart.AsyncLock;
 using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32.SafeHandles;
 using LenovoLegionToolkit.Lib.SoftwareDisabler;
+using LenovoLegionToolkit.Lib.System.Management;
 
 #if !MOCK_RGB
 using System.Runtime.InteropServices;
@@ -72,10 +73,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                         Log.Instance.Trace($"Taking ownership...");
 
 #if !MOCK_RGB
-                    await WMI.CallAsync("ROOT\\WMI",
-                        $"SELECT * FROM LENOVO_GAMEZONE_DATA",
-                        "SetLightControlOwner",
-                        new() { { "Data", enable ? 1 : 0 } }).ConfigureAwait(false);
+                    await WMI.LenovoGameZoneData.SetLightControlOwnerAsync(enable ? 1 : 0).ConfigureAwait(false);
 #endif
 
                     if (Log.Instance.IsTraceEnabled)

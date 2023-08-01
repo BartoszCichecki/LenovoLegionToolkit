@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Utils;
 
-namespace LenovoLegionToolkit.Lib.System;
+namespace LenovoLegionToolkit.Lib.System.Management;
 
-public static class WMI
+public static partial class WMI
 {
-    public static async Task<bool> ExistsAsync(string scope, FormattableString query)
+    private static async Task<bool> ExistsAsync(string scope, FormattableString query)
     {
         try
         {
@@ -25,7 +25,7 @@ public static class WMI
         }
     }
 
-    public static IDisposable Listen(string scope, FormattableString query, Action<PropertyDataCollection> handler)
+    private static IDisposable Listen(string scope, FormattableString query, Action<PropertyDataCollection> handler)
     {
         var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
         var watcher = new ManagementEventWatcher(scope, queryFormatted);
@@ -39,7 +39,7 @@ public static class WMI
         });
     }
 
-    public static async Task<IEnumerable<T>> ReadAsync<T>(string scope, FormattableString query, Func<PropertyDataCollection, T> converter)
+    private static async Task<IEnumerable<T>> ReadAsync<T>(string scope, FormattableString query, Func<PropertyDataCollection, T> converter)
     {
         try
         {
@@ -55,7 +55,7 @@ public static class WMI
         }
     }
 
-    public static async Task CallAsync(string scope, FormattableString query, string methodName, Dictionary<string, object> methodParams)
+    private static async Task CallAsync(string scope, FormattableString query, string methodName, Dictionary<string, object> methodParams)
     {
         try
         {
@@ -77,7 +77,7 @@ public static class WMI
         }
     }
 
-    public static async Task<T> CallAsync<T>(string scope, FormattableString query, string methodName, Dictionary<string, object> methodParams, Func<PropertyDataCollection, T> converter)
+    private static async Task<T> CallAsync<T>(string scope, FormattableString query, string methodName, Dictionary<string, object> methodParams, Func<PropertyDataCollection, T> converter)
     {
         try
         {
