@@ -1367,6 +1367,9 @@ Uma reinicialização é recomendada após alterar esta opção.</value>
     <value>Permite alternar entre as GPU's integrada e dedicada.
 Requer reinicialização.</value>
   </data>
+  <data name="ToggleHybridModeControl_RestartRequired_Message" xml:space="preserve">
+    <value>Alterar o modo híbrido requer reinicialização. Deseja reiniciar agora?</value>
+  </data>
   <data name="ToggleHybridModeControl_RestartRequired_Title" xml:space="preserve">
     <value>Reinicialização necessária</value>
   </data>
@@ -1829,7 +1832,7 @@ AVISO: Esta ação não será executada corretamente caso a GPU dedicada não es
 	  <value>Inicialização instantânea</value>
   </data>
   <data name="InstantBootControl_Message" xml:space="preserve">
-	  <value>Ligue o notebook quando um carregador estiver conectado.</value>
+	  <value>Ligar o notebook quando um carregador estiver conectado.</value>
   </data>
   <data name="InstantBootAutomationStepControl_Title" xml:space="preserve">
 	  <value>Inicialização instantânea</value>
@@ -1870,5 +1873,11 @@ AVISO: Esta ação não será executada corretamente caso a GPU dedicada não es
   </data>
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
 	  <value>As configurações do modo personalizado não serão aplicadas corretamente quando o LegionZone ou seus serviços estiverem em execução.</value>
+  </data>
+  <data name="DGPU_Connected_Title" xml:space="preserve">
+	  <value>GPU dedicada conectada</value>
+  </data>
+  <data name="DGPU_Disconnected_Title" xml:space="preserve">
+	  <value>GPU dedicada desconectada</value>
   </data>
 </root>

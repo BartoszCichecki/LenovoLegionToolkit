@@ -113,7 +113,7 @@
   <data name="GPUController_PoweredOn" xml:space="preserve">
     <value>Ligada</value>
   </data>
-	<data name="HDRState_Off" xml:space="preserve">
+  <data name="HDRState_Off" xml:space="preserve">
     <value>Desligado</value>
     <comment>Informs the user that HDR is or will be turned off.</comment>
   </data>
