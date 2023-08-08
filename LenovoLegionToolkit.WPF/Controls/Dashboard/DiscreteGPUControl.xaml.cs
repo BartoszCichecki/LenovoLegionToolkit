@@ -158,6 +158,6 @@ public partial class DiscreteGPUControl
     private async void RestartGPUMenuItem_Click(object sender, RoutedEventArgs e)
     {
         _deactivateGPUButton.IsEnabled = false;
-        await _gpuController.DeactivateGPUAsync();
+        await _gpuController.RestartGPUAsync();
     }
 }

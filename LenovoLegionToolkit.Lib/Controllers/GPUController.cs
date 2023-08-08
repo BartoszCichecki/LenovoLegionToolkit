@@ -49,9 +49,6 @@ public class GPUController
     private string? _gpuInstanceId;
     private string? _performanceState;
 
-    private bool IsActive => _state is GPUState.ActiveWithMonitorsConnected or GPUState.Active;
-    private bool CanBeDeactivated => _state is GPUState.Active;
-
     public GPUState LastKnownState => _state;
     public event EventHandler<GPUStatus>? Refreshed;
 
@@ -129,20 +126,23 @@ public class GPUController
             Log.Instance.Trace($"Stopped");
     }
 
-    public async Task DeactivateGPUAsync()
+    public async Task RestartGPUAsync()
     {
         using (await _lock.LockAsync().ConfigureAwait(false))
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Deactivating... [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
+                Log.Instance.Trace($"Deactivating... [state={_state}, gpuInstanceId={_gpuInstanceId}]");
 
-            if (!IsActive || !CanBeDeactivated || string.IsNullOrEmpty(_gpuInstanceId))
+            if (_state is not GPUState.Active and not GPUState.Inactive)
+                return;
+
+            if (string.IsNullOrEmpty(_gpuInstanceId))
                 return;
 
             await CMD.RunAsync("pnputil", $"/restart-device \"{_gpuInstanceId}\"").ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Deactivated [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
+                Log.Instance.Trace($"Deactivating... [state= {_state}, gpuInstanceId={_gpuInstanceId}]");
         }
     }
 
@@ -151,9 +151,12 @@ public class GPUController
         using (await _lock.LockAsync().ConfigureAwait(false))
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Killing GPU processes... [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
+                Log.Instance.Trace($"Deactivating... [state= {_state}, gpuInstanceId={_gpuInstanceId}]");
 
-            if (!IsActive || !CanBeDeactivated || string.IsNullOrEmpty(_gpuInstanceId))
+            if (_state is not GPUState.Active)
+                return;
+
+            if (string.IsNullOrEmpty(_gpuInstanceId))
                 return;
 
             foreach (var process in _processes)
@@ -171,7 +174,7 @@ public class GPUController
             }
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Killed GPU processes. [isActive={IsActive}, canBeDeactivated={CanBeDeactivated}, gpuInstanceId={_gpuInstanceId}]");
+                Log.Instance.Trace($"Deactivating... [state=  {_state}, gpuInstanceId={_gpuInstanceId}]");
         }
     }
 

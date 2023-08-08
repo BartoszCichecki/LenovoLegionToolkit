@@ -29,7 +29,7 @@ public class DeactivateGPUAutomationStep : IAutomationStep<DeactivateGPUAutomati
                 await _controller.KillGPUProcessesAsync().ConfigureAwait(false);
                 break;
             case DeactivateGPUAutomationStepState.RestartGPU when status.State is GPUController.GPUState.Active or GPUController.GPUState.Inactive:
-                await _controller.DeactivateGPUAsync().ConfigureAwait(false);
+                await _controller.RestartGPUAsync().ConfigureAwait(false);
                 break;
         }
     }
