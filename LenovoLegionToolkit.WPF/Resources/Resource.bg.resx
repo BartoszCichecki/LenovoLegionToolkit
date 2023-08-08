@@ -495,11 +495,6 @@
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Деактивирай</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-	  <value>Графичната карта Nvidia може да бъде деактивирана.
-
-Запомнете, че някои програми може да не работят правилно ако направите това.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Неактивен</value>
   </data>

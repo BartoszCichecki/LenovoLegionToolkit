@@ -496,11 +496,6 @@ WARNING: This action will not run correctly, if internal display is off or Hybri
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Deactivate</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-	  <value>nVidia GPU can be disabled.
-
-Remember, that some programs might crash, if you do it.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Inactive</value>
   </data>

@@ -497,11 +497,6 @@
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>强制休眠显卡</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-	  <value>手动强制休眠英伟达显卡
-
-谨记，如果强制休眠可能导致一些应用崩溃。</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>休眠中</value>
   </data>

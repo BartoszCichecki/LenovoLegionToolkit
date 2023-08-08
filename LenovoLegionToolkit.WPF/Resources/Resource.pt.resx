@@ -493,10 +493,6 @@ ATENÇÃO: Esta ação não irá correr corretamente se o ecrã interno estiver 
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Desativado</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-	  <value>A GPU da nVidia pode ser desligada.
-Lembra-te que alguns programas podem crashar se o fizeres.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Inativa</value>
   </data>

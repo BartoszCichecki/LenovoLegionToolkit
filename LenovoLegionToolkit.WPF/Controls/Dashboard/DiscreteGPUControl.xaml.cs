@@ -74,7 +74,10 @@ public partial class DiscreteGPUControl
             return;
         }
 
-        if (e.IsActive)
+        if (e.State is GPUController.GPUState.ActiveWithMonitorsConnected)
+            tooltipStringBuilder.AppendLine().AppendLine().Append(Resource.DiscreteGPUControl_MonitorConnected);
+
+        if (e.State is GPUController.GPUState.Active or GPUController.GPUState.ActiveWithMonitorsConnected)
         {
             var processesStringBuilder = new StringBuilder();
 
@@ -99,7 +102,7 @@ public partial class DiscreteGPUControl
             _gpuInfoButton.ToolTip = tooltipStringBuilder.AppendLine().AppendLine().Append(processesStringBuilder).ToString();
             _gpuInfoButton.IsEnabled = true;
         }
-        else if (e.IsPoweredOff)
+        else if (e.State is GPUController.GPUState.PoweredOff)
         {
             _discreteGPUStatusActiveIndicator.Visibility = Visibility.Collapsed;
             _discreteGPUStatusInactiveIndicator.Visibility = Visibility.Collapsed;
@@ -118,9 +121,11 @@ public partial class DiscreteGPUControl
             _gpuInfoButton.IsEnabled = true;
         }
 
-        _deactivateGPUButton.IsEnabled = e.CanBeDeactivated;
+        _deactivateGPUButton.IsEnabled = e.State is GPUController.GPUState.Active or GPUController.GPUState.Inactive;
+        _killAppsMenuItem.IsEnabled = e.State is GPUController.GPUState.Active;
+        _restartGPUMenuItem.IsEnabled = e.State is GPUController.GPUState.Active or GPUController.GPUState.Inactive;
 
-        if (e.CanBeDeactivated)
+        if (e.State is GPUController.GPUState.Active or GPUController.GPUState.Inactive)
         {
             _deactivateGPUButtonText.SetResourceReference(ForegroundProperty, "TextOnAccentFillColorPrimaryBrush");
             _deactivateGPUButtonIcon.SetResourceReference(ForegroundProperty, "TextOnAccentFillColorPrimaryBrush");
@@ -130,13 +135,6 @@ public partial class DiscreteGPUControl
             _deactivateGPUButtonText.SetResourceReference(ForegroundProperty, "TextFillColorDisabledBrush");
             _deactivateGPUButtonIcon.SetResourceReference(ForegroundProperty, "TextFillColorDisabledBrush");
         }
-
-        _deactivateGPUButton.ToolTip = e.State switch
-        {
-            GPUController.GPUState.MonitorsConnected => Resource.DiscreteGPUControl_MonitorConnected,
-            GPUController.GPUState.DeactivatePossible => Resource.DiscreteGPUControl_DisablePossible,
-            _ => null,
-        };
 
         _content.Visibility = Visibility.Visible;
     });

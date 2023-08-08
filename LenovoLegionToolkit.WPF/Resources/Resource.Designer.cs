@@ -1318,17 +1318,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to nVidia GPU can be disabled.
-        ///
-        ///Remember, that some programs might crash, if you do it..
-        /// </summary>
-        public static string DiscreteGPUControl_DisablePossible {
-            get {
-                return ResourceManager.GetString("DiscreteGPUControl_DisablePossible", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Kill apps.
         /// </summary>
         public static string DiscreteGPUControl_KillApps {

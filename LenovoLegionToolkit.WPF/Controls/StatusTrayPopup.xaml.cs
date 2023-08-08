@@ -168,7 +168,7 @@ public partial class StatusTrayPopup
 
                 var status = t.Result;
 
-                if (status.IsActive)
+                if (status.State is GPUController.GPUState.Active or GPUController.GPUState.ActiveWithMonitorsConnected)
                 {
                     _gpuPowerStateValueLabel.Content = status.PerformanceState ?? "-";
 
@@ -178,7 +178,7 @@ public partial class StatusTrayPopup
                     _gpuPowerStateValue.Visibility = Visibility.Visible;
                     _gpuPowerStateValueLabel.Visibility = Visibility.Visible;
                 }
-                else if (status.IsPoweredOff)
+                else if (status.State is GPUController.GPUState.PoweredOff)
                 {
                     _gpuPowerStateValueLabel.Content = null;
 

@@ -491,11 +491,6 @@
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Деактивовано</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-	  <value>Відеокарта NVIDIA може бути вимкнена.
-
-Пам'ятайте, що деякі застосунки можуть зламатися, якщо ви це зробите.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Неактивно</value>
   </data>

@@ -497,11 +497,6 @@ ATTENTION : Cette action ne fonctionnera pas correctement, si l'écran intégré
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Désactiver</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-	  <value>Le GPU nVidia peut être désactivé.
-
-Certains programmes peuvent planter si vous le faites.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Inactif</value>
   </data>

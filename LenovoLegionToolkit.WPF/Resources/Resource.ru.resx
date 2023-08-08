@@ -496,11 +496,6 @@
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Деактивировать</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-	  <value>Графический процессор nVidia может быть отключен.
-
-Обратите внимание, что некоторые программы могут выйти из строя, если вы это сделаете.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Неактивен</value>
   </data>

@@ -93,8 +93,14 @@
                 <wpfui:Button.ContextMenu>
                     <ContextMenu MinWidth="150">
                         <ContextMenu.Items>
-                            <wpfui:MenuItem Click="KillAppsMenuItem_Click" Header="{x:Static resources:Resource.DiscreteGPUControl_KillApps}" />
-                            <wpfui:MenuItem Click="RestartGPUMenuItem_Click" Header="{x:Static resources:Resource.DiscreteGPUControl_RestartGPU}" />
+                            <wpfui:MenuItem
+                                x:Name="_killAppsMenuItem"
+                                Click="KillAppsMenuItem_Click"
+                                Header="{x:Static resources:Resource.DiscreteGPUControl_KillApps}" />
+                            <wpfui:MenuItem
+                                x:Name="_restartGPUMenuItem"
+                                Click="RestartGPUMenuItem_Click"
+                                Header="{x:Static resources:Resource.DiscreteGPUControl_RestartGPU}" />
                         </ContextMenu.Items>
                     </ContextMenu>
                 </wpfui:Button.ContextMenu>

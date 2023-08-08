@@ -18,8 +18,8 @@ public class GPUController
     {
         Unknown,
         NvidiaGpuNotFound,
-        MonitorsConnected,
-        DeactivatePossible,
+        ActiveWithMonitorsConnected,
+        Active,
         Inactive,
         PoweredOff
     }
@@ -30,9 +30,6 @@ public class GPUController
         public string? PerformanceState { get; }
         public List<Process> Processes { get; }
         public int ProcessCount => Processes.Count;
-        public bool IsActive => State is GPUState.MonitorsConnected or GPUState.DeactivatePossible;
-        public bool IsPoweredOff => State is GPUState.PoweredOff;
-        public bool CanBeDeactivated => State == GPUState.DeactivatePossible;
 
         public GPUStatus(GPUState state, string? performanceState, List<Process> processes)
         {
@@ -52,8 +49,8 @@ public class GPUController
     private string? _gpuInstanceId;
     private string? _performanceState;
 
-    private bool IsActive => _state is GPUState.MonitorsConnected or GPUState.DeactivatePossible;
-    private bool CanBeDeactivated => _state is GPUState.DeactivatePossible;
+    private bool IsActive => _state is GPUState.ActiveWithMonitorsConnected or GPUState.Active;
+    private bool CanBeDeactivated => _state is GPUState.Active;
 
     public GPUState LastKnownState => _state;
     public event EventHandler<GPUStatus>? Refreshed;
@@ -292,7 +289,7 @@ public class GPUController
 
         if (NVAPI.IsDisplayConnected(gpu))
         {
-            _state = GPUState.MonitorsConnected;
+            _state = GPUState.ActiveWithMonitorsConnected;
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Monitor connected [state={_state}, processes.Count={_processes.Count}, gpuInstanceId={_gpuInstanceId}]");
@@ -307,7 +304,7 @@ public class GPUController
 
         var gpuInstanceId = await WMI.Win32.PnpEntity.GetDeviceIDAsync(pnpDeviceIdPart).ConfigureAwait(false);
 
-        _state = GPUState.DeactivatePossible;
+        _state = GPUState.Active;
         _gpuInstanceId = gpuInstanceId;
 
         if (Log.Instance.IsTraceEnabled)

@@ -496,11 +496,6 @@ AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Desactivada</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-	  <value>Se puede desactivar la GPU nVidia.
-
-Recuerde que algunos programas pueden bloquearse si lo hace.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Inactiva</value>
   </data>

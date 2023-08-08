@@ -492,11 +492,6 @@
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Απενεργοποίηση</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-	  <value>Η nVidia GPU μπορεί να απενεργοποιηθεί.
-
-Προσοχή, ορισμένα προγράμματα ενδέχεται να σταματήσουν με αυτή την ενέργεια.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Αδρανής</value>
   </data>

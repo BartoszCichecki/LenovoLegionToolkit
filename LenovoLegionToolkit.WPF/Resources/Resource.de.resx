@@ -495,11 +495,6 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn das interne Display a
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Deaktivieren</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-	  <value>nVidia GPU kann deaktiviert werden.
-
-Beachten Sie, dass einige Programme dabei abstürzen könnten.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Inaktiv</value>
   </data>

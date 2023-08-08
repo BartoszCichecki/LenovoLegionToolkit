@@ -495,11 +495,6 @@
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>休眠</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-	  <value>可停用 nVidia GPU。
-
-請記得，停用 GPU 將可能造成一些應用程式崩潰。</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>休眠中</value>
   </data>

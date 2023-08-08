@@ -491,11 +491,6 @@ Attenzione: Questa azione non funzionerà correttamente se il display è spento 
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Disattiva</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-	  <value>La GPU Nvidia può essere disattivata.
-
-Ricorda, alcuni programmi potrebbero crashare se la disattivi.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Disattivata</value>
   </data>
