@@ -7,12 +7,11 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
 using LenovoLegionToolkit.WPF.Assets;
-using LenovoLegionToolkit.WPF.Controls;
 using LenovoLegionToolkit.WPF.Resources;
+using LenovoLegionToolkit.WPF.Windows.Utils;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 using Wpf.Ui.Controls.Interfaces;
-using Brushes = System.Windows.Media.Brushes;
 using MenuItem = Wpf.Ui.Controls.MenuItem;
 
 namespace LenovoLegionToolkit.WPF.Utils;
@@ -49,14 +48,10 @@ public class TrayHelper : IDisposable
 
         if (trayTooltipEnabled)
         {
-            notifyIcon.ToolTip = new()
+            notifyIcon.ToolTipWindow = async () =>
             {
-                Content = new StatusTrayPopup(),
-                Background = Brushes.Transparent,
-                BorderBrush = Brushes.Transparent,
-                BorderThickness = new(0),
-                MaxWidth = double.PositiveInfinity,
-                MaxHeight = double.PositiveInfinity
+                var data = await StatusWindow.GetStatusWindowData();
+                return new StatusWindow(data);
             };
         }
 
