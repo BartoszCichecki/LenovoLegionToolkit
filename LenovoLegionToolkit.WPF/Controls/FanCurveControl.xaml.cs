@@ -177,7 +177,7 @@ public partial class FanCurveControl
 
     private void DrawGraph()
     {
-        var color = (SolidColorBrush)Application.Current.Resources["ControlFillColorDefaultBrush"];
+        var color = Application.Current.Resources["ControlFillColorDefaultBrush"] as SolidColorBrush;
 
         _canvas.Children.Clear();
 

@@ -298,10 +298,10 @@ public partial class GodModeSettingsWindow
             _fanFullSpeedToggle.IsChecked = fanFullSpeed;
 
         if (_maxValueOffsetCardControl.Visibility == Visibility.Visible)
-            _maxValueOffsetNumberBox.Text = $"{0}";
+            _maxValueOffsetNumberBox.Text = "0";
 
         if (_minValueOffsetCardControl.Visibility == Visibility.Visible)
-            _minValueOffsetNumberBox.Text = $"{0}";
+            _minValueOffsetNumberBox.Text = "0";
     }
 
     private async void PresetsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
