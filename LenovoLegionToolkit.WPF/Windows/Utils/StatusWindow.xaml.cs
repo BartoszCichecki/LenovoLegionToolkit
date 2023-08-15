@@ -135,7 +135,7 @@ public partial class StatusWindow
             return;
         }
 
-        if (status.Value.State == GPUController.GPUState.Active)
+        if (status.Value.State is GPUController.GPUState.Active or GPUController.GPUState.MonitorConnected)
         {
             _gpuPowerStateValueLabel.Content = status.Value.PerformanceState ?? "-";
 
@@ -145,7 +145,7 @@ public partial class StatusWindow
             _gpuPowerStateValue.Visibility = Visibility.Visible;
             _gpuPowerStateValueLabel.Visibility = Visibility.Visible;
         }
-        else if (status.Value.State == GPUController.GPUState.PoweredOff)
+        else if (status.Value.State is GPUController.GPUState.PoweredOff)
         {
             _gpuPowerStateValueLabel.Content = null;
 
