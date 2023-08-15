@@ -496,11 +496,6 @@ CẢNH BÁO: Hành động sẽ không chạy đúng nếu màn hình laptop kh�
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Ngắt kích hoạt</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-	  <value>GPU rời có thể được ngắt kích hoạt.
-
-Một số ứng dụng có thể dừng đột ngột nếu thực hiện.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Không hoạt động</value>
   </data>

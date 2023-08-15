@@ -491,10 +491,6 @@ DIQQAT: Eger ishki displey óshirilgen yamasa gibrid rejim aktiv emes bolsa, bul
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Óshiriw</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-	  <value>nVidia grafikalıq processorı óshiriliwi múmkin.
-Itibar berıń, eger siz bunı isleneńiz ayrım baǵdarlamalar islemey qalıwı múmkin.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Aktiv emes</value>
   </data>

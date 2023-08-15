@@ -488,10 +488,6 @@
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>غير مفعل</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-	  <value>بطاقة نفيديا يكمن أن تغلق.
-تذكر أن بعد البرامج ممكن أن تتوقف عن العمل لو قمت بهذا.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>غير مفعل</value>
   </data>

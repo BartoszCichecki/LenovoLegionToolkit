@@ -492,11 +492,6 @@ WAARSCHUWING: Deze actie wordt niet correct uitgevoerd als het interne display i
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Deactiveren</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-	  <value>nVidia GPU kan worden uitgeschakeld.
-
-Houd er rekening mee dat sommige programma's kunnen crashen als u dit doet.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>inactief</value>
   </data>

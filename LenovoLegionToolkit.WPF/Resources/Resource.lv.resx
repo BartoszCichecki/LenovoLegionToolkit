@@ -496,11 +496,6 @@ BRĪDINĀJUMS. Ja iekšējais displejs ir izslēgts vai hibrīda režīms nav ak
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Deaktivizēt</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-	  <value>nVidia GPU var atspējot.
-
-Atcerieties, ka dažas programmas var avarēt, ja to darīsiet.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Neaktīvs</value>
   </data>

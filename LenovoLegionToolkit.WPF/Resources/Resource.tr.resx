@@ -496,11 +496,6 @@ UYARI: Dahili ekran kapalıysa veya Hibrit modu etkin değilse bu eylem düzgün
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Devredışı bırak</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-	  <value>nVidia GPU devre dışı bırakılabilir.
-
-Bunu yaparsanız bazı programların çökebileceğini unutmayın.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Aktif değil</value>
   </data>

@@ -492,11 +492,6 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je displej notebooku vypnutý
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Deaktivovat</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-	  <value>nVidia GPU může být deaktivováno.
-
-Pamatuj, nějaké programy se mohou zhroutit, pokud to uděláš.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Neaktivní</value>
   </data>

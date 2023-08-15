@@ -492,11 +492,6 @@ ATENȚIE: Această acțiune nu va rula corect dacă afișajul intern este oprit 
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
     <value>Dezactivare</value>
   </data>
-  <data name="DiscreteGPUControl_DisablePossible" xml:space="preserve">
-	  <value>GPU-ul nVidia poate fi dezactivat.
-
-Țineți cont că unele programe se pot bloca dacă o faceți.</value>
-  </data>
   <data name="Inactive" xml:space="preserve">
     <value>Inactiv</value>
   </data>
