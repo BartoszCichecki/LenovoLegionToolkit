@@ -74,10 +74,10 @@ public partial class DiscreteGPUControl
             return;
         }
 
-        if (e.State is GPUController.GPUState.ActiveWithMonitorsConnected)
+        if (e.State is GPUController.GPUState.MonitorConnected)
             tooltipStringBuilder.AppendLine().AppendLine().Append(Resource.DiscreteGPUControl_MonitorConnected);
 
-        if (e.State is GPUController.GPUState.Active or GPUController.GPUState.ActiveWithMonitorsConnected)
+        if (e.State is GPUController.GPUState.Active or GPUController.GPUState.MonitorConnected)
         {
             var processesStringBuilder = new StringBuilder();
 
