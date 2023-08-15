@@ -15,7 +15,6 @@ using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Windows.Utils;
 
-
 public partial class StatusWindow
 {
     private readonly struct StatusWindowData
