@@ -12,7 +12,7 @@ using Windows.Win32;
 using Windows.Win32.Foundation;
 using Windows.Win32.UI.Shell;
 using Windows.Win32.UI.WindowsAndMessaging;
-using ToolTip = System.Windows.Controls.ToolTip;
+using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Utils;
 
@@ -61,12 +61,14 @@ public class NotifyIcon : NativeWindow, IDisposable
         }
     }
 
-    private ToolTip? _toolTip;
-    public ToolTip? ToolTip
+    private UiWindow? _currentToolTipWindow;
+
+    private Func<Task<UiWindow>>? _toolTipWindow;
+    public Func<Task<UiWindow>>? ToolTipWindow
     {
         set
         {
-            _toolTip = value;
+            _toolTipWindow = value;
             UpdateIcon();
         }
     }
@@ -123,7 +125,7 @@ public class NotifyIcon : NativeWindow, IDisposable
 
     private async void ShowToolTip()
     {
-        if (_toolTip is null)
+        if (_toolTipWindow is null)
             return;
 
         _showToolTipCancellationTokenSource?.Cancel();
@@ -134,32 +136,33 @@ public class NotifyIcon : NativeWindow, IDisposable
         try
         {
             await Task.Delay(TimeSpan.FromMilliseconds(500), token);
+
+            if (ContextMenu is not null && ContextMenu.IsOpen)
+                return;
+
+            _currentToolTipWindow?.Close();
+            _currentToolTipWindow = await _toolTipWindow();
+
+            token.ThrowIfCancellationRequested();
+
+            _currentToolTipWindow?.Show();
         }
-        catch (TaskCanceledException)
+        catch (OperationCanceledException)
         {
-            return;
+            _currentToolTipWindow?.Close();
+            _currentToolTipWindow = null;
         }
-
-        if (ContextMenu is not null && ContextMenu.IsOpen)
-            return;
-
-        _toolTip.Placement = PlacementMode.Mouse;
-        _toolTip.PlacementRectangle = Rect.Empty;
-        _toolTip.PlacementTarget = null;
-        _toolTip.IsOpen = true;
     }
 
     private void HideToolTip()
     {
-        if (_toolTip is null)
+        if (_toolTipWindow is null)
             return;
 
         _showToolTipCancellationTokenSource?.Cancel();
 
-        if (!_toolTip.IsOpen)
-            return;
-
-        _toolTip.IsOpen = false;
+        _currentToolTipWindow?.Hide();
+        _currentToolTipWindow = null;
     }
 
     private void ShowContextMenu()
@@ -208,7 +211,7 @@ public class NotifyIcon : NativeWindow, IDisposable
                 data.hIcon = new HICON(_icon.Handle);
             }
 
-            if (_text is not null && _toolTip is null)
+            if (_text is not null && _toolTipWindow is null)
             {
                 data.uFlags |= NOTIFY_ICON_DATA_FLAGS.NIF_TIP | NOTIFY_ICON_DATA_FLAGS.NIF_SHOWTIP;
                 data.szTip = _text;
@@ -246,7 +249,7 @@ public class NotifyIcon : NativeWindow, IDisposable
 
         _icon = null;
         _text = null;
-        _toolTip = null;
+        _toolTipWindow = null;
         ContextMenu = null;
 
         ReleaseHandle();
