@@ -7,7 +7,7 @@ namespace LenovoLegionToolkit.WPF.Windows;
 
 public class BaseWindow : UiWindow
 {
-    public BaseWindow()
+    protected BaseWindow()
     {
         SnapsToDevicePixels = true;
         ExtendsContentIntoTitleBar = true;

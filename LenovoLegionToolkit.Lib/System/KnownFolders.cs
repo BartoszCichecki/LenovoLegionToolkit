@@ -19,8 +19,8 @@ public static class KnownFolders
 
     public static string GetPath(KnownFolder knownFolder)
     {
-        return PInvoke.SHGetKnownFolderPath(Folders[knownFolder], PInvokeExtensions.KF_FLAG_DEFAULT, null, out var path).Succeeded
-            ? path.ToString()
-            : string.Empty;
+        if (!PInvoke.SHGetKnownFolderPath(Folders[knownFolder], PInvokeExtensions.KF_FLAG_DEFAULT, null, out var path).Succeeded)
+            return string.Empty;
+        return path.ToString() ?? string.Empty;
     }
 }
