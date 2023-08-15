@@ -21,7 +21,7 @@
         <system:Double x:Key="TertiaryFontSize">12</system:Double>
     </wpfui:UiWindow.Resources>
 
-    <StackPanel>
+    <StackPanel Background="{DynamicResource SystemFillColorSolidNeutralBackgroundBrush}">
         <TextBlock
             x:Name="_title"
             Margin="16,16,16,0"

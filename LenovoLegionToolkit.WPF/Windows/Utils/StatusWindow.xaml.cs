@@ -198,9 +198,5 @@ public partial class StatusWindow
         _batteryDischargeValueLabel.Content = $"{batteryInformation.DischargeRate / 1000.0:+0.00;-0.00;0.00} W";
     }
 
-    private void RefreshUpdate(bool hasUpdate)
-    {
-        _updateIndicator.Visibility = hasUpdate ? Visibility.Visible : Visibility.Collapsed;
-        _updateIndicator.Visibility = Visibility.Collapsed;
-    }
+    private void RefreshUpdate(bool hasUpdate) => _updateIndicator.Visibility = hasUpdate ? Visibility.Visible : Visibility.Collapsed;
 }
