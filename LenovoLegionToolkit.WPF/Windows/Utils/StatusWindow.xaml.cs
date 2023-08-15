@@ -15,19 +15,22 @@ using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Windows.Utils;
 
-public readonly struct StatusWindowData
-{
-    public PowerModeState PowerModeState { get; init; }
-    public string? GodModePresetName { get; init; }
-    public GPUController.GPUStatus? GPUStatus { get; init; }
-    public BatteryInformation BatteryInformation { get; init; }
-    public BatteryState BatteryState { get; init; }
-    public bool HasUpdate { get; init; }
-}
 
 public partial class StatusWindow
 {
-    public static async Task<StatusWindowData> GetStatusWindowData()
+    private readonly struct StatusWindowData
+    {
+        public PowerModeState PowerModeState { get; init; }
+        public string? GodModePresetName { get; init; }
+        public GPUController.GPUStatus? GPUStatus { get; init; }
+        public BatteryInformation BatteryInformation { get; init; }
+        public BatteryState BatteryState { get; init; }
+        public bool HasUpdate { get; init; }
+    }
+
+    public static async Task<StatusWindow> CreateAsync() => new(await GetStatusWindowDataAsync());
+
+    private static async Task<StatusWindowData> GetStatusWindowDataAsync()
     {
         var powerModeFeature = IoCContainer.Resolve<PowerModeFeature>();
         var godModeController = IoCContainer.Resolve<GodModeController>();
@@ -46,7 +49,7 @@ public partial class StatusWindow
         };
     }
 
-    public StatusWindow(StatusWindowData data)
+    private StatusWindow(StatusWindowData data)
     {
         InitializeComponent();
 

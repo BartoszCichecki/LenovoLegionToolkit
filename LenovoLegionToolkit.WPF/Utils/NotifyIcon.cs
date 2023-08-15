@@ -135,7 +135,7 @@ public class NotifyIcon : NativeWindow, IDisposable
 
         try
         {
-            await Task.Delay(TimeSpan.FromMilliseconds(250), token);
+            await Task.Delay(TimeSpan.FromMilliseconds(500), token);
 
             if (ContextMenu is not null && ContextMenu.IsOpen)
                 return;
@@ -147,7 +147,7 @@ public class NotifyIcon : NativeWindow, IDisposable
 
             _currentToolTipWindow?.Show();
         }
-        catch (TaskCanceledException)
+        catch (OperationCanceledException)
         {
             _currentToolTipWindow?.Close();
             _currentToolTipWindow = null;

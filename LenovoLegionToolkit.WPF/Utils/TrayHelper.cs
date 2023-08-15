@@ -47,13 +47,7 @@ public class TrayHelper : IDisposable
         };
 
         if (trayTooltipEnabled)
-        {
-            notifyIcon.ToolTipWindow = async () =>
-            {
-                var data = await StatusWindow.GetStatusWindowData();
-                return new StatusWindow(data);
-            };
-        }
+            notifyIcon.ToolTipWindow = async () => await StatusWindow.CreateAsync();
 
         notifyIcon.ContextMenu = _contextMenu;
         notifyIcon.OnClick += (_, _) => _bringToForeground();
