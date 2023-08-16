@@ -179,7 +179,7 @@ public partial class MainWindow
 
     private void CheckForUpdates()
     {
-        Task.Run(_updateChecker.Check)
+        Task.Run(_updateChecker.CheckAsync)
             .ContinueWith(updatesAvailable =>
             {
                 var result = updatesAvailable.Result;

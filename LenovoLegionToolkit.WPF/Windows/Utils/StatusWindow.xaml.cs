@@ -10,6 +10,7 @@ using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Extensions;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Common;
 
@@ -19,11 +20,11 @@ public partial class StatusWindow
 {
     private readonly struct StatusWindowData
     {
-        public PowerModeState PowerModeState { get; init; }
+        public PowerModeState? PowerModeState { get; init; }
         public string? GodModePresetName { get; init; }
-        public GPUController.GPUStatus? GPUStatus { get; init; }
-        public BatteryInformation BatteryInformation { get; init; }
-        public BatteryState BatteryState { get; init; }
+        public GPUStatus? GPUStatus { get; init; }
+        public BatteryInformation? BatteryInformation { get; init; }
+        public BatteryState? BatteryState { get; init; }
         public bool HasUpdate { get; init; }
     }
 
@@ -37,14 +38,61 @@ public partial class StatusWindow
         var batteryFeature = IoCContainer.Resolve<BatteryFeature>();
         var updateChecker = IoCContainer.Resolve<UpdateChecker>();
 
+        PowerModeState? state = null;
+        string? godModePresetName = null;
+        GPUStatus? gpuStatus = null;
+        BatteryInformation? batteryInformation = null;
+        BatteryState? batteryState = null;
+        var hasUpdate = false;
+
+        try
+        {
+            if (await powerModeFeature.IsSupportedAsync().ConfigureAwait(false))
+            {
+                state = await powerModeFeature.GetStateAsync().ConfigureAwait(false);
+
+                if (state == PowerModeState.GodMode)
+                    godModePresetName = await godModeController.GetActivePresetNameAsync().ConfigureAwait(false);
+            }
+        }
+        catch { /* Ignored */ }
+
+        try
+        {
+            if (gpuController.IsSupported())
+                gpuStatus = await gpuController.RefreshNowAsync().ConfigureAwait(false);
+
+        }
+        catch { /* Ignored */ }
+
+        try
+        {
+            batteryInformation = Battery.GetBatteryInformation();
+        }
+        catch { /* Ignored */ }
+
+        try
+        {
+            if (await batteryFeature.IsSupportedAsync().ConfigureAwait(false))
+                batteryState = await batteryFeature.GetStateAsync().ConfigureAwait(false);
+
+        }
+        catch { /* Ignored */ }
+
+        try
+        {
+            hasUpdate = await updateChecker.CheckAsync().ConfigureAwait(false) is not null;
+        }
+        catch { /* Ignored */ }
+
         return new()
         {
-            PowerModeState = await powerModeFeature.GetStateAsync().ConfigureAwait(false),
-            GodModePresetName = await godModeController.GetActivePresetNameAsync().ConfigureAwait(false),
-            GPUStatus = gpuController.IsSupported() ? await gpuController.RefreshNowAsync().ConfigureAwait(false) : null,
-            BatteryInformation = Battery.GetBatteryInformation(),
-            BatteryState = await batteryFeature.GetStateAsync().ConfigureAwait(false),
-            HasUpdate = await updateChecker.Check().ConfigureAwait(false) is not null
+            PowerModeState = state,
+            GodModePresetName = godModePresetName,
+            GPUStatus = gpuStatus,
+            BatteryInformation = batteryInformation,
+            BatteryState = batteryState,
+            HasUpdate = hasUpdate
         };
     }
 
@@ -103,31 +151,26 @@ public partial class StatusWindow
         Top = mouse.Y - ActualHeight - 16;
     }
 
-    private void RefreshPowerMode(PowerModeState powerModeState, string? godModePresetName)
+    private void RefreshPowerMode(PowerModeState? powerModeState, string? godModePresetName)
     {
-        _powerModeValueLabel.Content = powerModeState.GetDisplayName();
-        _powerModeValueIndicator.Fill = new SolidColorBrush(powerModeState switch
-        {
-            PowerModeState.Quiet => Color.FromRgb(53, 123, 242),
-            PowerModeState.Performance => Color.FromRgb(212, 51, 51),
-            PowerModeState.GodMode => Color.FromRgb(99, 52, 227),
-            _ => Colors.White
-        });
+        _powerModeValueLabel.Content = powerModeState?.GetDisplayName() ?? "-";
+        _powerModeValueIndicator.Fill = powerModeState?.GetSolidColorBrush() ?? new(Colors.Transparent);
 
-        if (powerModeState != PowerModeState.GodMode)
+        if (powerModeState == PowerModeState.GodMode)
+        {
+            _powerModePresetValueLabel.Content = godModePresetName ?? "-";
+
+            _powerModePresetLabel.Visibility = Visibility.Visible;
+            _powerModePresetValueLabel.Visibility = Visibility.Visible;
+        }
+        else
         {
             _powerModePresetLabel.Visibility = Visibility.Collapsed;
             _powerModePresetValueLabel.Visibility = Visibility.Collapsed;
-            return;
         }
-
-        _powerModePresetValueLabel.Content = godModePresetName ?? "-";
-
-        _powerModePresetLabel.Visibility = Visibility.Visible;
-        _powerModePresetValueLabel.Visibility = Visibility.Visible;
     }
 
-    private void RefreshDiscreteGpu(GPUController.GPUStatus? status)
+    private void RefreshDiscreteGpu(GPUStatus? status)
     {
         if (!status.HasValue)
         {
@@ -135,7 +178,7 @@ public partial class StatusWindow
             return;
         }
 
-        if (status.Value.State is GPUController.GPUState.Active or GPUController.GPUState.MonitorConnected)
+        if (status.Value.State is GPUState.Active or GPUState.MonitorConnected)
         {
             _gpuPowerStateValueLabel.Content = status.Value.PerformanceState ?? "-";
 
@@ -145,7 +188,7 @@ public partial class StatusWindow
             _gpuPowerStateValue.Visibility = Visibility.Visible;
             _gpuPowerStateValueLabel.Visibility = Visibility.Visible;
         }
-        else if (status.Value.State is GPUController.GPUState.PoweredOff)
+        else if (status.Value.State is GPUState.PoweredOff)
         {
             _gpuPowerStateValueLabel.Content = null;
 
@@ -169,9 +212,18 @@ public partial class StatusWindow
         _gpuGrid.Visibility = Visibility.Visible;
     }
 
-    private void RefreshBattery(BatteryInformation batteryInformation, BatteryState batteryState)
+    private void RefreshBattery(BatteryInformation? batteryInformation, BatteryState? batteryState)
     {
-        var symbol = (int)Math.Round(batteryInformation.BatteryPercentage / 10.0) switch
+        if (!batteryInformation.HasValue || !batteryState.HasValue)
+        {
+            _batteryIcon.Symbol = SymbolRegular.Battery024;
+            _batteryValueLabel.Content = "-";
+            _batteryModeValueLabel.Content = "-";
+            _batteryDischargeValueLabel.Content = "-";
+            return;
+        }
+
+        var symbol = (int)Math.Round(batteryInformation.Value.BatteryPercentage / 10.0) switch
         {
             10 => SymbolRegular.Battery1024,
             9 => SymbolRegular.Battery924,
@@ -186,16 +238,16 @@ public partial class StatusWindow
             _ => SymbolRegular.Battery024,
         };
 
-        if (batteryInformation.IsCharging)
+        if (batteryInformation.Value.IsCharging)
             symbol = batteryState == BatteryState.Conservation ? SymbolRegular.BatterySaver24 : SymbolRegular.BatteryCharge24;
 
-        if (batteryInformation.IsLowBattery)
+        if (batteryInformation.Value.IsLowBattery)
             _batteryValueLabel.SetResourceReference(ForegroundProperty, "SystemFillColorCautionBrush");
 
         _batteryIcon.Symbol = symbol;
-        _batteryValueLabel.Content = $"{batteryInformation.BatteryPercentage}%";
+        _batteryValueLabel.Content = $"{batteryInformation.Value.BatteryPercentage}%";
         _batteryModeValueLabel.Content = batteryState.GetDisplayName();
-        _batteryDischargeValueLabel.Content = $"{batteryInformation.DischargeRate / 1000.0:+0.00;-0.00;0.00} W";
+        _batteryDischargeValueLabel.Content = $"{batteryInformation.Value.DischargeRate / 1000.0:+0.00;-0.00;0.00} W";
     }
 
     private void RefreshUpdate(bool hasUpdate) => _updateIndicator.Visibility = hasUpdate ? Visibility.Visible : Visibility.Collapsed;

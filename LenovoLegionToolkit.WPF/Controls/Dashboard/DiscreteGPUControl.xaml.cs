@@ -58,12 +58,12 @@ public partial class DiscreteGPUControl
         await _gpuController.StopAsync();
     }
 
-    private void GpuController_Refreshed(object? sender, GPUController.GPUStatus e) => Dispatcher.Invoke(() =>
+    private void GpuController_Refreshed(object? sender, GPUStatus e) => Dispatcher.Invoke(() =>
     {
         var tooltipStringBuilder = new StringBuilder(Resource.DiscreteGPUControl_PerformanceState);
         tooltipStringBuilder.AppendLine().Append(" · ").Append(e.PerformanceState ?? Resource.DiscreteGPUControl_PerformanceState_Unknown);
 
-        if (e.State is GPUController.GPUState.Unknown or GPUController.GPUState.NvidiaGpuNotFound)
+        if (e.State is GPUState.Unknown or GPUState.NvidiaGpuNotFound)
         {
             _discreteGPUStatusActiveIndicator.Visibility = Visibility.Collapsed;
             _discreteGPUStatusInactiveIndicator.Visibility = Visibility.Collapsed;
@@ -74,10 +74,10 @@ public partial class DiscreteGPUControl
             return;
         }
 
-        if (e.State is GPUController.GPUState.MonitorConnected)
+        if (e.State is GPUState.MonitorConnected)
             tooltipStringBuilder.AppendLine().AppendLine().Append(Resource.DiscreteGPUControl_MonitorConnected);
 
-        if (e.State is GPUController.GPUState.Active or GPUController.GPUState.MonitorConnected)
+        if (e.State is GPUState.Active or GPUState.MonitorConnected)
         {
             var processesStringBuilder = new StringBuilder();
 
@@ -102,7 +102,7 @@ public partial class DiscreteGPUControl
             _gpuInfoButton.ToolTip = tooltipStringBuilder.AppendLine().AppendLine().Append(processesStringBuilder).ToString();
             _gpuInfoButton.IsEnabled = true;
         }
-        else if (e.State is GPUController.GPUState.PoweredOff)
+        else if (e.State is GPUState.PoweredOff)
         {
             _discreteGPUStatusActiveIndicator.Visibility = Visibility.Collapsed;
             _discreteGPUStatusInactiveIndicator.Visibility = Visibility.Collapsed;
@@ -121,11 +121,11 @@ public partial class DiscreteGPUControl
             _gpuInfoButton.IsEnabled = true;
         }
 
-        _deactivateGPUButton.IsEnabled = e.State is GPUController.GPUState.Active or GPUController.GPUState.Inactive;
-        _killAppsMenuItem.IsEnabled = e.State is GPUController.GPUState.Active;
-        _restartGPUMenuItem.IsEnabled = e.State is GPUController.GPUState.Active or GPUController.GPUState.Inactive;
+        _deactivateGPUButton.IsEnabled = e.State is GPUState.Active or GPUState.Inactive;
+        _killAppsMenuItem.IsEnabled = e.State is GPUState.Active;
+        _restartGPUMenuItem.IsEnabled = e.State is GPUState.Active or GPUState.Inactive;
 
-        if (e.State is GPUController.GPUState.Active or GPUController.GPUState.Inactive)
+        if (e.State is GPUState.Active or GPUState.Inactive)
         {
             _deactivateGPUButtonText.SetResourceReference(ForegroundProperty, "TextOnAccentFillColorPrimaryBrush");
             _deactivateGPUButtonIcon.SetResourceReference(ForegroundProperty, "TextOnAccentFillColorPrimaryBrush");

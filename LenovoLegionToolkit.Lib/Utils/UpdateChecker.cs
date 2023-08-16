@@ -19,7 +19,7 @@ public class UpdateChecker
     private DateTime _lastUpdate = DateTime.MinValue;
     private Update[] _updates = Array.Empty<Update>();
 
-    public async Task<Version?> Check()
+    public async Task<Version?> CheckAsync()
     {
         using (await _updateSemaphore.LockAsync().ConfigureAwait(false))
         {
@@ -69,13 +69,13 @@ public class UpdateChecker
         }
     }
 
-    public async Task<Update[]> GetUpdates()
+    public async Task<Update[]> GetUpdatesAsync()
     {
         using (await _updateSemaphore.LockAsync().ConfigureAwait(false))
             return _updates;
     }
 
-    public async Task<string> DownloadLatestUpdate(IProgress<float>? progress = null, CancellationToken cancellationToken = default)
+    public async Task<string> DownloadLatestUpdateAsync(IProgress<float>? progress = null, CancellationToken cancellationToken = default)
     {
         using (await _updateSemaphore.LockAsync(cancellationToken).ConfigureAwait(false))
         {

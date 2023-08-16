@@ -21,7 +21,7 @@ public partial class UpdateWindow : IProgress<float>
 
     private async void UpdateWindow_Loaded(object sender, RoutedEventArgs e)
     {
-        var updates = await _updateChecker.GetUpdates();
+        var updates = await _updateChecker.GetUpdatesAsync();
 
         var stringBuilder = new StringBuilder();
         foreach (var update in updates)
@@ -48,7 +48,7 @@ public partial class UpdateWindow : IProgress<float>
 
             SetDownloading(true);
 
-            var path = await _updateChecker.DownloadLatestUpdate(this, _downloadCancellationTokenSource.Token);
+            var path = await _updateChecker.DownloadLatestUpdateAsync(this, _downloadCancellationTokenSource.Token);
 
             _downloadCancellationTokenSource = null;
 

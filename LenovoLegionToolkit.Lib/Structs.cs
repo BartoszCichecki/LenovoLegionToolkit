@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -328,6 +329,21 @@ public readonly struct GodModePreset
         $" {nameof(FanFullSpeed)}: {FanFullSpeed}," +
         $" {nameof(MinValueOffset)}: {MinValueOffset}," +
         $" {nameof(MaxValueOffset)}: {MaxValueOffset}";
+}
+
+public readonly struct GPUStatus
+{
+    public GPUState State { get; }
+    public string? PerformanceState { get; }
+    public List<Process> Processes { get; }
+    public int ProcessCount => Processes.Count;
+
+    public GPUStatus(GPUState state, string? performanceState, List<Process> processes)
+    {
+        State = state;
+        PerformanceState = performanceState;
+        Processes = processes;
+    }
 }
 
 public readonly struct HardwareId

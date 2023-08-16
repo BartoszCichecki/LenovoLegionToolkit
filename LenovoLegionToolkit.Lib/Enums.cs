@@ -100,6 +100,16 @@ public enum FnLockState
     On
 }
 
+public enum GPUState
+{
+    Unknown,
+    NvidiaGpuNotFound,
+    MonitorConnected,
+    Active,
+    Inactive,
+    PoweredOff
+}
+
 public enum GSyncState
 {
     Off,

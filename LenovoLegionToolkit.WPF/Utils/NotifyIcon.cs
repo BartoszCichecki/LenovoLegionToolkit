@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
 using System.Windows.Interop;
+using LenovoLegionToolkit.Lib.Utils;
 using Windows.Win32;
 using Windows.Win32.Foundation;
 using Windows.Win32.UI.Shell;
@@ -151,6 +152,14 @@ public class NotifyIcon : NativeWindow, IDisposable
         {
             _currentToolTipWindow?.Close();
             _currentToolTipWindow = null;
+        }
+        catch (Exception ex)
+        {
+            _currentToolTipWindow?.Close();
+            _currentToolTipWindow = null;
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Failed to show tooltip.", ex);
         }
     }
 

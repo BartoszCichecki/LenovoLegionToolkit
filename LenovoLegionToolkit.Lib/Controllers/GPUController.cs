@@ -14,31 +14,6 @@ namespace LenovoLegionToolkit.Lib.Controllers;
 
 public class GPUController
 {
-    public enum GPUState
-    {
-        Unknown,
-        NvidiaGpuNotFound,
-        MonitorConnected,
-        Active,
-        Inactive,
-        PoweredOff
-    }
-
-    public readonly struct GPUStatus
-    {
-        public GPUState State { get; }
-        public string? PerformanceState { get; }
-        public List<Process> Processes { get; }
-        public int ProcessCount => Processes.Count;
-
-        public GPUStatus(GPUState state, string? performanceState, List<Process> processes)
-        {
-            State = state;
-            PerformanceState = performanceState;
-            Processes = processes;
-        }
-    }
-
     private readonly AsyncLock _lock = new();
 
     private Task? _refreshTask;
