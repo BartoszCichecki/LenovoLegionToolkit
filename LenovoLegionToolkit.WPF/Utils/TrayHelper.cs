@@ -110,7 +110,7 @@ public class TrayHelper : IDisposable
         foreach (var item in _contextMenu.Items.OfType<Control>().Where(mi => AUTOMATION_TAG.Equals(mi.Tag)).ToArray())
             _contextMenu.Items.Remove(item);
 
-        pipelines = pipelines.Where(p => p.Trigger is null).ToList();
+        pipelines = pipelines.Where(p => p.Trigger is null).Reverse().ToList();
 
         if (pipelines.Any())
             _contextMenu.Items.Insert(0, new Separator { Tag = AUTOMATION_TAG });
