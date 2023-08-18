@@ -147,7 +147,7 @@ The app allows to:
 
 ### Custom Mode
 
-Custom Mode is available on all devices that support it. You can find it in the Power Mode dropdown as it basically is 4th power mode. Custom Mode can't be accessed with Fn+Q shortcut. Not all features of Custom Mode are supported by all devices.
+Custom Mode is available on all devices that support it. You can find it in the Power Mode dropdown as it basically is 4th power mode and it allows for adjusting power limits and fans. Custom Mode can't be accessed with Fn+Q shortcut. Not all features of Custom Mode are supported by all devices.
 
 If you have one of the following BIOSes:
 * G9CN (24 or higher)
@@ -348,6 +348,10 @@ Fan control is available on Gen 7 and later models. Older models will not be sup
 #### <a id="faq-custom-tooltip" />Why don't I see the custom tooltip when I hover LLT icon in tray?
 
 In Windows 10 and 11, Microsoft did plenty of changes to the tray, breaking a lot of things on the way. As a results custom tooltips not always work properly. Solution? Update your Windows and keep fingers crossed.
+
+#### <a id="faq-cpu-pc" />How can I OC/UV my CPU?
+
+There are very good tools like [Intel XTU](https://www.intel.com/content/www/us/en/download/17881/intel-extreme-tuning-utility-intel-xtu.html) (which is used by Vantage) or [ThrottleStop](https://www.techpowerup.com/download/techpowerup-throttlestop/) made just for that.
 
 #### <a id="faq-gpu-oc" />What, if I overclocked my GPU too much?
 
