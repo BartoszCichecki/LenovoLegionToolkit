@@ -276,6 +276,7 @@ Many thanks to everyone else, who monitors and corrects translations!
 * [Can I have more RGB effects?](#faq-more-rgb-effects)
 * [Can you add fan control to other models?](#faq-fan-control)
 * [Why don't I see the custom tooltip when I hover LLT icon in tray?](#faq-custom-tooltip)
+* [How can I OC/UV my CPU?](#faq-cpu-oc)
 * [What, if I overclocked my GPU too much?](#faq-gpu-oc)
 * [Which generation is my laptop?](#faq-which-gen)
 
@@ -349,7 +350,7 @@ Fan control is available on Gen 7 and later models. Older models will not be sup
 
 In Windows 10 and 11, Microsoft did plenty of changes to the tray, breaking a lot of things on the way. As a results custom tooltips not always work properly. Solution? Update your Windows and keep fingers crossed.
 
-#### <a id="faq-cpu-pc" />How can I OC/UV my CPU?
+#### <a id="faq-cpu-oc" />How can I OC/UV my CPU?
 
 There are very good tools like [Intel XTU](https://www.intel.com/content/www/us/en/download/17881/intel-extreme-tuning-utility-intel-xtu.html) (which is used by Vantage) or [ThrottleStop](https://www.techpowerup.com/download/techpowerup-throttlestop/) made just for that.
 
