@@ -65,7 +65,7 @@ public partial class BatteryPage
 
                     await Task.Delay(TimeSpan.FromSeconds(2), token);
                 }
-                catch (TaskCanceledException) { }
+                catch (OperationCanceledException) { }
                 catch (Exception ex)
                 {
                     if (Log.Instance.IsTraceEnabled)

@@ -532,7 +532,7 @@ public class SpectrumKeyboardBacklightController
                 await delay.ConfigureAwait(false);
             }
         }
-        catch (TaskCanceledException) { }
+        catch (OperationCanceledException) { }
         catch (Exception ex)
         {
             if (Log.Instance.IsTraceEnabled)

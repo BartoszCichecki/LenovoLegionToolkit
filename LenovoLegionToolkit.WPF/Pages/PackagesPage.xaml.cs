@@ -171,7 +171,7 @@ public partial class PackagesPage : IProgress<float>
 
             Reload();
         }
-        catch (TaskCanceledException)
+        catch (OperationCanceledException)
         {
             errorOccurred = true;
         }
@@ -232,7 +232,7 @@ public partial class PackagesPage : IProgress<float>
 
             Reload();
         }
-        catch (TaskCanceledException) { }
+        catch (OperationCanceledException) { }
     }
 
     private async void OnlyShowUpdatesCheckBox_OnChecked(object sender, RoutedEventArgs e)

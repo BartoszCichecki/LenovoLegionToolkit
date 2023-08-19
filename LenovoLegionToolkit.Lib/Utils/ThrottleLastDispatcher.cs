@@ -34,7 +34,7 @@ public class ThrottleLastDispatcher
 
             await task().ConfigureAwait(false);
         }
-        catch (TaskCanceledException)
+        catch (OperationCanceledException)
         {
             if (_tag is not null && Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Throttling... [tag={_tag}]");

@@ -2,7 +2,6 @@
 using System.Net;
 using System.Net.Http;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -119,7 +118,7 @@ public partial class PackageControl : IProgress<float>
 
             result = true;
         }
-        catch (TaskCanceledException) { }
+        catch (OperationCanceledException) { }
         catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
         {
             if (Log.Instance.IsTraceEnabled)

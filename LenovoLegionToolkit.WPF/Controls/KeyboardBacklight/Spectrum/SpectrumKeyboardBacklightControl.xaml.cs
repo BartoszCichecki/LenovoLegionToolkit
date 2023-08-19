@@ -386,7 +386,7 @@ public partial class SpectrumKeyboardBacklightControl
                 await delay;
             }
         }
-        catch (TaskCanceledException) { }
+        catch (OperationCanceledException) { }
         catch (Exception ex)
         {
             if (Log.Instance.IsTraceEnabled)

@@ -87,7 +87,7 @@ public class GPUController
                 {
                     await _refreshTask.ConfigureAwait(false);
                 }
-                catch (TaskCanceledException) { }
+                catch (OperationCanceledException) { }
             }
 
             if (Log.Instance.IsTraceEnabled)
@@ -191,7 +191,7 @@ public class GPUController
                     break;
             }
         }
-        catch (Exception ex) when (ex is not TaskCanceledException)
+        catch (Exception ex) when (ex is not OperationCanceledException)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Exception occurred", ex);

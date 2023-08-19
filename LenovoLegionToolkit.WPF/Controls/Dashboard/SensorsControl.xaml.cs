@@ -100,7 +100,7 @@ public partial class SensorsControl
                     Dispatcher.Invoke(() => UpdateValues(data));
                     await Task.Delay(TimeSpan.FromSeconds(_dashboardSettings.Store.SensorsRefreshIntervalSeconds), token);
                 }
-                catch (TaskCanceledException) { }
+                catch (OperationCanceledException) { }
                 catch (Exception ex)
                 {
                     if (Log.Instance.IsTraceEnabled)
