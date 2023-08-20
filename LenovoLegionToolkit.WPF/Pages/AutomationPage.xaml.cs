@@ -23,6 +23,8 @@ namespace LenovoLegionToolkit.WPF.Pages;
 
 public partial class AutomationPage
 {
+    public static bool EnableHybridModeAutomation;
+
     private readonly AutomationProcessor _automationProcessor = IoCContainer.Resolve<AutomationProcessor>();
 
     private IAutomationStep[] _supportedAutomationSteps = Array.Empty<IAutomationStep>();
@@ -152,9 +154,9 @@ public partial class AutomationPage
         _loaderManual.IsLoading = false;
     }
 
-    private async Task<IAutomationStep[]> GetSupportedAutomationStepsAsync()
+    private static async Task<IAutomationStep[]> GetSupportedAutomationStepsAsync()
     {
-        var steps = new IAutomationStep[]
+        var steps = new List<IAutomationStep>
         {
             new AlwaysOnUsbAutomationStep(default),
             new BatteryAutomationStep(default),
@@ -184,16 +186,19 @@ public partial class AutomationPage
             new TouchpadLockAutomationStep(default),
             new TurnOffMonitorsAutomationStep(),
             new WhiteKeyboardBacklightAutomationStep(default),
-            new WinKeyAutomationStep(default),
+            new WinKeyAutomationStep(default)
         };
 
-        var supportedSteps = new List<IAutomationStep>();
+        if (EnableHybridModeAutomation)
+            steps.Add(new HybridModeAutomationStep(default));
 
-        foreach (var step in steps)
-            if (await step.IsSupportedAsync())
-                supportedSteps.Add(step);
+        for (var index = steps.Count - 1; index >= 0; index--)
+        {
+            if (!await steps[index].IsSupportedAsync())
+                steps.RemoveAt(index);
+        }
 
-        return supportedSteps.ToArray();
+        return steps.ToArray();
     }
 
     private AutomationPipelineControl GenerateControl(AutomationPipeline pipeline, Panel stackPanel)

@@ -19,6 +19,7 @@ public class Flags
     public bool ForceDisableSpectrumKeyboardSupport { get; }
     public bool ForceDisableLenovoLighting { get; }
     public bool ExperimentalGPUWorkingMode { get; }
+    public bool EnableHybridModeAutomation { get; }
 
     public Flags(IEnumerable<string> startupArgs)
     {
@@ -33,6 +34,7 @@ public class Flags
         ForceDisableSpectrumKeyboardSupport = args.Contains("--force-disable-spectrumkb");
         ForceDisableLenovoLighting = args.Contains("--force-disable-lenovolighting");
         ExperimentalGPUWorkingMode = args.Contains("--experimental-gpu-working-mode");
+        EnableHybridModeAutomation = args.Contains("--enable-hybrid-mode-automation");
     }
 
     private static IEnumerable<string> LoadExternalArgs()
@@ -57,5 +59,6 @@ public class Flags
         $" {nameof(ForceDisableRgbKeyboardSupport)}: {ForceDisableRgbKeyboardSupport}," +
         $" {nameof(ForceDisableSpectrumKeyboardSupport)}: {ForceDisableSpectrumKeyboardSupport}," +
         $" {nameof(ForceDisableLenovoLighting)}: {ForceDisableLenovoLighting}," +
-        $" {nameof(ExperimentalGPUWorkingMode)}: {ExperimentalGPUWorkingMode}";
+        $" {nameof(ExperimentalGPUWorkingMode)}: {ExperimentalGPUWorkingMode}," +
+        $" {nameof(EnableHybridModeAutomation)}: {EnableHybridModeAutomation}";
 }

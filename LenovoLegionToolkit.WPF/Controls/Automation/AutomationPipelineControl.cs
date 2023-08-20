@@ -132,13 +132,13 @@ public class AutomationPipelineControl : UserControl
         OnChanged?.Invoke(this, EventArgs.Empty);
     }
 
-    private void AutomationPipelineControl_Initialized(object? sender, EventArgs e)
+    private async void AutomationPipelineControl_Initialized(object? sender, EventArgs e)
     {
         _cardExpander.Header = _cardHeaderControl;
 
         foreach (var step in AutomationPipeline.Steps)
         {
-            var control = GenerateStepControl(step);
+            var control = await GenerateStepControlAsync(step);
             _stepsStackPanel.Children.Add(control);
         }
 
@@ -154,9 +154,12 @@ public class AutomationPipelineControl : UserControl
 
         _runNowButton.Click += async (_, _) => await RunAsync();
 
-        _addStepButton.Click += (_, _) =>
+        _addStepButton.Click += async (_, _) =>
         {
-            var stepControls = _supportedAutomationSteps.Select(GenerateStepControl).ToArray();
+            var stepControls = new List<AbstractAutomationStepControl>();
+            foreach (var step in _supportedAutomationSteps)
+                stepControls.Add(await GenerateStepControlAsync(step));
+
             var window = new AddAutomationStepWindow(stepControls, AddStep) { Owner = Window.GetWindow(this) };
             window.ShowDialog();
         };
@@ -306,7 +309,7 @@ public class AutomationPipelineControl : UserControl
         return button;
     }
 
-    private AbstractAutomationStepControl GenerateStepControl(IAutomationStep automationStep)
+    private async Task<AbstractAutomationStepControl> GenerateStepControlAsync(IAutomationStep automationStep)
     {
         AbstractAutomationStepControl control = automationStep switch
         {
@@ -320,6 +323,7 @@ public class AutomationPipelineControl : UserControl
             FnLockAutomationStep s => new FnLockAutomationStepControl(s),
             GodModePresetAutomationStep s => new GodModePresetAutomationStepControl(s),
             HDRAutomationStep s => new HDRAutomationStepControl(s),
+            HybridModeAutomationStep s => await HybridModeAutomationStepControlFactory.GetControlAsync(s),
             InstantBootAutomationStep s => new InstantBootAutomationStepControl(s),
             MicrophoneAutomationStep s => new MicrophoneAutomationStepControl(s),
             OneLevelWhiteKeyboardBacklightAutomationStep s => new OneLevelWhiteKeyboardBacklightAutomationStepControl(s),

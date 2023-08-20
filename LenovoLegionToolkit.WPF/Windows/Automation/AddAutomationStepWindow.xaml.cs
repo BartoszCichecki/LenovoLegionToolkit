@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows;
 using LenovoLegionToolkit.WPF.Controls;
@@ -10,10 +11,10 @@ namespace LenovoLegionToolkit.WPF.Windows.Automation;
 
 public partial class AddAutomationStepWindow
 {
-    private readonly AbstractAutomationStepControl[] _controls;
+    private readonly List<AbstractAutomationStepControl> _controls;
     private readonly Action<AbstractAutomationStepControl> _addStepControl;
 
-    public AddAutomationStepWindow(AbstractAutomationStepControl[] controls, Action<AbstractAutomationStepControl> addStepControl)
+    public AddAutomationStepWindow(List<AbstractAutomationStepControl> controls, Action<AbstractAutomationStepControl> addStepControl)
     {
         _controls = controls;
         _addStepControl = addStepControl;

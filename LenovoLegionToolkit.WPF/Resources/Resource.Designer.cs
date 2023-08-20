@@ -976,6 +976,25 @@ namespace LenovoLegionToolkit.WPF.Resources {
         ///   Looks up a localized string similar to Select GPU operating mode based on your computer&apos;s usage and power conditions.
         ///Switching modes may require restart..
         /// </summary>
+        public static string ComboBoxHybridModeAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("ComboBoxHybridModeAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GPU Working Mode.
+        /// </summary>
+        public static string ComboBoxHybridModeAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("ComboBoxHybridModeAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select GPU operating mode based on your computer&apos;s usage and power conditions.
+        ///Switching modes may require restart..
+        /// </summary>
         public static string ComboBoxHybridModeControl_Message {
             get {
                 return ResourceManager.GetString("ComboBoxHybridModeControl_Message", resourceCulture);
@@ -4910,6 +4929,25 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string TimeAutomationPipelineTriggerTabItemContent_Time {
             get {
                 return ResourceManager.GetString("TimeAutomationPipelineTriggerTabItemContent_Time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow switching between integrated and discrete GPU.
+        ///Requires restart..
+        /// </summary>
+        public static string ToggleHybridModeAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("ToggleHybridModeAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hybrid Mode.
+        /// </summary>
+        public static string ToggleHybridModeAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("ToggleHybridModeAutomationStepControl_Title", resourceCulture);
             }
         }
         

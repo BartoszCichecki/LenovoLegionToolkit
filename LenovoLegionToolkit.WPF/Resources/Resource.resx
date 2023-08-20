@@ -1875,4 +1875,18 @@ WARNING: This action will not run correctly, if discrete GPU is not available.</
   <data name="DGPU_Disconnected_Title" xml:space="preserve">
 	  <value>DGPU disconnected</value>
   </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
+	  <value>GPU Working Mode</value>
+  </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Message" xml:space="preserve">
+	  <value>Select GPU operating mode based on your computer's usage and power conditions.
+Switching modes may require restart.</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Title" xml:space="preserve">
+	  <value>Hybrid Mode</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Message" xml:space="preserve">
+	  <value>Allow switching between integrated and discrete GPU.
+Requires restart.</value>
+  </data>
 </root>
