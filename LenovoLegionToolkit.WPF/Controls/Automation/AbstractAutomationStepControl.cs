@@ -68,7 +68,6 @@ public abstract class AbstractAutomationStepControl : UserControl
         InitializeComponent();
 
         Loaded += RefreshingControl_Loaded;
-        IsVisibleChanged += RefreshingControl_IsVisibleChanged;
     }
 
     private void InitializeComponent()
@@ -86,15 +85,10 @@ public abstract class AbstractAutomationStepControl : UserControl
         Content = _cardControl;
     }
 
-    private void RefreshingControl_Loaded(object sender, RoutedEventArgs e)
+    private async void RefreshingControl_Loaded(object sender, RoutedEventArgs e)
     {
+        await RefreshAsync();
         OnFinishedLoading();
-    }
-
-    private async void RefreshingControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-    {
-        if (IsVisible)
-            await RefreshAsync();
     }
 
     public abstract IAutomationStep CreateAutomationStep();

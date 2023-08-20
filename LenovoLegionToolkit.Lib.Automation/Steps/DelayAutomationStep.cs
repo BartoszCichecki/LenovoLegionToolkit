@@ -17,6 +17,7 @@ public class DelayAutomationStep : IAutomationStep<Delay>
         new(1),
         new(2),
         new(3),
+        new(5)
     });
 
     public IAutomationStep DeepCopy() => new DelayAutomationStep(State);
