@@ -73,8 +73,8 @@ public partial class TimeAutomationPipelineTriggerTabItemContent : IAutomationPi
         if (!_timePickerPanel.IsEnabled)
             return null;
 
-        var pickedHour = (int)_timePickerHours.Value;
-        var pickedMinute = (int)_timePickerMinutes.Value;
+        var pickedHour = (int?)_timePickerHours.Value ?? 0;
+        var pickedMinute = (int?)_timePickerMinutes.Value ?? 0;
 
         var utc = DateTimeExtensions.LocalFrom(pickedHour, pickedMinute).ToUniversalTime();
         return new Time { Hour = utc.Hour, Minute = utc.Minute };

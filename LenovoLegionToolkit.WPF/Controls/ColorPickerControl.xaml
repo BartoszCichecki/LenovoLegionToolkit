@@ -91,9 +91,9 @@
                             Grid.Column="1"
                             Margin="0,0,0,8"
                             ClearButtonEnabled="False"
-                            IntegersOnly="True"
-                            Max="255"
-                            Min="0"
+                            MaxDecimalPlaces="0"
+                            Maximum="255"
+                            Minimum="0"
                             Text="0"
                             TextChanged="NumberBox_TextChanged" />
                         <wpfui:NumberBox
@@ -102,9 +102,9 @@
                             Grid.Column="1"
                             Margin="0,0,0,8"
                             ClearButtonEnabled="False"
-                            IntegersOnly="True"
-                            Max="255"
-                            Min="0"
+                            MaxDecimalPlaces="0"
+                            Maximum="255"
+                            Minimum="0"
                             Text="0"
                             TextChanged="NumberBox_TextChanged" />
                         <wpfui:NumberBox
@@ -112,10 +112,11 @@
                             Grid.Row="3"
                             Grid.Column="1"
                             Margin="0,0,0,8"
+                            AcceptsExpression="False"
                             ClearButtonEnabled="False"
-                            IntegersOnly="True"
-                            Max="255"
-                            Min="0"
+                            MaxDecimalPlaces="0"
+                            Maximum="255"
+                            Minimum="0"
                             Text="0"
                             TextChanged="NumberBox_TextChanged" />
 

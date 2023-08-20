@@ -268,9 +268,9 @@
                             Width="120"
                             Margin="32,0,0,0"
                             ClearButtonEnabled="False"
-                            IntegersOnly="True"
-                            Max="100"
-                            Min="0" />
+                            MaxDecimalPlaces="0"
+                            Maximum="100"
+                            Minimum="0" />
                     </wpfui:CardControl>
 
                     <wpfui:CardControl x:Name="_minValueOffsetCardControl" Margin="0,0,0,8">
@@ -282,9 +282,9 @@
                             Width="120"
                             Margin="32,0,0,0"
                             ClearButtonEnabled="False"
-                            IntegersOnly="True"
-                            Max="0"
-                            Min="-100" />
+                            MaxDecimalPlaces="0"
+                            Maximum="0"
+                            Minimum="-100" />
                     </wpfui:CardControl>
 
                 </StackPanel>

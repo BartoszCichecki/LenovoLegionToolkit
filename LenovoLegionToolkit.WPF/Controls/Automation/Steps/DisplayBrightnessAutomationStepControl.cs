@@ -13,11 +13,12 @@ public class DisplayBrightnessAutomationStepControl : AbstractAutomationStepCont
     private readonly NumberBox _brightness = new()
     {
         Width = 150,
-        IntegersOnly = true,
         ClearButtonEnabled = false,
-        Min = 0,
-        Max = 100,
-        Step = 5,
+        MaxDecimalPlaces = 0,
+        Minimum = 0,
+        Maximum = 100,
+        SmallChange = 5,
+        LargeChange = 5
     };
 
     private readonly Grid _grid = new();
@@ -29,7 +30,7 @@ public class DisplayBrightnessAutomationStepControl : AbstractAutomationStepCont
         Subtitle = Resource.DisplayBrightnessAutomationStepControl_Message;
     }
 
-    public override IAutomationStep CreateAutomationStep() => new DisplayBrightnessAutomationStep((int)_brightness.Value);
+    public override IAutomationStep CreateAutomationStep() => new DisplayBrightnessAutomationStep((int?)_brightness.Value ?? 0);
 
     protected override UIElement GetCustomControl()
     {

@@ -42,10 +42,9 @@
                 <ui:NumberBox
                     x:Name="_timePickerHours"
                     ClearButtonEnabled="False"
-                    IntegersOnly="True"
-                    Max="23"
-                    Min="0"
-                    Step="1" />
+                    MaxDecimalPlaces="0"
+                    Maximum="23"
+                    Minimum="0" />
                 <Label
                     Margin="4,0,4,0"
                     VerticalContentAlignment="Center"
@@ -53,10 +52,9 @@
                 <ui:NumberBox
                     x:Name="_timePickerMinutes"
                     ClearButtonEnabled="False"
-                    IntegersOnly="True"
-                    Max="59"
-                    Min="0"
-                    Step="1" />
+                    MaxDecimalPlaces="0"
+                    Maximum="59"
+                    Minimum="0" />
                 <Label
                     Margin="8,0,0,0"
                     VerticalContentAlignment="Center"

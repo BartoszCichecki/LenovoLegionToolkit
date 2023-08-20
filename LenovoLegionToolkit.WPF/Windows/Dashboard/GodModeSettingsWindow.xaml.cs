@@ -115,8 +115,8 @@ public partial class GodModeSettingsWindow
                 GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline = preset.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline?.WithValue(_gpuTotalProcessingPowerTargetOnAcOffsetFromBaselineControl.Value),
                 FanTableInfo = preset.FanTableInfo is not null ? _fanCurveControl.GetFanTableInfo() : null,
                 FanFullSpeed = preset.FanFullSpeed is not null ? _fanFullSpeedToggle.IsChecked : null,
-                MaxValueOffset = preset.MaxValueOffset is not null ? (int)_maxValueOffsetNumberBox.Value : null,
-                MinValueOffset = preset.MinValueOffset is not null ? (int)_minValueOffsetNumberBox.Value : null
+                MaxValueOffset = preset.MaxValueOffset is not null ? (int?)_maxValueOffsetNumberBox.Value : null,
+                MinValueOffset = preset.MinValueOffset is not null ? (int?)_minValueOffsetNumberBox.Value : null
             };
 
             var newPresets = new Dictionary<Guid, GodModePreset>(presets)
