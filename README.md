@@ -371,7 +371,7 @@ Some, less frequently needed, features or options can be enabled by using additi
 
 * `--trace` - enables logging to `%LOCALAPPDATA%\LenovoLegionToolkit\log`
 * `--minimized` - starts LLT minimized to tray
-* `--skip-compat-check` - disables compatibility check on startup
+* `--skip-compat-check` - disables compatibility check on startup _(No support is provided when this argument is used)_
 * `--disable-tray-tooltip` - disables tray tooltip that is shown when you hover the cursors over tray icon
 * `--allow-all-power-modes-on-battery` - allows using all Power Modes without AC adapter _(No support is provided when this argument is used)_
 * `--force-disable-rgbkb` - disables all lighting features for 4-zone RGB keyboards
