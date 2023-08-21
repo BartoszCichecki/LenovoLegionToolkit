@@ -43,7 +43,7 @@ public class DisplayBrightnessAutomationStepControl : AbstractAutomationStepCont
 
     protected override Task RefreshAsync()
     {
-        _brightness.Text = $"{AutomationStep.Brightness}";
+        _brightness.Value = AutomationStep.Brightness;
         return Task.CompletedTask;
     }
 }
