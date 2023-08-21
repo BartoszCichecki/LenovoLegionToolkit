@@ -396,10 +396,6 @@ Diese Zeit ist möglicherweise nicht genau, wenn der Laptop im Schlaf oder im au
   <data name="Color_Red" xml:space="preserve">
     <value>Rot</value>
   </data>
-  <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
-    <value>Wählen den GPU-Betriebsmodus entsprechend der Nutzung und den Energiebedingungen Ihres Computers.
-Ein Wechsel des Modus kann einen Neustart erfordern.</value>
-  </data>
   <data name="ComboBoxHybridModeControl_RestartRequired_Message" xml:space="preserve">
     <value>Der Wechsel zu {0} erfordert einen Neustart. Möchten Sie jetzt neu starten?</value>
   </data>
