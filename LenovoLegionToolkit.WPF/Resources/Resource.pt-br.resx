@@ -1875,4 +1875,18 @@ AVISO: Esta ação não será executada corretamente caso a GPU dedicada não es
   <data name="DGPU_Disconnected_Title" xml:space="preserve">
 	  <value>GPU dedicada desconectada</value>
   </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
+	  <value>Modo de trabalho da GPU</value>
+  </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Message" xml:space="preserve">
+	  <value>Selecionar o modo de funcionamento da GPU, seguindo o uso e as condições de energia de seu equipamento.
+Uma reinicialização pode ser necessária.</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Title" xml:space="preserve">
+	  <value>Modo híbrido</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Message" xml:space="preserve">
+	  <value>Permite alternar entre as GPU's integrada e dedicada.
+Requer reinicialização.</value>
+  </data>
 </root>

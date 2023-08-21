@@ -1879,4 +1879,18 @@ AVISO: Esta acción no se ejecutará correctamente si no se dispone de una GPU e
   <data name="DGPU_Disconnected_Title" xml:space="preserve">
 	  <value>DGPU desconectada</value>
   </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
+	  <value>Modo de trabajo de la GPU</value>
+  </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Message" xml:space="preserve">
+	  <value>Seleccionar el modo de funcionamiento de la GPU, según el uso y las condiciones de energía de su equipo.
+El cambio de modo puede requerir un reinicio.</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Title" xml:space="preserve">
+	  <value>Modo híbrido</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Message" xml:space="preserve">
+	  <value>Permitir cambiar entre la GPU integrada y la GPU externa.
+Requiere un reinicio.</value>
+  </data>
 </root>

@@ -397,7 +397,7 @@ Diese Zeit ist möglicherweise nicht genau, wenn der Laptop im Schlaf oder im au
     <value>Rot</value>
   </data>
   <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
-    <value>Wählen den GPU-Betriebsmodus entsprechend der Nutzung und den Energiebedingungen Ihres Computers.
+    <value>Wählen Sie den GPU-Betriebsmodus entsprechend der Nutzung und den Energiebedingungen Ihres Computers.
 Ein Wechsel des Modus kann einen Neustart erfordern.</value>
   </data>
   <data name="ComboBoxHybridModeControl_RestartRequired_Message" xml:space="preserve">
@@ -1874,5 +1874,19 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn keine diskrete GPU ve
   </data>
   <data name="DGPU_Disconnected_Title" xml:space="preserve">
 	  <value>DGPU getrennt</value>
+  </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
+	  <value>GPU Betriebsmodus</value>
+  </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Message" xml:space="preserve">
+	  <value>Wählen Sie den GPU-Betriebsmodus entsprechend der Nutzung und den Energiebedingungen Ihres Computers.
+Ein Wechsel des Modus kann einen Neustart erfordern.</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Title" xml:space="preserve">
+	  <value>Hybrid-Modus</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Message" xml:space="preserve">
+	  <value>Ermöglicht den Wechsel zwischen integrierter und diskreter GPU.
+Erfordert einen Neustart.</value>
   </data>
 </root>

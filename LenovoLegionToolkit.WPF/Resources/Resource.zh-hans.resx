@@ -1883,4 +1883,18 @@
   <data name="DGPU_Disconnected_Title" xml:space="preserve">
 	  <value>独立显卡已断开连接</value>
   </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
+	  <value>显卡工作模式</value>
+  </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Message" xml:space="preserve">
+	  <value>根据你的使用场景选择显卡工作模式。
+各混合模式与独显直连模式互相切换后需要重启生效。</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Title" xml:space="preserve">
+	  <value>混合模式</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Message" xml:space="preserve">
+	  <value>混合模式允许在核显与独显之间切换。
+关闭后即为独显直连模式，两者之间切换需要重启生效。</value>
+  </data>
 </root>
