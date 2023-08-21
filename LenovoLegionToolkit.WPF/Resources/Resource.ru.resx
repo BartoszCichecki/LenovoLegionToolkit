@@ -1876,4 +1876,18 @@
   <data name="DGPU_Disconnected_Title" xml:space="preserve">
 	  <value>Графический процессор отключен</value>
   </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
+	  <value>Режим работы видеокарты</value>
+  </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Message" xml:space="preserve">
+	  <value>Выберите режим работы видеокарты в зависимости от особенностей использования компьютера и условий питания.
+Для переключения режимов может потребоваться перезагрузка.</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Title" xml:space="preserve">
+	  <value>Гибридный режим</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Message" xml:space="preserve">
+	  <value>Позволяет переключаться между встроенным и дискретным графическим процессором.
+Требуется перезагрузка.</value>
+  </data>
 </root>
