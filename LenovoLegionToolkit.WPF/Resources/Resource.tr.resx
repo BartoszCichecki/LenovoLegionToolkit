@@ -1876,4 +1876,18 @@ UYARI: Harici GPU mevcut değilse, bu işlem doğru çalışmaz.</value>
   <data name="DGPU_Disconnected_Title" xml:space="preserve">
 	  <value>DGPU bağlı değil</value>
   </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
+	  <value>GPU Çalışma Modu</value>
+  </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Message" xml:space="preserve">
+	  <value>Bilgisayarınızın kullanım ve güç koşullarına göre GPU çalışma modunu seçin.
+Mod değiştirme, yeniden başlatma gerektirebilir.</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Title" xml:space="preserve">
+	  <value>Hibrit Modu</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Message" xml:space="preserve">
+	  <value>Dahili ve harici GPU arasında geçişe izin verin.
+Yeniden başlatma gerektirir.</value>
+  </data>
 </root>
