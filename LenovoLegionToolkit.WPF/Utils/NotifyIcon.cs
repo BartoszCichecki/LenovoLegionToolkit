@@ -91,17 +91,25 @@ public class NotifyIcon : NativeWindow, IDisposable
                 switch ((uint)m.LParam & 0xFFFF)
                 {
                     case PInvoke.NIN_POPUPOPEN:
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"NIN_POPUPOPEN");
                         ShowToolTip();
                         break;
                     case PInvoke.NIN_POPUPCLOSE:
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"NIN_POPUPCLOSE");
                         HideToolTip();
                         break;
                     case PInvoke.WM_LBUTTONUP:
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"WM_LBUTTONUP");
                         HideToolTip();
                         HideContextMenu();
                         OnClick?.Invoke(this, EventArgs.Empty);
                         break;
                     case PInvoke.WM_RBUTTONUP:
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"WM_RBUTTONUP");
                         HideToolTip();
                         ShowContextMenu();
                         break;
@@ -205,8 +213,8 @@ public class NotifyIcon : NativeWindow, IDisposable
                 cbSize = (uint)Marshal.SizeOf<NOTIFYICONDATAW>(),
                 uID = _id,
                 uCallbackMessage = TRAY_MESSAGE_ID,
-                uFlags = NOTIFY_ICON_DATA_FLAGS.NIF_MESSAGE,
-                Anonymous = new() { uVersion = 4 }
+                uFlags = NOTIFY_ICON_DATA_FLAGS.NIF_MESSAGE | NOTIFY_ICON_DATA_FLAGS.NIF_TIP,
+                szTip = " "
             };
 
             if (_visible && Handle == IntPtr.Zero)
@@ -222,7 +230,7 @@ public class NotifyIcon : NativeWindow, IDisposable
 
             if (_text is not null && _toolTipWindow is null)
             {
-                data.uFlags |= NOTIFY_ICON_DATA_FLAGS.NIF_TIP | NOTIFY_ICON_DATA_FLAGS.NIF_SHOWTIP;
+                data.uFlags |= NOTIFY_ICON_DATA_FLAGS.NIF_SHOWTIP;
                 data.szTip = _text;
             }
 
@@ -230,6 +238,7 @@ public class NotifyIcon : NativeWindow, IDisposable
             {
                 case (true, false):
                     PInvoke.Shell_NotifyIcon(NOTIFY_ICON_MESSAGE.NIM_ADD, data);
+                    data.Anonymous = new() { uVersion = 4 };
                     PInvoke.Shell_NotifyIcon(NOTIFY_ICON_MESSAGE.NIM_SETVERSION, data);
                     _added = true;
                     break;
