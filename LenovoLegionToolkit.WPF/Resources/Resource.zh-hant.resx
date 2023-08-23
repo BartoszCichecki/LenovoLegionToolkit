@@ -1874,7 +1874,4 @@
   <data name="DGPU_Disconnected_Title" xml:space="preserve">
 	  <value>DGPU 已中斷連接</value>
   </data>
-  <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
-	  <value>更新</value>
-  </data>
 </root>
