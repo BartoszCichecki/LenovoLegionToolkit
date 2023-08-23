@@ -1814,7 +1814,4 @@ Atenção: Esta ação não irá correr corretamente se a GPU discreta estiver i
   <data name="InstantBootAutomationStepControl_Title" xml:space="preserve">
 	  <value>Boot Instantâneo</value>
   </data>
-  <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
-	  <value>Atualizações</value>
-  </data>
 </root>
