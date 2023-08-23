@@ -1890,4 +1890,7 @@
 	  <value>Позволяет переключаться между встроенным и дискретным графическим процессором.
 Требуется перезагрузка.</value>
   </data>
+  <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
+	  <value>Обновления</value>
+  </data>
 </root>

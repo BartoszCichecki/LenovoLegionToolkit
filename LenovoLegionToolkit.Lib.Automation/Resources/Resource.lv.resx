@@ -193,7 +193,4 @@
   <data name="OverclockDiscreteGPUAutomationStepState_On" xml:space="preserve">
     <value>Iespējots</value>
   </data>
-  <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
-	  <value>Atjauninājumi</value>
-  </data>
 </root>

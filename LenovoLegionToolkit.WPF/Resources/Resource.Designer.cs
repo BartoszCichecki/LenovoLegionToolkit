@@ -3021,6 +3021,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Updates.
+        /// </summary>
+        public static string NotificationsSettingsWindow_Updates_Title {
+            get {
+                return ResourceManager.GetString("NotificationsSettingsWindow_Updates_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to OK.
         /// </summary>
         public static string OK {
